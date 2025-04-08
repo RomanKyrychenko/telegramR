@@ -1,0 +1,25 @@
+Package: telegramR
+Type: Package
+Title: MProto for R
+Version: 0.0.1
+Authors@R: c(
+    person(
+      "Roman", "Kyrychenko",
+      email = "roman.kyrychenko@helsinki.fi",
+      role = c("aut", "cre")
+    )
+  )
+Description: A package for interacting with Telegram's MTProto API in R.
+    Provides tools for serialization, deserialization, and communication with Telegram servers.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    digest (>= 0.6.37),
+    openssl (>= 2.2.2),
+    base64enc (>= 0.1-3),
+    jsonlite (>= 1.8.9)
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+RoxygenNote: 7.3.2
