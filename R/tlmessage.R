@@ -1,19 +1,20 @@
-#' TLMessage Class
-#'
+#' @title TLMessage Class
 #' @description
 #' A class representing a Telegram Layer (TL) message.
-#'
 #' @details
 #' This class extends the `TLObject` class and provides functionality to store and manipulate TL message data.
-#'
 #' @examples
 #' msg <- TLMessage(msg_id = 12345, seq_no = 1, obj = "Hello")
 #' print(msg$to_dict())
-
+#' @export
 TLMessage <- R6::R6Class(
   "TLMessage",
   inherit = TLObject,
   public = list(
+
+    msg_id = NULL,
+    seq_no = NULL,
+    obj = NULL,
 
     #' @description
     #' Initialize a new `TLMessage` object.
