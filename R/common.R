@@ -40,6 +40,7 @@ Exception <- R6::R6Class(
 #'
 #' @description
 #' Occurs when a read operation is cancelled.
+#' @export
 ReadCancelledError <- R6::R6Class(
   "ReadCancelledError",
   inherit = Exception,
@@ -60,6 +61,7 @@ ReadCancelledError <- R6::R6Class(
 #' @description
 #' Occurs when a type is not found, for example, when trying to read a TLObject
 #' with an invalid constructor code.
+#' @export
 TypeNotFoundError <- R6::R6Class(
   "TypeNotFoundError",
   inherit = Exception,
@@ -94,6 +96,7 @@ TypeNotFoundError <- R6::R6Class(
 #' @description
 #' Occurs when using the TCP full mode and the checksum of a received packet
 #' doesn't match the expected checksum.
+#' @export
 InvalidChecksumError <- R6::R6Class(
   "InvalidChecksumError",
   inherit = Exception,
@@ -127,6 +130,7 @@ InvalidChecksumError <- R6::R6Class(
 #'
 #' @description
 #' Occurs when the buffer is invalid, and may contain an HTTP error code.
+#' @export
 InvalidBufferError <- R6::R6Class(
   "InvalidBufferError",
   inherit = Exception,
@@ -162,6 +166,7 @@ InvalidBufferError <- R6::R6Class(
 #' currently being used. This might be because it either has never seen this
 #' authorization key, or it used to know about the authorization key but has
 #' forgotten it, either temporarily or permanently (possibly due to server errors).
+#' @export
 AuthKeyNotFound <- R6::R6Class(
   "AuthKeyNotFound",
   inherit = Exception,
@@ -183,6 +188,7 @@ AuthKeyNotFound <- R6::R6Class(
 #'
 #' @description
 #' Generic security error, mostly used when generating a new AuthKey.
+#' @export
 SecurityError <- R6::R6Class(
   "SecurityError",
   inherit = Exception,
@@ -203,6 +209,7 @@ SecurityError <- R6::R6Class(
 #' @description
 #' Occurs when there's a hash mismatch between the decrypted CDN file
 #' and its expected hash.
+#' @export
 CdnFileTamperedError <- R6::R6Class(
   "CdnFileTamperedError",
   inherit = SecurityError,
@@ -220,6 +227,7 @@ CdnFileTamperedError <- R6::R6Class(
 #'
 #' @description
 #' Occurs when another exclusive conversation is opened in the same chat.
+#' @export
 AlreadyInConversationError <- R6::R6Class(
   "AlreadyInConversationError",
   inherit = Exception,
@@ -241,6 +249,7 @@ AlreadyInConversationError <- R6::R6Class(
 #'
 #' @description
 #' Occurs when handling a bad_message_notification.
+#' @export
 BadMessageError <- R6::R6Class(
   "BadMessageError",
   inherit = Exception,
@@ -289,6 +298,7 @@ BadMessageError <- R6::R6Class(
 #'
 #' @description
 #' Exception container for multiple `TLRequest`s.
+#' @export
 MultiError <- R6::R6Class(
   "MultiError",
   inherit = Exception,
