@@ -7,9 +7,9 @@
 find_ssl_lib()
 }
 \value{
-A reference to the loaded SSL library, or an error if the library cannot be found.
+A reference (path) to the loaded SSL library.
 }
 \description{
 This function attempts to locate the system's SSL library and load it using R's
-`dyn.load` function. On macOS, it handles specific versioning issues for compatibility.
+`dyn.load` function. On macOS, it handles versioning issues for compatibility.
 }
