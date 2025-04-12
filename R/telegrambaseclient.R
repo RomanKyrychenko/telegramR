@@ -1,8 +1,8 @@
-library(future)
-library(logger)
-library(jsonlite)
-library(httr)
-library(R6)
+#' @import future
+#' @import logger
+#' @import jsonlite
+#' @import httr
+#' @import R6
 
 # Constants
 DEFAULT_DC_ID <- 2
@@ -20,6 +20,11 @@ DISCONNECT_EXPORTED_AFTER <- 60
 #'
 #' Tracks the state of exported MTProto senders
 #'
+#' @description
+#' This class manages the state of exported MTProto senders, including
+#' tracking the number of borrowed senders and the time since the last
+#' borrowed sender was returned.
+#' @export
 ExportState <- R6Class("ExportState",
   public = list(
     initialize = function() {
@@ -67,9 +72,15 @@ ExportState <- R6Class("ExportState",
 #'
 #' Abstract base class for telegram client implementation
 #'
+#' @description
+#' This class provides the core functionality for a Telegram client,
+#' including connection management, session handling, and
+#' message processing.
+#' @export
 TelegramBaseClient <- R6Class("TelegramBaseClient",
   public = list(
-    #' Initialize a new Telegram client
+
+    #' @description Initialize a new Telegram client
     #'
     #' @param session Session object or path to session file
     #' @param api_id API ID from my.telegram.org
@@ -126,15 +137,6 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       }
 
       private$use_ipv6 <- use_ipv6
-
-      # Setup logging
-      if (is.character(base_logger)) {
-        private$log <- logger::get_logger(base_logger)
-      } else if (inherits(base_logger, "Logger")) {
-        private$log <- base_logger
-      } else {
-        private$log <- logger::get_logger("telegram")
-      }
 
       # Handle session object
       if (is.character(session) || inherits(session, "Path")) {
@@ -224,7 +226,17 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       private$entity_cache_limit <- entity_cache_limit
 
       # Create sender
-      private$sender <- NULL  # Would be MTProtoSender in a full implementation
+      private$sender <- MTProtoSender$new(
+        auth_key_callback = NULL,  # Will be set later based on session
+        #connection = private$connection,
+        loggers = list(),  # Will be configured with session logger
+        retries = private$connection_retries,
+        delay = private$retry_delay,
+        auto_reconnect = private$auto_reconnect,
+        connect_timeout = private$timeout,
+        #update_callback = NULL,  # Will be set to handle updates
+        auto_reconnect_callback = NULL  # Will be set later
+      )  # MTProtoSender handles low-level Telegram protocol
 
       # Version
       private$version <- "1.0.0"  # Version of the R client
@@ -245,25 +257,76 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
           private$loop <- "running"  # Placeholder for the event loop
         }
 
-        # Connect the sender
-        # This would actually establish a connection in a real implementation
+        # Actually connect the sender
         logger::log_info("Connecting to Telegram...")
+
+        # Configure the sender with session details
+        if (!private$sender$is_connected()) {
+          # Set auth key callback to save the key when it's generated/retrieved
+          private$sender$set_auth_key_callback(function(auth_key) {
+            if (!is.null(private$session)) {
+              private$session$auth_key <- auth_key
+              private$save_session()
+            }
+          })
+
+          # Set update callback to process incoming updates
+          private$sender$set_update_callback(function(update) {
+            if (!private$no_updates) {
+              # Process updates in real implementation
+              logger::log_debug("Received update: %s", class(update)[1])
+              # Add to updates queue for processing
+              if (!is.null(private$updates_queue)) {
+                private$updates_queue$put(update)
+              }
+            }
+          })
+
+          # Connect to Telegram server
+          private$sender$connect(
+            private$session$server_address,
+            private$session$port,
+            private$session$dc_id,
+            private$session$auth_key
+          )
+        }
 
         # Save session data
         private$save_session()
 
         # Initialize message handling
-        if (private$catch_up) {
-          # Implement catch-up logic here
+        if (private$catch_up && !is.null(private$message_box)) {
+          # Implement catch-up logic for missed updates
+          logger::log_info("Catching up on missed updates...")
+          # Would fetch missed updates based on message box state
         }
 
-        # Send initialization request
-        private$init_request$query <- list(type = "help.getConfig")
+        # Send initialization request to get config
+        config_result <- private$sender$send(InitConnectionRequest$new(
+          api_id = private$init_request$api_id,
+          device_model = private$init_request$device_model,
+          system_version = private$init_request$system_version,
+          app_version = private$init_request$app_version,
+          lang_code = private$init_request$lang_code,
+          system_lang_code = private$init_request$system_lang_code,
+          lang_pack = private$init_request$lang_pack,
+          query = HelpGetConfigRequest$new()
+        ))
 
-        # Create update loop
-        private$updates_handle <- "active"  # Placeholder for the update loop
-        private$keepalive_handle <- "active"  # Placeholder for keepalive loop
+        # Store the config for later use
+        private$config <- config_result
 
+        # Create update and keepalive loops
+        if (!private$no_updates) {
+          private$updates_queue <- Queue$new()  # Create queue for updates
+          private$updates_handle <- "active"  # Would start update processing loop
+
+          # Start keepalive loop to prevent disconnection
+          private$keepalive_handle <- "active"
+          # In a real implementation, this would ping the server periodically
+        }
+
+        logger::log_info("Connected to Telegram!")
         return(TRUE)
       })
     },
@@ -274,7 +337,7 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
     is_connected = function() {
       # Check if sender exists and is connected
       if (!is.null(private$sender)) {
-        return(TRUE)  # In a real implementation, would check sender's connection state
+        return(private$sender$is_connected())
       }
       return(FALSE)
     },
@@ -390,7 +453,14 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       for (dc_id in names(private$borrowed_senders)) {
         state_sender <- private$borrowed_senders[[dc_id]]
         state <- state_sender[[1]]
-        # Would actually disconnect the sender in a real implementation
+        sender <- state_sender[[2]]
+        logger::log_debug("Disconnecting borrowed sender for DC %s", dc_id)
+        # Disconnect the sender
+        tryCatch({
+          sender$disconnect()
+        }, error = function(e) {
+          logger::log_warning("Error disconnecting sender for DC %s: %s", dc_id, e$message)
+        })
       }
       private$borrowed_senders <- list()
 
@@ -405,15 +475,60 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
     },
 
     save_session = function() {
-      # Would save session data in a real implementation
+      if (is.null(private$session)) {
+        logger::log_warning("Cannot save session, session is NULL")
+        return(NULL)
+      }
+
+      if (!is.null(private$session$path)) {
+        # For file-based sessions, save the data to disk
+        session_data <- list(
+          dc_id = private$session$dc_id,
+          server_address = private$session$server_address,
+          port = private$session$port,
+          auth_key = private$session$auth_key,
+          user_id = private$session$user_id,
+          bot_token = private$session$bot_token
+        )
+        saveRDS(session_data, private$session$path)
+        logger::log_debug("Session data saved to %s", private$session$path)
+      }
     },
 
     close_session = function() {
-      # Would close session in a real implementation
+      if (is.null(private$session)) {
+        return(NULL)
+      }
+
+      # Save any pending data before closing
+      private$save_session()
+
+      # Disconnect the sender if it exists
+      if (!is.null(private$sender)) {
+        tryCatch({
+          private$sender$disconnect()
+        }, error = function(e) {
+          logger::log_warning("Error disconnecting sender: %s", e$message)
+        })
+      }
+
+      # Clear session data
+      private$session <- NULL
+      logger::log_info("Session closed")
     },
 
     save_states_and_entities = function() {
-      # Would save states and entities in a real implementation
+      # Save message box state if it exists
+      if (!is.null(private$message_box)) {
+        # Would save message states in a real implementation
+        logger::log_debug("Saving message box states")
+      }
+
+      # Save entity cache to session if supported
+      if (length(private$mb_entity_cache) > 0 && !is.null(private$session)) {
+        private$session$entities <- private$mb_entity_cache
+        logger::log_debug("Saved %d entities to session", length(private$mb_entity_cache))
+      }
     },
 
     get_dc = function(dc_id, cdn = FALSE) {
@@ -528,13 +643,20 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         if (is.null(session)) {
           dc <- private$get_dc(cdn_redirect$dc_id, cdn = TRUE)
           session <- private$clone_session()
-          session$set_dc(dc$id, dc$ip_address, dc$port)
+
+          # Update session with the DC information
+          # Since we're using a simple list structure for sessions
+          session$dc_id <- dc$id
+          session$server_address <- dc$ip_address
+          session$port <- dc$port
+
           private$exported_sessions[[as.character(cdn_redirect$dc_id)]] <- session
         }
 
         logger::log_info("Creating new CDN client")
 
-        # Would create and configure a new client in a real implementation
+        # Would create a new MTProtoSender for this CDN connection
+        # and configure it with the CDN session
 
         return("cdn_client")  # Placeholder for a new client
       })
@@ -547,7 +669,11 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
   )
 )
 
-# Helper function for NULL handling (similar to %||% in R)
+#' Helper function for NULL handling (similar to %||% in R)
+#' @param x The first value
+#' @param y The second value
+#' @return The first value if not NULL, otherwise the second value
+#' @export
 `%||%` <- function(x, y) {
   if (is.null(x)) y else x
 }
