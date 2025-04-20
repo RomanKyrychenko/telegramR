@@ -1,3 +1,5 @@
+require(mockery)
+
 test_that("executes authentication successfully with valid sender", {
   sender <- mock(
     send = function(request) {
