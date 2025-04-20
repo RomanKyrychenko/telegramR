@@ -456,3 +456,490 @@ TLRequest <- R6::R6Class(
     }
   )
 )
+
+#' PQInnerData Class
+#'
+#' @description
+#' A class representing the `PQInnerData` object. This class is used to handle
+#' the serialization and deserialization of the `PQInnerData` object.
+#'
+#' @export
+PQInnerData <- R6::R6Class(
+  "PQInnerData",
+  inherit = TLObject,
+  public = list(
+    #' @field CONSTRUCTOR_ID A unique identifier for the TL object.
+    CONSTRUCTOR_ID = 0x83c95aec,
+
+    #' @field SUBCLASS_OF_ID A unique identifier for the subclass of the TL object.
+    SUBCLASS_OF_ID = 0x41701377,
+
+    #' @field pq The `pq` value as a raw vector.
+    pq = NULL,
+
+    #' @field p The `p` value as a raw vector.
+    p = NULL,
+
+    #' @field q The `q` value as a raw vector.
+    q = NULL,
+
+    #' @field nonce The `nonce` value as an integer.
+    nonce = NULL,
+
+    #' @field server_nonce The `server_nonce` value as an integer.
+    server_nonce = NULL,
+
+    #' @field new_nonce The `new_nonce` value as an integer.
+    new_nonce = NULL,
+
+    #' @description
+    #' Initialize a new `PQInnerData` object.
+    #'
+    #' @param pq The `pq` value as a raw vector.
+    #' @param p The `p` value as a raw vector.
+    #' @param q The `q` value as a raw vector.
+    #' @param nonce The `nonce` value as an integer.
+    #' @param server_nonce The `server_nonce` value as an integer.
+    #' @param new_nonce The `new_nonce` value as an integer.
+    initialize = function(pq, p, q, nonce, server_nonce, new_nonce) {
+      self$pq <- pq
+      self$p <- p
+      self$q <- q
+      self$nonce <- nonce
+      self$server_nonce <- server_nonce
+      self$new_nonce <- new_nonce
+    },
+
+    #' @description
+    #' Convert the object to a dictionary representation.
+    #'
+    #' @return A list representing the object.
+    to_dict = function() {
+      list(
+        `_` = "PQInnerData",
+        pq = self$pq,
+        p = self$p,
+        q = self$q,
+        nonce = self$nonce,
+        server_nonce = self$server_nonce,
+        new_nonce = self$new_nonce
+      )
+    },
+
+    #' @description
+    #' Serialize the object to a byte array.
+    #'
+    #' @return A raw vector representing the serialized object.
+    .bytes = function() {
+      c(
+        as.raw(c(0xec, 0x5a, 0xc9, 0x83)),
+        serialize_bytes(self$pq),
+        serialize_bytes(self$p),
+        serialize_bytes(self$q),
+        packBits(intToBits(self$nonce), "raw"),
+        packBits(intToBits(self$server_nonce), "raw"),
+        packBits(intToBits(self$new_nonce), "raw")
+      )
+    },
+
+    #' @description
+    #' Create a new object from a binary reader.
+    #'
+    #' @param reader A binary reader object.
+    #' @return A new `PQInnerData` object created from the binary reader.
+    from_reader = function(reader) {
+      pq <- reader$tgread_bytes()
+      p <- reader$tgread_bytes()
+      q <- reader$tgread_bytes()
+      nonce <- reader$read_large_int(bits = 128)
+      server_nonce <- reader$read_large_int(bits = 128)
+      new_nonce <- reader$read_large_int(bits = 256)
+      self$new(pq = pq, p = p, q = q, nonce = nonce, server_nonce = server_nonce, new_nonce = new_nonce)
+    }
+  )
+)
+
+#' ClientDHInnerData Class
+#'
+#' @description
+#' A class representing the `ClientDHInnerData` object. This class is used to handle
+#' the serialization and deserialization of the `ClientDHInnerData` object.
+#'
+#' @export
+ClientDHInnerData <- R6::R6Class(
+  "ClientDHInnerData",
+  inherit = TLObject,
+  public = list(
+    #' @field CONSTRUCTOR_ID A unique identifier for the TL object.
+    CONSTRUCTOR_ID = 0x6643b654,
+
+    #' @field SUBCLASS_OF_ID A unique identifier for the subclass of the TL object.
+    SUBCLASS_OF_ID = 0xf8eeef6a,
+
+    #' @field nonce The `nonce` value as an integer.
+    nonce = NULL,
+
+    #' @field server_nonce The `server_nonce` value as an integer.
+    server_nonce = NULL,
+
+    #' @field retry_id The `retry_id` value as an integer.
+    retry_id = NULL,
+
+    #' @field g_b The `g_b` value as a raw vector.
+    g_b = NULL,
+
+    #' @description
+    #' Initialize a new `ClientDHInnerData` object.
+    #'
+    #' @param nonce The `nonce` value as an integer.
+    #' @param server_nonce The `server_nonce` value as an integer.
+    #' @param retry_id The `retry_id` value as an integer.
+    #' @param g_b The `g_b` value as a raw vector.
+    initialize = function(nonce, server_nonce, retry_id, g_b) {
+      self$nonce <- nonce
+      self$server_nonce <- server_nonce
+      self$retry_id <- retry_id
+      self$g_b <- g_b
+    },
+
+    #' @description
+    #' Convert the object to a dictionary representation.
+    #'
+    #' @return A list representing the object.
+    to_dict = function() {
+      list(
+        `_` = "ClientDHInnerData",
+        nonce = self$nonce,
+        server_nonce = self$server_nonce,
+        retry_id = self$retry_id,
+        g_b = self$g_b
+      )
+    },
+
+    #' @description
+    #' Serialize the object to a byte array.
+    #'
+    #' @return A raw vector representing the serialized object.
+    .bytes = function() {
+      c(
+        as.raw(c(0x54, 0xb6, 0x43, 0x66)),
+        packBits(intToBits(self$nonce), "raw"),
+        packBits(intToBits(self$server_nonce), "raw"),
+        packBits(intToBits(self$retry_id), "raw"),
+        serialize_bytes(self$g_b)
+      )
+    },
+
+    #' @description
+    #' Create a new object from a binary reader.
+    #'
+    #' @param reader A binary reader object.
+    #' @return A new `ClientDHInnerData` object created from the binary reader.
+    from_reader = function(reader) {
+      nonce <- reader$read_large_int(bits = 128)
+      server_nonce <- reader$read_large_int(bits = 128)
+      retry_id <- reader$read_long()
+      g_b <- reader$tgread_bytes()
+      self$new(nonce = nonce, server_nonce = server_nonce, retry_id = retry_id, g_b = g_b)
+    }
+  )
+)
+
+#' SetClientDHParamsRequest Class
+#'
+#' @description
+#' A class representing the `SetClientDHParamsRequest` object. This class is used to handle
+#' the serialization and deserialization of the `SetClientDHParamsRequest` object.
+#'
+#' @export
+SetClientDHParamsRequest <- R6::R6Class(
+  "SetClientDHParamsRequest",
+  inherit = TLRequest,
+  public = list(
+    #' @field CONSTRUCTOR_ID A unique identifier for the TL object.
+    CONSTRUCTOR_ID = 0xf5045f1f,
+
+    #' @field SUBCLASS_OF_ID A unique identifier for the subclass of the TL object.
+    SUBCLASS_OF_ID = 0x55dd6cdb,
+
+    #' @field nonce The `nonce` value as an integer.
+    nonce = NULL,
+
+    #' @field server_nonce The `server_nonce` value as an integer.
+    server_nonce = NULL,
+
+    #' @field encrypted_data The `encrypted_data` value as a raw vector.
+    encrypted_data = NULL,
+
+    #' @description
+    #' Initialize a new `SetClientDHParamsRequest` object.
+    #'
+    #' @param nonce The `nonce` value as an integer.
+    #' @param server_nonce The `server_nonce` value as an integer.
+    #' @param encrypted_data The `encrypted_data` value as a raw vector.
+    initialize = function(nonce, server_nonce, encrypted_data) {
+      self$nonce <- nonce
+      self$server_nonce <- server_nonce
+      self$encrypted_data <- encrypted_data
+    },
+
+    #' @description
+    #' Convert the object to a dictionary representation.
+    #'
+    #' @return A list representing the object.
+    to_dict = function() {
+      list(
+        `_` = "SetClientDHParamsRequest",
+        nonce = self$nonce,
+        server_nonce = self$server_nonce,
+        encrypted_data = self$encrypted_data
+      )
+    },
+
+    #' @description
+    #' Serialize the object to a byte array.
+    #'
+    #' @return A raw vector representing the serialized object.
+    .bytes = function() {
+      c(
+        as.raw(c(0xf5, 0x04, 0x5f, 0x1f)),
+        packBits(intToBits(self$nonce), "raw"),
+        packBits(intToBits(self$server_nonce), "raw"),
+        serialize_bytes(self$encrypted_data)
+      )
+    }
+  ),
+
+  private = list(
+    #' @description
+    #' Create a new object from a binary reader.
+    #'
+    #' @param reader A binary reader object.
+    #' @return A new `SetClientDHParamsRequest` object created from the binary reader.
+    from_reader = function(reader) {
+      nonce <- reader$read_large_int(bits = 128)
+      server_nonce <- reader$read_large_int(bits = 128)
+      encrypted_data <- reader$tgread_bytes()
+      self$new(nonce = nonce, server_nonce = server_nonce, encrypted_data = encrypted_data)
+    }
+  )
+)
+
+#' ReqPqMultiRequest Class
+#'
+#' @description
+#' A class representing the `ReqPqMultiRequest` object. This class is used to handle
+#' the serialization and deserialization of the `ReqPqMultiRequest` object.
+#'
+#' @export
+ReqPqMultiRequest <- R6::R6Class(
+  "ReqPqMultiRequest",
+  inherit = TLRequest,
+  public = list(
+    #' @field CONSTRUCTOR_ID A unique identifier for the TL object.
+    CONSTRUCTOR_ID = 0xbe7e8ef1,
+
+    #' @field SUBCLASS_OF_ID A unique identifier for the subclass of the TL object.
+    SUBCLASS_OF_ID = 0x786986b8,
+
+    #' @field nonce The `nonce` value as an integer.
+    nonce = NULL,
+
+    #' @description
+    #' Initialize a new `ReqPqMultiRequest` object.
+    #'
+    #' @param nonce The `nonce` value as an integer.
+    initialize = function(nonce) {
+      self$nonce <- nonce
+    },
+
+    #' @description
+    #' Convert the object to a dictionary representation.
+    #'
+    #' @return A list representing the object.
+    to_dict = function() {
+      list(
+        `_` = "ReqPqMultiRequest",
+        nonce = self$nonce
+      )
+    },
+
+    #' @description
+    #' Serialize the object to a byte array.
+    #'
+    #' @return A raw vector representing the serialized object.
+    .bytes = function() {
+      c(
+        as.raw(c(0xf1, 0x8e, 0x7e, 0xbe)),
+        packBits(intToBits(self$nonce), "raw")
+      )
+    }
+  ),
+
+  private = list(
+    #' @description
+    #' Create a new object from a binary reader.
+    #'
+    #' @param reader A binary reader object.
+    #' @return A new `ReqPqMultiRequest` object created from the binary reader.
+    from_reader = function(reader) {
+      nonce <- reader$read_large_int(bits = 128)
+      self$new(nonce = nonce)
+    }
+  )
+)
+
+#' ReqDHParamsRequest Class
+#'
+#' @description
+#' A class representing the `ReqDHParamsRequest` object. This class is used to handle
+#' the serialization and deserialization of the `ReqDHParamsRequest` object.
+#'
+#' @export
+ReqDHParamsRequest <- R6::R6Class(
+  "ReqDHParamsRequest",
+  inherit = TLRequest,
+  public = list(
+    #' @field CONSTRUCTOR_ID A unique identifier for the TL object.
+    CONSTRUCTOR_ID = 0xd712e4be,
+
+    #' @field SUBCLASS_OF_ID A unique identifier for the subclass of the TL object.
+    SUBCLASS_OF_ID = 0xa6188d9e,
+
+    #' @field nonce The `nonce` value as an integer.
+    nonce = NULL,
+
+    #' @field server_nonce The `server_nonce` value as an integer.
+    server_nonce = NULL,
+
+    #' @field p The `p` value as a raw vector.
+    p = NULL,
+
+    #' @field q The `q` value as a raw vector.
+    q = NULL,
+
+    #' @field public_key_fingerprint The `public_key_fingerprint` value as an integer.
+    public_key_fingerprint = NULL,
+
+    #' @field encrypted_data The `encrypted_data` value as a raw vector.
+    encrypted_data = NULL,
+
+    #' @description
+    #' Initialize a new `ReqDHParamsRequest` object.
+    #'
+    #' @param nonce The `nonce` value as an integer.
+    #' @param server_nonce The `server_nonce` value as an integer.
+    #' @param p The `p` value as a raw vector.
+    #' @param q The `q` value as a raw vector.
+    #' @param public_key_fingerprint The `public_key_fingerprint` value as an integer.
+    #' @param encrypted_data The `encrypted_data` value as a raw vector.
+    initialize = function(nonce, server_nonce, p, q, public_key_fingerprint, encrypted_data) {
+      self$nonce <- nonce
+      self$server_nonce <- server_nonce
+      self$p <- p
+      self$q <- q
+      self$public_key_fingerprint <- public_key_fingerprint
+      self$encrypted_data <- encrypted_data
+    },
+
+    #' @description
+    #' Convert the object to a dictionary representation.
+    #'
+    #' @return A list representing the object.
+    to_dict = function() {
+      list(
+        `_` = "ReqDHParamsRequest",
+        nonce = self$nonce,
+        server_nonce = self$server_nonce,
+        p = self$p,
+        q = self$q,
+        public_key_fingerprint = self$public_key_fingerprint,
+        encrypted_data = self$encrypted_data
+      )
+    },
+
+    #' @description
+    #' Serialize the object to a byte array.
+    #'
+    #' @return A raw vector representing the serialized object.
+    .bytes = function() {
+      c(
+        as.raw(c(0xbe, 0xe4, 0x12, 0xd7)),
+        packBits(intToBits(self$nonce), "raw"),
+        packBits(intToBits(self$server_nonce), "raw"),
+        serialize_bytes(self$p),
+        serialize_bytes(self$q),
+        packBits(intToBits(self$public_key_fingerprint), "raw"),
+        serialize_bytes(self$encrypted_data)
+      )
+    }
+  ),
+
+  private = list(
+    #' @description
+    #' Create a new object from a binary reader.
+    #'
+    #' @param reader A binary reader object.
+    #' @return A new `ReqDHParamsRequest` object created from the binary reader.
+    from_reader = function(reader) {
+      nonce <- reader$read_large_int(bits = 128)
+      server_nonce <- reader$read_large_int(bits = 128)
+      p <- reader$tgread_bytes()
+      q <- reader$tgread_bytes()
+      public_key_fingerprint <- reader$read_long()
+      encrypted_data <- reader$tgread_bytes()
+      self$new(
+        nonce = nonce,
+        server_nonce = server_nonce,
+        p = p,
+        q = q,
+        public_key_fingerprint = public_key_fingerprint,
+        encrypted_data = encrypted_data
+      )
+    }
+  )
+)
+
+#' InputPeerEmpty Class
+#'
+#' @description
+#' A class representing the `InputPeerEmpty` object. This class is used to handle
+#' the serialization and deserialization of the `InputPeerEmpty` object.
+#'
+#' @export
+InputPeerEmpty <- R6::R6Class(
+  "InputPeerEmpty",
+  inherit = TLObject,
+  public = list(
+    #' @field CONSTRUCTOR_ID A unique identifier for the TL object.
+    CONSTRUCTOR_ID = 0x7f3b18ea,
+
+    #' @field SUBCLASS_OF_ID A unique identifier for the subclass of the TL object.
+    SUBCLASS_OF_ID = 0xc91c90b6,
+
+    #' @description
+    #' Convert the object to a dictionary representation.
+    #' @return A list representing the object.
+    to_dict = function() {
+      list(
+        `_` = "InputPeerEmpty"
+      )
+    },
+
+    #' @description
+    #' Serialize the object to a byte array.
+    #' @return A raw vector representing the serialized object.
+    .bytes = function() {
+      as.raw(c(0xea, 0x18, 0x3b, 0x7f))
+    }
+  ),
+  private = list(
+    #' @description
+    #' Create a new object from a binary reader.
+    #' @param reader A binary reader object.
+    #' @return A new `InputPeerEmpty` object created from the binary reader.
+    from_reader = function(reader) {
+      self$new()
+    }
+  )
+)
