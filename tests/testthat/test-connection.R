@@ -1,32 +1,36 @@
-test_that("initializes connection with valid parameters", {
-  loggers <- list(connection = mock())
-  connection <- Connection$new(ip = "127.0.0.1", port = 8080, dc_id = 1, loggers = loggers)
+port = 443
+ip = "149.154.167.220"
 
-  expect_equal(connection$.__enclos_env__$private$._ip, "127.0.0.1")
-  expect_equal(connection$.__enclos_env__$private$._port, 8080)
+test_that("initializes connection with valid parameters", {
+  connection <- Connection$new(ip = ip, port = port, dc_id = 1)
+
+  expect_equal(connection$.__enclos_env__$private$._ip, ip)
+  expect_equal(connection$.__enclos_env__$private$._port, port)
   expect_equal(connection$.__enclos_env__$private$._dc_id, 1)
   expect_false(connection$.__enclos_env__$private$._connected)
+  connection$disconnect()
 })
 
 test_that("connects to server successfully", {
-  loggers <- list(connection = mock())
-  connection <- Connection$new(ip = "127.0.0.1", port = 8080, dc_id = 1, loggers = loggers)
+  connection <- Connection$new(ip = ip, port = port, dc_id = 1)
 
-  result <- value(connection$connect())
+  #result <- value(connection$connect())
+  result <- connection$connect() %>%
+    {.$then} %>%
+    environment %>%
+    {.$private$value}
   expect_true(result)
   expect_true(connection$.__enclos_env__$private$._connected)
 })
 
 test_that("throws error when sending data while disconnected", {
-  loggers <- list(connection = mock())
-  connection <- Connection$new(ip = "127.0.0.1", port = 8080, dc_id = 1, loggers = loggers)
+  connection <- Connection$new(ip = ip, port = port, dc_id = 1)
 
   expect_error(connection$send("data"), "ConnectionError: Not connected")
 })
 
 test_that("disconnects successfully", {
-  loggers <- list(connection = mock())
-  connection <- Connection$new(ip = "127.0.0.1", port = 8080, dc_id = 1, loggers = loggers)
+  connection <- Connection$new(ip = ip, port = port, dc_id = 1)
 
   connection$connect()
   result <- value(connection$disconnect())
@@ -35,17 +39,15 @@ test_that("disconnects successfully", {
 })
 
 test_that("handles proxy configuration correctly", {
-  proxy <- list(proxy_type = "socks5", addr = "127.0.0.1", port = 1080)
-  loggers <- list(connection = mock())
-  connection <- Connection$new(ip = "127.0.0.1", port = 8080, dc_id = 1, loggers = loggers, proxy = proxy)
+  proxy <- list(proxy_type = "socks5", addr = ip, port = 1080)
+  connection <- Connection$new(ip = ip, port = port, dc_id = 1, proxy = proxy)
 
   result <- value(connection$connect())
   expect_true(result)
 })
 
 test_that("receives data successfully", {
-  loggers <- list(connection = mock())
-  connection <- Connection$new(ip = "127.0.0.1", port = 8080, dc_id = 1, loggers = loggers)
+  connection <- Connection$new(ip = ip, port = port, dc_id = 1)
 
   connection$connect()
   promise <- connection$recv()
@@ -53,15 +55,13 @@ test_that("receives data successfully", {
 })
 
 test_that("throws error when receiving data while disconnected", {
-  loggers <- list(connection = mock())
-  connection <- Connection$new(ip = "127.0.0.1", port = 8080, dc_id = 1, loggers = loggers)
+  connection <- Connection$new(ip = ip, port = port, dc_id = 1)
 
   expect_error(value(connection$recv()), "ConnectionError: Not connected")
 })
 
 test_that("handles SSL configuration correctly", {
-  loggers <- list(connection = mock())
-  connection <- Connection$new(ip = "127.0.0.1", port = 8080, dc_id = 1, loggers = loggers)
+  connection <- Connection$new(ip = ip, port = port, dc_id = 1)
 
   result <- value(connection$connect(ssl = TRUE))
   expect_true(result)
