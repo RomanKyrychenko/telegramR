@@ -1,3 +1,35 @@
+#' Cancel a future
+#'
+#' Attempts to safely cancel a running future task.
+#' @param future The future object to cancel
+#' @return Invisible NULL
+#' @export
+cancel <- function(future) {
+  if (requireNamespace("future", quietly = TRUE)) {
+    # Try to halt the future if it's still running
+    if (!future::resolved(future)) {
+      tryCatch({
+        # Kill the process if possible
+        if (inherits(future, "MulticoreFuture")) {
+          tools::pskill(future$worker$pid, tools::SIGTERM)
+          return(invisible(NULL))
+        }
+
+        # For other future types, try a general approach
+        reg.finalizer(environment(future), function(e) NULL, onexit = TRUE)
+
+        # Try to interrupt if available
+        if (inherits(future, "ClusterFuture") && !is.null(future$workers)) {
+          parallel::stopCluster(future$workers)
+        }
+      }, error = function(e) {
+        warning(paste("Failed to cancel future:", e$message))
+      })
+    }
+  }
+  invisible(NULL)
+}
+
 #' Connection Module
 #'
 #' This module provides connection handling for Telegram API communications.
@@ -54,11 +86,12 @@ Connection <- R6Class(
     #' @param ssl SSL configuration.
     #' @return A promise resolving when connected.
     connect = function(timeout = NULL, ssl = NULL) {
-      promise_resolve(private$._connect(timeout = timeout, ssl = ssl)) %...>% {
+      promise_resolve(private$._connect(timeout = timeout, ssl = ssl)) %...>% (function(result) {
         private$._connected <<- TRUE
         private$._send_task <<- future({ private$._send_loop() })
         private$._recv_task <<- future({ private$._recv_loop() })
-      }
+        result
+      })
     },
 
     #' @description
@@ -363,7 +396,7 @@ AsyncQueue <- R6Class(
     #' @return A promise that resolves when the item is added.
     put = function(item) {
       if (!is.null(private$.maxsize) && length(private$.queue) >= private$.maxsize) {
-        promise(function(resolve, reject) {
+        promise(function(resolve) {
           waitUntilSpace <- function() {
             if (length(private$.queue) < private$.maxsize) {
               private$.queue[[length(private$.queue) + 1]] <<- item
@@ -384,7 +417,7 @@ AsyncQueue <- R6Class(
     #' Retrieve an item from the queue.
     #' @return A promise that resolves with the item.
     get = function() {
-      promise(function(resolve, reject) {
+      promise(function(resolve) {
         waitForItem <- function() {
           if (length(private$.queue) > 0) {
             item <- private$.queue[[1]]
@@ -414,10 +447,42 @@ AsyncQueue <- R6Class(
 #' @param timeout Optional timeout.
 #' @return A promise resolving with a list containing reader and writer.
 async_open_connection <- function(host = NULL, port = NULL, ssl = NULL, local_addr = NULL, sock = NULL, timeout = NULL) {
-  promise_resolve(list(
-    reader = Reader$new(),
-    writer = Writer$new()
-  ))
+  promise(function(resolve, reject) {
+    tryCatch({
+      # Use existing socket or create a new one
+      conn <- if (!is.null(sock)) {
+        sock
+      } else if (!is.null(host) && !is.null(port)) {
+        create_socket_connection(host = host, port = port, local_addr = local_addr, timeout = timeout)
+      } else {
+        stop("Either a socket or host and port must be provided")
+      }
+
+      # Apply SSL if needed
+      if (!is.null(ssl)) {
+        if (!requireNamespace("openssl", quietly = TRUE)) {
+          stop("SSL connections require the openssl package")
+        }
+        conn <- openssl::ssl_wrap_socket(
+          conn,
+          do_handshake_on_connect = TRUE,
+          ssl_version = if(is.character(ssl)) ssl else "SSLv23",
+          ciphers = "HIGH:!aNULL:!MD5"
+        )
+      }
+
+      # Create reader and writer objects
+      reader <- Reader$new()
+      reader$socket <- conn
+
+      writer <- Writer$new()
+      writer$socket <- conn
+
+      resolve(list(reader = reader, writer = writer))
+    }, error = function(e) {
+      reject(sprintf("Failed to open connection: %s", e$message))
+    })
+  })
 }
 
 #' Reader Class
@@ -450,7 +515,18 @@ Writer <- R6Class(
     #' Write data.
     #' @param data Data to write.
     write = function(data) {
-      # Placeholder implementation.
+      # Store the data in a buffer for writing
+      if (is.null(private$.buffer)) private$.buffer <- list()
+      private$.buffer <- c(private$.buffer, list(data))
+
+      # If we have a socket connection, try to write immediately
+      if (!is.null(self$socket) && isOpen(self$socket)) {
+        tryCatch({
+          self$.write_to_socket()
+        }, error = function(e) {
+          warning(sprintf("Error writing to socket: %s", e$message))
+        })
+      }
     },
 
     #' @description
@@ -505,5 +581,5 @@ create_socket_connection <- function(host, port, proxy = NULL, local_addr = NULL
       stop("Only HTTP proxy is implemented.")
     }
   }
-  socketConnection(host = host, port = port, blocking = TRUE, open = "r+", timeout = timeout)
+  socketConnection(host = host, port = port, blocking = FALSE, open = "r+", timeout = timeout)
 }
