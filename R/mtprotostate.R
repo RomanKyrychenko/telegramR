@@ -42,6 +42,23 @@ OpaqueRequest <- R6::R6Class("OpaqueRequest",
   )
 )
 
+#' Unpack a 64-bit integer from a raw vector (little-endian)
+#' @param raw_vector A raw vector containing the 64-bit integer
+#' @return The unpacked 64-bit integer as a numeric value
+unpackInt64 <- function(raw_vector) {
+  if (length(raw_vector) != 8) {
+    stop("Invalid input: raw_vector must be exactly 8 bytes long")
+  }
+
+  # Convert the raw vector to a numeric value (little-endian)
+  value <- 0
+  for (i in 1:8) {
+    value <- value + as.numeric(raw_vector[i]) * (256^(i - 1))
+  }
+
+  return(value)
+}
+
 #' MTProto protocol state management
 #'
 #' @description
