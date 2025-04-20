@@ -12,9 +12,8 @@ MTProtoPlainSender <- R6Class("MTProtoPlainSender",
 
     #' @description Initializes the MTProto plain sender.
     #' @param connection the Connection to be used.
-    #' @param loggers logger objects
-    initialize = function(connection, loggers) {
-      private$state <- MTProtoState$new(auth_key = NULL, loggers = loggers)
+    initialize = function(connection) {
+      private$state <- MTProtoState$new(auth_key = NULL)
       private$connection <- connection
     },
 
