@@ -1,3 +1,138 @@
+#' Check if an object is list-like (list, vector, etc.)
+#'
+#' Determines whether an object can be treated like a list or collection
+#' in the context of MTProto requests.
+#'
+#' @param obj The object to check
+#' @param allow_data_frames Whether to consider data frames as list-like (default: FALSE)
+#' @return TRUE if the object is list-like, FALSE otherwise
+#' @export
+is_list_like <- function(obj, allow_data_frames = FALSE) {
+  # NULL is not list-like
+  if (is.null(obj)) return(FALSE)
+
+  # Check if it's a list
+  if (is.list(obj)) {
+    # Data frames are technically lists, but we might want to exclude them
+    if (!allow_data_frames && is.data.frame(obj)) {
+      return(FALSE)
+    }
+    return(TRUE)
+  }
+
+  # Check if it's an atomic vector with length > 1
+  if (is.atomic(obj) && length(obj) > 1) {
+    return(TRUE)
+  }
+
+  # Check for other iterable types
+  if (inherits(obj, c("environment", "pairlist"))) {
+    return(TRUE)
+  }
+
+  return(FALSE)
+}
+
+#' Generate a sequence for retry attempts
+#'
+#' Creates a sequence from 1 to n for retry attempts with optional forcing of at least one retry
+#'
+#' @param n Number of retries to perform
+#' @param force_retry Whether to force at least one retry attempt even if n is 0 (default: FALSE)
+#' @return An integer sequence to iterate over for retry attempts
+#' @export
+retry_range <- function(n, force_retry = FALSE) {
+  # Ensure n is a non-negative integer
+  n <- as.integer(n)
+  if (is.na(n) || n < 0) {
+    stop("Number of retries must be a non-negative integer")
+  }
+
+  # If force_retry is TRUE, ensure at least one attempt
+  if (force_retry && n == 0) {
+    return(1)
+  }
+
+  # Return sequence from 1 to n
+  return(seq_len(max(1, n)))
+}
+
+#' Cancel futures if they are not resolved
+#'
+#' @param log Logger object for logging messages
+#' @export
+cancel_futures <- function(log, ...) {
+  # Get named arguments
+  futures <- list(...)
+
+  # Cancel each future if it exists
+  for (name in names(futures)) {
+    future <- futures[[name]]
+    if (!is.null(future) && !future::resolved(future)) {
+      tryCatch({
+        log$debug("Cancelling future: %s", name)
+        future::value(future$cancel())
+      }, error = function(e) {
+        log$warning("Error cancelling future %s: %s", name, e$message)
+      })
+    }
+  }
+}
+
+#' Extract traceback information from an error
+#'
+#' Formats an error's traceback into a readable string for logging
+#'
+#' @param error The error object to extract the traceback from
+#' @return A formatted string containing the traceback
+#' @export
+get_traceback <- function(error) {
+  # Get the traceback if available
+  tb <- if (inherits(error, "error") && !is.null(attr(error, "traceback"))) {
+    attr(error, "traceback")
+  } else if (!is.null(traceback <- tryCatch(base::sys.calls(), error = function(e) NULL))) {
+    paste(format(traceback), collapse = "\n")
+  } else {
+    "No traceback available"
+  }
+
+  # Format the error with its message and traceback
+  return(paste0(
+    "Error: ", error$message, "\n",
+    "Traceback:\n",
+    paste(tb, collapse = "\n")
+  ))
+}
+
+#' Clone an error object
+#'
+#' Creates a copy of an error object preserving its class, message and other attributes
+#'
+#' @param error The error object to clone
+#' @return A new error object with the same properties
+#' @export
+clone_error <- function(error) {
+  if (!inherits(error, "error")) {
+    stop("Input must be an error object")
+  }
+
+  # Create a new error with the same message
+  new_error <- simpleError(conditionMessage(error))
+
+  # Copy class from original error
+  class(new_error) <- class(error)
+
+  # Copy attributes from original error (except 'class')
+  original_attrs <- attributes(error)
+  for (attr_name in names(original_attrs)) {
+    if (attr_name != "class") {
+      attr(new_error, attr_name) <- original_attrs[[attr_name]]
+    }
+  }
+
+  return(new_error)
+}
+
 #' MTProto Mobile Protocol sender
 #'
 #' This class is responsible for wrapping requests into TLMessage objects,
@@ -20,7 +155,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     #' @description
     #' Initialize a new MTProtoSender
     #' @param auth_key Authentication key
-    #' @param loggers Logger instances
     #' @param retries Number of retries for failed operations
     #' @param delay Delay between retries in seconds
     #' @param auto_reconnect Whether to automatically reconnect
@@ -28,7 +162,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     #' @param auth_key_callback Callback for auth key updates
     #' @param updates_queue Queue for updates
     #' @param auto_reconnect_callback Callback after reconnection
-    initialize = function(auth_key = NULL, loggers = NULL,
+    initialize = function(auth_key = NULL,
                           retries = 5, delay = 1, auto_reconnect = TRUE,
                           connect_timeout = NULL, auth_key_callback = NULL,
                           updates_queue = NULL, auto_reconnect_callback = NULL) {
@@ -63,7 +197,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$pending_state <- list()
 
       # Responses to acknowledge
-      private$pending_ack <- set()
+      private$pending_ack <- list()
 
       # Last acknowledgments
       private$last_acks <- deque(10)
