@@ -22,7 +22,7 @@ AESModeCTR <- R6::R6Class("AESModeCTR",
       result <- raw(0)
       counter_block <- self$iv
       for (i in seq_len(num_blocks)) {
-        keystream <- openssl::aes_encrypt(counter_block, key = self$key, iv = raw(0), cipher = "aes-256-ecb")
+        keystream <- openssl::aes_cbc_encrypt(counter_block, key = self$key, iv = raw(16)) #, cipher = "aes-256-ecb")
         start_index <- (i - 1L) * block_size + 1L
         end_index <- min(i * block_size, n)
         block <- data[start_index:end_index]
