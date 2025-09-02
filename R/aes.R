@@ -4,9 +4,7 @@
 #' Provides an interface to encrypt and decrypt text using the AES IGE mode.
 #'
 #' @details
-#' If available, the `cryptg` library will be used for encryption, otherwise
-#' `libssl` will be used if available. If neither is available, a pure R implementation
-#' will be used.
+#' A pure R implementation of AES IGE mode encryption and decryption.
 
 AES <- R6::R6Class(
   "AES",
@@ -25,24 +23,17 @@ AES <- R6::R6Class(
     #' iv <- as.raw(rep(0x02, 32))
     #' aes$decrypt_ige(cipher_text, key, iv)
     decrypt_ige = function(cipher_text, key, iv) {
-      if (!is.null(cryptg)) {
-        return(cryptg$decrypt_ige(cipher_text, key, iv))
-      }
-      if (!is.null(libssl$decrypt_ige)) {
-        return(libssl$decrypt_ige(cipher_text, key, iv))
-      }
-
       iv1 <- iv[1:(length(iv) / 2)]
       iv2 <- iv[(length(iv) / 2 + 1):length(iv)]
 
-      aes <- pyaes$AES$new(key)
+      aes <- digest::AES(key)
 
       plain_text <- raw()
       blocks_count <- length(cipher_text) %/% 16
 
       for (block_index in seq_len(blocks_count)) {
         cipher_text_block <- xor(cipher_text[((block_index - 1) * 16 + 1):(block_index * 16)], iv2)
-        plain_text_block <- aes$decrypt(cipher_text_block)
+        plain_text_block <- aes$decrypt(cipher_text_block, raw=TRUE)
         plain_text_block <- xor(plain_text_block, iv1)
 
         iv1 <- cipher_text[((block_index - 1) * 16 + 1):(block_index * 16)]
@@ -72,17 +63,10 @@ AES <- R6::R6Class(
         plain_text <- c(plain_text, as.raw(sample(0:255, 16 - padding, replace = TRUE)))
       }
 
-      if (!is.null(cryptg)) {
-        return(cryptg$encrypt_ige(plain_text, key, iv))
-      }
-      if (!is.null(libssl$encrypt_ige)) {
-        return(libssl$encrypt_ige(plain_text, key, iv))
-      }
-
       iv1 <- iv[1:(length(iv) / 2)]
       iv2 <- iv[(length(iv) / 2 + 1):length(iv)]
 
-      aes <- pyaes$AES$new(key)
+      aes <- digest::AES(key)
 
       cipher_text <- raw()
       blocks_count <- length(plain_text) %/% 16
