@@ -8,7 +8,7 @@ do_authentication <- function(sender) {
   nonce_raw <- openssl::rand_bytes(16)
   nonce <- get_int(nonce_raw, signed = TRUE)
 
-  res_pq <- sender$send(ReqPqMultiRequest(nonce))
+  res_pq <- sender$send(ReqPqMultiRequest$new(nonce))
   if (res_pq$nonce != nonce) {
     stop("Step 1: invalid nonce from server")
   }

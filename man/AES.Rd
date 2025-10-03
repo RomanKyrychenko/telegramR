@@ -7,9 +7,7 @@
 Provides an interface to encrypt and decrypt text using the AES IGE mode.
 }
 \details{
-If available, the `cryptg` library will be used for encryption, otherwise
-`libssl` will be used if available. If neither is available, a pure R implementation
-will be used.
+A pure R implementation of AES IGE mode encryption and decryption.
 }
 \examples{
 

@@ -47,7 +47,6 @@ Initialize a new MTProtoSender
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MTProtoSender$new(
   auth_key = NULL,
-  loggers = NULL,
   retries = 5,
   delay = 1,
   auto_reconnect = TRUE,
@@ -62,8 +61,6 @@ Initialize a new MTProtoSender
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{auth_key}}{Authentication key}
-
-\item{\code{loggers}}{Logger instances}
 
 \item{\code{retries}}{Number of retries for failed operations}
 
