@@ -8919,6 +8919,279 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
   )
 )
 
+ChannelFull <- R6::R6Class(
+  "ChannelFull",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xe4e0b29dL,
+    SUBCLASS_OF_ID = 0xd49a2697L,
+
+    id = NULL,
+    about = NULL,
+    read_inbox_max_id = NULL,
+    read_outbox_max_id = NULL,
+    unread_count = NULL,
+    chat_photo = NULL,
+    notify_settings = NULL,
+    bot_info = NULL,
+    pts = NULL,
+    can_view_participants = NULL,
+    can_set_username = NULL,
+    can_set_stickers = NULL,
+    hidden_prehistory = NULL,
+    can_set_location = NULL,
+    has_scheduled = NULL,
+    can_view_stats = NULL,
+    blocked = NULL,
+    can_delete_channel = NULL,
+    antispam = NULL,
+    participants_hidden = NULL,
+    translations_disabled = NULL,
+    stories_pinned_available = NULL,
+    view_forum_as_messages = NULL,
+    restricted_sponsored = NULL,
+    can_view_revenue = NULL,
+    paid_media_allowed = NULL,
+    can_view_stars_revenue = NULL,
+    paid_reactions_available = NULL,
+    stargifts_available = NULL,
+    paid_messages_available = NULL,
+    participants_count = NULL,
+    admins_count = NULL,
+    kicked_count = NULL,
+    banned_count = NULL,
+    online_count = NULL,
+    exported_invite = NULL,
+    migrated_from_chat_id = NULL,
+    migrated_from_max_id = NULL,
+    pinned_msg_id = NULL,
+    stickerset = NULL,
+    available_min_id = NULL,
+    folder_id = NULL,
+    linked_chat_id = NULL,
+    location = NULL,
+    slowmode_seconds = NULL,
+    slowmode_next_send_date = NULL,
+    stats_dc = NULL,
+    call = NULL,
+    ttl_period = NULL,
+    pending_suggestions = NULL,
+    groupcall_default_join_as = NULL,
+    theme_emoticon = NULL,
+    requests_pending = NULL,
+    recent_requesters = NULL,
+    default_send_as = NULL,
+    available_reactions = NULL,
+    reactions_limit = NULL,
+    stories = NULL,
+    wallpaper = NULL,
+    boosts_applied = NULL,
+    boosts_unrestrict = NULL,
+    emojiset = NULL,
+    bot_verification = NULL,
+    stargifts_count = NULL,
+    send_paid_messages_stars = NULL,
+    main_tab = NULL,
+
+    initialize = function(id, about, read_inbox_max_id, read_outbox_max_id, unread_count, chat_photo, notify_settings, bot_info, pts,
+                          can_view_participants = NULL, can_set_username = NULL, can_set_stickers = NULL, hidden_prehistory = NULL,
+                          can_set_location = NULL, has_scheduled = NULL, can_view_stats = NULL, blocked = NULL, can_delete_channel = NULL,
+                          antispam = NULL, participants_hidden = NULL, translations_disabled = NULL, stories_pinned_available = NULL,
+                          view_forum_as_messages = NULL, restricted_sponsored = NULL, can_view_revenue = NULL, paid_media_allowed = NULL,
+                          can_view_stars_revenue = NULL, paid_reactions_available = NULL, stargifts_available = NULL, paid_messages_available = NULL,
+                          participants_count = NULL, admins_count = NULL, kicked_count = NULL, banned_count = NULL, online_count = NULL,
+                          exported_invite = NULL, migrated_from_chat_id = NULL, migrated_from_max_id = NULL, pinned_msg_id = NULL,
+                          stickerset = NULL, available_min_id = NULL, folder_id = NULL, linked_chat_id = NULL, location = NULL,
+                          slowmode_seconds = NULL, slowmode_next_send_date = NULL, stats_dc = NULL, call = NULL, ttl_period = NULL,
+                          pending_suggestions = NULL, groupcall_default_join_as = NULL, theme_emoticon = NULL, requests_pending = NULL,
+                          recent_requesters = NULL, default_send_as = NULL, available_reactions = NULL, reactions_limit = NULL, stories = NULL,
+                          wallpaper = NULL, boosts_applied = NULL, boosts_unrestrict = NULL, emojiset = NULL, bot_verification = NULL,
+                          stargifts_count = NULL, send_paid_messages_stars = NULL, main_tab = NULL) {
+      self$id <- id
+      self$about <- about
+      self$read_inbox_max_id <- read_inbox_max_id
+      self$read_outbox_max_id <- read_outbox_max_id
+      self$unread_count <- unread_count
+      self$chat_photo <- chat_photo
+      self$notify_settings <- notify_settings
+      self$bot_info <- bot_info
+      self$pts <- pts
+      self$can_view_participants <- can_view_participants
+      self$can_set_username <- can_set_username
+      self$can_set_stickers <- can_set_stickers
+      self$hidden_prehistory <- hidden_prehistory
+      self$can_set_location <- can_set_location
+      self$has_scheduled <- has_scheduled
+      self$can_view_stats <- can_view_stats
+      self$blocked <- blocked
+      self$can_delete_channel <- can_delete_channel
+      self$antispam <- antispam
+      self$participants_hidden <- participants_hidden
+      self$translations_disabled <- translations_disabled
+      self$stories_pinned_available <- stories_pinned_available
+      self$view_forum_as_messages <- view_forum_as_messages
+      self$restricted_sponsored <- restricted_sponsored
+      self$can_view_revenue <- can_view_revenue
+      self$paid_media_allowed <- paid_media_allowed
+      self$can_view_stars_revenue <- can_view_stars_revenue
+      self$paid_reactions_available <- paid_reactions_available
+      self$stargifts_available <- stargifts_available
+      self$paid_messages_available <- paid_messages_available
+      self$participants_count <- participants_count
+      self$admins_count <- admins_count
+      self$kicked_count <- kicked_count
+      self$banned_count <- banned_count
+      self$online_count <- online_count
+      self$exported_invite <- exported_invite
+      self$migrated_from_chat_id <- migrated_from_chat_id
+      self$migrated_from_max_id <- migrated_from_max_id
+      self$pinned_msg_id <- pinned_msg_id
+      self$stickerset <- stickerset
+      self$available_min_id <- available_min_id
+      self$folder_id <- folder_id
+      self$linked_chat_id <- linked_chat_id
+      self$location <- location
+      self$slowmode_seconds <- slowmode_seconds
+      self$slowmode_next_send_date <- slowmode_next_send_date
+      self$stats_dc <- stats_dc
+      self$call <- call
+      self$ttl_period <- ttl_period
+      self$pending_suggestions <- pending_suggestions
+      self$groupcall_default_join_as <- groupcall_default_join_as
+      self$theme_emoticon <- theme_emoticon
+      self$requests_pending <- requests_pending
+      self$recent_requesters <- recent_requesters
+      self$default_send_as <- default_send_as
+      self$available_reactions <- available_reactions
+      self$reactions_limit <- reactions_limit
+      self$stories <- stories
+      self$wallpaper <- wallpaper
+      self$boosts_applied <- boosts_applied
+      self$boosts_unrestrict <- boosts_unrestrict
+      self$emojiset <- emojiset
+      self$bot_verification <- bot_verification
+      self$stargifts_count <- stargifts_count
+      self$send_paid_messages_stars <- send_paid_messages_stars
+      self$main_tab <- main_tab
+    },
+
+    to_dict = function() {
+      list(
+        `_` = "ChannelFull",
+        id = self$id,
+        about = self$about,
+        read_inbox_max_id = self$read_inbox_max_id,
+        read_outbox_max_id = self$read_outbox_max_id,
+        unread_count = self$unread_count,
+        chat_photo = if (inherits(self$chat_photo, "TLObject")) self$chat_photo$to_dict() else self$chat_photo,
+        notify_settings = if (inherits(self$notify_settings, "TLObject")) self$notify_settings$to_dict() else self$notify_settings,
+        bot_info = if (is.null(self$bot_info)) list() else lapply(self$bot_info, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        pts = self$pts,
+        can_view_participants = self$can_view_participants,
+        can_set_username = self$can_set_username,
+        can_set_stickers = self$can_set_stickers,
+        hidden_prehistory = self$hidden_prehistory,
+        can_set_location = self$can_set_location,
+        has_scheduled = self$has_scheduled,
+        can_view_stats = self$can_view_stats,
+        blocked = self$blocked,
+        can_delete_channel = self$can_delete_channel,
+        antispam = self$antispam,
+        participants_hidden = self$participants_hidden,
+        translations_disabled = self$translations_disabled,
+        stories_pinned_available = self$stories_pinned_available,
+        view_forum_as_messages = self$view_forum_as_messages,
+        restricted_sponsored = self$restricted_sponsored,
+        can_view_revenue = self$can_view_revenue,
+        paid_media_allowed = self$paid_media_allowed,
+        can_view_stars_revenue = self$can_view_stars_revenue,
+        paid_reactions_available = self$paid_reactions_available,
+        stargifts_available = self$stargifts_available,
+        paid_messages_available = self$paid_messages_available,
+        participants_count = self$participants_count,
+        admins_count = self$admins_count,
+        kicked_count = self$kicked_count,
+        banned_count = self$banned_count,
+        online_count = self$online_count,
+        exported_invite = if (inherits(self$exported_invite, "TLObject")) self$exported_invite$to_dict() else self$exported_invite,
+        migrated_from_chat_id = self$migrated_from_chat_id,
+        migrated_from_max_id = self$migrated_from_max_id,
+        pinned_msg_id = self$pinned_msg_id,
+        stickerset = if (inherits(self$stickerset, "TLObject")) self$stickerset$to_dict() else self$stickerset,
+        available_min_id = self$available_min_id,
+        folder_id = self$folder_id,
+        linked_chat_id = self$linked_chat_id,
+        location = if (inherits(self$location, "TLObject")) self$location$to_dict() else self$location,
+        slowmode_seconds = self$slowmode_seconds,
+        slowmode_next_send_date = self$slowmode_next_send_date,
+        stats_dc = self$stats_dc,
+        call = if (inherits(self$call, "TLObject")) self$call$to_dict() else self$call,
+        ttl_period = self$ttl_period,
+        pending_suggestions = if (is.null(self$pending_suggestions)) list() else self$pending_suggestions,
+        groupcall_default_join_as = if (inherits(self$groupcall_default_join_as, "TLObject")) self$groupcall_default_join_as$to_dict() else self$groupcall_default_join_as,
+        theme_emoticon = self$theme_emoticon,
+        requests_pending = self$requests_pending,
+        recent_requesters = if (is.null(self$recent_requesters)) list() else self$recent_requesters,
+        default_send_as = if (inherits(self$default_send_as, "TLObject")) self$default_send_as$to_dict() else self$default_send_as,
+        available_reactions = if (inherits(self$available_reactions, "TLObject")) self$available_reactions$to_dict() else self$available_reactions,
+        reactions_limit = self$reactions_limit,
+        stories = if (inherits(self$stories, "TLObject")) self$stories$to_dict() else self$stories,
+        wallpaper = if (inherits(self$wallpaper, "TLObject")) self$wallpaper$to_dict() else self$wallpaper,
+        boosts_applied = self$boosts_applied,
+        boosts_unrestrict = self$boosts_unrestrict,
+        emojiset = if (inherits(self$emojiset, "TLObject")) self$emojiset$to_dict() else self$emojiset,
+        bot_verification = if (inherits(self$bot_verification, "TLObject")) self$bot_verification$to_dict() else self$bot_verification,
+        stargifts_count = self$stargifts_count,
+        send_paid_messages_stars = self$send_paid_messages_stars,
+        main_tab = if (inherits(self$main_tab, "TLObject")) self$main_tab$to_dict() else self$main_tab
+      )
+    }
+  )
+)
+
+
+ChannelLocation <- R6::R6Class(
+  "ChannelLocation",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x209b82dbL,
+    SUBCLASS_OF_ID = 0xec260b7fL,
+
+    geo_point = NULL,
+    address = NULL,
+
+    initialize = function(geo_point, address) {
+      self$geo_point <- geo_point
+      self$address <- address
+    },
+
+    to_dict = function() {
+      list(
+        '_' = 'ChannelLocation',
+        geo_point = if (inherits(self$geo_point, "TLObject")) self$geo_point$to_dict() else self$geo_point,
+        address = self$address
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xdb, 0x82, 0x9b, 0x20)),
+        self$geo_point$bytes(),
+        serialize_bytes(self$address)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      geo_point <- reader$tgread_object()
+      address <- reader$tgread_string()
+      self$initialize(geo_point = geo_point, address = address)
+    }
+  )
+)
+
+
 # ChannelLocationEmpty
 ChannelLocationEmpty <- R6::R6Class("ChannelLocationEmpty",
   inherit = TLObject,
@@ -9601,6 +9874,460 @@ ChannelParticipantsSearch <- R6::R6Class(
 )
 
 
+ChatAdminRights <- R6::R6Class(
+  "ChatAdminRights",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x5fb224d5L,
+    SUBCLASS_OF_ID = 0x863dc7c4L,
+
+    change_info = NULL,
+    post_messages = NULL,
+    edit_messages = NULL,
+    delete_messages = NULL,
+    ban_users = NULL,
+    invite_users = NULL,
+    pin_messages = NULL,
+    add_admins = NULL,
+    anonymous = NULL,
+    manage_call = NULL,
+    other = NULL,
+    manage_topics = NULL,
+    post_stories = NULL,
+    edit_stories = NULL,
+    delete_stories = NULL,
+    manage_direct_messages = NULL,
+
+    initialize = function(change_info = NULL, post_messages = NULL, edit_messages = NULL, delete_messages = NULL, ban_users = NULL, invite_users = NULL, pin_messages = NULL, add_admins = NULL, anonymous = NULL, manage_call = NULL, other = NULL, manage_topics = NULL, post_stories = NULL, edit_stories = NULL, delete_stories = NULL, manage_direct_messages = NULL) {
+      self$change_info <- change_info
+      self$post_messages <- post_messages
+      self$edit_messages <- edit_messages
+      self$delete_messages <- delete_messages
+      self$ban_users <- ban_users
+      self$invite_users <- invite_users
+      self$pin_messages <- pin_messages
+      self$add_admins <- add_admins
+      self$anonymous <- anonymous
+      self$manage_call <- manage_call
+      self$other <- other
+      self$manage_topics <- manage_topics
+      self$post_stories <- post_stories
+      self$edit_stories <- edit_stories
+      self$delete_stories <- delete_stories
+      self$manage_direct_messages <- manage_direct_messages
+    },
+
+    to_list = function() {
+      list(
+        `_` = "ChatAdminRights",
+        change_info = self$change_info,
+        post_messages = self$post_messages,
+        edit_messages = self$edit_messages,
+        delete_messages = self$delete_messages,
+        ban_users = self$ban_users,
+        invite_users = self$invite_users,
+        pin_messages = self$pin_messages,
+        add_admins = self$add_admins,
+        anonymous = self$anonymous,
+        manage_call = self$manage_call,
+        other = self$other,
+        manage_topics = self$manage_topics,
+        post_stories = self$post_stories,
+        edit_stories = self$edit_stories,
+        delete_stories = self$delete_stories,
+        manage_direct_messages = self$manage_direct_messages
+      )
+    },
+
+    bytes = function() {
+      as.raw(
+        c(
+          0xd5, 0x24, 0xb2, 0x5f,
+          bitwOr(
+            ifelse(isTRUE(self$change_info), 1, 0),
+            ifelse(isTRUE(self$post_messages), 2, 0),
+            ifelse(isTRUE(self$edit_messages), 4, 0),
+            ifelse(isTRUE(self$delete_messages), 8, 0),
+            ifelse(isTRUE(self$ban_users), 16, 0),
+            ifelse(isTRUE(self$invite_users), 32, 0),
+            ifelse(isTRUE(self$pin_messages), 128, 0),
+            ifelse(isTRUE(self$add_admins), 512, 0),
+            ifelse(isTRUE(self$anonymous), 1024, 0),
+            ifelse(isTRUE(self$manage_call), 2048, 0),
+            ifelse(isTRUE(self$other), 4096, 0),
+            ifelse(isTRUE(self$manage_topics), 8192, 0),
+            ifelse(isTRUE(self$post_stories), 16384, 0),
+            ifelse(isTRUE(self$edit_stories), 32768, 0),
+            ifelse(isTRUE(self$delete_stories), 65536, 0),
+            ifelse(isTRUE(self$manage_direct_messages), 131072, 0)
+          )
+        )
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      change_info <- bitwAnd(flags, 1) != 0
+      post_messages <- bitwAnd(flags, 2) != 0
+      edit_messages <- bitwAnd(flags, 4) != 0
+      delete_messages <- bitwAnd(flags, 8) != 0
+      ban_users <- bitwAnd(flags, 16) != 0
+      invite_users <- bitwAnd(flags, 32) != 0
+      pin_messages <- bitwAnd(flags, 128) != 0
+      add_admins <- bitwAnd(flags, 512) != 0
+      anonymous <- bitwAnd(flags, 1024) != 0
+      manage_call <- bitwAnd(flags, 2048) != 0
+      other <- bitwAnd(flags, 4096) != 0
+      manage_topics <- bitwAnd(flags, 8192) != 0
+      post_stories <- bitwAnd(flags, 16384) != 0
+      edit_stories <- bitwAnd(flags, 32768) != 0
+      delete_stories <- bitwAnd(flags, 65536) != 0
+      manage_direct_messages <- bitwAnd(flags, 131072) != 0
+
+      ChatAdminRights$new(
+        change_info = change_info,
+        post_messages = post_messages,
+        edit_messages = edit_messages,
+        delete_messages = delete_messages,
+        ban_users = ban_users,
+        invite_users = invite_users,
+        pin_messages = pin_messages,
+        add_admins = add_admins,
+        anonymous = anonymous,
+        manage_call = manage_call,
+        other = other,
+        manage_topics = manage_topics,
+        post_stories = post_stories,
+        edit_stories = edit_stories,
+        delete_stories = delete_stories,
+        manage_direct_messages = manage_direct_messages
+      )
+    }
+  )
+)
+
+
+ChatAdminWithInvites <- R6::R6Class(
+  "ChatAdminWithInvites",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xf2ecef23L,
+    SUBCLASS_OF_ID = 0x5063f398L,
+
+    admin_id = NULL,
+    invites_count = NULL,
+    revoked_invites_count = NULL,
+
+    initialize = function(admin_id, invites_count, revoked_invites_count) {
+      self$admin_id <- admin_id
+      self$invites_count <- invites_count
+      self$revoked_invites_count <- revoked_invites_count
+    },
+
+    to_list = function() {
+      list(
+        "_" = "ChatAdminWithInvites",
+        admin_id = self$admin_id,
+        invites_count = self$invites_count,
+        revoked_invites_count = self$revoked_invites_count
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x23, 0xef, 0xec, 0xf2)),
+        writeBin(as.integer64(self$admin_id), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$invites_count), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(self$revoked_invites_count), raw(), size = 4, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      admin_id <- reader$read_long()
+      invites_count <- reader$read_int()
+      revoked_invites_count <- reader$read_int()
+      ChatAdminWithInvites$new(admin_id, invites_count, revoked_invites_count)
+    }
+  )
+)
+
+
+ChatBannedRights <- R6::R6Class(
+  "ChatBannedRights",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x9f120418L,
+    SUBCLASS_OF_ID = 0x4b5445a9L,
+
+    until_date = NULL,
+    view_messages = NULL,
+    send_messages = NULL,
+    send_media = NULL,
+    send_stickers = NULL,
+    send_gifs = NULL,
+    send_games = NULL,
+    send_inline = NULL,
+    embed_links = NULL,
+    send_polls = NULL,
+    change_info = NULL,
+    invite_users = NULL,
+    pin_messages = NULL,
+    manage_topics = NULL,
+    send_photos = NULL,
+    send_videos = NULL,
+    send_roundvideos = NULL,
+    send_audios = NULL,
+    send_voices = NULL,
+    send_docs = NULL,
+    send_plain = NULL,
+
+    initialize = function(until_date, view_messages = NULL, send_messages = NULL, send_media = NULL, send_stickers = NULL, send_gifs = NULL, send_games = NULL, send_inline = NULL, embed_links = NULL, send_polls = NULL, change_info = NULL, invite_users = NULL, pin_messages = NULL, manage_topics = NULL, send_photos = NULL, send_videos = NULL, send_roundvideos = NULL, send_audios = NULL, send_voices = NULL, send_docs = NULL, send_plain = NULL) {
+      self$until_date <- until_date
+      self$view_messages <- view_messages
+      self$send_messages <- send_messages
+      self$send_media <- send_media
+      self$send_stickers <- send_stickers
+      self$send_gifs <- send_gifs
+      self$send_games <- send_games
+      self$send_inline <- send_inline
+      self$embed_links <- embed_links
+      self$send_polls <- send_polls
+      self$change_info <- change_info
+      self$invite_users <- invite_users
+      self$pin_messages <- pin_messages
+      self$manage_topics <- manage_topics
+      self$send_photos <- send_photos
+      self$send_videos <- send_videos
+      self$send_roundvideos <- send_roundvideos
+      self$send_audios <- send_audios
+      self$send_voices <- send_voices
+      self$send_docs <- send_docs
+      self$send_plain <- send_plain
+    },
+
+    to_list = function() {
+      list(
+        "_" = "ChatBannedRights",
+        until_date = self$until_date,
+        view_messages = self$view_messages,
+        send_messages = self$send_messages,
+        send_media = self$send_media,
+        send_stickers = self$send_stickers,
+        send_gifs = self$send_gifs,
+        send_games = self$send_games,
+        send_inline = self$send_inline,
+        embed_links = self$embed_links,
+        send_polls = self$send_polls,
+        change_info = self$change_info,
+        invite_users = self$invite_users,
+        pin_messages = self$pin_messages,
+        manage_topics = self$manage_topics,
+        send_photos = self$send_photos,
+        send_videos = self$send_videos,
+        send_roundvideos = self$send_roundvideos,
+        send_audios = self$send_audios,
+        send_voices = self$send_voices,
+        send_docs = self$send_docs,
+        send_plain = self$send_plain
+      )
+    },
+
+    bytes = function() {
+      flags <- (ifelse(isTRUE(self$view_messages), 1, 0) |
+                ifelse(isTRUE(self$send_messages), 2, 0) |
+                ifelse(isTRUE(self$send_media), 4, 0) |
+                ifelse(isTRUE(self$send_stickers), 8, 0) |
+                ifelse(isTRUE(self$send_gifs), 16, 0) |
+                ifelse(isTRUE(self$send_games), 32, 0) |
+                ifelse(isTRUE(self$send_inline), 64, 0) |
+                ifelse(isTRUE(self$embed_links), 128, 0) |
+                ifelse(isTRUE(self$send_polls), 256, 0) |
+                ifelse(isTRUE(self$change_info), 1024, 0) |
+                ifelse(isTRUE(self$invite_users), 32768, 0) |
+                ifelse(isTRUE(self$pin_messages), 131072, 0) |
+                ifelse(isTRUE(self$manage_topics), 262144, 0) |
+                ifelse(isTRUE(self$send_photos), 524288, 0) |
+                ifelse(isTRUE(self$send_videos), 1048576, 0) |
+                ifelse(isTRUE(self$send_roundvideos), 2097152, 0) |
+                ifelse(isTRUE(self$send_audios), 4194304, 0) |
+                ifelse(isTRUE(self$send_voices), 8388608, 0) |
+                ifelse(isTRUE(self$send_docs), 16777216, 0) |
+                ifelse(isTRUE(self$send_plain), 33554432, 0))
+      c(
+        as.raw(c(0x18, 0x04, 0x12, 0x9f)),
+        writeBin(as.integer(flags), raw(), size = 4),
+        self$serialize_datetime(self$until_date)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      until_date <- reader$tgread_date()
+      ChatBannedRights$new(
+        until_date = until_date,
+        view_messages = bitwAnd(flags, 1) != 0,
+        send_messages = bitwAnd(flags, 2) != 0,
+        send_media = bitwAnd(flags, 4) != 0,
+        send_stickers = bitwAnd(flags, 8) != 0,
+        send_gifs = bitwAnd(flags, 16) != 0,
+        send_games = bitwAnd(flags, 32) != 0,
+        send_inline = bitwAnd(flags, 64) != 0,
+        embed_links = bitwAnd(flags, 128) != 0,
+        send_polls = bitwAnd(flags, 256) != 0,
+        change_info = bitwAnd(flags, 1024) != 0,
+        invite_users = bitwAnd(flags, 32768) != 0,
+        pin_messages = bitwAnd(flags, 131072) != 0,
+        manage_topics = bitwAnd(flags, 262144) != 0,
+        send_photos = bitwAnd(flags, 524288) != 0,
+        send_videos = bitwAnd(flags, 1048576) != 0,
+        send_roundvideos = bitwAnd(flags, 2097152) != 0,
+        send_audios = bitwAnd(flags, 4194304) != 0,
+        send_voices = bitwAnd(flags, 8388608) != 0,
+        send_docs = bitwAnd(flags, 16777216) != 0,
+        send_plain = bitwAnd(flags, 33554432) != 0
+      )
+    }
+  )
+)
+
+
+ChatFull <- R6::R6Class(
+  "ChatFull",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x2633421bL,
+    SUBCLASS_OF_ID = 0xd49a2697L,
+
+    id = NULL,
+    about = NULL,
+    participants = NULL,
+    notify_settings = NULL,
+    can_set_username = NULL,
+    has_scheduled = NULL,
+    translations_disabled = NULL,
+    chat_photo = NULL,
+    exported_invite = NULL,
+    bot_info = NULL,
+    pinned_msg_id = NULL,
+    folder_id = NULL,
+    call = NULL,
+    ttl_period = NULL,
+    groupcall_default_join_as = NULL,
+    theme_emoticon = NULL,
+    requests_pending = NULL,
+    recent_requesters = NULL,
+    available_reactions = NULL,
+    reactions_limit = NULL,
+
+    initialize = function(id, about, participants, notify_settings,
+                          can_set_username = NULL, has_scheduled = NULL,
+                          translations_disabled = NULL, chat_photo = NULL,
+                          exported_invite = NULL, bot_info = NULL,
+                          pinned_msg_id = NULL, folder_id = NULL, call = NULL,
+                          ttl_period = NULL, groupcall_default_join_as = NULL,
+                          theme_emoticon = NULL, requests_pending = NULL,
+                          recent_requesters = NULL, available_reactions = NULL,
+                          reactions_limit = NULL) {
+      self$id <- id
+      self$about <- about
+      self$participants <- participants
+      self$notify_settings <- notify_settings
+      self$can_set_username <- can_set_username
+      self$has_scheduled <- has_scheduled
+      self$translations_disabled <- translations_disabled
+      self$chat_photo <- chat_photo
+      self$exported_invite <- exported_invite
+      self$bot_info <- bot_info
+      self$pinned_msg_id <- pinned_msg_id
+      self$folder_id <- folder_id
+      self$call <- call
+      self$ttl_period <- ttl_period
+      self$groupcall_default_join_as <- groupcall_default_join_as
+      self$theme_emoticon <- theme_emoticon
+      self$requests_pending <- requests_pending
+      self$recent_requesters <- recent_requesters
+      self$available_reactions <- available_reactions
+      self$reactions_limit <- reactions_limit
+    },
+
+    to_list = function() {
+      list(
+        "_" = "ChatFull",
+        id = self$id,
+        about = self$about,
+        participants = if (inherits(self$participants, "TLObject")) self$participants$to_list() else self$participants,
+        notify_settings = if (inherits(self$notify_settings, "TLObject")) self$notify_settings$to_list() else self$notify_settings,
+        can_set_username = self$can_set_username,
+        has_scheduled = self$has_scheduled,
+        translations_disabled = self$translations_disabled,
+        chat_photo = if (!is.null(self$chat_photo) && inherits(self$chat_photo, "TLObject")) self$chat_photo$to_list() else self$chat_photo,
+        exported_invite = if (!is.null(self$exported_invite) && inherits(self$exported_invite, "TLObject")) self$exported_invite$to_list() else self$exported_invite,
+        bot_info = if (is.null(self$bot_info)) list() else lapply(self$bot_info, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
+        pinned_msg_id = self$pinned_msg_id,
+        folder_id = self$folder_id,
+        call = if (!is.null(self$call) && inherits(self$call, "TLObject")) self$call$to_list() else self$call,
+        ttl_period = self$ttl_period,
+        groupcall_default_join_as = if (!is.null(self$groupcall_default_join_as) && inherits(self$groupcall_default_join_as, "TLObject")) self$groupcall_default_join_as$to_list() else self$groupcall_default_join_as,
+        theme_emoticon = self$theme_emoticon,
+        requests_pending = self$requests_pending,
+        recent_requesters = if (is.null(self$recent_requesters)) list() else self$recent_requesters,
+        available_reactions = if (!is.null(self$available_reactions) && inherits(self$available_reactions, "TLObject")) self$available_reactions$to_list() else self$available_reactions,
+        reactions_limit = self$reactions_limit
+      )
+    },
+
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      can_set_username <- as.logical(bitwAnd(flags, 128))
+      has_scheduled <- as.logical(bitwAnd(flags, 256))
+      translations_disabled <- as.logical(bitwAnd(flags, 524288))
+      id <- reader$read_long()
+      about <- reader$tgread_string()
+      participants <- reader$tgread_object()
+      chat_photo <- if (bitwAnd(flags, 4)) reader$tgread_object() else NULL
+      notify_settings <- reader$tgread_object()
+      exported_invite <- if (bitwAnd(flags, 8192)) reader$tgread_object() else NULL
+      bot_info <- if (bitwAnd(flags, 8)) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      } else NULL
+      pinned_msg_id <- if (bitwAnd(flags, 64)) reader$read_int() else NULL
+      folder_id <- if (bitwAnd(flags, 2048)) reader$read_int() else NULL
+      call <- if (bitwAnd(flags, 4096)) reader$tgread_object() else NULL
+      ttl_period <- if (bitwAnd(flags, 16384)) reader$read_int() else NULL
+      groupcall_default_join_as <- if (bitwAnd(flags, 32768)) reader$tgread_object() else NULL
+      theme_emoticon <- if (bitwAnd(flags, 65536)) reader$tgread_string() else NULL
+      requests_pending <- if (bitwAnd(flags, 131072)) reader$read_int() else NULL
+      recent_requesters <- if (bitwAnd(flags, 131072)) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$read_long())
+      } else NULL
+      available_reactions <- if (bitwAnd(flags, 262144)) reader$tgread_object() else NULL
+      reactions_limit <- if (bitwAnd(flags, 1048576)) reader$read_int() else NULL
+
+      self$new(
+        id = id, about = about, participants = participants, notify_settings = notify_settings,
+        can_set_username = can_set_username, has_scheduled = has_scheduled,
+        translations_disabled = translations_disabled, chat_photo = chat_photo,
+        exported_invite = exported_invite, bot_info = bot_info, pinned_msg_id = pinned_msg_id,
+        folder_id = folder_id, call = call, ttl_period = ttl_period,
+        groupcall_default_join_as = groupcall_default_join_as, theme_emoticon = theme_emoticon,
+        requests_pending = requests_pending, recent_requesters = recent_requesters,
+        available_reactions = available_reactions, reactions_limit = reactions_limit
+      )
+    }
+  )
+)
+
+
 # ChatInvite
 ChatInvite <- R6::R6Class(
   "ChatInvite",
@@ -9834,6 +10561,713 @@ ChatInvitePublicJoinRequests <- R6::R6Class(
 
     to_dict = function() {
       list('_' = 'ChatInvitePublicJoinRequests')
+    }
+  )
+)
+
+
+ChatOnlines <- R6::R6Class(
+  "ChatOnlines",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xf041e250L,
+    SUBCLASS_OF_ID = 0x8c81903aL,
+    onlines = NULL,
+
+    initialize = function(onlines) {
+      self$onlines <- onlines
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "ChatOnlines",
+        onlines = self$onlines
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x50, 0xe2, 0x41, 0xf0)),
+        writeBin(as.integer(self$onlines), raw(), size = 4, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      onlines <- reader$read_int()
+      self$new(onlines = onlines)
+    }
+  )
+)
+
+
+ChatParticipant <- R6::R6Class(
+  "ChatParticipant",
+  inherit = TLObject,
+  public = list(
+    constructor_id = 0xc02d4007L,
+    subclass_of_id = 0x7d7c6f86L,
+    user_id = NULL,
+    inviter_id = NULL,
+    date = NULL,
+
+    initialize = function(user_id, inviter_id, date) {
+      self$user_id <- user_id
+      self$inviter_id <- inviter_id
+      self$date <- date
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "ChatParticipant",
+        user_id = self$user_id,
+        inviter_id = self$inviter_id,
+        date = self$date
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x07, 0x40, 0x2D, 0xC0)),
+        writeBin(as.integer(self$user_id), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$inviter_id), raw(), size = 8, endian = "little"),
+        self$serialize_datetime(self$date)
+      )
+    },
+
+    from_reader = function(reader) {
+      user_id <- reader$read_long()
+      inviter_id <- reader$read_long()
+      date <- reader$tgread_date()
+      self$new(user_id = user_id, inviter_id = inviter_id, date = date)
+    }
+  )
+)
+
+ChatParticipantAdmin <- R6::R6Class(
+  "ChatParticipantAdmin",
+  inherit = TLObject,
+  public = list(
+    constructor_id = 0xa0933f5bL,
+    subclass_of_id = 0x7d7c6f86L,
+    user_id = NULL,
+    inviter_id = NULL,
+    date = NULL,
+
+    initialize = function(user_id, inviter_id, date) {
+      self$user_id <- user_id
+      self$inviter_id <- inviter_id
+      self$date <- date
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "ChatParticipantAdmin",
+        user_id = self$user_id,
+        inviter_id = self$inviter_id,
+        date = self$date
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x5B, 0x3F, 0x93, 0xA0)),
+        writeBin(as.integer(self$user_id), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$inviter_id), raw(), size = 8, endian = "little"),
+        self$serialize_datetime(self$date)
+      )
+    },
+
+    from_reader = function(reader) {
+      user_id <- reader$read_long()
+      inviter_id <- reader$read_long()
+      date <- reader$tgread_date()
+      self$new(user_id = user_id, inviter_id = inviter_id, date = date)
+    }
+  )
+)
+
+ChatParticipantCreator <- R6::R6Class(
+  "ChatParticipantCreator",
+  inherit = TLObject,
+  public = list(
+    constructor_id = 0xe46bcee4L,
+    subclass_of_id = 0x7d7c6f86L,
+    user_id = NULL,
+
+    initialize = function(user_id) {
+      self$user_id <- user_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "ChatParticipantCreator",
+        user_id = self$user_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xE4, 0xCE, 0x6B, 0xE4)),
+        writeBin(as.integer(self$user_id), raw(), size = 8, endian = "little")
+      )
+    },
+
+    from_reader = function(reader) {
+      user_id <- reader$read_long()
+      self$new(user_id = user_id)
+    }
+  )
+)
+
+ChatParticipants <- R6::R6Class(
+  "ChatParticipants",
+  inherit = TLObject,
+  public = list(
+    constructor_id = 0x3cbc93f8L,
+    subclass_of_id = 0x1fa89571L,
+    chat_id = NULL,
+    participants = NULL,
+    version = NULL,
+
+    initialize = function(chat_id, participants, version) {
+      self$chat_id <- chat_id
+      self$participants <- participants
+      self$version <- version
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "ChatParticipants",
+        chat_id = self$chat_id,
+        participants = lapply(self$participants, function(x) x$to_dict()),
+        version = self$version
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xF8, 0x93, 0xBC, 0x3C)),
+        writeBin(as.integer(self$chat_id), raw(), size = 8, endian = "little"),
+        as.raw(c(0x15, 0xC4, 0xB5, 0x1C)),
+        writeBin(as.integer(length(self$participants)), raw(), size = 4, endian = "little"),
+        unlist(lapply(self$participants, function(x) x$bytes())),
+        writeBin(as.integer(self$version), raw(), size = 4, endian = "little")
+      )
+    },
+
+    from_reader = function(reader) {
+      chat_id <- reader$read_long()
+      reader$read_int()
+      participants <- list()
+      for (i in seq_len(reader$read_int())) {
+        participants[[i]] <- reader$tgread_object()
+      }
+      version <- reader$read_int()
+      self$new(chat_id = chat_id, participants = participants, version = version)
+    }
+  )
+)
+
+ChatParticipantsForbidden <- R6::R6Class(
+  "ChatParticipantsForbidden",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x8763d3e1L,
+    SUBCLASS_OF_ID = 0x1fa89571L,
+
+    chat_id = NULL,
+    self_participant = NULL,
+
+    initialize = function(chat_id, self_participant = NULL) {
+      self$chat_id <- chat_id
+      self$self_participant <- self_participant
+    },
+
+    to_dict = function() {
+      list(
+        '_' = 'ChatParticipantsForbidden',
+        chat_id = self$chat_id,
+        self_participant = if (inherits(self$self_participant, "TLObject")) self$self_participant$to_dict() else self$self_participant
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xe1, 0xd3, 0x63, 0x87)),
+        writeBin(as.integer(if (is.null(self$self_participant) || identical(self$self_participant, FALSE)) 0 else 1), raw(), size = 4, endian = "little"),
+        writeBin(as.numeric(self$chat_id), raw(), size = 8, endian = "little"),
+        if (is.null(self$self_participant) || identical(self$self_participant, FALSE)) raw() else self$self_participant$bytes()
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      chat_id <- reader$read_long()
+      self_participant <- if (bitwAnd(flags, 1) != 0) reader$tgread_object() else NULL
+      self$new(chat_id = chat_id, self_participant = self_participant)
+    }
+  )
+)
+
+
+
+ChatPhoto <- R6::R6Class(
+  "ChatPhoto",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x1c6e1c11L,
+    SUBCLASS_OF_ID = 0xac3ec4e5L,
+    photo_id = NULL,
+    dc_id = NULL,
+    has_video = NULL,
+    stripped_thumb = NULL,
+
+    initialize = function(photo_id, dc_id, has_video = NULL, stripped_thumb = NULL) {
+      self$photo_id <- photo_id
+      self$dc_id <- dc_id
+      self$has_video <- has_video
+      self$stripped_thumb <- stripped_thumb
+    },
+
+    to_list = function() {
+      list(
+        "_" = "ChatPhoto",
+        photo_id = self$photo_id,
+        dc_id = self$dc_id,
+        has_video = self$has_video,
+        stripped_thumb = self$stripped_thumb
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x11, 0x1c, 0x6e, 0x1c)),
+        as.raw(ifelse(is.null(self$has_video) || !self$has_video, 0, 1) | ifelse(is.null(self$stripped_thumb), 0, 2)),
+        writeBin(as.integer(self$photo_id), raw(), size = 8),
+        if (!is.null(self$stripped_thumb)) self$stripped_thumb else raw(),
+        writeBin(as.integer(self$dc_id), raw(), size = 4)
+      )
+    }
+  )
+)
+
+ChatPhotoEmpty <- R6::R6Class(
+  "ChatPhotoEmpty",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x37c1011cL,
+    SUBCLASS_OF_ID = 0xac3ec4e5L,
+
+    to_list = function() {
+      list("_" = "ChatPhotoEmpty")
+    },
+
+    bytes = function() {
+      as.raw(c(0x1c, 0x01, 0xc1, 0x37))
+    }
+  )
+)
+
+ChatReactionsAll <- R6::R6Class(
+  "ChatReactionsAll",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x52928bcaL,
+    SUBCLASS_OF_ID = 0x131e24b5L,
+    allow_custom = NULL,
+
+    initialize = function(allow_custom = NULL) {
+      self$allow_custom <- allow_custom
+    },
+
+    to_list = function() {
+      list(
+        "_" = "ChatReactionsAll",
+        allow_custom = self$allow_custom
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xca, 0x8b, 0x92, 0x52)),
+        as.raw(ifelse(is.null(self$allow_custom) || !self$allow_custom, 0, 1))
+      )
+    }
+  )
+)
+
+ChatReactionsNone <- R6::R6Class(
+  "ChatReactionsNone",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xeafc32bcL,
+    SUBCLASS_OF_ID = 0x131e24b5L,
+
+    to_list = function() {
+      list("_" = "ChatReactionsNone")
+    },
+
+    bytes = function() {
+      as.raw(c(0xbc, 0x32, 0xfc, 0xea))
+    }
+  )
+)
+
+ChatReactionsSome <- R6::R6Class(
+  "ChatReactionsSome",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x661d4037L,
+    SUBCLASS_OF_ID = 0x131e24b5L,
+    reactions = NULL,
+
+    initialize = function(reactions) {
+      self$reactions <- reactions
+    },
+
+    to_list = function() {
+      list(
+        "_" = "ChatReactionsSome",
+        reactions = lapply(self$reactions, function(x) if (inherits(x, "TLObject")) x$to_list() else x)
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x37, 0x40, 0x1d, 0x66)),
+        writeBin(as.integer(length(self$reactions)), raw(), size = 4),
+        unlist(lapply(self$reactions, function(x) x$bytes()))
+      )
+    }
+  )
+)
+
+ChatTheme <- R6::R6Class(
+  "ChatTheme",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xc3dffc04L,
+    SUBCLASS_OF_ID = 0x2ffca7f5L,
+    emoticon = NULL,
+
+    initialize = function(emoticon) {
+      self$emoticon <- emoticon
+    },
+
+    to_list = function() {
+      list(
+        "_" = "ChatTheme",
+        emoticon = self$emoticon
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x04, 0xfc, 0xdf, 0xc3)),
+        charToRaw(self$emoticon)
+      )
+    }
+  )
+)
+
+ChatThemeUniqueGift <- R6::R6Class(
+  "ChatThemeUniqueGift",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x3458f9c8L,
+    SUBCLASS_OF_ID = 0x2ffca7f5L,
+    gift = NULL,
+    theme_settings = NULL,
+
+    initialize = function(gift, theme_settings) {
+      self$gift <- gift
+      self$theme_settings <- theme_settings
+    },
+
+    to_list = function() {
+      list(
+        "_" = "ChatThemeUniqueGift",
+        gift = if (inherits(self$gift, "TLObject")) self$gift$to_list() else self$gift,
+        theme_settings = lapply(self$theme_settings, function(x) if (inherits(x, "TLObject")) x$to_list() else x)
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xc8, 0xf9, 0x58, 0x34)),
+        self$gift$bytes(),
+        writeBin(as.integer(length(self$theme_settings)), raw(), size = 4),
+        unlist(lapply(self$theme_settings, function(x) x$bytes()))
+      )
+    }
+  )
+)
+
+
+ClientDHInnerData <- R6::R6Class(
+  "ClientDHInnerData",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x6643b654L,
+    SUBCLASS_OF_ID = 0xf8eeef6aL,
+
+    nonce = NULL,
+    server_nonce = NULL,
+    retry_id = NULL,
+    g_b = NULL,
+
+    initialize = function(nonce, server_nonce, retry_id, g_b) {
+      self$nonce <- nonce
+      self$server_nonce <- server_nonce
+      self$retry_id <- retry_id
+      self$g_b <- g_b
+    },
+
+    to_list = function() {
+      list(
+        "_" = "ClientDHInnerData",
+        nonce = self$nonce,
+        server_nonce = self$server_nonce,
+        retry_id = self$retry_id,
+        g_b = self$g_b
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x54, 0xb6, 0x43, 0x66)),
+        writeBin(as.integer(self$nonce), raw(), size = 16, endian = "little"),
+        writeBin(as.integer(self$server_nonce), raw(), size = 16, endian = "little"),
+        writeBin(as.integer(self$retry_id), raw(), size = 8, endian = "little"),
+        self$serialize_bytes(self$g_b)
+      )
+    }
+  )
+)
+
+CodeSettings <- R6::R6Class(
+  "CodeSettings",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xad253d78L,
+    SUBCLASS_OF_ID = 0x48edbc8aL,
+
+    allow_flashcall = NULL,
+    current_number = NULL,
+    allow_app_hash = NULL,
+    allow_missed_call = NULL,
+    allow_firebase = NULL,
+    unknown_number = NULL,
+    logout_tokens = NULL,
+    token = NULL,
+    app_sandbox = NULL,
+
+    initialize = function(allow_flashcall = NULL, current_number = NULL, allow_app_hash = NULL,
+                          allow_missed_call = NULL, allow_firebase = NULL, unknown_number = NULL,
+                          logout_tokens = NULL, token = NULL, app_sandbox = NULL) {
+      self$allow_flashcall <- allow_flashcall
+      self$current_number <- current_number
+      self$allow_app_hash <- allow_app_hash
+      self$allow_missed_call <- allow_missed_call
+      self$allow_firebase <- allow_firebase
+      self$unknown_number <- unknown_number
+      self$logout_tokens <- logout_tokens
+      self$token <- token
+      self$app_sandbox <- app_sandbox
+    },
+
+    to_list = function() {
+      list(
+        "_" = "CodeSettings",
+        allow_flashcall = self$allow_flashcall,
+        current_number = self$current_number,
+        allow_app_hash = self$allow_app_hash,
+        allow_missed_call = self$allow_missed_call,
+        allow_firebase = self$allow_firebase,
+        unknown_number = self$unknown_number,
+        logout_tokens = if (is.null(self$logout_tokens)) list() else self$logout_tokens,
+        token = self$token,
+        app_sandbox = self$app_sandbox
+      )
+    }
+  )
+)
+
+Config <- R6::R6Class(
+  "Config",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xcc1a241eL,
+    SUBCLASS_OF_ID = 0xd3262a4aL,
+
+    date = NULL,
+    expires = NULL,
+    test_mode = NULL,
+    this_dc = NULL,
+    dc_options = NULL,
+    dc_txt_domain_name = NULL,
+    chat_size_max = NULL,
+    megagroup_size_max = NULL,
+    forwarded_count_max = NULL,
+    online_update_period_ms = NULL,
+    offline_blur_timeout_ms = NULL,
+    offline_idle_timeout_ms = NULL,
+    online_cloud_timeout_ms = NULL,
+    notify_cloud_delay_ms = NULL,
+    notify_default_delay_ms = NULL,
+    push_chat_period_ms = NULL,
+    push_chat_limit = NULL,
+    edit_time_limit = NULL,
+    revoke_time_limit = NULL,
+    revoke_pm_time_limit = NULL,
+    rating_e_decay = NULL,
+    stickers_recent_limit = NULL,
+    channels_read_media_period = NULL,
+    call_receive_timeout_ms = NULL,
+    call_ring_timeout_ms = NULL,
+    call_connect_timeout_ms = NULL,
+    call_packet_timeout_ms = NULL,
+    me_url_prefix = NULL,
+    caption_length_max = NULL,
+    message_length_max = NULL,
+    webfile_dc_id = NULL,
+    default_p2p_contacts = NULL,
+    preload_featured_stickers = NULL,
+    revoke_pm_inbox = NULL,
+    blocked_mode = NULL,
+    force_try_ipv6 = NULL,
+    tmp_sessions = NULL,
+    autoupdate_url_prefix = NULL,
+    gif_search_username = NULL,
+    venue_search_username = NULL,
+    img_search_username = NULL,
+    static_maps_provider = NULL,
+    suggested_lang_code = NULL,
+    lang_pack_version = NULL,
+    base_lang_pack_version = NULL,
+    reactions_default = NULL,
+    autologin_token = NULL,
+
+    initialize = function(date, expires, test_mode, this_dc, dc_options, dc_txt_domain_name,
+                          chat_size_max, megagroup_size_max, forwarded_count_max,
+                          online_update_period_ms, offline_blur_timeout_ms, offline_idle_timeout_ms,
+                          online_cloud_timeout_ms, notify_cloud_delay_ms, notify_default_delay_ms,
+                          push_chat_period_ms, push_chat_limit, edit_time_limit, revoke_time_limit,
+                          revoke_pm_time_limit, rating_e_decay, stickers_recent_limit,
+                          channels_read_media_period, call_receive_timeout_ms, call_ring_timeout_ms,
+                          call_connect_timeout_ms, call_packet_timeout_ms, me_url_prefix,
+                          caption_length_max, message_length_max, webfile_dc_id,
+                          default_p2p_contacts = NULL, preload_featured_stickers = NULL,
+                          revoke_pm_inbox = NULL, blocked_mode = NULL, force_try_ipv6 = NULL,
+                          tmp_sessions = NULL, autoupdate_url_prefix = NULL, gif_search_username = NULL,
+                          venue_search_username = NULL, img_search_username = NULL,
+                          static_maps_provider = NULL, suggested_lang_code = NULL,
+                          lang_pack_version = NULL, base_lang_pack_version = NULL,
+                          reactions_default = NULL, autologin_token = NULL) {
+      self$date <- date
+      self$expires <- expires
+      self$test_mode <- test_mode
+      self$this_dc <- this_dc
+      self$dc_options <- dc_options
+      self$dc_txt_domain_name <- dc_txt_domain_name
+      self$chat_size_max <- chat_size_max
+      self$megagroup_size_max <- megagroup_size_max
+      self$forwarded_count_max <- forwarded_count_max
+      self$online_update_period_ms <- online_update_period_ms
+      self$offline_blur_timeout_ms <- offline_blur_timeout_ms
+      self$offline_idle_timeout_ms <- offline_idle_timeout_ms
+      self$online_cloud_timeout_ms <- online_cloud_timeout_ms
+      self$notify_cloud_delay_ms <- notify_cloud_delay_ms
+      self$notify_default_delay_ms <- notify_default_delay_ms
+      self$push_chat_period_ms <- push_chat_period_ms
+      self$push_chat_limit <- push_chat_limit
+      self$edit_time_limit <- edit_time_limit
+      self$revoke_time_limit <- revoke_time_limit
+      self$revoke_pm_time_limit <- revoke_pm_time_limit
+      self$rating_e_decay <- rating_e_decay
+      self$stickers_recent_limit <- stickers_recent_limit
+      self$channels_read_media_period <- channels_read_media_period
+      self$call_receive_timeout_ms <- call_receive_timeout_ms
+      self$call_ring_timeout_ms <- call_ring_timeout_ms
+      self$call_connect_timeout_ms <- call_connect_timeout_ms
+      self$call_packet_timeout_ms <- call_packet_timeout_ms
+      self$me_url_prefix <- me_url_prefix
+      self$caption_length_max <- caption_length_max
+      self$message_length_max <- message_length_max
+      self$webfile_dc_id <- webfile_dc_id
+      self$default_p2p_contacts <- default_p2p_contacts
+      self$preload_featured_stickers <- preload_featured_stickers
+      self$revoke_pm_inbox <- revoke_pm_inbox
+      self$blocked_mode <- blocked_mode
+      self$force_try_ipv6 <- force_try_ipv6
+      self$tmp_sessions <- tmp_sessions
+      self$autoupdate_url_prefix <- autoupdate_url_prefix
+      self$gif_search_username <- gif_search_username
+      self$venue_search_username <- venue_search_username
+      self$img_search_username <- img_search_username
+      self$static_maps_provider <- static_maps_provider
+      self$suggested_lang_code <- suggested_lang_code
+      self$lang_pack_version <- lang_pack_version
+      self$base_lang_pack_version <- base_lang_pack_version
+      self$reactions_default <- reactions_default
+      self$autologin_token <- autologin_token
+    },
+
+    to_list = function() {
+      list(
+        "_" = "Config",
+        date = self$date,
+        expires = self$expires,
+        test_mode = self$test_mode,
+        this_dc = self$this_dc,
+        dc_options = lapply(self$dc_options, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
+        dc_txt_domain_name = self$dc_txt_domain_name,
+        chat_size_max = self$chat_size_max,
+        megagroup_size_max = self$megagroup_size_max,
+        forwarded_count_max = self$forwarded_count_max,
+        online_update_period_ms = self$online_update_period_ms,
+        offline_blur_timeout_ms = self$offline_blur_timeout_ms,
+        offline_idle_timeout_ms = self$offline_idle_timeout_ms,
+        online_cloud_timeout_ms = self$online_cloud_timeout_ms,
+        notify_cloud_delay_ms = self$notify_cloud_delay_ms,
+        notify_default_delay_ms = self$notify_default_delay_ms,
+        push_chat_period_ms = self$push_chat_period_ms,
+        push_chat_limit = self$push_chat_limit,
+        edit_time_limit = self$edit_time_limit,
+        revoke_time_limit = self$revoke_time_limit,
+        revoke_pm_time_limit = self$revoke_pm_time_limit,
+        rating_e_decay = self$rating_e_decay,
+        stickers_recent_limit = self$stickers_recent_limit,
+        channels_read_media_period = self$channels_read_media_period,
+        call_receive_timeout_ms = self$call_receive_timeout_ms,
+        call_ring_timeout_ms = self$call_ring_timeout_ms,
+        call_connect_timeout_ms = self$call_connect_timeout_ms,
+        call_packet_timeout_ms = self$call_packet_timeout_ms,
+        me_url_prefix = self$me_url_prefix,
+        caption_length_max = self$caption_length_max,
+        message_length_max = self$message_length_max,
+        webfile_dc_id = self$webfile_dc_id,
+        default_p2p_contacts = self$default_p2p_contacts,
+        preload_featured_stickers = self$preload_featured_stickers,
+        revoke_pm_inbox = self$revoke_pm_inbox,
+        blocked_mode = self$blocked_mode,
+        force_try_ipv6 = self$force_try_ipv6,
+        tmp_sessions = self$tmp_sessions,
+        autoupdate_url_prefix = self$autoupdate_url_prefix,
+        gif_search_username = self$gif_search_username,
+        venue_search_username = self$venue_search_username,
+        img_search_username = self$img_search_username,
+        static_maps_provider = self$static_maps_provider,
+        suggested_lang_code = self$suggested_lang_code,
+        lang_pack_version = self$lang_pack_version,
+        base_lang_pack_version = self$base_lang_pack_version,
+        reactions_default = if (inherits(self$reactions_default, "TLObject")) self$reactions_default$to_list() else self$reactions_default,
+        autologin_token = self$autologin_token
+      )
     }
   )
 )
@@ -10186,6 +11620,738 @@ DefaultHistoryTTL <- R6::R6Class(
     from_reader = function(reader) {
       period <- reader$read_int()
       self$new(period = period)
+    }
+  )
+)
+
+
+DestroyAuthKeyFail <- R6::R6Class(
+  "DestroyAuthKeyFail",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xea109b13L,
+    SUBCLASS_OF_ID = 0x8291e68eL,
+
+    to_dict = function() {
+      list("_" = "DestroyAuthKeyFail")
+    },
+
+    bytes = function() {
+      rawToChar(as.raw(c(0x13, 0x9b, 0x10, 0xea)))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  )
+)
+
+DestroyAuthKeyNone <- R6::R6Class(
+  "DestroyAuthKeyNone",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x0a9f2259L,
+    SUBCLASS_OF_ID = 0x8291e68eL,
+
+    to_dict = function() {
+      list("_" = "DestroyAuthKeyNone")
+    },
+
+    bytes = function() {
+      rawToChar(as.raw(c(0x59, 0x22, 0x9f, 0x0a)))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  )
+)
+
+DestroyAuthKeyOk <- R6::R6Class(
+  "DestroyAuthKeyOk",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xf660e1d4L,
+    SUBCLASS_OF_ID = 0x8291e68eL,
+
+    to_dict = function() {
+      list("_" = "DestroyAuthKeyOk")
+    },
+
+    bytes = function() {
+      rawToChar(as.raw(c(0xd4, 0xe1, 0x60, 0xf6)))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  )
+)
+
+
+DestroySessionNone <- R6::R6Class(
+  "DestroySessionNone",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x62d350c9L,
+    SUBCLASS_OF_ID = 0xaf0ce7bdL,
+    session_id = NULL,
+
+    initialize = function(session_id) {
+      self$session_id <- session_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "DestroySessionNone",
+        session_id = self$session_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xc9, 0x50, 0xd3, 0x62)),
+        writeBin(as.integer64(self$session_id), raw(), size = 8, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      session_id <- reader$read_long()
+      self$new(session_id = session_id)
+    }
+  )
+)
+
+DestroySessionOk <- R6::R6Class(
+  "DestroySessionOk",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xe22045fcL,
+    SUBCLASS_OF_ID = 0xaf0ce7bdL,
+    session_id = NULL,
+
+    initialize = function(session_id) {
+      self$session_id <- session_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "DestroySessionOk",
+        session_id = self$session_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xfc, 0x45, 0x20, 0xe2)),
+        writeBin(as.integer64(self$session_id), raw(), size = 8, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      session_id <- reader$read_long()
+      self$new(session_id = session_id)
+    }
+  )
+)
+
+
+DhGenFail <- R6::R6Class(
+  "DhGenFail",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xa69dae02L,
+    SUBCLASS_OF_ID = 0x55dd6cdbL,
+    nonce = NULL,
+    server_nonce = NULL,
+    new_nonce_hash3 = NULL,
+
+    initialize = function(nonce, server_nonce, new_nonce_hash3) {
+      self$nonce <- nonce
+      self$server_nonce <- server_nonce
+      self$new_nonce_hash3 <- new_nonce_hash3
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "DhGenFail",
+        nonce = self$nonce,
+        server_nonce = self$server_nonce,
+        new_nonce_hash3 = self$new_nonce_hash3
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x02, 0xae, 0x9d, 0xa6)),
+        writeBin(as.integer(self$nonce), raw(), size = 16, endian = "little"),
+        writeBin(as.integer(self$server_nonce), raw(), size = 16, endian = "little"),
+        writeBin(as.integer(self$new_nonce_hash3), raw(), size = 16, endian = "little")
+      )
+    }
+  )
+)
+
+DhGenOk <- R6::R6Class(
+  "DhGenOk",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x3bcbf734L,
+    SUBCLASS_OF_ID = 0x55dd6cdbL,
+    nonce = NULL,
+    server_nonce = NULL,
+    new_nonce_hash1 = NULL,
+
+    initialize = function(nonce, server_nonce, new_nonce_hash1) {
+      self$nonce <- nonce
+      self$server_nonce <- server_nonce
+      self$new_nonce_hash1 <- new_nonce_hash1
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "DhGenOk",
+        nonce = self$nonce,
+        server_nonce = self$server_nonce,
+        new_nonce_hash1 = self$new_nonce_hash1
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x34, 0xf7, 0xcb, 0x3b)),
+        writeBin(as.integer(self$nonce), raw(), size = 16, endian = "little"),
+        writeBin(as.integer(self$server_nonce), raw(), size = 16, endian = "little"),
+        writeBin(as.integer(self$new_nonce_hash1), raw(), size = 16, endian = "little")
+      )
+    }
+  )
+)
+
+DhGenRetry <- R6::R6Class(
+  "DhGenRetry",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x46dc1fb9L,
+    SUBCLASS_OF_ID = 0x55dd6cdbL,
+    nonce = NULL,
+    server_nonce = NULL,
+    new_nonce_hash2 = NULL,
+
+    initialize = function(nonce, server_nonce, new_nonce_hash2) {
+      self$nonce <- nonce
+      self$server_nonce <- server_nonce
+      self$new_nonce_hash2 <- new_nonce_hash2
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "DhGenRetry",
+        nonce = self$nonce,
+        server_nonce = self$server_nonce,
+        new_nonce_hash2 = self$new_nonce_hash2
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xb9, 0x1f, 0xdc, 0x46)),
+        writeBin(as.integer(self$nonce), raw(), size = 16, endian = "little"),
+        writeBin(as.integer(self$server_nonce), raw(), size = 16, endian = "little"),
+        writeBin(as.integer(self$new_nonce_hash2), raw(), size = 16, endian = "little")
+      )
+    }
+  )
+)
+
+
+Dialog <- R6::R6Class(
+  "Dialog",
+  inherit = TLObject,
+  public = list(
+    peer = NULL,
+    top_message = NULL,
+    read_inbox_max_id = NULL,
+    read_outbox_max_id = NULL,
+    unread_count = NULL,
+    unread_mentions_count = NULL,
+    unread_reactions_count = NULL,
+    notify_settings = NULL,
+    pinned = NULL,
+    unread_mark = NULL,
+    view_forum_as_messages = NULL,
+    pts = NULL,
+    draft = NULL,
+    folder_id = NULL,
+    ttl_period = NULL,
+
+    initialize = function(peer, top_message, read_inbox_max_id, read_outbox_max_id, unread_count, unread_mentions_count, unread_reactions_count, notify_settings, pinned = NULL, unread_mark = NULL, view_forum_as_messages = NULL, pts = NULL, draft = NULL, folder_id = NULL, ttl_period = NULL) {
+      self$peer <- peer
+      self$top_message <- top_message
+      self$read_inbox_max_id <- read_inbox_max_id
+      self$read_outbox_max_id <- read_outbox_max_id
+      self$unread_count <- unread_count
+      self$unread_mentions_count <- unread_mentions_count
+      self$unread_reactions_count <- unread_reactions_count
+      self$notify_settings <- notify_settings
+      self$pinned <- pinned
+      self$unread_mark <- unread_mark
+      self$view_forum_as_messages <- view_forum_as_messages
+      self$pts <- pts
+      self$draft <- draft
+      self$folder_id <- folder_id
+      self$ttl_period <- ttl_period
+    },
+
+    to_list = function() {
+      list(
+        "_" = "Dialog",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer,
+        top_message = self$top_message,
+        read_inbox_max_id = self$read_inbox_max_id,
+        read_outbox_max_id = self$read_outbox_max_id,
+        unread_count = self$unread_count,
+        unread_mentions_count = self$unread_mentions_count,
+        unread_reactions_count = self$unread_reactions_count,
+        notify_settings = if (inherits(self$notify_settings, "TLObject")) self$notify_settings$to_list() else self$notify_settings,
+        pinned = self$pinned,
+        unread_mark = self$unread_mark,
+        view_forum_as_messages = self$view_forum_as_messages,
+        pts = self$pts,
+        draft = if (inherits(self$draft, "TLObject")) self$draft$to_list() else self$draft,
+        folder_id = self$folder_id,
+        ttl_period = self$ttl_period
+      )
+    }
+  )
+)
+
+DialogFilter <- R6::R6Class(
+  "DialogFilter",
+  inherit = TLObject,
+  public = list(
+    id = NULL,
+    title = NULL,
+    pinned_peers = NULL,
+    include_peers = NULL,
+    exclude_peers = NULL,
+    contacts = NULL,
+    non_contacts = NULL,
+    groups = NULL,
+    broadcasts = NULL,
+    bots = NULL,
+    exclude_muted = NULL,
+    exclude_read = NULL,
+    exclude_archived = NULL,
+    title_noanimate = NULL,
+    emoticon = NULL,
+    color = NULL,
+
+    initialize = function(id, title, pinned_peers, include_peers, exclude_peers, contacts = NULL, non_contacts = NULL, groups = NULL, broadcasts = NULL, bots = NULL, exclude_muted = NULL, exclude_read = NULL, exclude_archived = NULL, title_noanimate = NULL, emoticon = NULL, color = NULL) {
+      self$id <- id
+      self$title <- title
+      self$pinned_peers <- pinned_peers
+      self$include_peers <- include_peers
+      self$exclude_peers <- exclude_peers
+      self$contacts <- contacts
+      self$non_contacts <- non_contacts
+      self$groups <- groups
+      self$broadcasts <- broadcasts
+      self$bots <- bots
+      self$exclude_muted <- exclude_muted
+      self$exclude_read <- exclude_read
+      self$exclude_archived <- exclude_archived
+      self$title_noanimate <- title_noanimate
+      self$emoticon <- emoticon
+      self$color <- color
+    },
+
+    to_list = function() {
+      list(
+        "_" = "DialogFilter",
+        id = self$id,
+        title = if (inherits(self$title, "TLObject")) self$title$to_list() else self$title,
+        pinned_peers = lapply(self$pinned_peers, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
+        include_peers = lapply(self$include_peers, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
+        exclude_peers = lapply(self$exclude_peers, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
+        contacts = self$contacts,
+        non_contacts = self$non_contacts,
+        groups = self$groups,
+        broadcasts = self$broadcasts,
+        bots = self$bots,
+        exclude_muted = self$exclude_muted,
+        exclude_read = self$exclude_read,
+        exclude_archived = self$exclude_archived,
+        title_noanimate = self$title_noanimate,
+        emoticon = self$emoticon,
+        color = self$color
+      )
+    }
+  )
+)
+
+
+DialogFolder <- R6::R6Class(
+  "DialogFolder",
+  inherit = TLObject,
+  public = list(
+    folder = NULL,
+    peer = NULL,
+    top_message = NULL,
+    unread_muted_peers_count = NULL,
+    unread_unmuted_peers_count = NULL,
+    unread_muted_messages_count = NULL,
+    unread_unmuted_messages_count = NULL,
+    pinned = NULL,
+
+    initialize = function(folder, peer, top_message, unread_muted_peers_count, unread_unmuted_peers_count, unread_muted_messages_count, unread_unmuted_messages_count, pinned = NULL) {
+      self$folder <- folder
+      self$peer <- peer
+      self$top_message <- top_message
+      self$unread_muted_peers_count <- unread_muted_peers_count
+      self$unread_unmuted_peers_count <- unread_unmuted_peers_count
+      self$unread_muted_messages_count <- unread_muted_messages_count
+      self$unread_unmuted_messages_count <- unread_unmuted_messages_count
+      self$pinned <- pinned
+    },
+
+    to_list = function() {
+      list(
+        "_" = "DialogFolder",
+        folder = if (inherits(self$folder, "TLObject")) self$folder$to_list() else self$folder,
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer,
+        top_message = self$top_message,
+        unread_muted_peers_count = self$unread_muted_peers_count,
+        unread_unmuted_peers_count = self$unread_unmuted_peers_count,
+        unread_muted_messages_count = self$unread_muted_messages_count,
+        unread_unmuted_messages_count = self$unread_unmuted_messages_count,
+        pinned = self$pinned
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x4C, 0x13, 0xBD, 0x71)),
+        as.raw(ifelse(is.null(self$pinned) || !self$pinned, 0, 4)),
+        self$folder$bytes(),
+        self$peer$bytes(),
+        writeBin(as.integer(self$top_message), raw(), size = 4),
+        writeBin(as.integer(self$unread_muted_peers_count), raw(), size = 4),
+        writeBin(as.integer(self$unread_unmuted_peers_count), raw(), size = 4),
+        writeBin(as.integer(self$unread_muted_messages_count), raw(), size = 4),
+        writeBin(as.integer(self$unread_unmuted_messages_count), raw(), size = 4)
+      )
+    }
+  )
+)
+
+
+DialogFilterChatlist <- R6::R6Class(
+  "DialogFilterChatlist",
+  inherit = TLObject,
+  public = list(
+    id = NULL,
+    title = NULL,
+    pinned_peers = NULL,
+    include_peers = NULL,
+    has_my_invites = NULL,
+    title_noanimate = NULL,
+    emoticon = NULL,
+    color = NULL,
+
+    initialize = function(id, title, pinned_peers, include_peers, has_my_invites = NULL, title_noanimate = NULL, emoticon = NULL, color = NULL) {
+      self$id <- id
+      self$title <- title
+      self$pinned_peers <- pinned_peers
+      self$include_peers <- include_peers
+      self$has_my_invites <- has_my_invites
+      self$title_noanimate <- title_noanimate
+      self$emoticon <- emoticon
+      self$color <- color
+    },
+
+    to_list = function() {
+      list(
+        "_" = "DialogFilterChatlist",
+        id = self$id,
+        title = if (inherits(self$title, "TLObject")) self$title$to_list() else self$title,
+        pinned_peers = if (is.null(self$pinned_peers)) list() else lapply(self$pinned_peers, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
+        include_peers = if (is.null(self$include_peers)) list() else lapply(self$include_peers, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
+        has_my_invites = self$has_my_invites,
+        title_noanimate = self$title_noanimate,
+        emoticon = self$emoticon,
+        color = self$color
+      )
+    }
+  )
+)
+
+DialogFilterDefault <- R6::R6Class(
+  "DialogFilterDefault",
+  inherit = TLObject,
+  public = list(
+    to_list = function() {
+      list("_" = "DialogFilterDefault")
+    }
+  )
+)
+
+DialogFilterSuggested <- R6::R6Class(
+  "DialogFilterSuggested",
+  inherit = TLObject,
+  public = list(
+    filter = NULL,
+    description = NULL,
+
+    initialize = function(filter, description) {
+      self$filter <- filter
+      self$description <- description
+    },
+
+    to_list = function() {
+      list(
+        "_" = "DialogFilterSuggested",
+        filter = if (inherits(self$filter, "TLObject")) self$filter$to_list() else self$filter,
+        description = self$description
+      )
+    }
+  )
+)
+
+
+DialogPeer <- R6::R6Class(
+  "DialogPeer",
+  inherit = TLObject,
+  public = list(
+    peer = NULL,
+
+    initialize = function(peer) {
+      self$peer <- peer
+    },
+
+    to_list = function() {
+      list(
+        "_" = "DialogPeer",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x05, 0xBF, 0x6D, 0xE5)),
+        self$peer$bytes()
+      )
+    }
+  )
+)
+
+DialogPeerFolder <- R6::R6Class(
+  "DialogPeerFolder",
+  inherit = TLObject,
+  public = list(
+    folder_id = NULL,
+
+    initialize = function(folder_id) {
+      self$folder_id <- folder_id
+    },
+
+    to_list = function() {
+      list(
+        "_" = "DialogPeerFolder",
+        folder_id = self$folder_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xE2, 0x19, 0x45, 0x51)),
+        writeBin(as.integer(self$folder_id), raw(), size = 4)
+      )
+    }
+  )
+)
+
+
+DisallowedGiftsSettings <- R6::R6Class(
+  "DisallowedGiftsSettings",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x71f276c4L,
+    SUBCLASS_OF_ID = 0x382e9abL,
+
+    disallow_unlimited_stargifts = NULL,
+    disallow_limited_stargifts = NULL,
+    disallow_unique_stargifts = NULL,
+    disallow_premium_gifts = NULL,
+
+    initialize = function(disallow_unlimited_stargifts = NULL, disallow_limited_stargifts = NULL, disallow_unique_stargifts = NULL, disallow_premium_gifts = NULL) {
+      self$disallow_unlimited_stargifts <- disallow_unlimited_stargifts
+      self$disallow_limited_stargifts <- disallow_limited_stargifts
+      self$disallow_unique_stargifts <- disallow_unique_stargifts
+      self$disallow_premium_gifts <- disallow_premium_gifts
+    },
+
+    to_list = function() {
+      list(
+        "_" = "DisallowedGiftsSettings",
+        disallow_unlimited_stargifts = self$disallow_unlimited_stargifts,
+        disallow_limited_stargifts = self$disallow_limited_stargifts,
+        disallow_unique_stargifts = self$disallow_unique_stargifts,
+        disallow_premium_gifts = self$disallow_premium_gifts
+      )
+    },
+
+    bytes = function() {
+      flags <- (if (is.null(self$disallow_unlimited_stargifts) || !self$disallow_unlimited_stargifts) 0 else 1) |
+               (if (is.null(self$disallow_limited_stargifts) || !self$disallow_limited_stargifts) 0 else 2) |
+               (if (is.null(self$disallow_unique_stargifts) || !self$disallow_unique_stargifts) 0 else 4) |
+               (if (is.null(self$disallow_premium_gifts) || !self$disallow_premium_gifts) 0 else 8)
+      c(as.raw(0xc4), as.raw(0x76), as.raw(0xf2), as.raw(0x71), as.raw(flags))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      disallow_unlimited_stargifts <- as.logical(bitwAnd(flags, 1))
+      disallow_limited_stargifts <- as.logical(bitwAnd(flags, 2))
+      disallow_unique_stargifts <- as.logical(bitwAnd(flags, 4))
+      disallow_premium_gifts <- as.logical(bitwAnd(flags, 8))
+      self$new(
+        disallow_unlimited_stargifts = disallow_unlimited_stargifts,
+        disallow_limited_stargifts = disallow_limited_stargifts,
+        disallow_unique_stargifts = disallow_unique_stargifts,
+        disallow_premium_gifts = disallow_premium_gifts
+      )
+    }
+  )
+)
+
+
+Document <- R6::R6Class(
+  "Document",
+  inherit = TLObject,
+  public = list(
+    id = NULL,
+    access_hash = NULL,
+    file_reference = NULL,
+    date = NULL,
+    mime_type = NULL,
+    size = NULL,
+    dc_id = NULL,
+    attributes = NULL,
+    thumbs = NULL,
+    video_thumbs = NULL,
+
+    initialize = function(id, access_hash, file_reference, date, mime_type, size, dc_id, attributes, thumbs = NULL, video_thumbs = NULL) {
+      self$id <- id
+      self$access_hash <- access_hash
+      self$file_reference <- file_reference
+      self$date <- date
+      self$mime_type <- mime_type
+      self$size <- size
+      self$dc_id <- dc_id
+      self$attributes <- attributes
+      self$thumbs <- thumbs
+      self$video_thumbs <- video_thumbs
+    },
+
+    to_list = function() {
+      list(
+        "_" = "Document",
+        id = self$id,
+        access_hash = self$access_hash,
+        file_reference = self$file_reference,
+        date = self$date,
+        mime_type = self$mime_type,
+        size = self$size,
+        dc_id = self$dc_id,
+        attributes = if (is.null(self$attributes)) list() else lapply(self$attributes, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
+        thumbs = if (is.null(self$thumbs)) list() else lapply(self$thumbs, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
+        video_thumbs = if (is.null(self$video_thumbs)) list() else lapply(self$video_thumbs, function(x) if (inherits(x, "TLObject")) x$to_list() else x)
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xd8, 0xc4, 0xd4, 0x8f)),
+        as.raw(bitwOr(if (is.null(self$thumbs)) 0 else 1, if (is.null(self$video_thumbs)) 0 else 2)),
+        writeBin(as.integer64(self$id), raw(), size = 8),
+        writeBin(as.integer64(self$access_hash), raw(), size = 8),
+        self$serialize_bytes(self$file_reference),
+        self$serialize_datetime(self$date),
+        self$serialize_bytes(self$mime_type),
+        writeBin(as.integer64(self$size), raw(), size = 8),
+        if (!is.null(self$thumbs)) c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), writeBin(length(self$thumbs), raw(), size = 4), unlist(lapply(self$thumbs, function(x) x$bytes()))),
+        if (!is.null(self$video_thumbs)) c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), writeBin(length(self$video_thumbs), raw(), size = 4), unlist(lapply(self$video_thumbs, function(x) x$bytes()))),
+        writeBin(as.integer(self$dc_id), raw(), size = 4),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        writeBin(length(self$attributes), raw(), size = 4),
+        unlist(lapply(self$attributes, function(x) x$bytes()))
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      id <- reader$read_long()
+      access_hash <- reader$read_long()
+      file_reference <- reader$tgread_bytes()
+      date <- reader$tgread_date()
+      mime_type <- reader$tgread_string()
+      size <- reader$read_long()
+
+      thumbs <- if (bitwAnd(flags, 1)) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
+      } else NULL
+
+      video_thumbs <- if (bitwAnd(flags, 2)) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
+      } else NULL
+
+      dc_id <- reader$read_int()
+      reader$read_int()
+      attributes <- lapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
+
+      self$new(id = id, access_hash = access_hash, file_reference = file_reference, date = date, mime_type = mime_type, size = size, dc_id = dc_id, attributes = attributes, thumbs = thumbs, video_thumbs = video_thumbs)
+    }
+  )
+)
+
+
+DocumentAttributeAnimated <- R6::R6Class(
+  "DocumentAttributeAnimated",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x11b58939L,
+    SUBCLASS_OF_ID = 0xf729eb9bL,
+
+    to_dict = function() {
+      list('_' = 'DocumentAttributeAnimated')
+    },
+
+    bytes = function() {
+      rawToChar(as.raw(c(0x39, 0x89, 0xb5, 0x11)))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      self$new()
     }
   )
 )
@@ -10677,6 +12843,760 @@ EmailVerifyPurposePassport <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {NULL}
+  )
+)
+
+
+EmojiGroup <- R6::R6Class(
+  "EmojiGroup",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x7a9abda9L,
+    SUBCLASS_OF_ID = 0x55e0a193L,
+
+    title = NULL,
+    icon_emoji_id = NULL,
+    emoticons = NULL,
+
+    initialize = function(title, icon_emoji_id, emoticons) {
+      self$title <- title
+      self$icon_emoji_id <- icon_emoji_id
+      self$emoticons <- emoticons
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EmojiGroup",
+        title = self$title,
+        icon_emoji_id = self$icon_emoji_id,
+        emoticons = if (is.null(self$emoticons)) list() else self$emoticons
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xa9, 0xbd, 0x9a, 0x7a)),
+        serialize_bytes(self$title),
+        writeBin(as.integer64(self$icon_emoji_id), raw(), size = 8),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        writeBin(length(self$emoticons), raw(), size = 4),
+        unlist(lapply(self$emoticons, serialize_bytes))
+      )
+    }
+  )
+)
+
+EmojiGroupGreeting <- R6::R6Class(
+  "EmojiGroupGreeting",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x80d26cc7L,
+    SUBCLASS_OF_ID = 0x55e0a193L,
+
+    title = NULL,
+    icon_emoji_id = NULL,
+    emoticons = NULL,
+
+    initialize = function(title, icon_emoji_id, emoticons) {
+      self$title <- title
+      self$icon_emoji_id <- icon_emoji_id
+      self$emoticons <- emoticons
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EmojiGroupGreeting",
+        title = self$title,
+        icon_emoji_id = self$icon_emoji_id,
+        emoticons = if (is.null(self$emoticons)) list() else self$emoticons
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xc7, 0x6c, 0xd2, 0x80)),
+        serialize_bytes(self$title),
+        writeBin(as.integer64(self$icon_emoji_id), raw(), size = 8),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        writeBin(length(self$emoticons), raw(), size = 4),
+        unlist(lapply(self$emoticons, serialize_bytes))
+      )
+    }
+  )
+)
+
+
+EmojiGroupPremium <- R6::R6Class(
+  "EmojiGroupPremium",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x93bcf34L,
+    SUBCLASS_OF_ID = 0x55e0a193L,
+
+    title = NULL,
+    icon_emoji_id = NULL,
+
+    initialize = function(title, icon_emoji_id) {
+      self$title <- title
+      self$icon_emoji_id <- icon_emoji_id
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EmojiGroupPremium",
+        title = self$title,
+        icon_emoji_id = self$icon_emoji_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x34, 0xcf, 0x3b, 0x09)),
+        serialize_bytes(self$title),
+        writeBin(as.integer(self$icon_emoji_id), raw(), size = 8, endian = "little")
+      )
+    }
+  )
+)
+
+EmojiKeyword <- R6::R6Class(
+  "EmojiKeyword",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xd5b3b9f9L,
+    SUBCLASS_OF_ID = 0x6612a53eL,
+
+    keyword = NULL,
+    emoticons = NULL,
+
+    initialize = function(keyword, emoticons) {
+      self$keyword <- keyword
+      self$emoticons <- emoticons
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EmojiKeyword",
+        keyword = self$keyword,
+        emoticons = if (is.null(self$emoticons)) list() else self$emoticons
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xf9, 0xb9, 0xb3, 0xd5)),
+        serialize_bytes(self$keyword),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        writeBin(as.integer(length(self$emoticons)), raw(), size = 4, endian = "little"),
+        unlist(lapply(self$emoticons, serialize_bytes))
+      )
+    }
+  )
+)
+
+
+EmojiKeywordDeleted <- R6::R6Class(
+  "EmojiKeywordDeleted",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x236df622L,
+    SUBCLASS_OF_ID = 0x6612a53eL,
+
+    keyword = NULL,
+    emoticons = NULL,
+
+    initialize = function(keyword, emoticons) {
+      self$keyword <- keyword
+      self$emoticons <- emoticons
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EmojiKeywordDeleted",
+        keyword = self$keyword,
+        emoticons = if (is.null(self$emoticons)) list() else self$emoticons
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x22, 0xf6, 0x6d, 0x23)),
+        serialize_bytes(self$keyword),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        writeBin(length(self$emoticons), raw(), size = 4),
+        unlist(lapply(self$emoticons, serialize_bytes))
+      )
+    }
+  )
+)
+
+EmojiKeywordsDifference <- R6::R6Class(
+  "EmojiKeywordsDifference",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x5cc761bdL,
+    SUBCLASS_OF_ID = 0xd279c672L,
+
+    lang_code = NULL,
+    from_version = NULL,
+    version = NULL,
+    keywords = NULL,
+
+    initialize = function(lang_code, from_version, version, keywords) {
+      self$lang_code <- lang_code
+      self$from_version <- from_version
+      self$version <- version
+      self$keywords <- keywords
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EmojiKeywordsDifference",
+        lang_code = self$lang_code,
+        from_version = self$from_version,
+        version = self$version,
+        keywords = if (is.null(self$keywords)) list() else lapply(self$keywords, function(x) if (inherits(x, "TLObject")) x$to_list() else x)
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xbd, 0x61, 0xc7, 0x5c)),
+        serialize_bytes(self$lang_code),
+        writeBin(self$from_version, raw(), size = 4),
+        writeBin(self$version, raw(), size = 4),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        writeBin(length(self$keywords), raw(), size = 4),
+        unlist(lapply(self$keywords, function(x) x$bytes()))
+      )
+    }
+  )
+)
+
+
+EmojiLanguage <- R6::R6Class(
+  "EmojiLanguage",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xb3fb5361L,
+    SUBCLASS_OF_ID = 0xa48d04eeL,
+
+    lang_code = NULL,
+
+    initialize = function(lang_code) {
+      self$lang_code <- lang_code
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EmojiLanguage",
+        lang_code = self$lang_code
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xb3, 0xfb, 0x53, 0x61)),
+        serialize_bytes(self$lang_code)
+      )
+    }
+  )
+)
+
+EmojiList <- R6::R6Class(
+  "EmojiList",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x7a1e11d1L,
+    SUBCLASS_OF_ID = 0xbcef6abaL,
+
+    hash = NULL,
+    document_id = NULL,
+
+    initialize = function(hash, document_id) {
+      self$hash <- hash
+      self$document_id <- document_id
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EmojiList",
+        hash = self$hash,
+        document_id = if (is.null(self$document_id)) list() else self$document_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xd1, 0x11, 0x1e, 0x7a)),
+        writeBin(as.integer(self$hash), raw(), size = 8, endian = "little"),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        writeBin(as.integer(length(self$document_id)), raw(), size = 4, endian = "little"),
+        unlist(lapply(self$document_id, function(x) writeBin(as.integer(x), raw(), size = 8, endian = "little")))
+      )
+    }
+  )
+)
+
+
+EmojiListNotModified <- R6::R6Class(
+  "EmojiListNotModified",
+  inherit = TLObject,
+  public = list(
+    to_list = function() {
+      list("_" = "EmojiListNotModified")
+    },
+    bytes = function() {
+      rawToChar(as.raw(c(0xfa, 0xad, 0x1e, 0x48)))
+    }
+  )
+)
+
+EmojiStatus <- R6::R6Class(
+  "EmojiStatus",
+  inherit = TLObject,
+  public = list(
+    document_id = NULL,
+    until = NULL,
+
+    initialize = function(document_id, until = NULL) {
+      self$document_id <- document_id
+      self$until <- until
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EmojiStatus",
+        document_id = self$document_id,
+        until = self$until
+      )
+    },
+
+    bytes = function() {
+      flags <- if (is.null(self$until)) 0 else 1
+      c(
+        rawToChar(as.raw(c(0x8a, 0x06, 0xff, 0xe7))),
+        as.raw(flags),
+        writeBin(as.integer(self$document_id), raw(), size = 8, endian = "little"),
+        if (!is.null(self$until)) serialize_datetime(self$until) else raw()
+      )
+    }
+  )
+)
+
+
+EmojiStatusCollectible <- R6::R6Class(
+  "EmojiStatusCollectible",
+  inherit = TLObject,
+  public = list(
+    collectible_id = NULL,
+    document_id = NULL,
+    title = NULL,
+    slug = NULL,
+    pattern_document_id = NULL,
+    center_color = NULL,
+    edge_color = NULL,
+    pattern_color = NULL,
+    text_color = NULL,
+    until = NULL,
+
+    initialize = function(collectible_id, document_id, title, slug, pattern_document_id, center_color, edge_color, pattern_color, text_color, until = NULL) {
+      self$collectible_id <- collectible_id
+      self$document_id <- document_id
+      self$title <- title
+      self$slug <- slug
+      self$pattern_document_id <- pattern_document_id
+      self$center_color <- center_color
+      self$edge_color <- edge_color
+      self$pattern_color <- pattern_color
+      self$text_color <- text_color
+      self$until <- until
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EmojiStatusCollectible",
+        collectible_id = self$collectible_id,
+        document_id = self$document_id,
+        title = self$title,
+        slug = self$slug,
+        pattern_document_id = self$pattern_document_id,
+        center_color = self$center_color,
+        edge_color = self$edge_color,
+        pattern_color = self$pattern_color,
+        text_color = self$text_color,
+        until = self$until
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x3B, 0x60, 0x84, 0x71)),
+        as.raw(if (is.null(self$until) || self$until == FALSE) 0 else 1),
+        writeBin(as.integer64(self$collectible_id), raw(), size = 8),
+        writeBin(as.integer64(self$document_id), raw(), size = 8),
+        serialize(self$title, NULL),
+        serialize(self$slug, NULL),
+        writeBin(as.integer64(self$pattern_document_id), raw(), size = 8),
+        writeBin(as.integer(self$center_color), raw(), size = 4),
+        writeBin(as.integer(self$edge_color), raw(), size = 4),
+        writeBin(as.integer(self$pattern_color), raw(), size = 4),
+        writeBin(as.integer(self$text_color), raw(), size = 4),
+        if (!is.null(self$until) && self$until != FALSE) serialize(self$until, NULL) else raw()
+      )
+    }
+  )
+)
+
+
+EmojiStatusEmpty <- R6::R6Class(
+  "EmojiStatusEmpty",
+  inherit = TLObject,
+  public = list(
+    to_list = function() {
+      list("_" = "EmojiStatusEmpty")
+    },
+    bytes = function() {
+      rawToChar(as.raw(c(0xae, 0x1a, 0xe1, 0x2d)))
+    }
+  )
+)
+
+EmojiURL <- R6::R6Class(
+  "EmojiURL",
+  inherit = TLObject,
+  public = list(
+    url = NULL,
+    initialize = function(url) {
+      self$url <- url
+    },
+    to_list = function() {
+      list("_" = "EmojiURL", url = self$url)
+    },
+    bytes = function() {
+      rawToChar(as.raw(c(0x9d, 0x73, 0x75, 0xa5))) %>%
+        paste0(self$url)
+    }
+  )
+)
+
+
+
+EncryptedChat <- R6::R6Class(
+  "EncryptedChat",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x61f0d4c7L,
+    SUBCLASS_OF_ID = 0x6d28a37aL,
+
+    id = NULL,
+    access_hash = NULL,
+    date = NULL,
+    admin_id = NULL,
+    participant_id = NULL,
+    g_a_or_b = NULL,
+    key_fingerprint = NULL,
+
+    initialize = function(id, access_hash, date, admin_id, participant_id, g_a_or_b, key_fingerprint) {
+      self$id <- id
+      self$access_hash <- access_hash
+      self$date <- date
+      self$admin_id <- admin_id
+      self$participant_id <- participant_id
+      self$g_a_or_b <- g_a_or_b
+      self$key_fingerprint <- key_fingerprint
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EncryptedChat",
+        id = self$id,
+        access_hash = self$access_hash,
+        date = self$date,
+        admin_id = self$admin_id,
+        participant_id = self$participant_id,
+        g_a_or_b = self$g_a_or_b,
+        key_fingerprint = self$key_fingerprint
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xc7, 0xd4, 0xf0, 0x61)),
+        writeBin(as.integer(self$id), raw(), size = 4, endian = "little"),
+        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little"),
+        self$serialize_datetime(self$date),
+        writeBin(as.numeric(self$admin_id), raw(), size = 8, endian = "little"),
+        writeBin(as.numeric(self$participant_id), raw(), size = 8, endian = "little"),
+        self$serialize_bytes(self$g_a_or_b),
+        writeBin(as.numeric(self$key_fingerprint), raw(), size = 8, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      id <- reader$read_int()
+      access_hash <- reader$read_long()
+      date <- reader$tgread_date()
+      admin_id <- reader$read_long()
+      participant_id <- reader$read_long()
+      g_a_or_b <- reader$tgread_bytes()
+      key_fingerprint <- reader$read_long()
+      EncryptedChat$new(
+        id = id,
+        access_hash = access_hash,
+        date = date,
+        admin_id = admin_id,
+        participant_id = participant_id,
+        g_a_or_b = g_a_or_b,
+        key_fingerprint = key_fingerprint
+      )
+    }
+  )
+)
+
+
+EncryptedChatDiscarded <- R6::R6Class(
+  "EncryptedChatDiscarded",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x1e1c7c45L,
+    SUBCLASS_OF_ID = 0x6d28a37aL,
+
+    id = NULL,
+    history_deleted = NULL,
+
+    initialize = function(id, history_deleted = NULL) {
+      self$id <- id
+      self$history_deleted <- history_deleted
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EncryptedChatDiscarded",
+        id = self$id,
+        history_deleted = self$history_deleted
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x45, 0x7c, 0x1c, 0x1e)),
+        as.raw(ifelse(is.null(self$history_deleted) || !self$history_deleted, 0, 1)),
+        writeBin(as.integer(self$id), raw(), size = 4, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      history_deleted <- as.logical(bitwAnd(flags, 1))
+      id <- reader$read_int()
+      self$new(id = id, history_deleted = history_deleted)
+    }
+  )
+)
+
+
+EncryptedChatEmpty <- R6::R6Class(
+  "EncryptedChatEmpty",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xab7ec0a0L,
+    SUBCLASS_OF_ID = 0x6d28a37aL,
+
+    id = NULL,
+
+    initialize = function(id) {
+      self$id <- id
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EncryptedChatEmpty",
+        id = self$id
+      )
+    },
+
+    bytes = function() {
+      rawToChar(c(
+        as.raw(c(0xa0, 0xc0, 0x7e, 0xab)),
+        writeBin(as.integer(self$id), raw(), size = 4, endian = "little")
+      ))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      id <- reader$read_int()
+      self$new(id = id)
+    }
+  )
+)
+
+
+EncryptedChatRequested <- R6::R6Class(
+  "EncryptedChatRequested",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x48f1d94cL,
+    SUBCLASS_OF_ID = 0x6d28a37aL,
+
+    id = NULL,
+    access_hash = NULL,
+    date = NULL,
+    admin_id = NULL,
+    participant_id = NULL,
+    g_a = NULL,
+    folder_id = NULL,
+
+    initialize = function(id, access_hash, date, admin_id, participant_id, g_a, folder_id = NULL) {
+      self$id <- id
+      self$access_hash <- access_hash
+      self$date <- date
+      self$admin_id <- admin_id
+      self$participant_id <- participant_id
+      self$g_a <- g_a
+      self$folder_id <- folder_id
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EncryptedChatRequested",
+        id = self$id,
+        access_hash = self$access_hash,
+        date = self$date,
+        admin_id = self$admin_id,
+        participant_id = self$participant_id,
+        g_a = self$g_a,
+        folder_id = self$folder_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x48, 0xf1, 0xd9, 0x4c)),
+        if (is.null(self$folder_id)) as.raw(0) else as.raw(1),
+        if (!is.null(self$folder_id)) writeBin(as.integer(self$folder_id), raw(), size = 4),
+        writeBin(as.integer(self$id), raw(), size = 4),
+        writeBin(as.integer64(self$access_hash), raw(), size = 8),
+        self$serialize_datetime(self$date),
+        writeBin(as.integer64(self$admin_id), raw(), size = 8),
+        writeBin(as.integer64(self$participant_id), raw(), size = 8),
+        self$serialize_bytes(self$g_a)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      folder_id <- if (bitwAnd(flags, 1) != 0) reader$read_int() else NULL
+      id <- reader$read_int()
+      access_hash <- reader$read_long()
+      date <- reader$tgread_date()
+      admin_id <- reader$read_long()
+      participant_id <- reader$read_long()
+      g_a <- reader$tgread_bytes()
+
+      self$new(
+        id = id,
+        access_hash = access_hash,
+        date = date,
+        admin_id = admin_id,
+        participant_id = participant_id,
+        g_a = g_a,
+        folder_id = folder_id
+      )
+    }
+  )
+)
+
+
+EncryptedChatWaiting <- R6::R6Class(
+  "EncryptedChatWaiting",
+  inherit = TLObject,
+  public = list(
+    id = NULL,
+    access_hash = NULL,
+    date = NULL,
+    admin_id = NULL,
+    participant_id = NULL,
+
+    initialize = function(id, access_hash, date, admin_id, participant_id) {
+      self$id <- id
+      self$access_hash <- access_hash
+      self$date <- date
+      self$admin_id <- admin_id
+      self$participant_id <- participant_id
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EncryptedChatWaiting",
+        id = self$id,
+        access_hash = self$access_hash,
+        date = self$date,
+        admin_id = self$admin_id,
+        participant_id = self$participant_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x53, 0xB2, 0x66)),
+        writeBin(as.integer(self$id), raw(), size = 4, endian = "little"),
+        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little"),
+        serialize_datetime(self$date),
+        writeBin(as.numeric(self$admin_id), raw(), size = 8, endian = "little"),
+        writeBin(as.numeric(self$participant_id), raw(), size = 8, endian = "little")
+      )
+    }
+  )
+)
+
+EncryptedFile <- R6::R6Class(
+  "EncryptedFile",
+  inherit = TLObject,
+  public = list(
+    id = NULL,
+    access_hash = NULL,
+    size = NULL,
+    dc_id = NULL,
+    key_fingerprint = NULL,
+
+    initialize = function(id, access_hash, size, dc_id, key_fingerprint) {
+      self$id <- id
+      self$access_hash <- access_hash
+      self$size <- size
+      self$dc_id <- dc_id
+      self$key_fingerprint <- key_fingerprint
+    },
+
+    to_list = function() {
+      list(
+        "_" = "EncryptedFile",
+        id = self$id,
+        access_hash = self$access_hash,
+        size = self$size,
+        dc_id = self$dc_id,
+        key_fingerprint = self$key_fingerprint
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xD8, 0x8C, 0x00, 0xA8)),
+        writeBin(as.numeric(self$id), raw(), size = 8, endian = "little"),
+        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little"),
+        writeBin(as.numeric(self$size), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$dc_id), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(self$key_fingerprint), raw(), size = 4, endian = "little")
+      )
+    }
   )
 )
 
@@ -11194,6 +14114,3930 @@ GlobalPrivacySettings <- R6::R6Class("GlobalPrivacySettings",
     }
   )
 )
+
+
+GroupCall <- R6::R6Class(
+  "GroupCall",
+  inherit = TLObject,
+  public = list(
+    id = NULL,
+    access_hash = NULL,
+    participants_count = NULL,
+    unmuted_video_limit = NULL,
+    version = NULL,
+    join_muted = NULL,
+    can_change_join_muted = NULL,
+    join_date_asc = NULL,
+    schedule_start_subscribed = NULL,
+    can_start_video = NULL,
+    record_video_active = NULL,
+    rtmp_stream = NULL,
+    listeners_hidden = NULL,
+    conference = NULL,
+    creator = NULL,
+    title = NULL,
+    stream_dc_id = NULL,
+    record_start_date = NULL,
+    schedule_date = NULL,
+    unmuted_video_count = NULL,
+    invite_link = NULL,
+
+    initialize = function(id, access_hash, participants_count, unmuted_video_limit, version,
+                          join_muted = NULL, can_change_join_muted = NULL, join_date_asc = NULL,
+                          schedule_start_subscribed = NULL, can_start_video = NULL,
+                          record_video_active = NULL, rtmp_stream = NULL, listeners_hidden = NULL,
+                          conference = NULL, creator = NULL, title = NULL, stream_dc_id = NULL,
+                          record_start_date = NULL, schedule_date = NULL, unmuted_video_count = NULL,
+                          invite_link = NULL) {
+      self$id <- id
+      self$access_hash <- access_hash
+      self$participants_count <- participants_count
+      self$unmuted_video_limit <- unmuted_video_limit
+      self$version <- version
+      self$join_muted <- join_muted
+      self$can_change_join_muted <- can_change_join_muted
+      self$join_date_asc <- join_date_asc
+      self$schedule_start_subscribed <- schedule_start_subscribed
+      self$can_start_video <- can_start_video
+      self$record_video_active <- record_video_active
+      self$rtmp_stream <- rtmp_stream
+      self$listeners_hidden <- listeners_hidden
+      self$conference <- conference
+      self$creator <- creator
+      self$title <- title
+      self$stream_dc_id <- stream_dc_id
+      self$record_start_date <- record_start_date
+      self$schedule_date <- schedule_date
+      self$unmuted_video_count <- unmuted_video_count
+      self$invite_link <- invite_link
+    },
+
+    to_list = function() {
+      list(
+        "_" = "GroupCall",
+        id = self$id,
+        access_hash = self$access_hash,
+        participants_count = self$participants_count,
+        unmuted_video_limit = self$unmuted_video_limit,
+        version = self$version,
+        join_muted = self$join_muted,
+        can_change_join_muted = self$can_change_join_muted,
+        join_date_asc = self$join_date_asc,
+        schedule_start_subscribed = self$schedule_start_subscribed,
+        can_start_video = self$can_start_video,
+        record_video_active = self$record_video_active,
+        rtmp_stream = self$rtmp_stream,
+        listeners_hidden = self$listeners_hidden,
+        conference = self$conference,
+        creator = self$creator,
+        title = self$title,
+        stream_dc_id = self$stream_dc_id,
+        record_start_date = self$record_start_date,
+        schedule_date = self$schedule_date,
+        unmuted_video_count = self$unmuted_video_count,
+        invite_link = self$invite_link
+      )
+    }
+  )
+)
+
+
+GroupCallDiscarded <- R6::R6Class(
+  "GroupCallDiscarded",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x7780bcb4L,
+    SUBCLASS_OF_ID = 0x20b4f320L,
+
+    id = NULL,
+    access_hash = NULL,
+    duration = NULL,
+
+    initialize = function(id, access_hash, duration) {
+      self$id <- id
+      self$access_hash <- access_hash
+      self$duration <- duration
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "GroupCallDiscarded",
+        id = self$id,
+        access_hash = self$access_hash,
+        duration = self$duration
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xb4, 0xbc, 0x80, 0x77)),
+        writeBin(as.integer64(self$id), raw(), size = 8, endian = "little"),
+        writeBin(as.integer64(self$access_hash), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$duration), raw(), size = 4, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      id <- reader$read_long()
+      access_hash <- reader$read_long()
+      duration <- reader$read_int()
+      self$new(id = id, access_hash = access_hash, duration = duration)
+    }
+  )
+)
+
+
+GroupCallParticipant <- R6::R6Class(
+  "GroupCallParticipant",
+  inherit = TLObject,
+  public = list(
+    peer = NULL,
+    date = NULL,
+    source = NULL,
+    muted = NULL,
+    left = NULL,
+    can_self_unmute = NULL,
+    just_joined = NULL,
+    versioned = NULL,
+    min = NULL,
+    muted_by_you = NULL,
+    volume_by_admin = NULL,
+    is_self = NULL,
+    video_joined = NULL,
+    active_date = NULL,
+    volume = NULL,
+    about = NULL,
+    raise_hand_rating = NULL,
+    video = NULL,
+    presentation = NULL,
+
+    initialize = function(peer, date = NULL, source, muted = NULL, left = NULL, can_self_unmute = NULL,
+                          just_joined = NULL, versioned = NULL, min = NULL, muted_by_you = NULL,
+                          volume_by_admin = NULL, is_self = NULL, video_joined = NULL, active_date = NULL,
+                          volume = NULL, about = NULL, raise_hand_rating = NULL, video = NULL,
+                          presentation = NULL) {
+      self$peer <- peer
+      self$date <- date
+      self$source <- source
+      self$muted <- muted
+      self$left <- left
+      self$can_self_unmute <- can_self_unmute
+      self$just_joined <- just_joined
+      self$versioned <- versioned
+      self$min <- min
+      self$muted_by_you <- muted_by_you
+      self$volume_by_admin <- volume_by_admin
+      self$is_self <- is_self
+      self$video_joined <- video_joined
+      self$active_date <- active_date
+      self$volume <- volume
+      self$about <- about
+      self$raise_hand_rating <- raise_hand_rating
+      self$video <- video
+      self$presentation <- presentation
+    },
+
+    to_list = function() {
+      list(
+        "_" = "GroupCallParticipant",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer,
+        date = self$date,
+        source = self$source,
+        muted = self$muted,
+        left = self$left,
+        can_self_unmute = self$can_self_unmute,
+        just_joined = self$just_joined,
+        versioned = self$versioned,
+        min = self$min,
+        muted_by_you = self$muted_by_you,
+        volume_by_admin = self$volume_by_admin,
+        is_self = self$is_self,
+        video_joined = self$video_joined,
+        active_date = self$active_date,
+        volume = self$volume,
+        about = self$about,
+        raise_hand_rating = self$raise_hand_rating,
+        video = if (inherits(self$video, "TLObject")) self$video$to_list() else self$video,
+        presentation = if (inherits(self$presentation, "TLObject")) self$presentation$to_list() else self$presentation
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      muted <- as.logical(bitwAnd(flags, 1))
+      left <- as.logical(bitwAnd(flags, 2))
+      can_self_unmute <- as.logical(bitwAnd(flags, 4))
+      just_joined <- as.logical(bitwAnd(flags, 16))
+      versioned <- as.logical(bitwAnd(flags, 32))
+      min <- as.logical(bitwAnd(flags, 256))
+      muted_by_you <- as.logical(bitwAnd(flags, 512))
+      volume_by_admin <- as.logical(bitwAnd(flags, 1024))
+      is_self <- as.logical(bitwAnd(flags, 4096))
+      video_joined <- as.logical(bitwAnd(flags, 32768))
+
+      peer <- reader$tgread_object()
+      date <- reader$tgread_date()
+
+      active_date <- if (bitwAnd(flags, 8)) reader$tgread_date() else NULL
+      source <- reader$read_int()
+      volume <- if (bitwAnd(flags, 128)) reader$read_int() else NULL
+      about <- if (bitwAnd(flags, 2048)) reader$tgread_string() else NULL
+      raise_hand_rating <- if (bitwAnd(flags, 8192)) reader$read_long() else NULL
+      video <- if (bitwAnd(flags, 64)) reader$tgread_object() else NULL
+      presentation <- if (bitwAnd(flags, 16384)) reader$tgread_object() else NULL
+
+      self$new(peer = peer, date = date, source = source, muted = muted, left = left,
+               can_self_unmute = can_self_unmute, just_joined = just_joined, versioned = versioned,
+               min = min, muted_by_you = muted_by_you, volume_by_admin = volume_by_admin,
+               is_self = is_self, video_joined = video_joined, active_date = active_date,
+               volume = volume, about = about, raise_hand_rating = raise_hand_rating,
+               video = video, presentation = presentation)
+    }
+  )
+)
+
+
+GroupCallParticipantVideo <- R6::R6Class(
+  "GroupCallParticipantVideo",
+  inherit = TLObject,
+  public = list(
+    endpoint = NULL,
+    source_groups = NULL,
+    paused = NULL,
+    audio_source = NULL,
+
+    initialize = function(endpoint, source_groups, paused = NULL, audio_source = NULL) {
+      self$endpoint <- endpoint
+      self$source_groups <- source_groups
+      self$paused <- paused
+      self$audio_source <- audio_source
+    },
+
+    to_list = function() {
+      list(
+        "_" = "GroupCallParticipantVideo",
+        endpoint = self$endpoint,
+        source_groups = if (is.null(self$source_groups)) list() else lapply(self$source_groups, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
+        paused = self$paused,
+        audio_source = self$audio_source
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xc8, 0x3a, 0x75, 0x67)),
+        as.raw(bitwOr(if (is.null(self$paused) || !self$paused) 0 else 1, if (is.null(self$audio_source)) 0 else 2)),
+        serialize_bytes(self$endpoint),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        serialize_int(length(self$source_groups)),
+        unlist(lapply(self$source_groups, function(x) x$bytes())),
+        if (is.null(self$audio_source)) raw() else serialize_int(self$audio_source)
+      )
+    }
+  )
+)
+
+GroupCallParticipantVideoSourceGroup <- R6::R6Class(
+  "GroupCallParticipantVideoSourceGroup",
+  inherit = TLObject,
+  public = list(
+    semantics = NULL,
+    sources = NULL,
+
+    initialize = function(semantics, sources) {
+      self$semantics <- semantics
+      self$sources <- sources
+    },
+
+    to_list = function() {
+      list(
+        "_" = "GroupCallParticipantVideoSourceGroup",
+        semantics = self$semantics,
+        sources = if (is.null(self$sources)) list() else self$sources
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xb7, 0x18, 0xb1, 0xdc)),
+        serialize_bytes(self$semantics),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        serialize_int(length(self$sources)),
+        unlist(lapply(self$sources, serialize_int))
+      )
+    }
+  )
+)
+
+
+GroupCallStreamChannel <- R6::R6Class(
+  "GroupCallStreamChannel",
+  public = list(
+    channel = NULL,
+    scale = NULL,
+    lastTimestampMs = NULL,
+
+    initialize = function(channel, scale, lastTimestampMs) {
+      self$channel <- channel
+      self$scale <- scale
+      self$lastTimestampMs <- lastTimestampMs
+    },
+
+    to_list = function() {
+      list(
+        "_" = "GroupCallStreamChannel",
+        channel = self$channel,
+        scale = self$scale,
+        lastTimestampMs = self$lastTimestampMs
+      )
+    },
+
+    bytes = function() {
+      rawToChar(c(
+        as.raw(c(0xaf, 0x48, 0xeb, 0x80)),
+        writeBin(as.integer(self$channel), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(self$scale), raw(), size = 4, endian = "little"),
+        writeBin(as.numeric(self$lastTimestampMs), raw(), size = 8, endian = "little")
+      ))
+    }
+  )
+)
+
+HighScore <- R6::R6Class(
+  "HighScore",
+  public = list(
+    pos = NULL,
+    userId = NULL,
+    score = NULL,
+
+    initialize = function(pos, userId, score) {
+      self$pos <- pos
+      self$userId <- userId
+      self$score <- score
+    },
+
+    to_list = function() {
+      list(
+        "_" = "HighScore",
+        pos = self$pos,
+        userId = self$userId,
+        score = self$score
+      )
+    },
+
+    bytes = function() {
+      rawToChar(c(
+        as.raw(c(0xeb, 0x79, 0xa3, 0x73)),
+        writeBin(as.integer(self$pos), raw(), size = 4, endian = "little"),
+        writeBin(as.numeric(self$userId), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$score), raw(), size = 4, endian = "little")
+      ))
+    }
+  )
+)
+
+
+HttpWait <- R6::R6Class(
+  "HttpWait",
+  public = list(
+    max_delay = NULL,
+    wait_after = NULL,
+    max_wait = NULL,
+
+    initialize = function(max_delay, wait_after, max_wait) {
+      self$max_delay <- max_delay
+      self$wait_after <- wait_after
+      self$max_wait <- max_wait
+    },
+
+    to_list = function() {
+      list(
+        "_" = "HttpWait",
+        max_delay = self$max_delay,
+        wait_after = self$wait_after,
+        max_wait = self$max_wait
+      )
+    },
+
+    bytes = function() {
+      rawToChar(c(
+        as.raw(c(0x9f, 0x35, 0x99, 0x92)),
+        writeBin(as.integer(self$max_delay), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(self$wait_after), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(self$max_wait), raw(), size = 4, endian = "little")
+      ))
+    }
+  )
+)
+
+ImportedContact <- R6::R6Class(
+  "ImportedContact",
+  public = list(
+    user_id = NULL,
+    client_id = NULL,
+
+    initialize = function(user_id, client_id) {
+      self$user_id <- user_id
+      self$client_id <- client_id
+    },
+
+    to_list = function() {
+      list(
+        "_" = "ImportedContact",
+        user_id = self$user_id,
+        client_id = self$client_id
+      )
+    },
+
+    bytes = function() {
+      rawToChar(c(
+        as.raw(c(0x50, 0x3c, 0x3e, 0xc1)),
+        writeBin(as.integer(self$user_id), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$client_id), raw(), size = 8, endian = "little")
+      ))
+    }
+  )
+)
+
+
+InlineBotSwitchPM <- R6::R6Class(
+  "InlineBotSwitchPM",
+  public = list(
+    text = NULL,
+    start_param = NULL,
+
+    initialize = function(text, start_param) {
+      self$text <- text
+      self$start_param <- start_param
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InlineBotSwitchPM",
+        text = self$text,
+        start_param = self$start_param
+      )
+    },
+
+    bytes = function() {
+      paste0(
+        "\x9f\x62\x20\x3c",
+        self$serialize_bytes(self$text),
+        self$serialize_bytes(self$start_param)
+      )
+    },
+
+    serialize_bytes = function(value) {
+      # Placeholder for serialization logic
+      value
+    }
+  )
+)
+
+InlineBotWebView <- R6::R6Class(
+  "InlineBotWebView",
+  public = list(
+    text = NULL,
+    url = NULL,
+
+    initialize = function(text, url) {
+      self$text <- text
+      self$url <- url
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InlineBotWebView",
+        text = self$text,
+        url = self$url
+      )
+    },
+
+    bytes = function() {
+      paste0(
+        "\xd5\x95\x72\xb5",
+        self$serialize_bytes(self$text),
+        self$serialize_bytes(self$url)
+      )
+    },
+
+    serialize_bytes = function(value) {
+      # Placeholder for serialization logic
+      value
+    }
+  )
+)
+
+
+InlineQueryPeerTypeBotPM <- R6::R6Class(
+  "InlineQueryPeerTypeBotPM",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x0e3b2d0cL,
+    SUBCLASS_OF_ID = 0xafb0fa1fL,
+
+    to_list = function() {
+      list("_" = "InlineQueryPeerTypeBotPM")
+    },
+
+    bytes = function() {
+      rawToBits(as.raw(c(0x0c, 0x2d, 0x3b, 0x0e)))
+    }
+  )
+)
+
+InlineQueryPeerTypeBroadcast <- R6::R6Class(
+  "InlineQueryPeerTypeBroadcast",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x6334ee9aL,
+    SUBCLASS_OF_ID = 0xafb0fa1fL,
+
+    to_list = function() {
+      list("_" = "InlineQueryPeerTypeBroadcast")
+    },
+
+    bytes = function() {
+      rawToBits(as.raw(c(0x9a, 0xee, 0x34, 0x63)))
+    }
+  )
+)
+
+InlineQueryPeerTypeChat <- R6::R6Class(
+  "InlineQueryPeerTypeChat",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xd766c50aL,
+    SUBCLASS_OF_ID = 0xafb0fa1fL,
+
+    to_list = function() {
+      list("_" = "InlineQueryPeerTypeChat")
+    },
+
+    bytes = function() {
+      rawToBits(as.raw(c(0x0a, 0xc5, 0x66, 0xd7)))
+    }
+  )
+)
+
+
+InlineQueryPeerTypeMegagroup <- R6::R6Class(
+  "InlineQueryPeerTypeMegagroup",
+  inherit = TLObject,
+  public = list(
+    to_list = function() {
+      list("_" = "InlineQueryPeerTypeMegagroup")
+    },
+    bytes = function() {
+      rawToChar(as.raw(c(0x43, 0xbe, 0xc4, 0x5e)))
+    }
+  )
+)
+
+InlineQueryPeerTypePM <- R6::R6Class(
+  "InlineQueryPeerTypePM",
+  inherit = TLObject,
+  public = list(
+    to_list = function() {
+      list("_" = "InlineQueryPeerTypePM")
+    },
+    bytes = function() {
+      rawToChar(as.raw(c(0xac, 0x0f, 0x3c, 0x83)))
+    }
+  )
+)
+
+InlineQueryPeerTypeSameBotPM <- R6::R6Class(
+  "InlineQueryPeerTypeSameBotPM",
+  inherit = TLObject,
+  public = list(
+    to_list = function() {
+      list("_" = "InlineQueryPeerTypeSameBotPM")
+    },
+    bytes = function() {
+      rawToChar(as.raw(c(0x9d, 0xed, 0x81, 0x30)))
+    }
+  )
+)
+
+
+InputAppEvent <- R6::R6Class(
+  "InputAppEvent",
+  public = list(
+    time = NULL,
+    type = NULL,
+    peer = NULL,
+    data = NULL,
+
+    initialize = function(time, type, peer, data) {
+      self$time <- time
+      self$type <- type
+      self$peer <- peer
+      self$data <- data
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputAppEvent",
+        time = self$time,
+        type = self$type,
+        peer = self$peer,
+        data = if (inherits(self$data, "TLObject")) self$data$to_list() else self$data
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x1d, 0x1b, 0x12, 0x45)),
+        writeBin(self$time, raw(), size = 8),
+        serialize_bytes(self$type),
+        writeBin(self$peer, raw(), size = 8),
+        self$data$bytes()
+      )
+    }
+  )
+)
+
+InputBotAppID <- R6::R6Class(
+  "InputBotAppID",
+  public = list(
+    id = NULL,
+    access_hash = NULL,
+
+    initialize = function(id, access_hash) {
+      self$id <- id
+      self$access_hash <- access_hash
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotAppID",
+        id = self$id,
+        access_hash = self$access_hash
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xa9, 0x20, 0xbd, 0x7a)),
+        writeBin(self$id, raw(), size = 8),
+        writeBin(self$access_hash, raw(), size = 8)
+      )
+    }
+  )
+)
+
+
+InputBotAppShortName <- R6::R6Class(
+  "InputBotAppShortName",
+  inherit = TLObject,
+  public = list(
+    bot_id = NULL,
+    short_name = NULL,
+
+    initialize = function(bot_id, short_name) {
+      self$bot_id <- bot_id
+      self$short_name <- short_name
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputBotAppShortName",
+        bot_id = if (inherits(self$bot_id, "TLObject")) self$bot_id$to_dict() else self$bot_id,
+        short_name = self$short_name
+      )
+    },
+
+    bytes = function() {
+      paste0(
+        "\x07\x04\x8c\x90",
+        self$bot_id$bytes(),
+        serialize_bytes(self$short_name)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      bot_id <- reader$tgread_object()
+      short_name <- reader$tgread_string()
+      self$new(bot_id = bot_id, short_name = short_name)
+    }
+  )
+)
+
+InputBotInlineMessageGame <- R6::R6Class(
+  "InputBotInlineMessageGame",
+  inherit = TLObject,
+  public = list(
+    reply_markup = NULL,
+
+    initialize = function(reply_markup = NULL) {
+      self$reply_markup <- reply_markup
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputBotInlineMessageGame",
+        reply_markup = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_dict() else self$reply_markup
+      )
+    },
+
+    bytes = function() {
+      paste0(
+        "dXBK",
+        as.character(if (is.null(self$reply_markup) || !self$reply_markup) 0 else 4),
+        if (is.null(self$reply_markup) || !self$reply_markup) "" else self$reply_markup$bytes()
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      reply_markup <- if (bitwAnd(flags, 4)) reader$tgread_object() else NULL
+      self$new(reply_markup = reply_markup)
+    }
+  )
+)
+
+
+InputBotInlineMessageID <- R6::R6Class(
+  "InputBotInlineMessageID",
+  inherit = TLObject,
+  public = list(
+    dc_id = NULL,
+    id = NULL,
+    access_hash = NULL,
+
+    initialize = function(dc_id, id, access_hash) {
+      self$dc_id <- dc_id
+      self$id <- id
+      self$access_hash <- access_hash
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotInlineMessageID",
+        dc_id = self$dc_id,
+        id = self$id,
+        access_hash = self$access_hash
+      )
+    },
+
+    bytes = function() {
+      rawToBits(c(
+        as.raw(0x89), as.raw(0x3d), as.raw(0x0c), as.raw(0x89),
+        writeBin(as.integer(self$dc_id), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(self$id), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$access_hash), raw(), size = 8, endian = "little")
+      ))
+    }
+  )
+)
+
+InputBotInlineMessageID64 <- R6::R6Class(
+  "InputBotInlineMessageID64",
+  inherit = TLObject,
+  public = list(
+    dc_id = NULL,
+    owner_id = NULL,
+    id = NULL,
+    access_hash = NULL,
+
+    initialize = function(dc_id, owner_id, id, access_hash) {
+      self$dc_id <- dc_id
+      self$owner_id <- owner_id
+      self$id <- id
+      self$access_hash <- access_hash
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotInlineMessageID64",
+        dc_id = self$dc_id,
+        owner_id = self$owner_id,
+        id = self$id,
+        access_hash = self$access_hash
+      )
+    },
+
+    bytes = function() {
+      rawToBits(c(
+        as.raw(0xd7), as.raw(0x15), as.raw(0xd9), as.raw(0xb6),
+        writeBin(as.integer(self$dc_id), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(self$owner_id), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$id), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(self$access_hash), raw(), size = 8, endian = "little")
+      ))
+    }
+  )
+)
+
+
+InputBotInlineMessageMediaAuto <- R6::R6Class(
+  "InputBotInlineMessageMediaAuto",
+  inherit = TLObject,
+  public = list(
+    message = NULL,
+    invert_media = NULL,
+    entities = NULL,
+    reply_markup = NULL,
+
+    initialize = function(message, invert_media = NULL, entities = NULL, reply_markup = NULL) {
+      self$message <- message
+      self$invert_media <- invert_media
+      self$entities <- entities
+      self$reply_markup <- reply_markup
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotInlineMessageMediaAuto",
+        message = self$message,
+        invert_media = self$invert_media,
+        entities = if (is.null(self$entities)) list() else lapply(self$entities, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
+        reply_markup = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x86, 0xc7, 0x80, 0x33)),
+        as.raw(bitwOr(
+          if (is.null(self$invert_media) || !self$invert_media) 0 else 8,
+          if (is.null(self$entities) || length(self$entities) == 0) 0 else 2,
+          if (is.null(self$reply_markup)) 0 else 4
+        )),
+        serialize_bytes(self$message),
+        if (is.null(self$entities) || length(self$entities) == 0) raw() else c(
+          as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+          writeBin(length(self$entities), raw(), size = 4),
+          unlist(lapply(self$entities, function(x) x$bytes()))
+        ),
+        if (is.null(self$reply_markup)) raw() else self$reply_markup$bytes()
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      invert_media <- as.logical(bitwAnd(flags, 8))
+      message <- reader$tgread_string()
+      entities <- if (bitwAnd(flags, 2)) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(.) reader$tgread_object())
+      } else {
+        NULL
+      }
+      reply_markup <- if (bitwAnd(flags, 4)) reader$tgread_object() else NULL
+
+      self$new(message = message, invert_media = invert_media, entities = entities, reply_markup = reply_markup)
+    }
+  )
+)
+
+
+InputBotInlineMessageMediaContact <- R6::R6Class(
+  "InputBotInlineMessageMediaContact",
+  inherit = TLObject,
+  public = list(
+    phone_number = NULL,
+    first_name = NULL,
+    last_name = NULL,
+    vcard = NULL,
+    reply_markup = NULL,
+
+    initialize = function(phone_number, first_name, last_name, vcard, reply_markup = NULL) {
+      self$phone_number <- phone_number
+      self$first_name <- first_name
+      self$last_name <- last_name
+      self$vcard <- vcard
+      self$reply_markup <- reply_markup
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotInlineMessageMediaContact",
+        phone_number = self$phone_number,
+        first_name = self$first_name,
+        last_name = self$last_name,
+        vcard = self$vcard,
+        reply_markup = if (!is.null(self$reply_markup) && inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xfd, 0xbf, 0xed, 0xa6)),
+        as.raw(if (is.null(self$reply_markup)) 0 else 4),
+        serialize_bytes(self$phone_number),
+        serialize_bytes(self$first_name),
+        serialize_bytes(self$last_name),
+        serialize_bytes(self$vcard),
+        if (!is.null(self$reply_markup)) self$reply_markup$bytes() else raw(0)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      phone_number <- reader$tgread_string()
+      first_name <- reader$tgread_string()
+      last_name <- reader$tgread_string()
+      vcard <- reader$tgread_string()
+      reply_markup <- if (bitwAnd(flags, 4) != 0) reader$tgread_object() else NULL
+      self$new(phone_number, first_name, last_name, vcard, reply_markup)
+    }
+  )
+)
+
+
+InputBotInlineMessageMediaGeo <- R6::R6Class(
+  "InputBotInlineMessageMediaGeo",
+  inherit = TLObject,
+  public = list(
+    geo_point = NULL,
+    heading = NULL,
+    period = NULL,
+    proximity_notification_radius = NULL,
+    reply_markup = NULL,
+
+    initialize = function(geo_point, heading = NULL, period = NULL, proximity_notification_radius = NULL, reply_markup = NULL) {
+      self$geo_point <- geo_point
+      self$heading <- heading
+      self$period <- period
+      self$proximity_notification_radius <- proximity_notification_radius
+      self$reply_markup <- reply_markup
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotInlineMessageMediaGeo",
+        geo_point = if (inherits(self$geo_point, "TLObject")) self$geo_point$to_list() else self$geo_point,
+        heading = self$heading,
+        period = self$period,
+        proximity_notification_radius = self$proximity_notification_radius,
+        reply_markup = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x85, 0x9a, 0x92, 0x96)),
+        as.raw(bitwOr(
+          if (is.null(self$heading) || !self$heading) 0 else 1,
+          if (is.null(self$period) || !self$period) 0 else 2,
+          if (is.null(self$proximity_notification_radius) || !self$proximity_notification_radius) 0 else 8,
+          if (is.null(self$reply_markup) || !self$reply_markup) 0 else 4
+        )),
+        self$geo_point$bytes(),
+        if (is.null(self$heading) || !self$heading) raw() else writeBin(as.integer(self$heading), raw(), size = 4),
+        if (is.null(self$period) || !self$period) raw() else writeBin(as.integer(self$period), raw(), size = 4),
+        if (is.null(self$proximity_notification_radius) || !self$proximity_notification_radius) raw() else writeBin(as.integer(self$proximity_notification_radius), raw(), size = 4),
+        if (is.null(self$reply_markup) || !self$reply_markup) raw() else self$reply_markup$bytes()
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      geo_point <- reader$tgread_object()
+      heading <- if (bitwAnd(flags, 1)) reader$read_int() else NULL
+      period <- if (bitwAnd(flags, 2)) reader$read_int() else NULL
+      proximity_notification_radius <- if (bitwAnd(flags, 8)) reader$read_int() else NULL
+      reply_markup <- if (bitwAnd(flags, 4)) reader$tgread_object() else NULL
+
+      self$new(geo_point = geo_point, heading = heading, period = period, proximity_notification_radius = proximity_notification_radius, reply_markup = reply_markup)
+    }
+  )
+)
+
+
+InputBotInlineMessageMediaInvoice <- R6::R6Class(
+  "InputBotInlineMessageMediaInvoice",
+  inherit = TLObject,
+  public = list(
+    title = NULL,
+    description = NULL,
+    invoice = NULL,
+    payload = NULL,
+    provider = NULL,
+    provider_data = NULL,
+    photo = NULL,
+    reply_markup = NULL,
+
+    initialize = function(title, description, invoice, payload, provider, provider_data, photo = NULL, reply_markup = NULL) {
+      self$title <- title
+      self$description <- description
+      self$invoice <- invoice
+      self$payload <- payload
+      self$provider <- provider
+      self$provider_data <- provider_data
+      self$photo <- photo
+      self$reply_markup <- reply_markup
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotInlineMessageMediaInvoice",
+        title = self$title,
+        description = self$description,
+        invoice = if (inherits(self$invoice, "TLObject")) self$invoice$to_list() else self$invoice,
+        payload = self$payload,
+        provider = self$provider,
+        provider_data = if (inherits(self$provider_data, "TLObject")) self$provider_data$to_list() else self$provider_data,
+        photo = if (!is.null(self$photo) && inherits(self$photo, "TLObject")) self$photo$to_list() else self$photo,
+        reply_markup = if (!is.null(self$reply_markup) && inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x25, 0x82, 0xE7, 0xD7)),
+        as.raw(bitwOr(
+          if (is.null(self$photo) || !self$photo) 0 else 1,
+          if (is.null(self$reply_markup) || !self$reply_markup) 0 else 4
+        )),
+        serialize_bytes(self$title),
+        serialize_bytes(self$description),
+        if (is.null(self$photo) || !self$photo) raw() else self$photo$bytes(),
+        self$invoice$bytes(),
+        serialize_bytes(self$payload),
+        serialize_bytes(self$provider),
+        self$provider_data$bytes(),
+        if (is.null(self$reply_markup) || !self$reply_markup) raw() else self$reply_markup$bytes()
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      title <- reader$tgread_string()
+      description <- reader$tgread_string()
+      photo <- if (bitwAnd(flags, 1)) reader$tgread_object() else NULL
+      invoice <- reader$tgread_object()
+      payload <- reader$tgread_bytes()
+      provider <- reader$tgread_string()
+      provider_data <- reader$tgread_object()
+      reply_markup <- if (bitwAnd(flags, 4)) reader$tgread_object() else NULL
+
+      self$new(
+        title = title,
+        description = description,
+        invoice = invoice,
+        payload = payload,
+        provider = provider,
+        provider_data = provider_data,
+        photo = photo,
+        reply_markup = reply_markup
+      )
+    }
+  )
+)
+
+
+InputBotInlineMessageMediaVenue <- R6::R6Class(
+  "InputBotInlineMessageMediaVenue",
+  inherit = TLObject,
+  public = list(
+    geo_point = NULL,
+    title = NULL,
+    address = NULL,
+    provider = NULL,
+    venue_id = NULL,
+    venue_type = NULL,
+    reply_markup = NULL,
+
+    initialize = function(geo_point, title, address, provider, venue_id, venue_type, reply_markup = NULL) {
+      self$geo_point <- geo_point
+      self$title <- title
+      self$address <- address
+      self$provider <- provider
+      self$venue_id <- venue_id
+      self$venue_type <- venue_type
+      self$reply_markup <- reply_markup
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotInlineMessageMediaVenue",
+        geo_point = if (inherits(self$geo_point, "TLObject")) self$geo_point$to_list() else self$geo_point,
+        title = self$title,
+        address = self$address,
+        provider = self$provider,
+        venue_id = self$venue_id,
+        venue_type = self$venue_type,
+        reply_markup = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x11, 0xbf, 0x7b, 0x41)),
+        as.raw(if (is.null(self$reply_markup) || !self$reply_markup) 0 else 4),
+        self$geo_point$bytes(),
+        serialize_bytes(self$title),
+        serialize_bytes(self$address),
+        serialize_bytes(self$provider),
+        serialize_bytes(self$venue_id),
+        serialize_bytes(self$venue_type),
+        if (is.null(self$reply_markup) || !self$reply_markup) raw() else self$reply_markup$bytes()
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      geo_point <- reader$tgread_object()
+      title <- reader$tgread_string()
+      address <- reader$tgread_string()
+      provider <- reader$tgread_string()
+      venue_id <- reader$tgread_string()
+      venue_type <- reader$tgread_string()
+      reply_markup <- if (bitwAnd(flags, 4)) reader$tgread_object() else NULL
+
+      self$new(
+        geo_point = geo_point,
+        title = title,
+        address = address,
+        provider = provider,
+        venue_id = venue_id,
+        venue_type = venue_type,
+        reply_markup = reply_markup
+      )
+    }
+  )
+)
+
+
+InputBotInlineMessageMediaWebPage <- R6::R6Class(
+  "InputBotInlineMessageMediaWebPage",
+  inherit = TLObject,
+  public = list(
+    message = NULL,
+    url = NULL,
+    invert_media = NULL,
+    force_large_media = NULL,
+    force_small_media = NULL,
+    optional = NULL,
+    entities = NULL,
+    reply_markup = NULL,
+
+    initialize = function(message, url, invert_media = NULL, force_large_media = NULL,
+                          force_small_media = NULL, optional = NULL, entities = NULL,
+                          reply_markup = NULL) {
+      self$message <- message
+      self$url <- url
+      self$invert_media <- invert_media
+      self$force_large_media <- force_large_media
+      self$force_small_media <- force_small_media
+      self$optional <- optional
+      self$entities <- entities
+      self$reply_markup <- reply_markup
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotInlineMessageMediaWebPage",
+        message = self$message,
+        url = self$url,
+        invert_media = self$invert_media,
+        force_large_media = self$force_large_media,
+        force_small_media = self$force_small_media,
+        optional = self$optional,
+        entities = if (is.null(self$entities)) list() else lapply(self$entities, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
+        reply_markup = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x10, 0xc5, 0xdc, 0xbd)),
+        pack_flags(
+          invert_media = self$invert_media,
+          force_large_media = self$force_large_media,
+          force_small_media = self$force_small_media,
+          optional = self$optional,
+          entities = !is.null(self$entities),
+          reply_markup = !is.null(self$reply_markup)
+        ),
+        serialize_bytes(self$message),
+        if (!is.null(self$entities)) c(
+          as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+          serialize_int(length(self$entities)),
+          unlist(lapply(self$entities, function(x) x$bytes()), recursive = FALSE)
+        ) else raw(),
+        serialize_bytes(self$url),
+        if (!is.null(self$reply_markup)) self$reply_markup$bytes() else raw()
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      invert_media <- bitwAnd(flags, 8) != 0
+      force_large_media <- bitwAnd(flags, 16) != 0
+      force_small_media <- bitwAnd(flags, 32) != 0
+      optional <- bitwAnd(flags, 64) != 0
+      message <- reader$tgread_string()
+
+      if (bitwAnd(flags, 2) != 0) {
+        reader$read_int()
+        entities <- vector("list", reader$read_int())
+        for (i in seq_along(entities)) {
+          entities[[i]] <- reader$tgread_object()
+        }
+      } else {
+        entities <- NULL
+      }
+
+      url <- reader$tgread_string()
+
+      if (bitwAnd(flags, 4) != 0) {
+        reply_markup <- reader$tgread_object()
+      } else {
+        reply_markup <- NULL
+      }
+
+      self$new(message = message, url = url, invert_media = invert_media,
+               force_large_media = force_large_media, force_small_media = force_small_media,
+               optional = optional, entities = entities, reply_markup = reply_markup)
+    }
+  )
+)
+
+
+InputBotInlineMessageText <- R6::R6Class(
+  "InputBotInlineMessageText",
+  inherit = TLObject,
+  public = list(
+    message = NULL,
+    no_webpage = NULL,
+    invert_media = NULL,
+    entities = NULL,
+    reply_markup = NULL,
+
+    initialize = function(message, no_webpage = NULL, invert_media = NULL, entities = NULL, reply_markup = NULL) {
+      self$message <- message
+      self$no_webpage <- no_webpage
+      self$invert_media <- invert_media
+      self$entities <- entities
+      self$reply_markup <- reply_markup
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotInlineMessageText",
+        message = self$message,
+        no_webpage = self$no_webpage,
+        invert_media = self$invert_media,
+        entities = if (is.null(self$entities)) list() else lapply(self$entities, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
+        reply_markup = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x87, 0x7a, 0xcd, 0x3d)),
+        as.raw(bitwOr(
+          if (is.null(self$no_webpage) || !self$no_webpage) 0 else 1,
+          if (is.null(self$invert_media) || !self$invert_media) 0 else 8,
+          if (is.null(self$entities) || length(self$entities) == 0) 0 else 2,
+          if (is.null(self$reply_markup)) 0 else 4
+        )),
+        serialize_bytes(self$message),
+        if (is.null(self$entities) || length(self$entities) == 0) raw() else c(
+          as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+          writeBin(length(self$entities), raw(), size = 4),
+          unlist(lapply(self$entities, function(x) x$bytes()))
+        ),
+        if (is.null(self$reply_markup)) raw() else self$reply_markup$bytes()
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      no_webpage <- bitwAnd(flags, 1) != 0
+      invert_media <- bitwAnd(flags, 8) != 0
+      message <- reader$tgread_string()
+
+      if (bitwAnd(flags, 2) != 0) {
+        reader$read_int()
+        entities <- vector("list", reader$read_int())
+        for (i in seq_along(entities)) {
+          entities[[i]] <- reader$tgread_object()
+        }
+      } else {
+        entities <- NULL
+      }
+
+      if (bitwAnd(flags, 4) != 0) {
+        reply_markup <- reader$tgread_object()
+      } else {
+        reply_markup <- NULL
+      }
+
+      self$new(message = message, no_webpage = no_webpage, invert_media = invert_media, entities = entities, reply_markup = reply_markup)
+    }
+  )
+)
+
+
+InputBotInlineResult <- R6::R6Class(
+  "InputBotInlineResult",
+  inherit = TLObject,
+  public = list(
+    id = NULL,
+    type = NULL,
+    send_message = NULL,
+    title = NULL,
+    description = NULL,
+    url = NULL,
+    thumb = NULL,
+    content = NULL,
+
+    initialize = function(id, type, send_message, title = NULL, description = NULL, url = NULL, thumb = NULL, content = NULL) {
+      self$id <- id
+      self$type <- type
+      self$send_message <- send_message
+      self$title <- title
+      self$description <- description
+      self$url <- url
+      self$thumb <- thumb
+      self$content <- content
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotInlineResult",
+        id = self$id,
+        type = self$type,
+        send_message = if (inherits(self$send_message, "TLObject")) self$send_message$to_list() else self$send_message,
+        title = self$title,
+        description = self$description,
+        url = self$url,
+        thumb = if (inherits(self$thumb, "TLObject")) self$thumb$to_list() else self$thumb,
+        content = if (inherits(self$content, "TLObject")) self$content$to_list() else self$content
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x19, 0x93, 0xbf, 0x88)),
+        as.raw(bitwOr(
+          if (is.null(self$title) || !self$title) 0 else 2,
+          if (is.null(self$description) || !self$description) 0 else 4,
+          if (is.null(self$url) || !self$url) 0 else 8,
+          if (is.null(self$thumb) || !self$thumb) 0 else 16,
+          if (is.null(self$content) || !self$content) 0 else 32
+        )),
+        serialize_bytes(self$id),
+        serialize_bytes(self$type),
+        if (is.null(self$title) || !self$title) raw() else serialize_bytes(self$title),
+        if (is.null(self$description) || !self$description) raw() else serialize_bytes(self$description),
+        if (is.null(self$url) || !self$url) raw() else serialize_bytes(self$url),
+        if (is.null(self$thumb) || !self$thumb) raw() else self$thumb$bytes(),
+        if (is.null(self$content) || !self$content) raw() else self$content$bytes(),
+        self$send_message$bytes()
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      id <- reader$tgread_string()
+      type <- reader$tgread_string()
+      title <- if (bitwAnd(flags, 2)) reader$tgread_string() else NULL
+      description <- if (bitwAnd(flags, 4)) reader$tgread_string() else NULL
+      url <- if (bitwAnd(flags, 8)) reader$tgread_string() else NULL
+      thumb <- if (bitwAnd(flags, 16)) reader$tgread_object() else NULL
+      content <- if (bitwAnd(flags, 32)) reader$tgread_object() else NULL
+      send_message <- reader$tgread_object()
+
+      self$new(id = id, type = type, send_message = send_message, title = title, description = description, url = url, thumb = thumb, content = content)
+    }
+  )
+)
+
+
+InputBotInlineResultDocument <- R6::R6Class(
+  "InputBotInlineResultDocument",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xfff8fdc4L,
+    SUBCLASS_OF_ID = 0x80a4a3deL,
+
+    id = NULL,
+    type = NULL,
+    document = NULL,
+    send_message = NULL,
+    title = NULL,
+    description = NULL,
+
+    initialize = function(id, type, document, send_message, title = NULL, description = NULL) {
+      self$id <- id
+      self$type <- type
+      self$document <- document
+      self$send_message <- send_message
+      self$title <- title
+      self$description <- description
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotInlineResultDocument",
+        id = self$id,
+        type = self$type,
+        document = if (inherits(self$document, "TLObject")) self$document$to_list() else self$document,
+        send_message = if (inherits(self$send_message, "TLObject")) self$send_message$to_list() else self$send_message,
+        title = self$title,
+        description = self$description
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xc4, 0xfd, 0xf8, 0xff)),
+        as.raw(bitwOr(
+          if (is.null(self$title) || self$title == FALSE) 0 else 2,
+          if (is.null(self$description) || self$description == FALSE) 0 else 4
+        )),
+        self$serialize_bytes(self$id),
+        self$serialize_bytes(self$type),
+        if (is.null(self$title) || self$title == FALSE) raw() else self$serialize_bytes(self$title),
+        if (is.null(self$description) || self$description == FALSE) raw() else self$serialize_bytes(self$description),
+        self$document$bytes(),
+        self$send_message$bytes()
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      id <- reader$tgread_string()
+      type <- reader$tgread_string()
+      title <- if (bitwAnd(flags, 2) != 0) reader$tgread_string() else NULL
+      description <- if (bitwAnd(flags, 4) != 0) reader$tgread_string() else NULL
+      document <- reader$tgread_object()
+      send_message <- reader$tgread_object()
+
+      self$new(id = id, type = type, document = document, send_message = send_message, title = title, description = description)
+    }
+  )
+)
+
+
+InputBotInlineResultGame <- R6::R6Class(
+  "InputBotInlineResultGame",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x4fa417f2L,
+    SUBCLASS_OF_ID = 0x80a4a3deL,
+
+    id = NULL,
+    short_name = NULL,
+    send_message = NULL,
+
+    initialize = function(id, short_name, send_message) {
+      self$id <- id
+      self$short_name <- short_name
+      self$send_message <- send_message
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotInlineResultGame",
+        id = self$id,
+        short_name = self$short_name,
+        send_message = if (inherits(self$send_message, "TLObject")) self$send_message$to_list() else self$send_message
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xf2, 0x17, 0xa4, 0x4f)),
+        serialize_bytes(self$id),
+        serialize_bytes(self$short_name),
+        self$send_message$bytes()
+      )
+    }
+  )
+)
+
+InputBotInlineResultPhoto <- R6::R6Class(
+  "InputBotInlineResultPhoto",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xa8d864a7L,
+    SUBCLASS_OF_ID = 0x80a4a3deL,
+
+    id = NULL,
+    type = NULL,
+    photo = NULL,
+    send_message = NULL,
+
+    initialize = function(id, type, photo, send_message) {
+      self$id <- id
+      self$type <- type
+      self$photo <- photo
+      self$send_message <- send_message
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBotInlineResultPhoto",
+        id = self$id,
+        type = self$type,
+        photo = if (inherits(self$photo, "TLObject")) self$photo$to_list() else self$photo,
+        send_message = if (inherits(self$send_message, "TLObject")) self$send_message$to_list() else self$send_message
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xa7, 0x64, 0xd8, 0xa8)),
+        serialize_bytes(self$id),
+        serialize_bytes(self$type),
+        self$photo$bytes(),
+        self$send_message$bytes()
+      )
+    }
+  )
+)
+
+
+InputBusinessAwayMessage <- R6::R6Class(
+  "InputBusinessAwayMessage",
+  public = list(
+    shortcut_id = NULL,
+    schedule = NULL,
+    recipients = NULL,
+    offline_only = NULL,
+
+    initialize = function(shortcut_id, schedule, recipients, offline_only = NULL) {
+      self$shortcut_id <- shortcut_id
+      self$schedule <- schedule
+      self$recipients <- recipients
+      self$offline_only <- offline_only
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBusinessAwayMessage",
+        shortcut_id = self$shortcut_id,
+        schedule = if (inherits(self$schedule, "R6")) self$schedule$to_list() else self$schedule,
+        recipients = if (inherits(self$recipients, "R6")) self$recipients$to_list() else self$recipients,
+        offline_only = self$offline_only
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(0xe0), as.raw(0x75), as.raw(0x21), as.raw(0x83),
+        as.raw(ifelse(is.null(self$offline_only) || !self$offline_only, 0, 1)),
+        writeBin(as.integer(self$shortcut_id), raw(), size = 4),
+        self$schedule$bytes(),
+        self$recipients$bytes()
+      )
+    }
+  )
+)
+
+InputBusinessBotRecipients <- R6::R6Class(
+  "InputBusinessBotRecipients",
+  public = list(
+    existing_chats = NULL,
+    new_chats = NULL,
+    contacts = NULL,
+    non_contacts = NULL,
+    exclude_selected = NULL,
+    users = NULL,
+    exclude_users = NULL,
+
+    initialize = function(existing_chats = NULL, new_chats = NULL, contacts = NULL, non_contacts = NULL, exclude_selected = NULL, users = NULL, exclude_users = NULL) {
+      self$existing_chats <- existing_chats
+      self$new_chats <- new_chats
+      self$contacts <- contacts
+      self$non_contacts <- non_contacts
+      self$exclude_selected <- exclude_selected
+      self$users <- users
+      self$exclude_users <- exclude_users
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputBusinessBotRecipients",
+        existing_chats = self$existing_chats,
+        new_chats = self$new_chats,
+        contacts = self$contacts,
+        non_contacts = self$non_contacts,
+        exclude_selected = self$exclude_selected,
+        users = if (is.null(self$users)) list() else lapply(self$users, function(x) if (inherits(x, "R6")) x$to_list() else x),
+        exclude_users = if (is.null(self$exclude_users)) list() else lapply(self$exclude_users, function(x) if (inherits(x, "R6")) x$to_list() else x)
+      )
+    },
+
+    bytes = function() {
+      flags <- 0
+      if (!is.null(self$existing_chats) && self$existing_chats) flags <- bitwOr(flags, 1)
+      if (!is.null(self$new_chats) && self$new_chats) flags <- bitwOr(flags, 2)
+      if (!is.null(self$contacts) && self$contacts) flags <- bitwOr(flags, 4)
+      if (!is.null(self$non_contacts) && self$non_contacts) flags <- bitwOr(flags, 8)
+      if (!is.null(self$exclude_selected) && self$exclude_selected) flags <- bitwOr(flags, 32)
+      if (!is.null(self$users)) flags <- bitwOr(flags, 16)
+      if (!is.null(self$exclude_users)) flags <- bitwOr(flags, 64)
+
+      c(
+        as.raw(0x1e), as.raw(0x92), as.raw(0xe5), as.raw(0xc4),
+        writeBin(as.integer(flags), raw(), size = 4),
+        if (!is.null(self$users)) {
+          c(
+            as.raw(0x15), as.raw(0xc4), as.raw(0xb5), as.raw(0x1c),
+            writeBin(as.integer(length(self$users)), raw(), size = 4),
+            unlist(lapply(self$users, function(x) x$bytes()))
+          )
+        } else {
+          raw()
+        },
+        if (!is.null(self$exclude_users)) {
+          c(
+            as.raw(0x15), as.raw(0xc4), as.raw(0xb5), as.raw(0x1c),
+            writeBin(as.integer(length(self$exclude_users)), raw(), size = 4),
+            unlist(lapply(self$exclude_users, function(x) x$bytes()))
+          )
+        } else {
+          raw()
+        }
+      )
+    }
+  )
+)
+
+
+InputBusinessChatLink <- R6::R6Class(
+  "InputBusinessChatLink",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x11679fa7L,
+    SUBCLASS_OF_ID = 0xab670513L,
+
+    message = NULL,
+    entities = NULL,
+    title = NULL,
+
+    initialize = function(message, entities = NULL, title = NULL) {
+      self$message <- message
+      self$entities <- entities
+      self$title <- title
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputBusinessChatLink",
+        message = self$message,
+        entities = if (is.null(self$entities)) list() else lapply(self$entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        title = self$title
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xa7, 0x9f, 0x67, 0x11)),
+        as.raw(bitwOr(if (is.null(self$entities)) 0 else 1, if (is.null(self$title)) 0 else 2)),
+        serialize_bytes(self$message),
+        if (is.null(self$entities)) raw() else c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), writeBin(length(self$entities), raw(), size = 4), unlist(lapply(self$entities, function(x) x$bytes()))),
+        if (is.null(self$title)) raw() else serialize_bytes(self$title)
+      )
+    }
+  )
+)
+
+InputBusinessGreetingMessage <- R6::R6Class(
+  "InputBusinessGreetingMessage",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x194cb3bL,
+    SUBCLASS_OF_ID = 0x6278dcddL,
+
+    shortcut_id = NULL,
+    recipients = NULL,
+    no_activity_days = NULL,
+
+    initialize = function(shortcut_id, recipients, no_activity_days) {
+      self$shortcut_id <- shortcut_id
+      self$recipients <- recipients
+      self$no_activity_days <- no_activity_days
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputBusinessGreetingMessage",
+        shortcut_id = self$shortcut_id,
+        recipients = if (inherits(self$recipients, "TLObject")) self$recipients$to_dict() else self$recipients,
+        no_activity_days = self$no_activity_days
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x3b, 0xcb, 0x94, 0x01)),
+        writeBin(self$shortcut_id, raw(), size = 4),
+        self$recipients$bytes(),
+        writeBin(self$no_activity_days, raw(), size = 4)
+      )
+    }
+  )
+)
+
+
+InputBusinessIntro <- R6::R6Class(
+  "InputBusinessIntro",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x9c469cdL,
+    SUBCLASS_OF_ID = 0x645a767dL,
+
+    title = NULL,
+    description = NULL,
+    sticker = NULL,
+
+    initialize = function(title, description, sticker = NULL) {
+      self$title <- title
+      self$description <- description
+      self$sticker <- sticker
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputBusinessIntro",
+        title = self$title,
+        description = self$description,
+        sticker = if (inherits(self$sticker, "TLObject")) self$sticker$to_list() else self$sticker
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xcd, 0x69, 0xc4, 0x09)),
+        as.raw(if (is.null(self$sticker) || self$sticker == FALSE) 0 else 1),
+        self$serialize_bytes(self$title),
+        self$serialize_bytes(self$description),
+        if (is.null(self$sticker) || self$sticker == FALSE) raw() else self$sticker$bytes()
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      title <- reader$tgread_string()
+      description <- reader$tgread_string()
+      sticker <- if (bitwAnd(flags, 1)) reader$tgread_object() else NULL
+
+      self$new(title = title, description = description, sticker = sticker)
+    }
+  )
+)
+
+InputBusinessRecipients <- R6::R6Class(
+  "InputBusinessRecipients",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x6f8b32aaL,
+    SUBCLASS_OF_ID = 0xd7ee53fL,
+
+    existing_chats = NULL,
+    new_chats = NULL,
+    contacts = NULL,
+    non_contacts = NULL,
+    exclude_selected = NULL,
+    users = NULL,
+
+    initialize = function(existing_chats = NULL, new_chats = NULL, contacts = NULL, non_contacts = NULL, exclude_selected = NULL, users = NULL) {
+      self$existing_chats <- existing_chats
+      self$new_chats <- new_chats
+      self$contacts <- contacts
+      self$non_contacts <- non_contacts
+      self$exclude_selected <- exclude_selected
+      self$users <- users
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputBusinessRecipients",
+        existing_chats = self$existing_chats,
+        new_chats = self$new_chats,
+        contacts = self$contacts,
+        non_contacts = self$non_contacts,
+        exclude_selected = self$exclude_selected,
+        users = if (is.null(self$users)) list() else lapply(self$users, function(x) if (inherits(x, "TLObject")) x$to_list() else x)
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xaa, 0x32, 0x8b, 0x6f)),
+        as.raw(
+          (if (is.null(self$existing_chats) || self$existing_chats == FALSE) 0 else 1) +
+            (if (is.null(self$new_chats) || self$new_chats == FALSE) 0 else 2) +
+            (if (is.null(self$contacts) || self$contacts == FALSE) 0 else 4) +
+            (if (is.null(self$non_contacts) || self$non_contacts == FALSE) 0 else 8) +
+            (if (is.null(self$exclude_selected) || self$exclude_selected == FALSE) 0 else 32) +
+            (if (is.null(self$users) || self$users == FALSE) 0 else 16)
+        ),
+        if (is.null(self$users) || self$users == FALSE) raw() else c(
+          as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+          as.raw(length(self$users)),
+          unlist(lapply(self$users, function(x) x$bytes()))
+        )
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      existing_chats <- bitwAnd(flags, 1) > 0
+      new_chats <- bitwAnd(flags, 2) > 0
+      contacts <- bitwAnd(flags, 4) > 0
+      non_contacts <- bitwAnd(flags, 8) > 0
+      exclude_selected <- bitwAnd(flags, 32) > 0
+
+      users <- if (bitwAnd(flags, 16)) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(.) reader$tgread_object())
+      } else {
+        NULL
+      }
+
+      self$new(
+        existing_chats = existing_chats,
+        new_chats = new_chats,
+        contacts = contacts,
+        non_contacts = non_contacts,
+        exclude_selected = exclude_selected,
+        users = users
+      )
+    }
+  )
+)
+
+
+InputChannel <- R6::R6Class(
+  "InputChannel",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xf35aec28L,
+    SUBCLASS_OF_ID = 0x40f202fdL,
+
+    channel_id = NULL,
+    access_hash = NULL,
+
+    initialize = function(channel_id, access_hash) {
+      self$channel_id <- channel_id
+      self$access_hash <- access_hash
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputChannel",
+        channel_id = self$channel_id,
+        access_hash = self$access_hash
+      )
+    },
+
+    bytes = function() {
+      rawToChar(c(
+        as.raw(c(0x28, 0xec, 0x5a, 0xf3)),
+        writeBin(self$channel_id, raw(), size = 8, endian = "little"),
+        writeBin(self$access_hash, raw(), size = 8, endian = "little")
+      ))
+    }
+  )
+)
+
+InputChannelEmpty <- R6::R6Class(
+  "InputChannelEmpty",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xee8c1e86L,
+    SUBCLASS_OF_ID = 0x40f202fdL,
+
+    to_dict = function() {
+      list("_" = "InputChannelEmpty")
+    },
+
+    bytes = function() {
+      rawToChar(as.raw(c(0x86, 0x1e, 0x8c, 0xee)))
+    }
+  )
+)
+
+
+InputChannelFromMessage <- R6::R6Class(
+  "InputChannelFromMessage",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x5b934f9dL,
+    SUBCLASS_OF_ID = 0x40f202fdL,
+
+    peer = NULL,
+    msg_id = NULL,
+    channel_id = NULL,
+
+    initialize = function(peer, msg_id, channel_id) {
+      self$peer <- peer
+      self$msg_id <- msg_id
+      self$channel_id <- channel_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputChannelFromMessage",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer,
+        msg_id = self$msg_id,
+        channel_id = self$channel_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x9d, 0x4f, 0x93, 0x5b)),
+        self$peer$bytes(),
+        writeBin(as.integer(self$msg_id), raw(), size = 4, endian = "little"),
+        writeBin(as.numeric(self$channel_id), raw(), size = 8, endian = "little")
+      )
+    }
+  )
+)
+
+InputChatPhoto <- R6::R6Class(
+  "InputChatPhoto",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x8953ad37L,
+    SUBCLASS_OF_ID = 0xd4eb2d74L,
+
+    id = NULL,
+
+    initialize = function(id) {
+      self$id <- id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputChatPhoto",
+        id = if (inherits(self$id, "TLObject")) self$id$to_list() else self$id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x37, 0xad, 0x53, 0x89)),
+        self$id$bytes()
+      )
+    }
+  )
+)
+
+
+InputChatPhotoEmpty <- R6::R6Class(
+  "InputChatPhotoEmpty",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x1ca48f57L,
+    SUBCLASS_OF_ID = 0xd4eb2d74L,
+
+    to_dict = function() {
+      list("_" = "InputChatPhotoEmpty")
+    },
+
+    bytes = function() {
+      rawToChar(as.raw(c(0x57, 0x8f, 0xa4, 0x1c)))
+    }
+  )
+)
+
+InputChatTheme <- R6::R6Class(
+  "InputChatTheme",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xc93de95cL,
+    SUBCLASS_OF_ID = 0x57294e64L,
+    emoticon = NULL,
+
+    initialize = function(emoticon) {
+      self$emoticon <- emoticon
+    },
+
+    to_dict = function() {
+      list("_" = "InputChatTheme", emoticon = self$emoticon)
+    },
+
+    bytes = function() {
+      paste0(rawToChar(as.raw(c(0x5c, 0xe9, 0x3d, 0xc9))), self$emoticon)
+    }
+  )
+)
+
+InputChatThemeEmpty <- R6::R6Class(
+  "InputChatThemeEmpty",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x83268483L,
+    SUBCLASS_OF_ID = 0x57294e64L,
+
+    to_dict = function() {
+      list("_" = "InputChatThemeEmpty")
+    },
+
+    bytes = function() {
+      rawToChar(as.raw(c(0x83, 0x84, 0x26, 0x83)))
+    }
+  )
+)
+
+
+InputChatThemeUniqueGift <- R6::R6Class(
+  "InputChatThemeUniqueGift",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x87e5dfe4L,
+    SUBCLASS_OF_ID = 0x57294e64L,
+
+    slug = NULL,
+
+    initialize = function(slug) {
+      self$slug <- slug
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputChatThemeUniqueGift",
+        slug = self$slug
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xe4, 0xdf, 0xe5, 0x87)),
+        serialize_bytes(self$slug)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      slug <- reader$tgread_string()
+      self$new(slug = slug)
+    }
+  )
+)
+
+InputChatUploadedPhoto <- R6::R6Class(
+  "InputChatUploadedPhoto",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xbdcdaec0L,
+    SUBCLASS_OF_ID = 0xd4eb2d74L,
+
+    file = NULL,
+    video = NULL,
+    video_start_ts = NULL,
+    video_emoji_markup = NULL,
+
+    initialize = function(file = NULL, video = NULL, video_start_ts = NULL, video_emoji_markup = NULL) {
+      self$file <- file
+      self$video <- video
+      self$video_start_ts <- video_start_ts
+      self$video_emoji_markup <- video_emoji_markup
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputChatUploadedPhoto",
+        file = if (!is.null(self$file) && inherits(self$file, "TLObject")) self$file$to_dict() else self$file,
+        video = if (!is.null(self$video) && inherits(self$video, "TLObject")) self$video$to_dict() else self$video,
+        video_start_ts = self$video_start_ts,
+        video_emoji_markup = if (!is.null(self$video_emoji_markup) && inherits(self$video_emoji_markup, "TLObject")) self$video_emoji_markup$to_dict() else self$video_emoji_markup
+      )
+    },
+
+    bytes = function() {
+      flags <- (if (!is.null(self$file)) 1 else 0) |
+               (if (!is.null(self$video)) 2 else 0) |
+               (if (!is.null(self$video_start_ts)) 4 else 0) |
+               (if (!is.null(self$video_emoji_markup)) 8 else 0)
+
+      c(
+        as.raw(c(0xc0, 0xae, 0xcd, 0xbd)),
+        pack_int(flags),
+        if (!is.null(self$file)) self$file$bytes() else raw(0),
+        if (!is.null(self$video)) self$video$bytes() else raw(0),
+        if (!is.null(self$video_start_ts)) pack_double(self$video_start_ts) else raw(0),
+        if (!is.null(self$video_emoji_markup)) self$video_emoji_markup$bytes() else raw(0)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      file <- if (bitwAnd(flags, 1)) reader$tgread_object() else NULL
+      video <- if (bitwAnd(flags, 2)) reader$tgread_object() else NULL
+      video_start_ts <- if (bitwAnd(flags, 4)) reader$read_double() else NULL
+      video_emoji_markup <- if (bitwAnd(flags, 8)) reader$tgread_object() else NULL
+
+      self$new(file = file, video = video, video_start_ts = video_start_ts, video_emoji_markup = video_emoji_markup)
+    }
+  )
+)
+
+
+InputChatlistDialogFilter <- R6::R6Class(
+  "InputChatlistDialogFilter",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xf3e0da33L,
+    SUBCLASS_OF_ID = 0x23f9659L,
+
+    filter_id = NULL,
+
+    initialize = function(filter_id) {
+      self$filter_id <- filter_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputChatlistDialogFilter",
+        filter_id = self$filter_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x33, 0xda, 0xe0, 0xf3)),
+        writeBin(as.integer(self$filter_id), raw(), size = 4, endian = "little")
+      )
+    }
+  )
+)
+
+InputCheckPasswordEmpty <- R6::R6Class(
+  "InputCheckPasswordEmpty",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x9880f658L,
+    SUBCLASS_OF_ID = 0xd41af560L,
+
+    to_dict = function() {
+      list("_" = "InputCheckPasswordEmpty")
+    },
+
+    bytes = function() {
+      as.raw(c(0x58, 0xf6, 0x80, 0x98))
+    }
+  )
+)
+
+InputCheckPasswordSRP <- R6::R6Class(
+  "InputCheckPasswordSRP",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xd27ff082L,
+    SUBCLASS_OF_ID = 0xd41af560L,
+
+    srp_id = NULL,
+    A = NULL,
+    M1 = NULL,
+
+    initialize = function(srp_id, A, M1) {
+      self$srp_id <- srp_id
+      self$A <- A
+      self$M1 <- M1
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputCheckPasswordSRP",
+        srp_id = self$srp_id,
+        A = self$A,
+        M1 = self$M1
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x82, 0xf0, 0x7f, 0xd2)),
+        writeBin(as.numeric(self$srp_id), raw(), size = 8, endian = "little"),
+        serialize_bytes(self$A),
+        serialize_bytes(self$M1)
+      )
+    }
+  )
+)
+
+
+InputClientProxy <- R6::R6Class(
+  "InputClientProxy",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x75588b3fL,
+    SUBCLASS_OF_ID = 0x91a4346L,
+
+    address = NULL,
+    port = NULL,
+
+    initialize = function(address, port) {
+      self$address <- address
+      self$port <- port
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputClientProxy",
+        address = self$address,
+        port = self$port
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x3f, 0x8b, 0x58, 0x75)),
+        serialize_bytes(self$address),
+        writeBin(as.integer(self$port), raw(), size = 4, endian = "little")
+      )
+    }
+  )
+)
+
+InputCollectiblePhone <- R6::R6Class(
+  "InputCollectiblePhone",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xa2e214a4L,
+    SUBCLASS_OF_ID = 0x2a0f81ebL,
+
+    phone = NULL,
+
+    initialize = function(phone) {
+      self$phone <- phone
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputCollectiblePhone",
+        phone = self$phone
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xa4, 0x14, 0xe2, 0xa2)),
+        serialize_bytes(self$phone)
+      )
+    }
+  )
+)
+
+InputCollectibleUsername <- R6::R6Class(
+  "InputCollectibleUsername",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xe39460a9L,
+    SUBCLASS_OF_ID = 0x2a0f81ebL,
+
+    username = NULL,
+
+    initialize = function(username) {
+      self$username <- username
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputCollectibleUsername",
+        username = self$username
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xa9, 0x60, 0x94, 0xe3)),
+        serialize_bytes(self$username)
+      )
+    }
+  )
+)
+
+
+InputDialogPeer <- R6::R6Class(
+  "InputDialogPeer",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xfcaafeb7L,
+    SUBCLASS_OF_ID = 0xa21c9795L,
+
+    peer = NULL,
+
+    initialize = function(peer) {
+      self$peer <- peer
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputDialogPeer",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xb7, 0xfe, 0xaa, 0xfc)),
+        self$peer$bytes()
+      )
+    }
+  )
+)
+
+InputDialogPeerFolder <- R6::R6Class(
+  "InputDialogPeerFolder",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x64600527L,
+    SUBCLASS_OF_ID = 0xa21c9795L,
+
+    folder_id = NULL,
+
+    initialize = function(folder_id) {
+      self$folder_id <- folder_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputDialogPeerFolder",
+        folder_id = self$folder_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x27, 0x05, 0x60, 0x64)),
+        writeBin(as.integer(self$folder_id), raw(), size = 4, endian = "little")
+      )
+    }
+  )
+)
+
+
+InputDocument <- R6::R6Class(
+  "InputDocument",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x1abfb575L,
+    SUBCLASS_OF_ID = 0xf33fdb68L,
+
+    id = NULL,
+    access_hash = NULL,
+    file_reference = NULL,
+
+    initialize = function(id, access_hash, file_reference) {
+      self$id <- id
+      self$access_hash <- access_hash
+      self$file_reference <- file_reference
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputDocument",
+        id = self$id,
+        access_hash = self$access_hash,
+        file_reference = self$file_reference
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x75, 0xb5, 0xbf, 0x1a)),
+        writeBin(self$id, raw(), size = 8, endian = "little"),
+        writeBin(self$access_hash, raw(), size = 8, endian = "little"),
+        self$serialize_bytes(self$file_reference)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      id <- reader$read_long()
+      access_hash <- reader$read_long()
+      file_reference <- reader$tgread_bytes()
+      self$new(id = id, access_hash = access_hash, file_reference = file_reference)
+    }
+  )
+)
+
+InputDocumentEmpty <- R6::R6Class(
+  "InputDocumentEmpty",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x72f0eaaeL,
+    SUBCLASS_OF_ID = 0xf33fdb68L,
+
+    to_list = function() {
+      list("_" = "InputDocumentEmpty")
+    },
+
+    bytes = function() {
+      as.raw(c(0xae, 0xea, 0xf0, 0x72))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  )
+)
+
+InputDocumentFileLocation <- R6::R6Class(
+  "InputDocumentFileLocation",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xbad07584L,
+    SUBCLASS_OF_ID = 0x1523d462L,
+
+    id = NULL,
+    access_hash = NULL,
+    file_reference = NULL,
+    thumb_size = NULL,
+
+    initialize = function(id, access_hash, file_reference, thumb_size) {
+      self$id <- id
+      self$access_hash <- access_hash
+      self$file_reference <- file_reference
+      self$thumb_size <- thumb_size
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputDocumentFileLocation",
+        id = self$id,
+        access_hash = self$access_hash,
+        file_reference = self$file_reference,
+        thumb_size = self$thumb_size
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x84, 0x75, 0xd0, 0xba)),
+        writeBin(self$id, raw(), size = 8, endian = "little"),
+        writeBin(self$access_hash, raw(), size = 8, endian = "little"),
+        self$serialize_bytes(self$file_reference),
+        self$serialize_bytes(self$thumb_size)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      id <- reader$read_long()
+      access_hash <- reader$read_long()
+      file_reference <- reader$tgread_bytes()
+      thumb_size <- reader$tgread_string()
+      self$new(id = id, access_hash = access_hash, file_reference = file_reference, thumb_size = thumb_size)
+    }
+  )
+)
+
+
+InputEmojiStatusCollectible <- R6::R6Class(
+  "InputEmojiStatusCollectible",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x7141dbfL,
+    SUBCLASS_OF_ID = 0xf930b138L,
+
+    collectible_id = NULL,
+    until = NULL,
+
+    initialize = function(collectible_id, until = NULL) {
+      self$collectible_id <- collectible_id
+      self$until <- until
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputEmojiStatusCollectible",
+        collectible_id = self$collectible_id,
+        until = self$until
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xbf, 0x1d, 0x14, 0x07)),
+        as.raw(if (is.null(self$until) || !self$until) 0 else 1),
+        writeBin(as.integer64(self$collectible_id), raw(), size = 8),
+        if (is.null(self$until) || !self$until) raw() else self$serialize_datetime(self$until)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      collectible_id <- reader$read_long()
+      until <- if (bitwAnd(flags, 1) == 1) reader$tgread_date() else NULL
+      self$new(collectible_id = collectible_id, until = until)
+    }
+  )
+)
+
+
+
+InputEncryptedChat <- R6::R6Class(
+  "InputEncryptedChat",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xf141b5e1L,
+    SUBCLASS_OF_ID = 0x6c7606c0L,
+    chat_id = NULL,
+    access_hash = NULL,
+
+    initialize = function(chat_id, access_hash) {
+      self$chat_id <- chat_id
+      self$access_hash <- access_hash
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputEncryptedChat",
+        chat_id = self$chat_id,
+        access_hash = self$access_hash
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xe1, 0xb5, 0x41, 0xf1)),
+        writeBin(as.integer(self$chat_id), raw(), size = 4, endian = "little"),
+        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little")
+      )
+    }
+  )
+)
+
+InputEncryptedFile <- R6::R6Class(
+  "InputEncryptedFile",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x5a17b5e5L,
+    SUBCLASS_OF_ID = 0x8574c27aL,
+    id = NULL,
+    access_hash = NULL,
+
+    initialize = function(id, access_hash) {
+      self$id <- id
+      self$access_hash <- access_hash
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputEncryptedFile",
+        id = self$id,
+        access_hash = self$access_hash
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xe5, 0xb5, 0x17, 0x5a)),
+        writeBin(as.numeric(self$id), raw(), size = 8, endian = "little"),
+        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little")
+      )
+    }
+  )
+)
+
+
+InputEncryptedFileBigUploaded <- R6::R6Class(
+  "InputEncryptedFileBigUploaded",
+  public = list(
+    id = NULL,
+    parts = NULL,
+    key_fingerprint = NULL,
+
+    initialize = function(id, parts, key_fingerprint) {
+      self$id <- id
+      self$parts <- parts
+      self$key_fingerprint <- key_fingerprint
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputEncryptedFileBigUploaded",
+        id = self$id,
+        parts = self$parts,
+        key_fingerprint = self$key_fingerprint
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xc8, 0x73, 0xc1, 0x2d)),
+        writeBin(as.integer(self$id), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$parts), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(self$key_fingerprint), raw(), size = 4, endian = "little")
+      )
+    }
+  )
+)
+
+InputEncryptedFileEmpty <- R6::R6Class(
+  "InputEncryptedFileEmpty",
+  public = list(
+    to_list = function() {
+      list("_" = "InputEncryptedFileEmpty")
+    },
+
+    bytes = function() {
+      as.raw(c(0x64, 0xc3, 0x37, 0x18))
+    }
+  )
+)
+
+
+InputEncryptedFileLocation <- R6::R6Class(
+  "InputEncryptedFileLocation",
+  public = list(
+    id = NULL,
+    access_hash = NULL,
+
+    initialize = function(id, access_hash) {
+      self$id <- id
+      self$access_hash <- access_hash
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputEncryptedFileLocation",
+        id = self$id,
+        access_hash = self$access_hash
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xf5, 0x23, 0x5d, 0x55)),
+        writeBin(as.integer(self$id), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$access_hash), raw(), size = 8, endian = "little")
+      )
+    }
+  )
+)
+
+InputEncryptedFileUploaded <- R6::R6Class(
+  "InputEncryptedFileUploaded",
+  public = list(
+    id = NULL,
+    parts = NULL,
+    md5_checksum = NULL,
+    key_fingerprint = NULL,
+
+    initialize = function(id, parts, md5_checksum, key_fingerprint) {
+      self$id <- id
+      self$parts <- parts
+      self$md5_checksum <- md5_checksum
+      self$key_fingerprint <- key_fingerprint
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputEncryptedFileUploaded",
+        id = self$id,
+        parts = self$parts,
+        md5_checksum = self$md5_checksum,
+        key_fingerprint = self$key_fingerprint
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x64, 0xbd, 0x03, 0x06)),
+        writeBin(as.integer(self$id), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$parts), raw(), size = 4, endian = "little"),
+        charToRaw(self$md5_checksum),
+        writeBin(as.integer(self$key_fingerprint), raw(), size = 4, endian = "little")
+      )
+    }
+  )
+)
+
+
+InputFile <- R6::R6Class(
+  "InputFile",
+  public = list(
+    id = NULL,
+    parts = NULL,
+    name = NULL,
+    md5_checksum = NULL,
+
+    initialize = function(id, parts, name, md5_checksum) {
+      self$id <- id
+      self$parts <- parts
+      self$name <- name
+      self$md5_checksum <- md5_checksum
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputFile",
+        id = self$id,
+        parts = self$parts,
+        name = self$name,
+        md5_checksum = self$md5_checksum
+      )
+    },
+
+    bytes = function() {
+      paste0(
+        as.raw(c(0x7f, 0xf2, 0x2f, 0xf5)),
+        serialize(self$id, NULL),
+        serialize(self$parts, NULL),
+        serialize(self$name, NULL),
+        serialize(self$md5_checksum, NULL)
+      )
+    }
+  )
+)
+
+InputFileBig <- R6::R6Class(
+  "InputFileBig",
+  public = list(
+    id = NULL,
+    parts = NULL,
+    name = NULL,
+
+    initialize = function(id, parts, name) {
+      self$id <- id
+      self$parts <- parts
+      self$name <- name
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputFileBig",
+        id = self$id,
+        parts = self$parts,
+        name = self$name
+      )
+    },
+
+    bytes = function() {
+      paste0(
+        as.raw(c(0xb5, 0x0b, 0x4f, 0xfa)),
+        serialize(self$id, NULL),
+        serialize(self$parts, NULL),
+        serialize(self$name, NULL)
+      )
+    }
+  )
+)
+
+
+InputFileLocation <- R6::R6Class(
+  "InputFileLocation",
+  public = list(
+    volume_id = NULL,
+    local_id = NULL,
+    secret = NULL,
+    file_reference = NULL,
+
+    initialize = function(volume_id, local_id, secret, file_reference) {
+      self$volume_id <- volume_id
+      self$local_id <- local_id
+      self$secret <- secret
+      self$file_reference <- file_reference
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputFileLocation",
+        volume_id = self$volume_id,
+        local_id = self$local_id,
+        secret = self$secret,
+        file_reference = self$file_reference
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xdf, 0xda, 0xab, 0xe1)),
+        writeBin(as.integer(self$volume_id), raw(), size = 8),
+        writeBin(as.integer(self$local_id), raw(), size = 4),
+        writeBin(as.integer(self$secret), raw(), size = 8),
+        charToRaw(self$file_reference)
+      )
+    }
+  )
+)
+
+InputFileStoryDocument <- R6::R6Class(
+  "InputFileStoryDocument",
+  public = list(
+    id = NULL,
+
+    initialize = function(id) {
+      self$id <- id
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputFileStoryDocument",
+        id = if (inherits(self$id, "R6")) self$id$to_list() else self$id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x62, 0xdc, 0x8b, 0x48)),
+        self$id$bytes()
+      )
+    }
+  )
+)
+
+
+InputFolderPeer <- R6::R6Class(
+  "InputFolderPeer",
+  public = list(
+    peer = NULL,
+    folder_id = NULL,
+
+    initialize = function(peer, folder_id) {
+      self$peer <- peer
+      self$folder_id <- folder_id
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputFolderPeer",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer,
+        folder_id = self$folder_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x96, 0xc2, 0xd2, 0xfb)),
+        self$peer$bytes(),
+        writeBin(as.integer(self$folder_id), raw(), size = 4, endian = "little")
+      )
+    }
+  )
+)
+
+InputGameID <- R6::R6Class(
+  "InputGameID",
+  public = list(
+    id = NULL,
+    access_hash = NULL,
+
+    initialize = function(id, access_hash) {
+      self$id <- id
+      self$access_hash <- access_hash
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputGameID",
+        id = self$id,
+        access_hash = self$access_hash
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x77, 0x3e, 0x2c, 0x03)),
+        writeBin(as.numeric(self$id), raw(), size = 8, endian = "little"),
+        writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little")
+      )
+    }
+  )
+)
+
+InputGameShortName <- R6::R6Class(
+  "InputGameShortName",
+  public = list(
+    bot_id = NULL,
+    short_name = NULL,
+
+    initialize = function(bot_id, short_name) {
+      self$bot_id <- bot_id
+      self$short_name <- short_name
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputGameShortName",
+        bot_id = if (inherits(self$bot_id, "TLObject")) self$bot_id$to_list() else self$bot_id,
+        short_name = self$short_name
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x0a, 0xe8, 0x31, 0xc3)),
+        self$bot_id$bytes(),
+        charToRaw(self$short_name)
+      )
+    }
+  )
+)
+
+
+InputGeoPoint <- R6::R6Class(
+  "InputGeoPoint",
+  public = list(
+    CONSTRUCTOR_ID = 0x48222fafL,
+    SUBCLASS_OF_ID = 0x430d225L,
+    lat = NULL,
+    long = NULL,
+    accuracy_radius = NULL,
+
+    initialize = function(lat, long, accuracy_radius = NULL) {
+      self$lat <- lat
+      self$long <- long
+      self$accuracy_radius <- accuracy_radius
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputGeoPoint",
+        lat = self$lat,
+        long = self$long,
+        accuracy_radius = self$accuracy_radius
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xaf, 0x2f, 0x22, 0x48)),
+        writeBin(as.integer(ifelse(is.null(self$accuracy_radius) || !self$accuracy_radius, 0, 1)), raw(), size = 4),
+        writeBin(as.double(self$lat), raw(), size = 8),
+        writeBin(as.double(self$long), raw(), size = 8),
+        if (!is.null(self$accuracy_radius) && self$accuracy_radius) {
+          writeBin(as.integer(self$accuracy_radius), raw(), size = 4)
+        } else {
+          raw()
+        }
+      )
+    }
+  )
+)
+
+InputGeoPointEmpty <- R6::R6Class(
+  "InputGeoPointEmpty",
+  public = list(
+    CONSTRUCTOR_ID = 0xe4c123d6L,
+    SUBCLASS_OF_ID = 0x430d225L,
+
+    to_dict = function() {
+      list("_" = "InputGeoPointEmpty")
+    },
+
+    bytes = function() {
+      as.raw(c(0xd6, 0x23, 0xc1, 0xe4))
+    }
+  )
+)
+
+InputGroupCall <- R6::R6Class(
+  "InputGroupCall",
+  public = list(
+    CONSTRUCTOR_ID = 0xd8aa840fL,
+    SUBCLASS_OF_ID = 0x58611ab1L,
+    id = NULL,
+    access_hash = NULL,
+
+    initialize = function(id, access_hash) {
+      self$id <- id
+      self$access_hash <- access_hash
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputGroupCall",
+        id = self$id,
+        access_hash = self$access_hash
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x0f, 0x84, 0xaa, 0xd8)),
+        writeBin(as.integer64(self$id), raw(), size = 8),
+        writeBin(as.integer64(self$access_hash), raw(), size = 8)
+      )
+    }
+  )
+)
+
+
+InputGroupCallInviteMessage <- R6::R6Class(
+  "InputGroupCallInviteMessage",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x8c10603fL,
+    SUBCLASS_OF_ID = 0x58611ab1L,
+    msg_id = NULL,
+
+    initialize = function(msg_id) {
+      self$msg_id <- msg_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputGroupCallInviteMessage",
+        msg_id = self$msg_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x3f, 0x60, 0x10, 0x8c)),
+        writeBin(as.integer(self$msg_id), raw(), size = 4, endian = "little")
+      )
+    }
+  )
+)
+
+InputGroupCallSlug <- R6::R6Class(
+  "InputGroupCallSlug",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xfe06823fL,
+    SUBCLASS_OF_ID = 0x58611ab1L,
+    slug = NULL,
+
+    initialize = function(slug) {
+      self$slug <- slug
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputGroupCallSlug",
+        slug = self$slug
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x3f, 0x82, 0x06, 0xfe)),
+        charToRaw(self$slug)
+      )
+    }
+  )
+)
+
+
+InputGroupCallStream <- R6::R6Class(
+  "InputGroupCallStream",
+  public = list(
+    call = NULL,
+    time_ms = NULL,
+    scale = NULL,
+    video_channel = NULL,
+    video_quality = NULL,
+
+    initialize = function(call, time_ms, scale, video_channel = NULL, video_quality = NULL) {
+      self$call <- call
+      self$time_ms <- time_ms
+      self$scale <- scale
+      self$video_channel <- video_channel
+      self$video_quality <- video_quality
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputGroupCallStream",
+        call = if (inherits(self$call, "TLObject")) self$call$to_list() else self$call,
+        time_ms = self$time_ms,
+        scale = self$scale,
+        video_channel = self$video_channel,
+        video_quality = self$video_quality
+      )
+    },
+
+    bytes = function() {
+      stopifnot(
+        (is.null(self$video_channel) && is.null(self$video_quality)) ||
+          (!is.null(self$video_channel) && !is.null(self$video_quality))
+      )
+      c(
+        as.raw(c(0x05, 0xA9, 0x98, 0x2A)),
+        as.raw(ifelse(is.null(self$video_channel), 0, 1) | ifelse(is.null(self$video_quality), 0, 1)),
+        self$call$bytes(),
+        writeBin(self$time_ms, raw(), size = 8, endian = "little"),
+        writeBin(self$scale, raw(), size = 4, endian = "little"),
+        if (!is.null(self$video_channel)) writeBin(self$video_channel, raw(), size = 4, endian = "little") else raw(),
+        if (!is.null(self$video_quality)) writeBin(self$video_quality, raw(), size = 4, endian = "little") else raw()
+      )
+    }
+  )
+)
+
+InputInvoiceBusinessBotTransferStars <- R6::R6Class(
+  "InputInvoiceBusinessBotTransferStars",
+  public = list(
+    bot = NULL,
+    stars = NULL,
+
+    initialize = function(bot, stars) {
+      self$bot <- bot
+      self$stars <- stars
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputInvoiceBusinessBotTransferStars",
+        bot = if (inherits(self$bot, "TLObject")) self$bot$to_list() else self$bot,
+        stars = self$stars
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xF4, 0x99, 0x7E, 0x42)),
+        self$bot$bytes(),
+        writeBin(self$stars, raw(), size = 8, endian = "little")
+      )
+    }
+  )
+)
+
+
+InputInvoiceChatInviteSubscription <- R6::R6Class(
+  "InputInvoiceChatInviteSubscription",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x34e793f1L,
+    SUBCLASS_OF_ID = 0x726e9bfeL,
+    hash = NULL,
+
+    initialize = function(hash) {
+      self$hash <- hash
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputInvoiceChatInviteSubscription",
+        hash = self$hash
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xf1, 0x93, 0xe7, 0x34)),
+        serialize_bytes(self$hash)
+      )
+    }
+  )
+)
+
+InputInvoiceMessage <- R6::R6Class(
+  "InputInvoiceMessage",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xc5b56859L,
+    SUBCLASS_OF_ID = 0x726e9bfeL,
+    peer = NULL,
+    msg_id = NULL,
+
+    initialize = function(peer, msg_id) {
+      self$peer <- peer
+      self$msg_id <- msg_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputInvoiceMessage",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        msg_id = self$msg_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x59, 0x68, 0xb5, 0xc5)),
+        self$peer$bytes(),
+        writeBin(as.integer(self$msg_id), raw(), size = 4, endian = "little")
+      )
+    }
+  )
+)
+
+InputInvoicePremiumGiftCode <- R6::R6Class(
+  "InputInvoicePremiumGiftCode",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x98986c0dL,
+    SUBCLASS_OF_ID = 0x726e9bfeL,
+    purpose = NULL,
+    option = NULL,
+
+    initialize = function(purpose, option) {
+      self$purpose <- purpose
+      self$option <- option
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputInvoicePremiumGiftCode",
+        purpose = if (inherits(self$purpose, "TLObject")) self$purpose$to_dict() else self$purpose,
+        option = if (inherits(self$option, "TLObject")) self$option$to_dict() else self$option
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x0d, 0x6c, 0x98, 0x98)),
+        self$purpose$bytes(),
+        self$option$bytes()
+      )
+    }
+  )
+)
+
+
+InputInvoicePremiumGiftStars <- R6::R6Class(
+  "InputInvoicePremiumGiftStars",
+  public = list(
+    CONSTRUCTOR_ID = 0xdabab2efL,
+    SUBCLASS_OF_ID = 0x726e9bfeL,
+    user_id = NULL,
+    months = NULL,
+    message = NULL,
+
+    initialize = function(user_id, months, message = NULL) {
+      self$user_id <- user_id
+      self$months <- months
+      self$message <- message
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputInvoicePremiumGiftStars",
+        user_id = if (inherits(self$user_id, "TLObject")) self$user_id$to_dict() else self$user_id,
+        months = self$months,
+        message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xef, 0xb2, 0xba, 0xda)),
+        as.raw(packBits(intToBits(if (is.null(self$message) || self$message == FALSE) 0 else 1))),
+        self$user_id$bytes(),
+        as.raw(packBits(intToBits(self$months))),
+        if (is.null(self$message) || self$message == FALSE) raw() else self$message$bytes()
+      )
+    }
+  )
+)
+
+InputInvoiceSlug <- R6::R6Class(
+  "InputInvoiceSlug",
+  public = list(
+    CONSTRUCTOR_ID = 0xc326caefL,
+    SUBCLASS_OF_ID = 0x726e9bfeL,
+    slug = NULL,
+
+    initialize = function(slug) {
+      self$slug <- slug
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputInvoiceSlug",
+        slug = self$slug
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xef, 0xca, 0x26, 0xc3)),
+        serialize_bytes(self$slug)
+      )
+    }
+  )
+)
+
+
+InputInvoiceStarGift <- R6::R6Class(
+  "InputInvoiceStarGift",
+  public = list(
+    CONSTRUCTOR_ID = 0xe8625e92L,
+    SUBCLASS_OF_ID = 0x726e9bfeL,
+
+    peer = NULL,
+    gift_id = NULL,
+    hide_name = NULL,
+    include_upgrade = NULL,
+    message = NULL,
+
+    initialize = function(peer, gift_id, hide_name = NULL, include_upgrade = NULL, message = NULL) {
+      self$peer <- peer
+      self$gift_id <- gift_id
+      self$hide_name <- hide_name
+      self$include_upgrade <- include_upgrade
+      self$message <- message
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputInvoiceStarGift",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer,
+        gift_id = self$gift_id,
+        hide_name = self$hide_name,
+        include_upgrade = self$include_upgrade,
+        message = if (inherits(self$message, "TLObject")) self$message$to_list() else self$message
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x92, 0x5e, 0x62, 0xe8)),
+        as.raw(bitwOr(
+          ifelse(is.null(self$hide_name) || !self$hide_name, 0, 1),
+          ifelse(is.null(self$include_upgrade) || !self$include_upgrade, 0, 4),
+          ifelse(is.null(self$message), 0, 2)
+        )),
+        self$peer$bytes(),
+        writeBin(as.integer64(self$gift_id), raw(), size = 8),
+        if (!is.null(self$message)) self$message$bytes() else raw()
+      )
+    }
+  )
+)
+
+InputInvoiceStarGiftPrepaidUpgrade <- R6::R6Class(
+  "InputInvoiceStarGiftPrepaidUpgrade",
+  public = list(
+    CONSTRUCTOR_ID = 0x9a0b48b8L,
+    SUBCLASS_OF_ID = 0x726e9bfeL,
+
+    peer = NULL,
+    hash = NULL,
+
+    initialize = function(peer, hash) {
+      self$peer <- peer
+      self$hash <- hash
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputInvoiceStarGiftPrepaidUpgrade",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer,
+        hash = self$hash
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xb8, 0x48, 0x0b, 0x9a)),
+        self$peer$bytes(),
+        serialize_bytes(self$hash)
+      )
+    }
+  )
+)
+
+
+InputInvoiceStarGiftResale <- R6::R6Class(
+  "InputInvoiceStarGiftResale",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xc39f5324L,
+    SUBCLASS_OF_ID = 0x726e9bfeL,
+
+    slug = NULL,
+    to_id = NULL,
+    ton = NULL,
+
+    initialize = function(slug, to_id, ton = NULL) {
+      self$slug <- slug
+      self$to_id <- to_id
+      self$ton <- ton
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputInvoiceStarGiftResale",
+        slug = self$slug,
+        to_id = if (inherits(self$to_id, "TLObject")) self$to_id$to_dict() else self$to_id,
+        ton = self$ton
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x24, 0x53, 0x9f, 0xc3)),
+        as.raw(if (is.null(self$ton) || !self$ton) 0 else 1),
+        serialize_bytes(self$slug),
+        self$to_id$bytes()
+      )
+    }
+  )
+)
+
+InputInvoiceStarGiftTransfer <- R6::R6Class(
+  "InputInvoiceStarGiftTransfer",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x4a5f5bd9L,
+    SUBCLASS_OF_ID = 0x726e9bfeL,
+
+    stargift = NULL,
+    to_id = NULL,
+
+    initialize = function(stargift, to_id) {
+      self$stargift <- stargift
+      self$to_id <- to_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputInvoiceStarGiftTransfer",
+        stargift = if (inherits(self$stargift, "TLObject")) self$stargift$to_dict() else self$stargift,
+        to_id = if (inherits(self$to_id, "TLObject")) self$to_id$to_dict() else self$to_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xd9, 0x5b, 0x5f, 0x4a)),
+        self$stargift$bytes(),
+        self$to_id$bytes()
+      )
+    }
+  )
+)
+
+
+InputInvoiceStarGiftUpgrade <- R6::R6Class(
+  "InputInvoiceStarGiftUpgrade",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x4d818d5dL,
+    SUBCLASS_OF_ID = 0x726e9bfeL,
+
+    stargift = NULL,
+    keep_original_details = NULL,
+
+    initialize = function(stargift, keep_original_details = NULL) {
+      self$stargift <- stargift
+      self$keep_original_details <- keep_original_details
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputInvoiceStarGiftUpgrade",
+        stargift = if (inherits(self$stargift, "TLObject")) self$stargift$to_dict() else self$stargift,
+        keep_original_details = self$keep_original_details
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x5d, 0x8d, 0x81, 0x4d)),
+        as.raw(if (is.null(self$keep_original_details) || !self$keep_original_details) 0 else 1),
+        self$stargift$bytes()
+      )
+    }
+  )
+)
+
+InputInvoiceStars <- R6::R6Class(
+  "InputInvoiceStars",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x65f00ce3L,
+    SUBCLASS_OF_ID = 0x726e9bfeL,
+
+    purpose = NULL,
+
+    initialize = function(purpose) {
+      self$purpose <- purpose
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputInvoiceStars",
+        purpose = if (inherits(self$purpose, "TLObject")) self$purpose$to_dict() else self$purpose
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xe3, 0x0c, 0xf0, 0x65)),
+        self$purpose$bytes()
+      )
+    }
+  )
+)
+
+InputKeyboardButtonRequestPeer <- R6::R6Class(
+  "InputKeyboardButtonRequestPeer",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xc9662d05L,
+    SUBCLASS_OF_ID = 0xbad74a3L,
+
+    text = NULL,
+    button_id = NULL,
+    peer_type = NULL,
+    max_quantity = NULL,
+    name_requested = NULL,
+    username_requested = NULL,
+    photo_requested = NULL,
+
+    initialize = function(text, button_id, peer_type, max_quantity, name_requested = NULL, username_requested = NULL, photo_requested = NULL) {
+      self$text <- text
+      self$button_id <- button_id
+      self$peer_type <- peer_type
+      self$max_quantity <- max_quantity
+      self$name_requested <- name_requested
+      self$username_requested <- username_requested
+      self$photo_requested <- photo_requested
+    },
+
+    to_list = function() {
+      list(
+        "_" = "InputKeyboardButtonRequestPeer",
+        text = self$text,
+        button_id = self$button_id,
+        peer_type = if (inherits(self$peer_type, "TLObject")) self$peer_type$to_list() else self$peer_type,
+        max_quantity = self$max_quantity,
+        name_requested = self$name_requested,
+        username_requested = self$username_requested,
+        photo_requested = self$photo_requested
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(0x05), as.raw(0x2d), as.raw(0x66), as.raw(0xc9),
+        as.raw((if (is.null(self$name_requested) || !self$name_requested) 0 else 1) |
+               (if (is.null(self$username_requested) || !self$username_requested) 0 else 2) |
+               (if (is.null(self$photo_requested) || !self$photo_requested) 0 else 4)),
+        serialize_bytes(self$text),
+        writeBin(as.integer(self$button_id), raw(), size = 4),
+        self$peer_type$bytes(),
+        writeBin(as.integer(self$max_quantity), raw(), size = 4)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      name_requested <- as.logical(bitwAnd(flags, 1))
+      username_requested <- as.logical(bitwAnd(flags, 2))
+      photo_requested <- as.logical(bitwAnd(flags, 4))
+      text <- reader$tgread_string()
+      button_id <- reader$read_int()
+      peer_type <- reader$tgread_object()
+      max_quantity <- reader$read_int()
+
+      self$new(
+        text = text,
+        button_id = button_id,
+        peer_type = peer_type,
+        max_quantity = max_quantity,
+        name_requested = name_requested,
+        username_requested = username_requested,
+        photo_requested = photo_requested
+      )
+    }
+  )
+)
+
+
+InputKeyboardButtonUrlAuth <- R6::R6Class(
+  "InputKeyboardButtonUrlAuth",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xd02e7fd4L,
+    SUBCLASS_OF_ID = 0xbad74a3L,
+
+    text = NULL,
+    url = NULL,
+    bot = NULL,
+    request_write_access = NULL,
+    fwd_text = NULL,
+
+    initialize = function(text, url, bot, request_write_access = NULL, fwd_text = NULL) {
+      self$text <- text
+      self$url <- url
+      self$bot <- bot
+      self$request_write_access <- request_write_access
+      self$fwd_text <- fwd_text
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputKeyboardButtonUrlAuth",
+        text = self$text,
+        url = self$url,
+        bot = if (inherits(self$bot, "TLObject")) self$bot$to_dict() else self$bot,
+        request_write_access = self$request_write_access,
+        fwd_text = self$fwd_text
+      )
+    },
+
+    bytes = function() {
+      # Placeholder for byte serialization logic
+      NULL
+    }
+  )
+)
+
+InputKeyboardButtonUserProfile <- R6::R6Class(
+  "InputKeyboardButtonUserProfile",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xe988037bL,
+    SUBCLASS_OF_ID = 0xbad74a3L,
+
+    text = NULL,
+    user_id = NULL,
+
+    initialize = function(text, user_id) {
+      self$text <- text
+      self$user_id <- user_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputKeyboardButtonUserProfile",
+        text = self$text,
+        user_id = if (inherits(self$user_id, "TLObject")) self$user_id$to_dict() else self$user_id
+      )
+    },
+
+    bytes = function() {
+      # Placeholder for byte serialization logic
+      NULL
+    }
+  )
+)
+
+
+InputMediaAreaChannelPost <- R6::R6Class(
+  "InputMediaAreaChannelPost",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x2271f2bfL,
+    SUBCLASS_OF_ID = 0xf36d7bf2L,
+
+    coordinates = NULL,
+    channel = NULL,
+    msg_id = NULL,
+
+    initialize = function(coordinates, channel, msg_id) {
+      self$coordinates <- coordinates
+      self$channel <- channel
+      self$msg_id <- msg_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputMediaAreaChannelPost",
+        coordinates = if (inherits(self$coordinates, "TLObject")) self$coordinates$to_dict() else self$coordinates,
+        channel = if (inherits(self$channel, "TLObject")) self$channel$to_dict() else self$channel,
+        msg_id = self$msg_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xbf, 0xf2, 0x71, 0x22)),
+        self$coordinates$bytes(),
+        self$channel$bytes(),
+        writeBin(as.integer(self$msg_id), raw(), size = 4, endian = "little")
+      )
+    }
+  )
+)
+
+InputMediaAreaVenue <- R6::R6Class(
+  "InputMediaAreaVenue",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xb282217fL,
+    SUBCLASS_OF_ID = 0xf36d7bf2L,
+
+    coordinates = NULL,
+    query_id = NULL,
+    result_id = NULL,
+
+    initialize = function(coordinates, query_id, result_id) {
+      self$coordinates <- coordinates
+      self$query_id <- query_id
+      self$result_id <- result_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputMediaAreaVenue",
+        coordinates = if (inherits(self$coordinates, "TLObject")) self$coordinates$to_dict() else self$coordinates,
+        query_id = self$query_id,
+        result_id = self$result_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x7f, 0x21, 0x82, 0xb2)),
+        self$coordinates$bytes(),
+        writeBin(as.integer(self$query_id), raw(), size = 8, endian = "little"),
+        serialize(self$result_id, NULL)
+      )
+    }
+  )
+)
+
+
+InputMediaContact <- R6::R6Class(
+  "InputMediaContact",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xf8ab7dfbL,
+    SUBCLASS_OF_ID = 0xfaf846f4L,
+
+    phone_number = NULL,
+    first_name = NULL,
+    last_name = NULL,
+    vcard = NULL,
+
+    initialize = function(phone_number, first_name, last_name, vcard) {
+      self$phone_number <- phone_number
+      self$first_name <- first_name
+      self$last_name <- last_name
+      self$vcard <- vcard
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputMediaContact",
+        phone_number = self$phone_number,
+        first_name = self$first_name,
+        last_name = self$last_name,
+        vcard = self$vcard
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xfb, 0x7d, 0xab, 0xf8)),
+        serialize_bytes(self$phone_number),
+        serialize_bytes(self$first_name),
+        serialize_bytes(self$last_name),
+        serialize_bytes(self$vcard)
+      )
+    }
+  )
+)
+
+InputMediaDice <- R6::R6Class(
+  "InputMediaDice",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xe66fbf7bL,
+    SUBCLASS_OF_ID = 0xfaf846f4L,
+
+    emoticon = NULL,
+
+    initialize = function(emoticon) {
+      self$emoticon <- emoticon
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputMediaDice",
+        emoticon = self$emoticon
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x7b, 0xbf, 0x6f, 0xe6)),
+        serialize_bytes(self$emoticon)
+      )
+    }
+  )
+)
+
+
+InputMediaDocument <- R6::R6Class(
+  "InputMediaDocument",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xa8763ab5L,
+    SUBCLASS_OF_ID = 0xfaf846f4L,
+
+    id = NULL,
+    spoiler = NULL,
+    video_cover = NULL,
+    video_timestamp = NULL,
+    ttl_seconds = NULL,
+    query = NULL,
+
+    initialize = function(id, spoiler = NULL, video_cover = NULL, video_timestamp = NULL, ttl_seconds = NULL, query = NULL) {
+      self$id <- id
+      self$spoiler <- spoiler
+      self$video_cover <- video_cover
+      self$video_timestamp <- video_timestamp
+      self$ttl_seconds <- ttl_seconds
+      self$query <- query
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputMediaDocument",
+        id = if (inherits(self$id, "TLObject")) self$id$to_dict() else self$id,
+        spoiler = self$spoiler,
+        video_cover = if (inherits(self$video_cover, "TLObject")) self$video_cover$to_dict() else self$video_cover,
+        video_timestamp = self$video_timestamp,
+        ttl_seconds = self$ttl_seconds,
+        query = self$query
+      )
+    },
+
+    bytes = function() {
+      flags <- (if (is.null(self$spoiler) || !self$spoiler) 0 else 4) |
+               (if (is.null(self$video_cover) || !self$video_cover) 0 else 8) |
+               (if (is.null(self$video_timestamp) || !self$video_timestamp) 0 else 16) |
+               (if (is.null(self$ttl_seconds) || !self$ttl_seconds) 0 else 1) |
+               (if (is.null(self$query) || !self$query) 0 else 2)
+
+      c(
+        as.raw(c(0xb5, 0x3a, 0x76, 0xa8)),
+        writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
+        self$id$bytes(),
+        if (!is.null(self$video_cover) && self$video_cover) self$video_cover$bytes() else raw(),
+        if (!is.null(self$video_timestamp) && self$video_timestamp) writeBin(as.integer(self$video_timestamp), raw(), size = 4, endian = "little") else raw(),
+        if (!is.null(self$ttl_seconds) && self$ttl_seconds) writeBin(as.integer(self$ttl_seconds), raw(), size = 4, endian = "little") else raw(),
+        if (!is.null(self$query) && self$query) serialize_bytes(self$query) else raw()
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      spoiler <- as.logical(bitwAnd(flags, 4))
+      id <- reader$tgread_object()
+      video_cover <- if (bitwAnd(flags, 8)) reader$tgread_object() else NULL
+      video_timestamp <- if (bitwAnd(flags, 16)) reader$read_int() else NULL
+      ttl_seconds <- if (bitwAnd(flags, 1)) reader$read_int() else NULL
+      query <- if (bitwAnd(flags, 2)) reader$tgread_string() else NULL
+
+      self$new(id = id, spoiler = spoiler, video_cover = video_cover, video_timestamp = video_timestamp, ttl_seconds = ttl_seconds, query = query)
+    }
+  )
+)
+
 
 InputMediaDocumentExternal <- R6::R6Class(
   "InputMediaDocumentExternal",
@@ -14791,6 +21635,356 @@ InputStorePaymentAuthCode <- R6::R6Class(
   )
 )
 
+
+InputStorePaymentGiftPremium <- R6::R6Class(
+  "InputStorePaymentGiftPremium",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x616f7fe8L,
+    SUBCLASS_OF_ID = 0xe7a4174dL,
+    user_id = NULL,
+    currency = NULL,
+    amount = NULL,
+
+    initialize = function(user_id, currency, amount) {
+      self$user_id <- user_id
+      self$currency <- currency
+      self$amount <- amount
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputStorePaymentGiftPremium",
+        user_id = if (inherits(self$user_id, "TLObject")) self$user_id$to_dict() else self$user_id,
+        currency = self$currency,
+        amount = self$amount
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xe8, 0x7f, 0x6f, 0x61)),
+        self$user_id$bytes(),
+        serialize_bytes(self$currency),
+        writeBin(as.integer64(self$amount), raw(), size = 8, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      user_id <- reader$tgread_object()
+      currency <- reader$tgread_string()
+      amount <- reader$read_long()
+      self$new(user_id = user_id, currency = currency, amount = amount)
+    }
+  )
+)
+
+
+InputStorePaymentPremiumGiftCode <- R6::R6Class(
+  "InputStorePaymentPremiumGiftCode",
+  inherit = TLObject,
+  public = list(
+    users = NULL,
+    currency = NULL,
+    amount = NULL,
+    boost_peer = NULL,
+    message = NULL,
+
+    initialize = function(users, currency, amount, boost_peer = NULL, message = NULL) {
+      self$users <- users
+      self$currency <- currency
+      self$amount <- amount
+      self$boost_peer <- boost_peer
+      self$message <- message
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputStorePaymentPremiumGiftCode",
+        users = lapply(self$users, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        currency = self$currency,
+        amount = self$amount,
+        boost_peer = if (inherits(self$boost_peer, "TLObject")) self$boost_peer$to_dict() else self$boost_peer,
+        message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
+      )
+    }
+  )
+)
+
+InputStorePaymentPremiumGiveaway <- R6::R6Class(
+  "InputStorePaymentPremiumGiveaway",
+  inherit = TLObject,
+  public = list(
+    boost_peer = NULL,
+    until_date = NULL,
+    currency = NULL,
+    amount = NULL,
+    only_new_subscribers = NULL,
+    winners_are_visible = NULL,
+    additional_peers = NULL,
+    countries_iso2 = NULL,
+    prize_description = NULL,
+    random_id = NULL,
+
+    initialize = function(boost_peer, until_date, currency, amount, only_new_subscribers = NULL,
+                          winners_are_visible = NULL, additional_peers = NULL, countries_iso2 = NULL,
+                          prize_description = NULL, random_id = NULL) {
+      self$boost_peer <- boost_peer
+      self$until_date <- until_date
+      self$currency <- currency
+      self$amount <- amount
+      self$only_new_subscribers <- only_new_subscribers
+      self$winners_are_visible <- winners_are_visible
+      self$additional_peers <- additional_peers
+      self$countries_iso2 <- countries_iso2
+      self$prize_description <- prize_description
+      self$random_id <- if (is.null(random_id)) as.integer64(sample.int(1e9, 1)) else random_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputStorePaymentPremiumGiveaway",
+        boost_peer = if (inherits(self$boost_peer, "TLObject")) self$boost_peer$to_dict() else self$boost_peer,
+        until_date = self$until_date,
+        currency = self$currency,
+        amount = self$amount,
+        only_new_subscribers = self$only_new_subscribers,
+        winners_are_visible = self$winners_are_visible,
+        additional_peers = lapply(self$additional_peers, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        countries_iso2 = self$countries_iso2,
+        prize_description = self$prize_description,
+        random_id = self$random_id
+      )
+    }
+  )
+)
+
+
+InputStorePaymentPremiumSubscription <- R6::R6Class(
+  "InputStorePaymentPremiumSubscription",
+  inherit = TLObject,
+  public = list(
+    restore = NULL,
+    upgrade = NULL,
+
+    initialize = function(restore = NULL, upgrade = NULL) {
+      self$restore <- restore
+      self$upgrade <- upgrade
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputStorePaymentPremiumSubscription",
+        restore = self$restore,
+        upgrade = self$upgrade
+      )
+    },
+
+    bytes = function() {
+      flags <- (if (is.null(self$restore) || !self$restore) 0 else 1) |
+               (if (is.null(self$upgrade) || !self$upgrade) 0 else 2)
+      c(as.raw(c(0xa6, 0x75, 0x1e, 0xf)), as.raw(flags))
+    }
+  )
+)
+
+InputStorePaymentStarsGift <- R6::R6Class(
+  "InputStorePaymentStarsGift",
+  inherit = TLObject,
+  public = list(
+    user_id = NULL,
+    stars = NULL,
+    currency = NULL,
+    amount = NULL,
+
+    initialize = function(user_id, stars, currency, amount) {
+      self$user_id <- user_id
+      self$stars <- stars
+      self$currency <- currency
+      self$amount <- amount
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputStorePaymentStarsGift",
+        user_id = if (inherits(self$user_id, "TLObject")) self$user_id$to_dict() else self$user_id,
+        stars = self$stars,
+        currency = self$currency,
+        amount = self$amount
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xf7, 0x1e, 0x74, 0x1d)),
+        self$user_id$bytes(),
+        writeBin(as.integer64(self$stars), raw(), size = 8),
+        charToRaw(self$currency),
+        writeBin(as.integer64(self$amount), raw(), size = 8)
+      )
+    }
+  )
+)
+
+
+InputStorePaymentStarsGiveaway <- R6::R6Class(
+  "InputStorePaymentStarsGiveaway",
+  inherit = TLObject,
+  public = list(
+    stars = NULL,
+    boost_peer = NULL,
+    until_date = NULL,
+    currency = NULL,
+    amount = NULL,
+    users = NULL,
+    only_new_subscribers = NULL,
+    winners_are_visible = NULL,
+    additional_peers = NULL,
+    countries_iso2 = NULL,
+    prize_description = NULL,
+    random_id = NULL,
+
+    initialize = function(stars, boost_peer, until_date, currency, amount, users,
+                          only_new_subscribers = NULL, winners_are_visible = NULL,
+                          additional_peers = NULL, countries_iso2 = NULL,
+                          prize_description = NULL, random_id = NULL) {
+      self$stars <- stars
+      self$boost_peer <- boost_peer
+      self$until_date <- until_date
+      self$currency <- currency
+      self$amount <- amount
+      self$users <- users
+      self$only_new_subscribers <- only_new_subscribers
+      self$winners_are_visible <- winners_are_visible
+      self$additional_peers <- additional_peers
+      self$countries_iso2 <- countries_iso2
+      self$prize_description <- prize_description
+      self$random_id <- if (is.null(random_id)) as.integer64(sample.int(1e9, 1)) else random_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputStorePaymentStarsGiveaway",
+        stars = self$stars,
+        boost_peer = if (inherits(self$boost_peer, "TLObject")) self$boost_peer$to_dict() else self$boost_peer,
+        until_date = self$until_date,
+        currency = self$currency,
+        amount = self$amount,
+        users = self$users,
+        only_new_subscribers = self$only_new_subscribers,
+        winners_are_visible = self$winners_are_visible,
+        additional_peers = if (is.null(self$additional_peers)) list() else lapply(self$additional_peers, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        countries_iso2 = if (is.null(self$countries_iso2)) list() else self$countries_iso2,
+        prize_description = self$prize_description,
+        random_id = self$random_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xfa, 0x08, 0x1f, 0x75)),
+        as.raw(bitwOr(
+          ifelse(is.null(self$only_new_subscribers) || !self$only_new_subscribers, 0, 1),
+          ifelse(is.null(self$winners_are_visible) || !self$winners_are_visible, 0, 8),
+          ifelse(is.null(self$additional_peers), 0, 2),
+          ifelse(is.null(self$countries_iso2), 0, 4),
+          ifelse(is.null(self$prize_description), 0, 16)
+        )),
+        serialize_int64(self$stars),
+        self$boost_peer$bytes(),
+        if (!is.null(self$additional_peers)) serialize_list(self$additional_peers) else raw(0),
+        if (!is.null(self$countries_iso2)) serialize_list(self$countries_iso2) else raw(0),
+        if (!is.null(self$prize_description)) serialize_string(self$prize_description) else raw(0),
+        serialize_int64(self$random_id),
+        serialize_datetime(self$until_date),
+        serialize_string(self$currency),
+        serialize_int64(self$amount),
+        serialize_int(self$users)
+      )
+    }
+  )
+)
+
+InputStorePaymentStarsTopup <- R6::R6Class(
+  "InputStorePaymentStarsTopup",
+  inherit = TLObject,
+  public = list(
+    stars = NULL,
+    currency = NULL,
+    amount = NULL,
+    spend_purpose_peer = NULL,
+
+    initialize = function(stars, currency, amount, spend_purpose_peer = NULL) {
+      self$stars <- stars
+      self$currency <- currency
+      self$amount <- amount
+      self$spend_purpose_peer <- spend_purpose_peer
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputStorePaymentStarsTopup",
+        stars = self$stars,
+        currency = self$currency,
+        amount = self$amount,
+        spend_purpose_peer = if (inherits(self$spend_purpose_peer, "TLObject")) self$spend_purpose_peer$to_dict() else self$spend_purpose_peer
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xcb, 0xa6, 0xa2, 0xf9)),
+        as.raw(ifelse(is.null(self$spend_purpose_peer), 0, 1)),
+        serialize_int64(self$stars),
+        serialize_string(self$currency),
+        serialize_int64(self$amount),
+        if (!is.null(self$spend_purpose_peer)) self$spend_purpose_peer$bytes() else raw(0)
+      )
+    }
+  )
+)
+
+
+InputStorePaymentPremiumSubscription <- R6::R6Class(
+  "InputStorePaymentPremiumSubscription",
+  inherit = TLObject,
+  public = list(
+    restore = NULL,
+    upgrade = NULL,
+
+    initialize = function(restore = NULL, upgrade = NULL) {
+      self$restore <- restore
+      self$upgrade <- upgrade
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputStorePaymentPremiumSubscription",
+        restore = self$restore,
+        upgrade = self$upgrade
+      )
+    },
+
+    bytes = function() {
+      flags <- (if (is.null(self$restore) || !self$restore) 0 else 1) |
+               (if (is.null(self$upgrade) || !self$upgrade) 0 else 2)
+      c(as.raw(c(0xa6, 0x75, 0x1e, 0x66)), writeBin(as.integer(flags), raw(), size = 4, endian = "little"))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      restore <- as.logical(bitwAnd(flags, 1))
+      upgrade <- as.logical(bitwAnd(flags, 2))
+      self$new(restore = restore, upgrade = upgrade)
+    }
+  )
+)
+
+
 InputStorePaymentGiftPremium <- R6::R6Class(
   "InputStorePaymentGiftPremium",
   inherit = TLObject,
@@ -14815,6 +22009,1049 @@ InputStorePaymentGiftPremium <- R6::R6Class(
       currency <- reader$tgread_string()
       amount <- reader$read_long()
       self$initialize(user_id = user_id, currency = currency, amount = amount)
+    }
+  )
+)
+
+
+InputTakeoutFileLocation <- R6::R6Class(
+  "InputTakeoutFileLocation",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x29be5899L,
+    SUBCLASS_OF_ID = 0x1523d462L,
+
+    to_dict = function() {
+      list("_" = "InputTakeoutFileLocation")
+    },
+
+    bytes = function() {
+      rawToChar(as.raw(c(0x99, 0x58, 0xBE, 0x29)))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  )
+)
+
+
+InputTheme <- R6::R6Class(
+  "InputTheme",
+  public = list(
+    id = NULL,
+    access_hash = NULL,
+
+    initialize = function(id, access_hash) {
+      self$id <- id
+      self$access_hash <- access_hash
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputTheme",
+        id = self$id,
+        access_hash = self$access_hash
+      )
+    }
+  )
+)
+
+InputThemeSettings <- R6::R6Class(
+  "InputThemeSettings",
+  public = list(
+    base_theme = NULL,
+    accent_color = NULL,
+    message_colors_animated = NULL,
+    outbox_accent_color = NULL,
+    message_colors = NULL,
+    wallpaper = NULL,
+    wallpaper_settings = NULL,
+
+    initialize = function(base_theme, accent_color, message_colors_animated = NULL,
+                          outbox_accent_color = NULL, message_colors = NULL,
+                          wallpaper = NULL, wallpaper_settings = NULL) {
+      self$base_theme <- base_theme
+      self$accent_color <- accent_color
+      self$message_colors_animated <- message_colors_animated
+      self$outbox_accent_color <- outbox_accent_color
+      self$message_colors <- message_colors
+      self$wallpaper <- wallpaper
+      self$wallpaper_settings <- wallpaper_settings
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputThemeSettings",
+        base_theme = if (inherits(self$base_theme, "R6")) self$base_theme$to_dict() else self$base_theme,
+        accent_color = self$accent_color,
+        message_colors_animated = self$message_colors_animated,
+        outbox_accent_color = self$outbox_accent_color,
+        message_colors = if (is.null(self$message_colors)) list() else self$message_colors,
+        wallpaper = if (inherits(self$wallpaper, "R6")) self$wallpaper$to_dict() else self$wallpaper,
+        wallpaper_settings = if (inherits(self$wallpaper_settings, "R6")) self$wallpaper_settings$to_dict() else self$wallpaper_settings
+      )
+    }
+  )
+)
+
+
+InputThemeSlug <- R6::R6Class(
+  "InputThemeSlug",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xf5890df1L,
+    SUBCLASS_OF_ID = 0x7a100f0L,
+    slug = NULL,
+
+    initialize = function(slug) {
+      self$slug <- slug
+    },
+
+    to_dict = function() {
+      list("_" = "InputThemeSlug", slug = self$slug)
+    },
+
+    bytes = function() {
+      rawToChar(c(as.raw(0xf1), as.raw(0x0d), as.raw(0x89), as.raw(0xf5), charToRaw(self$slug)))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      slug <- reader$tgread_string()
+      self$new(slug = slug)
+    }
+  )
+)
+
+InputUser <- R6::R6Class(
+  "InputUser",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xf21158c6L,
+    SUBCLASS_OF_ID = 0xe669bf46L,
+    user_id = NULL,
+    access_hash = NULL,
+
+    initialize = function(user_id, access_hash) {
+      self$user_id <- user_id
+      self$access_hash <- access_hash
+    },
+
+    to_dict = function() {
+      list("_" = "InputUser", user_id = self$user_id, access_hash = self$access_hash)
+    },
+
+    bytes = function() {
+      rawToChar(c(as.raw(0xc6), as.raw(0x58), as.raw(0x11), as.raw(0xf2),
+                  writeBin(self$user_id, raw(), size = 8),
+                  writeBin(self$access_hash, raw(), size = 8)))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      user_id <- reader$read_long()
+      access_hash <- reader$read_long()
+      self$new(user_id = user_id, access_hash = access_hash)
+    }
+  )
+)
+
+
+InputUserEmpty <- R6::R6Class(
+  "InputUserEmpty",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xb98886cfL,
+    SUBCLASS_OF_ID = 0xe669bf46L,
+
+    to_dict = function() {
+      list("_" = "InputUserEmpty")
+    },
+
+    bytes = function() {
+      rawToChar(as.raw(c(0xcf, 0x86, 0x88, 0xb9)))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  )
+)
+
+InputUserFromMessage <- R6::R6Class(
+  "InputUserFromMessage",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x1da448e2L,
+    SUBCLASS_OF_ID = 0xe669bf46L,
+    peer = NULL,
+    msg_id = NULL,
+    user_id = NULL,
+
+    initialize = function(peer, msg_id, user_id) {
+      self$peer <- peer
+      self$msg_id <- msg_id
+      self$user_id <- user_id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputUserFromMessage",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        msg_id = self$msg_id,
+        user_id = self$user_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        rawToChar(as.raw(c(0xe2, 0x48, 0xa4, 0x1d))),
+        self$peer$bytes(),
+        intToRaw(self$msg_id),
+        intToRaw(self$user_id, 8)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      peer <- reader$tgread_object()
+      msg_id <- reader$read_int()
+      user_id <- reader$read_long()
+      self$new(peer = peer, msg_id = msg_id, user_id = user_id)
+    }
+  )
+)
+
+InputUserSelf <- R6::R6Class(
+  "InputUserSelf",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xf7c1b13fL,
+    SUBCLASS_OF_ID = 0xe669bf46L,
+
+    to_dict = function() {
+      list("_" = "InputUserSelf")
+    },
+
+    bytes = function() {
+      rawToChar(as.raw(c(0x3f, 0xb1, 0xc1, 0xf7)))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  )
+)
+
+
+InputWallPaper <- R6::R6Class(
+  "InputWallPaper",
+  inherit = TLObject,
+  public = list(
+    id = NULL,
+    access_hash = NULL,
+
+    initialize = function(id, access_hash) {
+      self$id <- id
+      self$access_hash <- access_hash
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputWallPaper",
+        id = self$id,
+        access_hash = self$access_hash
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xe6, 0x30, 0xb9, 0x79)),
+        writeBin(as.integer(self$id), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$access_hash), raw(), size = 8, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      id <- reader$read_long()
+      access_hash <- reader$read_long()
+      self$new(id = id, access_hash = access_hash)
+    }
+  )
+)
+
+InputWallPaperNoFile <- R6::R6Class(
+  "InputWallPaperNoFile",
+  inherit = TLObject,
+  public = list(
+    id = NULL,
+
+    initialize = function(id) {
+      self$id <- id
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputWallPaperNoFile",
+        id = self$id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x96, 0x7a, 0x46, 0x2e)),
+        writeBin(as.integer(self$id), raw(), size = 8, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      id <- reader$read_long()
+      self$new(id = id)
+    }
+  )
+)
+
+InputWallPaperSlug <- R6::R6Class(
+  "InputWallPaperSlug",
+  inherit = TLObject,
+  public = list(
+    slug = NULL,
+
+    initialize = function(slug) {
+      self$slug <- slug
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputWallPaperSlug",
+        slug = self$slug
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x72, 0x09, 0x1c, 0x80)),
+        serialize_bytes(self$slug)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      slug <- reader$tgread_string()
+      self$new(slug = slug)
+    }
+  )
+)
+
+
+InputWebDocument <- R6::R6Class(
+  "InputWebDocument",
+  inherit = TLObject,
+  public = list(
+    url = NULL,
+    size = NULL,
+    mime_type = NULL,
+    attributes = NULL,
+
+    initialize = function(url, size, mime_type, attributes) {
+      self$url <- url
+      self$size <- size
+      self$mime_type <- mime_type
+      self$attributes <- attributes
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputWebDocument",
+        url = self$url,
+        size = self$size,
+        mime_type = self$mime_type,
+        attributes = if (is.null(self$attributes)) list() else lapply(self$attributes, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
+    },
+
+    bytes = function() {
+      raw()
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      url <- reader$tgread_string()
+      size <- reader$read_int()
+      mime_type <- reader$tgread_string()
+      reader$read_int()
+      attributes <- list()
+      for (i in seq_len(reader$read_int())) {
+        attributes[[i]] <- reader$tgread_object()
+      }
+      self$new(url = url, size = size, mime_type = mime_type, attributes = attributes)
+    }
+  )
+)
+
+InputWebFileAudioAlbumThumbLocation <- R6::R6Class(
+  "InputWebFileAudioAlbumThumbLocation",
+  inherit = TLObject,
+  public = list(
+    small = NULL,
+    document = NULL,
+    title = NULL,
+    performer = NULL,
+
+    initialize = function(small = NULL, document = NULL, title = NULL, performer = NULL) {
+      self$small <- small
+      self$document <- document
+      self$title <- title
+      self$performer <- performer
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputWebFileAudioAlbumThumbLocation",
+        small = self$small,
+        document = if (inherits(self$document, "TLObject")) self$document$to_dict() else self$document,
+        title = self$title,
+        performer = self$performer
+      )
+    },
+
+    bytes = function() {
+      raw()
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      small <- as.logical(bitwAnd(flags, 4))
+      document <- if (bitwAnd(flags, 1)) reader$tgread_object() else NULL
+      title <- if (bitwAnd(flags, 2)) reader$tgread_string() else NULL
+      performer <- if (bitwAnd(flags, 2)) reader$tgread_string() else NULL
+
+      self$new(small = small, document = document, title = title, performer = performer)
+    }
+  )
+)
+
+
+InputWebFileGeoPointLocation <- R6::R6Class(
+  "InputWebFileGeoPointLocation",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x9f2221c9L,
+    SUBCLASS_OF_ID = 0xf72ed8d9L,
+    geo_point = NULL,
+    access_hash = NULL,
+    w = NULL,
+    h = NULL,
+    zoom = NULL,
+    scale = NULL,
+
+    initialize = function(geo_point, access_hash, w, h, zoom, scale) {
+      self$geo_point <- geo_point
+      self$access_hash <- access_hash
+      self$w <- w
+      self$h <- h
+      self$zoom <- zoom
+      self$scale <- scale
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputWebFileGeoPointLocation",
+        geo_point = if (inherits(self$geo_point, "TLObject")) self$geo_point$to_dict() else self$geo_point,
+        access_hash = self$access_hash,
+        w = self$w,
+        h = self$h,
+        zoom = self$zoom,
+        scale = self$scale
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xc9, 0x21, 0x22, 0x9f)),
+        self$geo_point$bytes(),
+        writeBin(self$access_hash, raw(), size = 8, endian = "little"),
+        writeBin(self$w, raw(), size = 4, endian = "little"),
+        writeBin(self$h, raw(), size = 4, endian = "little"),
+        writeBin(self$zoom, raw(), size = 4, endian = "little"),
+        writeBin(self$scale, raw(), size = 4, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      geo_point <- reader$tgread_object()
+      access_hash <- reader$read_long()
+      w <- reader$read_int()
+      h <- reader$read_int()
+      zoom <- reader$read_int()
+      scale <- reader$read_int()
+      self$new(geo_point = geo_point, access_hash = access_hash, w = w, h = h, zoom = zoom, scale = scale)
+    }
+  )
+)
+
+InputWebFileLocation <- R6::R6Class(
+  "InputWebFileLocation",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xc239d686L,
+    SUBCLASS_OF_ID = 0xf72ed8d9L,
+    url = NULL,
+    access_hash = NULL,
+
+    initialize = function(url, access_hash) {
+      self$url <- url
+      self$access_hash <- access_hash
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "InputWebFileLocation",
+        url = self$url,
+        access_hash = self$access_hash
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x86, 0xd6, 0x39, 0xc2)),
+        serialize_bytes(self$url),
+        writeBin(self$access_hash, raw(), size = 8, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      url <- reader$tgread_string()
+      access_hash <- reader$read_long()
+      self$new(url = url, access_hash = access_hash)
+    }
+  )
+)
+
+
+Invoice <- R6::R6Class(
+  "Invoice",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x49ee584L,
+    SUBCLASS_OF_ID = 0x5fd82ed8L,
+    currency = NULL,
+    prices = NULL,
+    test = NULL,
+    name_requested = NULL,
+    phone_requested = NULL,
+    email_requested = NULL,
+    shipping_address_requested = NULL,
+    flexible = NULL,
+    phone_to_provider = NULL,
+    email_to_provider = NULL,
+    recurring = NULL,
+    max_tip_amount = NULL,
+    suggested_tip_amounts = NULL,
+    terms_url = NULL,
+    subscription_period = NULL,
+
+    initialize = function(currency, prices, test = NULL, name_requested = NULL, phone_requested = NULL,
+                          email_requested = NULL, shipping_address_requested = NULL, flexible = NULL,
+                          phone_to_provider = NULL, email_to_provider = NULL, recurring = NULL,
+                          max_tip_amount = NULL, suggested_tip_amounts = NULL, terms_url = NULL,
+                          subscription_period = NULL) {
+      self$currency <- currency
+      self$prices <- prices
+      self$test <- test
+      self$name_requested <- name_requested
+      self$phone_requested <- phone_requested
+      self$email_requested <- email_requested
+      self$shipping_address_requested <- shipping_address_requested
+      self$flexible <- flexible
+      self$phone_to_provider <- phone_to_provider
+      self$email_to_provider <- email_to_provider
+      self$recurring <- recurring
+      self$max_tip_amount <- max_tip_amount
+      self$suggested_tip_amounts <- suggested_tip_amounts
+      self$terms_url <- terms_url
+      self$subscription_period <- subscription_period
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "Invoice",
+        currency = self$currency,
+        prices = if (is.null(self$prices)) list() else lapply(self$prices, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        test = self$test,
+        name_requested = self$name_requested,
+        phone_requested = self$phone_requested,
+        email_requested = self$email_requested,
+        shipping_address_requested = self$shipping_address_requested,
+        flexible = self$flexible,
+        phone_to_provider = self$phone_to_provider,
+        email_to_provider = self$email_to_provider,
+        recurring = self$recurring,
+        max_tip_amount = self$max_tip_amount,
+        suggested_tip_amounts = if (is.null(self$suggested_tip_amounts)) list() else self$suggested_tip_amounts,
+        terms_url = self$terms_url,
+        subscription_period = self$subscription_period
+      )
+    },
+
+    bytes = function() {
+      stopifnot((!is.null(self$max_tip_amount) && !is.null(self$suggested_tip_amounts)) ||
+                  (is.null(self$max_tip_amount) && is.null(self$suggested_tip_amounts)))
+      raw()
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      test <- as.logical(bitwAnd(flags, 1))
+      name_requested <- as.logical(bitwAnd(flags, 2))
+      phone_requested <- as.logical(bitwAnd(flags, 4))
+      email_requested <- as.logical(bitwAnd(flags, 8))
+      shipping_address_requested <- as.logical(bitwAnd(flags, 16))
+      flexible <- as.logical(bitwAnd(flags, 32))
+      phone_to_provider <- as.logical(bitwAnd(flags, 64))
+      email_to_provider <- as.logical(bitwAnd(flags, 128))
+      recurring <- as.logical(bitwAnd(flags, 512))
+      currency <- reader$tgread_string()
+      reader$read_int()
+      prices <- list()
+      for (i in seq_len(reader$read_int())) {
+        prices[[i]] <- reader$tgread_object()
+      }
+
+      max_tip_amount <- if (bitwAnd(flags, 256)) reader$read_long() else NULL
+      suggested_tip_amounts <- if (bitwAnd(flags, 256)) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(i) reader$read_long())
+      } else NULL
+      terms_url <- if (bitwAnd(flags, 1024)) reader$tgread_string() else NULL
+      subscription_period <- if (bitwAnd(flags, 2048)) reader$read_int() else NULL
+
+      self$new(currency = currency, prices = prices, test = test, name_requested = name_requested,
+               phone_requested = phone_requested, email_requested = email_requested,
+               shipping_address_requested = shipping_address_requested, flexible = flexible,
+               phone_to_provider = phone_to_provider, email_to_provider = email_to_provider,
+               recurring = recurring, max_tip_amount = max_tip_amount,
+               suggested_tip_amounts = suggested_tip_amounts, terms_url = terms_url,
+               subscription_period = subscription_period)
+    }
+  )
+)
+
+IpPort <- R6::R6Class(
+  "IpPort",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xd433ad73L,
+    SUBCLASS_OF_ID = 0xa2a03726L,
+    ipv4 = NULL,
+    port = NULL,
+
+    initialize = function(ipv4, port) {
+      self$ipv4 <- ipv4
+      self$port <- port
+    },
+
+    to_dict = function() {
+      list(
+        "_" = "IpPort",
+        ipv4 = self$ipv4,
+        port = self$port
+      )
+    },
+
+    bytes = function() {
+      raw()
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      ipv4 <- reader$read_int()
+      port <- reader$read_int()
+      self$new(ipv4 = ipv4, port = port)
+    }
+  )
+)
+
+
+IpPortSecret <- R6::R6Class(
+  "IpPortSecret",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x37982646L,
+    SUBCLASS_OF_ID = 0xa2a03726L,
+    ipv4 = NULL,
+    port = NULL,
+    secret = NULL,
+    initialize = function(ipv4, port, secret) {
+      self$ipv4 <- ipv4
+      self$port <- port
+      self$secret <- secret
+    },
+    to_dict = function() {
+      list(
+        "_" = "IpPortSecret",
+        ipv4 = self$ipv4,
+        port = self$port,
+        secret = self$secret
+      )
+    },
+    bytes = function() {
+      raw(0) # Placeholder for byte serialization logic
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      ipv4 <- reader$read_int()
+      port <- reader$read_int()
+      secret <- reader$tgread_bytes()
+      self$new(ipv4 = ipv4, port = port, secret = secret)
+    }
+  )
+)
+
+JsonArray <- R6::R6Class(
+  "JsonArray",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xf7444763L,
+    SUBCLASS_OF_ID = 0xeb9987b3L,
+    value = NULL,
+    initialize = function(value) {
+      self$value <- value
+    },
+    to_dict = function() {
+      list(
+        "_" = "JsonArray",
+        value = if (is.null(self$value)) list() else lapply(self$value, function(x) {
+          if (inherits(x, "TLObject")) x$to_dict() else x
+        })
+      )
+    },
+    bytes = function() {
+      raw(0) # Placeholder for byte serialization logic
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      reader$read_int()
+      value <- list()
+      for (i in seq_len(reader$read_int())) {
+        x <- reader$tgread_object()
+        value[[i]] <- x
+      }
+      self$new(value = value)
+    }
+  )
+)
+
+
+JsonBool <- R6::R6Class(
+  "JsonBool",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xc7345e6aL,
+    SUBCLASS_OF_ID = 0xeb9987b3L,
+    value = NULL,
+    initialize = function(value) {
+      self$value <- value
+    },
+    to_dict = function() {
+      list(
+        "_" = "JsonBool",
+        value = self$value
+      )
+    },
+    bytes = function() {
+      if (self$value) {
+        rawToChar(as.raw(c(0x6a, 0x5e, 0x34, 0xc7, 0xb5, 0x75, 0x72, 0x99)))
+      } else {
+        rawToChar(as.raw(c(0x6a, 0x5e, 0x34, 0xc7, 0x37, 0x97, 0x79, 0xbc)))
+      }
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      value <- reader$tgread_bool()
+      self$new(value = value)
+    }
+  )
+)
+
+JsonNull <- R6::R6Class(
+  "JsonNull",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x3f6d7b68L,
+    SUBCLASS_OF_ID = 0xeb9987b3L,
+    to_dict = function() {
+      list("_" = "JsonNull")
+    },
+    bytes = function() {
+      rawToChar(as.raw(c(0x68, 0x7b, 0x6d, 0x3f)))
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  )
+)
+
+JsonNumber <- R6::R6Class(
+  "JsonNumber",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x2be0dfa4L,
+    SUBCLASS_OF_ID = 0xeb9987b3L,
+    value = NULL,
+    initialize = function(value) {
+      self$value <- value
+    },
+    to_dict = function() {
+      list(
+        "_" = "JsonNumber",
+        value = self$value
+      )
+    },
+    bytes = function() {
+      c(
+        rawToChar(as.raw(c(0xa4, 0xdf, 0xe0, 0x2b))),
+        writeBin(self$value, raw(), size = 8, endian = "little")
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      value <- reader$read_double()
+      self$new(value = value)
+    }
+  )
+)
+
+
+JsonObject <- R6::R6Class(
+  "JsonObject",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x99c1d49dL,
+    SUBCLASS_OF_ID = 0xeb9987b3L,
+    value = NULL,
+    initialize = function(value) {
+      self$value <- value
+    },
+    to_dict = function() {
+      list(
+        "_" = "JsonObject",
+        value = if (is.null(self$value)) list() else lapply(self$value, function(x) {
+          if (inherits(x, "TLObject")) x$to_dict() else x
+        })
+      )
+    },
+    bytes = function() {
+      raw_data <- c(
+        as.raw(c(0x9d, 0xd4, 0xc1, 0x99)),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        writeBin(length(self$value), raw(), size = 4, endian = "little"),
+        unlist(lapply(self$value, function(x) x$bytes()), recursive = FALSE)
+      )
+      do.call(c, raw_data)
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      reader$read_int()
+      value_list <- vector("list", reader$read_int())
+      for (i in seq_along(value_list)) {
+        value_list[[i]] <- reader$tgread_object()
+      }
+      self$new(value = value_list)
+    }
+  )
+)
+
+JsonObjectValue <- R6::R6Class(
+  "JsonObjectValue",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xc0de1bd9L,
+    SUBCLASS_OF_ID = 0x937fceb9L,
+    key = NULL,
+    value = NULL,
+    initialize = function(key, value) {
+      self$key <- key
+      self$value <- value
+    },
+    to_dict = function() {
+      list(
+        "_" = "JsonObjectValue",
+        key = self$key,
+        value = if (inherits(self$value, "TLObject")) self$value$to_dict() else self$value
+      )
+    },
+    bytes = function() {
+      raw_data <- c(
+        as.raw(c(0xd9, 0x1b, 0xde, 0xc0)),
+        serialize_bytes(self$key),
+        self$value$bytes()
+      )
+      do.call(c, raw_data)
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      key <- reader$tgread_string()
+      value <- reader$tgread_object()
+      self$new(key = key, value = value)
+    }
+  )
+)
+
+
+JsonString <- R6::R6Class(
+  "JsonString",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xb71e767aL,
+    SUBCLASS_OF_ID = 0xeb9987b3L,
+    value = NULL,
+    initialize = function(value) {
+      self$value <- value
+    },
+    to_dict = function() {
+      list(
+        "_" = "JsonString",
+        value = self$value
+      )
+    },
+    bytes = function() {
+      raw(0) # Placeholder for byte serialization
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      value <- reader$tgread_string()
+      self$new(value = value)
+    }
+  )
+)
+
+KeyboardButton <- R6::R6Class(
+  "KeyboardButton",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xa2fa4880L,
+    SUBCLASS_OF_ID = 0xbad74a3L,
+    text = NULL,
+    initialize = function(text) {
+      self$text <- text
+    },
+    to_dict = function() {
+      list(
+        "_" = "KeyboardButton",
+        text = self$text
+      )
+    },
+    bytes = function() {
+      raw(0) # Placeholder for byte serialization
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      text <- reader$tgread_string()
+      self$new(text = text)
+    }
+  )
+)
+
+
+KeyboardButtonBuy <- R6::R6Class(
+  "KeyboardButtonBuy",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xafd93fbbL,
+    SUBCLASS_OF_ID = 0xbad74a3L,
+    text = NULL,
+    initialize = function(text) {
+      self$text <- text
+    },
+    to_dict = function() {
+      list(
+        "_" = "KeyboardButtonBuy",
+        text = self$text
+      )
+    },
+    bytes = function() {
+      raw(0) # Placeholder for byte serialization
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      text <- reader$tgread_string()
+      self$new(text = text)
+    }
+  )
+)
+
+KeyboardButtonCallback <- R6::R6Class(
+  "KeyboardButtonCallback",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x35bbdb6bL,
+    SUBCLASS_OF_ID = 0xbad74a3L,
+    text = NULL,
+    data = NULL,
+    requires_password = NULL,
+    initialize = function(text, data, requires_password = NULL) {
+      self$text <- text
+      self$data <- data
+      self$requires_password <- requires_password
+    },
+    to_dict = function() {
+      list(
+        "_" = "KeyboardButtonCallback",
+        text = self$text,
+        data = self$data,
+        requires_password = self$requires_password
+      )
+    },
+    bytes = function() {
+      raw(0) # Placeholder for byte serialization
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      requires_password <- as.logical(flags & 1)
+      text <- reader$tgread_string()
+      data <- reader$tgread_bytes()
+      self$new(text = text, data = data, requires_password = requires_password)
     }
   )
 )
@@ -16247,6 +24484,681 @@ MediaAreaWeather <- R6::R6Class("MediaAreaWeather",
     }
   ),
   class = TRUE
+)
+
+
+Message <- R6::R6Class(
+  "Message",
+  inherit = TLObject,
+  public = list(
+    id = NULL,
+    peer_id = NULL,
+    date = NULL,
+    message = NULL,
+    out = NULL,
+    mentioned = NULL,
+    media_unread = NULL,
+    silent = NULL,
+    post = NULL,
+    from_scheduled = NULL,
+    legacy = NULL,
+    edit_hide = NULL,
+    pinned = NULL,
+    noforwards = NULL,
+    invert_media = NULL,
+    offline = NULL,
+    video_processing_pending = NULL,
+    paid_suggested_post_stars = NULL,
+    paid_suggested_post_ton = NULL,
+    from_id = NULL,
+    from_boosts_applied = NULL,
+    saved_peer_id = NULL,
+    fwd_from = NULL,
+    via_bot_id = NULL,
+    via_business_bot_id = NULL,
+    reply_to = NULL,
+    media = NULL,
+    reply_markup = NULL,
+    entities = NULL,
+    views = NULL,
+    forwards = NULL,
+    replies = NULL,
+    edit_date = NULL,
+    post_author = NULL,
+    grouped_id = NULL,
+    reactions = NULL,
+    restriction_reason = NULL,
+    ttl_period = NULL,
+    quick_reply_shortcut_id = NULL,
+    effect = NULL,
+    factcheck = NULL,
+    report_delivery_until_date = NULL,
+    paid_message_stars = NULL,
+    suggested_post = NULL,
+
+    initialize = function(id, peer_id, date, message, out = NULL, mentioned = NULL, media_unread = NULL, silent = NULL,
+                          post = NULL, from_scheduled = NULL, legacy = NULL, edit_hide = NULL, pinned = NULL,
+                          noforwards = NULL, invert_media = NULL, offline = NULL, video_processing_pending = NULL,
+                          paid_suggested_post_stars = NULL, paid_suggested_post_ton = NULL, from_id = NULL,
+                          from_boosts_applied = NULL, saved_peer_id = NULL, fwd_from = NULL, via_bot_id = NULL,
+                          via_business_bot_id = NULL, reply_to = NULL, media = NULL, reply_markup = NULL,
+                          entities = NULL, views = NULL, forwards = NULL, replies = NULL, edit_date = NULL,
+                          post_author = NULL, grouped_id = NULL, reactions = NULL, restriction_reason = NULL,
+                          ttl_period = NULL, quick_reply_shortcut_id = NULL, effect = NULL, factcheck = NULL,
+                          report_delivery_until_date = NULL, paid_message_stars = NULL, suggested_post = NULL) {
+      self$id <- id
+      self$peer_id <- peer_id
+      self$date <- date
+      self$message <- message
+      self$out <- out
+      self$mentioned <- mentioned
+      self$media_unread <- media_unread
+      self$silent <- silent
+      self$post <- post
+      self$from_scheduled <- from_scheduled
+      self$legacy <- legacy
+      self$edit_hide <- edit_hide
+      self$pinned <- pinned
+      self$noforwards <- noforwards
+      self$invert_media <- invert_media
+      self$offline <- offline
+      self$video_processing_pending <- video_processing_pending
+      self$paid_suggested_post_stars <- paid_suggested_post_stars
+      self$paid_suggested_post_ton <- paid_suggested_post_ton
+      self$from_id <- from_id
+      self$from_boosts_applied <- from_boosts_applied
+      self$saved_peer_id <- saved_peer_id
+      self$fwd_from <- fwd_from
+      self$via_bot_id <- via_bot_id
+      self$via_business_bot_id <- via_business_bot_id
+      self$reply_to <- reply_to
+      self$media <- media
+      self$reply_markup <- reply_markup
+      self$entities <- entities
+      self$views <- views
+      self$forwards <- forwards
+      self$replies <- replies
+      self$edit_date <- edit_date
+      self$post_author <- post_author
+      self$grouped_id <- grouped_id
+      self$reactions <- reactions
+      self$restriction_reason <- restriction_reason
+      self$ttl_period <- ttl_period
+      self$quick_reply_shortcut_id <- quick_reply_shortcut_id
+      self$effect <- effect
+      self$factcheck <- factcheck
+      self$report_delivery_until_date <- report_delivery_until_date
+      self$paid_message_stars <- paid_message_stars
+      self$suggested_post <- suggested_post
+    },
+
+    to_dict = function() {
+      list(
+        `_` = "Message",
+        id = self$id,
+        peer_id = if (inherits(self$peer_id, "TLObject")) self$peer_id$to_dict() else self$peer_id,
+        date = self$date,
+        message = self$message,
+        out = self$out,
+        mentioned = self$mentioned,
+        media_unread = self$media_unread,
+        silent = self$silent,
+        post = self$post,
+        from_scheduled = self$from_scheduled,
+        legacy = self$legacy,
+        edit_hide = self$edit_hide,
+        pinned = self$pinned,
+        noforwards = self$noforwards,
+        invert_media = self$invert_media,
+        offline = self$offline,
+        video_processing_pending = self$video_processing_pending,
+        paid_suggested_post_stars = self$paid_suggested_post_stars,
+        paid_suggested_post_ton = self$paid_suggested_post_ton,
+        from_id = if (inherits(self$from_id, "TLObject")) self$from_id$to_dict() else self$from_id,
+        from_boosts_applied = self$from_boosts_applied,
+        saved_peer_id = if (inherits(self$saved_peer_id, "TLObject")) self$saved_peer_id$to_dict() else self$saved_peer_id,
+        fwd_from = if (inherits(self$fwd_from, "TLObject")) self$fwd_from$to_dict() else self$fwd_from,
+        via_bot_id = self$via_bot_id,
+        via_business_bot_id = self$via_business_bot_id,
+        reply_to = if (inherits(self$reply_to, "TLObject")) self$reply_to$to_dict() else self$reply_to,
+        media = if (inherits(self$media, "TLObject")) self$media$to_dict() else self$media,
+        reply_markup = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_dict() else self$reply_markup,
+        entities = if (is.null(self$entities)) list() else lapply(self$entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        views = self$views,
+        forwards = self$forwards,
+        replies = if (inherits(self$replies, "TLObject")) self$replies$to_dict() else self$replies,
+        edit_date = self$edit_date,
+        post_author = self$post_author,
+        grouped_id = self$grouped_id,
+        reactions = if (inherits(self$reactions, "TLObject")) self$reactions$to_dict() else self$reactions,
+        restriction_reason = if (is.null(self$restriction_reason)) list() else lapply(self$restriction_reason, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        ttl_period = self$ttl_period,
+        quick_reply_shortcut_id = self$quick_reply_shortcut_id,
+        effect = self$effect,
+        factcheck = if (inherits(self$factcheck, "TLObject")) self$factcheck$to_dict() else self$factcheck,
+        report_delivery_until_date = self$report_delivery_until_date,
+        paid_message_stars = self$paid_message_stars,
+        suggested_post = if (inherits(self$suggested_post, "TLObject")) self$suggested_post$to_dict() else self$suggested_post
+      )
+    },
+
+    bytes = function() {
+      stop("Serialization to bytes is not implemented")
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      flags2 <- reader$read_int()
+
+      Message$new(
+        id = reader$read_int(),
+        peer_id = reader$tgread_object(),
+        date = reader$tgread_date(),
+        message = reader$tgread_string(),
+        out = bitwAnd(flags, 2) != 0,
+        mentioned = bitwAnd(flags, 16) != 0,
+        media_unread = bitwAnd(flags, 32) != 0,
+        silent = bitwAnd(flags, 8192) != 0,
+        post = bitwAnd(flags, 16384) != 0,
+        from_scheduled = bitwAnd(flags, 262144) != 0,
+        legacy = bitwAnd(flags, 524288) != 0,
+        edit_hide = bitwAnd(flags, 2097152) != 0,
+        pinned = bitwAnd(flags, 16777216) != 0,
+        noforwards = bitwAnd(flags, 67108864) != 0,
+        invert_media = bitwAnd(flags, 134217728) != 0,
+        offline = bitwAnd(flags2, 2) != 0,
+        video_processing_pending = bitwAnd(flags2, 16) != 0,
+        paid_suggested_post_stars = bitwAnd(flags2, 256) != 0,
+        paid_suggested_post_ton = bitwAnd(flags2, 512) != 0,
+        from_id = if (bitwAnd(flags, 256) != 0) reader$tgread_object() else NULL,
+        from_boosts_applied = if (bitwAnd(flags, 536870912) != 0) reader$read_int() else NULL,
+        saved_peer_id = if (bitwAnd(flags, 268435456) != 0) reader$tgread_object() else NULL,
+        fwd_from = if (bitwAnd(flags, 4) != 0) reader$tgread_object() else NULL,
+        via_bot_id = if (bitwAnd(flags, 2048) != 0) reader$read_long() else NULL,
+        via_business_bot_id = if (bitwAnd(flags2, 1) != 0) reader$read_long() else NULL,
+        reply_to = if (bitwAnd(flags, 8) != 0) reader$tgread_object() else NULL,
+        media = if (bitwAnd(flags, 512) != 0) reader$tgread_object() else NULL,
+        reply_markup = if (bitwAnd(flags, 64) != 0) reader$tgread_object() else NULL,
+        entities = if (bitwAnd(flags, 128) != 0) {
+          reader$read_int()
+          lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+        } else NULL,
+        views = if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL,
+        forwards = if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL,
+        replies = if (bitwAnd(flags, 8388608) != 0) reader$tgread_object() else NULL,
+        edit_date = if (bitwAnd(flags, 32768) != 0) reader$tgread_date() else NULL,
+        post_author = if (bitwAnd(flags, 65536) != 0) reader$tgread_string() else NULL,
+        grouped_id = if (bitwAnd(flags, 131072) != 0) reader$read_long() else NULL,
+        reactions = if (bitwAnd(flags, 1048576) != 0) reader$tgread_object() else NULL,
+        restriction_reason = if (bitwAnd(flags, 4194304) != 0) {
+          reader$read_int()
+          lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+        } else NULL,
+        ttl_period = if (bitwAnd(flags, 33554432) != 0) reader$read_int() else NULL,
+        quick_reply_shortcut_id = if (bitwAnd(flags, 1073741824) != 0) reader$read_int() else NULL,
+        effect = if (bitwAnd(flags2, 4) != 0) reader$read_long() else NULL,
+        factcheck = if (bitwAnd(flags2, 8) != 0) reader$tgread_object() else NULL,
+        report_delivery_until_date = if (bitwAnd(flags2, 32) != 0) reader$tgread_date() else NULL,
+        paid_message_stars = if (bitwAnd(flags2, 64) != 0) reader$read_long() else NULL,
+        suggested_post = if (bitwAnd(flags2, 128) != 0) reader$tgread_object() else NULL
+      )
+    }
+  )
+)
+
+
+MessageActionBoostApply <- R6::R6Class(
+  "MessageActionBoostApply",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xcc02aa6dL,
+    SUBCLASS_OF_ID = 0x8680d126L,
+    boosts = NULL,
+
+    initialize = function(boosts) {
+      self$boosts <- boosts
+    },
+
+    to_dict = function() {
+      list(`_` = "MessageActionBoostApply", boosts = self$boosts)
+    },
+
+    bytes = function() {
+      raw(0) # Placeholder for byte serialization
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      boosts <- reader$read_int()
+      self$new(boosts = boosts)
+    }
+  )
+)
+
+MessageActionBotAllowed <- R6::R6Class(
+  "MessageActionBotAllowed",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xc516d679L,
+    SUBCLASS_OF_ID = 0x8680d126L,
+    attach_menu = NULL,
+    from_request = NULL,
+    domain = NULL,
+    app = NULL,
+
+    initialize = function(attach_menu = NULL, from_request = NULL, domain = NULL, app = NULL) {
+      self$attach_menu <- attach_menu
+      self$from_request <- from_request
+      self$domain <- domain
+      self$app <- app
+    },
+
+    to_dict = function() {
+      list(
+        `_` = "MessageActionBotAllowed",
+        attach_menu = self$attach_menu,
+        from_request = self$from_request,
+        domain = self$domain,
+        app = if (inherits(self$app, "TLObject")) self$app$to_dict() else self$app
+      )
+    },
+
+    bytes = function() {
+      raw(0) # Placeholder for byte serialization
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      attach_menu <- as.logical(bitwAnd(flags, 2))
+      from_request <- as.logical(bitwAnd(flags, 8))
+      domain <- if (bitwAnd(flags, 1)) reader$tgread_string() else NULL
+      app <- if (bitwAnd(flags, 4)) reader$tgread_object() else NULL
+
+      self$new(attach_menu = attach_menu, from_request = from_request, domain = domain, app = app)
+    }
+  )
+)
+
+
+MessageActionChannelCreate <- R6::R6Class(
+  "MessageActionChannelCreate",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x95d2ac92L,
+    SUBCLASS_OF_ID = 0x8680d126L,
+    title = NULL,
+
+    initialize = function(title) {
+      self$title <- title
+    },
+
+    to_dict = function() {
+      list(`_` = "MessageActionChannelCreate", title = self$title)
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x92, 0xac, 0xd2, 0x95)),
+        serialize_bytes(self$title)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      title <- reader$tgread_string()
+      self$new(title = title)
+    }
+  )
+)
+
+MessageActionChannelMigrateFrom <- R6::R6Class(
+  "MessageActionChannelMigrateFrom",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xea3948e9L,
+    SUBCLASS_OF_ID = 0x8680d126L,
+    title = NULL,
+    chat_id = NULL,
+
+    initialize = function(title, chat_id) {
+      self$title <- title
+      self$chat_id <- chat_id
+    },
+
+    to_dict = function() {
+      list(`_` = "MessageActionChannelMigrateFrom", title = self$title, chat_id = self$chat_id)
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xe9, 0x48, 0x39, 0xea)),
+        serialize_bytes(self$title),
+        writeBin(self$chat_id, raw(), size = 8, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      title <- reader$tgread_string()
+      chat_id <- reader$read_long()
+      self$new(title = title, chat_id = chat_id)
+    }
+  )
+)
+
+MessageActionChatAddUser <- R6::R6Class(
+  "MessageActionChatAddUser",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x15cefd00L,
+    SUBCLASS_OF_ID = 0x8680d126L,
+    users = NULL,
+
+    initialize = function(users) {
+      self$users <- users
+    },
+
+    to_dict = function() {
+      list(`_` = "MessageActionChatAddUser", users = if (is.null(self$users)) list() else self$users)
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x00, 0xfd, 0xce, 0x15)),
+        writeBin(length(self$users), raw(), size = 4, endian = "little"),
+        unlist(lapply(self$users, function(x) writeBin(x, raw(), size = 8, endian = "little")))
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      reader$read_int()
+      users <- vector("list", reader$read_int())
+      for (i in seq_along(users)) {
+        users[[i]] <- reader$read_long()
+      }
+      self$new(users = users)
+    }
+  )
+)
+
+
+MessageActionChatCreate <- R6::R6Class(
+  "MessageActionChatCreate",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xbd47cbadL,
+    SUBCLASS_OF_ID = 0x8680d126L,
+    title = NULL,
+    users = NULL,
+
+    initialize = function(title, users) {
+      self$title <- title
+      self$users <- users
+    },
+
+    to_dict = function() {
+      list(
+        `_` = "MessageActionChatCreate",
+        title = self$title,
+        users = if (is.null(self$users)) list() else self$users
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xad, 0xcb, 0x47, 0xbd)),
+        serialize_bytes(self$title),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        writeBin(length(self$users), raw(), size = 4, endian = "little"),
+        unlist(lapply(self$users, function(x) writeBin(x, raw(), size = 8, endian = "little")))
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      title <- reader$tgread_string()
+      reader$read_int()
+      users <- vector("list", reader$read_int())
+      for (i in seq_along(users)) {
+        users[[i]] <- reader$read_long()
+      }
+      self$new(title = title, users = users)
+    }
+  )
+)
+
+MessageActionChatDeletePhoto <- R6::R6Class(
+  "MessageActionChatDeletePhoto",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x95e3fbefL,
+    SUBCLASS_OF_ID = 0x8680d126L,
+
+    to_dict = function() {
+      list(`_` = "MessageActionChatDeletePhoto")
+    },
+
+    bytes = function() {
+      as.raw(c(0xef, 0xfb, 0xe3, 0x95))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  )
+)
+
+
+MessageActionChatDeleteUser <- R6::R6Class(
+  "MessageActionChatDeleteUser",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xa43f30ccL,
+    SUBCLASS_OF_ID = 0x8680d126L,
+    user_id = NULL,
+
+    initialize = function(user_id) {
+      self$user_id <- user_id
+    },
+
+    to_dict = function() {
+      list(
+        `_` = "MessageActionChatDeleteUser",
+        user_id = self$user_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xcc, 0x30, 0x3f, 0xa4)),
+        writeBin(as.integer64(self$user_id), raw(), size = 8, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      user_id <- reader$read_long()
+      self$new(user_id = user_id)
+    }
+  )
+)
+
+MessageActionChatEditPhoto <- R6::R6Class(
+  "MessageActionChatEditPhoto",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x7fcb13a8L,
+    SUBCLASS_OF_ID = 0x8680d126L,
+    photo = NULL,
+
+    initialize = function(photo) {
+      self$photo <- photo
+    },
+
+    to_dict = function() {
+      list(
+        `_` = "MessageActionChatEditPhoto",
+        photo = if (inherits(self$photo, "TLObject")) self$photo$to_dict() else self$photo
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xa8, 0x13, 0xcb, 0x7f)),
+        self$photo$bytes()
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      photo <- reader$tgread_object()
+      self$new(photo = photo)
+    }
+  )
+)
+
+MessageActionChatEditTitle <- R6::R6Class(
+  "MessageActionChatEditTitle",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xb5a1ce5aL,
+    SUBCLASS_OF_ID = 0x8680d126L,
+    title = NULL,
+
+    initialize = function(title) {
+      self$title <- title
+    },
+
+    to_dict = function() {
+      list(
+        `_` = "MessageActionChatEditTitle",
+        title = self$title
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x5a, 0xce, 0xa1, 0xb5)),
+        charToRaw(self$title)
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      title <- reader$tgread_string()
+      self$new(title = title)
+    }
+  )
+)
+
+
+MessageActionChatJoinedByLink <- R6::R6Class(
+  "MessageActionChatJoinedByLink",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x31224c3L,
+    SUBCLASS_OF_ID = 0x8680d126L,
+    inviter_id = NULL,
+
+    initialize = function(inviter_id) {
+      self$inviter_id <- inviter_id
+    },
+
+    to_dict = function() {
+      list(
+        `_` = "MessageActionChatJoinedByLink",
+        inviter_id = self$inviter_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xc3, 0x24, 0x12, 0x03)),
+        writeBin(as.integer64(self$inviter_id), raw(), size = 8, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      inviter_id <- reader$read_long()
+      self$new(inviter_id = inviter_id)
+    }
+  )
+)
+
+MessageActionChatJoinedByRequest <- R6::R6Class(
+  "MessageActionChatJoinedByRequest",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xebbca3cbL,
+    SUBCLASS_OF_ID = 0x8680d126L,
+
+    to_dict = function() {
+      list(`_` = "MessageActionChatJoinedByRequest")
+    },
+
+    bytes = function() {
+      as.raw(c(0xcb, 0xa3, 0xbc, 0xeb))
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  )
+)
+
+MessageActionChatMigrateTo <- R6::R6Class(
+  "MessageActionChatMigrateTo",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xe1037f92L,
+    SUBCLASS_OF_ID = 0x8680d126L,
+    channel_id = NULL,
+
+    initialize = function(channel_id) {
+      self$channel_id <- channel_id
+    },
+
+    to_dict = function() {
+      list(
+        `_` = "MessageActionChatMigrateTo",
+        channel_id = self$channel_id
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x92, 0x7f, 0x03, 0xe1)),
+        writeBin(as.integer64(self$channel_id), raw(), size = 8, endian = "little")
+      )
+    }
+  ),
+
+  private = list(
+    from_reader = function(reader) {
+      channel_id <- reader$read_long()
+      self$new(channel_id = channel_id)
+    }
+  )
 )
 
 # Selected MessageAction and Message-related classes (R6 translations)
@@ -20537,13 +29449,13 @@ MsgDetailedInfo <- R6::R6Class("MsgDetailedInfo",
     SUBCLASS_OF_ID = 0x5f32d5ee,
     msg_id = NULL,
     answer_msg_id = NULL,
-    bytes = NULL,
+    byte_data = NULL, # Renamed to avoid duplication
     status = NULL,
 
-    initialize = function(msg_id, answer_msg_id, bytes, status) {
+    initialize = function(msg_id, answer_msg_id, byte_data, status) {
       self$msg_id <- msg_id
       self$answer_msg_id <- answer_msg_id
-      self$bytes <- bytes
+      self$byte_data <- byte_data
       self$status <- status
     },
 
@@ -20552,10 +29464,10 @@ MsgDetailedInfo <- R6::R6Class("MsgDetailedInfo",
         `_` = "MsgDetailedInfo",
         msg_id = self$msg_id,
         answer_msg_id = self$answer_msg_id,
-        bytes = self$bytes,
+        byte_data = self$byte_data,
         status = self$status
       )
-    },
+    }
 
   ),
   private = list(from_reader = function(reader) { self$new(0,0,0,0) }),
@@ -20569,12 +29481,12 @@ MsgNewDetailedInfo <- R6::R6Class("MsgNewDetailedInfo",
     CONSTRUCTOR_ID = 0x809db6df,
     SUBCLASS_OF_ID = 0x5f32d5ee,
     answer_msg_id = NULL,
-    bytes = NULL,
+    byte_data = NULL,
     status = NULL,
 
-    initialize = function(answer_msg_id, bytes, status) {
+    initialize = function(answer_msg_id, byte_data, status) {
       self$answer_msg_id <- answer_msg_id
-      self$bytes <- bytes
+      self$byte_data <- byte_data
       self$status <- status
     },
 
@@ -20582,7 +29494,7 @@ MsgNewDetailedInfo <- R6::R6Class("MsgNewDetailedInfo",
       list(
         `_` = "MsgNewDetailedInfo",
         answer_msg_id = self$answer_msg_id,
-        bytes = self$bytes,
+        byte_data = self$byte_data,
         status = self$status
       )
     },
@@ -21161,6 +30073,43 @@ Page <- R6::R6Class(
   ),
   class = TRUE
 )
+
+
+PageBlockAnchor <- R6::R6Class(
+  "PageBlockAnchor",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xce0d37b0L,
+    SUBCLASS_OF_ID = 0x1aca5644L,
+    name = NULL,
+
+    initialize = function(name) {
+      self$name <- name
+    },
+
+    to_dict = function() {
+      list(
+        `_` = "PageBlockAnchor",
+        name = self$name
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0xb0, 0x7d, 0x0d, 0xce)),
+        self$serialize_bytes(self$name)
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      name <- reader$tgread_string()
+      self$new(name = name)
+    }
+  ),
+  class = TRUE
+)
+
 
 PageBlockAudio <- R6::R6Class(
   "PageBlockAudio",
@@ -21926,6 +30875,47 @@ PageBlockVideo <- R6::R6Class(
       video_id <- reader$read_long()
       caption <- reader$tgread_object()
       self$new(video_id = video_id, caption = caption, autoplay = autoplay, loop = loop)
+    }
+  ),
+  class = TRUE
+)
+
+
+PageCaption <- R6::R6Class(
+  "PageCaption",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x6f747657,
+    SUBCLASS_OF_ID = 0x29b8eeb3,
+    text = NULL,
+    credit = NULL,
+
+    initialize = function(text = NULL, credit = NULL) {
+      self$text <- text
+      self$credit <- credit
+    },
+
+    to_dict = function() {
+      list(
+        `_` = "PageCaption",
+        text = if (inherits(self$text, "TLObject")) self$text$to_dict() else self$text,
+        credit = if (inherits(self$credit, "TLObject")) self$credit$to_dict() else self$credit
+      )
+    },
+
+    bytes = function() {
+      c(
+        as.raw(c(0x57, 0x76, 0x74, 0x6f)), # "Wvto" in raw bytes
+        self$text$bytes(),
+        self$credit$bytes()
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      text <- reader$tgread_object()
+      credit <- reader$tgread_object()
+      self$new(text = text, credit = credit)
     }
   ),
   class = TRUE
@@ -23586,14 +32576,7 @@ PhotoCachedSize <- R6::R6Class("PhotoCachedSize",
       self$h <- h
       self$bytes <- bytes
     },
-    to_dict = function() list(`_` = "PhotoCachedSize", type = self$type, w = self$w, h = self$h, bytes = self$bytes),
-    bytes = function() c(
-      as.raw(c(0xd6, 0x1a, 0x1e, 0x02)),
-      self$serializebytes(self$type),
-      packBits(intToBits(self$w), type = "raw"),
-      packBits(intToBits(self$h), type = "raw"),
-      self$serializebytes(self$bytes)
-    )
+    to_dict = function() list(`_` = "PhotoCachedSize", type = self$type, w = self$w, h = self$h, bytes = self$bytes)
   ),
   private = list(
     from_reader = function(reader) {
@@ -23641,8 +32624,8 @@ PhotoPathSize <- R6::R6Class("PhotoPathSize",
       self$type <- type
       self$bytes <- bytes
     },
-    to_dict = function() list(`_` = "PhotoPathSize", type = self$type, bytes = self$bytes),
-    bytes = function() {
+    to_dict = function() list(`_` = "PhotoPathSize", type = self$type, bytes_value = self$bytes),
+    generate_bytes = function() {
       cid <- as.raw(c(0x41, 0x4d, 0x21, 0xd8))
       typebytes <- charToRaw(self$type)
       bytesbytes <- self$bytes
@@ -23751,21 +32734,21 @@ PhotoStrippedSize <- R6::R6Class("PhotoStrippedSize",
     CONSTRUCTOR_ID = 0xe0b0bc2e,
     SUBCLASS_OF_ID = 0x17cc29d9,
     type = NULL,
-    bytes = NULL,
-    initialize = function(type = NULL, bytes = NULL) {
+    raw_bytes = NULL,
+    initialize = function(type = NULL, raw_bytes = NULL) {
       self$type <- type
-      self$bytes <- bytes
+      self$raw_bytes <- raw_bytes
     },
-    to_dict = function() list(`_` = "PhotoStrippedSize", type = self$type, bytes = self$bytes),
+    to_dict = function() list(`_` = "PhotoStrippedSize", type = self$type, raw_bytes = self$raw_bytes),
     bytes = function() {
       cid <- as.raw(c(0x2e, 0xbc, 0xb0, 0xe0))
       typebytes <- charToRaw(self$type)
-      bytesbytes <- self$bytes
+      bytesbytes <- self$raw_bytes
       c(cid, typebytes, bytesbytes)
     }
   ),
   private = list(
-    from_reader = function(reader) list(type = reader$tgread_string(), bytes = reader$tgreadbytes())
+    from_reader = function(reader) list(type = reader$tgread_string(), raw_bytes = reader$tgreadbytes())
   ),
   class = TRUE
 )
@@ -25993,21 +34976,21 @@ RpcAnswerDropped <- R6::R6Class("RpcAnswerDropped",
     SUBCLASS_OF_ID = 0x4bca7570,
     msg_id = NULL,
     seq_no = NULL,
-    bytes = NULL,
-    initialize = function(msg_id = NULL, seq_no = NULL, bytes = NULL) {
+    raw_bytes = NULL,
+    initialize = function(msg_id = NULL, seq_no = NULL, raw_bytes = NULL) {
       self$msg_id <- msg_id
       self$seq_no <- seq_no
-      self$bytes <- bytes
+      self$raw_bytes <- raw_bytes
     },
-    to_dict = function() list(`_` = "RpcAnswerDropped", msg_id = self$msg_id, seq_no = self$seq_no, bytes = self$bytes),
-    bytes = function() as.raw(c(0xb7, 0xd8, 0x3a, 0xa4)) + pack("q", self$msg_id) + pack("i", self$seq_no) + pack("i", self$bytes)
+    to_dict = function() list(`_` = "RpcAnswerDropped", msg_id = self$msg_id, seq_no = self$seq_no, raw_bytes = self$raw_bytes),
+    bytes = function() as.raw(c(0xb7, 0xd8, 0x3a, 0xa4)) + pack("q", self$msg_id) + pack("i", self$seq_no) + pack("i", self$raw_bytes)
   ),
   private = list(
     from_reader = function(reader) {
       msg_id <- reader$read_long()
       seq_no <- reader$read_int()
-      bytes <- reader$read_int()
-      self$new(msg_id = msg_id, seq_no = seq_no, bytes = bytes)
+      raw_bytes <- reader$read_int()
+      self$new(msg_id = msg_id, seq_no = seq_no, raw_bytes = raw_bytes)
     }
   ),
   class = TRUE
@@ -30835,6 +39818,818 @@ TlsBlockScope <- R6::R6Class("TlsBlockScope",
   ),
   class = TRUE
 )
+
+
+TlsClientHello <- R6::R6Class(
+  "TlsClientHello",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x6c52c484,
+    SUBCLASS_OF_ID = 0xbef20920,
+    blocks = NULL,
+    
+    initialize = function(blocks) {
+      self$blocks <- blocks
+    },
+    
+    to_dict = function() {
+      list(
+        `_` = "TlsClientHello",
+        blocks = if (is.null(self$blocks)) list() else lapply(self$blocks, function(x) {
+          if (inherits(x, "TLObject")) x$to_dict() else x
+        })
+      )
+    },
+    
+    bytes = function() {
+      c(
+        as.raw(c(0x84, 0xc4, 0x52, 0x6c)),
+        pack("i", length(self$blocks)),
+        do.call(c, lapply(self$blocks, function(x) x$bytes()))
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      blocks <- vector("list", reader$read_int())
+      for (i in seq_along(blocks)) {
+        blocks[[i]] <- reader$tgread_object()
+      }
+      self$new(blocks = blocks)
+    }
+  )
+)
+
+TodoCompletion <- R6::R6Class(
+  "TodoCompletion",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x4cc120b7,
+    SUBCLASS_OF_ID = 0xbae65b7b,
+    id = NULL,
+    completed_by = NULL,
+    date = NULL,
+    
+    initialize = function(id, completed_by, date) {
+      self$id <- id
+      self$completed_by <- completed_by
+      self$date <- date
+    },
+    
+    to_dict = function() {
+      list(
+        `_` = "TodoCompletion",
+        id = self$id,
+        completed_by = self$completed_by,
+        date = self$date
+      )
+    },
+    
+    bytes = function() {
+      c(
+        as.raw(c(0xb7, 0x20, 0xc1, 0x4c)),
+        pack("i", self$id),
+        pack("q", self$completed_by),
+        self$serialize_datetime(self$date)
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      id <- reader$read_int()
+      completed_by <- reader$read_long()
+      date <- reader$tgread_date()
+      self$new(id = id, completed_by = completed_by, date = date)
+    }
+  )
+)
+
+TodoItem <- R6::R6Class(
+  "TodoItem",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xcba9a52f,
+    SUBCLASS_OF_ID = 0xdfdae6b5,
+    id = NULL,
+    title = NULL,
+    
+    initialize = function(id, title) {
+      self$id <- id
+      self$title <- title
+    },
+    
+    to_dict = function() {
+      list(
+        `_` = "TodoItem",
+        id = self$id,
+        title = if (inherits(self$title, "TLObject")) self$title$to_dict() else self$title
+      )
+    },
+    
+    bytes = function() {
+      c(
+        as.raw(c(0x2f, 0xa5, 0xa9, 0xcb)),
+        pack("i", self$id),
+        self$title$bytes()
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      id <- reader$read_int()
+      title <- reader$tgread_object()
+      self$new(id = id, title = title)
+    }
+  )
+)
+
+
+TodoList <- R6::R6Class(
+  "TodoList",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x49b92a26,
+    SUBCLASS_OF_ID = 0x84093bb3,
+    title = NULL,
+    list = NULL,
+    others_can_append = NULL,
+    others_can_complete = NULL,
+    
+    initialize = function(title, list, others_can_append = NULL, others_can_complete = NULL) {
+      self$title <- title
+      self$list <- list
+      self$others_can_append <- others_can_append
+      self$others_can_complete <- others_can_complete
+    },
+    
+    to_dict = function() {
+      list(
+        `_` = "TodoList",
+        title = if (inherits(self$title, "TLObject")) self$title$to_dict() else self$title,
+        list = if (is.null(self$list)) list() else lapply(self$list, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        others_can_append = self$others_can_append,
+        others_can_complete = self$others_can_complete
+      )
+    },
+    
+    bytes = function() {
+      c(
+        as.raw(c(0x26, 0x2a, 0xb9, 0x49)),
+        pack("I", (if (is.null(self$others_can_append) || !self$others_can_append) 0 else 1) |
+                     (if (is.null(self$others_can_complete) || !self$others_can_complete) 0 else 2)),
+        self$title$bytes(),
+        as.raw(c(0x1c, 0xb5, 0xc4, 0x15)),
+        pack("i", length(self$list)),
+        do.call(c, lapply(self$list, function(x) x$bytes()))
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      others_can_append <- as.logical(bitwAnd(flags, 1))
+      others_can_complete <- as.logical(bitwAnd(flags, 2))
+      title <- reader$tgread_object()
+      reader$read_int()
+      list_items <- lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      self$new(title = title, list = list_items, others_can_append = others_can_append, others_can_complete = others_can_complete)
+    }
+  )
+)
+
+TopPeer <- R6::R6Class(
+  "TopPeer",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xedcdc05b,
+    SUBCLASS_OF_ID = 0x6916c601,
+    peer = NULL,
+    rating = NULL,
+    
+    initialize = function(peer, rating) {
+      self$peer <- peer
+      self$rating <- rating
+    },
+    
+    to_dict = function() {
+      list(
+        `_` = "TopPeer",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        rating = self$rating
+      )
+    },
+    
+    bytes = function() {
+      c(
+        as.raw(c(0x5b, 0xc0, 0xcd, 0xed)),
+        self$peer$bytes(),
+        pack("d", self$rating)
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      peer <- reader$tgread_object()
+      rating <- reader$read_double()
+      self$new(peer = peer, rating = rating)
+    }
+  )
+)
+
+
+TopPeerCategoryBotsApp <- R6::R6Class(
+  "TopPeerCategoryBotsApp",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xfd9e7bec,
+    SUBCLASS_OF_ID = 0xddf02502,
+    to_dict = function() {
+      list(`_` = "TopPeerCategoryBotsApp")
+    },
+    bytes = function() {
+      as.raw(c(0xec, 0x7b, 0x9e, 0xfd))
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  ),
+  class = TRUE
+)
+
+TopPeerCategoryBotsInline <- R6::R6Class(
+  "TopPeerCategoryBotsInline",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x148677e2,
+    SUBCLASS_OF_ID = 0xddf02502,
+    to_dict = function() {
+      list(`_` = "TopPeerCategoryBotsInline")
+    },
+    bytes = function() {
+      as.raw(c(0xe2, 0x77, 0x86, 0x14))
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  ),
+  class = TRUE
+)
+
+TopPeerCategoryBotsPM <- R6::R6Class(
+  "TopPeerCategoryBotsPM",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xab661b5b,
+    SUBCLASS_OF_ID = 0xddf02502,
+    to_dict = function() {
+      list(`_` = "TopPeerCategoryBotsPM")
+    },
+    bytes = function() {
+      as.raw(c(0x5b, 0x1b, 0x66, 0xab))
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  ),
+  class = TRUE
+)
+
+TopPeerCategoryChannels <- R6::R6Class(
+  "TopPeerCategoryChannels",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x161d9628,
+    SUBCLASS_OF_ID = 0xddf02502,
+    to_dict = function() {
+      list(`_` = "TopPeerCategoryChannels")
+    },
+    bytes = function() {
+      as.raw(c(0x28, 0x96, 0x1d, 0x16))
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  ),
+  class = TRUE
+)
+
+
+TopPeerCategoryCorrespondents <- R6::R6Class(
+  "TopPeerCategoryCorrespondents",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x637b7ed,
+    SUBCLASS_OF_ID = 0xddf02502,
+    to_dict = function() {
+      list(`_` = "TopPeerCategoryCorrespondents")
+    },
+    bytes = function() {
+      as.raw(c(0xed, 0xb7, 0x37, 0x06))
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  ),
+  class = TRUE
+)
+
+TopPeerCategoryForwardChats <- R6::R6Class(
+  "TopPeerCategoryForwardChats",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xfbeec0f0,
+    SUBCLASS_OF_ID = 0xddf02502,
+    to_dict = function() {
+      list(`_` = "TopPeerCategoryForwardChats")
+    },
+    bytes = function() {
+      as.raw(c(0xf0, 0xc0, 0xee, 0xfb))
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  ),
+  class = TRUE
+)
+
+TopPeerCategoryForwardUsers <- R6::R6Class(
+  "TopPeerCategoryForwardUsers",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xa8406ca9,
+    SUBCLASS_OF_ID = 0xddf02502,
+    to_dict = function() {
+      list(`_` = "TopPeerCategoryForwardUsers")
+    },
+    bytes = function() {
+      as.raw(c(0xa9, 0x6c, 0x40, 0xa8))
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  ),
+  class = TRUE
+)
+
+
+TopPeerCategoryGroups <- R6::R6Class(
+  "TopPeerCategoryGroups",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xbd17a14a,
+    SUBCLASS_OF_ID = 0xddf02502,
+    to_dict = function() {
+      list(`_` = "TopPeerCategoryGroups")
+    },
+    bytes = function() {
+      as.raw(c(0xbd, 0x17, 0xa1, 0x4a))
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  ),
+  class = TRUE
+)
+
+TopPeerCategoryPeers <- R6::R6Class(
+  "TopPeerCategoryPeers",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xfb834291,
+    SUBCLASS_OF_ID = 0x4aec930,
+    initialize = function(category, count, peers) {
+      self$category <- category
+      self$count <- count
+      self$peers <- peers
+    },
+    to_dict = function() {
+      list(
+        `_` = "TopPeerCategoryPeers",
+        category = if (inherits(self$category, "TLObject")) self$category$to_dict() else self$category,
+        count = self$count,
+        peers = if (is.null(self$peers)) list() else lapply(self$peers, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
+    },
+    bytes = function() {
+      c(
+        as.raw(c(0x91, 0x42, 0x83, 0xfb)),
+        self$category$bytes(),
+        pack("i", self$count),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        pack("i", length(self$peers)),
+        do.call(c, lapply(self$peers, function(x) x$bytes()))
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      category <- reader$tgread_object()
+      count <- reader$read_int()
+      reader$read_int()
+      peers <- lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      self$new(category = category, count = count, peers = peers)
+    }
+  ),
+  class = TRUE
+)
+
+TopPeerCategoryPhoneCalls <- R6::R6Class(
+  "TopPeerCategoryPhoneCalls",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x1e76a78c,
+    SUBCLASS_OF_ID = 0xddf02502,
+    to_dict = function() {
+      list(`_` = "TopPeerCategoryPhoneCalls")
+    },
+    bytes = function() {
+      as.raw(c(0x8c, 0xa7, 0x76, 0x1e))
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  ),
+  class = TRUE
+)
+
+
+UpdateAttachMenuBots <- R6::R6Class(
+  "UpdateAttachMenuBots",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x17b7a20b,
+    SUBCLASS_OF_ID = 0x9f89304e,
+    to_dict = function() {
+      list(`_` = "UpdateAttachMenuBots")
+    },
+    bytes = function() {
+      as.raw(c(0x0b, 0xa2, 0xb7, 0x17))
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  ),
+  class = TRUE
+)
+
+UpdateAutoSaveSettings <- R6::R6Class(
+  "UpdateAutoSaveSettings",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xec05b097,
+    SUBCLASS_OF_ID = 0x9f89304e,
+    to_dict = function() {
+      list(`_` = "UpdateAutoSaveSettings")
+    },
+    bytes = function() {
+      as.raw(c(0x97, 0xb0, 0x05, 0xec))
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      self$new()
+    }
+  ),
+  class = TRUE
+)
+
+UpdateBotBusinessConnect <- R6::R6Class(
+  "UpdateBotBusinessConnect",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x8ae5c97a,
+    SUBCLASS_OF_ID = 0x9f89304e,
+    initialize = function(connection, qts) {
+      self$connection <- connection
+      self$qts <- qts
+    },
+    to_dict = function() {
+      list(
+        `_` = "UpdateBotBusinessConnect",
+        connection = if (inherits(self$connection, "TLObject")) self$connection$to_dict() else self$connection,
+        qts = self$qts
+      )
+    },
+    bytes = function() {
+      c(
+        as.raw(c(0x7a, 0xc9, 0xe5, 0x8a)),
+        self$connection$bytes(),
+        pack("i", self$qts)
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      connection <- reader$tgread_object()
+      qts <- reader$read_int()
+      self$new(connection = connection, qts = qts)
+    }
+  ),
+  class = TRUE
+)
+
+
+UpdateBotCallbackQuery <- R6::R6Class(
+  "UpdateBotCallbackQuery",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xb9cfc48d,
+    SUBCLASS_OF_ID = 0x9f89304e,
+    initialize = function(query_id, user_id, peer, msg_id, chat_instance, data = NULL, game_short_name = NULL) {
+      self$query_id <- query_id
+      self$user_id <- user_id
+      self$peer <- peer
+      self$msg_id <- msg_id
+      self$chat_instance <- chat_instance
+      self$data <- data
+      self$game_short_name <- game_short_name
+    },
+    to_dict = function() {
+      list(
+        `_` = "UpdateBotCallbackQuery",
+        query_id = self$query_id,
+        user_id = self$user_id,
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        msg_id = self$msg_id,
+        chat_instance = self$chat_instance,
+        data = self$data,
+        game_short_name = self$game_short_name
+      )
+    },
+    bytes = function() {
+      as.raw(c(0x8d, 0xc4, 0xcf, 0xb9)) +
+        pack("I", (if (is.null(self$data)) 0 else 1) | (if (is.null(self$game_short_name)) 0 else 2)) +
+        pack("q", self$query_id) +
+        pack("q", self$user_id) +
+        self$peer$bytes() +
+        pack("i", self$msg_id) +
+        pack("q", self$chat_instance) +
+        (if (!is.null(self$data)) self$serialize_bytes(self$data) else raw(0)) +
+        (if (!is.null(self$game_short_name)) self$serialize_bytes(self$game_short_name) else raw(0))
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      query_id <- reader$read_long()
+      user_id <- reader$read_long()
+      peer <- reader$tgread_object()
+      msg_id <- reader$read_int()
+      chat_instance <- reader$read_long()
+      data <- if (flags & 1) reader$tgread_bytes() else NULL
+      game_short_name <- if (flags & 2) reader$tgread_string() else NULL
+      self$new(query_id = query_id, user_id = user_id, peer = peer, msg_id = msg_id, chat_instance = chat_instance, data = data, game_short_name = game_short_name)
+    }
+  ),
+  class = TRUE
+)
+
+UpdateBotChatBoost <- R6::R6Class(
+  "UpdateBotChatBoost",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x904dd49c,
+    SUBCLASS_OF_ID = 0x9f89304e,
+    initialize = function(peer, boost, qts) {
+      self$peer <- peer
+      self$boost <- boost
+      self$qts <- qts
+    },
+    to_dict = function() {
+      list(
+        `_` = "UpdateBotChatBoost",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        boost = if (inherits(self$boost, "TLObject")) self$boost$to_dict() else self$boost,
+        qts = self$qts
+      )
+    },
+    bytes = function() {
+      as.raw(c(0x9c, 0xd4, 0x4d, 0x90)) +
+        self$peer$bytes() +
+        self$boost$bytes() +
+        pack("i", self$qts)
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      peer <- reader$tgread_object()
+      boost <- reader$tgread_object()
+      qts <- reader$read_int()
+      self$new(peer = peer, boost = boost, qts = qts)
+    }
+  ),
+  class = TRUE
+)
+
+
+UpdateBotChatInviteRequester <- R6::R6Class(
+  "UpdateBotChatInviteRequester",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x11dfa986,
+    SUBCLASS_OF_ID = 0x9f89304e,
+    initialize = function(peer, date, user_id, about, invite, qts) {
+      self$peer <- peer
+      self$date <- date
+      self$user_id <- user_id
+      self$about <- about
+      self$invite <- invite
+      self$qts <- qts
+    },
+    to_dict = function() {
+      list(
+        `_` = "UpdateBotChatInviteRequester",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        date = self$date,
+        user_id = self$user_id,
+        about = self$about,
+        invite = if (inherits(self$invite, "TLObject")) self$invite$to_dict() else self$invite,
+        qts = self$qts
+      )
+    },
+    bytes = function() {
+      c(
+        as.raw(c(0x86, 0xa9, 0xdf, 0x11)),
+        self$peer$bytes(),
+        self$serialize_datetime(self$date),
+        pack("q", self$user_id),
+        self$serialize_bytes(self$about),
+        self$invite$bytes(),
+        pack("i", self$qts)
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      peer <- reader$tgread_object()
+      date <- reader$tgread_date()
+      user_id <- reader$read_long()
+      about <- reader$tgread_string()
+      invite <- reader$tgread_object()
+      qts <- reader$read_int()
+      self$new(peer = peer, date = date, user_id = user_id, about = about, invite = invite, qts = qts)
+    }
+  ),
+  class = TRUE
+)
+
+UpdateBotCommands <- R6::R6Class(
+  "UpdateBotCommands",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x4d712f2e,
+    SUBCLASS_OF_ID = 0x9f89304e,
+    initialize = function(peer, bot_id, commands) {
+      self$peer <- peer
+      self$bot_id <- bot_id
+      self$commands <- commands
+    },
+    to_dict = function() {
+      list(
+        `_` = "UpdateBotCommands",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        bot_id = self$bot_id,
+        commands = if (is.null(self$commands)) list() else lapply(self$commands, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
+    },
+    bytes = function() {
+      c(
+        as.raw(c(0x2e, 0x71, 0xd7, 0x4d)),
+        self$peer$bytes(),
+        pack("q", self$bot_id),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        pack("i", length(self$commands)),
+        do.call(c, lapply(self$commands, function(x) x$bytes()))
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      peer <- reader$tgread_object()
+      bot_id <- reader$read_long()
+      reader$read_int()
+      commands <- vector("list", reader$read_int())
+      for (i in seq_along(commands)) {
+        commands[[i]] <- reader$tgread_object()
+      }
+      self$new(peer = peer, bot_id = bot_id, commands = commands)
+    }
+  ),
+  class = TRUE
+)
+
+
+UpdateBotDeleteBusinessMessage <- R6::R6Class(
+  "UpdateBotDeleteBusinessMessage",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0xa02a982e,
+    SUBCLASS_OF_ID = 0x9f89304e,
+    initialize = function(connection_id, peer, messages, qts) {
+      self$connection_id <- connection_id
+      self$peer <- peer
+      self$messages <- messages
+      self$qts <- qts
+    },
+    to_dict = function() {
+      list(
+        `_` = "UpdateBotDeleteBusinessMessage",
+        connection_id = self$connection_id,
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        messages = if (is.null(self$messages)) list() else self$messages,
+        qts = self$qts
+      )
+    },
+    bytes = function() {
+      c(
+        as.raw(c(0xa0, 0x2a, 0x98, 0x2e)),
+        self$serialize_bytes(self$connection_id),
+        self$peer$bytes(),
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+        pack("i", length(self$messages)),
+        do.call(c, lapply(self$messages, function(x) pack("i", x))),
+        pack("i", self$qts)
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      connection_id <- reader$tgread_string()
+      peer <- reader$tgread_object()
+      reader$read_int()
+      messages <- lapply(seq_len(reader$read_int()), function(x) reader$read_int())
+      qts <- reader$read_int()
+      self$new(connection_id = connection_id, peer = peer, messages = messages, qts = qts)
+    }
+  ),
+  class = TRUE
+)
+
+UpdateBotEditBusinessMessage <- R6::R6Class(
+  "UpdateBotEditBusinessMessage",
+  inherit = TLObject,
+  public = list(
+    CONSTRUCTOR_ID = 0x07df587c,
+    SUBCLASS_OF_ID = 0x9f89304e,
+    initialize = function(connection_id, message, qts, reply_to_message = NULL) {
+      self$connection_id <- connection_id
+      self$message <- message
+      self$qts <- qts
+      self$reply_to_message <- reply_to_message
+    },
+    to_dict = function() {
+      list(
+        `_` = "UpdateBotEditBusinessMessage",
+        connection_id = self$connection_id,
+        message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message,
+        qts = self$qts,
+        reply_to_message = if (!is.null(self$reply_to_message) && inherits(self$reply_to_message, "TLObject")) self$reply_to_message$to_dict() else self$reply_to_message
+      )
+    },
+    bytes = function() {
+      c(
+        as.raw(c(0x7c, 0x58, 0xdf, 0x07)),
+        pack("I", if (is.null(self$reply_to_message)) 0 else 1),
+        self$serialize_bytes(self$connection_id),
+        self$message$bytes(),
+        if (!is.null(self$reply_to_message)) self$reply_to_message$bytes() else raw(0),
+        pack("i", self$qts)
+      )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      connection_id <- reader$tgread_string()
+      message <- reader$tgread_object()
+      reply_to_message <- if (flags & 1) reader$tgread_object() else NULL
+      qts <- reader$read_int()
+      self$new(connection_id = connection_id, message = message, qts = qts, reply_to_message = reply_to_message)
+    }
+  ),
+  class = TRUE
+)
+
 
 UpdateBotInlineQuery <- R6::R6Class("UpdateBotInlineQuery",
   inherit = TLObject,
@@ -38376,7 +48171,7 @@ TypeLangPackString <- list(LangPackString, LangPackStringPluralized, LangPackStr
 TypeMaskCoords <- MaskCoords
 TypeMediaAreaCoordinates <- MediaAreaCoordinates
 TypeMessage <- list(MessageEmpty, Message, MessageService)
-TypeMessageAction <- list(MessageActionEmpty, MessageActionChatCreate, MessageActionChatEditTitle, MessageActionChatEditPhoto, MessageActionChatDeletePhoto, MessageActionChatAddUser, MessageActionChatDeleteUser, MessageActionChatJoinedByLink, MessageActionChannelCreate, MessageActionChatMigrateTo, MessageActionChannelMigrateFrom, MessageActionPinMessage, MessageActionHistoryClear, MessageActionGameScore, MessageActionPaymentSentMe, MessageActionPaymentSent, MessageActionPhoneCall, MessageActionScreenshotTaken, MessageActionCustomAction, MessageActionBotAllowed, MessageActionSecureValuesSentMe, MessageActionSecureValuesSent, MessageActionContactSignUp, MessageActionGeoProximityReached, MessageActionGroupCall, MessageActionInviteToGroupCall, MessageActionSetMessagesTTL, MessageActionGroupCallScheduled, MessageActionSetChatTheme, MessageActionChatJoinedByRequest, MessageActionWebViewDataSentMe, MessageActionWebViewDataSent, MessageActionGiftPremium, MessageActionTopicCreate, MessageActionTopicEdit, MessageActionDeleteTopic, MessageActionPinTopic, MessageActionSuggestProfilePhoto, MessageActionRequestedPeer, MessageActionSetChatWallPaper, MessageActionGiftCode, MessageActionGiveawayLaunch, MessageActionGiveawayResults, MessageActionBoostApply, MessageActionRequestedPeerSentMe, MessageActionPaymentRefunded, MessageActionGiftStars, MessageActionPrizeStars, MessageActionStarGift, MessageActionStarGiftUnique, MessageActionPaidMessagesRefunded, MessageActionPaidMessagesPrice, MessageActionConferenceCall, MessageActionTodoCompletions, MessageActionTodoAppendTasks, MessageActionSuggestedPostApproval, MessageActionSuggestedPostSuccess, MessageActionSuggestedPostRefund)
+TypeMessageAction <- list(MessageActionEmpty, MessageActionChatCreate, MessageActionChatEditTitle, MessageActionChatEditPhoto, MessageActionChatDeletePhoto, MessageActionChatAddUser, MessageActionChatDeleteUser, MessageActionChatJoinedByLink, MessageActionChannelCreate, MessageActionChatMigrateTo, MessageActionChannelMigrateFrom, MessageActionPinMessage, MessageActionHistoryClear, MessageActionGameScore, MessageActionPaymentSentMe, MessageActionPaymentSent, MessageActionPhoneCall, MessageActionScreenshotTaken, MessageActionCustomAction, MessageActionBotAllowed, MessageActionSecureValuesSentMe, MessageActionSecureValuesSent, MessageActionContactSignUp, MessageActionGeoProximityReached, MessageActionGroupCall, MessageActionInviteToGroupCall, MessageActionSetMessagesTTL, MessageActionGroupCallScheduled, MessageActionSetChatTheme, MessageActionChatJoinedByRequest, MessageActionWebViewDataSentMe, MessageActionWebViewDataSent, MessageActionGiftPremium, MessageActionTopicCreate, MessageActionTopicEdit, MessageActionSuggestProfilePhoto, MessageActionRequestedPeer, MessageActionSetChatWallPaper, MessageActionGiftCode, MessageActionGiveawayLaunch, MessageActionGiveawayResults, MessageActionBoostApply, MessageActionRequestedPeerSentMe, MessageActionPaymentRefunded, MessageActionGiftStars, MessageActionPrizeStars, MessageActionStarGift, MessageActionStarGiftUnique, MessageActionPaidMessagesRefunded, MessageActionPaidMessagesPrice, MessageActionConferenceCall, MessageActionTodoCompletions, MessageActionTodoAppendTasks, MessageActionSuggestedPostApproval, MessageActionSuggestedPostSuccess, MessageActionSuggestedPostRefund)
 TypeMessageExtendedMedia <- list(MessageExtendedMediaPreview, MessageExtendedMedia)
 TypeMessageFwdHeader <- MessageFwdHeader
 TypeMessageMedia <- list(MessageMediaEmpty, MessageMediaPhoto, MessageMediaGeo, MessageMediaContact, MessageMediaUnsupported, MessageMediaDocument, MessageMediaWebPage, MessageMediaVenue, MessageMediaGame, MessageMediaInvoice, MessageMediaGeoLive, MessageMediaPoll, MessageMediaDice, MessageMediaStory, MessageMediaGiveaway, MessageMediaGiveawayResults, MessageMediaPaidMedia, MessageMediaToDo)
