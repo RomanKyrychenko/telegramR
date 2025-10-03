@@ -761,7 +761,7 @@ ReqPqRequest_from_reader <- function(reader) {
   ReqPqRequest$new(nonce = nonce)
 }
 
-
+#' @export
 ReqPqMultiRequest <- R6::R6Class(
   "ReqPqMultiRequest",
   public = list(
