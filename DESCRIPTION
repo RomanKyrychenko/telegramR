@@ -28,7 +28,8 @@ Imports:
     later,
     mockery,
     bitops,
-    gmp
+    gmp,
+    magick
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
