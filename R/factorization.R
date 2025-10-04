@@ -21,28 +21,28 @@ Factorization <- R6::R6Class(
     #' factorizer <- Factorization$new()
     #' factorizer$factorize(15) # Returns c(3, 5)
     factorize = function(pq) {
-      if (pq %% 2 == 0) {
-        return(c(2, pq %/% 2))
+      if (gmp::mod.bigz(pq, 2) == 0) {
+        return(list(p = 2, q = gmp::divq.bigz(pq, 2)))
       }
 
-      y <- sample(1:(pq - 1), 1)
-      c <- sample(1:(pq - 1), 1)
-      m <- sample(1:(pq - 1), 1)
+      y <- raster::sampleInt(as.numeric(pq - 1), 1)
+      c <- raster::sampleInt(as.numeric(pq - 1), 1)
+      m <- raster::sampleInt(as.numeric(pq - 1), 1)
       g <- r <- q <- 1
       x <- ys <- 0
 
       while (g == 1) {
         x <- y
         for (i in seq_len(r)) {
-          y <- (y^2 + c) %% pq
+          y <- gmp::mod.bigz((y^2 + c), pq)
         }
 
         k <- 0
         while (k < r && g == 1) {
           ys <- y
           for (i in seq_len(min(m, r - k))) {
-            y <- (y^2 + c) %% pq
-            q <- (q * abs(x - y)) %% pq
+            y <- gmp::mod.bigz((y^2 + c), pq)
+            q <- gmp::mod.bigz((q * abs(x - y)), pq)
           }
           g <- self$gcd(q, pq)
           k <- k + m
@@ -52,7 +52,7 @@ Factorization <- R6::R6Class(
 
       if (g == pq) {
         repeat {
-          ys <- (ys^2 + c) %% pq
+          ys <- gmp::mod.bigz((ys^2 + c), pq)
           g <- self$gcd(abs(x - ys), pq)
           if (g > 1) {
             break
@@ -62,7 +62,7 @@ Factorization <- R6::R6Class(
 
       p <- g
       q <- pq %/% g
-      return(if (p < q) c(p, q) else c(q, p))
+      return(if (p < q) list(p = p, q = q) else list(p = q, q = p))
     },
 
     #' @description
