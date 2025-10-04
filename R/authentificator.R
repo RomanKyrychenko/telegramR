@@ -16,15 +16,15 @@ do_authentication <- function(sender) {
   pq <- get_int(res_pq$pq)
 
   ## Step 2: DH Exchange
-  fact <- Factorization$factorize(pq)
-  p <- rsa$get_byte_array(fact$p)
-  q <- rsa$get_byte_array(fact$q)
+  fact <- Factorization$new()$factorize(pq)
+  p <- get_byte_array(fact$p)
+  q <- get_byte_array(fact$q)
 
   new_nonce_raw <- openssl::rand_bytes(32)
   new_nonce <- get_int_little(new_nonce_raw, signed = TRUE)
 
-  pq_inner_data <- PQInnerData(
-    pq = rsa$get_byte_array(pq),
+  pq_inner_data <- PQInnerData$new(
+    pq = get_byte_array(pq),
     p = p,
     q = q,
     nonce = res_pq$nonce,
@@ -36,7 +36,7 @@ do_authentication <- function(sender) {
   target_fingerprint <- NULL
   # Try normal keys
   for (fingerprint in res_pq$server_public_key_fingerprints) {
-    cipher_text <- rsa$encrypt(fingerprint, pq_inner_data)
+    cipher_text <- encrypt(fingerprint, pq_inner_data)
     if (!is.null(cipher_text)) {
       target_fingerprint <- fingerprint
       break
@@ -45,7 +45,7 @@ do_authentication <- function(sender) {
   # Try using old keys if needed
   if (is.null(cipher_text)) {
     for (fingerprint in res_pq$server_public_key_fingerprints) {
-      cipher_text <- rsa$encrypt(fingerprint, pq_inner_data, use_old = TRUE)
+      cipher_text <- encrypt(fingerprint, pq_inner_data, use_old = TRUE)
       if (!is.null(cipher_text)) {
         target_fingerprint <- fingerprint
         break
@@ -56,7 +56,7 @@ do_authentication <- function(sender) {
     stop("Step 2: could not find a valid key for the provided fingerprints")
   }
 
-  server_dh_params <- sender$send(ReqDHParamsRequest(
+  server_dh_params <- sender$send(ReqDHParamsRequest$new(
     nonce = res_pq$nonce,
     server_nonce = res_pq$server_nonce,
     p = p,
@@ -122,12 +122,12 @@ do_authentication <- function(sender) {
     nonce = res_pq$nonce,
     server_nonce = res_pq$server_nonce,
     retry_id = 0,
-    g_b = rsa$get_byte_array(g_b)
+    g_b = get_byte_array(g_b)
   )
   client_dh_inner_hashed <- c(sha1(client_dh_inner), client_dh_inner)
   client_dh_encrypted <- AES$encrypt_ige(client_dh_inner_hashed, key, iv)
 
-  dh_gen <- sender$send(SetClientDHParamsRequest(
+  dh_gen <- sender$send(SetClientDHParamsRequest$new(
     nonce = res_pq$nonce,
     server_nonce = res_pq$server_nonce,
     encrypted_data = client_dh_encrypted
@@ -148,7 +148,7 @@ do_authentication <- function(sender) {
     stop(paste("Step 3: unexpected DH generation response", dh_gen))
   }
 
-  auth_key <- AuthKey(rsa$get_byte_array(gab))
+  auth_key <- AuthKey$new(get_byte_array(gab))
 
   return(list(auth_key = auth_key, time_offset = time_offset))
 }
@@ -160,9 +160,9 @@ do_authentication <- function(sender) {
 #' @return An integer converted from the byte array.
 #' @export
 get_int <- function(byte_array, signed = TRUE) {
-  int_val <- as.numeric(strtoi(paste(as.character(byte_array), collapse = ""), base = 16L))
+  int_val <- gmp::as.bigz(paste0("0x", paste(as.character(byte_array), collapse = ""))) #, 16L)
   if (signed) {
-    return(as.integer(int_val))
+    return(int_val)
   } else {
     return(as.double(int_val))
   }
