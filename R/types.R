@@ -29848,7 +29848,41 @@ OutboxReadDate <- R6::R6Class("OutboxReadDate",
   class = TRUE
 )
 
-
+#' PQInnerData
+#'
+#' This class has 4 constructors:
+#' - \code{\link{PQInnerData}()}
+#' - \code{\link{PQInnerDataDc}()}
+#' - \code{\link{PQInnerDataTemp}()}
+#' - \code{\link{PQInnerDataTempDc}()}
+#'
+#' @field pq raw \cr
+#'  pq
+#'  @field p raw \cr
+#'  p
+#'  @field q raw \cr
+#'  q
+#'  @field nonce raw \cr
+#'  nonce
+#'  @field server_nonce raw \cr
+#'  server_nonce
+#'  @field new_nonce raw \cr
+#'  new_nonce
+#'  @field dc integer \cr
+#'  dc
+#'  @field expires_in integer \cr
+#'  expires_in
+#'  @field slot integer \cr
+#'  slot
+#'  @field date integer \cr
+#'  date
+#'  @field expires integer \cr
+#'  expires
+#'  @field peer TLObject \cr
+#'  peer
+#'  @field cooldown_until_date integer \cr
+#'  cooldown_until_date
+#' @export
 PQInnerData <- R6::R6Class("PQInnerData",
   inherit = TLObject,
   public = list(
@@ -39827,11 +39861,11 @@ TlsClientHello <- R6::R6Class(
     CONSTRUCTOR_ID = 0x6c52c484,
     SUBCLASS_OF_ID = 0xbef20920,
     blocks = NULL,
-    
+
     initialize = function(blocks) {
       self$blocks <- blocks
     },
-    
+
     to_dict = function() {
       list(
         `_` = "TlsClientHello",
@@ -39840,7 +39874,7 @@ TlsClientHello <- R6::R6Class(
         })
       )
     },
-    
+
     bytes = function() {
       c(
         as.raw(c(0x84, 0xc4, 0x52, 0x6c)),
@@ -39869,13 +39903,13 @@ TodoCompletion <- R6::R6Class(
     id = NULL,
     completed_by = NULL,
     date = NULL,
-    
+
     initialize = function(id, completed_by, date) {
       self$id <- id
       self$completed_by <- completed_by
       self$date <- date
     },
-    
+
     to_dict = function() {
       list(
         `_` = "TodoCompletion",
@@ -39884,7 +39918,7 @@ TodoCompletion <- R6::R6Class(
         date = self$date
       )
     },
-    
+
     bytes = function() {
       c(
         as.raw(c(0xb7, 0x20, 0xc1, 0x4c)),
@@ -39912,12 +39946,12 @@ TodoItem <- R6::R6Class(
     SUBCLASS_OF_ID = 0xdfdae6b5,
     id = NULL,
     title = NULL,
-    
+
     initialize = function(id, title) {
       self$id <- id
       self$title <- title
     },
-    
+
     to_dict = function() {
       list(
         `_` = "TodoItem",
@@ -39925,7 +39959,7 @@ TodoItem <- R6::R6Class(
         title = if (inherits(self$title, "TLObject")) self$title$to_dict() else self$title
       )
     },
-    
+
     bytes = function() {
       c(
         as.raw(c(0x2f, 0xa5, 0xa9, 0xcb)),
@@ -39954,14 +39988,14 @@ TodoList <- R6::R6Class(
     list = NULL,
     others_can_append = NULL,
     others_can_complete = NULL,
-    
+
     initialize = function(title, list, others_can_append = NULL, others_can_complete = NULL) {
       self$title <- title
       self$list <- list
       self$others_can_append <- others_can_append
       self$others_can_complete <- others_can_complete
     },
-    
+
     to_dict = function() {
       list(
         `_` = "TodoList",
@@ -39971,7 +40005,7 @@ TodoList <- R6::R6Class(
         others_can_complete = self$others_can_complete
       )
     },
-    
+
     bytes = function() {
       c(
         as.raw(c(0x26, 0x2a, 0xb9, 0x49)),
@@ -40005,12 +40039,12 @@ TopPeer <- R6::R6Class(
     SUBCLASS_OF_ID = 0x6916c601,
     peer = NULL,
     rating = NULL,
-    
+
     initialize = function(peer, rating) {
       self$peer <- peer
       self$rating <- rating
     },
-    
+
     to_dict = function() {
       list(
         `_` = "TopPeer",
@@ -40018,7 +40052,7 @@ TopPeer <- R6::R6Class(
         rating = self$rating
       )
     },
-    
+
     bytes = function() {
       c(
         as.raw(c(0x5b, 0xc0, 0xcd, 0xed)),
