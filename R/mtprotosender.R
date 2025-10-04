@@ -152,6 +152,8 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     #' @field time_offset Time offset with server
     time_offset = NULL,
 
+    #disconnected = future::future(NULL, seed = TRUE),
+
     #' @description
     #' Initialize a new MTProtoSender
     #' @param auth_key Authentication key
@@ -180,7 +182,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       # Connection state
       private$user_connected <- FALSE
       private$reconnecting <- FALSE
-      private$disconnected <- future::future(NULL, seed = TRUE)
+      #private$disconnected <- future::future(NULL, seed = TRUE)
 
       # Loop handles
       private$send_loop_handle <- NULL
@@ -391,6 +393,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     handlers = NULL,
     last_msg_id = NULL,
     sequence = NULL,
+    #disconnected = future::future(NULL, seed = TRUE),
 
     #' Internal method to perform connection
     .connect = function() {
