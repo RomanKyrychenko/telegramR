@@ -229,7 +229,6 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       private$sender <- MTProtoSender$new(
         auth_key_callback = NULL,  # Will be set later based on session
         #connection = private$connection,
-        loggers = list(),  # Will be configured with session logger
         retries = private$connection_retries,
         delay = private$retry_delay,
         auto_reconnect = private$auto_reconnect,
