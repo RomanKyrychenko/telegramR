@@ -8303,8 +8303,8 @@ ChannelFull <- R6::R6Class("ChannelFull",
 ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPinTopic",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x5d8d353bL,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0x5d8d353b,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(prev_topic = NULL, new_topic = NULL) {
       self$prev_topic <- prev_topic
       self$new_topic <- new_topic
@@ -8347,8 +8347,8 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
 ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventActionSendMessage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x278f2868L,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0x278f2868,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(message) {
       self$message <- message
     },
@@ -8377,8 +8377,8 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
 ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventActionStartGroupCall",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x23209745L,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0x23209745,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(call) {
       self$call <- call
     },
@@ -8407,8 +8407,8 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
 ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionStopPoll",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x8f079643L,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0x8f079643,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(message) {
       self$message <- message
     },
@@ -8437,8 +8437,8 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
 ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventActionToggleAntiSpam",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x64f36dfcL,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0x64f36dfc,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
     },
@@ -8467,8 +8467,8 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
 ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogEventActionToggleAutotranslation",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc517f77eL,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0xc517f77e,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
     },
@@ -8497,8 +8497,8 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
 ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventActionToggleForum",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2cc6383L,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0x2cc6383,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
     },
@@ -8527,8 +8527,8 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
 ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLogEventActionToggleGroupCallSetting",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x56d6a247L,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0x56d6a247,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(join_muted) {
       self$join_muted <- join_muted
     },
@@ -8570,8 +8570,8 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
 ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActionToggleInvites",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1b7907aeL,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0x1b7907ae,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
     },
@@ -8600,8 +8600,8 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
 ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventActionToggleNoForwards",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xcb2ac766L,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0xcb2ac766,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
     },
@@ -8630,8 +8630,8 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
 ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLogEventActionTogglePreHistoryHidden",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x5f5c95f1L,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0x5f5c95f1,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
     },
@@ -8660,8 +8660,8 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
 ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLogEventActionToggleSignatureProfiles",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x60a79c79L,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0x60a79c79,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
     },
@@ -8690,8 +8690,8 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
 ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventActionToggleSignatures",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x26ae0971L,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0x26ae0971,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
     },
@@ -8720,8 +8720,8 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
 ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventActionToggleSlowMode",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x53909779L,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0x53909779,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
@@ -8754,8 +8754,8 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
 ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActionUpdatePinned",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe9e82c18L,
-    SUBCLASS_OF_ID = 0xb2b987f3L,
+    CONSTRUCTOR_ID = 0xe9e82c18,
+    SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(message) {
       self$message <- message
     },
@@ -8784,8 +8784,8 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
 ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xea107ae4L,
-    SUBCLASS_OF_ID = 0x7cbbf319L,
+    CONSTRUCTOR_ID = 0xea107ae4,
+    SUBCLASS_OF_ID = 0x7cbbf319,
     initialize = function(join = NULL, leave = NULL, invite = NULL, ban = NULL, unban = NULL, kick = NULL, unkick = NULL, promote = NULL, demote = NULL, info = NULL, settings = NULL, pinned = NULL, edit = NULL, delete = NULL, group_call = NULL, invites = NULL, send = NULL, forums = NULL, sub_extend = NULL) {
       self$join <- join
       self$leave <- leave
@@ -8869,8 +8869,8 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
 ChannelForbidden <- R6::R6Class("ChannelForbidden",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x17d493d5L,
-    SUBCLASS_OF_ID = 0xc5af5d94L,
+    CONSTRUCTOR_ID = 0x17d493d5,
+    SUBCLASS_OF_ID = 0xc5af5d94,
     initialize = function(id, access_hash, title, broadcast = NULL, megagroup = NULL, until_date = NULL) {
       self$id <- id
       self$access_hash <- access_hash
@@ -8923,8 +8923,8 @@ ChannelFull <- R6::R6Class(
   "ChannelFull",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe4e0b29dL,
-    SUBCLASS_OF_ID = 0xd49a2697L,
+    CONSTRUCTOR_ID = 0xe4e0b29d,
+    SUBCLASS_OF_ID = 0xd49a2697,
 
     id = NULL,
     about = NULL,
@@ -9154,8 +9154,8 @@ ChannelLocation <- R6::R6Class(
   "ChannelLocation",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x209b82dbL,
-    SUBCLASS_OF_ID = 0xec260b7fL,
+    CONSTRUCTOR_ID = 0x209b82db,
+    SUBCLASS_OF_ID = 0xec260b7f,
 
     geo_point = NULL,
     address = NULL,
@@ -9305,8 +9305,8 @@ ChannelParticipant <- R6::R6Class(
   "ChannelParticipant",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xcb397619L,
-    SUBCLASS_OF_ID = 0xd9c7fc18L,
+    CONSTRUCTOR_ID = 0xcb397619,
+    SUBCLASS_OF_ID = 0xd9c7fc18,
 
     user_id = NULL,
     date = NULL,
@@ -9352,8 +9352,8 @@ ChannelParticipantAdmin <- R6::R6Class(
   "ChannelParticipantAdmin",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x34c3bb53L,
-    SUBCLASS_OF_ID = 0xd9c7fc18L,
+    CONSTRUCTOR_ID = 0x34c3bb53,
+    SUBCLASS_OF_ID = 0xd9c7fc18,
 
     user_id = NULL,
     promoted_by = NULL,
@@ -9434,8 +9434,8 @@ ChannelParticipantBanned <- R6::R6Class(
   "ChannelParticipantBanned",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x6df8014eL,
-    SUBCLASS_OF_ID = 0xd9c7fc18L,
+    CONSTRUCTOR_ID = 0x6df8014e,
+    SUBCLASS_OF_ID = 0xd9c7fc18,
 
     peer = NULL,
     kicked_by = NULL,
@@ -9492,8 +9492,8 @@ ChannelParticipantCreator <- R6::R6Class(
   "ChannelParticipantCreator",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2fe601d3L,
-    SUBCLASS_OF_ID = 0xd9c7fc18L,
+    CONSTRUCTOR_ID = 0x2fe601d3,
+    SUBCLASS_OF_ID = 0xd9c7fc18,
 
     user_id = NULL,
     admin_rights = NULL,
@@ -9542,8 +9542,8 @@ ChannelParticipantLeft <- R6::R6Class(
   "ChannelParticipantLeft",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1b03f006L,
-    SUBCLASS_OF_ID = 0xd9c7fc18L,
+    CONSTRUCTOR_ID = 0x1b03f006,
+    SUBCLASS_OF_ID = 0xd9c7fc18,
 
     peer = NULL,
 
@@ -9577,8 +9577,8 @@ ChannelParticipantSelf <- R6::R6Class(
   "ChannelParticipantSelf",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4f607befL,
-    SUBCLASS_OF_ID = 0xd9c7fc18L,
+    CONSTRUCTOR_ID = 0x4f607bef,
+    SUBCLASS_OF_ID = 0xd9c7fc18,
 
     user_id = NULL,
     inviter_id = NULL,
@@ -9638,8 +9638,8 @@ ChannelParticipantsAdmins <- R6::R6Class(
   "ChannelParticipantsAdmins",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb4608969L,
-    SUBCLASS_OF_ID = 0xbf4e2753L,
+    CONSTRUCTOR_ID = 0xb4608969,
+    SUBCLASS_OF_ID = 0xbf4e2753,
 
     to_dict = function() {
       list('_' = 'ChannelParticipantsAdmins')
@@ -9660,8 +9660,8 @@ ChannelParticipantsBanned <- R6::R6Class(
   "ChannelParticipantsBanned",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1427a5e1L,
-    SUBCLASS_OF_ID = 0xbf4e2753L,
+    CONSTRUCTOR_ID = 0x1427a5e1,
+    SUBCLASS_OF_ID = 0xbf4e2753,
 
     q = NULL,
 
@@ -9692,8 +9692,8 @@ ChannelParticipantsBots <- R6::R6Class(
   "ChannelParticipantsBots",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb0d1865bL,
-    SUBCLASS_OF_ID = 0xbf4e2753L,
+    CONSTRUCTOR_ID = 0xb0d1865b,
+    SUBCLASS_OF_ID = 0xbf4e2753,
 
     to_dict = function() {
       list('_' = 'ChannelParticipantsBots')
@@ -9714,8 +9714,8 @@ ChannelParticipantsContacts <- R6::R6Class(
   "ChannelParticipantsContacts",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbb6ae88dL,
-    SUBCLASS_OF_ID = 0xbf4e2753L,
+    CONSTRUCTOR_ID = 0xbb6ae88d,
+    SUBCLASS_OF_ID = 0xbf4e2753,
 
     q = NULL,
 
@@ -9746,8 +9746,8 @@ ChannelParticipantsKicked <- R6::R6Class(
   "ChannelParticipantsKicked",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa3b54985L,
-    SUBCLASS_OF_ID = 0xbf4e2753L,
+    CONSTRUCTOR_ID = 0xa3b54985,
+    SUBCLASS_OF_ID = 0xbf4e2753,
 
     q = NULL,
 
@@ -9778,8 +9778,8 @@ ChannelParticipantsMentions <- R6::R6Class(
   "ChannelParticipantsMentions",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe04b5cebL,
-    SUBCLASS_OF_ID = 0xbf4e2753L,
+    CONSTRUCTOR_ID = 0xe04b5ceb,
+    SUBCLASS_OF_ID = 0xbf4e2753,
 
     q = NULL,
     top_msg_id = NULL,
@@ -9823,8 +9823,8 @@ ChannelParticipantsRecent <- R6::R6Class(
   "ChannelParticipantsRecent",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xde3f3c79L,
-    SUBCLASS_OF_ID = 0xbf4e2753L,
+    CONSTRUCTOR_ID = 0xde3f3c79,
+    SUBCLASS_OF_ID = 0xbf4e2753,
 
     to_dict = function() {
       list('_' = 'ChannelParticipantsRecent')
@@ -9845,8 +9845,8 @@ ChannelParticipantsSearch <- R6::R6Class(
   "ChannelParticipantsSearch",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x656ac4bL,
-    SUBCLASS_OF_ID = 0xbf4e2753L,
+    CONSTRUCTOR_ID = 0x656ac4b,
+    SUBCLASS_OF_ID = 0xbf4e2753,
 
     q = NULL,
 
@@ -9878,8 +9878,8 @@ ChatAdminRights <- R6::R6Class(
   "ChatAdminRights",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x5fb224d5L,
-    SUBCLASS_OF_ID = 0x863dc7c4L,
+    CONSTRUCTOR_ID = 0x5fb224d5,
+    SUBCLASS_OF_ID = 0x863dc7c4,
 
     change_info = NULL,
     post_messages = NULL,
@@ -10014,8 +10014,8 @@ ChatAdminWithInvites <- R6::R6Class(
   "ChatAdminWithInvites",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf2ecef23L,
-    SUBCLASS_OF_ID = 0x5063f398L,
+    CONSTRUCTOR_ID = 0xf2ecef23,
+    SUBCLASS_OF_ID = 0x5063f398,
 
     admin_id = NULL,
     invites_count = NULL,
@@ -10061,8 +10061,8 @@ ChatBannedRights <- R6::R6Class(
   "ChatBannedRights",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9f120418L,
-    SUBCLASS_OF_ID = 0x4b5445a9L,
+    CONSTRUCTOR_ID = 0x9f120418,
+    SUBCLASS_OF_ID = 0x4b5445a9,
 
     until_date = NULL,
     view_messages = NULL,
@@ -10202,8 +10202,8 @@ ChatFull <- R6::R6Class(
   "ChatFull",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2633421bL,
-    SUBCLASS_OF_ID = 0xd49a2697L,
+    CONSTRUCTOR_ID = 0x2633421b,
+    SUBCLASS_OF_ID = 0xd49a2697,
 
     id = NULL,
     about = NULL,
@@ -10333,8 +10333,8 @@ ChatInvite <- R6::R6Class(
   "ChatInvite",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x5c9d3702L,
-    SUBCLASS_OF_ID = 0x4561736L,
+    CONSTRUCTOR_ID = 0x5c9d3702,
+    SUBCLASS_OF_ID = 0x4561736,
 
     title = NULL,
     photo = NULL,
@@ -10407,8 +10407,8 @@ ChatInviteAlready <- R6::R6Class(
   "ChatInviteAlready",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x5a686d7cL,
-    SUBCLASS_OF_ID = 0x4561736L,
+    CONSTRUCTOR_ID = 0x5a686d7c,
+    SUBCLASS_OF_ID = 0x4561736,
 
     chat = NULL,
 
@@ -10430,8 +10430,8 @@ ChatInviteExported <- R6::R6Class(
   "ChatInviteExported",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa22cbd96L,
-    SUBCLASS_OF_ID = 0xb4748a58L,
+    CONSTRUCTOR_ID = 0xa22cbd96,
+    SUBCLASS_OF_ID = 0xb4748a58,
 
     link = NULL,
     admin_id = NULL,
@@ -10492,8 +10492,8 @@ ChatInviteImporter <- R6::R6Class(
   "ChatInviteImporter",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x8c5adfd9L,
-    SUBCLASS_OF_ID = 0x5312542eL,
+    CONSTRUCTOR_ID = 0x8c5adfd9,
+    SUBCLASS_OF_ID = 0x5312542e,
 
     user_id = NULL,
     date = NULL,
@@ -10530,8 +10530,8 @@ ChatInvitePeek <- R6::R6Class(
   "ChatInvitePeek",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x61695cb0L,
-    SUBCLASS_OF_ID = 0x4561736L,
+    CONSTRUCTOR_ID = 0x61695cb0,
+    SUBCLASS_OF_ID = 0x4561736,
 
     chat = NULL,
     expires = NULL,
@@ -10556,8 +10556,8 @@ ChatInvitePublicJoinRequests <- R6::R6Class(
   "ChatInvitePublicJoinRequests",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xed107ab7L,
-    SUBCLASS_OF_ID = 0xb4748a58L,
+    CONSTRUCTOR_ID = 0xed107ab7,
+    SUBCLASS_OF_ID = 0xb4748a58,
 
     to_dict = function() {
       list('_' = 'ChatInvitePublicJoinRequests')
@@ -10570,8 +10570,8 @@ ChatOnlines <- R6::R6Class(
   "ChatOnlines",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf041e250L,
-    SUBCLASS_OF_ID = 0x8c81903aL,
+    CONSTRUCTOR_ID = 0xf041e250,
+    SUBCLASS_OF_ID = 0x8c81903a,
     onlines = NULL,
 
     initialize = function(onlines) {
@@ -10606,8 +10606,8 @@ ChatParticipant <- R6::R6Class(
   "ChatParticipant",
   inherit = TLObject,
   public = list(
-    constructor_id = 0xc02d4007L,
-    subclass_of_id = 0x7d7c6f86L,
+    constructor_id = 0xc02d4007,
+    subclass_of_id = 0x7d7c6f86,
     user_id = NULL,
     inviter_id = NULL,
     date = NULL,
@@ -10649,8 +10649,8 @@ ChatParticipantAdmin <- R6::R6Class(
   "ChatParticipantAdmin",
   inherit = TLObject,
   public = list(
-    constructor_id = 0xa0933f5bL,
-    subclass_of_id = 0x7d7c6f86L,
+    constructor_id = 0xa0933f5b,
+    subclass_of_id = 0x7d7c6f86,
     user_id = NULL,
     inviter_id = NULL,
     date = NULL,
@@ -10692,8 +10692,8 @@ ChatParticipantCreator <- R6::R6Class(
   "ChatParticipantCreator",
   inherit = TLObject,
   public = list(
-    constructor_id = 0xe46bcee4L,
-    subclass_of_id = 0x7d7c6f86L,
+    constructor_id = 0xe46bcee4,
+    subclass_of_id = 0x7d7c6f86,
     user_id = NULL,
 
     initialize = function(user_id) {
@@ -10725,8 +10725,8 @@ ChatParticipants <- R6::R6Class(
   "ChatParticipants",
   inherit = TLObject,
   public = list(
-    constructor_id = 0x3cbc93f8L,
-    subclass_of_id = 0x1fa89571L,
+    constructor_id = 0x3cbc93f8,
+    subclass_of_id = 0x1fa89571,
     chat_id = NULL,
     participants = NULL,
     version = NULL,
@@ -10774,8 +10774,8 @@ ChatParticipantsForbidden <- R6::R6Class(
   "ChatParticipantsForbidden",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x8763d3e1L,
-    SUBCLASS_OF_ID = 0x1fa89571L,
+    CONSTRUCTOR_ID = 0x8763d3e1,
+    SUBCLASS_OF_ID = 0x1fa89571,
 
     chat_id = NULL,
     self_participant = NULL,
@@ -10819,8 +10819,8 @@ ChatPhoto <- R6::R6Class(
   "ChatPhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1c6e1c11L,
-    SUBCLASS_OF_ID = 0xac3ec4e5L,
+    CONSTRUCTOR_ID = 0x1c6e1c11,
+    SUBCLASS_OF_ID = 0xac3ec4e5,
     photo_id = NULL,
     dc_id = NULL,
     has_video = NULL,
@@ -10859,8 +10859,8 @@ ChatPhotoEmpty <- R6::R6Class(
   "ChatPhotoEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x37c1011cL,
-    SUBCLASS_OF_ID = 0xac3ec4e5L,
+    CONSTRUCTOR_ID = 0x37c1011c,
+    SUBCLASS_OF_ID = 0xac3ec4e5,
 
     to_list = function() {
       list("_" = "ChatPhotoEmpty")
@@ -10876,8 +10876,8 @@ ChatReactionsAll <- R6::R6Class(
   "ChatReactionsAll",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x52928bcaL,
-    SUBCLASS_OF_ID = 0x131e24b5L,
+    CONSTRUCTOR_ID = 0x52928bca,
+    SUBCLASS_OF_ID = 0x131e24b5,
     allow_custom = NULL,
 
     initialize = function(allow_custom = NULL) {
@@ -10904,8 +10904,8 @@ ChatReactionsNone <- R6::R6Class(
   "ChatReactionsNone",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xeafc32bcL,
-    SUBCLASS_OF_ID = 0x131e24b5L,
+    CONSTRUCTOR_ID = 0xeafc32bc,
+    SUBCLASS_OF_ID = 0x131e24b5,
 
     to_list = function() {
       list("_" = "ChatReactionsNone")
@@ -10921,8 +10921,8 @@ ChatReactionsSome <- R6::R6Class(
   "ChatReactionsSome",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x661d4037L,
-    SUBCLASS_OF_ID = 0x131e24b5L,
+    CONSTRUCTOR_ID = 0x661d4037,
+    SUBCLASS_OF_ID = 0x131e24b5,
     reactions = NULL,
 
     initialize = function(reactions) {
@@ -10950,8 +10950,8 @@ ChatTheme <- R6::R6Class(
   "ChatTheme",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc3dffc04L,
-    SUBCLASS_OF_ID = 0x2ffca7f5L,
+    CONSTRUCTOR_ID = 0xc3dffc04,
+    SUBCLASS_OF_ID = 0x2ffca7f5,
     emoticon = NULL,
 
     initialize = function(emoticon) {
@@ -10978,8 +10978,8 @@ ChatThemeUniqueGift <- R6::R6Class(
   "ChatThemeUniqueGift",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x3458f9c8L,
-    SUBCLASS_OF_ID = 0x2ffca7f5L,
+    CONSTRUCTOR_ID = 0x3458f9c8,
+    SUBCLASS_OF_ID = 0x2ffca7f5,
     gift = NULL,
     theme_settings = NULL,
 
@@ -11012,8 +11012,8 @@ ClientDHInnerData <- R6::R6Class(
   "ClientDHInnerData",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x6643b654L,
-    SUBCLASS_OF_ID = 0xf8eeef6aL,
+    CONSTRUCTOR_ID = 0x6643b654,
+    SUBCLASS_OF_ID = 0xf8eeef6a,
 
     nonce = NULL,
     server_nonce = NULL,
@@ -11053,8 +11053,8 @@ CodeSettings <- R6::R6Class(
   "CodeSettings",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xad253d78L,
-    SUBCLASS_OF_ID = 0x48edbc8aL,
+    CONSTRUCTOR_ID = 0xad253d78,
+    SUBCLASS_OF_ID = 0x48edbc8a,
 
     allow_flashcall = NULL,
     current_number = NULL,
@@ -11101,8 +11101,8 @@ Config <- R6::R6Class(
   "Config",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xcc1a241eL,
-    SUBCLASS_OF_ID = 0xd3262a4aL,
+    CONSTRUCTOR_ID = 0xcc1a241e,
+    SUBCLASS_OF_ID = 0xd3262a4a,
 
     date = NULL,
     expires = NULL,
@@ -11277,8 +11277,8 @@ ConnectedBot <- R6::R6Class(
   "ConnectedBot",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xcd64636cL,
-    SUBCLASS_OF_ID = 0x35e81b9eL,
+    CONSTRUCTOR_ID = 0xcd64636c,
+    SUBCLASS_OF_ID = 0x35e81b9e,
 
     bot_id = NULL,
     recipients = NULL,
@@ -11319,8 +11319,8 @@ ConnectedBotStarRef <- R6::R6Class(
   "ConnectedBotStarRef",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x19a13f71L,
-    SUBCLASS_OF_ID = 0xa0528f8cL,
+    CONSTRUCTOR_ID = 0x19a13f71,
+    SUBCLASS_OF_ID = 0xa0528f8c,
 
     url = NULL,
     date = NULL,
@@ -11381,8 +11381,8 @@ Contact <- R6::R6Class(
   "Contact",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x145ade0bL,
-    SUBCLASS_OF_ID = 0x83dfdfa4L,
+    CONSTRUCTOR_ID = 0x145ade0b,
+    SUBCLASS_OF_ID = 0x83dfdfa4,
 
     user_id = NULL,
     mutual = NULL,
@@ -11418,8 +11418,8 @@ ContactBirthday <- R6::R6Class(
   "ContactBirthday",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1d998733L,
-    SUBCLASS_OF_ID = 0xd8dd2806L,
+    CONSTRUCTOR_ID = 0x1d998733,
+    SUBCLASS_OF_ID = 0xd8dd2806,
 
     contact_id = NULL,
     birthday = NULL,
@@ -11455,8 +11455,8 @@ ContactStatus <- R6::R6Class(
   "ContactStatus",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x16d9703bL,
-    SUBCLASS_OF_ID = 0x68c0d74cL,
+    CONSTRUCTOR_ID = 0x16d9703b,
+    SUBCLASS_OF_ID = 0x68c0d74c,
 
     user_id = NULL,
     status = NULL,
@@ -11492,8 +11492,8 @@ DataJSON <- R6::R6Class(
   "DataJSON",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x7d748d04L,
-    SUBCLASS_OF_ID = 0xad0352e8L,
+    CONSTRUCTOR_ID = 0x7d748d04,
+    SUBCLASS_OF_ID = 0xad0352e8,
 
     data = NULL,
 
@@ -11525,8 +11525,8 @@ DcOption <- R6::R6Class(
   "DcOption",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x18b7a10dL,
-    SUBCLASS_OF_ID = 0x9e43e123L,
+    CONSTRUCTOR_ID = 0x18b7a10d,
+    SUBCLASS_OF_ID = 0x9e43e123,
 
     id = NULL,
     ip_address = NULL,
@@ -11595,8 +11595,8 @@ DefaultHistoryTTL <- R6::R6Class(
   "DefaultHistoryTTL",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x43b46b20L,
-    SUBCLASS_OF_ID = 0xf00d3367L,
+    CONSTRUCTOR_ID = 0x43b46b20,
+    SUBCLASS_OF_ID = 0xf00d3367,
 
     period = NULL,
 
@@ -11629,8 +11629,8 @@ DestroyAuthKeyFail <- R6::R6Class(
   "DestroyAuthKeyFail",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xea109b13L,
-    SUBCLASS_OF_ID = 0x8291e68eL,
+    CONSTRUCTOR_ID = 0xea109b13,
+    SUBCLASS_OF_ID = 0x8291e68e,
 
     to_dict = function() {
       list("_" = "DestroyAuthKeyFail")
@@ -11652,8 +11652,8 @@ DestroyAuthKeyNone <- R6::R6Class(
   "DestroyAuthKeyNone",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x0a9f2259L,
-    SUBCLASS_OF_ID = 0x8291e68eL,
+    CONSTRUCTOR_ID = 0x0a9f2259,
+    SUBCLASS_OF_ID = 0x8291e68e,
 
     to_dict = function() {
       list("_" = "DestroyAuthKeyNone")
@@ -11675,8 +11675,8 @@ DestroyAuthKeyOk <- R6::R6Class(
   "DestroyAuthKeyOk",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf660e1d4L,
-    SUBCLASS_OF_ID = 0x8291e68eL,
+    CONSTRUCTOR_ID = 0xf660e1d4,
+    SUBCLASS_OF_ID = 0x8291e68e,
 
     to_dict = function() {
       list("_" = "DestroyAuthKeyOk")
@@ -11699,8 +11699,8 @@ DestroySessionNone <- R6::R6Class(
   "DestroySessionNone",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x62d350c9L,
-    SUBCLASS_OF_ID = 0xaf0ce7bdL,
+    CONSTRUCTOR_ID = 0x62d350c9,
+    SUBCLASS_OF_ID = 0xaf0ce7bd,
     session_id = NULL,
 
     initialize = function(session_id) {
@@ -11734,8 +11734,8 @@ DestroySessionOk <- R6::R6Class(
   "DestroySessionOk",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe22045fcL,
-    SUBCLASS_OF_ID = 0xaf0ce7bdL,
+    CONSTRUCTOR_ID = 0xe22045fc,
+    SUBCLASS_OF_ID = 0xaf0ce7bd,
     session_id = NULL,
 
     initialize = function(session_id) {
@@ -11770,8 +11770,8 @@ DhGenFail <- R6::R6Class(
   "DhGenFail",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa69dae02L,
-    SUBCLASS_OF_ID = 0x55dd6cdbL,
+    CONSTRUCTOR_ID = 0xa69dae02,
+    SUBCLASS_OF_ID = 0x55dd6cdb,
     nonce = NULL,
     server_nonce = NULL,
     new_nonce_hash3 = NULL,
@@ -11806,8 +11806,8 @@ DhGenOk <- R6::R6Class(
   "DhGenOk",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x3bcbf734L,
-    SUBCLASS_OF_ID = 0x55dd6cdbL,
+    CONSTRUCTOR_ID = 0x3bcbf734,
+    SUBCLASS_OF_ID = 0x55dd6cdb,
     nonce = NULL,
     server_nonce = NULL,
     new_nonce_hash1 = NULL,
@@ -11842,8 +11842,8 @@ DhGenRetry <- R6::R6Class(
   "DhGenRetry",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x46dc1fb9L,
-    SUBCLASS_OF_ID = 0x55dd6cdbL,
+    CONSTRUCTOR_ID = 0x46dc1fb9,
+    SUBCLASS_OF_ID = 0x55dd6cdb,
     nonce = NULL,
     server_nonce = NULL,
     new_nonce_hash2 = NULL,
@@ -12186,8 +12186,8 @@ DisallowedGiftsSettings <- R6::R6Class(
   "DisallowedGiftsSettings",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x71f276c4L,
-    SUBCLASS_OF_ID = 0x382e9abL,
+    CONSTRUCTOR_ID = 0x71f276c4,
+    SUBCLASS_OF_ID = 0x382e9ab,
 
     disallow_unlimited_stargifts = NULL,
     disallow_limited_stargifts = NULL,
@@ -12337,8 +12337,8 @@ DocumentAttributeAnimated <- R6::R6Class(
   "DocumentAttributeAnimated",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x11b58939L,
-    SUBCLASS_OF_ID = 0xf729eb9bL,
+    CONSTRUCTOR_ID = 0x11b58939,
+    SUBCLASS_OF_ID = 0xf729eb9b,
 
     to_dict = function() {
       list('_' = 'DocumentAttributeAnimated')
@@ -12361,8 +12361,8 @@ DocumentAttributeAudio <- R6::R6Class(
   "DocumentAttributeAudio",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9852f9c6L,
-    SUBCLASS_OF_ID = 0xf729eb9bL,
+    CONSTRUCTOR_ID = 0x9852f9c6,
+    SUBCLASS_OF_ID = 0xf729eb9b,
 
     duration = NULL,
     voice = NULL,
@@ -12400,8 +12400,8 @@ DocumentAttributeCustomEmoji <- R6::R6Class(
   "DocumentAttributeCustomEmoji",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xfd149899L,
-    SUBCLASS_OF_ID = 0xf729eb9bL,
+    CONSTRUCTOR_ID = 0xfd149899,
+    SUBCLASS_OF_ID = 0xf729eb9b,
 
     alt = NULL,
     stickerset = NULL,
@@ -12436,8 +12436,8 @@ DocumentAttributeFilename <- R6::R6Class(
   "DocumentAttributeFilename",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x15590068L,
-    SUBCLASS_OF_ID = 0xf729eb9bL,
+    CONSTRUCTOR_ID = 0x15590068,
+    SUBCLASS_OF_ID = 0xf729eb9b,
 
     file_name = NULL,
 
@@ -12463,8 +12463,8 @@ DocumentAttributeHasStickers <- R6::R6Class(
   "DocumentAttributeHasStickers",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9801d2f7L,
-    SUBCLASS_OF_ID = 0xf729eb9bL,
+    CONSTRUCTOR_ID = 0x9801d2f7,
+    SUBCLASS_OF_ID = 0xf729eb9b,
 
     to_dict = function() {
       list('_' = 'DocumentAttributeHasStickers')
@@ -12481,8 +12481,8 @@ DocumentAttributeImageSize <- R6::R6Class(
   "DocumentAttributeImageSize",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x6c37c15cL,
-    SUBCLASS_OF_ID = 0xf729eb9bL,
+    CONSTRUCTOR_ID = 0x6c37c15c,
+    SUBCLASS_OF_ID = 0xf729eb9b,
 
     w = NULL,
     h = NULL,
@@ -12511,8 +12511,8 @@ DocumentAttributeSticker <- R6::R6Class(
   "DocumentAttributeSticker",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x6319d612L,
-    SUBCLASS_OF_ID = 0xf729eb9bL,
+    CONSTRUCTOR_ID = 0x6319d612,
+    SUBCLASS_OF_ID = 0xf729eb9b,
 
     alt = NULL,
     stickerset = NULL,
@@ -12547,8 +12547,8 @@ DocumentAttributeVideo <- R6::R6Class(
   "DocumentAttributeVideo",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x43c57c48L,
-    SUBCLASS_OF_ID = 0xf729eb9bL,
+    CONSTRUCTOR_ID = 0x43c57c48,
+    SUBCLASS_OF_ID = 0xf729eb9b,
 
     duration = NULL,
     w = NULL,
@@ -12598,8 +12598,8 @@ DocumentEmpty <- R6::R6Class(
   "DocumentEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x36f8c871L,
-    SUBCLASS_OF_ID = 0x211fe820L,
+    CONSTRUCTOR_ID = 0x36f8c871,
+    SUBCLASS_OF_ID = 0x211fe820,
 
     id = NULL,
 
@@ -12625,8 +12625,8 @@ DraftMessage <- R6::R6Class(
   "DraftMessage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x96eaa5ebL,
-    SUBCLASS_OF_ID = 0x33d47f45L,
+    CONSTRUCTOR_ID = 0x96eaa5eb,
+    SUBCLASS_OF_ID = 0x33d47f45,
 
     message = NULL,
     date = NULL,
@@ -12676,8 +12676,8 @@ DraftMessageEmpty <- R6::R6Class(
   "DraftMessageEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1b0c841aL,
-    SUBCLASS_OF_ID = 0x33d47f45L,
+    CONSTRUCTOR_ID = 0x1b0c841a,
+    SUBCLASS_OF_ID = 0x33d47f45,
 
     date = NULL,
 
@@ -12703,8 +12703,8 @@ EmailVerificationApple <- R6::R6Class(
   "EmailVerificationApple",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x96d074fdL,
-    SUBCLASS_OF_ID = 0x241ee240L,
+    CONSTRUCTOR_ID = 0x96d074fd,
+    SUBCLASS_OF_ID = 0x241ee240,
 
     token = NULL,
 
@@ -12730,8 +12730,8 @@ EmailVerificationCode <- R6::R6Class(
   "EmailVerificationCode",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x922e55a9L,
-    SUBCLASS_OF_ID = 0x241ee240L,
+    CONSTRUCTOR_ID = 0x922e55a9,
+    SUBCLASS_OF_ID = 0x241ee240,
 
     code = NULL,
 
@@ -12757,8 +12757,8 @@ EmailVerificationGoogle <- R6::R6Class(
   "EmailVerificationGoogle",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xdb909ec2L,
-    SUBCLASS_OF_ID = 0x241ee240L,
+    CONSTRUCTOR_ID = 0xdb909ec2,
+    SUBCLASS_OF_ID = 0x241ee240,
 
     token = NULL,
 
@@ -12784,8 +12784,8 @@ EmailVerifyPurposeLoginChange <- R6::R6Class(
   "EmailVerifyPurposeLoginChange",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x527d22ebL,
-    SUBCLASS_OF_ID = 0xb9686ae8L,
+    CONSTRUCTOR_ID = 0x527d22eb,
+    SUBCLASS_OF_ID = 0xb9686ae8,
 
     to_dict = function() {
       list('_' = 'EmailVerifyPurposeLoginChange')
@@ -12802,8 +12802,8 @@ EmailVerifyPurposeLoginSetup <- R6::R6Class(
   "EmailVerifyPurposeLoginSetup",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4345be73L,
-    SUBCLASS_OF_ID = 0xb9686ae8L,
+    CONSTRUCTOR_ID = 0x4345be73,
+    SUBCLASS_OF_ID = 0xb9686ae8,
 
     phone_number = NULL,
     phone_code_hash = NULL,
@@ -12832,8 +12832,8 @@ EmailVerifyPurposePassport <- R6::R6Class(
   "EmailVerifyPurposePassport",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbbf51685L,
-    SUBCLASS_OF_ID = 0xb9686ae8L,
+    CONSTRUCTOR_ID = 0xbbf51685,
+    SUBCLASS_OF_ID = 0xb9686ae8,
 
     to_dict = function() {
       list('_' = 'EmailVerifyPurposePassport')
@@ -12851,8 +12851,8 @@ EmojiGroup <- R6::R6Class(
   "EmojiGroup",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x7a9abda9L,
-    SUBCLASS_OF_ID = 0x55e0a193L,
+    CONSTRUCTOR_ID = 0x7a9abda9,
+    SUBCLASS_OF_ID = 0x55e0a193,
 
     title = NULL,
     icon_emoji_id = NULL,
@@ -12890,8 +12890,8 @@ EmojiGroupGreeting <- R6::R6Class(
   "EmojiGroupGreeting",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x80d26cc7L,
-    SUBCLASS_OF_ID = 0x55e0a193L,
+    CONSTRUCTOR_ID = 0x80d26cc7,
+    SUBCLASS_OF_ID = 0x55e0a193,
 
     title = NULL,
     icon_emoji_id = NULL,
@@ -12930,8 +12930,8 @@ EmojiGroupPremium <- R6::R6Class(
   "EmojiGroupPremium",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x93bcf34L,
-    SUBCLASS_OF_ID = 0x55e0a193L,
+    CONSTRUCTOR_ID = 0x93bcf34,
+    SUBCLASS_OF_ID = 0x55e0a193,
 
     title = NULL,
     icon_emoji_id = NULL,
@@ -12963,8 +12963,8 @@ EmojiKeyword <- R6::R6Class(
   "EmojiKeyword",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xd5b3b9f9L,
-    SUBCLASS_OF_ID = 0x6612a53eL,
+    CONSTRUCTOR_ID = 0xd5b3b9f9,
+    SUBCLASS_OF_ID = 0x6612a53e,
 
     keyword = NULL,
     emoticons = NULL,
@@ -12999,8 +12999,8 @@ EmojiKeywordDeleted <- R6::R6Class(
   "EmojiKeywordDeleted",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x236df622L,
-    SUBCLASS_OF_ID = 0x6612a53eL,
+    CONSTRUCTOR_ID = 0x236df622,
+    SUBCLASS_OF_ID = 0x6612a53e,
 
     keyword = NULL,
     emoticons = NULL,
@@ -13034,8 +13034,8 @@ EmojiKeywordsDifference <- R6::R6Class(
   "EmojiKeywordsDifference",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x5cc761bdL,
-    SUBCLASS_OF_ID = 0xd279c672L,
+    CONSTRUCTOR_ID = 0x5cc761bd,
+    SUBCLASS_OF_ID = 0xd279c672,
 
     lang_code = NULL,
     from_version = NULL,
@@ -13078,8 +13078,8 @@ EmojiLanguage <- R6::R6Class(
   "EmojiLanguage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb3fb5361L,
-    SUBCLASS_OF_ID = 0xa48d04eeL,
+    CONSTRUCTOR_ID = 0xb3fb5361,
+    SUBCLASS_OF_ID = 0xa48d04ee,
 
     lang_code = NULL,
 
@@ -13107,8 +13107,8 @@ EmojiList <- R6::R6Class(
   "EmojiList",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x7a1e11d1L,
-    SUBCLASS_OF_ID = 0xbcef6abaL,
+    CONSTRUCTOR_ID = 0x7a1e11d1,
+    SUBCLASS_OF_ID = 0xbcef6aba,
 
     hash = NULL,
     document_id = NULL,
@@ -13286,8 +13286,8 @@ EncryptedChat <- R6::R6Class(
   "EncryptedChat",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x61f0d4c7L,
-    SUBCLASS_OF_ID = 0x6d28a37aL,
+    CONSTRUCTOR_ID = 0x61f0d4c7,
+    SUBCLASS_OF_ID = 0x6d28a37a,
 
     id = NULL,
     access_hash = NULL,
@@ -13361,8 +13361,8 @@ EncryptedChatDiscarded <- R6::R6Class(
   "EncryptedChatDiscarded",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1e1c7c45L,
-    SUBCLASS_OF_ID = 0x6d28a37aL,
+    CONSTRUCTOR_ID = 0x1e1c7c45,
+    SUBCLASS_OF_ID = 0x6d28a37a,
 
     id = NULL,
     history_deleted = NULL,
@@ -13404,8 +13404,8 @@ EncryptedChatEmpty <- R6::R6Class(
   "EncryptedChatEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xab7ec0a0L,
-    SUBCLASS_OF_ID = 0x6d28a37aL,
+    CONSTRUCTOR_ID = 0xab7ec0a0,
+    SUBCLASS_OF_ID = 0x6d28a37a,
 
     id = NULL,
 
@@ -13441,8 +13441,8 @@ EncryptedChatRequested <- R6::R6Class(
   "EncryptedChatRequested",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x48f1d94cL,
-    SUBCLASS_OF_ID = 0x6d28a37aL,
+    CONSTRUCTOR_ID = 0x48f1d94c,
+    SUBCLASS_OF_ID = 0x6d28a37a,
 
     id = NULL,
     access_hash = NULL,
@@ -14206,8 +14206,8 @@ GroupCallDiscarded <- R6::R6Class(
   "GroupCallDiscarded",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x7780bcb4L,
-    SUBCLASS_OF_ID = 0x20b4f320L,
+    CONSTRUCTOR_ID = 0x7780bcb4,
+    SUBCLASS_OF_ID = 0x20b4f320,
 
     id = NULL,
     access_hash = NULL,
@@ -14638,8 +14638,8 @@ InlineQueryPeerTypeBotPM <- R6::R6Class(
   "InlineQueryPeerTypeBotPM",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x0e3b2d0cL,
-    SUBCLASS_OF_ID = 0xafb0fa1fL,
+    CONSTRUCTOR_ID = 0x0e3b2d0c,
+    SUBCLASS_OF_ID = 0xafb0fa1f,
 
     to_list = function() {
       list("_" = "InlineQueryPeerTypeBotPM")
@@ -14655,8 +14655,8 @@ InlineQueryPeerTypeBroadcast <- R6::R6Class(
   "InlineQueryPeerTypeBroadcast",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x6334ee9aL,
-    SUBCLASS_OF_ID = 0xafb0fa1fL,
+    CONSTRUCTOR_ID = 0x6334ee9a,
+    SUBCLASS_OF_ID = 0xafb0fa1f,
 
     to_list = function() {
       list("_" = "InlineQueryPeerTypeBroadcast")
@@ -14672,8 +14672,8 @@ InlineQueryPeerTypeChat <- R6::R6Class(
   "InlineQueryPeerTypeChat",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xd766c50aL,
-    SUBCLASS_OF_ID = 0xafb0fa1fL,
+    CONSTRUCTOR_ID = 0xd766c50a,
+    SUBCLASS_OF_ID = 0xafb0fa1f,
 
     to_list = function() {
       list("_" = "InlineQueryPeerTypeChat")
@@ -15546,8 +15546,8 @@ InputBotInlineResultDocument <- R6::R6Class(
   "InputBotInlineResultDocument",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xfff8fdc4L,
-    SUBCLASS_OF_ID = 0x80a4a3deL,
+    CONSTRUCTOR_ID = 0xfff8fdc4,
+    SUBCLASS_OF_ID = 0x80a4a3de,
 
     id = NULL,
     type = NULL,
@@ -15615,8 +15615,8 @@ InputBotInlineResultGame <- R6::R6Class(
   "InputBotInlineResultGame",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4fa417f2L,
-    SUBCLASS_OF_ID = 0x80a4a3deL,
+    CONSTRUCTOR_ID = 0x4fa417f2,
+    SUBCLASS_OF_ID = 0x80a4a3de,
 
     id = NULL,
     short_name = NULL,
@@ -15652,8 +15652,8 @@ InputBotInlineResultPhoto <- R6::R6Class(
   "InputBotInlineResultPhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa8d864a7L,
-    SUBCLASS_OF_ID = 0x80a4a3deL,
+    CONSTRUCTOR_ID = 0xa8d864a7,
+    SUBCLASS_OF_ID = 0x80a4a3de,
 
     id = NULL,
     type = NULL,
@@ -15802,8 +15802,8 @@ InputBusinessChatLink <- R6::R6Class(
   "InputBusinessChatLink",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x11679fa7L,
-    SUBCLASS_OF_ID = 0xab670513L,
+    CONSTRUCTOR_ID = 0x11679fa7,
+    SUBCLASS_OF_ID = 0xab670513,
 
     message = NULL,
     entities = NULL,
@@ -15840,8 +15840,8 @@ InputBusinessGreetingMessage <- R6::R6Class(
   "InputBusinessGreetingMessage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x194cb3bL,
-    SUBCLASS_OF_ID = 0x6278dcddL,
+    CONSTRUCTOR_ID = 0x194cb3b,
+    SUBCLASS_OF_ID = 0x6278dcdd,
 
     shortcut_id = NULL,
     recipients = NULL,
@@ -15878,8 +15878,8 @@ InputBusinessIntro <- R6::R6Class(
   "InputBusinessIntro",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9c469cdL,
-    SUBCLASS_OF_ID = 0x645a767dL,
+    CONSTRUCTOR_ID = 0x9c469cd,
+    SUBCLASS_OF_ID = 0x645a767d,
 
     title = NULL,
     description = NULL,
@@ -15928,8 +15928,8 @@ InputBusinessRecipients <- R6::R6Class(
   "InputBusinessRecipients",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x6f8b32aaL,
-    SUBCLASS_OF_ID = 0xd7ee53fL,
+    CONSTRUCTOR_ID = 0x6f8b32aa,
+    SUBCLASS_OF_ID = 0xd7ee53f,
 
     existing_chats = NULL,
     new_chats = NULL,
@@ -16013,8 +16013,8 @@ InputChannel <- R6::R6Class(
   "InputChannel",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf35aec28L,
-    SUBCLASS_OF_ID = 0x40f202fdL,
+    CONSTRUCTOR_ID = 0xf35aec28,
+    SUBCLASS_OF_ID = 0x40f202fd,
 
     channel_id = NULL,
     access_hash = NULL,
@@ -16046,8 +16046,8 @@ InputChannelEmpty <- R6::R6Class(
   "InputChannelEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xee8c1e86L,
-    SUBCLASS_OF_ID = 0x40f202fdL,
+    CONSTRUCTOR_ID = 0xee8c1e86,
+    SUBCLASS_OF_ID = 0x40f202fd,
 
     to_dict = function() {
       list("_" = "InputChannelEmpty")
@@ -16064,8 +16064,8 @@ InputChannelFromMessage <- R6::R6Class(
   "InputChannelFromMessage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x5b934f9dL,
-    SUBCLASS_OF_ID = 0x40f202fdL,
+    CONSTRUCTOR_ID = 0x5b934f9d,
+    SUBCLASS_OF_ID = 0x40f202fd,
 
     peer = NULL,
     msg_id = NULL,
@@ -16101,8 +16101,8 @@ InputChatPhoto <- R6::R6Class(
   "InputChatPhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x8953ad37L,
-    SUBCLASS_OF_ID = 0xd4eb2d74L,
+    CONSTRUCTOR_ID = 0x8953ad37,
+    SUBCLASS_OF_ID = 0xd4eb2d74,
 
     id = NULL,
 
@@ -16131,8 +16131,8 @@ InputChatPhotoEmpty <- R6::R6Class(
   "InputChatPhotoEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1ca48f57L,
-    SUBCLASS_OF_ID = 0xd4eb2d74L,
+    CONSTRUCTOR_ID = 0x1ca48f57,
+    SUBCLASS_OF_ID = 0xd4eb2d74,
 
     to_dict = function() {
       list("_" = "InputChatPhotoEmpty")
@@ -16148,8 +16148,8 @@ InputChatTheme <- R6::R6Class(
   "InputChatTheme",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc93de95cL,
-    SUBCLASS_OF_ID = 0x57294e64L,
+    CONSTRUCTOR_ID = 0xc93de95c,
+    SUBCLASS_OF_ID = 0x57294e64,
     emoticon = NULL,
 
     initialize = function(emoticon) {
@@ -16170,8 +16170,8 @@ InputChatThemeEmpty <- R6::R6Class(
   "InputChatThemeEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x83268483L,
-    SUBCLASS_OF_ID = 0x57294e64L,
+    CONSTRUCTOR_ID = 0x83268483,
+    SUBCLASS_OF_ID = 0x57294e64,
 
     to_dict = function() {
       list("_" = "InputChatThemeEmpty")
@@ -16188,8 +16188,8 @@ InputChatThemeUniqueGift <- R6::R6Class(
   "InputChatThemeUniqueGift",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x87e5dfe4L,
-    SUBCLASS_OF_ID = 0x57294e64L,
+    CONSTRUCTOR_ID = 0x87e5dfe4,
+    SUBCLASS_OF_ID = 0x57294e64,
 
     slug = NULL,
 
@@ -16224,8 +16224,8 @@ InputChatUploadedPhoto <- R6::R6Class(
   "InputChatUploadedPhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbdcdaec0L,
-    SUBCLASS_OF_ID = 0xd4eb2d74L,
+    CONSTRUCTOR_ID = 0xbdcdaec0,
+    SUBCLASS_OF_ID = 0xd4eb2d74,
 
     file = NULL,
     video = NULL,
@@ -16285,8 +16285,8 @@ InputChatlistDialogFilter <- R6::R6Class(
   "InputChatlistDialogFilter",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf3e0da33L,
-    SUBCLASS_OF_ID = 0x23f9659L,
+    CONSTRUCTOR_ID = 0xf3e0da33,
+    SUBCLASS_OF_ID = 0x23f9659,
 
     filter_id = NULL,
 
@@ -16314,8 +16314,8 @@ InputCheckPasswordEmpty <- R6::R6Class(
   "InputCheckPasswordEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9880f658L,
-    SUBCLASS_OF_ID = 0xd41af560L,
+    CONSTRUCTOR_ID = 0x9880f658,
+    SUBCLASS_OF_ID = 0xd41af560,
 
     to_dict = function() {
       list("_" = "InputCheckPasswordEmpty")
@@ -16331,8 +16331,8 @@ InputCheckPasswordSRP <- R6::R6Class(
   "InputCheckPasswordSRP",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xd27ff082L,
-    SUBCLASS_OF_ID = 0xd41af560L,
+    CONSTRUCTOR_ID = 0xd27ff082,
+    SUBCLASS_OF_ID = 0xd41af560,
 
     srp_id = NULL,
     A = NULL,
@@ -16369,8 +16369,8 @@ InputClientProxy <- R6::R6Class(
   "InputClientProxy",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x75588b3fL,
-    SUBCLASS_OF_ID = 0x91a4346L,
+    CONSTRUCTOR_ID = 0x75588b3f,
+    SUBCLASS_OF_ID = 0x91a4346,
 
     address = NULL,
     port = NULL,
@@ -16402,8 +16402,8 @@ InputCollectiblePhone <- R6::R6Class(
   "InputCollectiblePhone",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa2e214a4L,
-    SUBCLASS_OF_ID = 0x2a0f81ebL,
+    CONSTRUCTOR_ID = 0xa2e214a4,
+    SUBCLASS_OF_ID = 0x2a0f81eb,
 
     phone = NULL,
 
@@ -16431,8 +16431,8 @@ InputCollectibleUsername <- R6::R6Class(
   "InputCollectibleUsername",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe39460a9L,
-    SUBCLASS_OF_ID = 0x2a0f81ebL,
+    CONSTRUCTOR_ID = 0xe39460a9,
+    SUBCLASS_OF_ID = 0x2a0f81eb,
 
     username = NULL,
 
@@ -16461,8 +16461,8 @@ InputDialogPeer <- R6::R6Class(
   "InputDialogPeer",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xfcaafeb7L,
-    SUBCLASS_OF_ID = 0xa21c9795L,
+    CONSTRUCTOR_ID = 0xfcaafeb7,
+    SUBCLASS_OF_ID = 0xa21c9795,
 
     peer = NULL,
 
@@ -16490,8 +16490,8 @@ InputDialogPeerFolder <- R6::R6Class(
   "InputDialogPeerFolder",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x64600527L,
-    SUBCLASS_OF_ID = 0xa21c9795L,
+    CONSTRUCTOR_ID = 0x64600527,
+    SUBCLASS_OF_ID = 0xa21c9795,
 
     folder_id = NULL,
 
@@ -16520,8 +16520,8 @@ InputDocument <- R6::R6Class(
   "InputDocument",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1abfb575L,
-    SUBCLASS_OF_ID = 0xf33fdb68L,
+    CONSTRUCTOR_ID = 0x1abfb575,
+    SUBCLASS_OF_ID = 0xf33fdb68,
 
     id = NULL,
     access_hash = NULL,
@@ -16566,8 +16566,8 @@ InputDocumentEmpty <- R6::R6Class(
   "InputDocumentEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x72f0eaaeL,
-    SUBCLASS_OF_ID = 0xf33fdb68L,
+    CONSTRUCTOR_ID = 0x72f0eaae,
+    SUBCLASS_OF_ID = 0xf33fdb68,
 
     to_list = function() {
       list("_" = "InputDocumentEmpty")
@@ -16589,8 +16589,8 @@ InputDocumentFileLocation <- R6::R6Class(
   "InputDocumentFileLocation",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbad07584L,
-    SUBCLASS_OF_ID = 0x1523d462L,
+    CONSTRUCTOR_ID = 0xbad07584,
+    SUBCLASS_OF_ID = 0x1523d462,
 
     id = NULL,
     access_hash = NULL,
@@ -16641,8 +16641,8 @@ InputEmojiStatusCollectible <- R6::R6Class(
   "InputEmojiStatusCollectible",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x7141dbfL,
-    SUBCLASS_OF_ID = 0xf930b138L,
+    CONSTRUCTOR_ID = 0x7141dbf,
+    SUBCLASS_OF_ID = 0xf930b138,
 
     collectible_id = NULL,
     until = NULL,
@@ -16686,8 +16686,8 @@ InputEncryptedChat <- R6::R6Class(
   "InputEncryptedChat",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf141b5e1L,
-    SUBCLASS_OF_ID = 0x6c7606c0L,
+    CONSTRUCTOR_ID = 0xf141b5e1,
+    SUBCLASS_OF_ID = 0x6c7606c0,
     chat_id = NULL,
     access_hash = NULL,
 
@@ -16718,8 +16718,8 @@ InputEncryptedFile <- R6::R6Class(
   "InputEncryptedFile",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x5a17b5e5L,
-    SUBCLASS_OF_ID = 0x8574c27aL,
+    CONSTRUCTOR_ID = 0x5a17b5e5,
+    SUBCLASS_OF_ID = 0x8574c27a,
     id = NULL,
     access_hash = NULL,
 
@@ -17086,8 +17086,8 @@ InputGameShortName <- R6::R6Class(
 InputGeoPoint <- R6::R6Class(
   "InputGeoPoint",
   public = list(
-    CONSTRUCTOR_ID = 0x48222fafL,
-    SUBCLASS_OF_ID = 0x430d225L,
+    CONSTRUCTOR_ID = 0x48222faf,
+    SUBCLASS_OF_ID = 0x430d225,
     lat = NULL,
     long = NULL,
     accuracy_radius = NULL,
@@ -17126,8 +17126,8 @@ InputGeoPoint <- R6::R6Class(
 InputGeoPointEmpty <- R6::R6Class(
   "InputGeoPointEmpty",
   public = list(
-    CONSTRUCTOR_ID = 0xe4c123d6L,
-    SUBCLASS_OF_ID = 0x430d225L,
+    CONSTRUCTOR_ID = 0xe4c123d6,
+    SUBCLASS_OF_ID = 0x430d225,
 
     to_dict = function() {
       list("_" = "InputGeoPointEmpty")
@@ -17142,8 +17142,8 @@ InputGeoPointEmpty <- R6::R6Class(
 InputGroupCall <- R6::R6Class(
   "InputGroupCall",
   public = list(
-    CONSTRUCTOR_ID = 0xd8aa840fL,
-    SUBCLASS_OF_ID = 0x58611ab1L,
+    CONSTRUCTOR_ID = 0xd8aa840f,
+    SUBCLASS_OF_ID = 0x58611ab1,
     id = NULL,
     access_hash = NULL,
 
@@ -17175,8 +17175,8 @@ InputGroupCallInviteMessage <- R6::R6Class(
   "InputGroupCallInviteMessage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x8c10603fL,
-    SUBCLASS_OF_ID = 0x58611ab1L,
+    CONSTRUCTOR_ID = 0x8c10603f,
+    SUBCLASS_OF_ID = 0x58611ab1,
     msg_id = NULL,
 
     initialize = function(msg_id) {
@@ -17203,8 +17203,8 @@ InputGroupCallSlug <- R6::R6Class(
   "InputGroupCallSlug",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xfe06823fL,
-    SUBCLASS_OF_ID = 0x58611ab1L,
+    CONSTRUCTOR_ID = 0xfe06823f,
+    SUBCLASS_OF_ID = 0x58611ab1,
     slug = NULL,
 
     initialize = function(slug) {
@@ -17308,8 +17308,8 @@ InputInvoiceChatInviteSubscription <- R6::R6Class(
   "InputInvoiceChatInviteSubscription",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x34e793f1L,
-    SUBCLASS_OF_ID = 0x726e9bfeL,
+    CONSTRUCTOR_ID = 0x34e793f1,
+    SUBCLASS_OF_ID = 0x726e9bfe,
     hash = NULL,
 
     initialize = function(hash) {
@@ -17336,8 +17336,8 @@ InputInvoiceMessage <- R6::R6Class(
   "InputInvoiceMessage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc5b56859L,
-    SUBCLASS_OF_ID = 0x726e9bfeL,
+    CONSTRUCTOR_ID = 0xc5b56859,
+    SUBCLASS_OF_ID = 0x726e9bfe,
     peer = NULL,
     msg_id = NULL,
 
@@ -17368,8 +17368,8 @@ InputInvoicePremiumGiftCode <- R6::R6Class(
   "InputInvoicePremiumGiftCode",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x98986c0dL,
-    SUBCLASS_OF_ID = 0x726e9bfeL,
+    CONSTRUCTOR_ID = 0x98986c0d,
+    SUBCLASS_OF_ID = 0x726e9bfe,
     purpose = NULL,
     option = NULL,
 
@@ -17400,8 +17400,8 @@ InputInvoicePremiumGiftCode <- R6::R6Class(
 InputInvoicePremiumGiftStars <- R6::R6Class(
   "InputInvoicePremiumGiftStars",
   public = list(
-    CONSTRUCTOR_ID = 0xdabab2efL,
-    SUBCLASS_OF_ID = 0x726e9bfeL,
+    CONSTRUCTOR_ID = 0xdabab2ef,
+    SUBCLASS_OF_ID = 0x726e9bfe,
     user_id = NULL,
     months = NULL,
     message = NULL,
@@ -17436,8 +17436,8 @@ InputInvoicePremiumGiftStars <- R6::R6Class(
 InputInvoiceSlug <- R6::R6Class(
   "InputInvoiceSlug",
   public = list(
-    CONSTRUCTOR_ID = 0xc326caefL,
-    SUBCLASS_OF_ID = 0x726e9bfeL,
+    CONSTRUCTOR_ID = 0xc326caef,
+    SUBCLASS_OF_ID = 0x726e9bfe,
     slug = NULL,
 
     initialize = function(slug) {
@@ -17464,8 +17464,8 @@ InputInvoiceSlug <- R6::R6Class(
 InputInvoiceStarGift <- R6::R6Class(
   "InputInvoiceStarGift",
   public = list(
-    CONSTRUCTOR_ID = 0xe8625e92L,
-    SUBCLASS_OF_ID = 0x726e9bfeL,
+    CONSTRUCTOR_ID = 0xe8625e92,
+    SUBCLASS_OF_ID = 0x726e9bfe,
 
     peer = NULL,
     gift_id = NULL,
@@ -17511,8 +17511,8 @@ InputInvoiceStarGift <- R6::R6Class(
 InputInvoiceStarGiftPrepaidUpgrade <- R6::R6Class(
   "InputInvoiceStarGiftPrepaidUpgrade",
   public = list(
-    CONSTRUCTOR_ID = 0x9a0b48b8L,
-    SUBCLASS_OF_ID = 0x726e9bfeL,
+    CONSTRUCTOR_ID = 0x9a0b48b8,
+    SUBCLASS_OF_ID = 0x726e9bfe,
 
     peer = NULL,
     hash = NULL,
@@ -17545,8 +17545,8 @@ InputInvoiceStarGiftResale <- R6::R6Class(
   "InputInvoiceStarGiftResale",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc39f5324L,
-    SUBCLASS_OF_ID = 0x726e9bfeL,
+    CONSTRUCTOR_ID = 0xc39f5324,
+    SUBCLASS_OF_ID = 0x726e9bfe,
 
     slug = NULL,
     to_id = NULL,
@@ -17582,8 +17582,8 @@ InputInvoiceStarGiftTransfer <- R6::R6Class(
   "InputInvoiceStarGiftTransfer",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4a5f5bd9L,
-    SUBCLASS_OF_ID = 0x726e9bfeL,
+    CONSTRUCTOR_ID = 0x4a5f5bd9,
+    SUBCLASS_OF_ID = 0x726e9bfe,
 
     stargift = NULL,
     to_id = NULL,
@@ -17616,8 +17616,8 @@ InputInvoiceStarGiftUpgrade <- R6::R6Class(
   "InputInvoiceStarGiftUpgrade",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4d818d5dL,
-    SUBCLASS_OF_ID = 0x726e9bfeL,
+    CONSTRUCTOR_ID = 0x4d818d5d,
+    SUBCLASS_OF_ID = 0x726e9bfe,
 
     stargift = NULL,
     keep_original_details = NULL,
@@ -17649,8 +17649,8 @@ InputInvoiceStars <- R6::R6Class(
   "InputInvoiceStars",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x65f00ce3L,
-    SUBCLASS_OF_ID = 0x726e9bfeL,
+    CONSTRUCTOR_ID = 0x65f00ce3,
+    SUBCLASS_OF_ID = 0x726e9bfe,
 
     purpose = NULL,
 
@@ -17678,8 +17678,8 @@ InputKeyboardButtonRequestPeer <- R6::R6Class(
   "InputKeyboardButtonRequestPeer",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc9662d05L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xc9662d05,
+    SUBCLASS_OF_ID = 0xbad74a3,
 
     text = NULL,
     button_id = NULL,
@@ -17756,8 +17756,8 @@ InputKeyboardButtonUrlAuth <- R6::R6Class(
   "InputKeyboardButtonUrlAuth",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xd02e7fd4L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xd02e7fd4,
+    SUBCLASS_OF_ID = 0xbad74a3,
 
     text = NULL,
     url = NULL,
@@ -17795,8 +17795,8 @@ InputKeyboardButtonUserProfile <- R6::R6Class(
   "InputKeyboardButtonUserProfile",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe988037bL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xe988037b,
+    SUBCLASS_OF_ID = 0xbad74a3,
 
     text = NULL,
     user_id = NULL,
@@ -17826,8 +17826,8 @@ InputMediaAreaChannelPost <- R6::R6Class(
   "InputMediaAreaChannelPost",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2271f2bfL,
-    SUBCLASS_OF_ID = 0xf36d7bf2L,
+    CONSTRUCTOR_ID = 0x2271f2bf,
+    SUBCLASS_OF_ID = 0xf36d7bf2,
 
     coordinates = NULL,
     channel = NULL,
@@ -17863,8 +17863,8 @@ InputMediaAreaVenue <- R6::R6Class(
   "InputMediaAreaVenue",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb282217fL,
-    SUBCLASS_OF_ID = 0xf36d7bf2L,
+    CONSTRUCTOR_ID = 0xb282217f,
+    SUBCLASS_OF_ID = 0xf36d7bf2,
 
     coordinates = NULL,
     query_id = NULL,
@@ -17901,8 +17901,8 @@ InputMediaContact <- R6::R6Class(
   "InputMediaContact",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf8ab7dfbL,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0xf8ab7dfb,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     phone_number = NULL,
     first_name = NULL,
@@ -17942,8 +17942,8 @@ InputMediaDice <- R6::R6Class(
   "InputMediaDice",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe66fbf7bL,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0xe66fbf7b,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     emoticon = NULL,
 
@@ -17972,8 +17972,8 @@ InputMediaDocument <- R6::R6Class(
   "InputMediaDocument",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa8763ab5L,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0xa8763ab5,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     id = NULL,
     spoiler = NULL,
@@ -18043,8 +18043,8 @@ InputMediaDocumentExternal <- R6::R6Class(
   "InputMediaDocumentExternal",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x779600f9L,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0x779600f9,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     url = NULL,
     spoiler = NULL,
@@ -18084,8 +18084,8 @@ InputMediaEmpty <- R6::R6Class(
   "InputMediaEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9664f57fL,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0x9664f57f,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     initialize = function() {
       # no fields
@@ -18108,8 +18108,8 @@ InputMediaGame <- R6::R6Class(
   "InputMediaGame",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xd33f43f3L,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0xd33f43f3,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     id = NULL,
 
@@ -18134,8 +18134,8 @@ InputMediaGeoLive <- R6::R6Class(
   "InputMediaGeoLive",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x971fa843L,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0x971fa843,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     geo_point = NULL,
     stopped = NULL,
@@ -18175,8 +18175,8 @@ InputMediaGeoPoint <- R6::R6Class(
   "InputMediaGeoPoint",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf9c44144L,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0xf9c44144,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     geo_point = NULL,
 
@@ -18204,8 +18204,8 @@ InputMediaInvoice <- R6::R6Class(
   "InputMediaInvoice",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x405fef0dL,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0x405fef0d,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     title = NULL,
     description = NULL,
@@ -18257,8 +18257,8 @@ InputMediaPaidMedia <- R6::R6Class(
   "InputMediaPaidMedia",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc4103386L,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0xc4103386,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     stars_amount = NULL,
     extended_media = NULL,
@@ -18292,8 +18292,8 @@ InputMediaPhoto <- R6::R6Class(
   "InputMediaPhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb3ba0635L,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0xb3ba0635,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     id = NULL,
     spoiler = NULL,
@@ -18327,8 +18327,8 @@ InputMediaPhotoExternal <- R6::R6Class(
   "InputMediaPhotoExternal",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe5bbfe1aL,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0xe5bbfe1a,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     url = NULL,
     spoiler = NULL,
@@ -18362,8 +18362,8 @@ InputMediaPoll <- R6::R6Class(
   "InputMediaPoll",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x0f94e5f1L, # keep as numeric constant (hex shown in python)
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0x0f94e5f1, # keep as numeric constant (hex shown in python)
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     poll = NULL,
     correct_answers = NULL,
@@ -18400,8 +18400,8 @@ InputMediaStory <- R6::R6Class(
   "InputMediaStory",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x89fdd778L,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0x89fdd778,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     peer = NULL,
     id = NULL,
@@ -18432,8 +18432,8 @@ InputMediaTodo <- R6::R6Class(
   "InputMediaTodo",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9fc55fdeL,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0x9fc55fde,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     todo = NULL,
 
@@ -18461,8 +18461,8 @@ InputMediaUploadedDocument <- R6::R6Class(
   "InputMediaUploadedDocument",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x037c9330L,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0x037c9330,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     file = NULL,
     mime_type = NULL,
@@ -18523,8 +18523,8 @@ InputMediaUploadedPhoto <- R6::R6Class(
   "InputMediaUploadedPhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1e287d04L,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0x1e287d04,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     file = NULL,
     spoiler = NULL,
@@ -18561,8 +18561,8 @@ InputMediaUploadedPhoto <- R6::R6Class(
 InputMediaVenue <- R6::R6Class("InputMediaVenue",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc13d1c11L,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0xc13d1c11,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     geo_point = NULL,
     title = NULL,
@@ -18606,8 +18606,8 @@ InputMediaVenue <- R6::R6Class("InputMediaVenue",
 InputMediaWebPage <- R6::R6Class("InputMediaWebPage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc21b8849L,
-    SUBCLASS_OF_ID = 0xfaf846f4L,
+    CONSTRUCTOR_ID = 0xc21b8849,
+    SUBCLASS_OF_ID = 0xfaf846f4,
 
     url = NULL,
     force_large_media = NULL,
@@ -18645,8 +18645,8 @@ InputMediaWebPage <- R6::R6Class("InputMediaWebPage",
 InputMessageCallbackQuery <- R6::R6Class("InputMessageCallbackQuery",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xacfa1a7eL,
-    SUBCLASS_OF_ID = 0x54b6bcc5L,
+    CONSTRUCTOR_ID = 0xacfa1a7e,
+    SUBCLASS_OF_ID = 0x54b6bcc5,
 
     id = NULL,
     query_id = NULL,
@@ -18672,8 +18672,8 @@ InputMessageCallbackQuery <- R6::R6Class("InputMessageCallbackQuery",
 InputMessageEntityMentionName <- R6::R6Class("InputMessageEntityMentionName",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x208e68c9L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x208e68c9,
+    SUBCLASS_OF_ID = 0xcf6419dc,
 
     offset = NULL,
     length = NULL,
@@ -18706,8 +18706,8 @@ InputMessageEntityMentionName <- R6::R6Class("InputMessageEntityMentionName",
 InputMessageID <- R6::R6Class("InputMessageID",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa676a322L,
-    SUBCLASS_OF_ID = 0x54b6bcc5L,
+    CONSTRUCTOR_ID = 0xa676a322,
+    SUBCLASS_OF_ID = 0x54b6bcc5,
 
     id = NULL,
 
@@ -18731,8 +18731,8 @@ InputMessageID <- R6::R6Class("InputMessageID",
 InputMessagePinned <- R6::R6Class("InputMessagePinned",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x86872538L,
-    SUBCLASS_OF_ID = 0x54b6bcc5L,
+    CONSTRUCTOR_ID = 0x86872538,
+    SUBCLASS_OF_ID = 0x54b6bcc5,
 
     initialize = function() {
       # no fields
@@ -18754,8 +18754,8 @@ InputMessagePinned <- R6::R6Class("InputMessagePinned",
 InputMessageReplyTo <- R6::R6Class("InputMessageReplyTo",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbad88395L,
-    SUBCLASS_OF_ID = 0x54b6bcc5L,
+    CONSTRUCTOR_ID = 0xbad88395,
+    SUBCLASS_OF_ID = 0x54b6bcc5,
 
     id = NULL,
 
@@ -18779,8 +18779,8 @@ InputMessageReplyTo <- R6::R6Class("InputMessageReplyTo",
 InputMessagesFilterChatPhotos <- R6::R6Class("InputMessagesFilterChatPhotos",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x3a20ecb8L,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0x3a20ecb8,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     initialize = function() { },
 
@@ -18800,8 +18800,8 @@ InputMessagesFilterChatPhotos <- R6::R6Class("InputMessagesFilterChatPhotos",
 InputMessagesFilterContacts <- R6::R6Class("InputMessagesFilterContacts",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe062db83L,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0xe062db83,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     initialize = function() { },
 
@@ -18821,8 +18821,8 @@ InputMessagesFilterContacts <- R6::R6Class("InputMessagesFilterContacts",
 InputMessagesFilterDocument <- R6::R6Class("InputMessagesFilterDocument",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9eddf188L,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0x9eddf188,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     initialize = function() { },
 
@@ -18842,8 +18842,8 @@ InputMessagesFilterDocument <- R6::R6Class("InputMessagesFilterDocument",
 InputMessagesFilterEmpty <- R6::R6Class("InputMessagesFilterEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x57e2f66cL,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0x57e2f66c,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     initialize = function() { },
 
@@ -18863,8 +18863,8 @@ InputMessagesFilterEmpty <- R6::R6Class("InputMessagesFilterEmpty",
 InputMessagesFilterGeo <- R6::R6Class("InputMessagesFilterGeo",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe7026d0dL,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0xe7026d0d,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     initialize = function() { },
 
@@ -18884,8 +18884,8 @@ InputMessagesFilterGeo <- R6::R6Class("InputMessagesFilterGeo",
 InputMessagesFilterGif <- R6::R6Class("InputMessagesFilterGif",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xffc86587L,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0xffc86587,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     initialize = function() { },
 
@@ -18905,8 +18905,8 @@ InputMessagesFilterGif <- R6::R6Class("InputMessagesFilterGif",
 InputMessagesFilterMusic <- R6::R6Class("InputMessagesFilterMusic",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x3751b49eL,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0x3751b49e,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     initialize = function() { },
 
@@ -18926,8 +18926,8 @@ InputMessagesFilterMusic <- R6::R6Class("InputMessagesFilterMusic",
 InputMessagesFilterMyMentions <- R6::R6Class("InputMessagesFilterMyMentions",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc1f8e69aL,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0xc1f8e69a,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     initialize = function() { },
 
@@ -18948,8 +18948,8 @@ InputMessagesFilterPhoneCalls <- R6::R6Class(
   "InputMessagesFilterPhoneCalls",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x80c99768L,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0x80c99768,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     missed = NULL,
 
@@ -18976,8 +18976,8 @@ InputMessagesFilterPhotoVideo <- R6::R6Class(
   "InputMessagesFilterPhotoVideo",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x56e9f0e4L,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0x56e9f0e4,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     to_dict = function() {
       list('_' = 'InputMessagesFilterPhotoVideo')
@@ -19001,8 +19001,8 @@ InputMessagesFilterPhotos <- R6::R6Class(
   "InputMessagesFilterPhotos",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9609a51cL,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0x9609a51c,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     to_dict = function() {
       list('_' = 'InputMessagesFilterPhotos')
@@ -19023,8 +19023,8 @@ InputMessagesFilterPinned <- R6::R6Class(
   "InputMessagesFilterPinned",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1bb00451L,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0x1bb00451,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     to_dict = function() {
       list('_' = 'InputMessagesFilterPinned')
@@ -19045,8 +19045,8 @@ InputMessagesFilterRoundVideo <- R6::R6Class(
   "InputMessagesFilterRoundVideo",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb549da53L,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0xb549da53,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     to_dict = function() {
       list('_' = 'InputMessagesFilterRoundVideo')
@@ -19067,8 +19067,8 @@ InputMessagesFilterRoundVoice <- R6::R6Class(
   "InputMessagesFilterRoundVoice",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x7a7c17a4L,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0x7a7c17a4,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     to_dict = function() {
       list('_' = 'InputMessagesFilterRoundVoice')
@@ -19089,8 +19089,8 @@ InputMessagesFilterUrl <- R6::R6Class(
   "InputMessagesFilterUrl",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x7ef0dd87L,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0x7ef0dd87,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     to_dict = function() {
       list('_' = 'InputMessagesFilterUrl')
@@ -19111,8 +19111,8 @@ InputMessagesFilterVideo <- R6::R6Class(
   "InputMessagesFilterVideo",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9fc00e65L,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0x9fc00e65,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     to_dict = function() {
       list('_' = 'InputMessagesFilterVideo')
@@ -19133,8 +19133,8 @@ InputMessagesFilterVoice <- R6::R6Class(
   "InputMessagesFilterVoice",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x50f5c392L,
-    SUBCLASS_OF_ID = 0x8a36ec14L,
+    CONSTRUCTOR_ID = 0x50f5c392,
+    SUBCLASS_OF_ID = 0x8a36ec14,
 
     to_dict = function() {
       list('_' = 'InputMessagesFilterVoice')
@@ -19155,8 +19155,8 @@ InputNotifyBroadcasts <- R6::R6Class(
   "InputNotifyBroadcasts",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb1db7c7eL,
-    SUBCLASS_OF_ID = 0x58981615L,
+    CONSTRUCTOR_ID = 0xb1db7c7e,
+    SUBCLASS_OF_ID = 0x58981615,
 
     to_dict = function() {
       list('_' = 'InputNotifyBroadcasts')
@@ -19177,8 +19177,8 @@ InputNotifyChats <- R6::R6Class(
   "InputNotifyChats",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4a95e84eL,
-    SUBCLASS_OF_ID = 0x58981615L,
+    CONSTRUCTOR_ID = 0x4a95e84e,
+    SUBCLASS_OF_ID = 0x58981615,
 
     to_dict = function() {
       list('_' = 'InputNotifyChats')
@@ -19199,8 +19199,8 @@ InputNotifyForumTopic <- R6::R6Class(
   "InputNotifyForumTopic",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x5c467992L,
-    SUBCLASS_OF_ID = 0x58981615L,
+    CONSTRUCTOR_ID = 0x5c467992,
+    SUBCLASS_OF_ID = 0x58981615,
 
     peer = NULL,
     top_msg_id = NULL,
@@ -19235,8 +19235,8 @@ InputNotifyPeer <- R6::R6Class(
   "InputNotifyPeer",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb8bc5b0cL,
-    SUBCLASS_OF_ID = 0x58981615L,
+    CONSTRUCTOR_ID = 0xb8bc5b0c,
+    SUBCLASS_OF_ID = 0x58981615,
 
     peer = NULL,
 
@@ -19267,8 +19267,8 @@ InputNotifyUsers <- R6::R6Class(
   "InputNotifyUsers",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x193b4417L,
-    SUBCLASS_OF_ID = 0x58981615L,
+    CONSTRUCTOR_ID = 0x193b4417,
+    SUBCLASS_OF_ID = 0x58981615,
 
     to_dict = function() {
       list('_' = 'InputNotifyUsers')
@@ -19289,8 +19289,8 @@ InputPaymentCredentials <- R6::R6Class(
   "InputPaymentCredentials",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x3417d728L,
-    SUBCLASS_OF_ID = 0x2899a53dL,
+    CONSTRUCTOR_ID = 0x3417d728,
+    SUBCLASS_OF_ID = 0x2899a53d,
 
     data = NULL,
     save = NULL,
@@ -19326,8 +19326,8 @@ InputPaymentCredentialsApplePay <- R6::R6Class(
   "InputPaymentCredentialsApplePay",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xaa1c39fL,
-    SUBCLASS_OF_ID = 0x2899a53dL,
+    CONSTRUCTOR_ID = 0xaa1c39f,
+    SUBCLASS_OF_ID = 0x2899a53d,
 
     paymentdata = NULL,
 
@@ -19358,8 +19358,8 @@ InputPaymentCredentialsGooglePay <- R6::R6Class(
   "InputPaymentCredentialsGooglePay",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x8ac32801L,
-    SUBCLASS_OF_ID = 0x2899a53dL,
+    CONSTRUCTOR_ID = 0x8ac32801,
+    SUBCLASS_OF_ID = 0x2899a53d,
 
     payment_token = NULL,
 
@@ -19390,8 +19390,8 @@ InputPaymentCredentialsSaved <- R6::R6Class(
   "InputPaymentCredentialsSaved",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc10eb2cfL,
-    SUBCLASS_OF_ID = 0x2899a53dL,
+    CONSTRUCTOR_ID = 0xc10eb2cf,
+    SUBCLASS_OF_ID = 0x2899a53d,
 
     id = NULL,
     tmp_password = NULL,
@@ -19426,8 +19426,8 @@ InputPeerChannel <- R6::R6Class(
   "InputPeerChannel",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x27bcbbfcL,
-    SUBCLASS_OF_ID = 0xc91c90b6L,
+    CONSTRUCTOR_ID = 0x27bcbbfc,
+    SUBCLASS_OF_ID = 0xc91c90b6,
 
     channel_id = NULL,
     access_hash = NULL,
@@ -19476,8 +19476,8 @@ InputPeerChannelFromMessage <- R6::R6Class(
   "InputPeerChannelFromMessage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbd2a0840L,
-    SUBCLASS_OF_ID = 0xc91c90b6L,
+    CONSTRUCTOR_ID = 0xbd2a0840,
+    SUBCLASS_OF_ID = 0xc91c90b6,
 
     peer = NULL,
     msg_id = NULL,
@@ -19516,8 +19516,8 @@ InputPeerChat <- R6::R6Class(
   "InputPeerChat",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x35a95cb9L,
-    SUBCLASS_OF_ID = 0xc91c90b6L,
+    CONSTRUCTOR_ID = 0x35a95cb9,
+    SUBCLASS_OF_ID = 0xc91c90b6,
 
     chat_id = NULL,
 
@@ -19553,8 +19553,8 @@ InputPeerEmpty <- R6::R6Class(
   "InputPeerEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x7f3b18eaL,
-    SUBCLASS_OF_ID = 0xc91c90b6L,
+    CONSTRUCTOR_ID = 0x7f3b18ea,
+    SUBCLASS_OF_ID = 0xc91c90b6,
 
     to_dict = function() {
       list('_' = 'InputPeerEmpty')
@@ -19575,8 +19575,8 @@ InputPeerNotifySettings <- R6::R6Class(
   "InputPeerNotifySettings",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xcacb6ae2L,
-    SUBCLASS_OF_ID = 0x90db0b0dL,
+    CONSTRUCTOR_ID = 0xcacb6ae2,
+    SUBCLASS_OF_ID = 0x90db0b0d,
 
     show_previews = NULL,
     silent = NULL,
@@ -19656,8 +19656,8 @@ InputPeerPhotoFileLocation <- R6::R6Class(
   "InputPeerPhotoFileLocation",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x37257e99L,
-    SUBCLASS_OF_ID = 0x1523d462L,
+    CONSTRUCTOR_ID = 0x37257e99,
+    SUBCLASS_OF_ID = 0x1523d462,
 
     peer = NULL,
     photo_id = NULL,
@@ -19704,8 +19704,8 @@ InputPeerSelf <- R6::R6Class(
   "InputPeerSelf",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x7da07ec9L,
-    SUBCLASS_OF_ID = 0xc91c90b6L,
+    CONSTRUCTOR_ID = 0x7da07ec9,
+    SUBCLASS_OF_ID = 0xc91c90b6,
 
     to_dict = function() {
       list('_' = 'InputPeerSelf')
@@ -19726,8 +19726,8 @@ InputPeerUser <- R6::R6Class(
   "InputPeerUser",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xdde8a54cL,
-    SUBCLASS_OF_ID = 0xc91c90b6L,
+    CONSTRUCTOR_ID = 0xdde8a54c,
+    SUBCLASS_OF_ID = 0xc91c90b6,
 
     user_id = NULL,
     access_hash = NULL,
@@ -19777,8 +19777,8 @@ InputPeerUserFromMessage <- R6::R6Class(
   "InputPeerUserFromMessage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa87b0a1cL,
-    SUBCLASS_OF_ID = 0xc91c90b6L,
+    CONSTRUCTOR_ID = 0xa87b0a1c,
+    SUBCLASS_OF_ID = 0xc91c90b6,
 
     initialize = function(peer, msg_id, user_id) {
       self$peer <- peer
@@ -19811,8 +19811,8 @@ InputPhoneCall <- R6::R6Class(
   "InputPhoneCall",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1e36fdedL,
-    SUBCLASS_OF_ID = 0xbcaaf240L,
+    CONSTRUCTOR_ID = 0x1e36fded,
+    SUBCLASS_OF_ID = 0xbcaaf240,
 
     initialize = function(id, access_hash) {
       self$id <- id
@@ -19842,8 +19842,8 @@ InputPhoneContact <- R6::R6Class(
   "InputPhoneContact",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf392b7f4L,
-    SUBCLASS_OF_ID = 0xae696a82L,
+    CONSTRUCTOR_ID = 0xf392b7f4,
+    SUBCLASS_OF_ID = 0xae696a82,
 
     initialize = function(client_id, phone, first_name, last_name) {
       self$client_id <- client_id
@@ -19879,8 +19879,8 @@ InputPhoto <- R6::R6Class(
   "InputPhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x3bb3b94aL,
-    SUBCLASS_OF_ID = 0x846363e0L,
+    CONSTRUCTOR_ID = 0x3bb3b94a,
+    SUBCLASS_OF_ID = 0x846363e0,
 
     initialize = function(id, access_hash, file_reference) {
       self$id <- id
@@ -19913,8 +19913,8 @@ InputPhotoEmpty <- R6::R6Class(
   "InputPhotoEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1cd7bf0dL,
-    SUBCLASS_OF_ID = 0x846363e0L,
+    CONSTRUCTOR_ID = 0x1cd7bf0d,
+    SUBCLASS_OF_ID = 0x846363e0,
 
     to_dict = function() {
       list('_' = 'InputPhotoEmpty')
@@ -19936,8 +19936,8 @@ InputPhotoFileLocation <- R6::R6Class(
   "InputPhotoFileLocation",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x40181ffeL,
-    SUBCLASS_OF_ID = 0x1523d462L,
+    CONSTRUCTOR_ID = 0x40181ffe,
+    SUBCLASS_OF_ID = 0x1523d462,
 
     initialize = function(id, access_hash, file_reference, thumb_size) {
       self$id <- id
@@ -19973,8 +19973,8 @@ InputPhotoLegacyFileLocation <- R6::R6Class(
   "InputPhotoLegacyFileLocation",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xd83466f3L,
-    SUBCLASS_OF_ID = 0x1523d462L,
+    CONSTRUCTOR_ID = 0xd83466f3,
+    SUBCLASS_OF_ID = 0x1523d462,
 
     initialize = function(id, access_hash, file_reference, volume_id, local_id, secret) {
       self$id <- id
@@ -20016,8 +20016,8 @@ InputPrivacyKeyAbout <- R6::R6Class(
   "InputPrivacyKeyAbout",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x3823cc40L,
-    SUBCLASS_OF_ID = 0x53627f8L,
+    CONSTRUCTOR_ID = 0x3823cc40,
+    SUBCLASS_OF_ID = 0x53627f8,
 
     to_dict = function() {
       list('_' = 'InputPrivacyKeyAbout')
@@ -20039,8 +20039,8 @@ InputPrivacyKeyAddedByPhone <- R6::R6Class(
   "InputPrivacyKeyAddedByPhone",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xd1219bddL,
-    SUBCLASS_OF_ID = 0x53627f8L,
+    CONSTRUCTOR_ID = 0xd1219bdd,
+    SUBCLASS_OF_ID = 0x53627f8,
 
     to_dict = function() {
       list('_' = 'InputPrivacyKeyAddedByPhone')
@@ -20062,8 +20062,8 @@ InputPrivacyKeyBirthday <- R6::R6Class(
   "InputPrivacyKeyBirthday",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xd65a11ccL,
-    SUBCLASS_OF_ID = 0x53627f8L,
+    CONSTRUCTOR_ID = 0xd65a11cc,
+    SUBCLASS_OF_ID = 0x53627f8,
 
     to_dict = function() {
       list('_' = 'InputPrivacyKeyBirthday')
@@ -20085,8 +20085,8 @@ InputPrivacyKeyChatInvite <- R6::R6Class(
   "InputPrivacyKeyChatInvite",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbfdfb0426L,
-    SUBCLASS_OF_ID = 0x53627f8L,
+    CONSTRUCTOR_ID = 0xbfdfb0426,
+    SUBCLASS_OF_ID = 0x53627f8,
 
     to_dict = function() {
       list('_' = 'InputPrivacyKeyChatInvite')
@@ -20108,8 +20108,8 @@ InputPrivacyKeyForwards <- R6::R6Class(
   "InputPrivacyKeyForwards",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa4dd4c08L,
-    SUBCLASS_OF_ID = 0x53627f8L,
+    CONSTRUCTOR_ID = 0xa4dd4c08,
+    SUBCLASS_OF_ID = 0x53627f8,
 
     to_dict = function() {
       list('_' = 'InputPrivacyKeyForwards')
@@ -20131,8 +20131,8 @@ InputPrivacyKeyNoPaidMessages <- R6::R6Class(
   "InputPrivacyKeyNoPaidMessages",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbdc597b4L,
-    SUBCLASS_OF_ID = 0x53627f8L,
+    CONSTRUCTOR_ID = 0xbdc597b4,
+    SUBCLASS_OF_ID = 0x53627f8,
 
     to_dict = function() {
       list('_' = 'InputPrivacyKeyNoPaidMessages')
@@ -20154,8 +20154,8 @@ InputPrivacyKeyPhoneCall <- R6::R6Class(
   "InputPrivacyKeyPhoneCall",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xfabadc5fL,
-    SUBCLASS_OF_ID = 0x53627f8L,
+    CONSTRUCTOR_ID = 0xfabadc5f,
+    SUBCLASS_OF_ID = 0x53627f8,
 
     to_dict = function() {
       list('_' = 'InputPrivacyKeyPhoneCall')
@@ -20177,8 +20177,8 @@ InputPrivacyKeyPhoneNumber <- R6::R6Class(
   "InputPrivacyKeyPhoneNumber",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x352dafaL,
-    SUBCLASS_OF_ID = 0x53627f8L,
+    CONSTRUCTOR_ID = 0x352dafa,
+    SUBCLASS_OF_ID = 0x53627f8,
 
     to_dict = function() {
       list('_' = 'InputPrivacyKeyPhoneNumber')
@@ -20200,8 +20200,8 @@ InputPrivacyKeyPhoneP2P <- R6::R6Class(
   "InputPrivacyKeyPhoneP2P",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xdb9e70d2L,
-    SUBCLASS_OF_ID = 0x53627f8L,
+    CONSTRUCTOR_ID = 0xdb9e70d2,
+    SUBCLASS_OF_ID = 0x53627f8,
 
     to_dict = function() {
       list('_' = 'InputPrivacyKeyPhoneP2P')
@@ -20223,8 +20223,8 @@ InputPrivacyKeyProfilePhoto <- R6::R6Class(
   "InputPrivacyKeyProfilePhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x5719baccL,
-    SUBCLASS_OF_ID = 0x53627f8L,
+    CONSTRUCTOR_ID = 0x5719bacc,
+    SUBCLASS_OF_ID = 0x53627f8,
 
     to_dict = function() {
       list('_' = 'InputPrivacyKeyProfilePhoto')
@@ -20246,8 +20246,8 @@ InputPrivacyKeyStarGiftsAutoSave <- R6::R6Class(
   "InputPrivacyKeyStarGiftsAutoSave",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe1732341L,
-    SUBCLASS_OF_ID = 0x53627f8L,
+    CONSTRUCTOR_ID = 0xe1732341,
+    SUBCLASS_OF_ID = 0x53627f8,
 
     to_dict = function() {
       list('_' = 'InputPrivacyKeyStarGiftsAutoSave')
@@ -20269,8 +20269,8 @@ InputPrivacyKeyStatusTimestamp <- R6::R6Class(
   "InputPrivacyKeyStatusTimestamp",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4f96cb18L,
-    SUBCLASS_OF_ID = 0x53627f8L,
+    CONSTRUCTOR_ID = 0x4f96cb18,
+    SUBCLASS_OF_ID = 0x53627f8,
 
     to_dict = function() {
       list('_' = 'InputPrivacyKeyStatusTimestamp')
@@ -20292,8 +20292,8 @@ InputPrivacyKeyVoiceMessages <- R6::R6Class(
   "InputPrivacyKeyVoiceMessages",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xaee69d68L,
-    SUBCLASS_OF_ID = 0x53627f8L,
+    CONSTRUCTOR_ID = 0xaee69d68,
+    SUBCLASS_OF_ID = 0x53627f8,
 
     to_dict = function() {
       list('_' = 'InputPrivacyKeyVoiceMessages')
@@ -20315,8 +20315,8 @@ InputPrivacyValueAllowAll <- R6::R6Class(
   "InputPrivacyValueAllowAll",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x184b35ceL,
-    SUBCLASS_OF_ID = 0x5a3b6b22L,
+    CONSTRUCTOR_ID = 0x184b35ce,
+    SUBCLASS_OF_ID = 0x5a3b6b22,
 
     to_dict = function() {
       list('_' = 'InputPrivacyValueAllowAll')
@@ -20338,8 +20338,8 @@ InputPrivacyValueAllowBots <- R6::R6Class(
   "InputPrivacyValueAllowBots",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x5a4fcce5L,
-    SUBCLASS_OF_ID = 0x5a3b6b22L,
+    CONSTRUCTOR_ID = 0x5a4fcce5,
+    SUBCLASS_OF_ID = 0x5a3b6b22,
 
     to_dict = function() {
       list('_' = 'InputPrivacyValueAllowBots')
@@ -20361,8 +20361,8 @@ InputPrivacyValueAllowChatParticipants <- R6::R6Class(
   "InputPrivacyValueAllowChatParticipants",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x840649cfL,
-    SUBCLASS_OF_ID = 0x5a3b6b22L,
+    CONSTRUCTOR_ID = 0x840649cf,
+    SUBCLASS_OF_ID = 0x5a3b6b22,
 
     initialize = function(chats) {
       self$chats <- chats
@@ -20390,8 +20390,8 @@ InputPrivacyValueAllowCloseFriends <- R6::R6Class(
   "InputPrivacyValueAllowCloseFriends",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2f453e49L,
-    SUBCLASS_OF_ID = 0x5a3b6b22L,
+    CONSTRUCTOR_ID = 0x2f453e49,
+    SUBCLASS_OF_ID = 0x5a3b6b22,
 
     to_dict = function() {
       list('_' = 'InputPrivacyValueAllowCloseFriends')
@@ -20413,8 +20413,8 @@ InputPrivacyValueAllowContacts <- R6::R6Class(
   "InputPrivacyValueAllowContacts",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xd09e07bL,
-    SUBCLASS_OF_ID = 0x5a3b6b22L,
+    CONSTRUCTOR_ID = 0xd09e07b,
+    SUBCLASS_OF_ID = 0x5a3b6b22,
 
     to_dict = function() {
       list('_' = 'InputPrivacyValueAllowContacts')
@@ -20436,8 +20436,8 @@ InputPrivacyValueAllowPremium <- R6::R6Class(
   "InputPrivacyValueAllowPremium",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x77cdc9f1L,
-    SUBCLASS_OF_ID = 0x5a3b6b22L,
+    CONSTRUCTOR_ID = 0x77cdc9f1,
+    SUBCLASS_OF_ID = 0x5a3b6b22,
 
     to_dict = function() {
       list('_' = 'InputPrivacyValueAllowPremium')
@@ -20459,8 +20459,8 @@ InputPrivacyValueAllowUsers <- R6::R6Class(
   "InputPrivacyValueAllowUsers",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x131cc67fL,
-    SUBCLASS_OF_ID = 0x5a3b6b22L,
+    CONSTRUCTOR_ID = 0x131cc67f,
+    SUBCLASS_OF_ID = 0x5a3b6b22,
 
     initialize = function(users) {
       self$users <- users
@@ -20488,8 +20488,8 @@ InputPrivacyValueDisallowAll <- R6::R6Class(
   "InputPrivacyValueDisallowAll",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xd66b66c9L,
-    SUBCLASS_OF_ID = 0x5a3b6b22L,
+    CONSTRUCTOR_ID = 0xd66b66c9,
+    SUBCLASS_OF_ID = 0x5a3b6b22,
 
     to_dict = function() {
       list('_' = 'InputPrivacyValueDisallowAll')
@@ -20511,8 +20511,8 @@ InputPrivacyValueDisallowBots <- R6::R6Class(
   "InputPrivacyValueDisallowBots",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc4e57915L,
-    SUBCLASS_OF_ID = 0x5a3b6b22L,
+    CONSTRUCTOR_ID = 0xc4e57915,
+    SUBCLASS_OF_ID = 0x5a3b6b22,
 
     to_dict = function() {
       list('_' = 'InputPrivacyValueDisallowBots')
@@ -20534,8 +20534,8 @@ InputPrivacyValueDisallowChatParticipants <- R6::R6Class(
   "InputPrivacyValueDisallowChatParticipants",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe94f0f86L,
-    SUBCLASS_OF_ID = 0x5a3b6b22L,
+    CONSTRUCTOR_ID = 0xe94f0f86,
+    SUBCLASS_OF_ID = 0x5a3b6b22,
 
     initialize = function(chats) {
       self$chats <- chats
@@ -20563,8 +20563,8 @@ InputPrivacyValueDisallowContacts <- R6::R6Class(
   "InputPrivacyValueDisallowContacts",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xba52007L,
-    SUBCLASS_OF_ID = 0x5a3b6b22L,
+    CONSTRUCTOR_ID = 0xba52007,
+    SUBCLASS_OF_ID = 0x5a3b6b22,
 
     to_dict = function() {
       list('_' = 'InputPrivacyValueDisallowContacts')
@@ -20586,8 +20586,8 @@ InputPrivacyValueDisallowUsers <- R6::R6Class(
   "InputPrivacyValueDisallowUsers",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x90110467L,
-    SUBCLASS_OF_ID = 0x5a3b6b22L,
+    CONSTRUCTOR_ID = 0x90110467,
+    SUBCLASS_OF_ID = 0x5a3b6b22,
 
     initialize = function(users) {
       self$users <- users
@@ -20615,8 +20615,8 @@ InputQuickReplyShortcut <- R6::R6Class(
   "InputQuickReplyShortcut",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x24596d41L,
-    SUBCLASS_OF_ID = 0xa5687c57L,
+    CONSTRUCTOR_ID = 0x24596d41,
+    SUBCLASS_OF_ID = 0xa5687c57,
 
     initialize = function(shortcut) {
       self$shortcut <- shortcut
@@ -20643,8 +20643,8 @@ InputQuickReplyShortcutId <- R6::R6Class(
   "InputQuickReplyShortcutId",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1190cf1L,
-    SUBCLASS_OF_ID = 0xa5687c57L,
+    CONSTRUCTOR_ID = 0x1190cf1,
+    SUBCLASS_OF_ID = 0xa5687c57,
 
     initialize = function(shortcut_id) {
       self$shortcut_id <- shortcut_id
@@ -20671,8 +20671,8 @@ InputReplyToMessage <- R6::R6Class(
   "InputReplyToMessage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x869fbe10L,
-    SUBCLASS_OF_ID = 0x8c71131dL,
+    CONSTRUCTOR_ID = 0x869fbe10,
+    SUBCLASS_OF_ID = 0x8c71131d,
 
     initialize = function(reply_to_msg_id, top_msg_id = NULL, reply_topeer_id = NULL, quote_text = NULL, quote_entities = NULL, quote_offset = NULL, monoforumpeer_id = NULL, todo_item_id = NULL) {
       self$reply_to_msg_id <- reply_to_msg_id
@@ -20732,8 +20732,8 @@ InputReplyToMonoForum <- R6::R6Class(
   "InputReplyToMonoForum",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x69d66c45L,
-    SUBCLASS_OF_ID = 0x8c71131dL,
+    CONSTRUCTOR_ID = 0x69d66c45,
+    SUBCLASS_OF_ID = 0x8c71131d,
 
     initialize = function(monoforumpeer_id) {
       self$monoforumpeer_id <- monoforumpeer_id
@@ -20761,8 +20761,8 @@ InputReplyToStory <- R6::R6Class(
   "InputReplyToStory",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x5881323aL,
-    SUBCLASS_OF_ID = 0x8c71131dL,
+    CONSTRUCTOR_ID = 0x5881323a,
+    SUBCLASS_OF_ID = 0x8c71131d,
     initialize = function(peer, story_id) {
       self$peer <- peer
       self$story_id <- story_id
@@ -20787,8 +20787,8 @@ InputReportReasonChildAbuse <- R6::R6Class(
   "InputReportReasonChildAbuse",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xadf44ee3L,
-    SUBCLASS_OF_ID = 0x8401bd27L,
+    CONSTRUCTOR_ID = 0xadf44ee3,
+    SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list('_' = 'InputReportReasonChildAbuse')
     },
@@ -20807,8 +20807,8 @@ InputReportReasonCopyright <- R6::R6Class(
   "InputReportReasonCopyright",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9b89f93aL,
-    SUBCLASS_OF_ID = 0x8401bd27L,
+    CONSTRUCTOR_ID = 0x9b89f93a,
+    SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list('_' = 'InputReportReasonCopyright')
     },
@@ -20827,8 +20827,8 @@ InputReportReasonFake <- R6::R6Class(
   "InputReportReasonFake",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf5ddd6e7L,
-    SUBCLASS_OF_ID = 0x8401bd27L,
+    CONSTRUCTOR_ID = 0xf5ddd6e7,
+    SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list('_' = 'InputReportReasonFake')
     },
@@ -20847,8 +20847,8 @@ InputReportReasonGeoIrrelevant <- R6::R6Class(
   "InputReportReasonGeoIrrelevant",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xdbd4feedL,
-    SUBCLASS_OF_ID = 0x8401bd27L,
+    CONSTRUCTOR_ID = 0xdbd4feed,
+    SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list('_' = 'InputReportReasonGeoIrrelevant')
     },
@@ -20867,8 +20867,8 @@ InputReportReasonIllegalDrugs <- R6::R6Class(
   "InputReportReasonIllegalDrugs",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa8eb2beL,
-    SUBCLASS_OF_ID = 0x8401bd27L,
+    CONSTRUCTOR_ID = 0xa8eb2be,
+    SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list('_' = 'InputReportReasonIllegalDrugs')
     },
@@ -20887,8 +20887,8 @@ InputReportReasonOther <- R6::R6Class(
   "InputReportReasonOther",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc1e4a2b1L,
-    SUBCLASS_OF_ID = 0x8401bd27L,
+    CONSTRUCTOR_ID = 0xc1e4a2b1,
+    SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list('_' = 'InputReportReasonOther')
     },
@@ -20907,8 +20907,8 @@ InputReportReasonPersonalDetails <- R6::R6Class(
   "InputReportReasonPersonalDetails",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9ec7863dL,
-    SUBCLASS_OF_ID = 0x8401bd27L,
+    CONSTRUCTOR_ID = 0x9ec7863d,
+    SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list('_' = 'InputReportReasonPersonalDetails')
     },
@@ -20927,8 +20927,8 @@ InputReportReasonPornography <- R6::R6Class(
   "InputReportReasonPornography",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2e59d922L,
-    SUBCLASS_OF_ID = 0x8401bd27L,
+    CONSTRUCTOR_ID = 0x2e59d922,
+    SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list('_' = 'InputReportReasonPornography')
     },
@@ -20947,8 +20947,8 @@ InputReportReasonSpam <- R6::R6Class(
   "InputReportReasonSpam",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x58dbcab8L,
-    SUBCLASS_OF_ID = 0x8401bd27L,
+    CONSTRUCTOR_ID = 0x58dbcab8,
+    SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list('_' = 'InputReportReasonSpam')
     },
@@ -20967,8 +20967,8 @@ InputReportReasonViolence <- R6::R6Class(
   "InputReportReasonViolence",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1e22c78dL,
-    SUBCLASS_OF_ID = 0x8401bd27L,
+    CONSTRUCTOR_ID = 0x1e22c78d,
+    SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list('_' = 'InputReportReasonViolence')
     },
@@ -20987,8 +20987,8 @@ InputSavedStarGiftChat <- R6::R6Class(
   "InputSavedStarGiftChat",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf101aa7fL,
-    SUBCLASS_OF_ID = 0x8f7599aeL,
+    CONSTRUCTOR_ID = 0xf101aa7f,
+    SUBCLASS_OF_ID = 0x8f7599ae,
     initialize = function(peer, saved_id) {
       self$peer <- peer
       self$saved_id <- saved_id
@@ -21013,8 +21013,8 @@ InputSavedStarGiftSlug <- R6::R6Class(
   "InputSavedStarGiftSlug",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2085c238L,
-    SUBCLASS_OF_ID = 0x8f7599aeL,
+    CONSTRUCTOR_ID = 0x2085c238,
+    SUBCLASS_OF_ID = 0x8f7599ae,
     initialize = function(slug) {
       self$slug <- slug
     },
@@ -21037,8 +21037,8 @@ InputSavedStarGiftUser <- R6::R6Class(
   "InputSavedStarGiftUser",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x69279795L,
-    SUBCLASS_OF_ID = 0x8f7599aeL,
+    CONSTRUCTOR_ID = 0x69279795,
+    SUBCLASS_OF_ID = 0x8f7599ae,
     initialize = function(msg_id) {
       self$msg_id <- msg_id
     },
@@ -21061,8 +21061,8 @@ InputSecureFile <- R6::R6Class(
   "InputSecureFile",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x5367e5beL,
-    SUBCLASS_OF_ID = 0xdac8adfcL,
+    CONSTRUCTOR_ID = 0x5367e5be,
+    SUBCLASS_OF_ID = 0xdac8adfc,
     initialize = function(id, access_hash) {
       self$id <- id
       self$access_hash <- access_hash
@@ -21087,8 +21087,8 @@ InputSecureFileLocation <- R6::R6Class(
   "InputSecureFileLocation",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xcbc7ee28L,
-    SUBCLASS_OF_ID = 0x1523d462L,
+    CONSTRUCTOR_ID = 0xcbc7ee28,
+    SUBCLASS_OF_ID = 0x1523d462,
     initialize = function(id, access_hash) {
       self$id <- id
       self$access_hash <- access_hash
@@ -21113,8 +21113,8 @@ InputSecureFileUploaded <- R6::R6Class(
   "InputSecureFileUploaded",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x3334b0f0L,
-    SUBCLASS_OF_ID = 0xdac8adfcL,
+    CONSTRUCTOR_ID = 0x3334b0f0,
+    SUBCLASS_OF_ID = 0xdac8adfc,
     initialize = function(id, parts, md5_checksum, file_hash, secret) {
       self$id <- id
       self$parts <- parts
@@ -21145,8 +21145,8 @@ InputSecureValue <- R6::R6Class(
   "InputSecureValue",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xdb21d0a7L,
-    SUBCLASS_OF_ID = 0xb49da1fcL,
+    CONSTRUCTOR_ID = 0xdb21d0a7,
+    SUBCLASS_OF_ID = 0xb49da1fc,
     initialize = function(type, data = NULL, front_side = NULL, reverse_side = NULL, selfie = NULL, translation = NULL, files = NULL, plaindata = NULL) {
       self$type <- type
       self$data <- data
@@ -21185,8 +21185,8 @@ InputSingleMedia <- R6::R6Class(
   "InputSingleMedia",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1cc6e91fL,
-    SUBCLASS_OF_ID = 0x21ca8ed8L,
+    CONSTRUCTOR_ID = 0x1cc6e91f,
+    SUBCLASS_OF_ID = 0x21ca8ed8,
     initialize = function(media, message, random_id = NULL, entities = NULL) {
       self$media <- media
       self$message <- message
@@ -21217,8 +21217,8 @@ InputStarsTransaction <- R6::R6Class(
   "InputStarsTransaction",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x206ae6d1L,
-    SUBCLASS_OF_ID = 0x11e208eaL,
+    CONSTRUCTOR_ID = 0x206ae6d1,
+    SUBCLASS_OF_ID = 0x11e208ea,
     initialize = function(id, refund = NULL) {
       self$id <- id
       self$refund <- refund
@@ -21245,8 +21245,8 @@ InputStickerSetAnimatedEmoji <- R6::R6Class(
   "InputStickerSetAnimatedEmoji",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x28703c8L,
-    SUBCLASS_OF_ID = 0x3da389aaL,
+    CONSTRUCTOR_ID = 0x28703c8,
+    SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list('_' = 'InputStickerSetAnimatedEmoji')
     },
@@ -21265,8 +21265,8 @@ InputStickerSetAnimatedEmojiAnimations <- R6::R6Class(
   "InputStickerSetAnimatedEmojiAnimations",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xcde3739L,
-    SUBCLASS_OF_ID = 0x3da389aaL,
+    CONSTRUCTOR_ID = 0xcde3739,
+    SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list('_' = 'InputStickerSetAnimatedEmojiAnimations')
     },
@@ -21285,8 +21285,8 @@ InputStickerSetDice <- R6::R6Class(
   "InputStickerSetDice",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe67f520eL,
-    SUBCLASS_OF_ID = 0x3da389aaL,
+    CONSTRUCTOR_ID = 0xe67f520e,
+    SUBCLASS_OF_ID = 0x3da389aa,
     initialize = function(emoticon) {
       self$emoticon <- emoticon
     },
@@ -21309,8 +21309,8 @@ InputStickerSetEmojiChannelDefaultStatuses <- R6::R6Class(
   "InputStickerSetEmojiChannelDefaultStatuses",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x49748553L,
-    SUBCLASS_OF_ID = 0x3da389aaL,
+    CONSTRUCTOR_ID = 0x49748553,
+    SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list('_' = 'InputStickerSetEmojiChannelDefaultStatuses')
     },
@@ -21329,8 +21329,8 @@ InputStickerSetEmojiDefaultStatuses <- R6::R6Class(
   "InputStickerSetEmojiDefaultStatuses",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x29d0f5eeL,
-    SUBCLASS_OF_ID = 0x3da389aaL,
+    CONSTRUCTOR_ID = 0x29d0f5ee,
+    SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list('_' = 'InputStickerSetEmojiDefaultStatuses')
     },
@@ -21349,8 +21349,8 @@ InputStickerSetEmojiDefaultTopicIcons <- R6::R6Class(
   "InputStickerSetEmojiDefaultTopicIcons",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x44c1f8e9L,
-    SUBCLASS_OF_ID = 0x3da389aaL,
+    CONSTRUCTOR_ID = 0x44c1f8e9,
+    SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list('_' = 'InputStickerSetEmojiDefaultTopicIcons')
     },
@@ -21369,8 +21369,8 @@ InputStickerSetEmojiGenericAnimations <- R6::R6Class(
   "InputStickerSetEmojiGenericAnimations",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4c4d4ceL,
-    SUBCLASS_OF_ID = 0x3da389aaL,
+    CONSTRUCTOR_ID = 0x4c4d4ce,
+    SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list('_' = 'InputStickerSetEmojiGenericAnimations')
     },
@@ -21389,8 +21389,8 @@ InputStickerSetEmpty <- R6::R6Class(
   "InputStickerSetEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xffb62b95L,
-    SUBCLASS_OF_ID = 0x3da389aaL,
+    CONSTRUCTOR_ID = 0xffb62b95,
+    SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list('_' = 'InputStickerSetEmpty')
     },
@@ -21409,8 +21409,8 @@ InputStickerSetID <- R6::R6Class(
   "InputStickerSetID",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9de7a269L,
-    SUBCLASS_OF_ID = 0x3da389aaL,
+    CONSTRUCTOR_ID = 0x9de7a269,
+    SUBCLASS_OF_ID = 0x3da389aa,
     initialize = function(id, access_hash) {
       self$id <- id
       self$access_hash <- access_hash
@@ -21435,8 +21435,8 @@ InputStickerSetItem <- R6::R6Class(
   "InputStickerSetItem",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x32da9e9cL,
-    SUBCLASS_OF_ID = 0xae59f075L,
+    CONSTRUCTOR_ID = 0x32da9e9c,
+    SUBCLASS_OF_ID = 0xae59f075,
     initialize = function(document, emoji, mask_coords = NULL, keywords = NULL) {
       self$document <- document
       self$emoji <- emoji
@@ -21467,8 +21467,8 @@ InputStickerSetPremiumGifts <- R6::R6Class(
   "InputStickerSetPremiumGifts",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc88b3b02L,
-    SUBCLASS_OF_ID = 0x3da389aaL,
+    CONSTRUCTOR_ID = 0xc88b3b02,
+    SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list('_' = 'InputStickerSetPremiumGifts')
     },
@@ -21487,8 +21487,8 @@ InputStickerSetShortName <- R6::R6Class(
   "InputStickerSetShortName",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x861cc8a0L,
-    SUBCLASS_OF_ID = 0x3da389aaL,
+    CONSTRUCTOR_ID = 0x861cc8a0,
+    SUBCLASS_OF_ID = 0x3da389aa,
     initialize = function(short_name) {
       self$short_name <- short_name
     },
@@ -21511,8 +21511,8 @@ InputStickerSetThumb <- R6::R6Class(
   "InputStickerSetThumb",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9d84f3dbL,
-    SUBCLASS_OF_ID = 0x1523d462L,
+    CONSTRUCTOR_ID = 0x9d84f3db,
+    SUBCLASS_OF_ID = 0x1523d462,
     initialize = function(stickerset, thumb_version) {
       self$stickerset <- stickerset
       self$thumb_version <- thumb_version
@@ -21537,8 +21537,8 @@ InputStickerSetTonGifts <- R6::R6Class(
   "InputStickerSetTonGifts",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1cf671a0L,
-    SUBCLASS_OF_ID = 0x3da389aaL,
+    CONSTRUCTOR_ID = 0x1cf671a0,
+    SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list('_' = 'InputStickerSetTonGifts')
     },
@@ -21557,8 +21557,8 @@ InputStickeredMediaDocument <- R6::R6Class(
   "InputStickeredMediaDocument",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x438865bL,
-    SUBCLASS_OF_ID = 0x5146d99eL,
+    CONSTRUCTOR_ID = 0x438865b,
+    SUBCLASS_OF_ID = 0x5146d99e,
     initialize = function(id) {
       self$id <- id
     },
@@ -21581,8 +21581,8 @@ InputStickeredMediaPhoto <- R6::R6Class(
   "InputStickeredMediaPhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4a992157L,
-    SUBCLASS_OF_ID = 0x5146d99eL,
+    CONSTRUCTOR_ID = 0x4a992157,
+    SUBCLASS_OF_ID = 0x5146d99e,
     initialize = function(id) {
       self$id <- id
     },
@@ -21605,8 +21605,8 @@ InputStorePaymentAuthCode <- R6::R6Class(
   "InputStorePaymentAuthCode",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9bb2636dL,
-    SUBCLASS_OF_ID = 0xe7a4174dL,
+    CONSTRUCTOR_ID = 0x9bb2636d,
+    SUBCLASS_OF_ID = 0xe7a4174d,
     initialize = function(phone_number, phone_code_hash, currency, amount, restore = NULL) {
       self$phone_number <- phone_number
       self$phone_code_hash <- phone_code_hash
@@ -21640,8 +21640,8 @@ InputStorePaymentGiftPremium <- R6::R6Class(
   "InputStorePaymentGiftPremium",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x616f7fe8L,
-    SUBCLASS_OF_ID = 0xe7a4174dL,
+    CONSTRUCTOR_ID = 0x616f7fe8,
+    SUBCLASS_OF_ID = 0xe7a4174d,
     user_id = NULL,
     currency = NULL,
     amount = NULL,
@@ -21989,8 +21989,8 @@ InputStorePaymentGiftPremium <- R6::R6Class(
   "InputStorePaymentGiftPremium",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x616f7fe8L,
-    SUBCLASS_OF_ID = 0xe7a4174dL,
+    CONSTRUCTOR_ID = 0x616f7fe8,
+    SUBCLASS_OF_ID = 0xe7a4174d,
     initialize = function(user_id, currency, amount) {
       self$user_id <- user_id
       self$currency <- currency
@@ -22018,8 +22018,8 @@ InputTakeoutFileLocation <- R6::R6Class(
   "InputTakeoutFileLocation",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x29be5899L,
-    SUBCLASS_OF_ID = 0x1523d462L,
+    CONSTRUCTOR_ID = 0x29be5899,
+    SUBCLASS_OF_ID = 0x1523d462,
 
     to_dict = function() {
       list("_" = "InputTakeoutFileLocation")
@@ -22102,8 +22102,8 @@ InputThemeSlug <- R6::R6Class(
   "InputThemeSlug",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf5890df1L,
-    SUBCLASS_OF_ID = 0x7a100f0L,
+    CONSTRUCTOR_ID = 0xf5890df1,
+    SUBCLASS_OF_ID = 0x7a100f0,
     slug = NULL,
 
     initialize = function(slug) {
@@ -22131,8 +22131,8 @@ InputUser <- R6::R6Class(
   "InputUser",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf21158c6L,
-    SUBCLASS_OF_ID = 0xe669bf46L,
+    CONSTRUCTOR_ID = 0xf21158c6,
+    SUBCLASS_OF_ID = 0xe669bf46,
     user_id = NULL,
     access_hash = NULL,
 
@@ -22166,8 +22166,8 @@ InputUserEmpty <- R6::R6Class(
   "InputUserEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb98886cfL,
-    SUBCLASS_OF_ID = 0xe669bf46L,
+    CONSTRUCTOR_ID = 0xb98886cf,
+    SUBCLASS_OF_ID = 0xe669bf46,
 
     to_dict = function() {
       list("_" = "InputUserEmpty")
@@ -22189,8 +22189,8 @@ InputUserFromMessage <- R6::R6Class(
   "InputUserFromMessage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x1da448e2L,
-    SUBCLASS_OF_ID = 0xe669bf46L,
+    CONSTRUCTOR_ID = 0x1da448e2,
+    SUBCLASS_OF_ID = 0xe669bf46,
     peer = NULL,
     msg_id = NULL,
     user_id = NULL,
@@ -22234,8 +22234,8 @@ InputUserSelf <- R6::R6Class(
   "InputUserSelf",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf7c1b13fL,
-    SUBCLASS_OF_ID = 0xe669bf46L,
+    CONSTRUCTOR_ID = 0xf7c1b13f,
+    SUBCLASS_OF_ID = 0xe669bf46,
 
     to_dict = function() {
       list("_" = "InputUserSelf")
@@ -22455,8 +22455,8 @@ InputWebFileGeoPointLocation <- R6::R6Class(
   "InputWebFileGeoPointLocation",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9f2221c9L,
-    SUBCLASS_OF_ID = 0xf72ed8d9L,
+    CONSTRUCTOR_ID = 0x9f2221c9,
+    SUBCLASS_OF_ID = 0xf72ed8d9,
     geo_point = NULL,
     access_hash = NULL,
     w = NULL,
@@ -22515,8 +22515,8 @@ InputWebFileLocation <- R6::R6Class(
   "InputWebFileLocation",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc239d686L,
-    SUBCLASS_OF_ID = 0xf72ed8d9L,
+    CONSTRUCTOR_ID = 0xc239d686,
+    SUBCLASS_OF_ID = 0xf72ed8d9,
     url = NULL,
     access_hash = NULL,
 
@@ -22556,8 +22556,8 @@ Invoice <- R6::R6Class(
   "Invoice",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x49ee584L,
-    SUBCLASS_OF_ID = 0x5fd82ed8L,
+    CONSTRUCTOR_ID = 0x49ee584,
+    SUBCLASS_OF_ID = 0x5fd82ed8,
     currency = NULL,
     prices = NULL,
     test = NULL,
@@ -22667,8 +22667,8 @@ IpPort <- R6::R6Class(
   "IpPort",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xd433ad73L,
-    SUBCLASS_OF_ID = 0xa2a03726L,
+    CONSTRUCTOR_ID = 0xd433ad73,
+    SUBCLASS_OF_ID = 0xa2a03726,
     ipv4 = NULL,
     port = NULL,
 
@@ -22704,8 +22704,8 @@ IpPortSecret <- R6::R6Class(
   "IpPortSecret",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x37982646L,
-    SUBCLASS_OF_ID = 0xa2a03726L,
+    CONSTRUCTOR_ID = 0x37982646,
+    SUBCLASS_OF_ID = 0xa2a03726,
     ipv4 = NULL,
     port = NULL,
     secret = NULL,
@@ -22740,8 +22740,8 @@ JsonArray <- R6::R6Class(
   "JsonArray",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf7444763L,
-    SUBCLASS_OF_ID = 0xeb9987b3L,
+    CONSTRUCTOR_ID = 0xf7444763,
+    SUBCLASS_OF_ID = 0xeb9987b3,
     value = NULL,
     initialize = function(value) {
       self$value <- value
@@ -22776,8 +22776,8 @@ JsonBool <- R6::R6Class(
   "JsonBool",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc7345e6aL,
-    SUBCLASS_OF_ID = 0xeb9987b3L,
+    CONSTRUCTOR_ID = 0xc7345e6a,
+    SUBCLASS_OF_ID = 0xeb9987b3,
     value = NULL,
     initialize = function(value) {
       self$value <- value
@@ -22808,8 +22808,8 @@ JsonNull <- R6::R6Class(
   "JsonNull",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x3f6d7b68L,
-    SUBCLASS_OF_ID = 0xeb9987b3L,
+    CONSTRUCTOR_ID = 0x3f6d7b68,
+    SUBCLASS_OF_ID = 0xeb9987b3,
     to_dict = function() {
       list("_" = "JsonNull")
     },
@@ -22828,8 +22828,8 @@ JsonNumber <- R6::R6Class(
   "JsonNumber",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2be0dfa4L,
-    SUBCLASS_OF_ID = 0xeb9987b3L,
+    CONSTRUCTOR_ID = 0x2be0dfa4,
+    SUBCLASS_OF_ID = 0xeb9987b3,
     value = NULL,
     initialize = function(value) {
       self$value <- value
@@ -22860,8 +22860,8 @@ JsonObject <- R6::R6Class(
   "JsonObject",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x99c1d49dL,
-    SUBCLASS_OF_ID = 0xeb9987b3L,
+    CONSTRUCTOR_ID = 0x99c1d49d,
+    SUBCLASS_OF_ID = 0xeb9987b3,
     value = NULL,
     initialize = function(value) {
       self$value <- value
@@ -22900,8 +22900,8 @@ JsonObjectValue <- R6::R6Class(
   "JsonObjectValue",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc0de1bd9L,
-    SUBCLASS_OF_ID = 0x937fceb9L,
+    CONSTRUCTOR_ID = 0xc0de1bd9,
+    SUBCLASS_OF_ID = 0x937fceb9,
     key = NULL,
     value = NULL,
     initialize = function(key, value) {
@@ -22938,8 +22938,8 @@ JsonString <- R6::R6Class(
   "JsonString",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb71e767aL,
-    SUBCLASS_OF_ID = 0xeb9987b3L,
+    CONSTRUCTOR_ID = 0xb71e767a,
+    SUBCLASS_OF_ID = 0xeb9987b3,
     value = NULL,
     initialize = function(value) {
       self$value <- value
@@ -22966,8 +22966,8 @@ KeyboardButton <- R6::R6Class(
   "KeyboardButton",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa2fa4880L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xa2fa4880,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     initialize = function(text) {
       self$text <- text
@@ -22995,8 +22995,8 @@ KeyboardButtonBuy <- R6::R6Class(
   "KeyboardButtonBuy",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xafd93fbbL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xafd93fbb,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     initialize = function(text) {
       self$text <- text
@@ -23023,8 +23023,8 @@ KeyboardButtonCallback <- R6::R6Class(
   "KeyboardButtonCallback",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x35bbdb6bL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x35bbdb6b,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     data = NULL,
     requires_password = NULL,
@@ -23060,8 +23060,8 @@ KeyboardButtonCallback <- R6::R6Class(
 KeyboardButtonCopy <- R6::R6Class("KeyboardButtonCopy",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x75d2698eL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x75d2698e,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, copy_text) {
       self$text <- text
       self$copy_text <- copy_text
@@ -23086,8 +23086,8 @@ KeyboardButtonCopy <- R6::R6Class("KeyboardButtonCopy",
 KeyboardButtonGame <- R6::R6Class("KeyboardButtonGame",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x50f41ccfL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x50f41ccf,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text) {
       self$text <- text
     },
@@ -23110,8 +23110,8 @@ KeyboardButtonGame <- R6::R6Class("KeyboardButtonGame",
 KeyboardButtonRequestGeoLocation <- R6::R6Class("KeyboardButtonRequestGeoLocation",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xfc796b3fL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xfc796b3f,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text) {
       self$text <- text
     },
@@ -23134,8 +23134,8 @@ KeyboardButtonRequestGeoLocation <- R6::R6Class("KeyboardButtonRequestGeoLocatio
 KeyboardButtonRequestPeer <- R6::R6Class("KeyboardButtonRequestPeer",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x53d7bfd8L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x53d7bfd8,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, button_id, peer_type, max_quantity) {
       self$text <- text
       self$button_id <- button_id
@@ -23164,8 +23164,8 @@ KeyboardButtonRequestPeer <- R6::R6Class("KeyboardButtonRequestPeer",
 KeyboardButtonRequestPhone <- R6::R6Class("KeyboardButtonRequestPhone",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb16a6c29L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xb16a6c29,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text) {
       self$text <- text
     },
@@ -23188,8 +23188,8 @@ KeyboardButtonRequestPhone <- R6::R6Class("KeyboardButtonRequestPhone",
 KeyboardButtonRequestPoll <- R6::R6Class("KeyboardButtonRequestPoll",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbbc7515dL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xbbc7515d,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, quiz = NULL) {
       self$text <- text
       self$quiz <- quiz
@@ -23220,8 +23220,8 @@ KeyboardButtonRequestPoll <- R6::R6Class("KeyboardButtonRequestPoll",
 KeyboardButtonRow <- R6::R6Class("KeyboardButtonRow",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x77608b83L,
-    SUBCLASS_OF_ID = 0x847730aeL,
+    CONSTRUCTOR_ID = 0x77608b83,
+    SUBCLASS_OF_ID = 0x847730ae,
     initialize = function(buttons) {
       self$buttons <- buttons
     },
@@ -23249,8 +23249,8 @@ KeyboardButtonRow <- R6::R6Class("KeyboardButtonRow",
 KeyboardButtonSimpleWebView <- R6::R6Class("KeyboardButtonSimpleWebView",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa0c0505cL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xa0c0505c,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, url) {
       self$text <- text
       self$url <- url
@@ -23275,8 +23275,8 @@ KeyboardButtonSimpleWebView <- R6::R6Class("KeyboardButtonSimpleWebView",
 KeyboardButtonSwitchInline <- R6::R6Class("KeyboardButtonSwitchInline",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x93b9fbb5L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x93b9fbb5,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, query, samepeer = NULL, peer_types = NULL) {
       self$text <- text
       self$query <- query
@@ -23317,8 +23317,8 @@ KeyboardButtonSwitchInline <- R6::R6Class("KeyboardButtonSwitchInline",
 KeyboardButtonUrl <- R6::R6Class("KeyboardButtonUrl",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x258aff05L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x258aff05,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, url) {
       self$text <- text
       self$url <- url
@@ -23343,8 +23343,8 @@ KeyboardButtonUrl <- R6::R6Class("KeyboardButtonUrl",
 KeyboardButtonUrlAuth <- R6::R6Class("KeyboardButtonUrlAuth",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x10b78d29L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x10b78d29,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, url, button_id, fwd_text = NULL) {
       self$text <- text
       self$url <- url
@@ -23379,8 +23379,8 @@ KeyboardButtonUrlAuth <- R6::R6Class("KeyboardButtonUrlAuth",
 KeyboardButtonUserProfile <- R6::R6Class("KeyboardButtonUserProfile",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x308660c1L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x308660c1,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, user_id) {
       self$text <- text
       self$user_id <- user_id
@@ -23405,8 +23405,8 @@ KeyboardButtonUserProfile <- R6::R6Class("KeyboardButtonUserProfile",
 KeyboardButtonWebView <- R6::R6Class("KeyboardButtonWebView",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x13767230L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x13767230,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, url) {
       self$text <- text
       self$url <- url
@@ -23431,8 +23431,8 @@ KeyboardButtonWebView <- R6::R6Class("KeyboardButtonWebView",
 KeyboardButton <- R6::R6Class("KeyboardButton",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa2fa4880L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xa2fa4880,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text) {
       self$text <- text
     },
@@ -23455,8 +23455,8 @@ KeyboardButton <- R6::R6Class("KeyboardButton",
 KeyboardButtonBuy <- R6::R6Class("KeyboardButtonBuy",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xafd93fbbL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xafd93fbb,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text) {
       self$text <- text
     },
@@ -23479,8 +23479,8 @@ KeyboardButtonBuy <- R6::R6Class("KeyboardButtonBuy",
 KeyboardButtonCallback <- R6::R6Class("KeyboardButtonCallback",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x35bbdb6bL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x35bbdb6b,
+    SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, data, requires_password = NULL) {
       self$text <- text
       self$data <- data
@@ -23511,8 +23511,8 @@ KeyboardButtonCopy <- R6::R6Class(
   "KeyboardButtonCopy",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x75d2698eL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x75d2698e,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     copy_text = NULL,
     initialize = function(text, copy_text) {
@@ -23543,8 +23543,8 @@ KeyboardButtonGame <- R6::R6Class(
   "KeyboardButtonGame",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x50f41ccfL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x50f41ccf,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     initialize = function(text) {
       self$text <- text
@@ -23571,8 +23571,8 @@ KeyboardButtonRequestGeoLocation <- R6::R6Class(
   "KeyboardButtonRequestGeoLocation",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xfc796b3fL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xfc796b3f,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     initialize = function(text) {
       self$text <- text
@@ -23599,8 +23599,8 @@ KeyboardButtonRequestPeer <- R6::R6Class(
   "KeyboardButtonRequestPeer",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x53d7bfd8L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x53d7bfd8,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     button_id = NULL,
     peer_type = NULL,
@@ -23639,8 +23639,8 @@ KeyboardButtonRequestPhone <- R6::R6Class(
   "KeyboardButtonRequestPhone",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb16a6c29L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xb16a6c29,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     initialize = function(text) {
       self$text <- text
@@ -23667,8 +23667,8 @@ KeyboardButtonRequestPoll <- R6::R6Class(
   "KeyboardButtonRequestPoll",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbbc7515dL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xbbc7515d,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     quiz = NULL,
     initialize = function(text, quiz = NULL) {
@@ -23706,8 +23706,8 @@ KeyboardButtonRow <- R6::R6Class(
   "KeyboardButtonRow",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x77608b83L,
-    SUBCLASS_OF_ID = 0x847730aeL,
+    CONSTRUCTOR_ID = 0x77608b83,
+    SUBCLASS_OF_ID = 0x847730ae,
     buttons = NULL,
     initialize = function(buttons) {
       self$buttons <- buttons
@@ -23741,8 +23741,8 @@ KeyboardButtonSimpleWebView <- R6::R6Class(
   "KeyboardButtonSimpleWebView",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa0c0505cL,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0xa0c0505c,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     url = NULL,
     initialize = function(text, url) {
@@ -23773,8 +23773,8 @@ KeyboardButtonSwitchInline <- R6::R6Class(
   "KeyboardButtonSwitchInline",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x93b9fbb5L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x93b9fbb5,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     query = NULL,
     samepeer = NULL,
@@ -23823,8 +23823,8 @@ KeyboardButtonUrl <- R6::R6Class(
   "KeyboardButtonUrl",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x258aff05L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x258aff05,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     url = NULL,
     initialize = function(text, url) {
@@ -23855,8 +23855,8 @@ KeyboardButtonUrlAuth <- R6::R6Class(
   "KeyboardButtonUrlAuth",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x10b78d29L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x10b78d29,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     url = NULL,
     button_id = NULL,
@@ -23902,8 +23902,8 @@ KeyboardButtonUserProfile <- R6::R6Class(
   "KeyboardButtonUserProfile",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x308660c1L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x308660c1,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     user_id = NULL,
     initialize = function(text, user_id) {
@@ -23934,8 +23934,8 @@ KeyboardButtonWebView <- R6::R6Class(
   "KeyboardButtonWebView",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x13767230L,
-    SUBCLASS_OF_ID = 0xbad74a3L,
+    CONSTRUCTOR_ID = 0x13767230,
+    SUBCLASS_OF_ID = 0xbad74a3,
     text = NULL,
     url = NULL,
     initialize = function(text, url) {
@@ -23966,8 +23966,8 @@ LabeledPrice <- R6::R6Class(
   "LabeledPrice",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xcb296bf8L,
-    SUBCLASS_OF_ID = 0x1c84047aL,
+    CONSTRUCTOR_ID = 0xcb296bf8,
+    SUBCLASS_OF_ID = 0x1c84047a,
     label = NULL,
     amount = NULL,
     initialize = function(label, amount) {
@@ -23999,8 +23999,8 @@ LangPackDifference <- R6::R6Class(
   "LangPackDifference",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf385c1f6L,
-    SUBCLASS_OF_ID = 0x52662d55L,
+    CONSTRUCTOR_ID = 0xf385c1f6,
+    SUBCLASS_OF_ID = 0x52662d55,
     lang_code = NULL,
     from_version = NULL,
     version = NULL,
@@ -24029,8 +24029,8 @@ LangPackLanguage <- R6::R6Class(
   "LangPackLanguage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xeeca5ce3L,
-    SUBCLASS_OF_ID = 0xabac89b7L,
+    CONSTRUCTOR_ID = 0xeeca5ce3,
+    SUBCLASS_OF_ID = 0xabac89b7,
     name = NULL,
     native_name = NULL,
     lang_code = NULL,
@@ -24073,8 +24073,8 @@ LangPackString <- R6::R6Class(
   "LangPackString",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xcad181f6L,
-    SUBCLASS_OF_ID = 0xdc179ab9L,
+    CONSTRUCTOR_ID = 0xcad181f6,
+    SUBCLASS_OF_ID = 0xdc179ab9,
     key = NULL,
     value = NULL,
     initialize = function(key, value) {
@@ -24099,8 +24099,8 @@ LangPackStringDeleted <- R6::R6Class(
   "LangPackStringDeleted",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2979eeb2L,
-    SUBCLASS_OF_ID = 0xdc179ab9L,
+    CONSTRUCTOR_ID = 0x2979eeb2,
+    SUBCLASS_OF_ID = 0xdc179ab9,
     key = NULL,
     initialize = function(key) {
       self$key <- key
@@ -24123,8 +24123,8 @@ LangPackStringPluralized <- R6::R6Class(
   "LangPackStringPluralized",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x6c47ac9fL,
-    SUBCLASS_OF_ID = 0xdc179ab9L,
+    CONSTRUCTOR_ID = 0x6c47ac9f,
+    SUBCLASS_OF_ID = 0xdc179ab9,
     key = NULL,
     other_value = NULL,
     zero_value = NULL,
@@ -24159,8 +24159,8 @@ MaskCoords <- R6::R6Class(
   "MaskCoords",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xaed6dbb2L,
-    SUBCLASS_OF_ID = 0x6bbb2fdL,
+    CONSTRUCTOR_ID = 0xaed6dbb2,
+    SUBCLASS_OF_ID = 0x6bbb2fd,
     n = NULL,
     x = NULL,
     y = NULL,
@@ -24189,8 +24189,8 @@ MediaAreaChannelPost <- R6::R6Class(
   "MediaAreaChannelPost",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x770416afL,
-    SUBCLASS_OF_ID = 0xf36d7bf2L,
+    CONSTRUCTOR_ID = 0x770416af,
+    SUBCLASS_OF_ID = 0xf36d7bf2,
     coordinates = NULL,
     channel_id = NULL,
     msg_id = NULL,
@@ -24217,8 +24217,8 @@ MediaAreaCoordinates <- R6::R6Class(
   "MediaAreaCoordinates",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xcfc9e002L,
-    SUBCLASS_OF_ID = 0x1d448c39L,
+    CONSTRUCTOR_ID = 0xcfc9e002,
+    SUBCLASS_OF_ID = 0x1d448c39,
     x = NULL,
     y = NULL,
     w = NULL,
@@ -24251,8 +24251,8 @@ MediaAreaCoordinates <- R6::R6Class(
 MediaAreaGeoPoint <- R6::R6Class("MediaAreaGeoPoint",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xcad5452dL,
-    SUBCLASS_OF_ID = 0xf36d7bf2L,
+    CONSTRUCTOR_ID = 0xcad5452d,
+    SUBCLASS_OF_ID = 0xf36d7bf2,
     coordinates = NULL,
     geo = NULL,
     address = NULL,
@@ -24289,8 +24289,8 @@ MediaAreaGeoPoint <- R6::R6Class("MediaAreaGeoPoint",
 MediaAreaStarGift <- R6::R6Class("MediaAreaStarGift",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x77879f6dL, # placeholder; original had bytes, no explicit hex in R snippet
-    SUBCLASS_OF_ID = 0xf36d7bf2L,
+    CONSTRUCTOR_ID = 0x77879f6d, # placeholder; original had bytes, no explicit hex in R snippet
+    SUBCLASS_OF_ID = 0xf36d7bf2,
     coordinates = NULL,
     slug = NULL,
     initialize = function(coordinates, slug) {
@@ -24321,8 +24321,8 @@ MediaAreaStarGift <- R6::R6Class("MediaAreaStarGift",
 MediaAreaSuggestedReaction <- R6::R6Class("MediaAreaSuggestedReaction",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x14455871L,
-    SUBCLASS_OF_ID = 0xf36d7bf2L,
+    CONSTRUCTOR_ID = 0x14455871,
+    SUBCLASS_OF_ID = 0xf36d7bf2,
     coordinates = NULL,
     reaction = NULL,
     dark = NULL,
@@ -24362,8 +24362,8 @@ MediaAreaSuggestedReaction <- R6::R6Class("MediaAreaSuggestedReaction",
 MediaAreaUrl <- R6::R6Class("MediaAreaUrl",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x37381085L,
-    SUBCLASS_OF_ID = 0xf36d7bf2L,
+    CONSTRUCTOR_ID = 0x37381085,
+    SUBCLASS_OF_ID = 0xf36d7bf2,
     coordinates = NULL,
     url = NULL,
     initialize = function(coordinates, url) {
@@ -24394,8 +24394,8 @@ MediaAreaUrl <- R6::R6Class("MediaAreaUrl",
 MediaAreaVenue <- R6::R6Class("MediaAreaVenue",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbe82db9cL,
-    SUBCLASS_OF_ID = 0xf36d7bf2L,
+    CONSTRUCTOR_ID = 0xbe82db9c,
+    SUBCLASS_OF_ID = 0xf36d7bf2,
     coordinates = NULL,
     geo = NULL,
     title = NULL,
@@ -24449,8 +24449,8 @@ MediaAreaVenue <- R6::R6Class("MediaAreaVenue",
 MediaAreaWeather <- R6::R6Class("MediaAreaWeather",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x49a6549cL,
-    SUBCLASS_OF_ID = 0xf36d7bf2L,
+    CONSTRUCTOR_ID = 0x49a6549c,
+    SUBCLASS_OF_ID = 0xf36d7bf2,
     coordinates = NULL,
     emoji = NULL,
     temperature_c = NULL,
@@ -24713,8 +24713,8 @@ MessageActionBoostApply <- R6::R6Class(
   "MessageActionBoostApply",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xcc02aa6dL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xcc02aa6d,
+    SUBCLASS_OF_ID = 0x8680d126,
     boosts = NULL,
 
     initialize = function(boosts) {
@@ -24742,8 +24742,8 @@ MessageActionBotAllowed <- R6::R6Class(
   "MessageActionBotAllowed",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc516d679L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xc516d679,
+    SUBCLASS_OF_ID = 0x8680d126,
     attach_menu = NULL,
     from_request = NULL,
     domain = NULL,
@@ -24790,8 +24790,8 @@ MessageActionChannelCreate <- R6::R6Class(
   "MessageActionChannelCreate",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x95d2ac92L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x95d2ac92,
+    SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
 
     initialize = function(title) {
@@ -24822,8 +24822,8 @@ MessageActionChannelMigrateFrom <- R6::R6Class(
   "MessageActionChannelMigrateFrom",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xea3948e9L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xea3948e9,
+    SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
     chat_id = NULL,
 
@@ -24858,8 +24858,8 @@ MessageActionChatAddUser <- R6::R6Class(
   "MessageActionChatAddUser",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x15cefd00L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x15cefd00,
+    SUBCLASS_OF_ID = 0x8680d126,
     users = NULL,
 
     initialize = function(users) {
@@ -24896,8 +24896,8 @@ MessageActionChatCreate <- R6::R6Class(
   "MessageActionChatCreate",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbd47cbadL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xbd47cbad,
+    SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
     users = NULL,
 
@@ -24942,8 +24942,8 @@ MessageActionChatDeletePhoto <- R6::R6Class(
   "MessageActionChatDeletePhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x95e3fbefL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x95e3fbef,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     to_dict = function() {
       list(`_` = "MessageActionChatDeletePhoto")
@@ -24966,8 +24966,8 @@ MessageActionChatDeleteUser <- R6::R6Class(
   "MessageActionChatDeleteUser",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa43f30ccL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xa43f30cc,
+    SUBCLASS_OF_ID = 0x8680d126,
     user_id = NULL,
 
     initialize = function(user_id) {
@@ -25001,8 +25001,8 @@ MessageActionChatEditPhoto <- R6::R6Class(
   "MessageActionChatEditPhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x7fcb13a8L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x7fcb13a8,
+    SUBCLASS_OF_ID = 0x8680d126,
     photo = NULL,
 
     initialize = function(photo) {
@@ -25036,8 +25036,8 @@ MessageActionChatEditTitle <- R6::R6Class(
   "MessageActionChatEditTitle",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb5a1ce5aL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xb5a1ce5a,
+    SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
 
     initialize = function(title) {
@@ -25072,8 +25072,8 @@ MessageActionChatJoinedByLink <- R6::R6Class(
   "MessageActionChatJoinedByLink",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x31224c3L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x31224c3,
+    SUBCLASS_OF_ID = 0x8680d126,
     inviter_id = NULL,
 
     initialize = function(inviter_id) {
@@ -25107,8 +25107,8 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   "MessageActionChatJoinedByRequest",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xebbca3cbL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xebbca3cb,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     to_dict = function() {
       list(`_` = "MessageActionChatJoinedByRequest")
@@ -25130,8 +25130,8 @@ MessageActionChatMigrateTo <- R6::R6Class(
   "MessageActionChatMigrateTo",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe1037f92L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xe1037f92,
+    SUBCLASS_OF_ID = 0x8680d126,
     channel_id = NULL,
 
     initialize = function(channel_id) {
@@ -25165,8 +25165,8 @@ MessageActionChatMigrateTo <- R6::R6Class(
 MessageActionConferenceCall <- R6::R6Class("MessageActionConferenceCall",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2ffe2f7aL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x2ffe2f7a,
+    SUBCLASS_OF_ID = 0x8680d126,
     call_id = NULL,
     missed = NULL,
     active = NULL,
@@ -25220,8 +25220,8 @@ MessageActionConferenceCall <- R6::R6Class("MessageActionConferenceCall",
 MessageActionContactSignUp <- R6::R6Class("MessageActionContactSignUp",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf3f25f76L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xf3f25f76,
+    SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list(`_` = "MessageActionContactSignUp"),
     bytes = function() raw(0)
@@ -25235,8 +25235,8 @@ MessageActionContactSignUp <- R6::R6Class("MessageActionContactSignUp",
 MessageActionCustomAction <- R6::R6Class("MessageActionCustomAction",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xfae69f56L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xfae69f56,
+    SUBCLASS_OF_ID = 0x8680d126,
     message = NULL,
     initialize = function(message) { self$message <- message },
     to_dict = function() list(`_` = "MessageActionCustomAction", message = self$message),
@@ -25254,8 +25254,8 @@ MessageActionCustomAction <- R6::R6Class("MessageActionCustomAction",
 MessageActionEmpty <- R6::R6Class("MessageActionEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb6aef7b0L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xb6aef7b0,
+    SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list(`_` = "MessageActionEmpty"),
     bytes = function() raw(0)
@@ -25269,8 +25269,8 @@ MessageActionEmpty <- R6::R6Class("MessageActionEmpty",
 MessageActionChatEditTitle <- R6::R6Class("MessageActionChatEditTitle",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb5a1ce5aL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xb5a1ce5a,
+    SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
     initialize = function(title) { self$title <- title },
     to_dict = function() list(`_` = "MessageActionChatEditTitle", title = self$title),
@@ -25285,8 +25285,8 @@ MessageActionChatEditTitle <- R6::R6Class("MessageActionChatEditTitle",
 MessageActionChatEditPhoto <- R6::R6Class("MessageActionChatEditPhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x7fcb13a8L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x7fcb13a8,
+    SUBCLASS_OF_ID = 0x8680d126,
     photo = NULL,
     initialize = function(photo) { self$photo <- photo },
     to_dict = function() list(`_` = "MessageActionChatEditPhoto", photo = if (inherits(self$photo, "TLObject")) self$photo$to_dict() else self$photo),
@@ -25301,8 +25301,8 @@ MessageActionChatEditPhoto <- R6::R6Class("MessageActionChatEditPhoto",
 MessageActionChatCreate <- R6::R6Class("MessageActionChatCreate",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbd47cbadL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xbd47cbad,
+    SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
     users = NULL,
     initialize = function(title, users) { self$title <- title; self$users <- users },
@@ -25324,8 +25324,8 @@ MessageActionChatCreate <- R6::R6Class("MessageActionChatCreate",
 MessageActionChatAddUser <- R6::R6Class("MessageActionChatAddUser",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x15cefd00L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x15cefd00,
+    SUBCLASS_OF_ID = 0x8680d126,
     users = NULL,
     initialize = function(users) { self$users <- users },
     to_dict = function() list(`_` = "MessageActionChatAddUser", users = if (is.null(self$users)) NULL else self$users),
@@ -25345,8 +25345,8 @@ MessageActionChatAddUser <- R6::R6Class("MessageActionChatAddUser",
 MessageActionChatDeleteUser <- R6::R6Class("MessageActionChatDeleteUser",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa43f30ccL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xa43f30cc,
+    SUBCLASS_OF_ID = 0x8680d126,
     user_id = NULL,
     initialize = function(user_id) { self$user_id <- user_id },
     to_dict = function() list(`_` = "MessageActionChatDeleteUser", user_id = self$user_id),
@@ -25361,8 +25361,8 @@ MessageActionChatDeleteUser <- R6::R6Class("MessageActionChatDeleteUser",
 MessageActionChatJoinedByLink <- R6::R6Class("MessageActionChatJoinedByLink",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x31224c3L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x31224c3,
+    SUBCLASS_OF_ID = 0x8680d126,
     inviter_id = NULL,
     initialize = function(inviter_id) { self$inviter_id <- inviter_id },
     to_dict = function() list(`_` = "MessageActionChatJoinedByLink", inviter_id = self$inviter_id),
@@ -25377,8 +25377,8 @@ MessageActionChatJoinedByLink <- R6::R6Class("MessageActionChatJoinedByLink",
 MessageActionChatJoinedByRequest <- R6::R6Class("MessageActionChatJoinedByRequest",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xebbca3cbL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xebbca3cb,
+    SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list(`_` = "MessageActionChatJoinedByRequest"),
     bytes = function() raw(0)
@@ -25392,8 +25392,8 @@ MessageActionChatJoinedByRequest <- R6::R6Class("MessageActionChatJoinedByReques
 MessageActionChatMigrateTo <- R6::R6Class("MessageActionChatMigrateTo",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe1037f92L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xe1037f92,
+    SUBCLASS_OF_ID = 0x8680d126,
     channel_id = NULL,
     initialize = function(channel_id) { self$channel_id <- channel_id },
     to_dict = function() list(`_` = "MessageActionChatMigrateTo", channel_id = self$channel_id),
@@ -25408,8 +25408,8 @@ MessageActionChatMigrateTo <- R6::R6Class("MessageActionChatMigrateTo",
 MessageActionChannelCreate <- R6::R6Class("MessageActionChannelCreate",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x95d2ac92L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x95d2ac92,
+    SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
     initialize = function(title) { self$title <- title },
     to_dict = function() list(`_` = "MessageActionChannelCreate", title = self$title),
@@ -25424,8 +25424,8 @@ MessageActionChannelCreate <- R6::R6Class("MessageActionChannelCreate",
 MessageActionChannelMigrateFrom <- R6::R6Class("MessageActionChannelMigrateFrom",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xea3948e9L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xea3948e9,
+    SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
     chat_id = NULL,
     initialize = function(title, chat_id) { self$title <- title; self$chat_id <- chat_id },
@@ -25441,8 +25441,8 @@ MessageActionChannelMigrateFrom <- R6::R6Class("MessageActionChannelMigrateFrom"
 MessageActionChatDeletePhoto <- R6::R6Class("MessageActionChatDeletePhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x95e3fbefL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x95e3fbef,
+    SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list(`_` = "MessageActionChatDeletePhoto"),
     bytes = function() raw(0)
@@ -25456,8 +25456,8 @@ MessageActionChatDeletePhoto <- R6::R6Class("MessageActionChatDeletePhoto",
 MessageActionGameScore <- R6::R6Class("MessageActionGameScore",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x92a72876L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x92a72876,
+    SUBCLASS_OF_ID = 0x8680d126,
     game_id = NULL,
     score = NULL,
     initialize = function(game_id, score) { self$game_id <- game_id; self$score <- score },
@@ -25473,8 +25473,8 @@ MessageActionGameScore <- R6::R6Class("MessageActionGameScore",
 MessageActionGeoProximityReached <- R6::R6Class("MessageActionGeoProximityReached",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x98e0d697L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x98e0d697,
+    SUBCLASS_OF_ID = 0x8680d126,
     from_id = NULL,
     to_id = NULL,
     distance = NULL,
@@ -25507,8 +25507,8 @@ MessageActionConferenceCall <- R6::R6Class(
   "MessageActionConferenceCall",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2ffe2f7aL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x2ffe2f7a,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     call_id = NULL,
     missed = NULL,
@@ -25568,8 +25568,8 @@ MessageActionContactSignUp <- R6::R6Class(
   "MessageActionContactSignUp",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf3f25f76L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xf3f25f76,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     initialize = function() {},
 
@@ -25591,8 +25591,8 @@ MessageActionCustomAction <- R6::R6Class(
   "MessageActionCustomAction",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xfae69f56L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xfae69f56,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     message = NULL,
 
@@ -25619,8 +25619,8 @@ MessageActionEmpty <- R6::R6Class(
   "MessageActionEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb6aef7b0L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xb6aef7b0,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     initialize = function() {},
 
@@ -25642,8 +25642,8 @@ MessageActionGameScore <- R6::R6Class(
   "MessageActionGameScore",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x92a72876L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x92a72876,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     game_id = NULL,
     score = NULL,
@@ -25675,8 +25675,8 @@ MessageActionGeoProximityReached <- R6::R6Class(
   "MessageActionGeoProximityReached",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x98e0d697L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x98e0d697,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     from_id = NULL,
     to_id = NULL,
@@ -25714,8 +25714,8 @@ MessageActionChatEditTitle <- R6::R6Class(
   "MessageActionChatEditTitle",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb5a1ce5aL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xb5a1ce5a,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     title = NULL,
 
@@ -25742,8 +25742,8 @@ MessageActionChatJoinedByLink <- R6::R6Class(
   "MessageActionChatJoinedByLink",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x031224c3L, # keep consistent with encoding above
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x031224c3, # keep consistent with encoding above
+    SUBCLASS_OF_ID = 0x8680d126,
 
     inviter_id = NULL,
 
@@ -25770,8 +25770,8 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   "MessageActionChatJoinedByRequest",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xebbca3cbL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xebbca3cb,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     initialize = function() {},
 
@@ -25794,8 +25794,8 @@ MessageActionChatMigrateTo <- R6::R6Class(
   "MessageActionChatMigrateTo",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe1037f92L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xe1037f92,
+    SUBCLASS_OF_ID = 0x8680d126,
     channel_id = NULL,
 
     initialize = function(channel_id) {
@@ -25828,8 +25828,8 @@ MessageActionConferenceCall <- R6::R6Class(
   "MessageActionConferenceCall",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2ffe2f7aL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x2ffe2f7a,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     call_id = NULL,
     missed = NULL,
@@ -25893,8 +25893,8 @@ MessageActionContactSignUp <- R6::R6Class(
   "MessageActionContactSignUp",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf3f25f76L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xf3f25f76,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     initialize = function() {},
 
@@ -25918,8 +25918,8 @@ MessageActionCustomAction <- R6::R6Class(
   "MessageActionCustomAction",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xfae69f56L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xfae69f56,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     message = NULL,
 
@@ -25947,8 +25947,8 @@ MessageActionEmpty <- R6::R6Class(
   "MessageActionEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb6aef7b0L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xb6aef7b0,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     initialize = function() {},
 
@@ -25971,8 +25971,8 @@ MessageActionGameScore <- R6::R6Class(
   "MessageActionGameScore",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x92a72876L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x92a72876,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     game_id = NULL,
     score = NULL,
@@ -26003,8 +26003,8 @@ MessageActionGeoProximityReached <- R6::R6Class(
   "MessageActionGeoProximityReached",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x98e0d697L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x98e0d697,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     from_id = NULL,
     to_id = NULL,
@@ -26045,8 +26045,8 @@ MessageActionChatEditTitle <- R6::R6Class(
   "MessageActionChatEditTitle",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb5a1ce5aL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xb5a1ce5a,
+    SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
 
     initialize = function(title) { self$title <- title },
@@ -26070,8 +26070,8 @@ MessageActionChatJoinedByLink <- R6::R6Class(
   "MessageActionChatJoinedByLink",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x031224c3L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x031224c3,
+    SUBCLASS_OF_ID = 0x8680d126,
     inviter_id = NULL,
 
     initialize = function(inviter_id) { self$inviter_id <- inviter_id },
@@ -26091,8 +26091,8 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   "MessageActionChatJoinedByRequest",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xebbca3cbL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xebbca3cb,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     initialize = function() {},
 
@@ -26111,8 +26111,8 @@ MessageActionChatMigrateTo <- R6::R6Class(
   "MessageActionChatMigrateTo",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xe1037f92L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xe1037f92,
+    SUBCLASS_OF_ID = 0x8680d126,
     channel_id = NULL,
 
     initialize = function(channel_id) { self$channel_id <- channel_id },
@@ -26132,8 +26132,8 @@ MessageActionConferenceCall <- R6::R6Class(
   "MessageActionConferenceCall",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2ffe2f7aL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x2ffe2f7a,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     call_id = NULL,
     missed = NULL,
@@ -26195,8 +26195,8 @@ MessageActionContactSignUp <- R6::R6Class(
   "MessageActionContactSignUp",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf3f25f76L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xf3f25f76,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     initialize = function() {},
 
@@ -26215,8 +26215,8 @@ MessageActionCustomAction <- R6::R6Class(
   "MessageActionCustomAction",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xfae69f56L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xfae69f56,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     message = NULL,
 
@@ -26240,8 +26240,8 @@ MessageActionEmpty <- R6::R6Class(
   "MessageActionEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb6aef7b0L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xb6aef7b0,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     initialize = function() {},
 
@@ -26260,8 +26260,8 @@ MessageActionGameScore <- R6::R6Class(
   "MessageActionGameScore",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x92a72876L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x92a72876,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     game_id = NULL,
     score = NULL,
@@ -26283,8 +26283,8 @@ MessageActionGeoProximityReached <- R6::R6Class(
   "MessageActionGeoProximityReached",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x98e0d697L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x98e0d697,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     from_id = NULL,
     to_id = NULL,
@@ -26312,8 +26312,8 @@ MessageActionGiftCode <- R6::R6Class(
   "MessageActionGiftCode",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x56d03994L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x56d03994,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     months = NULL,
     slug = NULL,
@@ -26384,8 +26384,8 @@ MessageActionGiftPremium <- R6::R6Class(
   "MessageActionGiftPremium",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x6c6274faL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x6c6274fa,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     currency = NULL,
     amount = NULL,
@@ -26432,8 +26432,8 @@ MessageActionGiftStars <- R6::R6Class(
   "MessageActionGiftStars",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x45d5b021L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x45d5b021,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     currency = NULL,
     amount = NULL,
@@ -26480,8 +26480,8 @@ MessageActionGiftTon <- R6::R6Class(
   "MessageActionGiftTon",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa8a3c699L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xa8a3c699,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     currency = NULL,
     amount = NULL,
@@ -26525,8 +26525,8 @@ MessageActionGiveawayLaunch <- R6::R6Class(
   "MessageActionGiveawayLaunch",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa80f51e4L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xa80f51e4,
+    SUBCLASS_OF_ID = 0x8680d126,
     stars = NULL,
 
     initialize = function(stars = NULL) { self$stars <- stars },
@@ -26550,8 +26550,8 @@ MessageActionGiveawayResults <- R6::R6Class(
   "MessageActionGiveawayResults",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x87e2f155L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x87e2f155,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     winners_count = NULL,
     unclaimed_count = NULL,
@@ -26584,8 +26584,8 @@ MessageActionGroupCall <- R6::R6Class(
   "MessageActionGroupCall",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x7a0d7f42L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x7a0d7f42,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     call = NULL,
     duration = NULL,
@@ -26612,8 +26612,8 @@ MessageActionGroupCallScheduled <- R6::R6Class(
   "MessageActionGroupCallScheduled",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb3a07661L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xb3a07661,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     call = NULL,
     schedule_date = NULL,
@@ -26635,8 +26635,8 @@ MessageActionHistoryClear <- R6::R6Class(
   "MessageActionHistoryClear",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9fbab604L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x9fbab604,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     initialize = function() {},
 
@@ -26655,8 +26655,8 @@ MessageActionInviteToGroupCall <- R6::R6Class(
   "MessageActionInviteToGroupCall",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x502f92f7L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x502f92f7,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     call = NULL,
     users = NULL,
@@ -26689,8 +26689,8 @@ MessageActionPaidMessagesPrice <- R6::R6Class(
   "MessageActionPaidMessagesPrice",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x84b88578L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x84b88578,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     stars = NULL,
     broadcast_messages_allowed = NULL,
@@ -26717,8 +26717,8 @@ MessageActionPaidMessagesRefunded <- R6::R6Class(
   "MessageActionPaidMessagesRefunded",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xac1f1fcdL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xac1f1fcd,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     count = NULL,
     stars = NULL,
@@ -26740,8 +26740,8 @@ MessageActionPaymentRefunded <- R6::R6Class(
   "MessageActionPaymentRefunded",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x41b3e202L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x41b3e202,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     peer = NULL,
     currency = NULL,
@@ -26787,8 +26787,8 @@ MessageActionPaymentSent <- R6::R6Class(
   "MessageActionPaymentSent",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc624b16eL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xc624b16e,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     currency = NULL,
     total_amount = NULL,
@@ -26838,8 +26838,8 @@ MessageActionPaymentSentMe <- R6::R6Class(
   "MessageActionPaymentSentMe",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xffa00cccL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xffa00ccc,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     currency = NULL,
     total_amount = NULL,
@@ -26897,8 +26897,8 @@ MessageActionPhoneCall <- R6::R6Class(
   "MessageActionPhoneCall",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x80e11a7fL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x80e11a7f,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     call_id = NULL,
     video = NULL,
@@ -26940,8 +26940,8 @@ MessageActionPinMessage <- R6::R6Class(
   "MessageActionPinMessage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x94bd38edL,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x94bd38ed,
+    SUBCLASS_OF_ID = 0x8680d126,
 
     initialize = function() {},
 
@@ -27460,8 +27460,8 @@ MessageActionTodoAppendTasks <- R6::R6Class(
   "MessageActionTodoAppendTasks",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc7edbc83L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xc7edbc83,
+    SUBCLASS_OF_ID = 0x8680d126,
     list = NULL,
     initialize = function(list) { self$list <- list },
     to_dict = function() {
@@ -27480,8 +27480,8 @@ MessageActionTodoCompletions <- R6::R6Class(
   "MessageActionTodoCompletions",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xcc7c5c89L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xcc7c5c89,
+    SUBCLASS_OF_ID = 0x8680d126,
     completed = NULL,
     incompleted = NULL,
     initialize = function(completed, incompleted) { self$completed <- completed; self$incompleted <- incompleted },
@@ -27502,8 +27502,8 @@ MessageActionTopicCreate <- R6::R6Class(
   "MessageActionTopicCreate",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x0d999256L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x0d999256,
+    SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
     icon_color = NULL,
     icon_emoji_id = NULL,
@@ -27526,8 +27526,8 @@ MessageActionTopicEdit <- R6::R6Class(
   "MessageActionTopicEdit",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc0944820L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xc0944820,
+    SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
     icon_emoji_id = NULL,
     closed = NULL,
@@ -27551,8 +27551,8 @@ MessageActionWebViewDataSent <- R6::R6Class(
   "MessageActionWebViewDataSent",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb4c38cb5L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0xb4c38cb5,
+    SUBCLASS_OF_ID = 0x8680d126,
     text = NULL,
     initialize = function(text) { self$text <- text },
     to_dict = function() list(`_` = "MessageActionWebViewDataSent", text = self$text),
@@ -27568,8 +27568,8 @@ MessageActionWebViewDataSentMe <- R6::R6Class(
   "MessageActionWebViewDataSentMe",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x47dd8079L,
-    SUBCLASS_OF_ID = 0x8680d126L,
+    CONSTRUCTOR_ID = 0x47dd8079,
+    SUBCLASS_OF_ID = 0x8680d126,
     text = NULL,
     data = NULL,
     initialize = function(text, data) { self$text <- text; self$data <- data },
@@ -27586,8 +27586,8 @@ MessageEmpty <- R6::R6Class(
   "MessageEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x90a6ca84L,
-    SUBCLASS_OF_ID = 0x790009e3L,
+    CONSTRUCTOR_ID = 0x90a6ca84,
+    SUBCLASS_OF_ID = 0x790009e3,
     id = NULL,
     peer_id = NULL,
     initialize = function(id, peer_id = NULL) { self$id <- id; self$peer_id <- peer_id },
@@ -27605,8 +27605,8 @@ MessageEntityBankCard <- R6::R6Class(
   "MessageEntityBankCard",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x761e6af4L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x761e6af4,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL,
     length = NULL,
     initialize = function(offset, length) { self$offset <- offset; self$length <- length },
@@ -27621,8 +27621,8 @@ MessageEntityBlockquote <- R6::R6Class(
   "MessageEntityBlockquote",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf1ccaaacL,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0xf1ccaaac,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL, collapsed = NULL,
     initialize = function(offset, length, collapsed = NULL) { self$offset <- offset; self$length <- length; self$collapsed <- collapsed },
     to_dict = function() list(`_` = "MessageEntityBlockquote", offset = self$offset, length = self$length, collapsed = self$collapsed),
@@ -27636,8 +27636,8 @@ MessageEntityBold <- R6::R6Class(
   "MessageEntityBold",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbd610bc9L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0xbd610bc9,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) { self$offset <- offset; self$length <- length },
     to_dict = function() list(`_` = "MessageEntityBold", offset = self$offset, length = self$length),
@@ -27651,8 +27651,8 @@ MessageEntityBotCommand <- R6::R6Class(
   "MessageEntityBotCommand",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x6cef8ac7L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x6cef8ac7,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) { self$offset <- offset; self$length <- length },
     to_dict = function() list(`_` = "MessageEntityBotCommand", offset = self$offset, length = self$length),
@@ -27666,8 +27666,8 @@ MessageEntityCashtag <- R6::R6Class(
   "MessageEntityCashtag",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4c4e743fL,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x4c4e743f,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) { self$offset <- offset; self$length <- length },
     to_dict = function() list(`_` = "MessageEntityCashtag", offset = self$offset, length = self$length),
@@ -27681,8 +27681,8 @@ MessageEntityCode <- R6::R6Class(
   "MessageEntityCode",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x28a20571L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x28a20571,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) { self$offset <- offset; self$length <- length },
     to_dict = function() list(`_` = "MessageEntityCode", offset = self$offset, length = self$length),
@@ -27696,8 +27696,8 @@ MessageEntityCustomEmoji <- R6::R6Class(
   "MessageEntityCustomEmoji",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xc8cf05f8L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0xc8cf05f8,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL, document_id = NULL,
     initialize = function(offset, length, document_id) { self$offset <- offset; self$length <- length; self$document_id <- document_id },
     to_dict = function() list(`_` = "MessageEntityCustomEmoji", offset = self$offset, length = self$length, document_id = self$document_id),
@@ -27711,8 +27711,8 @@ MessageEntityEmail <- R6::R6Class(
   "MessageEntityEmail",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x64e475c2L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x64e475c2,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) { self$offset <- offset; self$length <- length },
     to_dict = function() list(`_` = "MessageEntityEmail", offset = self$offset, length = self$length),
@@ -27726,8 +27726,8 @@ MessageEntityHashtag <- R6::R6Class(
   "MessageEntityHashtag",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x6f635b0dL,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x6f635b0d,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) { self$offset <- offset; self$length <- length },
     to_dict = function() list(`_` = "MessageEntityHashtag", offset = self$offset, length = self$length),
@@ -27741,8 +27741,8 @@ MessageEntityItalic <- R6::R6Class(
   "MessageEntityItalic",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x826f8b60L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x826f8b60,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) { self$offset <- offset; self$length <- length },
     to_dict = function() list(`_` = "MessageEntityItalic", offset = self$offset, length = self$length),
@@ -27756,8 +27756,8 @@ MessageEntityMention <- R6::R6Class(
   "MessageEntityMention",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xfa04579dL,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0xfa04579d,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) { self$offset <- offset; self$length <- length },
     to_dict = function() list(`_` = "MessageEntityMention", offset = self$offset, length = self$length),
@@ -27771,8 +27771,8 @@ MessageEntityMentionName <- R6::R6Class(
   "MessageEntityMentionName",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xdc7b1140L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0xdc7b1140,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL, user_id = NULL,
     initialize = function(offset, length, user_id) { self$offset <- offset; self$length <- length; self$user_id <- user_id },
     to_dict = function() list(`_` = "MessageEntityMentionName", offset = self$offset, length = self$length, user_id = self$user_id),
@@ -27786,8 +27786,8 @@ MessageEntityPhone <- R6::R6Class(
   "MessageEntityPhone",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9b69e34bL,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x9b69e34b,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) { self$offset <- offset; self$length <- length },
     to_dict = function() list(`_` = "MessageEntityPhone", offset = self$offset, length = self$length),
@@ -27801,8 +27801,8 @@ MessageEntityPre <- R6::R6Class(
   "MessageEntityPre",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x73924be0L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x73924be0,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL, language = NULL,
     initialize = function(offset, length, language) { self$offset <- offset; self$length <- length; self$language <- language },
     to_dict = function() list(`_` = "MessageEntityPre", offset = self$offset, length = self$length, language = self$language),
@@ -27816,8 +27816,8 @@ MessageEntitySpoiler <- R6::R6Class(
   "MessageEntitySpoiler",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x32ca960fL,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x32ca960f,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) { self$offset <- offset; self$length <- length },
     to_dict = function() list(`_` = "MessageEntitySpoiler", offset = self$offset, length = self$length),
@@ -27831,8 +27831,8 @@ MessageEntityStrike <- R6::R6Class(
   "MessageEntityStrike",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbf0693d4L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0xbf0693d4,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) { self$offset <- offset; self$length <- length },
     to_dict = function() list(`_` = "MessageEntityStrike", offset = self$offset, length = self$length),
@@ -27847,8 +27847,8 @@ MessageEntityTextUrl <- R6::R6Class(
   "MessageEntityTextUrl",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x76a6d327L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x76a6d327,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL,
     length = NULL,
     url = NULL,
@@ -27874,8 +27874,8 @@ MessageEntityUnderline <- R6::R6Class(
   "MessageEntityUnderline",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9c4e7e8bL,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x9c4e7e8b,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL,
     length = NULL,
 
@@ -27899,8 +27899,8 @@ MessageEntityUnknown <- R6::R6Class(
   "MessageEntityUnknown",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xbb92ba95L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0xbb92ba95,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL,
     length = NULL,
 
@@ -27924,8 +27924,8 @@ MessageEntityUrl <- R6::R6Class(
   "MessageEntityUrl",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x6ed02538L,
-    SUBCLASS_OF_ID = 0xcf6419dcL,
+    CONSTRUCTOR_ID = 0x6ed02538,
+    SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL,
     length = NULL,
 
@@ -27949,8 +27949,8 @@ MessageExtendedMedia <- R6::R6Class(
   "MessageExtendedMedia",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xee479c64L,
-    SUBCLASS_OF_ID = 0x9727d95dL,
+    CONSTRUCTOR_ID = 0xee479c64,
+    SUBCLASS_OF_ID = 0x9727d95d,
     media = NULL,
 
     initialize = function(media) {
@@ -27972,8 +27972,8 @@ MessageExtendedMediaPreview <- R6::R6Class(
   "MessageExtendedMediaPreview",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xad628cc8L,
-    SUBCLASS_OF_ID = 0x9727d95dL,
+    CONSTRUCTOR_ID = 0xad628cc8,
+    SUBCLASS_OF_ID = 0x9727d95d,
     w = NULL,
     h = NULL,
     thumb = NULL,
@@ -28007,8 +28007,8 @@ MessageFwdHeader <- R6::R6Class(
   "MessageFwdHeader",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4e4df4bbL,
-    SUBCLASS_OF_ID = 0x7a286804L,
+    CONSTRUCTOR_ID = 0x4e4df4bb,
+    SUBCLASS_OF_ID = 0x7a286804,
     date = NULL,
     imported = NULL,
     saved_out = NULL,
@@ -28071,8 +28071,8 @@ MessageMediaContact <- R6::R6Class(
   "MessageMediaContact",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x70322949L,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0x70322949,
+    SUBCLASS_OF_ID = 0x476cbe32,
     phone_number = NULL,
     first_name = NULL,
     last_name = NULL,
@@ -28109,8 +28109,8 @@ MessageMediaDice <- R6::R6Class(
   "MessageMediaDice",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x3f7ee58bL,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0x3f7ee58b,
+    SUBCLASS_OF_ID = 0x476cbe32,
     value = NULL,
     emoticon = NULL,
 
@@ -28134,8 +28134,8 @@ MessageMediaDocument <- R6::R6Class(
   "MessageMediaDocument",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x52d8ccd9L,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0x52d8ccd9,
+    SUBCLASS_OF_ID = 0x476cbe32,
     nopremium = NULL,
     spoiler = NULL,
     video = NULL,
@@ -28189,8 +28189,8 @@ MessageMediaEmpty <- R6::R6Class(
   "MessageMediaEmpty",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x3ded6320L,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0x3ded6320,
+    SUBCLASS_OF_ID = 0x476cbe32,
 
     initialize = function() {},
 
@@ -28209,8 +28209,8 @@ MessageMediaGame <- R6::R6Class(
   "MessageMediaGame",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xfdb19008L,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0xfdb19008,
+    SUBCLASS_OF_ID = 0x476cbe32,
     game = NULL,
 
     initialize = function(game) {
@@ -28232,8 +28232,8 @@ MessageMediaGeo <- R6::R6Class(
   "MessageMediaGeo",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x56e0d474L,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0x56e0d474,
+    SUBCLASS_OF_ID = 0x476cbe32,
     geo = NULL,
 
     initialize = function(geo) { self$geo <- geo },
@@ -28253,8 +28253,8 @@ MessageMediaGeoLive <- R6::R6Class(
   "MessageMediaGeoLive",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb940c666L,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0xb940c666,
+    SUBCLASS_OF_ID = 0x476cbe32,
     geo = NULL,
     period = NULL,
     heading = NULL,
@@ -28288,8 +28288,8 @@ MessageMediaGiveaway <- R6::R6Class(
   "MessageMediaGiveaway",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xaa073bebL,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0xaa073beb,
+    SUBCLASS_OF_ID = 0x476cbe32,
     channels = NULL,
     quantity = NULL,
     until_date = NULL,
@@ -28338,8 +28338,8 @@ MessageMediaGiveawayResults <- R6::R6Class(
   "MessageMediaGiveawayResults",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xceaa3ea1L,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0xceaa3ea1,
+    SUBCLASS_OF_ID = 0x476cbe32,
     channel_id = NULL,
     launch_msg_id = NULL,
     winners_count = NULL,
@@ -28397,8 +28397,8 @@ MessageMediaInvoice <- R6::R6Class(
   "MessageMediaInvoice",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xf6a548d3L,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0xf6a548d3,
+    SUBCLASS_OF_ID = 0x476cbe32,
     title = NULL,
     description = NULL,
     currency = NULL,
@@ -28450,8 +28450,8 @@ MessageMediaPaidMedia <- R6::R6Class(
   "MessageMediaPaidMedia",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xa8852491L,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0xa8852491,
+    SUBCLASS_OF_ID = 0x476cbe32,
     stars_amount = NULL,
     extended_media = NULL,
 
@@ -28479,8 +28479,8 @@ MessageMediaPhoto <- R6::R6Class(
   "MessageMediaPhoto",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x695150d7L,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0x695150d7,
+    SUBCLASS_OF_ID = 0x476cbe32,
     spoiler = NULL,
     photo = NULL,
     ttl_seconds = NULL,
@@ -28511,8 +28511,8 @@ MessageMediaPoll <- R6::R6Class(
   "MessageMediaPoll",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4bd6e798L,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0x4bd6e798,
+    SUBCLASS_OF_ID = 0x476cbe32,
     poll = NULL,
     results = NULL,
 
@@ -28540,8 +28540,8 @@ MessageMediaStory <- R6::R6Class(
   "MessageMediaStory",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x68cb6283L,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0x68cb6283,
+    SUBCLASS_OF_ID = 0x476cbe32,
     peer = NULL,
     id = NULL,
     via_mention = NULL,
@@ -28575,8 +28575,8 @@ MessageMediaToDo <- R6::R6Class(
   "MessageMediaToDo",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x8a53b014L,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0x8a53b014,
+    SUBCLASS_OF_ID = 0x476cbe32,
     todo = NULL,
     completions = NULL,
 
@@ -28604,8 +28604,8 @@ MessageMediaUnsupported <- R6::R6Class(
   "MessageMediaUnsupported",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x9f84f49eL,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0x9f84f49e,
+    SUBCLASS_OF_ID = 0x476cbe32,
 
     initialize = function() {},
 
@@ -28624,8 +28624,8 @@ MessageMediaVenue <- R6::R6Class(
   "MessageMediaVenue",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x2ec0533fL,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0x2ec0533f,
+    SUBCLASS_OF_ID = 0x476cbe32,
     geo = NULL,
     title = NULL,
     address = NULL,
@@ -28665,8 +28665,8 @@ MessageMediaWebPage <- R6::R6Class(
   "MessageMediaWebPage",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xddf10c3bL,
-    SUBCLASS_OF_ID = 0x476cbe32L,
+    CONSTRUCTOR_ID = 0xddf10c3b,
+    SUBCLASS_OF_ID = 0x476cbe32,
     webpage = NULL,
     force_large_media = NULL,
     force_small_media = NULL,
@@ -28703,8 +28703,8 @@ MessagePeerReaction <- R6::R6Class(
   "MessagePeerReaction",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x8c79b63cL,
-    SUBCLASS_OF_ID = 0xaf73a2a5L,
+    CONSTRUCTOR_ID = 0x8c79b63c,
+    SUBCLASS_OF_ID = 0xaf73a2a5,
     peer_id = NULL,
     date = NULL,
     reaction = NULL,
@@ -28744,8 +28744,8 @@ MessagePeerVote <- R6::R6Class(
   "MessagePeerVote",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xb6cc2d5cL,
-    SUBCLASS_OF_ID = 0x85c27202L,
+    CONSTRUCTOR_ID = 0xb6cc2d5c,
+    SUBCLASS_OF_ID = 0x85c27202,
 
     peer = NULL,
     option = NULL,
@@ -28780,8 +28780,8 @@ MessagePeerVoteInputOption <- R6::R6Class(
   "MessagePeerVoteInputOption",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x74cda504L,
-    SUBCLASS_OF_ID = 0x85c27202L,
+    CONSTRUCTOR_ID = 0x74cda504,
+    SUBCLASS_OF_ID = 0x85c27202,
 
     peer = NULL,
     date = NULL,
@@ -28812,8 +28812,8 @@ MessagePeerVoteMultiple <- R6::R6Class(
   "MessagePeerVoteMultiple",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4628f6e6L,
-    SUBCLASS_OF_ID = 0x85c27202L,
+    CONSTRUCTOR_ID = 0x4628f6e6,
+    SUBCLASS_OF_ID = 0x85c27202,
 
     peer = NULL,
     options = NULL,
@@ -28855,8 +28855,8 @@ MessageRange <- R6::R6Class(
   "MessageRange",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x0ae30253L,
-    SUBCLASS_OF_ID = 0xbec74577L,
+    CONSTRUCTOR_ID = 0x0ae30253,
+    SUBCLASS_OF_ID = 0xbec74577,
 
     min_id = NULL,
     max_id = NULL,
@@ -28885,8 +28885,8 @@ MessageReactions <- R6::R6Class(
   "MessageReactions",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x0a339f0bL,
-    SUBCLASS_OF_ID = 0x8a5b071cL,
+    CONSTRUCTOR_ID = 0x0a339f0b,
+    SUBCLASS_OF_ID = 0x8a5b071c,
 
     results = NULL,
     min = NULL,
@@ -28961,8 +28961,8 @@ MessageReactor <- R6::R6Class(
   "MessageReactor",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x4ba3a95aL,
-    SUBCLASS_OF_ID = 0xf0381ab9L,
+    CONSTRUCTOR_ID = 0x4ba3a95a,
+    SUBCLASS_OF_ID = 0xf0381ab9,
 
     count = NULL,
     top = NULL,
@@ -29010,8 +29010,8 @@ MessageReplies <- R6::R6Class(
   "MessageReplies",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x83d60fc2L,
-    SUBCLASS_OF_ID = 0x6ccd5ce2L,
+    CONSTRUCTOR_ID = 0x83d60fc2,
+    SUBCLASS_OF_ID = 0x6ccd5ce2,
 
     replies = NULL,
     replies_pts = NULL,
@@ -29087,8 +29087,8 @@ MessageReplyHeader <- R6::R6Class(
   "MessageReplyHeader",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x6917560bL,
-    SUBCLASS_OF_ID = 0x5b4d9167L,
+    CONSTRUCTOR_ID = 0x6917560b,
+    SUBCLASS_OF_ID = 0x5b4d9167,
 
     reply_to_scheduled = NULL,
     forum_topic = NULL,
@@ -29197,8 +29197,8 @@ MessageReplyStoryHeader <- R6::R6Class(
   "MessageReplyStoryHeader",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x0e5af939L,
-    SUBCLASS_OF_ID = 0x5b4d9167L,
+    CONSTRUCTOR_ID = 0x0e5af939,
+    SUBCLASS_OF_ID = 0x5b4d9167,
 
     peer = NULL,
     story_id = NULL,
@@ -29229,8 +29229,8 @@ MessageReportOption <- R6::R6Class(
   "MessageReportOption",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0x7903e3d9L,
-    SUBCLASS_OF_ID = 0xfd79af88L,
+    CONSTRUCTOR_ID = 0x7903e3d9,
+    SUBCLASS_OF_ID = 0xfd79af88,
 
     text = NULL,
     option = NULL,
@@ -30113,8 +30113,8 @@ PageBlockAnchor <- R6::R6Class(
   "PageBlockAnchor",
   inherit = TLObject,
   public = list(
-    CONSTRUCTOR_ID = 0xce0d37b0L,
-    SUBCLASS_OF_ID = 0x1aca5644L,
+    CONSTRUCTOR_ID = 0xce0d37b0,
+    SUBCLASS_OF_ID = 0x1aca5644,
     name = NULL,
 
     initialize = function(name) {
