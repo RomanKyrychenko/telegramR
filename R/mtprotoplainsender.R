@@ -78,7 +78,7 @@ packInt64 <- function(value) {
   # R doesn't have a direct equivalent to struct.pack, so we implement manually
   result <- raw(8)
   for (i in 1:8) {
-    result[i] <- as.raw(bitwAnd(bitwShiftR(value, 8 * (i - 1)), 0xFF))
+    result[i] <- as.raw(bigBits::bigAnd(bigBits::bigShiftR(value, 8 * (i - 1)), 0xFF))
   }
   return(result)
 }
@@ -90,7 +90,7 @@ packInt64 <- function(value) {
 packInt32 <- function(value) {
   result <- raw(4)
   for (i in 1:4) {
-    result[i] <- as.raw(bitwAnd(bitwShiftR(value, 8 * (i - 1)), 0xFF))
+    result[i] <- as.raw(bigBits::bigAnd(bigBits::bigShiftR(value, 8 * (i - 1)), 0xFF))
   }
   return(result)
 }
