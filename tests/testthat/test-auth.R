@@ -1,4 +1,4 @@
-handles_successful_login_with_phone_and_code <- function() {
+test_that("handles successful login with phone and code", {
   auth <- mock()
   auth$get_me <- function() NULL
   auth$send_code_request <- function(phone) TRUE
@@ -11,14 +11,14 @@ handles_successful_login_with_phone_and_code <- function() {
   expect_equal(result$id, 12345)
   expect_equal(result$first_name, "Test")
   expect_equal(result$last_name, "User")
-}
+})
 
-throws_error_when_no_phone_or_bot_token_provided <- function() {
+test_that("throws error when no phone or bot token provided", {
   auth <- mock()
   expect_error(auth$start(phone = NULL, bot_token = NULL), "No phone number or bot token provided.")
-}
+})
 
-handles_successful_login_with_bot_token <- function() {
+test_that("handles successful login with bot token", {
   auth <- mock()
   auth$get_me <- function() NULL
   auth$sign_in <- function(bot_token) list(id = 67890, first_name = "Bot", last_name = "Account")
@@ -28,15 +28,17 @@ handles_successful_login_with_bot_token <- function() {
   expect_equal(result$id, 67890)
   expect_equal(result$first_name, "Bot")
   expect_equal(result$last_name, "Account")
-}
+})
 
-throws_error_when_code_callback_is_not_function <- function() {
+test_that("throws error when code_callback is not function", {
   auth <- mock()
-  expect_error(auth$start(phone = "1234567890", code_callback = "not_a_function"),
-               "The code_callback parameter needs to be a callable function that returns the code you received by Telegram.")
-}
+  expect_error(
+    auth$start(phone = "1234567890", code_callback = "not_a_function"),
+    "The code_callback parameter needs to be a callable function that returns the code you received by Telegram."
+  )
+})
 
-handles_successful_logout <- function() {
+test_that("handles successful logout", {
   auth <- mock()
   auth$invoke <- function(request) TRUE
   private <- environment(auth)$private
@@ -52,13 +54,13 @@ handles_successful_logout <- function() {
   expect_true(result)
   expect_false(private$authorized)
   expect_null(auth$session)
-}
+})
 
-returns_false_when_logout_fails <- function() {
+test_that("returns false when logout fails", {
   auth <- mock()
   auth$invoke <- function(request) stop("Logout failed")
 
   result <- auth$log_out()
 
   expect_false(result)
-}
+})
