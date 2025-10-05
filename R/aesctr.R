@@ -72,7 +72,19 @@ AESModeCTR <- R6::R6Class(
     #' cipher_text <- as.raw(c(0x8d, 0x6c, 0x63, 0x7c))
     #' plain_text <- aes_ctr$decrypt(cipher_text)
     decrypt = function(data) {
-      return(self$encrypt(data))
+      result <- raw(length(data))
+      for (i in seq_along(data)) {
+      # Generate keystream block
+      counter_bytes <- as.raw(self$._counter)
+      keystream <- digest::AES(self$._key, counter_bytes, mode = "ECB")
+
+      # XOR data with keystream
+      result[i] <- as.raw(bitwXor(as.integer(data[i]), as.integer(keystream[1])))
+
+      # Increment counter
+      self$._increment_counter()
+      }
+      return(result)
     },
 
     #' @description
