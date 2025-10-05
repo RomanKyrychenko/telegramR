@@ -15,8 +15,8 @@ AESModeCTR <- R6::R6Class(
     #' @field ._iv The initialization vector.
     ._iv = NULL,
 
-    #' @field ._counter The counter for AES CTR mode.
-    ._counter = NULL,
+    #' @field ._aes The AES object for encryption and decryption.
+    ._aes = NULL,
 
     #' @description
     #' Initialize the AES CTR mode with the given key and IV.
@@ -32,7 +32,7 @@ AESModeCTR <- R6::R6Class(
 
       self$._key <- key
       self$._iv <- iv
-      self$._counter <- as.integer(iv)
+      self$._aes <- digest::AES(key, mode = "CTR", IV = iv)
     },
 
     #' @description
@@ -46,19 +46,7 @@ AESModeCTR <- R6::R6Class(
     #' plain_text <- as.raw(c(0x00, 0x01, 0x02, 0x03))
     #' cipher_text <- aes_ctr$encrypt(plain_text)
     encrypt = function(data) {
-      result <- raw(length(data))
-      for (i in seq_along(data)) {
-        # Generate keystream block
-        counter_bytes <- as.raw(self$._counter)
-        keystream <- digest::AES(self$._key, counter_bytes, mode = "ECB")
-
-        # XOR data with keystream
-        result[i] <- as.raw(bitwXor(as.integer(data[i]), as.integer(keystream[1])))
-
-        # Increment counter
-        self$._increment_counter()
-      }
-      return(result)
+      return(self$._aes$encrypt(data))
     },
 
     #' @description
@@ -72,31 +60,7 @@ AESModeCTR <- R6::R6Class(
     #' cipher_text <- as.raw(c(0x8d, 0x6c, 0x63, 0x7c))
     #' plain_text <- aes_ctr$decrypt(cipher_text)
     decrypt = function(data) {
-      result <- raw(length(data))
-      for (i in seq_along(data)) {
-      # Generate keystream block
-      counter_bytes <- as.raw(self$._counter)
-      keystream <- digest::AES(self$._key, counter_bytes, mode = "ECB")
-
-      # XOR data with keystream
-      result[i] <- as.raw(bitwXor(as.integer(data[i]), as.integer(keystream[1])))
-
-      # Increment counter
-      self$._increment_counter()
-      }
-      return(result)
-    },
-
-    #' @description
-    #' Increment the counter for the next block.
-    ._increment_counter = function() {
-      counter_vec <- self$._counter
-
-      for (i in length(counter_vec):1) {
-        counter_vec[i] <- (counter_vec[i] + 1) %% 256
-        if (counter_vec[i] != 0) break
-      }
-      self$._counter <- counter_vec
+      return(self$._aes$decrypt(data, raw = TRUE))
     }
   )
 )
