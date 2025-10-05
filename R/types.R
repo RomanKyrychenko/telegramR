@@ -8318,7 +8318,7 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x5d8d353bL), 32),
+        packBits(intToBits(0x5d8d353b), 32),
         packBits(intToBits((if (is.null(self$prev_topic) || isFALSE(self$prev_topic)) 0 else 1) | (if (is.null(self$new_topic) || isFALSE(self$new_topic)) 0 else 2)), 32),
         if (is.null(self$prev_topic) || isFALSE(self$prev_topic)) raw() else self$prev_topic$bytes(),
         if (is.null(self$new_topic) || isFALSE(self$new_topic)) raw() else self$new_topic$bytes()
@@ -8360,7 +8360,7 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x278f2868L), 32),
+        packBits(intToBits(0x278f2868), 32),
         self$message$bytes()
       )
     }
@@ -8390,7 +8390,7 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x23209745L), 32),
+        packBits(intToBits(0x23209745), 32),
         self$call$bytes()
       )
     }
@@ -8420,7 +8420,7 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x8f079643L), 32),
+        packBits(intToBits(0x8f079643), 32),
         self$message$bytes()
       )
     }
@@ -8450,8 +8450,8 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x64f36dfcL), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299L else 0x3797bc7cL), 32)
+        packBits(intToBits(0x64f36dfc), 32),
+        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
       )
     }
   ),
@@ -8480,8 +8480,8 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
     },
     bytes = function() {
       c(
-        packBits(intToBits(0xc517f77eL), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299L else 0x3797bc7cL), 32)
+        packBits(intToBits(0xc517f77e), 32),
+        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
       )
     }
   ),
@@ -8510,8 +8510,8 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x2cc6383L), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299L else 0x3797bc7cL), 32)
+        packBits(intToBits(0x2cc6383), 32),
+        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
       )
     }
   ),
@@ -8542,9 +8542,9 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
 
       c(
 
-        packBits(intToBits(0x56d6a247L), 32),
+        packBits(intToBits(0x56d6a247), 32),
 
-        packBits(intToBits(if (self$join_muted) 0xb5757299L else 0x3797bc7cL), 32)
+        packBits(intToBits(if (self$join_muted) 0xb5757299 else 0x3797bc7c), 32)
 
       )
 
@@ -8583,8 +8583,8 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x1b7907aeL), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299L else 0x3797bc7cL), 32)
+        packBits(intToBits(0x1b7907ae), 32),
+        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
       )
     }
   ),
@@ -8613,8 +8613,8 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
     },
     bytes = function() {
       c(
-        packBits(intToBits(0xcb2ac766L), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299L else 0x3797bc7cL), 32)
+        packBits(intToBits(0xcb2ac766), 32),
+        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
       )
     }
   ),
@@ -8643,8 +8643,8 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x5f5c95f1L), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299L else 0x3797bc7cL), 32)
+        packBits(intToBits(0x5f5c95f1), 32),
+        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
       )
     }
   ),
@@ -8673,8 +8673,8 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x60a79c79L), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299L else 0x3797bc7cL), 32)
+        packBits(intToBits(0x60a79c79), 32),
+        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
       )
     }
   ),
@@ -8703,8 +8703,8 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x26ae0971L), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299L else 0x3797bc7cL), 32)
+        packBits(intToBits(0x26ae0971), 32),
+        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
       )
     }
   ),
@@ -8735,7 +8735,7 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x53909779L), 32),
+        packBits(intToBits(0x53909779), 32),
         packBits(intToBits(as.integer(self$prev_value)), 32),
         packBits(intToBits(as.integer(self$new_value)), 32)
       )
@@ -8767,7 +8767,7 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
     },
     bytes = function() {
       c(
-        packBits(intToBits(0xe9e82c18L), 32),
+        packBits(intToBits(0xe9e82c18), 32),
         self$message$bytes()
       )
     }
@@ -8833,7 +8833,7 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
     },
     bytes = function() {
       c(
-        packBits(intToBits(0xea107ae4L), 32),
+        packBits(intToBits(0xea107ae4), 32),
         packBits(intToBits((if (is.null(self$join) || !self$join) 0 else 1) | (if (is.null(self$leave) || !self$leave) 0 else 2) | (if (is.null(self$invite) || !self$invite) 0 else 4) | (if (is.null(self$ban) || !self$ban) 0 else 8) | (if (is.null(self$unban) || !self$unban) 0 else 16) | (if (is.null(self$kick) || !self$kick) 0 else 32) | (if (is.null(self$unkick) || !self$unkick) 0 else 64) | (if (is.null(self$promote) || !self$promote) 0 else 128) | (if (is.null(self$demote) || !self$demote) 0 else 256) | (if (is.null(self$info) || !self$info) 0 else 512) | (if (is.null(self$settings) || !self$settings) 0 else 1024) | (if (is.null(self$pinned) || !self$pinned) 0 else 2048) | (if (is.null(self$edit) || !self$edit) 0 else 4096) | (if (is.null(self$delete) || !self$delete) 0 else 8192) | (if (is.null(self$group_call) || !self$group_call) 0 else 16384) | (if (is.null(self$invites) || !self$invites) 0 else 32768) | (if (is.null(self$send) || !self$send) 0 else 65536) | (if (is.null(self$forums) || !self$forums) 0 else 131072) | (if (is.null(self$sub_extend) || !self$sub_extend) 0 else 262144)), 32)
       )
     }
@@ -8892,7 +8892,7 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x17d493d5L), 32),
+        packBits(intToBits(0x17d493d5), 32),
         packBits(intToBits((if (is.null(self$broadcast) || !self$broadcast) 0 else 32) | (if (is.null(self$megagroup) || !self$megagroup) 0 else 256) | (if (is.null(self$until_date) || !self$until_date) 0 else 65536)), 32),
         writeBin(as.numeric(self$id), raw(), size = 8, endian = "little"),
         writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little"),
