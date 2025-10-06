@@ -15,9 +15,6 @@ AESModeCTR <- R6::R6Class(
     #' @field ._iv The initialization vector.
     ._iv = NULL,
 
-    #' @field ._aes The AES object for encryption and decryption.
-    ._aes = NULL,
-
     #' @description
     #' Initialize the AES CTR mode with the given key and IV.
     #' @param key A raw vector representing the encryption key.
@@ -28,11 +25,12 @@ AESModeCTR <- R6::R6Class(
     #' aes_ctr <- AESModeCTR$new(key, iv)
     initialize = function(key, iv) {
       stopifnot(is.raw(key))
-      stopifnot(is.raw(iv), length(iv) == 16)
+      stopifnot(is.raw(iv))
+      stopifnot(length(iv) == 16)
+      stopifnot(length(key) == 16)
 
       self$._key <- key
       self$._iv <- iv
-      self$._aes <- digest::AES(key, mode = "CTR", IV = iv)
     },
 
     #' @description
@@ -46,7 +44,8 @@ AESModeCTR <- R6::R6Class(
     #' plain_text <- as.raw(c(0x00, 0x01, 0x02, 0x03))
     #' cipher_text <- aes_ctr$encrypt(plain_text)
     encrypt = function(data) {
-      return(self$._aes$encrypt(data))
+      aes <- digest::AES(self$._key, mode = "CTR", IV = self$._iv)
+      return(aes$encrypt(data))
     },
 
     #' @description
@@ -60,7 +59,8 @@ AESModeCTR <- R6::R6Class(
     #' cipher_text <- as.raw(c(0x8d, 0x6c, 0x63, 0x7c))
     #' plain_text <- aes_ctr$decrypt(cipher_text)
     decrypt = function(data) {
-      return(self$._aes$decrypt(data, raw = TRUE))
+      aes <- digest::AES(self$._key, mode = "CTR", IV = self$._iv)
+      return(aes$decrypt(data, raw = TRUE))
     }
   )
 )

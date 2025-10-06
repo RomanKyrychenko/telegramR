@@ -18,8 +18,6 @@ It initializes with a key and a 16-byte initialization vector (IV).
 \item{\code{._key}}{The encryption key.}
 
 \item{\code{._iv}}{The initialization vector.}
-
-\item{\code{._counter}}{The counter for AES CTR mode.}
 }
 \if{html}{\out{</div>}}
 }
@@ -29,8 +27,6 @@ It initializes with a key and a 16-byte initialization vector (IV).
 \item{\code{._key}}{The encryption key.}
 
 \item{\code{._iv}}{The initialization vector.}
-
-\item{\code{._counter}}{The counter for AES CTR mode.}
 }
 \if{html}{\out{</div>}}
 }

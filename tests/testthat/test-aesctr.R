@@ -9,7 +9,7 @@ test_that("AESModeCTR initializes correctly", {
 test_that("AESModeCTR encrypts and decrypts correctly", {
   key <- as.raw(1:16)  # Example 16-byte key
   iv <- as.raw(1:16)   # Example 16-byte IV
-  data <- charToRaw("Hello, World!")  # Example plaintext
+  data <- charToRaw("Hello, World!!!")  # Example plaintext
 
   aes <- AESModeCTR$new(key, iv)
   encrypted <- aes$encrypt(data)
