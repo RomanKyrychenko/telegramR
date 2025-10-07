@@ -3,7 +3,11 @@
 #' @export
 AESModeCTR <- R6::R6Class("AESModeCTR",
   public = list(
+
+    #' @field key The encryption key.
     key = NULL,
+
+    #' @field iv The initialization vector.
     iv = NULL,
     #' @description Initialize AESModeCTR.
     #' @param key A raw vector representing the encryption key.
@@ -47,11 +51,22 @@ AESModeCTR <- R6::R6Class("AESModeCTR",
 #' @export
 MTProxyIO <- R6::R6Class("MTProxyIO",
   public = list(
+
+    #' @field header The MTProxy header.
     header = NULL,
+
+    #' @field encryptor The AESModeCTR encryptor.
     encryptor = NULL,
+
+    #' @field decryptor The AESModeCTR decryptor.
     decryptor = NULL,
+
+    #' @field reader The reader object.
     reader = NULL,
+
+    #' @field writer The writer object.
     writer = NULL,
+
     #' @description Initialize MTProxyIO.
     #' @param connection A connection object with fields: reader, writer, secret, dc_id, and packet_codec.
     initialize = function(connection) {
@@ -62,6 +77,7 @@ MTProxyIO <- R6::R6Class("MTProxyIO",
       self$encryptor <- header_info$encryptor
       self$decryptor <- header_info$decryptor
     },
+
     #' @description Asynchronously read exactly n bytes and decrypt them.
     #' @param n Number of bytes to read.
     #' @return A raw vector with decrypted data.
@@ -72,6 +88,7 @@ MTProxyIO <- R6::R6Class("MTProxyIO",
       })
       future::value(fut)
     },
+
     #' @description Encrypt and write data.
     #' @param data A raw vector to write.
     write = function(data) {
@@ -141,12 +158,25 @@ MTProxyIO <- R6::R6Class("MTProxyIO",
 #' @export
 TcpMTProxy <- R6::R6Class("TcpMTProxy",
   public = list(
+
+    #' @field secret The MTProxy secret.
     secret = NULL,
+
+    #' @field dc_id The data center identifier.
     dc_id = NULL,
+
+    #' @field reader The reader object.
     reader = NULL,
+
+    #' @field writer The writer object.
     writer = NULL,
+
+    #' @field loggers Optional loggers.
     loggers = NULL,
+
+    #' @field packet_codec The packet codec used for this connection.
     packet_codec = NULL,
+
     #' @description Initialize TcpMTProxy.
     #' @param ip IP address as character.
     #' @param port Port number as integer.
@@ -174,6 +204,7 @@ TcpMTProxy <- R6::R6Class("TcpMTProxy",
         }
       )
     },
+
     #' @description Asynchronously connect to the proxy.
     #' @param timeout Timeout value in seconds.
     #' @param ssl Logical indicating whether to use SSL.
@@ -214,7 +245,10 @@ TcpMTProxy <- R6::R6Class("TcpMTProxy",
 ConnectionTcpMTProxyAbridged <- R6::R6Class("ConnectionTcpMTProxyAbridged",
   inherit = TcpMTProxy,
   public = list(
+
+    #' @field packet_codec The packet codec used for this connection.
     packet_codec = NULL,
+
     #' @description Initialize connection using the abridged protocol.
     #' @param ip IP address as character.
     #' @param port Port number as integer.
@@ -235,7 +269,10 @@ ConnectionTcpMTProxyAbridged <- R6::R6Class("ConnectionTcpMTProxyAbridged",
 ConnectionTcpMTProxyIntermediate <- R6::R6Class("ConnectionTcpMTProxyIntermediate",
   inherit = TcpMTProxy,
   public = list(
+
+    #' @field packet_codec The packet codec used for this connection.
     packet_codec = NULL,
+
     #' @description Initialize connection using the intermediate protocol.
     #' @param ip IP address as character.
     #' @param port Port number as integer.
@@ -256,7 +293,10 @@ ConnectionTcpMTProxyIntermediate <- R6::R6Class("ConnectionTcpMTProxyIntermediat
 ConnectionTcpMTProxyRandomizedIntermediate <- R6::R6Class("ConnectionTcpMTProxyRandomizedIntermediate",
   inherit = TcpMTProxy,
   public = list(
+
+    #' @field packet_codec The packet codec used for this connection.
     packet_codec = NULL,
+
     #' @description Initialize connection using the randomized intermediate protocol.
     #' @param ip IP address as character.
     #' @param port Port number as integer.
