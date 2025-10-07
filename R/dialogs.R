@@ -1,8 +1,6 @@
-# Import required packages
-library(future)
-library(R6)
-
-# Constants
+#' Import required packages
+#' @import future
+#' Constants
 .MAX_CHUNK_SIZE <- 100
 
 #' Helper function to get dialog message key
@@ -31,7 +29,7 @@ dialog_message_key <- function(peer, message_id) {
 #' The order is the same as the one seen in official applications (first pinned, then from those with the most recent message to those with the oldest message).
 #'
 #' @export
-DialogsIter <- R6Class("DialogsIter",
+DialogsIter <- R6::R6Class("DialogsIter",
   inherit = RequestIter,
 
   public = list(
@@ -204,7 +202,7 @@ DialogsIter <- R6Class("DialogsIter",
 #' @description
 #' An iterator for Telegram drafts.
 #' @export
-DraftsIter <- R6Class("DraftsIter",
+DraftsIter <- R6::R6Class("DraftsIter",
   inherit = RequestIter,
 
   public = list(
@@ -274,7 +272,7 @@ DraftsIter <- R6Class("DraftsIter",
 #' @description
 #' A class that provides methods for managing dialogs in Telegram.
 #' @export
-DialogMethods <- R6Class("DialogMethods",
+DialogMethods <- R6::R6Class("DialogMethods",
   public = list(
     # Public methods
 
