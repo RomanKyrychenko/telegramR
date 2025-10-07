@@ -10,17 +10,41 @@ TelegramClient <- R6::R6Class(
   "TelegramClient",
   inherit = TelegramBaseClient,
   public = list(
+
+    #' @field account An instance of AccountMethods for account-related operations
     account = NULL,
+
+    #' @field auth An instance of AuthMethods for authentication-related operations
     auth = NULL,
+
+    #' @field download An instance of DownloadMethods for downloading media
     download = NULL,
+
+    #' @field dialog An instance of DialogMethods for dialog-related operations
     dialog = NULL,
+
+    #' @field chat An instance of ChatMethods for chat-related operations
     chat = NULL,
+
+    #' @field bot An instance of BotMethods for bot-related operations
     bot = NULL,
+
+    #' @field message An instance of MessageMethods for message-related operations
     message = NULL,
+
+    #' @field upload An instance of UploadMethods for uploading media
     upload = NULL,
+
+    #' @field button An instance of ButtonMethods for button-related operations
     button = NULL,
+
+    #' @field update An instance of UpdateMethods for update-related operations
     update = NULL,
+
+    #' @field parser An instance of MessageParseMethods for parsing messages
     parser = NULL,
+
+    #' @field user An instance of UserMethods for user-related operations
     user = NULL,
 
     #' @description Create a new TelegramClient instance
@@ -46,7 +70,3 @@ TelegramClient <- R6::R6Class(
     # Optionally, wrapper methods can be added to delegate calls to these subcomponents
   )
 )
-
-# Note: In R6, multiple inheritance isn't directly supported like in Python.
-# The methods from the parent classes would need to be implemented directly
-# or through a mixin pattern or composition approach.
