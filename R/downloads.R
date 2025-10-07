@@ -1,7 +1,7 @@
 #' @import future
 #' @import promises
-
-# Constants for file operations
+NULL
+#' Constants for file operations
 MIN_CHUNK_SIZE <- 4096
 MAX_CHUNK_SIZE <- 512 * 1024
 TIMED_OUT_SLEEP <- 1

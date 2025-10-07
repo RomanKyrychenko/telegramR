@@ -3,8 +3,8 @@
 #' @import jsonlite
 #' @import httr
 #' @import R6
-
-# Constants
+NULL
+#' Constants
 DEFAULT_DC_ID <- 2
 DEFAULT_IPV4_IP <- '149.154.167.51'
 DEFAULT_IPV6_IP <- '2001:67c:4e8:f002::a'

@@ -1,5 +1,7 @@
 #' Import required packages
 #' @import future
+NULL
+
 #' Constants
 .MAX_CHUNK_SIZE <- 100
 

@@ -1,7 +1,11 @@
-#' @import promises
 #' Helper functions to simulate Python functionality
 #'
 #' These functions are used to simulate Python's asyncio and threading behavior in R.
+#'
+#' @import promises
+#'
+NULL
+#' The `get_running_loop` function simulates getting the current event loop.
 #' @return A promise object or NULL.
 #' @export
 get_running_loop <- function() {

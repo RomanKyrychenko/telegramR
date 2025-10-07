@@ -11,8 +11,8 @@
 #'
 #' @importFrom digest digest
 #' @importFrom stringr str_sub
-
-# Constants
+NULL
+#' Constants
 MAX_RECENT_MSG_IDS <- 500
 MSG_TOO_NEW_DELTA <- 30
 MSG_TOO_OLD_DELTA <- 300

@@ -57,14 +57,14 @@ HttpPacketCodec <- R6::R6Class("HttpPacketCodec",
   )
 )
 
-#' @title HTTP Connection Class
+#' HTTP Connection Class
+#'
 #' @description This class implements an HTTP connection using the HTTP packet codec.
 #' @export
 ConnectionHttp <- R6::R6Class("ConnectionHttp",
   inherit = Connection,
   public = list(
 
-    #' Asynchronously connect to a server.
     #' @description This method connects to the server using SSL if the port equals \code{SSL_PORT}.
     #' @param timeout Optional timeout for the connection.
     #' @param ssl Optional SSL parameter (ignored in favor of port-based selection).

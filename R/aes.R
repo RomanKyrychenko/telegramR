@@ -5,7 +5,7 @@
 #'
 #' @details
 #' A pure R implementation of AES IGE mode encryption and decryption.
-
+#' @export
 AES <- R6::R6Class(
   "AES",
   public = list(
