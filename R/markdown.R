@@ -12,11 +12,6 @@
 #' \code{[text](url)} producing \code{MessageEntityTextUrl} entries.
 #'
 #' Note: This parser deliberately does not support nested formatting.
-#'
-#' @author
-#' Internal helper
-NULL
-
 #' Default mapping of delimiter strings to entity types.
 #'
 #' Keys are the literal delimiter sequences as they appear in text and
