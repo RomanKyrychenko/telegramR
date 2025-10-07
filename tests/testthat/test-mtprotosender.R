@@ -1,5 +1,7 @@
+# /Users/romankyrychenko/telegramR/tests/testthat/test-mtprotosender.R
+
 test_that("connects successfully with valid connection", {
-  connection <- mock(
+  connection <- list(
     connect = function(timeout) TRUE,
     to_string = function() "MockConnection"
   )
@@ -10,7 +12,7 @@ test_that("connects successfully with valid connection", {
 })
 
 test_that("throws error when connection fails after retries", {
-  connection <- mock(
+  connection <- list(
     connect = function(timeout) stop("Connection failed"),
     to_string = function() "MockConnection"
   )
@@ -19,7 +21,7 @@ test_that("throws error when connection fails after retries", {
 })
 
 test_that("disconnects cleanly when connected", {
-  connection <- mock(
+  connection <- list(
     connect = function(timeout) TRUE,
     disconnect = function() TRUE,
     to_string = function() "MockConnection"
@@ -51,7 +53,7 @@ test_that("updates time offset correctly with valid message ID", {
 })
 
 test_that("handles reconnection after connection loss", {
-  connection <- mock(
+  connection <- list(
     connect = function(timeout) TRUE,
     disconnect = function() TRUE,
     to_string = function() "MockConnection"

@@ -1,5 +1,5 @@
 mock_sys_info <- function(sysname) {
-  function() list(sysname = sysname)
+  function(...) list(sysname = sysname)
 }
 
 mock_system <- function(return_value) {
@@ -18,71 +18,87 @@ mock_sys_which <- function(paths) {
   }
 }
 
-mock_file_exists <- function(path) {
-  TRUE
-}
+mock_file_exists <- function(...) TRUE
 
 mock_dyn_load <- function(...) NULL
+
+# helper to create a copy of a function with mocked bindings in its enclosing env
+create_mocked_fn <- function(fn, bindings = list()) {
+  f <- fn
+  env <- new.env(parent = environment(fn))
+  for (nm in names(bindings)) assign(nm, bindings[[nm]], env)
+  environment(f) <- env
+  f
+}
 
 # --- Tests ---
 
 test_that("find_ssl_lib uses SSL_LIB environment variable if set", {
   withr::with_envvar(c(SSL_LIB = "/path/to/libssl.dylib"), {
-    stub(find_ssl_lib, "file.exists", mock_file_exists)
-    stub(find_ssl_lib, "dyn.load", mock_dyn_load)
-    expect_equal(find_ssl_lib(), "/path/to/libssl.dylib")
+    mf <- create_mocked_fn(find_ssl_lib, list(file.exists = mock_file_exists, dyn.load = mock_dyn_load))
+    expect_equal(mf(), "/path/to/libssl.dylib")
   })
 })
 
 test_that("find_ssl_lib handles macOS version-specific logic", {
-  stub(find_ssl_lib, "Sys.info", mock_sys_info("Darwin"))
-  stub(find_ssl_lib, "get_os_type", function() "unix")
-  stub(find_ssl_lib, "system", mock_system("10.15.7"))
-  stub(find_ssl_lib, "Sys.which", mock_sys_which(c(
-    "libssl.46.dylib" = "/path/to/libssl.46.dylib",
-    "libssl.44.dylib" = "",
-    "libssl.42.dylib" = ""
-  )))
-  stub(find_ssl_lib, "file.exists", mock_file_exists)
-  stub(find_ssl_lib, "dyn.load", mock_dyn_load)
+  mf <- create_mocked_fn(find_ssl_lib, list(
+    Sys.info = mock_sys_info("Darwin"),
+    get_os_type = function() "unix",
+    system = mock_system("10.15.7"),
+    Sys.which = mock_sys_which(c(
+      "libssl.46.dylib" = "/path/to/libssl.46.dylib",
+      "libssl.44.dylib" = "",
+      "libssl.42.dylib" = ""
+    )),
+    file.exists = mock_file_exists,
+    dyn.load = mock_dyn_load
+  ))
 
-  expect_equal(find_ssl_lib(), "/path/to/libssl.46.dylib")
+  expect_equal(mf(), "/path/to/libssl.46.dylib")
 })
 
 test_that("find_ssl_lib falls back to libssl.dylib on older macOS versions", {
-  stub(find_ssl_lib, "Sys.info", mock_sys_info("Darwin"))
-  stub(find_ssl_lib, "get_os_type", function() "unix")
-  stub(find_ssl_lib, "system", mock_system("10.14.6"))
-  stub(find_ssl_lib, "Sys.which", mock_sys_which(c("libssl.dylib" = "/path/to/libssl.dylib")))
-  stub(find_ssl_lib, "file.exists", mock_file_exists)
-  stub(find_ssl_lib, "dyn.load", mock_dyn_load)
+  mf <- create_mocked_fn(find_ssl_lib, list(
+    Sys.info = mock_sys_info("Darwin"),
+    get_os_type = function() "unix",
+    system = mock_system("10.14.6"),
+    Sys.which = mock_sys_which(c("libssl.dylib" = "/path/to/libssl.dylib")),
+    file.exists = mock_file_exists,
+    dyn.load = mock_dyn_load
+  ))
 
-  expect_equal(find_ssl_lib(), "/path/to/libssl.dylib")
+  expect_equal(mf(), "/path/to/libssl.dylib")
 })
 
 test_that("find_ssl_lib handles non-macOS systems", {
-  stub(find_ssl_lib, "Sys.info", mock_sys_info("Linux"))
-  stub(find_ssl_lib, "get_os_type", function() "unix")
-  stub(find_ssl_lib, "Sys.which", mock_sys_which(c("libssl.so" = "/path/to/libssl.so")))
-  stub(find_ssl_lib, "file.exists", mock_file_exists)
-  stub(find_ssl_lib, "dyn.load", mock_dyn_load)
+  mf <- create_mocked_fn(find_ssl_lib, list(
+    Sys.info = mock_sys_info("Linux"),
+    get_os_type = function() "unix",
+    Sys.which = mock_sys_which(c("libssl.so" = "/path/to/libssl.so")),
+    file.exists = mock_file_exists,
+    dyn.load = mock_dyn_load
+  ))
 
-  expect_equal(find_ssl_lib(), "/path/to/libssl.so")
+  expect_equal(mf(), "/path/to/libssl.so")
 })
 
 test_that("find_ssl_lib throws an error if no library is found", {
-  stub(find_ssl_lib, "Sys.info", mock_sys_info("Linux"))
-  stub(find_ssl_lib, "get_os_type", function() "unix")
-  stub(find_ssl_lib, "Sys.which", mock_sys_which(c()))
-  expect_error(find_ssl_lib(), "No SSL library candidates found on the system")
+  mf <- create_mocked_fn(find_ssl_lib, list(
+    Sys.info = mock_sys_info("Linux"),
+    get_os_type = function() "unix",
+    Sys.which = mock_sys_which(c())
+  ))
+  expect_error(mf(), "No SSL library candidates found on the system")
 })
 
 test_that("find_ssl_lib throws an error if dyn.load fails", {
-  stub(find_ssl_lib, "Sys.info", mock_sys_info("Linux"))
-  stub(find_ssl_lib, "get_os_type", function() "unix")
-  stub(find_ssl_lib, "Sys.which", mock_sys_which(c("libssl.so" = "/path/to/libssl.so")))
-  stub(find_ssl_lib, "file.exists", mock_file_exists)
-  stub(find_ssl_lib, "dyn.load", function(...) stop("dyn.load error"))
+  mf <- create_mocked_fn(find_ssl_lib, list(
+    Sys.info = mock_sys_info("Linux"),
+    get_os_type = function() "unix",
+    Sys.which = mock_sys_which(c("libssl.so" = "/path/to/libssl.so")),
+    file.exists = mock_file_exists,
+    dyn.load = function(...) stop("dyn.load error")
+  ))
 
-  expect_error(find_ssl_lib(), "Failed to load SSL library: dyn.load error")
+  expect_error(mf(), "Failed to load SSL library: dyn.load error")
 })

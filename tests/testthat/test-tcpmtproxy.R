@@ -1,7 +1,7 @@
 test_that("initializes MTProxyIO with valid connection parameters", {
   connection <- list(
-    reader = mock(readexactly = function(n) raw(n)),
-    writer = mock(write = function(data) invisible(data)),
+    reader = list(readexactly = function(n) raw(n)),
+    writer = list(write = function(data) invisible(data)),
     secret = as.raw(rep(0x01, 16)),
     dc_id = 2,
     packet_codec = RandomizedIntermediatePacketCodec$new()
@@ -14,8 +14,8 @@ test_that("initializes MTProxyIO with valid connection parameters", {
 
 test_that("throws error when MTProxyIO is initialized with invalid secret length", {
   connection <- list(
-    reader = mock(readexactly = function(n) raw(n)),
-    writer = mock(write = function(data) invisible(data)),
+    reader = list(readexactly = function(n) raw(n)),
+    writer = list(write = function(data) invisible(data)),
     secret = as.raw(rep(0x01, 15)),
     dc_id = 2,
     packet_codec = RandomizedIntermediatePacketCodec$new()
@@ -25,8 +25,8 @@ test_that("throws error when MTProxyIO is initialized with invalid secret length
 
 test_that("encrypts and writes data correctly in MTProxyIO", {
   connection <- list(
-    reader = mock(readexactly = function(n) raw(n)),
-    writer = mock(write = function(data) data),
+    reader = list(readexactly = function(n) raw(n)),
+    writer = list(write = function(data) data),
     secret = as.raw(rep(0x01, 16)),
     dc_id = 2,
     packet_codec = RandomizedIntermediatePacketCodec$new()
@@ -39,8 +39,8 @@ test_that("encrypts and writes data correctly in MTProxyIO", {
 
 test_that("reads and decrypts data correctly in MTProxyIO", {
   connection <- list(
-    reader = mock(readexactly = function(n) raw(n)),
-    writer = mock(write = function(data) invisible(data)),
+    reader = list(readexactly = function(n) raw(n)),
+    writer = list(write = function(data) invisible(data)),
     secret = as.raw(rep(0x01, 16)),
     dc_id = 2,
     packet_codec = RandomizedIntermediatePacketCodec$new()

@@ -1,10 +1,12 @@
 test_that("handles successful takeout initialization", {
-  client <- local_mocked_bindings()
-  session <- local_mocked_bindings()
-  request <- local_mocked_bindings()
+  client <- new.env()
+  session <- new.env()
+  request <- new.env()
+
   client$session <- session
   session$takeout_id <- NULL
   request$id <- 12345
+
   client$invoke <- function(req) request
 
   takeout <- TakeoutClient$new(TRUE, client, request)
@@ -15,13 +17,13 @@ test_that("handles successful takeout initialization", {
 })
 
 test_that("throws error when takeout already in progress", {
-  client <- local_mocked_bindings()
-  session <- local_mocked_bindings()
-  request <- local_mocked_bindings()
+  client <- new.env()
+  session <- new.env()
+
   client$session <- session
   session$takeout_id <- 12345
 
-  takeout <- TakeoutClient$new(TRUE, client, request)
+  takeout <- TakeoutClient$new(TRUE, client, NULL)
 
   expect_error(
     takeout$aenter(),
@@ -30,10 +32,12 @@ test_that("throws error when takeout already in progress", {
 })
 
 test_that("handles successful takeout exit", {
-  client <- local_mocked_bindings()
-  session <- local_mocked_bindings()
+  client <- new.env()
+  session <- new.env()
+
   client$session <- session
   session$takeout_id <- 12345
+
   client$invoke <- function(req) TRUE
 
   takeout <- TakeoutClient$new(TRUE, client, NULL)
@@ -43,10 +47,12 @@ test_that("handles successful takeout exit", {
 })
 
 test_that("throws error when takeout exit fails", {
-  client <- local_mocked_bindings()
-  session <- local_mocked_bindings()
+  client <- new.env()
+  session <- new.env()
+
   client$session <- session
   session$takeout_id <- 12345
+
   client$invoke <- function(req) FALSE
 
   takeout <- TakeoutClient$new(TRUE, client, NULL)
@@ -55,25 +61,38 @@ test_that("throws error when takeout exit fails", {
 })
 
 test_that("initializes takeout session with parameters", {
-  account <- local_mocked_bindings()
-  account$session <- local_mocked_bindings()
+  # Create minimal stubs and expose them so AccountMethods can find them
+  account <- new.env()
+  account$session <- new.env()
   account$session$takeout_id <- NULL
+
+  functions <- new.env()
+  functions$account <- new.env()
   functions$account$InitTakeoutSessionRequest <- function(kwargs) kwargs
+
+  assign("account", account, envir = globalenv())
+  assign("functions", functions, envir = globalenv())
 
   methods <- AccountMethods$new()
   result <- methods$takeout(TRUE, contacts = TRUE, users = NULL)
 
   expect_equal(result$request$contacts, TRUE)
   expect_null(result$request$message_users)
+
+  rm(list = c("account", "functions"), envir = globalenv())
 })
 
 test_that("returns false when end takeout fails", {
-  account <- local_mocked_bindings()
-  account$session <- local_mocked_bindings()
+  account <- new.env()
+  account$session <- new.env()
   account$session$takeout_id <- NULL
+
+  assign("account", account, envir = globalenv())
 
   methods <- AccountMethods$new()
   result <- methods$end_takeout(FALSE)
 
   expect_false(result)
+
+  rm("account", envir = globalenv())
 })

@@ -1,5 +1,5 @@
 test_that("sends and receives valid request successfully", {
-  connection <- mock(
+  connection <- list(
     send = function(data) invisible(data),
     recv = function() {
       header <- c(packInt64(0), packInt64(123456789), packInt32(4))
@@ -13,7 +13,7 @@ test_that("sends and receives valid request successfully", {
 })
 
 test_that("throws error when buffer received is too small", {
-  connection <- mock(
+  connection <- list(
     send = function(data) invisible(data),
     recv = function() raw(4)
   )
@@ -22,7 +22,7 @@ test_that("throws error when buffer received is too small", {
 })
 
 test_that("throws error when auth_key_id is invalid", {
-  connection <- mock(
+  connection <- list(
     send = function(data) invisible(data),
     recv = function() {
       header <- c(packInt64(1), packInt64(123456789), packInt32(4))
@@ -35,7 +35,7 @@ test_that("throws error when auth_key_id is invalid", {
 })
 
 test_that("throws error when msg_id is invalid", {
-  connection <- mock(
+  connection <- list(
     send = function(data) invisible(data),
     recv = function() {
       header <- c(packInt64(0), packInt64(0), packInt32(4))
@@ -48,7 +48,7 @@ test_that("throws error when msg_id is invalid", {
 })
 
 test_that("throws error when length of received message is invalid", {
-  connection <- mock(
+  connection <- list(
     send = function(data) invisible(data),
     recv = function() {
       header <- c(packInt64(0), packInt64(123456789), packInt32(-1))

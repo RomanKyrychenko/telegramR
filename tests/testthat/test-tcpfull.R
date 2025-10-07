@@ -1,5 +1,5 @@
 test_that("encodes packet with valid data correctly", {
-  codec <- FullPacketCodec$new(mock())
+  codec <- FullPacketCodec$new(NULL)
   data <- raw(16)
   result <- codec$encode_packet(data)
   total_length <- as.integer(length(data) + 12L)
@@ -13,13 +13,13 @@ test_that("encodes packet with valid data correctly", {
 })
 
 test_that("throws error when encoding packet with invalid data", {
-  codec <- FullPacketCodec$new(mock())
+  codec <- FullPacketCodec$new(NULL)
   expect_error(codec$encode_packet(NULL), "invalid 'length' argument")
 })
 
 test_that("reads packet with valid data successfully", {
-  codec <- FullPacketCodec$new(mock())
-  reader <- mock(
+  codec <- FullPacketCodec$new(NULL)
+  reader <- list(
     readexactly = function(n) {
       if (n == 8L) {
         c(writeBin(as.integer(20L), raw(), size = 4, endian = "little"),
@@ -38,8 +38,8 @@ test_that("reads packet with valid data successfully", {
 })
 
 test_that("throws error when packet length is less than 8", {
-  codec <- FullPacketCodec$new(mock())
-  reader <- mock(
+  codec <- FullPacketCodec$new(NULL)
+  reader <- list(
     readexactly = function(n) {
       if (n == 8L) {
         c(writeBin(as.integer(4L), raw(), size = 4, endian = "little"),
@@ -51,8 +51,8 @@ test_that("throws error when packet length is less than 8", {
 })
 
 test_that("throws error when checksum is invalid", {
-  codec <- FullPacketCodec$new(mock())
-  reader <- mock(
+  codec <- FullPacketCodec$new(NULL)
+  reader <- list(
     readexactly = function(n) {
       if (n == 8L) {
         c(writeBin(as.integer(20L), raw(), size = 4, endian = "little"),
