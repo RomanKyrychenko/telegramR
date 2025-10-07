@@ -2,8 +2,14 @@ AccessPointRule <- R6::R6Class(
   "AccessPointRule",
   inherit = TLObject,
   public = list(
+
+    #' @field phone_prefix_rules A string representing phone prefix rules.
     phone_prefix_rules = NULL,
+
+    #' @field dc_id An integer representing the data center ID.
     dc_id = NULL,
+
+    #' @field ips A list of TypeIpPort objects representing IPs.
     ips = NULL,
 
     #' @description
@@ -45,20 +51,19 @@ AccessPointRule <- R6::R6Class(
 
   active = list(
 
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AccessPointRule.
+    #' @field CONSTRUCTOR_ID The constructor ID for AccessPointRule.
     CONSTRUCTOR_ID = function() {
       return(0x4679b65f)
     },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AccessPointRule.
+    #' @field SUBCLASS_OF_ID The subclass ID for AccessPointRule.
     SUBCLASS_OF_ID = function() {
       return(0xb1aca0fd)
     }
   ),
 
   private = list(
+
     #' @description
     #' Reads an AccessPointRule object from a BinaryReader.
     #' @param reader A BinaryReader object to read from.
@@ -80,6 +85,8 @@ AccountDaysTTL <- R6::R6Class(
   "AccountDaysTTL",
   inherit = TLObject,
   public = list(
+
+    #' @field days An integer representing the number of days.
     days = NULL,
 
     #' @description
@@ -117,6 +124,8 @@ AccountDaysTTL <- R6::R6Class(
   "AccountDaysTTL",
   inherit = TLObject,
   public = list(
+
+    #' @field days An integer representing the number of days.
     days = NULL,
 
     #' @description
@@ -149,14 +158,12 @@ AccountDaysTTL <- R6::R6Class(
 
   active = list(
 
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AccountDaysTTL.
+    #' @field CONSTRUCTOR_ID The constructor ID for AccountDaysTTL.
     CONSTRUCTOR_ID = function() {
       return(0xb8d0afdf)
     },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AccountDaysTTL.
+    #' @field SUBCLASS_OF_ID The subclass ID for AccountDaysTTL.
     SUBCLASS_OF_ID = function() {
       return(0xbaa39d88)
     }
