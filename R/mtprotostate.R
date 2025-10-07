@@ -26,6 +26,7 @@ MAX_CONSECUTIVE_IGNORED <- 10
 #' @export
 OpaqueRequest <- R6::R6Class("OpaqueRequest",
   public = list(
+    #' @field data Raw vector of serialized request data
     data = NULL,
 
     #' @description Initialize with serialized request data
@@ -67,9 +68,17 @@ unpackInt64 <- function(raw_vector) {
 #' @export
 MTProtoState <- R6::R6Class("MTProtoState",
   public = list(
+
+    #' @field auth_key Authentication key for encryption
     auth_key = NULL,
+
+    #' @field time_offset Time offset between local and server time
     time_offset = 0,
+
+    #' @field salt Current server salt
     salt = 0,
+
+    #' @field id Current session ID
     id = NULL,
 
     #' @description Initialize a new MTProto state
