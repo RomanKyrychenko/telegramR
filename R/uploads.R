@@ -1,14 +1,6 @@
-library(R6)
-library(future)
-library(promises)
-library(httr)
-library(digest)
-library(base64enc)
-library(magick)  # For image processing
-
 #' @title FileStream helper class
 #' @description A helper class to handle file streams for uploading files.
-FileStream <- R6Class("FileStream",
+FileStream <- R6::R6Class("FileStream",
   public = list(
     #' @field file The file to be streamed (can be a path, raw bytes, etc.).
     file = NULL,
@@ -123,7 +115,7 @@ UploadMethods <- R6Class("UploadMethods",
     upload_file = function(file, part_size_kb = NULL, file_size = NULL,
                            progress_callback = NULL, ...) {
 
-      future({
+      future::future({
         stream <- FileStream$new(file, file_size)
         file_size <- stream$file_size
 
