@@ -27,17 +27,27 @@ DISCONNECT_EXPORTED_AFTER <- 60
 #' @export
 ExportState <- R6Class("ExportState",
   public = list(
+
+    #' @description
+    #' Constructor for the ExportState class
+    #' @return None.
     initialize = function() {
       private$n <- 0
       private$zero_ts <- 0
       private$connected <- FALSE
     },
 
+    #' @description
+    #' Add a borrowed sender
+    #' @return None.
     add_borrow = function() {
       private$n <- private$n + 1
       private$connected <- TRUE
     },
 
+    #' @description
+    #' Return a borrowed sender
+    #' @return None.
     add_return = function() {
       private$n <- private$n - 1
       stopifnot("Returned sender more than it was borrowed" = private$n >= 0)
@@ -46,16 +56,25 @@ ExportState <- R6Class("ExportState",
       }
     },
 
+    #' @description
+    #' Check if the sender should be disconnected
+    #' @return TRUE if should disconnect, FALSE otherwise.
     should_disconnect = function() {
       return(private$n == 0 &&
              private$connected &&
              (as.numeric(Sys.time()) - private$zero_ts) > DISCONNECT_EXPORTED_AFTER)
     },
 
+    #' @description
+    #' Check if the sender needs to connect
+    #' @return TRUE if needs to connect, FALSE otherwise.
     need_connect = function() {
       return(!private$connected)
     },
 
+    #' @description
+    #' Mark the sender as disconnected
+    #' @return None.
     mark_disconnected = function() {
       stopifnot("Marked as disconnected when it was borrowed" = self$should_disconnect())
       private$connected <- FALSE
