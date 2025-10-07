@@ -53,6 +53,7 @@ cancel <- function(future) {
 Connection <- R6Class(
   "Connection",
   public = list(
+    #' @field packet_codec The packet codec class to use for this connection.
     packet_codec = NULL,
 
     #' @description
@@ -307,6 +308,7 @@ ObfuscatedConnection <- R6Class(
   "ObfuscatedConnection",
   inherit = Connection,
   public = list(
+    #' @field obfuscated_io The obfuscation class to use.
     obfuscated_io = NULL
   ),
   private = list(
@@ -333,6 +335,7 @@ ObfuscatedConnection <- R6Class(
 PacketCodec <- R6Class(
   "PacketCodec",
   public = list(
+    #' @field tag Optional initial bytes to send upon connection.
     tag = NULL,
 
     #' @description
