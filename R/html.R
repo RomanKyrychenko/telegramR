@@ -14,11 +14,14 @@
 #' html <- "<b>bold</b> and <a href='mailto:me@example.com'>me</a>"
 #' parsed <- parse_html_to_telegram(html)
 #' unparse_telegram_to_html(parsed$text, parsed$entities)
-NULL
 
-library(R6)
-library(xml2)
-
+#' Escape HTML special characters.
+#'
+#' Replaces ampersands, angle brackets, and double quotes with their corresponding HTML entities.
+#'
+#' @param x A character vector containing text to escape.
+#'
+#' @return A character vector with HTML-sensitive characters converted to their entity equivalents.
 escape_html <- function(x) {
   x <- gsub("&", "&amp;", x, fixed = TRUE)
   x <- gsub("<", "&lt;", x, fixed = TRUE)
@@ -27,6 +30,14 @@ escape_html <- function(x) {
   x
 }
 
+#' Construct a formatted entity descriptor for Telegram messages.
+#'
+#' @param type Character string identifying the entity type (e.g., `"bold"`, `"italic"`).
+#' @param offset Integer position within the message where the entity starts.
+#' @param length Integer length of the entity span within the message; defaults to `0`.
+#' @param ... Additional named fields to append to the entity descriptor.
+#'
+#' @return A named list containing the entity metadata, including any extra fields supplied.
 make_entity <- function(type, offset, length = 0, ...) {
   e <- list(type = type, offset = as.integer(offset), length = as.integer(length))
   extra <- list(...)
@@ -34,22 +45,40 @@ make_entity <- function(type, offset, length = 0, ...) {
   e
 }
 
+#' @description Parses HTML fragments into Telegram-compatible plain text and entity metadata.
+#' @details
+#'   Traverses the HTML node tree, tracking active tags and their metadata to
+#'   construct Telegram message entities (bold, italic, underline, strike,
+#'   blockquote, code, preformatted, links, custom emoji). Maintains accumulated
+#'   text while adjusting entity offsets and lengths, handling special cases such
+#'   as language hints in `<pre><code>` blocks and anchored URLs.
+#' @note Wraps the provided fragment in a `<div>` before parsing to satisfy
+#'   `xml2::read_html`, and automatically finalizes open entities as tags close.
 #' HTMLToTelegramParser R6 class
 #'
 #' Walks an HTML fragment and builds a plain text string and a list of
 #' telegram-style message entities.
-#'
-#' @field text accumulated plain text
-#' @field entities list of entity lists
-HTMLToTelegramParser <- R6Class(
+HTMLToTelegramParser <- R6::R6Class(
   "HTMLToTelegramParser",
   public = list(
+
+    #' @field text accumulated plain text
     text = "",
+
+    #' @field entities list of entity lists
     entities = NULL,
+
+    #' @field building_entities named list of entities currently being built
     building_entities = NULL,
+
+    #' @field open_tags stack of currently open tags
     open_tags = NULL,
+
+    #' @field open_tags_meta stack of metadata associated with open tags
     open_tags_meta = NULL,
 
+    #' @description Initializes the parser state.
+    #' @return A new instance of HTMLToTelegramParser.
     initialize = function() {
       self$text <- ""
       self$entities <- list()
@@ -58,11 +87,17 @@ HTMLToTelegramParser <- R6Class(
       self$open_tags_meta <- list()
     },
 
+    #' @description Push a tag and optional metadata onto the open tags stack.
+    #' @param tag The tag name to push.
+    #' @param meta Optional metadata associated with the tag.
+    #' @return None.
     push_tag = function(tag, meta = NULL) {
       self$open_tags <- c(list(tag), self$open_tags)
       self$open_tags_meta <- c(list(meta), self$open_tags_meta)
     },
 
+    #' @description Pop the top tag and its metadata from the open tags stack.
+    #' @return A list containing the popped tag and its metadata, or NULL if the stack
     pop_tag = function() {
       if (length(self$open_tags) == 0L) return(NULL)
       tag <- self$open_tags[[1]]
@@ -72,16 +107,24 @@ HTMLToTelegramParser <- R6Class(
       list(tag = tag, meta = meta)
     },
 
+    #' @description Get the current top tag from the open tags stack.
+    #' @return The top tag name, or NULL if the stack is empty.
     current_tag = function() {
       if (length(self$open_tags) == 0L) return(NULL)
       self$open_tags[[1]]
     },
 
+    #' @description Get the current top metadata from the open tags stack.
+    #' @return The top metadata value, or NULL if the stack is empty.
     current_meta = function() {
       if (length(self$open_tags_meta) == 0L) return(NULL)
       self$open_tags_meta[[1]]
     },
 
+    #' @description Handle the start of an HTML element, updating state and building entities as needed.
+    #' @param tag The name of the HTML tag.
+    #' @param attrs A named list of attributes for the tag.
+    #' @return None.
     start_element = function(tag, attrs) {
       meta_value <- NULL
       self$push_tag(tag, meta_value)
@@ -148,6 +191,9 @@ HTMLToTelegramParser <- R6Class(
       }
     },
 
+    #' @description Handle text nodes, updating accumulated text and entity lengths.
+    #' @param text The text content to handle.
+    #' @return None.
     handle_text = function(text) {
       top_tag <- self$current_tag()
       meta <- self$current_meta()
@@ -169,6 +215,9 @@ HTMLToTelegramParser <- R6Class(
       self$text <- paste0(self$text, text_to_add)
     },
 
+    #' @description Handle the end of an HTML element, finalizing any associated entities.
+    #' @param tag The name of the HTML tag.
+    #' @return None.
     end_element = function(tag) {
       popped <- self$pop_tag()
       # finalize entity if present
@@ -190,18 +239,21 @@ HTMLToTelegramParser <- R6Class(
       }
     },
 
+    #' @description Recursively parse an XML node and its children.
+    #' @param node The XML node to parse.
+    #' @return None.
     parse_node = function(node) {
-      ttype <- xml_type(node)
+      ttype <- xml2::xml_type(node)
       if (ttype == "text") {
-        self$handle_text(xml_text(node))
+        self$handle_text(xml2::xml_text(node))
         return(invisible(NULL))
       }
       if (ttype == "element") {
-        tag <- xml_name(node)
-        attrs <- as.list(xml_attrs(node))
+        tag <- xml2::xml_name(node)
+        attrs <- as.list(xml2::xml_attrs(node))
         self$start_element(tag, attrs)
         # walk children (contents includes text nodes)
-        children <- xml_contents(node)
+        children <- xml2::xml_contents(node)
         if (length(children) > 0) {
           for (child in children) self$parse_node(child)
         }
@@ -210,12 +262,15 @@ HTMLToTelegramParser <- R6Class(
       invisible(NULL)
     },
 
+    #' @description Parse an HTML fragment, updating the parser state with text and entities.
+    #' @param html_fragment A character string containing the HTML fragment to parse.
+    #' @return None.
     feed = function(html_fragment) {
       # xml2::read_html expects a full document; wrap fragment in a div
       wrapped <- paste0("<div>", html_fragment, "</div>")
-      doc <- read_html(wrapped)
-      body_node <- xml_find_first(doc, "//div")
-      contents <- xml_contents(body_node)
+      doc <- xml2::read_html(wrapped)
+      body_node <- xml2::xml_find_first(doc, "//div")
+      contents <- xml2::xml_contents(body_node)
       for (n in contents) self$parse_node(n)
       invisible(NULL)
     }
@@ -326,5 +381,17 @@ unparse_telegram_to_html <- function(text, entities) {
   out_text
 }
 
+#' Null coalescing helper
+#'
+#' Returns the first argument if it is not `NULL`; otherwise, it returns the
+#' provided fallback value.
+#'
+#' @param a The primary value to be inspected for `NULL`.
+#' @param b The fallback value to use if `a` is `NULL`.
+#'
+#' @return The first non-`NULL` argument among `a` and `b`.
+#' @examples
+#' 1 %||% 2
+#' NULL %||% 2
 # Helper: null-coalesce
 `%||%` <- function(a, b) if (!is.null(a)) a else b
