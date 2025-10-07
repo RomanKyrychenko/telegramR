@@ -27,55 +27,79 @@ Tracks the state of exported MTProto senders
 \if{html}{\out{<a id="method-ExportState-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportState-new}{}}}
 \subsection{Method \code{new()}}{
+Constructor for the ExportState class
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportState$new()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+None.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportState-add_borrow"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportState-add_borrow}{}}}
 \subsection{Method \code{add_borrow()}}{
+Add a borrowed sender
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportState$add_borrow()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+None.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportState-add_return"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportState-add_return}{}}}
 \subsection{Method \code{add_return()}}{
+Return a borrowed sender
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportState$add_return()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+None.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportState-should_disconnect"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportState-should_disconnect}{}}}
 \subsection{Method \code{should_disconnect()}}{
+Check if the sender should be disconnected
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportState$should_disconnect()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+TRUE if should disconnect, FALSE otherwise.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportState-need_connect"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportState-need_connect}{}}}
 \subsection{Method \code{need_connect()}}{
+Check if the sender needs to connect
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportState$need_connect()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+TRUE if needs to connect, FALSE otherwise.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportState-mark_disconnected"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportState-mark_disconnected}{}}}
 \subsection{Method \code{mark_disconnected()}}{
+Mark the sender as disconnected
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportState$mark_disconnected()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+None.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportState-clone"></a>}}

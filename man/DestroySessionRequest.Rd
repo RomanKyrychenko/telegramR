@@ -6,10 +6,18 @@
 \description{
 R6 class representing a request to destroy a session.
 Contains methods for serialization to list and bytes.
-Constructor ID for the request
-Subclass ID for the request
-Session ID to be destroyed
-Initialize the DestroySessionRequest
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the request}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the request}
+
+\item{\code{session_id}}{Session ID to be destroyed
+Initialize the DestroySessionRequest}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

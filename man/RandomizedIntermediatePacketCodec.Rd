@@ -4,9 +4,7 @@
 \alias{RandomizedIntermediatePacketCodec}
 \title{RandomizedIntermediatePacketCodec}
 \value{
-A raw vector with a 4-byte length prefix and random padding.
-
-A raw vector representing the original packet data without padding.
+A raw vector representing the packet data.
 }
 \description{
 A codec that adds random padding to align packets to 4 bytes.
@@ -16,6 +14,15 @@ Encodes packets by prepending a 4-byte little-endian length prefix.
 }
 \section{Super classes}{
 \code{\link[telegramR:PacketCodec]{telegramR::PacketCodec}} -> \code{\link[telegramR:IntermediatePacketCodec]{telegramR::IntermediatePacketCodec}} -> \code{RandomizedIntermediatePacketCodec}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{tag}}{A raw vector representing the tag for the codec.}
+
+\item{\code{obfuscate_tag}}{A raw vector used for obfuscation.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

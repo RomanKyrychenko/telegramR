@@ -12,14 +12,7 @@ A codec for full TCP packets for Telegram.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{_send_counter}}{Counter for sent packets.}
-}
-\if{html}{\out{</div>}}
-}
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
-\item{\code{_send_counter}}{Counter for sent packets.}
+\item{\code{.send_counter}}{Counter for sent packets.}
 }
 \if{html}{\out{</div>}}
 }

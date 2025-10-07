@@ -49,6 +49,9 @@ Initializes the connection.
 }
 \if{html}{\out{</div>}}
 }
+\subsection{Returns}{
+None.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConnectionTcpAbridged-clone"></a>}}

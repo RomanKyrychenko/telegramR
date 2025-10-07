@@ -6,9 +6,18 @@
 \description{
 R6 class representing a request to get future salts.
 Contains methods for serialization to list and bytes.
-Constructor ID for the request
-Number of future salts to request
-Initialize the GetFutureSaltsRequest
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the request}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the request}
+
+\item{\code{num}}{Number of future salts to request
+Initialize the GetFutureSaltsRequest}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

@@ -9,6 +9,15 @@ This class implements the HTTP packet codec for encoding and decoding packets.
 \section{Super class}{
 \code{\link[telegramR:PacketCodec]{telegramR::PacketCodec}} -> \code{HttpPacketCodec}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{tag}}{A raw vector representing the tag for the codec.}
+
+\item{\code{obfuscate_tag}}{A raw vector used for obfuscation.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

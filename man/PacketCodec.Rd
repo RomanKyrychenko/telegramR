@@ -6,6 +6,13 @@
 \description{
 Abstract base class for packet codecs.
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{tag}}{Optional initial bytes to send upon connection.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

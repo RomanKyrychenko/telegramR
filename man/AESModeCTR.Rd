@@ -2,9 +2,9 @@
 % Please edit documentation in R/aesctr.R, R/tcpmtproxy.R
 \name{AESModeCTR}
 \alias{AESModeCTR}
-\title{R6 Class Representing AES CTR Mode}
+\title{AES CTR Mode R6 Class}
 \description{
-A wrapper around AES CTR mode with custom IV using the `pyaes` library.
+A wrapper around AES CTR mode with custom IV using the `digest` library.
 
 A simple placeholder class for AES CTR mode encryption.
 }
@@ -15,18 +15,9 @@ It initializes with a key and a 16-byte initialization vector (IV).
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{._key}}{The encryption key.}
+\item{\code{key}}{The encryption key as a raw vector.}
 
-\item{\code{._iv}}{The initialization vector.}
-}
-\if{html}{\out{</div>}}
-}
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
-\item{\code{._key}}{The encryption key.}
-
-\item{\code{._iv}}{The initialization vector.}
+\item{\code{iv}}{The initialization vector (IV) as a 16-byte raw vector.}
 }
 \if{html}{\out{</div>}}
 }
@@ -73,6 +64,15 @@ The objects of this class are cloneable with this method.
 \if{html}{\out{</div>}}
 }
 }
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{key}}{The encryption key.}
+
+\item{\code{iv}}{The initialization vector.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

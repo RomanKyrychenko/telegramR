@@ -3,11 +3,6 @@
 \name{AbridgedPacketCodec}
 \alias{AbridgedPacketCodec}
 \title{AbridgedPacketCodec}
-\value{
-A raw vector containing the encoded packet with the length prefix.
-
-A promise that resolves to the decoded packet.
-}
 \description{
 An R6 class that implements the Abridged Packet Codec for encoding and decoding packets.
 }
@@ -54,6 +49,9 @@ Encodes a packet by adding a length prefix.
 }
 \if{html}{\out{</div>}}
 }
+\subsection{Returns}{
+A raw vector containing the encoded packet with the length prefix.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-AbridgedPacketCodec-read_packet"></a>}}
@@ -70,6 +68,9 @@ Reads and decodes a packet from a reader.
 \item{\code{reader}}{An object with a `readexactly` method to read a specific number of bytes.}
 }
 \if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A promise that resolves to the decoded packet.
 }
 }
 \if{html}{\out{<hr>}}

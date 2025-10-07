@@ -6,6 +6,23 @@
 \description{
 Connector for MTProxy, handling proxy connections and secret normalization.
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{secret}}{The MTProxy secret.}
+
+\item{\code{dc_id}}{The data center identifier.}
+
+\item{\code{reader}}{The reader object.}
+
+\item{\code{writer}}{The writer object.}
+
+\item{\code{loggers}}{Optional loggers.}
+
+\item{\code{packet_codec}}{The packet codec used for this connection.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

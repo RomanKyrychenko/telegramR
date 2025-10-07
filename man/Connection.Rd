@@ -18,6 +18,13 @@ This module provides connection handling for Telegram API communications.
 It relies on the future package for asynchronous operations and R6 for
 object-oriented programming.
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{packet_codec}}{The packet codec class to use for this connection.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

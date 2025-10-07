@@ -9,6 +9,13 @@ Base class for obfuscated connections (e.g., obfuscated2, mtproto proxy).
 \section{Super class}{
 \code{\link[telegramR:Connection]{telegramR::Connection}} -> \code{ObfuscatedConnection}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{obfuscated_io}}{The obfuscation class to use.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

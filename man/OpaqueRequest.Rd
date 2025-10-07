@@ -11,6 +11,13 @@ Opaque Request Class
 \details{
 Wraps a serialized request into a type that can be serialized again.
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{data}}{Raw vector of serialized request data}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

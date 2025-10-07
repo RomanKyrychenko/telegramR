@@ -4,8 +4,6 @@
 \alias{IntermediatePacketCodec}
 \title{IntermediatePacketCodec}
 \value{
-A raw vector that starts with a 4-byte little-endian length prefix followed by the data.
-
 A raw vector representing the packet data.
 }
 \description{

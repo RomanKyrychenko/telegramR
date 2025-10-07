@@ -14,6 +14,35 @@ An R6 class that combines functionality from multiple method classes to interact
 \section{Super class}{
 \code{\link[telegramR:TelegramBaseClient]{telegramR::TelegramBaseClient}} -> \code{TelegramClient}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{account}}{An instance of AccountMethods for account-related operations}
+
+\item{\code{auth}}{An instance of AuthMethods for authentication-related operations}
+
+\item{\code{download}}{An instance of DownloadMethods for downloading media}
+
+\item{\code{dialog}}{An instance of DialogMethods for dialog-related operations}
+
+\item{\code{chat}}{An instance of ChatMethods for chat-related operations}
+
+\item{\code{bot}}{An instance of BotMethods for bot-related operations}
+
+\item{\code{message}}{An instance of MessageMethods for message-related operations}
+
+\item{\code{upload}}{An instance of UploadMethods for uploading media}
+
+\item{\code{button}}{An instance of ButtonMethods for button-related operations}
+
+\item{\code{update}}{An instance of UpdateMethods for update-related operations}
+
+\item{\code{parser}}{An instance of MessageParseMethods for parsing messages}
+
+\item{\code{user}}{An instance of UserMethods for user-related operations}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

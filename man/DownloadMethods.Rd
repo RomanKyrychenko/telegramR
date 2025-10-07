@@ -148,6 +148,34 @@ Internal method to download a file
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{input_location}}{The file location}
+
+\item{\code{file}}{Output file path or NULL for auto-naming}
+
+\item{\code{part_size_kb}}{Chunk size when downloading files}
+
+\item{\code{file_size}}{The file size if known}
+
+\item{\code{progress_callback}}{Function called with progress updates}
+
+\item{\code{dc_id}}{Data center ID}
+
+\item{\code{key}}{Encryption key if needed}
+
+\item{\code{iv}}{Encryption IV if needed}
+
+\item{\code{msg_data}}{Message data if applicable}
+
+\item{\code{cdn_redirect}}{CDN redirect if applicable}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+Downloaded file data or path
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DownloadMethods-iter_download"></a>}}
@@ -212,6 +240,34 @@ Internal implementation of iter_download
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{file}}{The file to download}
+
+\item{\code{offset}}{Starting offset}
+
+\item{\code{stride}}{Stride between chunks}
+
+\item{\code{limit}}{Maximum number of chunks to download}
+
+\item{\code{chunk_size}}{Size of each chunk}
+
+\item{\code{request_size}}{Size of each request}
+
+\item{\code{file_size}}{Total file size if known}
+
+\item{\code{dc_id}}{Data center ID}
+
+\item{\code{msg_data}}{Message data if applicable}
+
+\item{\code{cdn_redirect}}{CDN redirect if applicable}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+Iterator for file chunks
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DownloadMethods-get_thumb"></a>}}
@@ -222,6 +278,19 @@ Get the appropriate thumbnail from thumbs
 \if{html}{\out{<div class="r">}}\preformatted{DownloadMethods$get_thumb(thumbs, thumb)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{thumbs}}{List of available thumbnails}
+
+\item{\code{thumb}}{Which thumbnail to get (NULL for largest, integer index,
+string type, or PhotoSize/VideoSize object)}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+The selected thumbnail or NULL if none found
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DownloadMethods-download_cached_photo_size"></a>}}

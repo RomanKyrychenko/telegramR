@@ -18,15 +18,7 @@ bot_methods <- BotMethods$new(client)
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{description}}{A description of the bot methods.
-Initialize the BotMethods class with a Telegram client instance.}
-}
-\if{html}{\out{</div>}}
-}
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
-\item{\code{description}}{A description of the bot methods.
+\item{\code{client}}{The Telegram client instance.
 Initialize the BotMethods class with a Telegram client instance.}
 }
 \if{html}{\out{</div>}}

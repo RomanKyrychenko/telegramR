@@ -30,6 +30,7 @@ This class implements an HTTP connection using the HTTP packet codec.
 \if{html}{\out{<a id="method-ConnectionHttp-connect"></a>}}
 \if{latex}{\out{\hypertarget{method-ConnectionHttp-connect}{}}}
 \subsection{Method \code{connect()}}{
+This method connects to the server using SSL if the port equals \code{SSL_PORT}.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ConnectionHttp$connect(timeout = NULL, ssl = NULL)}\if{html}{\out{</div>}}
 }

@@ -9,6 +9,13 @@ Connects to an MTProxy server using the intermediate protocol.
 \section{Super class}{
 \code{\link[telegramR:TcpMTProxy]{telegramR::TcpMTProxy}} -> \code{ConnectionTcpMTProxyIntermediate}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{packet_codec}}{The packet codec used for this connection.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

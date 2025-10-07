@@ -6,8 +6,16 @@
 \description{
 R6 class representing a request to destroy the authentication key.
 Contains methods for serialization to list and bytes.
-Convert to list representation
-Serialize to raw bytes
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the request}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the request
+Convert to list representation}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -25,6 +33,10 @@ Serialize to raw bytes
 \if{html}{\out{<div class="r">}}\preformatted{DestroyAuthKeyRequest$to_list()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A list representation of the DestroyAuthKeyRequest
+Serialize to raw bytes
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DestroyAuthKeyRequest-to_bytes"></a>}}
@@ -34,6 +46,9 @@ Serialize to raw bytes
 \if{html}{\out{<div class="r">}}\preformatted{DestroyAuthKeyRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A raw vector representing the serialized DestroyAuthKeyRequest
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DestroyAuthKeyRequest-clone"></a>}}

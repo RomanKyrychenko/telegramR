@@ -7,6 +7,19 @@
 Manages the state needed for MTProto encryption, including message IDs,
 sequence numbers, and server salt.
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{auth_key}}{Authentication key for encryption}
+
+\item{\code{time_offset}}{Time offset between local and server time}
+
+\item{\code{salt}}{Current server salt}
+
+\item{\code{id}}{Current session ID}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

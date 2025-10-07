@@ -6,6 +6,21 @@
 \description{
 Handles MTProxy header initialization and I/O encryption/decryption.
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{header}}{The MTProxy header.}
+
+\item{\code{encryptor}}{The AESModeCTR encryptor.}
+
+\item{\code{decryptor}}{The AESModeCTR decryptor.}
+
+\item{\code{reader}}{The reader object.}
+
+\item{\code{writer}}{The writer object.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

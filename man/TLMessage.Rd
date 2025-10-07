@@ -23,6 +23,17 @@ msg$to_dict()
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{TLMessage}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{msg_id}}{The message ID (numeric).}
+
+\item{\code{seq_no}}{The sequence number (numeric).}
+
+\item{\code{obj}}{The object representing the content of the message.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
