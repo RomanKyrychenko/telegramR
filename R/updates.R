@@ -1,7 +1,4 @@
-library(R6)
-library(future)
-library(promises)
-
+#' @import promises
 #' Helper functions to simulate Python functionality
 #'
 #' These functions are used to simulate Python's asyncio and threading behavior in R.
@@ -18,7 +15,7 @@ is_typing <- FALSE
 #' @description
 #' Handles updates and events for the Telegram client.
 #' @export
-UpdateMethods <- R6Class("UpdateMethods",
+UpdateMethods <- R6::R6Class("UpdateMethods",
   public = list(
     # Region Public methods
 
@@ -35,7 +32,7 @@ UpdateMethods <- R6Class("UpdateMethods",
     #' @return A promise that resolves when disconnected.
     run_until_disconnected = function() {
       return(
-        future( {
+        future::future( {
           # Make a high-level request to notify that we want updates
           private$self(functions$updates$GetStateRequest())
           result <- private$self$disconnected
@@ -59,7 +56,7 @@ UpdateMethods <- R6Class("UpdateMethods",
     #' @return A promise that resolves when the updates are set.
     set_receive_updates = function(receive_updates) {
       return(
-        future( {
+        future::future( {
           private$self$no_updates <- !receive_updates
           if (receive_updates) {
             private$self(functions$updates$GetStateRequest())
@@ -147,7 +144,7 @@ UpdateMethods <- R6Class("UpdateMethods",
     #' @return A promise that resolves when caught up.
     catch_up = function() {
       return(
-        future( {
+        future::future( {
           private$self$updates_queue$put(types$UpdatesTooLong())
         }
       ))
@@ -160,7 +157,7 @@ UpdateMethods <- R6Class("UpdateMethods",
     #' @return A promise that resolves when the loop is finished.
     update_loop = function() {
       return(
-        future( {
+        future::future( {
           # If the MessageBox is not empty, the account had to be logged-in to fill in its state.
           # This flag is used to propagate the "you got logged-out" error up (but getting logged-out
           # can only happen if it was once logged-in).
@@ -353,7 +350,7 @@ UpdateMethods <- R6Class("UpdateMethods",
     #' @return A promise that resolves when the ping is sent.
     keepalive_loop = function() {
       return(
-        future( {
+        future::future( {
           # Pings' ID don't really need to be secure, just "random"
           rnd <- function() {
             sample(-2^31:2^31, 1)  # R has smaller integer range than Python
@@ -409,7 +406,7 @@ UpdateMethods <- R6Class("UpdateMethods",
     #' @return A promise that resolves when the update is dispatched.
     dispatch_update = function(update) {
       return(
-        future( {
+        future::future( {
           # TODO only used for AlbumHack
           others <- NULL
 
@@ -506,7 +503,7 @@ UpdateMethods <- R6Class("UpdateMethods",
     #' @return A promise that resolves when the auto-reconnect is handled.
     handle_auto_reconnect = function() {
       return(
-        future( {
+        future::future( {
           # Make a high-level request to let Telegram know we are still interested in updates
           tryCatch({
             private$self$get_me()
@@ -525,7 +522,7 @@ UpdateMethods <- R6Class("UpdateMethods",
 #' @description
 #' Handles the building of events from updates and other data.
 #' @export
-EventBuilderDict <- R6Class("EventBuilderDict",
+EventBuilderDict <- R6::R6Class("EventBuilderDict",
   public = list(
 
     #' @field client The Telegram client instance.
