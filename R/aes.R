@@ -23,6 +23,9 @@ AES <- R6::R6Class(
     #' iv <- as.raw(rep(0x02, 32))
     #' aes$decrypt_ige(cipher_text, key, iv)
     decrypt_ige = function(cipher_text, key, iv) {
+      if (length(cipher_text) %% 16 != 0) {
+        stop("Invalid input length: must be a multiple of 16 bytes.")
+      }
       iv1 <- iv[1:(length(iv) / 2)]
       iv2 <- iv[(length(iv) / 2 + 1):length(iv)]
 
