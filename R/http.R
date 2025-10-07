@@ -8,15 +8,21 @@ SSL_PORT <- 443
 HttpPacketCodec <- R6::R6Class("HttpPacketCodec",
   inherit = PacketCodec,
   public = list(
+
+    #' @field tag A raw vector representing the tag for the codec.
     tag = NULL,
+
+    #' @field obfuscate_tag A raw vector used for obfuscation.
     obfuscate_tag = NULL,
 
     #' @description Encode a packet using HTTP format.
     #' @param data A raw vector containing the data to encode.
     #' @return A raw vector representing the full HTTP packet.
     encode_packet = function(data) {
-      header <- sprintf("POST /api HTTP/1.1\r\nHost: %s:%s\r\nContent-Type: application/x-www-form-urlencoded\r\nConnection: keep-alive\r\nKeep-Alive: timeout=100000, max=10000000\r\nContent-Length: %d\r\n\r\n",
-                        self$._conn$ip, self$._conn$port, length(data))
+      header <- sprintf(
+        "POST /api HTTP/1.1\r\nHost: %s:%s\r\nContent-Type: application/x-www-form-urlencoded\r\nConnection: keep-alive\r\nKeep-Alive: timeout=100000, max=10000000\r\nContent-Length: %d\r\n\r\n",
+        self$._conn$ip, self$._conn$port, length(data)
+      )
       header_raw <- charToRaw(header)
       c(header_raw, data)
     },
@@ -59,9 +65,7 @@ ConnectionHttp <- R6::R6Class("ConnectionHttp",
   public = list(
 
     #' Asynchronously connect to a server.
-    #'
-    #' This method connects to the server using SSL if the port equals \code{SSL_PORT}.
-    #'
+    #' @description This method connects to the server using SSL if the port equals \code{SSL_PORT}.
     #' @param timeout Optional timeout for the connection.
     #' @param ssl Optional SSL parameter (ignored in favor of port-based selection).
     #' @return A future resolving when the connection is established.
