@@ -5,10 +5,20 @@
 #' @export
 ObfuscatedIO <- R6Class("ObfuscatedIO",
   public = list(
+
+    #' @field header The obfuscation header as a raw vector.
     header = NULL,
+
+    #' @field `_encrypt` The AESModeCTR encryptor object.
     `_encrypt` = NULL,
+
+    #' @field `_decrypt` The AESModeCTR decryptor object.
     `_decrypt` = NULL,
+
+    #' @field `_reader` The reader connection object.
     `_reader` = NULL,
+
+    #' @field `_writer` The writer connection object.
     `_writer` = NULL,
 
     #' @description Initialize ObfuscatedIO.
