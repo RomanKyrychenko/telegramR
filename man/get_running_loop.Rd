@@ -17,6 +17,8 @@ A promise object or NULL.
 \description{
 get_running_loop function
 Get or create a running event loop (cluster) for asynchronous operations.
+
+The `get_running_loop` function simulates getting the current event loop.
 }
 \examples{
 # loop <- get_running_loop()

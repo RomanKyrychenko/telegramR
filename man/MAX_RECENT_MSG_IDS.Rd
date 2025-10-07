@@ -3,7 +3,7 @@
 \docType{data}
 \name{MAX_RECENT_MSG_IDS}
 \alias{MAX_RECENT_MSG_IDS}
-\title{MTProtoState Class}
+\title{Constants}
 \format{
 An object of class \code{numeric} of length 1.
 }
@@ -11,13 +11,6 @@ An object of class \code{numeric} of length 1.
 MAX_RECENT_MSG_IDS
 }
 \description{
-This class manages the state needed by MTProtoSender for encrypting and
-decrypting incoming/outgoing messages and generating message IDs.
-}
-\details{
-MTProtoState handles authentication key management, message sequencing,
-and encryption/decryption required by Telegram's MTProto protocol.
-It is not concerned with storing information to disk, as users may create
-multiple senders for different data centers or CDNs.
+Constants
 }
 \keyword{datasets}
