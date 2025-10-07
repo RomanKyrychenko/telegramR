@@ -2,19 +2,16 @@
 #' @description A codec for intermediate TCP packets.
 #' @details Encodes packets by prepending a 4-byte little-endian length prefix.
 #' @inherit PacketCodec
-#' @field tag A raw vector representing the tag for the codec.
-#' @field obfuscate_tag A raw vector used for obfuscation.
-#' @method encode_packet Encodes a packet by adding a 4-byte length prefix.
-#' @param data A raw vector containing the packet data.
-#' @return A raw vector that starts with a 4-byte little-endian length prefix followed by the data.
-#' @method read_packet Reads and decodes a packet from a reader.
-#' @param reader An object with a `readexactly` method.
 #' @return A raw vector representing the packet data.
 #' @export
 IntermediatePacketCodec <- R6::R6Class("IntermediatePacketCodec",
   inherit = PacketCodec,
   public = list(
+
+    #' @field tag A raw vector representing the tag for the codec.
     tag = as.raw(c(0xee, 0xee, 0xee, 0xee)),
+
+    #' @field obfuscate_tag A raw vector used for obfuscation.
     obfuscate_tag = as.raw(c(0xee, 0xee, 0xee, 0xee)),
 
     #' @description Encodes the packet.
@@ -39,17 +36,15 @@ IntermediatePacketCodec <- R6::R6Class("IntermediatePacketCodec",
 #' @title RandomizedIntermediatePacketCodec
 #' @description A codec that adds random padding to align packets to 4 bytes.
 #' @inherit IntermediatePacketCodec
-#' @method encode_packet Encodes the packet with random padding.
-#' @param data A raw vector containing the packet data.
-#' @return A raw vector with a 4-byte length prefix and random padding.
-#' @method read_packet Reads a packet and removes any trailing random padding.
-#' @param reader An object with a `readexactly` method.
-#' @return A raw vector representing the original packet data without padding.
 #' @export
 RandomizedIntermediatePacketCodec <- R6::R6Class("RandomizedIntermediatePacketCodec",
   inherit = IntermediatePacketCodec,
   public = list(
+
+    #' @field tag A raw vector representing the tag for the codec.
     tag = NULL,
+
+    #' @field obfuscate_tag A raw vector used for obfuscation.
     obfuscate_tag = as.raw(c(0xdd, 0xdd, 0xdd, 0xdd)),
 
     #' @description Encodes the packet with random padding.
@@ -83,8 +78,6 @@ RandomizedIntermediatePacketCodec <- R6::R6Class("RandomizedIntermediatePacketCo
 #' @description Intermediate mode between ConnectionTcpFull and ConnectionTcpAbridged.
 #' @details Always sends 4 extra bytes for the packet length.
 #' @inherit Connection
-#' @method initialize Initializes the intermediate TCP connection.
-#' @param ... Additional parameters passed to the parent constructor.
 #' @export
 ConnectionTcpIntermediate <- R6::R6Class("ConnectionTcpIntermediate",
   inherit = Connection,
