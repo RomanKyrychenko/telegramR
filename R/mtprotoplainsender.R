@@ -1,13 +1,9 @@
 #' This module contains the class used to communicate with Telegram's servers
 #' in plain text, when no authorization key has been created yet.
-#' @import R6
-#' @import future
-#' @import promises
-#' @import stringr
 #' @description
 #' MTProto Mobile Protocol plain sender  - (https://core.telegram.org/mtproto/description#unencrypted-messages)
 #' @export
-MTProtoPlainSender <- R6Class("MTProtoPlainSender",
+MTProtoPlainSender <- R6::R6Class("MTProtoPlainSender",
   public = list(
 
     #' @description Initializes the MTProto plain sender.
@@ -21,7 +17,7 @@ MTProtoPlainSender <- R6Class("MTProtoPlainSender",
     #' @param request The request to send.
     #' @return The response object.
     send = function(request) {
-      future_promise({
+      promises::future_promise({
         body <- as.raw(request)
         msg_id <- private$state$get_new_msg_id()
 
