@@ -12,8 +12,13 @@ TLMessage <- R6::R6Class(
   inherit = TLObject,
   public = list(
 
+    #' @field msg_id The message ID (numeric).
     msg_id = NULL,
+
+    #' @field seq_no The sequence number (numeric).
     seq_no = NULL,
+
+    #' @field obj The object representing the content of the message.
     obj = NULL,
 
     #' @description
