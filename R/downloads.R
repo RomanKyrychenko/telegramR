@@ -1,10 +1,5 @@
-# Import required packages
-library(R6)
-library(future)
-library(promises)
-library(httr)
-library(tools)
-library(digest)
+#' @import future
+#' @import promises
 
 # Constants for file operations
 MIN_CHUNK_SIZE <- 4096
@@ -517,6 +512,17 @@ DownloadMethods <- R6::R6Class(
     },
 
     #' @description Internal method to download a file
+    #' @param input_location The file location
+    #' @param file Output file path or NULL for auto-naming
+    #' @param part_size_kb Chunk size when downloading files
+    #' @param file_size The file size if known
+    #' @param progress_callback Function called with progress updates
+    #' @param dc_id Data center ID
+    #' @param key Encryption key if needed
+    #' @param iv Encryption IV if needed
+    #' @param msg_data Message data if applicable
+    #' @param cdn_redirect CDN redirect if applicable
+    #' @return Downloaded file data or path
     .download_file = function(input_location, file = NULL, part_size_kb = NULL,
                              file_size = NULL, progress_callback = NULL,
                              dc_id = NULL, key = NULL, iv = NULL,
@@ -642,6 +648,17 @@ DownloadMethods <- R6::R6Class(
     },
 
     #' @description Internal implementation of iter_download
+    #' @param file The file to download
+    #' @param offset Starting offset
+    #' @param stride Stride between chunks
+    #' @param limit Maximum number of chunks to download
+    #' @param chunk_size Size of each chunk
+    #' @param request_size Size of each request
+    #' @param file_size Total file size if known
+    #' @param dc_id Data center ID
+    #' @param msg_data Message data if applicable
+    #' @param cdn_redirect CDN redirect if applicable
+    #' @return Iterator for file chunks
     .iter_download = function(file, offset = 0, stride = NULL, limit = NULL,
                              chunk_size = NULL, request_size = MAX_CHUNK_SIZE,
                              file_size = NULL, dc_id = NULL,
@@ -716,6 +733,10 @@ DownloadMethods <- R6::R6Class(
     },
 
     #' @description Get the appropriate thumbnail from thumbs
+    #' @param thumbs List of available thumbnails
+    #' @param thumb Which thumbnail to get (NULL for largest, integer index,
+    #'              string type, or PhotoSize/VideoSize object)
+    #' @return The selected thumbnail or NULL if none found
     get_thumb = function(thumbs, thumb) {
       if (length(thumbs) == 0) {
         return(NULL)
