@@ -15,8 +15,7 @@ BotMethods <- R6::R6Class(
   "BotMethods",
   public = list(
 
-    #' @field description
-    #' A description of the bot methods.
+    #' @field client The Telegram client instance.
     client = NULL,
 
     #' Initialize the BotMethods class with a Telegram client instance.
