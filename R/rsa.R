@@ -12,6 +12,7 @@ server_keys <- list()
 #'
 #' @param integer The integer to convert.
 #' @return A raw vector representing the byte array.
+#' @export
 get_byte_array <- function(integer) {
   as.raw(intToBits(integer)[1:ceiling(log2(integer + 1) / 8) * 8])
 }
