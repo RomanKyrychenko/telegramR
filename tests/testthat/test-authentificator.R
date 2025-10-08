@@ -103,7 +103,7 @@ test_that("throws error when Diffie-Hellman values are out of range", {
   mock_modexp <- function(base, exp, mod) {
     if (base == 2) return(mod + 1) else return(as.integer((base ^ exp) %% mod))
   }
-  with_mock(modexp = mock_modexp, {
+  with_mocked_bindings(modexp = mock_modexp, {
     expect_error(do_authentication(sender), "Diffie-Hellman values are not in the valid range")
   })
 })
