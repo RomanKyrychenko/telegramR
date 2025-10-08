@@ -47,7 +47,7 @@ AuthKey <- R6::R6Class(
     #' @param other An instance of AuthKey to compare with.
     #' @return A logical value indicating whether the keys are equal.
     equals = function(other) {
-      return(inherits(other, "AuthKey") && identical(other$.key, private$.key))
+      return(inherits(other, "AuthKey") && identical(other$active_key, private$.key))
     }
   ),
   active = list(
