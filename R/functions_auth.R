@@ -725,7 +725,7 @@ ExportLoginTokenRequest <- R6::R6Class(
       api_hash_val <- reader$tgread_string()
 
       # read and ignore vector constructor id (int), then read count and longs
-      _vector_constructor <- reader$read_int()
+      .vector_constructor <- reader$read_int()
       count_val <- reader$read_int()
       ids_val <- numeric(0)
       if (count_val > 0) {
