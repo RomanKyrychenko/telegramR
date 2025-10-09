@@ -1,5 +1,7 @@
-creates_telegram_client_with_all_components <- function() {
-  client <- mock()
+test_that("creates Telegram client with all components", {
+  # use a simple dummy function instead of mockery::mock()
+  client <- function(...) {}
+
   telegram_client <- TelegramClient$new(client = client)
 
   expect_true(inherits(telegram_client$account, "AccountMethods"))
@@ -14,24 +16,20 @@ creates_telegram_client_with_all_components <- function() {
   expect_true(inherits(telegram_client$update, "UpdateMethods"))
   expect_true(inherits(telegram_client$parser, "MessageParseMethods"))
   expect_true(inherits(telegram_client$user, "UserMethods"))
-}
+})
 
-throws_error_when_initialization_fails <- function() {
+test_that("throws error when initialization fails", {
   client <- NULL
 
   expect_error(TelegramClient$new(client = client), "attempt to apply non-function")
-}
+})
 
-throws_error_when_initialization_fails <- function() {
-  client <- NULL
+test_that("creates Telegram client with minimal components", {
+  # use a simple dummy function instead of mockery::mock()
+  client <- function(...) {}
 
-  expect_error(TelegramClient$new(client = client), "attempt to apply non-function")
-}
-
-creates_telegram_client_with_minimal_components <- function() {
-  client <- mock()
   telegram_client <- TelegramClient$new(client = client)
 
   expect_true(inherits(telegram_client$auth, "AuthMethods"))
   expect_true(inherits(telegram_client$message, "MessageMethods"))
-}
+})
