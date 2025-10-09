@@ -13455,7 +13455,7 @@ SetChatWallPaperRequest <- R6::R6Class(
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
-      self$peer <- utils$get_input_peer(await client$get_input_entity(self$peer))
+      self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
     #' @description Convert the object to a dictionary.
@@ -13936,7 +13936,7 @@ SetInlineGameScoreRequest <- R6::R6Class(
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
-      self$user_id <- utils$get_input_user(await client$get_input_entity(self$user_id))
+      self$user_id <- utils$get_input_user(client$get_input_entity(self$user_id))
     },
 
     #' @description Convert the object to a dictionary.
@@ -14011,7 +14011,7 @@ SetTypingRequest <- R6::R6Class(
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
-      self$peer <- utils$get_input_peer(await client$get_input_entity(self$peer))
+      self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
     #' @description Convert the object to a dictionary.
@@ -14088,8 +14088,8 @@ StartBotRequest <- R6::R6Class(
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
-      self$bot <- utils$get_input_user(await client$get_input_entity(self$bot))
-      self$peer <- utils$get_input_peer(await client$get_input_entity(self$peer))
+      self$bot <- utils$get_input_user(client$get_input_entity(self$bot))
+      self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
     #' @description Convert the object to a dictionary.
@@ -14156,7 +14156,7 @@ StartHistoryImportRequest <- R6::R6Class(
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
-      self$peer <- utils$get_input_peer(await client$get_input_entity(self$peer))
+      self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
     #' @description Convert the object to a dictionary.
@@ -14219,7 +14219,7 @@ ToggleBotInAttachMenuRequest <- R6::R6Class(
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
-      self$bot <- utils$get_input_user(await client$get_input_entity(self$bot))
+      self$bot <- utils$get_input_user(client$get_input_entity(self$bot))
     },
 
     #' @description Convert the object to a dictionary.
@@ -14336,7 +14336,7 @@ ToggleDialogPinRequest <- R6::R6Class(
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
-      self$peer <- client$_get_input_dialog(self$peer)
+      self$peer <- client$get_input_dialog(self$peer)
     },
 
     #' @description Convert the object to a dictionary.
@@ -14592,7 +14592,7 @@ ToggleSavedDialogPinRequest <- R6::R6Class(
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
-      self$peer <- client$_get_input_dialog(self$peer)
+      self$peer <- client$get_input_dialog(self$peer)
     },
 
     #' @description Convert the object to a dictionary.
