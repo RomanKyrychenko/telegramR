@@ -207,8 +207,8 @@ BotCancelStarsSubscriptionRequest <- R6::R6Class(
     #' @description Resolve the user_id using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$user_id <- utils$get_input_user(await(client$get_input_entity(self$user_id)))
+    resolve = function(client, utils) {
+      self$user_id <- utils$get_input_user((client$get_input_entity(self$user_id)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -336,8 +336,8 @@ ChangeStarsSubscriptionRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -576,9 +576,9 @@ ConnectStarRefBotRequest <- R6::R6Class(
     #' @description Resolve the peer and bot using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
-      self$bot <- utils$get_input_user(await(client$get_input_entity(self$bot)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
+      self$bot <- utils$get_input_user((client$get_input_entity(self$bot)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -701,8 +701,8 @@ CreateStarGiftCollectionRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -773,8 +773,8 @@ DeleteStarGiftCollectionRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -845,8 +845,8 @@ EditConnectedStarRefBotRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -911,7 +911,7 @@ ExportInvoiceRequest <- R6::R6Class(
     #' @description Resolve the invoice_media using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
+    resolve = function(client, utils) {
       self$invoice_media <- utils$get_input_media(self$invoice_media)
     },
 
@@ -976,8 +976,8 @@ FulfillStarsSubscriptionRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -1096,9 +1096,9 @@ GetConnectedStarRefBotRequest <- R6::R6Class(
     #' @description Resolve the peer and bot using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
-      self$bot <- utils$get_input_user(await(client$get_input_entity(self$bot)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
+      self$bot <- utils$get_input_user((client$get_input_entity(self$bot)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -1174,8 +1174,8 @@ GetConnectedStarRefBotsRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -1251,8 +1251,8 @@ GetGiveawayInfoRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -1381,8 +1381,8 @@ GetPaymentReceiptRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -1443,9 +1443,9 @@ GetPremiumGiftCodeOptionsRequest <- R6::R6Class(
     #' @description Resolve the boost_peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
+    resolve = function(client, utils) {
       if (!is.null(self$boost_peer)) {
-        self$boost_peer <- utils$get_input_peer(await(client$get_input_entity(self$boost_peer)))
+        self$boost_peer <- utils$get_input_peer((client$get_input_entity(self$boost_peer)))
       }
     },
 
@@ -1767,8 +1767,8 @@ GetSavedStarGiftsRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -1864,8 +1864,8 @@ GetStarGiftCollectionsRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -2092,9 +2092,9 @@ GetStarsGiftOptionsRequest <- R6::R6Class(
     #' @description Resolve the user_id using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
+    resolve = function(client, utils) {
       if (!is.null(self$user_id)) {
-        self$user_id <- utils$get_input_user(await(client$get_input_entity(self$user_id)))
+        self$user_id <- utils$get_input_user((client$get_input_entity(self$user_id)))
       }
     },
 
@@ -2192,8 +2192,8 @@ GetStarsRevenueAdsAccountUrlRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -2262,8 +2262,8 @@ GetStarsRevenueStatsRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -2342,8 +2342,8 @@ GetStarsRevenueWithdrawalUrlRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -2417,8 +2417,8 @@ GetStarsStatusRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -2490,8 +2490,8 @@ GetStarsSubscriptionsRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -2629,8 +2629,8 @@ GetStarsTransactionsRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -2723,8 +2723,8 @@ GetStarsTransactionsByIDRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -2810,8 +2810,8 @@ GetSuggestedStarRefBotsRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -2996,8 +2996,8 @@ LaunchPrepaidGiveawayRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -3067,8 +3067,8 @@ RefundStarsChargeRequest <- R6::R6Class(
     #' @description Resolve the user_id using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$user_id <- utils$get_input_user(await(client$get_input_entity(self$user_id)))
+    resolve = function(client, utils) {
+      self$user_id <- utils$get_input_user((client$get_input_entity(self$user_id)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -3134,8 +3134,8 @@ ReorderStarGiftCollectionsRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
@@ -3646,8 +3646,8 @@ UpdateStarGiftCollectionRequest <- R6::R6Class(
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer((client$get_input_entity(self$peer)))
     },
 
     #' @description Convert the object to a dictionary-like list.
