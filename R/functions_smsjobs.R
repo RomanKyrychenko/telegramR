@@ -1,0 +1,375 @@
+#' FinishJobRequest R6 class
+#'
+#' Representation of the FinishJobRequest TLRequest.
+#'
+#' Fields:
+#' - job_id: character
+#' - error: character or NULL
+#'
+#' Methods:
+#' - new(job_id, error = NULL): create instance
+#' - to_list(): return a list representation
+#' - bytes(): return raw bytes for the TL constructor (includes flags and serialized fields)
+#' - from_reader(reader): class method to construct from a reader
+#'
+#' @param job_id character
+#' @param error character or NULL
+#' @export
+FinishJobRequest <- R6::R6Class(
+  "FinishJobRequest",
+  public = list(
+    job_id = NULL,
+    error = NULL,
+
+    #' Initialize a FinishJobRequest
+    #' @param job_id character
+    #' @param error character or NULL
+    #' @return self
+    initialize = function(job_id, error = NULL) {
+      if (!missing(job_id) && !is.null(job_id)) {
+        job_id <- as.character(job_id)
+      }
+      if (!is.null(error)) {
+        error <- as.character(error)
+      }
+      self$job_id <- job_id
+      self$error <- error
+      invisible(self)
+    },
+
+    #' Convert to list (dictionary-like)
+    #' @return list
+    to_list = function() {
+      list(
+        `_` = "FinishJobRequest",
+        job_id = self$job_id,
+        error = self$error
+      )
+    },
+
+    #' Get raw bytes for this constructor
+    #' @return raw vector
+    #' @details Encodes constructor id, flags (bit 0 for error), job_id and optional error.
+    bytes = function() {
+      # constructor id bytes as in Python: b'$\xbf\x1eO' -> 0x24 0xbf 0x1e 0x4f
+      ctor <- as.raw(c(0x24, 0xbf, 0x1e, 0x4f))
+      flag_val <- if (is.null(self$error) || identical(self$error, FALSE)) 0L else 1L
+      flags_bytes <- write_uint32_le(flag_val)
+      parts <- list(ctor, flags_bytes, serialize_bytes(self$job_id))
+      if (flag_val == 1L) {
+        parts <- c(parts, list(serialize_bytes(self$error)))
+      }
+      do.call(c, parts)
+    }
+  ),
+  lock_class = FALSE
+)
+
+# static/class method: from_reader
+FinishJobRequest$set("public", "from_reader", function(reader) {
+  # reader is expected to implement read_int() and tgread_string()
+  flags_val <- reader$read_int()
+  job_id_read <- reader$tgread_string()
+  if (bitwAnd(flags_val, 1L) != 0L) {
+    error_read <- reader$tgread_string()
+  } else {
+    error_read <- NULL
+  }
+  FinishJobRequest$new(job_id = job_id_read, error = error_read)
+})
+
+
+#' GetSmsJobRequest R6 class
+#'
+#' Representation of the GetSmsJobRequest TLRequest.
+#'
+#' Fields:
+#' - job_id: character
+#'
+#' Methods:
+#' - new(job_id): create instance
+#' - to_list(): return a list representation
+#' - bytes(): return raw bytes for the TL constructor (includes serialized job_id)
+#' - from_reader(reader): class method to construct from a reader
+#'
+#' @param job_id character
+#' @export
+GetSmsJobRequest <- R6::R6Class(
+  "GetSmsJobRequest",
+  public = list(
+    job_id = NULL,
+
+    #' Initialize a GetSmsJobRequest
+    #' @param job_id character
+    #' @return self
+    initialize = function(job_id) {
+      if (!missing(job_id) && !is.null(job_id)) {
+        job_id <- as.character(job_id)
+      }
+      self$job_id <- job_id
+      invisible(self)
+    },
+
+    #' Convert to list (dictionary-like)
+    #' @return list
+    to_list = function() {
+      list(
+        `_` = "GetSmsJobRequest",
+        job_id = self$job_id
+      )
+    },
+
+    #' Get raw bytes for this constructor
+    #' @return raw vector
+    #' @details This calls a helper serialize_bytes() to encode the job_id.
+    bytes = function() {
+      ctor <- as.raw(c(0x2f, 0x90, 0x8d, 0x77))
+      # serialize_bytes() is expected to be available in the package context
+      c(ctor, serialize_bytes(self$job_id))
+    }
+  ),
+  lock_class = FALSE
+)
+
+# static/class method: from_reader
+GetSmsJobRequest$set("public", "from_reader", function(reader) {
+  # reader is expected to implement tgread_string()
+  job_id <- reader$tgread_string()
+  GetSmsJobRequest$new(job_id = job_id)
+})
+
+
+#' GetStatusRequest R6 class
+#'
+#' Representation of the GetStatusRequest TLRequest.
+#'
+#' Methods:
+#' - new(): create instance
+#' - to_list(): return a list representation
+#' - bytes(): return raw bytes for the TL constructor
+#' - from_reader(reader): class method to construct from a reader
+#'
+#' @export
+GetStatusRequest <- R6::R6Class(
+  "GetStatusRequest",
+  public = list(
+    #' Initialize a GetStatusRequest
+    #' @return self
+    initialize = function() {
+      invisible(self)
+    },
+
+    #' Convert to list (dictionary-like)
+    #' @return list
+    to_list = function() {
+      list(`_` = "GetStatusRequest")
+    },
+
+    #' Get raw bytes for this constructor
+    #' @return raw vector
+    bytes = function() {
+      as.raw(c(0xe8, 0x98, 0xa6, 0x10))
+    }
+  ),
+  lock_class = FALSE
+)
+
+# static/class method: from_reader
+GetStatusRequest$set("public", "from_reader", function(reader) {
+  # nothing to read for this constructor
+  GetStatusRequest$new()
+})
+
+
+#' IsEligibleToJoinRequest R6 class
+#'
+#' Representation of the IsEligibleToJoinRequest TLRequest.
+#'
+#' Methods:
+#' - new(): create instance
+#' - to_list(): return a list representation
+#' - bytes(): return raw bytes for the TL constructor
+#' - from_reader(reader): class method to construct from a reader
+#'
+#' @export
+IsEligibleToJoinRequest <- R6::R6Class(
+  "IsEligibleToJoinRequest",
+  public = list(
+    #' Initialize an IsEligibleToJoinRequest
+    #' @return self
+    initialize = function() {
+      invisible(self)
+    },
+
+    #' Convert to list (dictionary-like)
+    #' @return list
+    to_list = function() {
+      list(`_` = "IsEligibleToJoinRequest")
+    },
+
+    #' Get raw bytes for this constructor
+    #' @return raw vector
+    bytes = function() {
+      as.raw(c(0xd0, 0x39, 0xdc, 0x0e))
+    }
+  ),
+  lock_class = FALSE
+)
+
+# static/class method: from_reader
+IsEligibleToJoinRequest$set("public", "from_reader", function(reader) {
+  # nothing to read for this constructor
+  IsEligibleToJoinRequest$new()
+})
+
+
+# Helper: write a 32-bit unsigned integer in little-endian as raw vector
+write_uint32_le <- function(x) {
+  con <- rawConnection(raw(0), "r+")
+  on.exit(close(con))
+  writeBin(as.integer(x), con, size = 4, endian = "little")
+  rawConnectionValue(con)
+}
+
+#' JoinRequest R6 class
+#'
+#' Representation of the JoinRequest TLRequest.
+#'
+#' Methods:
+#' - new(): create instance
+#' - to_list(): return a list representation
+#' - bytes(): return raw bytes for the TL constructor
+#' - from_reader(reader): class method to construct from a reader
+#'
+#' @export
+JoinRequest <- R6::R6Class(
+  "JoinRequest",
+  public = list(
+    #' Initialize a JoinRequest
+    #' @return self
+    initialize = function() {
+      invisible(self)
+    },
+
+    #' Convert to list (dictionary-like)
+    #' @return list
+    to_list = function() {
+      list(`_` = "JoinRequest")
+    },
+
+    #' Get raw bytes for this constructor
+    #' @return raw vector
+    bytes = function() {
+      as.raw(c(0x2d, 0xce, 0x4e, 0xa7))
+    }
+  ),
+  lock_class = FALSE
+)
+
+# static/class method: from_reader
+JoinRequest$set("public", "from_reader", function(reader) {
+  # reader is expected to have methods to read TL-serialized data; for JoinRequest nothing to read
+  JoinRequest$new()
+})
+
+
+#' LeaveRequest R6 class
+#'
+#' Representation of the LeaveRequest TLRequest.
+#'
+#' Methods:
+#' - new(): create instance
+#' - to_list(): return a list representation
+#' - bytes(): return raw bytes for the TL constructor
+#' - from_reader(reader): class method to construct from a reader
+#'
+#' @export
+LeaveRequest <- R6::R6Class(
+  "LeaveRequest",
+  public = list(
+    #' Initialize a LeaveRequest
+    #' @return self
+    initialize = function() {
+      invisible(self)
+    },
+
+    #' Convert to list (dictionary-like)
+    #' @return list
+    to_list = function() {
+      list(`_` = "LeaveRequest")
+    },
+
+    #' Get raw bytes for this constructor
+    #' @return raw vector
+    bytes = function() {
+      as.raw(c(0x73, 0xad, 0x98, 0x98))
+    }
+  ),
+  lock_class = FALSE
+)
+
+# static/class method: from_reader
+LeaveRequest$set("public", "from_reader", function(reader) {
+  LeaveRequest$new()
+})
+
+
+#' UpdateSettingsRequest R6 class
+#'
+#' Representation of the UpdateSettingsRequest TLRequest.
+#'
+#' Fields:
+#' - allow_international: logical or NULL
+#'
+#' Methods:
+#' - new(allow_international = NULL): create instance
+#' - to_list(): return a list representation
+#' - bytes(): return raw bytes for the TL constructor (includes flags)
+#' - from_reader(reader): class method to construct from a reader
+#'
+#' @param allow_international logical or NULL
+#' @export
+UpdateSettingsRequest <- R6::R6Class(
+  "UpdateSettingsRequest",
+  public = list(
+    allow_international = NULL,
+
+    #' Initialize UpdateSettingsRequest
+    #' @param allow_international logical or NULL
+    initialize = function(allow_international = NULL) {
+      if (!is.null(allow_international)) {
+        allow_international <- as.logical(allow_international)
+      }
+      self$allow_international <- allow_international
+      invisible(self)
+    },
+
+    #' Convert to list (dictionary-like)
+    #' @return list
+    to_list = function() {
+      list(
+        `_` = "UpdateSettingsRequest",
+        allow_international = self$allow_international
+      )
+    },
+
+    #' Get raw bytes for this constructor
+    #' @return raw vector
+    bytes = function() {
+      # constructor id bytes: b'\xbf\xa0?\t' -> 0xbf 0xa0 0x3f 0x09
+      ctor <- as.raw(c(0xbf, 0xa0, 0x3f, 0x09))
+      flag_val <- if (is.null(self$allow_international) || identical(self$allow_international, FALSE)) 0L else 1L
+      flags_bytes <- write_uint32_le(flag_val)
+      c(ctor, flags_bytes)
+    }
+  ),
+  lock_class = FALSE
+)
+
+# static/class method: from_reader
+UpdateSettingsRequest$set("public", "from_reader", function(reader) {
+  # reader is expected to implement read_int() returning a 32-bit integer
+  flags <- reader$read_int()
+  allow_international_read <- as.logical(bitwAnd(flags, 1L))
+  UpdateSettingsRequest$new(allow_international = allow_international_read)
+})
