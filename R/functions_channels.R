@@ -84,8 +84,8 @@ CheckUsernameRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -147,8 +147,8 @@ ConvertToGigagroupRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -341,10 +341,10 @@ CreateForumTopicRequest <- R6::R6Class(
     #' @description Resolve the channel and send_as entities.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       if (!is.null(self$send_as)) {
-        self$send_as <- utils$get_input_peer(await(client$get_input_entity(self$send_as)))
+        self$send_as <- utils$get_input_peer(client$get_input_entity(self$send_as))
       }
     },
 
@@ -424,8 +424,8 @@ DeactivateAllUsernamesRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -484,8 +484,8 @@ DeleteChannelRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -553,8 +553,8 @@ DeleteHistoryRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -625,8 +625,8 @@ DeleteMessagesRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -699,9 +699,9 @@ DeleteParticipantHistoryRequest <- R6::R6Class(
     #' @description Resolve the channel and participant entities.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
-      self$participant <- utils$get_input_peer(await(client$get_input_entity(self$participant)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      self$participant <- utils$get_input_peer(client$get_input_entity(self$participant))
     },
 
     #' @description Convert the object to a dictionary.
@@ -768,8 +768,8 @@ DeleteTopicHistoryRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -843,9 +843,9 @@ EditAdminRequest <- R6::R6Class(
     #' @description Resolve the channel and user_id entities.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
-      self$user_id <- utils$get_input_user(await(client$get_input_entity(self$user_id)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      self$user_id <- utils$get_input_user(client$get_input_entity(self$user_id))
     },
 
     #' @description Convert the object to a dictionary.
@@ -921,9 +921,9 @@ EditBannedRequest <- R6::R6Class(
     #' @description Resolve the channel and participant entities.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
-      self$participant <- utils$get_input_peer(await(client$get_input_entity(self$participant)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      self$participant <- utils$get_input_peer(client$get_input_entity(self$participant))
     },
 
     #' @description Convert the object to a dictionary.
@@ -997,9 +997,9 @@ EditCreatorRequest <- R6::R6Class(
     #' @description Resolve the channel and user_id entities.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
-      self$user_id <- utils$get_input_user(await(client$get_input_entity(self$user_id)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      self$user_id <- utils$get_input_user(client$get_input_entity(self$user_id))
     },
 
     #' @description Convert the object to a dictionary.
@@ -1084,8 +1084,8 @@ EditForumTopicRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -1173,8 +1173,8 @@ EditLocationRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -1244,8 +1244,8 @@ EditPhotoRequest <- R6::R6Class(
     #' @description Resolve the channel and photo entities.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       self$photo <- utils$get_input_chat_photo(self$photo)
     },
 
@@ -1312,8 +1312,8 @@ EditTitleRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -1387,8 +1387,8 @@ ExportMessageLinkRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -1483,12 +1483,12 @@ GetAdminLogRequest <- R6::R6Class(
     #' @description Resolve the channel and admins entities.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       if (!is.null(self$admins)) {
         tmp <- list()
         for (x in self$admins) {
-          tmp <- c(tmp, utils$get_input_user(await(client$get_input_entity(x))))
+          tmp <- c(tmp, utils$get_input_user(client$get_input_entity(x)))
         }
         self$admins <- tmp
       }
@@ -1648,9 +1648,9 @@ GetChannelRecommendationsRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
+    resolve = function(client, utils) {
       if (!is.null(self$channel)) {
-        self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+        self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       }
     },
 
@@ -1714,10 +1714,10 @@ GetChannelsRequest <- R6::R6Class(
     #' @description Resolve the channel entities.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
+    resolve = function(client, utils) {
       tmp <- list()
       for (x in self$id) {
-        tmp <- c(tmp, utils$get_input_channel(await(client$get_input_entity(x))))
+        tmp <- c(tmp, utils$get_input_channel(client$get_input_entity(x)))
       }
       self$id <- tmp
     },
@@ -1805,8 +1805,8 @@ GetForumTopicsRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -1887,8 +1887,8 @@ GetForumTopicsByIDRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -1958,8 +1958,8 @@ GetFullChannelRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -2163,8 +2163,8 @@ GetMessageAuthorRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -2230,8 +2230,8 @@ GetMessagesRequest <- R6::R6Class(
     #' @description Resolve the channel and messages entities.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       tmp <- list()
       for (x in self$id) {
         tmp <- c(tmp, utils$get_input_message(x))
@@ -2310,9 +2310,9 @@ GetParticipantRequest <- R6::R6Class(
     #' @description Resolve the channel and participant entities.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
-      self$participant <- utils$get_input_peer(await(client$get_input_entity(self$participant)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      self$participant <- utils$get_input_peer(client$get_input_entity(self$participant))
     },
 
     #' @description Convert the object to a dictionary.
@@ -2390,8 +2390,8 @@ GetParticipantsRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -2466,8 +2466,8 @@ GetSendAsRequest <- R6::R6Class(
     #' @description Resolve the peer entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$peer <- utils$get_input_peer(await(client$get_input_entity(self$peer)))
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
     #' @description Convert the object to a dictionary.
@@ -2536,11 +2536,11 @@ InviteToChannelRequest <- R6::R6Class(
     #' @description Resolve the channel and users entities.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       tmp <- list()
       for (x in self$users) {
-        tmp <- c(tmp, utils$get_input_user(await(client$get_input_entity(x))))
+        tmp <- c(tmp, utils$get_input_user(client$get_input_entity(x)))
       }
       self$users <- tmp
     },
@@ -2611,8 +2611,8 @@ JoinChannelRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -2671,8 +2671,8 @@ LeaveChannelRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -2736,8 +2736,8 @@ ReadHistoryRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -2803,8 +2803,8 @@ ReadMessageContentsRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -2882,8 +2882,8 @@ ReorderPinnedForumTopicsRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -2961,8 +2961,8 @@ ReorderUsernamesRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3035,8 +3035,8 @@ ReportAntiSpamFalsePositiveRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3107,9 +3107,9 @@ ReportSpamRequest <- R6::R6Class(
     #' @description Resolve the channel and participant entities.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
-      self$participant <- utils$get_input_peer(await(client$get_input_entity(self$participant)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+      self$participant <- utils$get_input_peer(client$get_input_entity(self$participant))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3185,8 +3185,8 @@ RestrictSponsoredMessagesRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3273,8 +3273,8 @@ SearchPostsRequest <- R6::R6Class(
     #' @description Resolve the offset_peer entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$offset_peer <- utils$get_input_peer(await(client$get_input_entity(self$offset_peer)))
+    resolve = function(client, utils) {
+      self$offset_peer <- utils$get_input_peer(client$get_input_entity(self$offset_peer))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3360,8 +3360,8 @@ SetBoostsToUnblockRestrictionsRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3428,9 +3428,9 @@ SetDiscussionGroupRequest <- R6::R6Class(
     #' @description Resolve the broadcast and group entities.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$broadcast <- utils$get_input_channel(await(client$get_input_entity(self$broadcast)))
-      self$group <- utils$get_input_channel(await(client$get_input_entity(self$group)))
+    resolve = function(client, utils) {
+      self$broadcast <- utils$get_input_channel(client$get_input_entity(self$broadcast))
+      self$group <- utils$get_input_channel(client$get_input_entity(self$group))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3496,8 +3496,8 @@ SetEmojiStickersRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3563,8 +3563,8 @@ SetMainProfileTabRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3631,8 +3631,8 @@ SetStickersRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3698,8 +3698,8 @@ ToggleAntiSpamRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3765,8 +3765,8 @@ ToggleAutotranslationRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3837,8 +3837,8 @@ ToggleForumRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3907,8 +3907,8 @@ ToggleJoinRequestRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -3974,8 +3974,8 @@ ToggleJoinToSendRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -4042,8 +4042,8 @@ ToggleParticipantsHiddenRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -4109,8 +4109,8 @@ TogglePreHistoryHiddenRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -4180,8 +4180,8 @@ ToggleSignaturesRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -4253,8 +4253,8 @@ ToggleSlowModeRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -4324,8 +4324,8 @@ ToggleUsernameRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -4394,8 +4394,8 @@ ToggleViewForumAsMessagesRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -4470,8 +4470,8 @@ UpdateColorRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -4547,8 +4547,8 @@ UpdateEmojiStatusRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -4618,8 +4618,8 @@ UpdatePaidMessagesPriceRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -4695,8 +4695,8 @@ UpdatePinnedForumTopicRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
@@ -4765,8 +4765,8 @@ UpdateUsernameRequest <- R6::R6Class(
     #' @description Resolve the channel entity.
     #' @param client The client object.
     #' @param utils The utilities object.
-    resolve = async function(client, utils) {
-      self$channel <- utils$get_input_channel(await(client$get_input_entity(self$channel)))
+    resolve = function(client, utils) {
+      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
     #' @description Convert the object to a dictionary.
