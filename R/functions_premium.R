@@ -1,0 +1,410 @@
+#' ApplyBoostRequest R6 class
+#'
+#' Representation of the TL request "ApplyBoostRequest".
+#'
+#' Fields:
+#' - peer: input peer (object or identifier)
+#' - slots: integer vector of slot ids (optional)
+#'
+#' Methods:
+#' - initialize(peer = NULL, slots = NULL)
+#'   Create a new ApplyBoostRequest.
+#'
+#' - resolve(client, utils)
+#'   Resolve peer using client/utils helpers. This will replace `peer` with
+#'   an input-peer object via utils$get_input_peer(client$get_input_entity(peer)).
+#'
+#' - to_list()
+#'   Return a list (dictionary) representation suitable for JSON/serialization.
+#'
+#' - bytes()
+#'   Serialize to raw bytes. Layout:
+#'     prefix (4 bytes) +
+#'     flags (int32) +
+#'     [vector constructor + count + items...] (if slots present) +
+#'     peer bytes
+#'
+#' - from_reader(reader)
+#'   Construct a new ApplyBoostRequest from a reader exposing read_int / tgread_object.
+#'
+#' @export
+ApplyBoostRequest <- R6::R6Class(
+  "ApplyBoostRequest",
+  public = list(
+    CONSTRUCTOR_ID = 0x6b7da746,
+    SUBCLASS_OF_ID = 0xad3512db,
+
+    peer = NULL,
+    slots = NULL,
+
+    #' Create a new ApplyBoostRequest
+    #' @param peer input peer or identifier
+    #' @param slots integer vector of slots or NULL
+    #' @return self
+    initialize = function(peer = NULL, slots = NULL) {
+      self$peer <- peer
+      if (!is.null(slots)) self$slots <- as.integer(slots) else self$slots <- NULL
+      invisible(self)
+    },
+
+    #' Resolve peer using client/utils helpers
+    #' @param client client object that provides get_input_entity
+    #' @param utils utils object that provides get_input_peer
+    #' @return self
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
+      invisible(self)
+    },
+
+    #' Convert request to list (dictionary)
+    #' @return list
+    to_list = function() {
+      peer_val <- if (!is.null(self$peer) && inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer
+      slots_val <- if (is.null(self$slots)) NULL else as.integer(self$slots)
+      list(
+        `_` = "ApplyBoostRequest",
+        peer = peer_val,
+        slots = slots_val
+      )
+    },
+
+    #' Serialize to raw bytes
+    #' @return raw vector
+    bytes = function() {
+      # prefix b'F\xa7}k' -> 0x46 0xa7 0x7d 0x6b
+      prefix <- as.raw(c(0x46, 0xa7, 0x7d, 0x6b))
+      flags_val <- as.integer(!is.null(self$slots) && length(self$slots) > 0)
+      flags_bytes <- serialize_int(flags_val)
+
+      slots_bytes <- raw()
+      if (!is.null(self$slots) && length(self$slots) > 0) {
+        # vector constructor b'\x15\xc4\xb5\x1c' -> 0x15 0xc4 0xb5 0x1c
+        vec_prefix <- as.raw(c(0x15, 0xc4, 0xb5, 0x1c))
+        len_bytes <- serialize_int(length(self$slots))
+        items_bytes <- do.call(c, lapply(self$slots, function(x) serialize_int(as.integer(x))))
+        slots_bytes <- c(vec_prefix, len_bytes, items_bytes)
+      }
+
+      peer_bytes <- if (!is.null(self$peer) && is.function(self$peer$bytes)) self$peer$bytes() else raw()
+      c(prefix, flags_bytes, slots_bytes, peer_bytes)
+    },
+
+    #' Construct a new ApplyBoostRequest from a reader
+    #' @param reader reader object exposing read_int / tgread_object
+    #' @return ApplyBoostRequest
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      slots_val <- NULL
+      if (bitwAnd(flags, 1L) != 0L) {
+        # read and ignore vector constructor id (expected 0x1cb5c415)
+        reader$read_int()
+        count <- reader$read_int()
+        if (count > 0) {
+          slots_vec <- integer(count)
+          for (i in seq_len(count)) {
+            slots_vec[i] <- reader$read_int()
+          }
+        } else {
+          slots_vec <- integer(0)
+        }
+        slots_val <- slots_vec
+      } else {
+        slots_val <- NULL
+      }
+      peer_obj <- reader$tgread_object()
+      ApplyBoostRequest$new(peer = peer_obj, slots = slots_val)
+    }
+  )
+)
+
+
+#' GetBoostsListRequest R6 class
+#'
+#' Representation of the TL request "GetBoostsListRequest".
+#'
+#' Fields:
+#' - peer: input peer (object or identifier)
+#' - offset: string offset
+#' - limit: integer limit
+#' - gifts: optional logical flag
+#'
+#' Methods:
+#' - initialize(peer = NULL, offset = "", limit = 0, gifts = NULL)
+#' - resolve(client, utils): resolve peer using client/utils helpers
+#' - to_list(): return a list (dictionary) representation
+#' - bytes(): serialize to raw vector (prefix + flags + peer bytes + offset bytes + limit)
+#' - from_reader(reader): read fields from a reader and return a new instance
+#'
+#' @export
+GetBoostsListRequest <- R6::R6Class(
+  "GetBoostsListRequest",
+  public = list(
+    CONSTRUCTOR_ID = 0x60f67660,
+    SUBCLASS_OF_ID = 0x2235a8bd,
+
+    peer = NULL,
+    offset = NULL,
+    limit = NULL,
+    gifts = NULL,
+
+    #' Create a new GetBoostsListRequest
+    #' @param peer input peer or identifier
+    #' @param offset string offset
+    #' @param limit integer limit
+    #' @param gifts optional logical
+    #' @return self
+    initialize = function(peer = NULL, offset = "", limit = 0L, gifts = NULL) {
+      self$peer <- peer
+      self$offset <- offset
+      self$limit <- as.integer(limit)
+      self$gifts <- if (!is.null(gifts)) as.logical(gifts) else NULL
+      invisible(self)
+    },
+
+    #' Resolve peer using client/utils helpers
+    #' @param client client object that provides get_input_entity
+    #' @param utils utils object that provides get_input_peer
+    #' @return self
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
+      invisible(self)
+    },
+
+    #' Convert request to list (dictionary)
+    #' @return list
+    to_list = function() {
+      peer_val <- if (!is.null(self$peer) && inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer
+      list(
+        `_` = "GetBoostsListRequest",
+        peer = peer_val,
+        offset = self$offset,
+        limit = self$limit,
+        gifts = self$gifts
+      )
+    },
+
+    #' Serialize to raw bytes
+    #' @return raw vector
+    #' @note This implementation expects helper serialization functions to exist:
+    #'       serialize_int(int) -> raw, serialize_string(chr) -> raw
+    bytes = function() {
+      # prefix b'`v\xf6`' -> 0x60 0x76 0xf6 0x60
+      prefix <- as.raw(c(0x60, 0x76, 0xf6, 0x60))
+      flags_val <- as.integer(!is.null(self$gifts) && isTRUE(self$gifts))
+      flags_bytes <- serialize_int(flags_val)
+      peer_bytes <- if (!is.null(self$peer) && is.function(self$peer$bytes)) self$peer$bytes() else raw()
+      offset_bytes <- serialize_string(self$offset)
+      limit_bytes <- serialize_int(self$limit)
+      c(prefix, flags_bytes, peer_bytes, offset_bytes, limit_bytes)
+    },
+
+    #' Construct a new GetBoostsListRequest from a reader
+    #' @param reader reader object exposing read_int / read_string / tgread_object
+    #' @return GetBoostsListRequest
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      gifts_val <- as.logical(bitwAnd(flags, 1L))
+      peer_obj <- reader$tgread_object()
+      offset_str <- reader$read_string()
+      limit_int <- reader$read_int()
+      GetBoostsListRequest$new(peer = peer_obj, offset = offset_str, limit = limit_int, gifts = gifts_val)
+    }
+  )
+)
+
+
+#' GetBoostsStatusRequest R6 class
+#'
+#' Representation of the TL request "GetBoostsStatusRequest".
+#'
+#' Fields:
+#' - peer: input peer (object or identifier)
+#'
+#' Methods:
+#' - initialize(peer = NULL)
+#' - resolve(client, utils): resolve peer using client/utils helpers
+#' - to_list(): return a list (dictionary) representation
+#' - bytes(): serialize to raw vector (prefix + peer bytes)
+#' - from_reader(reader): read peer from reader and return a new instance
+#'
+#' @export
+GetBoostsStatusRequest <- R6::R6Class(
+  "GetBoostsStatusRequest",
+  public = list(
+    CONSTRUCTOR_ID = 0x061f2f04, # note: bytes b'a\x1f/\x04' -> 0x61 0x1f 0x2f 0x04, but integer shown here for reference
+    SUBCLASS_OF_ID = 0xc31b1ab9,
+
+    peer = NULL,
+
+    #' Create a new GetBoostsStatusRequest
+    #' @param peer input peer or identifier
+    #' @return self
+    initialize = function(peer = NULL) {
+      self$peer <- peer
+      invisible(self)
+    },
+
+    #' Resolve peer using client/utils helpers
+    #' @param client client object that provides get_input_entity
+    #' @param utils utils object that provides get_input_peer
+    #' @return self
+    resolve = function(client, utils) {
+      self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
+      invisible(self)
+    },
+
+    #' Convert request to list (dictionary)
+    #' @return list
+    to_list = function() {
+      peer_val <- if (!is.null(self$peer) && inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer
+      list(
+        `_` = "GetBoostsStatusRequest",
+        peer = peer_val
+      )
+    },
+
+    #' Serialize to raw bytes
+    #' @return raw vector
+    bytes = function() {
+      # prefix b'a\x1f/\x04' -> 0x61 0x1f 0x2f 0x04
+      prefix <- as.raw(c(0x61, 0x1f, 0x2f, 0x04))
+      peer_bytes <- if (!is.null(self$peer) && is.function(self$peer$bytes)) self$peer$bytes() else raw()
+      c(prefix, peer_bytes)
+    },
+
+    #' Construct a new GetBoostsStatusRequest from a reader
+    #' @param reader reader object exposing tgread_object()
+    #' @return GetBoostsStatusRequest
+    from_reader = function(reader) {
+      peer_obj <- reader$tgread_object()
+      GetBoostsStatusRequest$new(peer = peer_obj)
+    }
+  )
+)
+
+#' GetMyBoostsRequest R6 class
+#'
+#' Representation of the TL request "GetMyBoostsRequest".
+#'
+#' Methods:
+#' - initialize(): create new request object
+#' - to_list(): return a list (dictionary) representation ready for JSON/serialization
+#' - bytes(): serialize a small raw prefix for network transmission (raw vector)
+#' - from_reader(reader): construct a new instance from a reader object
+#'
+#' @export
+GetMyBoostsRequest <- R6::R6Class(
+  "GetMyBoostsRequest",
+  public = list(
+    CONSTRUCTOR_ID = 0xbe77b4a,
+    SUBCLASS_OF_ID = 0xad3512db,
+
+    #' Create a new GetMyBoostsRequest
+    #' @return self
+    initialize = function() {
+      invisible(self)
+    },
+
+    #' Convert request to a list (dictionary)
+    #' @return list
+    to_list = function() {
+      list(`_` = "GetMyBoostsRequest")
+    },
+
+    #' Serialize to raw bytes
+    #' @return raw vector
+    bytes = function() {
+      # b'J{\xe7\x0b' -> 0x4a 0x7b 0xe7 0x0b
+      as.raw(c(0x4a, 0x7b, 0xe7, 0x0b))
+    },
+
+    #' Read object from reader and return new instance
+    #' @param reader an object exposing tgread_object / read_int / read_string as in the surrounding codebase
+    #' @return GetMyBoostsRequest
+    from_reader = function(reader) {
+      # This request has no payload; return a new instance
+      GetMyBoostsRequest$new()
+    }
+  )
+)
+
+
+#' GetUserBoostsRequest R6 class
+#'
+#' Representation of the TL request "GetUserBoostsRequest".
+#'
+#' Fields:
+#' - peer: input peer (object or identifier)
+#' - user_id: input user (object or identifier)
+#'
+#' Methods:
+#' - initialize(peer = NULL, user_id = NULL)
+#' - resolve(client, utils): resolve peer and user_id to input forms using client/utils helpers
+#' - to_list(): return a list (dictionary) representation
+#' - bytes(): serialize to raw vector (prefix + peer bytes + user_id bytes when available)
+#' - from_reader(reader): read peer and user_id from a reader and return a new instance
+#'
+#' @export
+GetUserBoostsRequest <- R6::R6Class(
+  "GetUserBoostsRequest",
+  public = list(
+    CONSTRUCTOR_ID = 0x39854d1f,
+    SUBCLASS_OF_ID = 0x2235a8bd,
+
+    peer = NULL,
+    user_id = NULL,
+
+    #' Initialize GetUserBoostsRequest
+    #' @param peer input peer or identifier
+    #' @param user_id input user or identifier
+    #' @return self
+    initialize = function(peer = NULL, user_id = NULL) {
+      self$peer <- peer
+      self$user_id <- user_id
+      invisible(self)
+    },
+
+    #' Resolve peer and user_id using client/utils helpers
+    #' @param client client object that provides get_input_entity
+    #' @param utils utils object that provides get_input_peer and get_input_user
+    #' @return self
+    resolve = function(client, utils) {
+      # expected to be synchronous wrappers in this R environment
+      self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
+      self$user_id <- utils$get_input_user(client$get_input_entity(self$user_id))
+      invisible(self)
+    },
+
+    #' Convert request to list (dictionary)
+    #' @return list
+    to_list = function() {
+      peer_val <- if (!is.null(self$peer) && inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer
+      user_val <- if (!is.null(self$user_id) && inherits(self$user_id, "TLObject")) self$user_id$to_list() else self$user_id
+      list(
+        `_` = "GetUserBoostsRequest",
+        peer = peer_val,
+        user_id = user_val
+      )
+    },
+
+    #' Serialize to raw bytes
+    #' @return raw vector
+    bytes = function() {
+      # prefix b'\x1fM\x859' -> 0x1f 0x4d 0x85 0x39
+      prefix <- as.raw(c(0x1f, 0x4d, 0x85, 0x39))
+      peer_bytes <- if (!is.null(self$peer) && is.function(self$peer$bytes)) self$peer$bytes() else raw()
+      user_bytes <- if (!is.null(self$user_id) && is.function(self$user_id$bytes)) self$user_id$bytes() else raw()
+      c(prefix, peer_bytes, user_bytes)
+    },
+
+    #' Construct a new GetUserBoostsRequest from a reader
+    #' @param reader reader object exposing tgread_object()
+    #' @return GetUserBoostsRequest
+    from_reader = function(reader) {
+      peer_obj <- reader$tgread_object()
+      user_obj <- reader$tgread_object()
+      GetUserBoostsRequest$new(peer = peer_obj, user_id = user_obj)
+    }
+  )
+)
+
