@@ -323,7 +323,7 @@ EditExportedInviteRequest$set("public", "from_reader", function(reader) {
   peers_val <- NULL
   if (has_peers) {
     # read and ignore an int (vector marker)
-    _ignored_marker <- reader$read_int()
+    .ignored_marker <- reader$read_int()
     count <- reader$read_int()
     peers_list <- vector("list", count)
     if (count > 0) {
@@ -958,7 +958,7 @@ JoinChatlistUpdatesRequest <- R6::R6Class(
 JoinChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   # read and ignore an int (as per original structure)
-  _ignored <- reader$read_int()
+  .ignored <- reader$read_int()
   count <- reader$read_int()
   peers_vec <- vector("list", count)
   if (count > 0) {
@@ -1061,7 +1061,7 @@ LeaveChatlistRequest <- R6::R6Class(
 LeaveChatlistRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   # read and ignore an int (as per original structure)
-  _ignored <- reader$read_int()
+  .ignored <- reader$read_int()
   count <- reader$read_int()
   peers_vec <- vector("list", count)
   if (count > 0) {
