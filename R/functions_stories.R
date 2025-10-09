@@ -148,8 +148,8 @@ CanSendStoryRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -250,8 +250,8 @@ CreateAlbumRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -296,7 +296,6 @@ CreateAlbumRequest <- R6::R6Class(
       titleVal <- reader$tgread_string()
 
       # read vector constructor id (ignored) then length and ints
-      _ <- reader$read_int()
       nVal <- reader$read_int()
       if (nVal <= 0) {
         storiesVec <- integer(0)
@@ -377,8 +376,8 @@ DeleteAlbumRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -477,8 +476,8 @@ DeleteStoriesRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -512,7 +511,7 @@ DeleteStoriesRequest <- R6::R6Class(
       peer_obj <- reader$tgread_object()
 
       # read vector constructor id (ignored) then length then ints
-      _vec_tag <- reader$read_int()
+      .vec_tag <- reader$read_int()
       n_val <- reader$read_int()
       if (n_val <= 0) {
         ids_vec <- integer(0)
@@ -530,7 +529,6 @@ DeleteStoriesRequest <- R6::R6Class(
     #' @return integer vector
     read_result = function(reader) {
       # read vector constructor id (ignored)
-      _ <- reader$read_int()
       n_val <- reader$read_int()
       if (n_val <= 0) return(integer(0))
       out <- integer(n_val)
@@ -650,8 +648,8 @@ EditStoryRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -665,8 +663,8 @@ EditStoryRequest <- R6::R6Class(
           parts[[length(parts) + 1]] <- self$media$to_bytes()
         } else if (is.function(self$media$bytes)) {
           parts[[length(parts) + 1]] <- self$media$bytes()
-        } else if (is.function(self$media$_bytes)) {
-          parts[[length(parts) + 1]] <- self$media$_bytes()
+        } else if (is.function(self$media$.bytes)) {
+          parts[[length(parts) + 1]] <- self$media$.bytes()
         } else {
           stop("media object must provide a to_bytes/bytes/_bytes method")
         }
@@ -680,7 +678,7 @@ EditStoryRequest <- R6::R6Class(
         for (ma in self$media_areas) {
           if (is.function(ma$to_bytes)) parts[[length(parts) + 1]] <- ma$to_bytes()
           else if (is.function(ma$bytes)) parts[[length(parts) + 1]] <- ma$bytes()
-          else if (is.function(ma$_bytes)) parts[[length(parts) + 1]] <- ma$_bytes()
+          else if (is.function(ma$.bytes)) parts[[length(parts) + 1]] <- ma$.bytes()
           else stop("media_area element must provide to_bytes/bytes/_bytes")
         }
       }
@@ -701,7 +699,7 @@ EditStoryRequest <- R6::R6Class(
         for (ent in self$entities) {
           if (is.function(ent$to_bytes)) parts[[length(parts) + 1]] <- ent$to_bytes()
           else if (is.function(ent$bytes)) parts[[length(parts) + 1]] <- ent$bytes()
-          else if (is.function(ent$_bytes)) parts[[length(parts) + 1]] <- ent$_bytes()
+          else if (is.function(ent$.bytes)) parts[[length(parts) + 1]] <- ent$.bytes()
           else stop("entity element must provide to_bytes/bytes/_bytes")
         }
       }
@@ -714,7 +712,7 @@ EditStoryRequest <- R6::R6Class(
         for (pr in self$privacy_rules) {
           if (is.function(pr$to_bytes)) parts[[length(parts) + 1]] <- pr$to_bytes()
           else if (is.function(pr$bytes)) parts[[length(parts) + 1]] <- pr$bytes()
-          else if (is.function(pr$_bytes)) parts[[length(parts) + 1]] <- pr$_bytes()
+          else if (is.function(pr$.bytes)) parts[[length(parts) + 1]] <- pr$.bytes()
           else stop("privacy_rule element must provide to_bytes/bytes/_bytes")
         }
       }
@@ -747,7 +745,7 @@ EditStoryRequest <- R6::R6Class(
 
       mediaAreasList <- NULL
       if (bitwAnd(flagsVal, 8L) != 0L) {
-        _ <- reader$read_int() # vector constructor id (ignored)
+         # vector constructor id (ignored)
         nma <- reader$read_int()
         if (nma > 0) {
           mediaAreasList <- vector("list", nma)
@@ -763,7 +761,7 @@ EditStoryRequest <- R6::R6Class(
         captionVal <- reader$tgread_string()
 
         # read entities vector
-        _ <- reader$read_int() # vector constructor id (ignored)
+         # vector constructor id (ignored)
         ne <- reader$read_int()
         if (ne > 0) {
           entitiesList <- vector("list", ne)
@@ -775,7 +773,7 @@ EditStoryRequest <- R6::R6Class(
 
       privacyRulesList <- NULL
       if (bitwAnd(flagsVal, 4L) != 0L) {
-        _ <- reader$read_int() # vector constructor id (ignored)
+         # vector constructor id (ignored)
         npr <- reader$read_int()
         if (npr > 0) {
           privacyRulesList <- vector("list", npr)
@@ -864,8 +862,8 @@ ExportStoryLinkRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -972,8 +970,8 @@ GetAlbumStoriesRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -1073,8 +1071,8 @@ GetAlbumsRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -1173,7 +1171,7 @@ GetAllStoriesRequest <- R6::R6Class(
   "GetAllStoriesRequest",
   inherit = TLRequest,
   public = list(
-    next = NULL,
+    .next = NULL,
     hidden = NULL,
     state = NULL,
 
@@ -1183,8 +1181,8 @@ GetAllStoriesRequest <- R6::R6Class(
     #' @param hidden logical or NULL
     #' @param state character or NULL
     #' @return invisible self
-    initialize = function(next = NULL, hidden = NULL, state = NULL) {
-      self$next <- if (!is.null(next)) as.logical(next) else NULL
+    initialize = function(.next = NULL, hidden = NULL, state = NULL) {
+      self$.next <- if (!is.null(next)) as.logical(.next) else NULL
       self$hidden <- if (!is.null(hidden)) as.logical(hidden) else NULL
       self$state <- if (!is.null(state)) as.character(state) else NULL
       invisible(self)
@@ -1196,7 +1194,7 @@ GetAllStoriesRequest <- R6::R6Class(
     to_list = function() {
       list(
         `_` = "GetAllStoriesRequest",
-        next = self$next,
+        .next = self$.next,
         hidden = self$hidden,
         state = self$state
       )
@@ -1213,7 +1211,7 @@ GetAllStoriesRequest <- R6::R6Class(
       # flags: state=1, next=2, hidden=4
       flagsVal <- 0L
       if (!is.null(self$state)) flagsVal <- bitwOr(flagsVal, 1L)
-      if (!is.null(self$next) && isTRUE(self$next)) flagsVal <- bitwOr(flagsVal, 2L)
+      if (!is.null(self$.next) && isTRUE(self$.next)) flagsVal <- bitwOr(flagsVal, 2L)
       if (!is.null(self$hidden) && isTRUE(self$hidden)) flagsVal <- bitwOr(flagsVal, 4L)
 
       parts[[length(parts) + 1]] <- writeBin(as.integer(flagsVal), raw(), size = 4, endian = "little")
@@ -1251,7 +1249,7 @@ GetAllStoriesRequest <- R6::R6Class(
       hiddenFlag <- bitwAnd(flagsVal, 4L) != 0L
       stateVal <- if (bitwAnd(flagsVal, 1L) != 0L) reader$tgread_string() else NULL
 
-      GetAllStoriesRequest$new(next = if (nextFlag) TRUE else NULL,
+      GetAllStoriesRequest$new(.next = if (nextFlag) TRUE else NULL,
                                hidden = if (hiddenFlag) TRUE else NULL,
                                state = stateVal)
     }
@@ -1267,7 +1265,7 @@ GetAllStoriesRequest <- R6::R6Class(
 #' - to_list()
 #' - to_bytes()
 #' - from_reader(reader) (class)
-#' 
+#'
 #' @export
 GetChatsToSendRequest <- R6::R6Class(
   "GetChatsToSendRequest",
@@ -1381,8 +1379,8 @@ GetPeerMaxIDsRequest <- R6::R6Class(
             parts[[length(parts) + 1]] <- elem$to_bytes()
           } else if (is.function(elem$bytes)) {
             parts[[length(parts) + 1]] <- elem$bytes()
-          } else if (is.function(elem$_bytes)) {
-            parts[[length(parts) + 1]] <- elem$_bytes()
+          } else if (is.function(elem$.bytes)) {
+            parts[[length(parts) + 1]] <- elem$.bytes()
           } else {
             stop("id elements must provide to_bytes/bytes/_bytes method")
           }
@@ -1406,7 +1404,7 @@ GetPeerMaxIDsRequest <- R6::R6Class(
     #' @return GetPeerMaxIDsRequest
     from_reader = function(reader) {
       # read and ignore vector constructor id
-      _vec_tag <- reader$read_int()
+      .vec_tag <- reader$read_int()
       n <- reader$read_int()
       if (n <= 0) {
         id_list <- list()
@@ -1423,7 +1421,7 @@ GetPeerMaxIDsRequest <- R6::R6Class(
     #' @return integer vector
     read_result = function(reader) {
       # read vector constructor id (ignored)
-      _ <- reader$read_int()
+
       n <- reader$read_int()
       if (n <= 0) return(integer(0))
       out <- integer(n)
@@ -1492,8 +1490,8 @@ GetPeerStoriesRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -1588,8 +1586,8 @@ GetPinnedStoriesRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -1691,8 +1689,8 @@ GetStoriesArchiveRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -1790,8 +1788,8 @@ GetStoriesByIDRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -1823,7 +1821,7 @@ GetStoriesByIDRequest <- R6::R6Class(
       peer_obj <- reader$tgread_object()
 
       # read vector constructor id (ignored) and length then ints
-      _ <- reader$read_int()
+
       n <- reader$read_int()
       if (n <= 0) {
         ids_vec <- integer(0)
@@ -1898,8 +1896,8 @@ GetStoriesViewsRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -1931,7 +1929,7 @@ GetStoriesViewsRequest <- R6::R6Class(
       peerObj <- reader$tgread_object()
 
       # read vector constructor id (ignored) and length then ints
-      _ <- reader$read_int()
+
       n <- reader$read_int()
       if (n <= 0) {
         idsVec <- integer(0)
@@ -2029,8 +2027,8 @@ GetStoryReactionsListRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -2044,8 +2042,8 @@ GetStoryReactionsListRequest <- R6::R6Class(
           parts[[length(parts) + 1]] <- self$reaction$to_bytes()
         } else if (is.function(self$reaction$bytes)) {
           parts[[length(parts) + 1]] <- self$reaction$bytes()
-        } else if (is.function(self$reaction$_bytes)) {
-          parts[[length(parts) + 1]] <- self$reaction$_bytes()
+        } else if (is.function(self$reaction$.bytes)) {
+          parts[[length(parts) + 1]] <- self$reaction$.bytes()
         } else {
           stop("reaction object must provide a to_bytes/bytes/_bytes method")
         }
@@ -2196,8 +2194,8 @@ GetStoryViewsListRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -2330,8 +2328,8 @@ IncrementStoryViewsRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -2363,7 +2361,7 @@ IncrementStoryViewsRequest <- R6::R6Class(
       peerObj <- reader$tgread_object()
 
       # read vector constructor id (ignored) and length then ints
-      _vec_tag <- reader$read_int()
+      .vec_tag <- reader$read_int()
       n <- reader$read_int()
       if (n <= 0) {
         idsVec <- integer(0)
@@ -2447,8 +2445,8 @@ ReadStoriesRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -2483,7 +2481,7 @@ ReadStoriesRequest <- R6::R6Class(
     #' @return integer vector
     read_result = function(reader) {
       # read vector constructor id (ignored)
-      _ <- reader$read_int()
+
       n <- reader$read_int()
       if (n <= 0) return(integer(0))
       out <- integer(n)
@@ -2562,8 +2560,8 @@ ReorderAlbumsRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -2595,7 +2593,7 @@ ReorderAlbumsRequest <- R6::R6Class(
       peerObj <- reader$tgread_object()
 
       # read vector constructor id (ignored) and length then ints
-      _ <- reader$read_int()
+
       n <- reader$read_int()
       if (n <= 0) {
         orderVec <- integer(0)
@@ -2694,8 +2692,8 @@ ReportRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide to_bytes/bytes/_bytes")
       }
@@ -2745,7 +2743,7 @@ ReportRequest <- R6::R6Class(
       peerObj <- reader$tgread_object()
 
       # read vector tag then length then ints
-      _ <- reader$read_int() # vector constructor id (ignored)
+       # vector constructor id (ignored)
       nIds <- reader$read_int()
       idsVec <- if (nIds <= 0) integer(0) else integer(nIds)
       if (nIds > 0) {
@@ -2864,7 +2862,7 @@ SearchPostsRequest <- R6::R6Class(
       if (!is.null(self$area)) {
         if (is.function(self$area$to_bytes)) parts[[length(parts) + 1]] <- self$area$to_bytes()
         else if (is.function(self$area$bytes)) parts[[length(parts) + 1]] <- self$area$bytes()
-        else if (is.function(self$area$_bytes)) parts[[length(parts) + 1]] <- self$area$_bytes()
+        else if (is.function(self$area$.bytes)) parts[[length(parts) + 1]] <- self$area$.bytes()
         else stop("area object must provide to_bytes/bytes/_bytes")
       }
 
@@ -2872,7 +2870,7 @@ SearchPostsRequest <- R6::R6Class(
       if (!is.null(self$peer)) {
         if (is.function(self$peer$to_bytes)) parts[[length(parts) + 1]] <- self$peer$to_bytes()
         else if (is.function(self$peer$bytes)) parts[[length(parts) + 1]] <- self$peer$bytes()
-        else if (is.function(self$peer$_bytes)) parts[[length(parts) + 1]] <- self$peer$_bytes()
+        else if (is.function(self$peer$bytes)) parts[[length(parts) + 1]] <- self$peer$bytes()
         else stop("peer object must provide to_bytes/bytes/_bytes")
       }
 
@@ -3004,8 +3002,8 @@ SendReactionRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -3018,8 +3016,8 @@ SendReactionRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$reaction$to_bytes()
       } else if (is.function(self$reaction$bytes)) {
         parts[[length(parts) + 1]] <- self$reaction$bytes()
-      } else if (is.function(self$reaction$_bytes)) {
-        parts[[length(parts) + 1]] <- self$reaction$_bytes()
+      } else if (is.function(self$reaction$.bytes)) {
+        parts[[length(parts) + 1]] <- self$reaction$.bytes()
       } else {
         stop("reaction object must provide a to_bytes/bytes/_bytes method")
       }
@@ -3225,8 +3223,8 @@ SendStoryRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -3236,8 +3234,8 @@ SendStoryRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$media$to_bytes()
       } else if (is.function(self$media$bytes)) {
         parts[[length(parts) + 1]] <- self$media$bytes()
-      } else if (is.function(self$media$_bytes)) {
-        parts[[length(parts) + 1]] <- self$media$_bytes()
+      } else if (is.function(self$media$.bytes)) {
+        parts[[length(parts) + 1]] <- self$media$.bytes()
       } else {
         stop("media object must provide a to_bytes/bytes/_bytes method")
       }
@@ -3250,7 +3248,7 @@ SendStoryRequest <- R6::R6Class(
         for (ma in self$media_areas) {
           if (is.function(ma$to_bytes)) parts[[length(parts) + 1]] <- ma$to_bytes()
           else if (is.function(ma$bytes)) parts[[length(parts) + 1]] <- ma$bytes()
-          else if (is.function(ma$_bytes)) parts[[length(parts) + 1]] <- ma$_bytes()
+          else if (is.function(ma$.bytes)) parts[[length(parts) + 1]] <- ma$.bytes()
           else stop("media_area element must provide to_bytes/bytes/_bytes")
         }
       }
@@ -3276,7 +3274,7 @@ SendStoryRequest <- R6::R6Class(
         for (ent in self$entities) {
           if (is.function(ent$to_bytes)) parts[[length(parts) + 1]] <- ent$to_bytes()
           else if (is.function(ent$bytes)) parts[[length(parts) + 1]] <- ent$bytes()
-          else if (is.function(ent$_bytes)) parts[[length(parts) + 1]] <- ent$_bytes()
+          else if (is.function(ent$.bytes)) parts[[length(parts) + 1]] <- ent$.bytes()
           else stop("entity element must provide to_bytes/bytes/_bytes")
         }
       }
@@ -3288,7 +3286,7 @@ SendStoryRequest <- R6::R6Class(
       for (pr in self$privacy_rules) {
         if (is.function(pr$to_bytes)) parts[[length(parts) + 1]] <- pr$to_bytes()
         else if (is.function(pr$bytes)) parts[[length(parts) + 1]] <- pr$bytes()
-        else if (is.function(pr$_bytes)) parts[[length(parts) + 1]] <- pr$_bytes()
+        else if (is.function(pr$.bytes)) parts[[length(parts) + 1]] <- pr$.bytes()
         else stop("privacy_rule element must provide to_bytes/bytes/_bytes")
       }
 
@@ -3304,7 +3302,7 @@ SendStoryRequest <- R6::R6Class(
       if (!is.null(self$fwd_from_id)) {
         if (is.function(self$fwd_from_id$to_bytes)) parts[[length(parts) + 1]] <- self$fwd_from_id$to_bytes()
         else if (is.function(self$fwd_from_id$bytes)) parts[[length(parts) + 1]] <- self$fwd_from_id$bytes()
-        else if (is.function(self$fwd_from_id$_bytes)) parts[[length(parts) + 1]] <- self$fwd_from_id$_bytes()
+        else if (is.function(self$fwd_from_id$.bytes)) parts[[length(parts) + 1]] <- self$fwd_from_id$.bytes()
         else stop("fwd_from_id must provide to_bytes/bytes/_bytes")
       }
 
@@ -3348,7 +3346,7 @@ SendStoryRequest <- R6::R6Class(
       # media_areas
       mediaAreasVal <- NULL
       if (bitwAnd(flagsVal, 32L) != 0L) {
-        _ <- reader$read_int() # vector constructor
+         # vector constructor
         nma <- reader$read_int()
         if (nma > 0) {
           mediaAreasVal <- vector("list", nma)
@@ -3362,7 +3360,7 @@ SendStoryRequest <- R6::R6Class(
       # entities
       entitiesVal <- NULL
       if (bitwAnd(flagsVal, 2L) != 0L) {
-        _ <- reader$read_int()
+
         ne <- reader$read_int()
         if (ne > 0) {
           entitiesVal <- vector("list", ne)
@@ -3371,7 +3369,7 @@ SendStoryRequest <- R6::R6Class(
       }
 
       # privacy_rules (vector)
-      _ <- reader$read_int()
+
       npr <- reader$read_int()
       privacyRulesVal <- list()
       if (npr > 0) {
@@ -3388,7 +3386,7 @@ SendStoryRequest <- R6::R6Class(
 
       albumsVal <- NULL
       if (bitwAnd(flagsVal, 256L) != 0L) {
-        _ <- reader$read_int()
+
         na <- reader$read_int()
         if (na > 0) {
           albumsVal <- integer(na)
@@ -3565,8 +3563,8 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -3612,7 +3610,7 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
 #' @field id integer vector story ids
 #' @field pinned logical desired pinned state
 #' @export
-#' 
+#'
 #' @details
 #' Methods:
 #' - initialize(peer, id, pinned): Create a new request.
@@ -3679,8 +3677,8 @@ TogglePinnedRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -3717,7 +3715,7 @@ TogglePinnedRequest <- R6::R6Class(
       peer_obj <- reader$tgread_object()
 
       # read vector tag then length then ints
-      _ <- reader$read_int() # vector constructor id (ignored)
+       # vector constructor id (ignored)
       n <- reader$read_int()
       ids <- if (n <= 0) integer(0) else integer(n)
       if (n > 0) {
@@ -3734,7 +3732,7 @@ TogglePinnedRequest <- R6::R6Class(
     #' @return integer vector
     read_result = function(reader) {
       # read vector constructor id
-      _ <- reader$read_int()
+
       n <- reader$read_int()
       if (n <= 0) return(integer(0))
       out <- integer(n)
@@ -3819,8 +3817,8 @@ TogglePinnedToTopRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -3852,7 +3850,7 @@ TogglePinnedToTopRequest <- R6::R6Class(
       peer_obj <- reader$tgread_object()
 
       # read vector tag then length then ints
-      _ <- reader$read_int() # vector constructor id (ignored)
+       # vector constructor id (ignored)
       n <- reader$read_int()
       ids <- if (n <= 0) integer(0) else integer(n)
       if (n > 0) {
@@ -3961,8 +3959,8 @@ UpdateAlbumRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- self$peer$to_bytes()
       } else if (is.function(self$peer$bytes)) {
         parts[[length(parts) + 1]] <- self$peer$bytes()
-      } else if (is.function(self$peer$_bytes)) {
-        parts[[length(parts) + 1]] <- self$peer$_bytes()
+      } else if (is.function(self$peer$bytes)) {
+        parts[[length(parts) + 1]] <- self$peer$bytes()
       } else {
         stop("peer object must provide a to_bytes/bytes/_bytes method")
       }
@@ -4032,7 +4030,7 @@ UpdateAlbumRequest <- R6::R6Class(
 
       read_int_vector <- function() {
         # read and check vector constructor then length then ints
-        _vec_tag <- reader$read_int() # usually vector constructor
+        .vec_tag <- reader$read_int() # usually vector constructor
         n <- reader$read_int()
         if (n <= 0) return(integer(0))
         out <- integer(n)
