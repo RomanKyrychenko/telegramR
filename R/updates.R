@@ -38,7 +38,7 @@ UpdateMethods <- R6::R6Class("UpdateMethods",
       return(
         future::future( {
           # Make a high-level request to notify that we want updates
-          private$self(functions$updates$GetStateRequest())
+          private$self(GetStateRequest$new())
           result <- private$self$disconnected
           if (!is.null(private$self$updates_error)) {
             stop(private$self$updates_error)
@@ -63,7 +63,7 @@ UpdateMethods <- R6::R6Class("UpdateMethods",
         future::future( {
           private$self$no_updates <- !receive_updates
           if (receive_updates) {
-            private$self(functions$updates$GetStateRequest())
+            private$self(GetStateRequest$new())
           }
         }
       ))
