@@ -10,7 +10,7 @@ AcceptAuthorizationRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x73, 0x4c, 0xed, 0xf3)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Initialize the AcceptAuthorizationRequest.
     #' @param botId The bot ID as an integer.
     #' @param scope The scope string.
@@ -24,7 +24,7 @@ AcceptAuthorizationRequest <- R6::R6Class(
       self$valueHashes <- valueHashes
       self$credentials <- credentials
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -37,7 +37,7 @@ AcceptAuthorizationRequest <- R6::R6Class(
         "credentials" = if (inherits(self$credentials, "TLObject")) self$credentials$toDict() else self$credentials
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -52,7 +52,7 @@ AcceptAuthorizationRequest <- R6::R6Class(
         self$credentials$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of AcceptAuthorizationRequest.
@@ -87,7 +87,7 @@ CancelPasswordEmailRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xb6, 0xd5, 0xcb, 0xc1)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -95,13 +95,13 @@ CancelPasswordEmailRequest <- R6::R6Class(
         "_" = "CancelPasswordEmailRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0xb6, 0xd5, 0xcb, 0xc1))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of CancelPasswordEmailRequest.
@@ -126,7 +126,7 @@ ChangeAuthorizationSettingsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x62, 0x84, 0xf4, 0x40)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Initialize the ChangeAuthorizationSettingsRequest.
     #' @param hash The hash value.
     #' @param confirmed Optional boolean indicating if confirmed.
@@ -138,7 +138,7 @@ ChangeAuthorizationSettingsRequest <- R6::R6Class(
       self$encryptedRequestsDisabled <- encryptedRequestsDisabled
       self$callRequestsDisabled <- callRequestsDisabled
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -150,7 +150,7 @@ ChangeAuthorizationSettingsRequest <- R6::R6Class(
         "call_requests_disabled" = self$callRequestsDisabled
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -165,7 +165,7 @@ ChangeAuthorizationSettingsRequest <- R6::R6Class(
         if (!is.null(self$callRequestsDisabled)) if (self$callRequestsDisabled) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)) else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ChangeAuthorizationSettingsRequest.
@@ -196,7 +196,7 @@ ChangePhoneRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xdb, 0x2e, 0xc3, 0x70)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0x77, 0x79, 0xa1, 0x2d)),
-    
+
     #' @description Initialize the ChangePhoneRequest.
     #' @param phoneNumber The phone number string.
     #' @param phoneCodeHash The phone code hash string.
@@ -206,7 +206,7 @@ ChangePhoneRequest <- R6::R6Class(
       self$phoneCodeHash <- phoneCodeHash
       self$phoneCode <- phoneCode
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -217,7 +217,7 @@ ChangePhoneRequest <- R6::R6Class(
         phoneCode = self$phoneCode
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -228,7 +228,7 @@ ChangePhoneRequest <- R6::R6Class(
         self$serializeBytes(self$phoneCode)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ChangePhoneRequest.
@@ -256,13 +256,13 @@ CheckUsernameRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x6c, 0xd8, 0x14, 0x27)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Initialize the CheckUsernameRequest.
     #' @param username The username string.
     initialize = function(username) {
       self$username <- username
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -271,7 +271,7 @@ CheckUsernameRequest <- R6::R6Class(
         username = self$username
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -280,7 +280,7 @@ CheckUsernameRequest <- R6::R6Class(
         self$serializeBytes(self$username)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of CheckUsernameRequest.
@@ -306,7 +306,7 @@ ClearRecentEmojiStatusesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xae, 0x1a, 0x20, 0x18)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -314,13 +314,13 @@ ClearRecentEmojiStatusesRequest <- R6::R6Class(
         "_" = "ClearRecentEmojiStatusesRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0xae, 0x1a, 0x20, 0x18))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ClearRecentEmojiStatusesRequest.
@@ -346,13 +346,13 @@ ConfirmPasswordEmailRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x20, 0x19, 0xdf, 0x8f)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Initialize the ConfirmPasswordEmailRequest.
     #' @param code The confirmation code string.
     initialize = function(code) {
       self$code <- code
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -361,7 +361,7 @@ ConfirmPasswordEmailRequest <- R6::R6Class(
         code = self$code
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -370,7 +370,7 @@ ConfirmPasswordEmailRequest <- R6::R6Class(
         self$serializeBytes(self$code)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ConfirmPasswordEmailRequest.
@@ -396,7 +396,7 @@ ConfirmPhoneRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xc3, 0x78, 0x21, 0x5f)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Initialize the ConfirmPhoneRequest.
     #' @param phoneCodeHash The phone code hash string.
     #' @param phoneCode The phone code string.
@@ -404,7 +404,7 @@ ConfirmPhoneRequest <- R6::R6Class(
       self$phoneCodeHash <- phoneCodeHash
       self$phoneCode <- phoneCode
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -414,7 +414,7 @@ ConfirmPhoneRequest <- R6::R6Class(
         phoneCode = self$phoneCode
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -424,7 +424,7 @@ ConfirmPhoneRequest <- R6::R6Class(
         self$serializeBytes(self$phoneCode)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ConfirmPhoneRequest.
@@ -451,13 +451,13 @@ CreateBusinessChatLinkRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x8e, 0xe6, 0x51, 0x88)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0x8b, 0x4a, 0x0d, 0x3c)),
-    
+
     #' @description Initialize the CreateBusinessChatLinkRequest.
     #' @param link The input business chat link.
     initialize = function(link) {
       self$link <- link
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -466,7 +466,7 @@ CreateBusinessChatLinkRequest <- R6::R6Class(
         link = if (inherits(self$link, "TLObject")) self$link$toDict() else self$link
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -475,7 +475,7 @@ CreateBusinessChatLinkRequest <- R6::R6Class(
         self$link$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of CreateBusinessChatLinkRequest.
@@ -502,7 +502,7 @@ CreateThemeRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x00, 0x44, 0x2e, 0x65)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0x0c, 0xc8, 0xb4, 0x56)),
-    
+
     #' @description Initialize the CreateThemeRequest.
     #' @param slug The slug string.
     #' @param title The title string.
@@ -514,7 +514,7 @@ CreateThemeRequest <- R6::R6Class(
       self$document <- document
       self$settings <- settings
     },
-    
+
     #' @description Resolve the document using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
@@ -523,7 +523,7 @@ CreateThemeRequest <- R6::R6Class(
         self$document <- utils$getInputDocument(self$document)
       }
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -535,7 +535,7 @@ CreateThemeRequest <- R6::R6Class(
         settings = if (is.null(self$settings)) list() else lapply(self$settings, function(x) if (inherits(x, "TLObject")) x$toDict() else x)
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -552,7 +552,7 @@ CreateThemeRequest <- R6::R6Class(
         settingsBytes
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of CreateThemeRequest.
@@ -585,7 +585,7 @@ DeclinePasswordResetRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xf6, 0x09, 0x94, 0x4c)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -593,13 +593,13 @@ DeclinePasswordResetRequest <- R6::R6Class(
         "_" = "DeclinePasswordResetRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0xf6, 0x09, 0x94, 0x4c))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of DeclinePasswordResetRequest.
@@ -624,7 +624,7 @@ DeleteAccountRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x74, 0xcf, 0xc0, 0xa2)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Initialize the DeleteAccountRequest.
     #' @param reason The reason string.
     #' @param password Optional input check password SRP.
@@ -632,7 +632,7 @@ DeleteAccountRequest <- R6::R6Class(
       self$reason <- reason
       self$password <- password
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -642,7 +642,7 @@ DeleteAccountRequest <- R6::R6Class(
         password = if (inherits(self$password, "TLObject")) self$password$toDict() else self$password
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -654,7 +654,7 @@ DeleteAccountRequest <- R6::R6Class(
         if (!is.null(self$password)) self$password$bytes() else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of DeleteAccountRequest.
@@ -683,7 +683,7 @@ DeleteAutoSaveExceptionsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x20, 0x00, 0xbc, 0x53)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -691,13 +691,13 @@ DeleteAutoSaveExceptionsRequest <- R6::R6Class(
         "_" = "DeleteAutoSaveExceptionsRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x20, 0x00, 0xbc, 0x53))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of DeleteAutoSaveExceptionsRequest.
@@ -722,13 +722,13 @@ DeleteBusinessChatLinkRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x74, 0x36, 0x07, 0x60)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Initialize the DeleteBusinessChatLinkRequest.
     #' @param slug The slug string.
     initialize = function(slug) {
       self$slug <- slug
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -737,7 +737,7 @@ DeleteBusinessChatLinkRequest <- R6::R6Class(
         slug = self$slug
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -746,7 +746,7 @@ DeleteBusinessChatLinkRequest <- R6::R6Class(
         self$serializeBytes(self$slug)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of DeleteBusinessChatLinkRequest.
@@ -772,13 +772,13 @@ DeleteSecureValueRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x4b, 0xbc, 0x80, 0xb8)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Initialize the DeleteSecureValueRequest.
     #' @param types List of secure value types.
     initialize = function(types) {
       self$types <- types
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -787,7 +787,7 @@ DeleteSecureValueRequest <- R6::R6Class(
         types = if (is.null(self$types)) list() else lapply(self$types, function(x) if (inherits(x, "TLObject")) x$toDict() else x)
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -798,7 +798,7 @@ DeleteSecureValueRequest <- R6::R6Class(
         do.call(c, lapply(self$types, function(x) x$bytes()))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of DeleteSecureValueRequest.
@@ -830,20 +830,20 @@ DisablePeerConnectedBotRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xd9, 0x7e, 0x43, 0x5e)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Initialize the DisablePeerConnectedBotRequest.
     #' @param peer The input peer.
     initialize = function(peer) {
       self$peer <- peer
     },
-    
+
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -852,7 +852,7 @@ DisablePeerConnectedBotRequest <- R6::R6Class(
         peer = if (inherits(self$peer, "TLObject")) self$peer$toDict() else self$peer
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -861,7 +861,7 @@ DisablePeerConnectedBotRequest <- R6::R6Class(
         self$peer$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of DisablePeerConnectedBotRequest.
@@ -887,7 +887,7 @@ EditBusinessChatLinkRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xaf, 0x10, 0x34, 0x8c)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0x8b, 0x4a, 0x0d, 0x3c)),
-    
+
     #' @description Initialize the EditBusinessChatLinkRequest.
     #' @param slug The slug string.
     #' @param link The input business chat link.
@@ -895,7 +895,7 @@ EditBusinessChatLinkRequest <- R6::R6Class(
       self$slug <- slug
       self$link <- link
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -905,7 +905,7 @@ EditBusinessChatLinkRequest <- R6::R6Class(
         link = if (inherits(self$link, "TLObject")) self$link$toDict() else self$link
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -915,7 +915,7 @@ EditBusinessChatLinkRequest <- R6::R6Class(
         self$link$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of EditBusinessChatLinkRequest.
@@ -942,13 +942,13 @@ FinishTakeoutSessionRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xee, 0x52, 0x26, 0x1d)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Initialize the FinishTakeoutSessionRequest.
     #' @param success Optional boolean indicating success.
     initialize = function(success = NULL) {
       self$success <- success
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -957,7 +957,7 @@ FinishTakeoutSessionRequest <- R6::R6Class(
         success = self$success
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -967,7 +967,7 @@ FinishTakeoutSessionRequest <- R6::R6Class(
         writeBin(as.integer(flags), raw(), size = 4, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of FinishTakeoutSessionRequest.
@@ -995,11 +995,11 @@ GetAccountTTLRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x1d, 0x11, 0xc7, 0x8f)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0x88, 0x9d, 0xa3, 0xba)),
-    
+
     #' @description Initialize the GetAccountTTLRequest.
     initialize = function() {
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1007,13 +1007,13 @@ GetAccountTTLRequest <- R6::R6Class(
         "_" = "GetAccountTTLRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x1d, 0x11, 0xc7, 0x8f))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetAccountTTLRequest.
@@ -1038,11 +1038,11 @@ GetAllSecureValuesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x7d, 0xbc, 0x88, 0xb2)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0x21, 0x41, 0x2e, 0xe8)),
-    
+
     #' @description Initialize the GetAllSecureValuesRequest.
     initialize = function() {
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1050,13 +1050,13 @@ GetAllSecureValuesRequest <- R6::R6Class(
         "_" = "GetAllSecureValuesRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x7d, 0xbc, 0x88, 0xb2))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetAllSecureValuesRequest.
@@ -1081,7 +1081,7 @@ GetAuthorizationFormRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x7a, 0x59, 0x29, 0xa9)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0x94, 0x9a, 0x04, 0x78)),
-    
+
     #' @description Initialize the GetAuthorizationFormRequest.
     #' @param botId The bot ID as an integer.
     #' @param scope The scope string.
@@ -1091,7 +1091,7 @@ GetAuthorizationFormRequest <- R6::R6Class(
       self$scope <- scope
       self$publicKey <- publicKey
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1102,7 +1102,7 @@ GetAuthorizationFormRequest <- R6::R6Class(
         "public_key" = self$publicKey
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -1113,7 +1113,7 @@ GetAuthorizationFormRequest <- R6::R6Class(
         self$serializeBytes(self$publicKey)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetAuthorizationFormRequest.
@@ -1141,11 +1141,11 @@ GetAuthorizationsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x58, 0xc1, 0x20, 0xe3)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xff, 0xe0, 0x5e, 0x0b)),
-    
+
     #' @description Initialize the GetAuthorizationsRequest.
     initialize = function() {
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1153,13 +1153,13 @@ GetAuthorizationsRequest <- R6::R6Class(
         "_" = "GetAuthorizationsRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x58, 0xc1, 0x20, 0xe3))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetAuthorizationsRequest.
@@ -1185,11 +1185,11 @@ GetAutoDownloadSettingsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x3f, 0x0b, 0xda, 0x56)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0x21, 0x59, 0xb8, 0x2f)),
-    
+
     #' @description Initialize the GetAutoDownloadSettingsRequest.
     initialize = function() {
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1197,13 +1197,13 @@ GetAutoDownloadSettingsRequest <- R6::R6Class(
         "_" = "GetAutoDownloadSettingsRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x3f, 0x0b, 0xda, 0x56))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetAutoDownloadSettingsRequest.
@@ -1228,11 +1228,11 @@ GetAutoSaveSettingsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xda, 0xbc, 0xcb, 0xad)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0x02, 0x2f, 0xcf, 0x48)),
-    
+
     #' @description Initialize the GetAutoSaveSettingsRequest.
     initialize = function() {
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1240,13 +1240,13 @@ GetAutoSaveSettingsRequest <- R6::R6Class(
         "_" = "GetAutoSaveSettingsRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0xda, 0xbc, 0xcb, 0xad))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetAutoSaveSettingsRequest.
@@ -1271,13 +1271,13 @@ GetBotBusinessConnectionRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x70, 0x62, 0xa8, 0x76)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x2a, 0xf5, 0x8a)),
-    
+
     #' @description Initialize the GetBotBusinessConnectionRequest.
     #' @param connectionId The connection ID string.
     initialize = function(connectionId) {
       self$connectionId <- connectionId
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1286,7 +1286,7 @@ GetBotBusinessConnectionRequest <- R6::R6Class(
         "connectionId" = self$connectionId
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -1295,7 +1295,7 @@ GetBotBusinessConnectionRequest <- R6::R6Class(
         self$serializeBytes(self$connectionId)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetBotBusinessConnectionRequest.
@@ -1321,11 +1321,11 @@ GetBusinessChatLinksRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xe1, 0xdd, 0x70, 0x6f)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0x31, 0x4a, 0xba, 0xc6)),
-    
+
     #' @description Initialize the GetBusinessChatLinksRequest.
     initialize = function() {
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1333,13 +1333,13 @@ GetBusinessChatLinksRequest <- R6::R6Class(
         "_" = "GetBusinessChatLinksRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0xe1, 0xdd, 0x70, 0x6f))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetBusinessChatLinksRequest.
@@ -1365,13 +1365,13 @@ GetChannelDefaultEmojiStatusesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xd5, 0xa7, 0x27, 0x77)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xca, 0x05, 0xe0, 0xd3)),
-    
+
     #' @description Initialize the GetChannelDefaultEmojiStatusesRequest.
     #' @param hash The hash value for caching.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1380,7 +1380,7 @@ GetChannelDefaultEmojiStatusesRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -1389,7 +1389,7 @@ GetChannelDefaultEmojiStatusesRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetChannelDefaultEmojiStatusesRequest.
@@ -1415,13 +1415,13 @@ GetChannelRestrictedStatusEmojisRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xd5, 0xe0, 0xa9, 0x35)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xba, 0xef, 0xc6, 0xbc)),
-    
+
     #' @description Initialize the GetChannelRestrictedStatusEmojisRequest.
     #' @param hash The hash value for caching.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1430,7 +1430,7 @@ GetChannelRestrictedStatusEmojisRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -1439,7 +1439,7 @@ GetChannelRestrictedStatusEmojisRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetChannelRestrictedStatusEmojisRequest.
@@ -1465,13 +1465,13 @@ GetChatThemesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x89, 0xde, 0x38, 0xd6)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0x04, 0x22, 0xc5, 0x7f)),
-    
+
     #' @description Initialize the GetChatThemesRequest.
     #' @param hash The hash value for caching.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1480,7 +1480,7 @@ GetChatThemesRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -1489,7 +1489,7 @@ GetChatThemesRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetChatThemesRequest.
@@ -1516,13 +1516,13 @@ GetCollectibleEmojiStatusesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x43, 0x45, 0x7b, 0x2e)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xca, 0x05, 0xe0, 0xd3)),
-    
+
     #' @description Initialize the GetCollectibleEmojiStatusesRequest.
     #' @param hash The hash value for caching.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1531,7 +1531,7 @@ GetCollectibleEmojiStatusesRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -1540,7 +1540,7 @@ GetCollectibleEmojiStatusesRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetCollectibleEmojiStatusesRequest.
@@ -1566,7 +1566,7 @@ GetConnectedBotsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x0f, 0xc8, 0xa4, 0x4e)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xd3, 0xf7, 0xca, 0xe4)),
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1574,13 +1574,13 @@ GetConnectedBotsRequest <- R6::R6Class(
         "_" = "GetConnectedBotsRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x0f, 0xc8, 0xa4, 0x4e))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetConnectedBotsRequest.
@@ -1605,7 +1605,7 @@ GetContactSignUpNotificationRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x28, 0xc7, 0x07, 0x9f)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1613,13 +1613,13 @@ GetContactSignUpNotificationRequest <- R6::R6Class(
         "_" = "GetContactSignUpNotificationRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x28, 0xc7, 0x07, 0x9f))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetContactSignUpNotificationRequest.
@@ -1644,7 +1644,7 @@ GetContentSettingsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xae, 0x4d, 0x9b, 0x8b)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0x91, 0xf8, 0x3f, 0xae)),
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1652,13 +1652,13 @@ GetContentSettingsRequest <- R6::R6Class(
         "_" = "GetContentSettingsRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0xae, 0x4d, 0x9b, 0x8b))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetContentSettingsRequest.
@@ -1684,13 +1684,13 @@ GetDefaultBackgroundEmojisRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xce, 0xb9, 0x0a, 0xa6)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xba, 0x6a, 0xef, 0xbc)),
-    
+
     #' @description Initialize the GetDefaultBackgroundEmojisRequest.
     #' @param hash The hash value for caching.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1699,7 +1699,7 @@ GetDefaultBackgroundEmojisRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -1708,7 +1708,7 @@ GetDefaultBackgroundEmojisRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetDefaultBackgroundEmojisRequest.
@@ -1734,13 +1734,13 @@ GetDefaultEmojiStatusesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0x86, 0x33, 0x75, 0xd6)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xca, 0x05, 0xe0, 0xd3)),
-    
+
     #' @description Initialize the GetDefaultEmojiStatusesRequest.
     #' @param hash The hash value for caching.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1749,7 +1749,7 @@ GetDefaultEmojiStatusesRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -1758,7 +1758,7 @@ GetDefaultEmojiStatusesRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetDefaultEmojiStatusesRequest.
@@ -1784,13 +1784,13 @@ GetDefaultGroupPhotoEmojisRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.raw(c(0xae, 0x60, 0x58, 0x91)),
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = as.raw(c(0xba, 0x6a, 0xef, 0xbc)),
-    
+
     #' @description Initialize the GetDefaultGroupPhotoEmojisRequest.
     #' @param hash The hash value for caching.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1799,7 +1799,7 @@ GetDefaultGroupPhotoEmojisRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -1808,7 +1808,7 @@ GetDefaultGroupPhotoEmojisRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetDefaultGroupPhotoEmojisRequest.
@@ -1835,13 +1835,13 @@ GetDefaultProfilePhotoEmojisRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xe2750328,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xbcef6aba,
-    
+
     #' @description Initialize the GetDefaultProfilePhotoEmojisRequest.
     #' @param hash The hash value for caching.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1850,7 +1850,7 @@ GetDefaultProfilePhotoEmojisRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -1859,7 +1859,7 @@ GetDefaultProfilePhotoEmojisRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetDefaultProfilePhotoEmojisRequest.
@@ -1885,7 +1885,7 @@ GetGlobalPrivacySettingsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xeb2b4cf6,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xc90e5770,
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1893,13 +1893,13 @@ GetGlobalPrivacySettingsRequest <- R6::R6Class(
         "_" = "GetGlobalPrivacySettingsRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0xf6, 0x4c, 0x2b, 0xeb))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetGlobalPrivacySettingsRequest.
@@ -1924,13 +1924,13 @@ GetMultiWallPapersRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x65ad71dc,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8ec35283,
-    
+
     #' @description Initialize the GetMultiWallPapersRequest.
     #' @param wallpapers List of input wallpapers.
     initialize = function(wallpapers) {
       self$wallpapers <- wallpapers
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -1939,7 +1939,7 @@ GetMultiWallPapersRequest <- R6::R6Class(
         wallpapers = if (is.null(self$wallpapers)) list() else lapply(self$wallpapers, function(x) if (inherits(x, "TLObject")) x$toDict() else x)
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -1950,7 +1950,7 @@ GetMultiWallPapersRequest <- R6::R6Class(
         do.call(c, lapply(self$wallpapers, function(x) x$bytes()))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetMultiWallPapersRequest.
@@ -1982,7 +1982,7 @@ GetNotifyExceptionsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x53577479,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
-    
+
     #' @description Initialize the GetNotifyExceptionsRequest.
     #' @param compareSound Optional boolean indicating if to compare sound.
     #' @param compareStories Optional boolean indicating if to compare stories.
@@ -1992,7 +1992,7 @@ GetNotifyExceptionsRequest <- R6::R6Class(
       self$compareStories <- compareStories
       self$peer <- peer
     },
-    
+
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
@@ -2001,7 +2001,7 @@ GetNotifyExceptionsRequest <- R6::R6Class(
         self$peer <- client$getInputNotify(self$peer)
       }
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2012,7 +2012,7 @@ GetNotifyExceptionsRequest <- R6::R6Class(
         peer = if (inherits(self$peer, "TLObject")) self$peer$toDict() else self$peer
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2025,7 +2025,7 @@ GetNotifyExceptionsRequest <- R6::R6Class(
         if (!is.null(self$peer)) self$peer$bytes() else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetNotifyExceptionsRequest.
@@ -2054,20 +2054,20 @@ GetNotifySettingsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x12b3ad31,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xcf20c074,
-    
+
     #' @description Initialize the GetNotifySettingsRequest.
     #' @param peer The input notify peer.
     initialize = function(peer) {
       self$peer <- peer
     },
-    
+
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- client$getInputNotify(self$peer)
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2076,7 +2076,7 @@ GetNotifySettingsRequest <- R6::R6Class(
         peer = if (inherits(self$peer, "TLObject")) self$peer$toDict() else self$peer
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2085,7 +2085,7 @@ GetNotifySettingsRequest <- R6::R6Class(
         self$peer$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetNotifySettingsRequest.
@@ -2111,7 +2111,7 @@ GetPaidMessagesRevenueRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x19ba4a67,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x152f0c57,
-    
+
     #' @description Initialize the GetPaidMessagesRevenueRequest.
     #' @param userId The input user ID.
     #' @param parentPeer Optional input parent peer.
@@ -2119,7 +2119,7 @@ GetPaidMessagesRevenueRequest <- R6::R6Class(
       self$userId <- userId
       self$parentPeer <- parentPeer
     },
-    
+
     #' @description Resolve the user ID and parent peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
@@ -2129,7 +2129,7 @@ GetPaidMessagesRevenueRequest <- R6::R6Class(
         self$parentPeer <- utils$getInputPeer(client$getInputEntity(self$parentPeer))
       }
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2139,7 +2139,7 @@ GetPaidMessagesRevenueRequest <- R6::R6Class(
         parentPeer = if (inherits(self$parentPeer, "TLObject")) self$parentPeer$toDict() else self$parentPeer
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2151,7 +2151,7 @@ GetPaidMessagesRevenueRequest <- R6::R6Class(
         self$userId$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetPaidMessagesRevenueRequest.
@@ -2180,7 +2180,7 @@ GetPasswordRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x548a30f5,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x53a211a3,
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2188,13 +2188,13 @@ GetPasswordRequest <- R6::R6Class(
         "_" = "GetPasswordRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0xf5, 0x30, 0x8a, 0x54))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetPasswordRequest.
@@ -2219,13 +2219,13 @@ GetPasswordSettingsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x9cd4eaf9,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd23fb078,
-    
+
     #' @description Initialize the GetPasswordSettingsRequest.
     #' @param password The input check password SRP.
     initialize = function(password) {
       self$password <- password
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2234,7 +2234,7 @@ GetPasswordSettingsRequest <- R6::R6Class(
         password = if (inherits(self$password, "TLObject")) self$password$toDict() else self$password
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2243,7 +2243,7 @@ GetPasswordSettingsRequest <- R6::R6Class(
         self$password$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetPasswordSettingsRequest.
@@ -2269,13 +2269,13 @@ GetPrivacyRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xdadbc950,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xb55aba82,
-    
+
     #' @description Initialize the GetPrivacyRequest.
     #' @param key The input privacy key.
     initialize = function(key) {
       self$key <- key
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2284,7 +2284,7 @@ GetPrivacyRequest <- R6::R6Class(
         key = if (inherits(self$key, "TLObject")) self$key$toDict() else self$key
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2293,7 +2293,7 @@ GetPrivacyRequest <- R6::R6Class(
         self$key$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetPrivacyRequest.
@@ -2319,7 +2319,7 @@ GetReactionsNotifySettingsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x6dd654c,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8dff0851,
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2327,13 +2327,13 @@ GetReactionsNotifySettingsRequest <- R6::R6Class(
         "_" = "GetReactionsNotifySettingsRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x4c, 0xd6, 0xdd, 0x06))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetReactionsNotifySettingsRequest.
@@ -2359,13 +2359,13 @@ GetRecentEmojiStatusesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xf578105,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd3e005ca,
-    
+
     #' @description Initialize the GetRecentEmojiStatusesRequest.
     #' @param hash The hash value for caching.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2374,7 +2374,7 @@ GetRecentEmojiStatusesRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2383,7 +2383,7 @@ GetRecentEmojiStatusesRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetRecentEmojiStatusesRequest.
@@ -2409,13 +2409,13 @@ GetSavedMusicIdsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xe09d5faf,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x4b4af692,
-    
+
     #' @description Initialize the GetSavedMusicIdsRequest.
     #' @param hash The hash value for caching.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2424,7 +2424,7 @@ GetSavedMusicIdsRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2433,7 +2433,7 @@ GetSavedMusicIdsRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetSavedMusicIdsRequest.
@@ -2459,13 +2459,13 @@ GetSavedRingtonesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xe1902288,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x27bcc95e,
-    
+
     #' @description Initialize the GetSavedRingtonesRequest.
     #' @param hash The hash value for caching.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2474,7 +2474,7 @@ GetSavedRingtonesRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2483,7 +2483,7 @@ GetSavedRingtonesRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetSavedRingtonesRequest.
@@ -2510,13 +2510,13 @@ GetSecureValueRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x73665bc2,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xe82e4121,
-    
+
     #' @description Initialize the GetSecureValueRequest.
     #' @param types List of secure value types.
     initialize = function(types) {
       self$types <- types
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2525,7 +2525,7 @@ GetSecureValueRequest <- R6::R6Class(
         types = if (is.null(self$types)) list() else lapply(self$types, function(x) if (inherits(x, "TLObject")) x$toDict() else x)
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2536,7 +2536,7 @@ GetSecureValueRequest <- R6::R6Class(
         do.call(c, lapply(self$types, function(x) x$bytes()))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetSecureValueRequest.
@@ -2567,7 +2567,7 @@ GetThemeRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x3a5869ec,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x56b4c80c,
-    
+
     #' @description Initialize the GetThemeRequest.
     #' @param format The format string.
     #' @param theme The input theme.
@@ -2575,7 +2575,7 @@ GetThemeRequest <- R6::R6Class(
       self$format <- format
       self$theme <- theme
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2585,7 +2585,7 @@ GetThemeRequest <- R6::R6Class(
         theme = if (inherits(self$theme, "TLObject")) self$theme$toDict() else self$theme
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2595,7 +2595,7 @@ GetThemeRequest <- R6::R6Class(
         self$theme$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetThemeRequest.
@@ -2622,7 +2622,7 @@ GetThemesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x7206e458,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x7fc52204,
-    
+
     #' @description Initialize the GetThemesRequest.
     #' @param format The format string.
     #' @param hash The hash value.
@@ -2630,7 +2630,7 @@ GetThemesRequest <- R6::R6Class(
       self$format <- format
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2640,7 +2640,7 @@ GetThemesRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2650,7 +2650,7 @@ GetThemesRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetThemesRequest.
@@ -2678,7 +2678,7 @@ GetTmpPasswordRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x449e0b51,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xb064992d,
-    
+
     #' @description Initialize the GetTmpPasswordRequest.
     #' @param password The input check password SRP.
     #' @param period The period in seconds.
@@ -2686,7 +2686,7 @@ GetTmpPasswordRequest <- R6::R6Class(
       self$password <- password
       self$period <- period
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2696,7 +2696,7 @@ GetTmpPasswordRequest <- R6::R6Class(
         period = self$period
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2706,7 +2706,7 @@ GetTmpPasswordRequest <- R6::R6Class(
         writeBin(as.integer(self$period), raw(), size = 4, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetTmpPasswordRequest.
@@ -2733,7 +2733,7 @@ GetUniqueGiftChatThemesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xfe74ef9f,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x15c14aa8,
-    
+
     #' @description Initialize the GetUniqueGiftChatThemesRequest.
     #' @param offset The offset for pagination.
     #' @param limit The limit for the number of themes.
@@ -2743,7 +2743,7 @@ GetUniqueGiftChatThemesRequest <- R6::R6Class(
       self$limit <- limit
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2754,7 +2754,7 @@ GetUniqueGiftChatThemesRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2765,7 +2765,7 @@ GetUniqueGiftChatThemesRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetUniqueGiftChatThemesRequest.
@@ -2793,13 +2793,13 @@ GetWallPaperRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xfc8ddbea,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x96a2c98b,
-    
+
     #' @description Initialize the GetWallPaperRequest.
     #' @param wallpaper The input wallpaper.
     initialize = function(wallpaper) {
       self$wallpaper <- wallpaper
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2808,7 +2808,7 @@ GetWallPaperRequest <- R6::R6Class(
         wallpaper = if (inherits(self$wallpaper, "TLObject")) self$wallpaper$toDict() else self$wallpaper
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2817,7 +2817,7 @@ GetWallPaperRequest <- R6::R6Class(
         self$wallpaper$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetWallPaperRequest.
@@ -2844,13 +2844,13 @@ GetWallPapersRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x7967d36,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xa2c548fd,
-    
+
     #' @description Initialize the GetWallPapersRequest.
     #' @param hash The hash value for caching.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2859,7 +2859,7 @@ GetWallPapersRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2868,7 +2868,7 @@ GetWallPapersRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetWallPapersRequest.
@@ -2894,7 +2894,7 @@ GetWebAuthorizationsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x182e6d6f,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x9a365b32,
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2902,13 +2902,13 @@ GetWebAuthorizationsRequest <- R6::R6Class(
         "_" = "GetWebAuthorizationsRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x6f, 0x6d, 0x2e, 0x18))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of GetWebAuthorizationsRequest.
@@ -2924,7 +2924,7 @@ GetWebAuthorizationsRequest <- R6::R6Class(
 #' @title InitTakeoutSessionRequest
 #' @description R6 class representing an InitTakeoutSessionRequest.
 #' @details This class handles initializing a takeout session with various options.
-#' @import R6
+#' @export
 InitTakeoutSessionRequest <- R6::R6Class(
   "InitTakeoutSessionRequest",
   inherit = TLRequest,
@@ -2933,7 +2933,7 @@ InitTakeoutSessionRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x8ef3eab0,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x843ebe85,
-    
+
     #' @description Initialize the InitTakeoutSessionRequest.
     #' @param contacts Optional boolean indicating if contacts are included.
     #' @param messageUsers Optional boolean indicating if message users are included.
@@ -2951,7 +2951,7 @@ InitTakeoutSessionRequest <- R6::R6Class(
       self$files <- files
       self$fileMaxSize <- fileMaxSize
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -2966,7 +2966,7 @@ InitTakeoutSessionRequest <- R6::R6Class(
         fileMaxSize = self$fileMaxSize
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -2983,7 +2983,7 @@ InitTakeoutSessionRequest <- R6::R6Class(
         if (!is.null(self$fileMaxSize) && self$fileMaxSize != 0) writeBin(as.integer(self$fileMaxSize), raw(), size = 8, endian = "little") else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of InitTakeoutSessionRequest.
@@ -3017,7 +3017,7 @@ InstallThemeRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xc727bb3b,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    
+
     #' @description Initialize the InstallThemeRequest.
     #' @param dark Optional boolean indicating if dark mode is enabled.
     #' @param theme Optional input theme.
@@ -3029,7 +3029,7 @@ InstallThemeRequest <- R6::R6Class(
       self$format <- format
       self$baseTheme <- baseTheme
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3041,7 +3041,7 @@ InstallThemeRequest <- R6::R6Class(
         baseTheme = if (inherits(self$baseTheme, "TLObject")) self$baseTheme$toDict() else self$baseTheme
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -3057,7 +3057,7 @@ InstallThemeRequest <- R6::R6Class(
         if (!is.null(self$baseTheme)) self$baseTheme$bytes() else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of InstallThemeRequest.
@@ -3087,7 +3087,7 @@ InstallWallPaperRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xfeed5769,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    
+
     #' @description Initialize the InstallWallPaperRequest.
     #' @param wallpaper The input wallpaper.
     #' @param settings The wallpaper settings.
@@ -3095,7 +3095,7 @@ InstallWallPaperRequest <- R6::R6Class(
       self$wallpaper <- wallpaper
       self$settings <- settings
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3105,7 +3105,7 @@ InstallWallPaperRequest <- R6::R6Class(
         settings = if (inherits(self$settings, "TLObject")) self$settings$toDict() else self$settings
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -3115,7 +3115,7 @@ InstallWallPaperRequest <- R6::R6Class(
         self$settings$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of InstallWallPaperRequest.
@@ -3142,13 +3142,13 @@ InvalidateSignInCodesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xca8ae8ba,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    
+
     #' @description Initialize the InvalidateSignInCodesRequest.
     #' @param codes List of sign-in codes.
     initialize = function(codes) {
       self$codes <- codes
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3157,7 +3157,7 @@ InvalidateSignInCodesRequest <- R6::R6Class(
         codes = if (is.null(self$codes)) list() else self$codes
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -3168,7 +3168,7 @@ InvalidateSignInCodesRequest <- R6::R6Class(
         do.call(c, lapply(self$codes, function(x) self$serializeBytes(x)))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of InvalidateSignInCodesRequest.
@@ -3200,7 +3200,7 @@ RegisterDeviceRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xec86017a,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    
+
     #' @description Initialize the RegisterDeviceRequest.
     #' @param tokenType The token type integer.
     #' @param token The token string.
@@ -3216,7 +3216,7 @@ RegisterDeviceRequest <- R6::R6Class(
       self$otherUids <- otherUids
       self$noMuted <- noMuted
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3230,7 +3230,7 @@ RegisterDeviceRequest <- R6::R6Class(
         noMuted = self$noMuted
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -3247,7 +3247,7 @@ RegisterDeviceRequest <- R6::R6Class(
         do.call(c, lapply(self$otherUids, function(x) writeBin(as.integer(x), raw(), size = 8, endian = "little")))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of RegisterDeviceRequest.
@@ -3284,13 +3284,13 @@ ReorderUsernamesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xef500eab,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    
+
     #' @description Initialize the ReorderUsernamesRequest.
     #' @param order List of usernames in order.
     initialize = function(order) {
       self$order <- order
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3299,7 +3299,7 @@ ReorderUsernamesRequest <- R6::R6Class(
         order = if (is.null(self$order)) list() else self$order
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -3310,7 +3310,7 @@ ReorderUsernamesRequest <- R6::R6Class(
         do.call(c, lapply(self$order, function(x) self$serializeBytes(x)))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ReorderUsernamesRequest.
@@ -3341,7 +3341,7 @@ ReportPeerRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xc5ba3d86,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    
+
     #' @description Initialize the ReportPeerRequest.
     #' @param peer The input peer.
     #' @param reason The report reason.
@@ -3351,14 +3351,14 @@ ReportPeerRequest <- R6::R6Class(
       self$reason <- reason
       self$message <- message
     },
-    
+
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3369,7 +3369,7 @@ ReportPeerRequest <- R6::R6Class(
         message = self$message
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -3380,7 +3380,7 @@ ReportPeerRequest <- R6::R6Class(
         self$serializeBytes(self$message)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ReportPeerRequest.
@@ -3409,7 +3409,7 @@ ReportProfilePhotoRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xfa8cc6f5,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    
+
     #' @description Initialize the ReportProfilePhotoRequest.
     #' @param peer The input peer.
     #' @param photoId The input photo ID.
@@ -3421,7 +3421,7 @@ ReportProfilePhotoRequest <- R6::R6Class(
       self$reason <- reason
       self$message <- message
     },
-    
+
     #' @description Resolve the peer and photo ID using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
@@ -3429,7 +3429,7 @@ ReportProfilePhotoRequest <- R6::R6Class(
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       self$photoId <- utils$getInputPhoto(self$photoId)
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3441,7 +3441,7 @@ ReportProfilePhotoRequest <- R6::R6Class(
         message = self$message
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -3453,7 +3453,7 @@ ReportProfilePhotoRequest <- R6::R6Class(
         self$serializeBytes(self$message)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ReportProfilePhotoRequest.
@@ -3482,7 +3482,7 @@ ResendPasswordEmailRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x7a7f2a15,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3490,13 +3490,13 @@ ResendPasswordEmailRequest <- R6::R6Class(
         "_" = "ResendPasswordEmailRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x15, 0x2a, 0x7f, 0x7a))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ResendPasswordEmailRequest.
@@ -3521,13 +3521,13 @@ ResetAuthorizationRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xdf77f3bc,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    
+
     #' @description Initialize the ResetAuthorizationRequest.
     #' @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3536,7 +3536,7 @@ ResetAuthorizationRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -3545,7 +3545,7 @@ ResetAuthorizationRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ResetAuthorizationRequest.
@@ -3572,7 +3572,7 @@ ResetNotifySettingsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xdb7e1747,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3580,13 +3580,13 @@ ResetNotifySettingsRequest <- R6::R6Class(
         "_" = "ResetNotifySettingsRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x47, 0x17, 0x7e, 0xdb))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ResetNotifySettingsRequest.
@@ -3611,7 +3611,7 @@ ResetPasswordRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x9308ce1b,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x49507416,
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3619,13 +3619,13 @@ ResetPasswordRequest <- R6::R6Class(
         "_" = "ResetPasswordRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x1b, 0xce, 0x08, 0x93))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ResetPasswordRequest.
@@ -3650,7 +3650,7 @@ ResetWallPapersRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xbb3b9804,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3658,13 +3658,13 @@ ResetWallPapersRequest <- R6::R6Class(
         "_" = "ResetWallPapersRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x04, 0x98, 0x3b, 0xbb))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ResetWallPapersRequest.
@@ -3689,13 +3689,13 @@ ResetWebAuthorizationRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x2d01b9ef,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    
+
     #' @description Initialize the ResetWebAuthorizationRequest.
     #' @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3704,7 +3704,7 @@ ResetWebAuthorizationRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -3713,7 +3713,7 @@ ResetWebAuthorizationRequest <- R6::R6Class(
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ResetWebAuthorizationRequest.
@@ -3743,13 +3743,13 @@ ResetWebAuthorizationsRequest <- R6::R6Class(
         "_" = "ResetWebAuthorizationsRequest"
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
       as.raw(c(0x94, 0x25, 0x2d, 0x68))
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ResetWebAuthorizationsRequest.
@@ -3775,7 +3775,7 @@ ResolveBusinessChatLinkRequest <- R6::R6Class(
     initialize = function(slug) {
       self$slug <- slug
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3784,7 +3784,7 @@ ResolveBusinessChatLinkRequest <- R6::R6Class(
         slug = self$slug
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -3793,7 +3793,7 @@ ResolveBusinessChatLinkRequest <- R6::R6Class(
         self$serializeBytes(self$slug)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ResolveBusinessChatLinkRequest.
@@ -3824,7 +3824,7 @@ SaveAutoDownloadSettingsRequest <- R6::R6Class(
       self$low <- low
       self$high <- high
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3835,7 +3835,7 @@ SaveAutoDownloadSettingsRequest <- R6::R6Class(
         high = self$high
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -3847,7 +3847,7 @@ SaveAutoDownloadSettingsRequest <- R6::R6Class(
         self$settings$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SaveAutoDownloadSettingsRequest.
@@ -3886,7 +3886,7 @@ SaveAutoSaveSettingsRequest <- R6::R6Class(
       self$broadcasts <- broadcasts
       self$peer <- peer
     },
-    
+
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
@@ -3895,7 +3895,7 @@ SaveAutoSaveSettingsRequest <- R6::R6Class(
         self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       }
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3908,7 +3908,7 @@ SaveAutoSaveSettingsRequest <- R6::R6Class(
         peer = if (inherits(self$peer, "TLObject")) self$peer$toDict() else self$peer
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -3923,7 +3923,7 @@ SaveAutoSaveSettingsRequest <- R6::R6Class(
         self$settings$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SaveAutoSaveSettingsRequest.
@@ -3959,7 +3959,7 @@ SaveMusicRequest <- R6::R6Class(
       self$unsave <- unsave
       self$afterId <- afterId
     },
-    
+
     #' @description Resolve the ID and after ID using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
@@ -3969,7 +3969,7 @@ SaveMusicRequest <- R6::R6Class(
         self$afterId <- utils$getInputDocument(self$afterId)
       }
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -3980,7 +3980,7 @@ SaveMusicRequest <- R6::R6Class(
         afterId = if (inherits(self$afterId, "TLObject")) self$afterId$toDict() else self$afterId
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -3993,7 +3993,7 @@ SaveMusicRequest <- R6::R6Class(
         if (!is.null(self$afterId)) self$afterId$bytes() else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SaveMusicRequest.
@@ -4025,14 +4025,14 @@ SaveRingtoneRequest <- R6::R6Class(
       self$id <- id
       self$unsave <- unsave
     },
-    
+
     #' @description Resolve the ID using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
       self$id <- utils$getInputDocument(self$id)
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4042,7 +4042,7 @@ SaveRingtoneRequest <- R6::R6Class(
         unsave = self$unsave
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4052,7 +4052,7 @@ SaveRingtoneRequest <- R6::R6Class(
         if (self$unsave) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SaveRingtoneRequest.
@@ -4083,7 +4083,7 @@ SaveSecureValueRequest <- R6::R6Class(
       self$value <- value
       self$secureSecretId <- secureSecretId
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4093,7 +4093,7 @@ SaveSecureValueRequest <- R6::R6Class(
         secureSecretId = self$secureSecretId
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4103,7 +4103,7 @@ SaveSecureValueRequest <- R6::R6Class(
         writeBin(as.integer(self$secureSecretId), raw(), size = 8, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SaveSecureValueRequest.
@@ -4133,7 +4133,7 @@ SaveThemeRequest <- R6::R6Class(
       self$theme <- theme
       self$unsave <- unsave
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4143,7 +4143,7 @@ SaveThemeRequest <- R6::R6Class(
         unsave = self$unsave
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4153,7 +4153,7 @@ SaveThemeRequest <- R6::R6Class(
         if (self$unsave) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SaveThemeRequest.
@@ -4185,7 +4185,7 @@ SaveWallPaperRequest <- R6::R6Class(
       self$unsave <- unsave
       self$settings <- settings
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4196,7 +4196,7 @@ SaveWallPaperRequest <- R6::R6Class(
         settings = if (inherits(self$settings, "TLObject")) self$settings$toDict() else self$settings
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4207,7 +4207,7 @@ SaveWallPaperRequest <- R6::R6Class(
         self$settings$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SaveWallPaperRequest.
@@ -4239,7 +4239,7 @@ SendChangePhoneCodeRequest <- R6::R6Class(
       self$phoneNumber <- phoneNumber
       self$settings <- settings
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4249,7 +4249,7 @@ SendChangePhoneCodeRequest <- R6::R6Class(
         settings = if (inherits(self$settings, "TLObject")) self$settings$toDict() else self$settings
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4259,7 +4259,7 @@ SendChangePhoneCodeRequest <- R6::R6Class(
         self$settings$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SendChangePhoneCodeRequest.
@@ -4289,7 +4289,7 @@ SendConfirmPhoneCodeRequest <- R6::R6Class(
       self$hash <- hash
       self$settings <- settings
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4299,7 +4299,7 @@ SendConfirmPhoneCodeRequest <- R6::R6Class(
         settings = if (inherits(self$settings, "TLObject")) self$settings$toDict() else self$settings
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4309,7 +4309,7 @@ SendConfirmPhoneCodeRequest <- R6::R6Class(
         self$settings$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SendConfirmPhoneCodeRequest.
@@ -4339,7 +4339,7 @@ SendVerifyEmailCodeRequest <- R6::R6Class(
       self$purpose <- purpose
       self$email <- email
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4349,7 +4349,7 @@ SendVerifyEmailCodeRequest <- R6::R6Class(
         email = self$email
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4359,7 +4359,7 @@ SendVerifyEmailCodeRequest <- R6::R6Class(
         self$serializeBytes(self$email)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SendVerifyEmailCodeRequest.
@@ -4390,7 +4390,7 @@ SendVerifyPhoneCodeRequest <- R6::R6Class(
       self$phoneNumber <- phoneNumber
       self$settings <- settings
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4400,7 +4400,7 @@ SendVerifyPhoneCodeRequest <- R6::R6Class(
         settings = if (inherits(self$settings, "TLObject")) self$settings$toDict() else self$settings
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4410,7 +4410,7 @@ SendVerifyPhoneCodeRequest <- R6::R6Class(
         self$settings$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SendVerifyPhoneCodeRequest.
@@ -4438,7 +4438,7 @@ SetAccountTTLRequest <- R6::R6Class(
     initialize = function(ttl) {
       self$ttl <- ttl
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4447,7 +4447,7 @@ SetAccountTTLRequest <- R6::R6Class(
         ttl = if (inherits(self$ttl, "TLObject")) self$ttl$toDict() else self$ttl
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4456,7 +4456,7 @@ SetAccountTTLRequest <- R6::R6Class(
         self$ttl$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SetAccountTTLRequest.
@@ -4483,7 +4483,7 @@ SetAuthorizationTTLRequest <- R6::R6Class(
     initialize = function(authorizationTtlDays) {
       self$authorizationTtlDays <- authorizationTtlDays
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4492,7 +4492,7 @@ SetAuthorizationTTLRequest <- R6::R6Class(
         authorizationTtlDays = self$authorizationTtlDays
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4501,7 +4501,7 @@ SetAuthorizationTTLRequest <- R6::R6Class(
         writeBin(as.integer(self$authorizationTtlDays), raw(), size = 4, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SetAuthorizationTTLRequest.
@@ -4528,7 +4528,7 @@ SetContactSignUpNotificationRequest <- R6::R6Class(
     initialize = function(silent) {
       self$silent <- silent
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4537,7 +4537,7 @@ SetContactSignUpNotificationRequest <- R6::R6Class(
         silent = self$silent
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4546,7 +4546,7 @@ SetContactSignUpNotificationRequest <- R6::R6Class(
         if (self$silent) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SetContactSignUpNotificationRequest.
@@ -4573,7 +4573,7 @@ SetContentSettingsRequest <- R6::R6Class(
     initialize = function(sensitiveEnabled = NULL) {
       self$sensitiveEnabled <- sensitiveEnabled
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4582,7 +4582,7 @@ SetContentSettingsRequest <- R6::R6Class(
         sensitiveEnabled = self$sensitiveEnabled
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4592,7 +4592,7 @@ SetContentSettingsRequest <- R6::R6Class(
         writeBin(as.integer(flags), raw(), size = 4, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SetContentSettingsRequest.
@@ -4620,7 +4620,7 @@ SetGlobalPrivacySettingsRequest <- R6::R6Class(
     initialize = function(settings) {
       self$settings <- settings
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4629,7 +4629,7 @@ SetGlobalPrivacySettingsRequest <- R6::R6Class(
         settings = if (inherits(self$settings, "TLObject")) self$settings$toDict() else self$settings
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4638,7 +4638,7 @@ SetGlobalPrivacySettingsRequest <- R6::R6Class(
         self$settings$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SetGlobalPrivacySettingsRequest.
@@ -4666,7 +4666,7 @@ SetMainProfileTabRequest <- R6::R6Class(
     initialize = function(tab) {
       self$tab <- tab
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4675,7 +4675,7 @@ SetMainProfileTabRequest <- R6::R6Class(
         tab = if (inherits(self$tab, "TLObject")) self$tab$toDict() else self$tab
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4684,7 +4684,7 @@ SetMainProfileTabRequest <- R6::R6Class(
         self$tab$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SetMainProfileTabRequest.
@@ -4713,7 +4713,7 @@ SetPrivacyRequest <- R6::R6Class(
       self$key <- key
       self$rules <- rules
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4723,7 +4723,7 @@ SetPrivacyRequest <- R6::R6Class(
         rules = if (is.null(self$rules)) list() else lapply(self$rules, function(x) if (inherits(x, "TLObject")) x$toDict() else x)
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4735,7 +4735,7 @@ SetPrivacyRequest <- R6::R6Class(
         do.call(c, lapply(self$rules, function(x) x$bytes()))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SetPrivacyRequest.
@@ -4768,7 +4768,7 @@ SetReactionsNotifySettingsRequest <- R6::R6Class(
     initialize = function(settings) {
       self$settings <- settings
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4777,7 +4777,7 @@ SetReactionsNotifySettingsRequest <- R6::R6Class(
         settings = if (inherits(self$settings, "TLObject")) self$settings$toDict() else self$settings
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4786,7 +4786,7 @@ SetReactionsNotifySettingsRequest <- R6::R6Class(
         self$settings$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of SetReactionsNotifySettingsRequest.
@@ -4816,14 +4816,14 @@ ToggleConnectedBotPausedRequest <- R6::R6Class(
       self$peer <- peer
       self$paused <- paused
     },
-    
+
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4833,7 +4833,7 @@ ToggleConnectedBotPausedRequest <- R6::R6Class(
         paused = self$paused
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4843,7 +4843,7 @@ ToggleConnectedBotPausedRequest <- R6::R6Class(
         if (self$paused) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ToggleConnectedBotPausedRequest.
@@ -4877,7 +4877,7 @@ ToggleNoPaidMessagesExceptionRequest <- R6::R6Class(
       self$requirePayment <- requirePayment
       self$parentPeer <- parentPeer
     },
-    
+
     #' @description Resolve the user ID and parent peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
@@ -4887,7 +4887,7 @@ ToggleNoPaidMessagesExceptionRequest <- R6::R6Class(
         self$parentPeer <- utils$getInputPeer(client$getInputEntity(self$parentPeer))
       }
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4899,7 +4899,7 @@ ToggleNoPaidMessagesExceptionRequest <- R6::R6Class(
         parentPeer = if (inherits(self$parentPeer, "TLObject")) self$parentPeer$toDict() else self$parentPeer
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4913,7 +4913,7 @@ ToggleNoPaidMessagesExceptionRequest <- R6::R6Class(
         self$userId$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ToggleNoPaidMessagesExceptionRequest.
@@ -4944,7 +4944,7 @@ ToggleSponsoredMessagesRequest <- R6::R6Class(
     initialize = function(enabled) {
       self$enabled <- enabled
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -4953,7 +4953,7 @@ ToggleSponsoredMessagesRequest <- R6::R6Class(
         enabled = self$enabled
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -4962,7 +4962,7 @@ ToggleSponsoredMessagesRequest <- R6::R6Class(
         if (self$enabled) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ToggleSponsoredMessagesRequest.
@@ -4992,7 +4992,7 @@ ToggleUsernameRequest <- R6::R6Class(
       self$username <- username
       self$active <- active
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5002,7 +5002,7 @@ ToggleUsernameRequest <- R6::R6Class(
         active = self$active
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5012,7 +5012,7 @@ ToggleUsernameRequest <- R6::R6Class(
         if (self$active) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of ToggleUsernameRequest.
@@ -5044,7 +5044,7 @@ UnregisterDeviceRequest <- R6::R6Class(
       self$token <- token
       self$otherUids <- otherUids
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5055,7 +5055,7 @@ UnregisterDeviceRequest <- R6::R6Class(
         otherUids = if (is.null(self$otherUids)) list() else self$otherUids
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5068,7 +5068,7 @@ UnregisterDeviceRequest <- R6::R6Class(
         do.call(c, lapply(self$otherUids, function(x) packBits(as.integer(x), type = "integer", size = 8)))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UnregisterDeviceRequest.
@@ -5102,7 +5102,7 @@ UpdateBirthdayRequest <- R6::R6Class(
     initialize = function(birthday = NULL) {
       self$birthday <- birthday
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5111,7 +5111,7 @@ UpdateBirthdayRequest <- R6::R6Class(
         birthday = if (inherits(self$birthday, "TLObject")) self$birthday$toDict() else self$birthday
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5122,7 +5122,7 @@ UpdateBirthdayRequest <- R6::R6Class(
         if (!is.null(self$birthday)) self$birthday$bytes() else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateBirthdayRequest.
@@ -5151,7 +5151,7 @@ UpdateBusinessAwayMessageRequest <- R6::R6Class(
     initialize = function(message = NULL) {
       self$message <- message
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5160,7 +5160,7 @@ UpdateBusinessAwayMessageRequest <- R6::R6Class(
         message = if (inherits(self$message, "TLObject")) self$message$toDict() else self$message
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5171,7 +5171,7 @@ UpdateBusinessAwayMessageRequest <- R6::R6Class(
         if (!is.null(self$message)) self$message$bytes() else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateBusinessAwayMessageRequest.
@@ -5199,7 +5199,7 @@ UpdateBusinessGreetingMessageRequest <- R6::R6Class(
     initialize = function(message = NULL) {
       self$message <- message
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5208,7 +5208,7 @@ UpdateBusinessGreetingMessageRequest <- R6::R6Class(
         message = if (inherits(self$message, "TLObject")) self$message$toDict() else self$message
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5219,7 +5219,7 @@ UpdateBusinessGreetingMessageRequest <- R6::R6Class(
         if (!is.null(self$message)) self$message$bytes() else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateBusinessGreetingMessageRequest.
@@ -5247,7 +5247,7 @@ UpdateBusinessIntroRequest <- R6::R6Class(
     initialize = function(intro = NULL) {
       self$intro <- intro
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5256,7 +5256,7 @@ UpdateBusinessIntroRequest <- R6::R6Class(
         intro = if (inherits(self$intro, "TLObject")) self$intro$toDict() else self$intro
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5267,7 +5267,7 @@ UpdateBusinessIntroRequest <- R6::R6Class(
         if (!is.null(self$intro)) self$intro$bytes() else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateBusinessIntroRequest.
@@ -5298,7 +5298,7 @@ UpdateBusinessLocationRequest <- R6::R6Class(
       self$geoPoint <- geoPoint
       self$address <- address
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5308,7 +5308,7 @@ UpdateBusinessLocationRequest <- R6::R6Class(
         address = self$address
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5320,7 +5320,7 @@ UpdateBusinessLocationRequest <- R6::R6Class(
         if (!is.null(self$address) && nzchar(self$address)) self$serializeBytes(self$address) else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateBusinessLocationRequest.
@@ -5349,7 +5349,7 @@ UpdateBusinessWorkHoursRequest <- R6::R6Class(
     initialize = function(businessWorkHours = NULL) {
       self$businessWorkHours <- businessWorkHours
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5358,7 +5358,7 @@ UpdateBusinessWorkHoursRequest <- R6::R6Class(
         businessWorkHours = if (inherits(self$businessWorkHours, "TLObject")) self$businessWorkHours$toDict() else self$businessWorkHours
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5369,7 +5369,7 @@ UpdateBusinessWorkHoursRequest <- R6::R6Class(
         if (!is.null(self$businessWorkHours)) self$businessWorkHours$bytes() else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateBusinessWorkHoursRequest.
@@ -5401,7 +5401,7 @@ UpdateColorRequest <- R6::R6Class(
       self$color <- color
       self$backgroundEmojiId <- backgroundEmojiId
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5412,7 +5412,7 @@ UpdateColorRequest <- R6::R6Class(
         backgroundEmojiId = self$backgroundEmojiId
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5424,7 +5424,7 @@ UpdateColorRequest <- R6::R6Class(
         if (!is.null(self$backgroundEmojiId)) writeBin(as.integer(self$backgroundEmojiId), raw(), size = 8, endian = "little") else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateColorRequest.
@@ -5461,14 +5461,14 @@ UpdateConnectedBotRequest <- R6::R6Class(
       self$deleted <- deleted
       self$rights <- rights
     },
-    
+
     #' @description Resolve the bot using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
       self$bot <- utils$getInputUser(client$getInputEntity(self$bot))
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5480,7 +5480,7 @@ UpdateConnectedBotRequest <- R6::R6Class(
         rights = if (inherits(self$rights, "TLObject")) self$rights$toDict() else self$rights
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5494,7 +5494,7 @@ UpdateConnectedBotRequest <- R6::R6Class(
         self$recipients$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateConnectedBotRequest.
@@ -5525,7 +5525,7 @@ UpdateDeviceLockedRequest <- R6::R6Class(
     initialize = function(period) {
       self$period <- period
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5534,7 +5534,7 @@ UpdateDeviceLockedRequest <- R6::R6Class(
         period = self$period
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5543,7 +5543,7 @@ UpdateDeviceLockedRequest <- R6::R6Class(
         writeBin(as.integer(self$period), raw(), size = 4, endian = "little")
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateDeviceLockedRequest.
@@ -5570,7 +5570,7 @@ UpdateEmojiStatusRequest <- R6::R6Class(
     initialize = function(emojiStatus) {
       self$emojiStatus <- emojiStatus
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5579,7 +5579,7 @@ UpdateEmojiStatusRequest <- R6::R6Class(
         emojiStatus = if (inherits(self$emojiStatus, "TLObject")) self$emojiStatus$toDict() else self$emojiStatus
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5588,7 +5588,7 @@ UpdateEmojiStatusRequest <- R6::R6Class(
         self$emojiStatus$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateEmojiStatusRequest.
@@ -5618,14 +5618,14 @@ UpdateNotifySettingsRequest <- R6::R6Class(
       self$peer <- peer
       self$settings <- settings
     },
-    
+
     #' @description Resolve the peer using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- client$getInputNotify(self$peer)
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5635,7 +5635,7 @@ UpdateNotifySettingsRequest <- R6::R6Class(
         settings = if (inherits(self$settings, "TLObject")) self$settings$toDict() else self$settings
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5645,7 +5645,7 @@ UpdateNotifySettingsRequest <- R6::R6Class(
         self$settings$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateNotifySettingsRequest.
@@ -5675,7 +5675,7 @@ UpdatePasswordSettingsRequest <- R6::R6Class(
       self$password <- password
       self$newSettings <- newSettings
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5685,7 +5685,7 @@ UpdatePasswordSettingsRequest <- R6::R6Class(
         newSettings = if (inherits(self$newSettings, "TLObject")) self$newSettings$toDict() else self$newSettings
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5695,7 +5695,7 @@ UpdatePasswordSettingsRequest <- R6::R6Class(
         self$newSettings$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdatePasswordSettingsRequest.
@@ -5723,14 +5723,14 @@ UpdatePersonalChannelRequest <- R6::R6Class(
     initialize = function(channel) {
       self$channel <- channel
     },
-    
+
     #' @description Resolve the channel using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
     resolve = function(client, utils) {
       self$channel <- utils$getInputChannel(client$getInputEntity(self$channel))
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5739,7 +5739,7 @@ UpdatePersonalChannelRequest <- R6::R6Class(
         channel = if (inherits(self$channel, "TLObject")) self$channel$toDict() else self$channel
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5748,7 +5748,7 @@ UpdatePersonalChannelRequest <- R6::R6Class(
         self$channel$bytes()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdatePersonalChannelRequest.
@@ -5780,7 +5780,7 @@ UpdateProfileRequest <- R6::R6Class(
       self$lastName <- lastName
       self$about <- about
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5791,7 +5791,7 @@ UpdateProfileRequest <- R6::R6Class(
         about = self$about
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5806,7 +5806,7 @@ UpdateProfileRequest <- R6::R6Class(
         if (!is.null(self$about) && nzchar(self$about)) self$serializeBytes(self$about) else raw()
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateProfileRequest.
@@ -5836,7 +5836,7 @@ UpdateStatusRequest <- R6::R6Class(
     initialize = function(offline) {
       self$offline <- offline
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5845,7 +5845,7 @@ UpdateStatusRequest <- R6::R6Class(
         offline = self$offline
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5854,7 +5854,7 @@ UpdateStatusRequest <- R6::R6Class(
         if (self$offline) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateStatusRequest.
@@ -5891,7 +5891,7 @@ UpdateThemeRequest <- R6::R6Class(
       self$document <- document
       self$settings <- settings
     },
-    
+
     #' @description Resolve the document using client and utils.
     #' @param client The client object.
     #' @param utils The utils object.
@@ -5900,7 +5900,7 @@ UpdateThemeRequest <- R6::R6Class(
         self$document <- utils$getInputDocument(self$document)
       }
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5914,7 +5914,7 @@ UpdateThemeRequest <- R6::R6Class(
         settings = if (is.null(self$settings)) list() else lapply(self$settings, function(x) if (inherits(x, "TLObject")) x$toDict() else x)
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5936,7 +5936,7 @@ UpdateThemeRequest <- R6::R6Class(
         settingsBytes
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateThemeRequest.
@@ -5973,7 +5973,7 @@ UpdateUsernameRequest <- R6::R6Class(
     initialize = function(username) {
       self$username <- username
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -5982,7 +5982,7 @@ UpdateUsernameRequest <- R6::R6Class(
         username = self$username
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -5991,7 +5991,7 @@ UpdateUsernameRequest <- R6::R6Class(
         self$serializeBytes(self$username)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UpdateUsernameRequest.
@@ -6022,7 +6022,7 @@ UploadRingtoneRequest <- R6::R6Class(
       self$fileName <- fileName
       self$mimeType <- mimeType
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -6033,7 +6033,7 @@ UploadRingtoneRequest <- R6::R6Class(
         mimeType = self$mimeType
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -6044,7 +6044,7 @@ UploadRingtoneRequest <- R6::R6Class(
         self$serializeBytes(self$mimeType)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UploadRingtoneRequest.
@@ -6079,7 +6079,7 @@ UploadThemeRequest <- R6::R6Class(
       self$mimeType <- mimeType
       self$thumb <- thumb
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -6091,7 +6091,7 @@ UploadThemeRequest <- R6::R6Class(
         thumb = if (inherits(self$thumb, "TLObject")) self$thumb$toDict() else self$thumb
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -6105,7 +6105,7 @@ UploadThemeRequest <- R6::R6Class(
         self$serializeBytes(self$mimeType)
       )
     },
-    
+
     #' @description Create from reader.
     #' @param reader The reader object.
     #' @return An instance of UploadThemeRequest.
@@ -6143,7 +6143,7 @@ UploadWallPaperRequest <- R6::R6Class(
       self$settings <- settings
       self$forChat <- forChat
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -6155,7 +6155,7 @@ UploadWallPaperRequest <- R6::R6Class(
         forChat = self$forChat
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -6188,7 +6188,7 @@ VerifyEmailRequest <- R6::R6Class(
       self$purpose <- purpose
       self$verification <- verification
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -6198,7 +6198,7 @@ VerifyEmailRequest <- R6::R6Class(
         verification = if (inherits(self$verification, "TLObject")) self$verification$toDict() else self$verification
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
@@ -6231,7 +6231,7 @@ VerifyPhoneRequest <- R6::R6Class(
       self$phoneCodeHash <- phoneCodeHash
       self$phoneCode <- phoneCode
     },
-    
+
     #' @description Convert to dictionary.
     #' @return A list representing the object.
     toDict = function() {
@@ -6242,7 +6242,7 @@ VerifyPhoneRequest <- R6::R6Class(
         phoneCode = self$phoneCode
       )
     },
-    
+
     #' @description Serialize to bytes.
     #' @return Raw bytes.
     bytes = function() {
