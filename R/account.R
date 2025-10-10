@@ -69,7 +69,7 @@ TakeoutClient <- R6::R6Class(
       }
 
       if (!is.null(private$success)) {
-        result <- private$client$invoke(functions$account$FinishTakeoutSessionRequest(private$success))
+        result <- private$client$invoke(FinishTakeoutSessionRequest(private$success))
         if (!result) {
           stop("Failed to finish the takeout.")
         }
@@ -94,7 +94,7 @@ TakeoutClient <- R6::R6Class(
           stop("_NOT_A_REQUEST")
         }
         r$resolve(self, utils)
-        functions$InvokeWithTakeoutRequest(takeout_id, r)
+        InvokeWithTakeoutRequest(takeout_id, r)
       })
 
       private$client$invoke(if (single) wrapped[[1]] else wrapped, ordered = ordered)
@@ -169,7 +169,7 @@ AccountMethods <- R6::R6Class(
       arg_specified <- sapply(request_kwargs, function(arg) !is.null(arg))
 
       if (is.null(self$session$takeout_id) || any(arg_specified)) {
-        request <- functions$account$InitTakeoutSessionRequest(request_kwargs)
+        request <- InitTakeoutSessionRequest$new(request_kwargs)
       } else {
         request <- NULL
       }
