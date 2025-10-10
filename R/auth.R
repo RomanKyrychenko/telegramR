@@ -77,16 +77,16 @@ AuthMethods <- R6::R6Class(
         phone <- result[[1]]
         phone_code_hash <- result[[2]]
 
-        request <- functions$auth$SignInRequest(
+        request <- SignInRequest$new(
           phone, phone_code_hash, as.character(code)
         )
       } else if (!is.null(password)) {
-        pwd <- self$invoke(functions$account$GetPasswordRequest())
-        request <- functions$auth$CheckPasswordRequest(
+        pwd <- self$invoke(GetPasswordRequest$new())
+        request <- CheckPasswordRequest$new(
           private$compute_check(pwd, password)
         )
       } else if (!is.null(bot_token)) {
-        request <- functions$auth$ImportBotAuthorizationRequest(
+        request <- ImportBotAuthorizationRequest$new(
           flags = 0, bot_auth_token = bot_token,
           api_id = self$api_id, api_hash = self$api_hash
         )
@@ -139,7 +139,7 @@ AuthMethods <- R6::R6Class(
 
       if (is.null(phone_hash)) {
         tryCatch({
-          result <- self$invoke(functions$auth$SendCodeRequest(
+          result <- self$invoke(SendCodeRequest$new(
             phone, self$api_id, self$api_hash, types$CodeSettings()
           ))
         }, error = function(e) {
@@ -169,7 +169,7 @@ AuthMethods <- R6::R6Class(
 
       if (force_sms) {
         tryCatch({
-          result <- self$invoke(functions$auth$ResendCodeRequest(phone, phone_hash))
+          result <- self$invoke(ResendCodeRequest$new(phone, phone_hash))
         }, error = function(e) {
           if (inherits(e, "PhoneCodeExpiredError")) {
             if (retry_count > 2) stop(e)
@@ -205,7 +205,7 @@ AuthMethods <- R6::R6Class(
     #' @return TRUE if successful, FALSE otherwise
     log_out = function() {
       tryCatch({
-        self$invoke(functions$auth$LogOutRequest())
+        self$invoke(LogOutRequest$new())
       }, error = function(e) {
         return(FALSE)
       })
@@ -237,7 +237,7 @@ AuthMethods <- R6::R6Class(
         stop("Email present without email_code_callback")
       }
 
-      pwd <- self$invoke(functions$account$GetPasswordRequest())
+      pwd <- self$invoke(GetPasswordRequest$new())
       pwd$new_algo$salt1 <- paste0(pwd$new_algo$salt1, openssl::rand_bytes(32))
 
       if (!pwd$has_password && !is.null(current_password)) {
@@ -257,7 +257,7 @@ AuthMethods <- R6::R6Class(
       }
 
       tryCatch({
-        self$invoke(functions$account$UpdatePasswordSettingsRequest(
+        self$invoke(UpdatePasswordSettingsRequest$new(
           password = password,
           new_settings = types$account$PasswordInputSettings(
             new_algo = pwd$new_algo,
@@ -271,7 +271,7 @@ AuthMethods <- R6::R6Class(
         if (inherits(e, "EmailUnconfirmedError")) {
           code <- email_code_callback(e$code_length)
           code <- as.character(code)
-          self$invoke(functions$account$ConfirmPasswordEmailRequest(code))
+          self$invoke(ConfirmPasswordEmailRequest$new(code))
         } else {
           stop(e)
         }
@@ -305,8 +305,8 @@ AuthMethods <- R6::R6Class(
       private$mb_entity_cache$set_self_user(user$id, user$bot, user$access_hash)
       private$authorized <- TRUE
 
-      state <- self$invoke(functions$updates$GetStateRequest())
-      difference <- self$invoke(functions$updates$GetDifferenceRequest(
+      state <- self$invoke(GetStateRequest$new())
+      difference <- self$invoke(GetDifferenceRequest$new(
         pts = state$pts, date = state$date, qts = state$qts
       ))
 
