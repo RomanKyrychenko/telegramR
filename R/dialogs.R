@@ -60,7 +60,7 @@ DialogsIter <- R6::R6Class("DialogsIter",
 
       # Using this instead of Python's init async function
       private$init_future %<-% {
-        self$request <- functions$messages$GetDialogsRequest(
+        self$request <- GetDialogsRequest$new(
           offset_date = offset_date,
           offset_id = offset_id,
           offset_peer = offset_peer,
@@ -221,16 +221,16 @@ DraftsIter <- R6::R6Class("DraftsIter",
       # Using this instead of Python's init async function
       private$init_future %<-% {
         if (is.null(entities)) {
-          r <- await(self$client(functions$messages$GetAllDraftsRequest()))
+          r <- await(self$client(GetAllDraftsRequest$new()))
           items <- r$updates
         } else {
           peers <- list()
           for (entity in entities) {
             input_entity <- await(self$client$get_input_entity(entity))
-            peers <- c(peers, list(types$InputDialogPeer(input_entity)))
+            peers <- c(peers, list(InputDialogPeer$new(input_entity)))
           }
 
-          r <- await(self$client(functions$messages$GetPeerDialogsRequest(peers)))
+          r <- await(self$client(GetPeerDialogsRequest$new(peers)))
           items <- r$dialogs
         }
 
@@ -412,7 +412,7 @@ DialogMethods <- R6::R6Class("DialogMethods",
         }
 
         if (!is.null(unpack)) {
-          return(await(private$self(functions$folders$DeleteFolderRequest(
+          return(await(private$self(DeleteFolderRequest$new(
             folder_id = unpack
           ))))
         }
@@ -437,10 +437,10 @@ DialogMethods <- R6::R6Class("DialogMethods",
         input_folder_peers <- list()
         for (i in seq_along(entities_list)) {
           input_folder_peers <- c(input_folder_peers,
-                                 list(types$InputFolderPeer(entities_list[[i]], folder_id = folder[i])))
+                                 list(InputFolderPeer$new(entities_list[[i]], folder_id = folder[i])))
         }
 
-        return(await(private$self(functions$folders$EditPeerFoldersRequest(input_folder_peers))))
+        return(await(private$self(EditPeerFoldersRequest$new(input_folder_peers))))
       }))
     },
 
@@ -464,14 +464,14 @@ DialogMethods <- R6::R6Class("DialogMethods",
         ty <- helpers$entity_type(entity)
 
         if (ty == helpers$EntityType$CHANNEL) {
-          return(await(private$self(functions$channels$LeaveChannelRequest(entity))))
+          return(await(private$self(LeaveChannelRequest$new(entity))))
         }
 
         result <- NULL
-        if (ty == helpers$EntityType$CHAT && !deactivated) {
+        if (ty == EntityType$CHAT && !deactivated) {
           tryCatch({
-            result <- await(private$self(functions$messages$DeleteChatUserRequest(
-              entity$chat_id, types$InputUserSelf(), revoke_history = revoke
+            result <- await(private$self(DeleteChatUserRequest$new(
+              entity$chat_id, InputUserSelf$new(), revoke_history = revoke
             )))
           }, error = function(e) {
             if (inherits(e, "PeerIdInvalidError")) {
@@ -485,7 +485,7 @@ DialogMethods <- R6::R6Class("DialogMethods",
 
         is_bot <- await(private$self$is_bot())
         if (!is_bot) {
-          await(private$self(functions$messages$DeleteHistoryRequest(entity, 0, revoke = revoke)))
+          await(private$self(DeleteHistoryRequest$new(entity, 0, revoke = revoke)))
         }
 
         return(result)
