@@ -60,8 +60,8 @@ UserMethods <- R6::R6Class(
         flood_sleep_threshold <- self$client$flood_sleep_threshold
       }
 
-      requests <- if (utils$is_list_like(request)) as.list(request) else list(request)
-      request <- if (utils$is_list_like(request)) as.list(request) else request
+      requests <- if (is_list_like(request)) as.list(request) else list(request)
+      request <- if (is_list_like(request)) as.list(request) else request
 
       for (i in seq_along(requests)) {
         r <- requests[[i]]
@@ -86,11 +86,11 @@ UserMethods <- R6::R6Class(
         }
 
         if (self$client$no_updates) {
-          if (utils$is_list_like(request)) {
-            request[[i]] <- functions$InvokeWithoutUpdatesRequest(r)
+          if (is_list_like(request)) {
+            request[[i]] <- InvokeWithoutUpdatesRequest$new(r)
           } else {
             # This should only run once as requests should be a list of 1 item
-            request <- functions$InvokeWithoutUpdatesRequest(r)
+            request <- InvokeWithoutUpdatesRequest$new(r)
           }
         }
       }
@@ -138,7 +138,7 @@ UserMethods <- R6::R6Class(
           } else if (inherits(e, c("FloodWaitError", "FloodPremiumWaitError",
                                   "SlowModeWaitError", "FloodTestPhoneWaitError"))) {
             last_error <<- e
-            if (utils$is_list_like(request)) {
+            if (is_list_like(request)) {
               request <<- request[[request_index]]
             }
 
@@ -194,13 +194,13 @@ UserMethods <- R6::R6Class(
         }
 
         tryCatch({
-          me <- self$call(functions$users$GetUsersRequest(list(types$InputUserSelf())))[[1]]
+          me <- self$call(GetUsersRequest$new(list(InputUserSelf$new())))[[1]]
 
           if (is.null(self$client$mb_entity_cache$self_id)) {
             self$client$mb_entity_cache$set_self_user(me$id, me$bot, me$access_hash)
           }
 
-          return(if (input_peer) utils$get_input_peer(me, allow_self = FALSE) else me)
+          return(if (input_peer) get_input_peer(me, allow_self = FALSE) else me)
         }, error = function(e) {
           if (inherits(e, "UnauthorizedError")) {
             return(NULL)
@@ -238,7 +238,7 @@ UserMethods <- R6::R6Class(
         if (is.null(self$client$authorized)) {
           tryCatch({
             # Any request that requires authorization will work
-            future::value(self$call(functions$updates$GetStateRequest()))
+            future::value(self$call(GetStateRequest$new()))
             self$client$authorized <- TRUE
           }, error = function(e) {
             if (inherits(e, "RPCError")) {
@@ -259,7 +259,7 @@ UserMethods <- R6::R6Class(
     #' @return A future object representing the entity.
     get_entity = function(entity) {
       future::future({
-        single <- !utils$is_list_like(entity)
+        single <- !is_list_like(entity)
         if (single) {
           entity <- list(entity)
         }
@@ -302,24 +302,24 @@ UserMethods <- R6::R6Class(
           while (length(users) > 0) {
             curr <- users[1:min(200, length(users))]
             users <- users[-(1:min(200, length(users)))]
-            tmp <- c(tmp, future::value(self$call(functions$users$GetUsersRequest(curr))))
+            tmp <- c(tmp, future::value(self$call(GetUsersRequest$new(curr))))
           }
           users <- tmp
         }
 
         if (length(chats) > 0) {
           chat_ids <- lapply(chats, function(x) x$chat_id)
-          chats <- future::value(self$call(functions$messages$GetChatsRequest(chat_ids)))$chats
+          chats <- future::value(self$call(GetChatsRequest$new(chat_ids)))$chats
         }
 
         if (length(channels) > 0) {
-          channels <- future::value(self$call(functions$channels$GetChannelsRequest(channels)))$chats
+          channels <- future::value(self$call(GetChannelsRequest$new(channels)))$chats
         }
 
         # Merge users, chats and channels into a single dictionary
         id_entity <- list()
         for (x in c(users, chats, channels)) {
-          id <- utils$get_peer_id(x, add_mark = FALSE)
+          id <- get_peer_id(x, add_mark = FALSE)
           id_entity[[as.character(id)]] <- x
         }
 
@@ -332,7 +332,7 @@ UserMethods <- R6::R6Class(
           if (is.character(x)) {
             result <- c(result, list(future::value(self$get_entity_from_string(x))))
           } else if (!inherits(x, "InputPeerSelf")) {
-            id <- utils$get_peer_id(x, add_mark = FALSE)
+            id <- get_peer_id(x, add_mark = FALSE)
             result <- c(result, list(id_entity[[as.character(id)]]))
           } else {
             # Find the first user that is self
@@ -357,7 +357,7 @@ UserMethods <- R6::R6Class(
       future::future({
         # Short-circuit if the input parameter directly maps to an InputPeer
         tryCatch({
-          return(utils$get_input_peer(peer))
+          return(get_input_peer(peer))
         }, error = function(e) {
           # Continue with other methods
         })
@@ -366,7 +366,7 @@ UserMethods <- R6::R6Class(
         tryCatch({
           # 0x2d45687 == crc32(b'Peer')
           if (is.numeric(peer) || peer$SUBCLASS_OF_ID == 0x2d45687) {
-            id <- utils$get_peer_id(peer, add_mark = FALSE)
+            id <- get_peer_id(peer, add_mark = FALSE)
             return(self$client$mb_entity_cache$get(id)$as_input_peer())
           }
         }, error = function(e) {
@@ -388,29 +388,29 @@ UserMethods <- R6::R6Class(
         # Only network left to try
         if (is.character(peer)) {
           entity <- future::value(self$get_entity_from_string(peer))
-          return(utils$get_input_peer(entity))
+          return(get_input_peer(entity))
         }
 
         # If we're a bot and the user has messaged us privately users.getUsers
         # will work with access_hash = 0. Similar for channels.getChannels.
         # If we're not a bot but the user is in our contacts, it seems to work
         # regardless. These are the only two special-cased requests.
-        peer <- utils$get_peer(peer)
+        peer <- get_peer(peer)
         if (inherits(peer, "PeerUser")) {
-          users <- future::value(self$call(functions$users$GetUsersRequest(list(
-            types$InputUser(user_id = peer$user_id, access_hash = 0)
+          users <- future::value(self$call(GetUsersRequest$new(list(
+            InputUser$new(user_id = peer$user_id, access_hash = 0)
           ))))
           if (length(users) > 0 && !inherits(users[[1]], "UserEmpty")) {
-            return(utils$get_input_peer(users[[1]]))
+            return(get_input_peer(users[[1]]))
           }
         } else if (inherits(peer, "PeerChat")) {
-          return(types$InputPeerChat(chat_id = peer$chat_id))
+          return(InputPeerChat$new(chat_id = peer$chat_id))
         } else if (inherits(peer, "PeerChannel")) {
           tryCatch({
-            channels <- future::value(self$call(functions$channels$GetChannelsRequest(list(
-              types$InputChannel(channel_id = peer$channel_id, access_hash = 0)
+            channels <- future::value(self$call(GetChannelsRequest$new(list(
+              InputChannel$new(channel_id = peer$channel_id, access_hash = 0)
             ))))
-            return(utils$get_input_peer(channels$chats[[1]]))
+            return(get_input_peer(channels$chats[[1]]))
           }, error = function(e) {
             if (inherits(e, "ChannelInvalidError")) {
               # Continue to error handling
@@ -434,7 +434,7 @@ UserMethods <- R6::R6Class(
     #' @return A future object representing the peer.
     get_peer = function(peer) {
       future::future({
-        result <- utils$resolve_id(future::value(self$get_peer_id(peer)))
+        result <- resolve_id(future::value(self$get_peer_id(peer)))
         i <- result$id
         cls <- result$cls
         return(cls(i))
@@ -449,7 +449,7 @@ UserMethods <- R6::R6Class(
     get_peer_id = function(peer, add_mark = TRUE) {
       future::future({
         if (is.numeric(peer)) {
-          return(utils$get_peer_id(peer, add_mark = add_mark))
+          return(get_peer_id(peer, add_mark = add_mark))
         }
 
         tryCatch({
@@ -467,7 +467,7 @@ UserMethods <- R6::R6Class(
           peer <- future::value(self$get_me(input_peer = TRUE))
         }
 
-        return(utils$get_peer_id(peer, add_mark = add_mark))
+        return(get_peer_id(peer, add_mark = add_mark))
       })
     },
 
@@ -479,10 +479,10 @@ UserMethods <- R6::R6Class(
     #' @return A future object representing the entity.
     get_entity_from_string = function(string) {
       future::future({
-        phone <- utils$parse_phone(string)
+        phone <- parse_phone(string)
         if (!is.null(phone)) {
           tryCatch({
-            contacts <- future::value(self$call(functions$contacts$GetContactsRequest(0)))
+            contacts <- future::value(self$call(GetContactsRequest$new(0)))
             for (user in contacts$users) {
               if (user$phone == phone) {
                 return(user)
@@ -498,12 +498,12 @@ UserMethods <- R6::R6Class(
         } else if (tolower(string) %in% c("me", "self")) {
           return(future::value(self$get_me()))
         } else {
-          parsed <- utils$parse_username(string)
+          parsed <- parse_username(string)
           username <- parsed$username
           is_join_chat <- parsed$is_join_chat
 
           if (is_join_chat) {
-            invite <- future::value(self$call(functions$messages$CheckChatInviteRequest(username)))
+            invite <- future::value(self$call(CheckChatInviteRequest$new(username)))
 
             if (inherits(invite, "ChatInvite")) {
               stop("Cannot get entity from a channel (or group) that you are not part of. Join the group and retry")
@@ -512,8 +512,8 @@ UserMethods <- R6::R6Class(
             }
           } else if (!is.null(username)) {
             tryCatch({
-              result <- future::value(self$call(functions$contacts$ResolveUsernameRequest(username)))
-              pid <- utils$get_peer_id(result$peer, add_mark = FALSE)
+              result <- future::value(self$call(ResolveUsernameRequest$new(username)))
+              pid <- get_peer_id(result$peer, add_mark = FALSE)
 
               if (inherits(result$peer, "PeerUser")) {
                 for (x in result$users) {
