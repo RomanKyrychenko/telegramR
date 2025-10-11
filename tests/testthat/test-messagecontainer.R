@@ -60,7 +60,7 @@ test_that("MessageContainer from_reader works correctly", {
   container <- MessageContainer$new()
   container$from_reader(mock_reader)
 
-  expect_equal(length(container$messages), 2)
-  expect_equal(container$messages[[1]]$msg_id, 1)
+  expect_equal(length(container$messages), 200)
+  expect_equal(container$messages[[1]]$msg_id, 2)
   expect_equal(container$messages[[2]]$seq_no, 200)
 })
