@@ -121,7 +121,7 @@ CanSendStoryRequest <- R6::R6Class(
     #' @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -221,7 +221,7 @@ CreateAlbumRequest <- R6::R6Class(
     #' @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -348,7 +348,7 @@ DeleteAlbumRequest <- R6::R6Class(
     #' @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -448,7 +448,7 @@ DeleteStoriesRequest <- R6::R6Class(
     #' @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -605,9 +605,9 @@ EditStoryRequest <- R6::R6Class(
     #' @param utils utils with get_input_peer and get_input_media
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       if (!is.null(self$media)) {
-        self$media <- utils$get_input_media(self$media)
+        self$media <- get_input_media(self$media)
       }
       invisible(self)
     },
@@ -836,7 +836,7 @@ ExportStoryLinkRequest <- R6::R6Class(
     #' @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -876,8 +876,8 @@ ExportStoryLinkRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x7b8def20L,
-    SUBCLASS_OF_ID = function() 0x0fc541a6L
+    CONSTRUCTOR_ID = function() 0x7b8def20,
+    SUBCLASS_OF_ID = function() 0x0fc541a6
   ),
 
   class = list(
@@ -942,7 +942,7 @@ GetAlbumStoriesRequest <- R6::R6Class(
     #' @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -986,8 +986,8 @@ GetAlbumStoriesRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0xac806d61L,
-    SUBCLASS_OF_ID = function() 0x251c0c2cL
+    CONSTRUCTOR_ID = function() 0xac806d61,
+    SUBCLASS_OF_ID = function() 0x251c0c2c
   ),
 
   class = list(
@@ -1045,7 +1045,7 @@ GetAlbumsRequest <- R6::R6Class(
     #' @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -1085,8 +1085,8 @@ GetAlbumsRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x25b3eac7L,
-    SUBCLASS_OF_ID = function() 0x05a73d39L
+    CONSTRUCTOR_ID = function() 0x25b3eac7,
+    SUBCLASS_OF_ID = function() 0x05a73d39
   ),
 
   class = list(
@@ -1343,7 +1343,7 @@ GetPeerMaxIDsRequest <- R6::R6Class(
       if (length(self$id) > 0) {
         for (i in seq_along(self$id)) {
           input_entity <- client$get_input_entity(self$id[[i]])
-          resolved_list[[i]] <- utils$get_input_peer(input_entity)
+          resolved_list[[i]] <- get_input_peer(input_entity)
         }
       }
       self$id <- resolved_list
@@ -1465,7 +1465,7 @@ GetPeerStoriesRequest <- R6::R6Class(
     #' @return invisible self
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -1559,7 +1559,7 @@ GetPinnedStoriesRequest <- R6::R6Class(
     #' @return invisible self
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -1662,7 +1662,7 @@ GetStoriesArchiveRequest <- R6::R6Class(
     #' @return invisible self
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -1762,7 +1762,7 @@ GetStoriesByIDRequest <- R6::R6Class(
     #' @return invisible self
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -1870,7 +1870,7 @@ GetStoriesViewsRequest <- R6::R6Class(
     #' @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -1990,7 +1990,7 @@ GetStoryReactionsListRequest <- R6::R6Class(
     #' @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -2154,7 +2154,7 @@ GetStoryViewsListRequest <- R6::R6Class(
     #' @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -2302,7 +2302,7 @@ IncrementStoryViewsRequest <- R6::R6Class(
     #' @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -2419,7 +2419,7 @@ ReadStoriesRequest <- R6::R6Class(
     #' @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -2534,7 +2534,7 @@ ReorderAlbumsRequest <- R6::R6Class(
     #' @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -2662,7 +2662,7 @@ ReportRequest <- R6::R6Class(
     #' @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -2813,7 +2813,7 @@ SearchPostsRequest <- R6::R6Class(
     resolve = function(client, utils) {
       if (!is.null(self$peer)) {
         input_entity <- client$get_input_entity(self$peer)
-        self$peer <- utils$get_input_peer(input_entity)
+        self$peer <- get_input_peer(input_entity)
       }
       invisible(self)
     },
@@ -2965,7 +2965,7 @@ SendReactionRequest <- R6::R6Class(
     #' @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -3161,11 +3161,11 @@ SendStoryRequest <- R6::R6Class(
     #' @param utils utils object with get_input_peer / get_input_media
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
-      self$media <- utils$get_input_media(self$media)
+      self$peer <- get_input_peer(input_entity)
+      self$media <- get_input_media(self$media)
       if (!is.null(self$fwd_from_id)) {
         input_entity2 <- client$get_input_entity(self$fwd_from_id)
-        self$fwd_from_id <- utils$get_input_peer(input_entity2)
+        self$fwd_from_id <- get_input_peer(input_entity2)
       }
       invisible(self)
     },
@@ -3533,7 +3533,7 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
     #' @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -3645,7 +3645,7 @@ TogglePinnedRequest <- R6::R6Class(
     #' @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -3786,7 +3786,7 @@ TogglePinnedToTopRequest <- R6::R6Class(
     #' @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
@@ -3912,9 +3912,9 @@ UpdateAlbumRequest <- R6::R6Class(
     #' @param client client object with get_input_entity method
     #' @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
-      # synchronous style: client$get_input_entity and utils$get_input_peer expected to be available
+      # synchronous style: client$get_input_entity and get_input_peer expected to be available
       input_entity <- client$get_input_entity(self$peer)
-      self$peer <- utils$get_input_peer(input_entity)
+      self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
