@@ -203,7 +203,10 @@ UploadMethods <- R6Class("UploadMethods",
     #' @return A list containing the file handle, media, and whether it is an image.
     file_to_media = function(file, force_document = FALSE, file_size = NULL,
                               progress_callback = NULL, attributes = NULL,
-                              thumb = NULL, allow_cache = TRUE, ...) {
+                              thumb = NULL, allow_cache = TRUE, voice_note=FALSE,
+                              video_note=FALSE, supports_streaming=FALSE,
+                              mime_type=NULL, as_image=NULL, ttl=NULL,
+                              nosound_video=NULL) {
 
       if (is.null(file)) {
         return(list(file_handle = NULL, media = NULL, as_image = NULL))
