@@ -160,7 +160,7 @@ CanSendStoryRequest <- R6::R6Class(
 
   active = list(
     CONSTRUCTOR_ID = function() 0x30eb63f0,
-    SUBCLASS_OF_ID = function() 0xcb53a298L
+    SUBCLASS_OF_ID = function() 0xcb53a298
   ),
 
   class = list(
@@ -391,7 +391,7 @@ DeleteAlbumRequest <- R6::R6Class(
 
   active = list(
     CONSTRUCTOR_ID = function() 0x8d3456d0,
-    SUBCLASS_OF_ID = function() 0xf5b399acL
+    SUBCLASS_OF_ID = function() 0xf5b399ac
   ),
 
   class = list(
