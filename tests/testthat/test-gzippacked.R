@@ -37,7 +37,7 @@ test_that("from_reader creates object correctly", {
   reader <- list(
     tgread_bytes = function() memCompress(charToRaw("test"), type = "gzip")
   )
-  obj <- GzipPacked$from_reader(reader)
+  obj <- GzipPacked$new(NULL)$from_reader(reader)
   expect_equal(rawToChar(obj$data), "test")
 })
 

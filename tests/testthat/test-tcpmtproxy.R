@@ -6,7 +6,7 @@ test_that("initializes MTProxyIO with valid connection parameters", {
     dc_id = 2,
     packet_codec = RandomizedIntermediatePacketCodec$new()
   )
-  io <- MTProxyIO$new(connection)
+  io <- MTProxyIO$new(connection = connection)
   expect_equal(length(io$header), 64)
   expect_true(inherits(io$encryptor, "AESModeCTR"))
   expect_true(inherits(io$decryptor, "AESModeCTR"))

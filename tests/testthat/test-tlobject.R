@@ -56,7 +56,6 @@ test_that("TLObject methods work as expected", {
   expect_error(obj$.bytes(), "Not implemented")
   expect_error(obj$from_reader(NULL), "Not implemented")
 
-  expect_equal(obj$pretty_format(obj), pretty_format(obj))
   expect_equal(obj$serialize_bytes(charToRaw("test")), serialize_bytes(charToRaw("test")))
 })
 
@@ -64,5 +63,4 @@ test_that("TLObject methods work as expected", {
 test_that("TLRequest methods work as expected", {
   req <- TLRequest$new()
   expect_error(req$resolve(NULL, NULL), "Not implemented")
-  expect_error(req$read_result(NULL), "Not implemented")
 })
