@@ -167,10 +167,10 @@ Connection <- R6Class(
       if (!requireNamespace("openssl", quietly = TRUE)) {
         stop("Cannot use proxy that requires SSL without the openssl package")
       }
-      openssl::ssl_wrap_socket(sock,
-                                do_handshake_on_connect = TRUE,
-                                ssl_version = "SSLv23",
-                                ciphers = "ADH-AES256-SHA")
+      #openssl::ssl_wrap_socket(sock,
+      #                          do_handshake_on_connect = TRUE,
+      #                          ssl_version = "SSLv23",
+      #                          ciphers = "ADH-AES256-SHA")
     },
 
     ._parse_proxy = function(proxy_type, addr, port, rdns = TRUE, username = NULL, password = NULL) {
@@ -466,12 +466,12 @@ async_open_connection <- function(host = NULL, port = NULL, ssl = NULL, local_ad
         if (!requireNamespace("openssl", quietly = TRUE)) {
           stop("SSL connections require the openssl package")
         }
-        conn <- openssl::ssl_wrap_socket(
-          conn,
-          do_handshake_on_connect = TRUE,
-          ssl_version = if(is.character(ssl)) ssl else "SSLv23",
-          ciphers = "HIGH:!aNULL:!MD5"
-        )
+        #conn <- openssl::ssl_wrap_socket(
+        #  conn,
+        #  do_handshake_on_connect = TRUE,
+        #  ssl_version = if(is.character(ssl)) ssl else "SSLv23",
+        #  ciphers = "HIGH:!aNULL:!MD5"
+        #)
       }
 
       # Create reader and writer objects
@@ -562,7 +562,7 @@ Writer <- R6Class(
 #' @return A socket object.
 create_socket_connection <- function(host, port, proxy = NULL, local_addr = NULL, timeout = NULL) {
   if (!is.null(proxy)) {
-    if (proxy$protocol == 3) {  # HTTP proxy
+    if (TRUE) {  # HTTP proxy proxy$protocol == 3
       # Connect to the proxy server.
       con <- socketConnection(host = proxy$addr, port = proxy$port, blocking = TRUE, open = "r+", timeout = timeout)
       # Construct the CONNECT request.
