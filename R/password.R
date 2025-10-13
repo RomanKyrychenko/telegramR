@@ -8,7 +8,7 @@ check_prime_and_good_check <- function(prime, g) {
     stop('bad prime count ', gmp::sizeinbase(gmp::as.bigz(prime), 2), ', expected ', good_prime_bits_count)
   }
   # TODO This is awfully slow
-  if (factorization$Factorization$factorize(prime)[1] != 1) {
+  if (Factorization$new()$factorize(prime)[1] != 1) {
     stop('given "prime" is not prime')
   }
   if (g == 2) {
@@ -37,7 +37,7 @@ check_prime_and_good_check <- function(prime, g) {
     stop('bad g ', g)
   }
   prime_sub1_div2 <- (prime - 1) %/% 2
-  if (factorization$Factorization$factorize(prime_sub1_div2)[1] != 1) {
+  if (factorize(prime_sub1_div2)[1] != 1) {
     stop('(prime - 1) // 2 is not prime')
   }
   # Else it's good
@@ -199,7 +199,7 @@ PasswordKdf <- R6::R6Class(
         stop('bad prime count ', nchar(openssl::bignum(prime, hex = TRUE)) * 4, ', expected ', good_prime_bits_count)
       }
       # TODO This is awfully slow
-      if (factorization$Factorization$factorize(prime)[1] != 1) {
+      if (Factorization$new()$factorize(prime)[1] != 1) {
         stop('given "prime" is not prime')
       }
       if (g == 2) {
@@ -228,7 +228,7 @@ PasswordKdf <- R6::R6Class(
         stop('bad g ', g)
       }
       prime_sub1_div2 <- (prime - 1) %/% 2
-      if (factorization$Factorization$factorize(prime_sub1_div2)[1] != 1) {
+      if (Factorization$new()$factorize(prime_sub1_div2)[1] != 1) {
         stop('(prime - 1) // 2 is not prime')
       }
       # Else it's good
