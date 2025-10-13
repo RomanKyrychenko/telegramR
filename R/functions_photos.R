@@ -169,8 +169,8 @@ GetUserPhotosRequest <- R6::R6Class(
   "GetUserPhotosRequest",
   inherit = TLRequest,
   public = list(
-    CONSTRUCTOR_ID = 0x91cd32a8L,
-    SUBCLASS_OF_ID = 0x27cfb967L,
+    CONSTRUCTOR_ID = 0x91cd32a8,
+    SUBCLASS_OF_ID = 0x27cfb967,
 
     #' @field user_id TLObject or NULL
     user_id = NULL,
@@ -309,8 +309,8 @@ UpdateProfilePhotoRequest <- R6::R6Class(
   "UpdateProfilePhotoRequest",
   inherit = TLRequest,
   public = list(
-    CONSTRUCTOR_ID = 0x09e82039L,
-    SUBCLASS_OF_ID = 0xc292bd24L,
+    CONSTRUCTOR_ID = 0x09e82039,
+    SUBCLASS_OF_ID = 0xc292bd24,
 
     #' @field id TLObject or NULL
     id = NULL,
@@ -468,8 +468,8 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
   "UploadContactProfilePhotoRequest",
   inherit = TLRequest,
   public = list(
-    CONSTRUCTOR_ID = 0xe14c4a71L,
-    SUBCLASS_OF_ID = 0xc292bd24L,
+    CONSTRUCTOR_ID = 0xe14c4a71,
+    SUBCLASS_OF_ID = 0xc292bd24,
 
     #' @field user_id TLObject or NULL
     user_id = NULL,
@@ -668,8 +668,8 @@ UploadProfilePhotoRequest <- R6::R6Class(
   "UploadProfilePhotoRequest",
   inherit = TLRequest,
   public = list(
-    CONSTRUCTOR_ID = 0x0388a3b5L,
-    SUBCLASS_OF_ID = 0xc292bd24L,
+    CONSTRUCTOR_ID = 0x0388a3b5,
+    SUBCLASS_OF_ID = 0xc292bd24,
 
     #' @field fallback logical (optional)
     fallback = NULL,
