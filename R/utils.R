@@ -459,6 +459,15 @@ get_input_document <- function(document) {
   raise_cast_fail(document, 'InputDocument')
 }
 
+#' Bitwise Length
+#'
+#' Calculates the bitwise length of an integer.
+#' @param x An integer value.
+#' @return The bitwise length of the integer.
+bitwLength <- function(x) {
+  if (x == 0) return(1)
+  floor(log2(abs(x))) + 1
+}
 
 #' Check Prime and Good Check
 #'
@@ -474,7 +483,7 @@ check_prime_and_good_check <- function(prime, g) {
   }
 
   # TODO This is awfully slow
-  if (factorization$Factorization$factorize(prime)[[1]] != 1) {
+  if (Factorization$new()$factorize(prime)[[1]] != 1) {
     stop('given "prime" is not prime')
   }
 
@@ -505,7 +514,7 @@ check_prime_and_good_check <- function(prime, g) {
   }
 
   prime_sub1_div2 <- (prime - 1) %/% 2
-  if (factorization$Factorization$factorize(prime_sub1_div2)[[1]] != 1) {
+  if (Factorization$new()$factorize(prime_sub1_div2)[[1]] != 1) {
     stop('(prime - 1) // 2 is not prime')
   }
 
