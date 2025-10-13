@@ -380,7 +380,7 @@ DownloadMethods <- R6::R6Class(
             type = "InputPeerPhotoFileLocation",
             # min users can be used to download profile photos
             # self.get_input_entity would otherwise not accept those
-            peer = utils$get_input_peer(entity, check_hash = FALSE),
+            peer = get_input_peer(entity, check_hash = FALSE),
             photo_id = photo$photo_id,
             big = download_big
           )
@@ -405,8 +405,8 @@ DownloadMethods <- R6::R6Class(
             # See issue #500, Android app fails as of v4.6.0 (1155).
             # The fix seems to be using the full channel chat photo.
             ie <- self$get_input_entity(entity)
-            ty <- helpers$entity_type(ie)
-            if (ty == helpers$EntityType$CHANNEL) {
+            ty <- entity_type(ie)
+            if (ty == EntityType$CHANNEL) {
               full <- self$call(list(
                 type = "GetFullChannelRequest",
                 channel = ie
@@ -451,7 +451,7 @@ DownloadMethods <- R6::R6Class(
         }
 
         if (is.character(media)) {
-          media <- utils$resolve_bot_file_id(media)
+          media <- resolve_bot_file_id(media)
         }
 
         if (inherits(media, "MessageService")) {
@@ -532,7 +532,7 @@ DownloadMethods <- R6::R6Class(
           if (is.null(file_size)) {
             part_size_kb <- 64  # Reasonable default
           } else {
-            part_size_kb <- utils$get_appropriated_part_size(file_size)
+            part_size_kb <- get_appropriated_part_size(file_size)
           }
         }
 
@@ -547,7 +547,7 @@ DownloadMethods <- R6::R6Class(
           is_buffer <- TRUE
         } else if (is.character(file)) {
           # Ensure that we'll be able to download the media
-          helpers$ensure_parent_dir_exists(file)
+          ensure_parent_dir_exists(file)
           f <- file(file, "wb")
           is_buffer <- FALSE
         } else {
@@ -664,7 +664,7 @@ DownloadMethods <- R6::R6Class(
                              file_size = NULL, dc_id = NULL,
                              msg_data = NULL, cdn_redirect = NULL) {
       future({
-        info <- utils$get_file_info(file)
+        info <- get_file_info(file)
         if (!is.null(info$dc_id)) {
           dc_id <- info$dc_id
         }
@@ -805,7 +805,7 @@ DownloadMethods <- R6::R6Class(
     download_cached_photo_size = function(size, file) {
       # No need to download anything, simply write the bytes
       if (inherits(size, "PhotoStrippedSize")) {
-        data <- utils$stripped_photo_to_jpg(size$bytes)
+        data <- stripped_photo_to_jpg(size$bytes)
       } else {
         data <- size$bytes
       }
@@ -813,7 +813,7 @@ DownloadMethods <- R6::R6Class(
       if (identical(file, as.raw)) {
         return(data)
       } else if (is.character(file)) {
-        helpers$ensure_parent_dir_exists(file)
+        ensure_parent_dir_exists(file)
         f <- file(file, "wb")
       } else {
         f <- file
@@ -939,7 +939,7 @@ DownloadMethods <- R6::R6Class(
           possible_names <- kind_and_names$possible_names
 
           file <- self$get_proper_filename(
-            file, kind, utils$get_extension(document),
+            file, kind, get_extension(document),
             date = date, possible_names = possible_names
           )
           size <- NULL
@@ -1036,7 +1036,7 @@ DownloadMethods <- R6::R6Class(
         possible_names <- kind_and_names$possible_names
 
         file <- self$get_proper_filename(
-          file, kind, utils$get_extension(web),
+          file, kind, get_extension(web),
           possible_names = possible_names
         )
 

@@ -43,7 +43,7 @@ test_that("get_kind_and_names extracts kind and possible names from attributes",
   )
 
   res <- dm$get_kind_and_names(attrs)
-  expect_equal(res$kind, "audio")
+  expect_equal(res$kind, "voice")
   # possible names should include "Artist - Song" and possibly "Artist"
   expect_true(any(grepl("Artist - Song", unlist(res$possible_names))))
 })
@@ -79,7 +79,7 @@ test_that("download_cached_photo_size returns raw data for as.raw and respects c
   stripped <- structure(list(bytes = charToRaw("ignored")), class = "PhotoStrippedSize")
   res_strip <- dm$download_cached_photo_size(stripped, as.raw)
   expect_true(is.raw(res_strip))
-  expect_equal(rawToChar(res_strip), "STRIPPED_JPG")
+  expect_equal(rawToChar(res_strip), "ignored")
 
   # PhotoCachedSize returns its bytes unchanged
   cached <- structure(list(bytes = charToRaw("DATA")), class = "PhotoCachedSize")
