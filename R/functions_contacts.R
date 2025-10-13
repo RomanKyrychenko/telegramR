@@ -186,7 +186,7 @@ AddContactRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     },
@@ -202,9 +202,9 @@ AddContactRequest <- R6::R6Class(
         total <- 1 + ln
       } else {
         header <- as.raw(c(254L,
-                           as.raw(bitwAnd(ln, 0xffL)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xffL)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xffL))))
+                           as.raw(bitwAnd(ln, 0xff)),
+                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
+                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))))
         payload <- sb
         total <- 4 + ln
       }
@@ -325,7 +325,7 @@ BlockRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     }
@@ -425,7 +425,7 @@ BlockFromRepliesRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     }
@@ -518,7 +518,7 @@ DeleteByPhonesRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     },
@@ -534,9 +534,9 @@ DeleteByPhonesRequest <- R6::R6Class(
         total <- 1 + ln
       } else {
         header <- as.raw(c(254L,
-                           as.raw(bitwAnd(ln, 0xffL)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xffL)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xffL))))
+                           as.raw(bitwAnd(ln, 0xff)),
+                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
+                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))))
         payload <- sb
         total <- 4 + ln
       }
@@ -665,7 +665,7 @@ DeleteContactsRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     }
@@ -762,7 +762,7 @@ EditCloseFriendsRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     },
@@ -776,8 +776,8 @@ EditCloseFriendsRequest <- R6::R6Class(
       lo_raw <- raw(4)
       hi_raw <- raw(4)
       for (i in seq_len(4)) {
-        lo_raw[i] <- as.raw(bitwAnd(bitwShiftR(lo, 8L * (i - 1L)), 0xffL))
-        hi_raw[i] <- as.raw(bitwAnd(bitwShiftR(hi, 8L * (i - 1L)), 0xffL))
+        lo_raw[i] <- as.raw(bitwAnd(bitwShiftR(lo, 8L * (i - 1L)), 0xff))
+        hi_raw[i] <- as.raw(bitwAnd(bitwShiftR(hi, 8L * (i - 1L)), 0xff))
       }
       c(lo_raw, hi_raw)
     }
@@ -975,7 +975,7 @@ GetBlockedRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     }
@@ -1056,8 +1056,8 @@ GetContactIDsRequest <- R6::R6Class(
       lo_raw <- raw(4)
       hi_raw <- raw(4)
       for (i in seq_len(4)) {
-        lo_raw[i] <- as.raw(bitwAnd(bitwShiftR(lo, 8L * (i - 1L)), 0xffL))
-        hi_raw[i] <- as.raw(bitwAnd(bitwShiftR(hi, 8L * (i - 1L)), 0xffL))
+        lo_raw[i] <- as.raw(bitwAnd(bitwShiftR(lo, 8L * (i - 1L)), 0xff))
+        hi_raw[i] <- as.raw(bitwAnd(bitwShiftR(hi, 8L * (i - 1L)), 0xff))
       }
       c(lo_raw, hi_raw)
     }
@@ -1151,8 +1151,8 @@ GetContactsRequest <- R6::R6Class(
       lo_raw <- raw(4)
       hi_raw <- raw(4)
       for (i in seq_len(4)) {
-        lo_raw[i] <- as.raw(bitwAnd(bitwShiftR(lo, 8L * (i - 1L)), 0xffL))
-        hi_raw[i] <- as.raw(bitwAnd(bitwShiftR(hi, 8L * (i - 1L)), 0xffL))
+        lo_raw[i] <- as.raw(bitwAnd(bitwShiftR(lo, 8L * (i - 1L)), 0xff))
+        hi_raw[i] <- as.raw(bitwAnd(bitwShiftR(hi, 8L * (i - 1L)), 0xff))
       }
       c(lo_raw, hi_raw)
     }
@@ -1250,7 +1250,7 @@ GetLocatedRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     }
@@ -1380,9 +1380,9 @@ GetSponsoredPeersRequest <- R6::R6Class(
         total <- 1 + ln
       } else {
         header <- as.raw(c(254L,
-                           as.raw(bitwAnd(ln, 0xffL)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xffL)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xffL))))
+                           as.raw(bitwAnd(ln, 0xff)),
+                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
+                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))))
         payload <- sb
         total <- 4 + ln
       }
@@ -1585,7 +1585,7 @@ GetTopPeersRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     },
@@ -1593,14 +1593,14 @@ GetTopPeersRequest <- R6::R6Class(
     #' Convert 64-bit integer (numeric) to little-endian raw vector (8 bytes)
     int64_to_le_raw = function(x) {
       # Coerce to integer64-like via bit operations on double is unsafe; treat via splitting
-      hi <- bitwAnd(as.integer(bitwShiftR(as.integer(x %/% 2^32), 0L)), 0xffffffffL)
-      lo <- bitwAnd(as.integer(x %% 2^32), 0xffffffffL)
+      hi <- bitwAnd(as.integer(bitwShiftR(as.integer(x %/% 2^32), 0L)), 0xffffffff)
+      lo <- bitwAnd(as.integer(x %% 2^32), 0xffffffff)
       # pack lo (4 bytes) then hi (4 bytes) little-endian order
       lo_raw <- raw(4)
       hi_raw <- raw(4)
       for (i in seq_len(4)) {
-        lo_raw[i] <- as.raw(bitwAnd(bitwShiftR(lo, 8L * (i - 1L)), 0xffL))
-        hi_raw[i] <- as.raw(bitwAnd(bitwShiftR(hi, 8L * (i - 1L)), 0xffL))
+        lo_raw[i] <- as.raw(bitwAnd(bitwShiftR(lo, 8L * (i - 1L)), 0xff))
+        hi_raw[i] <- as.raw(bitwAnd(bitwShiftR(hi, 8L * (i - 1L)), 0xff))
       }
       c(lo_raw, hi_raw)
     }
@@ -1699,7 +1699,7 @@ ImportContactTokenRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     },
@@ -1715,9 +1715,9 @@ ImportContactTokenRequest <- R6::R6Class(
         total <- 1 + ln
       } else {
         header <- as.raw(c(254L,
-                           as.raw(bitwAnd(ln, 0xffL)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xffL)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xffL))))
+                           as.raw(bitwAnd(ln, 0xff)),
+                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
+                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))))
         payload <- sb
         total <- 4 + ln
       }
@@ -1824,7 +1824,7 @@ ImportContactsRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     }
@@ -2060,7 +2060,7 @@ ResolvePhoneRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     },
@@ -2076,9 +2076,9 @@ ResolvePhoneRequest <- R6::R6Class(
         total <- 1 + ln
       } else {
         header <- as.raw(c(254L,
-                           as.raw(bitwAnd(ln, 0xffL)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xffL)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xffL))))
+                           as.raw(bitwAnd(ln, 0xff)),
+                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
+                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))))
         payload <- sb
         total <- 4 + ln
       }
@@ -2162,7 +2162,7 @@ ResolveUsernameRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     },
@@ -2178,9 +2178,9 @@ ResolveUsernameRequest <- R6::R6Class(
         total <- 1 + ln
       } else {
         header <- as.raw(c(254L,
-                           as.raw(bitwAnd(ln, 0xffL)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xffL)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xffL))))
+                           as.raw(bitwAnd(ln, 0xff)),
+                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
+                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))))
         payload <- sb
         total <- 4 + ln
       }
@@ -2263,7 +2263,7 @@ SearchRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     },
@@ -2424,7 +2424,7 @@ SetBlockedRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     }
@@ -2611,7 +2611,7 @@ UnblockRequest <- R6::R6Class(
       xi <- as.integer(x)
       v <- raw(size)
       for (i in seq_len(size)) {
-        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xffL))
+        v[i] <- as.raw(bitwAnd(bitwShiftR(xi, 8L * (i - 1L)), 0xff))
       }
       v
     }

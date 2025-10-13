@@ -61,8 +61,8 @@ ActivateStealthModeRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x57bbd166L,
-    SUBCLASS_OF_ID = function() 0x8af52aacL
+    CONSTRUCTOR_ID = function() 0x57bbd166,
+    SUBCLASS_OF_ID = function() 0x8af52aac
   ),
 
   class = list(
@@ -159,7 +159,7 @@ CanSendStoryRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x30eb63f0L,
+    CONSTRUCTOR_ID = function() 0x30eb63f0,
     SUBCLASS_OF_ID = function() 0xcb53a298L
   ),
 
@@ -281,8 +281,8 @@ CreateAlbumRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0xa36396e5L,
-    SUBCLASS_OF_ID = function() 0x7c8c5ea2L
+    CONSTRUCTOR_ID = function() 0xa36396e5,
+    SUBCLASS_OF_ID = function() 0x7c8c5ea2
   ),
 
   class = list(
@@ -390,7 +390,7 @@ DeleteAlbumRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x8d3456d0L,
+    CONSTRUCTOR_ID = function() 0x8d3456d0,
     SUBCLASS_OF_ID = function() 0xf5b399acL
   ),
 
@@ -497,8 +497,8 @@ DeleteStoriesRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0xae59db5fL,
-    SUBCLASS_OF_ID = function() 0x5026710fL
+    CONSTRUCTOR_ID = function() 0xae59db5f,
+    SUBCLASS_OF_ID = function() 0x5026710f
   ),
 
   class = list(
@@ -722,8 +722,8 @@ EditStoryRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0xb583ba46L,
-    SUBCLASS_OF_ID = function() 0x8af52aacL
+    CONSTRUCTOR_ID = function() 0xb583ba46,
+    SUBCLASS_OF_ID = function() 0x8af52aac
   ),
 
   class = list(
@@ -1135,8 +1135,8 @@ GetAllReadPeerStoriesRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x9b5ae7f9L,
-    SUBCLASS_OF_ID = function() 0x8af52aacL
+    CONSTRUCTOR_ID = function() 0x9b5ae7f9,
+    SUBCLASS_OF_ID = function() 0x8af52aac
   ),
 
   class = list(
@@ -1233,8 +1233,8 @@ GetAllStoriesRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0xeeb0d625L,
-    SUBCLASS_OF_ID = function() 0x7e60d0cdL
+    CONSTRUCTOR_ID = function() 0xeeb0d625,
+    SUBCLASS_OF_ID = function() 0x7e60d0cd
   ),
 
   class = list(
@@ -1288,7 +1288,7 @@ GetChatsToSendRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0xa56a8b60L,
+    CONSTRUCTOR_ID = function() 0xa56a8b60,
     SUBCLASS_OF_ID = function() 0x99d5cb14L
   ),
 
@@ -1392,8 +1392,8 @@ GetPeerMaxIDsRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x535983c3L,
-    SUBCLASS_OF_ID = function() 0x5026710fL
+    CONSTRUCTOR_ID = function() 0x535983c3,
+    SUBCLASS_OF_ID = function() 0x5026710f
   ),
 
   class = list(
@@ -1501,8 +1501,8 @@ GetPeerStoriesRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x2c4ada50L,
-    SUBCLASS_OF_ID = function() 0x9d56cfd0L
+    CONSTRUCTOR_ID = function() 0x2c4ada50,
+    SUBCLASS_OF_ID = function() 0x9d56cfd0
   ),
 
   class = list(
@@ -1602,8 +1602,8 @@ GetPinnedStoriesRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x5821a5dcL,
-    SUBCLASS_OF_ID = function() 0x251c0c2cL
+    CONSTRUCTOR_ID = function() 0x5821a5dc,
+    SUBCLASS_OF_ID = function() 0x251c0c2c
   ),
 
   class = list(
@@ -1705,8 +1705,8 @@ GetStoriesArchiveRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0xb4352016L,
-    SUBCLASS_OF_ID = function() 0x251c0c2cL
+    CONSTRUCTOR_ID = function() 0xb4352016,
+    SUBCLASS_OF_ID = function() 0x251c0c2c
   ),
 
   class = list(
@@ -1807,8 +1807,8 @@ GetStoriesByIDRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x5774ca74L,
-    SUBCLASS_OF_ID = function() 0x251c0c2cL
+    CONSTRUCTOR_ID = function() 0x5774ca74,
+    SUBCLASS_OF_ID = function() 0x251c0c2c
   ),
 
   class = list(
@@ -1915,8 +1915,8 @@ GetStoriesViewsRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x28e16cc8L,
-    SUBCLASS_OF_ID = function() 0x4b3fc4baL
+    CONSTRUCTOR_ID = function() 0x28e16cc8,
+    SUBCLASS_OF_ID = function() 0x4b3fc4ba
   ),
 
   class = list(
@@ -2068,8 +2068,8 @@ GetStoryReactionsListRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0xb9b2881fL,
-    SUBCLASS_OF_ID = function() 0x046f91e3L
+    CONSTRUCTOR_ID = function() 0xb9b2881f,
+    SUBCLASS_OF_ID = function() 0x046f91e3
   ),
 
   class = list(
@@ -2231,8 +2231,8 @@ GetStoryViewsListRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x7ed23c57L,
-    SUBCLASS_OF_ID = function() 0xb9437560L
+    CONSTRUCTOR_ID = function() 0x7ed23c57,
+    SUBCLASS_OF_ID = function() 0xb9437560
   ),
 
   class = list(
@@ -2347,8 +2347,8 @@ IncrementStoryViewsRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0xb2028afbL,
-    SUBCLASS_OF_ID = function() 0xf5b399acL
+    CONSTRUCTOR_ID = function() 0xb2028afb,
+    SUBCLASS_OF_ID = function() 0xf5b399ac
   ),
 
   class = list(
@@ -2459,8 +2459,8 @@ ReadStoriesRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0xa556dac8L,
-    SUBCLASS_OF_ID = function() 0x5026710fL
+    CONSTRUCTOR_ID = function() 0xa556dac8,
+    SUBCLASS_OF_ID = function() 0x5026710f
   ),
 
   class = list(
@@ -2579,8 +2579,8 @@ ReorderAlbumsRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x8535fbd9L,
-    SUBCLASS_OF_ID = function() 0xf5b399acL
+    CONSTRUCTOR_ID = function() 0x8535fbd9,
+    SUBCLASS_OF_ID = function() 0xf5b399ac
   ),
 
   class = list(
@@ -2729,8 +2729,8 @@ ReportRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x19d8eb45L,
-    SUBCLASS_OF_ID = function() 0xacd3f438L
+    CONSTRUCTOR_ID = function() 0x19d8eb45,
+    SUBCLASS_OF_ID = function() 0xacd3f438
   ),
 
   class = list(
@@ -2889,8 +2889,8 @@ SearchPostsRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0xd1810907L,
-    SUBCLASS_OF_ID = function() 0x17790b35L
+    CONSTRUCTOR_ID = function() 0xd1810907,
+    SUBCLASS_OF_ID = function() 0x17790b35
   ),
 
   class = list(
@@ -3027,8 +3027,8 @@ SendReactionRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x7fd736b2L,
-    SUBCLASS_OF_ID = function() 0x8af52aacL
+    CONSTRUCTOR_ID = function() 0x7fd736b2,
+    SUBCLASS_OF_ID = function() 0x8af52aac
   ),
 
   class = list(
@@ -3324,8 +3324,8 @@ SendStoryRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x737fc2ecL,
-    SUBCLASS_OF_ID = function() 0x8af52aacL
+    CONSTRUCTOR_ID = function() 0x737fc2ec,
+    SUBCLASS_OF_ID = function() 0x8af52aac
   ),
 
   class = list(
@@ -3473,8 +3473,8 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x7c2557c4L,
-    SUBCLASS_OF_ID = function() 0xf5b399acL
+    CONSTRUCTOR_ID = function() 0x7c2557c4,
+    SUBCLASS_OF_ID = function() 0xf5b399ac
   ),
 
   class = list(
@@ -3579,8 +3579,8 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0xbd0415c4L,
-    SUBCLASS_OF_ID = function() 0xf5b399acL
+    CONSTRUCTOR_ID = function() 0xbd0415c4,
+    SUBCLASS_OF_ID = function() 0xf5b399ac
   ),
 
   class = list(
@@ -3701,8 +3701,8 @@ TogglePinnedRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x9a75a1efL,
-    SUBCLASS_OF_ID = function() 0x5026710fL
+    CONSTRUCTOR_ID = function() 0x9a75a1ef,
+    SUBCLASS_OF_ID = function() 0x5026710f
   ),
 
   class = list(
@@ -3836,8 +3836,8 @@ TogglePinnedToTopRequest <- R6::R6Class(
   ),
 
   active = list(
-    CONSTRUCTOR_ID = function() 0x0b297e9bL,
-    SUBCLASS_OF_ID = function() 0xf5b399acL
+    CONSTRUCTOR_ID = function() 0x0b297e9b,
+    SUBCLASS_OF_ID = function() 0xf5b399ac
   ),
 
   class = list(
@@ -4009,9 +4009,9 @@ UpdateAlbumRequest <- R6::R6Class(
 
   active = list(
     #' Class-level constructor id (read-only)
-    CONSTRUCTOR_ID = function() 0x5e5259b6L,
+    CONSTRUCTOR_ID = function() 0x5e5259b6,
     #' Subclass id (read-only)
-    SUBCLASS_OF_ID = function() 0x7c8c5ea2L
+    SUBCLASS_OF_ID = function() 0x7c8c5ea2
   ),
 
   # class method implemented as public so it can be called like UpdateAlbumRequest$from_reader(reader)
