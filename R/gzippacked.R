@@ -33,8 +33,8 @@ GzipPacked <- R6::R6Class(
       # smaller than the original byte array, this is returned instead.
       # Note that this only applies to content related requests.
       if (content_related && length(data) > 512) {
-        gzipped <- serialize_bytes(gzcon(rawConnection(data, "r")))
-        if (length(gzipped) < length(data)) {
+        gzipped <- gzcon(rawConnection(data, "r"))
+        if (object.size(gzipped) < object.size(data)) {
           return(gzipped)
         }
       }
