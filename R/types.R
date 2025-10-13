@@ -4662,7 +4662,7 @@ BotInlineMessageMediaWebPage <- R6::R6Class(
 
   active = list(
     serialize = function() {
-      flags <- bitwOr(
+      flag_values <- c(
         if (is.null(self$invert_media) || !self$invert_media) 0 else 8,
         if (is.null(self$force_large_media) || !self$force_large_media) 0 else 16,
         if (is.null(self$force_small_media) || !self$force_small_media) 0 else 32,
@@ -4671,6 +4671,8 @@ BotInlineMessageMediaWebPage <- R6::R6Class(
         if (is.null(self$entities)) 0 else 2,
         if (is.null(self$reply_markup)) 0 else 4
       )
+
+      flags <- Reduce(bitwOr, as.integer(flag_values), init = 0L)
 
       result <- c(
         writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
@@ -4764,12 +4766,14 @@ BotInlineMessageText <- R6::R6Class(
 
   active = list(
     serialize = function() {
-      flags <- bitwOr(
+      flag_values <- c(
         if (is.null(self$no_webpage) || !self$no_webpage) 0 else 1,
         if (is.null(self$invert_media) || !self$invert_media) 0 else 8,
         if (is.null(self$entities)) 0 else 2,
         if (is.null(self$reply_markup)) 0 else 4
       )
+
+      flags <- Reduce(bitwOr, as.integer(flag_values), init = 0L)
 
       result <- c(
         writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
@@ -4865,13 +4869,15 @@ BotInlineResult <- R6::R6Class(
 
   active = list(
     serialize = function() {
-      flags <- bitwOr(
+      flag_values <- c(
         if (is.null(self$title)) 0 else 2,
         if (is.null(self$description)) 0 else 4,
         if (is.null(self$url)) 0 else 8,
         if (is.null(self$thumb)) 0 else 16,
         if (is.null(self$content)) 0 else 32
       )
+
+      flags <- Reduce(bitwOr, as.integer(flag_values), init = 0L)
 
       result <- c(
         writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
@@ -5440,7 +5446,7 @@ BusinessBotRecipients <- R6::R6Class(
 
   active = list(
     serialize = function() {
-      flags <- bitwOr(
+      flag_values <- c(
         if (is.null(self$existing_chats) || !self$existing_chats) 0 else 1,
         if (is.null(self$new_chats) || !self$new_chats) 0 else 2,
         if (is.null(self$contacts) || !self$contacts) 0 else 4,
@@ -5449,6 +5455,8 @@ BusinessBotRecipients <- R6::R6Class(
         if (is.null(self$users)) 0 else 16,
         if (is.null(self$exclude_users)) 0 else 64
       )
+
+      flags <- Reduce(bitwOr, as.integer(flag_values), init = 0L)
 
       result <- c(
         writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
@@ -5567,7 +5575,7 @@ BusinessBotRights <- R6::R6Class(
 
   active = list(
     serialize = function() {
-      flags <- bitwOr(
+      flag_values <- c(
         if (is.null(self$reply) || !self$reply) 0 else 1,
         if (is.null(self$read_messages) || !self$read_messages) 0 else 2,
         if (is.null(self$delete_sent_messages) || !self$delete_sent_messages) 0 else 4,
@@ -5583,6 +5591,8 @@ BusinessBotRights <- R6::R6Class(
         if (is.null(self$transfer_stars) || !self$transfer_stars) 0 else 4096,
         if (is.null(self$manage_stories) || !self$manage_stories) 0 else 8192
       )
+
+      flags <- Reduce(bitwOr, as.integer(flag_values), init = 0L)
 
       result <- c(
         writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
@@ -5921,7 +5931,7 @@ BusinessRecipients <- R6::R6Class(
 
   active = list(
     serialize = function() {
-      flags <- bitwOr(
+      flag_values <- c(
         if (is.null(self$existing_chats) || !self$existing_chats) 0 else 1,
         if (is.null(self$new_chats) || !self$new_chats) 0 else 2,
         if (is.null(self$contacts) || !self$contacts) 0 else 4,
@@ -5929,6 +5939,8 @@ BusinessRecipients <- R6::R6Class(
         if (is.null(self$exclude_selected) || !self$exclude_selected) 0 else 32,
         if (is.null(self$users)) 0 else 16
       )
+
+      flags <- Reduce(bitwOr, as.integer(flag_values), init = 0L)
 
       result <- c(
         writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
@@ -9947,27 +9959,31 @@ ChatAdminRights <- R6::R6Class(
     },
 
     bytes = function() {
+      flag_values <- c(
+        ifelse(isTRUE(self$change_info), 1, 0),
+        ifelse(isTRUE(self$post_messages), 2, 0),
+        ifelse(isTRUE(self$edit_messages), 4, 0),
+        ifelse(isTRUE(self$delete_messages), 8, 0),
+        ifelse(isTRUE(self$ban_users), 16, 0),
+        ifelse(isTRUE(self$invite_users), 32, 0),
+        ifelse(isTRUE(self$pin_messages), 128, 0),
+        ifelse(isTRUE(self$add_admins), 512, 0),
+        ifelse(isTRUE(self$anonymous), 1024, 0),
+        ifelse(isTRUE(self$manage_call), 2048, 0),
+        ifelse(isTRUE(self$other), 4096, 0),
+        ifelse(isTRUE(self$manage_topics), 8192, 0),
+        ifelse(isTRUE(self$post_stories), 16384, 0),
+        ifelse(isTRUE(self$edit_stories), 32768, 0),
+        ifelse(isTRUE(self$delete_stories), 65536, 0),
+        ifelse(isTRUE(self$manage_direct_messages), 131072, 0)
+      )
+
+      flags <- Reduce(bitwOr, as.integer(flag_values), init = 0L)
+
       as.raw(
         c(
           0xd5, 0x24, 0xb2, 0x5f,
-          bitwOr(
-            ifelse(isTRUE(self$change_info), 1, 0),
-            ifelse(isTRUE(self$post_messages), 2, 0),
-            ifelse(isTRUE(self$edit_messages), 4, 0),
-            ifelse(isTRUE(self$delete_messages), 8, 0),
-            ifelse(isTRUE(self$ban_users), 16, 0),
-            ifelse(isTRUE(self$invite_users), 32, 0),
-            ifelse(isTRUE(self$pin_messages), 128, 0),
-            ifelse(isTRUE(self$add_admins), 512, 0),
-            ifelse(isTRUE(self$anonymous), 1024, 0),
-            ifelse(isTRUE(self$manage_call), 2048, 0),
-            ifelse(isTRUE(self$other), 4096, 0),
-            ifelse(isTRUE(self$manage_topics), 8192, 0),
-            ifelse(isTRUE(self$post_stories), 16384, 0),
-            ifelse(isTRUE(self$edit_stories), 32768, 0),
-            ifelse(isTRUE(self$delete_stories), 65536, 0),
-            ifelse(isTRUE(self$manage_direct_messages), 131072, 0)
-          )
+          flags
         )
       )
     }
@@ -14974,13 +14990,15 @@ InputBotInlineMessageMediaAuto <- R6::R6Class(
     },
 
     bytes = function() {
+      flags <- Reduce(bitwOr, as.integer(c(
+        if (is.null(self$invert_media) || !self$invert_media) 0 else 8,
+        if (is.null(self$entities) || length(self$entities) == 0) 0 else 2,
+        if (is.null(self$reply_markup)) 0 else 4
+      )), init = 0L)
+
       c(
         as.raw(c(0x86, 0xc7, 0x80, 0x33)),
-        as.raw(bitwOr(
-          if (is.null(self$invert_media) || !self$invert_media) 0 else 8,
-          if (is.null(self$entities) || length(self$entities) == 0) 0 else 2,
-          if (is.null(self$reply_markup)) 0 else 4
-        )),
+        as.raw(flags),
         serialize_bytes(self$message),
         if (is.null(self$entities) || length(self$entities) == 0) raw() else c(
           as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
@@ -15098,14 +15116,16 @@ InputBotInlineMessageMediaGeo <- R6::R6Class(
     },
 
     bytes = function() {
+      flags <- Reduce(bitwOr, as.integer(c(
+        if (is.null(self$heading) || !self$heading) 0 else 1,
+        if (is.null(self$period) || !self$period) 0 else 2,
+        if (is.null(self$proximity_notification_radius) || !self$proximity_notification_radius) 0 else 8,
+        if (is.null(self$reply_markup) || !self$reply_markup) 0 else 4
+      )), init = 0L)
+
       c(
         as.raw(c(0x85, 0x9a, 0x92, 0x96)),
-        as.raw(bitwOr(
-          if (is.null(self$heading) || !self$heading) 0 else 1,
-          if (is.null(self$period) || !self$period) 0 else 2,
-          if (is.null(self$proximity_notification_radius) || !self$proximity_notification_radius) 0 else 8,
-          if (is.null(self$reply_markup) || !self$reply_markup) 0 else 4
-        )),
+        as.raw(flags),
         self$geo_point$bytes(),
         if (is.null(self$heading) || !self$heading) raw() else writeBin(as.integer(self$heading), raw(), size = 4),
         if (is.null(self$period) || !self$period) raw() else writeBin(as.integer(self$period), raw(), size = 4),
@@ -15421,14 +15441,16 @@ InputBotInlineMessageText <- R6::R6Class(
     },
 
     bytes = function() {
+      flags <- Reduce(bitwOr, as.integer(c(
+        if (is.null(self$no_webpage) || !self$no_webpage) 0 else 1,
+        if (is.null(self$invert_media) || !self$invert_media) 0 else 8,
+        if (is.null(self$entities) || length(self$entities) == 0) 0 else 2,
+        if (is.null(self$reply_markup)) 0 else 4
+      )), init = 0L)
+
       c(
         as.raw(c(0x87, 0x7a, 0xcd, 0x3d)),
-        as.raw(bitwOr(
-          if (is.null(self$no_webpage) || !self$no_webpage) 0 else 1,
-          if (is.null(self$invert_media) || !self$invert_media) 0 else 8,
-          if (is.null(self$entities) || length(self$entities) == 0) 0 else 2,
-          if (is.null(self$reply_markup)) 0 else 4
-        )),
+        as.raw(flags),
         serialize_bytes(self$message),
         if (is.null(self$entities) || length(self$entities) == 0) raw() else c(
           as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
@@ -15509,15 +15531,17 @@ InputBotInlineResult <- R6::R6Class(
     },
 
     bytes = function() {
+      flags <- Reduce(bitwOr, as.integer(c(
+        if (is.null(self$title) || !self$title) 0 else 2,
+        if (is.null(self$description) || !self$description) 0 else 4,
+        if (is.null(self$url) || !self$url) 0 else 8,
+        if (is.null(self$thumb) || !self$thumb) 0 else 16,
+        if (is.null(self$content) || !self$content) 0 else 32
+      )), init = 0L)
+
       c(
         as.raw(c(0x19, 0x93, 0xbf, 0x88)),
-        as.raw(bitwOr(
-          if (is.null(self$title) || !self$title) 0 else 2,
-          if (is.null(self$description) || !self$description) 0 else 4,
-          if (is.null(self$url) || !self$url) 0 else 8,
-          if (is.null(self$thumb) || !self$thumb) 0 else 16,
-          if (is.null(self$content) || !self$content) 0 else 32
-        )),
+        as.raw(flags),
         serialize_bytes(self$id),
         serialize_bytes(self$type),
         if (is.null(self$title) || !self$title) raw() else serialize_bytes(self$title),
