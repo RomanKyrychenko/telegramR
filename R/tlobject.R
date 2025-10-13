@@ -66,12 +66,20 @@ pretty_format <- function(obj, indent = NULL) {
     if (is.list(obj)) {
       return(paste0("{", paste(
         sapply(names(obj), function(k) {
-          paste0(k, "=", pretty_format(obj[[k]]))
+          v <- obj[[k]]
+          if (inherits(v, "TLObject") && !identical(v, obj)) {
+            paste0(k, "=", pretty_format(v$to_dict()))
+          } else {
+            paste0(k, "=", pretty_format(v))
+          }
         }), collapse = ", "
       ), "}"))
     } else if (is.character(obj) || is.raw(obj)) {
       return(obj)
     } else if (is.vector(obj)) {
+      if (length(obj) == 1) {
+        return(as.character(obj))
+      }
       return(paste0("[", paste(
         sapply(obj, pretty_format), collapse = ", "
       ), "]"))
@@ -106,18 +114,22 @@ pretty_format <- function(obj, indent = NULL) {
     } else if (is.character(obj) || is.raw(obj)) {
       result <- append(result, list(obj))
     } else if (is.vector(obj)) {
-      result <- append(result, list("["))
-      indent <- indent + 1
-      for (x in obj) {
-        result <- append(result, list(paste0(
-          rep("\t", indent),
-          collapse = "",
-          pretty_format(x, indent),
-          ","
-        )))
+      if (length(obj) == 1) {
+        result <- append(result, list(as.character(obj)))
+      } else {
+        result <- append(result, list("["))
+        indent <- indent + 1
+        for (x in obj) {
+          result <- append(result, list(paste0(
+            rep("\t", indent),
+            collapse = "",
+            pretty_format(x, indent),
+            ","
+          )))
+        }
+        indent <- indent - 1
+        result <- append(result, list(paste0(rep("\t", indent), collapse = "", "]")))
       }
-      indent <- indent - 1
-      result <- append(result, list(paste0(rep("\t", indent), collapse = "", "]")))
     } else {
       result <- append(result, list(as.character(obj)))
     }
