@@ -87,7 +87,7 @@ TakeoutClient <- R6::R6Class(
         stop("Takeout mode has not been initialized (are you calling outside of 'with'?)")
       }
 
-      single <- !utils$is_list_like(request)
+      single <- !is_list_like(request)
       requests <- if (single) list(request) else request
       wrapped <- lapply(requests, function(r) {
         if (!inherits(r, "TLRequest")) {

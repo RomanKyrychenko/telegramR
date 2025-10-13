@@ -2496,7 +2496,7 @@ photo_size_byte_count <- function(size) {
 maybe_async <- function(coro) {
   result <- coro
   if (future::is.future(result)) {
-    warning('Using async sessions support is an experimental feature')
+    warning("Using async sessions support is an experimental feature")
     result <- future::value(result)
   }
   return(result)

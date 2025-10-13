@@ -368,7 +368,7 @@ DialogMethods <- R6::R6Class("DialogMethods",
     #' @param entity The entity or list of entities for which to fetch the draft messages.
     #' @return An iterator over draft messages.
     iter_drafts = function(entity = NULL) {
-      if (!is.null(entity) && !utils$is_list_like(entity)) {
+      if (!is.null(entity) && !is_list_like(entity)) {
         entity <- list(entity)
       }
 
@@ -388,7 +388,7 @@ DialogMethods <- R6::R6Class("DialogMethods",
         await(iter$get_init_future())
         items <- await(iter$collect())
 
-        if (is.null(entity) || utils$is_list_like(entity)) {
+        if (is.null(entity) || is_list_like(entity)) {
           return(items)
         } else {
           return(items[[1]])
@@ -418,7 +418,7 @@ DialogMethods <- R6::R6Class("DialogMethods",
         }
 
         entities_list <- list()
-        if (!utils$is_list_like(entity)) {
+        if (!is_list_like(entity)) {
           entities_list <- list(await(private$self$get_input_entity(entity)))
         } else {
           for (e in entity) {
@@ -428,7 +428,7 @@ DialogMethods <- R6::R6Class("DialogMethods",
 
         if (is.null(folder)) {
           stop("You must specify a folder")
-        } else if (!utils$is_list_like(folder)) {
+        } else if (!is_list_like(folder)) {
           folder <- rep(folder, length(entities_list))
         } else if (length(entities_list) != length(folder)) {
           stop("Number of folders does not match number of entities")

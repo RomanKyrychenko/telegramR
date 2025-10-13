@@ -24,8 +24,8 @@ DeletePhotosRequest <- R6::R6Class(
   "DeletePhotosRequest",
   inherit = TLRequest,
   public = list(
-    CONSTRUCTOR_ID = 0x87cf7f2fL,
-    SUBCLASS_OF_ID = 0x8918e168L,
+    CONSTRUCTOR_ID = 0x87cf7f2f,
+    SUBCLASS_OF_ID = 0x8918e168,
 
     #' @field id list of TLObject or NULL
     id = NULL,

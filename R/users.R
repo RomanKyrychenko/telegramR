@@ -303,8 +303,8 @@ UserMethods <- R6::R6Class(
           # GetUsersRequest has a limit of 200 per call
           tmp <- list()
           while (length(users) > 0) {
-            curr <- users[1:min(200, length(users))]
-            users <- users[-(1:min(200, length(users)))]
+            curr <- users[seq_len(min(200, length(users)))]
+            users <- users[-seq_len(min(200, length(users)))]
             tmp <- c(tmp, future::value(self$call(GetUsersRequest$new(curr))))
           }
           users <- tmp
@@ -378,7 +378,7 @@ UserMethods <- R6::R6Class(
 
         # Then come known strings that take precedence
         if (is.character(peer) && peer %in% c("me", "self")) {
-          return(types$InputPeerSelf())
+          return(InputPeerSelf())
         }
 
         # No InputPeer, cached peer, or known string. Fetch from disk cache
@@ -564,14 +564,14 @@ UserMethods <- R6::R6Class(
             dialog$peer <- future::value(self$get_input_entity(dialog$peer))
             return(dialog)
           } else if (dialog$SUBCLASS_OF_ID == 0xc91c90b6) {  # crc32(b'InputPeer')
-            return(types$InputDialogPeer(dialog))
+            return(InputDialogPeer(dialog))
           }
         }, error = function(e) {
           # Continue to fallback
         })
 
         input_entity <- future::value(self$get_input_entity(dialog))
-        return(types$InputDialogPeer(input_entity))
+        return(InputDialogPeer(input_entity))
       })
     },
 
@@ -593,7 +593,7 @@ UserMethods <- R6::R6Class(
         })
 
         input_entity <- future::value(self$get_input_entity(notify))
-        return(types$InputNotifyPeer(input_entity))
+        return(InputNotifyPeer(input_entity))
       })
     }
   )

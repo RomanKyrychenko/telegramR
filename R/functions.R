@@ -2009,4 +2009,3 @@ SetClientDHParamsRequest$from_reader <- function(reader) {
   encrypted_data <- reader$tgread_bytes()
   SetClientDHParamsRequest$new(nonce = nonce, server_nonce = server_nonce, encrypted_data = encrypted_data)
 }
-

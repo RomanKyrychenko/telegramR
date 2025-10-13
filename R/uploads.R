@@ -36,7 +36,7 @@ FileStream <- R6::R6Class("FileStream",
         on.exit(close(con))
         readBin(con, raw(), size)
       } else if (is.raw(self$file)) {
-        self$file[1:min(size, length(self$file))]
+        self$file[seq_len(min(size, length(self$file)))]
       }
     }
   )

@@ -12,8 +12,8 @@ GetBroadcastStatsRequest <- R6::R6Class(
   "GetBroadcastStatsRequest",
   inherit = TLRequest,
   public = list(
-    CONSTRUCTOR_ID = 0xab42441aL,
-    SUBCLASS_OF_ID = 0x7ff25428L,
+    CONSTRUCTOR_ID = 0xab42441a,
+    SUBCLASS_OF_ID = 0x7ff25428,
     channel = NULL,
     dark = NULL,
 
@@ -74,8 +74,8 @@ GetMegagroupStatsRequest <- R6::R6Class(
   "GetMegagroupStatsRequest",
   inherit = TLRequest,
   public = list(
-    CONSTRUCTOR_ID = 0xdcdf8607L,
-    SUBCLASS_OF_ID = 0x5b59be8dL,
+    CONSTRUCTOR_ID = 0xdcdf8607,
+    SUBCLASS_OF_ID = 0x5b59be8d,
     channel = NULL,
     dark = NULL,
 
@@ -138,8 +138,8 @@ GetMessagePublicForwardsRequest <- R6::R6Class(
   "GetMessagePublicForwardsRequest",
   inherit = TLRequest,
   public = list(
-    CONSTRUCTOR_ID = 0x5f150144L,
-    SUBCLASS_OF_ID = 0xa7283211L,
+    CONSTRUCTOR_ID = 0x5f150144,
+    SUBCLASS_OF_ID = 0xa7283211,
     channel = NULL,
     msg_id = NULL,
     offset = NULL,
@@ -216,8 +216,8 @@ GetMessageStatsRequest <- R6::R6Class(
   "GetMessageStatsRequest",
   inherit = TLRequest,
   public = list(
-    CONSTRUCTOR_ID = 0xb6e0a3f5L,
-    SUBCLASS_OF_ID = 0x9604a322L,
+    CONSTRUCTOR_ID = 0xb6e0a3f5,
+    SUBCLASS_OF_ID = 0x9604a322,
     channel = NULL,
     msg_id = NULL,
     dark = NULL,
@@ -284,8 +284,8 @@ GetStoryPublicForwardsRequest <- R6::R6Class(
   "GetStoryPublicForwardsRequest",
   inherit = TLRequest,
   public = list(
-    CONSTRUCTOR_ID = 0xa6437ef6L,
-    SUBCLASS_OF_ID = 0xa7283211L,
+    CONSTRUCTOR_ID = 0xa6437ef6,
+    SUBCLASS_OF_ID = 0xa7283211,
     peer = NULL,
     id = NULL,
     offset = NULL,
@@ -362,8 +362,8 @@ GetStoryStatsRequest <- R6::R6Class(
   "GetStoryStatsRequest",
   inherit = TLRequest,
   public = list(
-    CONSTRUCTOR_ID = 0x374fef40L,
-    SUBCLASS_OF_ID = 0x8b4d43d4L,
+    CONSTRUCTOR_ID = 0x374fef40,
+    SUBCLASS_OF_ID = 0x8b4d43d4,
     peer = NULL,
     id = NULL,
     dark = NULL,
@@ -428,8 +428,8 @@ LoadAsyncGraphRequest <- R6::R6Class(
   "LoadAsyncGraphRequest",
   inherit = TLRequest,
   public = list(
-    CONSTRUCTOR_ID = 0xa05f1d62L,
-    SUBCLASS_OF_ID = 0x9b903153L,
+    CONSTRUCTOR_ID = 0xa05f1d62,
+    SUBCLASS_OF_ID = 0x9b903153,
     token = NULL,
     x = NULL,
 
