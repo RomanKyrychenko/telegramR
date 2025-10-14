@@ -910,30 +910,25 @@ EditPreviewMediaRequest$from_reader <- function(reader) {
 }
 
 
-#' GetAdminedBotsRequest R6 class
-#'
-#' Represents the GetAdminedBotsRequest TL request.
+#' @title GetAdminedBotsRequest R6 class
+#' @description Represents the GetAdminedBotsRequest TL request.
 #' @export
-NULL
 GetAdminedBotsRequest <- R6::R6Class(
   "GetAdminedBotsRequest",
   public = list(
 
-    #' Initialize GetAdminedBotsRequest
-    #'
+    #' @description Initialize GetAdminedBotsRequest
     initialize = function() {
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(`_` = "GetAdminedBotsRequest")
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
+    #' @description Serialize to bytes (raw vector)
     #' @return raw
     to_bytes = function() {
       # constructor id bytes (from Python: b'\x83\x1dq\xb0')

@@ -41,28 +41,26 @@ Request without parameters; returns chats to send.
 \if{html}{\out{<a id="method-GetChatsToSendRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetChatsToSendRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetChatsToSendRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetChatsToSendRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetChatsToSendRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetChatsToSendRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a GetChatsToSendRequest instance from a reader
-
-reader expected to implement nothing special for this class
 }
 }
 \if{html}{\out{<hr>}}

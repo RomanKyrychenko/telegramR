@@ -2,11 +2,9 @@
 % Please edit documentation in R/functions_bots.R
 \name{GetAdminedBotsRequest}
 \alias{GetAdminedBotsRequest}
-\title{Initialize GetAdminedBotsRequest}
+\title{GetAdminedBotsRequest R6 class}
 \description{
-Initialize GetAdminedBotsRequest
-
-Initialize GetAdminedBotsRequest
+Represents the GetAdminedBotsRequest TL request.
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -21,6 +19,7 @@ Initialize GetAdminedBotsRequest
 \if{html}{\out{<a id="method-GetAdminedBotsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAdminedBotsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetAdminedBotsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAdminedBotsRequest$new()}\if{html}{\out{</div>}}
 }
@@ -37,13 +36,13 @@ Convert to list (dictionary-like)
 
 \subsection{Returns}{
 list
-Serialize to bytes (raw vector)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetAdminedBotsRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAdminedBotsRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes (raw vector)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAdminedBotsRequest$to_bytes()}\if{html}{\out{</div>}}
 }

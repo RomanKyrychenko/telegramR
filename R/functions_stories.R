@@ -1037,24 +1037,21 @@ GetAlbumsRequest <- R6::R6Class(
 )
 
 
-#' GetAllReadPeerStoriesRequest R6 class
-#'
-#' Request without parameters; returns all read peer stories.
+#' @title GetAllReadPeerStoriesRequest R6 class
+#' @description Request without parameters; returns all read peer stories.
 #' @export
 GetAllReadPeerStoriesRequest <- R6::R6Class(
   "GetAllReadPeerStoriesRequest",
   inherit = TLRequest,
   public = list(
 
-    #' Convert to list
-    #'
+    #' @description Convert to list
     #' @return list
     to_list = function() {
       list(`_` = "GetAllReadPeerStoriesRequest")
     },
 
-    #' Serialize to raw TL bytes
-    #'
+    #' @description Serialize to raw TL bytes
     #' @return raw
     to_bytes = function() {
       # constructor bytes little-endian for 0x9b5ae7f9 -> f9 e7 5a 9b
@@ -1068,8 +1065,7 @@ GetAllReadPeerStoriesRequest <- R6::R6Class(
   ),
 
   class = list(
-    #' Read a GetAllReadPeerStoriesRequest instance from a reader
-    #'
+    #' @description Read a GetAllReadPeerStoriesRequest instance from a reader
     #' reader expected to implement nothing special for this class
     #' @param reader reader object (ignored)
     #' @return GetAllReadPeerStoriesRequest
@@ -1178,24 +1174,21 @@ GetAllStoriesRequest <- R6::R6Class(
 )
 
 
-#' GetChatsToSendRequest R6 class
-#'
-#' Request without parameters; returns chats to send.
+#' @title GetChatsToSendRequest R6 class
+#' @description Request without parameters; returns chats to send.
 #' @export
 GetChatsToSendRequest <- R6::R6Class(
   "GetChatsToSendRequest",
   inherit = TLRequest,
   public = list(
 
-    #' Convert to list
-    #'
+    #' @description Convert to list
     #' @return list
     to_list = function() {
       list(`_` = "GetChatsToSendRequest")
     },
 
-    #' Serialize to raw TL bytes
-    #'
+    #' @description Serialize to raw TL bytes
     #' @return raw
     to_bytes = function() {
       # constructor bytes little-endian for 0xa56a8b60 -> 0x60 0x8b 0x6a 0xa5
@@ -1209,8 +1202,7 @@ GetChatsToSendRequest <- R6::R6Class(
   ),
 
   class = list(
-    #' Read a GetChatsToSendRequest instance from a reader
-    #'
+    #' @description Read a GetChatsToSendRequest instance from a reader
     #' reader expected to implement nothing special for this class
     #' @param reader reader object (ignored)
     #' @return GetChatsToSendRequest

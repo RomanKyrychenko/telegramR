@@ -1313,17 +1313,14 @@ ExportGroupCallInviteRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' GetCallConfigRequest R6 class
-#'
-#' Represents GetCallConfigRequest TLRequest.
-#'
+#' @title GetCallConfigRequest R6 class
+#' @description Represents GetCallConfigRequest TLRequest.
 #' @export
 GetCallConfigRequest <- R6::R6Class(
   "GetCallConfigRequest",
   public = list(
 
-    #' Convert object to a list
-    #'
+    #' @description Convert object to a list
     #' @return A named list representing the request.
     to_list = function() {
       list(
@@ -1331,8 +1328,7 @@ GetCallConfigRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
-    #'
+    #' @description Produce raw bytes for the request
     #' Builds the TL-serialized byte representation.
     #' @return raw vector (bytes)
     bytes = function() {

@@ -11,26 +11,13 @@ Handles obfuscated I/O operations for Telegram obfuscation.
 \describe{
 \item{\code{header}}{The obfuscation header as a raw vector.}
 
-\item{\code{`_encrypt`}}{The AESModeCTR encryptor object.}
+\item{\code{.encrypt}}{The AESModeCTR encryptor object.}
 
-\item{\code{`_decrypt`}}{The AESModeCTR decryptor object.}
+\item{\code{.decrypt}}{The AESModeCTR decryptor object.}
 
-\item{\code{`_reader`}}{The reader connection object.}
+\item{\code{.reader}}{The reader connection object.}
 
-\item{\code{`_writer`}}{The writer connection object.}
-}
-\if{html}{\out{</div>}}
-}
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
-\item{\code{`_encrypt`}}{The AESModeCTR encryptor object.}
-
-\item{\code{`_decrypt`}}{The AESModeCTR decryptor object.}
-
-\item{\code{`_reader`}}{The reader connection object.}
-
-\item{\code{`_writer`}}{The writer connection object.}
+\item{\code{.writer}}{The writer connection object.}
 }
 \if{html}{\out{</div>}}
 }
@@ -56,7 +43,7 @@ Initialize ObfuscatedIO.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{connection}}{A connection object with `_reader`, `_writer`, and `packet_codec` fields.}
+\item{\code{connection}}{A connection object with `.reader`, `.writer`, and `packet_codec` fields.}
 }
 \if{html}{\out{</div>}}
 }

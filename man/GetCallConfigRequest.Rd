@@ -19,21 +19,21 @@ Represents GetCallConfigRequest TLRequest.
 \if{html}{\out{<a id="method-GetCallConfigRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCallConfigRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCallConfigRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetCallConfigRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCallConfigRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+Builds the TL-serialized byte representation.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCallConfigRequest$bytes()}\if{html}{\out{</div>}}
 }
