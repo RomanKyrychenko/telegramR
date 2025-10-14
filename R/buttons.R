@@ -22,7 +22,6 @@ ButtonMethods <- R6::R6Class(
     #' @param inline_only Whether the buttons must be inline buttons only or not.
     #' @return A ReplyInlineMarkup or ReplyKeyboardMarkup object.
     build_reply_markup = function(buttons = NULL, inline_only = FALSE) {
-
       if (is.null(buttons)) {
         return(NULL)
       }

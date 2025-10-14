@@ -51,9 +51,9 @@ ensure_parent_dir_exists <- function(file_path) {
 #' @param text The input text string.
 #' @return The text string with surrogate pairs added.
 #' @examples
-#' text <- "Hello \U0001F600 World"  # Contains a surrogate pair
+#' text <- "Hello \U0001F600 World" # Contains a surrogate pair
 #' surrogate_text <- add_surrogate(text)
-#' print(surrogate_text)  # "Hello 😀 World"
+#' print(surrogate_text) # "Hello 😀 World"
 #' @export
 add_surrogate <- function(text) {
   sapply(strsplit(text, NULL)[[1]], function(x) {
@@ -72,9 +72,9 @@ add_surrogate <- function(text) {
 #' @param text The input text string.
 #' @return The text string with surrogate pairs removed.
 #' @examples
-#' text <- "Hello \U0001F600 World"  # Contains a surrogate pair
+#' text <- "Hello \U0001F600 World" # Contains a surrogate pair
 #' cleaned_text <- del_surrogate(text)
-#' print(cleaned_text)  # "Hello  World"
+#' print(cleaned_text) # "Hello  World"
 #' @export
 del_surrogate <- function(text) {
   intToUtf8(utf8ToInt(text), multiple = TRUE)
@@ -89,8 +89,8 @@ del_surrogate <- function(text) {
 #' text <- "  Hello, World!  "
 #' entities <- list(list(offset = 2, length = 5), list(offset = 10, length = 3))
 #' stripped_text <- strip_text(text, entities)
-#' print(stripped_text)  # "Hello, World!"
-#' print(entities)      # Adjusted entities
+#' print(stripped_text) # "Hello, World!"
+#' print(entities) # Adjusted entities
 #' @export
 strip_text <- function(text, entities) {
   if (length(entities) == 0) {
@@ -202,7 +202,7 @@ TotalList <- R6::R6Class(
     },
 
     #' @description Returns a reproducible string representation of the TotalList.
-    #' Each item is represented using dput() and the total is appended. 
+    #' Each item is represented using dput() and the total is appended.
     #' @return A reproducible string representation of the TotalList.
     to_repr = function() {
       paste0("[", paste(sapply(self$items, function(x) dput(x)), collapse = ", "), ", total=", self$total, "]")
@@ -243,10 +243,6 @@ FileStream <- R6::R6Class(
     #' @param file A file path (character), raw vector, or connection.
     #' @param file_size Optional size of the file in bytes (if known).
     #' @return A new FileStream instance.
-    #' @examples
-    #' # fs <- FileStream$new("path/to/file.txt")
-    #' # fs <- FileStream$new(raw(100))
-    #' # fs <- FileStream$new(file("path/to/file.txt", "rb"))
     initialize = function(file, file_size = NULL) {
       if (inherits(file, "character")) {
         self$file <- normalizePath(file)
@@ -272,16 +268,12 @@ FileStream <- R6::R6Class(
     #' @description Reads data from the stream.
     #' @param length Number of bytes to read; defaults to -1 (read all).
     #' @return A raw vector containing the read data.
-    #' @examples
-    #' # data <- fs$read(100)
     read = function(length = -1) {
       readBin(self$stream, "raw", n = length)
     },
 
     #' @description Closes the stream if it was opened by the class.
     #' @return None.
-    #' @examples
-    #' # fs$close()
     close = function() {
       if (self$close_stream && !is.null(self$stream)) {
         close(self$stream)
@@ -290,16 +282,12 @@ FileStream <- R6::R6Class(
 
     #' @description Gets the size of the file.
     #' @return The size of the file in bytes.
-    #' @examples
-    #' # size <- fs$get_file_size()
     get_file_size = function() {
       self$file_size
     },
 
     #' @description Gets the name of the file.
     #' @return The name of the file.
-    #' @examples
-    #' # name <- fs$get_name()  
     get_name = function() {
       self$name
     }
@@ -309,16 +297,17 @@ FileStream <- R6::R6Class(
 #' get_running_loop function
 #' Get or create a running event loop (cluster) for asynchronous operations.
 #' @return A cluster object representing the running event loop.
-#' @examples
-#' # loop <- get_running_loop()
 #' @export
 get_running_loop <- function() {
   if (getRversion() >= "3.7.0") {
-    tryCatch({
-      getDefaultCluster()
-    }, error = function(e) {
-      makeCluster(detectCores())
-    })
+    tryCatch(
+      {
+        getDefaultCluster()
+      },
+      error = function(e) {
+        makeCluster(detectCores())
+      }
+    )
   } else {
     makeCluster(detectCores())
   }

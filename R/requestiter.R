@@ -73,15 +73,18 @@ RequestIter <- R6::R6Class(
     collect = function() {
       result <- list()
       while (TRUE) {
-        tryCatch({
-          result <- c(result, self$.next())
-        }, error = function(e) {
-          if (inherits(e, "StopIteration")) {
-            return(result)
-          } else {
-            stop(e)
+        tryCatch(
+          {
+            result <- c(result, self$.next())
+          },
+          error = function(e) {
+            if (inherits(e, "StopIteration")) {
+              return(result)
+            } else {
+              stop(e)
+            }
           }
-        })
+        )
       }
     },
 

@@ -104,26 +104,29 @@ DirectDownloadIter <- R6::R6Class(
         if (!self$exported) {
           self$sender <- self$client$sender
         } else {
-          tryCatch({
-            self$sender <- self$client$borrow_exported_sender(dc_id)
-          }, error = function(e) {
-            if (grepl("DcIdInvalidError", e$message)) {
-              config <- self$client$call(list(type = "GetConfigRequest"))
-              for (option in config$dc_options) {
-                if (option$ip_address == self$client$session$server_address) {
-                  self$client$session$set_dc(
-                    option$id, option$ip_address, option$port
-                  )
-                  self$client$session$save()
-                  break
+          tryCatch(
+            {
+              self$sender <- self$client$borrow_exported_sender(dc_id)
+            },
+            error = function(e) {
+              if (grepl("DcIdInvalidError", e$message)) {
+                config <- self$client$call(list(type = "GetConfigRequest"))
+                for (option in config$dc_options) {
+                  if (option$ip_address == self$client$session$server_address) {
+                    self$client$session$set_dc(
+                      option$id, option$ip_address, option$port
+                    )
+                    self$client$session$save()
+                    break
+                  }
                 }
+                self$sender <- self$client$sender
+                self$exported <- FALSE
+              } else {
+                stop(e)
               }
-              self$sender <- self$client$sender
-              self$exported <- FALSE
-            } else {
-              stop(e)
             }
-          })
+          )
         }
 
         return(NULL)
@@ -148,86 +151,89 @@ DirectDownloadIter <- R6::R6Class(
     #' @description Make a request to fetch data.
     request = function() {
       future({
-        tryCatch({
-          result <- self$client$call(self$sender, self$request)
-          self$timed_out <- FALSE
-
-          if (inherits(result, "upload.FileCdnRedirect")) {
-            if (self$client$mb_entity_cache$self_bot) {
-              stop("FileCdnRedirect but the GetCdnFileRequest API access for bot users is restricted. Try to change api_id to avoid FileCdnRedirect")
-            }
-            stop_with_redirect <- function(e) {
-              e$redirect <- result
-              class(e) <- c("CdnRedirect", class(e))
-              stop(e)
-            }
-            stop_with_redirect("CDN redirect")
-          }
-
-          if (inherits(result, "upload.CdnFileReuploadNeeded")) {
-            self$client$call(
-              self$client$sender,
-              list(
-                type = "ReuploadCdnFileRequest",
-                file_token = self$cdn_redirect$file_token,
-                request_token = result$request_token
-              )
-            )
+        tryCatch(
+          {
             result <- self$client$call(self$sender, self$request)
-            return(result$bytes)
-          } else {
-            return(result$bytes)
-          }
-        }, error = function(e) {
-          if (inherits(e, "TimedOutError")) {
-            if (self$timed_out) {
-              self$client$log_warning("Got two timeouts in a row while downloading file")
-              stop(e)
+            self$timed_out <- FALSE
+
+            if (inherits(result, "upload.FileCdnRedirect")) {
+              if (self$client$mb_entity_cache$self_bot) {
+                stop("FileCdnRedirect but the GetCdnFileRequest API access for bot users is restricted. Try to change api_id to avoid FileCdnRedirect")
+              }
+              stop_with_redirect <- function(e) {
+                e$redirect <- result
+                class(e) <- c("CdnRedirect", class(e))
+                stop(e)
+              }
+              stop_with_redirect("CDN redirect")
             }
 
-            self$timed_out <- TRUE
-            self$client$log_info("Got timeout while downloading file, retrying once")
-            Sys.sleep(TIMED_OUT_SLEEP)
-            return(self$request())
-          }
+            if (inherits(result, "upload.CdnFileReuploadNeeded")) {
+              self$client$call(
+                self$client$sender,
+                list(
+                  type = "ReuploadCdnFileRequest",
+                  file_token = self$cdn_redirect$file_token,
+                  request_token = result$request_token
+                )
+              )
+              result <- self$client$call(self$sender, self$request)
+              return(result$bytes)
+            } else {
+              return(result$bytes)
+            }
+          },
+          error = function(e) {
+            if (inherits(e, "TimedOutError")) {
+              if (self$timed_out) {
+                self$client$log_warning("Got two timeouts in a row while downloading file")
+                stop(e)
+              }
 
-          if (inherits(e, "FileMigrateError")) {
-            self$client$log_info("File lives in another DC")
-            self$sender <- self$client$borrow_exported_sender(e$new_dc)
-            self$exported <- TRUE
-            return(self$request())
-          }
+              self$timed_out <- TRUE
+              self$client$log_info("Got timeout while downloading file, retrying once")
+              Sys.sleep(TIMED_OUT_SLEEP)
+              return(self$request())
+            }
 
-          if (inherits(e, "FilerefUpgradeNeededError") || inherits(e, "FileReferenceExpiredError")) {
-            # Only implemented for documents which are the ones that may take that long to download
-            if (is.null(self$msg_data) ||
+            if (inherits(e, "FileMigrateError")) {
+              self$client$log_info("File lives in another DC")
+              self$sender <- self$client$borrow_exported_sender(e$new_dc)
+              self$exported <- TRUE
+              return(self$request())
+            }
+
+            if (inherits(e, "FilerefUpgradeNeededError") || inherits(e, "FileReferenceExpiredError")) {
+              # Only implemented for documents which are the ones that may take that long to download
+              if (is.null(self$msg_data) ||
                 !inherits(self$request$location, "InputDocumentFileLocation") ||
                 self$request$location$thumb_size != "") {
-              stop(e)
+                stop(e)
+              }
+
+              self$client$log_info("File ref expired during download; refetching message")
+              chat <- self$msg_data[[1]]
+              msg_id <- self$msg_data[[2]]
+              msg <- self$client$get_messages(chat, ids = msg_id)
+
+              if (!inherits(msg$media, "MessageMediaDocument")) {
+                stop(e)
+              }
+
+              document <- msg$media$document
+
+              # Message media may have been edited for something else
+              if (document$id != self$request$location$id) {
+                stop(e)
+              }
+
+              self$request$location$file_reference <- document$file_reference
+              return(self$request())
             }
 
-            self$client$log_info("File ref expired during download; refetching message")
-            chat <- self$msg_data[[1]]
-            msg_id <- self$msg_data[[2]]
-            msg <- self$client$get_messages(chat, ids = msg_id)
-
-            if (!inherits(msg$media, "MessageMediaDocument")) {
-              stop(e)
-            }
-
-            document <- msg$media$document
-
-            # Message media may have been edited for something else
-            if (document$id != self$request$location$id) {
-              stop(e)
-            }
-
-            self$request$location$file_reference <- document$file_reference
-            return(self$request())
+            stop(e)
           }
-
-          stop(e)
-        })
+        )
       }) %...>% return()
     },
 
@@ -360,7 +366,8 @@ DownloadMethods <- R6::R6Class(
             }
 
             return(self$download_photo(
-              entity$chat_photo, file, date = NULL,
+              entity$chat_photo, file,
+              date = NULL,
               thumb = thumb, progress_callback = NULL
             ))
           }
@@ -393,36 +400,39 @@ DownloadMethods <- R6::R6Class(
         }
 
         file <- self$get_proper_filename(
-          file, 'profile_photo', '.jpg',
+          file, "profile_photo", ".jpg",
           possible_names = possible_names
         )
 
-        tryCatch({
-          result <- self$download_file(loc, file, dc_id = dc_id)
-          return(if (identical(file, as.raw)) result else file)
-        }, error = function(e) {
-          if (inherits(e, "LocationInvalidError")) {
-            # See issue #500, Android app fails as of v4.6.0 (1155).
-            # The fix seems to be using the full channel chat photo.
-            ie <- self$get_input_entity(entity)
-            ty <- entity_type(ie)
-            if (ty == EntityType$CHANNEL) {
-              full <- self$call(list(
-                type = "GetFullChannelRequest",
-                channel = ie
-              ))
-              return(self$download_photo(
-                full$full_chat$chat_photo, file,
-                date = NULL, progress_callback = NULL,
-                thumb = thumb
-              ))
-            } else {
-              # Until there's a report for chats, no need to.
-              return(NULL)
+        tryCatch(
+          {
+            result <- self$download_file(loc, file, dc_id = dc_id)
+            return(if (identical(file, as.raw)) result else file)
+          },
+          error = function(e) {
+            if (inherits(e, "LocationInvalidError")) {
+              # See issue #500, Android app fails as of v4.6.0 (1155).
+              # The fix seems to be using the full channel chat photo.
+              ie <- self$get_input_entity(entity)
+              ty <- entity_type(ie)
+              if (ty == EntityType$CHANNEL) {
+                full <- self$call(list(
+                  type = "GetFullChannelRequest",
+                  channel = ie
+                ))
+                return(self$download_photo(
+                  full$full_chat$chat_photo, file,
+                  date = NULL, progress_callback = NULL,
+                  thumb = thumb
+                ))
+              } else {
+                # Until there's a report for chats, no need to.
+                return(NULL)
+              }
             }
+            stop(e)
           }
-          stop(e)
-        })
+        )
       }) %...>% return()
     },
 
@@ -495,8 +505,8 @@ DownloadMethods <- R6::R6Class(
     #' @param iv Encryption IV if needed
     #' @return Downloaded file data or path
     download_file = function(input_location, file = NULL, part_size_kb = NULL,
-                            file_size = NULL, progress_callback = NULL,
-                            dc_id = NULL, key = NULL, iv = NULL) {
+                             file_size = NULL, progress_callback = NULL,
+                             dc_id = NULL, key = NULL, iv = NULL) {
       future({
         self$.download_file(
           input_location = input_location,
@@ -524,13 +534,13 @@ DownloadMethods <- R6::R6Class(
     #' @param cdn_redirect CDN redirect if applicable
     #' @return Downloaded file data or path
     .download_file = function(input_location, file = NULL, part_size_kb = NULL,
-                             file_size = NULL, progress_callback = NULL,
-                             dc_id = NULL, key = NULL, iv = NULL,
-                             msg_data = NULL, cdn_redirect = NULL) {
+                              file_size = NULL, progress_callback = NULL,
+                              dc_id = NULL, key = NULL, iv = NULL,
+                              msg_data = NULL, cdn_redirect = NULL) {
       future({
         if (is.null(part_size_kb)) {
           if (is.null(file_size)) {
-            part_size_kb <- 64  # Reasonable default
+            part_size_kb <- 64 # Reasonable default
           } else {
             part_size_kb <- get_appropriated_part_size(file_size)
           }
@@ -631,8 +641,8 @@ DownloadMethods <- R6::R6Class(
     #' @param dc_id Data center ID
     #' @return Iterator for file chunks
     iter_download = function(file, offset = 0, stride = NULL, limit = NULL,
-                            chunk_size = NULL, request_size = MAX_CHUNK_SIZE,
-                            file_size = NULL, dc_id = NULL) {
+                             chunk_size = NULL, request_size = MAX_CHUNK_SIZE,
+                             file_size = NULL, dc_id = NULL) {
       future({
         self$.iter_download(
           file = file,
@@ -660,9 +670,9 @@ DownloadMethods <- R6::R6Class(
     #' @param cdn_redirect CDN redirect if applicable
     #' @return Iterator for file chunks
     .iter_download = function(file, offset = 0, stride = NULL, limit = NULL,
-                             chunk_size = NULL, request_size = MAX_CHUNK_SIZE,
-                             file_size = NULL, dc_id = NULL,
-                             msg_data = NULL, cdn_redirect = NULL) {
+                              chunk_size = NULL, request_size = MAX_CHUNK_SIZE,
+                              file_size = NULL, dc_id = NULL,
+                              msg_data = NULL, cdn_redirect = NULL) {
       future({
         info <- get_file_info(file)
         if (!is.null(info$dc_id)) {
@@ -697,18 +707,22 @@ DownloadMethods <- R6::R6Class(
         }
 
         use_direct <- chunk_size == request_size &&
-                     offset %% MIN_CHUNK_SIZE == 0 &&
-                     stride %% MIN_CHUNK_SIZE == 0 &&
-                     (is.null(limit) || offset %% limit == 0)
+          offset %% MIN_CHUNK_SIZE == 0 &&
+          stride %% MIN_CHUNK_SIZE == 0 &&
+          (is.null(limit) || offset %% limit == 0)
 
         if (use_direct) {
           cls <- DirectDownloadIter
-          self$log_info(sprintf("Starting direct file download in chunks of %d at %d, stride %d",
-                               request_size, offset, stride))
+          self$log_info(sprintf(
+            "Starting direct file download in chunks of %d at %d, stride %d",
+            request_size, offset, stride
+          ))
         } else {
           cls <- GenericDownloadIter
-          self$log_info(sprintf("Starting indirect file download in chunks of %d at %d, stride %d",
-                               request_size, offset, stride))
+          self$log_info(sprintf(
+            "Starting indirect file download in chunks of %d at %d, stride %d",
+            request_size, offset, stride
+          ))
         }
 
         iter <- cls$new(
@@ -770,8 +784,10 @@ DownloadMethods <- R6::R6Class(
       })
 
       # Sort thumbs by score
-      sorted_thumbs <- thumbs_with_scores[order(sapply(thumbs_with_scores, function(x) x$score[[1]]),
-                                                sapply(thumbs_with_scores, function(x) x$score[[2]]))]
+      sorted_thumbs <- thumbs_with_scores[order(
+        sapply(thumbs_with_scores, function(x) x$score[[1]]),
+        sapply(thumbs_with_scores, function(x) x$score[[2]])
+      )]
       sorted_thumbs <- lapply(sorted_thumbs, function(x) x$thumb)
 
       # Remove PhotoPathSize types (animated stickers preview)
@@ -789,8 +805,10 @@ DownloadMethods <- R6::R6Class(
           }
         }
         return(NULL)
-      } else if (inherits(thumb, c("PhotoSize", "PhotoCachedSize",
-                                   "PhotoStrippedSize", "VideoSize"))) {
+      } else if (inherits(thumb, c(
+        "PhotoSize", "PhotoCachedSize",
+        "PhotoStrippedSize", "VideoSize"
+      ))) {
         return(thumb)
       } else {
         return(NULL)
@@ -897,8 +915,7 @@ DownloadMethods <- R6::R6Class(
       for (attr in attributes) {
         if (inherits(attr, "DocumentAttributeFilename")) {
           possible_names <- c(list(attr$file_name), possible_names)
-        }
-        else if (inherits(attr, "DocumentAttributeAudio")) {
+        } else if (inherits(attr, "DocumentAttributeAudio")) {
           kind <- "audio"
           if (!is.null(attr$performer) && !is.null(attr$title)) {
             possible_names <- c(possible_names, list(paste(attr$performer, "-", attr$title)))
@@ -1124,7 +1141,7 @@ DownloadMethods <- R6::R6Class(
       # Split name and extension
       name_parts <- strsplit(name, "\\.")[[1]]
       if (length(name_parts) > 1) {
-        name <- paste(name_parts[1:(length(name_parts)-1)], collapse = ".")
+        name <- paste(name_parts[1:(length(name_parts) - 1)], collapse = ".")
         ext <- paste0(".", name_parts[length(name_parts)])
       } else {
         name <- name_parts[1]
@@ -1149,4 +1166,5 @@ DownloadMethods <- R6::R6Class(
         i <- i + 1
       }
     }
-  ))
+  )
+)

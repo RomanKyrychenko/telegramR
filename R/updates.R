@@ -9,7 +9,7 @@ NULL
 #' @return A promise object or NULL.
 #' @export
 get_running_loop <- function() {
-  return(Sys.time())  # Simplification - returns current time
+  return(Sys.time()) # Simplification - returns current time
 }
 
 # Define types for TYPE_CHECKING equivalent
@@ -39,7 +39,7 @@ UpdateMethods <- R6::R6Class("UpdateMethods",
     #' @return A promise that resolves when disconnected.
     run_until_disconnected = function() {
       return(
-        future::future( {
+        future::future({
           # Make a high-level request to notify that we want updates
           self$client(GetStateRequest$new())
           result <- self$client$disconnected
@@ -47,14 +47,15 @@ UpdateMethods <- R6::R6Class("UpdateMethods",
             stop(self$client$updates_error)
           }
           return(result)
-        } %...!% {
-          if (inherits(., "KeyboardInterrupt")) {
-            return(NULL)
-          }
-        } %...>% {
-          self$client$disconnect()
-        }
-      ))
+        } %...!%
+          {
+            if (inherits(., "KeyboardInterrupt")) {
+              return(NULL)
+            }
+          } %...>% {
+            self$client$disconnect()
+          })
+      )
     },
 
     #' @description
@@ -63,13 +64,13 @@ UpdateMethods <- R6::R6Class("UpdateMethods",
     #' @return A promise that resolves when the updates are set.
     set_receive_updates = function(receive_updates) {
       return(
-        future::future( {
+        future::future({
           self$client$no_updates <- !receive_updates
           if (receive_updates) {
             self$client(GetStateRequest$new())
           }
-        }
-      ))
+        })
+      )
     },
 
     #' @description
@@ -151,10 +152,10 @@ UpdateMethods <- R6::R6Class("UpdateMethods",
     #' @return A promise that resolves when caught up.
     catch_up = function() {
       return(
-        future::future( {
+        future::future({
           self$client$updates_queue$put(types$UpdatesTooLong())
-        }
-      ))
+        })
+      )
     },
 
     # Region Private methods
@@ -164,170 +165,194 @@ UpdateMethods <- R6::R6Class("UpdateMethods",
     #' @return A promise that resolves when the loop is finished.
     update_loop = function() {
       return(
-        future::future( {
+        future::future({
           # If the MessageBox is not empty, the account had to be logged-in to fill in its state.
           # This flag is used to propagate the "you got logged-out" error up (but getting logged-out
           # can only happen if it was once logged-in).
           was_once_logged_in <- identical(self$client$authorized, TRUE) || !self$client$message_box$is_empty()
 
           self$client$updates_error <- NULL
-          tryCatch({
-            if (self$client$catch_up) {
-              # User wants to catch up as soon as the client is up and running,
-              # so this is the best place to do it.
-              self$client$catch_up()
-            }
+          tryCatch(
+            {
+              if (self$client$catch_up) {
+                # User wants to catch up as soon as the client is up and running,
+                # so this is the best place to do it.
+                self$client$catch_up()
+              }
 
-            updates_to_dispatch <- new.env()
-            updates_to_dispatch$queue <- list()
+              updates_to_dispatch <- new.env()
+              updates_to_dispatch$queue <- list()
 
-            while (self$client$is_connected()) {
-              if (length(updates_to_dispatch$queue) > 0) {
-                if (self$client$sequential_updates) {
-                  self$client$dispatch_update(updates_to_dispatch$queue[[1]])
-                  updates_to_dispatch$queue <- updates_to_dispatch$queue[-1]
-                } else {
-                  while (length(updates_to_dispatch$queue) > 0) {
-                    task <- self$client$loop$create_task(self$client$dispatch_update(updates_to_dispatch$queue[[1]]))
+              while (self$client$is_connected()) {
+                if (length(updates_to_dispatch$queue) > 0) {
+                  if (self$client$sequential_updates) {
+                    self$client$dispatch_update(updates_to_dispatch$queue[[1]])
                     updates_to_dispatch$queue <- updates_to_dispatch$queue[-1]
-                    self$client$event_handler_tasks$add(task)
-                    task$add_done_callback(function(t) self$client$event_handler_tasks$discard(t))
-                  }
-                }
-
-                next
-              }
-
-              if (length(self$client$mb_entity_cache) >= self$client$entity_cache_limit) {
-                self$client$log[["name"]]$info(
-                  'In-memory entity cache limit reached (%s/%s), flushing to session',
-                  length(self$client$mb_entity_cache),
-                  self$client$entity_cache_limit
-                )
-                self$client$save_states_and_entities()
-                self$client$mb_entity_cache$retain(function(id) {
-                  id == self$client$mb_entity_cache$self_id || id %in% self$client$message_box$map
-                })
-                if (length(self$client$mb_entity_cache) >= self$client$entity_cache_limit) {
-                  warning('in-memory entities exceed entity_cache_limit after flushing; consider setting a larger limit')
-                }
-
-                self$client$log[["name"]]$info(
-                  'In-memory entity cache at %s/%s after flushing to session',
-                  length(self$client$mb_entity_cache),
-                  self$client$entity_cache_limit
-                )
-              }
-
-              get_diff <- self$client$message_box$get_difference()
-              if (!is.null(get_diff)) {
-                self$client$log[["name"]]$debug('Getting difference for account updates')
-                tryCatch({
-                  diff <- self$client(get_diff)
-                }, error = function(e) {
-                  if (inherits(e, c("ServerError", "TimedOutError", "FloodWaitError")) ||
-                      inherits(e, "ValueError")) {
-                    # Telegram is having issues
-                    self$client$log[["name"]]$info('Cannot get difference since Telegram is having issues: %s',
-                                                     class(e)[1])
-                    self$client$message_box$end_difference()
-                    return(NULL)
-                  }
-
-                  if (inherits(e, c("UnauthorizedError", "AuthKeyError"))) {
-                    # Not logged in or broken authorization key, can't get difference
-                    self$client$log[["name"]]$info('Cannot get difference since the account is not logged in: %s',
-                                                     class(e)[1])
-                    self$client$message_box$end_difference()
-                    if (was_once_logged_in) {
-                      self$client$updates_error <- e
-                      self$client$disconnect()
-                      stop("Disconnected")
+                  } else {
+                    while (length(updates_to_dispatch$queue) > 0) {
+                      task <- self$client$loop$create_task(self$client$dispatch_update(updates_to_dispatch$queue[[1]]))
+                      updates_to_dispatch$queue <- updates_to_dispatch$queue[-1]
+                      self$client$event_handler_tasks$add(task)
+                      task$add_done_callback(function(t) self$client$event_handler_tasks$discard(t))
                     }
-                    return(NULL)
                   }
 
-                  if (inherits(e, "TypeNotFoundError") || inherits(e, "sqlite.OperationalError")) {
-                    # User is likely doing weird things with their account or session
-                    self$client$log[["name"]]$warning('Cannot get difference since the account is likely misusing the session: %s',
-                                                        e$message)
-                    self$client$message_box$end_difference()
-                    self$client$updates_error <- e
-                    self$client$disconnect()
-                    stop("Disconnected")
-                  }
-
-                  if (inherits(e, "OSError")) {
-                    # Network is likely down
-                    self$client$log[["name"]]$info('Cannot get difference since the network is down: %s: %s',
-                                                     class(e)[1], e$message)
-                    Sys.sleep(5)
-                    return(NULL)
-                  }
-
-                  stop(e)  # Re-throw any other errors
-                })
-
-                result <- self$client$message_box$apply_difference(diff, self$client$mb_entity_cache)
-                updates <- result$updates
-                users <- result$users
-                chats <- result$chats
-
-                if (length(updates) > 0) {
-                  self$client$log[["name"]]$info('Got difference for account updates')
+                  next
                 }
 
-                processed_updates <- self$client$preprocess_updates(updates, users, chats)
-                updates_to_dispatch$queue <- c(updates_to_dispatch$queue, processed_updates)
-                next
-              }
-
-              # Continue with handling channel differences and other updates...
-              # (The rest of the update_loop logic follows similar patterns)
-
-              # This is a simplified version for brevity
-              deadline <- self$client$message_box$check_deadlines()
-              deadline_delay <- deadline - get_running_loop()
-              if (deadline_delay > 0) {
-                tryCatch({
-                  updates <- self$client$updates_queue$get(timeout = deadline_delay)
-                }, error = function(e) {
-                  if (inherits(e, "TimeoutError")) {
-                    self$client$log[["name"]]$debug('Timeout waiting for updates expired')
-                    return(NULL)
+                if (length(self$client$mb_entity_cache) >= self$client$entity_cache_limit) {
+                  self$client$log[["name"]]$info(
+                    "In-memory entity cache limit reached (%s/%s), flushing to session",
+                    length(self$client$mb_entity_cache),
+                    self$client$entity_cache_limit
+                  )
+                  self$client$save_states_and_entities()
+                  self$client$mb_entity_cache$retain(function(id) {
+                    id == self$client$mb_entity_cache$self_id || id %in% self$client$message_box$map
+                  })
+                  if (length(self$client$mb_entity_cache) >= self$client$entity_cache_limit) {
+                    warning("in-memory entities exceed entity_cache_limit after flushing; consider setting a larger limit")
                   }
-                  stop(e)
-                })
-              } else {
-                next
-              }
 
-              processed <- list()
-              tryCatch({
-                result <- self$client$message_box$process_updates(updates, self$client$mb_entity_cache, processed)
-                users <- result$users
-                chats <- result$chats
-              }, error = function(e) {
-                if (inherits(e, "GapError")) {
-                  return(NULL)  # get(_channel)_difference will start returning requests
+                  self$client$log[["name"]]$info(
+                    "In-memory entity cache at %s/%s after flushing to session",
+                    length(self$client$mb_entity_cache),
+                    self$client$entity_cache_limit
+                  )
                 }
-                stop(e)
-              })
 
-              updates_to_dispatch$queue <- c(updates_to_dispatch$queue,
-                                           self$client$preprocess_updates(processed, users, chats))
+                get_diff <- self$client$message_box$get_difference()
+                if (!is.null(get_diff)) {
+                  self$client$log[["name"]]$debug("Getting difference for account updates")
+                  tryCatch(
+                    {
+                      diff <- self$client(get_diff)
+                    },
+                    error = function(e) {
+                      if (inherits(e, c("ServerError", "TimedOutError", "FloodWaitError")) ||
+                        inherits(e, "ValueError")) {
+                        # Telegram is having issues
+                        self$client$log[["name"]]$info(
+                          "Cannot get difference since Telegram is having issues: %s",
+                          class(e)[1]
+                        )
+                        self$client$message_box$end_difference()
+                        return(NULL)
+                      }
+
+                      if (inherits(e, c("UnauthorizedError", "AuthKeyError"))) {
+                        # Not logged in or broken authorization key, can't get difference
+                        self$client$log[["name"]]$info(
+                          "Cannot get difference since the account is not logged in: %s",
+                          class(e)[1]
+                        )
+                        self$client$message_box$end_difference()
+                        if (was_once_logged_in) {
+                          self$client$updates_error <- e
+                          self$client$disconnect()
+                          stop("Disconnected")
+                        }
+                        return(NULL)
+                      }
+
+                      if (inherits(e, "TypeNotFoundError") || inherits(e, "sqlite.OperationalError")) {
+                        # User is likely doing weird things with their account or session
+                        self$client$log[["name"]]$warning(
+                          "Cannot get difference since the account is likely misusing the session: %s",
+                          e$message
+                        )
+                        self$client$message_box$end_difference()
+                        self$client$updates_error <- e
+                        self$client$disconnect()
+                        stop("Disconnected")
+                      }
+
+                      if (inherits(e, "OSError")) {
+                        # Network is likely down
+                        self$client$log[["name"]]$info(
+                          "Cannot get difference since the network is down: %s: %s",
+                          class(e)[1], e$message
+                        )
+                        Sys.sleep(5)
+                        return(NULL)
+                      }
+
+                      stop(e) # Re-throw any other errors
+                    }
+                  )
+
+                  result <- self$client$message_box$apply_difference(diff, self$client$mb_entity_cache)
+                  updates <- result$updates
+                  users <- result$users
+                  chats <- result$chats
+
+                  if (length(updates) > 0) {
+                    self$client$log[["name"]]$info("Got difference for account updates")
+                  }
+
+                  processed_updates <- self$client$preprocess_updates(updates, users, chats)
+                  updates_to_dispatch$queue <- c(updates_to_dispatch$queue, processed_updates)
+                  next
+                }
+
+                # Continue with handling channel differences and other updates...
+                # (The rest of the update_loop logic follows similar patterns)
+
+                # This is a simplified version for brevity
+                deadline <- self$client$message_box$check_deadlines()
+                deadline_delay <- deadline - get_running_loop()
+                if (deadline_delay > 0) {
+                  tryCatch(
+                    {
+                      updates <- self$client$updates_queue$get(timeout = deadline_delay)
+                    },
+                    error = function(e) {
+                      if (inherits(e, "TimeoutError")) {
+                        self$client$log[["name"]]$debug("Timeout waiting for updates expired")
+                        return(NULL)
+                      }
+                      stop(e)
+                    }
+                  )
+                } else {
+                  next
+                }
+
+                processed <- list()
+                tryCatch(
+                  {
+                    result <- self$client$message_box$process_updates(updates, self$client$mb_entity_cache, processed)
+                    users <- result$users
+                    chats <- result$chats
+                  },
+                  error = function(e) {
+                    if (inherits(e, "GapError")) {
+                      return(NULL) # get(_channel)_difference will start returning requests
+                    }
+                    stop(e)
+                  }
+                )
+
+                updates_to_dispatch$queue <- c(
+                  updates_to_dispatch$queue,
+                  self$client$preprocess_updates(processed, users, chats)
+                )
+              }
+            },
+            error = function(e) {
+              if (inherits(e, "CancelledError")) {
+                return(NULL)
+              }
+              self$client$log[["name"]]$exception(sprintf(
+                "Fatal error handling updates (this is a bug in Telethon v%s, please report it)",
+                "version"
+              ))
+              self$client$updates_error <- e
+              self$client$disconnect()
             }
-          }, error = function(e) {
-            if (inherits(e, "CancelledError")) {
-              return(NULL)
-            }
-            self$client$log[["name"]]$exception(sprintf('Fatal error handling updates (this is a bug in Telethon v%s, please report it)',
-                                                          "version"))
-            self$client$updates_error <- e
-            self$client$disconnect()
-          })
-        }
-      ))
+          )
+        })
+      )
     },
 
     #' @description
@@ -357,28 +382,29 @@ UpdateMethods <- R6::R6Class("UpdateMethods",
     #' @return A promise that resolves when the ping is sent.
     keepalive_loop = function() {
       return(
-        future::future( {
+        future::future({
           # Pings' ID don't really need to be secure, just "random"
           rnd <- function() {
-            sample(-2^31:2^31, 1)  # R has smaller integer range than Python
+            sample(-2^31:2^31, 1) # R has smaller integer range than Python
           }
 
           while (self$client$is_connected()) {
             tryCatch({
-              self$client$disconnected %...>% {
-                # We actually just want to act upon timeout
-                NULL
-              } %...!% {
-                if (inherits(., "TimeoutError")) {
-                  # This is the expected path - timeout after 60 seconds
+              self$client$disconnected %...>%
+                {
+                  # We actually just want to act upon timeout
                   NULL
-                } else if (inherits(., "CancelledError")) {
-                  stop("Cancelled")
-                } else {
-                  # Any disconnected exception should be ignored
-                  NULL
+                } %...!% {
+                  if (inherits(., "TimeoutError")) {
+                    # This is the expected path - timeout after 60 seconds
+                    NULL
+                  } else if (inherits(., "CancelledError")) {
+                    stop("Cancelled")
+                  } else {
+                    # Any disconnected exception should be ignored
+                    NULL
+                  }
                 }
-              }
             })
 
             # Check if we have any exported senders to clean-up periodically
@@ -391,20 +417,23 @@ UpdateMethods <- R6::R6Class("UpdateMethods",
 
             # We also don't really care about their result.
             # Just send them periodically.
-            tryCatch({
-              self$client$sender$keepalive_ping(rnd())
-            }, error = function(e) {
-              if (inherits(e, c("ConnectionError", "CancelledError"))) {
-                stop("Connection error")
+            tryCatch(
+              {
+                self$client$sender$keepalive_ping(rnd())
+              },
+              error = function(e) {
+                if (inherits(e, c("ConnectionError", "CancelledError"))) {
+                  stop("Connection error")
+                }
               }
-            })
+            )
 
             # Save entities and cached files periodically
             self$client$save_states_and_entities()
             self$client$session$save()
           }
-        }
-      ))
+        })
+      )
     },
 
     #' @description
@@ -413,21 +442,24 @@ UpdateMethods <- R6::R6Class("UpdateMethods",
     #' @return A promise that resolves when the update is dispatched.
     dispatch_update = function(update) {
       return(
-        future::future( {
+        future::future({
           # TODO only used for AlbumHack
           others <- NULL
 
           if (is.null(self$client$mb_entity_cache$self_id)) {
             # Some updates require our own ID
-            tryCatch({
-              self$client$get_me(input_peer = TRUE)
-            }, error = function(e) {
-              if (inherits(e, "OSError")) {
-                NULL  # might not have connection
-              } else {
-                stop(e)
+            tryCatch(
+              {
+                self$client$get_me(input_peer = TRUE)
+              },
+              error = function(e) {
+                if (inherits(e, "OSError")) {
+                  NULL # might not have connection
+                } else {
+                  stop(e)
+                }
               }
-            })
+            )
           }
 
           built <- EventBuilderDict$new(self$client, update, others)
@@ -473,36 +505,41 @@ UpdateMethods <- R6::R6Class("UpdateMethods",
 
             filter <- builder$filter(event)
             if (is.function(filter) && inherits(filter, "awaitable")) {
-              filter <- filter()  # Simplified - in R we'd need to await this properly
+              filter <- filter() # Simplified - in R we'd need to await this properly
             }
 
             if (!filter) {
               next
             }
 
-            tryCatch({
-              callback(event)
-            }, error = function(e) {
-              if (inherits(e, "AlreadyInConversationError")) {
-                name <- if (exists("name", callback)) callback$name else deparse(substitute(callback))
-                self$client$log[["name"]]$debug(
-                  'Event handler "%s" already has an open conversation, ignoring new one', name)
-              } else if (inherits(e, "StopPropagation")) {
-                name <- if (exists("name", callback)) callback$name else deparse(substitute(callback))
-                self$client$log[["name"]]$debug(
-                  'Event handler "%s" stopped chain of propagation for event %s.',
-                  name, class(event)[1])
-                stop("Break loop")  # To simulate break in R
-              } else {
-                if (!inherits(e, "CancelledError") || self$client$is_connected()) {
+            tryCatch(
+              {
+                callback(event)
+              },
+              error = function(e) {
+                if (inherits(e, "AlreadyInConversationError")) {
                   name <- if (exists("name", callback)) callback$name else deparse(substitute(callback))
-                  self$client$log[["name"]]$exception(paste('Unhandled exception on', name))
+                  self$client$log[["name"]]$debug(
+                    'Event handler "%s" already has an open conversation, ignoring new one', name
+                  )
+                } else if (inherits(e, "StopPropagation")) {
+                  name <- if (exists("name", callback)) callback$name else deparse(substitute(callback))
+                  self$client$log[["name"]]$debug(
+                    'Event handler "%s" stopped chain of propagation for event %s.',
+                    name, class(event)[1]
+                  )
+                  stop("Break loop") # To simulate break in R
+                } else {
+                  if (!inherits(e, "CancelledError") || self$client$is_connected()) {
+                    name <- if (exists("name", callback)) callback$name else deparse(substitute(callback))
+                    self$client$log[["name"]]$exception(paste("Unhandled exception on", name))
+                  }
                 }
               }
-            })
+            )
           }
-        }
-      ))
+        })
+      )
     },
 
     #' @description
@@ -510,17 +547,21 @@ UpdateMethods <- R6::R6Class("UpdateMethods",
     #' @return A promise that resolves when the auto-reconnect is handled.
     handle_auto_reconnect = function() {
       return(
-        future::future( {
+        future::future({
           # Make a high-level request to let Telegram know we are still interested in updates
-          tryCatch({
-            self$client$get_me()
-          }, error = function(e) {
-            self$client$log[["name"]]$warning(
-              'Error executing high-level request after reconnect: %s: %s',
-              class(e)[1], e$message)
-          })
-        }
-      ))
+          tryCatch(
+            {
+              self$client$get_me()
+            },
+            error = function(e) {
+              self$client$log[["name"]]$warning(
+                "Error executing high-level request after reconnect: %s: %s",
+                class(e)[1], e$message
+              )
+            }
+          )
+        })
+      )
     }
   )
 )

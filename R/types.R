@@ -48,7 +48,6 @@ AccessPointRule <- R6::R6Class(
       )))
     }
   ),
-
   active = list(
 
     #' @field CONSTRUCTOR_ID The constructor ID for AccessPointRule.
@@ -61,7 +60,6 @@ AccessPointRule <- R6::R6Class(
       return(0xb1aca0fd)
     }
   ),
-
   private = list(
 
     #' @description
@@ -155,7 +153,6 @@ AccountDaysTTL <- R6::R6Class(
       )))
     }
   ),
-
   active = list(
 
     #' @field CONSTRUCTOR_ID The constructor ID for AccountDaysTTL.
@@ -168,7 +165,6 @@ AccountDaysTTL <- R6::R6Class(
       return(0xbaa39d88)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AccountDaysTTL object from a BinaryReader.
@@ -247,9 +243,9 @@ AttachMenuBot <- R6::R6Class(
     bytes = function() {
       # Assert validation
       if (!((self$show_in_attach_menu || !is.null(self$show_in_attach_menu)) &&
-            (self$peer_types || !is.null(self$peer_types))) &&
-          !((is.null(self$show_in_attach_menu) || isFALSE(self$show_in_attach_menu)) &&
-            (is.null(self$peer_types) || isFALSE(self$peer_types)))) {
+        (self$peer_types || !is.null(self$peer_types))) &&
+        !((is.null(self$show_in_attach_menu) || isFALSE(self$show_in_attach_menu)) &&
+          (is.null(self$peer_types) || isFALSE(self$peer_types)))) {
         stop("show_in_attach_menu, peer_types parameters must all be FALSE-y (like NULL) or all be TRUE-y")
       }
 
@@ -289,7 +285,6 @@ AttachMenuBot <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
 
     #' @field CONSTRUCTOR_ID
@@ -304,7 +299,6 @@ AttachMenuBot <- R6::R6Class(
       return(0x9f087446)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AttachMenuBot object from a BinaryReader.
@@ -414,7 +408,6 @@ AttachMenuBotIcon <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AttachMenuBotIcon.
@@ -428,7 +421,6 @@ AttachMenuBotIcon <- R6::R6Class(
       return(0x80484555)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AttachMenuBotIcon object from a BinaryReader.
@@ -494,7 +486,6 @@ AttachMenuBotIconColor <- R6::R6Class(
       )))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AttachMenuBotIconColor.
@@ -508,7 +499,6 @@ AttachMenuBotIconColor <- R6::R6Class(
       return(0xbea4cb6a)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AttachMenuBotIconColor object from a BinaryReader.
@@ -570,7 +560,6 @@ AttachMenuBots <- R6::R6Class(
       )))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AttachMenuBots.
@@ -584,7 +573,6 @@ AttachMenuBots <- R6::R6Class(
       return(0x842e23da)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AttachMenuBots object from a BinaryReader.
@@ -653,7 +641,6 @@ AttachMenuBotsBot <- R6::R6Class(
       )))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AttachMenuBotsBot.
@@ -667,7 +654,6 @@ AttachMenuBotsBot <- R6::R6Class(
       return(0xdb33883d)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AttachMenuBotsBot object from a BinaryReader.
@@ -716,7 +702,6 @@ AttachMenuBotsNotModified <- R6::R6Class(
       return(as.raw(c(0x5c, 0x8a, 0xd8, 0xf1)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AttachMenuBotsNotModified.
@@ -730,7 +715,6 @@ AttachMenuBotsNotModified <- R6::R6Class(
       return(0x842e23da)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AttachMenuBotsNotModified object from a BinaryReader.
@@ -770,7 +754,6 @@ AttachMenuPeerTypeBotPM <- R6::R6Class(
       return(as.raw(c(0x1a, 0xfa, 0x2b, 0xc3)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AttachMenuPeerTypeBotPM.
@@ -784,7 +767,6 @@ AttachMenuPeerTypeBotPM <- R6::R6Class(
       return(0xd1d886d0)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AttachMenuPeerTypeBotPM object from a BinaryReader.
@@ -824,7 +806,6 @@ AttachMenuPeerTypeBroadcast <- R6::R6Class(
       return(as.raw(c(0xfc, 0xde, 0xfb, 0x7b)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AttachMenuPeerTypeBroadcast.
@@ -838,7 +819,6 @@ AttachMenuPeerTypeBroadcast <- R6::R6Class(
       return(0xd1d886d0)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AttachMenuPeerTypeBroadcast object from a BinaryReader.
@@ -878,7 +858,6 @@ AttachMenuPeerTypeChat <- R6::R6Class(
       return(as.raw(c(0x3f, 0x11, 0x09, 0x05)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AttachMenuPeerTypeChat.
@@ -892,7 +871,6 @@ AttachMenuPeerTypeChat <- R6::R6Class(
       return(0xd1d886d0)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AttachMenuPeerTypeChat object from a BinaryReader.
@@ -932,7 +910,6 @@ AttachMenuPeerTypePM <- R6::R6Class(
       return(as.raw(c(0x1f, 0xd3, 0x46, 0xf1)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AttachMenuPeerTypePM.
@@ -946,7 +923,6 @@ AttachMenuPeerTypePM <- R6::R6Class(
       return(0xd1d886d0)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AttachMenuPeerTypePM object from a BinaryReader.
@@ -986,7 +962,6 @@ AttachMenuPeerTypeSameBotPM <- R6::R6Class(
       return(as.raw(c(0x0e, 0xe9, 0x6b, 0x7d)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AttachMenuPeerTypeSameBotPM.
@@ -1000,7 +975,6 @@ AttachMenuPeerTypeSameBotPM <- R6::R6Class(
       return(0xd1d886d0)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AttachMenuPeerTypeSameBotPM object from a BinaryReader.
@@ -1135,7 +1109,6 @@ Authorization <- R6::R6Class(
       )))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for Authorization.
@@ -1149,7 +1122,6 @@ Authorization <- R6::R6Class(
       return(0xc913c01a)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an Authorization object from a BinaryReader.
@@ -1290,7 +1262,6 @@ AutoDownloadSettings <- R6::R6Class(
       )))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AutoDownloadSettings.
@@ -1304,7 +1275,6 @@ AutoDownloadSettings <- R6::R6Class(
       return(0x512819c7)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AutoDownloadSettings object from a BinaryReader.
@@ -1382,7 +1352,6 @@ AutoSaveException <- R6::R6Class(
       )))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AutoSaveException.
@@ -1396,7 +1365,6 @@ AutoSaveException <- R6::R6Class(
       return(0xdd868129)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AutoSaveException object from a BinaryReader.
@@ -1466,7 +1434,6 @@ AutoSaveSettings <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AutoSaveSettings.
@@ -1480,7 +1447,6 @@ AutoSaveSettings <- R6::R6Class(
       return(0xcd3b96e6)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AutoSaveSettings object from a BinaryReader.
@@ -1586,7 +1552,6 @@ AvailableEffect <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AvailableEffect.
@@ -1600,7 +1565,6 @@ AvailableEffect <- R6::R6Class(
       return(0x985a2f81)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AvailableEffect object from a BinaryReader.
@@ -1668,8 +1632,8 @@ AvailableReaction <- R6::R6Class(
     #' @param around_animation A TLObject representing the around animation. Optional.
     #' @param center_icon A TLObject representing the center icon. Optional.
     initialize = function(reaction, title, static_icon, appear_animation, select_animation,
-                         activate_animation, effect_animation, inactive = NULL, premium = NULL,
-                         around_animation = NULL, center_icon = NULL) {
+                          activate_animation, effect_animation, inactive = NULL, premium = NULL,
+                          around_animation = NULL, center_icon = NULL) {
       self$reaction <- reaction
       self$title <- title
       self$static_icon <- static_icon
@@ -1709,17 +1673,17 @@ AvailableReaction <- R6::R6Class(
     bytes = function() {
       # Validation similar to the assertion in Python
       if (!(((!is.null(self$around_animation) && !identical(self$around_animation, FALSE)) &&
-             (!is.null(self$center_icon) && !identical(self$center_icon, FALSE))) ||
-            ((is.null(self$around_animation) || identical(self$around_animation, FALSE)) &&
-             (is.null(self$center_icon) || identical(self$center_icon, FALSE))))) {
+        (!is.null(self$center_icon) && !identical(self$center_icon, FALSE))) ||
+        ((is.null(self$around_animation) || identical(self$around_animation, FALSE)) &&
+          (is.null(self$center_icon) || identical(self$center_icon, FALSE))))) {
         stop("around_animation, center_icon parameters must all be falsy (like NULL) or all be truthy")
       }
 
       flags <- 0
-      if (!is.null(self$inactive) && !identical(self$inactive, FALSE)) flags <- flags + 1  # 2^0
-      if (!is.null(self$premium) && !identical(self$premium, FALSE)) flags <- flags + 4   # 2^2
-      if (!is.null(self$around_animation) && !identical(self$around_animation, FALSE)) flags <- flags + 2  # 2^1
-      if (!is.null(self$center_icon) && !identical(self$center_icon, FALSE)) flags <- flags + 2      # 2^1
+      if (!is.null(self$inactive) && !identical(self$inactive, FALSE)) flags <- flags + 1 # 2^0
+      if (!is.null(self$premium) && !identical(self$premium, FALSE)) flags <- flags + 4 # 2^2
+      if (!is.null(self$around_animation) && !identical(self$around_animation, FALSE)) flags <- flags + 2 # 2^1
+      if (!is.null(self$center_icon) && !identical(self$center_icon, FALSE)) flags <- flags + 2 # 2^1
 
       result <- list(
         as.raw(c(0x01, 0xec, 0x77, 0xc0)),
@@ -1743,7 +1707,6 @@ AvailableReaction <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for AvailableReaction.
@@ -1757,7 +1720,6 @@ AvailableReaction <- R6::R6Class(
       return(0x8c1c9d73)
     }
   ),
-
   private = list(
     #' @description
     #' Reads an AvailableReaction object from a BinaryReader.
@@ -1847,7 +1809,6 @@ BadMsgNotification <- R6::R6Class(
       )))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BadMsgNotification.
@@ -1861,7 +1822,6 @@ BadMsgNotification <- R6::R6Class(
       return(0xcebaa157)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BadMsgNotification object from a BinaryReader.
@@ -1929,7 +1889,6 @@ BadServerSalt <- R6::R6Class(
       )))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BadServerSalt.
@@ -1943,7 +1902,6 @@ BadServerSalt <- R6::R6Class(
       return(0xcebaa157)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BadServerSalt object from a BinaryReader.
@@ -2003,7 +1961,6 @@ BankCardOpenUrl <- R6::R6Class(
       )))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BankCardOpenUrl.
@@ -2017,7 +1974,6 @@ BankCardOpenUrl <- R6::R6Class(
       return(0xf2e2460e)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BankCardOpenUrl object from a BinaryReader.
@@ -2056,7 +2012,6 @@ BaseThemeArctic <- R6::R6Class(
       return(as.raw(c(0x5a, 0x12, 0x11, 0x5b)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BaseThemeArctic.
@@ -2070,7 +2025,6 @@ BaseThemeArctic <- R6::R6Class(
       return(0x1f03f444)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BaseThemeArctic object from a BinaryReader.
@@ -2107,7 +2061,6 @@ BaseThemeClassic <- R6::R6Class(
       return(as.raw(c(0x62, 0x24, 0xa1, 0xc3)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BaseThemeClassic.
@@ -2121,7 +2074,6 @@ BaseThemeClassic <- R6::R6Class(
       return(0x1f03f444)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BaseThemeClassic object from a BinaryReader.
@@ -2158,7 +2110,6 @@ BaseThemeDay <- R6::R6Class(
       return(as.raw(c(0x88, 0x16, 0xd8, 0xfb)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BaseThemeDay.
@@ -2172,7 +2123,6 @@ BaseThemeDay <- R6::R6Class(
       return(0x1f03f444)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BaseThemeDay object from a BinaryReader.
@@ -2209,7 +2159,6 @@ BaseThemeNight <- R6::R6Class(
       return(as.raw(c(0xa8, 0x1e, 0xb3, 0xb7)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BaseThemeNight.
@@ -2223,7 +2172,6 @@ BaseThemeNight <- R6::R6Class(
       return(0x1f03f444)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BaseThemeNight object from a BinaryReader.
@@ -2260,7 +2208,6 @@ BaseThemeTinted <- R6::R6Class(
       return(as.raw(c(0xee, 0x77, 0x5f, 0x6d)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BaseThemeTinted.
@@ -2274,7 +2221,6 @@ BaseThemeTinted <- R6::R6Class(
       return(0x1f03f444)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BaseThemeTinted object from a BinaryReader.
@@ -2340,7 +2286,6 @@ BindAuthKeyInner <- R6::R6Class(
       )))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BindAuthKeyInner.
@@ -2354,7 +2299,6 @@ BindAuthKeyInner <- R6::R6Class(
       return(0x2f099171)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BindAuthKeyInner object from a BinaryReader.
@@ -2414,7 +2358,7 @@ Birthday <- R6::R6Class(
     #' @return A raw vector representing the serialized bytes of the Birthday object.
     bytes = function() {
       flags <- 0
-      if (!is.null(self$year)) flags <- flags + 1  # 2^0
+      if (!is.null(self$year)) flags <- flags + 1 # 2^0
 
       return(do.call(c, list(
         as.raw(c(0x06, 0x1e, 0x8e, 0x6c)),
@@ -2425,7 +2369,6 @@ Birthday <- R6::R6Class(
       )))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for Birthday.
@@ -2439,7 +2382,6 @@ Birthday <- R6::R6Class(
       return(0xbe7fd664)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a Birthday object from a BinaryReader.
@@ -2491,11 +2433,11 @@ Boost <- R6::R6Class(
     #' @param multiplier An integer representing the multiplier. Optional.
     #' @param stars An integer representing the stars. Optional.
     initialize = function(id, date = NULL, expires = NULL, gift = NULL, giveaway = NULL,
-                         unclaimed = NULL, user_id = NULL, giveaway_msg_id = NULL,
-                         used_gift_slug = NULL, multiplier = NULL, stars = NULL) {
+                          unclaimed = NULL, user_id = NULL, giveaway_msg_id = NULL,
+                          used_gift_slug = NULL, multiplier = NULL, stars = NULL) {
       # Validation similar to Python assertion
       if (!(((!is.null(giveaway) && giveaway) && (!is.null(giveaway_msg_id) && giveaway_msg_id)) ||
-            ((is.null(giveaway) || !giveaway) && (is.null(giveaway_msg_id) || !giveaway_msg_id)))) {
+        ((is.null(giveaway) || !giveaway) && (is.null(giveaway_msg_id) || !giveaway_msg_id)))) {
         stop("giveaway, giveaway_msg_id parameters must all be truthy or all falsy")
       }
 
@@ -2537,14 +2479,14 @@ Boost <- R6::R6Class(
     #' @return A raw vector representing the serialized bytes of the Boost object.
     bytes = function() {
       flags <- 0
-      if (!is.null(self$gift) && self$gift) flags <- flags + 2      # 2^1
-      if (!is.null(self$giveaway) && self$giveaway) flags <- flags + 4   # 2^2
+      if (!is.null(self$gift) && self$gift) flags <- flags + 2 # 2^1
+      if (!is.null(self$giveaway) && self$giveaway) flags <- flags + 4 # 2^2
       if (!is.null(self$unclaimed) && self$unclaimed) flags <- flags + 8 # 2^3
-      if (!is.null(self$user_id)) flags <- flags + 1               # 2^0
-      if (!is.null(self$giveaway_msg_id)) flags <- flags + 4       # 2^2
-      if (!is.null(self$used_gift_slug)) flags <- flags + 16      # 2^4
-      if (!is.null(self$multiplier)) flags <- flags + 32           # 2^5
-      if (!is.null(self$stars)) flags <- flags + 64                # 2^6
+      if (!is.null(self$user_id)) flags <- flags + 1 # 2^0
+      if (!is.null(self$giveaway_msg_id)) flags <- flags + 4 # 2^2
+      if (!is.null(self$used_gift_slug)) flags <- flags + 16 # 2^4
+      if (!is.null(self$multiplier)) flags <- flags + 32 # 2^5
+      if (!is.null(self$stars)) flags <- flags + 64 # 2^6
 
       result <- list(
         as.raw(c(0xd6, 0x14, 0x3e, 0x4b)),
@@ -2577,7 +2519,6 @@ Boost <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for Boost.
@@ -2591,7 +2532,6 @@ Boost <- R6::R6Class(
       return(0x97a5086c)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a Boost object from a BinaryReader.
@@ -2713,7 +2653,7 @@ BotApp <- R6::R6Class(
     #' @return A raw vector representing the serialized bytes of the BotApp object.
     bytes = function() {
       flags <- 0
-      if (!is.null(self$document)) flags <- flags + 1  # 2^0
+      if (!is.null(self$document)) flags <- flags + 1 # 2^0
 
       result <- list(
         as.raw(c(0xd6, 0xd1, 0xfc, 0x95)),
@@ -2735,7 +2675,6 @@ BotApp <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotApp.
@@ -2749,7 +2688,6 @@ BotApp <- R6::R6Class(
       return(0x20f32ae)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotApp object from a BinaryReader.
@@ -2810,7 +2748,6 @@ BotAppNotModified <- R6::R6Class(
       return(as.raw(c(0xb7, 0x74, 0xa6, 0x5d)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotAppNotModified.
@@ -2824,7 +2761,6 @@ BotAppNotModified <- R6::R6Class(
       return(0x20f32ae)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotAppNotModified object from a BinaryReader.
@@ -2854,7 +2790,7 @@ BotAppSettings <- R6::R6Class(
     #' @param header_color An integer representing the header color. Optional.
     #' @param header_dark_color An integer representing the dark header color. Optional.
     initialize = function(placeholder_path = NULL, background_color = NULL, background_dark_color = NULL,
-                         header_color = NULL, header_dark_color = NULL) {
+                          header_color = NULL, header_dark_color = NULL) {
       self$placeholder_path <- placeholder_path
       self$background_color <- background_color
       self$background_dark_color <- background_dark_color
@@ -2881,11 +2817,11 @@ BotAppSettings <- R6::R6Class(
     #' @return A raw vector representing the serialized bytes of the BotAppSettings object.
     bytes = function() {
       flags <- 0
-      if (!is.null(self$placeholder_path)) flags <- flags + 1     # 2^0
-      if (!is.null(self$background_color)) flags <- flags + 2     # 2^1
+      if (!is.null(self$placeholder_path)) flags <- flags + 1 # 2^0
+      if (!is.null(self$background_color)) flags <- flags + 2 # 2^1
       if (!is.null(self$background_dark_color)) flags <- flags + 4 # 2^2
-      if (!is.null(self$header_color)) flags <- flags + 8         # 2^3
-      if (!is.null(self$header_dark_color)) flags <- flags + 16   # 2^4
+      if (!is.null(self$header_color)) flags <- flags + 8 # 2^3
+      if (!is.null(self$header_dark_color)) flags <- flags + 16 # 2^4
 
       result <- list(
         as.raw(c(0x50, 0x19, 0x9b, 0xc9)),
@@ -2911,7 +2847,6 @@ BotAppSettings <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotAppSettings.
@@ -2925,7 +2860,6 @@ BotAppSettings <- R6::R6Class(
       return(0x179e62e3)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotAppSettings object from a BinaryReader.
@@ -3028,8 +2962,8 @@ BotBusinessConnection <- R6::R6Class(
     #' @return A raw vector representing the serialized bytes of the BotBusinessConnection object.
     bytes = function() {
       flags <- 0
-      if (!is.null(self$disabled)) flags <- flags + 2  # 2^1
-      if (!is.null(self$rights)) flags <- flags + 4    # 2^2
+      if (!is.null(self$disabled)) flags <- flags + 2 # 2^1
+      if (!is.null(self$rights)) flags <- flags + 4 # 2^2
 
       result <- list(
         as.raw(c(0xf5, 0xb2, 0x34, 0x8f)),
@@ -3047,7 +2981,6 @@ BotBusinessConnection <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotBusinessConnection.
@@ -3061,7 +2994,6 @@ BotBusinessConnection <- R6::R6Class(
       return(0x9b130546)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotBusinessConnection object from a BinaryReader.
@@ -3135,7 +3067,6 @@ BotCommand <- R6::R6Class(
       ))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotCommand.
@@ -3149,7 +3080,6 @@ BotCommand <- R6::R6Class(
       return(0xe1e62c2)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotCommand object from a BinaryReader.
@@ -3191,7 +3121,6 @@ BotCommandScopeChatAdmins <- R6::R6Class(
       return(as.raw(c(0x6a, 0x60, 0xaa, 0xb9)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotCommandScopeChatAdmins.
@@ -3205,7 +3134,6 @@ BotCommandScopeChatAdmins <- R6::R6Class(
       return(0x4baf5d10)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotCommandScopeChatAdmins object from a BinaryReader.
@@ -3241,7 +3169,6 @@ BotCommandScopeChats <- R6::R6Class(
       return(as.raw(c(0x81, 0xa8, 0xe1, 0x6f)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotCommandScopeChats.
@@ -3255,7 +3182,6 @@ BotCommandScopeChats <- R6::R6Class(
       return(0x4baf5d10)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotCommandScopeChats object from a BinaryReader.
@@ -3291,7 +3217,6 @@ BotCommandScopeDefault <- R6::R6Class(
       return(as.raw(c(0xab, 0xb2, 0x6c, 0x2f)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotCommandScopeDefault.
@@ -3305,7 +3230,6 @@ BotCommandScopeDefault <- R6::R6Class(
       return(0x4baf5d10)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotCommandScopeDefault object from a BinaryReader.
@@ -3350,7 +3274,6 @@ BotCommandScopePeer <- R6::R6Class(
       ))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotCommandScopePeer.
@@ -3364,7 +3287,6 @@ BotCommandScopePeer <- R6::R6Class(
       return(0x4baf5d10)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotCommandScopePeer object from a BinaryReader.
@@ -3413,7 +3335,6 @@ BotCommandScopePeerAdmins <- R6::R6Class(
       ))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotCommandScopePeerAdmins.
@@ -3427,7 +3348,6 @@ BotCommandScopePeerAdmins <- R6::R6Class(
       return(0x4baf5d10)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotCommandScopePeerAdmins object from a BinaryReader.
@@ -3481,7 +3401,6 @@ BotCommandScopePeerUser <- R6::R6Class(
       ))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotCommandScopePeerUser.
@@ -3495,7 +3414,6 @@ BotCommandScopePeerUser <- R6::R6Class(
       return(0x4baf5d10)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotCommandScopePeerUser object from a BinaryReader.
@@ -3537,7 +3455,6 @@ BotCommandScopeUsers <- R6::R6Class(
       return(as.raw(c(0xd8, 0x04, 0x4f, 0x3c)))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotCommandScopeUsers.
@@ -3551,7 +3468,6 @@ BotCommandScopeUsers <- R6::R6Class(
       return(0x4baf5d10)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotCommandScopeUsers object from a BinaryReader.
@@ -3592,8 +3508,8 @@ BotInfo <- R6::R6Class(
     #' @param app_settings A TLObject representing the app settings. Optional.
     #' @param verifier_settings A TLObject representing the verifier settings. Optional.
     initialize = function(has_preview_medias = NULL, user_id = NULL, description = NULL, description_photo = NULL,
-                         description_document = NULL, commands = NULL, menu_button = NULL, privacy_policy_url = NULL,
-                         app_settings = NULL, verifier_settings = NULL) {
+                          description_document = NULL, commands = NULL, menu_button = NULL, privacy_policy_url = NULL,
+                          app_settings = NULL, verifier_settings = NULL) {
       self$has_preview_medias <- has_preview_medias
       self$user_id <- user_id
       self$description <- description
@@ -3651,16 +3567,16 @@ BotInfo <- R6::R6Class(
     #' @return A raw vector representing the serialized bytes of the BotInfo object.
     bytes = function() {
       flags <- 0
-      if (!is.null(self$has_preview_medias)) flags <- flags + 64    # 2^6
-      if (!is.null(self$user_id)) flags <- flags + 1                # 2^0
-      if (!is.null(self$description)) flags <- flags + 2            # 2^1
-      if (!is.null(self$description_photo)) flags <- flags + 16     # 2^4
-      if (!is.null(self$description_document)) flags <- flags + 32  # 2^5
-      if (!is.null(self$commands)) flags <- flags + 4               # 2^2
-      if (!is.null(self$menu_button)) flags <- flags + 8            # 2^3
-      if (!is.null(self$privacy_policy_url)) flags <- flags + 128   # 2^7
-      if (!is.null(self$app_settings)) flags <- flags + 256         # 2^8
-      if (!is.null(self$verifier_settings)) flags <- flags + 512    # 2^9
+      if (!is.null(self$has_preview_medias)) flags <- flags + 64 # 2^6
+      if (!is.null(self$user_id)) flags <- flags + 1 # 2^0
+      if (!is.null(self$description)) flags <- flags + 2 # 2^1
+      if (!is.null(self$description_photo)) flags <- flags + 16 # 2^4
+      if (!is.null(self$description_document)) flags <- flags + 32 # 2^5
+      if (!is.null(self$commands)) flags <- flags + 4 # 2^2
+      if (!is.null(self$menu_button)) flags <- flags + 8 # 2^3
+      if (!is.null(self$privacy_policy_url)) flags <- flags + 128 # 2^7
+      if (!is.null(self$app_settings)) flags <- flags + 256 # 2^8
+      if (!is.null(self$verifier_settings)) flags <- flags + 512 # 2^9
 
       result <- list(
         as.raw(c(0x99, 0x02, 0x8a, 0x4d)),
@@ -3702,7 +3618,6 @@ BotInfo <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotInfo.
@@ -3716,7 +3631,6 @@ BotInfo <- R6::R6Class(
       return(0xf1f701db)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotInfo object from a BinaryReader.
@@ -3752,7 +3666,7 @@ BotInfo <- R6::R6Class(
 
       commands <- NULL
       if (bitwAnd(flags, 4) != 0) {
-        reader$read_int()  # Skip vector constructor
+        reader$read_int() # Skip vector constructor
         commands <- list()
         for (i in 1:reader$read_int()) {
           commands <- append(commands, list(reader$tgread_object()))
@@ -3859,10 +3773,10 @@ BotInlineMediaResult <- R6::R6Class(
     #' @return A raw vector representing the serialized bytes of the BotInlineMediaResult object.
     bytes = function() {
       flags <- 0
-      if (!is.null(self$photo)) flags <- flags + 1        # 2^0
-      if (!is.null(self$document)) flags <- flags + 2     # 2^1
-      if (!is.null(self$title)) flags <- flags + 4        # 2^2
-      if (!is.null(self$description)) flags <- flags + 8  # 2^3
+      if (!is.null(self$photo)) flags <- flags + 1 # 2^0
+      if (!is.null(self$document)) flags <- flags + 2 # 2^1
+      if (!is.null(self$title)) flags <- flags + 4 # 2^2
+      if (!is.null(self$description)) flags <- flags + 8 # 2^3
 
       result <- list(
         as.raw(c(0x0b, 0x94, 0xdb, 0x17)),
@@ -3889,7 +3803,6 @@ BotInlineMediaResult <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotInlineMediaResult.
@@ -3903,7 +3816,6 @@ BotInlineMediaResult <- R6::R6Class(
       return(0x3832b3d5)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotInlineMediaResult object from a BinaryReader.
@@ -3999,9 +3911,9 @@ BotInlineMessageMediaAuto <- R6::R6Class(
     #' @return A raw vector representing the serialized bytes of the BotInlineMessageMediaAuto object.
     bytes = function() {
       flags <- 0
-      if (!is.null(self$invert_media)) flags <- flags + 8   # 2^3
-      if (!is.null(self$entities)) flags <- flags + 2       # 2^1
-      if (!is.null(self$reply_markup)) flags <- flags + 4   # 2^2
+      if (!is.null(self$invert_media)) flags <- flags + 8 # 2^3
+      if (!is.null(self$entities)) flags <- flags + 2 # 2^1
+      if (!is.null(self$reply_markup)) flags <- flags + 4 # 2^2
 
       result <- list(
         as.raw(c(0x10, 0xf8, 0x4c, 0x76)),
@@ -4024,7 +3936,6 @@ BotInlineMessageMediaAuto <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotInlineMessageMediaAuto.
@@ -4038,7 +3949,6 @@ BotInlineMessageMediaAuto <- R6::R6Class(
       return(0xc4910f88)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotInlineMessageMediaAuto object from a BinaryReader.
@@ -4056,7 +3966,7 @@ BotInlineMessageMediaAuto <- R6::R6Class(
 
       entities <- NULL
       if (bitwAnd(flags, 2) != 0) {
-        reader$read_int()  # Skip vector constructor
+        reader$read_int() # Skip vector constructor
         entities <- list()
         for (i in 1:reader$read_int()) {
           entities <- append(entities, list(reader$tgread_object()))
@@ -4128,7 +4038,7 @@ BotInlineMessageMediaContact <- R6::R6Class(
     #' @return A raw vector representing the serialized bytes of the BotInlineMessageMediaContact object.
     bytes = function() {
       flags <- 0
-      if (!is.null(self$reply_markup)) flags <- flags + 4  # 2^2
+      if (!is.null(self$reply_markup)) flags <- flags + 4 # 2^2
 
       result <- list(
         as.raw(c(0xc2, 0xcd, 0xd1, 0x18)),
@@ -4146,7 +4056,6 @@ BotInlineMessageMediaContact <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotInlineMessageMediaContact.
@@ -4160,7 +4069,6 @@ BotInlineMessageMediaContact <- R6::R6Class(
       return(0xc4910f88)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotInlineMessageMediaContact object from a BinaryReader.
@@ -4245,10 +4153,10 @@ BotInlineMessageMediaGeo <- R6::R6Class(
     #' @return A raw vector representing the serialized bytes of the BotInlineMessageMediaGeo object.
     bytes = function() {
       flags <- 0
-      if (!is.null(self$heading)) flags <- flags + 1                        # 2^0
-      if (!is.null(self$period)) flags <- flags + 2                        # 2^1
+      if (!is.null(self$heading)) flags <- flags + 1 # 2^0
+      if (!is.null(self$period)) flags <- flags + 2 # 2^1
       if (!is.null(self$proximity_notification_radius)) flags <- flags + 8 # 2^3
-      if (!is.null(self$reply_markup)) flags <- flags + 4                  # 2^2
+      if (!is.null(self$reply_markup)) flags <- flags + 4 # 2^2
 
       result <- list(
         as.raw(c(0xfd, 0x46, 0x18, 0x05)),
@@ -4272,7 +4180,6 @@ BotInlineMessageMediaGeo <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotInlineMessageMediaGeo.
@@ -4286,7 +4193,6 @@ BotInlineMessageMediaGeo <- R6::R6Class(
       return(0xc4910f88)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotInlineMessageMediaGeo object from a BinaryReader.
@@ -4353,7 +4259,7 @@ BotInlineMessageMediaInvoice <- R6::R6Class(
     #' @param photo A TLObject representing the photo. Optional.
     #' @param reply_markup A TLObject representing the reply markup. Optional.
     initialize = function(title, description, currency, total_amount, shipping_address_requested = NULL,
-                         test = NULL, photo = NULL, reply_markup = NULL) {
+                          test = NULL, photo = NULL, reply_markup = NULL) {
       self$title <- title
       self$description <- description
       self$currency <- currency
@@ -4397,10 +4303,10 @@ BotInlineMessageMediaInvoice <- R6::R6Class(
     #' @return A raw vector representing the serialized bytes of the BotInlineMessageMediaInvoice object.
     bytes = function() {
       flags <- 0
-      if (!is.null(self$shipping_address_requested)) flags <- flags + 2  # 2^1
-      if (!is.null(self$test)) flags <- flags + 8                        # 2^3
-      if (!is.null(self$photo)) flags <- flags + 1                       # 2^0
-      if (!is.null(self$reply_markup)) flags <- flags + 4                # 2^2
+      if (!is.null(self$shipping_address_requested)) flags <- flags + 2 # 2^1
+      if (!is.null(self$test)) flags <- flags + 8 # 2^3
+      if (!is.null(self$photo)) flags <- flags + 1 # 2^0
+      if (!is.null(self$reply_markup)) flags <- flags + 4 # 2^2
 
       result <- list(
         as.raw(c(0x09, 0x9b, 0x4a, 0x35)),
@@ -4425,7 +4331,6 @@ BotInlineMessageMediaInvoice <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotInlineMessageMediaInvoice.
@@ -4439,7 +4344,6 @@ BotInlineMessageMediaInvoice <- R6::R6Class(
       return(0xc4910f88)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotInlineMessageMediaInvoice object from a BinaryReader.
@@ -4545,7 +4449,7 @@ BotInlineMessageMediaVenue <- R6::R6Class(
     #' @return A raw vector representing the serialized bytes of the BotInlineMessageMediaVenue object.
     bytes = function() {
       flags <- 0
-      if (!is.null(self$reply_markup)) flags <- flags + 4  # 2^2
+      if (!is.null(self$reply_markup)) flags <- flags + 4 # 2^2
 
       result <- list(
         as.raw(c(0x9c, 0x65, 0x86, 0x8a)),
@@ -4565,7 +4469,6 @@ BotInlineMessageMediaVenue <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   active = list(
     #' @field CONSTRUCTOR_ID
     #' The constructor ID for BotInlineMessageMediaVenue.
@@ -4579,7 +4482,6 @@ BotInlineMessageMediaVenue <- R6::R6Class(
       return(0xc4910f88)
     }
   ),
-
   private = list(
     #' @description
     #' Reads a BotInlineMessageMediaVenue object from a BinaryReader.
@@ -4620,7 +4522,6 @@ BotInlineMessageMediaWebPage <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x809ad9a6,
     SUBCLASS_OF_ID = 0xc4910f88,
-
     message = NULL,
     url = NULL,
     invert_media = NULL,
@@ -4630,7 +4531,6 @@ BotInlineMessageMediaWebPage <- R6::R6Class(
     safe = NULL,
     entities = NULL,
     reply_markup = NULL,
-
     initialize = function(message, url, invert_media = NULL, force_large_media = NULL, force_small_media = NULL, manual = NULL, safe = NULL, entities = NULL, reply_markup = NULL) {
       self$message <- message
       self$url <- url
@@ -4642,24 +4542,22 @@ BotInlineMessageMediaWebPage <- R6::R6Class(
       self$entities <- entities
       self$reply_markup <- reply_markup
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BotInlineMessageMediaWebPage',
-        'message' = self$message,
-        'url' = self$url,
-        'invert_media' = self$invert_media,
-        'force_large_media' = self$force_large_media,
-        'force_small_media' = self$force_small_media,
-        'manual' = self$manual,
-        'safe' = self$safe,
-        'entities' = if (is.null(self$entities)) list() else lapply(self$entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
-        'reply_markup' = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_dict() else self$reply_markup
+        "_" = "BotInlineMessageMediaWebPage",
+        "message" = self$message,
+        "url" = self$url,
+        "invert_media" = self$invert_media,
+        "force_large_media" = self$force_large_media,
+        "force_small_media" = self$force_small_media,
+        "manual" = self$manual,
+        "safe" = self$safe,
+        "entities" = if (is.null(self$entities)) list() else lapply(self$entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        "reply_markup" = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_dict() else self$reply_markup
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       flag_values <- c(
@@ -4681,7 +4579,8 @@ BotInlineMessageMediaWebPage <- R6::R6Class(
       )
 
       if (!is.null(self$entities)) {
-        result <- c(result,
+        result <- c(
+          result,
           writeBin(as.integer(0x15c4b51c), raw(), size = 4, endian = "little"),
           writeBin(length(self$entities), raw(), size = 4, endian = "little"),
           unlist(lapply(self$entities, function(x) x$serialize()))
@@ -4697,7 +4596,6 @@ BotInlineMessageMediaWebPage <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -4712,7 +4610,7 @@ BotInlineMessageMediaWebPage <- R6::R6Class(
 
       entities <- NULL
       if (bitwAnd(flags, 2) != 0) {
-        reader$read_int()  # vector constructor
+        reader$read_int() # vector constructor
         entities_count <- reader$read_int()
         entities <- lapply(1:entities_count, function(i) reader$tgread_object())
       }
@@ -4736,13 +4634,11 @@ BotInlineMessageText <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x8c7f65e2,
     SUBCLASS_OF_ID = 0xc4910f88,
-
     message = NULL,
     no_webpage = NULL,
     invert_media = NULL,
     entities = NULL,
     reply_markup = NULL,
-
     initialize = function(message, no_webpage = NULL, invert_media = NULL, entities = NULL, reply_markup = NULL) {
       self$message <- message
       self$no_webpage <- no_webpage
@@ -4750,20 +4646,18 @@ BotInlineMessageText <- R6::R6Class(
       self$entities <- entities
       self$reply_markup <- reply_markup
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BotInlineMessageText',
-        'message' = self$message,
-        'no_webpage' = self$no_webpage,
-        'invert_media' = self$invert_media,
-        'entities' = if (is.null(self$entities)) list() else lapply(self$entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
-        'reply_markup' = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_dict() else self$reply_markup
+        "_" = "BotInlineMessageText",
+        "message" = self$message,
+        "no_webpage" = self$no_webpage,
+        "invert_media" = self$invert_media,
+        "entities" = if (is.null(self$entities)) list() else lapply(self$entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        "reply_markup" = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_dict() else self$reply_markup
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       flag_values <- c(
@@ -4782,7 +4676,8 @@ BotInlineMessageText <- R6::R6Class(
       )
 
       if (!is.null(self$entities)) {
-        result <- c(result,
+        result <- c(
+          result,
           writeBin(as.integer(0x15c4b51c), raw(), size = 4, endian = "little"),
           writeBin(length(self$entities), raw(), size = 4, endian = "little"),
           unlist(lapply(self$entities, function(x) x$serialize()))
@@ -4796,7 +4691,6 @@ BotInlineMessageText <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -4808,7 +4702,7 @@ BotInlineMessageText <- R6::R6Class(
 
       entities <- NULL
       if (bitwAnd(flags, 2) != 0) {
-        reader$read_int()  # vector constructor
+        reader$read_int() # vector constructor
         entities_count <- reader$read_int()
         entities <- lapply(1:entities_count, function(i) reader$tgread_object())
       }
@@ -4830,7 +4724,6 @@ BotInlineResult <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x11965f3a,
     SUBCLASS_OF_ID = 0x3832b3d5,
-
     id = NULL,
     type = NULL,
     send_message = NULL,
@@ -4839,7 +4732,6 @@ BotInlineResult <- R6::R6Class(
     url = NULL,
     thumb = NULL,
     content = NULL,
-
     initialize = function(id, type, send_message, title = NULL, description = NULL, url = NULL, thumb = NULL, content = NULL) {
       self$id <- id
       self$type <- type
@@ -4850,23 +4742,21 @@ BotInlineResult <- R6::R6Class(
       self$thumb <- thumb
       self$content <- content
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BotInlineResult',
-        'id' = self$id,
-        'type' = self$type,
-        'send_message' = if (inherits(self$send_message, "TLObject")) self$send_message$to_dict() else self$send_message,
-        'title' = self$title,
-        'description' = self$description,
-        'url' = self$url,
-        'thumb' = if (inherits(self$thumb, "TLObject")) self$thumb$to_dict() else self$thumb,
-        'content' = if (inherits(self$content, "TLObject")) self$content$to_dict() else self$content
+        "_" = "BotInlineResult",
+        "id" = self$id,
+        "type" = self$type,
+        "send_message" = if (inherits(self$send_message, "TLObject")) self$send_message$to_dict() else self$send_message,
+        "title" = self$title,
+        "description" = self$description,
+        "url" = self$url,
+        "thumb" = if (inherits(self$thumb, "TLObject")) self$thumb$to_dict() else self$thumb,
+        "content" = if (inherits(self$content, "TLObject")) self$content$to_dict() else self$content
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       flag_values <- c(
@@ -4911,7 +4801,6 @@ BotInlineResult <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -4958,25 +4847,21 @@ BotMenuButton <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xc7b57ce6,
     SUBCLASS_OF_ID = 0x4c71bd3c,
-
     text = NULL,
     url = NULL,
-
     initialize = function(text, url) {
       self$text <- text
       self$url <- url
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BotMenuButton',
-        'text' = self$text,
-        'url' = self$url
+        "_" = "BotMenuButton",
+        "text" = self$text,
+        "url" = self$url
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       result <- c(
@@ -4987,7 +4872,6 @@ BotMenuButton <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       text <- reader$tgread_string()
@@ -5003,26 +4887,22 @@ BotMenuButtonCommands <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x4258c205,
     SUBCLASS_OF_ID = 0x4c71bd3c,
-
     initialize = function() {
       # No parameters
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BotMenuButtonCommands'
+        "_" = "BotMenuButtonCommands"
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       result <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$initialize()
@@ -5036,26 +4916,22 @@ BotMenuButtonDefault <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x7533a588,
     SUBCLASS_OF_ID = 0x4c71bd3c,
-
     initialize = function() {
       # No parameters
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BotMenuButtonDefault'
+        "_" = "BotMenuButtonDefault"
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       result <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$initialize()
@@ -5070,25 +4946,21 @@ BotPreviewMedia <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x23e91ba3,
     SUBCLASS_OF_ID = 0x562abc2d,
-
     date = NULL,
     media = NULL,
-
     initialize = function(date = NULL, media) {
       self$date <- date
       self$media <- media
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BotPreviewMedia',
-        'date' = self$date,
-        'media' = if (inherits(self$media, "TLObject")) self$media$to_dict() else self$media
+        "_" = "BotPreviewMedia",
+        "date" = self$date,
+        "media" = if (inherits(self$media, "TLObject")) self$media$to_dict() else self$media
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       result <- c(
@@ -5099,7 +4971,6 @@ BotPreviewMedia <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       date <- reader$tgread_date()
@@ -5116,28 +4987,24 @@ BotVerification <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xf93cd45c,
     SUBCLASS_OF_ID = 0x2cbf3c5a,
-
     bot_id = NULL,
     icon = NULL,
     description = NULL,
-
     initialize = function(bot_id, icon, description) {
       self$bot_id <- bot_id
       self$icon <- icon
       self$description <- description
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BotVerification',
-        'bot_id' = self$bot_id,
-        'icon' = self$icon,
-        'description' = self$description
+        "_" = "BotVerification",
+        "bot_id" = self$bot_id,
+        "icon" = self$icon,
+        "description" = self$description
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       result <- c(
@@ -5149,7 +5016,6 @@ BotVerification <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       bot_id <- reader$read_long()
@@ -5166,31 +5032,27 @@ BotVerifierSettings <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb0cd6617,
     SUBCLASS_OF_ID = 0xf1d6034c,
-
     icon = NULL,
     company = NULL,
     can_modify_custom_description = NULL,
     custom_description = NULL,
-
     initialize = function(icon, company, can_modify_custom_description = NULL, custom_description = NULL) {
       self$icon <- icon
       self$company <- company
       self$can_modify_custom_description <- can_modify_custom_description
       self$custom_description <- custom_description
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BotVerifierSettings',
-        'icon' = self$icon,
-        'company' = self$company,
-        'can_modify_custom_description' = self$can_modify_custom_description,
-        'custom_description' = self$custom_description
+        "_" = "BotVerifierSettings",
+        "icon" = self$icon,
+        "company" = self$company,
+        "can_modify_custom_description" = self$can_modify_custom_description,
+        "custom_description" = self$custom_description
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       flags <- bitwOr(
@@ -5212,7 +5074,6 @@ BotVerifierSettings <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -5238,31 +5099,27 @@ BusinessAwayMessage <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xef156a5c,
     SUBCLASS_OF_ID = 0xf1d3ae24,
-
     shortcut_id = NULL,
     schedule = NULL,
     recipients = NULL,
     offline_only = NULL,
-
     initialize = function(shortcut_id, schedule, recipients, offline_only = NULL) {
       self$shortcut_id <- shortcut_id
       self$schedule <- schedule
       self$recipients <- recipients
       self$offline_only <- offline_only
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BusinessAwayMessage',
-        'shortcut_id' = self$shortcut_id,
-        'schedule' = if (inherits(self$schedule, "TLObject")) self$schedule$to_dict() else self$schedule,
-        'recipients' = if (inherits(self$recipients, "TLObject")) self$recipients$to_dict() else self$recipients,
-        'offline_only' = self$offline_only
+        "_" = "BusinessAwayMessage",
+        "shortcut_id" = self$shortcut_id,
+        "schedule" = if (inherits(self$schedule, "TLObject")) self$schedule$to_dict() else self$schedule,
+        "recipients" = if (inherits(self$recipients, "TLObject")) self$recipients$to_dict() else self$recipients,
+        "offline_only" = self$offline_only
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       flags <- if (is.null(self$offline_only) || !self$offline_only) 0 else 1
@@ -5277,7 +5134,6 @@ BusinessAwayMessage <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -5298,26 +5154,22 @@ BusinessAwayMessageScheduleAlways <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xc9b9e2b9,
     SUBCLASS_OF_ID = 0x2818a05e,
-
     initialize = function() {
       # No parameters
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BusinessAwayMessageScheduleAlways'
+        "_" = "BusinessAwayMessageScheduleAlways"
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       result <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$initialize()
@@ -5331,25 +5183,21 @@ BusinessAwayMessageScheduleCustom <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xcc4d9ecc,
     SUBCLASS_OF_ID = 0x2818a05e,
-
     start_date = NULL,
     end_date = NULL,
-
     initialize = function(start_date = NULL, end_date = NULL) {
       self$start_date <- start_date
       self$end_date <- end_date
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BusinessAwayMessageScheduleCustom',
-        'start_date' = self$start_date,
-        'end_date' = self$end_date
+        "_" = "BusinessAwayMessageScheduleCustom",
+        "start_date" = self$start_date,
+        "end_date" = self$end_date
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       result <- c(
@@ -5360,7 +5208,6 @@ BusinessAwayMessageScheduleCustom <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       start_date <- reader$tgread_date()
@@ -5376,26 +5223,22 @@ BusinessAwayMessageScheduleOutsideWorkHours <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xc3f2f501,
     SUBCLASS_OF_ID = 0x2818a05e,
-
     initialize = function() {
       # No parameters
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BusinessAwayMessageScheduleOutsideWorkHours'
+        "_" = "BusinessAwayMessageScheduleOutsideWorkHours"
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       result <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$initialize()
@@ -5410,7 +5253,6 @@ BusinessBotRecipients <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb88cf373,
     SUBCLASS_OF_ID = 0xf09283ca,
-
     existing_chats = NULL,
     new_chats = NULL,
     contacts = NULL,
@@ -5418,7 +5260,6 @@ BusinessBotRecipients <- R6::R6Class(
     exclude_selected = NULL,
     users = NULL,
     exclude_users = NULL,
-
     initialize = function(existing_chats = NULL, new_chats = NULL, contacts = NULL, non_contacts = NULL, exclude_selected = NULL, users = NULL, exclude_users = NULL) {
       self$existing_chats <- existing_chats
       self$new_chats <- new_chats
@@ -5428,22 +5269,20 @@ BusinessBotRecipients <- R6::R6Class(
       self$users <- users
       self$exclude_users <- exclude_users
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BusinessBotRecipients',
-        'existing_chats' = self$existing_chats,
-        'new_chats' = self$new_chats,
-        'contacts' = self$contacts,
-        'non_contacts' = self$non_contacts,
-        'exclude_selected' = self$exclude_selected,
-        'users' = if (is.null(self$users)) list() else self$users,
-        'exclude_users' = if (is.null(self$exclude_users)) list() else self$exclude_users
+        "_" = "BusinessBotRecipients",
+        "existing_chats" = self$existing_chats,
+        "new_chats" = self$new_chats,
+        "contacts" = self$contacts,
+        "non_contacts" = self$non_contacts,
+        "exclude_selected" = self$exclude_selected,
+        "users" = if (is.null(self$users)) list() else self$users,
+        "exclude_users" = if (is.null(self$exclude_users)) list() else self$exclude_users
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       flag_values <- c(
@@ -5464,7 +5303,8 @@ BusinessBotRecipients <- R6::R6Class(
       )
 
       if (!is.null(self$users)) {
-        result <- c(result,
+        result <- c(
+          result,
           writeBin(as.integer(0x15c4b51c), raw(), size = 4, endian = "little"),
           writeBin(length(self$users), raw(), size = 4, endian = "little"),
           unlist(lapply(self$users, function(x) writeBin(x, raw(), size = 8, endian = "little")))
@@ -5472,7 +5312,8 @@ BusinessBotRecipients <- R6::R6Class(
       }
 
       if (!is.null(self$exclude_users)) {
-        result <- c(result,
+        result <- c(
+          result,
           writeBin(as.integer(0x15c4b51c), raw(), size = 4, endian = "little"),
           writeBin(length(self$exclude_users), raw(), size = 4, endian = "little"),
           unlist(lapply(self$exclude_users, function(x) writeBin(x, raw(), size = 8, endian = "little")))
@@ -5482,7 +5323,6 @@ BusinessBotRecipients <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -5495,14 +5335,14 @@ BusinessBotRecipients <- R6::R6Class(
 
       users <- NULL
       if (bitwAnd(flags, 16) != 0) {
-        reader$read_int()  # vector constructor
+        reader$read_int() # vector constructor
         users_count <- reader$read_int()
         users <- lapply(1:users_count, function(i) reader$read_long())
       }
 
       exclude_users <- NULL
       if (bitwAnd(flags, 64) != 0) {
-        reader$read_int()  # vector constructor
+        reader$read_int() # vector constructor
         exclude_users_count <- reader$read_int()
         exclude_users <- lapply(1:exclude_users_count, function(i) reader$read_long())
       }
@@ -5518,7 +5358,6 @@ BusinessBotRights <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xa0624cf7,
     SUBCLASS_OF_ID = 0xb8dc759a,
-
     reply = NULL,
     read_messages = NULL,
     delete_sent_messages = NULL,
@@ -5533,7 +5372,6 @@ BusinessBotRights <- R6::R6Class(
     transfer_and_upgrade_gifts = NULL,
     transfer_stars = NULL,
     manage_stories = NULL,
-
     initialize = function(reply = NULL, read_messages = NULL, delete_sent_messages = NULL, delete_received_messages = NULL, edit_name = NULL, edit_bio = NULL, edit_profile_photo = NULL, edit_username = NULL, view_gifts = NULL, sell_gifts = NULL, change_gift_settings = NULL, transfer_and_upgrade_gifts = NULL, transfer_stars = NULL, manage_stories = NULL) {
       self$reply <- reply
       self$read_messages <- read_messages
@@ -5550,29 +5388,27 @@ BusinessBotRights <- R6::R6Class(
       self$transfer_stars <- transfer_stars
       self$manage_stories <- manage_stories
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BusinessBotRights',
-        'reply' = self$reply,
-        'read_messages' = self$read_messages,
-        'delete_sent_messages' = self$delete_sent_messages,
-        'delete_received_messages' = self$delete_received_messages,
-        'edit_name' = self$edit_name,
-        'edit_bio' = self$edit_bio,
-        'edit_profile_photo' = self$edit_profile_photo,
-        'edit_username' = self$edit_username,
-        'view_gifts' = self$view_gifts,
-        'sell_gifts' = self$sell_gifts,
-        'change_gift_settings' = self$change_gift_settings,
-        'transfer_and_upgrade_gifts' = self$transfer_and_upgrade_gifts,
-        'transfer_stars' = self$transfer_stars,
-        'manage_stories' = self$manage_stories
+        "_" = "BusinessBotRights",
+        "reply" = self$reply,
+        "read_messages" = self$read_messages,
+        "delete_sent_messages" = self$delete_sent_messages,
+        "delete_received_messages" = self$delete_received_messages,
+        "edit_name" = self$edit_name,
+        "edit_bio" = self$edit_bio,
+        "edit_profile_photo" = self$edit_profile_photo,
+        "edit_username" = self$edit_username,
+        "view_gifts" = self$view_gifts,
+        "sell_gifts" = self$sell_gifts,
+        "change_gift_settings" = self$change_gift_settings,
+        "transfer_and_upgrade_gifts" = self$transfer_and_upgrade_gifts,
+        "transfer_stars" = self$transfer_stars,
+        "manage_stories" = self$manage_stories
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       flag_values <- c(
@@ -5601,7 +5437,6 @@ BusinessBotRights <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -5633,13 +5468,11 @@ BusinessChatLink <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb4ae666f,
     SUBCLASS_OF_ID = 0x3c0d4a8b,
-
     link = NULL,
     message = NULL,
     views = NULL,
     entities = NULL,
     title = NULL,
-
     initialize = function(link, message, views, entities = NULL, title = NULL) {
       self$link <- link
       self$message <- message
@@ -5647,20 +5480,18 @@ BusinessChatLink <- R6::R6Class(
       self$entities <- entities
       self$title <- title
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BusinessChatLink',
-        'link' = self$link,
-        'message' = self$message,
-        'views' = self$views,
-        'entities' = if (is.null(self$entities)) list() else lapply(self$entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
-        'title' = self$title
+        "_" = "BusinessChatLink",
+        "link" = self$link,
+        "message" = self$message,
+        "views" = self$views,
+        "entities" = if (is.null(self$entities)) list() else lapply(self$entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        "title" = self$title
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       flags <- bitwOr(
@@ -5676,7 +5507,8 @@ BusinessChatLink <- R6::R6Class(
       )
 
       if (!is.null(self$entities)) {
-        result <- c(result,
+        result <- c(
+          result,
           writeBin(as.integer(0x15c4b51c), raw(), size = 4, endian = "little"),
           writeBin(length(self$entities), raw(), size = 4, endian = "little"),
           unlist(lapply(self$entities, function(x) x$serialize()))
@@ -5691,7 +5523,6 @@ BusinessChatLink <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -5701,7 +5532,7 @@ BusinessChatLink <- R6::R6Class(
 
       entities <- NULL
       if (bitwAnd(flags, 1) != 0) {
-        reader$read_int()  # vector constructor
+        reader$read_int() # vector constructor
         entities_count <- reader$read_int()
         entities <- lapply(1:entities_count, function(i) reader$tgread_object())
       }
@@ -5724,28 +5555,24 @@ BusinessGreetingMessage <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xe519abab,
     SUBCLASS_OF_ID = 0xb344eace,
-
     shortcut_id = NULL,
     recipients = NULL,
     no_activity_days = NULL,
-
     initialize = function(shortcut_id, recipients, no_activity_days) {
       self$shortcut_id <- shortcut_id
       self$recipients <- recipients
       self$no_activity_days <- no_activity_days
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BusinessGreetingMessage',
-        'shortcut_id' = self$shortcut_id,
-        'recipients' = if (inherits(self$recipients, "TLObject")) self$recipients$to_dict() else self$recipients,
-        'no_activity_days' = self$no_activity_days
+        "_" = "BusinessGreetingMessage",
+        "shortcut_id" = self$shortcut_id,
+        "recipients" = if (inherits(self$recipients, "TLObject")) self$recipients$to_dict() else self$recipients,
+        "no_activity_days" = self$no_activity_days
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       result <- c(
@@ -5757,7 +5584,6 @@ BusinessGreetingMessage <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       shortcut_id <- reader$read_int()
@@ -5774,28 +5600,24 @@ BusinessIntro <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x5a0a066d,
     SUBCLASS_OF_ID = 0x6504d3c7,
-
     title = NULL,
     description = NULL,
     sticker = NULL,
-
     initialize = function(title, description, sticker = NULL) {
       self$title <- title
       self$description <- description
       self$sticker <- sticker
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BusinessIntro',
-        'title' = self$title,
-        'description' = self$description,
-        'sticker' = if (inherits(self$sticker, "TLObject")) self$sticker$to_dict() else self$sticker
+        "_" = "BusinessIntro",
+        "title" = self$title,
+        "description" = self$description,
+        "sticker" = if (inherits(self$sticker, "TLObject")) self$sticker$to_dict() else self$sticker
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       flags <- if (is.null(self$sticker)) 0 else 1
@@ -5814,7 +5636,6 @@ BusinessIntro <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -5838,25 +5659,21 @@ BusinessLocation <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xac5c1af7,
     SUBCLASS_OF_ID = 0x99accad0,
-
     address = NULL,
     geo_point = NULL,
-
     initialize = function(address, geo_point = NULL) {
       self$address <- address
       self$geo_point <- geo_point
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BusinessLocation',
-        'address' = self$address,
-        'geo_point' = if (inherits(self$geo_point, "TLObject")) self$geo_point$to_dict() else self$geo_point
+        "_" = "BusinessLocation",
+        "address" = self$address,
+        "geo_point" = if (inherits(self$geo_point, "TLObject")) self$geo_point$to_dict() else self$geo_point
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       flags <- if (is.null(self$geo_point)) 0 else 1
@@ -5874,7 +5691,6 @@ BusinessLocation <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -5898,14 +5714,12 @@ BusinessRecipients <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x21108ff7,
     SUBCLASS_OF_ID = 0x52852e46,
-
     existing_chats = NULL,
     new_chats = NULL,
     contacts = NULL,
     non_contacts = NULL,
     exclude_selected = NULL,
     users = NULL,
-
     initialize = function(existing_chats = NULL, new_chats = NULL, contacts = NULL, non_contacts = NULL, exclude_selected = NULL, users = NULL) {
       self$existing_chats <- existing_chats
       self$new_chats <- new_chats
@@ -5914,21 +5728,19 @@ BusinessRecipients <- R6::R6Class(
       self$exclude_selected <- exclude_selected
       self$users <- users
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BusinessRecipients',
-        'existing_chats' = self$existing_chats,
-        'new_chats' = self$new_chats,
-        'contacts' = self$contacts,
-        'non_contacts' = self$non_contacts,
-        'exclude_selected' = self$exclude_selected,
-        'users' = if (is.null(self$users)) list() else self$users
+        "_" = "BusinessRecipients",
+        "existing_chats" = self$existing_chats,
+        "new_chats" = self$new_chats,
+        "contacts" = self$contacts,
+        "non_contacts" = self$non_contacts,
+        "exclude_selected" = self$exclude_selected,
+        "users" = if (is.null(self$users)) list() else self$users
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       flag_values <- c(
@@ -5948,7 +5760,8 @@ BusinessRecipients <- R6::R6Class(
       )
 
       if (!is.null(self$users)) {
-        result <- c(result,
+        result <- c(
+          result,
           writeBin(as.integer(0x15c4b51c), raw(), size = 4, endian = "little"),
           writeBin(length(self$users), raw(), size = 4, endian = "little"),
           unlist(lapply(self$users, function(x) writeBin(x, raw(), size = 8, endian = "little")))
@@ -5958,7 +5771,6 @@ BusinessRecipients <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -5971,7 +5783,7 @@ BusinessRecipients <- R6::R6Class(
 
       users <- NULL
       if (bitwAnd(flags, 16) != 0) {
-        reader$read_int()  # vector constructor
+        reader$read_int() # vector constructor
         users_count <- reader$read_int()
         users <- lapply(1:users_count, function(i) reader$read_long())
       }
@@ -5987,25 +5799,21 @@ BusinessWeeklyOpen <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x120b1ab9,
     SUBCLASS_OF_ID = 0x18402627,
-
     start_minute = NULL,
     end_minute = NULL,
-
     initialize = function(start_minute, end_minute) {
       self$start_minute <- start_minute
       self$end_minute <- end_minute
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BusinessWeeklyOpen',
-        'start_minute' = self$start_minute,
-        'end_minute' = self$end_minute
+        "_" = "BusinessWeeklyOpen",
+        "start_minute" = self$start_minute,
+        "end_minute" = self$end_minute
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       result <- c(
@@ -6016,7 +5824,6 @@ BusinessWeeklyOpen <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       start_minute <- reader$read_int()
@@ -6032,28 +5839,24 @@ BusinessWorkHours <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x8c92b098,
     SUBCLASS_OF_ID = 0x659fa805,
-
     timezone_id = NULL,
     weekly_open = NULL,
     open_now = NULL,
-
     initialize = function(timezone_id, weekly_open, open_now = NULL) {
       self$timezone_id <- timezone_id
       self$weekly_open <- weekly_open
       self$open_now <- open_now
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'BusinessWorkHours',
-        'timezone_id' = self$timezone_id,
-        'weekly_open' = if (is.null(self$weekly_open)) list() else lapply(self$weekly_open, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
-        'open_now' = self$open_now
+        "_" = "BusinessWorkHours",
+        "timezone_id" = self$timezone_id,
+        "weekly_open" = if (is.null(self$weekly_open)) list() else lapply(self$weekly_open, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        "open_now" = self$open_now
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       flags <- if (is.null(self$open_now) || !self$open_now) 0 else 1
@@ -6069,7 +5872,6 @@ BusinessWorkHours <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -6077,7 +5879,7 @@ BusinessWorkHours <- R6::R6Class(
       open_now <- bitwAnd(flags, 1) != 0
       timezone_id <- reader$tgread_string()
 
-      reader$read_int()  # vector constructor
+      reader$read_int() # vector constructor
       weekly_open_count <- reader$read_int()
       weekly_open <- lapply(1:weekly_open_count, function(i) reader$tgread_object())
 
@@ -6093,22 +5895,18 @@ CdnConfig <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x5725e40a,
     SUBCLASS_OF_ID = 0xecda397c,
-
     public_keys = NULL,
-
     initialize = function(public_keys) {
       self$public_keys <- public_keys
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'CdnConfig',
-        'public_keys' = if (is.null(self$public_keys)) list() else lapply(self$public_keys, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+        "_" = "CdnConfig",
+        "public_keys" = if (is.null(self$public_keys)) list() else lapply(self$public_keys, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       result <- c(
@@ -6120,10 +5918,9 @@ CdnConfig <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
-      reader$read_int()  # vector constructor
+      reader$read_int() # vector constructor
       public_keys_count <- reader$read_int()
       public_keys <- lapply(1:public_keys_count, function(i) reader$tgread_object())
       self$initialize(public_keys)
@@ -6137,25 +5934,21 @@ CdnPublicKey <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xc982eaba,
     SUBCLASS_OF_ID = 0x16db47f3,
-
     dc_id = NULL,
     public_key = NULL,
-
     initialize = function(dc_id, public_key) {
       self$dc_id <- dc_id
       self$public_key <- public_key
     },
-
     to_dict = function() {
       dict <- list(
-        '_' = 'CdnPublicKey',
-        'dc_id' = self$dc_id,
-        'public_key' = self$public_key
+        "_" = "CdnPublicKey",
+        "dc_id" = self$dc_id,
+        "public_key" = self$public_key
       )
       dict
     }
   ),
-
   active = list(
     serialize = function() {
       result <- c(
@@ -6166,7 +5959,6 @@ CdnPublicKey <- R6::R6Class(
       result
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       dc_id <- reader$read_int()
@@ -6184,7 +5976,6 @@ Channel <- R6::R6Class("Channel",
   public = list(
     CONSTRUCTOR_ID = 0xfe685355,
     SUBCLASS_OF_ID = 0xc5af5d94,
-
     id = NULL,
     title = NULL,
     photo = NULL,
@@ -6234,21 +6025,20 @@ Channel <- R6::R6Class("Channel",
     bot_verification_icon = NULL,
     send_paid_messages_stars = NULL,
     linked_monoforum_id = NULL,
-
     initialize = function(id, title, photo, date,
-                         creator = NULL, left = NULL, broadcast = NULL, verified = NULL,
-                         megagroup = NULL, restricted = NULL, signatures = NULL, min = NULL,
-                         scam = NULL, has_link = NULL, has_geo = NULL, slowmode_enabled = NULL,
-                         call_active = NULL, call_not_empty = NULL, fake = NULL, gigagroup = NULL,
-                         noforwards = NULL, join_to_send = NULL, join_request = NULL, forum = NULL,
-                         stories_hidden = NULL, stories_hidden_min = NULL, stories_unavailable = NULL,
-                         signature_profiles = NULL, autotranslation = NULL, broadcast_messages_allowed = NULL,
-                         monoforum = NULL, forum_tabs = NULL, access_hash = NULL, username = NULL,
-                         restriction_reason = NULL, admin_rights = NULL, banned_rights = NULL,
-                         default_banned_rights = NULL, participants_count = NULL, usernames = NULL,
-                         stories_max_id = NULL, color = NULL, profile_color = NULL, emoji_status = NULL,
-                         level = NULL, subscription_until_date = NULL, bot_verification_icon = NULL,
-                         send_paid_messages_stars = NULL, linked_monoforum_id = NULL) {
+                          creator = NULL, left = NULL, broadcast = NULL, verified = NULL,
+                          megagroup = NULL, restricted = NULL, signatures = NULL, min = NULL,
+                          scam = NULL, has_link = NULL, has_geo = NULL, slowmode_enabled = NULL,
+                          call_active = NULL, call_not_empty = NULL, fake = NULL, gigagroup = NULL,
+                          noforwards = NULL, join_to_send = NULL, join_request = NULL, forum = NULL,
+                          stories_hidden = NULL, stories_hidden_min = NULL, stories_unavailable = NULL,
+                          signature_profiles = NULL, autotranslation = NULL, broadcast_messages_allowed = NULL,
+                          monoforum = NULL, forum_tabs = NULL, access_hash = NULL, username = NULL,
+                          restriction_reason = NULL, admin_rights = NULL, banned_rights = NULL,
+                          default_banned_rights = NULL, participants_count = NULL, usernames = NULL,
+                          stories_max_id = NULL, color = NULL, profile_color = NULL, emoji_status = NULL,
+                          level = NULL, subscription_until_date = NULL, bot_verification_icon = NULL,
+                          send_paid_messages_stars = NULL, linked_monoforum_id = NULL) {
       self$id <- id
       self$title <- title
       self$photo <- photo
@@ -6299,10 +6089,9 @@ Channel <- R6::R6Class("Channel",
       self$send_paid_messages_stars <- send_paid_messages_stars
       self$linked_monoforum_id <- linked_monoforum_id
     },
-
     to_dict = function() {
       list(
-        '_' = 'Channel',
+        "_" = "Channel",
         id = self$id,
         title = self$title,
         photo = if (inherits(self$photo, "TLObject")) self$photo$to_dict() else self$photo,
@@ -6354,15 +6143,13 @@ Channel <- R6::R6Class("Channel",
         linked_monoforum_id = self$linked_monoforum_id
       )
     },
-
     bytes = function() {
       # Simplified - in practice, would need proper binary serialization
       # For now, just return a placeholder
       warning("bytes not fully implemented for R")
-      as.raw(c(0xfe, 0x68, 0x53, 0x55))  # CONSTRUCTOR_ID
+      as.raw(c(0xfe, 0x68, 0x53, 0x55)) # CONSTRUCTOR_ID
     }
   ),
-
   class = TRUE
 )
 
@@ -6372,35 +6159,30 @@ ChannelAdminLogEvent <- R6::R6Class("ChannelAdminLogEvent",
   public = list(
     CONSTRUCTOR_ID = 0x1fad68cd,
     SUBCLASS_OF_ID = 0x408f0999,
-
     id = NULL,
     date = NULL,
     user_id = NULL,
     action = NULL,
-
     initialize = function(id, date, user_id, action) {
       self$id <- id
       self$date <- date
       self$user_id <- user_id
       self$action <- action
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEvent',
+        "_" = "ChannelAdminLogEvent",
         id = self$id,
         date = self$date,
         user_id = self$user_id,
         action = if (inherits(self$action, "TLObject")) self$action$to_dict() else self$action
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x1f, 0xad, 0x68, 0xcd))
     }
   ),
-
   class = TRUE
 )
 
@@ -6410,29 +6192,24 @@ ChannelAdminLogEventActionChangeAbout <- R6::R6Class("ChannelAdminLogEventAction
   public = list(
     CONSTRUCTOR_ID = 0x55188a2e,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_value = NULL,
     new_value = NULL,
-
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangeAbout',
+        "_" = "ChannelAdminLogEventActionChangeAbout",
         prev_value = self$prev_value,
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x55, 0x18, 0x8a, 0x2e))
     }
   ),
-
   class = TRUE
 )
 
@@ -6442,29 +6219,24 @@ ChannelAdminLogEventActionChangeAvailableReactions <- R6::R6Class("ChannelAdminL
   public = list(
     CONSTRUCTOR_ID = 0xbe4e0ef8,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_value = NULL,
     new_value = NULL,
-
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangeAvailableReactions',
+        "_" = "ChannelAdminLogEventActionChangeAvailableReactions",
         prev_value = if (inherits(self$prev_value, "TLObject")) self$prev_value$to_dict() else self$prev_value,
         new_value = if (inherits(self$new_value, "TLObject")) self$new_value$to_dict() else self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xbe, 0x4e, 0x0e, 0xf8))
     }
   ),
-
   class = TRUE
 )
 
@@ -6474,29 +6246,24 @@ ChannelAdminLogEventActionChangeEmojiStatus <- R6::R6Class("ChannelAdminLogEvent
   public = list(
     CONSTRUCTOR_ID = 0x3ea9feb1,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_value = NULL,
     new_value = NULL,
-
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangeEmojiStatus',
+        "_" = "ChannelAdminLogEventActionChangeEmojiStatus",
         prev_value = if (inherits(self$prev_value, "TLObject")) self$prev_value$to_dict() else self$prev_value,
         new_value = if (inherits(self$new_value, "TLObject")) self$new_value$to_dict() else self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x3e, 0xa9, 0xfe, 0xb1))
     }
   ),
-
   class = TRUE
 )
 
@@ -6506,29 +6273,24 @@ ChannelAdminLogEventActionChangeEmojiStickerSet <- R6::R6Class("ChannelAdminLogE
   public = list(
     CONSTRUCTOR_ID = 0x46d840ab,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_stickerset = NULL,
     new_stickerset = NULL,
-
     initialize = function(prev_stickerset, new_stickerset) {
       self$prev_stickerset <- prev_stickerset
       self$new_stickerset <- new_stickerset
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangeEmojiStickerSet',
+        "_" = "ChannelAdminLogEventActionChangeEmojiStickerSet",
         prev_stickerset = if (inherits(self$prev_stickerset, "TLObject")) self$prev_stickerset$to_dict() else self$prev_stickerset,
         new_stickerset = if (inherits(self$new_stickerset, "TLObject")) self$new_stickerset$to_dict() else self$new_stickerset
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x46, 0xd8, 0x40, 0xab))
     }
   ),
-
   class = TRUE
 )
 
@@ -6538,29 +6300,24 @@ ChannelAdminLogEventActionChangeHistoryTTL <- R6::R6Class("ChannelAdminLogEventA
   public = list(
     CONSTRUCTOR_ID = 0x6e941a38,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_value = NULL,
     new_value = NULL,
-
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangeHistoryTTL',
+        "_" = "ChannelAdminLogEventActionChangeHistoryTTL",
         prev_value = self$prev_value,
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x6e, 0x94, 0x1a, 0x38))
     }
   ),
-
   class = TRUE
 )
 
@@ -6570,29 +6327,24 @@ ChannelAdminLogEventActionChangeLinkedChat <- R6::R6Class("ChannelAdminLogEventA
   public = list(
     CONSTRUCTOR_ID = 0x50c7ac8,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_value = NULL,
     new_value = NULL,
-
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangeLinkedChat',
+        "_" = "ChannelAdminLogEventActionChangeLinkedChat",
         prev_value = self$prev_value,
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x05, 0x0c, 0x7a, 0xc8))
     }
   ),
-
   class = TRUE
 )
 
@@ -6602,29 +6354,24 @@ ChannelAdminLogEventActionChangeLocation <- R6::R6Class("ChannelAdminLogEventAct
   public = list(
     CONSTRUCTOR_ID = 0xe6b76ae,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_value = NULL,
     new_value = NULL,
-
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangeLocation',
+        "_" = "ChannelAdminLogEventActionChangeLocation",
         prev_value = if (inherits(self$prev_value, "TLObject")) self$prev_value$to_dict() else self$prev_value,
         new_value = if (inherits(self$new_value, "TLObject")) self$new_value$to_dict() else self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x0e, 0x6b, 0x76, 0xae))
     }
   ),
-
   class = TRUE
 )
 
@@ -6634,29 +6381,24 @@ ChannelAdminLogEventActionChangePeerColor <- R6::R6Class("ChannelAdminLogEventAc
   public = list(
     CONSTRUCTOR_ID = 0x5796e780,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_value = NULL,
     new_value = NULL,
-
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangePeerColor',
+        "_" = "ChannelAdminLogEventActionChangePeerColor",
         prev_value = if (inherits(self$prev_value, "TLObject")) self$prev_value$to_dict() else self$prev_value,
         new_value = if (inherits(self$new_value, "TLObject")) self$new_value$to_dict() else self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x57, 0x96, 0xe7, 0x80))
     }
   ),
-
   class = TRUE
 )
 
@@ -6666,29 +6408,24 @@ ChannelAdminLogEventActionChangePhoto <- R6::R6Class("ChannelAdminLogEventAction
   public = list(
     CONSTRUCTOR_ID = 0x434bd2af,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_photo = NULL,
     new_photo = NULL,
-
     initialize = function(prev_photo, new_photo) {
       self$prev_photo <- prev_photo
       self$new_photo <- new_photo
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangePhoto',
+        "_" = "ChannelAdminLogEventActionChangePhoto",
         prev_photo = if (inherits(self$prev_photo, "TLObject")) self$prev_photo$to_dict() else self$prev_photo,
         new_photo = if (inherits(self$new_photo, "TLObject")) self$new_photo$to_dict() else self$new_photo
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x43, 0x4b, 0xd2, 0xaf))
     }
   ),
-
   class = TRUE
 )
 
@@ -6698,29 +6435,24 @@ ChannelAdminLogEventActionChangeProfilePeerColor <- R6::R6Class("ChannelAdminLog
   public = list(
     CONSTRUCTOR_ID = 0x5e477b25,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_value = NULL,
     new_value = NULL,
-
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangeProfilePeerColor',
+        "_" = "ChannelAdminLogEventActionChangeProfilePeerColor",
         prev_value = if (inherits(self$prev_value, "TLObject")) self$prev_value$to_dict() else self$prev_value,
         new_value = if (inherits(self$new_value, "TLObject")) self$new_value$to_dict() else self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x5e, 0x47, 0x7b, 0x25))
     }
   ),
-
   class = TRUE
 )
 
@@ -6730,29 +6462,24 @@ ChannelAdminLogEventActionChangeStickerSet <- R6::R6Class("ChannelAdminLogEventA
   public = list(
     CONSTRUCTOR_ID = 0xb1c3caa7,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_stickerset = NULL,
     new_stickerset = NULL,
-
     initialize = function(prev_stickerset, new_stickerset) {
       self$prev_stickerset <- prev_stickerset
       self$new_stickerset <- new_stickerset
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangeStickerSet',
+        "_" = "ChannelAdminLogEventActionChangeStickerSet",
         prev_stickerset = if (inherits(self$prev_stickerset, "TLObject")) self$prev_stickerset$to_dict() else self$prev_stickerset,
         new_stickerset = if (inherits(self$new_stickerset, "TLObject")) self$new_stickerset$to_dict() else self$new_stickerset
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xb1, 0xc3, 0xca, 0xa7))
     }
   ),
-
   class = TRUE
 )
 
@@ -6762,29 +6489,24 @@ ChannelAdminLogEventActionChangeTitle <- R6::R6Class("ChannelAdminLogEventAction
   public = list(
     CONSTRUCTOR_ID = 0xe6dfb825,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_value = NULL,
     new_value = NULL,
-
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangeTitle',
+        "_" = "ChannelAdminLogEventActionChangeTitle",
         prev_value = self$prev_value,
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xe6, 0xdf, 0xb8, 0x25))
     }
   ),
-
   class = TRUE
 )
 
@@ -6794,29 +6516,24 @@ ChannelAdminLogEventActionChangeUsername <- R6::R6Class("ChannelAdminLogEventAct
   public = list(
     CONSTRUCTOR_ID = 0x6a4afc38,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_value = NULL,
     new_value = NULL,
-
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangeUsername',
+        "_" = "ChannelAdminLogEventActionChangeUsername",
         prev_value = self$prev_value,
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x6a, 0x4a, 0xfc, 0x38))
     }
   ),
-
   class = TRUE
 )
 
@@ -6826,29 +6543,24 @@ ChannelAdminLogEventActionChangeUsernames <- R6::R6Class("ChannelAdminLogEventAc
   public = list(
     CONSTRUCTOR_ID = 0xf04fb3a9,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_value = NULL,
     new_value = NULL,
-
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangeUsernames',
+        "_" = "ChannelAdminLogEventActionChangeUsernames",
         prev_value = if (is.null(self$prev_value)) NULL else self$prev_value,
         new_value = if (is.null(self$new_value)) NULL else self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xf0, 0x4f, 0xb3, 0xa9))
     }
   ),
-
   class = TRUE
 )
 
@@ -6858,29 +6570,24 @@ ChannelAdminLogEventActionChangeWallpaper <- R6::R6Class("ChannelAdminLogEventAc
   public = list(
     CONSTRUCTOR_ID = 0x31bb5d52,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_value = NULL,
     new_value = NULL,
-
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionChangeWallpaper',
+        "_" = "ChannelAdminLogEventActionChangeWallpaper",
         prev_value = if (inherits(self$prev_value, "TLObject")) self$prev_value$to_dict() else self$prev_value,
         new_value = if (inherits(self$new_value, "TLObject")) self$new_value$to_dict() else self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x31, 0xbb, 0x5d, 0x52))
     }
   ),
-
   class = TRUE
 )
 
@@ -6890,26 +6597,21 @@ ChannelAdminLogEventActionCreateTopic <- R6::R6Class("ChannelAdminLogEventAction
   public = list(
     CONSTRUCTOR_ID = 0x58707d28,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     topic = NULL,
-
     initialize = function(topic) {
       self$topic <- topic
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionCreateTopic',
+        "_" = "ChannelAdminLogEventActionCreateTopic",
         topic = if (inherits(self$topic, "TLObject")) self$topic$to_dict() else self$topic
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x58, 0x70, 0x7d, 0x28))
     }
   ),
-
   class = TRUE
 )
 
@@ -6919,29 +6621,24 @@ ChannelAdminLogEventActionDefaultBannedRights <- R6::R6Class("ChannelAdminLogEve
   public = list(
     CONSTRUCTOR_ID = 0x2df5fc0a,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_banned_rights = NULL,
     new_banned_rights = NULL,
-
     initialize = function(prev_banned_rights, new_banned_rights) {
       self$prev_banned_rights <- prev_banned_rights
       self$new_banned_rights <- new_banned_rights
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionDefaultBannedRights',
+        "_" = "ChannelAdminLogEventActionDefaultBannedRights",
         prev_banned_rights = if (inherits(self$prev_banned_rights, "TLObject")) self$prev_banned_rights$to_dict() else self$prev_banned_rights,
         new_banned_rights = if (inherits(self$new_banned_rights, "TLObject")) self$new_banned_rights$to_dict() else self$new_banned_rights
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x2d, 0xf5, 0xfc, 0x0a))
     }
   ),
-
   class = TRUE
 )
 
@@ -6951,26 +6648,21 @@ ChannelAdminLogEventActionDeleteMessage <- R6::R6Class("ChannelAdminLogEventActi
   public = list(
     CONSTRUCTOR_ID = 0x42e047bb,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     message = NULL,
-
     initialize = function(message) {
       self$message <- message
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionDeleteMessage',
+        "_" = "ChannelAdminLogEventActionDeleteMessage",
         message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x42, 0xe0, 0x47, 0xbb))
     }
   ),
-
   class = TRUE
 )
 
@@ -6980,26 +6672,21 @@ ChannelAdminLogEventActionDeleteTopic <- R6::R6Class("ChannelAdminLogEventAction
   public = list(
     CONSTRUCTOR_ID = 0xae168909,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     topic = NULL,
-
     initialize = function(topic) {
       self$topic <- topic
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionDeleteTopic',
+        "_" = "ChannelAdminLogEventActionDeleteTopic",
         topic = if (inherits(self$topic, "TLObject")) self$topic$to_dict() else self$topic
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xae, 0x16, 0x89, 0x09))
     }
   ),
-
   class = TRUE
 )
 
@@ -7009,26 +6696,21 @@ ChannelAdminLogEventActionDiscardGroupCall <- R6::R6Class("ChannelAdminLogEventA
   public = list(
     CONSTRUCTOR_ID = 0xdb9f9140,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     call = NULL,
-
     initialize = function(call) {
       self$call <- call
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionDiscardGroupCall',
+        "_" = "ChannelAdminLogEventActionDiscardGroupCall",
         call = if (inherits(self$call, "TLObject")) self$call$to_dict() else self$call
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xdb, 0x9f, 0x91, 0x40))
     }
   ),
-
   class = TRUE
 )
 
@@ -7038,29 +6720,24 @@ ChannelAdminLogEventActionEditMessage <- R6::R6Class("ChannelAdminLogEventAction
   public = list(
     CONSTRUCTOR_ID = 0x709b2405,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_message = NULL,
     new_message = NULL,
-
     initialize = function(prev_message, new_message) {
       self$prev_message <- prev_message
       self$new_message <- new_message
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionEditMessage',
+        "_" = "ChannelAdminLogEventActionEditMessage",
         prev_message = if (inherits(self$prev_message, "TLObject")) self$prev_message$to_dict() else self$prev_message,
         new_message = if (inherits(self$new_message, "TLObject")) self$new_message$to_dict() else self$new_message
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x70, 0x9b, 0x24, 0x05))
     }
   ),
-
   class = TRUE
 )
 
@@ -7070,29 +6747,24 @@ ChannelAdminLogEventActionEditTopic <- R6::R6Class("ChannelAdminLogEventActionEd
   public = list(
     CONSTRUCTOR_ID = 0xf06fe208,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_topic = NULL,
     new_topic = NULL,
-
     initialize = function(prev_topic, new_topic) {
       self$prev_topic <- prev_topic
       self$new_topic <- new_topic
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionEditTopic',
+        "_" = "ChannelAdminLogEventActionEditTopic",
         prev_topic = if (inherits(self$prev_topic, "TLObject")) self$prev_topic$to_dict() else self$prev_topic,
         new_topic = if (inherits(self$new_topic, "TLObject")) self$new_topic$to_dict() else self$new_topic
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xf0, 0x6f, 0xe2, 0x08))
     }
   ),
-
   class = TRUE
 )
 
@@ -7102,26 +6774,21 @@ ChannelAdminLogEventActionExportedInviteDelete <- R6::R6Class("ChannelAdminLogEv
   public = list(
     CONSTRUCTOR_ID = 0x5a50fca4,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     invite = NULL,
-
     initialize = function(invite) {
       self$invite <- invite
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionExportedInviteDelete',
+        "_" = "ChannelAdminLogEventActionExportedInviteDelete",
         invite = if (inherits(self$invite, "TLObject")) self$invite$to_dict() else self$invite
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x5a, 0x50, 0xfc, 0xa4))
     }
   ),
-
   class = TRUE
 )
 
@@ -7131,29 +6798,24 @@ ChannelAdminLogEventActionExportedInviteEdit <- R6::R6Class("ChannelAdminLogEven
   public = list(
     CONSTRUCTOR_ID = 0xe90ebb59,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_invite = NULL,
     new_invite = NULL,
-
     initialize = function(prev_invite, new_invite) {
       self$prev_invite <- prev_invite
       self$new_invite <- new_invite
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionExportedInviteEdit',
+        "_" = "ChannelAdminLogEventActionExportedInviteEdit",
         prev_invite = if (inherits(self$prev_invite, "TLObject")) self$prev_invite$to_dict() else self$prev_invite,
         new_invite = if (inherits(self$new_invite, "TLObject")) self$new_invite$to_dict() else self$new_invite
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xe9, 0x0e, 0xbb, 0x59))
     }
   ),
-
   class = TRUE
 )
 
@@ -7163,26 +6825,21 @@ ChannelAdminLogEventActionExportedInviteRevoke <- R6::R6Class("ChannelAdminLogEv
   public = list(
     CONSTRUCTOR_ID = 0x410a134e,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     invite = NULL,
-
     initialize = function(invite) {
       self$invite <- invite
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionExportedInviteRevoke',
+        "_" = "ChannelAdminLogEventActionExportedInviteRevoke",
         invite = if (inherits(self$invite, "TLObject")) self$invite$to_dict() else self$invite
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x41, 0x0a, 0x13, 0x4e))
     }
   ),
-
   class = TRUE
 )
 
@@ -7192,26 +6849,21 @@ ChannelAdminLogEventActionParticipantInvite <- R6::R6Class("ChannelAdminLogEvent
   public = list(
     CONSTRUCTOR_ID = 0xe31c34d8,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     participant = NULL,
-
     initialize = function(participant) {
       self$participant <- participant
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionParticipantInvite',
+        "_" = "ChannelAdminLogEventActionParticipantInvite",
         participant = if (inherits(self$participant, "TLObject")) self$participant$to_dict() else self$participant
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xe3, 0x1c, 0x34, 0xd8))
     }
   ),
-
   class = TRUE
 )
 
@@ -7221,21 +6873,17 @@ ChannelAdminLogEventActionParticipantJoin <- R6::R6Class("ChannelAdminLogEventAc
   public = list(
     CONSTRUCTOR_ID = 0x183040d3,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     initialize = function() {
       # No parameters
     },
-
     to_dict = function() {
-      list('_' = 'ChannelAdminLogEventActionParticipantJoin')
+      list("_" = "ChannelAdminLogEventActionParticipantJoin")
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x18, 0x30, 0x40, 0xd3))
     }
   ),
-
   class = TRUE
 )
 
@@ -7245,29 +6893,24 @@ ChannelAdminLogEventActionParticipantJoinByInvite <- R6::R6Class("ChannelAdminLo
   public = list(
     CONSTRUCTOR_ID = 0xfe9fc158,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     invite = NULL,
     via_chatlist = NULL,
-
     initialize = function(invite, via_chatlist = NULL) {
       self$invite <- invite
       self$via_chatlist <- via_chatlist
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionParticipantJoinByInvite',
+        "_" = "ChannelAdminLogEventActionParticipantJoinByInvite",
         invite = if (inherits(self$invite, "TLObject")) self$invite$to_dict() else self$invite,
         via_chatlist = self$via_chatlist
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xfe, 0x9f, 0xc1, 0x58))
     }
   ),
-
   class = TRUE
 )
 
@@ -7277,29 +6920,24 @@ ChannelAdminLogEventActionParticipantJoinByRequest <- R6::R6Class("ChannelAdminL
   public = list(
     CONSTRUCTOR_ID = 0xafb6144a,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     invite = NULL,
     approved_by = NULL,
-
     initialize = function(invite, approved_by) {
       self$invite <- invite
       self$approved_by <- approved_by
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionParticipantJoinByRequest',
+        "_" = "ChannelAdminLogEventActionParticipantJoinByRequest",
         invite = if (inherits(self$invite, "TLObject")) self$invite$to_dict() else self$invite,
         approved_by = self$approved_by
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xaf, 0xb6, 0x14, 0x4a))
     }
   ),
-
   class = TRUE
 )
 
@@ -7309,21 +6947,17 @@ ChannelAdminLogEventActionParticipantLeave <- R6::R6Class("ChannelAdminLogEventA
   public = list(
     CONSTRUCTOR_ID = 0xf89777f2,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     initialize = function() {
       # No parameters
     },
-
     to_dict = function() {
-      list('_' = 'ChannelAdminLogEventActionParticipantLeave')
+      list("_" = "ChannelAdminLogEventActionParticipantLeave")
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xf8, 0x97, 0x77, 0xf2))
     }
   ),
-
   class = TRUE
 )
 
@@ -7333,26 +6967,21 @@ ChannelAdminLogEventActionParticipantMute <- R6::R6Class("ChannelAdminLogEventAc
   public = list(
     CONSTRUCTOR_ID = 0xf92424d2,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     participant = NULL,
-
     initialize = function(participant) {
       self$participant <- participant
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionParticipantMute',
+        "_" = "ChannelAdminLogEventActionParticipantMute",
         participant = if (inherits(self$participant, "TLObject")) self$participant$to_dict() else self$participant
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xf9, 0x24, 0x24, 0xd2))
     }
   ),
-
   class = TRUE
 )
 
@@ -7362,29 +6991,24 @@ ChannelAdminLogEventActionParticipantSubExtend <- R6::R6Class("ChannelAdminLogEv
   public = list(
     CONSTRUCTOR_ID = 0x64642db3,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_participant = NULL,
     new_participant = NULL,
-
     initialize = function(prev_participant, new_participant) {
       self$prev_participant <- prev_participant
       self$new_participant <- new_participant
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionParticipantSubExtend',
+        "_" = "ChannelAdminLogEventActionParticipantSubExtend",
         prev_participant = if (inherits(self$prev_participant, "TLObject")) self$prev_participant$to_dict() else self$prev_participant,
         new_participant = if (inherits(self$new_participant, "TLObject")) self$new_participant$to_dict() else self$new_participant
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x64, 0x64, 0x2d, 0xb3))
     }
   ),
-
   class = TRUE
 )
 
@@ -7394,29 +7018,24 @@ ChannelAdminLogEventActionParticipantToggleAdmin <- R6::R6Class("ChannelAdminLog
   public = list(
     CONSTRUCTOR_ID = 0xd5676710,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_participant = NULL,
     new_participant = NULL,
-
     initialize = function(prev_participant, new_participant) {
       self$prev_participant <- prev_participant
       self$new_participant <- new_participant
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionParticipantToggleAdmin',
+        "_" = "ChannelAdminLogEventActionParticipantToggleAdmin",
         prev_participant = if (inherits(self$prev_participant, "TLObject")) self$prev_participant$to_dict() else self$prev_participant,
         new_participant = if (inherits(self$new_participant, "TLObject")) self$new_participant$to_dict() else self$new_participant
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xd5, 0x67, 0x67, 0x10))
     }
   ),
-
   class = TRUE
 )
 
@@ -7426,29 +7045,24 @@ ChannelAdminLogEventActionParticipantToggleBan <- R6::R6Class("ChannelAdminLogEv
   public = list(
     CONSTRUCTOR_ID = 0xe6d83d7e,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_participant = NULL,
     new_participant = NULL,
-
     initialize = function(prev_participant, new_participant) {
       self$prev_participant <- prev_participant
       self$new_participant <- new_participant
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionParticipantToggleBan',
+        "_" = "ChannelAdminLogEventActionParticipantToggleBan",
         prev_participant = if (inherits(self$prev_participant, "TLObject")) self$prev_participant$to_dict() else self$prev_participant,
         new_participant = if (inherits(self$new_participant, "TLObject")) self$new_participant$to_dict() else self$new_participant
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xe6, 0xd8, 0x3d, 0x7e))
     }
   ),
-
   class = TRUE
 )
 
@@ -7458,26 +7072,21 @@ ChannelAdminLogEventActionParticipantUnmute <- R6::R6Class("ChannelAdminLogEvent
   public = list(
     CONSTRUCTOR_ID = 0xe64429c0,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     participant = NULL,
-
     initialize = function(participant) {
       self$participant <- participant
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionParticipantUnmute',
+        "_" = "ChannelAdminLogEventActionParticipantUnmute",
         participant = if (inherits(self$participant, "TLObject")) self$participant$to_dict() else self$participant
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xe6, 0x44, 0x29, 0xc0))
     }
   ),
-
   class = TRUE
 )
 
@@ -7487,26 +7096,21 @@ ChannelAdminLogEventActionParticipantVolume <- R6::R6Class("ChannelAdminLogEvent
   public = list(
     CONSTRUCTOR_ID = 0x3e7f6847,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     participant = NULL,
-
     initialize = function(participant) {
       self$participant <- participant
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionParticipantVolume',
+        "_" = "ChannelAdminLogEventActionParticipantVolume",
         participant = if (inherits(self$participant, "TLObject")) self$participant$to_dict() else self$participant
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x3e, 0x7f, 0x68, 0x47))
     }
   ),
-
   class = TRUE
 )
 
@@ -7516,29 +7120,24 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
   public = list(
     CONSTRUCTOR_ID = 0x5d8d353b,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_topic = NULL,
     new_topic = NULL,
-
     initialize = function(prev_topic = NULL, new_topic = NULL) {
       self$prev_topic <- prev_topic
       self$new_topic <- new_topic
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionPinTopic',
+        "_" = "ChannelAdminLogEventActionPinTopic",
         prev_topic = if (inherits(self$prev_topic, "TLObject")) self$prev_topic$to_dict() else self$prev_topic,
         new_topic = if (inherits(self$new_topic, "TLObject")) self$new_topic$to_dict() else self$new_topic
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x5d, 0x8d, 0x35, 0x3b))
     }
   ),
-
   class = TRUE
 )
 
@@ -7548,26 +7147,21 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
   public = list(
     CONSTRUCTOR_ID = 0x278f2868,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     message = NULL,
-
     initialize = function(message) {
       self$message <- message
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionSendMessage',
+        "_" = "ChannelAdminLogEventActionSendMessage",
         message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x27, 0x8f, 0x28, 0x68))
     }
   ),
-
   class = TRUE
 )
 
@@ -7577,26 +7171,21 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
   public = list(
     CONSTRUCTOR_ID = 0x23209745,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     call = NULL,
-
     initialize = function(call) {
       self$call <- call
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionStartGroupCall',
+        "_" = "ChannelAdminLogEventActionStartGroupCall",
         call = if (inherits(self$call, "TLObject")) self$call$to_dict() else self$call
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x23, 0x20, 0x97, 0x45))
     }
   ),
-
   class = TRUE
 )
 
@@ -7606,26 +7195,21 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
   public = list(
     CONSTRUCTOR_ID = 0x8f079643,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     message = NULL,
-
     initialize = function(message) {
       self$message <- message
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionStopPoll',
+        "_" = "ChannelAdminLogEventActionStopPoll",
         message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x8f, 0x07, 0x96, 0x43))
     }
   ),
-
   class = TRUE
 )
 
@@ -7635,26 +7219,21 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
   public = list(
     CONSTRUCTOR_ID = 0x64f36dfc,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     new_value = NULL,
-
     initialize = function(new_value) {
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleAntiSpam',
+        "_" = "ChannelAdminLogEventActionToggleAntiSpam",
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x64, 0xf3, 0x6d, 0xfc))
     }
   ),
-
   class = TRUE
 )
 
@@ -7664,26 +7243,21 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
   public = list(
     CONSTRUCTOR_ID = 0xc517f77e,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     new_value = NULL,
-
     initialize = function(new_value) {
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleAutotranslation',
+        "_" = "ChannelAdminLogEventActionToggleAutotranslation",
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xc5, 0x17, 0xf7, 0x7e))
     }
   ),
-
   class = TRUE
 )
 
@@ -7693,26 +7267,21 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
   public = list(
     CONSTRUCTOR_ID = 0x2cc6383,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     new_value = NULL,
-
     initialize = function(new_value) {
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleForum',
+        "_" = "ChannelAdminLogEventActionToggleForum",
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x02, 0xcc, 0x63, 0x83))
     }
   ),
-
   class = TRUE
 )
 
@@ -7722,26 +7291,21 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
   public = list(
     CONSTRUCTOR_ID = 0x56d6a247,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     join_muted = NULL,
-
     initialize = function(join_muted) {
       self$join_muted <- join_muted
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleGroupCallSetting',
+        "_" = "ChannelAdminLogEventActionToggleGroupCallSetting",
         join_muted = self$join_muted
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x56, 0xd6, 0xa2, 0x47))
     }
   ),
-
   class = TRUE
 )
 
@@ -7751,26 +7315,21 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
   public = list(
     CONSTRUCTOR_ID = 0x1b7907ae,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     new_value = NULL,
-
     initialize = function(new_value) {
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleInvites',
+        "_" = "ChannelAdminLogEventActionToggleInvites",
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x1b, 0x79, 0x07, 0xae))
     }
   ),
-
   class = TRUE
 )
 
@@ -7780,26 +7339,21 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
   public = list(
     CONSTRUCTOR_ID = 0xcb2ac766,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     new_value = NULL,
-
     initialize = function(new_value) {
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleNoForwards',
+        "_" = "ChannelAdminLogEventActionToggleNoForwards",
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xcb, 0x2a, 0xc7, 0x66))
     }
   ),
-
   class = TRUE
 )
 
@@ -7809,26 +7363,21 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
   public = list(
     CONSTRUCTOR_ID = 0x5f5c95f1,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     new_value = NULL,
-
     initialize = function(new_value) {
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionTogglePreHistoryHidden',
+        "_" = "ChannelAdminLogEventActionTogglePreHistoryHidden",
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x5f, 0x5c, 0x95, 0xf1))
     }
   ),
-
   class = TRUE
 )
 
@@ -7838,26 +7387,21 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
   public = list(
     CONSTRUCTOR_ID = 0x60a79c79,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     new_value = NULL,
-
     initialize = function(new_value) {
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleSignatureProfiles',
+        "_" = "ChannelAdminLogEventActionToggleSignatureProfiles",
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x60, 0xa7, 0x9c, 0x79))
     }
   ),
-
   class = TRUE
 )
 
@@ -7867,26 +7411,21 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
   public = list(
     CONSTRUCTOR_ID = 0x26ae0971,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     new_value = NULL,
-
     initialize = function(new_value) {
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleSignatures',
+        "_" = "ChannelAdminLogEventActionToggleSignatures",
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x26, 0xae, 0x09, 0x71))
     }
   ),
-
   class = TRUE
 )
 
@@ -7896,29 +7435,24 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
   public = list(
     CONSTRUCTOR_ID = 0x53909779,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     prev_value = NULL,
     new_value = NULL,
-
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
       self$new_value <- new_value
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleSlowMode',
+        "_" = "ChannelAdminLogEventActionToggleSlowMode",
         prev_value = self$prev_value,
         new_value = self$new_value
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x53, 0x90, 0x97, 0x79))
     }
   ),
-
   class = TRUE
 )
 
@@ -7928,26 +7462,21 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
   public = list(
     CONSTRUCTOR_ID = 0xe9e82c18,
     SUBCLASS_OF_ID = 0xb2b987f3,
-
     message = NULL,
-
     initialize = function(message) {
       self$message <- message
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionUpdatePinned',
+        "_" = "ChannelAdminLogEventActionUpdatePinned",
         message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xe9, 0xe8, 0x2c, 0x18))
     }
   ),
-
   class = TRUE
 )
 
@@ -7957,7 +7486,6 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   public = list(
     CONSTRUCTOR_ID = 0xea107ae4,
     SUBCLASS_OF_ID = 0x7cbbf319,
-
     join = NULL,
     leave = NULL,
     invite = NULL,
@@ -7977,11 +7505,10 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
     send = NULL,
     forums = NULL,
     sub_extend = NULL,
-
     initialize = function(join = NULL, leave = NULL, invite = NULL, ban = NULL, unban = NULL,
-                         kick = NULL, unkick = NULL, promote = NULL, demote = NULL, info = NULL,
-                         settings = NULL, pinned = NULL, edit = NULL, delete = NULL, group_call = NULL,
-                         invites = NULL, send = NULL, forums = NULL, sub_extend = NULL) {
+                          kick = NULL, unkick = NULL, promote = NULL, demote = NULL, info = NULL,
+                          settings = NULL, pinned = NULL, edit = NULL, delete = NULL, group_call = NULL,
+                          invites = NULL, send = NULL, forums = NULL, sub_extend = NULL) {
       self$join <- join
       self$leave <- leave
       self$invite <- invite
@@ -8002,10 +7529,9 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
       self$forums <- forums
       self$sub_extend <- sub_extend
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventsFilter',
+        "_" = "ChannelAdminLogEventsFilter",
         join = self$join,
         leave = self$leave,
         invite = self$invite,
@@ -8027,13 +7553,11 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
         sub_extend = self$sub_extend
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xea, 0x10, 0x7a, 0xe4))
     }
   ),
-
   class = TRUE
 )
 
@@ -8043,14 +7567,12 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
   public = list(
     CONSTRUCTOR_ID = 0x17d493d5,
     SUBCLASS_OF_ID = 0xc5af5d94,
-
     id = NULL,
     access_hash = NULL,
     title = NULL,
     broadcast = NULL,
     megagroup = NULL,
     until_date = NULL,
-
     initialize = function(id, access_hash, title, broadcast = NULL, megagroup = NULL, until_date = NULL) {
       self$id <- id
       self$access_hash <- access_hash
@@ -8059,10 +7581,9 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
       self$megagroup <- megagroup
       self$until_date <- until_date
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelForbidden',
+        "_" = "ChannelForbidden",
         id = self$id,
         access_hash = self$access_hash,
         title = self$title,
@@ -8071,13 +7592,11 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
         until_date = self$until_date
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x17, 0xd4, 0x93, 0xd5))
     }
   ),
-
   class = TRUE
 )
 
@@ -8087,7 +7606,6 @@ ChannelFull <- R6::R6Class("ChannelFull",
   public = list(
     CONSTRUCTOR_ID = 0xe4e0b29d,
     SUBCLASS_OF_ID = 0xd49a2697,
-
     id = NULL,
     about = NULL,
     read_inbox_max_id = NULL,
@@ -8154,21 +7672,20 @@ ChannelFull <- R6::R6Class("ChannelFull",
     stargifts_count = NULL,
     send_paid_messages_stars = NULL,
     main_tab = NULL,
-
     initialize = function(id, about, read_inbox_max_id, read_outbox_max_id, unread_count, chat_photo, notify_settings, bot_info, pts,
-                         can_view_participants = NULL, can_set_username = NULL, can_set_stickers = NULL, hidden_prehistory = NULL,
-                         can_set_location = NULL, has_scheduled = NULL, can_view_stats = NULL, blocked = NULL, can_delete_channel = NULL,
-                         antispam = NULL, participants_hidden = NULL, translations_disabled = NULL, stories_pinned_available = NULL,
-                         view_forum_as_messages = NULL, restricted_sponsored = NULL, can_view_revenue = NULL, paid_media_allowed = NULL,
-                         can_view_stars_revenue = NULL, paid_reactions_available = NULL, stargifts_available = NULL, paid_messages_available = NULL,
-                         participants_count = NULL, admins_count = NULL, kicked_count = NULL, banned_count = NULL, online_count = NULL,
-                         exported_invite = NULL, migrated_from_chat_id = NULL, migrated_from_max_id = NULL, pinned_msg_id = NULL,
-                         stickerset = NULL, available_min_id = NULL, folder_id = NULL, linked_chat_id = NULL, location = NULL,
-                         slowmode_seconds = NULL, slowmode_next_send_date = NULL, stats_dc = NULL, call = NULL, ttl_period = NULL,
-                         pending_suggestions = NULL, groupcall_default_join_as = NULL, theme_emoticon = NULL, requests_pending = NULL,
-                         recent_requesters = NULL, default_send_as = NULL, available_reactions = NULL, reactions_limit = NULL,
-                         stories = NULL, wallpaper = NULL, boosts_applied = NULL, boosts_unrestrict = NULL, emojiset = NULL,
-                         bot_verification = NULL, stargifts_count = NULL, send_paid_messages_stars = NULL, main_tab = NULL) {
+                          can_view_participants = NULL, can_set_username = NULL, can_set_stickers = NULL, hidden_prehistory = NULL,
+                          can_set_location = NULL, has_scheduled = NULL, can_view_stats = NULL, blocked = NULL, can_delete_channel = NULL,
+                          antispam = NULL, participants_hidden = NULL, translations_disabled = NULL, stories_pinned_available = NULL,
+                          view_forum_as_messages = NULL, restricted_sponsored = NULL, can_view_revenue = NULL, paid_media_allowed = NULL,
+                          can_view_stars_revenue = NULL, paid_reactions_available = NULL, stargifts_available = NULL, paid_messages_available = NULL,
+                          participants_count = NULL, admins_count = NULL, kicked_count = NULL, banned_count = NULL, online_count = NULL,
+                          exported_invite = NULL, migrated_from_chat_id = NULL, migrated_from_max_id = NULL, pinned_msg_id = NULL,
+                          stickerset = NULL, available_min_id = NULL, folder_id = NULL, linked_chat_id = NULL, location = NULL,
+                          slowmode_seconds = NULL, slowmode_next_send_date = NULL, stats_dc = NULL, call = NULL, ttl_period = NULL,
+                          pending_suggestions = NULL, groupcall_default_join_as = NULL, theme_emoticon = NULL, requests_pending = NULL,
+                          recent_requesters = NULL, default_send_as = NULL, available_reactions = NULL, reactions_limit = NULL,
+                          stories = NULL, wallpaper = NULL, boosts_applied = NULL, boosts_unrestrict = NULL, emojiset = NULL,
+                          bot_verification = NULL, stargifts_count = NULL, send_paid_messages_stars = NULL, main_tab = NULL) {
       self$id <- id
       self$about <- about
       self$read_inbox_max_id <- read_inbox_max_id
@@ -8236,10 +7753,9 @@ ChannelFull <- R6::R6Class("ChannelFull",
       self$send_paid_messages_stars <- send_paid_messages_stars
       self$main_tab <- main_tab
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelFull',
+        "_" = "ChannelFull",
         id = self$id,
         about = self$about,
         read_inbox_max_id = self$read_inbox_max_id,
@@ -8308,13 +7824,11 @@ ChannelFull <- R6::R6Class("ChannelFull",
         main_tab = if (inherits(self$main_tab, "TLObject")) self$main_tab$to_dict() else self$main_tab
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0xe4, 0xe0, 0xb2, 0x9d))
     }
   ),
-
   class = TRUE
 )
 
@@ -8330,7 +7844,7 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionPinTopic',
+        "_" = "ChannelAdminLogEventActionPinTopic",
         prev_topic = if (inherits(self$prev_topic, "TLObject")) self$prev_topic$to_dict() else self$prev_topic,
         new_topic = if (inherits(self$new_topic, "TLObject")) self$new_topic$to_dict() else self$new_topic
       )
@@ -8373,7 +7887,7 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionSendMessage',
+        "_" = "ChannelAdminLogEventActionSendMessage",
         message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
       )
     },
@@ -8403,7 +7917,7 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionStartGroupCall',
+        "_" = "ChannelAdminLogEventActionStartGroupCall",
         call = if (inherits(self$call, "TLObject")) self$call$to_dict() else self$call
       )
     },
@@ -8433,7 +7947,7 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionStopPoll',
+        "_" = "ChannelAdminLogEventActionStopPoll",
         message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
       )
     },
@@ -8463,7 +7977,7 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleAntiSpam',
+        "_" = "ChannelAdminLogEventActionToggleAntiSpam",
         new_value = self$new_value
       )
     },
@@ -8493,7 +8007,7 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleAutotranslation',
+        "_" = "ChannelAdminLogEventActionToggleAutotranslation",
         new_value = self$new_value
       )
     },
@@ -8523,7 +8037,7 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleForum',
+        "_" = "ChannelAdminLogEventActionToggleForum",
         new_value = self$new_value
       )
     },
@@ -8553,36 +8067,24 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleGroupCallSetting',
+        "_" = "ChannelAdminLogEventActionToggleGroupCallSetting",
         join_muted = self$join_muted
       )
     },
     bytes = function() {
-
       c(
-
         packBits(intToBits(0x56d6a247), 32),
-
         packBits(intToBits(if (self$join_muted) 0xb5757299 else 0x3797bc7c), 32)
-
       )
-
     }
-
   ),
-
   private = list(
-
     from_reader = function(reader) {
-
       join_muted <- reader$tgread_bool()
 
       self$initialize(join_muted = join_muted)
-
     }
-
   )
-
 )
 
 
@@ -8596,7 +8098,7 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleInvites',
+        "_" = "ChannelAdminLogEventActionToggleInvites",
         new_value = self$new_value
       )
     },
@@ -8626,7 +8128,7 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleNoForwards',
+        "_" = "ChannelAdminLogEventActionToggleNoForwards",
         new_value = self$new_value
       )
     },
@@ -8656,7 +8158,7 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionTogglePreHistoryHidden',
+        "_" = "ChannelAdminLogEventActionTogglePreHistoryHidden",
         new_value = self$new_value
       )
     },
@@ -8686,7 +8188,7 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleSignatureProfiles',
+        "_" = "ChannelAdminLogEventActionToggleSignatureProfiles",
         new_value = self$new_value
       )
     },
@@ -8716,7 +8218,7 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleSignatures',
+        "_" = "ChannelAdminLogEventActionToggleSignatures",
         new_value = self$new_value
       )
     },
@@ -8747,7 +8249,7 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionToggleSlowMode',
+        "_" = "ChannelAdminLogEventActionToggleSlowMode",
         prev_value = self$prev_value,
         new_value = self$new_value
       )
@@ -8780,8 +8282,8 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventActionUpdatePinned',
-        message = if (inherits(self$message, 'TLObject')) self$message$to_dict() else self$message
+        "_" = "ChannelAdminLogEventActionUpdatePinned",
+        message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
       )
     },
     bytes = function() {
@@ -8828,7 +8330,7 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelAdminLogEventsFilter',
+        "_" = "ChannelAdminLogEventsFilter",
         join = self$join,
         leave = self$leave,
         invite = self$invite,
@@ -8900,7 +8402,7 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
     },
     to_dict = function() {
       list(
-        '_' = 'ChannelForbidden',
+        "_" = "ChannelForbidden",
         id = self$id,
         access_hash = self$access_hash,
         title = self$title,
@@ -8944,7 +8446,6 @@ ChannelFull <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xe4e0b29d,
     SUBCLASS_OF_ID = 0xd49a2697,
-
     id = NULL,
     about = NULL,
     read_inbox_max_id = NULL,
@@ -9011,7 +8512,6 @@ ChannelFull <- R6::R6Class(
     stargifts_count = NULL,
     send_paid_messages_stars = NULL,
     main_tab = NULL,
-
     initialize = function(id, about, read_inbox_max_id, read_outbox_max_id, unread_count, chat_photo, notify_settings, bot_info, pts,
                           can_view_participants = NULL, can_set_username = NULL, can_set_stickers = NULL, hidden_prehistory = NULL,
                           can_set_location = NULL, has_scheduled = NULL, can_view_stats = NULL, blocked = NULL, can_delete_channel = NULL,
@@ -9093,7 +8593,6 @@ ChannelFull <- R6::R6Class(
       self$send_paid_messages_stars <- send_paid_messages_stars
       self$main_tab <- main_tab
     },
-
     to_dict = function() {
       list(
         `_` = "ChannelFull",
@@ -9175,23 +8674,19 @@ ChannelLocation <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x209b82db,
     SUBCLASS_OF_ID = 0xec260b7f,
-
     geo_point = NULL,
     address = NULL,
-
     initialize = function(geo_point, address) {
       self$geo_point <- geo_point
       self$address <- address
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelLocation',
+        "_" = "ChannelLocation",
         geo_point = if (inherits(self$geo_point, "TLObject")) self$geo_point$to_dict() else self$geo_point,
         address = self$address
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xdb, 0x82, 0x9b, 0x20)),
@@ -9200,7 +8695,6 @@ ChannelLocation <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       geo_point <- reader$tgread_object()
@@ -9217,28 +8711,23 @@ ChannelLocationEmpty <- R6::R6Class("ChannelLocationEmpty",
   public = list(
     CONSTRUCTOR_ID = 0xbfb5ad8b,
     SUBCLASS_OF_ID = 0xec260b7f,
-
     initialize = function() {
       # no fields
     },
-
     to_dict = function() {
-      list('_' = 'ChannelLocationEmpty')
+      list("_" = "ChannelLocationEmpty")
     },
-
     bytes = function() {
       warning("bytes not implemented for R")
       as.raw(c(0x8b, 0xad, 0xb5, 0xbf))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # nothing to read for empty location
       self$initialize()
     }
   ),
-
   class = TRUE
 )
 
@@ -9248,29 +8737,24 @@ ChannelMessagesFilter <- R6::R6Class("ChannelMessagesFilter",
   public = list(
     CONSTRUCTOR_ID = 0xcd77d957,
     SUBCLASS_OF_ID = 0x13336a56,
-
     ranges = NULL,
     exclude_new_messages = NULL,
-
     initialize = function(ranges, exclude_new_messages = NULL) {
       self$ranges <- ranges
       self$exclude_new_messages <- exclude_new_messages
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelMessagesFilter',
+        "_" = "ChannelMessagesFilter",
         ranges = if (is.null(self$ranges)) NULL else lapply(self$ranges, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
         exclude_new_messages = self$exclude_new_messages
       )
     },
-
     bytes = function() {
       warning("bytes not fully implemented for R")
       as.raw(c(0x57, 0xd9, 0x77, 0xcd))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -9285,7 +8769,6 @@ ChannelMessagesFilter <- R6::R6Class("ChannelMessagesFilter",
       self$initialize(ranges = ranges, exclude_new_messages = exclude_new_messages)
     }
   ),
-
   class = TRUE
 )
 
@@ -9295,27 +8778,22 @@ ChannelMessagesFilterEmpty <- R6::R6Class("ChannelMessagesFilterEmpty",
   public = list(
     CONSTRUCTOR_ID = 0x94d42ee7,
     SUBCLASS_OF_ID = 0x13336a56,
-
     initialize = function() {
       # empty
     },
-
     to_dict = function() {
-      list('_' = 'ChannelMessagesFilterEmpty')
+      list("_" = "ChannelMessagesFilterEmpty")
     },
-
     bytes = function() {
       warning("bytes not implemented for R")
       as.raw(c(0xe7, 0x2e, 0xd4, 0x94))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$initialize()
     }
   ),
-
   class = TRUE
 )
 
@@ -9326,26 +8804,22 @@ ChannelParticipant <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xcb397619,
     SUBCLASS_OF_ID = 0xd9c7fc18,
-
     user_id = NULL,
     date = NULL,
     subscription_until_date = NULL,
-
     initialize = function(user_id, date, subscription_until_date = NULL) {
       self$user_id <- user_id
       self$date <- date
       self$subscription_until_date <- subscription_until_date
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelParticipant',
+        "_" = "ChannelParticipant",
         user_id = self$user_id,
         date = self$date,
         subscription_until_date = self$subscription_until_date
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x19, 0x76, 0x39, 0xcb)),
@@ -9373,7 +8847,6 @@ ChannelParticipantAdmin <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x34c3bb53,
     SUBCLASS_OF_ID = 0xd9c7fc18,
-
     user_id = NULL,
     promoted_by = NULL,
     date = NULL,
@@ -9382,7 +8855,6 @@ ChannelParticipantAdmin <- R6::R6Class(
     is_self = NULL,
     inviter_id = NULL,
     rank = NULL,
-
     initialize = function(user_id, promoted_by, date, admin_rights, can_edit = NULL, is_self = NULL, inviter_id = NULL, rank = NULL) {
       self$user_id <- user_id
       self$promoted_by <- promoted_by
@@ -9393,10 +8865,9 @@ ChannelParticipantAdmin <- R6::R6Class(
       self$inviter_id <- inviter_id
       self$rank <- rank
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelParticipantAdmin',
+        "_" = "ChannelParticipantAdmin",
         user_id = self$user_id,
         promoted_by = self$promoted_by,
         date = self$date,
@@ -9407,12 +8878,11 @@ ChannelParticipantAdmin <- R6::R6Class(
         rank = self$rank
       )
     },
-
     bytes = function() {
       # is_self and inviter_id must both be NULL/FALSE or both not
       stopifnot(
         ((self$is_self || !is.null(self$is_self)) && (self$inviter_id || !is.null(self$inviter_id))) ||
-        ((is.null(self$is_self) || identical(self$is_self, FALSE)) && (is.null(self$inviter_id) || identical(self$inviter_id, FALSE)))
+          ((is.null(self$is_self) || identical(self$is_self, FALSE)) && (is.null(self$inviter_id) || identical(self$inviter_id, FALSE)))
       )
       flags <- (if (!is.null(self$can_edit) && self$can_edit) 1 else 0) |
         (if (!is.null(self$is_self) && self$is_self) 2 else 0) |
@@ -9455,13 +8925,11 @@ ChannelParticipantBanned <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x6df8014e,
     SUBCLASS_OF_ID = 0xd9c7fc18,
-
     peer = NULL,
     kicked_by = NULL,
     date = NULL,
     banned_rights = NULL,
     left = NULL,
-
     initialize = function(peer, kicked_by, date, banned_rights, left = NULL) {
       self$peer <- peer
       self$kicked_by <- kicked_by
@@ -9469,10 +8937,9 @@ ChannelParticipantBanned <- R6::R6Class(
       self$banned_rights <- banned_rights
       self$left <- left
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelParticipantBanned',
+        "_" = "ChannelParticipantBanned",
         peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
         kicked_by = self$kicked_by,
         date = self$date,
@@ -9480,7 +8947,6 @@ ChannelParticipantBanned <- R6::R6Class(
         left = self$left
       )
     },
-
     bytes = function() {
       flags <- if (!is.null(self$left) && self$left) 1 else 0
       c(
@@ -9513,26 +8979,22 @@ ChannelParticipantCreator <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x2fe601d3,
     SUBCLASS_OF_ID = 0xd9c7fc18,
-
     user_id = NULL,
     admin_rights = NULL,
     rank = NULL,
-
     initialize = function(user_id, admin_rights, rank = NULL) {
       self$user_id <- user_id
       self$admin_rights <- admin_rights
       self$rank <- rank
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelParticipantCreator',
+        "_" = "ChannelParticipantCreator",
         user_id = self$user_id,
         admin_rights = if (inherits(self$admin_rights, "TLObject")) self$admin_rights$to_dict() else self$admin_rights,
         rank = self$rank
       )
     },
-
     bytes = function() {
       b <- c(
         as.raw(c(0xd3, 0x01, 0xe6, 0x2f)),
@@ -9563,20 +9025,16 @@ ChannelParticipantLeft <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x1b03f006,
     SUBCLASS_OF_ID = 0xd9c7fc18,
-
     peer = NULL,
-
     initialize = function(peer) {
       self$peer <- peer
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelParticipantLeft',
+        "_" = "ChannelParticipantLeft",
         peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x06, 0xf0, 0x03, 0x1b)),
@@ -9598,13 +9056,11 @@ ChannelParticipantSelf <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x4f607bef,
     SUBCLASS_OF_ID = 0xd9c7fc18,
-
     user_id = NULL,
     inviter_id = NULL,
     date = NULL,
     via_request = NULL,
     subscription_until_date = NULL,
-
     initialize = function(user_id, inviter_id, date, via_request = NULL, subscription_until_date = NULL) {
       self$user_id <- user_id
       self$inviter_id <- inviter_id
@@ -9612,10 +9068,9 @@ ChannelParticipantSelf <- R6::R6Class(
       self$via_request <- via_request
       self$subscription_until_date <- subscription_until_date
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChannelParticipantSelf',
+        "_" = "ChannelParticipantSelf",
         user_id = self$user_id,
         inviter_id = self$inviter_id,
         date = self$date,
@@ -9623,7 +9078,6 @@ ChannelParticipantSelf <- R6::R6Class(
         subscription_until_date = self$subscription_until_date
       )
     },
-
     bytes = function() {
       flags <- (if (!is.null(self$via_request)) 1 else 0) +
         (if (!is.null(self$subscription_until_date)) 2 else 0)
@@ -9659,11 +9113,9 @@ ChannelParticipantsAdmins <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb4608969,
     SUBCLASS_OF_ID = 0xbf4e2753,
-
     to_dict = function() {
-      list('_' = 'ChannelParticipantsAdmins')
+      list("_" = "ChannelParticipantsAdmins")
     },
-
     bytes = function() {
       as.raw(c(0x69, 0x89, 0x60, 0xb4))
     }
@@ -9681,17 +9133,13 @@ ChannelParticipantsBanned <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x1427a5e1,
     SUBCLASS_OF_ID = 0xbf4e2753,
-
     q = NULL,
-
     initialize = function(q) {
       self$q <- q
     },
-
     to_dict = function() {
-      list('_' = 'ChannelParticipantsBanned', q = self$q)
+      list("_" = "ChannelParticipantsBanned", q = self$q)
     },
-
     bytes = function() {
       c(
         as.raw(c(0xe1, 0xa5, 0x27, 0x14)),
@@ -9713,11 +9161,9 @@ ChannelParticipantsBots <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb0d1865b,
     SUBCLASS_OF_ID = 0xbf4e2753,
-
     to_dict = function() {
-      list('_' = 'ChannelParticipantsBots')
+      list("_" = "ChannelParticipantsBots")
     },
-
     bytes = function() {
       as.raw(c(0x5b, 0x86, 0xd1, 0xb0))
     }
@@ -9735,17 +9181,13 @@ ChannelParticipantsContacts <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xbb6ae88d,
     SUBCLASS_OF_ID = 0xbf4e2753,
-
     q = NULL,
-
     initialize = function(q) {
       self$q <- q
     },
-
     to_dict = function() {
-      list('_' = 'ChannelParticipantsContacts', q = self$q)
+      list("_" = "ChannelParticipantsContacts", q = self$q)
     },
-
     bytes = function() {
       c(
         as.raw(c(0x8d, 0xe8, 0x6a, 0xbb)),
@@ -9767,17 +9209,13 @@ ChannelParticipantsKicked <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xa3b54985,
     SUBCLASS_OF_ID = 0xbf4e2753,
-
     q = NULL,
-
     initialize = function(q) {
       self$q <- q
     },
-
     to_dict = function() {
-      list('_' = 'ChannelParticipantsKicked', q = self$q)
+      list("_" = "ChannelParticipantsKicked", q = self$q)
     },
-
     bytes = function() {
       c(
         as.raw(c(0x85, 0x49, 0xb5, 0xa3)),
@@ -9799,19 +9237,15 @@ ChannelParticipantsMentions <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xe04b5ceb,
     SUBCLASS_OF_ID = 0xbf4e2753,
-
     q = NULL,
     top_msg_id = NULL,
-
     initialize = function(q = NULL, top_msg_id = NULL) {
       self$q <- q
       self$top_msg_id <- top_msg_id
     },
-
     to_dict = function() {
-      list('_' = 'ChannelParticipantsMentions', q = self$q, top_msg_id = self$top_msg_id)
+      list("_" = "ChannelParticipantsMentions", q = self$q, top_msg_id = self$top_msg_id)
     },
-
     bytes = function() {
       flags <- (if (!is.null(self$q)) 1 else 0) +
         (if (!is.null(self$top_msg_id)) 2 else 0)
@@ -9844,11 +9278,9 @@ ChannelParticipantsRecent <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xde3f3c79,
     SUBCLASS_OF_ID = 0xbf4e2753,
-
     to_dict = function() {
-      list('_' = 'ChannelParticipantsRecent')
+      list("_" = "ChannelParticipantsRecent")
     },
-
     bytes = function() {
       as.raw(c(0x79, 0x3f, 0x3f, 0xde))
     }
@@ -9866,17 +9298,13 @@ ChannelParticipantsSearch <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x656ac4b,
     SUBCLASS_OF_ID = 0xbf4e2753,
-
     q = NULL,
-
     initialize = function(q) {
       self$q <- q
     },
-
     to_dict = function() {
-      list('_' = 'ChannelParticipantsSearch', q = self$q)
+      list("_" = "ChannelParticipantsSearch", q = self$q)
     },
-
     bytes = function() {
       c(
         as.raw(c(0x4b, 0xac, 0x56, 0x06)),
@@ -9899,7 +9327,6 @@ ChatAdminRights <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x5fb224d5,
     SUBCLASS_OF_ID = 0x863dc7c4,
-
     change_info = NULL,
     post_messages = NULL,
     edit_messages = NULL,
@@ -9916,7 +9343,6 @@ ChatAdminRights <- R6::R6Class(
     edit_stories = NULL,
     delete_stories = NULL,
     manage_direct_messages = NULL,
-
     initialize = function(change_info = NULL, post_messages = NULL, edit_messages = NULL, delete_messages = NULL, ban_users = NULL, invite_users = NULL, pin_messages = NULL, add_admins = NULL, anonymous = NULL, manage_call = NULL, other = NULL, manage_topics = NULL, post_stories = NULL, edit_stories = NULL, delete_stories = NULL, manage_direct_messages = NULL) {
       self$change_info <- change_info
       self$post_messages <- post_messages
@@ -9935,7 +9361,6 @@ ChatAdminRights <- R6::R6Class(
       self$delete_stories <- delete_stories
       self$manage_direct_messages <- manage_direct_messages
     },
-
     to_list = function() {
       list(
         `_` = "ChatAdminRights",
@@ -9957,7 +9382,6 @@ ChatAdminRights <- R6::R6Class(
         manage_direct_messages = self$manage_direct_messages
       )
     },
-
     bytes = function() {
       flag_values <- c(
         ifelse(isTRUE(self$change_info), 1, 0),
@@ -9988,7 +9412,6 @@ ChatAdminRights <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -10039,17 +9462,14 @@ ChatAdminWithInvites <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xf2ecef23,
     SUBCLASS_OF_ID = 0x5063f398,
-
     admin_id = NULL,
     invites_count = NULL,
     revoked_invites_count = NULL,
-
     initialize = function(admin_id, invites_count, revoked_invites_count) {
       self$admin_id <- admin_id
       self$invites_count <- invites_count
       self$revoked_invites_count <- revoked_invites_count
     },
-
     to_list = function() {
       list(
         "_" = "ChatAdminWithInvites",
@@ -10058,7 +9478,6 @@ ChatAdminWithInvites <- R6::R6Class(
         revoked_invites_count = self$revoked_invites_count
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x23, 0xef, 0xec, 0xf2)),
@@ -10068,7 +9487,6 @@ ChatAdminWithInvites <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       admin_id <- reader$read_long()
@@ -10086,7 +9504,6 @@ ChatBannedRights <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9f120418,
     SUBCLASS_OF_ID = 0x4b5445a9,
-
     until_date = NULL,
     view_messages = NULL,
     send_messages = NULL,
@@ -10108,7 +9525,6 @@ ChatBannedRights <- R6::R6Class(
     send_voices = NULL,
     send_docs = NULL,
     send_plain = NULL,
-
     initialize = function(until_date, view_messages = NULL, send_messages = NULL, send_media = NULL, send_stickers = NULL, send_gifs = NULL, send_games = NULL, send_inline = NULL, embed_links = NULL, send_polls = NULL, change_info = NULL, invite_users = NULL, pin_messages = NULL, manage_topics = NULL, send_photos = NULL, send_videos = NULL, send_roundvideos = NULL, send_audios = NULL, send_voices = NULL, send_docs = NULL, send_plain = NULL) {
       self$until_date <- until_date
       self$view_messages <- view_messages
@@ -10132,7 +9548,6 @@ ChatBannedRights <- R6::R6Class(
       self$send_docs <- send_docs
       self$send_plain <- send_plain
     },
-
     to_list = function() {
       list(
         "_" = "ChatBannedRights",
@@ -10159,28 +9574,27 @@ ChatBannedRights <- R6::R6Class(
         send_plain = self$send_plain
       )
     },
-
     bytes = function() {
       flags <- (ifelse(isTRUE(self$view_messages), 1, 0) |
-                ifelse(isTRUE(self$send_messages), 2, 0) |
-                ifelse(isTRUE(self$send_media), 4, 0) |
-                ifelse(isTRUE(self$send_stickers), 8, 0) |
-                ifelse(isTRUE(self$send_gifs), 16, 0) |
-                ifelse(isTRUE(self$send_games), 32, 0) |
-                ifelse(isTRUE(self$send_inline), 64, 0) |
-                ifelse(isTRUE(self$embed_links), 128, 0) |
-                ifelse(isTRUE(self$send_polls), 256, 0) |
-                ifelse(isTRUE(self$change_info), 1024, 0) |
-                ifelse(isTRUE(self$invite_users), 32768, 0) |
-                ifelse(isTRUE(self$pin_messages), 131072, 0) |
-                ifelse(isTRUE(self$manage_topics), 262144, 0) |
-                ifelse(isTRUE(self$send_photos), 524288, 0) |
-                ifelse(isTRUE(self$send_videos), 1048576, 0) |
-                ifelse(isTRUE(self$send_roundvideos), 2097152, 0) |
-                ifelse(isTRUE(self$send_audios), 4194304, 0) |
-                ifelse(isTRUE(self$send_voices), 8388608, 0) |
-                ifelse(isTRUE(self$send_docs), 16777216, 0) |
-                ifelse(isTRUE(self$send_plain), 33554432, 0))
+        ifelse(isTRUE(self$send_messages), 2, 0) |
+        ifelse(isTRUE(self$send_media), 4, 0) |
+        ifelse(isTRUE(self$send_stickers), 8, 0) |
+        ifelse(isTRUE(self$send_gifs), 16, 0) |
+        ifelse(isTRUE(self$send_games), 32, 0) |
+        ifelse(isTRUE(self$send_inline), 64, 0) |
+        ifelse(isTRUE(self$embed_links), 128, 0) |
+        ifelse(isTRUE(self$send_polls), 256, 0) |
+        ifelse(isTRUE(self$change_info), 1024, 0) |
+        ifelse(isTRUE(self$invite_users), 32768, 0) |
+        ifelse(isTRUE(self$pin_messages), 131072, 0) |
+        ifelse(isTRUE(self$manage_topics), 262144, 0) |
+        ifelse(isTRUE(self$send_photos), 524288, 0) |
+        ifelse(isTRUE(self$send_videos), 1048576, 0) |
+        ifelse(isTRUE(self$send_roundvideos), 2097152, 0) |
+        ifelse(isTRUE(self$send_audios), 4194304, 0) |
+        ifelse(isTRUE(self$send_voices), 8388608, 0) |
+        ifelse(isTRUE(self$send_docs), 16777216, 0) |
+        ifelse(isTRUE(self$send_plain), 33554432, 0))
       c(
         as.raw(c(0x18, 0x04, 0x12, 0x9f)),
         writeBin(as.integer(flags), raw(), size = 4),
@@ -10188,7 +9602,6 @@ ChatBannedRights <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -10227,7 +9640,6 @@ ChatFull <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x2633421b,
     SUBCLASS_OF_ID = 0xd49a2697,
-
     id = NULL,
     about = NULL,
     participants = NULL,
@@ -10248,7 +9660,6 @@ ChatFull <- R6::R6Class(
     recent_requesters = NULL,
     available_reactions = NULL,
     reactions_limit = NULL,
-
     initialize = function(id, about, participants, notify_settings,
                           can_set_username = NULL, has_scheduled = NULL,
                           translations_disabled = NULL, chat_photo = NULL,
@@ -10279,7 +9690,6 @@ ChatFull <- R6::R6Class(
       self$available_reactions <- available_reactions
       self$reactions_limit <- reactions_limit
     },
-
     to_list = function() {
       list(
         "_" = "ChatFull",
@@ -10305,7 +9715,6 @@ ChatFull <- R6::R6Class(
         reactions_limit = self$reactions_limit
       )
     },
-
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -10321,7 +9730,9 @@ ChatFull <- R6::R6Class(
       bot_info <- if (bitwAnd(flags, 8)) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
       pinned_msg_id <- if (bitwAnd(flags, 64)) reader$read_int() else NULL
       folder_id <- if (bitwAnd(flags, 2048)) reader$read_int() else NULL
       call <- if (bitwAnd(flags, 4096)) reader$tgread_object() else NULL
@@ -10332,7 +9743,9 @@ ChatFull <- R6::R6Class(
       recent_requesters <- if (bitwAnd(flags, 131072)) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(x) reader$read_long())
-      } else NULL
+      } else {
+        NULL
+      }
       available_reactions <- if (bitwAnd(flags, 262144)) reader$tgread_object() else NULL
       reactions_limit <- if (bitwAnd(flags, 1048576)) reader$read_int() else NULL
 
@@ -10358,7 +9771,6 @@ ChatInvite <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x5c9d3702,
     SUBCLASS_OF_ID = 0x4561736,
-
     title = NULL,
     photo = NULL,
     participants_count = NULL,
@@ -10377,7 +9789,6 @@ ChatInvite <- R6::R6Class(
     subscription_pricing = NULL,
     subscription_form_id = NULL,
     bot_verification = NULL,
-
     initialize = function(title, photo, participants_count, color, channel = NULL, broadcast = NULL, public = NULL, megagroup = NULL, request_needed = NULL, verified = NULL, scam = NULL, fake = NULL, can_refulfill_subscription = NULL, about = NULL, participants = NULL, subscription_pricing = NULL, subscription_form_id = NULL, bot_verification = NULL) {
       self$title <- title
       self$photo <- photo
@@ -10398,10 +9809,9 @@ ChatInvite <- R6::R6Class(
       self$subscription_form_id <- subscription_form_id
       self$bot_verification <- bot_verification
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChatInvite',
+        "_" = "ChatInvite",
         title = self$title,
         photo = if (!is.null(self$photo) && inherits(self$photo, "TLObject")) self$photo$to_dict() else self$photo,
         participants_count = self$participants_count,
@@ -10432,16 +9842,13 @@ ChatInviteAlready <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x5a686d7c,
     SUBCLASS_OF_ID = 0x4561736,
-
     chat = NULL,
-
     initialize = function(chat) {
       self$chat <- chat
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChatInviteAlready',
+        "_" = "ChatInviteAlready",
         chat = if (!is.null(self$chat) && inherits(self$chat, "TLObject")) self$chat$to_dict() else self$chat
       )
     }
@@ -10455,7 +9862,6 @@ ChatInviteExported <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xa22cbd96,
     SUBCLASS_OF_ID = 0xb4748a58,
-
     link = NULL,
     admin_id = NULL,
     date = NULL,
@@ -10470,7 +9876,6 @@ ChatInviteExported <- R6::R6Class(
     subscription_expired = NULL,
     title = NULL,
     subscription_pricing = NULL,
-
     initialize = function(link, admin_id, date, revoked = NULL, permanent = NULL, request_needed = NULL, start_date = NULL, expire_date = NULL, usage_limit = NULL, usage = NULL, requested = NULL, subscription_expired = NULL, title = NULL, subscription_pricing = NULL) {
       self$link <- link
       self$admin_id <- admin_id
@@ -10487,10 +9892,9 @@ ChatInviteExported <- R6::R6Class(
       self$title <- title
       self$subscription_pricing <- subscription_pricing
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChatInviteExported',
+        "_" = "ChatInviteExported",
         link = self$link,
         admin_id = self$admin_id,
         date = self$date,
@@ -10517,14 +9921,12 @@ ChatInviteImporter <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x8c5adfd9,
     SUBCLASS_OF_ID = 0x5312542e,
-
     user_id = NULL,
     date = NULL,
     requested = NULL,
     via_chatlist = NULL,
     about = NULL,
     approved_by = NULL,
-
     initialize = function(user_id, date, requested = NULL, via_chatlist = NULL, about = NULL, approved_by = NULL) {
       self$user_id <- user_id
       self$date <- date
@@ -10533,10 +9935,9 @@ ChatInviteImporter <- R6::R6Class(
       self$about <- about
       self$approved_by <- approved_by
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChatInviteImporter',
+        "_" = "ChatInviteImporter",
         user_id = self$user_id,
         date = self$date,
         requested = self$requested,
@@ -10555,18 +9956,15 @@ ChatInvitePeek <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x61695cb0,
     SUBCLASS_OF_ID = 0x4561736,
-
     chat = NULL,
     expires = NULL,
-
     initialize = function(chat, expires) {
       self$chat <- chat
       self$expires <- expires
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChatInvitePeek',
+        "_" = "ChatInvitePeek",
         chat = if (!is.null(self$chat) && inherits(self$chat, "TLObject")) self$chat$to_dict() else self$chat,
         expires = self$expires
       )
@@ -10581,9 +9979,8 @@ ChatInvitePublicJoinRequests <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xed107ab7,
     SUBCLASS_OF_ID = 0xb4748a58,
-
     to_dict = function() {
-      list('_' = 'ChatInvitePublicJoinRequests')
+      list("_" = "ChatInvitePublicJoinRequests")
     }
   )
 )
@@ -10596,18 +9993,15 @@ ChatOnlines <- R6::R6Class(
     CONSTRUCTOR_ID = 0xf041e250,
     SUBCLASS_OF_ID = 0x8c81903a,
     onlines = NULL,
-
     initialize = function(onlines) {
       self$onlines <- onlines
     },
-
     to_dict = function() {
       list(
         "_" = "ChatOnlines",
         onlines = self$onlines
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x50, 0xe2, 0x41, 0xf0)),
@@ -10615,7 +10009,6 @@ ChatOnlines <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       onlines <- reader$read_int()
@@ -10634,13 +10027,11 @@ ChatParticipant <- R6::R6Class(
     user_id = NULL,
     inviter_id = NULL,
     date = NULL,
-
     initialize = function(user_id, inviter_id, date) {
       self$user_id <- user_id
       self$inviter_id <- inviter_id
       self$date <- date
     },
-
     to_dict = function() {
       list(
         "_" = "ChatParticipant",
@@ -10649,7 +10040,6 @@ ChatParticipant <- R6::R6Class(
         date = self$date
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x07, 0x40, 0x2D, 0xC0)),
@@ -10658,7 +10048,6 @@ ChatParticipant <- R6::R6Class(
         self$serialize_datetime(self$date)
       )
     },
-
     from_reader = function(reader) {
       user_id <- reader$read_long()
       inviter_id <- reader$read_long()
@@ -10677,13 +10066,11 @@ ChatParticipantAdmin <- R6::R6Class(
     user_id = NULL,
     inviter_id = NULL,
     date = NULL,
-
     initialize = function(user_id, inviter_id, date) {
       self$user_id <- user_id
       self$inviter_id <- inviter_id
       self$date <- date
     },
-
     to_dict = function() {
       list(
         "_" = "ChatParticipantAdmin",
@@ -10692,7 +10079,6 @@ ChatParticipantAdmin <- R6::R6Class(
         date = self$date
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x5B, 0x3F, 0x93, 0xA0)),
@@ -10701,7 +10087,6 @@ ChatParticipantAdmin <- R6::R6Class(
         self$serialize_datetime(self$date)
       )
     },
-
     from_reader = function(reader) {
       user_id <- reader$read_long()
       inviter_id <- reader$read_long()
@@ -10718,25 +10103,21 @@ ChatParticipantCreator <- R6::R6Class(
     constructor_id = 0xe46bcee4,
     subclass_of_id = 0x7d7c6f86,
     user_id = NULL,
-
     initialize = function(user_id) {
       self$user_id <- user_id
     },
-
     to_dict = function() {
       list(
         "_" = "ChatParticipantCreator",
         user_id = self$user_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xE4, 0xCE, 0x6B, 0xE4)),
         writeBin(as.integer(self$user_id), raw(), size = 8, endian = "little")
       )
     },
-
     from_reader = function(reader) {
       user_id <- reader$read_long()
       self$new(user_id = user_id)
@@ -10753,13 +10134,11 @@ ChatParticipants <- R6::R6Class(
     chat_id = NULL,
     participants = NULL,
     version = NULL,
-
     initialize = function(chat_id, participants, version) {
       self$chat_id <- chat_id
       self$participants <- participants
       self$version <- version
     },
-
     to_dict = function() {
       list(
         "_" = "ChatParticipants",
@@ -10768,7 +10147,6 @@ ChatParticipants <- R6::R6Class(
         version = self$version
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xF8, 0x93, 0xBC, 0x3C)),
@@ -10779,7 +10157,6 @@ ChatParticipants <- R6::R6Class(
         writeBin(as.integer(self$version), raw(), size = 4, endian = "little")
       )
     },
-
     from_reader = function(reader) {
       chat_id <- reader$read_long()
       reader$read_int()
@@ -10799,23 +10176,19 @@ ChatParticipantsForbidden <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x8763d3e1,
     SUBCLASS_OF_ID = 0x1fa89571,
-
     chat_id = NULL,
     self_participant = NULL,
-
     initialize = function(chat_id, self_participant = NULL) {
       self$chat_id <- chat_id
       self$self_participant <- self_participant
     },
-
     to_dict = function() {
       list(
-        '_' = 'ChatParticipantsForbidden',
+        "_" = "ChatParticipantsForbidden",
         chat_id = self$chat_id,
         self_participant = if (inherits(self$self_participant, "TLObject")) self$self_participant$to_dict() else self$self_participant
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xe1, 0xd3, 0x63, 0x87)),
@@ -10825,7 +10198,6 @@ ChatParticipantsForbidden <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -10848,14 +10220,12 @@ ChatPhoto <- R6::R6Class(
     dc_id = NULL,
     has_video = NULL,
     stripped_thumb = NULL,
-
     initialize = function(photo_id, dc_id, has_video = NULL, stripped_thumb = NULL) {
       self$photo_id <- photo_id
       self$dc_id <- dc_id
       self$has_video <- has_video
       self$stripped_thumb <- stripped_thumb
     },
-
     to_list = function() {
       list(
         "_" = "ChatPhoto",
@@ -10865,7 +10235,6 @@ ChatPhoto <- R6::R6Class(
         stripped_thumb = self$stripped_thumb
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x11, 0x1c, 0x6e, 0x1c)),
@@ -10884,11 +10253,9 @@ ChatPhotoEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x37c1011c,
     SUBCLASS_OF_ID = 0xac3ec4e5,
-
     to_list = function() {
       list("_" = "ChatPhotoEmpty")
     },
-
     bytes = function() {
       as.raw(c(0x1c, 0x01, 0xc1, 0x37))
     }
@@ -10902,18 +10269,15 @@ ChatReactionsAll <- R6::R6Class(
     CONSTRUCTOR_ID = 0x52928bca,
     SUBCLASS_OF_ID = 0x131e24b5,
     allow_custom = NULL,
-
     initialize = function(allow_custom = NULL) {
       self$allow_custom <- allow_custom
     },
-
     to_list = function() {
       list(
         "_" = "ChatReactionsAll",
         allow_custom = self$allow_custom
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xca, 0x8b, 0x92, 0x52)),
@@ -10929,11 +10293,9 @@ ChatReactionsNone <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xeafc32bc,
     SUBCLASS_OF_ID = 0x131e24b5,
-
     to_list = function() {
       list("_" = "ChatReactionsNone")
     },
-
     bytes = function() {
       as.raw(c(0xbc, 0x32, 0xfc, 0xea))
     }
@@ -10947,18 +10309,15 @@ ChatReactionsSome <- R6::R6Class(
     CONSTRUCTOR_ID = 0x661d4037,
     SUBCLASS_OF_ID = 0x131e24b5,
     reactions = NULL,
-
     initialize = function(reactions) {
       self$reactions <- reactions
     },
-
     to_list = function() {
       list(
         "_" = "ChatReactionsSome",
         reactions = lapply(self$reactions, function(x) if (inherits(x, "TLObject")) x$to_list() else x)
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x37, 0x40, 0x1d, 0x66)),
@@ -10976,18 +10335,15 @@ ChatTheme <- R6::R6Class(
     CONSTRUCTOR_ID = 0xc3dffc04,
     SUBCLASS_OF_ID = 0x2ffca7f5,
     emoticon = NULL,
-
     initialize = function(emoticon) {
       self$emoticon <- emoticon
     },
-
     to_list = function() {
       list(
         "_" = "ChatTheme",
         emoticon = self$emoticon
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x04, 0xfc, 0xdf, 0xc3)),
@@ -11005,12 +10361,10 @@ ChatThemeUniqueGift <- R6::R6Class(
     SUBCLASS_OF_ID = 0x2ffca7f5,
     gift = NULL,
     theme_settings = NULL,
-
     initialize = function(gift, theme_settings) {
       self$gift <- gift
       self$theme_settings <- theme_settings
     },
-
     to_list = function() {
       list(
         "_" = "ChatThemeUniqueGift",
@@ -11018,7 +10372,6 @@ ChatThemeUniqueGift <- R6::R6Class(
         theme_settings = lapply(self$theme_settings, function(x) if (inherits(x, "TLObject")) x$to_list() else x)
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xc8, 0xf9, 0x58, 0x34)),
@@ -11037,19 +10390,16 @@ ClientDHInnerData <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x6643b654,
     SUBCLASS_OF_ID = 0xf8eeef6a,
-
     nonce = NULL,
     server_nonce = NULL,
     retry_id = NULL,
     g_b = NULL,
-
     initialize = function(nonce, server_nonce, retry_id, g_b) {
       self$nonce <- nonce
       self$server_nonce <- server_nonce
       self$retry_id <- retry_id
       self$g_b <- g_b
     },
-
     to_list = function() {
       list(
         "_" = "ClientDHInnerData",
@@ -11059,7 +10409,6 @@ ClientDHInnerData <- R6::R6Class(
         g_b = self$g_b
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x54, 0xb6, 0x43, 0x66)),
@@ -11078,7 +10427,6 @@ CodeSettings <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xad253d78,
     SUBCLASS_OF_ID = 0x48edbc8a,
-
     allow_flashcall = NULL,
     current_number = NULL,
     allow_app_hash = NULL,
@@ -11088,7 +10436,6 @@ CodeSettings <- R6::R6Class(
     logout_tokens = NULL,
     token = NULL,
     app_sandbox = NULL,
-
     initialize = function(allow_flashcall = NULL, current_number = NULL, allow_app_hash = NULL,
                           allow_missed_call = NULL, allow_firebase = NULL, unknown_number = NULL,
                           logout_tokens = NULL, token = NULL, app_sandbox = NULL) {
@@ -11102,7 +10449,6 @@ CodeSettings <- R6::R6Class(
       self$token <- token
       self$app_sandbox <- app_sandbox
     },
-
     to_list = function() {
       list(
         "_" = "CodeSettings",
@@ -11126,7 +10472,6 @@ Config <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xcc1a241e,
     SUBCLASS_OF_ID = 0xd3262a4a,
-
     date = NULL,
     expires = NULL,
     test_mode = NULL,
@@ -11174,7 +10519,6 @@ Config <- R6::R6Class(
     base_lang_pack_version = NULL,
     reactions_default = NULL,
     autologin_token = NULL,
-
     initialize = function(date, expires, test_mode, this_dc, dc_options, dc_txt_domain_name,
                           chat_size_max, megagroup_size_max, forwarded_count_max,
                           online_update_period_ms, offline_blur_timeout_ms, offline_idle_timeout_ms,
@@ -11239,7 +10583,6 @@ Config <- R6::R6Class(
       self$reactions_default <- reactions_default
       self$autologin_token <- autologin_token
     },
-
     to_list = function() {
       list(
         "_" = "Config",
@@ -11302,26 +10645,22 @@ ConnectedBot <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xcd64636c,
     SUBCLASS_OF_ID = 0x35e81b9e,
-
     bot_id = NULL,
     recipients = NULL,
     rights = NULL,
-
     initialize = function(bot_id, recipients, rights) {
       self$bot_id <- bot_id
       self$recipients <- recipients
       self$rights <- rights
     },
-
     to_dict = function() {
       list(
-        '_' = 'ConnectedBot',
+        "_" = "ConnectedBot",
         bot_id = self$bot_id,
         recipients = if (inherits(self$recipients, "TLObject")) self$recipients$to_dict() else self$recipients,
         rights = if (inherits(self$rights, "TLObject")) self$rights$to_dict() else self$rights
       )
     },
-
     bytes = function() {
       # Placeholder for bytes serialization
       NULL
@@ -11344,7 +10683,6 @@ ConnectedBotStarRef <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x19a13f71,
     SUBCLASS_OF_ID = 0xa0528f8c,
-
     url = NULL,
     date = NULL,
     bot_id = NULL,
@@ -11353,7 +10691,6 @@ ConnectedBotStarRef <- R6::R6Class(
     revenue = NULL,
     revoked = NULL,
     duration_months = NULL,
-
     initialize = function(url, date, bot_id, commission_permille, participants, revenue, revoked = NULL, duration_months = NULL) {
       self$url <- url
       self$date <- date
@@ -11364,10 +10701,9 @@ ConnectedBotStarRef <- R6::R6Class(
       self$revoked <- revoked
       self$duration_months <- duration_months
     },
-
     to_dict = function() {
       list(
-        '_' = 'ConnectedBotStarRef',
+        "_" = "ConnectedBotStarRef",
         url = self$url,
         date = self$date,
         bot_id = self$bot_id,
@@ -11378,7 +10714,6 @@ ConnectedBotStarRef <- R6::R6Class(
         duration_months = self$duration_months
       )
     },
-
     bytes = function() {
       # Placeholder for bytes serialization
       NULL
@@ -11406,23 +10741,19 @@ Contact <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x145ade0b,
     SUBCLASS_OF_ID = 0x83dfdfa4,
-
     user_id = NULL,
     mutual = NULL,
-
     initialize = function(user_id, mutual) {
       self$user_id <- user_id
       self$mutual <- mutual
     },
-
     to_dict = function() {
       list(
-        '_' = 'Contact',
+        "_" = "Contact",
         user_id = self$user_id,
         mutual = self$mutual
       )
     },
-
     bytes = function() {
       # Placeholder for bytes serialization
       NULL
@@ -11443,23 +10774,19 @@ ContactBirthday <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x1d998733,
     SUBCLASS_OF_ID = 0xd8dd2806,
-
     contact_id = NULL,
     birthday = NULL,
-
     initialize = function(contact_id, birthday) {
       self$contact_id <- contact_id
       self$birthday <- birthday
     },
-
     to_dict = function() {
       list(
-        '_' = 'ContactBirthday',
+        "_" = "ContactBirthday",
         contact_id = self$contact_id,
         birthday = if (inherits(self$birthday, "TLObject")) self$birthday$to_dict() else self$birthday
       )
     },
-
     bytes = function() {
       # Placeholder for bytes serialization
       NULL
@@ -11480,23 +10807,19 @@ ContactStatus <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x16d9703b,
     SUBCLASS_OF_ID = 0x68c0d74c,
-
     user_id = NULL,
     status = NULL,
-
     initialize = function(user_id, status) {
       self$user_id <- user_id
       self$status <- status
     },
-
     to_dict = function() {
       list(
-        '_' = 'ContactStatus',
+        "_" = "ContactStatus",
         user_id = self$user_id,
         status = if (inherits(self$status, "TLObject")) self$status$to_dict() else self$status
       )
     },
-
     bytes = function() {
       # Placeholder for bytes serialization
       NULL
@@ -11517,20 +10840,16 @@ DataJSON <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x7d748d04,
     SUBCLASS_OF_ID = 0xad0352e8,
-
     data = NULL,
-
     initialize = function(data) {
       self$data <- data
     },
-
     to_dict = function() {
       list(
-        '_' = 'DataJSON',
+        "_" = "DataJSON",
         data = self$data
       )
     },
-
     bytes = function() {
       # Placeholder for bytes serialization
       NULL
@@ -11550,7 +10869,6 @@ DcOption <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x18b7a10d,
     SUBCLASS_OF_ID = 0x9e43e123,
-
     id = NULL,
     ip_address = NULL,
     port = NULL,
@@ -11561,7 +10879,6 @@ DcOption <- R6::R6Class(
     static = NULL,
     this_port_only = NULL,
     secret = NULL,
-
     initialize = function(id, ip_address, port, ipv6 = NULL, media_only = NULL, tcpo_only = NULL, cdn = NULL, static = NULL, this_port_only = NULL, secret = NULL) {
       self$id <- id
       self$ip_address <- ip_address
@@ -11574,10 +10891,9 @@ DcOption <- R6::R6Class(
       self$this_port_only <- this_port_only
       self$secret <- secret
     },
-
     to_dict = function() {
       list(
-        '_' = 'DcOption',
+        "_" = "DcOption",
         id = self$id,
         ip_address = self$ip_address,
         port = self$port,
@@ -11590,7 +10906,6 @@ DcOption <- R6::R6Class(
         secret = self$secret
       )
     },
-
     bytes = function() {
       # Placeholder for bytes serialization
       NULL
@@ -11620,20 +10935,16 @@ DefaultHistoryTTL <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x43b46b20,
     SUBCLASS_OF_ID = 0xf00d3367,
-
     period = NULL,
-
     initialize = function(period) {
       self$period <- period
     },
-
     to_dict = function() {
       list(
-        '_' = 'DefaultHistoryTTL',
+        "_" = "DefaultHistoryTTL",
         period = self$period
       )
     },
-
     bytes = function() {
       # Placeholder for bytes serialization
       NULL
@@ -11654,16 +10965,13 @@ DestroyAuthKeyFail <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xea109b13,
     SUBCLASS_OF_ID = 0x8291e68e,
-
     to_dict = function() {
       list("_" = "DestroyAuthKeyFail")
     },
-
     bytes = function() {
       rawToChar(as.raw(c(0x13, 0x9b, 0x10, 0xea)))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$new()
@@ -11677,16 +10985,13 @@ DestroyAuthKeyNone <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x0a9f2259,
     SUBCLASS_OF_ID = 0x8291e68e,
-
     to_dict = function() {
       list("_" = "DestroyAuthKeyNone")
     },
-
     bytes = function() {
       rawToChar(as.raw(c(0x59, 0x22, 0x9f, 0x0a)))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$new()
@@ -11700,16 +11005,13 @@ DestroyAuthKeyOk <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xf660e1d4,
     SUBCLASS_OF_ID = 0x8291e68e,
-
     to_dict = function() {
       list("_" = "DestroyAuthKeyOk")
     },
-
     bytes = function() {
       rawToChar(as.raw(c(0xd4, 0xe1, 0x60, 0xf6)))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$new()
@@ -11725,18 +11027,15 @@ DestroySessionNone <- R6::R6Class(
     CONSTRUCTOR_ID = 0x62d350c9,
     SUBCLASS_OF_ID = 0xaf0ce7bd,
     session_id = NULL,
-
     initialize = function(session_id) {
       self$session_id <- session_id
     },
-
     to_dict = function() {
       list(
         "_" = "DestroySessionNone",
         session_id = self$session_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xc9, 0x50, 0xd3, 0x62)),
@@ -11744,7 +11043,6 @@ DestroySessionNone <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       session_id <- reader$read_long()
@@ -11760,18 +11058,15 @@ DestroySessionOk <- R6::R6Class(
     CONSTRUCTOR_ID = 0xe22045fc,
     SUBCLASS_OF_ID = 0xaf0ce7bd,
     session_id = NULL,
-
     initialize = function(session_id) {
       self$session_id <- session_id
     },
-
     to_dict = function() {
       list(
         "_" = "DestroySessionOk",
         session_id = self$session_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xfc, 0x45, 0x20, 0xe2)),
@@ -11779,7 +11074,6 @@ DestroySessionOk <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       session_id <- reader$read_long()
@@ -11798,13 +11092,11 @@ DhGenFail <- R6::R6Class(
     nonce = NULL,
     server_nonce = NULL,
     new_nonce_hash3 = NULL,
-
     initialize = function(nonce, server_nonce, new_nonce_hash3) {
       self$nonce <- nonce
       self$server_nonce <- server_nonce
       self$new_nonce_hash3 <- new_nonce_hash3
     },
-
     to_dict = function() {
       list(
         "_" = "DhGenFail",
@@ -11813,7 +11105,6 @@ DhGenFail <- R6::R6Class(
         new_nonce_hash3 = self$new_nonce_hash3
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x02, 0xae, 0x9d, 0xa6)),
@@ -11834,13 +11125,11 @@ DhGenOk <- R6::R6Class(
     nonce = NULL,
     server_nonce = NULL,
     new_nonce_hash1 = NULL,
-
     initialize = function(nonce, server_nonce, new_nonce_hash1) {
       self$nonce <- nonce
       self$server_nonce <- server_nonce
       self$new_nonce_hash1 <- new_nonce_hash1
     },
-
     to_dict = function() {
       list(
         "_" = "DhGenOk",
@@ -11849,7 +11138,6 @@ DhGenOk <- R6::R6Class(
         new_nonce_hash1 = self$new_nonce_hash1
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x34, 0xf7, 0xcb, 0x3b)),
@@ -11870,13 +11158,11 @@ DhGenRetry <- R6::R6Class(
     nonce = NULL,
     server_nonce = NULL,
     new_nonce_hash2 = NULL,
-
     initialize = function(nonce, server_nonce, new_nonce_hash2) {
       self$nonce <- nonce
       self$server_nonce <- server_nonce
       self$new_nonce_hash2 <- new_nonce_hash2
     },
-
     to_dict = function() {
       list(
         "_" = "DhGenRetry",
@@ -11885,7 +11171,6 @@ DhGenRetry <- R6::R6Class(
         new_nonce_hash2 = self$new_nonce_hash2
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xb9, 0x1f, 0xdc, 0x46)),
@@ -11917,7 +11202,6 @@ Dialog <- R6::R6Class(
     draft = NULL,
     folder_id = NULL,
     ttl_period = NULL,
-
     initialize = function(peer, top_message, read_inbox_max_id, read_outbox_max_id, unread_count, unread_mentions_count, unread_reactions_count, notify_settings, pinned = NULL, unread_mark = NULL, view_forum_as_messages = NULL, pts = NULL, draft = NULL, folder_id = NULL, ttl_period = NULL) {
       self$peer <- peer
       self$top_message <- top_message
@@ -11935,7 +11219,6 @@ Dialog <- R6::R6Class(
       self$folder_id <- folder_id
       self$ttl_period <- ttl_period
     },
-
     to_list = function() {
       list(
         "_" = "Dialog",
@@ -11979,7 +11262,6 @@ DialogFilter <- R6::R6Class(
     title_noanimate = NULL,
     emoticon = NULL,
     color = NULL,
-
     initialize = function(id, title, pinned_peers, include_peers, exclude_peers, contacts = NULL, non_contacts = NULL, groups = NULL, broadcasts = NULL, bots = NULL, exclude_muted = NULL, exclude_read = NULL, exclude_archived = NULL, title_noanimate = NULL, emoticon = NULL, color = NULL) {
       self$id <- id
       self$title <- title
@@ -11998,7 +11280,6 @@ DialogFilter <- R6::R6Class(
       self$emoticon <- emoticon
       self$color <- color
     },
-
     to_list = function() {
       list(
         "_" = "DialogFilter",
@@ -12036,7 +11317,6 @@ DialogFolder <- R6::R6Class(
     unread_muted_messages_count = NULL,
     unread_unmuted_messages_count = NULL,
     pinned = NULL,
-
     initialize = function(folder, peer, top_message, unread_muted_peers_count, unread_unmuted_peers_count, unread_muted_messages_count, unread_unmuted_messages_count, pinned = NULL) {
       self$folder <- folder
       self$peer <- peer
@@ -12047,7 +11327,6 @@ DialogFolder <- R6::R6Class(
       self$unread_unmuted_messages_count <- unread_unmuted_messages_count
       self$pinned <- pinned
     },
-
     to_list = function() {
       list(
         "_" = "DialogFolder",
@@ -12061,7 +11340,6 @@ DialogFolder <- R6::R6Class(
         pinned = self$pinned
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x4C, 0x13, 0xBD, 0x71)),
@@ -12091,7 +11369,6 @@ DialogFilterChatlist <- R6::R6Class(
     title_noanimate = NULL,
     emoticon = NULL,
     color = NULL,
-
     initialize = function(id, title, pinned_peers, include_peers, has_my_invites = NULL, title_noanimate = NULL, emoticon = NULL, color = NULL) {
       self$id <- id
       self$title <- title
@@ -12102,7 +11379,6 @@ DialogFilterChatlist <- R6::R6Class(
       self$emoticon <- emoticon
       self$color <- color
     },
-
     to_list = function() {
       list(
         "_" = "DialogFilterChatlist",
@@ -12135,12 +11411,10 @@ DialogFilterSuggested <- R6::R6Class(
   public = list(
     filter = NULL,
     description = NULL,
-
     initialize = function(filter, description) {
       self$filter <- filter
       self$description <- description
     },
-
     to_list = function() {
       list(
         "_" = "DialogFilterSuggested",
@@ -12157,18 +11431,15 @@ DialogPeer <- R6::R6Class(
   inherit = TLObject,
   public = list(
     peer = NULL,
-
     initialize = function(peer) {
       self$peer <- peer
     },
-
     to_list = function() {
       list(
         "_" = "DialogPeer",
         peer = if (inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x05, 0xBF, 0x6D, 0xE5)),
@@ -12183,18 +11454,15 @@ DialogPeerFolder <- R6::R6Class(
   inherit = TLObject,
   public = list(
     folder_id = NULL,
-
     initialize = function(folder_id) {
       self$folder_id <- folder_id
     },
-
     to_list = function() {
       list(
         "_" = "DialogPeerFolder",
         folder_id = self$folder_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xE2, 0x19, 0x45, 0x51)),
@@ -12211,19 +11479,16 @@ DisallowedGiftsSettings <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x71f276c4,
     SUBCLASS_OF_ID = 0x382e9ab,
-
     disallow_unlimited_stargifts = NULL,
     disallow_limited_stargifts = NULL,
     disallow_unique_stargifts = NULL,
     disallow_premium_gifts = NULL,
-
     initialize = function(disallow_unlimited_stargifts = NULL, disallow_limited_stargifts = NULL, disallow_unique_stargifts = NULL, disallow_premium_gifts = NULL) {
       self$disallow_unlimited_stargifts <- disallow_unlimited_stargifts
       self$disallow_limited_stargifts <- disallow_limited_stargifts
       self$disallow_unique_stargifts <- disallow_unique_stargifts
       self$disallow_premium_gifts <- disallow_premium_gifts
     },
-
     to_list = function() {
       list(
         "_" = "DisallowedGiftsSettings",
@@ -12233,16 +11498,14 @@ DisallowedGiftsSettings <- R6::R6Class(
         disallow_premium_gifts = self$disallow_premium_gifts
       )
     },
-
     bytes = function() {
       flags <- (if (is.null(self$disallow_unlimited_stargifts) || !self$disallow_unlimited_stargifts) 0 else 1) |
-               (if (is.null(self$disallow_limited_stargifts) || !self$disallow_limited_stargifts) 0 else 2) |
-               (if (is.null(self$disallow_unique_stargifts) || !self$disallow_unique_stargifts) 0 else 4) |
-               (if (is.null(self$disallow_premium_gifts) || !self$disallow_premium_gifts) 0 else 8)
+        (if (is.null(self$disallow_limited_stargifts) || !self$disallow_limited_stargifts) 0 else 2) |
+        (if (is.null(self$disallow_unique_stargifts) || !self$disallow_unique_stargifts) 0 else 4) |
+        (if (is.null(self$disallow_premium_gifts) || !self$disallow_premium_gifts) 0 else 8)
       c(as.raw(0xc4), as.raw(0x76), as.raw(0xf2), as.raw(0x71), as.raw(flags))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -12275,7 +11538,6 @@ Document <- R6::R6Class(
     attributes = NULL,
     thumbs = NULL,
     video_thumbs = NULL,
-
     initialize = function(id, access_hash, file_reference, date, mime_type, size, dc_id, attributes, thumbs = NULL, video_thumbs = NULL) {
       self$id <- id
       self$access_hash <- access_hash
@@ -12288,7 +11550,6 @@ Document <- R6::R6Class(
       self$thumbs <- thumbs
       self$video_thumbs <- video_thumbs
     },
-
     to_list = function() {
       list(
         "_" = "Document",
@@ -12304,7 +11565,6 @@ Document <- R6::R6Class(
         video_thumbs = if (is.null(self$video_thumbs)) list() else lapply(self$video_thumbs, function(x) if (inherits(x, "TLObject")) x$to_list() else x)
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xd8, 0xc4, 0xd4, 0x8f)),
@@ -12324,7 +11584,6 @@ Document <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -12339,12 +11598,16 @@ Document <- R6::R6Class(
       thumbs <- if (bitwAnd(flags, 1)) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
 
       video_thumbs <- if (bitwAnd(flags, 2)) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
 
       dc_id <- reader$read_int()
       reader$read_int()
@@ -12362,16 +11625,13 @@ DocumentAttributeAnimated <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x11b58939,
     SUBCLASS_OF_ID = 0xf729eb9b,
-
     to_dict = function() {
-      list('_' = 'DocumentAttributeAnimated')
+      list("_" = "DocumentAttributeAnimated")
     },
-
     bytes = function() {
       rawToChar(as.raw(c(0x39, 0x89, 0xb5, 0x11)))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$new()
@@ -12386,13 +11646,11 @@ DocumentAttributeAudio <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9852f9c6,
     SUBCLASS_OF_ID = 0xf729eb9b,
-
     duration = NULL,
     voice = NULL,
     title = NULL,
     performer = NULL,
     waveform = NULL,
-
     initialize = function(duration, voice = NULL, title = NULL, performer = NULL, waveform = NULL) {
       self$duration <- duration
       self$voice <- voice
@@ -12400,10 +11658,9 @@ DocumentAttributeAudio <- R6::R6Class(
       self$performer <- performer
       self$waveform <- waveform
     },
-
     to_dict = function() {
       list(
-        '_' = 'DocumentAttributeAudio',
+        "_" = "DocumentAttributeAudio",
         duration = self$duration,
         voice = self$voice,
         title = self$title,
@@ -12411,11 +11668,14 @@ DocumentAttributeAudio <- R6::R6Class(
         waveform = self$waveform
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12425,33 +11685,33 @@ DocumentAttributeCustomEmoji <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xfd149899,
     SUBCLASS_OF_ID = 0xf729eb9b,
-
     alt = NULL,
     stickerset = NULL,
     free = NULL,
     text_color = NULL,
-
     initialize = function(alt, stickerset, free = NULL, text_color = NULL) {
       self$alt <- alt
       self$stickerset <- stickerset
       self$free <- free
       self$text_color <- text_color
     },
-
     to_dict = function() {
       list(
-        '_' = 'DocumentAttributeCustomEmoji',
+        "_" = "DocumentAttributeCustomEmoji",
         alt = self$alt,
         stickerset = if (inherits(self$stickerset, "TLObject")) self$stickerset$to_dict() else self$stickerset,
         free = self$free,
         text_color = self$text_color
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12461,24 +11721,24 @@ DocumentAttributeFilename <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x15590068,
     SUBCLASS_OF_ID = 0xf729eb9b,
-
     file_name = NULL,
-
     initialize = function(file_name) {
       self$file_name <- file_name
     },
-
     to_dict = function() {
       list(
-        '_' = 'DocumentAttributeFilename',
+        "_" = "DocumentAttributeFilename",
         file_name = self$file_name
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12488,15 +11748,17 @@ DocumentAttributeHasStickers <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9801d2f7,
     SUBCLASS_OF_ID = 0xf729eb9b,
-
     to_dict = function() {
-      list('_' = 'DocumentAttributeHasStickers')
+      list("_" = "DocumentAttributeHasStickers")
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12506,27 +11768,27 @@ DocumentAttributeImageSize <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x6c37c15c,
     SUBCLASS_OF_ID = 0xf729eb9b,
-
     w = NULL,
     h = NULL,
-
     initialize = function(w, h) {
       self$w <- w
       self$h <- h
     },
-
     to_dict = function() {
       list(
-        '_' = 'DocumentAttributeImageSize',
+        "_" = "DocumentAttributeImageSize",
         w = self$w,
         h = self$h
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12536,33 +11798,33 @@ DocumentAttributeSticker <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x6319d612,
     SUBCLASS_OF_ID = 0xf729eb9b,
-
     alt = NULL,
     stickerset = NULL,
     mask = NULL,
     mask_coords = NULL,
-
     initialize = function(alt, stickerset, mask = NULL, mask_coords = NULL) {
       self$alt <- alt
       self$stickerset <- stickerset
       self$mask <- mask
       self$mask_coords <- mask_coords
     },
-
     to_dict = function() {
       list(
-        '_' = 'DocumentAttributeSticker',
+        "_" = "DocumentAttributeSticker",
         alt = self$alt,
         stickerset = if (inherits(self$stickerset, "TLObject")) self$stickerset$to_dict() else self$stickerset,
         mask = self$mask,
         mask_coords = if (inherits(self$mask_coords, "TLObject")) self$mask_coords$to_dict() else self$mask_coords
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12572,7 +11834,6 @@ DocumentAttributeVideo <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x43c57c48,
     SUBCLASS_OF_ID = 0xf729eb9b,
-
     duration = NULL,
     w = NULL,
     h = NULL,
@@ -12582,7 +11843,6 @@ DocumentAttributeVideo <- R6::R6Class(
     preload_prefix_size = NULL,
     video_start_ts = NULL,
     video_codec = NULL,
-
     initialize = function(duration, w, h, round_message = NULL, supports_streaming = NULL, nosound = NULL, preload_prefix_size = NULL, video_start_ts = NULL, video_codec = NULL) {
       self$duration <- duration
       self$w <- w
@@ -12594,10 +11854,9 @@ DocumentAttributeVideo <- R6::R6Class(
       self$video_start_ts <- video_start_ts
       self$video_codec <- video_codec
     },
-
     to_dict = function() {
       list(
-        '_' = 'DocumentAttributeVideo',
+        "_" = "DocumentAttributeVideo",
         duration = self$duration,
         w = self$w,
         h = self$h,
@@ -12609,11 +11868,14 @@ DocumentAttributeVideo <- R6::R6Class(
         video_codec = self$video_codec
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12623,24 +11885,24 @@ DocumentEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x36f8c871,
     SUBCLASS_OF_ID = 0x211fe820,
-
     id = NULL,
-
     initialize = function(id) {
       self$id <- id
     },
-
     to_dict = function() {
       list(
-        '_' = 'DocumentEmpty',
+        "_" = "DocumentEmpty",
         id = self$id
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12650,7 +11912,6 @@ DraftMessage <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x96eaa5eb,
     SUBCLASS_OF_ID = 0x33d47f45,
-
     message = NULL,
     date = NULL,
     no_webpage = NULL,
@@ -12660,7 +11921,6 @@ DraftMessage <- R6::R6Class(
     media = NULL,
     effect = NULL,
     suggested_post = NULL,
-
     initialize = function(message, date = NULL, no_webpage = NULL, invert_media = NULL, reply_to = NULL, entities = NULL, media = NULL, effect = NULL, suggested_post = NULL) {
       self$message <- message
       self$date <- date
@@ -12672,10 +11932,9 @@ DraftMessage <- R6::R6Class(
       self$effect <- effect
       self$suggested_post <- suggested_post
     },
-
     to_dict = function() {
       list(
-        '_' = 'DraftMessage',
+        "_" = "DraftMessage",
         message = self$message,
         date = self$date,
         no_webpage = self$no_webpage,
@@ -12687,11 +11946,14 @@ DraftMessage <- R6::R6Class(
         suggested_post = if (inherits(self$suggested_post, "TLObject")) self$suggested_post$to_dict() else self$suggested_post
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12701,24 +11963,24 @@ DraftMessageEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x1b0c841a,
     SUBCLASS_OF_ID = 0x33d47f45,
-
     date = NULL,
-
     initialize = function(date = NULL) {
       self$date <- date
     },
-
     to_dict = function() {
       list(
-        '_' = 'DraftMessageEmpty',
+        "_" = "DraftMessageEmpty",
         date = self$date
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12728,24 +11990,24 @@ EmailVerificationApple <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x96d074fd,
     SUBCLASS_OF_ID = 0x241ee240,
-
     token = NULL,
-
     initialize = function(token) {
       self$token <- token
     },
-
     to_dict = function() {
       list(
-        '_' = 'EmailVerificationApple',
+        "_" = "EmailVerificationApple",
         token = self$token
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12755,24 +12017,24 @@ EmailVerificationCode <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x922e55a9,
     SUBCLASS_OF_ID = 0x241ee240,
-
     code = NULL,
-
     initialize = function(code) {
       self$code <- code
     },
-
     to_dict = function() {
       list(
-        '_' = 'EmailVerificationCode',
+        "_" = "EmailVerificationCode",
         code = self$code
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12782,24 +12044,24 @@ EmailVerificationGoogle <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xdb909ec2,
     SUBCLASS_OF_ID = 0x241ee240,
-
     token = NULL,
-
     initialize = function(token) {
       self$token <- token
     },
-
     to_dict = function() {
       list(
-        '_' = 'EmailVerificationGoogle',
+        "_" = "EmailVerificationGoogle",
         token = self$token
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12809,15 +12071,17 @@ EmailVerifyPurposeLoginChange <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x527d22eb,
     SUBCLASS_OF_ID = 0xb9686ae8,
-
     to_dict = function() {
-      list('_' = 'EmailVerifyPurposeLoginChange')
+      list("_" = "EmailVerifyPurposeLoginChange")
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12827,27 +12091,27 @@ EmailVerifyPurposeLoginSetup <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x4345be73,
     SUBCLASS_OF_ID = 0xb9686ae8,
-
     phone_number = NULL,
     phone_code_hash = NULL,
-
     initialize = function(phone_number, phone_code_hash) {
       self$phone_number <- phone_number
       self$phone_code_hash <- phone_code_hash
     },
-
     to_dict = function() {
       list(
-        '_' = 'EmailVerifyPurposeLoginSetup',
+        "_" = "EmailVerifyPurposeLoginSetup",
         phone_number = self$phone_number,
         phone_code_hash = self$phone_code_hash
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12857,15 +12121,17 @@ EmailVerifyPurposePassport <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xbbf51685,
     SUBCLASS_OF_ID = 0xb9686ae8,
-
     to_dict = function() {
-      list('_' = 'EmailVerifyPurposePassport')
+      list("_" = "EmailVerifyPurposePassport")
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -12876,17 +12142,14 @@ EmojiGroup <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x7a9abda9,
     SUBCLASS_OF_ID = 0x55e0a193,
-
     title = NULL,
     icon_emoji_id = NULL,
     emoticons = NULL,
-
     initialize = function(title, icon_emoji_id, emoticons) {
       self$title <- title
       self$icon_emoji_id <- icon_emoji_id
       self$emoticons <- emoticons
     },
-
     to_list = function() {
       list(
         "_" = "EmojiGroup",
@@ -12895,7 +12158,6 @@ EmojiGroup <- R6::R6Class(
         emoticons = if (is.null(self$emoticons)) list() else self$emoticons
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xa9, 0xbd, 0x9a, 0x7a)),
@@ -12915,17 +12177,14 @@ EmojiGroupGreeting <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x80d26cc7,
     SUBCLASS_OF_ID = 0x55e0a193,
-
     title = NULL,
     icon_emoji_id = NULL,
     emoticons = NULL,
-
     initialize = function(title, icon_emoji_id, emoticons) {
       self$title <- title
       self$icon_emoji_id <- icon_emoji_id
       self$emoticons <- emoticons
     },
-
     to_list = function() {
       list(
         "_" = "EmojiGroupGreeting",
@@ -12934,7 +12193,6 @@ EmojiGroupGreeting <- R6::R6Class(
         emoticons = if (is.null(self$emoticons)) list() else self$emoticons
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xc7, 0x6c, 0xd2, 0x80)),
@@ -12955,15 +12213,12 @@ EmojiGroupPremium <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x93bcf34,
     SUBCLASS_OF_ID = 0x55e0a193,
-
     title = NULL,
     icon_emoji_id = NULL,
-
     initialize = function(title, icon_emoji_id) {
       self$title <- title
       self$icon_emoji_id <- icon_emoji_id
     },
-
     to_list = function() {
       list(
         "_" = "EmojiGroupPremium",
@@ -12971,7 +12226,6 @@ EmojiGroupPremium <- R6::R6Class(
         icon_emoji_id = self$icon_emoji_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x34, 0xcf, 0x3b, 0x09)),
@@ -12988,15 +12242,12 @@ EmojiKeyword <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xd5b3b9f9,
     SUBCLASS_OF_ID = 0x6612a53e,
-
     keyword = NULL,
     emoticons = NULL,
-
     initialize = function(keyword, emoticons) {
       self$keyword <- keyword
       self$emoticons <- emoticons
     },
-
     to_list = function() {
       list(
         "_" = "EmojiKeyword",
@@ -13004,7 +12255,6 @@ EmojiKeyword <- R6::R6Class(
         emoticons = if (is.null(self$emoticons)) list() else self$emoticons
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xf9, 0xb9, 0xb3, 0xd5)),
@@ -13024,15 +12274,12 @@ EmojiKeywordDeleted <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x236df622,
     SUBCLASS_OF_ID = 0x6612a53e,
-
     keyword = NULL,
     emoticons = NULL,
-
     initialize = function(keyword, emoticons) {
       self$keyword <- keyword
       self$emoticons <- emoticons
     },
-
     to_list = function() {
       list(
         "_" = "EmojiKeywordDeleted",
@@ -13040,7 +12287,6 @@ EmojiKeywordDeleted <- R6::R6Class(
         emoticons = if (is.null(self$emoticons)) list() else self$emoticons
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x22, 0xf6, 0x6d, 0x23)),
@@ -13059,19 +12305,16 @@ EmojiKeywordsDifference <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x5cc761bd,
     SUBCLASS_OF_ID = 0xd279c672,
-
     lang_code = NULL,
     from_version = NULL,
     version = NULL,
     keywords = NULL,
-
     initialize = function(lang_code, from_version, version, keywords) {
       self$lang_code <- lang_code
       self$from_version <- from_version
       self$version <- version
       self$keywords <- keywords
     },
-
     to_list = function() {
       list(
         "_" = "EmojiKeywordsDifference",
@@ -13081,7 +12324,6 @@ EmojiKeywordsDifference <- R6::R6Class(
         keywords = if (is.null(self$keywords)) list() else lapply(self$keywords, function(x) if (inherits(x, "TLObject")) x$to_list() else x)
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xbd, 0x61, 0xc7, 0x5c)),
@@ -13103,20 +12345,16 @@ EmojiLanguage <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb3fb5361,
     SUBCLASS_OF_ID = 0xa48d04ee,
-
     lang_code = NULL,
-
     initialize = function(lang_code) {
       self$lang_code <- lang_code
     },
-
     to_list = function() {
       list(
         "_" = "EmojiLanguage",
         lang_code = self$lang_code
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xb3, 0xfb, 0x53, 0x61)),
@@ -13132,15 +12370,12 @@ EmojiList <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x7a1e11d1,
     SUBCLASS_OF_ID = 0xbcef6aba,
-
     hash = NULL,
     document_id = NULL,
-
     initialize = function(hash, document_id) {
       self$hash <- hash
       self$document_id <- document_id
     },
-
     to_list = function() {
       list(
         "_" = "EmojiList",
@@ -13148,7 +12383,6 @@ EmojiList <- R6::R6Class(
         document_id = if (is.null(self$document_id)) list() else self$document_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xd1, 0x11, 0x1e, 0x7a)),
@@ -13181,12 +12415,10 @@ EmojiStatus <- R6::R6Class(
   public = list(
     document_id = NULL,
     until = NULL,
-
     initialize = function(document_id, until = NULL) {
       self$document_id <- document_id
       self$until <- until
     },
-
     to_list = function() {
       list(
         "_" = "EmojiStatus",
@@ -13194,7 +12426,6 @@ EmojiStatus <- R6::R6Class(
         until = self$until
       )
     },
-
     bytes = function() {
       flags <- if (is.null(self$until)) 0 else 1
       c(
@@ -13222,7 +12453,6 @@ EmojiStatusCollectible <- R6::R6Class(
     pattern_color = NULL,
     text_color = NULL,
     until = NULL,
-
     initialize = function(collectible_id, document_id, title, slug, pattern_document_id, center_color, edge_color, pattern_color, text_color, until = NULL) {
       self$collectible_id <- collectible_id
       self$document_id <- document_id
@@ -13235,7 +12465,6 @@ EmojiStatusCollectible <- R6::R6Class(
       self$text_color <- text_color
       self$until <- until
     },
-
     to_list = function() {
       list(
         "_" = "EmojiStatusCollectible",
@@ -13251,7 +12480,6 @@ EmojiStatusCollectible <- R6::R6Class(
         until = self$until
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x3B, 0x60, 0x84, 0x71)),
@@ -13311,7 +12539,6 @@ EncryptedChat <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x61f0d4c7,
     SUBCLASS_OF_ID = 0x6d28a37a,
-
     id = NULL,
     access_hash = NULL,
     date = NULL,
@@ -13319,7 +12546,6 @@ EncryptedChat <- R6::R6Class(
     participant_id = NULL,
     g_a_or_b = NULL,
     key_fingerprint = NULL,
-
     initialize = function(id, access_hash, date, admin_id, participant_id, g_a_or_b, key_fingerprint) {
       self$id <- id
       self$access_hash <- access_hash
@@ -13329,7 +12555,6 @@ EncryptedChat <- R6::R6Class(
       self$g_a_or_b <- g_a_or_b
       self$key_fingerprint <- key_fingerprint
     },
-
     to_list = function() {
       list(
         "_" = "EncryptedChat",
@@ -13342,7 +12567,6 @@ EncryptedChat <- R6::R6Class(
         key_fingerprint = self$key_fingerprint
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xc7, 0xd4, 0xf0, 0x61)),
@@ -13356,7 +12580,6 @@ EncryptedChat <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       id <- reader$read_int()
@@ -13386,15 +12609,12 @@ EncryptedChatDiscarded <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x1e1c7c45,
     SUBCLASS_OF_ID = 0x6d28a37a,
-
     id = NULL,
     history_deleted = NULL,
-
     initialize = function(id, history_deleted = NULL) {
       self$id <- id
       self$history_deleted <- history_deleted
     },
-
     to_list = function() {
       list(
         "_" = "EncryptedChatDiscarded",
@@ -13402,7 +12622,6 @@ EncryptedChatDiscarded <- R6::R6Class(
         history_deleted = self$history_deleted
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x45, 0x7c, 0x1c, 0x1e)),
@@ -13411,7 +12630,6 @@ EncryptedChatDiscarded <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -13429,20 +12647,16 @@ EncryptedChatEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xab7ec0a0,
     SUBCLASS_OF_ID = 0x6d28a37a,
-
     id = NULL,
-
     initialize = function(id) {
       self$id <- id
     },
-
     to_list = function() {
       list(
         "_" = "EncryptedChatEmpty",
         id = self$id
       )
     },
-
     bytes = function() {
       rawToChar(c(
         as.raw(c(0xa0, 0xc0, 0x7e, 0xab)),
@@ -13450,7 +12664,6 @@ EncryptedChatEmpty <- R6::R6Class(
       ))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       id <- reader$read_int()
@@ -13466,7 +12679,6 @@ EncryptedChatRequested <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x48f1d94c,
     SUBCLASS_OF_ID = 0x6d28a37a,
-
     id = NULL,
     access_hash = NULL,
     date = NULL,
@@ -13474,7 +12686,6 @@ EncryptedChatRequested <- R6::R6Class(
     participant_id = NULL,
     g_a = NULL,
     folder_id = NULL,
-
     initialize = function(id, access_hash, date, admin_id, participant_id, g_a, folder_id = NULL) {
       self$id <- id
       self$access_hash <- access_hash
@@ -13484,7 +12695,6 @@ EncryptedChatRequested <- R6::R6Class(
       self$g_a <- g_a
       self$folder_id <- folder_id
     },
-
     to_list = function() {
       list(
         "_" = "EncryptedChatRequested",
@@ -13497,7 +12707,6 @@ EncryptedChatRequested <- R6::R6Class(
         folder_id = self$folder_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x48, 0xf1, 0xd9, 0x4c)),
@@ -13512,7 +12721,6 @@ EncryptedChatRequested <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -13548,7 +12756,6 @@ EncryptedChatWaiting <- R6::R6Class(
     date = NULL,
     admin_id = NULL,
     participant_id = NULL,
-
     initialize = function(id, access_hash, date, admin_id, participant_id) {
       self$id <- id
       self$access_hash <- access_hash
@@ -13556,7 +12763,6 @@ EncryptedChatWaiting <- R6::R6Class(
       self$admin_id <- admin_id
       self$participant_id <- participant_id
     },
-
     to_list = function() {
       list(
         "_" = "EncryptedChatWaiting",
@@ -13567,7 +12773,6 @@ EncryptedChatWaiting <- R6::R6Class(
         participant_id = self$participant_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x53, 0xB2, 0x66)),
@@ -13590,7 +12795,6 @@ EncryptedFile <- R6::R6Class(
     size = NULL,
     dc_id = NULL,
     key_fingerprint = NULL,
-
     initialize = function(id, access_hash, size, dc_id, key_fingerprint) {
       self$id <- id
       self$access_hash <- access_hash
@@ -13598,7 +12802,6 @@ EncryptedFile <- R6::R6Class(
       self$dc_id <- dc_id
       self$key_fingerprint <- key_fingerprint
     },
-
     to_list = function() {
       list(
         "_" = "EncryptedFile",
@@ -13609,7 +12812,6 @@ EncryptedFile <- R6::R6Class(
         key_fingerprint = self$key_fingerprint
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xD8, 0x8C, 0x00, 0xA8)),
@@ -14164,7 +13366,6 @@ GroupCall <- R6::R6Class(
     schedule_date = NULL,
     unmuted_video_count = NULL,
     invite_link = NULL,
-
     initialize = function(id, access_hash, participants_count, unmuted_video_limit, version,
                           join_muted = NULL, can_change_join_muted = NULL, join_date_asc = NULL,
                           schedule_start_subscribed = NULL, can_start_video = NULL,
@@ -14194,7 +13395,6 @@ GroupCall <- R6::R6Class(
       self$unmuted_video_count <- unmuted_video_count
       self$invite_link <- invite_link
     },
-
     to_list = function() {
       list(
         "_" = "GroupCall",
@@ -14231,17 +13431,14 @@ GroupCallDiscarded <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x7780bcb4,
     SUBCLASS_OF_ID = 0x20b4f320,
-
     id = NULL,
     access_hash = NULL,
     duration = NULL,
-
     initialize = function(id, access_hash, duration) {
       self$id <- id
       self$access_hash <- access_hash
       self$duration <- duration
     },
-
     to_dict = function() {
       list(
         "_" = "GroupCallDiscarded",
@@ -14250,7 +13447,6 @@ GroupCallDiscarded <- R6::R6Class(
         duration = self$duration
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xb4, 0xbc, 0x80, 0x77)),
@@ -14260,7 +13456,6 @@ GroupCallDiscarded <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       id <- reader$read_long()
@@ -14295,7 +13490,6 @@ GroupCallParticipant <- R6::R6Class(
     raise_hand_rating = NULL,
     video = NULL,
     presentation = NULL,
-
     initialize = function(peer, date = NULL, source, muted = NULL, left = NULL, can_self_unmute = NULL,
                           just_joined = NULL, versioned = NULL, min = NULL, muted_by_you = NULL,
                           volume_by_admin = NULL, is_self = NULL, video_joined = NULL, active_date = NULL,
@@ -14321,7 +13515,6 @@ GroupCallParticipant <- R6::R6Class(
       self$video <- video
       self$presentation <- presentation
     },
-
     to_list = function() {
       list(
         "_" = "GroupCallParticipant",
@@ -14347,7 +13540,6 @@ GroupCallParticipant <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -14374,12 +13566,14 @@ GroupCallParticipant <- R6::R6Class(
       video <- if (bitwAnd(flags, 64)) reader$tgread_object() else NULL
       presentation <- if (bitwAnd(flags, 16384)) reader$tgread_object() else NULL
 
-      self$new(peer = peer, date = date, source = source, muted = muted, left = left,
-               can_self_unmute = can_self_unmute, just_joined = just_joined, versioned = versioned,
-               min = min, muted_by_you = muted_by_you, volume_by_admin = volume_by_admin,
-               is_self = is_self, video_joined = video_joined, active_date = active_date,
-               volume = volume, about = about, raise_hand_rating = raise_hand_rating,
-               video = video, presentation = presentation)
+      self$new(
+        peer = peer, date = date, source = source, muted = muted, left = left,
+        can_self_unmute = can_self_unmute, just_joined = just_joined, versioned = versioned,
+        min = min, muted_by_you = muted_by_you, volume_by_admin = volume_by_admin,
+        is_self = is_self, video_joined = video_joined, active_date = active_date,
+        volume = volume, about = about, raise_hand_rating = raise_hand_rating,
+        video = video, presentation = presentation
+      )
     }
   )
 )
@@ -14393,14 +13587,12 @@ GroupCallParticipantVideo <- R6::R6Class(
     source_groups = NULL,
     paused = NULL,
     audio_source = NULL,
-
     initialize = function(endpoint, source_groups, paused = NULL, audio_source = NULL) {
       self$endpoint <- endpoint
       self$source_groups <- source_groups
       self$paused <- paused
       self$audio_source <- audio_source
     },
-
     to_list = function() {
       list(
         "_" = "GroupCallParticipantVideo",
@@ -14410,7 +13602,6 @@ GroupCallParticipantVideo <- R6::R6Class(
         audio_source = self$audio_source
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xc8, 0x3a, 0x75, 0x67)),
@@ -14431,12 +13622,10 @@ GroupCallParticipantVideoSourceGroup <- R6::R6Class(
   public = list(
     semantics = NULL,
     sources = NULL,
-
     initialize = function(semantics, sources) {
       self$semantics <- semantics
       self$sources <- sources
     },
-
     to_list = function() {
       list(
         "_" = "GroupCallParticipantVideoSourceGroup",
@@ -14444,7 +13633,6 @@ GroupCallParticipantVideoSourceGroup <- R6::R6Class(
         sources = if (is.null(self$sources)) list() else self$sources
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xb7, 0x18, 0xb1, 0xdc)),
@@ -14464,13 +13652,11 @@ GroupCallStreamChannel <- R6::R6Class(
     channel = NULL,
     scale = NULL,
     lastTimestampMs = NULL,
-
     initialize = function(channel, scale, lastTimestampMs) {
       self$channel <- channel
       self$scale <- scale
       self$lastTimestampMs <- lastTimestampMs
     },
-
     to_list = function() {
       list(
         "_" = "GroupCallStreamChannel",
@@ -14479,7 +13665,6 @@ GroupCallStreamChannel <- R6::R6Class(
         lastTimestampMs = self$lastTimestampMs
       )
     },
-
     bytes = function() {
       rawToChar(c(
         as.raw(c(0xaf, 0x48, 0xeb, 0x80)),
@@ -14497,13 +13682,11 @@ HighScore <- R6::R6Class(
     pos = NULL,
     userId = NULL,
     score = NULL,
-
     initialize = function(pos, userId, score) {
       self$pos <- pos
       self$userId <- userId
       self$score <- score
     },
-
     to_list = function() {
       list(
         "_" = "HighScore",
@@ -14512,7 +13695,6 @@ HighScore <- R6::R6Class(
         score = self$score
       )
     },
-
     bytes = function() {
       rawToChar(c(
         as.raw(c(0xeb, 0x79, 0xa3, 0x73)),
@@ -14531,13 +13713,11 @@ HttpWait <- R6::R6Class(
     max_delay = NULL,
     wait_after = NULL,
     max_wait = NULL,
-
     initialize = function(max_delay, wait_after, max_wait) {
       self$max_delay <- max_delay
       self$wait_after <- wait_after
       self$max_wait <- max_wait
     },
-
     to_list = function() {
       list(
         "_" = "HttpWait",
@@ -14546,7 +13726,6 @@ HttpWait <- R6::R6Class(
         max_wait = self$max_wait
       )
     },
-
     bytes = function() {
       rawToChar(c(
         as.raw(c(0x9f, 0x35, 0x99, 0x92)),
@@ -14563,12 +13742,10 @@ ImportedContact <- R6::R6Class(
   public = list(
     user_id = NULL,
     client_id = NULL,
-
     initialize = function(user_id, client_id) {
       self$user_id <- user_id
       self$client_id <- client_id
     },
-
     to_list = function() {
       list(
         "_" = "ImportedContact",
@@ -14576,7 +13753,6 @@ ImportedContact <- R6::R6Class(
         client_id = self$client_id
       )
     },
-
     bytes = function() {
       rawToChar(c(
         as.raw(c(0x50, 0x3c, 0x3e, 0xc1)),
@@ -14593,12 +13769,10 @@ InlineBotSwitchPM <- R6::R6Class(
   public = list(
     text = NULL,
     start_param = NULL,
-
     initialize = function(text, start_param) {
       self$text <- text
       self$start_param <- start_param
     },
-
     to_list = function() {
       list(
         "_" = "InlineBotSwitchPM",
@@ -14606,7 +13780,6 @@ InlineBotSwitchPM <- R6::R6Class(
         start_param = self$start_param
       )
     },
-
     bytes = function() {
       paste0(
         "\x9f\x62\x20\x3c",
@@ -14614,7 +13787,6 @@ InlineBotSwitchPM <- R6::R6Class(
         self$serialize_bytes(self$start_param)
       )
     },
-
     serialize_bytes = function(value) {
       # Placeholder for serialization logic
       value
@@ -14627,12 +13799,10 @@ InlineBotWebView <- R6::R6Class(
   public = list(
     text = NULL,
     url = NULL,
-
     initialize = function(text, url) {
       self$text <- text
       self$url <- url
     },
-
     to_list = function() {
       list(
         "_" = "InlineBotWebView",
@@ -14640,7 +13810,6 @@ InlineBotWebView <- R6::R6Class(
         url = self$url
       )
     },
-
     bytes = function() {
       paste0(
         "\xd5\x95\x72\xb5",
@@ -14648,7 +13817,6 @@ InlineBotWebView <- R6::R6Class(
         self$serialize_bytes(self$url)
       )
     },
-
     serialize_bytes = function(value) {
       # Placeholder for serialization logic
       value
@@ -14663,11 +13831,9 @@ InlineQueryPeerTypeBotPM <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x0e3b2d0c,
     SUBCLASS_OF_ID = 0xafb0fa1f,
-
     to_list = function() {
       list("_" = "InlineQueryPeerTypeBotPM")
     },
-
     bytes = function() {
       rawToBits(as.raw(c(0x0c, 0x2d, 0x3b, 0x0e)))
     }
@@ -14680,11 +13846,9 @@ InlineQueryPeerTypeBroadcast <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x6334ee9a,
     SUBCLASS_OF_ID = 0xafb0fa1f,
-
     to_list = function() {
       list("_" = "InlineQueryPeerTypeBroadcast")
     },
-
     bytes = function() {
       rawToBits(as.raw(c(0x9a, 0xee, 0x34, 0x63)))
     }
@@ -14697,11 +13861,9 @@ InlineQueryPeerTypeChat <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xd766c50a,
     SUBCLASS_OF_ID = 0xafb0fa1f,
-
     to_list = function() {
       list("_" = "InlineQueryPeerTypeChat")
     },
-
     bytes = function() {
       rawToBits(as.raw(c(0x0a, 0xc5, 0x66, 0xd7)))
     }
@@ -14756,14 +13918,12 @@ InputAppEvent <- R6::R6Class(
     type = NULL,
     peer = NULL,
     data = NULL,
-
     initialize = function(time, type, peer, data) {
       self$time <- time
       self$type <- type
       self$peer <- peer
       self$data <- data
     },
-
     to_list = function() {
       list(
         "_" = "InputAppEvent",
@@ -14773,7 +13933,6 @@ InputAppEvent <- R6::R6Class(
         data = if (inherits(self$data, "TLObject")) self$data$to_list() else self$data
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x1d, 0x1b, 0x12, 0x45)),
@@ -14791,12 +13950,10 @@ InputBotAppID <- R6::R6Class(
   public = list(
     id = NULL,
     access_hash = NULL,
-
     initialize = function(id, access_hash) {
       self$id <- id
       self$access_hash <- access_hash
     },
-
     to_list = function() {
       list(
         "_" = "InputBotAppID",
@@ -14804,7 +13961,6 @@ InputBotAppID <- R6::R6Class(
         access_hash = self$access_hash
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xa9, 0x20, 0xbd, 0x7a)),
@@ -14822,12 +13978,10 @@ InputBotAppShortName <- R6::R6Class(
   public = list(
     bot_id = NULL,
     short_name = NULL,
-
     initialize = function(bot_id, short_name) {
       self$bot_id <- bot_id
       self$short_name <- short_name
     },
-
     to_dict = function() {
       list(
         "_" = "InputBotAppShortName",
@@ -14835,7 +13989,6 @@ InputBotAppShortName <- R6::R6Class(
         short_name = self$short_name
       )
     },
-
     bytes = function() {
       paste0(
         "\x07\x04\x8c\x90",
@@ -14844,7 +13997,6 @@ InputBotAppShortName <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       bot_id <- reader$tgread_object()
@@ -14859,18 +14011,15 @@ InputBotInlineMessageGame <- R6::R6Class(
   inherit = TLObject,
   public = list(
     reply_markup = NULL,
-
     initialize = function(reply_markup = NULL) {
       self$reply_markup <- reply_markup
     },
-
     to_dict = function() {
       list(
         "_" = "InputBotInlineMessageGame",
         reply_markup = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_dict() else self$reply_markup
       )
     },
-
     bytes = function() {
       paste0(
         "dXBK",
@@ -14879,7 +14028,6 @@ InputBotInlineMessageGame <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -14897,13 +14045,11 @@ InputBotInlineMessageID <- R6::R6Class(
     dc_id = NULL,
     id = NULL,
     access_hash = NULL,
-
     initialize = function(dc_id, id, access_hash) {
       self$dc_id <- dc_id
       self$id <- id
       self$access_hash <- access_hash
     },
-
     to_list = function() {
       list(
         "_" = "InputBotInlineMessageID",
@@ -14912,7 +14058,6 @@ InputBotInlineMessageID <- R6::R6Class(
         access_hash = self$access_hash
       )
     },
-
     bytes = function() {
       rawToBits(c(
         as.raw(0x89), as.raw(0x3d), as.raw(0x0c), as.raw(0x89),
@@ -14932,14 +14077,12 @@ InputBotInlineMessageID64 <- R6::R6Class(
     owner_id = NULL,
     id = NULL,
     access_hash = NULL,
-
     initialize = function(dc_id, owner_id, id, access_hash) {
       self$dc_id <- dc_id
       self$owner_id <- owner_id
       self$id <- id
       self$access_hash <- access_hash
     },
-
     to_list = function() {
       list(
         "_" = "InputBotInlineMessageID64",
@@ -14949,7 +14092,6 @@ InputBotInlineMessageID64 <- R6::R6Class(
         access_hash = self$access_hash
       )
     },
-
     bytes = function() {
       rawToBits(c(
         as.raw(0xd7), as.raw(0x15), as.raw(0xd9), as.raw(0xb6),
@@ -14971,14 +14113,12 @@ InputBotInlineMessageMediaAuto <- R6::R6Class(
     invert_media = NULL,
     entities = NULL,
     reply_markup = NULL,
-
     initialize = function(message, invert_media = NULL, entities = NULL, reply_markup = NULL) {
       self$message <- message
       self$invert_media <- invert_media
       self$entities <- entities
       self$reply_markup <- reply_markup
     },
-
     to_list = function() {
       list(
         "_" = "InputBotInlineMessageMediaAuto",
@@ -14988,7 +14128,6 @@ InputBotInlineMessageMediaAuto <- R6::R6Class(
         reply_markup = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
       )
     },
-
     bytes = function() {
       flags <- Reduce(bitwOr, as.integer(c(
         if (is.null(self$invert_media) || !self$invert_media) 0 else 8,
@@ -15000,16 +14139,19 @@ InputBotInlineMessageMediaAuto <- R6::R6Class(
         as.raw(c(0x86, 0xc7, 0x80, 0x33)),
         as.raw(flags),
         serialize_bytes(self$message),
-        if (is.null(self$entities) || length(self$entities) == 0) raw() else c(
-          as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
-          writeBin(length(self$entities), raw(), size = 4),
-          unlist(lapply(self$entities, function(x) x$bytes()))
-        ),
+        if (is.null(self$entities) || length(self$entities) == 0) {
+          raw()
+        } else {
+          c(
+            as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+            writeBin(length(self$entities), raw(), size = 4),
+            unlist(lapply(self$entities, function(x) x$bytes()))
+          )
+        },
         if (is.null(self$reply_markup)) raw() else self$reply_markup$bytes()
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -15039,7 +14181,6 @@ InputBotInlineMessageMediaContact <- R6::R6Class(
     last_name = NULL,
     vcard = NULL,
     reply_markup = NULL,
-
     initialize = function(phone_number, first_name, last_name, vcard, reply_markup = NULL) {
       self$phone_number <- phone_number
       self$first_name <- first_name
@@ -15047,7 +14188,6 @@ InputBotInlineMessageMediaContact <- R6::R6Class(
       self$vcard <- vcard
       self$reply_markup <- reply_markup
     },
-
     to_list = function() {
       list(
         "_" = "InputBotInlineMessageMediaContact",
@@ -15058,7 +14198,6 @@ InputBotInlineMessageMediaContact <- R6::R6Class(
         reply_markup = if (!is.null(self$reply_markup) && inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xfd, 0xbf, 0xed, 0xa6)),
@@ -15071,7 +14210,6 @@ InputBotInlineMessageMediaContact <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -15095,7 +14233,6 @@ InputBotInlineMessageMediaGeo <- R6::R6Class(
     period = NULL,
     proximity_notification_radius = NULL,
     reply_markup = NULL,
-
     initialize = function(geo_point, heading = NULL, period = NULL, proximity_notification_radius = NULL, reply_markup = NULL) {
       self$geo_point <- geo_point
       self$heading <- heading
@@ -15103,7 +14240,6 @@ InputBotInlineMessageMediaGeo <- R6::R6Class(
       self$proximity_notification_radius <- proximity_notification_radius
       self$reply_markup <- reply_markup
     },
-
     to_list = function() {
       list(
         "_" = "InputBotInlineMessageMediaGeo",
@@ -15114,7 +14250,6 @@ InputBotInlineMessageMediaGeo <- R6::R6Class(
         reply_markup = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
       )
     },
-
     bytes = function() {
       flags <- Reduce(bitwOr, as.integer(c(
         if (is.null(self$heading) || !self$heading) 0 else 1,
@@ -15134,7 +14269,6 @@ InputBotInlineMessageMediaGeo <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -15163,7 +14297,6 @@ InputBotInlineMessageMediaInvoice <- R6::R6Class(
     provider_data = NULL,
     photo = NULL,
     reply_markup = NULL,
-
     initialize = function(title, description, invoice, payload, provider, provider_data, photo = NULL, reply_markup = NULL) {
       self$title <- title
       self$description <- description
@@ -15174,7 +14307,6 @@ InputBotInlineMessageMediaInvoice <- R6::R6Class(
       self$photo <- photo
       self$reply_markup <- reply_markup
     },
-
     to_list = function() {
       list(
         "_" = "InputBotInlineMessageMediaInvoice",
@@ -15188,7 +14320,6 @@ InputBotInlineMessageMediaInvoice <- R6::R6Class(
         reply_markup = if (!is.null(self$reply_markup) && inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x25, 0x82, 0xE7, 0xD7)),
@@ -15207,7 +14338,6 @@ InputBotInlineMessageMediaInvoice <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -15247,7 +14377,6 @@ InputBotInlineMessageMediaVenue <- R6::R6Class(
     venue_id = NULL,
     venue_type = NULL,
     reply_markup = NULL,
-
     initialize = function(geo_point, title, address, provider, venue_id, venue_type, reply_markup = NULL) {
       self$geo_point <- geo_point
       self$title <- title
@@ -15257,7 +14386,6 @@ InputBotInlineMessageMediaVenue <- R6::R6Class(
       self$venue_type <- venue_type
       self$reply_markup <- reply_markup
     },
-
     to_list = function() {
       list(
         "_" = "InputBotInlineMessageMediaVenue",
@@ -15270,7 +14398,6 @@ InputBotInlineMessageMediaVenue <- R6::R6Class(
         reply_markup = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x11, 0xbf, 0x7b, 0x41)),
@@ -15285,7 +14412,6 @@ InputBotInlineMessageMediaVenue <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -15324,7 +14450,6 @@ InputBotInlineMessageMediaWebPage <- R6::R6Class(
     optional = NULL,
     entities = NULL,
     reply_markup = NULL,
-
     initialize = function(message, url, invert_media = NULL, force_large_media = NULL,
                           force_small_media = NULL, optional = NULL, entities = NULL,
                           reply_markup = NULL) {
@@ -15337,7 +14462,6 @@ InputBotInlineMessageMediaWebPage <- R6::R6Class(
       self$entities <- entities
       self$reply_markup <- reply_markup
     },
-
     to_list = function() {
       list(
         "_" = "InputBotInlineMessageMediaWebPage",
@@ -15351,7 +14475,6 @@ InputBotInlineMessageMediaWebPage <- R6::R6Class(
         reply_markup = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x10, 0xc5, 0xdc, 0xbd)),
@@ -15364,17 +14487,20 @@ InputBotInlineMessageMediaWebPage <- R6::R6Class(
           reply_markup = !is.null(self$reply_markup)
         ),
         serialize_bytes(self$message),
-        if (!is.null(self$entities)) c(
-          as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
-          serialize_int(length(self$entities)),
-          unlist(lapply(self$entities, function(x) x$bytes()), recursive = FALSE)
-        ) else raw(),
+        if (!is.null(self$entities)) {
+          c(
+            as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+            serialize_int(length(self$entities)),
+            unlist(lapply(self$entities, function(x) x$bytes()), recursive = FALSE)
+          )
+        } else {
+          raw()
+        },
         serialize_bytes(self$url),
         if (!is.null(self$reply_markup)) self$reply_markup$bytes() else raw()
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -15403,9 +14529,11 @@ InputBotInlineMessageMediaWebPage <- R6::R6Class(
         reply_markup <- NULL
       }
 
-      self$new(message = message, url = url, invert_media = invert_media,
-               force_large_media = force_large_media, force_small_media = force_small_media,
-               optional = optional, entities = entities, reply_markup = reply_markup)
+      self$new(
+        message = message, url = url, invert_media = invert_media,
+        force_large_media = force_large_media, force_small_media = force_small_media,
+        optional = optional, entities = entities, reply_markup = reply_markup
+      )
     }
   )
 )
@@ -15420,7 +14548,6 @@ InputBotInlineMessageText <- R6::R6Class(
     invert_media = NULL,
     entities = NULL,
     reply_markup = NULL,
-
     initialize = function(message, no_webpage = NULL, invert_media = NULL, entities = NULL, reply_markup = NULL) {
       self$message <- message
       self$no_webpage <- no_webpage
@@ -15428,7 +14555,6 @@ InputBotInlineMessageText <- R6::R6Class(
       self$entities <- entities
       self$reply_markup <- reply_markup
     },
-
     to_list = function() {
       list(
         "_" = "InputBotInlineMessageText",
@@ -15439,7 +14565,6 @@ InputBotInlineMessageText <- R6::R6Class(
         reply_markup = if (inherits(self$reply_markup, "TLObject")) self$reply_markup$to_list() else self$reply_markup
       )
     },
-
     bytes = function() {
       flags <- Reduce(bitwOr, as.integer(c(
         if (is.null(self$no_webpage) || !self$no_webpage) 0 else 1,
@@ -15452,16 +14577,19 @@ InputBotInlineMessageText <- R6::R6Class(
         as.raw(c(0x87, 0x7a, 0xcd, 0x3d)),
         as.raw(flags),
         serialize_bytes(self$message),
-        if (is.null(self$entities) || length(self$entities) == 0) raw() else c(
-          as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
-          writeBin(length(self$entities), raw(), size = 4),
-          unlist(lapply(self$entities, function(x) x$bytes()))
-        ),
+        if (is.null(self$entities) || length(self$entities) == 0) {
+          raw()
+        } else {
+          c(
+            as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+            writeBin(length(self$entities), raw(), size = 4),
+            unlist(lapply(self$entities, function(x) x$bytes()))
+          )
+        },
         if (is.null(self$reply_markup)) raw() else self$reply_markup$bytes()
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -15504,7 +14632,6 @@ InputBotInlineResult <- R6::R6Class(
     url = NULL,
     thumb = NULL,
     content = NULL,
-
     initialize = function(id, type, send_message, title = NULL, description = NULL, url = NULL, thumb = NULL, content = NULL) {
       self$id <- id
       self$type <- type
@@ -15515,7 +14642,6 @@ InputBotInlineResult <- R6::R6Class(
       self$thumb <- thumb
       self$content <- content
     },
-
     to_list = function() {
       list(
         "_" = "InputBotInlineResult",
@@ -15529,7 +14655,6 @@ InputBotInlineResult <- R6::R6Class(
         content = if (inherits(self$content, "TLObject")) self$content$to_list() else self$content
       )
     },
-
     bytes = function() {
       flags <- Reduce(bitwOr, as.integer(c(
         if (is.null(self$title) || !self$title) 0 else 2,
@@ -15553,7 +14678,6 @@ InputBotInlineResult <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -15579,14 +14703,12 @@ InputBotInlineResultDocument <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xfff8fdc4,
     SUBCLASS_OF_ID = 0x80a4a3de,
-
     id = NULL,
     type = NULL,
     document = NULL,
     send_message = NULL,
     title = NULL,
     description = NULL,
-
     initialize = function(id, type, document, send_message, title = NULL, description = NULL) {
       self$id <- id
       self$type <- type
@@ -15595,7 +14717,6 @@ InputBotInlineResultDocument <- R6::R6Class(
       self$title <- title
       self$description <- description
     },
-
     to_list = function() {
       list(
         "_" = "InputBotInlineResultDocument",
@@ -15607,7 +14728,6 @@ InputBotInlineResultDocument <- R6::R6Class(
         description = self$description
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xc4, 0xfd, 0xf8, 0xff)),
@@ -15624,7 +14744,6 @@ InputBotInlineResultDocument <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -15648,17 +14767,14 @@ InputBotInlineResultGame <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x4fa417f2,
     SUBCLASS_OF_ID = 0x80a4a3de,
-
     id = NULL,
     short_name = NULL,
     send_message = NULL,
-
     initialize = function(id, short_name, send_message) {
       self$id <- id
       self$short_name <- short_name
       self$send_message <- send_message
     },
-
     to_list = function() {
       list(
         "_" = "InputBotInlineResultGame",
@@ -15667,7 +14783,6 @@ InputBotInlineResultGame <- R6::R6Class(
         send_message = if (inherits(self$send_message, "TLObject")) self$send_message$to_list() else self$send_message
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xf2, 0x17, 0xa4, 0x4f)),
@@ -15685,19 +14800,16 @@ InputBotInlineResultPhoto <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xa8d864a7,
     SUBCLASS_OF_ID = 0x80a4a3de,
-
     id = NULL,
     type = NULL,
     photo = NULL,
     send_message = NULL,
-
     initialize = function(id, type, photo, send_message) {
       self$id <- id
       self$type <- type
       self$photo <- photo
       self$send_message <- send_message
     },
-
     to_list = function() {
       list(
         "_" = "InputBotInlineResultPhoto",
@@ -15707,7 +14819,6 @@ InputBotInlineResultPhoto <- R6::R6Class(
         send_message = if (inherits(self$send_message, "TLObject")) self$send_message$to_list() else self$send_message
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xa7, 0x64, 0xd8, 0xa8)),
@@ -15728,14 +14839,12 @@ InputBusinessAwayMessage <- R6::R6Class(
     schedule = NULL,
     recipients = NULL,
     offline_only = NULL,
-
     initialize = function(shortcut_id, schedule, recipients, offline_only = NULL) {
       self$shortcut_id <- shortcut_id
       self$schedule <- schedule
       self$recipients <- recipients
       self$offline_only <- offline_only
     },
-
     to_list = function() {
       list(
         "_" = "InputBusinessAwayMessage",
@@ -15745,7 +14854,6 @@ InputBusinessAwayMessage <- R6::R6Class(
         offline_only = self$offline_only
       )
     },
-
     bytes = function() {
       c(
         as.raw(0xe0), as.raw(0x75), as.raw(0x21), as.raw(0x83),
@@ -15768,7 +14876,6 @@ InputBusinessBotRecipients <- R6::R6Class(
     exclude_selected = NULL,
     users = NULL,
     exclude_users = NULL,
-
     initialize = function(existing_chats = NULL, new_chats = NULL, contacts = NULL, non_contacts = NULL, exclude_selected = NULL, users = NULL, exclude_users = NULL) {
       self$existing_chats <- existing_chats
       self$new_chats <- new_chats
@@ -15778,7 +14885,6 @@ InputBusinessBotRecipients <- R6::R6Class(
       self$users <- users
       self$exclude_users <- exclude_users
     },
-
     to_list = function() {
       list(
         "_" = "InputBusinessBotRecipients",
@@ -15791,7 +14897,6 @@ InputBusinessBotRecipients <- R6::R6Class(
         exclude_users = if (is.null(self$exclude_users)) list() else lapply(self$exclude_users, function(x) if (inherits(x, "R6")) x$to_list() else x)
       )
     },
-
     bytes = function() {
       flags <- 0
       if (!is.null(self$existing_chats) && self$existing_chats) flags <- bitwOr(flags, 1)
@@ -15835,17 +14940,14 @@ InputBusinessChatLink <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x11679fa7,
     SUBCLASS_OF_ID = 0xab670513,
-
     message = NULL,
     entities = NULL,
     title = NULL,
-
     initialize = function(message, entities = NULL, title = NULL) {
       self$message <- message
       self$entities <- entities
       self$title <- title
     },
-
     to_dict = function() {
       list(
         "_" = "InputBusinessChatLink",
@@ -15854,7 +14956,6 @@ InputBusinessChatLink <- R6::R6Class(
         title = self$title
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xa7, 0x9f, 0x67, 0x11)),
@@ -15873,17 +14974,14 @@ InputBusinessGreetingMessage <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x194cb3b,
     SUBCLASS_OF_ID = 0x6278dcdd,
-
     shortcut_id = NULL,
     recipients = NULL,
     no_activity_days = NULL,
-
     initialize = function(shortcut_id, recipients, no_activity_days) {
       self$shortcut_id <- shortcut_id
       self$recipients <- recipients
       self$no_activity_days <- no_activity_days
     },
-
     to_dict = function() {
       list(
         "_" = "InputBusinessGreetingMessage",
@@ -15892,7 +14990,6 @@ InputBusinessGreetingMessage <- R6::R6Class(
         no_activity_days = self$no_activity_days
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x3b, 0xcb, 0x94, 0x01)),
@@ -15911,17 +15008,14 @@ InputBusinessIntro <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9c469cd,
     SUBCLASS_OF_ID = 0x645a767d,
-
     title = NULL,
     description = NULL,
     sticker = NULL,
-
     initialize = function(title, description, sticker = NULL) {
       self$title <- title
       self$description <- description
       self$sticker <- sticker
     },
-
     to_dict = function() {
       list(
         "_" = "InputBusinessIntro",
@@ -15930,7 +15024,6 @@ InputBusinessIntro <- R6::R6Class(
         sticker = if (inherits(self$sticker, "TLObject")) self$sticker$to_list() else self$sticker
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xcd, 0x69, 0xc4, 0x09)),
@@ -15941,7 +15034,6 @@ InputBusinessIntro <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -15961,14 +15053,12 @@ InputBusinessRecipients <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x6f8b32aa,
     SUBCLASS_OF_ID = 0xd7ee53f,
-
     existing_chats = NULL,
     new_chats = NULL,
     contacts = NULL,
     non_contacts = NULL,
     exclude_selected = NULL,
     users = NULL,
-
     initialize = function(existing_chats = NULL, new_chats = NULL, contacts = NULL, non_contacts = NULL, exclude_selected = NULL, users = NULL) {
       self$existing_chats <- existing_chats
       self$new_chats <- new_chats
@@ -15977,7 +15067,6 @@ InputBusinessRecipients <- R6::R6Class(
       self$exclude_selected <- exclude_selected
       self$users <- users
     },
-
     to_dict = function() {
       list(
         "_" = "InputBusinessRecipients",
@@ -15989,7 +15078,6 @@ InputBusinessRecipients <- R6::R6Class(
         users = if (is.null(self$users)) list() else lapply(self$users, function(x) if (inherits(x, "TLObject")) x$to_list() else x)
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xaa, 0x32, 0x8b, 0x6f)),
@@ -16001,15 +15089,18 @@ InputBusinessRecipients <- R6::R6Class(
             (if (is.null(self$exclude_selected) || self$exclude_selected == FALSE) 0 else 32) +
             (if (is.null(self$users) || self$users == FALSE) 0 else 16)
         ),
-        if (is.null(self$users) || self$users == FALSE) raw() else c(
-          as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
-          as.raw(length(self$users)),
-          unlist(lapply(self$users, function(x) x$bytes()))
-        )
+        if (is.null(self$users) || self$users == FALSE) {
+          raw()
+        } else {
+          c(
+            as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+            as.raw(length(self$users)),
+            unlist(lapply(self$users, function(x) x$bytes()))
+          )
+        }
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -16046,15 +15137,12 @@ InputChannel <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xf35aec28,
     SUBCLASS_OF_ID = 0x40f202fd,
-
     channel_id = NULL,
     access_hash = NULL,
-
     initialize = function(channel_id, access_hash) {
       self$channel_id <- channel_id
       self$access_hash <- access_hash
     },
-
     to_dict = function() {
       list(
         "_" = "InputChannel",
@@ -16062,7 +15150,6 @@ InputChannel <- R6::R6Class(
         access_hash = self$access_hash
       )
     },
-
     bytes = function() {
       rawToChar(c(
         as.raw(c(0x28, 0xec, 0x5a, 0xf3)),
@@ -16079,11 +15166,9 @@ InputChannelEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xee8c1e86,
     SUBCLASS_OF_ID = 0x40f202fd,
-
     to_dict = function() {
       list("_" = "InputChannelEmpty")
     },
-
     bytes = function() {
       rawToChar(as.raw(c(0x86, 0x1e, 0x8c, 0xee)))
     }
@@ -16097,17 +15182,14 @@ InputChannelFromMessage <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x5b934f9d,
     SUBCLASS_OF_ID = 0x40f202fd,
-
     peer = NULL,
     msg_id = NULL,
     channel_id = NULL,
-
     initialize = function(peer, msg_id, channel_id) {
       self$peer <- peer
       self$msg_id <- msg_id
       self$channel_id <- channel_id
     },
-
     to_dict = function() {
       list(
         "_" = "InputChannelFromMessage",
@@ -16116,7 +15198,6 @@ InputChannelFromMessage <- R6::R6Class(
         channel_id = self$channel_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x9d, 0x4f, 0x93, 0x5b)),
@@ -16134,20 +15215,16 @@ InputChatPhoto <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x8953ad37,
     SUBCLASS_OF_ID = 0xd4eb2d74,
-
     id = NULL,
-
     initialize = function(id) {
       self$id <- id
     },
-
     to_dict = function() {
       list(
         "_" = "InputChatPhoto",
         id = if (inherits(self$id, "TLObject")) self$id$to_list() else self$id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x37, 0xad, 0x53, 0x89)),
@@ -16164,11 +15241,9 @@ InputChatPhotoEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x1ca48f57,
     SUBCLASS_OF_ID = 0xd4eb2d74,
-
     to_dict = function() {
       list("_" = "InputChatPhotoEmpty")
     },
-
     bytes = function() {
       rawToChar(as.raw(c(0x57, 0x8f, 0xa4, 0x1c)))
     }
@@ -16182,15 +15257,12 @@ InputChatTheme <- R6::R6Class(
     CONSTRUCTOR_ID = 0xc93de95c,
     SUBCLASS_OF_ID = 0x57294e64,
     emoticon = NULL,
-
     initialize = function(emoticon) {
       self$emoticon <- emoticon
     },
-
     to_dict = function() {
       list("_" = "InputChatTheme", emoticon = self$emoticon)
     },
-
     bytes = function() {
       paste0(rawToChar(as.raw(c(0x5c, 0xe9, 0x3d, 0xc9))), self$emoticon)
     }
@@ -16203,11 +15275,9 @@ InputChatThemeEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x83268483,
     SUBCLASS_OF_ID = 0x57294e64,
-
     to_dict = function() {
       list("_" = "InputChatThemeEmpty")
     },
-
     bytes = function() {
       rawToChar(as.raw(c(0x83, 0x84, 0x26, 0x83)))
     }
@@ -16221,20 +15291,16 @@ InputChatThemeUniqueGift <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x87e5dfe4,
     SUBCLASS_OF_ID = 0x57294e64,
-
     slug = NULL,
-
     initialize = function(slug) {
       self$slug <- slug
     },
-
     to_dict = function() {
       list(
         "_" = "InputChatThemeUniqueGift",
         slug = self$slug
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xe4, 0xdf, 0xe5, 0x87)),
@@ -16242,7 +15308,6 @@ InputChatThemeUniqueGift <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       slug <- reader$tgread_string()
@@ -16257,19 +15322,16 @@ InputChatUploadedPhoto <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xbdcdaec0,
     SUBCLASS_OF_ID = 0xd4eb2d74,
-
     file = NULL,
     video = NULL,
     video_start_ts = NULL,
     video_emoji_markup = NULL,
-
     initialize = function(file = NULL, video = NULL, video_start_ts = NULL, video_emoji_markup = NULL) {
       self$file <- file
       self$video <- video
       self$video_start_ts <- video_start_ts
       self$video_emoji_markup <- video_emoji_markup
     },
-
     to_dict = function() {
       list(
         "_" = "InputChatUploadedPhoto",
@@ -16279,12 +15341,11 @@ InputChatUploadedPhoto <- R6::R6Class(
         video_emoji_markup = if (!is.null(self$video_emoji_markup) && inherits(self$video_emoji_markup, "TLObject")) self$video_emoji_markup$to_dict() else self$video_emoji_markup
       )
     },
-
     bytes = function() {
       flags <- (if (!is.null(self$file)) 1 else 0) |
-               (if (!is.null(self$video)) 2 else 0) |
-               (if (!is.null(self$video_start_ts)) 4 else 0) |
-               (if (!is.null(self$video_emoji_markup)) 8 else 0)
+        (if (!is.null(self$video)) 2 else 0) |
+        (if (!is.null(self$video_start_ts)) 4 else 0) |
+        (if (!is.null(self$video_emoji_markup)) 8 else 0)
 
       c(
         as.raw(c(0xc0, 0xae, 0xcd, 0xbd)),
@@ -16296,7 +15357,6 @@ InputChatUploadedPhoto <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -16318,20 +15378,16 @@ InputChatlistDialogFilter <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xf3e0da33,
     SUBCLASS_OF_ID = 0x23f9659,
-
     filter_id = NULL,
-
     initialize = function(filter_id) {
       self$filter_id <- filter_id
     },
-
     to_dict = function() {
       list(
         "_" = "InputChatlistDialogFilter",
         filter_id = self$filter_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x33, 0xda, 0xe0, 0xf3)),
@@ -16347,11 +15403,9 @@ InputCheckPasswordEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9880f658,
     SUBCLASS_OF_ID = 0xd41af560,
-
     to_dict = function() {
       list("_" = "InputCheckPasswordEmpty")
     },
-
     bytes = function() {
       as.raw(c(0x58, 0xf6, 0x80, 0x98))
     }
@@ -16364,17 +15418,14 @@ InputCheckPasswordSRP <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xd27ff082,
     SUBCLASS_OF_ID = 0xd41af560,
-
     srp_id = NULL,
     A = NULL,
     M1 = NULL,
-
     initialize = function(srp_id, A, M1) {
       self$srp_id <- srp_id
       self$A <- A
       self$M1 <- M1
     },
-
     to_dict = function() {
       list(
         "_" = "InputCheckPasswordSRP",
@@ -16383,7 +15434,6 @@ InputCheckPasswordSRP <- R6::R6Class(
         M1 = self$M1
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x82, 0xf0, 0x7f, 0xd2)),
@@ -16402,15 +15452,12 @@ InputClientProxy <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x75588b3f,
     SUBCLASS_OF_ID = 0x91a4346,
-
     address = NULL,
     port = NULL,
-
     initialize = function(address, port) {
       self$address <- address
       self$port <- port
     },
-
     to_list = function() {
       list(
         "_" = "InputClientProxy",
@@ -16418,7 +15465,6 @@ InputClientProxy <- R6::R6Class(
         port = self$port
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x3f, 0x8b, 0x58, 0x75)),
@@ -16435,20 +15481,16 @@ InputCollectiblePhone <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xa2e214a4,
     SUBCLASS_OF_ID = 0x2a0f81eb,
-
     phone = NULL,
-
     initialize = function(phone) {
       self$phone <- phone
     },
-
     to_list = function() {
       list(
         "_" = "InputCollectiblePhone",
         phone = self$phone
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xa4, 0x14, 0xe2, 0xa2)),
@@ -16464,20 +15506,16 @@ InputCollectibleUsername <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xe39460a9,
     SUBCLASS_OF_ID = 0x2a0f81eb,
-
     username = NULL,
-
     initialize = function(username) {
       self$username <- username
     },
-
     to_list = function() {
       list(
         "_" = "InputCollectibleUsername",
         username = self$username
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xa9, 0x60, 0x94, 0xe3)),
@@ -16494,20 +15532,16 @@ InputDialogPeer <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xfcaafeb7,
     SUBCLASS_OF_ID = 0xa21c9795,
-
     peer = NULL,
-
     initialize = function(peer) {
       self$peer <- peer
     },
-
     to_dict = function() {
       list(
         "_" = "InputDialogPeer",
         peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xb7, 0xfe, 0xaa, 0xfc)),
@@ -16523,20 +15557,16 @@ InputDialogPeerFolder <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x64600527,
     SUBCLASS_OF_ID = 0xa21c9795,
-
     folder_id = NULL,
-
     initialize = function(folder_id) {
       self$folder_id <- folder_id
     },
-
     to_dict = function() {
       list(
         "_" = "InputDialogPeerFolder",
         folder_id = self$folder_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x27, 0x05, 0x60, 0x64)),
@@ -16553,17 +15583,14 @@ InputDocument <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x1abfb575,
     SUBCLASS_OF_ID = 0xf33fdb68,
-
     id = NULL,
     access_hash = NULL,
     file_reference = NULL,
-
     initialize = function(id, access_hash, file_reference) {
       self$id <- id
       self$access_hash <- access_hash
       self$file_reference <- file_reference
     },
-
     to_list = function() {
       list(
         "_" = "InputDocument",
@@ -16572,7 +15599,6 @@ InputDocument <- R6::R6Class(
         file_reference = self$file_reference
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x75, 0xb5, 0xbf, 0x1a)),
@@ -16582,7 +15608,6 @@ InputDocument <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       id <- reader$read_long()
@@ -16599,16 +15624,13 @@ InputDocumentEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x72f0eaae,
     SUBCLASS_OF_ID = 0xf33fdb68,
-
     to_list = function() {
       list("_" = "InputDocumentEmpty")
     },
-
     bytes = function() {
       as.raw(c(0xae, 0xea, 0xf0, 0x72))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$new()
@@ -16622,19 +15644,16 @@ InputDocumentFileLocation <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xbad07584,
     SUBCLASS_OF_ID = 0x1523d462,
-
     id = NULL,
     access_hash = NULL,
     file_reference = NULL,
     thumb_size = NULL,
-
     initialize = function(id, access_hash, file_reference, thumb_size) {
       self$id <- id
       self$access_hash <- access_hash
       self$file_reference <- file_reference
       self$thumb_size <- thumb_size
     },
-
     to_list = function() {
       list(
         "_" = "InputDocumentFileLocation",
@@ -16644,7 +15663,6 @@ InputDocumentFileLocation <- R6::R6Class(
         thumb_size = self$thumb_size
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x84, 0x75, 0xd0, 0xba)),
@@ -16655,7 +15673,6 @@ InputDocumentFileLocation <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       id <- reader$read_long()
@@ -16674,15 +15691,12 @@ InputEmojiStatusCollectible <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x7141dbf,
     SUBCLASS_OF_ID = 0xf930b138,
-
     collectible_id = NULL,
     until = NULL,
-
     initialize = function(collectible_id, until = NULL) {
       self$collectible_id <- collectible_id
       self$until <- until
     },
-
     to_dict = function() {
       list(
         "_" = "InputEmojiStatusCollectible",
@@ -16690,7 +15704,6 @@ InputEmojiStatusCollectible <- R6::R6Class(
         until = self$until
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xbf, 0x1d, 0x14, 0x07)),
@@ -16700,7 +15713,6 @@ InputEmojiStatusCollectible <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -16721,12 +15733,10 @@ InputEncryptedChat <- R6::R6Class(
     SUBCLASS_OF_ID = 0x6c7606c0,
     chat_id = NULL,
     access_hash = NULL,
-
     initialize = function(chat_id, access_hash) {
       self$chat_id <- chat_id
       self$access_hash <- access_hash
     },
-
     to_list = function() {
       list(
         "_" = "InputEncryptedChat",
@@ -16734,7 +15744,6 @@ InputEncryptedChat <- R6::R6Class(
         access_hash = self$access_hash
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xe1, 0xb5, 0x41, 0xf1)),
@@ -16753,12 +15762,10 @@ InputEncryptedFile <- R6::R6Class(
     SUBCLASS_OF_ID = 0x8574c27a,
     id = NULL,
     access_hash = NULL,
-
     initialize = function(id, access_hash) {
       self$id <- id
       self$access_hash <- access_hash
     },
-
     to_list = function() {
       list(
         "_" = "InputEncryptedFile",
@@ -16766,7 +15773,6 @@ InputEncryptedFile <- R6::R6Class(
         access_hash = self$access_hash
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xe5, 0xb5, 0x17, 0x5a)),
@@ -16784,13 +15790,11 @@ InputEncryptedFileBigUploaded <- R6::R6Class(
     id = NULL,
     parts = NULL,
     key_fingerprint = NULL,
-
     initialize = function(id, parts, key_fingerprint) {
       self$id <- id
       self$parts <- parts
       self$key_fingerprint <- key_fingerprint
     },
-
     to_list = function() {
       list(
         "_" = "InputEncryptedFileBigUploaded",
@@ -16799,7 +15803,6 @@ InputEncryptedFileBigUploaded <- R6::R6Class(
         key_fingerprint = self$key_fingerprint
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xc8, 0x73, 0xc1, 0x2d)),
@@ -16817,7 +15820,6 @@ InputEncryptedFileEmpty <- R6::R6Class(
     to_list = function() {
       list("_" = "InputEncryptedFileEmpty")
     },
-
     bytes = function() {
       as.raw(c(0x64, 0xc3, 0x37, 0x18))
     }
@@ -16830,12 +15832,10 @@ InputEncryptedFileLocation <- R6::R6Class(
   public = list(
     id = NULL,
     access_hash = NULL,
-
     initialize = function(id, access_hash) {
       self$id <- id
       self$access_hash <- access_hash
     },
-
     to_list = function() {
       list(
         "_" = "InputEncryptedFileLocation",
@@ -16843,7 +15843,6 @@ InputEncryptedFileLocation <- R6::R6Class(
         access_hash = self$access_hash
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xf5, 0x23, 0x5d, 0x55)),
@@ -16861,14 +15860,12 @@ InputEncryptedFileUploaded <- R6::R6Class(
     parts = NULL,
     md5_checksum = NULL,
     key_fingerprint = NULL,
-
     initialize = function(id, parts, md5_checksum, key_fingerprint) {
       self$id <- id
       self$parts <- parts
       self$md5_checksum <- md5_checksum
       self$key_fingerprint <- key_fingerprint
     },
-
     to_list = function() {
       list(
         "_" = "InputEncryptedFileUploaded",
@@ -16878,7 +15875,6 @@ InputEncryptedFileUploaded <- R6::R6Class(
         key_fingerprint = self$key_fingerprint
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x64, 0xbd, 0x03, 0x06)),
@@ -16899,14 +15895,12 @@ InputFile <- R6::R6Class(
     parts = NULL,
     name = NULL,
     md5_checksum = NULL,
-
     initialize = function(id, parts, name, md5_checksum) {
       self$id <- id
       self$parts <- parts
       self$name <- name
       self$md5_checksum <- md5_checksum
     },
-
     to_list = function() {
       list(
         "_" = "InputFile",
@@ -16916,7 +15910,6 @@ InputFile <- R6::R6Class(
         md5_checksum = self$md5_checksum
       )
     },
-
     bytes = function() {
       paste0(
         as.raw(c(0x7f, 0xf2, 0x2f, 0xf5)),
@@ -16935,13 +15928,11 @@ InputFileBig <- R6::R6Class(
     id = NULL,
     parts = NULL,
     name = NULL,
-
     initialize = function(id, parts, name) {
       self$id <- id
       self$parts <- parts
       self$name <- name
     },
-
     to_list = function() {
       list(
         "_" = "InputFileBig",
@@ -16950,7 +15941,6 @@ InputFileBig <- R6::R6Class(
         name = self$name
       )
     },
-
     bytes = function() {
       paste0(
         as.raw(c(0xb5, 0x0b, 0x4f, 0xfa)),
@@ -16970,14 +15960,12 @@ InputFileLocation <- R6::R6Class(
     local_id = NULL,
     secret = NULL,
     file_reference = NULL,
-
     initialize = function(volume_id, local_id, secret, file_reference) {
       self$volume_id <- volume_id
       self$local_id <- local_id
       self$secret <- secret
       self$file_reference <- file_reference
     },
-
     to_list = function() {
       list(
         "_" = "InputFileLocation",
@@ -16987,7 +15975,6 @@ InputFileLocation <- R6::R6Class(
         file_reference = self$file_reference
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xdf, 0xda, 0xab, 0xe1)),
@@ -17004,18 +15991,15 @@ InputFileStoryDocument <- R6::R6Class(
   "InputFileStoryDocument",
   public = list(
     id = NULL,
-
     initialize = function(id) {
       self$id <- id
     },
-
     to_list = function() {
       list(
         "_" = "InputFileStoryDocument",
         id = if (inherits(self$id, "R6")) self$id$to_list() else self$id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x62, 0xdc, 0x8b, 0x48)),
@@ -17031,12 +16015,10 @@ InputFolderPeer <- R6::R6Class(
   public = list(
     peer = NULL,
     folder_id = NULL,
-
     initialize = function(peer, folder_id) {
       self$peer <- peer
       self$folder_id <- folder_id
     },
-
     to_list = function() {
       list(
         "_" = "InputFolderPeer",
@@ -17044,7 +16026,6 @@ InputFolderPeer <- R6::R6Class(
         folder_id = self$folder_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x96, 0xc2, 0xd2, 0xfb)),
@@ -17060,12 +16041,10 @@ InputGameID <- R6::R6Class(
   public = list(
     id = NULL,
     access_hash = NULL,
-
     initialize = function(id, access_hash) {
       self$id <- id
       self$access_hash <- access_hash
     },
-
     to_list = function() {
       list(
         "_" = "InputGameID",
@@ -17073,7 +16052,6 @@ InputGameID <- R6::R6Class(
         access_hash = self$access_hash
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x77, 0x3e, 0x2c, 0x03)),
@@ -17089,12 +16067,10 @@ InputGameShortName <- R6::R6Class(
   public = list(
     bot_id = NULL,
     short_name = NULL,
-
     initialize = function(bot_id, short_name) {
       self$bot_id <- bot_id
       self$short_name <- short_name
     },
-
     to_list = function() {
       list(
         "_" = "InputGameShortName",
@@ -17102,7 +16078,6 @@ InputGameShortName <- R6::R6Class(
         short_name = self$short_name
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x0a, 0xe8, 0x31, 0xc3)),
@@ -17122,13 +16097,11 @@ InputGeoPoint <- R6::R6Class(
     lat = NULL,
     long = NULL,
     accuracy_radius = NULL,
-
     initialize = function(lat, long, accuracy_radius = NULL) {
       self$lat <- lat
       self$long <- long
       self$accuracy_radius <- accuracy_radius
     },
-
     to_dict = function() {
       list(
         "_" = "InputGeoPoint",
@@ -17137,7 +16110,6 @@ InputGeoPoint <- R6::R6Class(
         accuracy_radius = self$accuracy_radius
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xaf, 0x2f, 0x22, 0x48)),
@@ -17159,11 +16131,9 @@ InputGeoPointEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xe4c123d6,
     SUBCLASS_OF_ID = 0x430d225,
-
     to_dict = function() {
       list("_" = "InputGeoPointEmpty")
     },
-
     bytes = function() {
       as.raw(c(0xd6, 0x23, 0xc1, 0xe4))
     }
@@ -17177,12 +16147,10 @@ InputGroupCall <- R6::R6Class(
     SUBCLASS_OF_ID = 0x58611ab1,
     id = NULL,
     access_hash = NULL,
-
     initialize = function(id, access_hash) {
       self$id <- id
       self$access_hash <- access_hash
     },
-
     to_dict = function() {
       list(
         "_" = "InputGroupCall",
@@ -17190,7 +16158,6 @@ InputGroupCall <- R6::R6Class(
         access_hash = self$access_hash
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x0f, 0x84, 0xaa, 0xd8)),
@@ -17209,18 +16176,15 @@ InputGroupCallInviteMessage <- R6::R6Class(
     CONSTRUCTOR_ID = 0x8c10603f,
     SUBCLASS_OF_ID = 0x58611ab1,
     msg_id = NULL,
-
     initialize = function(msg_id) {
       self$msg_id <- msg_id
     },
-
     to_dict = function() {
       list(
         "_" = "InputGroupCallInviteMessage",
         msg_id = self$msg_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x3f, 0x60, 0x10, 0x8c)),
@@ -17237,18 +16201,15 @@ InputGroupCallSlug <- R6::R6Class(
     CONSTRUCTOR_ID = 0xfe06823f,
     SUBCLASS_OF_ID = 0x58611ab1,
     slug = NULL,
-
     initialize = function(slug) {
       self$slug <- slug
     },
-
     to_dict = function() {
       list(
         "_" = "InputGroupCallSlug",
         slug = self$slug
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x3f, 0x82, 0x06, 0xfe)),
@@ -17267,7 +16228,6 @@ InputGroupCallStream <- R6::R6Class(
     scale = NULL,
     video_channel = NULL,
     video_quality = NULL,
-
     initialize = function(call, time_ms, scale, video_channel = NULL, video_quality = NULL) {
       self$call <- call
       self$time_ms <- time_ms
@@ -17275,7 +16235,6 @@ InputGroupCallStream <- R6::R6Class(
       self$video_channel <- video_channel
       self$video_quality <- video_quality
     },
-
     to_list = function() {
       list(
         "_" = "InputGroupCallStream",
@@ -17286,7 +16245,6 @@ InputGroupCallStream <- R6::R6Class(
         video_quality = self$video_quality
       )
     },
-
     bytes = function() {
       stopifnot(
         (is.null(self$video_channel) && is.null(self$video_quality)) ||
@@ -17310,12 +16268,10 @@ InputInvoiceBusinessBotTransferStars <- R6::R6Class(
   public = list(
     bot = NULL,
     stars = NULL,
-
     initialize = function(bot, stars) {
       self$bot <- bot
       self$stars <- stars
     },
-
     to_list = function() {
       list(
         "_" = "InputInvoiceBusinessBotTransferStars",
@@ -17323,7 +16279,6 @@ InputInvoiceBusinessBotTransferStars <- R6::R6Class(
         stars = self$stars
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xF4, 0x99, 0x7E, 0x42)),
@@ -17342,18 +16297,15 @@ InputInvoiceChatInviteSubscription <- R6::R6Class(
     CONSTRUCTOR_ID = 0x34e793f1,
     SUBCLASS_OF_ID = 0x726e9bfe,
     hash = NULL,
-
     initialize = function(hash) {
       self$hash <- hash
     },
-
     to_dict = function() {
       list(
         "_" = "InputInvoiceChatInviteSubscription",
         hash = self$hash
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xf1, 0x93, 0xe7, 0x34)),
@@ -17371,12 +16323,10 @@ InputInvoiceMessage <- R6::R6Class(
     SUBCLASS_OF_ID = 0x726e9bfe,
     peer = NULL,
     msg_id = NULL,
-
     initialize = function(peer, msg_id) {
       self$peer <- peer
       self$msg_id <- msg_id
     },
-
     to_dict = function() {
       list(
         "_" = "InputInvoiceMessage",
@@ -17384,7 +16334,6 @@ InputInvoiceMessage <- R6::R6Class(
         msg_id = self$msg_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x59, 0x68, 0xb5, 0xc5)),
@@ -17403,12 +16352,10 @@ InputInvoicePremiumGiftCode <- R6::R6Class(
     SUBCLASS_OF_ID = 0x726e9bfe,
     purpose = NULL,
     option = NULL,
-
     initialize = function(purpose, option) {
       self$purpose <- purpose
       self$option <- option
     },
-
     to_dict = function() {
       list(
         "_" = "InputInvoicePremiumGiftCode",
@@ -17416,7 +16363,6 @@ InputInvoicePremiumGiftCode <- R6::R6Class(
         option = if (inherits(self$option, "TLObject")) self$option$to_dict() else self$option
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x0d, 0x6c, 0x98, 0x98)),
@@ -17436,13 +16382,11 @@ InputInvoicePremiumGiftStars <- R6::R6Class(
     user_id = NULL,
     months = NULL,
     message = NULL,
-
     initialize = function(user_id, months, message = NULL) {
       self$user_id <- user_id
       self$months <- months
       self$message <- message
     },
-
     to_dict = function() {
       list(
         "_" = "InputInvoicePremiumGiftStars",
@@ -17451,7 +16395,6 @@ InputInvoicePremiumGiftStars <- R6::R6Class(
         message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xef, 0xb2, 0xba, 0xda)),
@@ -17470,18 +16413,15 @@ InputInvoiceSlug <- R6::R6Class(
     CONSTRUCTOR_ID = 0xc326caef,
     SUBCLASS_OF_ID = 0x726e9bfe,
     slug = NULL,
-
     initialize = function(slug) {
       self$slug <- slug
     },
-
     to_dict = function() {
       list(
         "_" = "InputInvoiceSlug",
         slug = self$slug
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xef, 0xca, 0x26, 0xc3)),
@@ -17497,13 +16437,11 @@ InputInvoiceStarGift <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xe8625e92,
     SUBCLASS_OF_ID = 0x726e9bfe,
-
     peer = NULL,
     gift_id = NULL,
     hide_name = NULL,
     include_upgrade = NULL,
     message = NULL,
-
     initialize = function(peer, gift_id, hide_name = NULL, include_upgrade = NULL, message = NULL) {
       self$peer <- peer
       self$gift_id <- gift_id
@@ -17511,7 +16449,6 @@ InputInvoiceStarGift <- R6::R6Class(
       self$include_upgrade <- include_upgrade
       self$message <- message
     },
-
     to_list = function() {
       list(
         "_" = "InputInvoiceStarGift",
@@ -17522,7 +16459,6 @@ InputInvoiceStarGift <- R6::R6Class(
         message = if (inherits(self$message, "TLObject")) self$message$to_list() else self$message
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x92, 0x5e, 0x62, 0xe8)),
@@ -17544,15 +16480,12 @@ InputInvoiceStarGiftPrepaidUpgrade <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9a0b48b8,
     SUBCLASS_OF_ID = 0x726e9bfe,
-
     peer = NULL,
     hash = NULL,
-
     initialize = function(peer, hash) {
       self$peer <- peer
       self$hash <- hash
     },
-
     to_list = function() {
       list(
         "_" = "InputInvoiceStarGiftPrepaidUpgrade",
@@ -17560,7 +16493,6 @@ InputInvoiceStarGiftPrepaidUpgrade <- R6::R6Class(
         hash = self$hash
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xb8, 0x48, 0x0b, 0x9a)),
@@ -17578,17 +16510,14 @@ InputInvoiceStarGiftResale <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xc39f5324,
     SUBCLASS_OF_ID = 0x726e9bfe,
-
     slug = NULL,
     to_id = NULL,
     ton = NULL,
-
     initialize = function(slug, to_id, ton = NULL) {
       self$slug <- slug
       self$to_id <- to_id
       self$ton <- ton
     },
-
     to_dict = function() {
       list(
         "_" = "InputInvoiceStarGiftResale",
@@ -17597,7 +16526,6 @@ InputInvoiceStarGiftResale <- R6::R6Class(
         ton = self$ton
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x24, 0x53, 0x9f, 0xc3)),
@@ -17615,15 +16543,12 @@ InputInvoiceStarGiftTransfer <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x4a5f5bd9,
     SUBCLASS_OF_ID = 0x726e9bfe,
-
     stargift = NULL,
     to_id = NULL,
-
     initialize = function(stargift, to_id) {
       self$stargift <- stargift
       self$to_id <- to_id
     },
-
     to_dict = function() {
       list(
         "_" = "InputInvoiceStarGiftTransfer",
@@ -17631,7 +16556,6 @@ InputInvoiceStarGiftTransfer <- R6::R6Class(
         to_id = if (inherits(self$to_id, "TLObject")) self$to_id$to_dict() else self$to_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xd9, 0x5b, 0x5f, 0x4a)),
@@ -17649,15 +16573,12 @@ InputInvoiceStarGiftUpgrade <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x4d818d5d,
     SUBCLASS_OF_ID = 0x726e9bfe,
-
     stargift = NULL,
     keep_original_details = NULL,
-
     initialize = function(stargift, keep_original_details = NULL) {
       self$stargift <- stargift
       self$keep_original_details <- keep_original_details
     },
-
     to_dict = function() {
       list(
         "_" = "InputInvoiceStarGiftUpgrade",
@@ -17665,7 +16586,6 @@ InputInvoiceStarGiftUpgrade <- R6::R6Class(
         keep_original_details = self$keep_original_details
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x5d, 0x8d, 0x81, 0x4d)),
@@ -17682,20 +16602,16 @@ InputInvoiceStars <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x65f00ce3,
     SUBCLASS_OF_ID = 0x726e9bfe,
-
     purpose = NULL,
-
     initialize = function(purpose) {
       self$purpose <- purpose
     },
-
     to_dict = function() {
       list(
         "_" = "InputInvoiceStars",
         purpose = if (inherits(self$purpose, "TLObject")) self$purpose$to_dict() else self$purpose
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xe3, 0x0c, 0xf0, 0x65)),
@@ -17711,7 +16627,6 @@ InputKeyboardButtonRequestPeer <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xc9662d05,
     SUBCLASS_OF_ID = 0xbad74a3,
-
     text = NULL,
     button_id = NULL,
     peer_type = NULL,
@@ -17719,7 +16634,6 @@ InputKeyboardButtonRequestPeer <- R6::R6Class(
     name_requested = NULL,
     username_requested = NULL,
     photo_requested = NULL,
-
     initialize = function(text, button_id, peer_type, max_quantity, name_requested = NULL, username_requested = NULL, photo_requested = NULL) {
       self$text <- text
       self$button_id <- button_id
@@ -17729,7 +16643,6 @@ InputKeyboardButtonRequestPeer <- R6::R6Class(
       self$username_requested <- username_requested
       self$photo_requested <- photo_requested
     },
-
     to_list = function() {
       list(
         "_" = "InputKeyboardButtonRequestPeer",
@@ -17742,13 +16655,12 @@ InputKeyboardButtonRequestPeer <- R6::R6Class(
         photo_requested = self$photo_requested
       )
     },
-
     bytes = function() {
       c(
         as.raw(0x05), as.raw(0x2d), as.raw(0x66), as.raw(0xc9),
         as.raw((if (is.null(self$name_requested) || !self$name_requested) 0 else 1) |
-               (if (is.null(self$username_requested) || !self$username_requested) 0 else 2) |
-               (if (is.null(self$photo_requested) || !self$photo_requested) 0 else 4)),
+          (if (is.null(self$username_requested) || !self$username_requested) 0 else 2) |
+          (if (is.null(self$photo_requested) || !self$photo_requested) 0 else 4)),
         serialize_bytes(self$text),
         writeBin(as.integer(self$button_id), raw(), size = 4),
         self$peer_type$bytes(),
@@ -17756,7 +16668,6 @@ InputKeyboardButtonRequestPeer <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -17789,13 +16700,11 @@ InputKeyboardButtonUrlAuth <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xd02e7fd4,
     SUBCLASS_OF_ID = 0xbad74a3,
-
     text = NULL,
     url = NULL,
     bot = NULL,
     request_write_access = NULL,
     fwd_text = NULL,
-
     initialize = function(text, url, bot, request_write_access = NULL, fwd_text = NULL) {
       self$text <- text
       self$url <- url
@@ -17803,7 +16712,6 @@ InputKeyboardButtonUrlAuth <- R6::R6Class(
       self$request_write_access <- request_write_access
       self$fwd_text <- fwd_text
     },
-
     to_dict = function() {
       list(
         "_" = "InputKeyboardButtonUrlAuth",
@@ -17814,7 +16722,6 @@ InputKeyboardButtonUrlAuth <- R6::R6Class(
         fwd_text = self$fwd_text
       )
     },
-
     bytes = function() {
       # Placeholder for byte serialization logic
       NULL
@@ -17828,15 +16735,12 @@ InputKeyboardButtonUserProfile <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xe988037b,
     SUBCLASS_OF_ID = 0xbad74a3,
-
     text = NULL,
     user_id = NULL,
-
     initialize = function(text, user_id) {
       self$text <- text
       self$user_id <- user_id
     },
-
     to_dict = function() {
       list(
         "_" = "InputKeyboardButtonUserProfile",
@@ -17844,7 +16748,6 @@ InputKeyboardButtonUserProfile <- R6::R6Class(
         user_id = if (inherits(self$user_id, "TLObject")) self$user_id$to_dict() else self$user_id
       )
     },
-
     bytes = function() {
       # Placeholder for byte serialization logic
       NULL
@@ -17859,17 +16762,14 @@ InputMediaAreaChannelPost <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x2271f2bf,
     SUBCLASS_OF_ID = 0xf36d7bf2,
-
     coordinates = NULL,
     channel = NULL,
     msg_id = NULL,
-
     initialize = function(coordinates, channel, msg_id) {
       self$coordinates <- coordinates
       self$channel <- channel
       self$msg_id <- msg_id
     },
-
     to_dict = function() {
       list(
         "_" = "InputMediaAreaChannelPost",
@@ -17878,7 +16778,6 @@ InputMediaAreaChannelPost <- R6::R6Class(
         msg_id = self$msg_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xbf, 0xf2, 0x71, 0x22)),
@@ -17896,17 +16795,14 @@ InputMediaAreaVenue <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb282217f,
     SUBCLASS_OF_ID = 0xf36d7bf2,
-
     coordinates = NULL,
     query_id = NULL,
     result_id = NULL,
-
     initialize = function(coordinates, query_id, result_id) {
       self$coordinates <- coordinates
       self$query_id <- query_id
       self$result_id <- result_id
     },
-
     to_dict = function() {
       list(
         "_" = "InputMediaAreaVenue",
@@ -17915,7 +16811,6 @@ InputMediaAreaVenue <- R6::R6Class(
         result_id = self$result_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x7f, 0x21, 0x82, 0xb2)),
@@ -17934,19 +16829,16 @@ InputMediaContact <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xf8ab7dfb,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     phone_number = NULL,
     first_name = NULL,
     last_name = NULL,
     vcard = NULL,
-
     initialize = function(phone_number, first_name, last_name, vcard) {
       self$phone_number <- phone_number
       self$first_name <- first_name
       self$last_name <- last_name
       self$vcard <- vcard
     },
-
     to_dict = function() {
       list(
         "_" = "InputMediaContact",
@@ -17956,7 +16848,6 @@ InputMediaContact <- R6::R6Class(
         vcard = self$vcard
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xfb, 0x7d, 0xab, 0xf8)),
@@ -17975,20 +16866,16 @@ InputMediaDice <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xe66fbf7b,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     emoticon = NULL,
-
     initialize = function(emoticon) {
       self$emoticon <- emoticon
     },
-
     to_dict = function() {
       list(
         "_" = "InputMediaDice",
         emoticon = self$emoticon
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x7b, 0xbf, 0x6f, 0xe6)),
@@ -18005,14 +16892,12 @@ InputMediaDocument <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xa8763ab5,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     id = NULL,
     spoiler = NULL,
     video_cover = NULL,
     video_timestamp = NULL,
     ttl_seconds = NULL,
     query = NULL,
-
     initialize = function(id, spoiler = NULL, video_cover = NULL, video_timestamp = NULL, ttl_seconds = NULL, query = NULL) {
       self$id <- id
       self$spoiler <- spoiler
@@ -18021,7 +16906,6 @@ InputMediaDocument <- R6::R6Class(
       self$ttl_seconds <- ttl_seconds
       self$query <- query
     },
-
     to_dict = function() {
       list(
         "_" = "InputMediaDocument",
@@ -18033,13 +16917,12 @@ InputMediaDocument <- R6::R6Class(
         query = self$query
       )
     },
-
     bytes = function() {
       flags <- (if (is.null(self$spoiler) || !self$spoiler) 0 else 4) |
-               (if (is.null(self$video_cover) || !self$video_cover) 0 else 8) |
-               (if (is.null(self$video_timestamp) || !self$video_timestamp) 0 else 16) |
-               (if (is.null(self$ttl_seconds) || !self$ttl_seconds) 0 else 1) |
-               (if (is.null(self$query) || !self$query) 0 else 2)
+        (if (is.null(self$video_cover) || !self$video_cover) 0 else 8) |
+        (if (is.null(self$video_timestamp) || !self$video_timestamp) 0 else 16) |
+        (if (is.null(self$ttl_seconds) || !self$ttl_seconds) 0 else 1) |
+        (if (is.null(self$query) || !self$query) 0 else 2)
 
       c(
         as.raw(c(0xb5, 0x3a, 0x76, 0xa8)),
@@ -18052,7 +16935,6 @@ InputMediaDocument <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -18076,13 +16958,11 @@ InputMediaDocumentExternal <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x779600f9,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     url = NULL,
     spoiler = NULL,
     ttl_seconds = NULL,
     video_cover = NULL,
     video_timestamp = NULL,
-
     initialize = function(url, spoiler = NULL, ttl_seconds = NULL, video_cover = NULL, video_timestamp = NULL) {
       self$url <- url
       self$spoiler <- spoiler
@@ -18090,10 +16970,9 @@ InputMediaDocumentExternal <- R6::R6Class(
       self$video_cover <- video_cover
       self$video_timestamp <- video_timestamp
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaDocumentExternal',
+        "_" = "InputMediaDocumentExternal",
         url = self$url,
         spoiler = self$spoiler,
         ttl_seconds = self$ttl_seconds,
@@ -18101,12 +16980,14 @@ InputMediaDocumentExternal <- R6::R6Class(
         video_timestamp = self$video_timestamp
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18117,20 +16998,20 @@ InputMediaEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9664f57f,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     initialize = function() {
       # no fields
     },
-
     to_dict = function() {
-      list('_' = 'InputMediaEmpty')
+      list("_" = "InputMediaEmpty")
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18141,22 +17022,21 @@ InputMediaGame <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xd33f43f3,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     id = NULL,
-
     initialize = function(id) {
       self$id <- id
     },
-
     to_dict = function() {
-      list('_' = 'InputMediaGame', id = if (inherits(self$id, "TLObject")) self$id$to_list() else self$id)
+      list("_" = "InputMediaGame", id = if (inherits(self$id, "TLObject")) self$id$to_list() else self$id)
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18167,13 +17047,11 @@ InputMediaGeoLive <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x971fa843,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     geo_point = NULL,
     stopped = NULL,
     heading = NULL,
     period = NULL,
     proximity_notification_radius = NULL,
-
     initialize = function(geo_point, stopped = NULL, heading = NULL, period = NULL, proximity_notification_radius = NULL) {
       self$geo_point <- geo_point
       self$stopped <- stopped
@@ -18181,10 +17059,9 @@ InputMediaGeoLive <- R6::R6Class(
       self$period <- period
       self$proximity_notification_radius <- proximity_notification_radius
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaGeoLive',
+        "_" = "InputMediaGeoLive",
         geo_point = if (inherits(self$geo_point, "TLObject")) self$geo_point$to_list() else self$geo_point,
         stopped = self$stopped,
         heading = self$heading,
@@ -18192,12 +17069,14 @@ InputMediaGeoLive <- R6::R6Class(
         proximity_notification_radius = self$proximity_notification_radius
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18208,25 +17087,24 @@ InputMediaGeoPoint <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xf9c44144,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     geo_point = NULL,
-
     initialize = function(geo_point) {
       self$geo_point <- geo_point
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaGeoPoint',
+        "_" = "InputMediaGeoPoint",
         geo_point = if (inherits(self$geo_point, "TLObject")) self$geo_point$to_list() else self$geo_point
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18237,7 +17115,6 @@ InputMediaInvoice <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x405fef0d,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     title = NULL,
     description = NULL,
     invoice = NULL,
@@ -18247,7 +17124,6 @@ InputMediaInvoice <- R6::R6Class(
     provider = NULL,
     start_param = NULL,
     extended_media = NULL,
-
     initialize = function(title, description, invoice, payload, providerdata, photo = NULL, provider = NULL, start_param = NULL, extended_media = NULL) {
       self$title <- title
       self$description <- description
@@ -18259,10 +17135,9 @@ InputMediaInvoice <- R6::R6Class(
       self$start_param <- start_param
       self$extended_media <- extended_media
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaInvoice',
+        "_" = "InputMediaInvoice",
         title = self$title,
         description = self$description,
         invoice = if (inherits(self$invoice, "TLObject")) self$invoice$to_list() else self$invoice,
@@ -18274,12 +17149,14 @@ InputMediaInvoice <- R6::R6Class(
         extended_media = if (is.null(self$extended_media)) NULL else (if (inherits(self$extended_media, "TLObject")) self$extended_media$to_list() else self$extended_media)
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18290,31 +17167,30 @@ InputMediaPaidMedia <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xc4103386,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     stars_amount = NULL,
     extended_media = NULL,
     payload = NULL,
-
     initialize = function(stars_amount, extended_media, payload = NULL) {
       self$stars_amount <- stars_amount
       self$extended_media <- extended_media
       self$payload <- payload
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaPaidMedia',
+        "_" = "InputMediaPaidMedia",
         stars_amount = self$stars_amount,
         extended_media = if (is.null(self$extended_media)) NULL else lapply(self$extended_media, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
         payload = self$payload
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18325,31 +17201,30 @@ InputMediaPhoto <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb3ba0635,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     id = NULL,
     spoiler = NULL,
     ttl_seconds = NULL,
-
     initialize = function(id, spoiler = NULL, ttl_seconds = NULL) {
       self$id <- id
       self$spoiler <- spoiler
       self$ttl_seconds <- ttl_seconds
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaPhoto',
+        "_" = "InputMediaPhoto",
         id = if (inherits(self$id, "TLObject")) self$id$to_list() else self$id,
         spoiler = self$spoiler,
         ttl_seconds = self$ttl_seconds
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18360,31 +17235,30 @@ InputMediaPhotoExternal <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xe5bbfe1a,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     url = NULL,
     spoiler = NULL,
     ttl_seconds = NULL,
-
     initialize = function(url, spoiler = NULL, ttl_seconds = NULL) {
       self$url <- url
       self$spoiler <- spoiler
       self$ttl_seconds <- ttl_seconds
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaPhotoExternal',
+        "_" = "InputMediaPhotoExternal",
         url = self$url,
         spoiler = self$spoiler,
         ttl_seconds = self$ttl_seconds
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18395,34 +17269,33 @@ InputMediaPoll <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x0f94e5f1, # keep as numeric constant (hex shown in python)
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     poll = NULL,
     correct_answers = NULL,
     solution = NULL,
     solution_entities = NULL,
-
     initialize = function(poll, correct_answers = NULL, solution = NULL, solution_entities = NULL) {
       self$poll <- poll
       self$correct_answers <- correct_answers
       self$solution <- solution
       self$solution_entities <- solution_entities
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaPoll',
+        "_" = "InputMediaPoll",
         poll = if (inherits(self$poll, "TLObject")) self$poll$to_list() else self$poll,
         correct_answers = if (is.null(self$correct_answers)) NULL else self$correct_answers,
         solution = self$solution,
         solution_entities = if (is.null(self$solution_entities)) NULL else lapply(self$solution_entities, function(x) if (inherits(x, "TLObject")) x$to_list() else x)
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18433,27 +17306,27 @@ InputMediaStory <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x89fdd778,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     peer = NULL,
     id = NULL,
-
     initialize = function(peer, id) {
       self$peer <- peer
       self$id <- id
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaStory',
+        "_" = "InputMediaStory",
         peer = if (inherits(self$peer, "TLObject")) self$peer$to_list() else self$peer,
         id = self$id
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   ),
   class = TRUE
 )
@@ -18465,24 +17338,24 @@ InputMediaTodo <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9fc55fde,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     todo = NULL,
-
     initialize = function(todo) {
       self$todo <- todo
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaTodo',
+        "_" = "InputMediaTodo",
         todo = if (inherits(self$todo, "TLObject")) self$todo$to_list() else self$todo
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   ),
   class = TRUE
 )
@@ -18494,7 +17367,6 @@ InputMediaUploadedDocument <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x037c9330,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     file = NULL,
     mime_type = NULL,
     attributes = NULL,
@@ -18506,7 +17378,6 @@ InputMediaUploadedDocument <- R6::R6Class(
     video_cover = NULL,
     video_timestamp = NULL,
     ttl_seconds = NULL,
-
     initialize = function(file, mime_type, attributes,
                           nosound_video = NULL, force_file = NULL, spoiler = NULL,
                           thumb = NULL, stickers = NULL, video_cover = NULL,
@@ -18523,10 +17394,9 @@ InputMediaUploadedDocument <- R6::R6Class(
       self$video_timestamp <- video_timestamp
       self$ttl_seconds <- ttl_seconds
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaUploadedDocument',
+        "_" = "InputMediaUploadedDocument",
         file = if (inherits(self$file, "TLObject")) self$file$to_list() else self$file,
         mime_type = self$mime_type,
         attributes = if (is.null(self$attributes)) list() else lapply(self$attributes, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
@@ -18540,11 +17410,14 @@ InputMediaUploadedDocument <- R6::R6Class(
         ttl_seconds = self$ttl_seconds
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   ),
   class = TRUE
 )
@@ -18556,33 +17429,33 @@ InputMediaUploadedPhoto <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x1e287d04,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     file = NULL,
     spoiler = NULL,
     stickers = NULL,
     ttl_seconds = NULL,
-
     initialize = function(file, spoiler = NULL, stickers = NULL, ttl_seconds = NULL) {
       self$file <- file
       self$spoiler <- spoiler
       self$stickers <- stickers
       self$ttl_seconds <- ttl_seconds
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaUploadedPhoto',
+        "_" = "InputMediaUploadedPhoto",
         file = if (inherits(self$file, "TLObject")) self$file$to_list() else self$file,
         spoiler = self$spoiler,
         stickers = if (is.null(self$stickers)) list() else lapply(self$stickers, function(x) if (inherits(x, "TLObject")) x$to_list() else x),
         ttl_seconds = self$ttl_seconds
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   ),
   class = TRUE
 )
@@ -18594,14 +17467,12 @@ InputMediaVenue <- R6::R6Class("InputMediaVenue",
   public = list(
     CONSTRUCTOR_ID = 0xc13d1c11,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     geo_point = NULL,
     title = NULL,
     address = NULL,
     provider = NULL,
     venue_id = NULL,
     venue_type = NULL,
-
     initialize = function(geo_point, title, address, provider, venue_id, venue_type) {
       self$geo_point <- geo_point
       self$title <- title
@@ -18610,10 +17481,9 @@ InputMediaVenue <- R6::R6Class("InputMediaVenue",
       self$venue_id <- venue_id
       self$venue_type <- venue_type
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaVenue',
+        "_" = "InputMediaVenue",
         geo_point = if (inherits(self$geo_point, "TLObject")) self$geo_point$to_list() else self$geo_point,
         title = self$title,
         address = self$address,
@@ -18622,14 +17492,15 @@ InputMediaVenue <- R6::R6Class("InputMediaVenue",
         venue_type = self$venue_type
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   ),
-
   class = TRUE
 )
 
@@ -18639,36 +17510,34 @@ InputMediaWebPage <- R6::R6Class("InputMediaWebPage",
   public = list(
     CONSTRUCTOR_ID = 0xc21b8849,
     SUBCLASS_OF_ID = 0xfaf846f4,
-
     url = NULL,
     force_large_media = NULL,
     force_small_media = NULL,
     optional = NULL,
-
     initialize = function(url, force_large_media = NULL, force_small_media = NULL, optional = NULL) {
       self$url <- url
       self$force_large_media <- force_large_media
       self$force_small_media <- force_small_media
       self$optional <- optional
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMediaWebPage',
+        "_" = "InputMediaWebPage",
         url = self$url,
         force_large_media = self$force_large_media,
         force_small_media = self$force_small_media,
         optional = self$optional
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   ),
-
   class = TRUE
 )
 
@@ -18678,24 +17547,23 @@ InputMessageCallbackQuery <- R6::R6Class("InputMessageCallbackQuery",
   public = list(
     CONSTRUCTOR_ID = 0xacfa1a7e,
     SUBCLASS_OF_ID = 0x54b6bcc5,
-
     id = NULL,
     query_id = NULL,
-
     initialize = function(id, query_id) {
       self$id <- id
       self$query_id <- query_id
     },
-
     to_dict = function() {
-      list('_' = 'InputMessageCallbackQuery', id = self$id, query_id = self$query_id)
+      list("_" = "InputMessageCallbackQuery", id = self$id, query_id = self$query_id)
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18705,31 +17573,30 @@ InputMessageEntityMentionName <- R6::R6Class("InputMessageEntityMentionName",
   public = list(
     CONSTRUCTOR_ID = 0x208e68c9,
     SUBCLASS_OF_ID = 0xcf6419dc,
-
     offset = NULL,
     length = NULL,
     user_id = NULL,
-
     initialize = function(offset, length, user_id) {
       self$offset <- offset
       self$length <- length
       self$user_id <- user_id
     },
-
     to_dict = function() {
       list(
-        '_' = 'InputMessageEntityMentionName',
+        "_" = "InputMessageEntityMentionName",
         offset = self$offset,
         length = self$length,
         user_id = if (inherits(self$user_id, "TLObject")) self$user_id$to_list() else self$user_id
       )
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18739,22 +17606,21 @@ InputMessageID <- R6::R6Class("InputMessageID",
   public = list(
     CONSTRUCTOR_ID = 0xa676a322,
     SUBCLASS_OF_ID = 0x54b6bcc5,
-
     id = NULL,
-
     initialize = function(id) {
       self$id <- id
     },
-
     to_dict = function() {
-      list('_' = 'InputMessageID', id = self$id)
+      list("_" = "InputMessageID", id = self$id)
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18764,20 +17630,20 @@ InputMessagePinned <- R6::R6Class("InputMessagePinned",
   public = list(
     CONSTRUCTOR_ID = 0x86872538,
     SUBCLASS_OF_ID = 0x54b6bcc5,
-
     initialize = function() {
       # no fields
     },
-
     to_dict = function() {
-      list('_' = 'InputMessagePinned')
+      list("_" = "InputMessagePinned")
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18787,22 +17653,21 @@ InputMessageReplyTo <- R6::R6Class("InputMessageReplyTo",
   public = list(
     CONSTRUCTOR_ID = 0xbad88395,
     SUBCLASS_OF_ID = 0x54b6bcc5,
-
     id = NULL,
-
     initialize = function(id) {
       self$id <- id
     },
-
     to_dict = function() {
-      list('_' = 'InputMessageReplyTo', id = self$id)
+      list("_" = "InputMessageReplyTo", id = self$id)
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18812,18 +17677,18 @@ InputMessagesFilterChatPhotos <- R6::R6Class("InputMessagesFilterChatPhotos",
   public = list(
     CONSTRUCTOR_ID = 0x3a20ecb8,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     initialize = function() { },
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterChatPhotos')
+      list("_" = "InputMessagesFilterChatPhotos")
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18833,18 +17698,18 @@ InputMessagesFilterContacts <- R6::R6Class("InputMessagesFilterContacts",
   public = list(
     CONSTRUCTOR_ID = 0xe062db83,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     initialize = function() { },
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterContacts')
+      list("_" = "InputMessagesFilterContacts")
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18854,18 +17719,18 @@ InputMessagesFilterDocument <- R6::R6Class("InputMessagesFilterDocument",
   public = list(
     CONSTRUCTOR_ID = 0x9eddf188,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     initialize = function() { },
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterDocument')
+      list("_" = "InputMessagesFilterDocument")
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18875,18 +17740,18 @@ InputMessagesFilterEmpty <- R6::R6Class("InputMessagesFilterEmpty",
   public = list(
     CONSTRUCTOR_ID = 0x57e2f66c,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     initialize = function() { },
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterEmpty')
+      list("_" = "InputMessagesFilterEmpty")
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18896,18 +17761,18 @@ InputMessagesFilterGeo <- R6::R6Class("InputMessagesFilterGeo",
   public = list(
     CONSTRUCTOR_ID = 0xe7026d0d,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     initialize = function() { },
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterGeo')
+      list("_" = "InputMessagesFilterGeo")
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18917,18 +17782,18 @@ InputMessagesFilterGif <- R6::R6Class("InputMessagesFilterGif",
   public = list(
     CONSTRUCTOR_ID = 0xffc86587,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     initialize = function() { },
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterGif')
+      list("_" = "InputMessagesFilterGif")
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18938,18 +17803,18 @@ InputMessagesFilterMusic <- R6::R6Class("InputMessagesFilterMusic",
   public = list(
     CONSTRUCTOR_ID = 0x3751b49e,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     initialize = function() { },
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterMusic')
+      list("_" = "InputMessagesFilterMusic")
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18959,18 +17824,18 @@ InputMessagesFilterMyMentions <- R6::R6Class("InputMessagesFilterMyMentions",
   public = list(
     CONSTRUCTOR_ID = 0xc1f8e69a,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     initialize = function() { },
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterMyMentions')
+      list("_" = "InputMessagesFilterMyMentions")
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
-
   private = list(
-    from_reader = function(reader) {NULL}
+    from_reader = function(reader) {
+      NULL
+    }
   )
 )
 
@@ -18981,18 +17846,16 @@ InputMessagesFilterPhoneCalls <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x80c99768,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     missed = NULL,
-
     initialize = function(missed = NULL) {
       self$missed <- missed
     },
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterPhoneCalls', missed = self$missed)
+      list("_" = "InputMessagesFilterPhoneCalls", missed = self$missed)
     },
-
-    bytes = function() {NULL}
+    bytes = function() {
+      NULL
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -19009,17 +17872,14 @@ InputMessagesFilterPhotoVideo <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x56e9f0e4,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterPhotoVideo')
+      list("_" = "InputMessagesFilterPhotoVideo")
     },
-
     bytes = function() {
       # Represent bytes as a raw vector
       raw_vector <- as.raw(c(0xe4, 0xf0, 0xe9, 0x56))
       return(raw_vector)
     }
-
   ),
   private = list(
     from_reader = function(reader) {
@@ -19034,11 +17894,9 @@ InputMessagesFilterPhotos <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9609a51c,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterPhotos')
+      list("_" = "InputMessagesFilterPhotos")
     },
-
     bytes = function() {
       as.raw(c(0x1c, 0xa5, 0x09, 0x96))
     }
@@ -19056,11 +17914,9 @@ InputMessagesFilterPinned <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x1bb00451,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterPinned')
+      list("_" = "InputMessagesFilterPinned")
     },
-
     bytes = function() {
       as.raw(c(0x51, 0x04, 0xb0, 0x1b))
     }
@@ -19078,11 +17934,9 @@ InputMessagesFilterRoundVideo <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb549da53,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterRoundVideo')
+      list("_" = "InputMessagesFilterRoundVideo")
     },
-
     bytes = function() {
       as.raw(c(0x53, 0xda, 0x49, 0xb5))
     }
@@ -19100,11 +17954,9 @@ InputMessagesFilterRoundVoice <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x7a7c17a4,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterRoundVoice')
+      list("_" = "InputMessagesFilterRoundVoice")
     },
-
     bytes = function() {
       as.raw(c(0xa4, 0x17, 0x7c, 0x7a))
     }
@@ -19122,11 +17974,9 @@ InputMessagesFilterUrl <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x7ef0dd87,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterUrl')
+      list("_" = "InputMessagesFilterUrl")
     },
-
     bytes = function() {
       as.raw(c(0x87, 0xdd, 0xf0, 0x7e))
     }
@@ -19144,11 +17994,9 @@ InputMessagesFilterVideo <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9fc00e65,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterVideo')
+      list("_" = "InputMessagesFilterVideo")
     },
-
     bytes = function() {
       as.raw(c(0x65, 0x0e, 0xc0, 0x9f))
     }
@@ -19166,11 +18014,9 @@ InputMessagesFilterVoice <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x50f5c392,
     SUBCLASS_OF_ID = 0x8a36ec14,
-
     to_dict = function() {
-      list('_' = 'InputMessagesFilterVoice')
+      list("_" = "InputMessagesFilterVoice")
     },
-
     bytes = function() {
       as.raw(c(0x92, 0xc3, 0xf5, 0x50))
     }
@@ -19188,11 +18034,9 @@ InputNotifyBroadcasts <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb1db7c7e,
     SUBCLASS_OF_ID = 0x58981615,
-
     to_dict = function() {
-      list('_' = 'InputNotifyBroadcasts')
+      list("_" = "InputNotifyBroadcasts")
     },
-
     bytes = function() {
       as.raw(c(0x7e, 0x7c, 0xdb, 0xb1))
     }
@@ -19210,11 +18054,9 @@ InputNotifyChats <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x4a95e84e,
     SUBCLASS_OF_ID = 0x58981615,
-
     to_dict = function() {
-      list('_' = 'InputNotifyChats')
+      list("_" = "InputNotifyChats")
     },
-
     bytes = function() {
       as.raw(c(0x4e, 0xe8, 0x95, 0x4a))
     }
@@ -19232,24 +18074,20 @@ InputNotifyForumTopic <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x5c467992,
     SUBCLASS_OF_ID = 0x58981615,
-
     peer = NULL,
     top_msg_id = NULL,
-
     initialize = function(peer, top_msg_id) {
       self$peer <- peer
       self$top_msg_id <- top_msg_id
     },
-
     to_dict = function() {
-      list('_' = 'InputNotifyForumTopic', peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer, top_msg_id = self$top_msg_id)
+      list("_" = "InputNotifyForumTopic", peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer, top_msg_id = self$top_msg_id)
     },
-
     bytes = function() {
       c(
-      as.raw(c(0x92, 0x79, 0x46, 0x5C)),
-      self$peer$bytes(),
-      writeBin(as.integer(self$top_msg_id), raw(), size = 4, endian = "little")
+        as.raw(c(0x92, 0x79, 0x46, 0x5C)),
+        self$peer$bytes(),
+        writeBin(as.integer(self$top_msg_id), raw(), size = 4, endian = "little")
       )
     }
   ),
@@ -19268,21 +18106,17 @@ InputNotifyPeer <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb8bc5b0c,
     SUBCLASS_OF_ID = 0x58981615,
-
     peer = NULL,
-
     initialize = function(peer) {
       self$peer <- peer
     },
-
     to_dict = function() {
-      list('_' = 'InputNotifyPeer', peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer)
+      list("_" = "InputNotifyPeer", peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer)
     },
-
     bytes = function() {
       c(
-      as.raw(c(0x0c, 0x5b, 0xbc, 0xb8)),
-      self$peer$bytes()
+        as.raw(c(0x0c, 0x5b, 0xbc, 0xb8)),
+        self$peer$bytes()
       )
     }
   ),
@@ -19300,11 +18134,9 @@ InputNotifyUsers <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x193b4417,
     SUBCLASS_OF_ID = 0x58981615,
-
     to_dict = function() {
-      list('_' = 'InputNotifyUsers')
+      list("_" = "InputNotifyUsers")
     },
-
     bytes = function() {
       rawToChar(as.raw(c(0x17, 0x44, 0x3B, 0x19)))
     }
@@ -19322,24 +18154,20 @@ InputPaymentCredentials <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x3417d728,
     SUBCLASS_OF_ID = 0x2899a53d,
-
     data = NULL,
     save = NULL,
-
     initialize = function(data, save = NULL) {
       self$data <- data
       self$save <- save
     },
-
     to_dict = function() {
-      list('_' = 'InputPaymentCredentials', data = if (inherits(self$data, "TLObject")) self$data$to_dict() else self$data, save = self$save)
+      list("_" = "InputPaymentCredentials", data = if (inherits(self$data, "TLObject")) self$data$to_dict() else self$data, save = self$save)
     },
-
     bytes = function() {
       c(
-      as.raw(0x28), as.raw(0xd7), as.raw(0x17), as.raw(0x34),
-      as.raw(if (is.null(self$save) || !self$save) 0 else 1),
-      self$data$bytes()
+        as.raw(0x28), as.raw(0xd7), as.raw(0x17), as.raw(0x34),
+        as.raw(if (is.null(self$save) || !self$save) 0 else 1),
+        self$data$bytes()
       )
     }
   ),
@@ -19359,21 +18187,17 @@ InputPaymentCredentialsApplePay <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xaa1c39f,
     SUBCLASS_OF_ID = 0x2899a53d,
-
     paymentdata = NULL,
-
     initialize = function(paymentdata) {
       self$paymentdata <- paymentdata
     },
-
     to_dict = function() {
-      list('_' = 'InputPaymentCredentialsApplePay', paymentdata = if (inherits(self$paymentdata, "TLObject")) self$paymentdata$to_dict() else self$paymentdata)
+      list("_" = "InputPaymentCredentialsApplePay", paymentdata = if (inherits(self$paymentdata, "TLObject")) self$paymentdata$to_dict() else self$paymentdata)
     },
-
     bytes = function() {
       paste0(
-      rawToChar(as.raw(c(0x9f, 0xc3, 0xa1, 0x0a))),
-      self$paymentdata$bytes()
+        rawToChar(as.raw(c(0x9f, 0xc3, 0xa1, 0x0a))),
+        self$paymentdata$bytes()
       )
     }
   ),
@@ -19391,21 +18215,17 @@ InputPaymentCredentialsGooglePay <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x8ac32801,
     SUBCLASS_OF_ID = 0x2899a53d,
-
     payment_token = NULL,
-
     initialize = function(payment_token) {
       self$payment_token <- payment_token
     },
-
     to_dict = function() {
-      list('_' = 'InputPaymentCredentialsGooglePay', payment_token = if (inherits(self$payment_token, "TLObject")) self$payment_token$to_dict() else self$payment_token)
+      list("_" = "InputPaymentCredentialsGooglePay", payment_token = if (inherits(self$payment_token, "TLObject")) self$payment_token$to_dict() else self$payment_token)
     },
-
     bytes = function() {
       c(
-      as.raw(0x01), as.raw(0x28), as.raw(0xc3), as.raw(0x8a),
-      self$payment_token$bytes()
+        as.raw(0x01), as.raw(0x28), as.raw(0xc3), as.raw(0x8a),
+        self$payment_token$bytes()
       )
     }
   ),
@@ -19423,24 +18243,20 @@ InputPaymentCredentialsSaved <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xc10eb2cf,
     SUBCLASS_OF_ID = 0x2899a53d,
-
     id = NULL,
     tmp_password = NULL,
-
     initialize = function(id, tmp_password) {
       self$id <- id
       self$tmp_password <- tmp_password
     },
-
     to_dict = function() {
-      list('_' = 'InputPaymentCredentialsSaved', id = self$id, tmp_password = self$tmp_password)
+      list("_" = "InputPaymentCredentialsSaved", id = self$id, tmp_password = self$tmp_password)
     },
-
     bytes = function() {
       c(
-      as.raw(0xcf), as.raw(0xb2), as.raw(0x0e), as.raw(0xc1),
-      self$serializebytes(self$id),
-      self$serializebytes(self$tmp_password)
+        as.raw(0xcf), as.raw(0xb2), as.raw(0x0e), as.raw(0xc1),
+        self$serializebytes(self$id),
+        self$serializebytes(self$tmp_password)
       )
     }
   ),
@@ -19459,38 +18275,34 @@ InputPeerChannel <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x27bcbbfc,
     SUBCLASS_OF_ID = 0xc91c90b6,
-
     channel_id = NULL,
     access_hash = NULL,
-
     initialize = function(channel_id, access_hash) {
       self$channel_id <- channel_id
       self$access_hash <- access_hash
     },
-
     to_dict = function() {
-      list('_' = 'InputPeerChannel', channel_id = self$channel_id, access_hash = self$access_hash)
+      list("_" = "InputPeerChannel", channel_id = self$channel_id, access_hash = self$access_hash)
     },
-
     bytes = function() {
       c(
-      as.raw(0xfc), as.raw(0xbb), as.raw(0xbc), as.raw(0x27),
-      as.raw(bitwAnd(self$channel_id, 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$channel_id, 8), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$channel_id, 16), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$channel_id, 24), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$channel_id, 32), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$channel_id, 40), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$channel_id, 48), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$channel_id, 56), 0xFF)),
-      as.raw(bitwAnd(self$access_hash, 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 8), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 16), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 24), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 32), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 40), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 48), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 56), 0xFF))
+        as.raw(0xfc), as.raw(0xbb), as.raw(0xbc), as.raw(0x27),
+        as.raw(bitwAnd(self$channel_id, 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$channel_id, 8), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$channel_id, 16), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$channel_id, 24), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$channel_id, 32), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$channel_id, 40), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$channel_id, 48), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$channel_id, 56), 0xFF)),
+        as.raw(bitwAnd(self$access_hash, 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 8), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 16), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 24), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 32), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 40), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 48), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 56), 0xFF))
       )
     }
   ),
@@ -19509,27 +18321,23 @@ InputPeerChannelFromMessage <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xbd2a0840,
     SUBCLASS_OF_ID = 0xc91c90b6,
-
     peer = NULL,
     msg_id = NULL,
     channel_id = NULL,
-
     initialize = function(peer, msg_id, channel_id) {
       self$peer <- peer
       self$msg_id <- msg_id
       self$channel_id <- channel_id
     },
-
     to_dict = function() {
-      list('_' = 'InputPeerChannelFromMessage', peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer, msg_id = self$msg_id, channel_id = self$channel_id)
+      list("_" = "InputPeerChannelFromMessage", peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer, msg_id = self$msg_id, channel_id = self$channel_id)
     },
-
     bytes = function() {
       c(
-      as.raw(c(0x40, 0x08, 0x2A, 0xBD)),
-      self$peer$bytes(),
-      writeBin(as.integer(self$msg_id), raw(), size = 4, endian = "little"),
-      writeBin(as.numeric(self$channel_id), raw(), size = 8, endian = "little")
+        as.raw(c(0x40, 0x08, 0x2A, 0xBD)),
+        self$peer$bytes(),
+        writeBin(as.integer(self$msg_id), raw(), size = 4, endian = "little"),
+        writeBin(as.numeric(self$channel_id), raw(), size = 8, endian = "little")
       )
     }
   ),
@@ -19549,27 +18357,25 @@ InputPeerChat <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x35a95cb9,
     SUBCLASS_OF_ID = 0xc91c90b6,
-
     chat_id = NULL,
-
     initialize = function(chat_id) {
       self$chat_id <- chat_id
     },
-
     to_dict = function() {
-      list('_' = 'InputPeerChat', chat_id = self$chat_id)
+      list("_" = "InputPeerChat", chat_id = self$chat_id)
     },
-
     bytes = function() {
-      rawToBits(as.raw(c(0xb9, 0x5c, 0xa9, 0x35,
-               as.integer(self$chat_id %% 256),
-               as.integer((self$chat_id %/% 256) %% 256),
-               as.integer((self$chat_id %/% 65536) %% 256),
-               as.integer((self$chat_id %/% 16777216) %% 256),
-               as.integer((self$chat_id %/% 4294967296) %% 256),
-               as.integer((self$chat_id %/% 1099511627776) %% 256),
-               as.integer((self$chat_id %/% 281474976710656) %% 256),
-               as.integer((self$chat_id %/% 72057594037927936) %% 256))))
+      rawToBits(as.raw(c(
+        0xb9, 0x5c, 0xa9, 0x35,
+        as.integer(self$chat_id %% 256),
+        as.integer((self$chat_id %/% 256) %% 256),
+        as.integer((self$chat_id %/% 65536) %% 256),
+        as.integer((self$chat_id %/% 16777216) %% 256),
+        as.integer((self$chat_id %/% 4294967296) %% 256),
+        as.integer((self$chat_id %/% 1099511627776) %% 256),
+        as.integer((self$chat_id %/% 281474976710656) %% 256),
+        as.integer((self$chat_id %/% 72057594037927936) %% 256)
+      )))
     }
   ),
   private = list(
@@ -19586,11 +18392,9 @@ InputPeerEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x7f3b18ea,
     SUBCLASS_OF_ID = 0xc91c90b6,
-
     to_dict = function() {
-      list('_' = 'InputPeerEmpty')
+      list("_" = "InputPeerEmpty")
     },
-
     bytes = function() {
       rawToChar(as.raw(c(0xea, 0x18, 0x3b, 0x7f)))
     }
@@ -19608,7 +18412,6 @@ InputPeerNotifySettings <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xcacb6ae2,
     SUBCLASS_OF_ID = 0x90db0b0d,
-
     show_previews = NULL,
     silent = NULL,
     mute_until = NULL,
@@ -19616,7 +18419,6 @@ InputPeerNotifySettings <- R6::R6Class(
     stories_muted = NULL,
     stories_hide_sender = NULL,
     stories_sound = NULL,
-
     initialize = function(show_previews = NULL, silent = NULL, mute_until = NULL, sound = NULL, stories_muted = NULL, stories_hide_sender = NULL, stories_sound = NULL) {
       self$show_previews <- show_previews
       self$silent <- silent
@@ -19626,43 +18428,41 @@ InputPeerNotifySettings <- R6::R6Class(
       self$stories_hide_sender <- stories_hide_sender
       self$stories_sound <- stories_sound
     },
-
     to_dict = function() {
-      list('_' = 'InputPeerNotifySettings', show_previews = self$show_previews, silent = self$silent, mute_until = self$mute_until, sound = if (inherits(self$sound, "TLObject")) self$sound$to_dict() else self$sound, stories_muted = self$stories_muted, stories_hide_sender = self$stories_hide_sender, stories_sound = if (inherits(self$stories_sound, "TLObject")) self$stories_sound$to_dict() else self$stories_sound)
+      list("_" = "InputPeerNotifySettings", show_previews = self$show_previews, silent = self$silent, mute_until = self$mute_until, sound = if (inherits(self$sound, "TLObject")) self$sound$to_dict() else self$sound, stories_muted = self$stories_muted, stories_hide_sender = self$stories_hide_sender, stories_sound = if (inherits(self$stories_sound, "TLObject")) self$stories_sound$to_dict() else self$stories_sound)
     },
-
     bytes = function() {
       rawdata <- c(
-      as.raw(0xca), as.raw(0xcb), as.raw(0x6a), as.raw(0xe2),
-      as.raw((ifelse(is.null(self$show_previews), 0, 1)) |
-           (ifelse(is.null(self$silent), 0, 2)) |
-           (ifelse(is.null(self$mute_until) || self$mute_until == FALSE, 0, 4)) |
-           (ifelse(is.null(self$sound) || self$sound == FALSE, 0, 8)) |
-           (ifelse(is.null(self$stories_muted), 0, 64)) |
-           (ifelse(is.null(self$stories_hide_sender), 0, 128)) |
-           (ifelse(is.null(self$stories_sound) || self$stories_sound == FALSE, 0, 256)))
+        as.raw(0xca), as.raw(0xcb), as.raw(0x6a), as.raw(0xe2),
+        as.raw((ifelse(is.null(self$show_previews), 0, 1)) |
+          (ifelse(is.null(self$silent), 0, 2)) |
+          (ifelse(is.null(self$mute_until) || self$mute_until == FALSE, 0, 4)) |
+          (ifelse(is.null(self$sound) || self$sound == FALSE, 0, 8)) |
+          (ifelse(is.null(self$stories_muted), 0, 64)) |
+          (ifelse(is.null(self$stories_hide_sender), 0, 128)) |
+          (ifelse(is.null(self$stories_sound) || self$stories_sound == FALSE, 0, 256)))
       )
 
       if (!is.null(self$show_previews)) {
-      rawdata <- c(rawdata, if (self$show_previews) as.raw(0x99) else as.raw(0xbc))
+        rawdata <- c(rawdata, if (self$show_previews) as.raw(0x99) else as.raw(0xbc))
       }
       if (!is.null(self$silent)) {
-      rawdata <- c(rawdata, if (self$silent) as.raw(0x99) else as.raw(0xbc))
+        rawdata <- c(rawdata, if (self$silent) as.raw(0x99) else as.raw(0xbc))
       }
       if (!is.null(self$mute_until) && self$mute_until != FALSE) {
-      rawdata <- c(rawdata, self$serialize_datetime(self$mute_until))
+        rawdata <- c(rawdata, self$serialize_datetime(self$mute_until))
       }
       if (!is.null(self$sound) && self$sound != FALSE) {
-      rawdata <- c(rawdata, self$sound$bytes())
+        rawdata <- c(rawdata, self$sound$bytes())
       }
       if (!is.null(self$stories_muted)) {
-      rawdata <- c(rawdata, if (self$stories_muted) as.raw(0x99) else as.raw(0xbc))
+        rawdata <- c(rawdata, if (self$stories_muted) as.raw(0x99) else as.raw(0xbc))
       }
       if (!is.null(self$stories_hide_sender)) {
-      rawdata <- c(rawdata, if (self$stories_hide_sender) as.raw(0x99) else as.raw(0xbc))
+        rawdata <- c(rawdata, if (self$stories_hide_sender) as.raw(0x99) else as.raw(0xbc))
       }
       if (!is.null(self$stories_sound) && self$stories_sound != FALSE) {
-      rawdata <- c(rawdata, self$stories_sound$bytes())
+        rawdata <- c(rawdata, self$stories_sound$bytes())
       }
 
       rawdata
@@ -19689,34 +18489,30 @@ InputPeerPhotoFileLocation <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x37257e99,
     SUBCLASS_OF_ID = 0x1523d462,
-
     peer = NULL,
     photo_id = NULL,
     big = NULL,
-
     initialize = function(peer, photo_id, big = NULL) {
       self$peer <- peer
       self$photo_id <- photo_id
       self$big <- big
     },
-
     to_dict = function() {
-      list('_' = 'InputPeerPhotoFileLocation', peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer, photo_id = self$photo_id, big = self$big)
+      list("_" = "InputPeerPhotoFileLocation", peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer, photo_id = self$photo_id, big = self$big)
     },
-
     bytes = function() {
       c(
-      as.raw(0x99), as.raw(0x7e), as.raw(0x25), as.raw(0x37),
-      as.raw(if (is.null(self$big) || !self$big) 0 else 1),
-      self$peer$bytes(),
-      as.raw(bitwAnd(self$photo_id, 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$photo_id, 8), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$photo_id, 16), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$photo_id, 24), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$photo_id, 32), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$photo_id, 40), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$photo_id, 48), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$photo_id, 56), 0xFF))
+        as.raw(0x99), as.raw(0x7e), as.raw(0x25), as.raw(0x37),
+        as.raw(if (is.null(self$big) || !self$big) 0 else 1),
+        self$peer$bytes(),
+        as.raw(bitwAnd(self$photo_id, 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$photo_id, 8), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$photo_id, 16), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$photo_id, 24), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$photo_id, 32), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$photo_id, 40), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$photo_id, 48), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$photo_id, 56), 0xFF))
       )
     }
   ),
@@ -19737,11 +18533,9 @@ InputPeerSelf <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x7da07ec9,
     SUBCLASS_OF_ID = 0xc91c90b6,
-
     to_dict = function() {
-      list('_' = 'InputPeerSelf')
+      list("_" = "InputPeerSelf")
     },
-
     bytes = function() {
       rawToChar(as.raw(c(0xc9, 0x7e, 0xa0, 0x7d)))
     }
@@ -19759,38 +18553,34 @@ InputPeerUser <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xdde8a54c,
     SUBCLASS_OF_ID = 0xc91c90b6,
-
     user_id = NULL,
     access_hash = NULL,
-
     initialize = function(user_id, access_hash) {
       self$user_id <- user_id
       self$access_hash <- access_hash
     },
-
     to_dict = function() {
-      list('_' = 'InputPeerUser', user_id = self$user_id, access_hash = self$access_hash)
+      list("_" = "InputPeerUser", user_id = self$user_id, access_hash = self$access_hash)
     },
-
     bytes = function() {
       c(
-      as.raw(0xdd), as.raw(0xe8), as.raw(0xa5), as.raw(0x4c),
-      as.raw(bitwAnd(self$user_id, 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$user_id, 8), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$user_id, 16), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$user_id, 24), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$user_id, 32), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$user_id, 40), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$user_id, 48), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$user_id, 56), 0xFF)),
-      as.raw(bitwAnd(self$access_hash, 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 8), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 16), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 24), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 32), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 40), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 48), 0xFF)),
-      as.raw(bitwAnd(bitwShiftR(self$access_hash, 56), 0xFF))
+        as.raw(0xdd), as.raw(0xe8), as.raw(0xa5), as.raw(0x4c),
+        as.raw(bitwAnd(self$user_id, 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$user_id, 8), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$user_id, 16), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$user_id, 24), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$user_id, 32), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$user_id, 40), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$user_id, 48), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$user_id, 56), 0xFF)),
+        as.raw(bitwAnd(self$access_hash, 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 8), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 16), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 24), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 32), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 40), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 48), 0xFF)),
+        as.raw(bitwAnd(bitwShiftR(self$access_hash, 56), 0xFF))
       )
     }
   ),
@@ -19810,25 +18600,23 @@ InputPeerUserFromMessage <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xa87b0a1c,
     SUBCLASS_OF_ID = 0xc91c90b6,
-
     initialize = function(peer, msg_id, user_id) {
       self$peer <- peer
       self$msg_id <- msg_id
       self$user_id <- user_id
     },
-
     to_dict = function() {
-      list('_' = 'InputPeerUserFromMessage',
-           peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-           msg_id = self$msg_id,
-           user_id = self$user_id)
+      list(
+        "_" = "InputPeerUserFromMessage",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        msg_id = self$msg_id,
+        user_id = self$user_id
+      )
     },
-
     bytes = function() {
-      c(as.raw(c(0x1c, 0x0a, 0x7b, 0xa8)), self$peer$bytes(), struct$pack('<i', self$msg_id), struct$pack('<q', self$user_id))
+      c(as.raw(c(0x1c, 0x0a, 0x7b, 0xa8)), self$peer$bytes(), struct$pack("<i", self$msg_id), struct$pack("<q", self$user_id))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$peer <- reader$tgread_object()
@@ -19844,23 +18632,21 @@ InputPhoneCall <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x1e36fded,
     SUBCLASS_OF_ID = 0xbcaaf240,
-
     initialize = function(id, access_hash) {
       self$id <- id
       self$access_hash <- access_hash
     },
-
     to_dict = function() {
-      list('_' = 'InputPhoneCall',
-           id = self$id,
-           access_hash = self$access_hash)
+      list(
+        "_" = "InputPhoneCall",
+        id = self$id,
+        access_hash = self$access_hash
+      )
     },
-
     bytes = function() {
-      c(as.raw(c(0xed, 0xfd, 0x36, 0x1e)), struct$pack('<q', self$id), struct$pack('<q', self$access_hash))
+      c(as.raw(c(0xed, 0xfd, 0x36, 0x1e)), struct$pack("<q", self$id), struct$pack("<q", self$access_hash))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$id <- reader$read_long()
@@ -19875,27 +18661,25 @@ InputPhoneContact <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xf392b7f4,
     SUBCLASS_OF_ID = 0xae696a82,
-
     initialize = function(client_id, phone, first_name, last_name) {
       self$client_id <- client_id
       self$phone <- phone
       self$first_name <- first_name
       self$last_name <- last_name
     },
-
     to_dict = function() {
-      list('_' = 'InputPhoneContact',
-           client_id = self$client_id,
-           phone = self$phone,
-           first_name = self$first_name,
-           last_name = self$last_name)
+      list(
+        "_" = "InputPhoneContact",
+        client_id = self$client_id,
+        phone = self$phone,
+        first_name = self$first_name,
+        last_name = self$last_name
+      )
     },
-
     bytes = function() {
-      c(as.raw(c(0xf4, 0xb7, 0x92, 0xf3)), struct$pack('<q', self$client_id), self$serializebytes(self$phone), self$serializebytes(self$first_name), self$serializebytes(self$last_name))
+      c(as.raw(c(0xf4, 0xb7, 0x92, 0xf3)), struct$pack("<q", self$client_id), self$serializebytes(self$phone), self$serializebytes(self$first_name), self$serializebytes(self$last_name))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$client_id <- reader$read_long()
@@ -19912,25 +18696,23 @@ InputPhoto <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x3bb3b94a,
     SUBCLASS_OF_ID = 0x846363e0,
-
     initialize = function(id, access_hash, file_reference) {
       self$id <- id
       self$access_hash <- access_hash
       self$file_reference <- file_reference
     },
-
     to_dict = function() {
-      list('_' = 'InputPhoto',
-           id = self$id,
-           access_hash = self$access_hash,
-           file_reference = self$file_reference)
+      list(
+        "_" = "InputPhoto",
+        id = self$id,
+        access_hash = self$access_hash,
+        file_reference = self$file_reference
+      )
     },
-
     bytes = function() {
-      c(as.raw(c(0x4a, 0xb9, 0xb3, 0x3b)), struct$pack('<q', self$id), struct$pack('<q', self$access_hash), self$serializebytes(self$file_reference))
+      c(as.raw(c(0x4a, 0xb9, 0xb3, 0x3b)), struct$pack("<q", self$id), struct$pack("<q", self$access_hash), self$serializebytes(self$file_reference))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$id <- reader$read_long()
@@ -19946,16 +18728,13 @@ InputPhotoEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x1cd7bf0d,
     SUBCLASS_OF_ID = 0x846363e0,
-
     to_dict = function() {
-      list('_' = 'InputPhotoEmpty')
+      list("_" = "InputPhotoEmpty")
     },
-
     bytes = function() {
       as.raw(c(0x0d, 0xbf, 0xd7, 0x1c))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -19969,27 +18748,25 @@ InputPhotoFileLocation <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x40181ffe,
     SUBCLASS_OF_ID = 0x1523d462,
-
     initialize = function(id, access_hash, file_reference, thumb_size) {
       self$id <- id
       self$access_hash <- access_hash
       self$file_reference <- file_reference
       self$thumb_size <- thumb_size
     },
-
     to_dict = function() {
-      list('_' = 'InputPhotoFileLocation',
-           id = self$id,
-           access_hash = self$access_hash,
-           file_reference = self$file_reference,
-           thumb_size = self$thumb_size)
+      list(
+        "_" = "InputPhotoFileLocation",
+        id = self$id,
+        access_hash = self$access_hash,
+        file_reference = self$file_reference,
+        thumb_size = self$thumb_size
+      )
     },
-
     bytes = function() {
-      c(as.raw(c(0xfe, 0x1f, 0x18, 0x40)), struct$pack('<q', self$id), struct$pack('<q', self$access_hash), self$serializebytes(self$file_reference), self$serializebytes(self$thumb_size))
+      c(as.raw(c(0xfe, 0x1f, 0x18, 0x40)), struct$pack("<q", self$id), struct$pack("<q", self$access_hash), self$serializebytes(self$file_reference), self$serializebytes(self$thumb_size))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$id <- reader$read_long()
@@ -20006,7 +18783,6 @@ InputPhotoLegacyFileLocation <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xd83466f3,
     SUBCLASS_OF_ID = 0x1523d462,
-
     initialize = function(id, access_hash, file_reference, volume_id, local_id, secret) {
       self$id <- id
       self$access_hash <- access_hash
@@ -20015,22 +18791,21 @@ InputPhotoLegacyFileLocation <- R6::R6Class(
       self$local_id <- local_id
       self$secret <- secret
     },
-
     to_dict = function() {
-      list('_' = 'InputPhotoLegacyFileLocation',
-           id = self$id,
-           access_hash = self$access_hash,
-           file_reference = self$file_reference,
-           volume_id = self$volume_id,
-           local_id = self$local_id,
-           secret = self$secret)
+      list(
+        "_" = "InputPhotoLegacyFileLocation",
+        id = self$id,
+        access_hash = self$access_hash,
+        file_reference = self$file_reference,
+        volume_id = self$volume_id,
+        local_id = self$local_id,
+        secret = self$secret
+      )
     },
-
     bytes = function() {
-      c(as.raw(c(0xf3, 0x66, 0x34, 0xd8)), struct$pack('<q', self$id), struct$pack('<q', self$access_hash), self$serializebytes(self$file_reference), struct$pack('<q', self$volume_id), struct$pack('<i', self$local_id), struct$pack('<q', self$secret))
+      c(as.raw(c(0xf3, 0x66, 0x34, 0xd8)), struct$pack("<q", self$id), struct$pack("<q", self$access_hash), self$serializebytes(self$file_reference), struct$pack("<q", self$volume_id), struct$pack("<i", self$local_id), struct$pack("<q", self$secret))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$id <- reader$read_long()
@@ -20049,16 +18824,13 @@ InputPrivacyKeyAbout <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x3823cc40,
     SUBCLASS_OF_ID = 0x53627f8,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyKeyAbout')
+      list("_" = "InputPrivacyKeyAbout")
     },
-
     bytes = function() {
       as.raw(c(0x40, 0xcc, 0x23, 0x38))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20072,16 +18844,13 @@ InputPrivacyKeyAddedByPhone <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xd1219bdd,
     SUBCLASS_OF_ID = 0x53627f8,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyKeyAddedByPhone')
+      list("_" = "InputPrivacyKeyAddedByPhone")
     },
-
     bytes = function() {
       as.raw(c(0xdd, 0x9b, 0x21, 0xd1))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20095,16 +18864,13 @@ InputPrivacyKeyBirthday <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xd65a11cc,
     SUBCLASS_OF_ID = 0x53627f8,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyKeyBirthday')
+      list("_" = "InputPrivacyKeyBirthday")
     },
-
     bytes = function() {
       as.raw(c(0xcc, 0x11, 0x5a, 0xd6))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20118,16 +18884,13 @@ InputPrivacyKeyChatInvite <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xbfdfb0426,
     SUBCLASS_OF_ID = 0x53627f8,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyKeyChatInvite')
+      list("_" = "InputPrivacyKeyChatInvite")
     },
-
     bytes = function() {
       as.raw(c(0x26, 0x04, 0xfb, 0xbd))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20141,16 +18904,13 @@ InputPrivacyKeyForwards <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xa4dd4c08,
     SUBCLASS_OF_ID = 0x53627f8,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyKeyForwards')
+      list("_" = "InputPrivacyKeyForwards")
     },
-
     bytes = function() {
       as.raw(c(0x08, 0x4c, 0xdd, 0xa4))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20164,16 +18924,13 @@ InputPrivacyKeyNoPaidMessages <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xbdc597b4,
     SUBCLASS_OF_ID = 0x53627f8,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyKeyNoPaidMessages')
+      list("_" = "InputPrivacyKeyNoPaidMessages")
     },
-
     bytes = function() {
       as.raw(c(0xb4, 0x97, 0xc5, 0xbd))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20187,16 +18944,13 @@ InputPrivacyKeyPhoneCall <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xfabadc5f,
     SUBCLASS_OF_ID = 0x53627f8,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyKeyPhoneCall')
+      list("_" = "InputPrivacyKeyPhoneCall")
     },
-
     bytes = function() {
       as.raw(c(0x5f, 0xdc, 0xba, 0xfa))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20210,16 +18964,13 @@ InputPrivacyKeyPhoneNumber <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x352dafa,
     SUBCLASS_OF_ID = 0x53627f8,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyKeyPhoneNumber')
+      list("_" = "InputPrivacyKeyPhoneNumber")
     },
-
     bytes = function() {
       as.raw(c(0xfa, 0xda, 0x52, 0x03))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20233,16 +18984,13 @@ InputPrivacyKeyPhoneP2P <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xdb9e70d2,
     SUBCLASS_OF_ID = 0x53627f8,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyKeyPhoneP2P')
+      list("_" = "InputPrivacyKeyPhoneP2P")
     },
-
     bytes = function() {
       as.raw(c(0xd2, 0x70, 0x9e, 0xdb))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20256,16 +19004,13 @@ InputPrivacyKeyProfilePhoto <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x5719bacc,
     SUBCLASS_OF_ID = 0x53627f8,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyKeyProfilePhoto')
+      list("_" = "InputPrivacyKeyProfilePhoto")
     },
-
     bytes = function() {
       as.raw(c(0xcc, 0xba, 0x19, 0x57))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20279,16 +19024,13 @@ InputPrivacyKeyStarGiftsAutoSave <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xe1732341,
     SUBCLASS_OF_ID = 0x53627f8,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyKeyStarGiftsAutoSave')
+      list("_" = "InputPrivacyKeyStarGiftsAutoSave")
     },
-
     bytes = function() {
       as.raw(c(0x41, 0x23, 0x73, 0xe1))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20302,16 +19044,13 @@ InputPrivacyKeyStatusTimestamp <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x4f96cb18,
     SUBCLASS_OF_ID = 0x53627f8,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyKeyStatusTimestamp')
+      list("_" = "InputPrivacyKeyStatusTimestamp")
     },
-
     bytes = function() {
       as.raw(c(0x18, 0xcb, 0x96, 0x4f))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20325,16 +19064,13 @@ InputPrivacyKeyVoiceMessages <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xaee69d68,
     SUBCLASS_OF_ID = 0x53627f8,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyKeyVoiceMessages')
+      list("_" = "InputPrivacyKeyVoiceMessages")
     },
-
     bytes = function() {
       as.raw(c(0x68, 0x9d, 0xe6, 0xae))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20348,16 +19084,13 @@ InputPrivacyValueAllowAll <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x184b35ce,
     SUBCLASS_OF_ID = 0x5a3b6b22,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyValueAllowAll')
+      list("_" = "InputPrivacyValueAllowAll")
     },
-
     bytes = function() {
       as.raw(c(0xce, 0x35, 0x4b, 0x18))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20371,16 +19104,13 @@ InputPrivacyValueAllowBots <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x5a4fcce5,
     SUBCLASS_OF_ID = 0x5a3b6b22,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyValueAllowBots')
+      list("_" = "InputPrivacyValueAllowBots")
     },
-
     bytes = function() {
       as.raw(c(0xe5, 0xcc, 0x4f, 0x5a))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20394,21 +19124,19 @@ InputPrivacyValueAllowChatParticipants <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x840649cf,
     SUBCLASS_OF_ID = 0x5a3b6b22,
-
     initialize = function(chats) {
       self$chats <- chats
     },
-
     to_dict = function() {
-      list('_' = 'InputPrivacyValueAllowChatParticipants',
-           chats = self$chats)
+      list(
+        "_" = "InputPrivacyValueAllowChatParticipants",
+        chats = self$chats
+      )
     },
-
     bytes = function() {
-      c(as.raw(c(0xcf, 0x49, 0x06, 0x84)), struct$pack('<i', length(self$chats)), do.call(c, lapply(self$chats, function(x) struct$pack('<q', x))))
+      c(as.raw(c(0xcf, 0x49, 0x06, 0x84)), struct$pack("<i", length(self$chats)), do.call(c, lapply(self$chats, function(x) struct$pack("<q", x))))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       reader$read_int()
@@ -20423,16 +19151,13 @@ InputPrivacyValueAllowCloseFriends <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x2f453e49,
     SUBCLASS_OF_ID = 0x5a3b6b22,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyValueAllowCloseFriends')
+      list("_" = "InputPrivacyValueAllowCloseFriends")
     },
-
     bytes = function() {
       as.raw(c(0x49, 0x3e, 0x45, 0x2f))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20446,16 +19171,13 @@ InputPrivacyValueAllowContacts <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xd09e07b,
     SUBCLASS_OF_ID = 0x5a3b6b22,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyValueAllowContacts')
+      list("_" = "InputPrivacyValueAllowContacts")
     },
-
     bytes = function() {
       as.raw(c(0x7b, 0xe0, 0x09, 0x0d))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20469,16 +19191,13 @@ InputPrivacyValueAllowPremium <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x77cdc9f1,
     SUBCLASS_OF_ID = 0x5a3b6b22,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyValueAllowPremium')
+      list("_" = "InputPrivacyValueAllowPremium")
     },
-
     bytes = function() {
       as.raw(c(0xf1, 0xc9, 0xcd, 0x77))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20492,21 +19211,19 @@ InputPrivacyValueAllowUsers <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x131cc67f,
     SUBCLASS_OF_ID = 0x5a3b6b22,
-
     initialize = function(users) {
       self$users <- users
     },
-
     to_dict = function() {
-      list('_' = 'InputPrivacyValueAllowUsers',
-           users = lapply(self$users, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
+      list(
+        "_" = "InputPrivacyValueAllowUsers",
+        users = lapply(self$users, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
     },
-
     bytes = function() {
-      c(as.raw(c(0x7f, 0xc6, 0x1c, 0x13)), struct$pack('<i', length(self$users)), do.call(c, lapply(self$users, function(x) x$bytes())))
+      c(as.raw(c(0x7f, 0xc6, 0x1c, 0x13)), struct$pack("<i", length(self$users)), do.call(c, lapply(self$users, function(x) x$bytes())))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       reader$read_int()
@@ -20521,16 +19238,13 @@ InputPrivacyValueDisallowAll <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xd66b66c9,
     SUBCLASS_OF_ID = 0x5a3b6b22,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyValueDisallowAll')
+      list("_" = "InputPrivacyValueDisallowAll")
     },
-
     bytes = function() {
       as.raw(c(0xc9, 0x66, 0x6b, 0xd6))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20544,16 +19258,13 @@ InputPrivacyValueDisallowBots <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xc4e57915,
     SUBCLASS_OF_ID = 0x5a3b6b22,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyValueDisallowBots')
+      list("_" = "InputPrivacyValueDisallowBots")
     },
-
     bytes = function() {
       as.raw(c(0x15, 0x79, 0xe5, 0xc4))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20567,21 +19278,19 @@ InputPrivacyValueDisallowChatParticipants <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xe94f0f86,
     SUBCLASS_OF_ID = 0x5a3b6b22,
-
     initialize = function(chats) {
       self$chats <- chats
     },
-
     to_dict = function() {
-      list('_' = 'InputPrivacyValueDisallowChatParticipants',
-           chats = self$chats)
+      list(
+        "_" = "InputPrivacyValueDisallowChatParticipants",
+        chats = self$chats
+      )
     },
-
     bytes = function() {
-      c(as.raw(c(0x86, 0x0f, 0x4f, 0xe9)), struct$pack('<i', length(self$chats)), do.call(c, lapply(self$chats, function(x) struct$pack('<q', x))))
+      c(as.raw(c(0x86, 0x0f, 0x4f, 0xe9)), struct$pack("<i", length(self$chats)), do.call(c, lapply(self$chats, function(x) struct$pack("<q", x))))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       reader$read_int()
@@ -20596,16 +19305,13 @@ InputPrivacyValueDisallowContacts <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xba52007,
     SUBCLASS_OF_ID = 0x5a3b6b22,
-
     to_dict = function() {
-      list('_' = 'InputPrivacyValueDisallowContacts')
+      list("_" = "InputPrivacyValueDisallowContacts")
     },
-
     bytes = function() {
       as.raw(c(0x07, 0x20, 0xa5, 0x0b))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
@@ -20619,21 +19325,19 @@ InputPrivacyValueDisallowUsers <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x90110467,
     SUBCLASS_OF_ID = 0x5a3b6b22,
-
     initialize = function(users) {
       self$users <- users
     },
-
     to_dict = function() {
-      list('_' = 'InputPrivacyValueDisallowUsers',
-           users = lapply(self$users, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
+      list(
+        "_" = "InputPrivacyValueDisallowUsers",
+        users = lapply(self$users, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
     },
-
     bytes = function() {
-      c(as.raw(c(0x67, 0x04, 0x11, 0x90)), struct$pack('<i', length(self$users)), do.call(c, lapply(self$users, function(x) x$bytes())))
+      c(as.raw(c(0x67, 0x04, 0x11, 0x90)), struct$pack("<i", length(self$users)), do.call(c, lapply(self$users, function(x) x$bytes())))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       reader$read_int()
@@ -20648,21 +19352,19 @@ InputQuickReplyShortcut <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x24596d41,
     SUBCLASS_OF_ID = 0xa5687c57,
-
     initialize = function(shortcut) {
       self$shortcut <- shortcut
     },
-
     to_dict = function() {
-      list('_' = 'InputQuickReplyShortcut',
-           shortcut = self$shortcut)
+      list(
+        "_" = "InputQuickReplyShortcut",
+        shortcut = self$shortcut
+      )
     },
-
     bytes = function() {
       c(as.raw(c(0x41, 0x6d, 0x59, 0x24)), self$serializebytes(self$shortcut))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$shortcut <- reader$tgread_string()
@@ -20676,21 +19378,19 @@ InputQuickReplyShortcutId <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x1190cf1,
     SUBCLASS_OF_ID = 0xa5687c57,
-
     initialize = function(shortcut_id) {
       self$shortcut_id <- shortcut_id
     },
-
     to_dict = function() {
-      list('_' = 'InputQuickReplyShortcutId',
-           shortcut_id = self$shortcut_id)
+      list(
+        "_" = "InputQuickReplyShortcutId",
+        shortcut_id = self$shortcut_id
+      )
     },
-
     bytes = function() {
-      c(as.raw(c(0xf1, 0x0c, 0x19, 0x01)), struct$pack('<i', self$shortcut_id))
+      c(as.raw(c(0xf1, 0x0c, 0x19, 0x01)), struct$pack("<i", self$shortcut_id))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$shortcut_id <- reader$read_int()
@@ -20704,7 +19404,6 @@ InputReplyToMessage <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x869fbe10,
     SUBCLASS_OF_ID = 0x8c71131d,
-
     initialize = function(reply_to_msg_id, top_msg_id = NULL, reply_topeer_id = NULL, quote_text = NULL, quote_entities = NULL, quote_offset = NULL, monoforumpeer_id = NULL, todo_item_id = NULL) {
       self$reply_to_msg_id <- reply_to_msg_id
       self$top_msg_id <- top_msg_id
@@ -20715,32 +19414,33 @@ InputReplyToMessage <- R6::R6Class(
       self$monoforumpeer_id <- monoforumpeer_id
       self$todo_item_id <- todo_item_id
     },
-
     to_dict = function() {
-      list('_' = 'InputReplyToMessage',
-           reply_to_msg_id = self$reply_to_msg_id,
-           top_msg_id = self$top_msg_id,
-           reply_topeer_id = if (inherits(self$reply_topeer_id, "TLObject")) self$reply_topeer_id$to_dict() else self$reply_topeer_id,
-           quote_text = self$quote_text,
-           quote_entities = if (is.null(self$quote_entities)) NULL else lapply(self$quote_entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
-           quote_offset = self$quote_offset,
-           monoforumpeer_id = if (inherits(self$monoforumpeer_id, "TLObject")) self$monoforumpeer_id$to_dict() else self$monoforumpeer_id,
-           todo_item_id = self$todo_item_id)
+      list(
+        "_" = "InputReplyToMessage",
+        reply_to_msg_id = self$reply_to_msg_id,
+        top_msg_id = self$top_msg_id,
+        reply_topeer_id = if (inherits(self$reply_topeer_id, "TLObject")) self$reply_topeer_id$to_dict() else self$reply_topeer_id,
+        quote_text = self$quote_text,
+        quote_entities = if (is.null(self$quote_entities)) NULL else lapply(self$quote_entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        quote_offset = self$quote_offset,
+        monoforumpeer_id = if (inherits(self$monoforumpeer_id, "TLObject")) self$monoforumpeer_id$to_dict() else self$monoforumpeer_id,
+        todo_item_id = self$todo_item_id
+      )
     },
-
     bytes = function() {
       flags <- (if (is.null(self$top_msg_id)) 0 else 1) | (if (is.null(self$reply_topeer_id)) 0 else 2) | (if (is.null(self$quote_text)) 0 else 4) | (if (is.null(self$quote_entities)) 0 else 8) | (if (is.null(self$quote_offset)) 0 else 16) | (if (is.null(self$monoforumpeer_id)) 0 else 32) | (if (is.null(self$todo_item_id)) 0 else 64)
-      c(as.raw(c(0x10, 0xbe, 0x9f, 0x86)), struct$pack('<I', flags), struct$pack('<i', self$reply_to_msg_id),
-        if (!is.null(self$top_msg_id)) struct$pack('<i', self$top_msg_id) else raw(),
+      c(
+        as.raw(c(0x10, 0xbe, 0x9f, 0x86)), struct$pack("<I", flags), struct$pack("<i", self$reply_to_msg_id),
+        if (!is.null(self$top_msg_id)) struct$pack("<i", self$top_msg_id) else raw(),
         if (!is.null(self$reply_topeer_id)) self$reply_topeer_id$bytes() else raw(),
         if (!is.null(self$quote_text)) self$serializebytes(self$quote_text) else raw(),
-        if (!is.null(self$quote_entities)) c(struct$pack('<i', length(self$quote_entities)), do.call(c, lapply(self$quote_entities, function(x) x$bytes()))) else raw(),
-        if (!is.null(self$quote_offset)) struct$pack('<i', self$quote_offset) else raw(),
+        if (!is.null(self$quote_entities)) c(struct$pack("<i", length(self$quote_entities)), do.call(c, lapply(self$quote_entities, function(x) x$bytes()))) else raw(),
+        if (!is.null(self$quote_offset)) struct$pack("<i", self$quote_offset) else raw(),
         if (!is.null(self$monoforumpeer_id)) self$monoforumpeer_id$bytes() else raw(),
-        if (!is.null(self$todo_item_id)) struct$pack('<i', self$todo_item_id) else raw())
+        if (!is.null(self$todo_item_id)) struct$pack("<i", self$todo_item_id) else raw()
+      )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -20765,21 +19465,19 @@ InputReplyToMonoForum <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x69d66c45,
     SUBCLASS_OF_ID = 0x8c71131d,
-
     initialize = function(monoforumpeer_id) {
       self$monoforumpeer_id <- monoforumpeer_id
     },
-
     to_dict = function() {
-      list('_' = 'InputReplyToMonoForum',
-           monoforumpeer_id = if (inherits(self$monoforumpeer_id, "TLObject")) self$monoforumpeer_id$to_dict() else self$monoforumpeer_id)
+      list(
+        "_" = "InputReplyToMonoForum",
+        monoforumpeer_id = if (inherits(self$monoforumpeer_id, "TLObject")) self$monoforumpeer_id$to_dict() else self$monoforumpeer_id
+      )
     },
-
     bytes = function() {
       c(as.raw(c(0x45, 0x6c, 0xd6, 0x69)), self$monoforumpeer_id$bytes())
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$monoforumpeer_id <- reader$tgread_object()
@@ -20799,7 +19497,7 @@ InputReplyToStory <- R6::R6Class(
       self$story_id <- story_id
     },
     to_dict = function() {
-      list('_' = 'InputReplyToStory', peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer, story_id = self$story_id)
+      list("_" = "InputReplyToStory", peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer, story_id = self$story_id)
     },
     bytes = function() {
       c(as.raw(c(0x3a, 0x32, 0x81, 0x58)), self$peer$bytes(), packBits(intToBits(self$story_id), type = "raw")[1:4])
@@ -20821,7 +19519,7 @@ InputReportReasonChildAbuse <- R6::R6Class(
     CONSTRUCTOR_ID = 0xadf44ee3,
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
-      list('_' = 'InputReportReasonChildAbuse')
+      list("_" = "InputReportReasonChildAbuse")
     },
     bytes = function() {
       as.raw(c(0xe3, 0x4e, 0xf4, 0xad))
@@ -20841,7 +19539,7 @@ InputReportReasonCopyright <- R6::R6Class(
     CONSTRUCTOR_ID = 0x9b89f93a,
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
-      list('_' = 'InputReportReasonCopyright')
+      list("_" = "InputReportReasonCopyright")
     },
     bytes = function() {
       as.raw(c(0x3a, 0xf9, 0x89, 0x9b))
@@ -20861,7 +19559,7 @@ InputReportReasonFake <- R6::R6Class(
     CONSTRUCTOR_ID = 0xf5ddd6e7,
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
-      list('_' = 'InputReportReasonFake')
+      list("_" = "InputReportReasonFake")
     },
     bytes = function() {
       as.raw(c(0xe7, 0xd6, 0xdd, 0xf5))
@@ -20881,7 +19579,7 @@ InputReportReasonGeoIrrelevant <- R6::R6Class(
     CONSTRUCTOR_ID = 0xdbd4feed,
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
-      list('_' = 'InputReportReasonGeoIrrelevant')
+      list("_" = "InputReportReasonGeoIrrelevant")
     },
     bytes = function() {
       as.raw(c(0xed, 0xfe, 0xd4, 0xdb))
@@ -20901,7 +19599,7 @@ InputReportReasonIllegalDrugs <- R6::R6Class(
     CONSTRUCTOR_ID = 0xa8eb2be,
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
-      list('_' = 'InputReportReasonIllegalDrugs')
+      list("_" = "InputReportReasonIllegalDrugs")
     },
     bytes = function() {
       as.raw(c(0xbe, 0x2b, 0x8e, 0x0a))
@@ -20921,7 +19619,7 @@ InputReportReasonOther <- R6::R6Class(
     CONSTRUCTOR_ID = 0xc1e4a2b1,
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
-      list('_' = 'InputReportReasonOther')
+      list("_" = "InputReportReasonOther")
     },
     bytes = function() {
       as.raw(c(0xb1, 0xa2, 0xe4, 0xc1))
@@ -20941,7 +19639,7 @@ InputReportReasonPersonalDetails <- R6::R6Class(
     CONSTRUCTOR_ID = 0x9ec7863d,
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
-      list('_' = 'InputReportReasonPersonalDetails')
+      list("_" = "InputReportReasonPersonalDetails")
     },
     bytes = function() {
       as.raw(c(0x3d, 0x86, 0xc7, 0x9e))
@@ -20961,7 +19659,7 @@ InputReportReasonPornography <- R6::R6Class(
     CONSTRUCTOR_ID = 0x2e59d922,
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
-      list('_' = 'InputReportReasonPornography')
+      list("_" = "InputReportReasonPornography")
     },
     bytes = function() {
       as.raw(c(0x22, 0xd9, 0x59, 0x2e))
@@ -20981,7 +19679,7 @@ InputReportReasonSpam <- R6::R6Class(
     CONSTRUCTOR_ID = 0x58dbcab8,
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
-      list('_' = 'InputReportReasonSpam')
+      list("_" = "InputReportReasonSpam")
     },
     bytes = function() {
       as.raw(c(0xb8, 0xca, 0xdb, 0x58))
@@ -21001,7 +19699,7 @@ InputReportReasonViolence <- R6::R6Class(
     CONSTRUCTOR_ID = 0x1e22c78d,
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
-      list('_' = 'InputReportReasonViolence')
+      list("_" = "InputReportReasonViolence")
     },
     bytes = function() {
       as.raw(c(0x8d, 0xc7, 0x22, 0x1e))
@@ -21025,7 +19723,7 @@ InputSavedStarGiftChat <- R6::R6Class(
       self$saved_id <- saved_id
     },
     to_dict = function() {
-      list('_' = 'InputSavedStarGiftChat', peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer, saved_id = self$saved_id)
+      list("_" = "InputSavedStarGiftChat", peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer, saved_id = self$saved_id)
     },
     bytes = function() {
       c(as.raw(c(0x7f, 0xaa, 0x01, 0xf1)), self$peer$bytes(), packBits(intToBits(self$saved_id), type = "raw")[1:8])
@@ -21050,7 +19748,7 @@ InputSavedStarGiftSlug <- R6::R6Class(
       self$slug <- slug
     },
     to_dict = function() {
-      list('_' = 'InputSavedStarGiftSlug', slug = self$slug)
+      list("_" = "InputSavedStarGiftSlug", slug = self$slug)
     },
     bytes = function() {
       c(as.raw(c(0x38, 0xc2, 0x85, 0x20)), charToRaw(self$slug))
@@ -21074,7 +19772,7 @@ InputSavedStarGiftUser <- R6::R6Class(
       self$msg_id <- msg_id
     },
     to_dict = function() {
-      list('_' = 'InputSavedStarGiftUser', msg_id = self$msg_id)
+      list("_" = "InputSavedStarGiftUser", msg_id = self$msg_id)
     },
     bytes = function() {
       c(as.raw(c(0x95, 0x97, 0x27, 0x69)), packBits(intToBits(self$msg_id), type = "raw")[1:4])
@@ -21099,7 +19797,7 @@ InputSecureFile <- R6::R6Class(
       self$access_hash <- access_hash
     },
     to_dict = function() {
-      list('_' = 'InputSecureFile', id = self$id, access_hash = self$access_hash)
+      list("_" = "InputSecureFile", id = self$id, access_hash = self$access_hash)
     },
     bytes = function() {
       c(as.raw(c(0xbe, 0xe5, 0x67, 0x53)), packBits(intToBits(self$id), type = "raw")[1:8], packBits(intToBits(self$access_hash), type = "raw")[1:8])
@@ -21125,7 +19823,7 @@ InputSecureFileLocation <- R6::R6Class(
       self$access_hash <- access_hash
     },
     to_dict = function() {
-      list('_' = 'InputSecureFileLocation', id = self$id, access_hash = self$access_hash)
+      list("_" = "InputSecureFileLocation", id = self$id, access_hash = self$access_hash)
     },
     bytes = function() {
       c(as.raw(c(0x28, 0xee, 0xc7, 0xcb)), packBits(intToBits(self$id), type = "raw")[1:8], packBits(intToBits(self$access_hash), type = "raw")[1:8])
@@ -21154,7 +19852,7 @@ InputSecureFileUploaded <- R6::R6Class(
       self$secret <- secret
     },
     to_dict = function() {
-      list('_' = 'InputSecureFileUploaded', id = self$id, parts = self$parts, md5_checksum = self$md5_checksum, file_hash = self$file_hash, secret = self$secret)
+      list("_" = "InputSecureFileUploaded", id = self$id, parts = self$parts, md5_checksum = self$md5_checksum, file_hash = self$file_hash, secret = self$secret)
     },
     bytes = function() {
       c(as.raw(c(0xf0, 0xb0, 0x34, 0x33)), packBits(intToBits(self$id), type = "raw")[1:8], packBits(intToBits(self$parts), type = "raw")[1:4], charToRaw(self$md5_checksum), self$file_hash, self$secret)
@@ -21189,7 +19887,7 @@ InputSecureValue <- R6::R6Class(
       self$plaindata <- plaindata
     },
     to_dict = function() {
-      list('_' = 'InputSecureValue', type = if (inherits(self$type, "TLObject")) self$type$to_dict() else self$type, data = if (inherits(self$data, "TLObject")) self$data$to_dict() else self$data, front_side = if (inherits(self$front_side, "TLObject")) self$front_side$to_dict() else self$front_side, reverse_side = if (inherits(self$reverse_side, "TLObject")) self$reverse_side$to_dict() else self$reverse_side, selfie = if (inherits(self$selfie, "TLObject")) self$selfie$to_dict() else self$selfie, translation = lapply(self$translation, function(x) if (inherits(x, "TLObject")) x$to_dict() else x), files = lapply(self$files, function(x) if (inherits(x, "TLObject")) x$to_dict() else x), plaindata = if (inherits(self$plaindata, "TLObject")) self$plaindata$to_dict() else self$plaindata)
+      list("_" = "InputSecureValue", type = if (inherits(self$type, "TLObject")) self$type$to_dict() else self$type, data = if (inherits(self$data, "TLObject")) self$data$to_dict() else self$data, front_side = if (inherits(self$front_side, "TLObject")) self$front_side$to_dict() else self$front_side, reverse_side = if (inherits(self$reverse_side, "TLObject")) self$reverse_side$to_dict() else self$reverse_side, selfie = if (inherits(self$selfie, "TLObject")) self$selfie$to_dict() else self$selfie, translation = lapply(self$translation, function(x) if (inherits(x, "TLObject")) x$to_dict() else x), files = lapply(self$files, function(x) if (inherits(x, "TLObject")) x$to_dict() else x), plaindata = if (inherits(self$plaindata, "TLObject")) self$plaindata$to_dict() else self$plaindata)
     },
     bytes = function() {
       flags <- (if (is.null(self$data) || self$data == FALSE) 0 else 1) | (if (is.null(self$front_side) || self$front_side == FALSE) 0 else 2) | (if (is.null(self$reverse_side) || self$reverse_side == FALSE) 0 else 4) | (if (is.null(self$selfie) || self$selfie == FALSE) 0 else 8) | (if (is.null(self$translation) || self$translation == FALSE) 0 else 64) | (if (is.null(self$files) || self$files == FALSE) 0 else 16) | (if (is.null(self$plaindata) || self$plaindata == FALSE) 0 else 32)
@@ -21204,8 +19902,18 @@ InputSecureValue <- R6::R6Class(
       front_side <- if (bitwAnd(flags, 2)) reader$tgread_object() else NULL
       reverse_side <- if (bitwAnd(flags, 4)) reader$tgread_object() else NULL
       selfie <- if (bitwAnd(flags, 8)) reader$tgread_object() else NULL
-      translation <- if (bitwAnd(flags, 64)) { reader$read_int(); lapply(1:reader$read_int(), function(i) reader$tgread_object()) } else NULL
-      files <- if (bitwAnd(flags, 16)) { reader$read_int(); lapply(1:reader$read_int(), function(i) reader$tgread_object()) } else NULL
+      translation <- if (bitwAnd(flags, 64)) {
+        reader$read_int()
+        lapply(1:reader$read_int(), function(i) reader$tgread_object())
+      } else {
+        NULL
+      }
+      files <- if (bitwAnd(flags, 16)) {
+        reader$read_int()
+        lapply(1:reader$read_int(), function(i) reader$tgread_object())
+      } else {
+        NULL
+      }
       plaindata <- if (bitwAnd(flags, 32)) reader$tgread_object() else NULL
       self$initialize(type = type, data = data, front_side = front_side, reverse_side = reverse_side, selfie = selfie, translation = translation, files = files, plaindata = plaindata)
     }
@@ -21225,7 +19933,7 @@ InputSingleMedia <- R6::R6Class(
       self$entities <- entities
     },
     to_dict = function() {
-      list('_' = 'InputSingleMedia', media = if (inherits(self$media, "TLObject")) self$media$to_dict() else self$media, message = self$message, random_id = self$random_id, entities = lapply(self$entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
+      list("_" = "InputSingleMedia", media = if (inherits(self$media, "TLObject")) self$media$to_dict() else self$media, message = self$message, random_id = self$random_id, entities = lapply(self$entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
     },
     bytes = function() {
       flags <- if (is.null(self$entities) || self$entities == FALSE) 0 else 1
@@ -21238,7 +19946,12 @@ InputSingleMedia <- R6::R6Class(
       media <- reader$tgread_object()
       random_id <- reader$read_long()
       message <- reader$tgread_string()
-      entities <- if (bitwAnd(flags, 1)) { reader$read_int(); lapply(1:reader$read_int(), function(i) reader$tgread_object()) } else NULL
+      entities <- if (bitwAnd(flags, 1)) {
+        reader$read_int()
+        lapply(1:reader$read_int(), function(i) reader$tgread_object())
+      } else {
+        NULL
+      }
       self$initialize(media = media, message = message, random_id = random_id, entities = entities)
     }
   )
@@ -21255,7 +19968,7 @@ InputStarsTransaction <- R6::R6Class(
       self$refund <- refund
     },
     to_dict = function() {
-      list('_' = 'InputStarsTransaction', id = self$id, refund = self$refund)
+      list("_" = "InputStarsTransaction", id = self$id, refund = self$refund)
     },
     bytes = function() {
       flags <- if (is.null(self$refund) || self$refund == FALSE) 0 else 1
@@ -21279,7 +19992,7 @@ InputStickerSetAnimatedEmoji <- R6::R6Class(
     CONSTRUCTOR_ID = 0x28703c8,
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
-      list('_' = 'InputStickerSetAnimatedEmoji')
+      list("_" = "InputStickerSetAnimatedEmoji")
     },
     bytes = function() {
       as.raw(c(0xc8, 0x03, 0x87, 0x02))
@@ -21299,7 +20012,7 @@ InputStickerSetAnimatedEmojiAnimations <- R6::R6Class(
     CONSTRUCTOR_ID = 0xcde3739,
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
-      list('_' = 'InputStickerSetAnimatedEmojiAnimations')
+      list("_" = "InputStickerSetAnimatedEmojiAnimations")
     },
     bytes = function() {
       as.raw(c(0x39, 0x73, 0xde, 0x0c))
@@ -21322,7 +20035,7 @@ InputStickerSetDice <- R6::R6Class(
       self$emoticon <- emoticon
     },
     to_dict = function() {
-      list('_' = 'InputStickerSetDice', emoticon = self$emoticon)
+      list("_" = "InputStickerSetDice", emoticon = self$emoticon)
     },
     bytes = function() {
       c(as.raw(c(0x0e, 0x52, 0x7f, 0xe6)), charToRaw(self$emoticon))
@@ -21343,7 +20056,7 @@ InputStickerSetEmojiChannelDefaultStatuses <- R6::R6Class(
     CONSTRUCTOR_ID = 0x49748553,
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
-      list('_' = 'InputStickerSetEmojiChannelDefaultStatuses')
+      list("_" = "InputStickerSetEmojiChannelDefaultStatuses")
     },
     bytes = function() {
       as.raw(c(0x53, 0x85, 0x74, 0x49))
@@ -21363,7 +20076,7 @@ InputStickerSetEmojiDefaultStatuses <- R6::R6Class(
     CONSTRUCTOR_ID = 0x29d0f5ee,
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
-      list('_' = 'InputStickerSetEmojiDefaultStatuses')
+      list("_" = "InputStickerSetEmojiDefaultStatuses")
     },
     bytes = function() {
       as.raw(c(0xee, 0xf5, 0xd0, 0x29))
@@ -21383,7 +20096,7 @@ InputStickerSetEmojiDefaultTopicIcons <- R6::R6Class(
     CONSTRUCTOR_ID = 0x44c1f8e9,
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
-      list('_' = 'InputStickerSetEmojiDefaultTopicIcons')
+      list("_" = "InputStickerSetEmojiDefaultTopicIcons")
     },
     bytes = function() {
       as.raw(c(0xe9, 0xf8, 0xc1, 0x44))
@@ -21403,7 +20116,7 @@ InputStickerSetEmojiGenericAnimations <- R6::R6Class(
     CONSTRUCTOR_ID = 0x4c4d4ce,
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
-      list('_' = 'InputStickerSetEmojiGenericAnimations')
+      list("_" = "InputStickerSetEmojiGenericAnimations")
     },
     bytes = function() {
       as.raw(c(0xce, 0xd4, 0xc4, 0x04))
@@ -21423,7 +20136,7 @@ InputStickerSetEmpty <- R6::R6Class(
     CONSTRUCTOR_ID = 0xffb62b95,
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
-      list('_' = 'InputStickerSetEmpty')
+      list("_" = "InputStickerSetEmpty")
     },
     bytes = function() {
       as.raw(c(0x95, 0x2b, 0xb6, 0xff))
@@ -21447,7 +20160,7 @@ InputStickerSetID <- R6::R6Class(
       self$access_hash <- access_hash
     },
     to_dict = function() {
-      list('_' = 'InputStickerSetID', id = self$id, access_hash = self$access_hash)
+      list("_" = "InputStickerSetID", id = self$id, access_hash = self$access_hash)
     },
     bytes = function() {
       c(as.raw(c(0x69, 0xa2, 0xe7, 0x9d)), packBits(intToBits(self$id), type = "raw")[1:8], packBits(intToBits(self$access_hash), type = "raw")[1:8])
@@ -21475,7 +20188,7 @@ InputStickerSetItem <- R6::R6Class(
       self$keywords <- keywords
     },
     to_dict = function() {
-      list('_' = 'InputStickerSetItem', document = if (inherits(self$document, "TLObject")) self$document$to_dict() else self$document, emoji = self$emoji, mask_coords = if (inherits(self$mask_coords, "TLObject")) self$mask_coords$to_dict() else self$mask_coords, keywords = self$keywords)
+      list("_" = "InputStickerSetItem", document = if (inherits(self$document, "TLObject")) self$document$to_dict() else self$document, emoji = self$emoji, mask_coords = if (inherits(self$mask_coords, "TLObject")) self$mask_coords$to_dict() else self$mask_coords, keywords = self$keywords)
     },
     bytes = function() {
       flags <- (if (is.null(self$mask_coords) || self$mask_coords == FALSE) 0 else 1) | (if (is.null(self$keywords) || self$keywords == FALSE) 0 else 2)
@@ -21501,7 +20214,7 @@ InputStickerSetPremiumGifts <- R6::R6Class(
     CONSTRUCTOR_ID = 0xc88b3b02,
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
-      list('_' = 'InputStickerSetPremiumGifts')
+      list("_" = "InputStickerSetPremiumGifts")
     },
     bytes = function() {
       as.raw(c(0x02, 0x3b, 0x8b, 0xc8))
@@ -21524,7 +20237,7 @@ InputStickerSetShortName <- R6::R6Class(
       self$short_name <- short_name
     },
     to_dict = function() {
-      list('_' = 'InputStickerSetShortName', short_name = self$short_name)
+      list("_" = "InputStickerSetShortName", short_name = self$short_name)
     },
     bytes = function() {
       c(as.raw(c(0xa0, 0xc8, 0x1c, 0x86)), charToRaw(self$short_name))
@@ -21549,7 +20262,7 @@ InputStickerSetThumb <- R6::R6Class(
       self$thumb_version <- thumb_version
     },
     to_dict = function() {
-      list('_' = 'InputStickerSetThumb', stickerset = if (inherits(self$stickerset, "TLObject")) self$stickerset$to_dict() else self$stickerset, thumb_version = self$thumb_version)
+      list("_" = "InputStickerSetThumb", stickerset = if (inherits(self$stickerset, "TLObject")) self$stickerset$to_dict() else self$stickerset, thumb_version = self$thumb_version)
     },
     bytes = function() {
       c(as.raw(c(0xdb, 0xf3, 0x84, 0x9d)), self$stickerset$bytes(), packBits(intToBits(self$thumb_version), type = "raw")[1:4])
@@ -21571,7 +20284,7 @@ InputStickerSetTonGifts <- R6::R6Class(
     CONSTRUCTOR_ID = 0x1cf671a0,
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
-      list('_' = 'InputStickerSetTonGifts')
+      list("_" = "InputStickerSetTonGifts")
     },
     bytes = function() {
       as.raw(c(0xa0, 0x71, 0xf6, 0x1c))
@@ -21594,7 +20307,7 @@ InputStickeredMediaDocument <- R6::R6Class(
       self$id <- id
     },
     to_dict = function() {
-      list('_' = 'InputStickeredMediaDocument', id = if (inherits(self$id, "TLObject")) self$id$to_dict() else self$id)
+      list("_" = "InputStickeredMediaDocument", id = if (inherits(self$id, "TLObject")) self$id$to_dict() else self$id)
     },
     bytes = function() {
       c(as.raw(c(0x5b, 0x86, 0x38, 0x04)), self$id$bytes())
@@ -21618,7 +20331,7 @@ InputStickeredMediaPhoto <- R6::R6Class(
       self$id <- id
     },
     to_dict = function() {
-      list('_' = 'InputStickeredMediaPhoto', id = if (inherits(self$id, "TLObject")) self$id$to_dict() else self$id)
+      list("_" = "InputStickeredMediaPhoto", id = if (inherits(self$id, "TLObject")) self$id$to_dict() else self$id)
     },
     bytes = function() {
       c(as.raw(c(0x57, 0x21, 0x99, 0x4a)), self$id$bytes())
@@ -21646,7 +20359,7 @@ InputStorePaymentAuthCode <- R6::R6Class(
       self$restore <- restore
     },
     to_dict = function() {
-      list('_' = 'InputStorePaymentAuthCode', phone_number = self$phone_number, phone_code_hash = self$phone_code_hash, currency = self$currency, amount = self$amount, restore = self$restore)
+      list("_" = "InputStorePaymentAuthCode", phone_number = self$phone_number, phone_code_hash = self$phone_code_hash, currency = self$currency, amount = self$amount, restore = self$restore)
     },
     bytes = function() {
       flags <- if (is.null(self$restore) || self$restore == FALSE) 0 else 1
@@ -21676,13 +20389,11 @@ InputStorePaymentGiftPremium <- R6::R6Class(
     user_id = NULL,
     currency = NULL,
     amount = NULL,
-
     initialize = function(user_id, currency, amount) {
       self$user_id <- user_id
       self$currency <- currency
       self$amount <- amount
     },
-
     to_dict = function() {
       list(
         "_" = "InputStorePaymentGiftPremium",
@@ -21691,7 +20402,6 @@ InputStorePaymentGiftPremium <- R6::R6Class(
         amount = self$amount
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xe8, 0x7f, 0x6f, 0x61)),
@@ -21701,7 +20411,6 @@ InputStorePaymentGiftPremium <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       user_id <- reader$tgread_object()
@@ -21722,7 +20431,6 @@ InputStorePaymentPremiumGiftCode <- R6::R6Class(
     amount = NULL,
     boost_peer = NULL,
     message = NULL,
-
     initialize = function(users, currency, amount, boost_peer = NULL, message = NULL) {
       self$users <- users
       self$currency <- currency
@@ -21730,7 +20438,6 @@ InputStorePaymentPremiumGiftCode <- R6::R6Class(
       self$boost_peer <- boost_peer
       self$message <- message
     },
-
     to_dict = function() {
       list(
         "_" = "InputStorePaymentPremiumGiftCode",
@@ -21758,7 +20465,6 @@ InputStorePaymentPremiumGiveaway <- R6::R6Class(
     countries_iso2 = NULL,
     prize_description = NULL,
     random_id = NULL,
-
     initialize = function(boost_peer, until_date, currency, amount, only_new_subscribers = NULL,
                           winners_are_visible = NULL, additional_peers = NULL, countries_iso2 = NULL,
                           prize_description = NULL, random_id = NULL) {
@@ -21773,7 +20479,6 @@ InputStorePaymentPremiumGiveaway <- R6::R6Class(
       self$prize_description <- prize_description
       self$random_id <- if (is.null(random_id)) as.integer64(sample.int(1e9, 1)) else random_id
     },
-
     to_dict = function() {
       list(
         "_" = "InputStorePaymentPremiumGiveaway",
@@ -21799,12 +20504,10 @@ InputStorePaymentPremiumSubscription <- R6::R6Class(
   public = list(
     restore = NULL,
     upgrade = NULL,
-
     initialize = function(restore = NULL, upgrade = NULL) {
       self$restore <- restore
       self$upgrade <- upgrade
     },
-
     to_dict = function() {
       list(
         "_" = "InputStorePaymentPremiumSubscription",
@@ -21812,10 +20515,9 @@ InputStorePaymentPremiumSubscription <- R6::R6Class(
         upgrade = self$upgrade
       )
     },
-
     bytes = function() {
       flags <- (if (is.null(self$restore) || !self$restore) 0 else 1) |
-               (if (is.null(self$upgrade) || !self$upgrade) 0 else 2)
+        (if (is.null(self$upgrade) || !self$upgrade) 0 else 2)
       c(as.raw(c(0xa6, 0x75, 0x1e, 0xf)), as.raw(flags))
     }
   )
@@ -21829,14 +20531,12 @@ InputStorePaymentStarsGift <- R6::R6Class(
     stars = NULL,
     currency = NULL,
     amount = NULL,
-
     initialize = function(user_id, stars, currency, amount) {
       self$user_id <- user_id
       self$stars <- stars
       self$currency <- currency
       self$amount <- amount
     },
-
     to_dict = function() {
       list(
         "_" = "InputStorePaymentStarsGift",
@@ -21846,7 +20546,6 @@ InputStorePaymentStarsGift <- R6::R6Class(
         amount = self$amount
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xf7, 0x1e, 0x74, 0x1d)),
@@ -21876,7 +20575,6 @@ InputStorePaymentStarsGiveaway <- R6::R6Class(
     countries_iso2 = NULL,
     prize_description = NULL,
     random_id = NULL,
-
     initialize = function(stars, boost_peer, until_date, currency, amount, users,
                           only_new_subscribers = NULL, winners_are_visible = NULL,
                           additional_peers = NULL, countries_iso2 = NULL,
@@ -21894,7 +20592,6 @@ InputStorePaymentStarsGiveaway <- R6::R6Class(
       self$prize_description <- prize_description
       self$random_id <- if (is.null(random_id)) as.integer64(sample.int(1e9, 1)) else random_id
     },
-
     to_dict = function() {
       list(
         "_" = "InputStorePaymentStarsGiveaway",
@@ -21912,7 +20609,6 @@ InputStorePaymentStarsGiveaway <- R6::R6Class(
         random_id = self$random_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xfa, 0x08, 0x1f, 0x75)),
@@ -21946,14 +20642,12 @@ InputStorePaymentStarsTopup <- R6::R6Class(
     currency = NULL,
     amount = NULL,
     spend_purpose_peer = NULL,
-
     initialize = function(stars, currency, amount, spend_purpose_peer = NULL) {
       self$stars <- stars
       self$currency <- currency
       self$amount <- amount
       self$spend_purpose_peer <- spend_purpose_peer
     },
-
     to_dict = function() {
       list(
         "_" = "InputStorePaymentStarsTopup",
@@ -21963,7 +20657,6 @@ InputStorePaymentStarsTopup <- R6::R6Class(
         spend_purpose_peer = if (inherits(self$spend_purpose_peer, "TLObject")) self$spend_purpose_peer$to_dict() else self$spend_purpose_peer
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xcb, 0xa6, 0xa2, 0xf9)),
@@ -21984,12 +20677,10 @@ InputStorePaymentPremiumSubscription <- R6::R6Class(
   public = list(
     restore = NULL,
     upgrade = NULL,
-
     initialize = function(restore = NULL, upgrade = NULL) {
       self$restore <- restore
       self$upgrade <- upgrade
     },
-
     to_dict = function() {
       list(
         "_" = "InputStorePaymentPremiumSubscription",
@@ -21997,14 +20688,12 @@ InputStorePaymentPremiumSubscription <- R6::R6Class(
         upgrade = self$upgrade
       )
     },
-
     bytes = function() {
       flags <- (if (is.null(self$restore) || !self$restore) 0 else 1) |
-               (if (is.null(self$upgrade) || !self$upgrade) 0 else 2)
+        (if (is.null(self$upgrade) || !self$upgrade) 0 else 2)
       c(as.raw(c(0xa6, 0x75, 0x1e, 0x66)), writeBin(as.integer(flags), raw(), size = 4, endian = "little"))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -22028,7 +20717,7 @@ InputStorePaymentGiftPremium <- R6::R6Class(
       self$amount <- amount
     },
     to_dict = function() {
-      list('_' = 'InputStorePaymentGiftPremium', user_id = if (inherits(self$user_id, "TLObject")) self$user_id$to_dict() else self$user_id, currency = self$currency, amount = self$amount)
+      list("_" = "InputStorePaymentGiftPremium", user_id = if (inherits(self$user_id, "TLObject")) self$user_id$to_dict() else self$user_id, currency = self$currency, amount = self$amount)
     },
     bytes = function() {
       c(as.raw(c(0xe8, 0x7f, 0x6f, 0x61)), self$user_id$bytes(), charToRaw(self$currency), packBits(intToBits(self$amount), type = "raw")[1:8])
@@ -22051,16 +20740,13 @@ InputTakeoutFileLocation <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x29be5899,
     SUBCLASS_OF_ID = 0x1523d462,
-
     to_dict = function() {
       list("_" = "InputTakeoutFileLocation")
     },
-
     bytes = function() {
       rawToChar(as.raw(c(0x99, 0x58, 0xBE, 0x29)))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$new()
@@ -22074,12 +20760,10 @@ InputTheme <- R6::R6Class(
   public = list(
     id = NULL,
     access_hash = NULL,
-
     initialize = function(id, access_hash) {
       self$id <- id
       self$access_hash <- access_hash
     },
-
     to_dict = function() {
       list(
         "_" = "InputTheme",
@@ -22100,7 +20784,6 @@ InputThemeSettings <- R6::R6Class(
     message_colors = NULL,
     wallpaper = NULL,
     wallpaper_settings = NULL,
-
     initialize = function(base_theme, accent_color, message_colors_animated = NULL,
                           outbox_accent_color = NULL, message_colors = NULL,
                           wallpaper = NULL, wallpaper_settings = NULL) {
@@ -22112,7 +20795,6 @@ InputThemeSettings <- R6::R6Class(
       self$wallpaper <- wallpaper
       self$wallpaper_settings <- wallpaper_settings
     },
-
     to_dict = function() {
       list(
         "_" = "InputThemeSettings",
@@ -22136,20 +20818,16 @@ InputThemeSlug <- R6::R6Class(
     CONSTRUCTOR_ID = 0xf5890df1,
     SUBCLASS_OF_ID = 0x7a100f0,
     slug = NULL,
-
     initialize = function(slug) {
       self$slug <- slug
     },
-
     to_dict = function() {
       list("_" = "InputThemeSlug", slug = self$slug)
     },
-
     bytes = function() {
       rawToChar(c(as.raw(0xf1), as.raw(0x0d), as.raw(0x89), as.raw(0xf5), charToRaw(self$slug)))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       slug <- reader$tgread_string()
@@ -22166,23 +20844,21 @@ InputUser <- R6::R6Class(
     SUBCLASS_OF_ID = 0xe669bf46,
     user_id = NULL,
     access_hash = NULL,
-
     initialize = function(user_id, access_hash) {
       self$user_id <- user_id
       self$access_hash <- access_hash
     },
-
     to_dict = function() {
       list("_" = "InputUser", user_id = self$user_id, access_hash = self$access_hash)
     },
-
     bytes = function() {
-      rawToChar(c(as.raw(0xc6), as.raw(0x58), as.raw(0x11), as.raw(0xf2),
-                  writeBin(self$user_id, raw(), size = 8),
-                  writeBin(self$access_hash, raw(), size = 8)))
+      rawToChar(c(
+        as.raw(0xc6), as.raw(0x58), as.raw(0x11), as.raw(0xf2),
+        writeBin(self$user_id, raw(), size = 8),
+        writeBin(self$access_hash, raw(), size = 8)
+      ))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       user_id <- reader$read_long()
@@ -22199,16 +20875,13 @@ InputUserEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb98886cf,
     SUBCLASS_OF_ID = 0xe669bf46,
-
     to_dict = function() {
       list("_" = "InputUserEmpty")
     },
-
     bytes = function() {
       rawToChar(as.raw(c(0xcf, 0x86, 0x88, 0xb9)))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$new()
@@ -22225,13 +20898,11 @@ InputUserFromMessage <- R6::R6Class(
     peer = NULL,
     msg_id = NULL,
     user_id = NULL,
-
     initialize = function(peer, msg_id, user_id) {
       self$peer <- peer
       self$msg_id <- msg_id
       self$user_id <- user_id
     },
-
     to_dict = function() {
       list(
         "_" = "InputUserFromMessage",
@@ -22240,7 +20911,6 @@ InputUserFromMessage <- R6::R6Class(
         user_id = self$user_id
       )
     },
-
     bytes = function() {
       c(
         rawToChar(as.raw(c(0xe2, 0x48, 0xa4, 0x1d))),
@@ -22250,7 +20920,6 @@ InputUserFromMessage <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       peer <- reader$tgread_object()
@@ -22267,16 +20936,13 @@ InputUserSelf <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xf7c1b13f,
     SUBCLASS_OF_ID = 0xe669bf46,
-
     to_dict = function() {
       list("_" = "InputUserSelf")
     },
-
     bytes = function() {
       rawToChar(as.raw(c(0x3f, 0xb1, 0xc1, 0xf7)))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$new()
@@ -22291,12 +20957,10 @@ InputWallPaper <- R6::R6Class(
   public = list(
     id = NULL,
     access_hash = NULL,
-
     initialize = function(id, access_hash) {
       self$id <- id
       self$access_hash <- access_hash
     },
-
     to_dict = function() {
       list(
         "_" = "InputWallPaper",
@@ -22304,7 +20968,6 @@ InputWallPaper <- R6::R6Class(
         access_hash = self$access_hash
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xe6, 0x30, 0xb9, 0x79)),
@@ -22313,7 +20976,6 @@ InputWallPaper <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       id <- reader$read_long()
@@ -22328,18 +20990,15 @@ InputWallPaperNoFile <- R6::R6Class(
   inherit = TLObject,
   public = list(
     id = NULL,
-
     initialize = function(id) {
       self$id <- id
     },
-
     to_dict = function() {
       list(
         "_" = "InputWallPaperNoFile",
         id = self$id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x96, 0x7a, 0x46, 0x2e)),
@@ -22347,7 +21006,6 @@ InputWallPaperNoFile <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       id <- reader$read_long()
@@ -22361,18 +21019,15 @@ InputWallPaperSlug <- R6::R6Class(
   inherit = TLObject,
   public = list(
     slug = NULL,
-
     initialize = function(slug) {
       self$slug <- slug
     },
-
     to_dict = function() {
       list(
         "_" = "InputWallPaperSlug",
         slug = self$slug
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x72, 0x09, 0x1c, 0x80)),
@@ -22380,7 +21035,6 @@ InputWallPaperSlug <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       slug <- reader$tgread_string()
@@ -22398,14 +21052,12 @@ InputWebDocument <- R6::R6Class(
     size = NULL,
     mime_type = NULL,
     attributes = NULL,
-
     initialize = function(url, size, mime_type, attributes) {
       self$url <- url
       self$size <- size
       self$mime_type <- mime_type
       self$attributes <- attributes
     },
-
     to_dict = function() {
       list(
         "_" = "InputWebDocument",
@@ -22415,12 +21067,10 @@ InputWebDocument <- R6::R6Class(
         attributes = if (is.null(self$attributes)) list() else lapply(self$attributes, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
       )
     },
-
     bytes = function() {
       raw()
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       url <- reader$tgread_string()
@@ -22444,14 +21094,12 @@ InputWebFileAudioAlbumThumbLocation <- R6::R6Class(
     document = NULL,
     title = NULL,
     performer = NULL,
-
     initialize = function(small = NULL, document = NULL, title = NULL, performer = NULL) {
       self$small <- small
       self$document <- document
       self$title <- title
       self$performer <- performer
     },
-
     to_dict = function() {
       list(
         "_" = "InputWebFileAudioAlbumThumbLocation",
@@ -22461,12 +21109,10 @@ InputWebFileAudioAlbumThumbLocation <- R6::R6Class(
         performer = self$performer
       )
     },
-
     bytes = function() {
       raw()
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -22494,7 +21140,6 @@ InputWebFileGeoPointLocation <- R6::R6Class(
     h = NULL,
     zoom = NULL,
     scale = NULL,
-
     initialize = function(geo_point, access_hash, w, h, zoom, scale) {
       self$geo_point <- geo_point
       self$access_hash <- access_hash
@@ -22503,7 +21148,6 @@ InputWebFileGeoPointLocation <- R6::R6Class(
       self$zoom <- zoom
       self$scale <- scale
     },
-
     to_dict = function() {
       list(
         "_" = "InputWebFileGeoPointLocation",
@@ -22515,7 +21159,6 @@ InputWebFileGeoPointLocation <- R6::R6Class(
         scale = self$scale
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xc9, 0x21, 0x22, 0x9f)),
@@ -22528,7 +21171,6 @@ InputWebFileGeoPointLocation <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       geo_point <- reader$tgread_object()
@@ -22550,12 +21192,10 @@ InputWebFileLocation <- R6::R6Class(
     SUBCLASS_OF_ID = 0xf72ed8d9,
     url = NULL,
     access_hash = NULL,
-
     initialize = function(url, access_hash) {
       self$url <- url
       self$access_hash <- access_hash
     },
-
     to_dict = function() {
       list(
         "_" = "InputWebFileLocation",
@@ -22563,7 +21203,6 @@ InputWebFileLocation <- R6::R6Class(
         access_hash = self$access_hash
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x86, 0xd6, 0x39, 0xc2)),
@@ -22572,7 +21211,6 @@ InputWebFileLocation <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       url <- reader$tgread_string()
@@ -22604,7 +21242,6 @@ Invoice <- R6::R6Class(
     suggested_tip_amounts = NULL,
     terms_url = NULL,
     subscription_period = NULL,
-
     initialize = function(currency, prices, test = NULL, name_requested = NULL, phone_requested = NULL,
                           email_requested = NULL, shipping_address_requested = NULL, flexible = NULL,
                           phone_to_provider = NULL, email_to_provider = NULL, recurring = NULL,
@@ -22626,7 +21263,6 @@ Invoice <- R6::R6Class(
       self$terms_url <- terms_url
       self$subscription_period <- subscription_period
     },
-
     to_dict = function() {
       list(
         "_" = "Invoice",
@@ -22647,14 +21283,12 @@ Invoice <- R6::R6Class(
         subscription_period = self$subscription_period
       )
     },
-
     bytes = function() {
       stopifnot((!is.null(self$max_tip_amount) && !is.null(self$suggested_tip_amounts)) ||
-                  (is.null(self$max_tip_amount) && is.null(self$suggested_tip_amounts)))
+        (is.null(self$max_tip_amount) && is.null(self$suggested_tip_amounts)))
       raw()
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -22679,17 +21313,21 @@ Invoice <- R6::R6Class(
       suggested_tip_amounts <- if (bitwAnd(flags, 256)) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(i) reader$read_long())
-      } else NULL
+      } else {
+        NULL
+      }
       terms_url <- if (bitwAnd(flags, 1024)) reader$tgread_string() else NULL
       subscription_period <- if (bitwAnd(flags, 2048)) reader$read_int() else NULL
 
-      self$new(currency = currency, prices = prices, test = test, name_requested = name_requested,
-               phone_requested = phone_requested, email_requested = email_requested,
-               shipping_address_requested = shipping_address_requested, flexible = flexible,
-               phone_to_provider = phone_to_provider, email_to_provider = email_to_provider,
-               recurring = recurring, max_tip_amount = max_tip_amount,
-               suggested_tip_amounts = suggested_tip_amounts, terms_url = terms_url,
-               subscription_period = subscription_period)
+      self$new(
+        currency = currency, prices = prices, test = test, name_requested = name_requested,
+        phone_requested = phone_requested, email_requested = email_requested,
+        shipping_address_requested = shipping_address_requested, flexible = flexible,
+        phone_to_provider = phone_to_provider, email_to_provider = email_to_provider,
+        recurring = recurring, max_tip_amount = max_tip_amount,
+        suggested_tip_amounts = suggested_tip_amounts, terms_url = terms_url,
+        subscription_period = subscription_period
+      )
     }
   )
 )
@@ -22702,12 +21340,10 @@ IpPort <- R6::R6Class(
     SUBCLASS_OF_ID = 0xa2a03726,
     ipv4 = NULL,
     port = NULL,
-
     initialize = function(ipv4, port) {
       self$ipv4 <- ipv4
       self$port <- port
     },
-
     to_dict = function() {
       list(
         "_" = "IpPort",
@@ -22715,12 +21351,10 @@ IpPort <- R6::R6Class(
         port = self$port
       )
     },
-
     bytes = function() {
       raw()
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       ipv4 <- reader$read_int()
@@ -22780,9 +21414,13 @@ JsonArray <- R6::R6Class(
     to_dict = function() {
       list(
         "_" = "JsonArray",
-        value = if (is.null(self$value)) list() else lapply(self$value, function(x) {
-          if (inherits(x, "TLObject")) x$to_dict() else x
-        })
+        value = if (is.null(self$value)) {
+          list()
+        } else {
+          lapply(self$value, function(x) {
+            if (inherits(x, "TLObject")) x$to_dict() else x
+          })
+        }
       )
     },
     bytes = function() {
@@ -22900,9 +21538,13 @@ JsonObject <- R6::R6Class(
     to_dict = function() {
       list(
         "_" = "JsonObject",
-        value = if (is.null(self$value)) list() else lapply(self$value, function(x) {
-          if (inherits(x, "TLObject")) x$to_dict() else x
-        })
+        value = if (is.null(self$value)) {
+          list()
+        } else {
+          lapply(self$value, function(x) {
+            if (inherits(x, "TLObject")) x$to_dict() else x
+          })
+        }
       )
     },
     bytes = function() {
@@ -23098,7 +21740,7 @@ KeyboardButtonCopy <- R6::R6Class("KeyboardButtonCopy",
       self$copy_text <- copy_text
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonCopy', text = self$text, copy_text = self$copy_text)
+      list("_" = "KeyboardButtonCopy", text = self$text, copy_text = self$copy_text)
     },
     bytes = function() {
       c(as.raw(c(0x8e, 0x69, 0xd2, 0x75)), self$serializebytes(self$text), self$serializebytes(self$copy_text))
@@ -23123,7 +21765,7 @@ KeyboardButtonGame <- R6::R6Class("KeyboardButtonGame",
       self$text <- text
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonGame', text = self$text)
+      list("_" = "KeyboardButtonGame", text = self$text)
     },
     bytes = function() {
       c(as.raw(c(0xcf, 0x1c, 0xf4, 0x50)), self$serializebytes(self$text))
@@ -23147,7 +21789,7 @@ KeyboardButtonRequestGeoLocation <- R6::R6Class("KeyboardButtonRequestGeoLocatio
       self$text <- text
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonRequestGeoLocation', text = self$text)
+      list("_" = "KeyboardButtonRequestGeoLocation", text = self$text)
     },
     bytes = function() {
       c(as.raw(c(0x3f, 0x6b, 0x79, 0xfc)), self$serializebytes(self$text))
@@ -23174,7 +21816,7 @@ KeyboardButtonRequestPeer <- R6::R6Class("KeyboardButtonRequestPeer",
       self$max_quantity <- max_quantity
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonRequestPeer', text = self$text, button_id = self$button_id, peer_type = if (inherits(self$peer_type, "TLObject")) self$peer_type$to_dict() else self$peer_type, max_quantity = self$max_quantity)
+      list("_" = "KeyboardButtonRequestPeer", text = self$text, button_id = self$button_id, peer_type = if (inherits(self$peer_type, "TLObject")) self$peer_type$to_dict() else self$peer_type, max_quantity = self$max_quantity)
     },
     bytes = function() {
       c(as.raw(c(0xd8, 0xbf, 0xd7, 0x53)), self$serializebytes(self$text), writeBin(self$button_id, raw(), size = 4, endian = "little"), self$peer_type$bytes(), writeBin(self$max_quantity, raw(), size = 4, endian = "little"))
@@ -23201,7 +21843,7 @@ KeyboardButtonRequestPhone <- R6::R6Class("KeyboardButtonRequestPhone",
       self$text <- text
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonRequestPhone', text = self$text)
+      list("_" = "KeyboardButtonRequestPhone", text = self$text)
     },
     bytes = function() {
       c(as.raw(c(0x29, 0x6c, 0x6a, 0xb1)), self$serializebytes(self$text))
@@ -23226,7 +21868,7 @@ KeyboardButtonRequestPoll <- R6::R6Class("KeyboardButtonRequestPoll",
       self$quiz <- quiz
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonRequestPoll', text = self$text, quiz = self$quiz)
+      list("_" = "KeyboardButtonRequestPoll", text = self$text, quiz = self$quiz)
     },
     bytes = function() {
       flags <- if (is.null(self$quiz)) 0 else 1
@@ -23257,7 +21899,7 @@ KeyboardButtonRow <- R6::R6Class("KeyboardButtonRow",
       self$buttons <- buttons
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonRow', buttons = lapply(self$buttons, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
+      list("_" = "KeyboardButtonRow", buttons = lapply(self$buttons, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
     },
     bytes = function() {
       c(as.raw(c(0x83, 0x8b, 0x60, 0x77)), as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), writeBin(length(self$buttons), raw(), size = 4, endian = "little"), do.call(c, lapply(self$buttons, function(x) x$bytes())))
@@ -23287,7 +21929,7 @@ KeyboardButtonSimpleWebView <- R6::R6Class("KeyboardButtonSimpleWebView",
       self$url <- url
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonSimpleWebView', text = self$text, url = self$url)
+      list("_" = "KeyboardButtonSimpleWebView", text = self$text, url = self$url)
     },
     bytes = function() {
       c(as.raw(c(0x5c, 0x50, 0xc0, 0xa0)), self$serializebytes(self$text), self$serializebytes(self$url))
@@ -23315,7 +21957,7 @@ KeyboardButtonSwitchInline <- R6::R6Class("KeyboardButtonSwitchInline",
       self$peer_types <- peer_types
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonSwitchInline', text = self$text, query = self$query, samepeer = self$samepeer, peer_types = lapply(self$peer_types, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
+      list("_" = "KeyboardButtonSwitchInline", text = self$text, query = self$query, samepeer = self$samepeer, peer_types = lapply(self$peer_types, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
     },
     bytes = function() {
       flags <- (if (is.null(self$samepeer) || !self$samepeer) 0 else 1) | (if (is.null(self$peer_types)) 0 else 2)
@@ -23355,7 +21997,7 @@ KeyboardButtonUrl <- R6::R6Class("KeyboardButtonUrl",
       self$url <- url
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonUrl', text = self$text, url = self$url)
+      list("_" = "KeyboardButtonUrl", text = self$text, url = self$url)
     },
     bytes = function() {
       c(as.raw(c(0x05, 0xff, 0x8a, 0x25)), self$serializebytes(self$text), self$serializebytes(self$url))
@@ -23383,7 +22025,7 @@ KeyboardButtonUrlAuth <- R6::R6Class("KeyboardButtonUrlAuth",
       self$fwd_text <- fwd_text
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonUrlAuth', text = self$text, url = self$url, button_id = self$button_id, fwd_text = self$fwd_text)
+      list("_" = "KeyboardButtonUrlAuth", text = self$text, url = self$url, button_id = self$button_id, fwd_text = self$fwd_text)
     },
     bytes = function() {
       flags <- if (is.null(self$fwd_text)) 0 else 1
@@ -23417,7 +22059,7 @@ KeyboardButtonUserProfile <- R6::R6Class("KeyboardButtonUserProfile",
       self$user_id <- user_id
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonUserProfile', text = self$text, user_id = self$user_id)
+      list("_" = "KeyboardButtonUserProfile", text = self$text, user_id = self$user_id)
     },
     bytes = function() {
       c(as.raw(c(0xc1, 0x60, 0x86, 0x30)), self$serializebytes(self$text), writeBin(self$user_id, raw(), size = 8, endian = "little"))
@@ -23443,7 +22085,7 @@ KeyboardButtonWebView <- R6::R6Class("KeyboardButtonWebView",
       self$url <- url
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonWebView', text = self$text, url = self$url)
+      list("_" = "KeyboardButtonWebView", text = self$text, url = self$url)
     },
     bytes = function() {
       c(as.raw(c(0x30, 0x72, 0x76, 0x13)), self$serializebytes(self$text), self$serializebytes(self$url))
@@ -23468,7 +22110,7 @@ KeyboardButton <- R6::R6Class("KeyboardButton",
       self$text <- text
     },
     to_dict = function() {
-      list('_' = 'KeyboardButton', text = self$text)
+      list("_" = "KeyboardButton", text = self$text)
     },
     bytes = function() {
       c(as.raw(c(0x80, 0x48, 0xfa, 0xa2)), self$serializebytes(self$text))
@@ -23492,7 +22134,7 @@ KeyboardButtonBuy <- R6::R6Class("KeyboardButtonBuy",
       self$text <- text
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonBuy', text = self$text)
+      list("_" = "KeyboardButtonBuy", text = self$text)
     },
     bytes = function() {
       c(as.raw(c(0xbb, 0x3f, 0xd9, 0xaf)), self$serializebytes(self$text))
@@ -23518,7 +22160,7 @@ KeyboardButtonCallback <- R6::R6Class("KeyboardButtonCallback",
       self$requires_password <- requires_password
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonCallback', text = self$text, data = self$data, requires_password = self$requires_password)
+      list("_" = "KeyboardButtonCallback", text = self$text, data = self$data, requires_password = self$requires_password)
     },
     bytes = function() {
       flags <- if (is.null(self$requires_password) || !self$requires_password) 0 else 1
@@ -23551,11 +22193,11 @@ KeyboardButtonCopy <- R6::R6Class(
       self$copy_text <- copy_text
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonCopy', text = self$text, copy_text = self$copy_text)
+      list("_" = "KeyboardButtonCopy", text = self$text, copy_text = self$copy_text)
     },
     bytes = function() {
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
+        pack("<I", self$CONSTRUCTOR_ID),
         self$serializebytes(self$text),
         self$serializebytes(self$copy_text)
       )
@@ -23581,11 +22223,11 @@ KeyboardButtonGame <- R6::R6Class(
       self$text <- text
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonGame', text = self$text)
+      list("_" = "KeyboardButtonGame", text = self$text)
     },
     bytes = function() {
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
+        pack("<I", self$CONSTRUCTOR_ID),
         self$serializebytes(self$text)
       )
     }
@@ -23609,11 +22251,11 @@ KeyboardButtonRequestGeoLocation <- R6::R6Class(
       self$text <- text
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonRequestGeoLocation', text = self$text)
+      list("_" = "KeyboardButtonRequestGeoLocation", text = self$text)
     },
     bytes = function() {
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
+        pack("<I", self$CONSTRUCTOR_ID),
         self$serializebytes(self$text)
       )
     }
@@ -23643,15 +22285,15 @@ KeyboardButtonRequestPeer <- R6::R6Class(
       self$max_quantity <- max_quantity
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonRequestPeer', text = self$text, button_id = self$button_id, peer_type = if (inherits(self$peer_type, "TLObject")) self$peer_type$to_dict() else self$peer_type, max_quantity = self$max_quantity)
+      list("_" = "KeyboardButtonRequestPeer", text = self$text, button_id = self$button_id, peer_type = if (inherits(self$peer_type, "TLObject")) self$peer_type$to_dict() else self$peer_type, max_quantity = self$max_quantity)
     },
     bytes = function() {
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
+        pack("<I", self$CONSTRUCTOR_ID),
         self$serializebytes(self$text),
-        pack('<i', self$button_id),
+        pack("<i", self$button_id),
         self$peer_type$bytes(),
-        pack('<i', self$max_quantity)
+        pack("<i", self$max_quantity)
       )
     }
   ),
@@ -23677,11 +22319,11 @@ KeyboardButtonRequestPhone <- R6::R6Class(
       self$text <- text
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonRequestPhone', text = self$text)
+      list("_" = "KeyboardButtonRequestPhone", text = self$text)
     },
     bytes = function() {
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
+        pack("<I", self$CONSTRUCTOR_ID),
         self$serializebytes(self$text)
       )
     }
@@ -23707,14 +22349,14 @@ KeyboardButtonRequestPoll <- R6::R6Class(
       self$quiz <- quiz
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonRequestPoll', text = self$text, quiz = self$quiz)
+      list("_" = "KeyboardButtonRequestPoll", text = self$text, quiz = self$quiz)
     },
     bytes = function() {
       flags <- if (is.null(self$quiz)) 0L else 1L
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
-        pack('<I', flags),
-        if (!is.null(self$quiz)) if (self$quiz) pack('<I', 0x9975b5) else pack('<I', 0xbc799737) else NULL,
+        pack("<I", self$CONSTRUCTOR_ID),
+        pack("<I", flags),
+        if (!is.null(self$quiz)) if (self$quiz) pack("<I", 0x9975b5) else pack("<I", 0xbc799737) else NULL,
         self$serializebytes(self$text)
       )
     }
@@ -23744,13 +22386,13 @@ KeyboardButtonRow <- R6::R6Class(
       self$buttons <- buttons
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonRow', buttons = lapply(self$buttons, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
+      list("_" = "KeyboardButtonRow", buttons = lapply(self$buttons, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
     },
     bytes = function() {
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
-        pack('<I', 0x1cb5c415L),
-        pack('<i', length(self$buttons)),
+        pack("<I", self$CONSTRUCTOR_ID),
+        pack("<I", 0x1cb5c415L),
+        pack("<i", length(self$buttons)),
         unlist(lapply(self$buttons, function(x) x$bytes()))
       )
     }
@@ -23781,11 +22423,11 @@ KeyboardButtonSimpleWebView <- R6::R6Class(
       self$url <- url
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonSimpleWebView', text = self$text, url = self$url)
+      list("_" = "KeyboardButtonSimpleWebView", text = self$text, url = self$url)
     },
     bytes = function() {
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
+        pack("<I", self$CONSTRUCTOR_ID),
         self$serializebytes(self$text),
         self$serializebytes(self$url)
       )
@@ -23817,16 +22459,16 @@ KeyboardButtonSwitchInline <- R6::R6Class(
       self$peer_types <- peer_types
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonSwitchInline', text = self$text, query = self$query, samepeer = self$samepeer, peer_types = lapply(self$peer_types, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
+      list("_" = "KeyboardButtonSwitchInline", text = self$text, query = self$query, samepeer = self$samepeer, peer_types = lapply(self$peer_types, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
     },
     bytes = function() {
       flags <- (if (is.null(self$samepeer) || !self$samepeer) 0L else 1L) | (if (is.null(self$peer_types)) 0L else 2L)
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
-        pack('<I', flags),
+        pack("<I", self$CONSTRUCTOR_ID),
+        pack("<I", flags),
         self$serializebytes(self$text),
         self$serializebytes(self$query),
-        if (!is.null(self$peer_types)) c(pack('<I', 0x1cb5c415L), pack('<i', length(self$peer_types)), unlist(lapply(self$peer_types, function(x) x$bytes()))) else NULL
+        if (!is.null(self$peer_types)) c(pack("<I", 0x1cb5c415L), pack("<i", length(self$peer_types)), unlist(lapply(self$peer_types, function(x) x$bytes()))) else NULL
       )
     }
   ),
@@ -23863,11 +22505,11 @@ KeyboardButtonUrl <- R6::R6Class(
       self$url <- url
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonUrl', text = self$text, url = self$url)
+      list("_" = "KeyboardButtonUrl", text = self$text, url = self$url)
     },
     bytes = function() {
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
+        pack("<I", self$CONSTRUCTOR_ID),
         self$serializebytes(self$text),
         self$serializebytes(self$url)
       )
@@ -23899,17 +22541,17 @@ KeyboardButtonUrlAuth <- R6::R6Class(
       self$fwd_text <- fwd_text
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonUrlAuth', text = self$text, url = self$url, button_id = self$button_id, fwd_text = self$fwd_text)
+      list("_" = "KeyboardButtonUrlAuth", text = self$text, url = self$url, button_id = self$button_id, fwd_text = self$fwd_text)
     },
     bytes = function() {
       flags <- if (is.null(self$fwd_text)) 0L else 1L
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
-        pack('<I', flags),
+        pack("<I", self$CONSTRUCTOR_ID),
+        pack("<I", flags),
         self$serializebytes(self$text),
         if (!is.null(self$fwd_text)) self$serializebytes(self$fwd_text) else NULL,
         self$serializebytes(self$url),
-        pack('<i', self$button_id)
+        pack("<i", self$button_id)
       )
     }
   ),
@@ -23942,13 +22584,13 @@ KeyboardButtonUserProfile <- R6::R6Class(
       self$user_id <- user_id
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonUserProfile', text = self$text, user_id = self$user_id)
+      list("_" = "KeyboardButtonUserProfile", text = self$text, user_id = self$user_id)
     },
     bytes = function() {
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
+        pack("<I", self$CONSTRUCTOR_ID),
         self$serializebytes(self$text),
-        pack('<q', self$user_id)
+        pack("<q", self$user_id)
       )
     }
   ),
@@ -23974,11 +22616,11 @@ KeyboardButtonWebView <- R6::R6Class(
       self$url <- url
     },
     to_dict = function() {
-      list('_' = 'KeyboardButtonWebView', text = self$text, url = self$url)
+      list("_" = "KeyboardButtonWebView", text = self$text, url = self$url)
     },
     bytes = function() {
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
+        pack("<I", self$CONSTRUCTOR_ID),
         self$serializebytes(self$text),
         self$serializebytes(self$url)
       )
@@ -24006,13 +22648,13 @@ LabeledPrice <- R6::R6Class(
       self$amount <- amount
     },
     to_dict = function() {
-      list('_' = 'LabeledPrice', label = self$label, amount = self$amount)
+      list("_" = "LabeledPrice", label = self$label, amount = self$amount)
     },
     bytes = function() {
       c(
-        pack('<I', self$CONSTRUCTOR_ID),
+        pack("<I", self$CONSTRUCTOR_ID),
         self$serializebytes(self$label),
-        pack('<q', self$amount)
+        pack("<q", self$amount)
       )
     }
   ),
@@ -24043,7 +22685,7 @@ LangPackDifference <- R6::R6Class(
       self$strings <- strings
     },
     to_dict = function() {
-      list('_' = 'LangPackDifference', lang_code = self$lang_code, from_version = self$from_version, version = self$version, strings = lapply(self$strings, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
+      list("_" = "LangPackDifference", lang_code = self$lang_code, from_version = self$from_version, version = self$version, strings = lapply(self$strings, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
     },
     bytes = function() {
       # Implementation needed
@@ -24087,7 +22729,7 @@ LangPackLanguage <- R6::R6Class(
       self$base_lang_code <- base_lang_code
     },
     to_dict = function() {
-      list('_' = 'LangPackLanguage', name = self$name, native_name = self$native_name, lang_code = self$lang_code, plural_code = self$plural_code, strings_count = self$strings_count, translated_count = self$translated_count, translations_url = self$translations_url, official = self$official, rtl = self$rtl, beta = self$beta, base_lang_code = self$base_lang_code)
+      list("_" = "LangPackLanguage", name = self$name, native_name = self$native_name, lang_code = self$lang_code, plural_code = self$plural_code, strings_count = self$strings_count, translated_count = self$translated_count, translations_url = self$translations_url, official = self$official, rtl = self$rtl, beta = self$beta, base_lang_code = self$base_lang_code)
     },
     bytes = function() {
       # Implementation needed
@@ -24113,7 +22755,7 @@ LangPackString <- R6::R6Class(
       self$value <- value
     },
     to_dict = function() {
-      list('_' = 'LangPackString', key = self$key, value = self$value)
+      list("_" = "LangPackString", key = self$key, value = self$value)
     },
     bytes = function() {
       # Implementation needed
@@ -24137,7 +22779,7 @@ LangPackStringDeleted <- R6::R6Class(
       self$key <- key
     },
     to_dict = function() {
-      list('_' = 'LangPackStringDeleted', key = self$key)
+      list("_" = "LangPackStringDeleted", key = self$key)
     },
     bytes = function() {
       # Implementation needed
@@ -24173,7 +22815,7 @@ LangPackStringPluralized <- R6::R6Class(
       self$many_value <- many_value
     },
     to_dict = function() {
-      list('_' = 'LangPackStringPluralized', key = self$key, other_value = self$other_value, zero_value = self$zero_value, one_value = self$one_value, two_value = self$two_value, few_value = self$few_value, many_value = self$many_value)
+      list("_" = "LangPackStringPluralized", key = self$key, other_value = self$other_value, zero_value = self$zero_value, one_value = self$one_value, two_value = self$two_value, few_value = self$few_value, many_value = self$many_value)
     },
     bytes = function() {
       # Implementation needed
@@ -24203,7 +22845,7 @@ MaskCoords <- R6::R6Class(
       self$zoom <- zoom
     },
     to_dict = function() {
-      list('_' = 'MaskCoords', n = self$n, x = self$x, y = self$y, zoom = self$zoom)
+      list("_" = "MaskCoords", n = self$n, x = self$x, y = self$y, zoom = self$zoom)
     },
     bytes = function() {
       # Implementation needed
@@ -24231,7 +22873,7 @@ MediaAreaChannelPost <- R6::R6Class(
       self$msg_id <- msg_id
     },
     to_dict = function() {
-      list('_' = 'MediaAreaChannelPost', coordinates = if (inherits(self$coordinates, "TLObject")) self$coordinates$to_dict() else self$coordinates, channel_id = self$channel_id, msg_id = self$msg_id)
+      list("_" = "MediaAreaChannelPost", coordinates = if (inherits(self$coordinates, "TLObject")) self$coordinates$to_dict() else self$coordinates, channel_id = self$channel_id, msg_id = self$msg_id)
     },
     bytes = function() {
       # Implementation needed
@@ -24265,7 +22907,7 @@ MediaAreaCoordinates <- R6::R6Class(
       self$radius <- radius
     },
     to_dict = function() {
-      list('_' = 'MediaAreaCoordinates', x = self$x, y = self$y, w = self$w, h = self$h, rotation = self$rotation, radius = self$radius)
+      list("_" = "MediaAreaCoordinates", x = self$x, y = self$y, w = self$w, h = self$h, rotation = self$rotation, radius = self$radius)
     },
     bytes = function() {
       # Implementation needed
@@ -24566,7 +23208,6 @@ Message <- R6::R6Class(
     report_delivery_until_date = NULL,
     paid_message_stars = NULL,
     suggested_post = NULL,
-
     initialize = function(id, peer_id, date, message, out = NULL, mentioned = NULL, media_unread = NULL, silent = NULL,
                           post = NULL, from_scheduled = NULL, legacy = NULL, edit_hide = NULL, pinned = NULL,
                           noforwards = NULL, invert_media = NULL, offline = NULL, video_processing_pending = NULL,
@@ -24622,7 +23263,6 @@ Message <- R6::R6Class(
       self$paid_message_stars <- paid_message_stars
       self$suggested_post <- suggested_post
     },
-
     to_dict = function() {
       list(
         `_` = "Message",
@@ -24672,12 +23312,10 @@ Message <- R6::R6Class(
         suggested_post = if (inherits(self$suggested_post, "TLObject")) self$suggested_post$to_dict() else self$suggested_post
       )
     },
-
     bytes = function() {
       stop("Serialization to bytes is not implemented")
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -24715,7 +23353,9 @@ Message <- R6::R6Class(
         entities = if (bitwAnd(flags, 128) != 0) {
           reader$read_int()
           lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-        } else NULL,
+        } else {
+          NULL
+        },
         views = if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL,
         forwards = if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL,
         replies = if (bitwAnd(flags, 8388608) != 0) reader$tgread_object() else NULL,
@@ -24726,7 +23366,9 @@ Message <- R6::R6Class(
         restriction_reason = if (bitwAnd(flags, 4194304) != 0) {
           reader$read_int()
           lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-        } else NULL,
+        } else {
+          NULL
+        },
         ttl_period = if (bitwAnd(flags, 33554432) != 0) reader$read_int() else NULL,
         quick_reply_shortcut_id = if (bitwAnd(flags, 1073741824) != 0) reader$read_int() else NULL,
         effect = if (bitwAnd(flags2, 4) != 0) reader$read_long() else NULL,
@@ -24747,20 +23389,16 @@ MessageActionBoostApply <- R6::R6Class(
     CONSTRUCTOR_ID = 0xcc02aa6d,
     SUBCLASS_OF_ID = 0x8680d126,
     boosts = NULL,
-
     initialize = function(boosts) {
       self$boosts <- boosts
     },
-
     to_dict = function() {
       list(`_` = "MessageActionBoostApply", boosts = self$boosts)
     },
-
     bytes = function() {
       raw(0) # Placeholder for byte serialization
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       boosts <- reader$read_int()
@@ -24779,14 +23417,12 @@ MessageActionBotAllowed <- R6::R6Class(
     from_request = NULL,
     domain = NULL,
     app = NULL,
-
     initialize = function(attach_menu = NULL, from_request = NULL, domain = NULL, app = NULL) {
       self$attach_menu <- attach_menu
       self$from_request <- from_request
       self$domain <- domain
       self$app <- app
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionBotAllowed",
@@ -24796,12 +23432,10 @@ MessageActionBotAllowed <- R6::R6Class(
         app = if (inherits(self$app, "TLObject")) self$app$to_dict() else self$app
       )
     },
-
     bytes = function() {
       raw(0) # Placeholder for byte serialization
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -24824,15 +23458,12 @@ MessageActionChannelCreate <- R6::R6Class(
     CONSTRUCTOR_ID = 0x95d2ac92,
     SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
-
     initialize = function(title) {
       self$title <- title
     },
-
     to_dict = function() {
       list(`_` = "MessageActionChannelCreate", title = self$title)
     },
-
     bytes = function() {
       c(
         as.raw(c(0x92, 0xac, 0xd2, 0x95)),
@@ -24840,7 +23471,6 @@ MessageActionChannelCreate <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       title <- reader$tgread_string()
@@ -24857,16 +23487,13 @@ MessageActionChannelMigrateFrom <- R6::R6Class(
     SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
     chat_id = NULL,
-
     initialize = function(title, chat_id) {
       self$title <- title
       self$chat_id <- chat_id
     },
-
     to_dict = function() {
       list(`_` = "MessageActionChannelMigrateFrom", title = self$title, chat_id = self$chat_id)
     },
-
     bytes = function() {
       c(
         as.raw(c(0xe9, 0x48, 0x39, 0xea)),
@@ -24875,7 +23502,6 @@ MessageActionChannelMigrateFrom <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       title <- reader$tgread_string()
@@ -24892,15 +23518,12 @@ MessageActionChatAddUser <- R6::R6Class(
     CONSTRUCTOR_ID = 0x15cefd00,
     SUBCLASS_OF_ID = 0x8680d126,
     users = NULL,
-
     initialize = function(users) {
       self$users <- users
     },
-
     to_dict = function() {
       list(`_` = "MessageActionChatAddUser", users = if (is.null(self$users)) list() else self$users)
     },
-
     bytes = function() {
       c(
         as.raw(c(0x00, 0xfd, 0xce, 0x15)),
@@ -24909,7 +23532,6 @@ MessageActionChatAddUser <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       reader$read_int()
@@ -24931,12 +23553,10 @@ MessageActionChatCreate <- R6::R6Class(
     SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
     users = NULL,
-
     initialize = function(title, users) {
       self$title <- title
       self$users <- users
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionChatCreate",
@@ -24944,7 +23564,6 @@ MessageActionChatCreate <- R6::R6Class(
         users = if (is.null(self$users)) list() else self$users
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xad, 0xcb, 0x47, 0xbd)),
@@ -24955,7 +23574,6 @@ MessageActionChatCreate <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       title <- reader$tgread_string()
@@ -24975,16 +23593,13 @@ MessageActionChatDeletePhoto <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x95e3fbef,
     SUBCLASS_OF_ID = 0x8680d126,
-
     to_dict = function() {
       list(`_` = "MessageActionChatDeletePhoto")
     },
-
     bytes = function() {
       as.raw(c(0xef, 0xfb, 0xe3, 0x95))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$new()
@@ -25000,18 +23615,15 @@ MessageActionChatDeleteUser <- R6::R6Class(
     CONSTRUCTOR_ID = 0xa43f30cc,
     SUBCLASS_OF_ID = 0x8680d126,
     user_id = NULL,
-
     initialize = function(user_id) {
       self$user_id <- user_id
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionChatDeleteUser",
         user_id = self$user_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xcc, 0x30, 0x3f, 0xa4)),
@@ -25019,7 +23631,6 @@ MessageActionChatDeleteUser <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       user_id <- reader$read_long()
@@ -25035,18 +23646,15 @@ MessageActionChatEditPhoto <- R6::R6Class(
     CONSTRUCTOR_ID = 0x7fcb13a8,
     SUBCLASS_OF_ID = 0x8680d126,
     photo = NULL,
-
     initialize = function(photo) {
       self$photo <- photo
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionChatEditPhoto",
         photo = if (inherits(self$photo, "TLObject")) self$photo$to_dict() else self$photo
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xa8, 0x13, 0xcb, 0x7f)),
@@ -25054,7 +23662,6 @@ MessageActionChatEditPhoto <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       photo <- reader$tgread_object()
@@ -25070,18 +23677,15 @@ MessageActionChatEditTitle <- R6::R6Class(
     CONSTRUCTOR_ID = 0xb5a1ce5a,
     SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
-
     initialize = function(title) {
       self$title <- title
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionChatEditTitle",
         title = self$title
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x5a, 0xce, 0xa1, 0xb5)),
@@ -25089,7 +23693,6 @@ MessageActionChatEditTitle <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       title <- reader$tgread_string()
@@ -25106,18 +23709,15 @@ MessageActionChatJoinedByLink <- R6::R6Class(
     CONSTRUCTOR_ID = 0x31224c3,
     SUBCLASS_OF_ID = 0x8680d126,
     inviter_id = NULL,
-
     initialize = function(inviter_id) {
       self$inviter_id <- inviter_id
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionChatJoinedByLink",
         inviter_id = self$inviter_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xc3, 0x24, 0x12, 0x03)),
@@ -25125,7 +23725,6 @@ MessageActionChatJoinedByLink <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       inviter_id <- reader$read_long()
@@ -25140,16 +23739,13 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xebbca3cb,
     SUBCLASS_OF_ID = 0x8680d126,
-
     to_dict = function() {
       list(`_` = "MessageActionChatJoinedByRequest")
     },
-
     bytes = function() {
       as.raw(c(0xcb, 0xa3, 0xbc, 0xeb))
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       self$new()
@@ -25164,18 +23760,15 @@ MessageActionChatMigrateTo <- R6::R6Class(
     CONSTRUCTOR_ID = 0xe1037f92,
     SUBCLASS_OF_ID = 0x8680d126,
     channel_id = NULL,
-
     initialize = function(channel_id) {
       self$channel_id <- channel_id
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionChatMigrateTo",
         channel_id = self$channel_id
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x92, 0x7f, 0x03, 0xe1)),
@@ -25183,7 +23776,6 @@ MessageActionChatMigrateTo <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       channel_id <- reader$read_long()
@@ -25269,7 +23861,9 @@ MessageActionCustomAction <- R6::R6Class("MessageActionCustomAction",
     CONSTRUCTOR_ID = 0xfae69f56,
     SUBCLASS_OF_ID = 0x8680d126,
     message = NULL,
-    initialize = function(message) { self$message <- message },
+    initialize = function(message) {
+      self$message <- message
+    },
     to_dict = function() list(`_` = "MessageActionCustomAction", message = self$message),
     bytes = function() raw(0)
   ),
@@ -25303,7 +23897,9 @@ MessageActionChatEditTitle <- R6::R6Class("MessageActionChatEditTitle",
     CONSTRUCTOR_ID = 0xb5a1ce5a,
     SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
-    initialize = function(title) { self$title <- title },
+    initialize = function(title) {
+      self$title <- title
+    },
     to_dict = function() list(`_` = "MessageActionChatEditTitle", title = self$title),
     bytes = function() raw(0)
   ),
@@ -25319,7 +23915,9 @@ MessageActionChatEditPhoto <- R6::R6Class("MessageActionChatEditPhoto",
     CONSTRUCTOR_ID = 0x7fcb13a8,
     SUBCLASS_OF_ID = 0x8680d126,
     photo = NULL,
-    initialize = function(photo) { self$photo <- photo },
+    initialize = function(photo) {
+      self$photo <- photo
+    },
     to_dict = function() list(`_` = "MessageActionChatEditPhoto", photo = if (inherits(self$photo, "TLObject")) self$photo$to_dict() else self$photo),
     bytes = function() raw(0)
   ),
@@ -25336,7 +23934,10 @@ MessageActionChatCreate <- R6::R6Class("MessageActionChatCreate",
     SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
     users = NULL,
-    initialize = function(title, users) { self$title <- title; self$users <- users },
+    initialize = function(title, users) {
+      self$title <- title
+      self$users <- users
+    },
     to_dict = function() list(`_` = "MessageActionChatCreate", title = self$title, users = if (is.null(self$users)) NULL else self$users),
     bytes = function() raw(0)
   ),
@@ -25358,7 +23959,9 @@ MessageActionChatAddUser <- R6::R6Class("MessageActionChatAddUser",
     CONSTRUCTOR_ID = 0x15cefd00,
     SUBCLASS_OF_ID = 0x8680d126,
     users = NULL,
-    initialize = function(users) { self$users <- users },
+    initialize = function(users) {
+      self$users <- users
+    },
     to_dict = function() list(`_` = "MessageActionChatAddUser", users = if (is.null(self$users)) NULL else self$users),
     bytes = function() raw(0)
   ),
@@ -25379,7 +23982,9 @@ MessageActionChatDeleteUser <- R6::R6Class("MessageActionChatDeleteUser",
     CONSTRUCTOR_ID = 0xa43f30cc,
     SUBCLASS_OF_ID = 0x8680d126,
     user_id = NULL,
-    initialize = function(user_id) { self$user_id <- user_id },
+    initialize = function(user_id) {
+      self$user_id <- user_id
+    },
     to_dict = function() list(`_` = "MessageActionChatDeleteUser", user_id = self$user_id),
     bytes = function() raw(0)
   ),
@@ -25395,7 +24000,9 @@ MessageActionChatJoinedByLink <- R6::R6Class("MessageActionChatJoinedByLink",
     CONSTRUCTOR_ID = 0x31224c3,
     SUBCLASS_OF_ID = 0x8680d126,
     inviter_id = NULL,
-    initialize = function(inviter_id) { self$inviter_id <- inviter_id },
+    initialize = function(inviter_id) {
+      self$inviter_id <- inviter_id
+    },
     to_dict = function() list(`_` = "MessageActionChatJoinedByLink", inviter_id = self$inviter_id),
     bytes = function() raw(0)
   ),
@@ -25426,7 +24033,9 @@ MessageActionChatMigrateTo <- R6::R6Class("MessageActionChatMigrateTo",
     CONSTRUCTOR_ID = 0xe1037f92,
     SUBCLASS_OF_ID = 0x8680d126,
     channel_id = NULL,
-    initialize = function(channel_id) { self$channel_id <- channel_id },
+    initialize = function(channel_id) {
+      self$channel_id <- channel_id
+    },
     to_dict = function() list(`_` = "MessageActionChatMigrateTo", channel_id = self$channel_id),
     bytes = function() raw(0)
   ),
@@ -25442,7 +24051,9 @@ MessageActionChannelCreate <- R6::R6Class("MessageActionChannelCreate",
     CONSTRUCTOR_ID = 0x95d2ac92,
     SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
-    initialize = function(title) { self$title <- title },
+    initialize = function(title) {
+      self$title <- title
+    },
     to_dict = function() list(`_` = "MessageActionChannelCreate", title = self$title),
     bytes = function() raw(0)
   ),
@@ -25459,7 +24070,10 @@ MessageActionChannelMigrateFrom <- R6::R6Class("MessageActionChannelMigrateFrom"
     SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
     chat_id = NULL,
-    initialize = function(title, chat_id) { self$title <- title; self$chat_id <- chat_id },
+    initialize = function(title, chat_id) {
+      self$title <- title
+      self$chat_id <- chat_id
+    },
     to_dict = function() list(`_` = "MessageActionChannelMigrateFrom", title = self$title, chat_id = self$chat_id),
     bytes = function() raw(0)
   ),
@@ -25491,7 +24105,10 @@ MessageActionGameScore <- R6::R6Class("MessageActionGameScore",
     SUBCLASS_OF_ID = 0x8680d126,
     game_id = NULL,
     score = NULL,
-    initialize = function(game_id, score) { self$game_id <- game_id; self$score <- score },
+    initialize = function(game_id, score) {
+      self$game_id <- game_id
+      self$score <- score
+    },
     to_dict = function() list(`_` = "MessageActionGameScore", game_id = self$game_id, score = self$score),
     bytes = function() raw(0)
   ),
@@ -25514,10 +24131,14 @@ MessageActionGeoProximityReached <- R6::R6Class("MessageActionGeoProximityReache
       self$to_id <- to_id
       self$distance <- distance
     },
-    to_dict = function() list(`_` = "MessageActionGeoProximityReached",
-                             from_id = if (inherits(self$from_id, "TLObject")) self$from_id$to_dict() else self$from_id,
-                             to_id = if (inherits(self$to_id, "TLObject")) self$to_id$to_dict() else self$to_id,
-                             distance = self$distance),
+    to_dict = function() {
+      list(
+        `_` = "MessageActionGeoProximityReached",
+        from_id = if (inherits(self$from_id, "TLObject")) self$from_id$to_dict() else self$from_id,
+        to_id = if (inherits(self$to_id, "TLObject")) self$to_id$to_dict() else self$to_id,
+        distance = self$distance
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -25540,14 +24161,12 @@ MessageActionConferenceCall <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x2ffe2f7a,
     SUBCLASS_OF_ID = 0x8680d126,
-
     call_id = NULL,
     missed = NULL,
     active = NULL,
     video = NULL,
     duration = NULL,
     other_participants = NULL,
-
     initialize = function(call_id, missed = NULL, active = NULL, video = NULL, duration = NULL, other_participants = NULL) {
       self$call_id <- call_id
       self$missed <- missed
@@ -25556,21 +24175,19 @@ MessageActionConferenceCall <- R6::R6Class(
       self$duration <- duration
       self$other_participants <- other_participants
     },
-
     to_dict = function() {
-      list('_' = 'MessageActionConferenceCall',
-           call_id = self$call_id,
-           missed = self$missed,
-           active = self$active,
-           video = self$video,
-           duration = self$duration,
-           other_participants = if (is.null(self$other_participants)) NULL else lapply(self$other_participants, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      list(
+        "_" = "MessageActionConferenceCall",
+        call_id = self$call_id,
+        missed = self$missed,
+        active = self$active,
+        video = self$video,
+        duration = self$duration,
+        other_participants = if (is.null(self$other_participants)) NULL else lapply(self$other_participants, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
       )
     },
-
     bytes = function() raw(0)
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -25589,7 +24206,6 @@ MessageActionConferenceCall <- R6::R6Class(
       self$new(call_id = call_id, missed = missed, active = active, video = video, duration = duration, other_participants = other_participants)
     }
   ),
-
   class = TRUE
 )
 
@@ -25601,18 +24217,15 @@ MessageActionContactSignUp <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xf3f25f76,
     SUBCLASS_OF_ID = 0x8680d126,
-
     initialize = function() {},
-
-    to_dict = function() list('_' = 'MessageActionContactSignUp'),
-
+    to_dict = function() list("_" = "MessageActionContactSignUp"),
     bytes = function() raw(0)
   ),
-
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
-
   class = TRUE
 )
 
@@ -25624,23 +24237,19 @@ MessageActionCustomAction <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xfae69f56,
     SUBCLASS_OF_ID = 0x8680d126,
-
     message = NULL,
-
-    initialize = function(message) { self$message <- message },
-
-    to_dict = function() list('_' = 'MessageActionCustomAction', message = self$message),
-
+    initialize = function(message) {
+      self$message <- message
+    },
+    to_dict = function() list("_" = "MessageActionCustomAction", message = self$message),
     bytes = function() raw(0)
   ),
-
   private = list(
     from_reader = function(reader) {
       msg <- reader$tgread_string()
       self$new(message = msg)
     }
   ),
-
   class = TRUE
 )
 
@@ -25652,18 +24261,15 @@ MessageActionEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb6aef7b0,
     SUBCLASS_OF_ID = 0x8680d126,
-
     initialize = function() {},
-
-    to_dict = function() list('_' = 'MessageActionEmpty'),
-
+    to_dict = function() list("_" = "MessageActionEmpty"),
     bytes = function() raw(0)
   ),
-
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
-
   class = TRUE
 )
 
@@ -25675,20 +24281,15 @@ MessageActionGameScore <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x92a72876,
     SUBCLASS_OF_ID = 0x8680d126,
-
     game_id = NULL,
     score = NULL,
-
     initialize = function(game_id, score) {
       self$game_id <- game_id
       self$score <- score
     },
-
-    to_dict = function() list('_' = 'MessageActionGameScore', game_id = self$game_id, score = self$score),
-
+    to_dict = function() list("_" = "MessageActionGameScore", game_id = self$game_id, score = self$score),
     bytes = function() raw(0)
   ),
-
   private = list(
     from_reader = function(reader) {
       game_id <- reader$read_long()
@@ -25696,7 +24297,6 @@ MessageActionGameScore <- R6::R6Class(
       self$new(game_id = game_id, score = score)
     }
   ),
-
   class = TRUE
 )
 
@@ -25708,25 +24308,24 @@ MessageActionGeoProximityReached <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x98e0d697,
     SUBCLASS_OF_ID = 0x8680d126,
-
     from_id = NULL,
     to_id = NULL,
     distance = NULL,
-
     initialize = function(from_id, to_id, distance) {
       self$from_id <- from_id
       self$to_id <- to_id
       self$distance <- distance
     },
-
-    to_dict = function() list('_' = 'MessageActionGeoProximityReached',
-                              from_id = if (inherits(self$from_id, "TLObject")) self$from_id$to_dict() else self$from_id,
-                              to_id = if (inherits(self$to_id, "TLObject")) self$to_id$to_dict() else self$to_id,
-                              distance = self$distance),
-
+    to_dict = function() {
+      list(
+        "_" = "MessageActionGeoProximityReached",
+        from_id = if (inherits(self$from_id, "TLObject")) self$from_id$to_dict() else self$from_id,
+        to_id = if (inherits(self$to_id, "TLObject")) self$to_id$to_dict() else self$to_id,
+        distance = self$distance
+      )
+    },
     bytes = function() raw(0)
   ),
-
   private = list(
     from_reader = function(reader) {
       from_id <- reader$tgread_object()
@@ -25735,7 +24334,6 @@ MessageActionGeoProximityReached <- R6::R6Class(
       self$new(from_id = from_id, to_id = to_id, distance = distance)
     }
   ),
-
   class = TRUE
 )
 
@@ -25747,23 +24345,19 @@ MessageActionChatEditTitle <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb5a1ce5a,
     SUBCLASS_OF_ID = 0x8680d126,
-
     title = NULL,
-
-    initialize = function(title) { self$title <- title },
-
-    to_dict = function() list('_' = 'MessageActionChatEditTitle', title = self$title),
-
+    initialize = function(title) {
+      self$title <- title
+    },
+    to_dict = function() list("_" = "MessageActionChatEditTitle", title = self$title),
     bytes = function() raw(0)
   ),
-
   private = list(
     from_reader = function(reader) {
       title <- reader$tgread_string()
       self$new(title = title)
     }
   ),
-
   class = TRUE
 )
 
@@ -25775,23 +24369,19 @@ MessageActionChatJoinedByLink <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x031224c3, # keep consistent with encoding above
     SUBCLASS_OF_ID = 0x8680d126,
-
     inviter_id = NULL,
-
-    initialize = function(inviter_id) { self$inviter_id <- inviter_id },
-
-    to_dict = function() list('_' = 'MessageActionChatJoinedByLink', inviter_id = self$inviter_id),
-
+    initialize = function(inviter_id) {
+      self$inviter_id <- inviter_id
+    },
+    to_dict = function() list("_" = "MessageActionChatJoinedByLink", inviter_id = self$inviter_id),
     bytes = function() raw(0)
   ),
-
   private = list(
     from_reader = function(reader) {
       inviter <- reader$read_long()
       self$new(inviter_id = inviter)
     }
   ),
-
   class = TRUE
 )
 
@@ -25803,18 +24393,15 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xebbca3cb,
     SUBCLASS_OF_ID = 0x8680d126,
-
     initialize = function() {},
-
-    to_dict = function() list('_' = 'MessageActionChatJoinedByRequest'),
-
+    to_dict = function() list("_" = "MessageActionChatJoinedByRequest"),
     bytes = function() raw(0)
   ),
-
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
-
   class = TRUE
 )
 
@@ -25828,21 +24415,17 @@ MessageActionChatMigrateTo <- R6::R6Class(
     CONSTRUCTOR_ID = 0xe1037f92,
     SUBCLASS_OF_ID = 0x8680d126,
     channel_id = NULL,
-
     initialize = function(channel_id) {
       self$channel_id <- channel_id
     },
-
     to_dict = function() {
-      list('_' = 'MessageActionChatMigrateTo', channel_id = self$channel_id)
+      list("_" = "MessageActionChatMigrateTo", channel_id = self$channel_id)
     },
-
     bytes = function() {
       # placeholder: implement actual serialization if needed
       raw(0)
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       # reader$read_long() expected
@@ -25850,7 +24433,6 @@ MessageActionChatMigrateTo <- R6::R6Class(
       self$new(channel_id = channel_id)
     }
   ),
-
   class = TRUE
 )
 
@@ -25861,14 +24443,12 @@ MessageActionConferenceCall <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x2ffe2f7a,
     SUBCLASS_OF_ID = 0x8680d126,
-
     call_id = NULL,
     missed = NULL,
     active = NULL,
     video = NULL,
     duration = NULL,
     other_participants = NULL,
-
     initialize = function(call_id, missed = NULL, active = NULL, video = NULL, duration = NULL, other_participants = NULL) {
       self$call_id <- call_id
       self$missed <- missed
@@ -25877,10 +24457,9 @@ MessageActionConferenceCall <- R6::R6Class(
       self$duration <- duration
       self$other_participants <- other_participants
     },
-
     to_dict = function() {
       list(
-        '_' = 'MessageActionConferenceCall',
+        "_" = "MessageActionConferenceCall",
         call_id = self$call_id,
         missed = self$missed,
         active = self$active,
@@ -25889,13 +24468,11 @@ MessageActionConferenceCall <- R6::R6Class(
         other_participants = if (is.null(self$other_participants)) NULL else lapply(self$other_participants, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
       )
     },
-
     bytes = function() {
       # placeholder for actual binary encoding
       raw(0)
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
@@ -25915,7 +24492,6 @@ MessageActionConferenceCall <- R6::R6Class(
       self$new(call_id = call_id, missed = missed, active = active, video = video, duration = duration, other_participants = other_participants)
     }
   ),
-
   class = TRUE
 )
 
@@ -25926,21 +24502,16 @@ MessageActionContactSignUp <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xf3f25f76,
     SUBCLASS_OF_ID = 0x8680d126,
-
     initialize = function() {},
-
-    to_dict = function() list('_' = 'MessageActionContactSignUp'),
-
+    to_dict = function() list("_" = "MessageActionContactSignUp"),
     bytes = function() raw(0)
   ),
-
   private = list(
     from_reader = function(reader) {
       # no fields
       self$new()
     }
   ),
-
   class = TRUE
 )
 
@@ -25951,25 +24522,19 @@ MessageActionCustomAction <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xfae69f56,
     SUBCLASS_OF_ID = 0x8680d126,
-
     message = NULL,
-
     initialize = function(message) {
       self$message <- message
     },
-
-    to_dict = function() list('_' = 'MessageActionCustomAction', message = self$message),
-
+    to_dict = function() list("_" = "MessageActionCustomAction", message = self$message),
     bytes = function() raw(0)
   ),
-
   private = list(
     from_reader = function(reader) {
       msg <- reader$tgread_string()
       self$new(message = msg)
     }
   ),
-
   class = TRUE
 )
 
@@ -25980,20 +24545,15 @@ MessageActionEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb6aef7b0,
     SUBCLASS_OF_ID = 0x8680d126,
-
     initialize = function() {},
-
-    to_dict = function() list('_' = 'MessageActionEmpty'),
-
+    to_dict = function() list("_" = "MessageActionEmpty"),
     bytes = function() raw(0)
   ),
-
   private = list(
     from_reader = function(reader) {
       self$new()
     }
   ),
-
   class = TRUE
 )
 
@@ -26004,20 +24564,15 @@ MessageActionGameScore <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x92a72876,
     SUBCLASS_OF_ID = 0x8680d126,
-
     game_id = NULL,
     score = NULL,
-
     initialize = function(game_id, score) {
       self$game_id <- game_id
       self$score <- score
     },
-
-    to_dict = function() list('_' = 'MessageActionGameScore', game_id = self$game_id, score = self$score),
-
+    to_dict = function() list("_" = "MessageActionGameScore", game_id = self$game_id, score = self$score),
     bytes = function() raw(0)
   ),
-
   private = list(
     from_reader = function(reader) {
       game_id <- reader$read_long()
@@ -26025,7 +24580,6 @@ MessageActionGameScore <- R6::R6Class(
       self$new(game_id = game_id, score = score)
     }
   ),
-
   class = TRUE
 )
 
@@ -26036,29 +24590,24 @@ MessageActionGeoProximityReached <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x98e0d697,
     SUBCLASS_OF_ID = 0x8680d126,
-
     from_id = NULL,
     to_id = NULL,
     distance = NULL,
-
     initialize = function(from_id, to_id, distance) {
       self$from_id <- from_id
       self$to_id <- to_id
       self$distance <- distance
     },
-
     to_dict = function() {
       list(
-        '_' = 'MessageActionGeoProximityReached',
+        "_" = "MessageActionGeoProximityReached",
         from_id = if (inherits(self$from_id, "TLObject")) self$from_id$to_dict() else self$from_id,
         to_id = if (inherits(self$to_id, "TLObject")) self$to_id$to_dict() else self$to_id,
         distance = self$distance
       )
     },
-
     bytes = function() raw(0)
   ),
-
   private = list(
     from_reader = function(reader) {
       from_id <- reader$tgread_object()
@@ -26067,7 +24616,6 @@ MessageActionGeoProximityReached <- R6::R6Class(
       self$new(from_id = from_id, to_id = to_id, distance = distance)
     }
   ),
-
   class = TRUE
 )
 
@@ -26079,14 +24627,15 @@ MessageActionChatEditTitle <- R6::R6Class(
     CONSTRUCTOR_ID = 0xb5a1ce5a,
     SUBCLASS_OF_ID = 0x8680d126,
     title = NULL,
-
-    initialize = function(title) { self$title <- title },
-
-    to_dict = function() list('_' = 'MessageActionChatEditTitle', title = self$title),
-
+    initialize = function(title) {
+      self$title <- title
+    },
+    to_dict = function() list("_" = "MessageActionChatEditTitle", title = self$title),
     bytes = function() {
       # uses TLObject helper serializebytes if available
-      if (!is.null(self$title)) return(self$serializebytes(self$title))
+      if (!is.null(self$title)) {
+        return(self$serializebytes(self$title))
+      }
       raw(0)
     }
   ),
@@ -26104,11 +24653,10 @@ MessageActionChatJoinedByLink <- R6::R6Class(
     CONSTRUCTOR_ID = 0x031224c3,
     SUBCLASS_OF_ID = 0x8680d126,
     inviter_id = NULL,
-
-    initialize = function(inviter_id) { self$inviter_id <- inviter_id },
-
-    to_dict = function() list('_' = 'MessageActionChatJoinedByLink', inviter_id = self$inviter_id),
-
+    initialize = function(inviter_id) {
+      self$inviter_id <- inviter_id
+    },
+    to_dict = function() list("_" = "MessageActionChatJoinedByLink", inviter_id = self$inviter_id),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26124,11 +24672,8 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xebbca3cb,
     SUBCLASS_OF_ID = 0x8680d126,
-
     initialize = function() {},
-
-    to_dict = function() list('_' = 'MessageActionChatJoinedByRequest'),
-
+    to_dict = function() list("_" = "MessageActionChatJoinedByRequest"),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26145,11 +24690,10 @@ MessageActionChatMigrateTo <- R6::R6Class(
     CONSTRUCTOR_ID = 0xe1037f92,
     SUBCLASS_OF_ID = 0x8680d126,
     channel_id = NULL,
-
-    initialize = function(channel_id) { self$channel_id <- channel_id },
-
-    to_dict = function() list('_' = 'MessageActionChatMigrateTo', channel_id = self$channel_id),
-
+    initialize = function(channel_id) {
+      self$channel_id <- channel_id
+    },
+    to_dict = function() list("_" = "MessageActionChatMigrateTo", channel_id = self$channel_id),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26165,14 +24709,12 @@ MessageActionConferenceCall <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x2ffe2f7a,
     SUBCLASS_OF_ID = 0x8680d126,
-
     call_id = NULL,
     missed = NULL,
     active = NULL,
     video = NULL,
     duration = NULL,
     other_participants = NULL,
-
     initialize = function(call_id, missed = NULL, active = NULL, video = NULL, duration = NULL, other_participants = NULL) {
       self$call_id <- call_id
       self$missed <- missed
@@ -26181,10 +24723,9 @@ MessageActionConferenceCall <- R6::R6Class(
       self$duration <- duration
       self$other_participants <- other_participants
     },
-
     to_dict = function() {
       list(
-        '_' = 'MessageActionConferenceCall',
+        "_" = "MessageActionConferenceCall",
         call_id = self$call_id,
         missed = self$missed,
         active = self$active,
@@ -26193,7 +24734,6 @@ MessageActionConferenceCall <- R6::R6Class(
         other_participants = if (is.null(self$other_participants)) NULL else lapply(self$other_participants, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -26228,11 +24768,8 @@ MessageActionContactSignUp <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xf3f25f76,
     SUBCLASS_OF_ID = 0x8680d126,
-
     initialize = function() {},
-
-    to_dict = function() list('_' = 'MessageActionContactSignUp'),
-
+    to_dict = function() list("_" = "MessageActionContactSignUp"),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26248,15 +24785,15 @@ MessageActionCustomAction <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xfae69f56,
     SUBCLASS_OF_ID = 0x8680d126,
-
     message = NULL,
-
-    initialize = function(message) { self$message <- message },
-
-    to_dict = function() list('_' = 'MessageActionCustomAction', message = self$message),
-
+    initialize = function(message) {
+      self$message <- message
+    },
+    to_dict = function() list("_" = "MessageActionCustomAction", message = self$message),
     bytes = function() {
-      if (!is.null(self$message)) return(self$serializebytes(self$message))
+      if (!is.null(self$message)) {
+        return(self$serializebytes(self$message))
+      }
       raw(0)
     }
   ),
@@ -26273,11 +24810,8 @@ MessageActionEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb6aef7b0,
     SUBCLASS_OF_ID = 0x8680d126,
-
     initialize = function() {},
-
-    to_dict = function() list('_' = 'MessageActionEmpty'),
-
+    to_dict = function() list("_" = "MessageActionEmpty"),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26293,14 +24827,13 @@ MessageActionGameScore <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x92a72876,
     SUBCLASS_OF_ID = 0x8680d126,
-
     game_id = NULL,
     score = NULL,
-
-    initialize = function(game_id, score) { self$game_id <- game_id; self$score <- score },
-
-    to_dict = function() list('_' = 'MessageActionGameScore', game_id = self$game_id, score = self$score),
-
+    initialize = function(game_id, score) {
+      self$game_id <- game_id
+      self$score <- score
+    },
+    to_dict = function() list("_" = "MessageActionGameScore", game_id = self$game_id, score = self$score),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26316,18 +24849,22 @@ MessageActionGeoProximityReached <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x98e0d697,
     SUBCLASS_OF_ID = 0x8680d126,
-
     from_id = NULL,
     to_id = NULL,
     distance = NULL,
-
-    initialize = function(from_id, to_id, distance) { self$from_id <- from_id; self$to_id <- to_id; self$distance <- distance },
-
-    to_dict = function() list('_' = 'MessageActionGeoProximityReached',
-                              from_id = if (inherits(self$from_id, "TLObject")) self$from_id$to_dict() else self$from_id,
-                              to_id = if (inherits(self$to_id, "TLObject")) self$to_id$to_dict() else self$to_id,
-                              distance = self$distance),
-
+    initialize = function(from_id, to_id, distance) {
+      self$from_id <- from_id
+      self$to_id <- to_id
+      self$distance <- distance
+    },
+    to_dict = function() {
+      list(
+        "_" = "MessageActionGeoProximityReached",
+        from_id = if (inherits(self$from_id, "TLObject")) self$from_id$to_dict() else self$from_id,
+        to_id = if (inherits(self$to_id, "TLObject")) self$to_id$to_dict() else self$to_id,
+        distance = self$distance
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -26345,7 +24882,6 @@ MessageActionGiftCode <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x56d03994,
     SUBCLASS_OF_ID = 0x8680d126,
-
     months = NULL,
     slug = NULL,
     via_giveaway = NULL,
@@ -26356,7 +24892,6 @@ MessageActionGiftCode <- R6::R6Class(
     crypto_currency = NULL,
     crypto_amount = NULL,
     message = NULL,
-
     initialize = function(months, slug, via_giveaway = NULL, unclaimed = NULL, boostpeer = NULL, currency = NULL, amount = NULL, crypto_currency = NULL, crypto_amount = NULL, message = NULL) {
       self$months <- months
       self$slug <- slug
@@ -26369,21 +24904,21 @@ MessageActionGiftCode <- R6::R6Class(
       self$crypto_amount <- crypto_amount
       self$message <- message
     },
-
-    to_dict = function() list(
-      '_' = 'MessageActionGiftCode',
-      months = self$months,
-      slug = self$slug,
-      via_giveaway = self$via_giveaway,
-      unclaimed = self$unclaimed,
-      boostpeer = if (inherits(self$boostpeer, "TLObject")) self$boostpeer$to_dict() else self$boostpeer,
-      currency = self$currency,
-      amount = self$amount,
-      crypto_currency = self$crypto_currency,
-      crypto_amount = self$crypto_amount,
-      message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
-    ),
-
+    to_dict = function() {
+      list(
+        "_" = "MessageActionGiftCode",
+        months = self$months,
+        slug = self$slug,
+        via_giveaway = self$via_giveaway,
+        unclaimed = self$unclaimed,
+        boostpeer = if (inherits(self$boostpeer, "TLObject")) self$boostpeer$to_dict() else self$boostpeer,
+        currency = self$currency,
+        amount = self$amount,
+        crypto_currency = self$crypto_currency,
+        crypto_amount = self$crypto_amount,
+        message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -26417,14 +24952,12 @@ MessageActionGiftPremium <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x6c6274fa,
     SUBCLASS_OF_ID = 0x8680d126,
-
     currency = NULL,
     amount = NULL,
     months = NULL,
     crypto_currency = NULL,
     crypto_amount = NULL,
     message = NULL,
-
     initialize = function(currency, amount, months, crypto_currency = NULL, crypto_amount = NULL, message = NULL) {
       self$currency <- currency
       self$amount <- amount
@@ -26433,14 +24966,14 @@ MessageActionGiftPremium <- R6::R6Class(
       self$crypto_amount <- crypto_amount
       self$message <- message
     },
-
-    to_dict = function() list(
-      '_' = 'MessageActionGiftPremium',
-      currency = self$currency, amount = self$amount, months = self$months,
-      crypto_currency = self$crypto_currency, crypto_amount = self$crypto_amount,
-      message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
-    ),
-
+    to_dict = function() {
+      list(
+        "_" = "MessageActionGiftPremium",
+        currency = self$currency, amount = self$amount, months = self$months,
+        crypto_currency = self$crypto_currency, crypto_amount = self$crypto_amount,
+        message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -26465,14 +24998,12 @@ MessageActionGiftStars <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x45d5b021,
     SUBCLASS_OF_ID = 0x8680d126,
-
     currency = NULL,
     amount = NULL,
     stars = NULL,
     crypto_currency = NULL,
     crypto_amount = NULL,
     transaction_id = NULL,
-
     initialize = function(currency, amount, stars, crypto_currency = NULL, crypto_amount = NULL, transaction_id = NULL) {
       self$currency <- currency
       self$amount <- amount
@@ -26481,14 +25012,14 @@ MessageActionGiftStars <- R6::R6Class(
       self$crypto_amount <- crypto_amount
       self$transaction_id <- transaction_id
     },
-
-    to_dict = function() list(
-      '_' = 'MessageActionGiftStars',
-      currency = self$currency, amount = self$amount, stars = self$stars,
-      crypto_currency = self$crypto_currency, crypto_amount = self$crypto_amount,
-      transaction_id = self$transaction_id
-    ),
-
+    to_dict = function() {
+      list(
+        "_" = "MessageActionGiftStars",
+        currency = self$currency, amount = self$amount, stars = self$stars,
+        crypto_currency = self$crypto_currency, crypto_amount = self$crypto_amount,
+        transaction_id = self$transaction_id
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -26513,13 +25044,11 @@ MessageActionGiftTon <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xa8a3c699,
     SUBCLASS_OF_ID = 0x8680d126,
-
     currency = NULL,
     amount = NULL,
     crypto_currency = NULL,
     crypto_amount = NULL,
     transaction_id = NULL,
-
     initialize = function(currency, amount, crypto_currency, crypto_amount, transaction_id = NULL) {
       self$currency <- currency
       self$amount <- amount
@@ -26527,14 +25056,14 @@ MessageActionGiftTon <- R6::R6Class(
       self$crypto_amount <- crypto_amount
       self$transaction_id <- transaction_id
     },
-
-    to_dict = function() list(
-      '_' = 'MessageActionGiftTon',
-      currency = self$currency, amount = self$amount,
-      crypto_currency = self$crypto_currency, crypto_amount = self$crypto_amount,
-      transaction_id = self$transaction_id
-    ),
-
+    to_dict = function() {
+      list(
+        "_" = "MessageActionGiftTon",
+        currency = self$currency, amount = self$amount,
+        crypto_currency = self$crypto_currency, crypto_amount = self$crypto_amount,
+        transaction_id = self$transaction_id
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -26559,11 +25088,10 @@ MessageActionGiveawayLaunch <- R6::R6Class(
     CONSTRUCTOR_ID = 0xa80f51e4,
     SUBCLASS_OF_ID = 0x8680d126,
     stars = NULL,
-
-    initialize = function(stars = NULL) { self$stars <- stars },
-
-    to_dict = function() list('_' = 'MessageActionGiveawayLaunch', stars = self$stars),
-
+    initialize = function(stars = NULL) {
+      self$stars <- stars
+    },
+    to_dict = function() list("_" = "MessageActionGiveawayLaunch", stars = self$stars),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26583,19 +25111,15 @@ MessageActionGiveawayResults <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x87e2f155,
     SUBCLASS_OF_ID = 0x8680d126,
-
     winners_count = NULL,
     unclaimed_count = NULL,
     stars = NULL,
-
     initialize = function(winners_count, unclaimed_count, stars = NULL) {
       self$winners_count <- winners_count
       self$unclaimed_count <- unclaimed_count
       self$stars <- stars
     },
-
-    to_dict = function() list('_' = 'MessageActionGiveawayResults', winners_count = self$winners_count, unclaimed_count = self$unclaimed_count, stars = self$stars),
-
+    to_dict = function() list("_" = "MessageActionGiveawayResults", winners_count = self$winners_count, unclaimed_count = self$unclaimed_count, stars = self$stars),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26617,14 +25141,13 @@ MessageActionGroupCall <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x7a0d7f42,
     SUBCLASS_OF_ID = 0x8680d126,
-
     call = NULL,
     duration = NULL,
-
-    initialize = function(call, duration = NULL) { self$call <- call; self$duration <- duration },
-
-    to_dict = function() list('_' = 'MessageActionGroupCall', call = if (inherits(self$call,"TLObject")) self$call$to_dict() else self$call, duration = self$duration),
-
+    initialize = function(call, duration = NULL) {
+      self$call <- call
+      self$duration <- duration
+    },
+    to_dict = function() list("_" = "MessageActionGroupCall", call = if (inherits(self$call, "TLObject")) self$call$to_dict() else self$call, duration = self$duration),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26645,14 +25168,13 @@ MessageActionGroupCallScheduled <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb3a07661,
     SUBCLASS_OF_ID = 0x8680d126,
-
     call = NULL,
     schedule_date = NULL,
-
-    initialize = function(call, schedule_date) { self$call <- call; self$schedule_date <- schedule_date },
-
-    to_dict = function() list('_' = 'MessageActionGroupCallScheduled', call = if (inherits(self$call,"TLObject")) self$call$to_dict() else self$call, schedule_date = self$schedule_date),
-
+    initialize = function(call, schedule_date) {
+      self$call <- call
+      self$schedule_date <- schedule_date
+    },
+    to_dict = function() list("_" = "MessageActionGroupCallScheduled", call = if (inherits(self$call, "TLObject")) self$call$to_dict() else self$call, schedule_date = self$schedule_date),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26668,11 +25190,8 @@ MessageActionHistoryClear <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9fbab604,
     SUBCLASS_OF_ID = 0x8680d126,
-
     initialize = function() {},
-
-    to_dict = function() list('_' = 'MessageActionHistoryClear'),
-
+    to_dict = function() list("_" = "MessageActionHistoryClear"),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26688,14 +25207,13 @@ MessageActionInviteToGroupCall <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x502f92f7,
     SUBCLASS_OF_ID = 0x8680d126,
-
     call = NULL,
     users = NULL,
-
-    initialize = function(call, users) { self$call <- call; self$users <- users },
-
-    to_dict = function() list('_' = 'MessageActionInviteToGroupCall', call = if (inherits(self$call,"TLObject")) self$call$to_dict() else self$call, users = if (is.null(self$users)) NULL else self$users),
-
+    initialize = function(call, users) {
+      self$call <- call
+      self$users <- users
+    },
+    to_dict = function() list("_" = "MessageActionInviteToGroupCall", call = if (inherits(self$call, "TLObject")) self$call$to_dict() else self$call, users = if (is.null(self$users)) NULL else self$users),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26722,14 +25240,13 @@ MessageActionPaidMessagesPrice <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x84b88578,
     SUBCLASS_OF_ID = 0x8680d126,
-
     stars = NULL,
     broadcast_messages_allowed = NULL,
-
-    initialize = function(stars, broadcast_messages_allowed = NULL) { self$stars <- stars; self$broadcast_messages_allowed <- broadcast_messages_allowed },
-
-    to_dict = function() list('_' = 'MessageActionPaidMessagesPrice', stars = self$stars, broadcast_messages_allowed = self$broadcast_messages_allowed),
-
+    initialize = function(stars, broadcast_messages_allowed = NULL) {
+      self$stars <- stars
+      self$broadcast_messages_allowed <- broadcast_messages_allowed
+    },
+    to_dict = function() list("_" = "MessageActionPaidMessagesPrice", stars = self$stars, broadcast_messages_allowed = self$broadcast_messages_allowed),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26750,14 +25267,13 @@ MessageActionPaidMessagesRefunded <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xac1f1fcd,
     SUBCLASS_OF_ID = 0x8680d126,
-
     count = NULL,
     stars = NULL,
-
-    initialize = function(count, stars) { self$count <- count; self$stars <- stars },
-
-    to_dict = function() list('_' = 'MessageActionPaidMessagesRefunded', count = self$count, stars = self$stars),
-
+    initialize = function(count, stars) {
+      self$count <- count
+      self$stars <- stars
+    },
+    to_dict = function() list("_" = "MessageActionPaidMessagesRefunded", count = self$count, stars = self$stars),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26773,13 +25289,11 @@ MessageActionPaymentRefunded <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x41b3e202,
     SUBCLASS_OF_ID = 0x8680d126,
-
     peer = NULL,
     currency = NULL,
     total_amount = NULL,
     charge = NULL,
     payload = NULL,
-
     initialize = function(peer, currency, total_amount, charge, payload = NULL) {
       self$peer <- peer
       self$currency <- currency
@@ -26787,16 +25301,16 @@ MessageActionPaymentRefunded <- R6::R6Class(
       self$charge <- charge
       self$payload <- payload
     },
-
-    to_dict = function() list(
-      '_' = 'MessageActionPaymentRefunded',
-      peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-      currency = self$currency,
-      total_amount = self$total_amount,
-      charge = if (inherits(self$charge, "TLObject")) self$charge$to_dict() else self$charge,
-      payload = self$payload
-    ),
-
+    to_dict = function() {
+      list(
+        "_" = "MessageActionPaymentRefunded",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        currency = self$currency,
+        total_amount = self$total_amount,
+        charge = if (inherits(self$charge, "TLObject")) self$charge$to_dict() else self$charge,
+        payload = self$payload
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -26820,14 +25334,12 @@ MessageActionPaymentSent <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xc624b16e,
     SUBCLASS_OF_ID = 0x8680d126,
-
     currency = NULL,
     total_amount = NULL,
     recurring_init = NULL,
     recurring_used = NULL,
     invoice_slug = NULL,
     subscription_until_date = NULL,
-
     initialize = function(currency, total_amount, recurring_init = NULL, recurring_used = NULL, invoice_slug = NULL, subscription_until_date = NULL) {
       self$currency <- currency
       self$total_amount <- total_amount
@@ -26836,17 +25348,17 @@ MessageActionPaymentSent <- R6::R6Class(
       self$invoice_slug <- invoice_slug
       self$subscription_until_date <- subscription_until_date
     },
-
-    to_dict = function() list(
-      '_' = 'MessageActionPaymentSent',
-      currency = self$currency,
-      total_amount = self$total_amount,
-      recurring_init = self$recurring_init,
-      recurring_used = self$recurring_used,
-      invoice_slug = self$invoice_slug,
-      subscription_until_date = self$subscription_until_date
-    ),
-
+    to_dict = function() {
+      list(
+        "_" = "MessageActionPaymentSent",
+        currency = self$currency,
+        total_amount = self$total_amount,
+        recurring_init = self$recurring_init,
+        recurring_used = self$recurring_used,
+        invoice_slug = self$invoice_slug,
+        subscription_until_date = self$subscription_until_date
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -26871,7 +25383,6 @@ MessageActionPaymentSentMe <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xffa00ccc,
     SUBCLASS_OF_ID = 0x8680d126,
-
     currency = NULL,
     total_amount = NULL,
     payload = NULL,
@@ -26881,7 +25392,6 @@ MessageActionPaymentSentMe <- R6::R6Class(
     info = NULL,
     shipping_option_id = NULL,
     subscription_until_date = NULL,
-
     initialize = function(currency, total_amount, payload, charge, recurring_init = NULL, recurring_used = NULL, info = NULL, shipping_option_id = NULL, subscription_until_date = NULL) {
       self$currency <- currency
       self$total_amount <- total_amount
@@ -26893,16 +25403,16 @@ MessageActionPaymentSentMe <- R6::R6Class(
       self$shipping_option_id <- shipping_option_id
       self$subscription_until_date <- subscription_until_date
     },
-
-    to_dict = function() list(
-      '_' = 'MessageActionPaymentSentMe',
-      currency = self$currency, total_amount = self$total_amount, payload = self$payload,
-      charge = if (inherits(self$charge, "TLObject")) self$charge$to_dict() else self$charge,
-      recurring_init = self$recurring_init, recurring_used = self$recurring_used,
-      info = if (inherits(self$info, "TLObject")) self$info$to_dict() else self$info,
-      shipping_option_id = self$shipping_option_id, subscription_until_date = self$subscription_until_date
-    ),
-
+    to_dict = function() {
+      list(
+        "_" = "MessageActionPaymentSentMe",
+        currency = self$currency, total_amount = self$total_amount, payload = self$payload,
+        charge = if (inherits(self$charge, "TLObject")) self$charge$to_dict() else self$charge,
+        recurring_init = self$recurring_init, recurring_used = self$recurring_used,
+        info = if (inherits(self$info, "TLObject")) self$info$to_dict() else self$info,
+        shipping_option_id = self$shipping_option_id, subscription_until_date = self$subscription_until_date
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -26930,27 +25440,25 @@ MessageActionPhoneCall <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x80e11a7f,
     SUBCLASS_OF_ID = 0x8680d126,
-
     call_id = NULL,
     video = NULL,
     reason = NULL,
     duration = NULL,
-
     initialize = function(call_id, video = NULL, reason = NULL, duration = NULL) {
       self$call_id <- call_id
       self$video <- video
       self$reason <- reason
       self$duration <- duration
     },
-
-    to_dict = function() list(
-      '_' = 'MessageActionPhoneCall',
-      call_id = self$call_id,
-      video = self$video,
-      reason = if (inherits(self$reason, "TLObject")) self$reason$to_dict() else self$reason,
-      duration = self$duration
-    ),
-
+    to_dict = function() {
+      list(
+        "_" = "MessageActionPhoneCall",
+        call_id = self$call_id,
+        video = self$video,
+        reason = if (inherits(self$reason, "TLObject")) self$reason$to_dict() else self$reason,
+        duration = self$duration
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -26973,11 +25481,8 @@ MessageActionPinMessage <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x94bd38ed,
     SUBCLASS_OF_ID = 0x8680d126,
-
     initialize = function() {},
-
-    to_dict = function() list('_' = 'MessageActionPinMessage'),
-
+    to_dict = function() list("_" = "MessageActionPinMessage"),
     bytes = function() raw(0)
   ),
   private = list(
@@ -26996,7 +25501,6 @@ MessageActionPrizeStars <- R6::R6Class(
     boostpeer = NULL,
     giveaway_msg_id = NULL,
     unclaimed = NULL,
-
     initialize = function(stars, transaction_id, boostpeer, giveaway_msg_id, unclaimed = NULL) {
       self$stars <- stars
       self$transaction_id <- transaction_id
@@ -27004,7 +25508,6 @@ MessageActionPrizeStars <- R6::R6Class(
       self$giveaway_msg_id <- giveaway_msg_id
       self$unclaimed <- unclaimed
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionPrizeStars",
@@ -27015,7 +25518,6 @@ MessageActionPrizeStars <- R6::R6Class(
         unclaimed = self$unclaimed
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -27031,12 +25533,10 @@ MessageActionRequestedPeer <- R6::R6Class(
   public = list(
     button_id = NULL,
     peers = NULL,
-
     initialize = function(button_id, peers) {
       self$button_id <- button_id
       self$peers <- peers
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionRequestedPeer",
@@ -27044,7 +25544,6 @@ MessageActionRequestedPeer <- R6::R6Class(
         peers = if (is.null(self$peers)) list() else lapply(self$peers, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -27060,12 +25559,10 @@ MessageActionRequestedPeerSentMe <- R6::R6Class(
   public = list(
     button_id = NULL,
     peers = NULL,
-
     initialize = function(button_id, peers) {
       self$button_id <- button_id
       self$peers <- peers
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionRequestedPeerSentMe",
@@ -27073,7 +25570,6 @@ MessageActionRequestedPeerSentMe <- R6::R6Class(
         peers = if (is.null(self$peers)) list() else lapply(self$peers, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -27103,18 +25599,15 @@ MessageActionSecureValuesSent <- R6::R6Class(
   inherit = TLObject,
   public = list(
     types = NULL,
-
     initialize = function(types) {
       self$types <- types
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionSecureValuesSent",
         types = if (is.null(self$types)) list() else lapply(self$types, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -27130,12 +25623,10 @@ MessageActionSecureValuesSentMe <- R6::R6Class(
   public = list(
     values = NULL,
     credentials = NULL,
-
     initialize = function(values, credentials) {
       self$values <- values
       self$credentials <- credentials
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionSecureValuesSentMe",
@@ -27143,7 +25634,6 @@ MessageActionSecureValuesSentMe <- R6::R6Class(
         credentials = if (inherits(self$credentials, "TLObject")) self$credentials$to_dict() else self$credentials
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -27158,18 +25648,15 @@ MessageActionSetChatTheme <- R6::R6Class(
   inherit = TLObject,
   public = list(
     theme = NULL,
-
     initialize = function(theme) {
       self$theme <- theme
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionSetChatTheme",
         theme = if (inherits(self$theme, "TLObject")) self$theme$to_dict() else self$theme
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -27186,13 +25673,11 @@ MessageActionSetChatWallPaper <- R6::R6Class(
     wallpaper = NULL,
     same = NULL,
     for_both = NULL,
-
     initialize = function(wallpaper, same = NULL, for_both = NULL) {
       self$wallpaper <- wallpaper
       self$same <- same
       self$for_both <- for_both
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionSetChatWallPaper",
@@ -27201,7 +25686,6 @@ MessageActionSetChatWallPaper <- R6::R6Class(
         for_both = self$for_both
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -27217,12 +25701,10 @@ MessageActionSetMessagesTTL <- R6::R6Class(
   public = list(
     period = NULL,
     auto_setting_from = NULL,
-
     initialize = function(period, auto_setting_from = NULL) {
       self$period <- period
       self$auto_setting_from <- auto_setting_from
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionSetMessagesTTL",
@@ -27230,7 +25712,6 @@ MessageActionSetMessagesTTL <- R6::R6Class(
         auto_setting_from = self$auto_setting_from
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -27262,7 +25743,6 @@ MessageActionStarGift <- R6::R6Class(
     saved_id = NULL,
     prepaid_upgrade_hash = NULL,
     gift_msg_id = NULL,
-
     initialize = function(gift, name_hidden = NULL, saved = NULL, converted = NULL, upgraded = NULL, refunded = NULL, can_upgrade = NULL, prepaid_upgrade = NULL, upgrade_separate = NULL, message = NULL, convert_stars = NULL, upgrade_msg_id = NULL, upgrade_stars = NULL, from_id = NULL, peer = NULL, saved_id = NULL, prepaid_upgrade_hash = NULL, gift_msg_id = NULL) {
       self$gift <- gift
       self$name_hidden <- name_hidden
@@ -27283,7 +25763,6 @@ MessageActionStarGift <- R6::R6Class(
       self$prepaid_upgrade_hash <- prepaid_upgrade_hash
       self$gift_msg_id <- gift_msg_id
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionStarGift",
@@ -27307,7 +25786,6 @@ MessageActionStarGift <- R6::R6Class(
         gift_msg_id = self$gift_msg_id
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -27335,7 +25813,6 @@ MessageActionStarGiftUnique <- R6::R6Class(
     resale_amount = NULL,
     can_transfer_at = NULL,
     can_resell_at = NULL,
-
     initialize = function(gift, upgrade = NULL, transferred = NULL, saved = NULL, refunded = NULL, prepaid_upgrade = NULL, can_export_at = NULL, transfer_stars = NULL, from_id = NULL, peer = NULL, saved_id = NULL, resale_amount = NULL, can_transfer_at = NULL, can_resell_at = NULL) {
       self$gift <- gift
       self$upgrade <- upgrade
@@ -27352,7 +25829,6 @@ MessageActionStarGiftUnique <- R6::R6Class(
       self$can_transfer_at <- can_transfer_at
       self$can_resell_at <- can_resell_at
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionStarGiftUnique",
@@ -27372,7 +25848,6 @@ MessageActionStarGiftUnique <- R6::R6Class(
         can_resell_at = self$can_resell_at
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -27387,18 +25862,15 @@ MessageActionSuggestProfilePhoto <- R6::R6Class(
   inherit = TLObject,
   public = list(
     photo = NULL,
-
     initialize = function(photo) {
       self$photo <- photo
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionSuggestProfilePhoto",
         photo = if (inherits(self$photo, "TLObject")) self$photo$to_dict() else self$photo
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -27417,7 +25889,6 @@ MessageActionSuggestedPostApproval <- R6::R6Class(
     reject_comment = NULL,
     schedule_date = NULL,
     price = NULL,
-
     initialize = function(rejected = NULL, balance_too_low = NULL, reject_comment = NULL, schedule_date = NULL, price = NULL) {
       self$rejected <- rejected
       self$balance_too_low <- balance_too_low
@@ -27425,7 +25896,6 @@ MessageActionSuggestedPostApproval <- R6::R6Class(
       self$schedule_date <- schedule_date
       self$price <- price
     },
-
     to_dict = function() {
       list(
         `_` = "MessageActionSuggestedPostApproval",
@@ -27436,7 +25906,6 @@ MessageActionSuggestedPostApproval <- R6::R6Class(
         price = if (inherits(self$price, "TLObject")) self$price$to_dict() else self$price
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -27451,11 +25920,9 @@ MessageActionSuggestedPostRefund <- R6::R6Class(
   inherit = TLObject,
   public = list(
     payer_initiated = NULL,
-
     initialize = function(payer_initiated = NULL) {
       self$payer_initiated <- payer_initiated
     },
-
     to_dict = function() list(`_` = "MessageActionSuggestedPostRefund", payer_initiated = self$payer_initiated),
     bytes = function() raw(0)
   ),
@@ -27471,11 +25938,9 @@ MessageActionSuggestedPostSuccess <- R6::R6Class(
   inherit = TLObject,
   public = list(
     price = NULL,
-
     initialize = function(price) {
       self$price <- price
     },
-
     to_dict = function() list(`_` = "MessageActionSuggestedPostSuccess", price = if (inherits(self$price, "TLObject")) self$price$to_dict() else self$price),
     bytes = function() raw(0)
   ),
@@ -27494,15 +25959,21 @@ MessageActionTodoAppendTasks <- R6::R6Class(
     CONSTRUCTOR_ID = 0xc7edbc83,
     SUBCLASS_OF_ID = 0x8680d126,
     list = NULL,
-    initialize = function(list) { self$list <- list },
+    initialize = function(list) {
+      self$list <- list
+    },
     to_dict = function() {
-      list(`_` = "MessageActionTodoAppendTasks",
-           list = if (is.null(self$list)) list() else lapply(self$list, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
+      list(
+        `_` = "MessageActionTodoAppendTasks",
+        list = if (is.null(self$list)) list() else lapply(self$list, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
     },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -27515,16 +25986,23 @@ MessageActionTodoCompletions <- R6::R6Class(
     SUBCLASS_OF_ID = 0x8680d126,
     completed = NULL,
     incompleted = NULL,
-    initialize = function(completed, incompleted) { self$completed <- completed; self$incompleted <- incompleted },
+    initialize = function(completed, incompleted) {
+      self$completed <- completed
+      self$incompleted <- incompleted
+    },
     to_dict = function() {
-      list(`_` = "MessageActionTodoCompletions",
-           completed = if (is.null(self$completed)) integer(0) else as.integer(self$completed),
-           incompleted = if (is.null(self$incompleted)) integer(0) else as.integer(self$incompleted))
+      list(
+        `_` = "MessageActionTodoCompletions",
+        completed = if (is.null(self$completed)) integer(0) else as.integer(self$completed),
+        incompleted = if (is.null(self$incompleted)) integer(0) else as.integer(self$incompleted)
+      )
     },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -27539,16 +26017,22 @@ MessageActionTopicCreate <- R6::R6Class(
     icon_color = NULL,
     icon_emoji_id = NULL,
     initialize = function(title, icon_color, icon_emoji_id = NULL) {
-      self$title <- title; self$icon_color <- icon_color; self$icon_emoji_id <- icon_emoji_id
+      self$title <- title
+      self$icon_color <- icon_color
+      self$icon_emoji_id <- icon_emoji_id
     },
     to_dict = function() {
-      list(`_` = "MessageActionTopicCreate",
-           title = self$title, icon_color = self$icon_color, icon_emoji_id = self$icon_emoji_id)
+      list(
+        `_` = "MessageActionTopicCreate",
+        title = self$title, icon_color = self$icon_color, icon_emoji_id = self$icon_emoji_id
+      )
     },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -27564,16 +26048,23 @@ MessageActionTopicEdit <- R6::R6Class(
     closed = NULL,
     hidden = NULL,
     initialize = function(title = NULL, icon_emoji_id = NULL, closed = NULL, hidden = NULL) {
-      self$title <- title; self$icon_emoji_id <- icon_emoji_id; self$closed <- closed; self$hidden <- hidden
+      self$title <- title
+      self$icon_emoji_id <- icon_emoji_id
+      self$closed <- closed
+      self$hidden <- hidden
     },
     to_dict = function() {
-      list(`_` = "MessageActionTopicEdit",
-           title = self$title, icon_emoji_id = self$icon_emoji_id, closed = self$closed, hidden = self$hidden)
+      list(
+        `_` = "MessageActionTopicEdit",
+        title = self$title, icon_emoji_id = self$icon_emoji_id, closed = self$closed, hidden = self$hidden
+      )
     },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -27585,12 +26076,16 @@ MessageActionWebViewDataSent <- R6::R6Class(
     CONSTRUCTOR_ID = 0xb4c38cb5,
     SUBCLASS_OF_ID = 0x8680d126,
     text = NULL,
-    initialize = function(text) { self$text <- text },
+    initialize = function(text) {
+      self$text <- text
+    },
     to_dict = function() list(`_` = "MessageActionWebViewDataSent", text = self$text),
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -27603,12 +26098,17 @@ MessageActionWebViewDataSentMe <- R6::R6Class(
     SUBCLASS_OF_ID = 0x8680d126,
     text = NULL,
     data = NULL,
-    initialize = function(text, data) { self$text <- text; self$data <- data },
+    initialize = function(text, data) {
+      self$text <- text
+      self$data <- data
+    },
     to_dict = function() list(`_` = "MessageActionWebViewDataSentMe", text = self$text, data = self$data),
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -27621,12 +26121,17 @@ MessageEmpty <- R6::R6Class(
     SUBCLASS_OF_ID = 0x790009e3,
     id = NULL,
     peer_id = NULL,
-    initialize = function(id, peer_id = NULL) { self$id <- id; self$peer_id <- peer_id },
+    initialize = function(id, peer_id = NULL) {
+      self$id <- id
+      self$peer_id <- peer_id
+    },
     to_dict = function() list(`_` = "MessageEmpty", id = self$id, peer_id = if (inherits(self$peer_id, "TLObject")) self$peer_id$to_dict() else self$peer_id),
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -27640,11 +26145,16 @@ MessageEntityBankCard <- R6::R6Class(
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL,
     length = NULL,
-    initialize = function(offset, length) { self$offset <- offset; self$length <- length },
+    initialize = function(offset, length) {
+      self$offset <- offset
+      self$length <- length
+    },
     to_dict = function() list(`_` = "MessageEntityBankCard", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27655,11 +26165,17 @@ MessageEntityBlockquote <- R6::R6Class(
     CONSTRUCTOR_ID = 0xf1ccaaac,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL, collapsed = NULL,
-    initialize = function(offset, length, collapsed = NULL) { self$offset <- offset; self$length <- length; self$collapsed <- collapsed },
+    initialize = function(offset, length, collapsed = NULL) {
+      self$offset <- offset
+      self$length <- length
+      self$collapsed <- collapsed
+    },
     to_dict = function() list(`_` = "MessageEntityBlockquote", offset = self$offset, length = self$length, collapsed = self$collapsed),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27670,11 +26186,16 @@ MessageEntityBold <- R6::R6Class(
     CONSTRUCTOR_ID = 0xbd610bc9,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
-    initialize = function(offset, length) { self$offset <- offset; self$length <- length },
+    initialize = function(offset, length) {
+      self$offset <- offset
+      self$length <- length
+    },
     to_dict = function() list(`_` = "MessageEntityBold", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27685,11 +26206,16 @@ MessageEntityBotCommand <- R6::R6Class(
     CONSTRUCTOR_ID = 0x6cef8ac7,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
-    initialize = function(offset, length) { self$offset <- offset; self$length <- length },
+    initialize = function(offset, length) {
+      self$offset <- offset
+      self$length <- length
+    },
     to_dict = function() list(`_` = "MessageEntityBotCommand", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27700,11 +26226,16 @@ MessageEntityCashtag <- R6::R6Class(
     CONSTRUCTOR_ID = 0x4c4e743f,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
-    initialize = function(offset, length) { self$offset <- offset; self$length <- length },
+    initialize = function(offset, length) {
+      self$offset <- offset
+      self$length <- length
+    },
     to_dict = function() list(`_` = "MessageEntityCashtag", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27715,11 +26246,16 @@ MessageEntityCode <- R6::R6Class(
     CONSTRUCTOR_ID = 0x28a20571,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
-    initialize = function(offset, length) { self$offset <- offset; self$length <- length },
+    initialize = function(offset, length) {
+      self$offset <- offset
+      self$length <- length
+    },
     to_dict = function() list(`_` = "MessageEntityCode", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27730,11 +26266,17 @@ MessageEntityCustomEmoji <- R6::R6Class(
     CONSTRUCTOR_ID = 0xc8cf05f8,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL, document_id = NULL,
-    initialize = function(offset, length, document_id) { self$offset <- offset; self$length <- length; self$document_id <- document_id },
+    initialize = function(offset, length, document_id) {
+      self$offset <- offset
+      self$length <- length
+      self$document_id <- document_id
+    },
     to_dict = function() list(`_` = "MessageEntityCustomEmoji", offset = self$offset, length = self$length, document_id = self$document_id),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27745,11 +26287,16 @@ MessageEntityEmail <- R6::R6Class(
     CONSTRUCTOR_ID = 0x64e475c2,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
-    initialize = function(offset, length) { self$offset <- offset; self$length <- length },
+    initialize = function(offset, length) {
+      self$offset <- offset
+      self$length <- length
+    },
     to_dict = function() list(`_` = "MessageEntityEmail", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27760,11 +26307,16 @@ MessageEntityHashtag <- R6::R6Class(
     CONSTRUCTOR_ID = 0x6f635b0d,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
-    initialize = function(offset, length) { self$offset <- offset; self$length <- length },
+    initialize = function(offset, length) {
+      self$offset <- offset
+      self$length <- length
+    },
     to_dict = function() list(`_` = "MessageEntityHashtag", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27775,11 +26327,16 @@ MessageEntityItalic <- R6::R6Class(
     CONSTRUCTOR_ID = 0x826f8b60,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
-    initialize = function(offset, length) { self$offset <- offset; self$length <- length },
+    initialize = function(offset, length) {
+      self$offset <- offset
+      self$length <- length
+    },
     to_dict = function() list(`_` = "MessageEntityItalic", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27790,11 +26347,16 @@ MessageEntityMention <- R6::R6Class(
     CONSTRUCTOR_ID = 0xfa04579d,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
-    initialize = function(offset, length) { self$offset <- offset; self$length <- length },
+    initialize = function(offset, length) {
+      self$offset <- offset
+      self$length <- length
+    },
     to_dict = function() list(`_` = "MessageEntityMention", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27805,11 +26367,17 @@ MessageEntityMentionName <- R6::R6Class(
     CONSTRUCTOR_ID = 0xdc7b1140,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL, user_id = NULL,
-    initialize = function(offset, length, user_id) { self$offset <- offset; self$length <- length; self$user_id <- user_id },
+    initialize = function(offset, length, user_id) {
+      self$offset <- offset
+      self$length <- length
+      self$user_id <- user_id
+    },
     to_dict = function() list(`_` = "MessageEntityMentionName", offset = self$offset, length = self$length, user_id = self$user_id),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27820,11 +26388,16 @@ MessageEntityPhone <- R6::R6Class(
     CONSTRUCTOR_ID = 0x9b69e34b,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
-    initialize = function(offset, length) { self$offset <- offset; self$length <- length },
+    initialize = function(offset, length) {
+      self$offset <- offset
+      self$length <- length
+    },
     to_dict = function() list(`_` = "MessageEntityPhone", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27835,11 +26408,17 @@ MessageEntityPre <- R6::R6Class(
     CONSTRUCTOR_ID = 0x73924be0,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL, language = NULL,
-    initialize = function(offset, length, language) { self$offset <- offset; self$length <- length; self$language <- language },
+    initialize = function(offset, length, language) {
+      self$offset <- offset
+      self$length <- length
+      self$language <- language
+    },
     to_dict = function() list(`_` = "MessageEntityPre", offset = self$offset, length = self$length, language = self$language),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27850,11 +26429,16 @@ MessageEntitySpoiler <- R6::R6Class(
     CONSTRUCTOR_ID = 0x32ca960f,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
-    initialize = function(offset, length) { self$offset <- offset; self$length <- length },
+    initialize = function(offset, length) {
+      self$offset <- offset
+      self$length <- length
+    },
     to_dict = function() list(`_` = "MessageEntitySpoiler", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27865,11 +26449,16 @@ MessageEntityStrike <- R6::R6Class(
     CONSTRUCTOR_ID = 0xbf0693d4,
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
-    initialize = function(offset, length) { self$offset <- offset; self$length <- length },
+    initialize = function(offset, length) {
+      self$offset <- offset
+      self$length <- length
+    },
     to_dict = function() list(`_` = "MessageEntityStrike", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -27883,19 +26472,18 @@ MessageEntityTextUrl <- R6::R6Class(
     offset = NULL,
     length = NULL,
     url = NULL,
-
     initialize = function(offset, length, url) {
       self$offset <- offset
       self$length <- length
       self$url <- url
     },
-
-    to_dict = function() list('_' = 'MessageEntityTextUrl', offset = self$offset, length = self$length, url = self$url),
-
+    to_dict = function() list("_" = "MessageEntityTextUrl", offset = self$offset, length = self$length, url = self$url),
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -27909,18 +26497,17 @@ MessageEntityUnderline <- R6::R6Class(
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL,
     length = NULL,
-
     initialize = function(offset, length) {
       self$offset <- offset
       self$length <- length
     },
-
-    to_dict = function() list('_' = 'MessageEntityUnderline', offset = self$offset, length = self$length),
-
+    to_dict = function() list("_" = "MessageEntityUnderline", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -27934,18 +26521,17 @@ MessageEntityUnknown <- R6::R6Class(
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL,
     length = NULL,
-
     initialize = function(offset, length) {
       self$offset <- offset
       self$length <- length
     },
-
-    to_dict = function() list('_' = 'MessageEntityUnknown', offset = self$offset, length = self$length),
-
+    to_dict = function() list("_" = "MessageEntityUnknown", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -27959,18 +26545,17 @@ MessageEntityUrl <- R6::R6Class(
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL,
     length = NULL,
-
     initialize = function(offset, length) {
       self$offset <- offset
       self$length <- length
     },
-
-    to_dict = function() list('_' = 'MessageEntityUrl', offset = self$offset, length = self$length),
-
+    to_dict = function() list("_" = "MessageEntityUrl", offset = self$offset, length = self$length),
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -27983,17 +26568,16 @@ MessageExtendedMedia <- R6::R6Class(
     CONSTRUCTOR_ID = 0xee479c64,
     SUBCLASS_OF_ID = 0x9727d95d,
     media = NULL,
-
     initialize = function(media) {
       self$media <- media
     },
-
-    to_dict = function() list('_' = 'MessageExtendedMedia', media = if (inherits(self$media, "TLObject")) self$media$to_dict() else self$media),
-
+    to_dict = function() list("_" = "MessageExtendedMedia", media = if (inherits(self$media, "TLObject")) self$media$to_dict() else self$media),
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -28009,26 +26593,27 @@ MessageExtendedMediaPreview <- R6::R6Class(
     h = NULL,
     thumb = NULL,
     video_duration = NULL,
-
     initialize = function(w = NULL, h = NULL, thumb = NULL, video_duration = NULL) {
       self$w <- w
       self$h <- h
       self$thumb <- thumb
       self$video_duration <- video_duration
     },
-
-    to_dict = function() list(
-      '_' = 'MessageExtendedMediaPreview',
-      w = self$w,
-      h = self$h,
-      thumb = if (inherits(self$thumb, "TLObject")) self$thumb$to_dict() else self$thumb,
-      video_duration = self$video_duration
-    ),
-
+    to_dict = function() {
+      list(
+        "_" = "MessageExtendedMediaPreview",
+        w = self$w,
+        h = self$h,
+        thumb = if (inherits(self$thumb, "TLObject")) self$thumb$to_dict() else self$thumb,
+        video_duration = self$video_duration
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -28053,7 +26638,6 @@ MessageFwdHeader <- R6::R6Class(
     saved_from_name = NULL,
     saved_date = NULL,
     psa_type = NULL,
-
     initialize = function(date = NULL, imported = NULL, saved_out = NULL, from_id = NULL, from_name = NULL,
                           channel_post = NULL, post_author = NULL, saved_frompeer = NULL, saved_from_msg_id = NULL,
                           saved_from_id = NULL, saved_from_name = NULL, saved_date = NULL, psa_type = NULL) {
@@ -28071,28 +26655,30 @@ MessageFwdHeader <- R6::R6Class(
       self$saved_date <- saved_date
       self$psa_type <- psa_type
     },
-
-    to_dict = function() list(
-      '_' = 'MessageFwdHeader',
-      date = self$date,
-      imported = self$imported,
-      saved_out = self$saved_out,
-      from_id = if (inherits(self$from_id, "TLObject")) self$from_id$to_dict() else self$from_id,
-      from_name = self$from_name,
-      channel_post = self$channel_post,
-      post_author = self$post_author,
-      saved_frompeer = if (inherits(self$saved_frompeer, "TLObject")) self$saved_frompeer$to_dict() else self$saved_frompeer,
-      saved_from_msg_id = self$saved_from_msg_id,
-      saved_from_id = if (inherits(self$saved_from_id, "TLObject")) self$saved_from_id$to_dict() else self$saved_from_id,
-      saved_from_name = self$saved_from_name,
-      saved_date = self$saved_date,
-      psa_type = self$psa_type
-    ),
-
+    to_dict = function() {
+      list(
+        "_" = "MessageFwdHeader",
+        date = self$date,
+        imported = self$imported,
+        saved_out = self$saved_out,
+        from_id = if (inherits(self$from_id, "TLObject")) self$from_id$to_dict() else self$from_id,
+        from_name = self$from_name,
+        channel_post = self$channel_post,
+        post_author = self$post_author,
+        saved_frompeer = if (inherits(self$saved_frompeer, "TLObject")) self$saved_frompeer$to_dict() else self$saved_frompeer,
+        saved_from_msg_id = self$saved_from_msg_id,
+        saved_from_id = if (inherits(self$saved_from_id, "TLObject")) self$saved_from_id$to_dict() else self$saved_from_id,
+        saved_from_name = self$saved_from_name,
+        saved_date = self$saved_date,
+        psa_type = self$psa_type
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -28109,7 +26695,6 @@ MessageMediaContact <- R6::R6Class(
     last_name = NULL,
     vcard = NULL,
     user_id = NULL,
-
     initialize = function(phone_number, first_name, last_name, vcard, user_id) {
       self$phone_number <- phone_number
       self$first_name <- first_name
@@ -28117,20 +26702,22 @@ MessageMediaContact <- R6::R6Class(
       self$vcard <- vcard
       self$user_id <- user_id
     },
-
-    to_dict = function() list(
-      '_' = 'MessageMediaContact',
-      phone_number = self$phone_number,
-      first_name = self$first_name,
-      last_name = self$last_name,
-      vcard = self$vcard,
-      user_id = self$user_id
-    ),
-
+    to_dict = function() {
+      list(
+        "_" = "MessageMediaContact",
+        phone_number = self$phone_number,
+        first_name = self$first_name,
+        last_name = self$last_name,
+        vcard = self$vcard,
+        user_id = self$user_id
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -28144,18 +26731,17 @@ MessageMediaDice <- R6::R6Class(
     SUBCLASS_OF_ID = 0x476cbe32,
     value = NULL,
     emoticon = NULL,
-
     initialize = function(value, emoticon) {
       self$value <- value
       self$emoticon <- emoticon
     },
-
-    to_dict = function() list('_' = 'MessageMediaDice', value = self$value, emoticon = self$emoticon),
-
+    to_dict = function() list("_" = "MessageMediaDice", value = self$value, emoticon = self$emoticon),
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -28177,7 +26763,6 @@ MessageMediaDocument <- R6::R6Class(
     video_cover = NULL,
     video_timestamp = NULL,
     ttl_seconds = NULL,
-
     initialize = function(nopremium = NULL, spoiler = NULL, video = NULL, round = NULL, voice = NULL,
                           document = NULL, alt_documents = NULL, video_cover = NULL, video_timestamp = NULL,
                           ttl_seconds = NULL) {
@@ -28192,25 +26777,27 @@ MessageMediaDocument <- R6::R6Class(
       self$video_timestamp <- video_timestamp
       self$ttl_seconds <- ttl_seconds
     },
-
-    to_dict = function() list(
-      '_' = 'MessageMediaDocument',
-      nopremium = self$nopremium,
-      spoiler = self$spoiler,
-      video = self$video,
-      round = self$round,
-      voice = self$voice,
-      document = if (inherits(self$document, "TLObject")) self$document$to_dict() else self$document,
-      alt_documents = if (is.null(self$alt_documents)) NULL else lapply(self$alt_documents, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
-      video_cover = if (inherits(self$video_cover, "TLObject")) self$video_cover$to_dict() else self$video_cover,
-      video_timestamp = self$video_timestamp,
-      ttl_seconds = self$ttl_seconds
-    ),
-
+    to_dict = function() {
+      list(
+        "_" = "MessageMediaDocument",
+        nopremium = self$nopremium,
+        spoiler = self$spoiler,
+        video = self$video,
+        round = self$round,
+        voice = self$voice,
+        document = if (inherits(self$document, "TLObject")) self$document$to_dict() else self$document,
+        alt_documents = if (is.null(self$alt_documents)) NULL else lapply(self$alt_documents, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        video_cover = if (inherits(self$video_cover, "TLObject")) self$video_cover$to_dict() else self$video_cover,
+        video_timestamp = self$video_timestamp,
+        ttl_seconds = self$ttl_seconds
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -28222,15 +26809,14 @@ MessageMediaEmpty <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x3ded6320,
     SUBCLASS_OF_ID = 0x476cbe32,
-
     initialize = function() {},
-
-    to_dict = function() list('_' = 'MessageMediaEmpty'),
-
+    to_dict = function() list("_" = "MessageMediaEmpty"),
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -28243,17 +26829,16 @@ MessageMediaGame <- R6::R6Class(
     CONSTRUCTOR_ID = 0xfdb19008,
     SUBCLASS_OF_ID = 0x476cbe32,
     game = NULL,
-
     initialize = function(game) {
       self$game <- game
     },
-
-    to_dict = function() list('_' = 'MessageMediaGame', game = if (inherits(self$game, "TLObject")) self$game$to_dict() else self$game),
-
+    to_dict = function() list("_" = "MessageMediaGame", game = if (inherits(self$game, "TLObject")) self$game$to_dict() else self$game),
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -28266,15 +26851,16 @@ MessageMediaGeo <- R6::R6Class(
     CONSTRUCTOR_ID = 0x56e0d474,
     SUBCLASS_OF_ID = 0x476cbe32,
     geo = NULL,
-
-    initialize = function(geo) { self$geo <- geo },
-
+    initialize = function(geo) {
+      self$geo <- geo
+    },
     to_dict = function() list(`_` = "MessageMediaGeo", geo = if (inherits(self$geo, "TLObject")) self$geo$to_dict() else self$geo),
-
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new(reader$tgread_object()) }
+    from_reader = function(reader) {
+      self$new(reader$tgread_object())
+    }
   ),
   class = TRUE
 )
@@ -28290,26 +26876,27 @@ MessageMediaGeoLive <- R6::R6Class(
     period = NULL,
     heading = NULL,
     proximity_notification_radius = NULL,
-
     initialize = function(geo, period, heading = NULL, proximity_notification_radius = NULL) {
       self$geo <- geo
       self$period <- period
       self$heading <- heading
       self$proximity_notification_radius <- proximity_notification_radius
     },
-
-    to_dict = function() list(
-      `_` = "MessageMediaGeoLive",
-      geo = if (inherits(self$geo, "TLObject")) self$geo$to_dict() else self$geo,
-      period = self$period,
-      heading = self$heading,
-      proximity_notification_radius = self$proximity_notification_radius
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageMediaGeoLive",
+        geo = if (inherits(self$geo, "TLObject")) self$geo$to_dict() else self$geo,
+        period = self$period,
+        heading = self$heading,
+        proximity_notification_radius = self$proximity_notification_radius
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new(reader$tgread_object(), reader$read_int()) }
+    from_reader = function(reader) {
+      self$new(reader$tgread_object(), reader$read_int())
+    }
   ),
   class = TRUE
 )
@@ -28330,7 +26917,6 @@ MessageMediaGiveaway <- R6::R6Class(
     prize_description = NULL,
     months = NULL,
     stars = NULL,
-
     initialize = function(channels, quantity, until_date = NULL, only_new_subscribers = NULL, winners_are_visible = NULL, countries_iso2 = NULL, prize_description = NULL, months = NULL, stars = NULL) {
       self$channels <- channels
       self$quantity <- quantity
@@ -28342,24 +26928,26 @@ MessageMediaGiveaway <- R6::R6Class(
       self$months <- months
       self$stars <- stars
     },
-
-    to_dict = function() list(
-      `_` = "MessageMediaGiveaway",
-      channels = if (is.null(self$channels)) NULL else self$channels,
-      quantity = self$quantity,
-      until_date = self$until_date,
-      only_new_subscribers = self$only_new_subscribers,
-      winners_are_visible = self$winners_are_visible,
-      countries_iso2 = if (is.null(self$countries_iso2)) NULL else self$countries_iso2,
-      prize_description = self$prize_description,
-      months = self$months,
-      stars = self$stars
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageMediaGiveaway",
+        channels = if (is.null(self$channels)) NULL else self$channels,
+        quantity = self$quantity,
+        until_date = self$until_date,
+        only_new_subscribers = self$only_new_subscribers,
+        winners_are_visible = self$winners_are_visible,
+        countries_iso2 = if (is.null(self$countries_iso2)) NULL else self$countries_iso2,
+        prize_description = self$prize_description,
+        months = self$months,
+        stars = self$stars
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new(list(), 0) }
+    from_reader = function(reader) {
+      self$new(list(), 0)
+    }
   ),
   class = TRUE
 )
@@ -28383,7 +26971,6 @@ MessageMediaGiveawayResults <- R6::R6Class(
     months = NULL,
     stars = NULL,
     prize_description = NULL,
-
     initialize = function(channel_id, launch_msg_id, winners_count, unclaimed_count, winners, until_date = NULL, only_new_subscribers = NULL, refunded = NULL, additionalpeers_count = NULL, months = NULL, stars = NULL, prize_description = NULL) {
       self$channel_id <- channel_id
       self$launch_msg_id <- launch_msg_id
@@ -28398,27 +26985,29 @@ MessageMediaGiveawayResults <- R6::R6Class(
       self$stars <- stars
       self$prize_description <- prize_description
     },
-
-    to_dict = function() list(
-      `_` = "MessageMediaGiveawayResults",
-      channel_id = self$channel_id,
-      launch_msg_id = self$launch_msg_id,
-      winners_count = self$winners_count,
-      unclaimed_count = self$unclaimed_count,
-      winners = if (is.null(self$winners)) NULL else self$winners,
-      until_date = self$until_date,
-      only_new_subscribers = self$only_new_subscribers,
-      refunded = self$refunded,
-      additionalpeers_count = self$additionalpeers_count,
-      months = self$months,
-      stars = self$stars,
-      prize_description = self$prize_description
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageMediaGiveawayResults",
+        channel_id = self$channel_id,
+        launch_msg_id = self$launch_msg_id,
+        winners_count = self$winners_count,
+        unclaimed_count = self$unclaimed_count,
+        winners = if (is.null(self$winners)) NULL else self$winners,
+        until_date = self$until_date,
+        only_new_subscribers = self$only_new_subscribers,
+        refunded = self$refunded,
+        additionalpeers_count = self$additionalpeers_count,
+        months = self$months,
+        stars = self$stars,
+        prize_description = self$prize_description
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new(0,0,0,0,list()) }
+    from_reader = function(reader) {
+      self$new(0, 0, 0, 0, list())
+    }
   ),
   class = TRUE
 )
@@ -28440,7 +27029,6 @@ MessageMediaInvoice <- R6::R6Class(
     photo = NULL,
     receipt_msg_id = NULL,
     extended_media = NULL,
-
     initialize = function(title, description, currency, total_amount, start_param, shipping_address_requested = NULL, test = NULL, photo = NULL, receipt_msg_id = NULL, extended_media = NULL) {
       self$title <- title
       self$description <- description
@@ -28453,25 +27041,27 @@ MessageMediaInvoice <- R6::R6Class(
       self$receipt_msg_id <- receipt_msg_id
       self$extended_media <- extended_media
     },
-
-    to_dict = function() list(
-      `_` = "MessageMediaInvoice",
-      title = self$title,
-      description = self$description,
-      currency = self$currency,
-      total_amount = self$total_amount,
-      start_param = self$start_param,
-      shipping_address_requested = self$shipping_address_requested,
-      test = self$test,
-      photo = if (inherits(self$photo, "TLObject")) self$photo$to_dict() else self$photo,
-      receipt_msg_id = self$receipt_msg_id,
-      extended_media = if (is.null(self$extended_media)) NULL else lapply(self$extended_media, function(x) if (inherits(x,"TLObject")) x$to_dict() else x)
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageMediaInvoice",
+        title = self$title,
+        description = self$description,
+        currency = self$currency,
+        total_amount = self$total_amount,
+        start_param = self$start_param,
+        shipping_address_requested = self$shipping_address_requested,
+        test = self$test,
+        photo = if (inherits(self$photo, "TLObject")) self$photo$to_dict() else self$photo,
+        receipt_msg_id = self$receipt_msg_id,
+        extended_media = if (is.null(self$extended_media)) NULL else lapply(self$extended_media, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new("", "", "", 0, "") }
+    from_reader = function(reader) {
+      self$new("", "", "", 0, "")
+    }
   ),
   class = TRUE
 )
@@ -28485,22 +27075,23 @@ MessageMediaPaidMedia <- R6::R6Class(
     SUBCLASS_OF_ID = 0x476cbe32,
     stars_amount = NULL,
     extended_media = NULL,
-
     initialize = function(stars_amount, extended_media) {
       self$stars_amount <- stars_amount
       self$extended_media <- extended_media
     },
-
-    to_dict = function() list(
-      `_` = "MessageMediaPaidMedia",
-      stars_amount = self$stars_amount,
-      extended_media = if (is.null(self$extended_media)) NULL else lapply(self$extended_media, function(x) if (inherits(x,"TLObject")) x$to_dict() else x)
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageMediaPaidMedia",
+        stars_amount = self$stars_amount,
+        extended_media = if (is.null(self$extended_media)) NULL else lapply(self$extended_media, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new(0, list()) }
+    from_reader = function(reader) {
+      self$new(0, list())
+    }
   ),
   class = TRUE
 )
@@ -28515,24 +27106,25 @@ MessageMediaPhoto <- R6::R6Class(
     spoiler = NULL,
     photo = NULL,
     ttl_seconds = NULL,
-
     initialize = function(spoiler = NULL, photo = NULL, ttl_seconds = NULL) {
       self$spoiler <- spoiler
       self$photo <- photo
       self$ttl_seconds <- ttl_seconds
     },
-
-    to_dict = function() list(
-      `_` = "MessageMediaPhoto",
-      spoiler = self$spoiler,
-      photo = if (inherits(self$photo, "TLObject")) self$photo$to_dict() else self$photo,
-      ttl_seconds = self$ttl_seconds
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageMediaPhoto",
+        spoiler = self$spoiler,
+        photo = if (inherits(self$photo, "TLObject")) self$photo$to_dict() else self$photo,
+        ttl_seconds = self$ttl_seconds
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new(FALSE, NULL, NULL) }
+    from_reader = function(reader) {
+      self$new(FALSE, NULL, NULL)
+    }
   ),
   class = TRUE
 )
@@ -28546,22 +27138,23 @@ MessageMediaPoll <- R6::R6Class(
     SUBCLASS_OF_ID = 0x476cbe32,
     poll = NULL,
     results = NULL,
-
     initialize = function(poll, results) {
       self$poll <- poll
       self$results <- results
     },
-
-    to_dict = function() list(
-      `_` = "MessageMediaPoll",
-      poll = if (inherits(self$poll, "TLObject")) self$poll$to_dict() else self$poll,
-      results = if (inherits(self$results, "TLObject")) self$results$to_dict() else self$results
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageMediaPoll",
+        poll = if (inherits(self$poll, "TLObject")) self$poll$to_dict() else self$poll,
+        results = if (inherits(self$results, "TLObject")) self$results$to_dict() else self$results
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new(reader$tgread_object(), reader$tgread_object()) }
+    from_reader = function(reader) {
+      self$new(reader$tgread_object(), reader$tgread_object())
+    }
   ),
   class = TRUE
 )
@@ -28577,26 +27170,27 @@ MessageMediaStory <- R6::R6Class(
     id = NULL,
     via_mention = NULL,
     story = NULL,
-
     initialize = function(peer, id, via_mention = NULL, story = NULL) {
       self$peer <- peer
       self$id <- id
       self$via_mention <- via_mention
       self$story <- story
     },
-
-    to_dict = function() list(
-      `_` = "MessageMediaStory",
-      peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-      id = self$id,
-      via_mention = self$via_mention,
-      story = if (inherits(self$story, "TLObject")) self$story$to_dict() else self$story
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageMediaStory",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        id = self$id,
+        via_mention = self$via_mention,
+        story = if (inherits(self$story, "TLObject")) self$story$to_dict() else self$story
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new(reader$tgread_object(), reader$read_int()) }
+    from_reader = function(reader) {
+      self$new(reader$tgread_object(), reader$read_int())
+    }
   ),
   class = TRUE
 )
@@ -28610,22 +27204,23 @@ MessageMediaToDo <- R6::R6Class(
     SUBCLASS_OF_ID = 0x476cbe32,
     todo = NULL,
     completions = NULL,
-
     initialize = function(todo, completions = NULL) {
       self$todo <- todo
       self$completions <- completions
     },
-
-    to_dict = function() list(
-      `_` = "MessageMediaToDo",
-      todo = if (inherits(self$todo, "TLObject")) self$todo$to_dict() else self$todo,
-      completions = if (is.null(self$completions)) NULL else lapply(self$completions, function(x) if (inherits(x,"TLObject")) x$to_dict() else x)
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageMediaToDo",
+        todo = if (inherits(self$todo, "TLObject")) self$todo$to_dict() else self$todo,
+        completions = if (is.null(self$completions)) NULL else lapply(self$completions, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new(reader$tgread_object(), list()) }
+    from_reader = function(reader) {
+      self$new(reader$tgread_object(), list())
+    }
   ),
   class = TRUE
 )
@@ -28637,15 +27232,14 @@ MessageMediaUnsupported <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9f84f49e,
     SUBCLASS_OF_ID = 0x476cbe32,
-
     initialize = function() {},
-
     to_dict = function() list(`_` = "MessageMediaUnsupported"),
-
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -28663,7 +27257,6 @@ MessageMediaVenue <- R6::R6Class(
     provider = NULL,
     venue_id = NULL,
     venue_type = NULL,
-
     initialize = function(geo, title, address, provider, venue_id, venue_type) {
       self$geo <- geo
       self$title <- title
@@ -28672,21 +27265,23 @@ MessageMediaVenue <- R6::R6Class(
       self$venue_id <- venue_id
       self$venue_type <- venue_type
     },
-
-    to_dict = function() list(
-      `_` = "MessageMediaVenue",
-      geo = if (inherits(self$geo, "TLObject")) self$geo$to_dict() else self$geo,
-      title = self$title,
-      address = self$address,
-      provider = self$provider,
-      venue_id = self$venue_id,
-      venue_type = self$venue_type
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageMediaVenue",
+        geo = if (inherits(self$geo, "TLObject")) self$geo$to_dict() else self$geo,
+        title = self$title,
+        address = self$address,
+        provider = self$provider,
+        venue_id = self$venue_id,
+        venue_type = self$venue_type
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new(reader$tgread_object(), reader$tgread_string(), reader$tgread_string(), reader$tgread_string(), reader$tgread_string(), reader$tgread_string()) }
+    from_reader = function(reader) {
+      self$new(reader$tgread_object(), reader$tgread_string(), reader$tgread_string(), reader$tgread_string(), reader$tgread_string(), reader$tgread_string())
+    }
   ),
   class = TRUE
 )
@@ -28703,7 +27298,6 @@ MessageMediaWebPage <- R6::R6Class(
     force_small_media = NULL,
     manual = NULL,
     safe = NULL,
-
     initialize = function(webpage, force_large_media = NULL, force_small_media = NULL, manual = NULL, safe = NULL) {
       self$webpage <- webpage
       self$force_large_media <- force_large_media
@@ -28711,20 +27305,22 @@ MessageMediaWebPage <- R6::R6Class(
       self$manual <- manual
       self$safe <- safe
     },
-
-    to_dict = function() list(
-      `_` = "MessageMediaWebPage",
-      webpage = if (inherits(self$webpage, "TLObject")) self$webpage$to_dict() else self$webpage,
-      force_large_media = self$force_large_media,
-      force_small_media = self$force_small_media,
-      manual = self$manual,
-      safe = self$safe
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageMediaWebPage",
+        webpage = if (inherits(self$webpage, "TLObject")) self$webpage$to_dict() else self$webpage,
+        force_large_media = self$force_large_media,
+        force_small_media = self$force_small_media,
+        manual = self$manual,
+        safe = self$safe
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new(reader$tgread_object()) }
+    from_reader = function(reader) {
+      self$new(reader$tgread_object())
+    }
   ),
   class = TRUE
 )
@@ -28742,7 +27338,6 @@ MessagePeerReaction <- R6::R6Class(
     big = NULL,
     unread = NULL,
     my = NULL,
-
     initialize = function(peer_id, date = NULL, reaction, big = NULL, unread = NULL, my = NULL) {
       self$peer_id <- peer_id
       self$date <- date
@@ -28751,21 +27346,23 @@ MessagePeerReaction <- R6::R6Class(
       self$unread <- unread
       self$my <- my
     },
-
-    to_dict = function() list(
-      `_` = "MessagePeerReaction",
-      peer_id = if (inherits(self$peer_id, "TLObject")) self$peer_id$to_dict() else self$peer_id,
-      date = self$date,
-      reaction = if (inherits(self$reaction, "TLObject")) self$reaction$to_dict() else self$reaction,
-      big = self$big,
-      unread = self$unread,
-      my = self$my
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "MessagePeerReaction",
+        peer_id = if (inherits(self$peer_id, "TLObject")) self$peer_id$to_dict() else self$peer_id,
+        date = self$date,
+        reaction = if (inherits(self$reaction, "TLObject")) self$reaction$to_dict() else self$reaction,
+        big = self$big,
+        unread = self$unread,
+        my = self$my
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new(reader$tgread_object(), reader$tgread_date(), reader$tgread_object()) }
+    from_reader = function(reader) {
+      self$new(reader$tgread_object(), reader$tgread_date(), reader$tgread_object())
+    }
   ),
   class = TRUE
 )
@@ -28777,22 +27374,22 @@ MessagePeerVote <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xb6cc2d5c,
     SUBCLASS_OF_ID = 0x85c27202,
-
     peer = NULL,
     option = NULL,
     date = NULL,
-
     initialize = function(peer, option, date) {
       self$peer <- peer
       self$option <- option
       self$date <- date
     },
-
-    to_dict = function() list(`_` = "MessagePeerVote",
-                              peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-                              option = self$option,
-                              date = self$date),
-
+    to_dict = function() {
+      list(
+        `_` = "MessagePeerVote",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        option = self$option,
+        date = self$date
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -28813,19 +27410,19 @@ MessagePeerVoteInputOption <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x74cda504,
     SUBCLASS_OF_ID = 0x85c27202,
-
     peer = NULL,
     date = NULL,
-
     initialize = function(peer, date) {
       self$peer <- peer
       self$date <- date
     },
-
-    to_dict = function() list(`_` = "MessagePeerVoteInputOption",
-                              peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-                              date = self$date),
-
+    to_dict = function() {
+      list(
+        `_` = "MessagePeerVoteInputOption",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        date = self$date
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -28845,22 +27442,22 @@ MessagePeerVoteMultiple <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x4628f6e6,
     SUBCLASS_OF_ID = 0x85c27202,
-
     peer = NULL,
     options = NULL,
     date = NULL,
-
     initialize = function(peer, options, date) {
       self$peer <- peer
       self$options <- options
       self$date <- date
     },
-
-    to_dict = function() list(`_` = "MessagePeerVoteMultiple",
-                              peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-                              options = if (is.null(self$options)) NULL else self$options,
-                              date = self$date),
-
+    to_dict = function() {
+      list(
+        `_` = "MessagePeerVoteMultiple",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        options = if (is.null(self$options)) NULL else self$options,
+        date = self$date
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -28888,17 +27485,13 @@ MessageRange <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x0ae30253,
     SUBCLASS_OF_ID = 0xbec74577,
-
     min_id = NULL,
     max_id = NULL,
-
     initialize = function(min_id, max_id) {
       self$min_id <- min_id
       self$max_id <- max_id
     },
-
     to_dict = function() list(`_` = "MessageRange", min_id = self$min_id, max_id = self$max_id),
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -28918,14 +27511,12 @@ MessageReactions <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x0a339f0b,
     SUBCLASS_OF_ID = 0x8a5b071c,
-
     results = NULL,
     min = NULL,
     can_see_list = NULL,
     reactions_as_tags = NULL,
     recent_reactions = NULL,
     top_reactors = NULL,
-
     initialize = function(results, min = NULL, can_see_list = NULL, reactions_as_tags = NULL, recent_reactions = NULL, top_reactors = NULL) {
       self$results <- results
       self$min <- min
@@ -28934,15 +27525,17 @@ MessageReactions <- R6::R6Class(
       self$recent_reactions <- recent_reactions
       self$top_reactors <- top_reactors
     },
-
-    to_dict = function() list(`_` = "MessageReactions",
-                              results = if (is.null(self$results)) NULL else lapply(self$results, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
-                              min = self$min,
-                              can_see_list = self$can_see_list,
-                              reactions_as_tags = self$reactions_as_tags,
-                              recent_reactions = if (is.null(self$recent_reactions)) NULL else lapply(self$recent_reactions, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
-                              top_reactors = if (is.null(self$top_reactors)) NULL else lapply(self$top_reactors, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageReactions",
+        results = if (is.null(self$results)) NULL else lapply(self$results, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        min = self$min,
+        can_see_list = self$can_see_list,
+        reactions_as_tags = self$reactions_as_tags,
+        recent_reactions = if (is.null(self$recent_reactions)) NULL else lapply(self$recent_reactions, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        top_reactors = if (is.null(self$top_reactors)) NULL else lapply(self$top_reactors, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -28994,13 +27587,11 @@ MessageReactor <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x4ba3a95a,
     SUBCLASS_OF_ID = 0xf0381ab9,
-
     count = NULL,
     top = NULL,
     my = NULL,
     anonymous = NULL,
     peer_id = NULL,
-
     initialize = function(count, top = NULL, my = NULL, anonymous = NULL, peer_id = NULL) {
       self$count <- count
       self$top <- top
@@ -29008,14 +27599,16 @@ MessageReactor <- R6::R6Class(
       self$anonymous <- anonymous
       self$peer_id <- peer_id
     },
-
-    to_dict = function() list(`_` = "MessageReactor",
-                              count = self$count,
-                              top = self$top,
-                              my = self$my,
-                              anonymous = self$anonymous,
-                              peer_id = if (inherits(self$peer_id, "TLObject")) self$peer_id$to_dict() else self$peer_id),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageReactor",
+        count = self$count,
+        top = self$top,
+        my = self$my,
+        anonymous = self$anonymous,
+        peer_id = if (inherits(self$peer_id, "TLObject")) self$peer_id$to_dict() else self$peer_id
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -29043,7 +27636,6 @@ MessageReplies <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x83d60fc2,
     SUBCLASS_OF_ID = 0x6ccd5ce2,
-
     replies = NULL,
     replies_pts = NULL,
     comments = NULL,
@@ -29051,7 +27643,6 @@ MessageReplies <- R6::R6Class(
     channel_id = NULL,
     max_id = NULL,
     read_max_id = NULL,
-
     initialize = function(replies, replies_pts, comments = NULL, recent_repliers = NULL, channel_id = NULL, max_id = NULL, read_max_id = NULL) {
       self$replies <- replies
       self$replies_pts <- replies_pts
@@ -29061,16 +27652,18 @@ MessageReplies <- R6::R6Class(
       self$max_id <- max_id
       self$read_max_id <- read_max_id
     },
-
-    to_dict = function() list(`_` = "MessageReplies",
-                              replies = self$replies,
-                              replies_pts = self$replies_pts,
-                              comments = self$comments,
-                              recent_repliers = if (is.null(self$recent_repliers)) NULL else lapply(self$recent_repliers, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
-                              channel_id = self$channel_id,
-                              max_id = self$max_id,
-                              read_max_id = self$read_max_id),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageReplies",
+        replies = self$replies,
+        replies_pts = self$replies_pts,
+        comments = self$comments,
+        recent_repliers = if (is.null(self$recent_repliers)) NULL else lapply(self$recent_repliers, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        channel_id = self$channel_id,
+        max_id = self$max_id,
+        read_max_id = self$read_max_id
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -29120,7 +27713,6 @@ MessageReplyHeader <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x6917560b,
     SUBCLASS_OF_ID = 0x5b4d9167,
-
     reply_to_scheduled = NULL,
     forum_topic = NULL,
     quote = NULL,
@@ -29133,7 +27725,6 @@ MessageReplyHeader <- R6::R6Class(
     quote_entities = NULL,
     quote_offset = NULL,
     todo_item_id = NULL,
-
     initialize = function(reply_to_scheduled = NULL, forum_topic = NULL, quote = NULL, reply_to_msg_id = NULL, reply_topeer_id = NULL, reply_from = NULL, reply_media = NULL, reply_to_top_id = NULL, quote_text = NULL, quote_entities = NULL, quote_offset = NULL, todo_item_id = NULL) {
       self$reply_to_scheduled <- reply_to_scheduled
       self$forum_topic <- forum_topic
@@ -29148,21 +27739,23 @@ MessageReplyHeader <- R6::R6Class(
       self$quote_offset <- quote_offset
       self$todo_item_id <- todo_item_id
     },
-
-    to_dict = function() list(`_` = "MessageReplyHeader",
-                              reply_to_scheduled = self$reply_to_scheduled,
-                              forum_topic = self$forum_topic,
-                              quote = self$quote,
-                              reply_to_msg_id = self$reply_to_msg_id,
-                              reply_topeer_id = if (inherits(self$reply_topeer_id, "TLObject")) self$reply_topeer_id$to_dict() else self$reply_topeer_id,
-                              reply_from = if (inherits(self$reply_from, "TLObject")) self$reply_from$to_dict() else self$reply_from,
-                              reply_media = if (inherits(self$reply_media, "TLObject")) self$reply_media$to_dict() else self$reply_media,
-                              reply_to_top_id = self$reply_to_top_id,
-                              quote_text = self$quote_text,
-                              quote_entities = if (is.null(self$quote_entities)) NULL else lapply(self$quote_entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
-                              quote_offset = self$quote_offset,
-                              todo_item_id = self$todo_item_id),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageReplyHeader",
+        reply_to_scheduled = self$reply_to_scheduled,
+        forum_topic = self$forum_topic,
+        quote = self$quote,
+        reply_to_msg_id = self$reply_to_msg_id,
+        reply_topeer_id = if (inherits(self$reply_topeer_id, "TLObject")) self$reply_topeer_id$to_dict() else self$reply_topeer_id,
+        reply_from = if (inherits(self$reply_from, "TLObject")) self$reply_from$to_dict() else self$reply_from,
+        reply_media = if (inherits(self$reply_media, "TLObject")) self$reply_media$to_dict() else self$reply_media,
+        reply_to_top_id = self$reply_to_top_id,
+        quote_text = self$quote_text,
+        quote_entities = if (is.null(self$quote_entities)) NULL else lapply(self$quote_entities, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        quote_offset = self$quote_offset,
+        todo_item_id = self$todo_item_id
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -29174,27 +27767,39 @@ MessageReplyHeader <- R6::R6Class(
 
       if (bitwAnd(flags, 16) != 0) {
         reply_to_msg_id <- reader$read_int()
-      } else reply_to_msg_id <- NULL
+      } else {
+        reply_to_msg_id <- NULL
+      }
 
       if (bitwAnd(flags, 1) != 0) {
         reply_topeer_id <- reader$tgread_object()
-      } else reply_topeer_id <- NULL
+      } else {
+        reply_topeer_id <- NULL
+      }
 
       if (bitwAnd(flags, 32) != 0) {
         reply_from <- reader$tgread_object()
-      } else reply_from <- NULL
+      } else {
+        reply_from <- NULL
+      }
 
       if (bitwAnd(flags, 256) != 0) {
         reply_media <- reader$tgread_object()
-      } else reply_media <- NULL
+      } else {
+        reply_media <- NULL
+      }
 
       if (bitwAnd(flags, 2) != 0) {
         reply_to_top_id <- reader$read_int()
-      } else reply_to_top_id <- NULL
+      } else {
+        reply_to_top_id <- NULL
+      }
 
       if (bitwAnd(flags, 64) != 0) {
         quote_text <- reader$tgread_string()
-      } else quote_text <- NULL
+      } else {
+        quote_text <- NULL
+      }
 
       if (bitwAnd(flags, 128) != 0) {
         reader$read_int()
@@ -29207,17 +27812,23 @@ MessageReplyHeader <- R6::R6Class(
 
       if (bitwAnd(flags, 1024) != 0) {
         quote_offset <- reader$read_int()
-      } else quote_offset <- NULL
+      } else {
+        quote_offset <- NULL
+      }
 
       if (bitwAnd(flags, 2048) != 0) {
         todo_item_id <- reader$read_int()
-      } else todo_item_id <- NULL
+      } else {
+        todo_item_id <- NULL
+      }
 
-      self$new(reply_to_scheduled = reply_to_scheduled, forum_topic = forum_topic, quote = quote,
-               reply_to_msg_id = reply_to_msg_id, reply_topeer_id = reply_topeer_id,
-               reply_from = reply_from, reply_media = reply_media, reply_to_top_id = reply_to_top_id,
-               quote_text = quote_text, quote_entities = quote_entities, quote_offset = quote_offset,
-               todo_item_id = todo_item_id)
+      self$new(
+        reply_to_scheduled = reply_to_scheduled, forum_topic = forum_topic, quote = quote,
+        reply_to_msg_id = reply_to_msg_id, reply_topeer_id = reply_topeer_id,
+        reply_from = reply_from, reply_media = reply_media, reply_to_top_id = reply_to_top_id,
+        quote_text = quote_text, quote_entities = quote_entities, quote_offset = quote_offset,
+        todo_item_id = todo_item_id
+      )
     }
   ),
   class = TRUE
@@ -29230,19 +27841,19 @@ MessageReplyStoryHeader <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x0e5af939,
     SUBCLASS_OF_ID = 0x5b4d9167,
-
     peer = NULL,
     story_id = NULL,
-
     initialize = function(peer, story_id) {
       self$peer <- peer
       self$story_id <- story_id
     },
-
-    to_dict = function() list(`_` = "MessageReplyStoryHeader",
-                              peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-                              story_id = self$story_id),
-
+    to_dict = function() {
+      list(
+        `_` = "MessageReplyStoryHeader",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        story_id = self$story_id
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -29262,17 +27873,13 @@ MessageReportOption <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x7903e3d9,
     SUBCLASS_OF_ID = 0xfd79af88,
-
     text = NULL,
     option = NULL,
-
     initialize = function(text, option) {
       self$text <- text
       self$option <- option
     },
-
     to_dict = function() list(`_` = "MessageReportOption", text = self$text, option = self$option),
-
     bytes = function() raw(0)
   ),
   private = list(
@@ -29307,7 +27914,6 @@ MessageService <- R6::R6Class("MessageService",
     reply_to = NULL,
     reactions = NULL,
     ttl_period = NULL,
-
     initialize = function(id, peer_id, date = NULL, action = NULL, out = NULL, mentioned = NULL,
                           media_unread = NULL, reactions_are_possible = NULL, silent = NULL,
                           post = NULL, legacy = NULL, from_id = NULL, savedpeer_id = NULL,
@@ -29329,7 +27935,6 @@ MessageService <- R6::R6Class("MessageService",
       self$reactions <- reactions
       self$ttl_period <- ttl_period
     },
-
     to_dict = function() {
       list(
         `_` = "MessageService",
@@ -29351,11 +27956,12 @@ MessageService <- R6::R6Class("MessageService",
         ttl_period = self$ttl_period
       )
     },
-
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -29369,13 +27975,11 @@ MessageViews <- R6::R6Class("MessageViews",
     views = NULL,
     forwards = NULL,
     replies = NULL,
-
     initialize = function(views = NULL, forwards = NULL, replies = NULL) {
       self$views <- views
       self$forwards <- forwards
       self$replies <- replies
     },
-
     to_dict = function() {
       list(
         `_` = "MessageViews",
@@ -29384,10 +27988,11 @@ MessageViews <- R6::R6Class("MessageViews",
         replies = if (inherits(self$replies, "TLObject")) self$replies$to_dict() else self$replies
       )
     },
-
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -29400,13 +28005,11 @@ MissingInvitee <- R6::R6Class("MissingInvitee",
     user_id = NULL,
     premium_would_allow_invite = NULL,
     premium_required_for_pm = NULL,
-
     initialize = function(user_id, premium_would_allow_invite = NULL, premium_required_for_pm = NULL) {
       self$user_id <- user_id
       self$premium_would_allow_invite <- premium_would_allow_invite
       self$premium_required_for_pm <- premium_required_for_pm
     },
-
     to_dict = function() {
       list(
         `_` = "MissingInvitee",
@@ -29415,10 +28018,11 @@ MissingInvitee <- R6::R6Class("MissingInvitee",
         premium_required_for_pm = self$premium_required_for_pm
       )
     },
-
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(0) }),
+  private = list(from_reader = function(reader) {
+    self$new(0)
+  }),
   class = TRUE
 )
 
@@ -29437,7 +28041,6 @@ MonoForumDialog <- R6::R6Class("MonoForumDialog",
     unread_mark = NULL,
     nopaid_messages_exception = NULL,
     draft = NULL,
-
     initialize = function(peer, top_message, read_inbox_max_id, read_outbox_max_id, unread_count, unread_reactions_count,
                           unread_mark = NULL, nopaid_messages_exception = NULL, draft = NULL) {
       self$peer <- peer
@@ -29450,7 +28053,6 @@ MonoForumDialog <- R6::R6Class("MonoForumDialog",
       self$nopaid_messages_exception <- nopaid_messages_exception
       self$draft <- draft
     },
-
     to_dict = function() {
       list(
         `_` = "MonoForumDialog",
@@ -29465,10 +28067,11 @@ MonoForumDialog <- R6::R6Class("MonoForumDialog",
         draft = if (inherits(self$draft, "TLObject")) self$draft$to_dict() else self$draft
       )
     },
-
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(NULL,0,0,0,0,0) }),
+  private = list(from_reader = function(reader) {
+    self$new(NULL, 0, 0, 0, 0, 0)
+  }),
   class = TRUE
 )
 
@@ -29482,14 +28085,12 @@ MsgDetailedInfo <- R6::R6Class("MsgDetailedInfo",
     answer_msg_id = NULL,
     byte_data = NULL, # Renamed to avoid duplication
     status = NULL,
-
     initialize = function(msg_id, answer_msg_id, byte_data, status) {
       self$msg_id <- msg_id
       self$answer_msg_id <- answer_msg_id
       self$byte_data <- byte_data
       self$status <- status
     },
-
     to_dict = function() {
       list(
         `_` = "MsgDetailedInfo",
@@ -29499,9 +28100,10 @@ MsgDetailedInfo <- R6::R6Class("MsgDetailedInfo",
         status = self$status
       )
     }
-
   ),
-  private = list(from_reader = function(reader) { self$new(0,0,0,0) }),
+  private = list(from_reader = function(reader) {
+    self$new(0, 0, 0, 0)
+  }),
   class = TRUE
 )
 
@@ -29514,13 +28116,11 @@ MsgNewDetailedInfo <- R6::R6Class("MsgNewDetailedInfo",
     answer_msg_id = NULL,
     byte_data = NULL,
     status = NULL,
-
     initialize = function(answer_msg_id, byte_data, status) {
       self$answer_msg_id <- answer_msg_id
       self$byte_data <- byte_data
       self$status <- status
     },
-
     to_dict = function() {
       list(
         `_` = "MsgNewDetailedInfo",
@@ -29529,10 +28129,11 @@ MsgNewDetailedInfo <- R6::R6Class("MsgNewDetailedInfo",
         status = self$status
       )
     },
-
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(0,0,0) }),
+  private = list(from_reader = function(reader) {
+    self$new(0, 0, 0)
+  }),
   class = TRUE
 )
 
@@ -29543,21 +28144,20 @@ MsgResendReq <- R6::R6Class("MsgResendReq",
     CONSTRUCTOR_ID = 0x7d861a08,
     SUBCLASS_OF_ID = 0x2024514,
     msg_ids = NULL,
-
     initialize = function(msg_ids) {
       self$msg_ids <- msg_ids
     },
-
     to_dict = function() {
       list(
         `_` = "MsgResendReq",
         msg_ids = if (is.null(self$msg_ids)) NULL else self$msg_ids
       )
     },
-
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(list()) }),
+  private = list(from_reader = function(reader) {
+    self$new(list())
+  }),
   class = TRUE
 )
 
@@ -29568,13 +28168,15 @@ MsgsAck <- R6::R6Class("MsgsAck",
     CONSTRUCTOR_ID = 0x62d6b459,
     SUBCLASS_OF_ID = 0x827677c4,
     msg_ids = NULL,
-
-    initialize = function(msg_ids) { self$msg_ids <- msg_ids },
-
+    initialize = function(msg_ids) {
+      self$msg_ids <- msg_ids
+    },
     to_dict = function() list(`_` = "MsgsAck", msg_ids = if (is.null(self$msg_ids)) NULL else self$msg_ids),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(list()) }),
+  private = list(from_reader = function(reader) {
+    self$new(list())
+  }),
   class = TRUE
 )
 
@@ -29586,16 +28188,16 @@ MsgsAllInfo <- R6::R6Class("MsgsAllInfo",
     SUBCLASS_OF_ID = 0xfa8fcb54,
     msg_ids = NULL,
     info = NULL,
-
     initialize = function(msg_ids, info) {
       self$msg_ids <- msg_ids
       self$info <- info
     },
-
     to_dict = function() list(`_` = "MsgsAllInfo", msg_ids = if (is.null(self$msg_ids)) NULL else self$msg_ids, info = self$info),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(list(), "") }),
+  private = list(from_reader = function(reader) {
+    self$new(list(), "")
+  }),
   class = TRUE
 )
 
@@ -29607,16 +28209,16 @@ MsgsStateInfo <- R6::R6Class("MsgsStateInfo",
     SUBCLASS_OF_ID = 0x70a0a64,
     req_msg_id = NULL,
     info = NULL,
-
     initialize = function(req_msg_id, info) {
       self$req_msg_id <- req_msg_id
       self$info <- info
     },
-
     to_dict = function() list(`_` = "MsgsStateInfo", req_msg_id = self$req_msg_id, info = self$info),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(0, "") }),
+  private = list(from_reader = function(reader) {
+    self$new(0, "")
+  }),
   class = TRUE
 )
 
@@ -29627,13 +28229,15 @@ MsgsStateReq <- R6::R6Class("MsgsStateReq",
     CONSTRUCTOR_ID = 0xda69fb52,
     SUBCLASS_OF_ID = 0x18f01dd0,
     msg_ids = NULL,
-
-    initialize = function(msg_ids) { self$msg_ids <- msg_ids },
-
+    initialize = function(msg_ids) {
+      self$msg_ids <- msg_ids
+    },
     to_dict = function() list(`_` = "MsgsStateReq", msg_ids = if (is.null(self$msg_ids)) NULL else self$msg_ids),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(list()) }),
+  private = list(from_reader = function(reader) {
+    self$new(list())
+  }),
   class = TRUE
 )
 
@@ -29648,7 +28252,6 @@ MyBoost <- R6::R6Class("MyBoost",
     expires = NULL,
     peer = NULL,
     cooldown_until_date = NULL,
-
     initialize = function(slot, date = NULL, expires = NULL, peer = NULL, cooldown_until_date = NULL) {
       self$slot <- slot
       self$date <- date
@@ -29656,7 +28259,6 @@ MyBoost <- R6::R6Class("MyBoost",
       self$peer <- peer
       self$cooldown_until_date <- cooldown_until_date
     },
-
     to_dict = function() {
       list(
         `_` = "MyBoost",
@@ -29667,10 +28269,11 @@ MyBoost <- R6::R6Class("MyBoost",
         cooldown_until_date = self$cooldown_until_date
       )
     },
-
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(0) }),
+  private = list(from_reader = function(reader) {
+    self$new(0)
+  }),
   class = TRUE
 )
 
@@ -29683,17 +28286,17 @@ NearestDc <- R6::R6Class("NearestDc",
     country = NULL,
     this_dc = NULL,
     nearest_dc = NULL,
-
     initialize = function(country, this_dc, nearest_dc) {
       self$country <- country
       self$this_dc <- this_dc
       self$nearest_dc <- nearest_dc
     },
-
     to_dict = function() list(`_` = "NearestDc", country = self$country, this_dc = self$this_dc, nearest_dc = self$nearest_dc),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new("",0,0) }),
+  private = list(from_reader = function(reader) {
+    self$new("", 0, 0)
+  }),
   class = TRUE
 )
 
@@ -29706,17 +28309,17 @@ NewSessionCreated <- R6::R6Class("NewSessionCreated",
     first_msg_id = NULL,
     unique_id = NULL,
     server_salt = NULL,
-
     initialize = function(first_msg_id, unique_id, server_salt) {
       self$first_msg_id <- first_msg_id
       self$unique_id <- unique_id
       self$server_salt <- server_salt
     },
-
     to_dict = function() list(`_` = "NewSessionCreated", first_msg_id = self$first_msg_id, unique_id = self$unique_id, server_salt = self$server_salt),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(0,0,0) }),
+  private = list(from_reader = function(reader) {
+    self$new(0, 0, 0)
+  }),
   class = TRUE
 )
 
@@ -29726,12 +28329,13 @@ NotificationSoundDefault <- R6::R6Class("NotificationSoundDefault",
   public = list(
     CONSTRUCTOR_ID = 0x97e8bebe,
     SUBCLASS_OF_ID = 0xf2f5e55b,
-
     initialize = function() {},
     to_dict = function() list(`_` = "NotificationSoundDefault"),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -29743,12 +28347,16 @@ NotificationSoundLocal <- R6::R6Class("NotificationSoundLocal",
     SUBCLASS_OF_ID = 0xf2f5e55b,
     title = NULL,
     data = NULL,
-
-    initialize = function(title, data) { self$title <- title; self$data <- data },
+    initialize = function(title, data) {
+      self$title <- title
+      self$data <- data
+    },
     to_dict = function() list(`_` = "NotificationSoundLocal", title = self$title, data = self$data),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new("", "") }),
+  private = list(from_reader = function(reader) {
+    self$new("", "")
+  }),
   class = TRUE
 )
 
@@ -29758,12 +28366,13 @@ NotificationSoundNone <- R6::R6Class("NotificationSoundNone",
   public = list(
     CONSTRUCTOR_ID = 0x6f0c34df,
     SUBCLASS_OF_ID = 0xf2f5e55b,
-
     initialize = function() {},
     to_dict = function() list(`_` = "NotificationSoundNone"),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -29774,12 +28383,15 @@ NotificationSoundRingtone <- R6::R6Class("NotificationSoundRingtone",
     CONSTRUCTOR_ID = 0xff6c8049,
     SUBCLASS_OF_ID = 0xf2f5e55b,
     id = NULL,
-
-    initialize = function(id) { self$id <- id },
+    initialize = function(id) {
+      self$id <- id
+    },
     to_dict = function() list(`_` = "NotificationSoundRingtone", id = self$id),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(0) }),
+  private = list(from_reader = function(reader) {
+    self$new(0)
+  }),
   class = TRUE
 )
 
@@ -29789,12 +28401,13 @@ NotifyBroadcasts <- R6::R6Class("NotifyBroadcasts",
   public = list(
     CONSTRUCTOR_ID = 0xd612e8ef,
     SUBCLASS_OF_ID = 0xdfe8602e,
-
     initialize = function() {},
     to_dict = function() list(`_` = "NotifyBroadcasts"),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -29804,12 +28417,13 @@ NotifyChats <- R6::R6Class("NotifyChats",
   public = list(
     CONSTRUCTOR_ID = 0xc007cec3,
     SUBCLASS_OF_ID = 0xdfe8602e,
-
     initialize = function() {},
     to_dict = function() list(`_` = "NotifyChats"),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -29821,14 +28435,22 @@ NotifyForumTopic <- R6::R6Class("NotifyForumTopic",
     SUBCLASS_OF_ID = 0xdfe8602e,
     peer = NULL,
     top_msg_id = NULL,
-
-    initialize = function(peer, top_msg_id) { self$peer <- peer; self$top_msg_id <- top_msg_id },
-    to_dict = function() list(`_` = "NotifyForumTopic",
-                              peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-                              top_msg_id = self$top_msg_id),
+    initialize = function(peer, top_msg_id) {
+      self$peer <- peer
+      self$top_msg_id <- top_msg_id
+    },
+    to_dict = function() {
+      list(
+        `_` = "NotifyForumTopic",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        top_msg_id = self$top_msg_id
+      )
+    },
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(NULL,0) }),
+  private = list(from_reader = function(reader) {
+    self$new(NULL, 0)
+  }),
   class = TRUE
 )
 
@@ -29839,12 +28461,15 @@ NotifyPeer <- R6::R6Class("NotifyPeer",
     CONSTRUCTOR_ID = 0x9fd40bd8,
     SUBCLASS_OF_ID = 0xdfe8602e,
     peer = NULL,
-
-    initialize = function(peer) { self$peer <- peer },
+    initialize = function(peer) {
+      self$peer <- peer
+    },
     to_dict = function() list(`_` = "NotifyPeer", peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(NULL) }),
+  private = list(from_reader = function(reader) {
+    self$new(NULL)
+  }),
   class = TRUE
 )
 
@@ -29854,12 +28479,13 @@ NotifyUsers <- R6::R6Class("NotifyUsers",
   public = list(
     CONSTRUCTOR_ID = 0xb4c83b4c,
     SUBCLASS_OF_ID = 0xdfe8602e,
-
     initialize = function() {},
     to_dict = function() list(`_` = "NotifyUsers"),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new() }),
+  private = list(from_reader = function(reader) {
+    self$new()
+  }),
   class = TRUE
 )
 
@@ -29870,12 +28496,15 @@ OutboxReadDate <- R6::R6Class("OutboxReadDate",
     CONSTRUCTOR_ID = 0x3bb842ac,
     SUBCLASS_OF_ID = 0x6f5183c6,
     date = NULL,
-
-    initialize = function(date = NULL) { self$date <- date },
+    initialize = function(date = NULL) {
+      self$date <- date
+    },
     to_dict = function() list(`_` = "OutboxReadDate", date = self$date),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(NULL) }),
+  private = list(from_reader = function(reader) {
+    self$new(NULL)
+  }),
   class = TRUE
 )
 
@@ -29917,13 +28546,29 @@ OutboxReadDate <- R6::R6Class("OutboxReadDate",
 PQInnerData <- R6::R6Class("PQInnerData",
   inherit = TLObject,
   public = list(
+
+    #' @field CONSTRUCTOR_ID Integer. Constructor ID of the class.
     CONSTRUCTOR_ID = 0x83c95aec,
+
+    #' @field SUBCLASS_OF_ID Integer. Subclass of ID of the parent class.
     SUBCLASS_OF_ID = 0x41701377,
+
+    #' @field pq Integer. Subclass of ID of the parent class.
     pq = NULL,
+
+    #' @field peer Object. Peer where the story is from.
     p = NULL,
+
+    #' @field id Integer. Story ID.
     q = NULL,
+
+    #' @field via_mention Logical. Whether the story was sent via mention.
     nonce = NULL,
+
+    #' @field story Object. Story object.
     server_nonce = NULL,
+
+    #' @field new_nonce Logical. New nonce for the story.
     new_nonce = NULL,
 
     initialize = function(pq, p, q, nonce, server_nonce, new_nonce) {
@@ -29934,11 +28579,12 @@ PQInnerData <- R6::R6Class("PQInnerData",
       self$server_nonce <- server_nonce
       self$new_nonce <- new_nonce
     },
-
     to_dict = function() list(`_` = "PQInnerData", pq = self$pq, p = self$p, q = self$q, nonce = self$nonce, server_nonce = self$server_nonce, new_nonce = self$new_nonce),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(raw(0), raw(0), raw(0), 0, 0, 0) }),
+  private = list(from_reader = function(reader) {
+    self$new(raw(0), raw(0), raw(0), 0, 0, 0)
+  }),
   class = TRUE
 )
 
@@ -29955,15 +28601,21 @@ PQInnerDataDc <- R6::R6Class("PQInnerDataDc",
     server_nonce = NULL,
     new_nonce = NULL,
     dc = NULL,
-
     initialize = function(pq, p, q, nonce, server_nonce, new_nonce, dc) {
-      self$pq <- pq; self$p <- p; self$q <- q; self$nonce <- nonce; self$server_nonce <- server_nonce; self$new_nonce <- new_nonce; self$dc <- dc
+      self$pq <- pq
+      self$p <- p
+      self$q <- q
+      self$nonce <- nonce
+      self$server_nonce <- server_nonce
+      self$new_nonce <- new_nonce
+      self$dc <- dc
     },
-
     to_dict = function() list(`_` = "PQInnerDataDc", pq = self$pq, p = self$p, q = self$q, nonce = self$nonce, server_nonce = self$server_nonce, new_nonce = self$new_nonce, dc = self$dc),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(raw(0), raw(0), raw(0), 0, 0, 0, 0) }),
+  private = list(from_reader = function(reader) {
+    self$new(raw(0), raw(0), raw(0), 0, 0, 0, 0)
+  }),
   class = TRUE
 )
 
@@ -29980,15 +28632,21 @@ PQInnerDataTemp <- R6::R6Class("PQInnerDataTemp",
     server_nonce = NULL,
     new_nonce = NULL,
     expires_in = NULL,
-
     initialize = function(pq, p, q, nonce, server_nonce, new_nonce, expires_in) {
-      self$pq <- pq; self$p <- p; self$q <- q; self$nonce <- nonce; self$server_nonce <- server_nonce; self$new_nonce <- new_nonce; self$expires_in <- expires_in
+      self$pq <- pq
+      self$p <- p
+      self$q <- q
+      self$nonce <- nonce
+      self$server_nonce <- server_nonce
+      self$new_nonce <- new_nonce
+      self$expires_in <- expires_in
     },
-
     to_dict = function() list(`_` = "PQInnerDataTemp", pq = self$pq, p = self$p, q = self$q, nonce = self$nonce, server_nonce = self$server_nonce, new_nonce = self$new_nonce, expires_in = self$expires_in),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(raw(0), raw(0), raw(0), 0, 0, 0, 0) }),
+  private = list(from_reader = function(reader) {
+    self$new(raw(0), raw(0), raw(0), 0, 0, 0, 0)
+  }),
   class = TRUE
 )
 
@@ -30006,15 +28664,22 @@ PQInnerDataTempDc <- R6::R6Class("PQInnerDataTempDc",
     new_nonce = NULL,
     dc = NULL,
     expires_in = NULL,
-
     initialize = function(pq, p, q, nonce, server_nonce, new_nonce, dc, expires_in) {
-      self$pq <- pq; self$p <- p; self$q <- q; self$nonce <- nonce; self$server_nonce <- server_nonce; self$new_nonce <- new_nonce; self$dc <- dc; self$expires_in <- expires_in
+      self$pq <- pq
+      self$p <- p
+      self$q <- q
+      self$nonce <- nonce
+      self$server_nonce <- server_nonce
+      self$new_nonce <- new_nonce
+      self$dc <- dc
+      self$expires_in <- expires_in
     },
-
     to_dict = function() list(`_` = "PQInnerDataTempDc", pq = self$pq, p = self$p, q = self$q, nonce = self$nonce, server_nonce = self$server_nonce, new_nonce = self$new_nonce, dc = self$dc, expires_in = self$expires_in),
     bytes = function() raw(0)
   ),
-  private = list(from_reader = function(reader) { self$new(raw(0), raw(0), raw(0), 0, 0, 0, 0, 0) }),
+  private = list(from_reader = function(reader) {
+    self$new(raw(0), raw(0), raw(0), 0, 0, 0, 0, 0)
+  }),
   class = TRUE
 )
 
@@ -30033,7 +28698,6 @@ PQInnerDataTempDc <- R6::R6Class(
     new_nonce = NULL,
     dc = NULL,
     expires_in = NULL,
-
     initialize = function(pq = NULL, p = NULL, q = NULL, nonce = NULL, server_nonce = NULL, new_nonce = NULL, dc = NULL, expires_in = NULL) {
       self$pq <- pq
       self$p <- p
@@ -30044,19 +28708,19 @@ PQInnerDataTempDc <- R6::R6Class(
       self$dc <- dc
       self$expires_in <- expires_in
     },
-
-    to_dict = function() list(
-      `_` = "PQInnerDataTempDc",
-      pq = self$pq,
-      p = self$p,
-      q = self$q,
-      nonce = self$nonce,
-      server_nonce = self$server_nonce,
-      new_nonce = self$new_nonce,
-      dc = self$dc,
-      expires_in = self$expires_in
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "PQInnerDataTempDc",
+        pq = self$pq,
+        p = self$p,
+        q = self$q,
+        nonce = self$nonce,
+        server_nonce = self$server_nonce,
+        new_nonce = self$new_nonce,
+        dc = self$dc,
+        expires_in = self$expires_in
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -30090,7 +28754,6 @@ Page <- R6::R6Class(
     rtl = NULL,
     v2 = NULL,
     views = NULL,
-
     initialize = function(url = NULL, blocks = list(), photos = list(), documents = list(), part = NULL, rtl = NULL, v2 = NULL, views = NULL) {
       self$url <- url
       self$blocks <- blocks
@@ -30101,19 +28764,19 @@ Page <- R6::R6Class(
       self$v2 <- v2
       self$views <- views
     },
-
-    to_dict = function() list(
-      `_` = "Page",
-      url = self$url,
-      blocks = self$blocks,
-      photos = self$photos,
-      documents = self$documents,
-      part = self$part,
-      rtl = self$rtl,
-      v2 = self$v2,
-      views = self$views
-    ),
-
+    to_dict = function() {
+      list(
+        `_` = "Page",
+        url = self$url,
+        blocks = self$blocks,
+        photos = self$photos,
+        documents = self$documents,
+        part = self$part,
+        rtl = self$rtl,
+        v2 = self$v2,
+        views = self$views
+      )
+    },
     bytes = function() raw(0)
   ),
   private = list(
@@ -30147,18 +28810,15 @@ PageBlockAnchor <- R6::R6Class(
     CONSTRUCTOR_ID = 0xce0d37b0,
     SUBCLASS_OF_ID = 0x1aca5644,
     name = NULL,
-
     initialize = function(name) {
       self$name <- name
     },
-
     to_dict = function() {
       list(
         `_` = "PageBlockAnchor",
         name = self$name
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xb0, 0x7d, 0x0d, 0xce)),
@@ -30184,7 +28844,6 @@ PageBlockAudio <- R6::R6Class(
     SUBCLASS_OF_ID = 0x1aca5644,
     audio_id = NULL,
     caption = NULL,
-
     initialize = function(audio_id = NULL, caption = NULL) {
       self$audio_id <- audio_id
       self$caption <- caption
@@ -30210,7 +28869,6 @@ PageBlockAuthorDate <- R6::R6Class(
     SUBCLASS_OF_ID = 0x1aca5644,
     author = NULL,
     published_date = NULL,
-
     initialize = function(author = NULL, published_date = NULL) {
       self$author <- author
       self$published_date <- published_date
@@ -30236,7 +28894,6 @@ PageBlockBlockquote <- R6::R6Class(
     SUBCLASS_OF_ID = 0x1aca5644,
     text = NULL,
     caption = NULL,
-
     initialize = function(text = NULL, caption = NULL) {
       self$text <- text
       self$caption <- caption
@@ -30261,7 +28918,6 @@ PageBlockChannel <- R6::R6Class(
     CONSTRUCTOR_ID = 0xef1751b5,
     SUBCLASS_OF_ID = 0x1aca5644,
     channel = NULL,
-
     initialize = function(channel = NULL) {
       self$channel <- channel
     },
@@ -30285,7 +28941,6 @@ PageBlockCollage <- R6::R6Class(
     SUBCLASS_OF_ID = 0x1aca5644,
     items = NULL,
     caption = NULL,
-
     initialize = function(items = list(), caption = NULL) {
       self$items <- items
       self$caption <- caption
@@ -30313,7 +28968,6 @@ PageBlockCover <- R6::R6Class(
     CONSTRUCTOR_ID = 0x39f23300,
     SUBCLASS_OF_ID = 0x1aca5644,
     cover = NULL,
-
     initialize = function(cover = NULL) {
       self$cover <- cover
     },
@@ -30338,7 +28992,6 @@ PageBlockDetails <- R6::R6Class(
     blocks = NULL,
     title = NULL,
     open = NULL,
-
     initialize = function(blocks = list(), title = NULL, open = NULL) {
       self$blocks <- blocks
       self$title <- title
@@ -30368,13 +29021,14 @@ PageBlockDivider <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xdb20b188,
     SUBCLASS_OF_ID = 0x1aca5644,
-
     initialize = function() {},
     to_dict = function() list(`_` = "PageBlockDivider"),
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -30393,7 +29047,6 @@ PageBlockEmbed <- R6::R6Class(
     poster_photo_id = NULL,
     w = NULL,
     h = NULL,
-
     initialize = function(caption = NULL, full_width = NULL, allow_scrolling = NULL, url = NULL, html = NULL, poster_photo_id = NULL, w = NULL, h = NULL) {
       self$caption <- caption
       self$full_width <- full_width
@@ -30437,7 +29090,6 @@ PageBlockEmbedPost <- R6::R6Class(
     date = NULL,
     blocks = NULL,
     caption = NULL,
-
     initialize = function(url = NULL, webpage_id = NULL, author_photo_id = NULL, author = NULL, date = NULL, blocks = list(), caption = NULL) {
       self$url <- url
       self$webpage_id <- webpage_id
@@ -30475,7 +29127,6 @@ PageBlockFooter <- R6::R6Class(
     CONSTRUCTOR_ID = 0x48870999,
     SUBCLASS_OF_ID = 0x1aca5644,
     text = NULL,
-
     initialize = function(text = NULL) {
       self$text <- text
     },
@@ -30498,7 +29149,6 @@ PageBlockHeader <- R6::R6Class(
     CONSTRUCTOR_ID = 0xbfd064ec,
     SUBCLASS_OF_ID = 0x1aca5644,
     text = NULL,
-
     initialize = function(text = NULL) {
       self$text <- text
     },
@@ -30521,7 +29171,6 @@ PageBlockKicker <- R6::R6Class(
     CONSTRUCTOR_ID = 0x1e148390,
     SUBCLASS_OF_ID = 0x1aca5644,
     text = NULL,
-
     initialize = function(text = NULL) {
       self$text <- text
     },
@@ -30544,7 +29193,6 @@ PageBlockList <- R6::R6Class(
     CONSTRUCTOR_ID = 0xe4e88011,
     SUBCLASS_OF_ID = 0x1aca5644,
     items = NULL,
-
     initialize = function(items = list()) {
       self$items <- items
     },
@@ -30574,7 +29222,6 @@ PageBlockMap <- R6::R6Class(
     w = NULL,
     h = NULL,
     caption = NULL,
-
     initialize = function(geo = NULL, zoom = NULL, w = NULL, h = NULL, caption = NULL) {
       self$geo <- geo
       self$zoom <- zoom
@@ -30605,7 +29252,6 @@ PageBlockOrderedList <- R6::R6Class(
     CONSTRUCTOR_ID = 0x9a8ae1e1,
     SUBCLASS_OF_ID = 0x1aca5644,
     items = NULL,
-
     initialize = function(items = list()) {
       self$items <- items
     },
@@ -30631,7 +29277,6 @@ PageBlockParagraph <- R6::R6Class(
     CONSTRUCTOR_ID = 0x467a0766,
     SUBCLASS_OF_ID = 0x1aca5644,
     text = NULL,
-
     initialize = function(text = NULL) {
       self$text <- text
     },
@@ -30657,7 +29302,6 @@ PageBlockPhoto <- R6::R6Class(
     caption = NULL,
     url = NULL,
     webpage_id = NULL,
-
     initialize = function(photo_id = NULL, caption = NULL, url = NULL, webpage_id = NULL) {
       self$photo_id <- photo_id
       self$caption <- caption
@@ -30688,7 +29332,6 @@ PageBlockPreformatted <- R6::R6Class(
     SUBCLASS_OF_ID = 0x1aca5644,
     text = NULL,
     language = NULL,
-
     initialize = function(text = NULL, language = NULL) {
       self$text <- text
       self$language <- language
@@ -30714,7 +29357,6 @@ PageBlockPullquote <- R6::R6Class(
     SUBCLASS_OF_ID = 0x1aca5644,
     text = NULL,
     caption = NULL,
-
     initialize = function(text = NULL, caption = NULL) {
       self$text <- text
       self$caption <- caption
@@ -30740,7 +29382,6 @@ PageBlockRelatedArticles <- R6::R6Class(
     SUBCLASS_OF_ID = 0x1aca5644,
     title = NULL,
     articles = NULL,
-
     initialize = function(title = NULL, articles = list()) {
       self$title <- title
       self$articles <- articles
@@ -30769,7 +29410,6 @@ PageBlockSlideshow <- R6::R6Class(
     SUBCLASS_OF_ID = 0x1aca5644,
     items = NULL,
     caption = NULL,
-
     initialize = function(items = list(), caption = NULL) {
       self$items <- items
       self$caption <- caption
@@ -30797,7 +29437,6 @@ PageBlockSubheader <- R6::R6Class(
     CONSTRUCTOR_ID = 0xf12bb6e1,
     SUBCLASS_OF_ID = 0x1aca5644,
     text = NULL,
-
     initialize = function(text = NULL) {
       self$text <- text
     },
@@ -30820,7 +29459,6 @@ PageBlockSubtitle <- R6::R6Class(
     CONSTRUCTOR_ID = 0x8ffa9a1f,
     SUBCLASS_OF_ID = 0x1aca5644,
     text = NULL,
-
     initialize = function(text = NULL) {
       self$text <- text
     },
@@ -30846,7 +29484,6 @@ PageBlockTable <- R6::R6Class(
     rows = NULL,
     bordered = NULL,
     striped = NULL,
-
     initialize = function(title = NULL, rows = list(), bordered = NULL, striped = NULL) {
       self$title <- title
       self$rows <- rows
@@ -30879,7 +29516,6 @@ PageBlockTitle <- R6::R6Class(
     CONSTRUCTOR_ID = 0x70abc3fd,
     SUBCLASS_OF_ID = 0x1aca5644,
     text = NULL,
-
     initialize = function(text = NULL) {
       self$text <- text
     },
@@ -30901,13 +29537,14 @@ PageBlockUnsupported <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x13567e8a,
     SUBCLASS_OF_ID = 0x1aca5644,
-
     initialize = function() {},
     to_dict = function() list(`_` = "PageBlockUnsupported"),
     bytes = function() raw(0)
   ),
   private = list(
-    from_reader = function(reader) { self$new() }
+    from_reader = function(reader) {
+      self$new()
+    }
   ),
   class = TRUE
 )
@@ -30922,7 +29559,6 @@ PageBlockVideo <- R6::R6Class(
     caption = NULL,
     autoplay = NULL,
     loop = NULL,
-
     initialize = function(video_id = NULL, caption = NULL, autoplay = NULL, loop = NULL) {
       self$video_id <- video_id
       self$caption <- caption
@@ -30954,12 +29590,10 @@ PageCaption <- R6::R6Class(
     SUBCLASS_OF_ID = 0x29b8eeb3,
     text = NULL,
     credit = NULL,
-
     initialize = function(text = NULL, credit = NULL) {
       self$text <- text
       self$credit <- credit
     },
-
     to_dict = function() {
       list(
         `_` = "PageCaption",
@@ -30967,7 +29601,6 @@ PageCaption <- R6::R6Class(
         credit = if (inherits(self$credit, "TLObject")) self$credit$to_dict() else self$credit
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x57, 0x76, 0x74, 0x6f)), # "Wvto" in raw bytes
@@ -30993,15 +29626,16 @@ PageListItemBlocks <- R6::R6Class("PageListItemBlocks",
     CONSTRUCTOR_ID = 0x25e073fc,
     SUBCLASS_OF_ID = 0x8caebcb1,
     blocks = NULL,
-
     initialize = function(blocks = list()) {
       self$blocks <- blocks
     },
     to_dict = function() list(`_` = "PageListItemBlocks", blocks = if (is.null(self$blocks)) list() else lapply(self$blocks, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)),
-    bytes = function() c(
-      as.raw(c(0xfc, 0x73, 0xe0, 0x25)),
-      as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$blocks)), type = "raw")[1:4], do.call(c, lapply(self$blocks, function(x) x$`bytes`()))
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0xfc, 0x73, 0xe0, 0x25)),
+        as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$blocks)), type = "raw")[1:4], do.call(c, lapply(self$blocks, function(x) x$`bytes`()))
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31023,15 +29657,16 @@ PageListItemText <- R6::R6Class("PageListItemText",
     CONSTRUCTOR_ID = 0xb92fb6cd,
     SUBCLASS_OF_ID = 0x8caebcb1,
     text = NULL,
-
     initialize = function(text = NULL) {
       self$text <- text
     },
     to_dict = function() list(`_` = "PageListItemText", text = if (inherits(self$text, "TLObject")) self$text$to_dict() else self$text),
-    bytes = function() c(
-      as.raw(c(0xcd, 0xb6, 0x2f, 0xb9)),
-      self$text$`bytes`()
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0xcd, 0xb6, 0x2f, 0xb9)),
+        self$text$`bytes`()
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31049,17 +29684,18 @@ PageListOrderedItemBlocks <- R6::R6Class("PageListOrderedItemBlocks",
     SUBCLASS_OF_ID = 0xeeda0eb8,
     num = NULL,
     blocks = NULL,
-
     initialize = function(num = NULL, blocks = list()) {
       self$num <- num
       self$blocks <- blocks
     },
     to_dict = function() list(`_` = "PageListOrderedItemBlocks", num = self$num, blocks = if (is.null(self$blocks)) list() else lapply(self$blocks, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)),
-    bytes = function() c(
-      as.raw(c(0x36, 0x89, 0xdd, 0x98)),
-      self$serializebytes(self$num),
-      as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$blocks)), type = "raw")[1:4], do.call(c, lapply(self$blocks, function(x) x$`bytes`()))
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x36, 0x89, 0xdd, 0x98)),
+        self$serializebytes(self$num),
+        as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$blocks)), type = "raw")[1:4], do.call(c, lapply(self$blocks, function(x) x$`bytes`()))
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31083,17 +29719,18 @@ PageListOrderedItemText <- R6::R6Class("PageListOrderedItemText",
     SUBCLASS_OF_ID = 0xeeda0eb8,
     num = NULL,
     text = NULL,
-
     initialize = function(num = NULL, text = NULL) {
       self$num <- num
       self$text <- text
     },
     to_dict = function() list(`_` = "PageListOrderedItemText", num = self$num, text = if (inherits(self$text, "TLObject")) self$text$to_dict() else self$text),
-    bytes = function() c(
-      as.raw(c(0x47, 0x80, 0x06, 0x5e)),
-      self$serializebytes(self$num),
-      self$text$`bytes`()
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x47, 0x80, 0x06, 0x5e)),
+        self$serializebytes(self$num),
+        self$text$`bytes`()
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31117,7 +29754,6 @@ PageRelatedArticle <- R6::R6Class("PageRelatedArticle",
     photo_id = NULL,
     author = NULL,
     published_date = NULL,
-
     initialize = function(url = NULL, webpage_id = NULL, title = NULL, description = NULL, photo_id = NULL, author = NULL, published_date = NULL) {
       self$url <- url
       self$webpage_id <- webpage_id
@@ -31128,17 +29764,19 @@ PageRelatedArticle <- R6::R6Class("PageRelatedArticle",
       self$published_date <- published_date
     },
     to_dict = function() list(`_` = "PageRelatedArticle", url = self$url, webpage_id = self$webpage_id, title = self$title, description = self$description, photo_id = self$photo_id, author = self$author, published_date = self$published_date),
-    bytes = function() c(
-      as.raw(c(0x08, 0xdc, 0x90, 0xb3)),
-      packBits(intToBits((if (is.null(self$title)) 0 else 1) | (if (is.null(self$description)) 0 else 2) | (if (is.null(self$photo_id)) 0 else 4) | (if (is.null(self$author)) 0 else 8) | (if (is.null(self$published_date)) 0 else 16)), type = "raw")[1:4],
-      self$serializebytes(self$url),
-      packBits(intToBits(self$webpage_id, 64), type = "raw")[1:8],
-      if (!is.null(self$title)) self$serializebytes(self$title) else raw(0),
-      if (!is.null(self$description)) self$serializebytes(self$description) else raw(0),
-      if (!is.null(self$photo_id)) packBits(intToBits(self$photo_id, 64), type = "raw")[1:8] else raw(0),
-      if (!is.null(self$author)) self$serializebytes(self$author) else raw(0),
-      if (!is.null(self$published_date)) self$serialize_datetime(self$published_date) else raw(0)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x08, 0xdc, 0x90, 0xb3)),
+        packBits(intToBits((if (is.null(self$title)) 0 else 1) | (if (is.null(self$description)) 0 else 2) | (if (is.null(self$photo_id)) 0 else 4) | (if (is.null(self$author)) 0 else 8) | (if (is.null(self$published_date)) 0 else 16)), type = "raw")[1:4],
+        self$serializebytes(self$url),
+        packBits(intToBits(self$webpage_id, 64), type = "raw")[1:8],
+        if (!is.null(self$title)) self$serializebytes(self$title) else raw(0),
+        if (!is.null(self$description)) self$serializebytes(self$description) else raw(0),
+        if (!is.null(self$photo_id)) packBits(intToBits(self$photo_id, 64), type = "raw")[1:8] else raw(0),
+        if (!is.null(self$author)) self$serializebytes(self$author) else raw(0),
+        if (!is.null(self$published_date)) self$serialize_datetime(self$published_date) else raw(0)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31169,7 +29807,6 @@ PageTableCell <- R6::R6Class("PageTableCell",
     text = NULL,
     colspan = NULL,
     rowspan = NULL,
-
     initialize = function(header = NULL, align_center = NULL, align_right = NULL, valign_middle = NULL, valign_bottom = NULL, text = NULL, colspan = NULL, rowspan = NULL) {
       self$header <- header
       self$align_center <- align_center
@@ -31181,13 +29818,15 @@ PageTableCell <- R6::R6Class("PageTableCell",
       self$rowspan <- rowspan
     },
     to_dict = function() list(`_` = "PageTableCell", header = self$header, align_center = self$align_center, align_right = self$align_right, valign_middle = self$valign_middle, valign_bottom = self$valign_bottom, text = if (inherits(self$text, "TLObject")) self$text$to_dict() else self$text, colspan = self$colspan, rowspan = self$rowspan),
-    bytes = function() c(
-      as.raw(c(0x6a, 0x6b, 0x56, 0x34)),
-      packBits(intToBits((if (is.null(self$header)) 0 else 1) | (if (is.null(self$align_center)) 0 else 8) | (if (is.null(self$align_right)) 0 else 16) | (if (is.null(self$valign_middle)) 0 else 32) | (if (is.null(self$valign_bottom)) 0 else 64) | (if (is.null(self$text)) 0 else 128) | (if (is.null(self$colspan)) 0 else 2) | (if (is.null(self$rowspan)) 0 else 4)), type = "raw")[1:4],
-      if (!is.null(self$text)) self$text$`bytes`() else raw(0),
-      if (!is.null(self$colspan)) packBits(intToBits(self$colspan), type = "raw")[1:4] else raw(0),
-      if (!is.null(self$rowspan)) packBits(intToBits(self$rowspan), type = "raw")[1:4] else raw(0)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x6a, 0x6b, 0x56, 0x34)),
+        packBits(intToBits((if (is.null(self$header)) 0 else 1) | (if (is.null(self$align_center)) 0 else 8) | (if (is.null(self$align_right)) 0 else 16) | (if (is.null(self$valign_middle)) 0 else 32) | (if (is.null(self$valign_bottom)) 0 else 64) | (if (is.null(self$text)) 0 else 128) | (if (is.null(self$colspan)) 0 else 2) | (if (is.null(self$rowspan)) 0 else 4)), type = "raw")[1:4],
+        if (!is.null(self$text)) self$text$`bytes`() else raw(0),
+        if (!is.null(self$colspan)) packBits(intToBits(self$colspan), type = "raw")[1:4] else raw(0),
+        if (!is.null(self$rowspan)) packBits(intToBits(self$rowspan), type = "raw")[1:4] else raw(0)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31212,15 +29851,16 @@ PageTableRow <- R6::R6Class("PageTableRow",
     CONSTRUCTOR_ID = 0xe0c0c5e5,
     SUBCLASS_OF_ID = 0x59acee11,
     cells = NULL,
-
     initialize = function(cells = list()) {
       self$cells <- cells
     },
     to_dict = function() list(`_` = "PageTableRow", cells = if (is.null(self$cells)) list() else lapply(self$cells, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)),
-    bytes = function() c(
-      as.raw(c(0xe5, 0xc5, 0xc0, 0xe0)),
-      as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$cells)), type = "raw")[1:4], do.call(c, lapply(self$cells, function(x) x$`bytes`()))
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0xe5, 0xc5, 0xc0, 0xe0)),
+        as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$cells)), type = "raw")[1:4], do.call(c, lapply(self$cells, function(x) x$`bytes`()))
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31241,7 +29881,6 @@ PaidReactionPrivacyAnonymous <- R6::R6Class("PaidReactionPrivacyAnonymous",
   public = list(
     CONSTRUCTOR_ID = 0x1f0c1ad9,
     SUBCLASS_OF_ID = 0x65d77636,
-
     initialize = function() {},
     to_dict = function() list(`_` = "PaidReactionPrivacyAnonymous"),
     bytes = function() as.raw(c(0xd9, 0x1a, 0x0c, 0x1f))
@@ -31259,7 +29898,6 @@ PaidReactionPrivacyDefault <- R6::R6Class("PaidReactionPrivacyDefault",
   public = list(
     CONSTRUCTOR_ID = 0x206ad49e,
     SUBCLASS_OF_ID = 0x65d77636,
-
     initialize = function() {},
     to_dict = function() list(`_` = "PaidReactionPrivacyDefault"),
     bytes = function() as.raw(c(0x9e, 0xd4, 0x6a, 0x20))
@@ -31278,15 +29916,16 @@ PaidReactionPrivacyPeer <- R6::R6Class("PaidReactionPrivacyPeer",
     CONSTRUCTOR_ID = 0xdc6cfcf0,
     SUBCLASS_OF_ID = 0x65d77636,
     peer = NULL,
-
     initialize = function(peer = NULL) {
       self$peer <- peer
     },
     to_dict = function() list(`_` = "PaidReactionPrivacyPeer", peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer),
-    bytes = function() c(
-      as.raw(c(0xf0, 0xfc, 0x6c, 0xdc)),
-      self$peer$`bytes`()
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0xf0, 0xfc, 0x6c, 0xdc)),
+        self$peer$`bytes`()
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31306,7 +29945,6 @@ PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow <- R6::R6Class
     salt2 = NULL,
     g = NULL,
     p = NULL,
-
     initialize = function(salt1 = NULL, salt2 = NULL, g = NULL, p = NULL) {
       self$salt1 <- salt1
       self$salt2 <- salt2
@@ -31314,13 +29952,15 @@ PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow <- R6::R6Class
       self$p <- p
     },
     to_dict = function() list(`_` = "PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow", salt1 = self$salt1, salt2 = self$salt2, g = self$g, p = self$p),
-    bytes = function() c(
-      as.raw(c(0x4a, 0x2d, 0x91, 0x3a)),
-      self$serializebytes(self$salt1),
-      self$serializebytes(self$salt2),
-      packBits(intToBits(self$g), type = "raw")[1:4],
-      self$serializebytes(self$p)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x4a, 0x2d, 0x91, 0x3a)),
+        self$serializebytes(self$salt1),
+        self$serializebytes(self$salt2),
+        packBits(intToBits(self$g), type = "raw")[1:4],
+        self$serializebytes(self$p)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31339,7 +29979,6 @@ PasswordKdfAlgoUnknown <- R6::R6Class("PasswordKdfAlgoUnknown",
   public = list(
     CONSTRUCTOR_ID = 0xd45ab096,
     SUBCLASS_OF_ID = 0x37bcf5cc,
-
     initialize = function() {},
     to_dict = function() list(`_` = "PasswordKdfAlgoUnknown"),
     bytes = function() as.raw(c(0x96, 0xb0, 0x5a, 0xd4))
@@ -31359,17 +29998,18 @@ PaymentCharge <- R6::R6Class("PaymentCharge",
     SUBCLASS_OF_ID = 0x3cc830d9,
     id = NULL,
     provider_charge_id = NULL,
-
     initialize = function(id = NULL, provider_charge_id = NULL) {
       self$id <- id
       self$provider_charge_id <- provider_charge_id
     },
     to_dict = function() list(`_` = "PaymentCharge", id = self$id, provider_charge_id = self$provider_charge_id),
-    bytes = function() c(
-      as.raw(c(0x7e, 0xc2, 0x02, 0xea)),
-      self$serializebytes(self$id),
-      self$serializebytes(self$provider_charge_id)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x7e, 0xc2, 0x02, 0xea)),
+        self$serializebytes(self$id),
+        self$serializebytes(self$provider_charge_id)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31388,17 +30028,18 @@ PaymentFormMethod <- R6::R6Class("PaymentFormMethod",
     SUBCLASS_OF_ID = 0x3fc1c816,
     url = NULL,
     title = NULL,
-
     initialize = function(url = NULL, title = NULL) {
       self$url <- url
       self$title <- title
     },
     to_dict = function() list(`_` = "PaymentFormMethod", url = self$url, title = self$title),
-    bytes = function() c(
-      as.raw(c(0x1b, 0xf2, 0xf8, 0x88)),
-      self$serializebytes(self$url),
-      self$serializebytes(self$title)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x1b, 0xf2, 0xf8, 0x88)),
+        self$serializebytes(self$url),
+        self$serializebytes(self$title)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31419,7 +30060,6 @@ PaymentRequestedInfo <- R6::R6Class("PaymentRequestedInfo",
     phone = NULL,
     email = NULL,
     shipping_address = NULL,
-
     initialize = function(name = NULL, phone = NULL, email = NULL, shipping_address = NULL) {
       self$name <- name
       self$phone <- phone
@@ -31427,14 +30067,16 @@ PaymentRequestedInfo <- R6::R6Class("PaymentRequestedInfo",
       self$shipping_address <- shipping_address
     },
     to_dict = function() list(`_` = "PaymentRequestedInfo", name = self$name, phone = self$phone, email = self$email, shipping_address = if (inherits(self$shipping_address, "TLObject")) self$shipping_address$to_dict() else self$shipping_address),
-    bytes = function() c(
-      as.raw(c(0x94, 0x3f, 0x9c, 0x90)),
-      packBits(intToBits((if (is.null(self$name)) 0 else 1) | (if (is.null(self$phone)) 0 else 2) | (if (is.null(self$email)) 0 else 4) | (if (is.null(self$shipping_address)) 0 else 8)), type = "raw")[1:4],
-      if (!is.null(self$name)) self$serializebytes(self$name) else raw(0),
-      if (!is.null(self$phone)) self$serializebytes(self$phone) else raw(0),
-      if (!is.null(self$email)) self$serializebytes(self$email) else raw(0),
-      if (!is.null(self$shipping_address)) self$shipping_address$`bytes`() else raw(0)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x94, 0x3f, 0x9c, 0x90)),
+        packBits(intToBits((if (is.null(self$name)) 0 else 1) | (if (is.null(self$phone)) 0 else 2) | (if (is.null(self$email)) 0 else 4) | (if (is.null(self$shipping_address)) 0 else 8)), type = "raw")[1:4],
+        if (!is.null(self$name)) self$serializebytes(self$name) else raw(0),
+        if (!is.null(self$phone)) self$serializebytes(self$phone) else raw(0),
+        if (!is.null(self$email)) self$serializebytes(self$email) else raw(0),
+        if (!is.null(self$shipping_address)) self$shipping_address$`bytes`() else raw(0)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31456,17 +30098,18 @@ PaymentSavedCredentialsCard <- R6::R6Class("PaymentSavedCredentialsCard",
     SUBCLASS_OF_ID = 0xb3627ee3,
     id = NULL,
     title = NULL,
-
     initialize = function(id = NULL, title = NULL) {
       self$id <- id
       self$title <- title
     },
     to_dict = function() list(`_` = "PaymentSavedCredentialsCard", id = self$id, title = self$title),
-    bytes = function() c(
-      as.raw(c(0x1f, 0x7a, 0xc2, 0xcd)),
-      self$serializebytes(self$id),
-      self$serializebytes(self$title)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x1f, 0x7a, 0xc2, 0xcd)),
+        self$serializebytes(self$id),
+        self$serializebytes(self$title)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31485,17 +30128,18 @@ PeerBlocked <- R6::R6Class("PeerBlocked",
     SUBCLASS_OF_ID = 0x54f2fc98,
     peer_id = NULL,
     date = NULL,
-
     initialize = function(peer_id = NULL, date = NULL) {
       self$peer_id <- peer_id
       self$date <- date
     },
     to_dict = function() list(`_` = "PeerBlocked", peer_id = if (inherits(self$peer_id, "TLObject")) self$peer_id$to_dict() else self$peer_id, date = self$date),
-    bytes = function() c(
-      as.raw(c(0x14, 0x80, 0xfd, 0xe8)),
-      self$peer_id$`bytes`(),
-      self$serialize_datetime(self$date)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x14, 0x80, 0xfd, 0xe8)),
+        self$peer_id$`bytes`(),
+        self$serialize_datetime(self$date)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31513,15 +30157,16 @@ PeerChannel <- R6::R6Class("PeerChannel",
     CONSTRUCTOR_ID = 0xa2a5371e,
     SUBCLASS_OF_ID = 0x2d45687,
     channel_id = NULL,
-
     initialize = function(channel_id = NULL) {
       self$channel_id <- channel_id
     },
     to_dict = function() list(`_` = "PeerChannel", channel_id = self$channel_id),
-    bytes = function() c(
-      as.raw(c(0x1e, 0x37, 0xa5, 0xa2)),
-      packBits(intToBits(self$channel_id, 64), type = "raw")[1:8]
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x1e, 0x37, 0xa5, 0xa2)),
+        packBits(intToBits(self$channel_id, 64), type = "raw")[1:8]
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31538,15 +30183,16 @@ PeerChat <- R6::R6Class("PeerChat",
     CONSTRUCTOR_ID = 0x36c6019a,
     SUBCLASS_OF_ID = 0x2d45687,
     chat_id = NULL,
-
     initialize = function(chat_id = NULL) {
       self$chat_id <- chat_id
     },
     to_dict = function() list(`_` = "PeerChat", chat_id = self$chat_id),
-    bytes = function() c(
-      as.raw(c(0x9a, 0x01, 0xc6, 0x36)),
-      packBits(intToBits(self$chat_id, 64), type = "raw")[1:8]
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x9a, 0x01, 0xc6, 0x36)),
+        packBits(intToBits(self$chat_id, 64), type = "raw")[1:8]
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31564,18 +30210,19 @@ PeerColor <- R6::R6Class("PeerColor",
     SUBCLASS_OF_ID = 0xf281a47f,
     color = NULL,
     background_emoji_id = NULL,
-
     initialize = function(color = NULL, background_emoji_id = NULL) {
       self$color <- color
       self$background_emoji_id <- background_emoji_id
     },
     to_dict = function() list(`_` = "PeerColor", color = self$color, background_emoji_id = self$background_emoji_id),
-    bytes = function() c(
-      as.raw(c(0xcf, 0x5a, 0x4b, 0xb5)),
-      packBits(intToBits((if (is.null(self$color)) 0 else 1) | (if (is.null(self$background_emoji_id)) 0 else 2)), type = "raw")[1:4],
-      if (!is.null(self$color)) packBits(intToBits(self$color), type = "raw")[1:4] else raw(0),
-      if (!is.null(self$background_emoji_id)) packBits(intToBits(self$background_emoji_id, 64), type = "raw")[1:8] else raw(0)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0xcf, 0x5a, 0x4b, 0xb5)),
+        packBits(intToBits((if (is.null(self$color)) 0 else 1) | (if (is.null(self$background_emoji_id)) 0 else 2)), type = "raw")[1:4],
+        if (!is.null(self$color)) packBits(intToBits(self$color), type = "raw")[1:4] else raw(0),
+        if (!is.null(self$background_emoji_id)) packBits(intToBits(self$background_emoji_id, 64), type = "raw")[1:8] else raw(0)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31596,19 +30243,20 @@ PeerLocated <- R6::R6Class("PeerLocated",
     peer = NULL,
     expires = NULL,
     distance = NULL,
-
     initialize = function(peer = NULL, expires = NULL, distance = NULL) {
       self$peer <- peer
       self$expires <- expires
       self$distance <- distance
     },
     to_dict = function() list(`_` = "PeerLocated", peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer, expires = self$expires, distance = self$distance),
-    bytes = function() c(
-      as.raw(c(0x5d, 0x1b, 0x46, 0xca)),
-      self$peer$`bytes`(),
-      self$serialize_datetime(self$expires),
-      packBits(intToBits(self$distance), type = "raw")[1:4]
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x5d, 0x1b, 0x46, 0xca)),
+        self$peer$`bytes`(),
+        self$serialize_datetime(self$expires),
+        packBits(intToBits(self$distance), type = "raw")[1:4]
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31638,7 +30286,6 @@ PeerNotifySettings <- R6::R6Class("PeerNotifySettings",
     stories_ios_sound = NULL,
     stories_android_sound = NULL,
     stories_other_sound = NULL,
-
     initialize = function(show_previews = NULL, silent = NULL, mute_until = NULL, ios_sound = NULL, android_sound = NULL, other_sound = NULL, stories_muted = NULL, stories_hide_sender = NULL, stories_ios_sound = NULL, stories_android_sound = NULL, stories_other_sound = NULL) {
       self$show_previews <- show_previews
       self$silent <- silent
@@ -31653,21 +30300,23 @@ PeerNotifySettings <- R6::R6Class("PeerNotifySettings",
       self$stories_other_sound <- stories_other_sound
     },
     to_dict = function() list(`_` = "PeerNotifySettings", show_previews = self$show_previews, silent = self$silent, mute_until = self$mute_until, ios_sound = if (inherits(self$ios_sound, "TLObject")) self$ios_sound$to_dict() else self$ios_sound, android_sound = if (inherits(self$android_sound, "TLObject")) self$android_sound$to_dict() else self$android_sound, other_sound = if (inherits(self$other_sound, "TLObject")) self$other_sound$to_dict() else self$other_sound, stories_muted = self$stories_muted, stories_hide_sender = self$stories_hide_sender, stories_ios_sound = if (inherits(self$stories_ios_sound, "TLObject")) self$stories_ios_sound$to_dict() else self$stories_ios_sound, stories_android_sound = if (inherits(self$stories_android_sound, "TLObject")) self$stories_android_sound$to_dict() else self$stories_android_sound, stories_other_sound = if (inherits(self$stories_other_sound, "TLObject")) self$stories_other_sound$to_dict() else self$stories_other_sound),
-    bytes = function() c(
-      as.raw(c(0x0c, 0x2c, 0x62, 0x99)),
-      as.raw(c((ifelse(is.null(self$show_previews), 0, 1)) | (ifelse(is.null(self$silent), 0, 2)) | (ifelse(is.null(self$mute_until), 0, 4)) | (ifelse(is.null(self$ios_sound), 0, 8)) | (ifelse(is.null(self$android_sound), 0, 16)) | (ifelse(is.null(self$other_sound), 0, 32)) | (ifelse(is.null(self$stories_muted), 0, 64)) | (ifelse(is.null(self$stories_hide_sender), 0, 128)) | (ifelse(is.null(self$stories_ios_sound), 0, 256)) | (ifelse(is.null(self$stories_android_sound), 0, 512)) | (ifelse(is.null(self$stories_other_sound), 0, 1024)))),
-      if (!is.null(self$show_previews)) if (self$show_previews) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)) else raw(0),
-      if (!is.null(self$silent)) if (self$silent) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)) else raw(0),
-      if (!is.null(self$mute_until)) self$serialize_datetime(self$mute_until) else raw(0),
-      if (!is.null(self$ios_sound)) self$ios_sound$bytes() else raw(0),
-      if (!is.null(self$android_sound)) self$android_sound$bytes() else raw(0),
-      if (!is.null(self$other_sound)) self$other_sound$bytes() else raw(0),
-      if (!is.null(self$stories_muted)) if (self$stories_muted) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)) else raw(0),
-      if (!is.null(self$stories_hide_sender)) if (self$stories_hide_sender) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)) else raw(0),
-      if (!is.null(self$stories_ios_sound)) self$stories_ios_sound$bytes() else raw(0),
-      if (!is.null(self$stories_android_sound)) self$stories_android_sound$bytes() else raw(0),
-      if (!is.null(self$stories_other_sound)) self$stories_other_sound$bytes() else raw(0)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x0c, 0x2c, 0x62, 0x99)),
+        as.raw(c((ifelse(is.null(self$show_previews), 0, 1)) | (ifelse(is.null(self$silent), 0, 2)) | (ifelse(is.null(self$mute_until), 0, 4)) | (ifelse(is.null(self$ios_sound), 0, 8)) | (ifelse(is.null(self$android_sound), 0, 16)) | (ifelse(is.null(self$other_sound), 0, 32)) | (ifelse(is.null(self$stories_muted), 0, 64)) | (ifelse(is.null(self$stories_hide_sender), 0, 128)) | (ifelse(is.null(self$stories_ios_sound), 0, 256)) | (ifelse(is.null(self$stories_android_sound), 0, 512)) | (ifelse(is.null(self$stories_other_sound), 0, 1024)))),
+        if (!is.null(self$show_previews)) if (self$show_previews) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)) else raw(0),
+        if (!is.null(self$silent)) if (self$silent) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)) else raw(0),
+        if (!is.null(self$mute_until)) self$serialize_datetime(self$mute_until) else raw(0),
+        if (!is.null(self$ios_sound)) self$ios_sound$bytes() else raw(0),
+        if (!is.null(self$android_sound)) self$android_sound$bytes() else raw(0),
+        if (!is.null(self$other_sound)) self$other_sound$bytes() else raw(0),
+        if (!is.null(self$stories_muted)) if (self$stories_muted) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)) else raw(0),
+        if (!is.null(self$stories_hide_sender)) if (self$stories_hide_sender) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)) else raw(0),
+        if (!is.null(self$stories_ios_sound)) self$stories_ios_sound$bytes() else raw(0),
+        if (!is.null(self$stories_android_sound)) self$stories_android_sound$bytes() else raw(0),
+        if (!is.null(self$stories_other_sound)) self$stories_other_sound$bytes() else raw(0)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31739,15 +30388,16 @@ PeerSelfLocated <- R6::R6Class("PeerSelfLocated",
     CONSTRUCTOR_ID = 0xf8ec284b,
     SUBCLASS_OF_ID = 0xfada34ac,
     expires = NULL,
-
     initialize = function(expires = NULL) {
       self$expires <- expires
     },
     to_dict = function() list(`_` = "PeerSelfLocated", expires = self$expires),
-    bytes = function() c(
-      as.raw(c(0x4b, 0x28, 0xec, 0xf8)),
-      self$serialize_datetime(self$expires)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x4b, 0x28, 0xec, 0xf8)),
+        self$serialize_datetime(self$expires)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31784,7 +30434,6 @@ PeerSettings <- R6::R6Class("PeerSettings",
     phone_country = NULL,
     name_change_date = NULL,
     photo_change_date = NULL,
-
     initialize = function(report_spam = NULL, add_contact = NULL, block_contact = NULL, share_contact = NULL, need_contacts_exception = NULL, report_geo = NULL, autoarchived = NULL, invite_members = NULL, request_chat_broadcast = NULL, business_bot_paused = NULL, business_bot_can_reply = NULL, geo_distance = NULL, request_chat_title = NULL, request_chat_date = NULL, business_bot_id = NULL, business_bot_manage_url = NULL, charge_paid_message_stars = NULL, registration_month = NULL, phone_country = NULL, name_change_date = NULL, photo_change_date = NULL) {
       self$report_spam <- report_spam
       self$add_contact <- add_contact
@@ -31906,20 +30555,21 @@ PeerStories <- R6::R6Class("PeerStories",
     peer = NULL,
     stories = NULL,
     max_read_id = NULL,
-
     initialize = function(peer = NULL, stories = NULL, max_read_id = NULL) {
       self$peer <- peer
       self$stories <- stories
       self$max_read_id <- max_read_id
     },
     to_dict = function() list(`_` = "PeerStories", peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer, stories = if (is.null(self$stories)) list() else lapply(self$stories, function(x) if (inherits(x, "TLObject")) x$to_dict() else x), max_read_id = self$max_read_id),
-    bytes = function() c(
-      as.raw(c(0x99, 0xe9, 0x35, 0x9a)),
-      as.raw(c(ifelse(is.null(self$max_read_id), 0, 1))),
-      self$peer$bytes(),
-      if (!is.null(self$max_read_id)) packBits(intToBits(self$max_read_id), type = "raw") else raw(0),
-      as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$stories)), type = "raw"), do.call(c, lapply(self$stories, function(x) x$bytes()))
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x99, 0xe9, 0x35, 0x9a)),
+        as.raw(c(ifelse(is.null(self$max_read_id), 0, 1))),
+        self$peer$bytes(),
+        if (!is.null(self$max_read_id)) packBits(intToBits(self$max_read_id), type = "raw") else raw(0),
+        as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$stories)), type = "raw"), do.call(c, lapply(self$stories, function(x) x$bytes()))
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31947,15 +30597,16 @@ PeerUser <- R6::R6Class("PeerUser",
     CONSTRUCTOR_ID = 0x59511722,
     SUBCLASS_OF_ID = 0x2d45687,
     user_id = NULL,
-
     initialize = function(user_id = NULL) {
       self$user_id <- user_id
     },
     to_dict = function() list(`_` = "PeerUser", user_id = self$user_id),
-    bytes = function() c(
-      as.raw(c(0x22, 0x17, 0x51, 0x59)),
-      packBits(intToBits(self$user_id), type = "raw")
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x22, 0x17, 0x51, 0x59)),
+        packBits(intToBits(self$user_id), type = "raw")
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -31975,7 +30626,6 @@ PendingSuggestion <- R6::R6Class("PendingSuggestion",
     title = NULL,
     description = NULL,
     url = NULL,
-
     initialize = function(suggestion = NULL, title = NULL, description = NULL, url = NULL) {
       self$suggestion <- suggestion
       self$title <- title
@@ -31983,13 +30633,15 @@ PendingSuggestion <- R6::R6Class("PendingSuggestion",
       self$url <- url
     },
     to_dict = function() list(`_` = "PendingSuggestion", suggestion = self$suggestion, title = if (inherits(self$title, "TLObject")) self$title$to_dict() else self$title, description = if (inherits(self$description, "TLObject")) self$description$to_dict() else self$description, url = self$url),
-    bytes = function() c(
-      as.raw(c(0x12, 0x2e, 0xe8, 0xe7)),
-      self$serializebytes(self$suggestion),
-      self$title$bytes(),
-      self$description$bytes(),
-      self$serializebytes(self$url)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x12, 0x2e, 0xe8, 0xe7)),
+        self$serializebytes(self$suggestion),
+        self$title$bytes(),
+        self$description$bytes(),
+        self$serializebytes(self$url)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -32022,7 +30674,6 @@ PhoneCall <- R6::R6Class("PhoneCall",
     video = NULL,
     conference_supported = NULL,
     custom_parameters = NULL,
-
     initialize = function(id = NULL, access_hash = NULL, date = NULL, admin_id = NULL, participant_id = NULL, g_a_or_b = NULL, key_fingerprint = NULL, protocol = NULL, connections = NULL, start_date = NULL, p2p_allowed = NULL, video = NULL, conference_supported = NULL, custom_parameters = NULL) {
       self$id <- id
       self$access_hash <- access_hash
@@ -32040,21 +30691,23 @@ PhoneCall <- R6::R6Class("PhoneCall",
       self$custom_parameters <- custom_parameters
     },
     to_dict = function() list(`_` = "PhoneCall", id = self$id, access_hash = self$access_hash, date = self$date, admin_id = self$admin_id, participant_id = self$participant_id, g_a_or_b = self$g_a_or_b, key_fingerprint = self$key_fingerprint, protocol = if (inherits(self$protocol, "TLObject")) self$protocol$to_dict() else self$protocol, connections = if (is.null(self$connections)) list() else lapply(self$connections, function(x) if (inherits(x, "TLObject")) x$to_dict() else x), start_date = self$start_date, p2p_allowed = self$p2p_allowed, video = self$video, conference_supported = self$conference_supported, custom_parameters = if (inherits(self$custom_parameters, "TLObject")) self$custom_parameters$to_dict() else self$custom_parameters),
-    bytes = function() c(
-      as.raw(c(0xf5, 0x5a, 0x53, 0x30)),
-      as.raw(c((if (is.null(self$p2p_allowed)) 0 else 32) | (if (is.null(self$video)) 0 else 64) | (if (is.null(self$conference_supported)) 0 else 256) | (if (is.null(self$custom_parameters)) 0 else 128))),
-      packBits(intToBits(self$id), type = "raw"),
-      packBits(intToBits(self$access_hash), type = "raw"),
-      self$serialize_datetime(self$date),
-      packBits(intToBits(self$admin_id), type = "raw"),
-      packBits(intToBits(self$participant_id), type = "raw"),
-      self$serializebytes(self$g_a_or_b),
-      packBits(intToBits(self$key_fingerprint), type = "raw"),
-      self$protocol$bytes(),
-      as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$connections)), type = "raw"), do.call(c, lapply(self$connections, function(x) x$bytes())),
-      self$serialize_datetime(self$start_date),
-      if (!is.null(self$custom_parameters)) self$custom_parameters$bytes() else raw(0)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0xf5, 0x5a, 0x53, 0x30)),
+        as.raw(c((if (is.null(self$p2p_allowed)) 0 else 32) | (if (is.null(self$video)) 0 else 64) | (if (is.null(self$conference_supported)) 0 else 256) | (if (is.null(self$custom_parameters)) 0 else 128))),
+        packBits(intToBits(self$id), type = "raw"),
+        packBits(intToBits(self$access_hash), type = "raw"),
+        self$serialize_datetime(self$date),
+        packBits(intToBits(self$admin_id), type = "raw"),
+        packBits(intToBits(self$participant_id), type = "raw"),
+        self$serializebytes(self$g_a_or_b),
+        packBits(intToBits(self$key_fingerprint), type = "raw"),
+        self$protocol$bytes(),
+        as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$connections)), type = "raw"), do.call(c, lapply(self$connections, function(x) x$bytes())),
+        self$serialize_datetime(self$start_date),
+        if (!is.null(self$custom_parameters)) self$custom_parameters$bytes() else raw(0)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -32100,7 +30753,6 @@ PhoneCallAccepted <- R6::R6Class("PhoneCallAccepted",
     g_b = NULL,
     protocol = NULL,
     video = NULL,
-
     initialize = function(id = NULL, access_hash = NULL, date = NULL, admin_id = NULL, participant_id = NULL, g_b = NULL, protocol = NULL, video = NULL) {
       self$id <- id
       self$access_hash <- access_hash
@@ -32112,17 +30764,19 @@ PhoneCallAccepted <- R6::R6Class("PhoneCallAccepted",
       self$video <- video
     },
     to_dict = function() list(`_` = "PhoneCallAccepted", id = self$id, access_hash = self$access_hash, date = self$date, admin_id = self$admin_id, participant_id = self$participant_id, g_b = self$g_b, protocol = if (inherits(self$protocol, "TLObject")) self$protocol$to_dict() else self$protocol, video = self$video),
-    bytes = function() c(
-      as.raw(c(0x11, 0xc3, 0x60, 0x36)),
-      as.raw(ifelse(is.null(self$video), 0, 64)),
-      packBits(intToBits(self$id), type = "raw"),
-      packBits(intToBits(self$access_hash), type = "raw"),
-      self$serialize_datetime(self$date),
-      packBits(intToBits(self$admin_id), type = "raw"),
-      packBits(intToBits(self$participant_id), type = "raw"),
-      self$serializebytes(self$g_b),
-      self$protocol$bytes()
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x11, 0xc3, 0x60, 0x36)),
+        as.raw(ifelse(is.null(self$video), 0, 64)),
+        packBits(intToBits(self$id), type = "raw"),
+        packBits(intToBits(self$access_hash), type = "raw"),
+        self$serialize_datetime(self$date),
+        packBits(intToBits(self$admin_id), type = "raw"),
+        packBits(intToBits(self$participant_id), type = "raw"),
+        self$serializebytes(self$g_b),
+        self$protocol$bytes()
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -32146,7 +30800,6 @@ PhoneCallDiscardReasonBusy <- R6::R6Class("PhoneCallDiscardReasonBusy",
   public = list(
     CONSTRUCTOR_ID = 0xfaf7e8c9,
     SUBCLASS_OF_ID = 0xd89bad3d,
-
     to_dict = function() list(`_` = "PhoneCallDiscardReasonBusy"),
     bytes = function() as.raw(c(0xc9, 0xe8, 0xf7, 0xfa))
   ),
@@ -32161,7 +30814,6 @@ PhoneCallDiscardReasonDisconnect <- R6::R6Class("PhoneCallDiscardReasonDisconnec
   public = list(
     CONSTRUCTOR_ID = 0xe095c1a0,
     SUBCLASS_OF_ID = 0xd89bad3d,
-
     to_dict = function() list(`_` = "PhoneCallDiscardReasonDisconnect"),
     bytes = function() as.raw(c(0xa0, 0xc1, 0x95, 0xe0))
   ),
@@ -32176,7 +30828,6 @@ PhoneCallDiscardReasonHangup <- R6::R6Class("PhoneCallDiscardReasonHangup",
   public = list(
     CONSTRUCTOR_ID = 0x57adc690,
     SUBCLASS_OF_ID = 0xd89bad3d,
-
     to_dict = function() list(`_` = "PhoneCallDiscardReasonHangup"),
     bytes = function() as.raw(c(0x90, 0xc6, 0xad, 0x57))
   ),
@@ -32192,15 +30843,16 @@ PhoneCallDiscardReasonMigrateConferenceCall <- R6::R6Class("PhoneCallDiscardReas
     CONSTRUCTOR_ID = 0x9fbbf1f7,
     SUBCLASS_OF_ID = 0xd89bad3d,
     slug = NULL,
-
     initialize = function(slug = NULL) {
       self$slug <- slug
     },
     to_dict = function() list(`_` = "PhoneCallDiscardReasonMigrateConferenceCall", slug = self$slug),
-    bytes = function() c(
-      as.raw(c(0xf7, 0xf1, 0xbb, 0x9f)),
-      self$serializebytes(self$slug)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0xf7, 0xf1, 0xbb, 0x9f)),
+        self$serializebytes(self$slug)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -32216,7 +30868,6 @@ PhoneCallDiscardReasonMissed <- R6::R6Class("PhoneCallDiscardReasonMissed",
   public = list(
     CONSTRUCTOR_ID = 0x85e42301,
     SUBCLASS_OF_ID = 0xd89bad3d,
-
     to_dict = function() list(`_` = "PhoneCallDiscardReasonMissed"),
     bytes = function() as.raw(c(0x01, 0x23, 0xe4, 0x85))
   ),
@@ -32237,7 +30888,6 @@ PhoneCallDiscarded <- R6::R6Class("PhoneCallDiscarded",
     video = NULL,
     reason = NULL,
     duration = NULL,
-
     initialize = function(id = NULL, need_rating = NULL, need_debug = NULL, video = NULL, reason = NULL, duration = NULL) {
       self$id <- id
       self$need_rating <- need_rating
@@ -32247,13 +30897,15 @@ PhoneCallDiscarded <- R6::R6Class("PhoneCallDiscarded",
       self$duration <- duration
     },
     to_dict = function() list(`_` = "PhoneCallDiscarded", id = self$id, need_rating = self$need_rating, need_debug = self$need_debug, video = self$video, reason = if (inherits(self$reason, "TLObject")) self$reason$to_dict() else self$reason, duration = self$duration),
-    bytes = function() c(
-      as.raw(c(0xe1, 0x4d, 0xca, 0x50)),
-      as.raw(c((ifelse(is.null(self$need_rating), 0, 4)) | (ifelse(is.null(self$need_debug), 0, 8)) | (ifelse(is.null(self$video), 0, 64)) | (ifelse(is.null(self$reason), 0, 1)) | (ifelse(is.null(self$duration), 0, 2)))),
-      packBits(intToBits(self$id), type = "raw"),
-      if (!is.null(self$reason)) self$reason$bytes() else raw(0),
-      if (!is.null(self$duration)) packBits(intToBits(self$duration), type = "raw") else raw(0)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0xe1, 0x4d, 0xca, 0x50)),
+        as.raw(c((ifelse(is.null(self$need_rating), 0, 4)) | (ifelse(is.null(self$need_debug), 0, 8)) | (ifelse(is.null(self$video), 0, 64)) | (ifelse(is.null(self$reason), 0, 1)) | (ifelse(is.null(self$duration), 0, 2)))),
+        packBits(intToBits(self$id), type = "raw"),
+        if (!is.null(self$reason)) self$reason$bytes() else raw(0),
+        if (!is.null(self$duration)) packBits(intToBits(self$duration), type = "raw") else raw(0)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -32284,15 +30936,16 @@ PhoneCallEmpty <- R6::R6Class("PhoneCallEmpty",
     CONSTRUCTOR_ID = 0x5366c915,
     SUBCLASS_OF_ID = 0xc47f1bd1,
     id = NULL,
-
     initialize = function(id = NULL) {
       self$id <- id
     },
     to_dict = function() list(`_` = "PhoneCallEmpty", id = self$id),
-    bytes = function() c(
-      as.raw(c(0x15, 0xc9, 0x66, 0x53)),
-      packBits(intToBits(self$id), type = "raw")
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x15, 0xc9, 0x66, 0x53)),
+        packBits(intToBits(self$id), type = "raw")
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -32313,7 +30966,6 @@ PhoneCallProtocol <- R6::R6Class("PhoneCallProtocol",
     library_versions = NULL,
     udp_p2p = NULL,
     udp_reflector = NULL,
-
     initialize = function(min_layer = NULL, max_layer = NULL, library_versions = NULL, udp_p2p = NULL, udp_reflector = NULL) {
       self$min_layer <- min_layer
       self$max_layer <- max_layer
@@ -32322,13 +30974,15 @@ PhoneCallProtocol <- R6::R6Class("PhoneCallProtocol",
       self$udp_reflector <- udp_reflector
     },
     to_dict = function() list(`_` = "PhoneCallProtocol", min_layer = self$min_layer, max_layer = self$max_layer, library_versions = if (is.null(self$library_versions)) list() else self$library_versions, udp_p2p = self$udp_p2p, udp_reflector = self$udp_reflector),
-    bytes = function() c(
-      as.raw(c(0xc8, 0x8f, 0x87, 0xfc)),
-      as.raw(c((ifelse(is.null(self$udp_p2p), 0, 1)) | (ifelse(is.null(self$udp_reflector), 0, 2)))),
-      packBits(intToBits(self$min_layer), type = "raw"),
-      packBits(intToBits(self$max_layer), type = "raw"),
-      as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$library_versions)), type = "raw"), do.call(c, lapply(self$library_versions, function(x) self$serializebytes(x)))
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0xc8, 0x8f, 0x87, 0xfc)),
+        as.raw(c((ifelse(is.null(self$udp_p2p), 0, 1)) | (ifelse(is.null(self$udp_reflector), 0, 2)))),
+        packBits(intToBits(self$min_layer), type = "raw"),
+        packBits(intToBits(self$max_layer), type = "raw"),
+        as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$library_versions)), type = "raw"), do.call(c, lapply(self$library_versions, function(x) self$serializebytes(x)))
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -32361,7 +31015,6 @@ PhoneCallRequested <- R6::R6Class("PhoneCallRequested",
     g_a_hash = NULL,
     protocol = NULL,
     video = NULL,
-
     initialize = function(id = NULL, access_hash = NULL, date = NULL, admin_id = NULL, participant_id = NULL, g_a_hash = NULL, protocol = NULL, video = NULL) {
       self$id <- id
       self$access_hash <- access_hash
@@ -32373,17 +31026,19 @@ PhoneCallRequested <- R6::R6Class("PhoneCallRequested",
       self$video <- video
     },
     to_dict = function() list(`_` = "PhoneCallRequested", id = self$id, access_hash = self$access_hash, date = self$date, admin_id = self$admin_id, participant_id = self$participant_id, g_a_hash = self$g_a_hash, protocol = if (inherits(self$protocol, "TLObject")) self$protocol$to_dict() else self$protocol, video = self$video),
-    bytes = function() c(
-      as.raw(c(0x0c, 0xed, 0xb0, 0x14)),
-      as.raw(ifelse(is.null(self$video), 0, 64)),
-      packBits(intToBits(self$id), type = "raw"),
-      packBits(intToBits(self$access_hash), type = "raw"),
-      self$serialize_datetime(self$date),
-      packBits(intToBits(self$admin_id), type = "raw"),
-      packBits(intToBits(self$participant_id), type = "raw"),
-      self$serializebytes(self$g_a_hash),
-      self$protocol$bytes()
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x0c, 0xed, 0xb0, 0x14)),
+        as.raw(ifelse(is.null(self$video), 0, 64)),
+        packBits(intToBits(self$id), type = "raw"),
+        packBits(intToBits(self$access_hash), type = "raw"),
+        self$serialize_datetime(self$date),
+        packBits(intToBits(self$admin_id), type = "raw"),
+        packBits(intToBits(self$participant_id), type = "raw"),
+        self$serializebytes(self$g_a_hash),
+        self$protocol$bytes()
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -32415,7 +31070,6 @@ PhoneCallWaiting <- R6::R6Class("PhoneCallWaiting",
     protocol = NULL,
     video = NULL,
     receive_date = NULL,
-
     initialize = function(id = NULL, access_hash = NULL, date = NULL, admin_id = NULL, participant_id = NULL, protocol = NULL, video = NULL, receive_date = NULL) {
       self$id <- id
       self$access_hash <- access_hash
@@ -32427,17 +31081,19 @@ PhoneCallWaiting <- R6::R6Class("PhoneCallWaiting",
       self$receive_date <- receive_date
     },
     to_dict = function() list(`_` = "PhoneCallWaiting", id = self$id, access_hash = self$access_hash, date = self$date, admin_id = self$admin_id, participant_id = self$participant_id, protocol = if (inherits(self$protocol, "TLObject")) self$protocol$to_dict() else self$protocol, video = self$video, receive_date = self$receive_date),
-    bytes = function() c(
-      as.raw(c(0x17, 0x6f, 0x22, 0xc5)),
-      as.raw(c((ifelse(is.null(self$video), 0, 64)) | (ifelse(is.null(self$receive_date), 0, 1)))),
-      packBits(intToBits(self$id), type = "raw"),
-      packBits(intToBits(self$access_hash), type = "raw"),
-      self$serialize_datetime(self$date),
-      packBits(intToBits(self$admin_id), type = "raw"),
-      packBits(intToBits(self$participant_id), type = "raw"),
-      self$protocol$bytes(),
-      if (!is.null(self$receive_date)) self$serialize_datetime(self$receive_date) else raw(0)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x17, 0x6f, 0x22, 0xc5)),
+        as.raw(c((ifelse(is.null(self$video), 0, 64)) | (ifelse(is.null(self$receive_date), 0, 1)))),
+        packBits(intToBits(self$id), type = "raw"),
+        packBits(intToBits(self$access_hash), type = "raw"),
+        self$serialize_datetime(self$date),
+        packBits(intToBits(self$admin_id), type = "raw"),
+        packBits(intToBits(self$participant_id), type = "raw"),
+        self$protocol$bytes(),
+        if (!is.null(self$receive_date)) self$serialize_datetime(self$receive_date) else raw(0)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -32471,7 +31127,6 @@ PhoneConnection <- R6::R6Class("PhoneConnection",
     port = NULL,
     peer_tag = NULL,
     tcp = NULL,
-
     initialize = function(id = NULL, ip = NULL, ipv6 = NULL, port = NULL, peer_tag = NULL, tcp = NULL) {
       self$id <- id
       self$ip <- ip
@@ -32481,15 +31136,17 @@ PhoneConnection <- R6::R6Class("PhoneConnection",
       self$tcp <- tcp
     },
     to_dict = function() list(`_` = "PhoneConnection", id = self$id, ip = self$ip, ipv6 = self$ipv6, port = self$port, peer_tag = self$peer_tag, tcp = self$tcp),
-    bytes = function() c(
-      as.raw(c(0xc7, 0x23, 0xc1, 0x9c)),
-      as.raw(ifelse(is.null(self$tcp), 0, 1)),
-      packBits(intToBits(self$id), type = "raw"),
-      self$serializebytes(self$ip),
-      self$serializebytes(self$ipv6),
-      packBits(intToBits(self$port), type = "raw"),
-      self$serializebytes(self$peer_tag)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0xc7, 0x23, 0xc1, 0x9c)),
+        as.raw(ifelse(is.null(self$tcp), 0, 1)),
+        packBits(intToBits(self$id), type = "raw"),
+        self$serializebytes(self$ip),
+        self$serializebytes(self$ipv6),
+        packBits(intToBits(self$port), type = "raw"),
+        self$serializebytes(self$peer_tag)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -32519,7 +31176,6 @@ PhoneConnectionWebrtc <- R6::R6Class("PhoneConnectionWebrtc",
     password = NULL,
     turn = NULL,
     stun = NULL,
-
     initialize = function(id = NULL, ip = NULL, ipv6 = NULL, port = NULL, username = NULL, password = NULL, turn = NULL, stun = NULL) {
       self$id <- id
       self$ip <- ip
@@ -32531,16 +31187,18 @@ PhoneConnectionWebrtc <- R6::R6Class("PhoneConnectionWebrtc",
       self$stun <- stun
     },
     to_dict = function() list(`_` = "PhoneConnectionWebrtc", id = self$id, ip = self$ip, ipv6 = self$ipv6, port = self$port, username = self$username, password = self$password, turn = self$turn, stun = self$stun),
-    bytes = function() c(
-      as.raw(c(0x75, 0xe3, 0x5f, 0x63)),
-      as.raw(c(ifelse(is.null(self$turn), 0, 1) | ifelse(is.null(self$stun), 0, 2))),
-      packBits(intToBits(self$id), type = "raw"),
-      self$serializebytes(self$ip),
-      self$serializebytes(self$ipv6),
-      packBits(intToBits(self$port), type = "raw"),
-      self$serializebytes(self$username),
-      self$serializebytes(self$password)
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x75, 0xe3, 0x5f, 0x63)),
+        as.raw(c(ifelse(is.null(self$turn), 0, 1) | ifelse(is.null(self$stun), 0, 2))),
+        packBits(intToBits(self$id), type = "raw"),
+        self$serializebytes(self$ip),
+        self$serializebytes(self$ipv6),
+        packBits(intToBits(self$port), type = "raw"),
+        self$serializebytes(self$username),
+        self$serializebytes(self$password)
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -32572,7 +31230,6 @@ Photo <- R6::R6Class("Photo",
     dc_id = NULL,
     has_stickers = NULL,
     video_sizes = NULL,
-
     initialize = function(id = NULL, access_hash = NULL, file_reference = NULL, date = NULL, sizes = NULL, dc_id = NULL, has_stickers = NULL, video_sizes = NULL) {
       self$id <- id
       self$access_hash <- access_hash
@@ -32584,17 +31241,19 @@ Photo <- R6::R6Class("Photo",
       self$video_sizes <- video_sizes
     },
     to_dict = function() list(`_` = "Photo", id = self$id, access_hash = self$access_hash, file_reference = self$file_reference, date = self$date, sizes = if (is.null(self$sizes)) list() else lapply(self$sizes, function(x) if (inherits(x, "TLObject")) x$to_dict() else x), dc_id = self$dc_id, has_stickers = self$has_stickers, video_sizes = if (is.null(self$video_sizes)) list() else lapply(self$video_sizes, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)),
-    bytes = function() c(
-      as.raw(c(0x65, 0x7a, 0x19, 0xfb)),
-      as.raw(c((ifelse(is.null(self$has_stickers), 0, 1)) | (ifelse(is.null(self$video_sizes), 0, 2)))),
-      packBits(intToBits(self$id), type = "raw"),
-      packBits(intToBits(self$access_hash), type = "raw"),
-      self$serializebytes(self$file_reference),
-      self$serialize_datetime(self$date),
-      as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$sizes)), type = "raw"), do.call(c, lapply(self$sizes, function(x) x$bytes())),
-      if (!is.null(self$video_sizes)) c(as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$video_sizes)), type = "raw"), do.call(c, lapply(self$video_sizes, function(x) x$bytes()))) else raw(0),
-      packBits(intToBits(self$dc_id), type = "raw")
-    )
+    bytes = function() {
+      c(
+        as.raw(c(0x65, 0x7a, 0x19, 0xfb)),
+        as.raw(c((ifelse(is.null(self$has_stickers), 0, 1)) | (ifelse(is.null(self$video_sizes), 0, 2)))),
+        packBits(intToBits(self$id), type = "raw"),
+        packBits(intToBits(self$access_hash), type = "raw"),
+        self$serializebytes(self$file_reference),
+        self$serialize_datetime(self$date),
+        as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$sizes)), type = "raw"), do.call(c, lapply(self$sizes, function(x) x$bytes())),
+        if (!is.null(self$video_sizes)) c(as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$video_sizes)), type = "raw"), do.call(c, lapply(self$video_sizes, function(x) x$bytes()))) else raw(0),
+        packBits(intToBits(self$dc_id), type = "raw")
+      )
+    }
   ),
   private = list(
     from_reader = function(reader) {
@@ -32634,7 +31293,6 @@ PhotoCachedSize <- R6::R6Class("PhotoCachedSize",
     w = NULL,
     h = NULL,
     bytes = NULL,
-
     initialize = function(type = NULL, w = NULL, h = NULL, bytes = NULL) {
       self$type <- type
       self$w <- w
@@ -32984,7 +31642,9 @@ PollResults <- R6::R6Class("PollResults",
           res <- c(res, reader$tgread_object())
         }
         res
-      } else NULL
+      } else {
+        NULL
+      }
       total_voters <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
       recent_voters <- if (bitwAnd(flags, 8) != 0) {
         reader$read_int()
@@ -32993,7 +31653,9 @@ PollResults <- R6::R6Class("PollResults",
           rv <- c(rv, reader$tgread_object())
         }
         rv
-      } else NULL
+      } else {
+        NULL
+      }
       solution <- if (bitwAnd(flags, 16) != 0) reader$tgread_string() else NULL
       solution_entities <- if (bitwAnd(flags, 16) != 0) {
         reader$read_int()
@@ -33002,7 +31664,9 @@ PollResults <- R6::R6Class("PollResults",
           se <- c(se, reader$tgread_object())
         }
         se
-      } else NULL
+      } else {
+        NULL
+      }
       list(min = min, results = results, total_voters = total_voters, recent_voters = recent_voters, solution = solution, solution_entities = solution_entities)
     }
   ),
@@ -33678,9 +32342,9 @@ PrivacyValueDisallowChatParticipants <- R6::R6Class("PrivacyValueDisallowChatPar
       b <- c()
       b <- c(b, as.raw(c(0x65, 0x75, 0xc8, 0x41)))
       b <- c(b, as.raw(c(0x15, 0xc4, 0xb5, 0x1c)))
-      b <- c(b, pack('<i', length(self$chats)))
+      b <- c(b, pack("<i", length(self$chats)))
       for (x in self$chats) {
-        b <- c(b, pack('<q', x))
+        b <- c(b, pack("<q", x))
       }
       as.raw(b)
     }
@@ -33727,9 +32391,9 @@ PrivacyValueDisallowUsers <- R6::R6Class("PrivacyValueDisallowUsers",
       b <- c()
       b <- c(b, as.raw(c(0x41, 0x11, 0x62, 0xe4)))
       b <- c(b, as.raw(c(0x15, 0xc4, 0xb5, 0x1c)))
-      b <- c(b, pack('<i', length(self$users)))
+      b <- c(b, pack("<i", length(self$users)))
       for (x in self$users) {
-        b <- c(b, pack('<q', x))
+        b <- c(b, pack("<q", x))
       }
       as.raw(b)
     }
@@ -33933,10 +32597,10 @@ QuickReply <- R6::R6Class("QuickReply",
     bytes = function() {
       b <- c()
       b <- c(b, as.raw(c(0x2b, 0x10, 0x97, 0x06)))
-      b <- c(b, pack('<i', self$shortcut_id))
+      b <- c(b, pack("<i", self$shortcut_id))
       b <- c(b, self$serializebytes(self$shortcut))
-      b <- c(b, pack('<i', self$top_message))
-      b <- c(b, pack('<i', self$count))
+      b <- c(b, pack("<i", self$top_message))
+      b <- c(b, pack("<i", self$count))
       as.raw(b)
     }
   ),
@@ -33970,10 +32634,10 @@ ReactionCount <- R6::R6Class("ReactionCount",
       b <- c(b, as.raw(c(0x80, 0xcb, 0xd1, 0xa3)))
       flags <- 0
       if (!is.null(self$chosen_order)) flags <- bitwOr(flags, 1)
-      b <- c(b, pack('<I', flags))
-      if (!is.null(self$chosen_order)) b <- c(b, pack('<i', self$chosen_order))
+      b <- c(b, pack("<I", flags))
+      if (!is.null(self$chosen_order)) b <- c(b, pack("<i", self$chosen_order))
       b <- c(b, self$reaction$bytes())
-      b <- c(b, pack('<i', self$count))
+      b <- c(b, pack("<i", self$count))
       as.raw(b)
     }
   ),
@@ -34005,7 +32669,7 @@ ReactionCustomEmoji <- R6::R6Class("ReactionCustomEmoji",
     bytes = function() {
       b <- c()
       b <- c(b, as.raw(c(0x73, 0xfc, 0x35, 0x89)))
-      b <- c(b, pack('<q', self$document_id))
+      b <- c(b, pack("<q", self$document_id))
       as.raw(b)
     }
   ),
@@ -34120,7 +32784,7 @@ ReactionsNotifySettings <- R6::R6Class("ReactionsNotifySettings",
       flags <- 0
       if (!is.null(self$messages_notify_from)) flags <- bitwOr(flags, 1)
       if (!is.null(self$stories_notify_from)) flags <- bitwOr(flags, 2)
-      b <- c(b, pack('<I', flags))
+      b <- c(b, pack("<I", flags))
       if (!is.null(self$messages_notify_from)) b <- c(b, self$messages_notify_from$bytes())
       if (!is.null(self$stories_notify_from)) b <- c(b, self$stories_notify_from$bytes())
       b <- c(b, self$sound$bytes())
@@ -34163,7 +32827,7 @@ ReadParticipantDate <- R6::R6Class("ReadParticipantDate",
     bytes = function() {
       b <- c()
       b <- c(b, as.raw(c(0x72, 0xf1, 0x4f, 0x4a)))
-      b <- c(b, pack('<q', self$user_id))
+      b <- c(b, pack("<q", self$user_id))
       b <- c(b, self$serialize_datetime(self$date))
       as.raw(b)
     }
@@ -34192,8 +32856,8 @@ ReceivedNotifyMessage <- R6::R6Class("ReceivedNotifyMessage",
     bytes = function() {
       b <- c()
       b <- c(b, as.raw(c(0x79, 0xb7, 0x84, 0xa3)))
-      b <- c(b, pack('<i', self$id))
-      b <- c(b, pack('<i', self$flags))
+      b <- c(b, pack("<i", self$id))
+      b <- c(b, pack("<i", self$flags))
       as.raw(b)
     }
   ),
@@ -34222,7 +32886,7 @@ RecentMeUrlChat <- R6::R6Class("RecentMeUrlChat",
       b <- c()
       b <- c(b, as.raw(c(0xd2, 0x71, 0xda, 0xb2)))
       b <- c(b, self$serializebytes(self$url))
-      b <- c(b, pack('<q', self$chat_id))
+      b <- c(b, pack("<q", self$chat_id))
       as.raw(b)
     }
   ),
@@ -34334,7 +32998,7 @@ RecentMeUrlUser <- R6::R6Class("RecentMeUrlUser",
       b <- c()
       b <- c(b, as.raw(c(0xe2, 0x09, 0x2c, 0xb9)))
       b <- c(b, self$serializebytes(self$url))
-      b <- c(b, pack('<q', self$user_id))
+      b <- c(b, pack("<q", self$user_id))
       as.raw(b)
     }
   ),
@@ -34361,7 +33025,7 @@ ReplyInlineMarkup <- R6::R6Class("ReplyInlineMarkup",
       b <- c()
       b <- c(b, as.raw(c(0x54, 0x02, 0xa3, 0x48)))
       b <- c(b, as.raw(c(0x15, 0xc4, 0xb5, 0x1c)))
-      b <- c(b, pack('<i', length(self$rows)))
+      b <- c(b, pack("<i", length(self$rows)))
       for (x in self$rows) {
         b <- c(b, x$bytes())
       }
@@ -34402,7 +33066,7 @@ ReplyKeyboardForceReply <- R6::R6Class("ReplyKeyboardForceReply",
       if (!is.null(self$single_use) && self$single_use) flags <- bitwOr(flags, 2)
       if (!is.null(self$selective) && self$selective) flags <- bitwOr(flags, 4)
       if (!is.null(self$placeholder)) flags <- bitwOr(flags, 8)
-      b <- c(b, pack('<I', flags))
+      b <- c(b, pack("<I", flags))
       if (!is.null(self$placeholder)) b <- c(b, self$serializebytes(self$placeholder))
       as.raw(b)
     }
@@ -34437,7 +33101,7 @@ ReplyKeyboardHide <- R6::R6Class("ReplyKeyboardHide",
       b <- c(b, as.raw(c(0x85, 0x5b, 0x3e, 0xa0)))
       flags <- 0
       if (!is.null(self$selective) && self$selective) flags <- bitwOr(flags, 4)
-      b <- c(b, pack('<I', flags))
+      b <- c(b, pack("<I", flags))
       as.raw(b)
     }
   ),
@@ -34479,9 +33143,9 @@ ReplyKeyboardMarkup <- R6::R6Class("ReplyKeyboardMarkup",
       if (!is.null(self$selective) && self$selective) flags <- bitwOr(flags, 4)
       if (!is.null(self$persistent) && self$persistent) flags <- bitwOr(flags, 16)
       if (!is.null(self$placeholder)) flags <- bitwOr(flags, 8)
-      b <- c(b, pack('<I', flags))
+      b <- c(b, pack("<I", flags))
       b <- c(b, as.raw(c(0x15, 0xc4, 0xb5, 0x1c)))
-      b <- c(b, pack('<i', length(self$rows)))
+      b <- c(b, pack("<i", length(self$rows)))
       for (x in self$rows) {
         b <- c(b, x$bytes())
       }
@@ -34529,7 +33193,7 @@ ReportResultAddComment <- R6::R6Class("ReportResultAddComment",
       b <- c(b, as.raw(c(0x31, 0xac, 0x09, 0x6f)))
       flags <- 0
       if (!is.null(self$optional) && self$optional) flags <- bitwOr(flags, 1)
-      b <- c(b, pack('<I', flags))
+      b <- c(b, pack("<I", flags))
       b <- c(b, self$serializebytes(self$option))
       as.raw(b)
     }
@@ -34561,7 +33225,7 @@ ReportResultChooseOption <- R6::R6Class("ReportResultChooseOption",
       b <- c(b, as.raw(c(0xb6, 0xe0, 0xe4, 0xf0)))
       b <- c(b, self$serializebytes(self$title))
       b <- c(b, as.raw(c(0x15, 0xc4, 0xb5, 0x1c)))
-      b <- c(b, pack('<i', length(self$options)))
+      b <- c(b, pack("<i", length(self$options)))
       for (x in self$options) {
         b <- c(b, x$bytes())
       }
@@ -34620,7 +33284,7 @@ RequestPeerTypeBroadcast <- R6::R6Class("RequestPeerTypeBroadcast",
       if (!is.null(self$has_username)) flags <- bitwOr(flags, 8)
       if (!is.null(self$user_admin_rights)) flags <- bitwOr(flags, 2)
       if (!is.null(self$bot_admin_rights)) flags <- bitwOr(flags, 4)
-      b <- c(b, pack('<I', flags))
+      b <- c(b, pack("<I", flags))
       if (!is.null(self$has_username)) b <- c(b, if (self$has_username) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)))
       if (!is.null(self$user_admin_rights)) b <- c(b, self$user_admin_rights$bytes())
       if (!is.null(self$bot_admin_rights)) b <- c(b, self$bot_admin_rights$bytes())
@@ -34681,7 +33345,7 @@ RequestPeerTypeChat <- R6::R6Class("RequestPeerTypeChat",
       if (!is.null(self$forum)) flags <- bitwOr(flags, 16)
       if (!is.null(self$user_admin_rights)) flags <- bitwOr(flags, 2)
       if (!is.null(self$bot_admin_rights)) flags <- bitwOr(flags, 4)
-      b <- c(b, pack('<I', flags))
+      b <- c(b, pack("<I", flags))
       if (!is.null(self$has_username)) b <- c(b, if (self$has_username) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)))
       if (!is.null(self$forum)) b <- c(b, if (self$forum) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)))
       if (!is.null(self$user_admin_rights)) b <- c(b, self$user_admin_rights$bytes())
@@ -34737,7 +33401,7 @@ RequestPeerTypeUser <- R6::R6Class("RequestPeerTypeUser",
       flags <- 0
       if (!is.null(self$bot)) flags <- bitwOr(flags, 1)
       if (!is.null(self$premium)) flags <- bitwOr(flags, 2)
-      b <- c(b, pack('<I', flags))
+      b <- c(b, pack("<I", flags))
       if (!is.null(self$bot)) b <- c(b, if (self$bot) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)))
       if (!is.null(self$premium)) b <- c(b, if (self$premium) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)))
       as.raw(b)
@@ -34784,8 +33448,8 @@ RequestedPeerChannel <- R6::R6Class("RequestedPeerChannel",
       if (!is.null(self$title)) flags <- bitwOr(flags, 1)
       if (!is.null(self$username)) flags <- bitwOr(flags, 2)
       if (!is.null(self$photo)) flags <- bitwOr(flags, 4)
-      b <- c(b, pack('<I', flags))
-      b <- c(b, pack('<q', self$channel_id))
+      b <- c(b, pack("<I", flags))
+      b <- c(b, pack("<q", self$channel_id))
       if (!is.null(self$title)) b <- c(b, self$serializebytes(self$title))
       if (!is.null(self$username)) b <- c(b, self$serializebytes(self$username))
       if (!is.null(self$photo)) b <- c(b, self$photo$bytes())
@@ -34836,8 +33500,8 @@ RequestedPeerChat <- R6::R6Class("RequestedPeerChat",
       flags <- 0
       if (!is.null(self$title)) flags <- bitwOr(flags, 1)
       if (!is.null(self$photo)) flags <- bitwOr(flags, 4)
-      b <- c(b, pack('<I', flags))
-      b <- c(b, pack('<q', self$chat_id))
+      b <- c(b, pack("<I", flags))
+      b <- c(b, pack("<q", self$chat_id))
       if (!is.null(self$title)) b <- c(b, self$serializebytes(self$title))
       if (!is.null(self$photo)) b <- c(b, self$photo$bytes())
       as.raw(b)
@@ -34888,8 +33552,8 @@ RequestedPeerUser <- R6::R6Class("RequestedPeerUser",
       if (!is.null(self$last_name)) flags <- bitwOr(flags, 1)
       if (!is.null(self$username)) flags <- bitwOr(flags, 2)
       if (!is.null(self$photo)) flags <- bitwOr(flags, 4)
-      b <- c(b, pack('<I', flags))
-      b <- c(b, pack('<q', self$user_id))
+      b <- c(b, pack("<I", flags))
+      b <- c(b, pack("<q", self$user_id))
       if (!is.null(self$first_name)) b <- c(b, self$serializebytes(self$first_name))
       if (!is.null(self$last_name)) b <- c(b, self$serializebytes(self$last_name))
       if (!is.null(self$username)) b <- c(b, self$serializebytes(self$username))
@@ -35294,7 +33958,9 @@ SavedStarGift <- R6::R6Class("SavedStarGift",
       if (bitwAnd(flags, 32768) != 0) {
         reader$read_int()
         collection_id <- lapply(seq_len(reader$read_int()), function(i) reader$read_int())
-      } else collection_id <- NULL
+      } else {
+        collection_id <- NULL
+      }
       if (bitwAnd(flags, 65536) != 0) prepaid_upgrade_hash <- reader$tgread_string() else prepaid_upgrade_hash <- NULL
       self$new(date = date, gift = gift, name_hidden = name_hidden, unsaved = unsaved, refunded = refunded, can_upgrade = can_upgrade, pinned_to_top = pinned_to_top, upgrade_separate = upgrade_separate, from_id = from_id, message = message, msg_id = msg_id, saved_id = saved_id, convert_stars = convert_stars, upgrade_stars = upgrade_stars, can_export_at = can_export_at, transfer_stars = transfer_stars, can_transfer_at = can_transfer_at, can_resell_at = can_resell_at, collection_id = collection_id, prepaid_upgrade_hash = prepaid_upgrade_hash)
     }
@@ -35727,11 +34393,15 @@ SecureValue <- R6::R6Class("SecureValue",
       if (bitwAnd(flags, 64) != 0) {
         reader$read_int()
         translation <- lapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
-      } else translation <- NULL
+      } else {
+        translation <- NULL
+      }
       if (bitwAnd(flags, 16) != 0) {
         reader$read_int()
         files <- lapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
-      } else files <- NULL
+      } else {
+        files <- NULL
+      }
       if (bitwAnd(flags, 32) != 0) plaindata <- reader$tgread_object() else plaindata <- NULL
       hash <- reader$tgreadbytes()
       self$new(type = type, hash = hash, data = data, front_side = front_side, reverse_side = reverse_side, selfie = selfie, translation = translation, files = files, plaindata = plaindata)
@@ -36825,9 +35495,9 @@ ServerDHParamsFail <- R6::R6Class(
     },
     bytes = function() {
       as.raw(c(0x5d, 0x04, 0xcb, 0x79)) +
-      self$nonce$tobytes(16, "little", TRUE) +
-      self$server_nonce$tobytes(16, "little", TRUE) +
-      self$new_nonce_hash$tobytes(16, "little", TRUE)
+        self$nonce$tobytes(16, "little", TRUE) +
+        self$server_nonce$tobytes(16, "little", TRUE) +
+        self$new_nonce_hash$tobytes(16, "little", TRUE)
     }
   ),
   private = list(
@@ -36863,9 +35533,9 @@ ServerDHParamsOk <- R6::R6Class(
     },
     bytes = function() {
       as.raw(c(0x5c, 0x07, 0xe8, 0xd0)) +
-      self$nonce$tobytes(16, "little", TRUE) +
-      self$server_nonce$tobytes(16, "little", TRUE) +
-      self$serializebytes(self$encrypted_answer)
+        self$nonce$tobytes(16, "little", TRUE) +
+        self$server_nonce$tobytes(16, "little", TRUE) +
+        self$serializebytes(self$encrypted_answer)
     }
   ),
   private = list(
@@ -36901,9 +35571,9 @@ ShippingOption <- R6::R6Class(
     },
     bytes = function() {
       as.raw(c(0xdf, 0x3c, 0x21, 0xb6)) +
-      self$serializebytes(self$id) +
-      self$serializebytes(self$title) +
-      as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$prices)) + do.call(c, lapply(self$prices, function(x) x$bytes()))
+        self$serializebytes(self$id) +
+        self$serializebytes(self$title) +
+        as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$prices)) + do.call(c, lapply(self$prices, function(x) x$bytes()))
     }
   ),
   private = list(
@@ -36944,9 +35614,9 @@ SmsJob <- R6::R6Class(
     },
     bytes = function() {
       as.raw(c(0xb8, 0xee, 0xa1, 0xe6)) +
-      self$serializebytes(self$job_id) +
-      self$serializebytes(self$phone_number) +
-      self$serializebytes(self$text)
+        self$serializebytes(self$job_id) +
+        self$serializebytes(self$phone_number) +
+        self$serializebytes(self$text)
     }
   ),
   private = list(
@@ -37027,31 +35697,59 @@ SponsoredMessage <- R6::R6Class(
     },
     bytes = function() {
       flags <- (if (is.null(self$recommended) || !self$recommended) 0 else 32) |
-                (if (is.null(self$can_report) || !self$can_report) 0 else 4096) |
-                (if (is.null(self$entities) || length(self$entities) == 0) 0 else 2) |
-                (if (is.null(self$photo)) 0 else 64) |
-                (if (is.null(self$media)) 0 else 16384) |
-                (if (is.null(self$color)) 0 else 8192) |
-                (if (is.null(self$sponsor_info)) 0 else 128) |
-                (if (is.null(self$additional_info)) 0 else 256) |
-                (if (is.null(self$min_display_duration)) 0 else 32768) |
-                (if (is.null(self$max_display_duration)) 0 else 32768)
+        (if (is.null(self$can_report) || !self$can_report) 0 else 4096) |
+        (if (is.null(self$entities) || length(self$entities) == 0) 0 else 2) |
+        (if (is.null(self$photo)) 0 else 64) |
+        (if (is.null(self$media)) 0 else 16384) |
+        (if (is.null(self$color)) 0 else 8192) |
+        (if (is.null(self$sponsor_info)) 0 else 128) |
+        (if (is.null(self$additional_info)) 0 else 256) |
+        (if (is.null(self$min_display_duration)) 0 else 32768) |
+        (if (is.null(self$max_display_duration)) 0 else 32768)
       stopifnot((!is.null(self$min_display_duration) && !is.null(self$max_display_duration)) || (is.null(self$min_display_duration) && is.null(self$max_display_duration)))
       as.raw(c(0x73, 0x86, 0xbf, 0x7d)) +
-      pack("I", flags) +
-      self$serializebytes(self$random_id) +
-      self$serializebytes(self$url) +
-      self$serializebytes(self$title) +
-      self$serializebytes(self$message) +
-      if (is.null(self$entities) || length(self$entities) == 0) raw(0) else as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$entities)) + do.call(c, lapply(self$entities, function(x) x$bytes())) +
-      if (is.null(self$photo)) raw(0) else self$photo$bytes() +
-      if (is.null(self$media)) raw(0) else self$media$bytes() +
-      if (is.null(self$color)) raw(0) else self$color$bytes() +
-      self$serializebytes(self$button_text) +
-      if (is.null(self$sponsor_info)) raw(0) else self$serializebytes(self$sponsor_info) +
-      if (is.null(self$additional_info)) raw(0) else self$serializebytes(self$additional_info) +
-      if (is.null(self$min_display_duration)) raw(0) else pack("i", self$min_display_duration) +
-      if (is.null(self$max_display_duration)) raw(0) else pack("i", self$max_display_duration)
+        pack("I", flags) +
+        self$serializebytes(self$random_id) +
+        self$serializebytes(self$url) +
+        self$serializebytes(self$title) +
+        self$serializebytes(self$message) +
+        if (is.null(self$entities) || length(self$entities) == 0) {
+          raw(0)
+        } else {
+          as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$entities)) + do.call(c, lapply(self$entities, function(x) x$bytes())) +
+            if (is.null(self$photo)) {
+              raw(0)
+            } else {
+              self$photo$bytes() +
+                if (is.null(self$media)) {
+                  raw(0)
+                } else {
+                  self$media$bytes() +
+                    if (is.null(self$color)) {
+                      raw(0)
+                    } else {
+                      self$color$bytes() +
+                        self$serializebytes(self$button_text) +
+                        if (is.null(self$sponsor_info)) {
+                          raw(0)
+                        } else {
+                          self$serializebytes(self$sponsor_info) +
+                            if (is.null(self$additional_info)) {
+                              raw(0)
+                            } else {
+                              self$serializebytes(self$additional_info) +
+                                if (is.null(self$min_display_duration)) {
+                                  raw(0)
+                                } else {
+                                  pack("i", self$min_display_duration) +
+                                    if (is.null(self$max_display_duration)) raw(0) else pack("i", self$max_display_duration)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
   ),
   private = list(
@@ -37066,7 +35764,9 @@ SponsoredMessage <- R6::R6Class(
       entities <- if (bitwAnd(flags, 2) != 0) {
         reader$read_int()
         lapply(1:reader$read_int(), function(i) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
       photo <- if (bitwAnd(flags, 64) != 0) reader$tgread_object() else NULL
       media <- if (bitwAnd(flags, 16384) != 0) reader$tgread_object() else NULL
       color <- if (bitwAnd(flags, 8192) != 0) reader$tgread_object() else NULL
@@ -37101,8 +35801,8 @@ SponsoredMessageReportOption <- R6::R6Class(
     },
     bytes = function() {
       as.raw(c(0x50, 0x31, 0x0d, 0x43)) +
-      self$serializebytes(self$text) +
-      self$serializebytes(self$option)
+        self$serializebytes(self$text) +
+        self$serializebytes(self$option)
     }
   ),
   private = list(
@@ -37140,11 +35840,15 @@ SponsoredPeer <- R6::R6Class(
     bytes = function() {
       flags <- (if (is.null(self$sponsor_info)) 0 else 1) | (if (is.null(self$additional_info)) 0 else 2)
       as.raw(c(0xd3, 0x08, 0x97, 0xc6)) +
-      pack("I", flags) +
-      self$serializebytes(self$random_id) +
-      self$peer$bytes() +
-      if (is.null(self$sponsor_info)) raw(0) else self$serializebytes(self$sponsor_info) +
-      if (is.null(self$additional_info)) raw(0) else self$serializebytes(self$additional_info)
+        pack("I", flags) +
+        self$serializebytes(self$random_id) +
+        self$peer$bytes() +
+        if (is.null(self$sponsor_info)) {
+          raw(0)
+        } else {
+          self$serializebytes(self$sponsor_info) +
+            if (is.null(self$additional_info)) raw(0) else self$serializebytes(self$additional_info)
+        }
     }
   ),
   private = list(
@@ -37218,44 +35922,88 @@ StarGift <- R6::R6Class(
     },
     bytes = function() {
       flags <- (if (is.null(self$limited) || !self$limited) 0 else 1) |
-                (if (is.null(self$sold_out) || !self$sold_out) 0 else 2) |
-                (if (is.null(self$birthday) || !self$birthday) 0 else 4) |
-                (if (is.null(self$require_premium) || !self$require_premium) 0 else 128) |
-                (if (is.null(self$limited_per_user) || !self$limited_per_user) 0 else 256) |
-                (if (is.null(self$availability_remains)) 0 else 1) |
-                (if (is.null(self$availability_total)) 0 else 1) |
-                (if (is.null(self$availability_resale)) 0 else 16) |
-                (if (is.null(self$first_sale_date)) 0 else 2) |
-                (if (is.null(self$last_sale_date)) 0 else 2) |
-                (if (is.null(self$upgrade_stars)) 0 else 8) |
-                (if (is.null(self$resell_min_stars)) 0 else 16) |
-                (if (is.null(self$title)) 0 else 32) |
-                (if (is.null(self$released_by)) 0 else 64) |
-                (if (is.null(self$per_user_total)) 0 else 256) |
-                (if (is.null(self$per_user_remains)) 0 else 256) |
-                (if (is.null(self$locked_until_date)) 0 else 512)
+        (if (is.null(self$sold_out) || !self$sold_out) 0 else 2) |
+        (if (is.null(self$birthday) || !self$birthday) 0 else 4) |
+        (if (is.null(self$require_premium) || !self$require_premium) 0 else 128) |
+        (if (is.null(self$limited_per_user) || !self$limited_per_user) 0 else 256) |
+        (if (is.null(self$availability_remains)) 0 else 1) |
+        (if (is.null(self$availability_total)) 0 else 1) |
+        (if (is.null(self$availability_resale)) 0 else 16) |
+        (if (is.null(self$first_sale_date)) 0 else 2) |
+        (if (is.null(self$last_sale_date)) 0 else 2) |
+        (if (is.null(self$upgrade_stars)) 0 else 8) |
+        (if (is.null(self$resell_min_stars)) 0 else 16) |
+        (if (is.null(self$title)) 0 else 32) |
+        (if (is.null(self$released_by)) 0 else 64) |
+        (if (is.null(self$per_user_total)) 0 else 256) |
+        (if (is.null(self$per_user_remains)) 0 else 256) |
+        (if (is.null(self$locked_until_date)) 0 else 512)
       stopifnot((!is.null(self$limited) && !is.null(self$availability_remains) && !is.null(self$availability_total)) || (is.null(self$limited) && is.null(self$availability_remains) && is.null(self$availability_total)))
       stopifnot((!is.null(self$sold_out) && !is.null(self$first_sale_date) && !is.null(self$last_sale_date)) || (is.null(self$sold_out) && is.null(self$first_sale_date) && is.null(self$last_sale_date)))
       stopifnot((!is.null(self$limited_per_user) && !is.null(self$per_user_total) && !is.null(self$per_user_remains)) || (is.null(self$limited_per_user) && is.null(self$per_user_total) && is.null(self$per_user_remains)))
       stopifnot((!is.null(self$availability_resale) && !is.null(self$resell_min_stars)) || (is.null(self$availability_resale) && is.null(self$resell_min_stars)))
       as.raw(c(0xc3, 0x53, 0xac, 0x80)) +
-      pack("I", flags) +
-      pack("q", self$id) +
-      self$sticker$bytes() +
-      pack("q", self$stars) +
-      if (is.null(self$availability_remains)) raw(0) else pack("i", self$availability_remains) +
-      if (is.null(self$availability_total)) raw(0) else pack("i", self$availability_total) +
-      if (is.null(self$availability_resale)) raw(0) else pack("q", self$availability_resale) +
-      pack("q", self$convert_stars) +
-      if (is.null(self$first_sale_date)) raw(0) else self$serialize_datetime(self$first_sale_date) +
-      if (is.null(self$last_sale_date)) raw(0) else self$serialize_datetime(self$last_sale_date) +
-      if (is.null(self$upgrade_stars)) raw(0) else pack("q", self$upgrade_stars) +
-      if (is.null(self$resell_min_stars)) raw(0) else pack("q", self$resell_min_stars) +
-      if (is.null(self$title)) raw(0) else self$serializebytes(self$title) +
-      if (is.null(self$released_by)) raw(0) else self$released_by$bytes() +
-      if (is.null(self$per_user_total)) raw(0) else pack("i", self$per_user_total) +
-      if (is.null(self$per_user_remains)) raw(0) else pack("i", self$per_user_remains) +
-      if (is.null(self$locked_until_date)) raw(0) else self$serialize_datetime(self$locked_until_date)
+        pack("I", flags) +
+        pack("q", self$id) +
+        self$sticker$bytes() +
+        pack("q", self$stars) +
+        if (is.null(self$availability_remains)) {
+          raw(0)
+        } else {
+          pack("i", self$availability_remains) +
+            if (is.null(self$availability_total)) {
+              raw(0)
+            } else {
+              pack("i", self$availability_total) +
+                if (is.null(self$availability_resale)) {
+                  raw(0)
+                } else {
+                  pack("q", self$availability_resale) +
+                    pack("q", self$convert_stars) +
+                    if (is.null(self$first_sale_date)) {
+                      raw(0)
+                    } else {
+                      self$serialize_datetime(self$first_sale_date) +
+                        if (is.null(self$last_sale_date)) {
+                          raw(0)
+                        } else {
+                          self$serialize_datetime(self$last_sale_date) +
+                            if (is.null(self$upgrade_stars)) {
+                              raw(0)
+                            } else {
+                              pack("q", self$upgrade_stars) +
+                                if (is.null(self$resell_min_stars)) {
+                                  raw(0)
+                                } else {
+                                  pack("q", self$resell_min_stars) +
+                                    if (is.null(self$title)) {
+                                      raw(0)
+                                    } else {
+                                      self$serializebytes(self$title) +
+                                        if (is.null(self$released_by)) {
+                                          raw(0)
+                                        } else {
+                                          self$released_by$bytes() +
+                                            if (is.null(self$per_user_total)) {
+                                              raw(0)
+                                            } else {
+                                              pack("i", self$per_user_total) +
+                                                if (is.null(self$per_user_remains)) {
+                                                  raw(0)
+                                                } else {
+                                                  pack("i", self$per_user_remains) +
+                                                    if (is.null(self$locked_until_date)) raw(0) else self$serialize_datetime(self$locked_until_date)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
   ),
   private = list(
@@ -37318,13 +36066,13 @@ StarGiftAttributeBackdrop <- R6::R6Class(
     },
     bytes = function() {
       as.raw(c(0x9c, 0x85, 0x3d, 0xd9)) +
-      self$serializebytes(self$name) +
-      pack("i", self$backdrop_id) +
-      pack("i", self$center_color) +
-      pack("i", self$edge_color) +
-      pack("i", self$pattern_color) +
-      pack("i", self$text_color) +
-      pack("i", self$rarity_permille)
+        self$serializebytes(self$name) +
+        pack("i", self$backdrop_id) +
+        pack("i", self$center_color) +
+        pack("i", self$edge_color) +
+        pack("i", self$pattern_color) +
+        pack("i", self$text_color) +
+        pack("i", self$rarity_permille)
     }
   ),
   private = list(
@@ -37362,8 +36110,8 @@ StarGiftAttributeCounter <- R6::R6Class(
     },
     bytes = function() {
       as.raw(c(0x58, 0xb6, 0xb1, 0x2e)) +
-      self$attribute$bytes() +
-      pack("i", self$count)
+        self$attribute$bytes() +
+        pack("i", self$count)
     }
   ),
   private = list(
@@ -37394,7 +36142,7 @@ StarGiftAttributeIdBackdrop <- R6::R6Class(
     },
     bytes = function() {
       as.raw(c(0x57, 0xc7, 0x01, 0x1f)) +
-      pack("i", self$backdrop_id)
+        pack("i", self$backdrop_id)
     }
   ),
   private = list(
@@ -37424,7 +36172,7 @@ StarGiftAttributeIdModel <- R6::R6Class(
     },
     bytes = function() {
       as.raw(c(0x3c, 0xae, 0xaa, 0x48)) +
-      pack("q", self$document_id)
+        pack("q", self$document_id)
     }
   ),
   private = list(
@@ -37454,7 +36202,7 @@ StarGiftAttributeIdPattern <- R6::R6Class(
     },
     bytes = function() {
       as.raw(c(0x33, 0x24, 0x16, 0x4a)) +
-      pack("q", self$document_id)
+        pack("q", self$document_id)
     }
   ),
   private = list(
@@ -37488,9 +36236,9 @@ StarGiftAttributeModel <- R6::R6Class(
     },
     bytes = function() {
       as.raw(c(0x13, 0x90, 0xd9, 0x39)) +
-      self$serializebytes(self$name) +
-      self$document$bytes() +
-      pack("i", self$rarity_permille)
+        self$serializebytes(self$name) +
+        self$document$bytes() +
+        pack("i", self$rarity_permille)
     }
   ),
   private = list(
@@ -37529,11 +36277,15 @@ StarGiftAttributeOriginalDetails <- R6::R6Class(
     bytes = function() {
       flags <- (if (is.null(self$sender_id)) 0 else 1) | (if (is.null(self$message)) 0 else 2)
       as.raw(c(0x6c, 0xf2, 0xbf, 0xe0)) +
-      pack("I", flags) +
-      if (is.null(self$sender_id)) raw(0) else self$sender_id$bytes() +
-      self$recipient_id$bytes() +
-      self$serialize_datetime(self$date) +
-      if (is.null(self$message)) raw(0) else self$message$bytes()
+        pack("I", flags) +
+        if (is.null(self$sender_id)) {
+          raw(0)
+        } else {
+          self$sender_id$bytes() +
+            self$recipient_id$bytes() +
+            self$serialize_datetime(self$date) +
+            if (is.null(self$message)) raw(0) else self$message$bytes()
+        }
     }
   ),
   private = list(
@@ -37571,9 +36323,9 @@ StarGiftAttributePattern <- R6::R6Class(
     },
     bytes = function() {
       as.raw(c(0x19, 0xff, 0xac, 0x13)) +
-      self$serializebytes(self$name) +
-      self$document$bytes() +
-      pack("i", self$rarity_permille)
+        self$serializebytes(self$name) +
+        self$document$bytes() +
+        pack("i", self$rarity_permille)
     }
   ),
   private = list(
@@ -37614,12 +36366,16 @@ StarGiftCollection <- R6::R6Class(
     bytes = function() {
       flags <- if (is.null(self$icon)) 0 else 1
       as.raw(c(0xb0, 0x13, 0x6b, 0x9d)) +
-      pack("I", flags) +
-      pack("i", self$collection_id) +
-      self$serializebytes(self$title) +
-      if (is.null(self$icon)) raw(0) else self$icon$bytes() +
-      pack("i", self$gifts_count) +
-      pack("q", self$hash)
+        pack("I", flags) +
+        pack("i", self$collection_id) +
+        self$serializebytes(self$title) +
+        if (is.null(self$icon)) {
+          raw(0)
+        } else {
+          self$icon$bytes() +
+            pack("i", self$gifts_count) +
+            pack("q", self$hash)
+        }
     }
   ),
   private = list(
@@ -37692,37 +36448,69 @@ StarGiftUnique <- R6::R6Class(
     },
     bytes = function() {
       flags <- (if (is.null(self$require_premium) || !self$require_premium) 0 else 64) |
-                (if (is.null(self$resale_ton_only) || !self$resale_ton_only) 0 else 128) |
-                (if (is.null(self$theme_available) || !self$theme_available) 0 else 512) |
-                (if (is.null(self$owner_id)) 0 else 1) |
-                (if (is.null(self$owner_name)) 0 else 2) |
-                (if (is.null(self$owner_address)) 0 else 4) |
-                (if (is.null(self$gift_address)) 0 else 8) |
-                (if (is.null(self$resell_amount) || length(self$resell_amount) == 0) 0 else 16) |
-                (if (is.null(self$released_by)) 0 else 32) |
-                (if (is.null(self$value_amount)) 0 else 256) |
-                (if (is.null(self$value_currency)) 0 else 256) |
-                (if (is.null(self$themepeer)) 0 else 1024)
+        (if (is.null(self$resale_ton_only) || !self$resale_ton_only) 0 else 128) |
+        (if (is.null(self$theme_available) || !self$theme_available) 0 else 512) |
+        (if (is.null(self$owner_id)) 0 else 1) |
+        (if (is.null(self$owner_name)) 0 else 2) |
+        (if (is.null(self$owner_address)) 0 else 4) |
+        (if (is.null(self$gift_address)) 0 else 8) |
+        (if (is.null(self$resell_amount) || length(self$resell_amount) == 0) 0 else 16) |
+        (if (is.null(self$released_by)) 0 else 32) |
+        (if (is.null(self$value_amount)) 0 else 256) |
+        (if (is.null(self$value_currency)) 0 else 256) |
+        (if (is.null(self$themepeer)) 0 else 1024)
       stopifnot((!is.null(self$value_amount) && !is.null(self$value_currency)) || (is.null(self$value_amount) && is.null(self$value_currency)))
       as.raw(c(0x65, 0xe8, 0xef, 0x1b)) +
-      pack("I", flags) +
-      pack("q", self$id) +
-      pack("q", self$gift_id) +
-      self$serializebytes(self$title) +
-      self$serializebytes(self$slug) +
-      pack("i", self$num) +
-      if (is.null(self$owner_id)) raw(0) else self$owner_id$bytes() +
-      if (is.null(self$owner_name)) raw(0) else self$serializebytes(self$owner_name) +
-      if (is.null(self$owner_address)) raw(0) else self$serializebytes(self$owner_address) +
-      as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$attributes)) + do.call(c, lapply(self$attributes, function(x) x$bytes())) +
-      pack("i", self$availability_issued) +
-      pack("i", self$availability_total) +
-      if (is.null(self$gift_address)) raw(0) else self$serializebytes(self$gift_address) +
-      if (is.null(self$resell_amount) || length(self$resell_amount) == 0) raw(0) else as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$resell_amount)) + do.call(c, lapply(self$resell_amount, function(x) x$bytes())) +
-      if (is.null(self$released_by)) raw(0) else self$released_by$bytes() +
-      if (is.null(self$value_amount)) raw(0) else pack("q", self$value_amount) +
-      if (is.null(self$value_currency)) raw(0) else self$serializebytes(self$value_currency) +
-      if (is.null(self$themepeer)) raw(0) else self$themepeer$bytes()
+        pack("I", flags) +
+        pack("q", self$id) +
+        pack("q", self$gift_id) +
+        self$serializebytes(self$title) +
+        self$serializebytes(self$slug) +
+        pack("i", self$num) +
+        if (is.null(self$owner_id)) {
+          raw(0)
+        } else {
+          self$owner_id$bytes() +
+            if (is.null(self$owner_name)) {
+              raw(0)
+            } else {
+              self$serializebytes(self$owner_name) +
+                if (is.null(self$owner_address)) {
+                  raw(0)
+                } else {
+                  self$serializebytes(self$owner_address) +
+                    as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$attributes)) + do.call(c, lapply(self$attributes, function(x) x$bytes())) +
+                    pack("i", self$availability_issued) +
+                    pack("i", self$availability_total) +
+                    if (is.null(self$gift_address)) {
+                      raw(0)
+                    } else {
+                      self$serializebytes(self$gift_address) +
+                        if (is.null(self$resell_amount) || length(self$resell_amount) == 0) {
+                          raw(0)
+                        } else {
+                          as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$resell_amount)) + do.call(c, lapply(self$resell_amount, function(x) x$bytes())) +
+                            if (is.null(self$released_by)) {
+                              raw(0)
+                            } else {
+                              self$released_by$bytes() +
+                                if (is.null(self$value_amount)) {
+                                  raw(0)
+                                } else {
+                                  pack("q", self$value_amount) +
+                                    if (is.null(self$value_currency)) {
+                                      raw(0)
+                                    } else {
+                                      self$serializebytes(self$value_currency) +
+                                        if (is.null(self$themepeer)) raw(0) else self$themepeer$bytes()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
   ),
   private = list(
@@ -37747,7 +36535,9 @@ StarGiftUnique <- R6::R6Class(
       resell_amount <- if (bitwAnd(flags, 16) != 0) {
         reader$read_int()
         lapply(1:reader$read_int(), function(i) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
       released_by <- if (bitwAnd(flags, 32) != 0) reader$tgread_object() else NULL
       value_amount <- if (bitwAnd(flags, 256) != 0) reader$read_long() else NULL
       value_currency <- if (bitwAnd(flags, 256) != 0) reader$tgread_string() else NULL
@@ -37785,12 +36575,20 @@ StarRefProgram <- R6::R6Class(
     bytes = function() {
       flags <- (if (is.null(self$duration_months)) 0 else 1) | (if (is.null(self$end_date)) 0 else 2) | (if (is.null(self$daily_revenue_per_user)) 0 else 4)
       as.raw(c(0xf2, 0x66, 0x0c, 0xdd)) +
-      pack("I", flags) +
-      pack("q", self$bot_id) +
-      pack("i", self$commission_permille) +
-      if (is.null(self$duration_months)) raw(0) else pack("i", self$duration_months) +
-      if (is.null(self$end_date)) raw(0) else self$serialize_datetime(self$end_date) +
-      if (is.null(self$daily_revenue_per_user)) raw(0) else self$daily_revenue_per_user$bytes()
+        pack("I", flags) +
+        pack("q", self$bot_id) +
+        pack("i", self$commission_permille) +
+        if (is.null(self$duration_months)) {
+          raw(0)
+        } else {
+          pack("i", self$duration_months) +
+            if (is.null(self$end_date)) {
+              raw(0)
+            } else {
+              self$serialize_datetime(self$end_date) +
+                if (is.null(self$daily_revenue_per_user)) raw(0) else self$daily_revenue_per_user$bytes()
+            }
+        }
     }
   ),
   private = list(
@@ -37827,8 +36625,8 @@ StarsAmount <- R6::R6Class(
     },
     bytes = function() {
       as.raw(c(0xa3, 0xb4, 0xb6, 0xbb)) +
-      pack("q", self$amount) +
-      pack("i", self$nanos)
+        pack("q", self$amount) +
+        pack("i", self$nanos)
     }
   ),
   private = list(
@@ -37868,11 +36666,15 @@ StarsGiftOption <- R6::R6Class(
     bytes = function() {
       flags <- (if (is.null(self$extended) || !self$extended) 0 else 2) | (if (is.null(self$store_product)) 0 else 1)
       as.raw(c(0xf1, 0x89, 0x05, 0x5e)) +
-      pack("I", flags) +
-      pack("q", self$stars) +
-      if (is.null(self$store_product)) raw(0) else self$serializebytes(self$store_product) +
-      self$serializebytes(self$currency) +
-      pack("q", self$amount)
+        pack("I", flags) +
+        pack("q", self$stars) +
+        if (is.null(self$store_product)) {
+          raw(0)
+        } else {
+          self$serializebytes(self$store_product) +
+            self$serializebytes(self$currency) +
+            pack("q", self$amount)
+        }
     }
   ),
   private = list(
@@ -38398,7 +37200,12 @@ StarsTransaction <- R6::R6Class("StarsTransaction",
       transaction_url <- if (bitwAnd(flags, 32) != 0) reader$tgread_string() else NULL
       bot_payload <- if (bitwAnd(flags, 128) != 0) reader$tgreadbytes() else NULL
       msg_id <- if (bitwAnd(flags, 256) != 0) reader$read_int() else NULL
-      extended_media <- if (bitwAnd(flags, 512) != 0) { reader$read_int(); lapply(seq_len(reader$read_int()), function(i) reader$tgread_object()) } else NULL
+      extended_media <- if (bitwAnd(flags, 512) != 0) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
+      } else {
+        NULL
+      }
       subscription_period <- if (bitwAnd(flags, 4096) != 0) reader$read_int() else NULL
       giveaway_post_id <- if (bitwAnd(flags, 8192) != 0) reader$read_int() else NULL
       stargift <- if (bitwAnd(flags, 16384) != 0) reader$tgread_object() else NULL
@@ -38949,7 +37756,9 @@ StickerSet <- R6::R6Class("StickerSet",
           thumbs <- c(thumbs, reader$tgread_object())
         }
         thumbs
-      } else NULL
+      } else {
+        NULL
+      }
       thumb_dc_id <- if (bitwAnd(flags, 16) != 0) reader$read_int() else NULL
       thumb_version <- if (bitwAnd(flags, 16) != 0) reader$read_int() else NULL
       thumb_document_id <- if (bitwAnd(flags, 256) != 0) reader$read_long() else NULL
@@ -39147,7 +37956,9 @@ StoryItem <- R6::R6Class("StoryItem",
           x <- reader$tgread_object()
           entities <- c(entities, x)
         }
-      } else entities <- NULL
+      } else {
+        entities <- NULL
+      }
       media <- reader$tgread_object()
       if (flags & 16384) {
         reader$read_int()
@@ -39156,7 +37967,9 @@ StoryItem <- R6::R6Class("StoryItem",
           x <- reader$tgread_object()
           media_areas <- c(media_areas, x)
         }
-      } else media_areas <- NULL
+      } else {
+        media_areas <- NULL
+      }
       if (flags & 4) {
         reader$read_int()
         privacy <- list()
@@ -39164,7 +37977,9 @@ StoryItem <- R6::R6Class("StoryItem",
           x <- reader$tgread_object()
           privacy <- c(privacy, x)
         }
-      } else privacy <- NULL
+      } else {
+        privacy <- NULL
+      }
       if (flags & 8) views <- reader$tgread_object() else views <- NULL
       if (flags & 32768) sent_reaction <- reader$tgread_object() else sent_reaction <- NULL
       if (flags & 524288) {
@@ -39174,7 +37989,9 @@ StoryItem <- R6::R6Class("StoryItem",
           x <- reader$read_int()
           albums <- c(albums, x)
         }
-      } else albums <- NULL
+      } else {
+        albums <- NULL
+      }
       list(id = id, date = date, expire_date = expire_date, media = media, pinned = pinned, public = public, close_friends = close_friends, min = min, noforwards = noforwards, edited = edited, contacts = contacts, selected_contacts = selected_contacts, out = out, from_id = from_id, fwd_from = fwd_from, caption = caption, entities = entities, media_areas = media_areas, privacy = privacy, views = views, sent_reaction = sent_reaction, albums = albums)
     }
   ),
@@ -39315,7 +38132,9 @@ StoryViews <- R6::R6Class("StoryViews",
           x <- reader$tgread_object()
           reactions <- c(reactions, x)
         }
-      } else reactions <- NULL
+      } else {
+        reactions <- NULL
+      }
       if (flags & 16) reactions_count <- reader$read_int() else reactions_count <- NULL
       if (flags & 1) {
         reader$read_int()
@@ -39324,7 +38143,9 @@ StoryViews <- R6::R6Class("StoryViews",
           x <- reader$read_long()
           recent_viewers <- c(recent_viewers, x)
         }
-      } else recent_viewers <- NULL
+      } else {
+        recent_viewers <- NULL
+      }
       list(views_count = views_count, has_viewers = has_viewers, forwards_count = forwards_count, reactions = reactions, reactions_count = reactions_count, recent_viewers = recent_viewers)
     }
   ),
@@ -39722,7 +38543,9 @@ Theme <- R6::R6Class("Theme",
       settings <- if ((flags & 8) != 0) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
       emoticon <- if ((flags & 64) != 0) reader$tgread_string() else NULL
       installs_count <- if ((flags & 16) != 0) reader$read_int() else NULL
       list(id = id, access_hash = access_hash, slug = slug, title = title, creator = creator, default = default, for_chat = for_chat, document = document, settings = settings, emoticon = emoticon, installs_count = installs_count)
@@ -39762,7 +38585,9 @@ ThemeSettings <- R6::R6Class("ThemeSettings",
       message_colors <- if ((flags & 1) != 0) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(i) reader$read_int())
-      } else NULL
+      } else {
+        NULL
+      }
       wallpaper <- if ((flags & 2) != 0) reader$tgread_object() else NULL
       list(base_theme = base_theme, accent_color = accent_color, message_colors_animated = message_colors_animated, outbox_accent_color = outbox_accent_color, message_colors = message_colors, wallpaper = wallpaper)
     }
@@ -39892,20 +38717,21 @@ TlsClientHello <- R6::R6Class(
     CONSTRUCTOR_ID = 0x6c52c484,
     SUBCLASS_OF_ID = 0xbef20920,
     blocks = NULL,
-
     initialize = function(blocks) {
       self$blocks <- blocks
     },
-
     to_dict = function() {
       list(
         `_` = "TlsClientHello",
-        blocks = if (is.null(self$blocks)) list() else lapply(self$blocks, function(x) {
-          if (inherits(x, "TLObject")) x$to_dict() else x
-        })
+        blocks = if (is.null(self$blocks)) {
+          list()
+        } else {
+          lapply(self$blocks, function(x) {
+            if (inherits(x, "TLObject")) x$to_dict() else x
+          })
+        }
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x84, 0xc4, 0x52, 0x6c)),
@@ -39934,13 +38760,11 @@ TodoCompletion <- R6::R6Class(
     id = NULL,
     completed_by = NULL,
     date = NULL,
-
     initialize = function(id, completed_by, date) {
       self$id <- id
       self$completed_by <- completed_by
       self$date <- date
     },
-
     to_dict = function() {
       list(
         `_` = "TodoCompletion",
@@ -39949,7 +38773,6 @@ TodoCompletion <- R6::R6Class(
         date = self$date
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0xb7, 0x20, 0xc1, 0x4c)),
@@ -39977,12 +38800,10 @@ TodoItem <- R6::R6Class(
     SUBCLASS_OF_ID = 0xdfdae6b5,
     id = NULL,
     title = NULL,
-
     initialize = function(id, title) {
       self$id <- id
       self$title <- title
     },
-
     to_dict = function() {
       list(
         `_` = "TodoItem",
@@ -39990,7 +38811,6 @@ TodoItem <- R6::R6Class(
         title = if (inherits(self$title, "TLObject")) self$title$to_dict() else self$title
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x2f, 0xa5, 0xa9, 0xcb)),
@@ -40019,14 +38839,12 @@ TodoList <- R6::R6Class(
     list = NULL,
     others_can_append = NULL,
     others_can_complete = NULL,
-
     initialize = function(title, list, others_can_append = NULL, others_can_complete = NULL) {
       self$title <- title
       self$list <- list
       self$others_can_append <- others_can_append
       self$others_can_complete <- others_can_complete
     },
-
     to_dict = function() {
       list(
         `_` = "TodoList",
@@ -40036,12 +38854,11 @@ TodoList <- R6::R6Class(
         others_can_complete = self$others_can_complete
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x26, 0x2a, 0xb9, 0x49)),
         pack("I", (if (is.null(self$others_can_append) || !self$others_can_append) 0 else 1) |
-                     (if (is.null(self$others_can_complete) || !self$others_can_complete) 0 else 2)),
+          (if (is.null(self$others_can_complete) || !self$others_can_complete) 0 else 2)),
         self$title$bytes(),
         as.raw(c(0x1c, 0xb5, 0xc4, 0x15)),
         pack("i", length(self$list)),
@@ -40070,12 +38887,10 @@ TopPeer <- R6::R6Class(
     SUBCLASS_OF_ID = 0x6916c601,
     peer = NULL,
     rating = NULL,
-
     initialize = function(peer, rating) {
       self$peer <- peer
       self$rating <- rating
     },
-
     to_dict = function() {
       list(
         `_` = "TopPeer",
@@ -40083,7 +38898,6 @@ TopPeer <- R6::R6Class(
         rating = self$rating
       )
     },
-
     bytes = function() {
       c(
         as.raw(c(0x5b, 0xc0, 0xcd, 0xed)),
@@ -42026,7 +40840,15 @@ UpdateBotMessageReaction <- R6::R6Class("UpdateBotMessageReaction",
     bytes = function() as.raw(c(0xce, 0xd3, 0x21, 0xac)) + self$peer$bytes() + pack("i", self$msg_id) + self$serialize_datetime(self$date) + self$actor$bytes() + (as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$old_reactions)) + do.call(c, lapply(self$old_reactions, function(x) x$bytes()))) + (as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$new_reactions)) + do.call(c, lapply(self$new_reactions, function(x) x$bytes()))) + pack("i", self$qts)
   ),
   private = list(
-    from_reader = function(reader) list(peer = reader$tgread_object(), msg_id = reader$read_int(), date = reader$tgread_date(), actor = reader$tgread_object(), old_reactions = { reader$read_int(); lapply(seq_len(reader$read_int()), function(x) reader$tgread_object()) }, new_reactions = { reader$read_int(); lapply(seq_len(reader$read_int()), function(x) reader$tgread_object()) }, qts = reader$read_int())
+    from_reader = function(reader) {
+      list(peer = reader$tgread_object(), msg_id = reader$read_int(), date = reader$tgread_date(), actor = reader$tgread_object(), old_reactions = {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      }, new_reactions = {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      }, qts = reader$read_int())
+    }
   ),
   class = TRUE
 )
@@ -42037,7 +40859,12 @@ UpdateBotMessageReactions <- R6::R6Class("UpdateBotMessageReactions",
     bytes = function() as.raw(c(0x59, 0xcb, 0x0b)) + self$peer$bytes() + pack("i", self$msg_id) + self$serialize_datetime(self$date) + (as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$reactions)) + do.call(c, lapply(self$reactions, function(x) x$bytes()))) + pack("i", self$qts)
   ),
   private = list(
-    from_reader = function(reader) list(peer = reader$tgread_object(), msg_id = reader$read_int(), date = reader$tgread_date(), reactions = { reader$read_int(); lapply(seq_len(reader$read_int()), function(x) reader$tgread_object()) }, qts = reader$read_int())
+    from_reader = function(reader) {
+      list(peer = reader$tgread_object(), msg_id = reader$read_int(), date = reader$tgread_date(), reactions = {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      }, qts = reader$read_int())
+    }
   ),
   class = TRUE
 )
@@ -42202,7 +41029,14 @@ UpdateChannelPinnedTopics <- R6::R6Class("UpdateChannelPinnedTopics",
     bytes = function() as.raw(c(0x02, 0x86, 0x19, 0xfe)) + pack("I", (if (is.null(self$order)) 0 else 1)) + pack("q", self$channel_id) + if (!is.null(self$order)) (as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$order)) + do.call(c, lapply(self$order, function(x) pack("i", x)))) else raw(0)
   ),
   private = list(
-    from_reader = function(reader) list(flags = reader$read_int(), channel_id = reader$read_long(), order = if (flags & 1) { reader$read_int(); lapply(seq_len(reader$read_int()), function(x) reader$read_int()) } else NULL)
+    from_reader = function(reader) {
+      list(flags = reader$read_int(), channel_id = reader$read_long(), order = if (flags & 1) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$read_int())
+      } else {
+        NULL
+      })
+    }
   ),
   class = TRUE
 )
@@ -42213,7 +41047,12 @@ UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesConte
     bytes = function() as.raw(c(0xf7, 0x24, 0xf3, 0x25)) + pack("I", (if (is.null(self$top_msg_id)) 0 else 1) | (if (is.null(self$savedpeer_id)) 0 else 2)) + pack("q", self$channel_id) + if (!is.null(self$top_msg_id)) pack("i", self$top_msg_id) else raw(0) + if (!is.null(self$savedpeer_id)) self$savedpeer_id$bytes() else raw(0) + (as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$messages)) + do.call(c, lapply(self$messages, function(x) pack("i", x))))
   ),
   private = list(
-    from_reader = function(reader) list(flags = reader$read_int(), channel_id = reader$read_long(), top_msg_id = if (flags & 1) reader$read_int() else NULL, savedpeer_id = if (flags & 2) reader$tgread_object() else NULL, messages = { reader$read_int(); lapply(seq_len(reader$read_int()), function(x) reader$read_int()) })
+    from_reader = function(reader) {
+      list(flags = reader$read_int(), channel_id = reader$read_long(), top_msg_id = if (flags & 1) reader$read_int() else NULL, savedpeer_id = if (flags & 2) reader$tgread_object() else NULL, messages = {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$read_int())
+      })
+    }
   ),
   class = TRUE
 )
@@ -42455,8 +41294,10 @@ UpdateChatParticipants <- R6::R6Class("UpdateChatParticipants",
       self$participants <- participants
     },
     to_dict = function() {
-      list(`_` = "UpdateChatParticipants",
-           participants = if (inherits(self$participants, "TLObject")) self$participants$to_dict() else self$participants)
+      list(
+        `_` = "UpdateChatParticipants",
+        participants = if (inherits(self$participants, "TLObject")) self$participants$to_dict() else self$participants
+      )
     },
     bytes = function() {
       c(as.raw(c(0x98, 0x11, 0x76, 0x07)), self$participants$bytes())
@@ -42482,10 +41323,12 @@ UpdateChatUserTyping <- R6::R6Class("UpdateChatUserTyping",
       self$action <- action
     },
     to_dict = function() {
-      list(`_` = "UpdateChatUserTyping",
-           chat_id = self$chat_id,
-           from_id = if (inherits(self$from_id, "TLObject")) self$from_id$to_dict() else self$from_id,
-           action = if (inherits(self$action, "TLObject")) self$action$to_dict() else self$action)
+      list(
+        `_` = "UpdateChatUserTyping",
+        chat_id = self$chat_id,
+        from_id = if (inherits(self$from_id, "TLObject")) self$from_id$to_dict() else self$from_id,
+        action = if (inherits(self$action, "TLObject")) self$action$to_dict() else self$action
+      )
     },
     bytes = function() {
       c(as.raw(c(0xf0, 0x7a, 0x48, 0x83)), pack("q", self$chat_id), self$from_id$bytes(), self$action$bytes())
@@ -42551,8 +41394,10 @@ UpdateDcOptions <- R6::R6Class("UpdateDcOptions",
       self$dc_options <- dc_options
     },
     to_dict = function() {
-      list(`_` = "UpdateDcOptions",
-           dc_options = lapply(self$dc_options, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
+      list(
+        `_` = "UpdateDcOptions",
+        dc_options = lapply(self$dc_options, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
     },
     bytes = function() {
       c(as.raw(c(0x73, 0x98, 0x5e, 0x8e)), as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("i", length(self$dc_options)), do.call(c, lapply(self$dc_options, function(x) x$bytes())))
@@ -42580,11 +41425,13 @@ UpdateDeleteChannelMessages <- R6::R6Class("UpdateDeleteChannelMessages",
       self$pts_count <- pts_count
     },
     to_dict = function() {
-      list(`_` = "UpdateDeleteChannelMessages",
-           channel_id = self$channel_id,
-           messages = self$messages,
-           pts = self$pts,
-           pts_count = self$pts_count)
+      list(
+        `_` = "UpdateDeleteChannelMessages",
+        channel_id = self$channel_id,
+        messages = self$messages,
+        pts = self$pts,
+        pts_count = self$pts_count
+      )
     },
     bytes = function() {
       c(as.raw(c(0x12, 0x5b, 0x2d, 0xc3)), pack("q", self$channel_id), as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("i", length(self$messages)), do.call(c, lapply(self$messages, function(x) pack("i", x))), pack("i", self$pts), pack("i", self$pts_count))
@@ -42614,10 +41461,12 @@ UpdateDeleteMessages <- R6::R6Class("UpdateDeleteMessages",
       self$pts_count <- pts_count
     },
     to_dict = function() {
-      list(`_` = "UpdateDeleteMessages",
-           messages = self$messages,
-           pts = self$pts,
-           pts_count = self$pts_count)
+      list(
+        `_` = "UpdateDeleteMessages",
+        messages = self$messages,
+        pts = self$pts,
+        pts_count = self$pts_count
+      )
     },
     bytes = function() {
       c(as.raw(c(0xe5, 0xb0, 0x0d, 0xa2)), as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("i", length(self$messages)), do.call(c, lapply(self$messages, function(x) pack("i", x))), pack("i", self$pts), pack("i", self$pts_count))
@@ -42644,8 +41493,10 @@ UpdateDeleteQuickReply <- R6::R6Class("UpdateDeleteQuickReply",
       self$shortcut_id <- shortcut_id
     },
     to_dict = function() {
-      list(`_` = "UpdateDeleteQuickReply",
-           shortcut_id = self$shortcut_id)
+      list(
+        `_` = "UpdateDeleteQuickReply",
+        shortcut_id = self$shortcut_id
+      )
     },
     bytes = function() {
       c(as.raw(c(0xec, 0xf1, 0xe6, 0x53)), pack("i", self$shortcut_id))
@@ -42670,9 +41521,11 @@ UpdateDeleteQuickReplyMessages <- R6::R6Class("UpdateDeleteQuickReplyMessages",
       self$messages <- messages
     },
     to_dict = function() {
-      list(`_` = "UpdateDeleteQuickReplyMessages",
-           shortcut_id = self$shortcut_id,
-           messages = self$messages)
+      list(
+        `_` = "UpdateDeleteQuickReplyMessages",
+        shortcut_id = self$shortcut_id,
+        messages = self$messages
+      )
     },
     bytes = function() {
       c(as.raw(c(0xcd, 0xe7, 0x6f, 0x56)), pack("i", self$shortcut_id), as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("i", length(self$messages)), do.call(c, lapply(self$messages, function(x) pack("i", x))))
@@ -42700,10 +41553,12 @@ UpdateDeleteScheduledMessages <- R6::R6Class("UpdateDeleteScheduledMessages",
       self$sent_messages <- sent_messages
     },
     to_dict = function() {
-      list(`_` = "UpdateDeleteScheduledMessages",
-           peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-           messages = self$messages,
-           sent_messages = self$sent_messages)
+      list(
+        `_` = "UpdateDeleteScheduledMessages",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        messages = self$messages,
+        sent_messages = self$sent_messages
+      )
     },
     bytes = function() {
       flags <- if (is.null(self$sent_messages)) 0 else 1
@@ -42719,7 +41574,9 @@ UpdateDeleteScheduledMessages <- R6::R6Class("UpdateDeleteScheduledMessages",
       sent_messages <- if (flags & 1) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(x) reader$read_int())
-      } else NULL
+      } else {
+        NULL
+      }
       self$initialize(peer, messages, sent_messages)
     }
   ),
@@ -42736,9 +41593,11 @@ UpdateDialogFilter <- R6::R6Class("UpdateDialogFilter",
       self$filter <- filter
     },
     to_dict = function() {
-      list(`_` = "UpdateDialogFilter",
-           id = self$id,
-           filter = if (inherits(self$filter, "TLObject")) self$filter$to_dict() else self$filter)
+      list(
+        `_` = "UpdateDialogFilter",
+        id = self$id,
+        filter = if (inherits(self$filter, "TLObject")) self$filter$to_dict() else self$filter
+      )
     },
     bytes = function() {
       flags <- if (is.null(self$filter)) 0 else 1
@@ -42765,8 +41624,10 @@ UpdateDialogFilterOrder <- R6::R6Class("UpdateDialogFilterOrder",
       self$order <- order
     },
     to_dict = function() {
-      list(`_` = "UpdateDialogFilterOrder",
-           order = self$order)
+      list(
+        `_` = "UpdateDialogFilterOrder",
+        order = self$order
+      )
     },
     bytes = function() {
       c(as.raw(c(0x05, 0x21, 0xd7, 0xa5)), as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("i", length(self$order)), do.call(c, lapply(self$order, function(x) pack("i", x))))
@@ -42813,10 +41674,12 @@ UpdateDialogPinned <- R6::R6Class("UpdateDialogPinned",
       self$folder_id <- folder_id
     },
     to_dict = function() {
-      list(`_` = "UpdateDialogPinned",
-           peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-           pinned = self$pinned,
-           folder_id = self$folder_id)
+      list(
+        `_` = "UpdateDialogPinned",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        pinned = self$pinned,
+        folder_id = self$folder_id
+      )
     },
     bytes = function() {
       flags <- (if (is.null(self$pinned) || !self$pinned) 0 else 1) | (if (is.null(self$folder_id)) 0 else 2)
@@ -42846,10 +41709,12 @@ UpdateDialogUnreadMark <- R6::R6Class("UpdateDialogUnreadMark",
       self$savedpeer_id <- savedpeer_id
     },
     to_dict = function() {
-      list(`_` = "UpdateDialogUnreadMark",
-           peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-           unread = self$unread,
-           savedpeer_id = if (inherits(self$savedpeer_id, "TLObject")) self$savedpeer_id$to_dict() else self$savedpeer_id)
+      list(
+        `_` = "UpdateDialogUnreadMark",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        unread = self$unread,
+        savedpeer_id = if (inherits(self$savedpeer_id, "TLObject")) self$savedpeer_id$to_dict() else self$savedpeer_id
+      )
     },
     bytes = function() {
       flags <- (if (is.null(self$unread) || !self$unread) 0 else 1) | (if (is.null(self$savedpeer_id)) 0 else 2)
@@ -43897,8 +42762,10 @@ UpdateNewScheduledMessage <- R6::R6Class("UpdateNewScheduledMessage",
       self$message <- message
     },
     to_dict = function() {
-      list(`_` = "UpdateNewScheduledMessage",
-           message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message)
+      list(
+        `_` = "UpdateNewScheduledMessage",
+        message = if (inherits(self$message, "TLObject")) self$message$to_dict() else self$message
+      )
     },
     bytes = function() {
       c(as.raw(c(0xfb, 0x1d, 0xa5, 0x39)), self$message$bytes())
@@ -43922,8 +42789,10 @@ UpdateNewStickerSet <- R6::R6Class("UpdateNewStickerSet",
       self$stickerset <- stickerset
     },
     to_dict = function() {
-      list(`_` = "UpdateNewStickerSet",
-           stickerset = if (inherits(self$stickerset, "TLObject")) self$stickerset$to_dict() else self$stickerset)
+      list(
+        `_` = "UpdateNewStickerSet",
+        stickerset = if (inherits(self$stickerset, "TLObject")) self$stickerset$to_dict() else self$stickerset
+      )
     },
     bytes = function() {
       c(as.raw(c(0xaa, 0x30, 0x8a, 0x68)), self$stickerset$bytes())
@@ -43949,10 +42818,12 @@ UpdateNewStoryReaction <- R6::R6Class("UpdateNewStoryReaction",
       self$reaction <- reaction
     },
     to_dict = function() {
-      list(`_` = "UpdateNewStoryReaction",
-           story_id = self$story_id,
-           peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-           reaction = if (inherits(self$reaction, "TLObject")) self$reaction$to_dict() else self$reaction)
+      list(
+        `_` = "UpdateNewStoryReaction",
+        story_id = self$story_id,
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        reaction = if (inherits(self$reaction, "TLObject")) self$reaction$to_dict() else self$reaction
+      )
     },
     bytes = function() {
       c(as.raw(c(0x0b, 0xe4, 0x24, 0x18)), pack("i", self$story_id), self$peer$bytes(), self$reaction$bytes())
@@ -43979,9 +42850,11 @@ UpdateNotifySettings <- R6::R6Class("UpdateNotifySettings",
       self$notify_settings <- notify_settings
     },
     to_dict = function() {
-      list(`_` = "UpdateNotifySettings",
-           peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-           notify_settings = if (inherits(self$notify_settings, "TLObject")) self$notify_settings$to_dict() else self$notify_settings)
+      list(
+        `_` = "UpdateNotifySettings",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        notify_settings = if (inherits(self$notify_settings, "TLObject")) self$notify_settings$to_dict() else self$notify_settings
+      )
     },
     bytes = function() {
       c(as.raw(c(0xef, 0x68, 0xc2, 0xbe)), self$peer$bytes(), self$notify_settings$bytes())
@@ -44006,8 +42879,10 @@ UpdatePaidReactionPrivacy <- R6::R6Class("UpdatePaidReactionPrivacy",
       self$private <- private
     },
     to_dict = function() {
-      list(`_` = "UpdatePaidReactionPrivacy",
-           private = if (inherits(self$private, "TLObject")) self$private$to_dict() else self$private)
+      list(
+        `_` = "UpdatePaidReactionPrivacy",
+        private = if (inherits(self$private, "TLObject")) self$private$to_dict() else self$private
+      )
     },
     bytes = function() {
       c(as.raw(c(0xce, 0x5f, 0x72, 0x8b)), self$private$bytes())
@@ -44033,10 +42908,12 @@ UpdatePeerBlocked <- R6::R6Class("UpdatePeerBlocked",
       self$blocked_my_stories_from <- blocked_my_stories_from
     },
     to_dict = function() {
-      list(`_` = "UpdatePeerBlocked",
-           peer_id = if (inherits(self$peer_id, "TLObject")) self$peer_id$to_dict() else self$peer_id,
-           blocked = self$blocked,
-           blocked_my_stories_from = self$blocked_my_stories_from)
+      list(
+        `_` = "UpdatePeerBlocked",
+        peer_id = if (inherits(self$peer_id, "TLObject")) self$peer_id$to_dict() else self$peer_id,
+        blocked = self$blocked,
+        blocked_my_stories_from = self$blocked_my_stories_from
+      )
     },
     bytes = function() {
       flags <- (if (is.null(self$blocked) || !self$blocked) 0 else 1) | (if (is.null(self$blocked_my_stories_from) || !self$blocked_my_stories_from) 0 else 2)
@@ -44065,9 +42942,11 @@ UpdatePeerHistoryTTL <- R6::R6Class("UpdatePeerHistoryTTL",
       self$ttl_period <- ttl_period
     },
     to_dict = function() {
-      list(`_` = "UpdatePeerHistoryTTL",
-           peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-           ttl_period = self$ttl_period)
+      list(
+        `_` = "UpdatePeerHistoryTTL",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        ttl_period = self$ttl_period
+      )
     },
     bytes = function() {
       flags <- if (is.null(self$ttl_period)) 0 else 1
@@ -44094,8 +42973,10 @@ UpdatePeerLocated <- R6::R6Class("UpdatePeerLocated",
       self$peers <- peers
     },
     to_dict = function() {
-      list(`_` = "UpdatePeerLocated",
-           peers = lapply(self$peers, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
+      list(
+        `_` = "UpdatePeerLocated",
+        peers = lapply(self$peers, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
     },
     bytes = function() {
       c(as.raw(c(0xb0, 0xcf, 0xaf, 0xb4)), as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("i", length(self$peers)), do.call(c, lapply(self$peers, function(x) x$bytes())))
@@ -44121,9 +43002,11 @@ UpdatePeerSettings <- R6::R6Class("UpdatePeerSettings",
       self$settings <- settings
     },
     to_dict = function() {
-      list(`_` = "UpdatePeerSettings",
-           peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-           settings = if (inherits(self$settings, "TLObject")) self$settings$to_dict() else self$settings)
+      list(
+        `_` = "UpdatePeerSettings",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        settings = if (inherits(self$settings, "TLObject")) self$settings$to_dict() else self$settings
+      )
     },
     bytes = function() {
       c(as.raw(c(0x66, 0x73, 0x7e, 0x6a)), self$peer$bytes(), self$settings$bytes())
@@ -44150,10 +43033,12 @@ UpdatePeerWallpaper <- R6::R6Class("UpdatePeerWallpaper",
       self$wallpaper <- wallpaper
     },
     to_dict = function() {
-      list(`_` = "UpdatePeerWallpaper",
-           peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-           wallpaper_overridden = self$wallpaper_overridden,
-           wallpaper = if (inherits(self$wallpaper, "TLObject")) self$wallpaper$to_dict() else self$wallpaper)
+      list(
+        `_` = "UpdatePeerWallpaper",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        wallpaper_overridden = self$wallpaper_overridden,
+        wallpaper = if (inherits(self$wallpaper, "TLObject")) self$wallpaper$to_dict() else self$wallpaper
+      )
     },
     bytes = function() {
       flags <- (if (is.null(self$wallpaper_overridden) || !self$wallpaper_overridden) 0 else 2) | (if (is.null(self$wallpaper)) 0 else 1)
@@ -44183,10 +43068,12 @@ UpdatePendingJoinRequests <- R6::R6Class("UpdatePendingJoinRequests",
       self$recent_requesters <- recent_requesters
     },
     to_dict = function() {
-      list(`_` = "UpdatePendingJoinRequests",
-           peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-           requests_pending = self$requests_pending,
-           recent_requesters = self$recent_requesters)
+      list(
+        `_` = "UpdatePendingJoinRequests",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        requests_pending = self$requests_pending,
+        recent_requesters = self$recent_requesters
+      )
     },
     bytes = function() {
       c(as.raw(c(0xdb, 0xc3, 0x63, 0x70)), self$peer$bytes(), pack("i", self$requests_pending), as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("i", length(self$recent_requesters)), do.call(c, lapply(self$recent_requesters, function(x) pack("q", x))))
@@ -44213,8 +43100,10 @@ UpdatePhoneCall <- R6::R6Class("UpdatePhoneCall",
       self$phone_call <- phone_call
     },
     to_dict = function() {
-      list(`_` = "UpdatePhoneCall",
-           phone_call = if (inherits(self$phone_call, "TLObject")) self$phone_call$to_dict() else self$phone_call)
+      list(
+        `_` = "UpdatePhoneCall",
+        phone_call = if (inherits(self$phone_call, "TLObject")) self$phone_call$to_dict() else self$phone_call
+      )
     },
     bytes = function() {
       c(as.raw(c(0x1e, 0x6b, 0x0f, 0xab)), self$phone_call$bytes())
@@ -44239,9 +43128,11 @@ UpdatePhoneCallSignalingData <- R6::R6Class("UpdatePhoneCallSignalingData",
       self$data <- data
     },
     to_dict = function() {
-      list(`_` = "UpdatePhoneCallSignalingData",
-           phone_call_id = self$phone_call_id,
-           data = self$data)
+      list(
+        `_` = "UpdatePhoneCallSignalingData",
+        phone_call_id = self$phone_call_id,
+        data = self$data
+      )
     },
     bytes = function() {
       c(as.raw(c(0x09, 0xbf, 0x61, 0x26)), pack("q", self$phone_call_id), self$serializebytes(self$data))
@@ -44270,12 +43161,14 @@ UpdatePinnedChannelMessages <- R6::R6Class("UpdatePinnedChannelMessages",
       self$pinned <- pinned
     },
     to_dict = function() {
-      list(`_` = "UpdatePinnedChannelMessages",
-           channel_id = self$channel_id,
-           messages = self$messages,
-           pts = self$pts,
-           pts_count = self$pts_count,
-           pinned = self$pinned)
+      list(
+        `_` = "UpdatePinnedChannelMessages",
+        channel_id = self$channel_id,
+        messages = self$messages,
+        pts = self$pts,
+        pts_count = self$pts_count,
+        pinned = self$pinned
+      )
     },
     bytes = function() {
       flags <- if (is.null(self$pinned) || !self$pinned) 0 else 1
@@ -44307,9 +43200,11 @@ UpdatePinnedDialogs <- R6::R6Class("UpdatePinnedDialogs",
       self$order <- order
     },
     to_dict = function() {
-      list(`_` = "UpdatePinnedDialogs",
-           folder_id = self$folder_id,
-           order = if (!is.null(self$order)) lapply(self$order, function(x) if (inherits(x, "TLObject")) x$to_dict() else x) else NULL)
+      list(
+        `_` = "UpdatePinnedDialogs",
+        folder_id = self$folder_id,
+        order = if (!is.null(self$order)) lapply(self$order, function(x) if (inherits(x, "TLObject")) x$to_dict() else x) else NULL
+      )
     },
     bytes = function() {
       flags <- (if (is.null(self$folder_id)) 0 else 2) | (if (is.null(self$order)) 0 else 1)
@@ -44323,7 +43218,9 @@ UpdatePinnedDialogs <- R6::R6Class("UpdatePinnedDialogs",
       order <- if (flags & 1) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
       self$new(folder_id = folder_id, order = order)
     }
   ),
@@ -44343,12 +43240,14 @@ UpdatePinnedMessages <- R6::R6Class("UpdatePinnedMessages",
       self$pinned <- pinned
     },
     to_dict = function() {
-      list(`_` = "UpdatePinnedMessages",
-           peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
-           messages = self$messages,
-           pts = self$pts,
-           pts_count = self$pts_count,
-           pinned = self$pinned)
+      list(
+        `_` = "UpdatePinnedMessages",
+        peer = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        messages = self$messages,
+        pts = self$pts,
+        pts_count = self$pts_count,
+        pinned = self$pinned
+      )
     },
     bytes = function() {
       flags <- if (is.null(self$pinned) || !self$pinned) 0 else 1
@@ -44379,8 +43278,10 @@ UpdatePinnedSavedDialogs <- R6::R6Class("UpdatePinnedSavedDialogs",
       self$order <- order
     },
     to_dict = function() {
-      list(`_` = "UpdatePinnedSavedDialogs",
-           order = if (!is.null(self$order)) lapply(self$order, function(x) if (inherits(x, "TLObject")) x$to_dict() else x) else NULL)
+      list(
+        `_` = "UpdatePinnedSavedDialogs",
+        order = if (!is.null(self$order)) lapply(self$order, function(x) if (inherits(x, "TLObject")) x$to_dict() else x) else NULL
+      )
     },
     bytes = function() {
       flags <- if (is.null(self$order)) 0 else 1
@@ -44393,7 +43294,9 @@ UpdatePinnedSavedDialogs <- R6::R6Class("UpdatePinnedSavedDialogs",
       order <- if (flags & 1) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
       self$new(order = order)
     }
   ),
@@ -44410,9 +43313,11 @@ UpdatePrivacy <- R6::R6Class("UpdatePrivacy",
       self$rules <- rules
     },
     to_dict = function() {
-      list(`_` = "UpdatePrivacy",
-           key = if (inherits(self$key, "TLObject")) self$key$to_dict() else self$key,
-           rules = lapply(self$rules, function(x) if (inherits(x, "TLObject")) x$to_dict() else x))
+      list(
+        `_` = "UpdatePrivacy",
+        key = if (inherits(self$key, "TLObject")) self$key$to_dict() else self$key,
+        rules = lapply(self$rules, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
     },
     bytes = function() {
       c(as.raw(c(0x2a, 0x27, 0x3b, 0xee)), self$key$bytes(), as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("i", length(self$rules)), do.call(c, lapply(self$rules, function(x) x$bytes())))
@@ -45393,7 +44298,9 @@ UpdateShortChatMessage <- R6::R6Class("UpdateShortChatMessage",
           ents <- c(ents, list(x))
         }
         ents
-      } else NULL
+      } else {
+        NULL
+      }
       ttl_period <- if (flags & 33554432) reader$read_int() else NULL
       self$initialize(id, from_id, chat_id, message, pts, pts_count, date, out, mentioned, media_unread, silent, fwd_from, via_bot_id, reply_to, entities, ttl_period)
     }
@@ -45481,7 +44388,9 @@ UpdateShortMessage <- R6::R6Class("UpdateShortMessage",
       entities <- if (bitwAnd(flags, 128) != 0) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
       ttl_period <- if (bitwAnd(flags, 33554432) != 0) reader$read_int() else NULL
       list(flags = flags, id = id, user_id = user_id, message = message, pts = pts, pts_count = pts_count, date = date, out = out, mentioned = mentioned, media_unread = media_unread, silent = silent, fwd_from = fwd_from, via_bot_id = via_bot_id, reply_to = reply_to, entities = entities, ttl_period = ttl_period)
     }
@@ -45543,7 +44452,9 @@ UpdateShortSentMessage <- R6::R6Class("UpdateShortSentMessage",
       entities <- if (bitwAnd(flags, 128) != 0) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
       ttl_period <- if (bitwAnd(flags, 33554432) != 0) reader$read_int() else NULL
       list(flags = flags, id = id, pts = pts, pts_count = pts_count, date = date, out = out, media = media, entities = entities, ttl_period = ttl_period)
     }
@@ -46075,12 +44986,12 @@ UpdateUserTyping <- R6::R6Class("UpdateUserTyping",
     CONSTRUCTOR_ID = 0xc01e857f,
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(user_id, action) {
-      self$user_id = user_id
-      self$action = action
+      self$user_id <- user_id
+      self$action <- action
     },
     to_dict = function() {
       list(
-        `_` = 'UpdateUserTyping',
+        `_` = "UpdateUserTyping",
         user_id = self$user_id,
         action = if (inherits(self$action, "TLObject")) self$action$to_dict() else self$action
       )
@@ -46107,13 +45018,13 @@ UpdateWebPage <- R6::R6Class("UpdateWebPage",
     CONSTRUCTOR_ID = 0x7f891213,
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(webpage, pts, pts_count) {
-      self$webpage = webpage
-      self$pts = pts
-      self$pts_count = pts_count
+      self$webpage <- webpage
+      self$pts <- pts
+      self$pts_count <- pts_count
     },
     to_dict = function() {
       list(
-        `_` = 'UpdateWebPage',
+        `_` = "UpdateWebPage",
         webpage = if (inherits(self$webpage, "TLObject")) self$webpage$to_dict() else self$webpage,
         pts = self$pts,
         pts_count = self$pts_count
@@ -46142,11 +45053,11 @@ UpdateWebViewResultSent <- R6::R6Class("UpdateWebViewResultSent",
     CONSTRUCTOR_ID = 0x1592b79d,
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(query_id) {
-      self$query_id = query_id
+      self$query_id <- query_id
     },
     to_dict = function() {
       list(
-        `_` = 'UpdateWebViewResultSent',
+        `_` = "UpdateWebViewResultSent",
         query_id = self$query_id
       )
     },
@@ -46171,15 +45082,15 @@ Updates <- R6::R6Class("Updates",
     CONSTRUCTOR_ID = 0x74ae4240,
     SUBCLASS_OF_ID = 0x8af52aac,
     initialize = function(updates, users, chats, date, seq) {
-      self$updates = updates
-      self$users = users
-      self$chats = chats
-      self$date = date
-      self$seq = seq
+      self$updates <- updates
+      self$users <- users
+      self$chats <- chats
+      self$date <- date
+      self$seq <- seq
     },
     to_dict = function() {
       list(
-        `_` = 'Updates',
+        `_` = "Updates",
         updates = if (is.null(self$updates)) list() else lapply(self$updates, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
         users = if (is.null(self$users)) list() else lapply(self$users, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
         chats = if (is.null(self$chats)) list() else lapply(self$chats, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
@@ -46201,13 +45112,13 @@ Updates <- R6::R6Class("Updates",
   private = list(
     from_reader = function(reader) {
       reader$read_int()
-      updates = lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      updates <- lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
       reader$read_int()
-      users = lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      users <- lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
       reader$read_int()
-      chats = lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-      date = reader$tgread_date()
-      seq = reader$read_int()
+      chats <- lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      date <- reader$tgread_date()
+      seq <- reader$read_int()
       list(updates = updates, users = users, chats = chats, date = date, seq = seq)
     }
   ),
@@ -46220,16 +45131,16 @@ UpdatesCombined <- R6::R6Class("UpdatesCombined",
     CONSTRUCTOR_ID = 0x725b04c3,
     SUBCLASS_OF_ID = 0x8af52aac,
     initialize = function(updates, users, chats, date, seq_start, seq) {
-      self$updates = updates
-      self$users = users
-      self$chats = chats
-      self$date = date
-      self$seq_start = seq_start
-      self$seq = seq
+      self$updates <- updates
+      self$users <- users
+      self$chats <- chats
+      self$date <- date
+      self$seq_start <- seq_start
+      self$seq <- seq
     },
     to_dict = function() {
       list(
-        `_` = 'UpdatesCombined',
+        `_` = "UpdatesCombined",
         updates = if (is.null(self$updates)) list() else lapply(self$updates, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
         users = if (is.null(self$users)) list() else lapply(self$users, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
         chats = if (is.null(self$chats)) list() else lapply(self$chats, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
@@ -46253,14 +45164,14 @@ UpdatesCombined <- R6::R6Class("UpdatesCombined",
   private = list(
     from_reader = function(reader) {
       reader$read_int()
-      updates = lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      updates <- lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
       reader$read_int()
-      users = lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      users <- lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
       reader$read_int()
-      chats = lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-      date = reader$tgread_date()
-      seq_start = reader$read_int()
-      seq = reader$read_int()
+      chats <- lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      date <- reader$tgread_date()
+      seq_start <- reader$read_int()
+      seq <- reader$read_int()
       list(updates = updates, users = users, chats = chats, date = date, seq_start = seq_start, seq = seq)
     }
   ),
@@ -46293,11 +45204,11 @@ UrlAuthResultAccepted <- R6::R6Class("UrlAuthResultAccepted",
     CONSTRUCTOR_ID = 0x8f8c0e4e,
     SUBCLASS_OF_ID = 0x7765cb1e,
     initialize = function(url) {
-      self$url = url
+      self$url <- url
     },
     to_dict = function() {
       list(
-        `_` = 'UrlAuthResultAccepted',
+        `_` = "UrlAuthResultAccepted",
         url = self$url
       )
     },
@@ -46342,13 +45253,13 @@ UrlAuthResultRequest <- R6::R6Class("UrlAuthResultRequest",
     CONSTRUCTOR_ID = 0x92d33a0e,
     SUBCLASS_OF_ID = 0x7765cb1e,
     initialize = function(bot, domain, request_write_access = NULL) {
-      self$bot = bot
-      self$domain = domain
-      self$request_write_access = request_write_access
+      self$bot <- bot
+      self$domain <- domain
+      self$request_write_access <- request_write_access
     },
     to_dict = function() {
       list(
-        `_` = 'UrlAuthResultRequest',
+        `_` = "UrlAuthResultRequest",
         bot = if (inherits(self$bot, "TLObject")) self$bot$to_dict() else self$bot,
         domain = self$domain,
         request_write_access = self$request_write_access
@@ -46365,10 +45276,10 @@ UrlAuthResultRequest <- R6::R6Class("UrlAuthResultRequest",
   ),
   private = list(
     from_reader = function(reader) {
-      flags = reader$read_int()
-      request_write_access = (flags & 1) != 0
-      bot = reader$tgread_object()
-      domain = reader$tgread_string()
+      flags <- reader$read_int()
+      request_write_access <- (flags & 1) != 0
+      bot <- reader$tgread_object()
+      domain <- reader$tgread_string()
       list(bot = bot, domain = domain, request_write_access = request_write_access)
     }
   ),
@@ -46381,55 +45292,55 @@ User <- R6::R6Class("User",
     CONSTRUCTOR_ID = 0x20b1422,
     SUBCLASS_OF_ID = 0x2da17977,
     initialize = function(id, is_self = NULL, contact = NULL, mutual_contact = NULL, deleted = NULL, bot = NULL, bot_chat_history = NULL, bot_nochats = NULL, verified = NULL, restricted = NULL, min = NULL, bot_inline_geo = NULL, support = NULL, scam = NULL, apply_min_photo = NULL, fake = NULL, bot_attach_menu = NULL, premium = NULL, attach_menu_enabled = NULL, bot_can_edit = NULL, close_friend = NULL, stories_hidden = NULL, stories_unavailable = NULL, contact_require_premium = NULL, bot_business = NULL, bot_has_main_app = NULL, access_hash = NULL, first_name = NULL, last_name = NULL, username = NULL, phone = NULL, photo = NULL, status = NULL, bot_info_version = NULL, restriction_reason = NULL, bot_inline_placeholder = NULL, lang_code = NULL, emoji_status = NULL, usernames = NULL, stories_max_id = NULL, color = NULL, profile_color = NULL, bot_active_users = NULL, bot_verification_icon = NULL, send_paid_messages_stars = NULL) {
-      self$id = id
-      self$is_self = is_self
-      self$contact = contact
-      self$mutual_contact = mutual_contact
-      self$deleted = deleted
-      self$bot = bot
-      self$bot_chat_history = bot_chat_history
-      self$bot_nochats = bot_nochats
-      self$verified = verified
-      self$restricted = restricted
-      self$min = min
-      self$bot_inline_geo = bot_inline_geo
-      self$support = support
-      self$scam = scam
-      self$apply_min_photo = apply_min_photo
-      self$fake = fake
-      self$bot_attach_menu = bot_attach_menu
-      self$premium = premium
-      self$attach_menu_enabled = attach_menu_enabled
-      self$bot_can_edit = bot_can_edit
-      self$close_friend = close_friend
-      self$stories_hidden = stories_hidden
-      self$stories_unavailable = stories_unavailable
-      self$contact_require_premium = contact_require_premium
-      self$bot_business = bot_business
-      self$bot_has_main_app = bot_has_main_app
-      self$access_hash = access_hash
-      self$first_name = first_name
-      self$last_name = last_name
-      self$username = username
-      self$phone = phone
-      self$photo = photo
-      self$status = status
-      self$bot_info_version = bot_info_version
-      self$restriction_reason = restriction_reason
-      self$bot_inline_placeholder = bot_inline_placeholder
-      self$lang_code = lang_code
-      self$emoji_status = emoji_status
-      self$usernames = usernames
-      self$stories_max_id = stories_max_id
-      self$color = color
-      self$profile_color = profile_color
-      self$bot_active_users = bot_active_users
-      self$bot_verification_icon = bot_verification_icon
-      self$send_paid_messages_stars = send_paid_messages_stars
+      self$id <- id
+      self$is_self <- is_self
+      self$contact <- contact
+      self$mutual_contact <- mutual_contact
+      self$deleted <- deleted
+      self$bot <- bot
+      self$bot_chat_history <- bot_chat_history
+      self$bot_nochats <- bot_nochats
+      self$verified <- verified
+      self$restricted <- restricted
+      self$min <- min
+      self$bot_inline_geo <- bot_inline_geo
+      self$support <- support
+      self$scam <- scam
+      self$apply_min_photo <- apply_min_photo
+      self$fake <- fake
+      self$bot_attach_menu <- bot_attach_menu
+      self$premium <- premium
+      self$attach_menu_enabled <- attach_menu_enabled
+      self$bot_can_edit <- bot_can_edit
+      self$close_friend <- close_friend
+      self$stories_hidden <- stories_hidden
+      self$stories_unavailable <- stories_unavailable
+      self$contact_require_premium <- contact_require_premium
+      self$bot_business <- bot_business
+      self$bot_has_main_app <- bot_has_main_app
+      self$access_hash <- access_hash
+      self$first_name <- first_name
+      self$last_name <- last_name
+      self$username <- username
+      self$phone <- phone
+      self$photo <- photo
+      self$status <- status
+      self$bot_info_version <- bot_info_version
+      self$restriction_reason <- restriction_reason
+      self$bot_inline_placeholder <- bot_inline_placeholder
+      self$lang_code <- lang_code
+      self$emoji_status <- emoji_status
+      self$usernames <- usernames
+      self$stories_max_id <- stories_max_id
+      self$color <- color
+      self$profile_color <- profile_color
+      self$bot_active_users <- bot_active_users
+      self$bot_verification_icon <- bot_verification_icon
+      self$send_paid_messages_stars <- send_paid_messages_stars
     },
     to_dict = function() {
       list(
-        `_` = 'User',
+        `_` = "User",
         id = self$id,
         is_self = self$is_self,
         contact = self$contact,
@@ -46509,53 +45420,63 @@ User <- R6::R6Class("User",
   ),
   private = list(
     from_reader = function(reader) {
-      flags = reader$read_int()
-      is_self = (flags & 1024) != 0
-      contact = (flags & 2048) != 0
-      mutual_contact = (flags & 4096) != 0
-      deleted = (flags & 8192) != 0
-      bot = (flags & 16384) != 0
-      bot_chat_history = (flags & 32768) != 0
-      bot_nochats = (flags & 65536) != 0
-      verified = (flags & 131072) != 0
-      restricted = (flags & 262144) != 0
-      min = (flags & 1048576) != 0
-      bot_inline_geo = (flags & 2097152) != 0
-      support = (flags & 8388608) != 0
-      scam = (flags & 16777216) != 0
-      apply_min_photo = (flags & 33554432) != 0
-      fake = (flags & 67108864) != 0
-      bot_attach_menu = (flags & 134217728) != 0
-      premium = (flags & 268435456) != 0
-      attach_menu_enabled = (flags & 536870912) != 0
-      flags2 = reader$read_int()
-      bot_can_edit = (flags2 & 2) != 0
-      close_friend = (flags2 & 4) != 0
-      stories_hidden = (flags2 & 8) != 0
-      stories_unavailable = (flags2 & 16) != 0
-      contact_require_premium = (flags2 & 1024) != 0
-      bot_business = (flags2 & 2048) != 0
-      bot_has_main_app = (flags2 & 8192) != 0
-      id = reader$read_long()
-      access_hash = if (flags & 1) reader$read_long() else NULL
-      first_name = if (flags & 2) reader$tgread_string() else NULL
-      last_name = if (flags & 4) reader$tgread_string() else NULL
-      username = if (flags & 8) reader$tgread_string() else NULL
-      phone = if (flags & 16) reader$tgread_string() else NULL
-      photo = if (flags & 32) reader$tgread_object() else NULL
-      status = if (flags & 64) reader$tgread_object() else NULL
-      bot_info_version = if (flags & 16384) reader$read_int() else NULL
-      restriction_reason = if (flags & 262144) { reader$read_int(); lapply(seq_len(reader$read_int()), function(x) reader$tgread_object()) } else NULL
-      bot_inline_placeholder = if (flags & 524288) reader$tgread_string() else NULL
-      lang_code = if (flags & 4194304) reader$tgread_string() else NULL
-      emoji_status = if (flags & 1073741824) reader$tgread_object() else NULL
-      usernames = if (flags2 & 1) { reader$read_int(); lapply(seq_len(reader$read_int()), function(x) reader$tgread_object()) } else NULL
-      stories_max_id = if (flags2 & 32) reader$read_int() else NULL
-      color = if (flags2 & 256) reader$tgread_object() else NULL
-      profile_color = if (flags2 & 512) reader$tgread_object() else NULL
-      bot_active_users = if (flags2 & 4096) reader$read_int() else NULL
-      bot_verification_icon = if (flags2 & 16384) reader$read_long() else NULL
-      send_paid_messages_stars = if (flags2 & 32768) reader$read_long() else NULL
+      flags <- reader$read_int()
+      is_self <- (flags & 1024) != 0
+      contact <- (flags & 2048) != 0
+      mutual_contact <- (flags & 4096) != 0
+      deleted <- (flags & 8192) != 0
+      bot <- (flags & 16384) != 0
+      bot_chat_history <- (flags & 32768) != 0
+      bot_nochats <- (flags & 65536) != 0
+      verified <- (flags & 131072) != 0
+      restricted <- (flags & 262144) != 0
+      min <- (flags & 1048576) != 0
+      bot_inline_geo <- (flags & 2097152) != 0
+      support <- (flags & 8388608) != 0
+      scam <- (flags & 16777216) != 0
+      apply_min_photo <- (flags & 33554432) != 0
+      fake <- (flags & 67108864) != 0
+      bot_attach_menu <- (flags & 134217728) != 0
+      premium <- (flags & 268435456) != 0
+      attach_menu_enabled <- (flags & 536870912) != 0
+      flags2 <- reader$read_int()
+      bot_can_edit <- (flags2 & 2) != 0
+      close_friend <- (flags2 & 4) != 0
+      stories_hidden <- (flags2 & 8) != 0
+      stories_unavailable <- (flags2 & 16) != 0
+      contact_require_premium <- (flags2 & 1024) != 0
+      bot_business <- (flags2 & 2048) != 0
+      bot_has_main_app <- (flags2 & 8192) != 0
+      id <- reader$read_long()
+      access_hash <- if (flags & 1) reader$read_long() else NULL
+      first_name <- if (flags & 2) reader$tgread_string() else NULL
+      last_name <- if (flags & 4) reader$tgread_string() else NULL
+      username <- if (flags & 8) reader$tgread_string() else NULL
+      phone <- if (flags & 16) reader$tgread_string() else NULL
+      photo <- if (flags & 32) reader$tgread_object() else NULL
+      status <- if (flags & 64) reader$tgread_object() else NULL
+      bot_info_version <- if (flags & 16384) reader$read_int() else NULL
+      restriction_reason <- if (flags & 262144) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      } else {
+        NULL
+      }
+      bot_inline_placeholder <- if (flags & 524288) reader$tgread_string() else NULL
+      lang_code <- if (flags & 4194304) reader$tgread_string() else NULL
+      emoji_status <- if (flags & 1073741824) reader$tgread_object() else NULL
+      usernames <- if (flags2 & 1) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      } else {
+        NULL
+      }
+      stories_max_id <- if (flags2 & 32) reader$read_int() else NULL
+      color <- if (flags2 & 256) reader$tgread_object() else NULL
+      profile_color <- if (flags2 & 512) reader$tgread_object() else NULL
+      bot_active_users <- if (flags2 & 4096) reader$read_int() else NULL
+      bot_verification_icon <- if (flags2 & 16384) reader$read_long() else NULL
+      send_paid_messages_stars <- if (flags2 & 32768) reader$read_long() else NULL
       list(id = id, is_self = is_self, contact = contact, mutual_contact = mutual_contact, deleted = deleted, bot = bot, bot_chat_history = bot_chat_history, bot_nochats = bot_nochats, verified = verified, restricted = restricted, min = min, bot_inline_geo = bot_inline_geo, support = support, scam = scam, apply_min_photo = apply_min_photo, fake = fake, bot_attach_menu = bot_attach_menu, premium = premium, attach_menu_enabled = attach_menu_enabled, bot_can_edit = bot_can_edit, close_friend = close_friend, stories_hidden = stories_hidden, stories_unavailable = stories_unavailable, contact_require_premium = contact_require_premium, bot_business = bot_business, bot_has_main_app = bot_has_main_app, access_hash = access_hash, first_name = first_name, last_name = last_name, username = username, phone = phone, photo = photo, status = status, bot_info_version = bot_info_version, restriction_reason = restriction_reason, bot_inline_placeholder = bot_inline_placeholder, lang_code = lang_code, emoji_status = emoji_status, usernames = usernames, stories_max_id = stories_max_id, color = color, profile_color = profile_color, bot_active_users = bot_active_users, bot_verification_icon = bot_verification_icon, send_paid_messages_stars = send_paid_messages_stars)
     }
   ),
@@ -46568,11 +45489,11 @@ UserEmpty <- R6::R6Class("UserEmpty",
     CONSTRUCTOR_ID = 0xd3bc4b7a,
     SUBCLASS_OF_ID = 0x2da17977,
     initialize = function(id) {
-      self$id = id
+      self$id <- id
     },
     to_dict = function() {
       list(
-        `_` = 'UserEmpty',
+        `_` = "UserEmpty",
         id = self$id
       )
     },
@@ -47472,7 +46393,7 @@ WebAuthorization <- R6::R6Class("WebAuthorization",
     },
     to_dict = function() {
       list(
-        '_' = 'WebAuthorization',
+        "_" = "WebAuthorization",
         hash = self$hash,
         bot_id = self$bot_id,
         domain = self$domain,
@@ -47519,7 +46440,7 @@ WebDocument <- R6::R6Class("WebDocument",
     },
     to_dict = function() {
       list(
-        '_' = 'WebDocument',
+        "_" = "WebDocument",
         url = self$url,
         access_hash = self$access_hash,
         size = self$size,
@@ -47558,7 +46479,7 @@ WebDocumentNoProxy <- R6::R6Class("WebDocumentNoProxy",
     },
     to_dict = function() {
       list(
-        '_' = 'WebDocumentNoProxy',
+        "_" = "WebDocumentNoProxy",
         url = self$url,
         size = self$size,
         mime_type = self$mime_type,
@@ -47644,20 +46565,72 @@ WebPage <- R6::R6Class("WebPage",
         self$serializebytes(self$url) +
         self$serializebytes(self$display_url) +
         pack("i", self$hash) +
-        if (!is.null(self$type)) self$serializebytes(self$type) else raw(0) +
-        if (!is.null(self$site_name)) self$serializebytes(self$site_name) else raw(0) +
-        if (!is.null(self$title)) self$serializebytes(self$title) else raw(0) +
-        if (!is.null(self$description)) self$serializebytes(self$description) else raw(0) +
-        if (!is.null(self$photo)) self$photo$bytes() else raw(0) +
-        if (!is.null(self$embed_url)) self$serializebytes(self$embed_url) else raw(0) +
-        if (!is.null(self$embed_type)) self$serializebytes(self$embed_type) else raw(0) +
-        if (!is.null(self$embed_width)) pack("i", self$embed_width) else raw(0) +
-        if (!is.null(self$embed_height)) pack("i", self$embed_height) else raw(0) +
-        if (!is.null(self$duration)) pack("i", self$duration) else raw(0) +
-        if (!is.null(self$author)) self$serializebytes(self$author) else raw(0) +
-        if (!is.null(self$document)) self$document$bytes() else raw(0) +
-        if (!is.null(self$cached_page)) self$cached_page$bytes() else raw(0) +
-        if (!is.null(self$attributes)) (as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$attributes)) + do.call(c, lapply(self$attributes, function(x) x$bytes()))) else raw(0)
+        if (!is.null(self$type)) {
+          self$serializebytes(self$type)
+        } else {
+          raw(0) +
+            if (!is.null(self$site_name)) {
+              self$serializebytes(self$site_name)
+            } else {
+              raw(0) +
+                if (!is.null(self$title)) {
+                  self$serializebytes(self$title)
+                } else {
+                  raw(0) +
+                    if (!is.null(self$description)) {
+                      self$serializebytes(self$description)
+                    } else {
+                      raw(0) +
+                        if (!is.null(self$photo)) {
+                          self$photo$bytes()
+                        } else {
+                          raw(0) +
+                            if (!is.null(self$embed_url)) {
+                              self$serializebytes(self$embed_url)
+                            } else {
+                              raw(0) +
+                                if (!is.null(self$embed_type)) {
+                                  self$serializebytes(self$embed_type)
+                                } else {
+                                  raw(0) +
+                                    if (!is.null(self$embed_width)) {
+                                      pack("i", self$embed_width)
+                                    } else {
+                                      raw(0) +
+                                        if (!is.null(self$embed_height)) {
+                                          pack("i", self$embed_height)
+                                        } else {
+                                          raw(0) +
+                                            if (!is.null(self$duration)) {
+                                              pack("i", self$duration)
+                                            } else {
+                                              raw(0) +
+                                                if (!is.null(self$author)) {
+                                                  self$serializebytes(self$author)
+                                                } else {
+                                                  raw(0) +
+                                                    if (!is.null(self$document)) {
+                                                      self$document$bytes()
+                                                    } else {
+                                                      raw(0) +
+                                                        if (!is.null(self$cached_page)) {
+                                                          self$cached_page$bytes()
+                                                        } else {
+                                                          raw(0) +
+                                                            if (!is.null(self$attributes)) (as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$attributes)) + do.call(c, lapply(self$attributes, function(x) x$bytes()))) else raw(0)
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
   ),
   private = list(
@@ -47685,7 +46658,9 @@ WebPage <- R6::R6Class("WebPage",
       attributes <- if ((flags & 4096) != 0) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
       self$initialize(id = id, url = url, display_url = display_url, hash = hash, has_large_media = has_large_media, video_cover_photo = video_cover_photo, type = type, site_name = site_name, title = title, description = description, photo = photo, embed_url = embed_url, embed_type = embed_type, embed_width = embed_width, embed_height = embed_height, duration = duration, author = author, document = document, cached_page = cached_page, attributes = attributes)
     }
   ),
@@ -47817,8 +46792,12 @@ WebPageAttributeTheme <- R6::R6Class("WebPageAttributeTheme",
       flags <- (if (is.null(self$documents)) 0 else 1) | (if (is.null(self$settings)) 0 else 2)
       as.raw(c(0x54, 0xb5, 0x66, 0x17)) +
         pack("I", flags) +
-        if (is.null(self$documents)) raw(0) else (as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$documents)) + do.call(c, lapply(self$documents, function(x) x$bytes()))) +
-        if (is.null(self$settings)) raw(0) else self$settings$bytes()
+        if (is.null(self$documents)) {
+          raw(0)
+        } else {
+          (as.raw(c(0x15, 0xc4, 0xb5, 0x1c)) + pack("i", length(self$documents)) + do.call(c, lapply(self$documents, function(x) x$bytes()))) +
+            if (is.null(self$settings)) raw(0) else self$settings$bytes()
+        }
     }
   ),
   private = list(
@@ -47827,7 +46806,9 @@ WebPageAttributeTheme <- R6::R6Class("WebPageAttributeTheme",
       documents <- if (bitwAnd(flags, 1)) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
       settings <- if (bitwAnd(flags, 2)) reader$tgread_object() else NULL
       self$initialize(documents = documents, settings = settings)
     }
@@ -47948,8 +46929,12 @@ WebPagePending <- R6::R6Class("WebPagePending",
       as.raw(c(0xb0, 0xd1, 0x3e, 0x47)) +
         pack("I", if (is.null(self$url)) 0 else 1) +
         pack("q", self$id) +
-        if (is.null(self$url)) raw(0) else self$serializebytes(self$url) +
-        self$serialize_datetime(self$date)
+        if (is.null(self$url)) {
+          raw(0)
+        } else {
+          self$serializebytes(self$url) +
+            self$serialize_datetime(self$date)
+        }
     }
   ),
   private = list(
@@ -48016,12 +47001,16 @@ WebViewResultUrl <- R6::R6Class("WebViewResultUrl",
     },
     bytes = function() {
       flags <- (if (is.null(self$fullsize) || !self$fullsize) 0 else 2) |
-                (if (is.null(self$fullscreen) || !self$fullscreen) 0 else 4) |
-                (if (is.null(self$query_id)) 0 else 1)
+        (if (is.null(self$fullscreen) || !self$fullscreen) 0 else 4) |
+        (if (is.null(self$query_id)) 0 else 1)
       as.raw(c(0x4d, 0x22, 0xff, 0x98)) +
         pack("I", flags) +
-        if (is.null(self$query_id)) raw(0) else pack("q", self$query_id) +
-        self$serializebytes(self$url)
+        if (is.null(self$query_id)) {
+          raw(0)
+        } else {
+          pack("q", self$query_id) +
+            self$serializebytes(self$url)
+        }
     }
   ),
   private = list(

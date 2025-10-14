@@ -83,7 +83,7 @@ HTMLToTelegramParser <- R6::R6Class(
       self$text <- ""
       self$entities <- list()
       self$building_entities <- list()
-      self$open_tags <- list()      # stack (first element is top)
+      self$open_tags <- list() # stack (first element is top)
       self$open_tags_meta <- list()
     },
 
@@ -99,7 +99,9 @@ HTMLToTelegramParser <- R6::R6Class(
     #' @description Pop the top tag and its metadata from the open tags stack.
     #' @return A list containing the popped tag and its metadata, or NULL if the stack
     pop_tag = function() {
-      if (length(self$open_tags) == 0L) return(NULL)
+      if (length(self$open_tags) == 0L) {
+        return(NULL)
+      }
       tag <- self$open_tags[[1]]
       self$open_tags <- self$open_tags[-1]
       meta <- self$open_tags_meta[[1]]
@@ -110,14 +112,18 @@ HTMLToTelegramParser <- R6::R6Class(
     #' @description Get the current top tag from the open tags stack.
     #' @return The top tag name, or NULL if the stack is empty.
     current_tag = function() {
-      if (length(self$open_tags) == 0L) return(NULL)
+      if (length(self$open_tags) == 0L) {
+        return(NULL)
+      }
       self$open_tags[[1]]
     },
 
     #' @description Get the current top metadata from the open tags stack.
     #' @return The top metadata value, or NULL if the stack is empty.
     current_meta = function() {
-      if (length(self$open_tags_meta) == 0L) return(NULL)
+      if (length(self$open_tags_meta) == 0L) {
+        return(NULL)
+      }
       self$open_tags_meta[[1]]
     },
 
@@ -304,8 +310,12 @@ parse_html_to_telegram <- function(html) {
 #' @return character(1) HTML string
 #' @export
 unparse_telegram_to_html <- function(text, entities) {
-  if (is.null(text) || !nzchar(text)) return(text)
-  if (is.null(entities) || length(entities) == 0) return(escape_html(text))
+  if (is.null(text) || !nzchar(text)) {
+    return(text)
+  }
+  if (is.null(entities) || length(entities) == 0) {
+    return(escape_html(text))
+  }
 
   # Build insertions: list of (pos, priority, str)
   insertions <- list()
@@ -321,30 +331,39 @@ unparse_telegram_to_html <- function(text, entities) {
     start_tag <- ""
     end_tag <- ""
     if (typ == "bold") {
-      start_tag <- "<strong>"; end_tag <- "</strong>"
+      start_tag <- "<strong>"
+      end_tag <- "</strong>"
     } else if (typ == "italic") {
-      start_tag <- "<em>"; end_tag <- "</em>"
+      start_tag <- "<em>"
+      end_tag <- "</em>"
     } else if (typ == "underline") {
-      start_tag <- "<u>"; end_tag <- "</u>"
+      start_tag <- "<u>"
+      end_tag <- "</u>"
     } else if (typ == "strike") {
-      start_tag <- "<del>"; end_tag <- "</del>"
+      start_tag <- "<del>"
+      end_tag <- "</del>"
     } else if (typ == "blockquote") {
-      start_tag <- "<blockquote>"; end_tag <- "</blockquote>"
+      start_tag <- "<blockquote>"
+      end_tag <- "</blockquote>"
     } else if (typ == "code") {
-      start_tag <- "<code>"; end_tag <- "</code>"
+      start_tag <- "<code>"
+      end_tag <- "</code>"
     } else if (typ == "pre") {
       lang <- if (!is.null(e$language) && nzchar(e$language)) e$language else ""
       start_tag <- paste0("<pre>\n    <code class='language-", escape_html(lang), "'>\n")
       end_tag <- "\n    </code>\n</pre>"
     } else if (typ == "email") {
       href <- escape_html(e$url %||% "")
-      start_tag <- paste0('<a href="mailto:', href, '">'); end_tag <- '</a>'
+      start_tag <- paste0('<a href="mailto:', href, '">')
+      end_tag <- "</a>"
     } else if (typ == "url") {
       href <- escape_html(substr(text, s + 1, s + e$length))
-      start_tag <- paste0('<a href="', href, '">'); end_tag <- '</a>'
+      start_tag <- paste0('<a href="', href, '">')
+      end_tag <- "</a>"
     } else if (typ == "text_url") {
       href <- escape_html(e$url %||% "")
-      start_tag <- paste0('<a href="', href, '">'); end_tag <- '</a>'
+      start_tag <- paste0('<a href="', href, '">')
+      end_tag <- "</a>"
     } else if (typ == "custom_emoji") {
       start_tag <- paste0('<tg-emoji emoji-id="', as.integer(e$document_id), '">')
       end_tag <- "</tg-emoji>"
@@ -358,7 +377,9 @@ unparse_telegram_to_html <- function(text, entities) {
 
   # sort insertions by pos asc, prio asc
   df <- insertions
-  if (length(df) == 0) return(escape_html(text))
+  if (length(df) == 0) {
+    return(escape_html(text))
+  }
   ord <- order(vapply(df, function(x) x$pos, integer(1)), vapply(df, function(x) x$prio, integer(1)))
   df <- df[ord]
 

@@ -42,10 +42,10 @@ TLMessage <- R6::R6Class(
     to_dict = function() {
       return(
         list(
-          '_' = 'TLMessage',
-          'msg_id' = self$msg_id,
-          'seq_no' = self$seq_no,
-          'obj' = self$obj
+          "_" = "TLMessage",
+          "msg_id" = self$msg_id,
+          "seq_no" = self$seq_no,
+          "obj" = self$obj
         )
       )
     }

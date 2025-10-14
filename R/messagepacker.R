@@ -115,7 +115,7 @@ MessagePacker <- R6::R6Class("MessagePacker",
 
       # Fill a new batch while it's small enough and we don't exceed max length
       while (length(self$deque) > 0 &&
-             length(batch) <= MessageContainer$MAXIMUM_LENGTH) {
+        length(batch) <= MessageContainer$MAXIMUM_LENGTH) {
         state_item <- pop_left()
         # Account for TLMessage overhead
         size <- size + length(state_item$data) + TLMessage$SIZE_OVERHEAD
@@ -132,7 +132,8 @@ MessagePacker <- R6::R6Class("MessagePacker",
           # log if available
           if (!is.null(self$log) && is.function(self$log$debug)) {
             tryCatch(
-              self$log$debug(sprintf("Assigned msg_id = %d to %s (%x)",
+              self$log$debug(sprintf(
+                "Assigned msg_id = %d to %s (%x)",
                 state_item$msg_id,
                 class(state_item$request)[1],
                 as.integer(utils::object.size(state_item$request))
@@ -181,9 +182,12 @@ MessagePacker <- R6::R6Class("MessagePacker",
       buffer_bytes <- rawConnectionValue(buffer_con)
       close(buffer_con) # close explicitly
       buffer_con <- rawConnection(raw(), "wb") # reset for possible container wrap
-      on.exit({
-        try(close(buffer_con), silent = TRUE)
-      }, add = TRUE)
+      on.exit(
+        {
+          try(close(buffer_con), silent = TRUE)
+        },
+        add = TRUE
+      )
 
       # If multiple messages, pack into container
       if (length(batch) > 1) {
@@ -197,11 +201,15 @@ MessagePacker <- R6::R6Class("MessagePacker",
 
         # Now write container as a single message (content_related = FALSE)
         final_buffer_con <- rawConnection(raw(), "wb")
-        on.exit({
-          try(close(final_buffer_con), silent = TRUE)
-        }, add = TRUE)
+        on.exit(
+          {
+            try(close(final_buffer_con), silent = TRUE)
+          },
+          add = TRUE
+        )
         container_id <- self$state$write_data_as_message(
-          final_buffer_con, container_bytes, content_related = FALSE
+          final_buffer_con, container_bytes,
+          content_related = FALSE
         )
         for (s in batch) {
           s$container_id <- container_id

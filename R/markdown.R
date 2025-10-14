@@ -22,8 +22,8 @@ DEFAULT_DELIMITERS <- list(
   "**" = "MessageEntityBold",
   "__" = "MessageEntityItalic",
   "~~" = "MessageEntityStrike",
-  "`"  = "MessageEntityCode",
-  "```"= "MessageEntityPre"
+  "`" = "MessageEntityCode",
+  "```" = "MessageEntityPre"
 )
 
 #' Default regular expression to match inline Markdown-style URLs.
@@ -73,12 +73,16 @@ make_entity <- function(type, offset, length, ...) {
 #'   \item{message}{The processed plain text with delimiter characters removed.}
 #'   \item{entities}{A list of entity objects produced by \code{make_entity}.}
 parse <- function(message, delimiters = NULL, url_re = NULL) {
-  if (is.null(message) || message == "") return(list(message = message, entities = list()))
+  if (is.null(message) || message == "") {
+    return(list(message = message, entities = list()))
+  }
   if (is.null(url_re)) url_re <- DEFAULT_URL_RE
   if (!is.null(url_re) && !is.character(url_re)) url_re <- as.character(url_re)
 
   if (is.null(delimiters)) {
-    if (!is.null(delimiters)) return(list(message = message, entities = list()))
+    if (!is.null(delimiters)) {
+      return(list(message = message, entities = list()))
+    }
     delimiters <- DEFAULT_DELIMITERS
   }
 
@@ -99,7 +103,10 @@ parse <- function(message, delimiters = NULL, url_re = NULL) {
     # Try delimiter match at beginning
     found_delim <- NULL
     for (d in delim_keys) {
-      if (startsWith(sub, d)) { found_delim <- d; break }
+      if (startsWith(sub, d)) {
+        found_delim <- d
+        break
+      }
     }
 
     if (!is.null(found_delim)) {
@@ -111,7 +118,7 @@ parse <- function(message, delimiters = NULL, url_re = NULL) {
         # find first occurrence of delim in tail_sub
         pos <- regexpr(gsub("([\\^\\$\\.\\|\\?\\*\\+\\(\\)\\[\\{\\\\])", "\\\\\\1", delim), tail_sub, fixed = FALSE)
         if (pos[1] != -1) {
-          end <- start_search + pos[1]  # position of delim start in original string (1-based)
+          end <- start_search + pos[1] # position of delim start in original string (1-based)
           # Remove delimiters from string
           before <- if (i > 1) substring(message, 1, i - 1) else ""
           middle <- substring(message, i + nchar(delim), end - 1)
@@ -214,10 +221,14 @@ parse <- function(message, delimiters = NULL, url_re = NULL) {
 #' @param url_fmt Deprecated; present for historical compatibility.
 #' @return A character scalar with delimiters and URL markup reinserted.
 unparse <- function(text, entities, delimiters = NULL, url_fmt = NULL) {
-  if (is.null(text) || text == "" || length(entities) == 0) return(text)
+  if (is.null(text) || text == "" || length(entities) == 0) {
+    return(text)
+  }
 
   if (is.null(delimiters)) {
-    if (!is.null(delimiters)) return(text)
+    if (!is.null(delimiters)) {
+      return(text)
+    }
     delimiters <- DEFAULT_DELIMITERS
   }
 
@@ -237,7 +248,7 @@ unparse <- function(text, entities, delimiters = NULL, url_fmt = NULL) {
   # gather insertions: tuples (pos, priority, string)
   for (i in seq_along(entities)) {
     entity <- entities[[i]]
-    s <- entity$offset + 1  # convert 0-based to 1-based
+    s <- entity$offset + 1 # convert 0-based to 1-based
     e <- entity$offset + entity$length
     delimiter <- delim_by_type[[class(entity)[1]]]
     if (!is.null(delimiter)) {
@@ -260,8 +271,10 @@ unparse <- function(text, entities, delimiters = NULL, url_fmt = NULL) {
   }
 
   # sort insert_at by pos then priority
-  order_idx <- order(sapply(insert_at, function(x) x$pos),
-                     sapply(insert_at, function(x) x$pri))
+  order_idx <- order(
+    sapply(insert_at, function(x) x$pos),
+    sapply(insert_at, function(x) x$pri)
+  )
   insert_at <- insert_at[order_idx]
 
   # perform insertions from end to start to keep positions valid
@@ -272,7 +285,7 @@ unparse <- function(text, entities, delimiters = NULL, url_fmt = NULL) {
     while (within_surrogate(text, at)) at <- at + 1
     if (at <= 1) {
       text <- paste0(it$what, text)
-    } else if (at > nchar(text) ) {
+    } else if (at > nchar(text)) {
       text <- paste0(text, it$what)
     } else {
       text <- paste0(substring(text, 1, at - 1), it$what, substring(text, at, nchar(text)))

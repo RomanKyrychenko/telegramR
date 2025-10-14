@@ -33,10 +33,14 @@ MessageContainer <- R6::R6Class(
     to_dict = function() {
       return(
         list(
-          '_' = 'MessageContainer',
-          'messages' = if (is.null(self$messages)) list() else lapply(self$messages, function(x) {
-            if (is.null(x)) NULL else x$to_dict()
-          })
+          "_" = "MessageContainer",
+          "messages" = if (is.null(self$messages)) {
+            list()
+          } else {
+            lapply(self$messages, function(x) {
+              if (is.null(x)) NULL else x$to_dict()
+            })
+          }
         )
       )
     },
@@ -65,4 +69,4 @@ MessageContainer <- R6::R6Class(
       return(self)
     }
   )
-  )
+)

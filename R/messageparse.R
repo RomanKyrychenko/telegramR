@@ -74,17 +74,20 @@ MessageParseMethods <- R6::R6Class(
     #' @param user The user to mention.
     #' @return TRUE if replaced successfully, FALSE otherwise.
     replace_with_mention = function(entities, i, user) {
-      tryCatch({
-        entities[[i]] <- list(
-          type = "mention",
-          offset = entities[[i]]$offset,
-          length = entities[[i]]$length,
-          user = user
-        )
-        return(TRUE)
-      }, error = function(e) {
-        return(FALSE)
-      })
+      tryCatch(
+        {
+          entities[[i]] <- list(
+            type = "mention",
+            offset = entities[[i]]$offset,
+            length = entities[[i]]$length,
+            user = user
+          )
+          return(TRUE)
+        },
+        error = function(e) {
+          return(FALSE)
+        }
+      )
     },
 
     #' Extract the response message based on the request and result.

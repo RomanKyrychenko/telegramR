@@ -6,12 +6,15 @@
 #' @export
 find_ssl_lib <- function() {
   try_load_ssl <- function(path) {
-    tryCatch({
-      dyn.load(path)
-      path
-    }, error = function(e) {
-      stop("Failed to load SSL library: ", e$message)
-    })
+    tryCatch(
+      {
+        dyn.load(path)
+        path
+      },
+      error = function(e) {
+        stop("Failed to load SSL library: ", e$message)
+      }
+    )
   }
 
   is_valid <- function(path) !is.null(path) && path != "" && file.exists(path)

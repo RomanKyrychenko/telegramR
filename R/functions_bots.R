@@ -87,7 +87,9 @@ AddPreviewMediaRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -207,7 +209,9 @@ AllowSendMessageRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -296,7 +300,9 @@ AnswerWebhookJSONQueryRequest <- R6::R6Class(
     to_bytes = function() {
       # pack 64-bit little-endian integer (uses numeric arithmetic; precise up to 2^53)
       pack_int64_le <- function(x) {
-        if (is.null(x)) return(raw(0))
+        if (is.null(x)) {
+          return(raw(0))
+        }
         xnum <- as.numeric(x)
         bytes <- raw(8)
         for (i in 0:7) {
@@ -414,7 +420,9 @@ CanSendMessageRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -527,7 +535,9 @@ CheckDownloadFileParamsRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -663,7 +673,9 @@ DeletePreviewMediaRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -831,7 +843,9 @@ EditPreviewMediaRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -899,21 +913,12 @@ EditPreviewMediaRequest$from_reader <- function(reader) {
 #' GetAdminedBotsRequest R6 class
 #'
 #' Represents the GetAdminedBotsRequest TL request.
-#'
-#' No fields.
-#'
-#' @description
-#' Methods:
-#' - initialize()
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
-#'
-#' @examples
-#' # o <- GetAdminedBotsRequest$new()
 #' @export
+NULL
 GetAdminedBotsRequest <- R6::R6Class(
   "GetAdminedBotsRequest",
   public = list(
+
     #' Initialize GetAdminedBotsRequest
     #'
     initialize = function() {
@@ -1005,7 +1010,9 @@ GetBotCommandsRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -1121,7 +1128,9 @@ GetBotInfoRequest <- R6::R6Class(
       }
       pack_uint32 <- pack_int32
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -1233,7 +1242,9 @@ GetBotMenuButtonRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -1336,7 +1347,9 @@ GetBotRecommendationsRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -1435,7 +1448,9 @@ GetPopularAppBotsRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -1534,7 +1549,9 @@ GetPreviewInfoRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -1641,7 +1658,9 @@ GetPreviewMediasRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -1759,7 +1778,9 @@ InvokeWebViewCustomMethodRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -1905,7 +1926,9 @@ ReorderPreviewMediasRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -2046,7 +2069,9 @@ ReorderUsernamesRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -2174,7 +2199,9 @@ ResetBotCommandsRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -2283,7 +2310,9 @@ SendCustomRequestRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -2491,7 +2520,9 @@ SetBotCommandsRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -2733,7 +2764,9 @@ SetBotInfoRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -2860,7 +2893,9 @@ SetBotMenuButtonRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -2999,7 +3034,9 @@ SetCustomVerificationRequest <- R6::R6Class(
       }
       pack_uint32 <- pack_int32
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -3132,7 +3169,9 @@ ToggleUserEmojiStatusPermissionRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -3249,7 +3288,9 @@ ToggleUsernameRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         c(pack_int32(length(s_raw)), s_raw)
       }
@@ -3371,7 +3412,9 @@ UpdateStarRefProgramRequest <- R6::R6Class(
       }
       pack_uint32 <- pack_int32
       serialize_string_simple <- function(s) {
-        if (is.null(s)) return(raw(0))
+        if (is.null(s)) {
+          return(raw(0))
+        }
         s_raw <- charToRaw(enc2utf8(as.character(s)))
         # naive serialization: 4-byte length + bytes (OK for many use-cases)
         c(pack_int32(length(s_raw)), s_raw)

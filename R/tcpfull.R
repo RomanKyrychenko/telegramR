@@ -21,8 +21,10 @@ FullPacketCodec <- R6::R6Class("FullPacketCodec",
     #' @return A raw vector representing the full packet.
     encode_packet = function(data) {
       total_length <- as.integer(length(data) + 12L)
-      header <- c(writeBin(total_length, raw(), size = 4, endian = "little"),
-                  writeBin(as.integer(self$.send_counter), raw(), size = 4, endian = "little"))
+      header <- c(
+        writeBin(total_length, raw(), size = 4, endian = "little"),
+        writeBin(as.integer(self$.send_counter), raw(), size = 4, endian = "little")
+      )
       packet <- c(header, data)
       crc_value <- crc32(packet)
       crc_raw <- writeBin(as.integer(crc_value), raw(), size = 4, endian = "little")

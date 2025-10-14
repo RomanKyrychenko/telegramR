@@ -108,7 +108,6 @@ AddContactRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xe8f463d0,
     SUBCLASS_OF_ID = 0x8af52aac,
-
     id = NULL,
     first_name = NULL,
     last_name = NULL,
@@ -193,7 +192,9 @@ AddContactRequest <- R6::R6Class(
 
     #' Serialize an R string to TL string bytes (per Telegram TL encoding)
     serialize_string_tl = function(s) {
-      if (is.null(s)) return(raw(0))
+      if (is.null(s)) {
+        return(raw(0))
+      }
       sb <- charToRaw(enc2utf8(as.character(s)))
       ln <- length(sb)
       if (ln < 254L) {
@@ -201,10 +202,12 @@ AddContactRequest <- R6::R6Class(
         payload <- sb
         total <- 1 + ln
       } else {
-        header <- as.raw(c(254L,
-                           as.raw(bitwAnd(ln, 0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))))
+        header <- as.raw(c(
+          254L,
+          as.raw(bitwAnd(ln, 0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))
+        ))
         payload <- sb
         total <- 4 + ln
       }
@@ -271,8 +274,11 @@ BlockRequest <- R6::R6Class(
     #' @param my_stories_from logical or NULL
     initialize = function(id, my_stories_from = NULL) {
       self$id <- id
-      if (!is.null(my_stories_from)) self$my_stories_from <- as.logical(my_stories_from)
-      else self$my_stories_from <- NULL
+      if (!is.null(my_stories_from)) {
+        self$my_stories_from <- as.logical(my_stories_from)
+      } else {
+        self$my_stories_from <- NULL
+      }
     },
 
     #' Resolve entities using client and utils
@@ -371,7 +377,6 @@ BlockFromRepliesRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x29a8962c,
     SUBCLASS_OF_ID = 0x8af52aac,
-
     msg_id = NULL,
     delete_message = NULL,
     delete_history = NULL,
@@ -472,7 +477,6 @@ DeleteByPhonesRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x1013fd9e,
     SUBCLASS_OF_ID = 0xf5b399ac,
-
     phones = NULL,
 
     #' Initialize DeleteByPhonesRequest
@@ -525,7 +529,9 @@ DeleteByPhonesRequest <- R6::R6Class(
 
     #' Serialize an R string to TL string bytes (per Telegram TL encoding)
     serialize_string_tl = function(s) {
-      if (is.null(s)) return(raw(0))
+      if (is.null(s)) {
+        return(raw(0))
+      }
       sb <- charToRaw(enc2utf8(as.character(s)))
       ln <- length(sb)
       if (ln < 254L) {
@@ -533,10 +539,12 @@ DeleteByPhonesRequest <- R6::R6Class(
         payload <- sb
         total <- 1 + ln
       } else {
-        header <- as.raw(c(254L,
-                           as.raw(bitwAnd(ln, 0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))))
+        header <- as.raw(c(
+          254L,
+          as.raw(bitwAnd(ln, 0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))
+        ))
         payload <- sb
         total <- 4 + ln
       }
@@ -587,7 +595,6 @@ DeleteContactsRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x096a0e00,
     SUBCLASS_OF_ID = 0x8af52aac,
-
     id = NULL,
 
     #' Initialize DeleteContactsRequest
@@ -605,7 +612,9 @@ DeleteContactsRequest <- R6::R6Class(
     #' @param client client object with method get_input_entity()
     #' @param utils utils object with method get_input_user()
     resolve = function(client, utils) {
-      if (is.null(self$id)) return(invisible(NULL))
+      if (is.null(self$id)) {
+        return(invisible(NULL))
+      }
       tmp_list <- list()
       for (element in self$id) {
         entity <- client$get_input_entity(element)
@@ -712,7 +721,6 @@ EditCloseFriendsRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xba6705f0,
     SUBCLASS_OF_ID = 0xf5b399ac,
-
     id = NULL,
 
     #' Initialize EditCloseFriendsRequest
@@ -928,7 +936,6 @@ GetBlockedRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9a868f80,
     SUBCLASS_OF_ID = 0xffba4f4f,
-
     offset = NULL,
     limit = NULL,
     my_stories_from = NULL,
@@ -941,18 +948,23 @@ GetBlockedRequest <- R6::R6Class(
     initialize = function(offset, limit, my_stories_from = NULL) {
       self$offset <- as.integer(offset)
       self$limit <- as.integer(limit)
-      if (!is.null(my_stories_from)) self$my_stories_from <- as.logical(my_stories_from)
-      else self$my_stories_from <- NULL
+      if (!is.null(my_stories_from)) {
+        self$my_stories_from <- as.logical(my_stories_from)
+      } else {
+        self$my_stories_from <- NULL
+      }
     },
 
     #' Convert to list
     #'
     #' @return list
     to_list = function() {
-      list(`_` = "GetBlockedRequest",
-           offset = self$offset,
-           limit = self$limit,
-           my_stories_from = self$my_stories_from)
+      list(
+        `_` = "GetBlockedRequest",
+        offset = self$offset,
+        limit = self$limit,
+        my_stories_from = self$my_stories_from
+      )
     },
 
     #' Serialize to bytes (raw vector)
@@ -1085,7 +1097,9 @@ GetContactIDsRequest$read_result <- function(reader) {
   # consume vector constructor id
   reader$read_int()
   count <- reader$read_int()
-  if (count <= 0L) return(integer(0))
+  if (count <= 0L) {
+    return(integer(0))
+  }
   res <- integer(count)
   for (i in seq_len(count)) {
     res[i] <- reader$read_int()
@@ -1371,7 +1385,9 @@ GetSponsoredPeersRequest <- R6::R6Class(
     #' @param s character
     #' @return raw
     serialize_string_tl = function(s) {
-      if (is.null(s)) return(raw(0))
+      if (is.null(s)) {
+        return(raw(0))
+      }
       sb <- charToRaw(enc2utf8(as.character(s)))
       ln <- length(sb)
       if (ln < 254L) {
@@ -1379,10 +1395,12 @@ GetSponsoredPeersRequest <- R6::R6Class(
         payload <- sb
         total <- 1 + ln
       } else {
-        header <- as.raw(c(254L,
-                           as.raw(bitwAnd(ln, 0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))))
+        header <- as.raw(c(
+          254L,
+          as.raw(bitwAnd(ln, 0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))
+        ))
         payload <- sb
         total <- 4 + ln
       }
@@ -1488,7 +1506,6 @@ GetTopPeersRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x973478b6,
     SUBCLASS_OF_ID = 0x9ee8bb88,
-
     offset = NULL,
     limit = NULL,
     hash = NULL,
@@ -1706,7 +1723,9 @@ ImportContactTokenRequest <- R6::R6Class(
 
     #' Serialize an R string to TL string bytes (per Telegram TL encoding)
     serialize_string_tl = function(s) {
-      if (is.null(s)) return(raw(0))
+      if (is.null(s)) {
+        return(raw(0))
+      }
       sb <- charToRaw(enc2utf8(as.character(s)))
       ln <- length(sb)
       if (ln < 254L) {
@@ -1714,10 +1733,12 @@ ImportContactTokenRequest <- R6::R6Class(
         payload <- sb
         total <- 1 + ln
       } else {
-        header <- as.raw(c(254L,
-                           as.raw(bitwAnd(ln, 0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))))
+        header <- as.raw(c(
+          254L,
+          as.raw(bitwAnd(ln, 0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))
+        ))
         payload <- sb
         total <- 4 + ln
       }
@@ -2067,7 +2088,9 @@ ResolvePhoneRequest <- R6::R6Class(
 
     #' Serialize an R string to TL string bytes (per Telegram TL encoding)
     serialize_string_tl = function(s) {
-      if (is.null(s)) return(raw(0))
+      if (is.null(s)) {
+        return(raw(0))
+      }
       sb <- charToRaw(enc2utf8(as.character(s)))
       ln <- length(sb)
       if (ln < 254L) {
@@ -2075,10 +2098,12 @@ ResolvePhoneRequest <- R6::R6Class(
         payload <- sb
         total <- 1 + ln
       } else {
-        header <- as.raw(c(254L,
-                           as.raw(bitwAnd(ln, 0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))))
+        header <- as.raw(c(
+          254L,
+          as.raw(bitwAnd(ln, 0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))
+        ))
         payload <- sb
         total <- 4 + ln
       }
@@ -2169,7 +2194,9 @@ ResolveUsernameRequest <- R6::R6Class(
 
     #' Serialize an R string to TL string bytes (per Telegram TL encoding)
     serialize_string_tl = function(s) {
-      if (is.null(s)) return(raw(0))
+      if (is.null(s)) {
+        return(raw(0))
+      }
       sb <- charToRaw(enc2utf8(as.character(s)))
       ln <- length(sb)
       if (ln < 254L) {
@@ -2177,10 +2204,12 @@ ResolveUsernameRequest <- R6::R6Class(
         payload <- sb
         total <- 1 + ln
       } else {
-        header <- as.raw(c(254L,
-                           as.raw(bitwAnd(ln, 0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))))
+        header <- as.raw(c(
+          254L,
+          as.raw(bitwAnd(ln, 0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))
+        ))
         payload <- sb
         total <- 4 + ln
       }
@@ -2270,7 +2299,9 @@ SearchRequest <- R6::R6Class(
 
     #' Serialize an R string to TL string bytes (per Telegram TL encoding)
     serialize_string_tl = function(s) {
-      if (is.null(s)) return(raw(0))
+      if (is.null(s)) {
+        return(raw(0))
+      }
       sb <- charToRaw(enc2utf8(as.character(s)))
       ln <- length(sb)
       if (ln < 254L) {
@@ -2278,10 +2309,12 @@ SearchRequest <- R6::R6Class(
         payload <- sb
         total <- 1 + ln
       } else {
-        header <- as.raw(c(254L,
-                           bitwAnd(as.raw(ln), as.raw(0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
-                           as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))))
+        header <- as.raw(c(
+          254L,
+          bitwAnd(as.raw(ln), as.raw(0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 8L), 0xff)),
+          as.raw(bitwAnd(bitwShiftR(ln, 16L), 0xff))
+        ))
         payload <- sb
         total <- 4 + ln
       }
@@ -2348,8 +2381,11 @@ SetBlockedRequest <- R6::R6Class(
       }
       self$id <- id
       self$limit <- as.integer(limit)
-      if (!is.null(my_stories_from)) self$my_stories_from <- as.logical(my_stories_from)
-      else self$my_stories_from <- NULL
+      if (!is.null(my_stories_from)) {
+        self$my_stories_from <- as.logical(my_stories_from)
+      } else {
+        self$my_stories_from <- NULL
+      }
     },
 
     #' Resolve entities using client and utils
@@ -2359,7 +2395,9 @@ SetBlockedRequest <- R6::R6Class(
     #' @param client client object with method get_input_entity()
     #' @param utils utils object with method get_input_peer()
     resolve = function(client, utils) {
-      if (is.null(self$id)) return(invisible(NULL))
+      if (is.null(self$id)) {
+        return(invisible(NULL))
+      }
       tmp <- list()
       for (x in self$id) {
         entity <- client$get_input_entity(x)
@@ -2441,7 +2479,7 @@ SetBlockedRequest$from_reader <- function(reader) {
   flagsVal <- reader$read_int()
   myStoriesFlag <- bitwAnd(flagsVal, 1L) != 0L
   # consume vector constructor id (typical TL format)
-  vectorConstructor <- reader$read_int()
+  # vectorConstructor <- reader$read_int()
   count <- reader$read_int()
   id_list <- vector("list", count)
   if (count > 0L) {
@@ -2552,8 +2590,11 @@ UnblockRequest <- R6::R6Class(
     #' @param my_stories_from logical or NULL
     initialize = function(id, my_stories_from = NULL) {
       self$id <- id
-      if (!is.null(my_stories_from)) self$my_stories_from <- as.logical(my_stories_from)
-      else self$my_stories_from <- NULL
+      if (!is.null(my_stories_from)) {
+        self$my_stories_from <- as.logical(my_stories_from)
+      } else {
+        self$my_stories_from <- NULL
+      }
     },
 
     #' Resolve entities using client and utils
@@ -2629,4 +2670,3 @@ UnblockRequest$from_reader <- function(reader) {
   id_obj <- reader$tgread_object()
   UnblockRequest$new(id = id_obj, my_stories_from = myStoriesFlag)
 }
-

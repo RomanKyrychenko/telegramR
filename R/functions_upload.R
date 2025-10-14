@@ -1,18 +1,9 @@
 #' GetCdnFileRequest R6 class
 #'
 #' Represents the TL request upload.GetCdnFileRequest.
-#'
-#' Fields:
 #' @field file_token raw|integer|character token bytes
 #' @field offset numeric 64-bit offset
 #' @field limit integer
-#'
-#' Methods:
-#' @method initialize(file_token, offset, limit) Create new instance.
-#' @method to_list() Convert object to a list (dictionary-like).
-#' @method to_bytes() Serialize the request to a raw vector.
-#' @method from_reader(reader) (class method) Read object fields from a reader and return a new instance.
-#'
 #' @export
 GetCdnFileRequest <- R6::R6Class(
   "GetCdnFileRequest",
@@ -54,25 +45,21 @@ GetCdnFileRequest <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     # little-endian bytes for 0x395f69da -> b'\xda i _ 9' => as.raw(c(0xda,0x69,0x5f,0x39))
     constructor_id = as.raw(c(0xda, 0x69, 0x5f, 0x39)),
-
     pack_int32_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
       writeBin(as.integer(x), con, size = 4L, endian = "little")
       rawConnectionValue(con)
     },
-
     pack_int64_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
       writeBin(as.numeric(x), con, size = 8L, endian = "little")
       rawConnectionValue(con)
     },
-
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b
@@ -111,17 +98,8 @@ GetCdnFileRequest$set("public", "from_reader", function(reader) {
 #' GetCdnFileHashesRequest R6 class
 #'
 #' Represents the TL request upload.GetCdnFileHashesRequest.
-#'
-#' Fields:
 #' @field file_token raw|integer|character token bytes
 #' @field offset numeric 64-bit offset
-#'
-#' Methods:
-#' @method initialize(file_token, offset) Create new instance.
-#' @method to_list() Convert object to a list (dictionary-like).
-#' @method to_bytes() Serialize the request to a raw vector.
-#' @method from_reader(reader) (class method) Read object fields from a reader and return a new instance.
-#'
 #' @export
 GetCdnFileHashesRequest <- R6::R6Class(
   "GetCdnFileHashesRequest",
@@ -158,18 +136,15 @@ GetCdnFileHashesRequest <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     # little-endian bytes for 0x91dc3f31 -> b'1?\xdc\x91'
     constructor_id = as.raw(c(0x31, 0x3f, 0xdc, 0x91)),
-
     pack_int64_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
       writeBin(as.numeric(x), con, size = 8L, endian = "little")
       rawConnectionValue(con)
     },
-
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b
@@ -207,20 +182,11 @@ GetCdnFileHashesRequest$set("public", "from_reader", function(reader) {
 #' GetFileRequest R6 class
 #'
 #' Represents the TL request upload.GetFileRequest.
-#'
-#' Fields:
 #' @field location TLObject-like (input file location)
 #' @field offset numeric 64-bit offset
 #' @field limit integer
 #' @field precise logical|null
 #' @field cdn_supported logical|null
-#'
-#' Methods:
-#' @method initialize(location, offset, limit, precise = NULL, cdn_supported = NULL) Create new instance.
-#' @method to_list() Convert object to a list (dictionary-like).
-#' @method to_bytes() Serialize the request to a raw vector.
-#' @method from_reader(reader) (class method) Read object fields from a reader and return a new instance.
-#'
 #' @export
 GetFileRequest <- R6::R6Class(
   "GetFileRequest",
@@ -275,18 +241,15 @@ GetFileRequest <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     # little-endian bytes for 0xbe5335be -> b'\xbe5S\xbe'
     constructor_id = as.raw(c(0xbe, 0x35, 0x53, 0xbe)),
-
     pack_int32_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
       writeBin(as.integer(x), con, size = 4L, endian = "little")
       rawConnectionValue(con)
     },
-
     pack_int64_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
@@ -314,17 +277,8 @@ GetFileRequest$set("public", "from_reader", function(reader) {
 #' GetFileHashesRequest R6 class
 #'
 #' Represents the TL request upload.GetFileHashesRequest.
-#'
-#' Fields:
 #' @field location TLObject-like object (input file location)
 #' @field offset numeric 64-bit offset
-#'
-#' Methods:
-#' @method initialize(location, offset) Create new instance.
-#' @method to_list() Convert object to a list (dictionary-like).
-#' @method to_bytes() Serialize the request to a raw vector.
-#' @method from_reader(reader) (class method) Read object fields from a reader and return a new instance.
-#'
 #' @export
 GetFileHashesRequest <- R6::R6Class(
   "GetFileHashesRequest",
@@ -362,25 +316,21 @@ GetFileHashesRequest <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     # little-endian bytes for 0x9156982a -> b'*\x98V\x91'
     constructor_id = as.raw(c(0x2a, 0x98, 0x56, 0x91)),
-
     pack_int32_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
       writeBin(as.integer(x), con, size = 4L, endian = "little")
       rawConnectionValue(con)
     },
-
     pack_int64_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
       writeBin(as.numeric(x), con, size = 8L, endian = "little")
       rawConnectionValue(con)
     },
-
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b
@@ -424,13 +374,6 @@ GetFileHashesRequest$set("public", "from_reader", function(reader) {
 #' @field location TLObject-like (input web file location)
 #' @field offset integer
 #' @field limit integer
-#'
-#' Methods:
-#' @method initialize(location, offset, limit) Create new instance.
-#' @method to_list() Convert object to a list (dictionary-like).
-#' @method to_bytes() Serialize the request to a raw vector.
-#' @method from_reader(reader) (class method) Read object fields from a reader and return a new instance.
-#'
 #' @export
 GetWebFileRequest <- R6::R6Class(
   "GetWebFileRequest",
@@ -472,25 +415,21 @@ GetWebFileRequest <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     # little-endian bytes for 0x24e6818d -> b'\x8d\x81\xe6$'
     constructor_id = as.raw(c(0x8d, 0x81, 0xe6, 0x24)),
-
     pack_int32_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
       writeBin(as.integer(x), con, size = 4L, endian = "little")
       rawConnectionValue(con)
     },
-
     pack_int64_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
       writeBin(as.numeric(x), con, size = 8L, endian = "little")
       rawConnectionValue(con)
     },
-
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b
@@ -530,17 +469,8 @@ GetWebFileRequest$set("public", "from_reader", function(reader) {
 #' ReuploadCdnFileRequest R6 class
 #'
 #' Represents the TL request upload.ReuploadCdnFileRequest.
-#'
-#' Fields:
 #' @field file_token raw|integer|character
 #' @field request_token raw|integer|character
-#'
-#' Methods:
-#' @method initialize(file_token, request_token) Create new instance.
-#' @method to_list() Convert object to a list (dictionary-like).
-#' @method to_bytes() Serialize the request to a raw vector.
-#' @method from_reader(reader) (class method) Read object fields from a reader and return a new instance.
-#'
 #' @export
 ReuploadCdnFileRequest <- R6::R6Class(
   "ReuploadCdnFileRequest",
@@ -577,25 +507,21 @@ ReuploadCdnFileRequest <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     # little-endian bytes for 0x9b2754a8 -> b"\xa8T'\x9b"
     constructor_id = as.raw(c(0xa8, 0x54, 0x27, 0x9b)),
-
     pack_int32_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
       writeBin(as.integer(x), con, size = 4L, endian = "little")
       rawConnectionValue(con)
     },
-
     pack_int64_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
       writeBin(as.numeric(x), con, size = 8L, endian = "little")
       rawConnectionValue(con)
     },
-
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b
@@ -633,19 +559,10 @@ ReuploadCdnFileRequest$set("public", "from_reader", function(reader) {
 #' SaveBigFilePartRequest R6 class
 #'
 #' Represents the TL request upload.SaveBigFilePartRequest.
-#'
-#' Fields:
 #' @field file_id numeric 64-bit file id (stored as numeric)
 #' @field file_part integer part index
 #' @field file_total_parts integer total number of parts
 #' @field bytes_data raw|integer|character payload bytes
-#'
-#' Methods:
-#' @method initialize(file_id, file_part, file_total_parts, bytes_data) Create new instance.
-#' @method to_list() Convert object to a list (dictionary-like).
-#' @method to_bytes() Serialize the request to a raw vector (little-endian integers and bytes).
-#' @method from_reader(reader) (class method) Read object fields from a reader and return a new instance.
-#'
 #' @export
 SaveBigFilePartRequest <- R6::R6Class(
   "SaveBigFilePartRequest",
@@ -692,17 +609,14 @@ SaveBigFilePartRequest <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     constructor_id = as.raw(c(0x3d, 0x67, 0x7b, 0xde)),
-
     pack_int32_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
       writeBin(as.integer(x), con, size = 4L, endian = "little")
       rawConnectionValue(con)
     },
-
     pack_int64_le = function(x) {
       # write as 8-byte little-endian (may lose precision for very large ints)
       con <- rawConnection(raw(), "wb")
@@ -710,7 +624,6 @@ SaveBigFilePartRequest <- R6::R6Class(
       writeBin(as.numeric(x), con, size = 8L, endian = "little")
       rawConnectionValue(con)
     },
-
     serialize_bytes = function(b) {
       # Accept raw, integer or character. Write 4-byte length (little-endian) + bytes + padding to 4 bytes.
       if (is.raw(b)) {
@@ -760,18 +673,9 @@ SaveBigFilePartRequest$set("public", "from_reader", function(reader) {
 #' SaveFilePartRequest R6 class
 #'
 #' Represents the TL request upload.SaveFilePartRequest.
-#'
-#' Fields:
 #' @field file_id numeric 64-bit file id (stored as numeric)
 #' @field file_part integer part index
 #' @field bytes_data raw|integer|character payload bytes
-#'
-#' Methods:
-#' @method initialize(file_id, file_part, bytes_data) Create new instance.
-#' @method to_list() Convert object to a list (dictionary-like).
-#' @method to_bytes() Serialize the request to a raw vector (little-endian integers and bytes).
-#' @method from_reader(reader) (class method) Read object fields from a reader and return a new instance.
-#'
 #' @export
 SaveFilePartRequest <- R6::R6Class(
   "SaveFilePartRequest",
@@ -813,24 +717,20 @@ SaveFilePartRequest <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     constructor_id = as.raw(c(0x21, 0xa6, 0x04, 0xb3)),
-
     pack_int32_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
       writeBin(as.integer(x), con, size = 4L, endian = "little")
       rawConnectionValue(con)
     },
-
     pack_int64_le = function(x) {
       con <- rawConnection(raw(), "wb")
       on.exit(close(con))
       writeBin(as.numeric(x), con, size = 8L, endian = "little")
       rawConnectionValue(con)
     },
-
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b
@@ -868,4 +768,3 @@ SaveFilePartRequest$set("public", "from_reader", function(reader) {
     bytes_data = bytes_val
   )
 })
-

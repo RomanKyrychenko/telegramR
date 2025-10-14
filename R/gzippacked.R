@@ -76,7 +76,7 @@ GzipPacked <- R6::R6Class(
     #' @return \code{list} A dictionary representation of the object.
     to_dict = function() {
       # Convert the object to a dictionary
-      return(list('_' = 'GzipPacked', 'data' = self$data))
+      return(list("_" = "GzipPacked", "data" = self$data))
     }
   )
 )

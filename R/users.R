@@ -103,79 +103,93 @@ UserMethods <- R6::R6Class(
       self$client$last_request <- Sys.time()
 
       for (attempt in retry_range(self$client$request_retries)) {
-        tryCatch({
-          future_result <- sender$send(request, ordered = ordered)
-          if (is.list(future_result)) {
-            results <- list()
-            exceptions <- list()
-            for (f in future_result) {
-              tryCatch({
-                result <- future::value(f)
-                self$client$session$process_entities(result)
-                exceptions <- c(exceptions, list(NULL))
-                results <- c(results, list(result))
-                request_index <- request_index + 1
-              }, error = function(e) {
-                exceptions <- c(exceptions, list(e))
-                results <- c(results, list(NULL))
-              })
-            }
-            if (any(!sapply(exceptions, is.null))) {
-              stop(errors$MultiError(exceptions, results, requests))
+        tryCatch(
+          {
+            future_result <- sender$send(request, ordered = ordered)
+            if (is.list(future_result)) {
+              results <- list()
+              exceptions <- list()
+              for (f in future_result) {
+                tryCatch(
+                  {
+                    result <- future::value(f)
+                    self$client$session$process_entities(result)
+                    exceptions <- c(exceptions, list(NULL))
+                    results <- c(results, list(result))
+                    request_index <- request_index + 1
+                  },
+                  error = function(e) {
+                    exceptions <- c(exceptions, list(e))
+                    results <- c(results, list(NULL))
+                  }
+                )
+              }
+              if (any(!sapply(exceptions, is.null))) {
+                stop(errors$MultiError(exceptions, results, requests))
+              } else {
+                return(results)
+              }
             } else {
-              return(results)
+              result <- future::value(future_result)
+              self$client$session$process_entities(result)
+              return(result)
             }
-          } else {
-            result <- future::value(future_result)
-            self$client$session$process_entities(result)
-            return(result)
-          }
-        }, error = function(e) {
-          if (inherits(e, c("ServerError", "RpcCallFailError",
-                          "RpcMcgetFailError", "InterdcCallErrorError",
-                          "TimedOutError", "InterdcCallRichErrorError"))) {
-            last_error <<- e
-            message(sprintf("Telegram is having internal issues %s: %s",
-                           class(e)[1], e$message))
-            Sys.sleep(2)
-          } else if (inherits(e, c("FloodWaitError", "FloodPremiumWaitError",
-                                  "SlowModeWaitError", "FloodTestPhoneWaitError"))) {
-            last_error <<- e
-            if (is_list_like(request)) {
-              request <<- request[[request_index]]
-            }
+          },
+          error = function(e) {
+            if (inherits(e, c(
+              "ServerError", "RpcCallFailError",
+              "RpcMcgetFailError", "InterdcCallErrorError",
+              "TimedOutError", "InterdcCallRichErrorError"
+            ))) {
+              last_error <<- e
+              message(sprintf(
+                "Telegram is having internal issues %s: %s",
+                class(e)[1], e$message
+              ))
+              Sys.sleep(2)
+            } else if (inherits(e, c(
+              "FloodWaitError", "FloodPremiumWaitError",
+              "SlowModeWaitError", "FloodTestPhoneWaitError"
+            ))) {
+              last_error <<- e
+              if (is_list_like(request)) {
+                request <<- request[[request_index]]
+              }
 
-            # SLOW_MODE_WAIT is chat-specific, not request-specific
-            if (!inherits(e, "SlowModeWaitError")) {
-              self$client$flood_waited_requests[[request$CONSTRUCTOR_ID]] <- Sys.time() + e$seconds
-            }
+              # SLOW_MODE_WAIT is chat-specific, not request-specific
+              if (!inherits(e, "SlowModeWaitError")) {
+                self$client$flood_waited_requests[[request$CONSTRUCTOR_ID]] <- Sys.time() + e$seconds
+              }
 
-            # In test servers, FLOOD_WAIT_0 has been observed, and sleeping for
-            # such a short amount will cause retries very fast leading to issues.
-            if (e$seconds == 0) {
-              e$seconds <- 1
-            }
+              # In test servers, FLOOD_WAIT_0 has been observed, and sleeping for
+              # such a short amount will cause retries very fast leading to issues.
+              if (e$seconds == 0) {
+                e$seconds <- 1
+              }
 
-            if (e$seconds <= flood_sleep_threshold) {
-              message(fmt_flood(e$seconds, request))
-              Sys.sleep(e$seconds)
+              if (e$seconds <= flood_sleep_threshold) {
+                message(fmt_flood(e$seconds, request))
+                Sys.sleep(e$seconds)
+              } else {
+                stop(e)
+              }
+            } else if (inherits(e, c(
+              "PhoneMigrateError", "NetworkMigrateError",
+              "UserMigrateError"
+            ))) {
+              last_error <<- e
+              message(sprintf("Phone migrated to %d", e$new_dc))
+              should_raise <- inherits(e, c("PhoneMigrateError", "NetworkMigrateError"))
+
+              if (should_raise && self$is_user_authorized()) {
+                stop(e)
+              }
+              self$client$switch_dc(e$new_dc)
             } else {
               stop(e)
             }
-          } else if (inherits(e, c("PhoneMigrateError", "NetworkMigrateError",
-                                 "UserMigrateError"))) {
-            last_error <<- e
-            message(sprintf("Phone migrated to %d", e$new_dc))
-            should_raise <- inherits(e, c("PhoneMigrateError", "NetworkMigrateError"))
-
-            if (should_raise && self$is_user_authorized()) {
-              stop(e)
-            }
-            self$client$switch_dc(e$new_dc)
-          } else {
-            stop(e)
           }
-        })
+        )
       }
 
       if (self$client$raise_last_call_error && !is.null(last_error)) {
@@ -196,20 +210,23 @@ UserMethods <- R6::R6Class(
           return(self$client$mb_entity_cache$get(self$client$mb_entity_cache$self_id)$as_input_peer())
         }
 
-        tryCatch({
-          me <- self$call(GetUsersRequest$new(list(InputUserSelf$new())))[[1]]
+        tryCatch(
+          {
+            me <- self$call(GetUsersRequest$new(list(InputUserSelf$new())))[[1]]
 
-          if (is.null(self$client$mb_entity_cache$self_id)) {
-            self$client$mb_entity_cache$set_self_user(me$id, me$bot, me$access_hash)
-          }
+            if (is.null(self$client$mb_entity_cache$self_id)) {
+              self$client$mb_entity_cache$set_self_user(me$id, me$bot, me$access_hash)
+            }
 
-          return(if (input_peer) get_input_peer(me, allow_self = FALSE) else me)
-        }, error = function(e) {
-          if (inherits(e, "UnauthorizedError")) {
-            return(NULL)
+            return(if (input_peer) get_input_peer(me, allow_self = FALSE) else me)
+          },
+          error = function(e) {
+            if (inherits(e, "UnauthorizedError")) {
+              return(NULL)
+            }
+            stop(e)
           }
-          stop(e)
-        })
+        )
       })
     },
 
@@ -239,17 +256,20 @@ UserMethods <- R6::R6Class(
     is_user_authorized = function() {
       future::future({
         if (is.null(self$client$authorized)) {
-          tryCatch({
-            # Any request that requires authorization will work
-            future::value(self$call(GetStateRequest$new()))
-            self$client$authorized <- TRUE
-          }, error = function(e) {
-            if (inherits(e, "RPCError")) {
-              self$client$authorized <- FALSE
-            } else {
-              stop(e)
+          tryCatch(
+            {
+              # Any request that requires authorization will work
+              future::value(self$call(GetStateRequest$new()))
+              self$client$authorized <- TRUE
+            },
+            error = function(e) {
+              if (inherits(e, "RPCError")) {
+                self$client$authorized <- FALSE
+              } else {
+                stop(e)
+              }
             }
-          })
+          )
         }
 
         return(self$client$authorized)
@@ -287,12 +307,15 @@ UserMethods <- R6::R6Class(
         )
 
         for (x in inputs) {
-          tryCatch({
-            entity_type <- helpers$entity_type(x)
-            lists[[entity_type]] <- c(lists[[entity_type]], list(x))
-          }, error = function(e) {
-            # Skip if type can't be determined
-          })
+          tryCatch(
+            {
+              entity_type <- helpers$entity_type(x)
+              lists[[entity_type]] <- c(lists[[entity_type]], list(x))
+            },
+            error = function(e) {
+              # Skip if type can't be determined
+            }
+          )
         }
 
         users <- lists$USER
@@ -359,22 +382,28 @@ UserMethods <- R6::R6Class(
     get_input_entity = function(peer) {
       future::future({
         # Short-circuit if the input parameter directly maps to an InputPeer
-        tryCatch({
-          return(get_input_peer(peer))
-        }, error = function(e) {
-          # Continue with other methods
-        })
+        tryCatch(
+          {
+            return(get_input_peer(peer))
+          },
+          error = function(e) {
+            # Continue with other methods
+          }
+        )
 
         # Next in priority is having a peer (or its ID) cached in-memory
-        tryCatch({
-          # 0x2d45687 == crc32(b'Peer')
-          if (is.numeric(peer) || peer$SUBCLASS_OF_ID == 0x2d45687) {
-            id <- get_peer_id(peer, add_mark = FALSE)
-            return(self$client$mb_entity_cache$get(id)$as_input_peer())
+        tryCatch(
+          {
+            # 0x2d45687 == crc32(b'Peer')
+            if (is.numeric(peer) || peer$SUBCLASS_OF_ID == 0x2d45687) {
+              id <- get_peer_id(peer, add_mark = FALSE)
+              return(self$client$mb_entity_cache$get(id)$as_input_peer())
+            }
+          },
+          error = function(e) {
+            # Continue with other methods
           }
-        }, error = function(e) {
-          # Continue with other methods
-        })
+        )
 
         # Then come known strings that take precedence
         if (is.character(peer) && peer %in% c("me", "self")) {
@@ -382,11 +411,14 @@ UserMethods <- R6::R6Class(
         }
 
         # No InputPeer, cached peer, or known string. Fetch from disk cache
-        tryCatch({
-          return(self$client$session$get_input_entity(peer))
-        }, error = function(e) {
-          # Continue with other methods
-        })
+        tryCatch(
+          {
+            return(self$client$session$get_input_entity(peer))
+          },
+          error = function(e) {
+            # Continue with other methods
+          }
+        )
 
         # Only network left to try
         if (is.character(peer)) {
@@ -409,18 +441,21 @@ UserMethods <- R6::R6Class(
         } else if (inherits(peer, "PeerChat")) {
           return(InputPeerChat$new(chat_id = peer$chat_id))
         } else if (inherits(peer, "PeerChannel")) {
-          tryCatch({
-            channels <- future::value(self$call(GetChannelsRequest$new(list(
-              InputChannel$new(channel_id = peer$channel_id, access_hash = 0)
-            ))))
-            return(get_input_peer(channels$chats[[1]]))
-          }, error = function(e) {
-            if (inherits(e, "ChannelInvalidError")) {
-              # Continue to error handling
-            } else {
-              stop(e)
+          tryCatch(
+            {
+              channels <- future::value(self$call(GetChannelsRequest$new(list(
+                InputChannel$new(channel_id = peer$channel_id, access_hash = 0)
+              ))))
+              return(get_input_peer(channels$chats[[1]]))
+            },
+            error = function(e) {
+              if (inherits(e, "ChannelInvalidError")) {
+                # Continue to error handling
+              } else {
+                stop(e)
+              }
             }
-          })
+          )
         }
 
         stop(sprintf(
@@ -455,16 +490,19 @@ UserMethods <- R6::R6Class(
           return(get_peer_id(peer, add_mark = add_mark))
         }
 
-        tryCatch({
-          if (peer$SUBCLASS_OF_ID %in% c(0x2d45687, 0xc91c90b6)) {
-            # 0x2d45687, 0xc91c90b6 == crc32(b'Peer') and b'InputPeer'
-            # Already a Peer or InputPeer
-          } else {
+        tryCatch(
+          {
+            if (peer$SUBCLASS_OF_ID %in% c(0x2d45687, 0xc91c90b6)) {
+              # 0x2d45687, 0xc91c90b6 == crc32(b'Peer') and b'InputPeer'
+              # Already a Peer or InputPeer
+            } else {
+              peer <- future::value(self$get_input_entity(peer))
+            }
+          },
+          error = function(e) {
             peer <- future::value(self$get_input_entity(peer))
           }
-        }, error = function(e) {
-          peer <- future::value(self$get_input_entity(peer))
-        })
+        )
 
         if (inherits(peer, "InputPeerSelf")) {
           peer <- future::value(self$get_me(input_peer = TRUE))
@@ -484,20 +522,23 @@ UserMethods <- R6::R6Class(
       future::future({
         phone <- parse_phone(string)
         if (!is.null(phone)) {
-          tryCatch({
-            contacts <- future::value(self$call(GetContactsRequest$new(0)))
-            for (user in contacts$users) {
-              if (user$phone == phone) {
-                return(user)
+          tryCatch(
+            {
+              contacts <- future::value(self$call(GetContactsRequest$new(0)))
+              for (user in contacts$users) {
+                if (user$phone == phone) {
+                  return(user)
+                }
+              }
+            },
+            error = function(e) {
+              if (inherits(e, "BotMethodInvalidError")) {
+                stop("Cannot get entity by phone number as a bot (try using integer IDs, not strings)")
+              } else {
+                stop(e)
               }
             }
-          }, error = function(e) {
-            if (inherits(e, "BotMethodInvalidError")) {
-              stop("Cannot get entity by phone number as a bot (try using integer IDs, not strings)")
-            } else {
-              stop(e)
-            }
-          })
+          )
         } else if (tolower(string) %in% c("me", "self")) {
           return(future::value(self$get_me()))
         } else {
@@ -514,39 +555,45 @@ UserMethods <- R6::R6Class(
               return(invite$chat)
             }
           } else if (!is.null(username)) {
-            tryCatch({
-              result <- future::value(self$call(ResolveUsernameRequest$new(username)))
-              pid <- get_peer_id(result$peer, add_mark = FALSE)
+            tryCatch(
+              {
+                result <- future::value(self$call(ResolveUsernameRequest$new(username)))
+                pid <- get_peer_id(result$peer, add_mark = FALSE)
 
-              if (inherits(result$peer, "PeerUser")) {
-                for (x in result$users) {
-                  if (x$id == pid) {
-                    return(x)
+                if (inherits(result$peer, "PeerUser")) {
+                  for (x in result$users) {
+                    if (x$id == pid) {
+                      return(x)
+                    }
+                  }
+                } else {
+                  for (x in result$chats) {
+                    if (x$id == pid) {
+                      return(x)
+                    }
                   }
                 }
-              } else {
-                for (x in result$chats) {
-                  if (x$id == pid) {
-                    return(x)
-                  }
+              },
+              error = function(e) {
+                if (inherits(e, "UsernameNotOccupiedError")) {
+                  stop(sprintf('No user has "%s" as username', username))
+                } else {
+                  stop(e)
                 }
               }
-            }, error = function(e) {
-              if (inherits(e, "UsernameNotOccupiedError")) {
-                stop(sprintf('No user has "%s" as username', username))
-              } else {
-                stop(e)
-              }
-            })
+            )
           }
 
           # Try by exact name/title as last resort
-          tryCatch({
-            input_entity <- self$client$session$get_input_entity(string)
-            return(future::value(self$get_entity(input_entity)))
-          }, error = function(e) {
-            # Continue to final error
-          })
+          tryCatch(
+            {
+              input_entity <- self$client$session$get_input_entity(string)
+              return(future::value(self$get_entity(input_entity)))
+            },
+            error = function(e) {
+              # Continue to final error
+            }
+          )
         }
 
         stop(sprintf('Cannot find any entity corresponding to "%s"', string))
@@ -559,16 +606,19 @@ UserMethods <- R6::R6Class(
     #' @return A future object representing the input dialog.
     get_input_dialog = function(dialog) {
       future::future({
-        tryCatch({
-          if (dialog$SUBCLASS_OF_ID == 0xa21c9795) {  # crc32(b'InputDialogPeer')
-            dialog$peer <- future::value(self$get_input_entity(dialog$peer))
-            return(dialog)
-          } else if (dialog$SUBCLASS_OF_ID == 0xc91c90b6) {  # crc32(b'InputPeer')
-            return(InputDialogPeer(dialog))
+        tryCatch(
+          {
+            if (dialog$SUBCLASS_OF_ID == 0xa21c9795) { # crc32(b'InputDialogPeer')
+              dialog$peer <- future::value(self$get_input_entity(dialog$peer))
+              return(dialog)
+            } else if (dialog$SUBCLASS_OF_ID == 0xc91c90b6) { # crc32(b'InputPeer')
+              return(InputDialogPeer(dialog))
+            }
+          },
+          error = function(e) {
+            # Continue to fallback
           }
-        }, error = function(e) {
-          # Continue to fallback
-        })
+        )
 
         input_entity <- future::value(self$get_input_entity(dialog))
         return(InputDialogPeer(input_entity))
@@ -581,16 +631,19 @@ UserMethods <- R6::R6Class(
     #' @return A future object representing the input notify.
     get_input_notify = function(notify) {
       future::future({
-        tryCatch({
-          if (notify$SUBCLASS_OF_ID == 0x58981615) {
-            if (inherits(notify, "InputNotifyPeer")) {
-              notify$peer <- future::value(self$get_input_entity(notify$peer))
+        tryCatch(
+          {
+            if (notify$SUBCLASS_OF_ID == 0x58981615) {
+              if (inherits(notify, "InputNotifyPeer")) {
+                notify$peer <- future::value(self$get_input_entity(notify$peer))
+              }
+              return(notify)
             }
-            return(notify)
+          },
+          error = function(e) {
+            # Continue to fallback
           }
-        }, error = function(e) {
-          # Continue to fallback
-        })
+        )
 
         input_entity <- future::value(self$get_input_entity(notify))
         return(InputNotifyPeer(input_entity))

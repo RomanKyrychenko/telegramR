@@ -11,7 +11,6 @@ CheckChatlistInviteRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0x41c10fff),
     SUBCLASS_OF_ID = as.integer(0x41720e75),
-
     slug = NULL,
 
     #' Initialize CheckChatlistInviteRequest
@@ -35,7 +34,9 @@ CheckChatlistInviteRequest <- R6::R6Class(
     #' @return raw vector with serialized bytes
     bytes = function() {
       tl_serialize_string <- function(s) {
-        if (is.null(s)) return(raw())
+        if (is.null(s)) {
+          return(raw())
+        }
         rb <- charToRaw(enc2utf8(as.character(s)))
         n <- length(rb)
         if (n < 254) {
@@ -88,7 +89,6 @@ DeleteExportedInviteRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0x719c5c5e),
     SUBCLASS_OF_ID = as.integer(0xf5b399ac),
-
     chatlist = NULL,
     slug = NULL,
 
@@ -116,7 +116,9 @@ DeleteExportedInviteRequest <- R6::R6Class(
     #' @return raw vector with serialized bytes
     bytes = function() {
       tl_serialize_string <- function(s) {
-        if (is.null(s)) return(raw())
+        if (is.null(s)) {
+          return(raw())
+        }
         rb <- charToRaw(enc2utf8(as.character(s)))
         n <- length(rb)
         if (n < 254) {
@@ -177,7 +179,6 @@ EditExportedInviteRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0x653db63d),
     SUBCLASS_OF_ID = as.integer(0x7711f8ff),
-
     chatlist = NULL,
     slug = NULL,
     title = NULL,
@@ -208,7 +209,7 @@ EditExportedInviteRequest <- R6::R6Class(
       if (!is.null(self$peers)) {
         for (p in self$peers) {
           ent <- client$get_input_entity(p)
-          ip  <- utils$get_input_peer(ent)
+          ip <- utils$get_input_peer(ent)
           tmp_list[[length(tmp_list) + 1]] <- ip
         }
       }
@@ -236,7 +237,9 @@ EditExportedInviteRequest <- R6::R6Class(
       pack_int32 <- function(i) writeBin(as.integer(i), raw(), size = 4, endian = "little")
 
       tl_serialize_string <- function(s) {
-        if (is.null(s)) return(raw())
+        if (is.null(s)) {
+          return(raw())
+        }
         rb <- charToRaw(enc2utf8(as.character(s)))
         n <- length(rb)
         if (n < 254) {
@@ -293,11 +296,8 @@ EditExportedInviteRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   active = list(),
-
   private = list(),
-
   class = FALSE
 )
 
@@ -381,7 +381,7 @@ ExportChatlistInviteRequest <- R6::R6Class(
       if (!is.null(self$peers)) {
         for (p in self$peers) {
           ent <- client$get_input_entity(p)
-          ip  <- utils$get_input_peer(ent)
+          ip <- utils$get_input_peer(ent)
           tmp_list[[length(tmp_list) + 1]] <- ip
         }
       }
@@ -407,7 +407,9 @@ ExportChatlistInviteRequest <- R6::R6Class(
       pack_int32 <- function(i) writeBin(as.integer(i), raw(), size = 4, endian = "little")
 
       tl_serialize_string <- function(s) {
-        if (is.null(s)) return(raw())
+        if (is.null(s)) {
+          return(raw())
+        }
         rb <- charToRaw(enc2utf8(as.character(s)))
         n <- length(rb)
         if (n < 254) {
@@ -760,7 +762,7 @@ JoinChatlistInviteRequest <- R6::R6Class(
       if (!is.null(self$peers)) {
         for (p in self$peers) {
           ent <- client$get_input_entity(p)
-          ip  <- utils$get_input_peer(ent)
+          ip <- utils$get_input_peer(ent)
           tmp_list[[length(tmp_list) + 1]] <- ip
         }
       }
@@ -786,7 +788,9 @@ JoinChatlistInviteRequest <- R6::R6Class(
 
       # TL-string serializer (full TL-string encoding)
       tl_serialize_string <- function(s) {
-        if (is.null(s)) return(raw())
+        if (is.null(s)) {
+          return(raw())
+        }
         rb <- charToRaw(enc2utf8(as.character(s)))
         n <- length(rb)
         if (n < 254) {
@@ -827,11 +831,8 @@ JoinChatlistInviteRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   active = list(),
-
   private = list(),
-
   class = FALSE
 )
 
@@ -895,7 +896,7 @@ JoinChatlistUpdatesRequest <- R6::R6Class(
       if (!is.null(self$peers)) {
         for (p in self$peers) {
           ent <- client$get_input_entity(p)
-          ip  <- utils$get_input_peer(ent)
+          ip <- utils$get_input_peer(ent)
           tmp_list[[length(tmp_list) + 1]] <- ip
         }
       }
@@ -941,11 +942,8 @@ JoinChatlistUpdatesRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   active = list(),
-
   private = list(),
-
   class = FALSE
 )
 
@@ -1007,7 +1005,7 @@ LeaveChatlistRequest <- R6::R6Class(
       if (!is.null(self$peers)) {
         for (p in self$peers) {
           ent <- client$get_input_entity(p)
-          ip  <- utils$get_input_peer(ent)
+          ip <- utils$get_input_peer(ent)
           tmp_list[[length(tmp_list) + 1]] <- ip
         }
       }

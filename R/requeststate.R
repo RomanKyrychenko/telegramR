@@ -27,7 +27,9 @@ RequestState <- R6::R6Class("RequestState",
         self$data <- serialize(request, NULL)
       }
       # Create a placeholder future that can be resolved later.
-      self$future <- future::future({ NULL })
+      self$future <- future::future({
+        NULL
+      })
       self$after <- after
     }
   )

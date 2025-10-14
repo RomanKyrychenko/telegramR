@@ -5,7 +5,7 @@
 check_prime_and_good_check <- function(prime, g) {
   good_prime_bits_count <- 2048
   if (prime < 0 || gmp::sizeinbase(gmp::as.bigz(prime), 2) != good_prime_bits_count) {
-    stop('bad prime count ', gmp::sizeinbase(gmp::as.bigz(prime), 2), ', expected ', good_prime_bits_count)
+    stop("bad prime count ", gmp::sizeinbase(gmp::as.bigz(prime), 2), ", expected ", good_prime_bits_count)
   }
   # TODO This is awfully slow
   if (Factorization$new()$factorize(prime)[1] != 1) {
@@ -13,32 +13,32 @@ check_prime_and_good_check <- function(prime, g) {
   }
   if (g == 2) {
     if (prime %% 8 != 7) {
-      stop('bad g ', g, ', mod8 ', prime %% 8)
+      stop("bad g ", g, ", mod8 ", prime %% 8)
     }
   } else if (g == 3) {
     if (prime %% 3 != 2) {
-      stop('bad g ', g, ', mod3 ', prime %% 3)
+      stop("bad g ", g, ", mod3 ", prime %% 3)
     }
   } else if (g == 4) {
     # pass
   } else if (g == 5) {
     if (!(prime %% 5 %in% c(1, 4))) {
-      stop('bad g ', g, ', mod5 ', prime %% 5)
+      stop("bad g ", g, ", mod5 ", prime %% 5)
     }
   } else if (g == 6) {
     if (!(prime %% 24 %in% c(19, 23))) {
-      stop('bad g ', g, ', mod24 ', prime %% 24)
+      stop("bad g ", g, ", mod24 ", prime %% 24)
     }
   } else if (g == 7) {
     if (!(prime %% 7 %in% c(3, 5, 6))) {
-      stop('bad g ', g, ', mod7 ', prime %% 7)
+      stop("bad g ", g, ", mod7 ", prime %% 7)
     }
   } else {
-    stop('bad g ', g)
+    stop("bad g ", g)
   }
   prime_sub1_div2 <- (prime - 1) %/% 2
   if (factorize(prime_sub1_div2)[1] != 1) {
-    stop('(prime - 1) // 2 is not prime')
+    stop("(prime - 1) // 2 is not prime")
   }
   # Else it's good
 }
@@ -68,7 +68,7 @@ check_prime_and_good <- function(prime_bytes, g) {
   ))
   if (identical(good_prime, prime_bytes)) {
     if (g %in% c(3, 4, 5, 7)) {
-      return()  # It's good
+      return() # It's good
     }
   }
   check_prime_and_good_check(openssl::bignum(prime_bytes, hex = FALSE), g)
@@ -78,9 +78,6 @@ check_prime_and_good <- function(prime_bytes, g) {
 #' @description An R6 class for handling password key derivation functions (KDF) as per Telegram's specifications.
 #' This class provides utility methods for checking modular exponentiation, XOR operations, PBKDF2 hashing,
 #' and computing password hashes and digests.
-#' @import R6
-#' @import gmp
-#' @import openssl
 PasswordKdf <- R6::R6Class(
   "PasswordKdf",
   public = list(
@@ -95,14 +92,16 @@ PasswordKdf <- R6::R6Class(
 
       # Calculate bit length for big integers
       bit_length <- function(x) {
-        if (x == 0) return(0)
+        if (x == 0) {
+          return(0)
+        }
         return(floor(log2(as.numeric(x))) + 1)
       }
 
       if (diff < 0 ||
-          bit_length(diff) < min_diff_bits_count ||
-          bit_length(modexp) < min_diff_bits_count ||
-          ((bit_length(modexp) + 7) %/% 8) > max_mod_exp_size) {
+        bit_length(diff) < min_diff_bits_count ||
+        bit_length(modexp) < min_diff_bits_count ||
+        ((bit_length(modexp) + 7) %/% 8) > max_mod_exp_size) {
         return(FALSE)
       }
       return(TRUE)
@@ -147,15 +146,20 @@ PasswordKdf <- R6::R6Class(
     #' @param password A string representing the password.
     #' @return A raw vector of the computed digest.
     compute_digest = function(algo, password) {
-      tryCatch({
-        self$check_prime_and_good(algo$p, algo$g)
-      }, error = function(e) {
-        stop("bad p/g in password")
-      })
+      tryCatch(
+        {
+          self$check_prime_and_good(algo$p, algo$g)
+        },
+        error = function(e) {
+          stop("bad p/g in password")
+        }
+      )
 
-      value <- gmp::powm(algo$g,
-                              gmp::as.bigz(openssl::bignum(openssl::bignum(self$compute_hash(algo, password)), hex = FALSE)),
-                              gmp::as.bigz(openssl::bignum(openssl::bignum(algo$p), hex = FALSE)))
+      value <- gmp::powm(
+        algo$g,
+        gmp::as.bigz(openssl::bignum(openssl::bignum(self$compute_hash(algo, password)), hex = FALSE)),
+        gmp::as.bigz(openssl::bignum(openssl::bignum(algo$p), hex = FALSE))
+      )
 
       return(self$big_num_for_hash(gmp::as.integer(value)))
     },
@@ -184,7 +188,7 @@ PasswordKdf <- R6::R6Class(
       ))
       if (identical(good_prime, prime_bytes)) {
         if (g %in% c(3, 4, 5, 7)) {
-          return()  # It's good
+          return() # It's good
         }
       }
       self$check_prime_and_good_check(openssl::bignum(prime_bytes, hex = FALSE), g)
@@ -196,7 +200,7 @@ PasswordKdf <- R6::R6Class(
     check_prime_and_good_check = function(prime, g) {
       good_prime_bits_count <- 2048
       if (prime < 0 || nchar(openssl::bignum(prime, hex = TRUE)) * 4 != good_prime_bits_count) {
-        stop('bad prime count ', nchar(openssl::bignum(prime, hex = TRUE)) * 4, ', expected ', good_prime_bits_count)
+        stop("bad prime count ", nchar(openssl::bignum(prime, hex = TRUE)) * 4, ", expected ", good_prime_bits_count)
       }
       # TODO This is awfully slow
       if (Factorization$new()$factorize(prime)[1] != 1) {
@@ -204,32 +208,32 @@ PasswordKdf <- R6::R6Class(
       }
       if (g == 2) {
         if (prime %% 8 != 7) {
-          stop('bad g ', g, ', mod8 ', prime %% 8)
+          stop("bad g ", g, ", mod8 ", prime %% 8)
         }
       } else if (g == 3) {
         if (prime %% 3 != 2) {
-          stop('bad g ', g, ', mod3 ', prime %% 3)
+          stop("bad g ", g, ", mod3 ", prime %% 3)
         }
       } else if (g == 4) {
         # pass
       } else if (g == 5) {
         if (!(prime %% 5 %in% c(1, 4))) {
-          stop('bad g ', g, ', mod5 ', prime %% 5)
+          stop("bad g ", g, ", mod5 ", prime %% 5)
         }
       } else if (g == 6) {
         if (!(prime %% 24 %in% c(19, 23))) {
-          stop('bad g ', g, ', mod24 ', prime %% 24)
+          stop("bad g ", g, ", mod24 ", prime %% 24)
         }
       } else if (g == 7) {
         if (!(prime %% 7 %in% c(3, 5, 6))) {
-          stop('bad g ', g, ', mod7 ', prime %% 7)
+          stop("bad g ", g, ", mod7 ", prime %% 7)
         }
       } else {
-        stop('bad g ', g)
+        stop("bad g ", g)
       }
       prime_sub1_div2 <- (prime - 1) %/% 2
       if (Factorization$new()$factorize(prime_sub1_div2)[1] != 1) {
-        stop('(prime - 1) // 2 is not prime')
+        stop("(prime - 1) // 2 is not prime")
       }
       # Else it's good
     },
@@ -274,95 +278,6 @@ PasswordKdf <- R6::R6Class(
 )
 
 
-#' @title PasswordKdf Class
-#' @description An R6 class for handling password key derivation functions (KDF) as per Telegram's specifications.
-#' This class provides utility methods for checking modular exponentiation, XOR operations, PBKDF2 hashing,
-#' and computing password hashes and digests.
-#' @import R6
-#' @import gmp
-#' @import openssl
-PasswordKdf <- R6::R6Class(
-  "PasswordKdf",
-  public = list(
-    #' @description Check if a modular exponentiation result is good for the first check.
-    #' @param modexp A big integer representing the modular exponentiation result.
-    #' @param prime A big integer representing the prime modulus.
-    #' @return A logical value indicating if the check passes.
-    is_good_mod_exp_first = function(modexp, prime) {
-      diff <- prime - modexp
-      min_diff_bits_count <- 2048 - 64
-      max_mod_exp_size <- 256
-
-      # Calculate bit length for big integers
-      bit_length <- function(x) {
-        if (x == 0) return(0)
-        return(floor(log2(as.numeric(x))) + 1)
-      }
-
-      if (diff < 0 ||
-          bit_length(diff) < min_diff_bits_count ||
-          bit_length(modexp) < min_diff_bits_count ||
-          ((bit_length(modexp) + 7) %/% 8) > max_mod_exp_size) {
-        return(FALSE)
-      }
-      return(TRUE)
-    },
-
-    #' @description Perform XOR operation on two byte vectors.
-    #' @param a A raw vector (bytes).
-    #' @param b A raw vector (bytes).
-    #' @return A raw vector of the XOR result.
-    xor = function(a, b) {
-      # Ensure both are raw vectors of the same length
-      len <- min(length(a), length(b))
-      result <- raw(len)
-      for (i in seq_len(len)) {
-        result[i] <- as.raw(bitwXor(as.integer(a[i]), as.integer(b[i])))
-      }
-      return(result)
-    },
-
-    #' @description Compute PBKDF2 with SHA512.
-    #' @param password A raw vector representing the password.
-    #' @param salt A raw vector representing the salt.
-    #' @param iterations An integer for the number of iterations.
-    #' @return A raw vector of the derived key.
-    pbkdf2sha512 = function(password, salt, iterations) {
-      return(openssl::bcrypt_pbkdf(password, salt, size = 64L)) #, hash = "sha512"))
-    },
-
-    #' @description Compute the hash for the password KDF algorithm.
-    #' @param algo An object of type PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow.
-    #' @param password A string representing the password.
-    #' @return A raw vector of the computed hash.
-    compute_hash = function(algo, password) {
-      hash1 <- openssl::sha256(c(algo$salt1, charToRaw(password), algo$salt1))
-      hash2 <- openssl::sha256(c(algo$salt2, hash1, algo$salt2))
-      hash3 <- self$pbkdf2sha512(hash2, algo$salt1, 100000)
-      return(openssl::sha256(c(algo$salt2, hash3, algo$salt2)))
-    },
-
-    #' @description Compute the digest for the password KDF algorithm.
-    #' @param algo An object of type PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow.
-    #' @param password A string representing the password.
-    #' @return A raw vector of the computed digest.
-    compute_digest = function(algo, password) {
-      tryCatch({
-        check_prime_and_good(algo$p, algo$g)
-      }, error = function(e) {
-        stop("bad p/g in password")
-      })
-
-      value <- gmp::powm(algo$g,
-                              gmp::as.bigz(openssl::bignum(openssl::bignum(self$compute_hash(algo, password)), hex = FALSE)),
-                              gmp::as.bigz(openssl::bignum(openssl::bignum(algo$p), hex = FALSE)))
-
-      return(big_num_for_hash(gmp::as.integer(value)))
-    }
-  )
-)
-
-
 # https://github.com/telegramdesktop/tdesktop/blob/18b74b90451a7db2379a9d753c9cbaf8734b4d5d/Telegram/SourceFiles/core/core_cloud_password.cpp
 compute_check <- function(request, password) {
   algo <- request$current_algo
@@ -375,11 +290,14 @@ compute_check <- function(request, password) {
   p <- int_from_bytes(algo$p, "big")
   g <- algo$g
   B <- int_from_bytes(request$srp_B, "big")
-  tryCatch({
-    check_prime_and_good(algo$p, g)
-  }, error = function(e) {
-    stop("bad p/g in password")
-  })
+  tryCatch(
+    {
+      check_prime_and_good(algo$p, g)
+    },
+    error = function(e) {
+      stop("bad p/g in password")
+    }
+  )
 
   if (!is_good_large(B, p)) {
     stop("bad b in check")

@@ -22,7 +22,6 @@ AddStickerToSetRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x8653febe,
     SUBCLASS_OF_ID = 0x9b704a5a,
-
     stickerset = NULL,
     sticker = NULL,
 
@@ -135,7 +134,6 @@ ChangeStickerRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xf5537ebc,
     SUBCLASS_OF_ID = 0x9b704a5a,
-
     sticker = NULL,
     emoji = NULL,
     mask_coords = NULL,
@@ -285,7 +283,6 @@ ChangeStickerPositionRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0xffb6d4ca,
     SUBCLASS_OF_ID = 0x9b704a5a,
-
     sticker = NULL,
     position = NULL,
 
@@ -394,7 +391,6 @@ CheckShortNameRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x284b3639,
     SUBCLASS_OF_ID = 0xf5b399ac,
-
     short_name = NULL,
 
     #' Initialize a CheckShortNameRequest
@@ -488,7 +484,6 @@ CreateStickerSetRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x9021ab67,
     SUBCLASS_OF_ID = 0x9b704a5a,
-
     user_id = NULL,
     title = NULL,
     short_name = NULL,
@@ -628,10 +623,12 @@ CreateStickerSetRequest <- R6::R6Class(
 
       software_bytes <- if (!is.null(self$software)) serialize_string(self$software) else raw(0)
 
-      c(constructor_bytes, flags_bytes, user_bytes, serialize_string(self$title), serialize_string(self$short_name),
+      c(
+        constructor_bytes, flags_bytes, user_bytes, serialize_string(self$title), serialize_string(self$short_name),
         (if (length(thumb_bytes) > 0) thumb_bytes else raw(0)),
         vector_constructor, stickers_len_bytes, stickers_bytes,
-        software_bytes)
+        software_bytes
+      )
     }
   )
 )

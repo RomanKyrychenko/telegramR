@@ -33,7 +33,6 @@ ApplyBoostRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x6b7da746,
     SUBCLASS_OF_ID = 0xad3512db,
-
     peer = NULL,
     slots = NULL,
 
@@ -141,7 +140,6 @@ GetBoostsListRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x60f67660,
     SUBCLASS_OF_ID = 0x2235a8bd,
-
     peer = NULL,
     offset = NULL,
     limit = NULL,
@@ -233,7 +231,6 @@ GetBoostsStatusRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x061f2f04, # note: bytes b'a\x1f/\x04' -> 0x61 0x1f 0x2f 0x04, but integer shown here for reference
     SUBCLASS_OF_ID = 0xc31b1ab9,
-
     peer = NULL,
 
     #' Create a new GetBoostsStatusRequest
@@ -350,7 +347,6 @@ GetUserBoostsRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = 0x39854d1f,
     SUBCLASS_OF_ID = 0x2235a8bd,
-
     peer = NULL,
     user_id = NULL,
 
@@ -407,4 +403,3 @@ GetUserBoostsRequest <- R6::R6Class(
     }
   )
 )
-

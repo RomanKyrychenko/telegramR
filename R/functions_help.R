@@ -5,19 +5,12 @@
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field id TLObject-like TypeDataJSON (environment with to_bytes()/to_list() or raw)
-#'
-#' Methods:
-#' - initialize(id) : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 AcceptTermsOfServiceRequest <- R6::R6Class(
   "AcceptTermsOfServiceRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0xee72f79a),
     SUBCLASS_OF_ID = as.integer(0xf5b399ac),
-
     id = NULL,
 
     #' Initialize AcceptTermsOfServiceRequest
@@ -31,7 +24,9 @@ AcceptTermsOfServiceRequest <- R6::R6Class(
     to_list = function() {
       list(
         `_` = "AcceptTermsOfServiceRequest",
-        id = if (is.null(self$id)) NULL else {
+        id = if (is.null(self$id)) {
+          NULL
+        } else {
           if (is.environment(self$id) && !is.null(self$id$to_list)) self$id$to_list() else self$id
         }
       )
@@ -52,7 +47,6 @@ AcceptTermsOfServiceRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -75,20 +69,12 @@ AcceptTermsOfServiceRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field peer TLObject-like input peer (environment with to_bytes()/to_list() or raw)
 #' @field suggestion character Suggestion string
-#'
-#' Methods:
-#' - initialize(peer, suggestion) : create new instance.
-#' - resolve(client, utils) : resolve peer via client and utils (mutates self$peer).
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 DismissSuggestionRequest <- R6::R6Class(
   "DismissSuggestionRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0xf50dbaa1),
     SUBCLASS_OF_ID = as.integer(0xf5b399ac),
-
     peer = NULL,
     suggestion = "",
 
@@ -113,7 +99,9 @@ DismissSuggestionRequest <- R6::R6Class(
     to_list = function() {
       list(
         `_` = "DismissSuggestionRequest",
-        peer = if (is.null(self$peer)) NULL else {
+        peer = if (is.null(self$peer)) {
+          NULL
+        } else {
           if (is.environment(self$peer) && !is.null(self$peer$to_list)) self$peer$to_list() else self$peer
         },
         suggestion = self$suggestion
@@ -151,7 +139,6 @@ DismissSuggestionRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -177,20 +164,12 @@ DismissSuggestionRequest$from_reader <- function(reader) {
 #' @field userId TLObject-like input user (environment with to_bytes()/to_list() or raw)
 #' @field message character Message text
 #' @field entities list List of TLObject-like message entities
-#'
-#' Methods:
-#' - initialize(userId, message, entities) : create new instance.
-#' - resolve(client, utils) : resolve userId via client and utils (mutates self$userId).
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 EditUserInfoRequest <- R6::R6Class(
   "EditUserInfoRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0x66b91b70),
     SUBCLASS_OF_ID = as.integer(0x5c53d7d8),
-
     userId = NULL,
     message = "",
     entities = list(),
@@ -222,13 +201,19 @@ EditUserInfoRequest <- R6::R6Class(
     to_list = function() {
       list(
         `_` = "EditUserInfoRequest",
-        user_id = if (is.null(self$userId)) NULL else {
+        user_id = if (is.null(self$userId)) {
+          NULL
+        } else {
           if (is.environment(self$userId) && !is.null(self$userId$to_list)) self$userId$to_list() else self$userId
         },
         message = self$message,
-        entities = if (is.null(self$entities)) list() else lapply(self$entities, function(x) {
-          if (is.environment(x) && !is.null(x$to_list)) x$to_list() else x
-        })
+        entities = if (is.null(self$entities)) {
+          list()
+        } else {
+          lapply(self$entities, function(x) {
+            if (is.environment(x) && !is.null(x$to_list)) x$to_list() else x
+          })
+        }
       )
     },
 
@@ -268,8 +253,12 @@ EditUserInfoRequest <- R6::R6Class(
       # each entity is expected to provide a to_bytes() method or already be a raw vector
       if (length(self$entities) > 0) {
         entityBytes <- lapply(self$entities, function(ev) {
-          if (is.raw(ev)) return(ev)
-          if (is.environment(ev) && !is.null(ev$to_bytes)) return(ev$to_bytes())
+          if (is.raw(ev)) {
+            return(ev)
+          }
+          if (is.environment(ev) && !is.null(ev$to_bytes)) {
+            return(ev$to_bytes())
+          }
           stop("Each entity must be a raw vector or provide to_bytes()")
         })
         parts[[vecIndex + 2]] <- do.call(c, entityBytes)
@@ -277,7 +266,6 @@ EditUserInfoRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -307,19 +295,12 @@ EditUserInfoRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field hash integer Hash to check for modifications.
-#'
-#' Methods:
-#' - initialize(hash) : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetAppConfigRequest <- R6::R6Class(
   "GetAppConfigRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0x61e3f854),
     SUBCLASS_OF_ID = as.integer(0x14381c9a),
-
     hash = 0L,
 
     #' Initialize GetAppConfigRequest
@@ -346,7 +327,6 @@ GetAppConfigRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -368,19 +348,12 @@ GetAppConfigRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field source character Source string.
-#'
-#' Methods:
-#' - initialize(source) : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetAppUpdateRequest <- R6::R6Class(
   "GetAppUpdateRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0x522d5a7d),
     SUBCLASS_OF_ID = as.integer(0x5897069e),
-
     source = "",
 
     #' Initialize GetAppUpdateRequest
@@ -421,7 +394,6 @@ GetAppUpdateRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -442,12 +414,6 @@ GetAppUpdateRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#'
-#' Methods:
-#' - initialize() : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetCdnConfigRequest <- R6::R6Class(
   "GetCdnConfigRequest",
@@ -475,7 +441,6 @@ GetCdnConfigRequest <- R6::R6Class(
       writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
     }
   ),
-
   private = list()
 )
 
@@ -495,12 +460,6 @@ GetCdnConfigRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#'
-#' Methods:
-#' - initialize() : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetConfigRequest <- R6::R6Class(
   "GetConfigRequest",
@@ -529,7 +488,6 @@ GetConfigRequest <- R6::R6Class(
       writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
     }
   ),
-
   private = list()
 )
 
@@ -551,19 +509,12 @@ GetConfigRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field langCode character Language code.
 #' @field hash integer Hash to check for modifications.
-#'
-#' Methods:
-#' - initialize(langCode, hash) : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetCountriesListRequest <- R6::R6Class(
   "GetCountriesListRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0x735787a8),
     SUBCLASS_OF_ID = as.integer(0xea31fe88),
-
     langCode = "",
     hash = 0L,
 
@@ -610,7 +561,6 @@ GetCountriesListRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -633,19 +583,12 @@ GetCountriesListRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field path character Deep link path.
-#'
-#' Methods:
-#' - initialize(path) : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetDeepLinkInfoRequest <- R6::R6Class(
   "GetDeepLinkInfoRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0x3fedc75f),
     SUBCLASS_OF_ID = as.integer(0x984aac38),
-
     path = "",
 
     #' Initialize GetDeepLinkInfoRequest
@@ -686,7 +629,6 @@ GetDeepLinkInfoRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -707,12 +649,6 @@ GetDeepLinkInfoRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#'
-#' Methods:
-#' - initialize() : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetInviteTextRequest <- R6::R6Class(
   "GetInviteTextRequest",
@@ -740,7 +676,6 @@ GetInviteTextRequest <- R6::R6Class(
       writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
     }
   ),
-
   private = list()
 )
 
@@ -760,12 +695,6 @@ GetInviteTextRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#'
-#' Methods:
-#' - initialize() : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetNearestDcRequest <- R6::R6Class(
   "GetNearestDcRequest",
@@ -793,7 +722,6 @@ GetNearestDcRequest <- R6::R6Class(
       writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
     }
   ),
-
   private = list()
 )
 
@@ -814,19 +742,12 @@ GetNearestDcRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field hash integer Hash to check for modifications.
-#'
-#' Methods:
-#' - initialize(hash) : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetPassportConfigRequest <- R6::R6Class(
   "GetPassportConfigRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0xc661ad08),
     SUBCLASS_OF_ID = as.integer(0xc666c0ad),
-
     hash = 0L,
 
     #' Initialize GetPassportConfigRequest
@@ -853,7 +774,6 @@ GetPassportConfigRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -875,19 +795,12 @@ GetPassportConfigRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field hash integer Hash to check for modifications.
-#'
-#' Methods:
-#' - initialize(hash) : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetPeerColorsRequest <- R6::R6Class(
   "GetPeerColorsRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0xda80f42f),
     SUBCLASS_OF_ID = as.integer(0x0e3f6733),
-
     hash = 0L,
 
     #' Initialize GetPeerColorsRequest
@@ -914,7 +827,6 @@ GetPeerColorsRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -936,19 +848,12 @@ GetPeerColorsRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field hash integer Hash to check for modifications.
-#'
-#' Methods:
-#' - initialize(hash) : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetPeerProfileColorsRequest <- R6::R6Class(
   "GetPeerProfileColorsRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0xabcfa9fd),
     SUBCLASS_OF_ID = as.integer(0x0e3f6733),
-
     hash = 0L,
 
     #' Initialize GetPeerProfileColorsRequest
@@ -975,7 +880,6 @@ GetPeerProfileColorsRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -996,12 +900,6 @@ GetPeerProfileColorsRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#'
-#' Methods:
-#' - initialize() : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetPremiumPromoRequest <- R6::R6Class(
   "GetPremiumPromoRequest",
@@ -1029,7 +927,6 @@ GetPremiumPromoRequest <- R6::R6Class(
       writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
     }
   ),
-
   private = list()
 )
 
@@ -1049,12 +946,6 @@ GetPremiumPromoRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#'
-#' Methods:
-#' - initialize() : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetPromoDataRequest <- R6::R6Class(
   "GetPromoDataRequest",
@@ -1082,7 +973,6 @@ GetPromoDataRequest <- R6::R6Class(
       writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
     }
   ),
-
   private = list()
 )
 
@@ -1103,19 +993,12 @@ GetPromoDataRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field referer character Referer string
-#'
-#' Methods:
-#' - initialize(referer) : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetRecentMeUrlsRequest <- R6::R6Class(
   "GetRecentMeUrlsRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0x3dc0f114),
     SUBCLASS_OF_ID = as.integer(0xf269c477),
-
     referer = "",
 
     #' Initialize GetRecentMeUrlsRequest
@@ -1156,7 +1039,6 @@ GetRecentMeUrlsRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -1177,12 +1059,6 @@ GetRecentMeUrlsRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#'
-#' Methods:
-#' - initialize() : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetSupportRequest <- R6::R6Class(
   "GetSupportRequest",
@@ -1210,7 +1086,6 @@ GetSupportRequest <- R6::R6Class(
       writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
     }
   ),
-
   private = list()
 )
 
@@ -1230,12 +1105,6 @@ GetSupportRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#'
-#' Methods:
-#' - initialize() : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetSupportNameRequest <- R6::R6Class(
   "GetSupportNameRequest",
@@ -1264,7 +1133,6 @@ GetSupportNameRequest <- R6::R6Class(
       writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
     }
   ),
-
   private = list()
 )
 
@@ -1284,12 +1152,6 @@ GetSupportNameRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#'
-#' Methods:
-#' - initialize() : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetTermsOfServiceUpdateRequest <- R6::R6Class(
   "GetTermsOfServiceUpdateRequest",
@@ -1317,7 +1179,6 @@ GetTermsOfServiceUpdateRequest <- R6::R6Class(
       writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
     }
   ),
-
   private = list()
 )
 
@@ -1338,19 +1199,12 @@ GetTermsOfServiceUpdateRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field hash integer Hash to check for modifications.
-#'
-#' Methods:
-#' - initialize(hash) : create new instance.
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetTimezonesListRequest <- R6::R6Class(
   "GetTimezonesListRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0x49b30240),
     SUBCLASS_OF_ID = as.integer(0xca76e475),
-
     hash = 0L,
 
     #' Initialize GetTimezonesListRequest
@@ -1377,7 +1231,6 @@ GetTimezonesListRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -1399,20 +1252,12 @@ GetTimezonesListRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field userId TLObject-like input user (environment with to_bytes()/to_list() or raw)
-#'
-#' Methods:
-#' - initialize(userId) : create new instance.
-#' - resolve(client, utils) : resolve userId via client and utils (mutates self$userId).
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 GetUserInfoRequest <- R6::R6Class(
   "GetUserInfoRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0x038a08d3),
     SUBCLASS_OF_ID = as.integer(0x5c53d7d8),
-
     userId = NULL,
 
     #' Initialize GetUserInfoRequest
@@ -1434,7 +1279,9 @@ GetUserInfoRequest <- R6::R6Class(
     to_list = function() {
       list(
         `_` = "GetUserInfoRequest",
-        user_id = if (is.null(self$userId)) NULL else {
+        user_id = if (is.null(self$userId)) {
+          NULL
+        } else {
           if (is.environment(self$userId) && !is.null(self$userId$to_list)) self$userId$to_list() else self$userId
         }
       )
@@ -1457,7 +1304,6 @@ GetUserInfoRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -1479,20 +1325,12 @@ GetUserInfoRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field peer TLObject-like input peer (environment with to_bytes()/to_list() or raw)
-#'
-#' Methods:
-#' - initialize(peer) : create new instance.
-#' - resolve(client, utils) : resolve peer via client and utils (mutates self$peer).
-#' - to_list() : return a list representation.
-#' - to_bytes() : serialize to raw vector (Telegram-style).
-#'
 #' @export
 HidePromoDataRequest <- R6::R6Class(
   "HidePromoDataRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0x1e251c95),
     SUBCLASS_OF_ID = as.integer(0xf5b399ac),
-
     peer = NULL,
 
     #' Initialize HidePromoDataRequest
@@ -1513,7 +1351,9 @@ HidePromoDataRequest <- R6::R6Class(
     to_list = function() {
       list(
         `_` = "HidePromoDataRequest",
-        peer = if (is.null(self$peer)) NULL else {
+        peer = if (is.null(self$peer)) {
+          NULL
+        } else {
           if (is.environment(self$peer) && !is.null(self$peer$to_list)) self$peer$to_list() else self$peer
         }
       )
@@ -1534,7 +1374,6 @@ HidePromoDataRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 
@@ -1556,13 +1395,6 @@ HidePromoDataRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field events list List of input app events (TLObject-like).
-#'
-#' Methods:
-#' - initialize(events): create new instance.
-#' - to_list(): return a list representation.
-#' - to_bytes(): serialize to raw vector (Telegram-style).
-#' - from_reader(reader): class method to read from a reader object.
-#'
 #' @export
 SaveAppLogRequest <- R6::R6Class(
   "SaveAppLogRequest",
@@ -1582,9 +1414,13 @@ SaveAppLogRequest <- R6::R6Class(
     to_list = function() {
       list(
         `_` = "SaveAppLogRequest",
-        events = if (is.null(self$events)) list() else lapply(self$events, function(x) {
-          if (is.environment(x) && !is.null(x$to_list)) x$to_list() else x
-        })
+        events = if (is.null(self$events)) {
+          list()
+        } else {
+          lapply(self$events, function(x) {
+            if (is.environment(x) && !is.null(x$to_list)) x$to_list() else x
+          })
+        }
       )
     },
 
@@ -1600,17 +1436,19 @@ SaveAppLogRequest <- R6::R6Class(
       parts[[3]] <- writeBin(as.integer(length(self$events)), raw(), size = 4, endian = "little")
       # each event is expected to provide a to_bytes() method or already be a raw vector
       eventBytes <- lapply(self$events, function(ev) {
-        if (is.raw(ev)) return(ev)
-        if (is.environment(ev) && !is.null(ev$to_bytes)) return(ev$to_bytes())
+        if (is.raw(ev)) {
+          return(ev)
+        }
+        if (is.environment(ev) && !is.null(ev$to_bytes)) {
+          return(ev$to_bytes())
+        }
         stop("Each event must be a raw vector or provide to_bytes()")
       })
       if (length(eventBytes) > 0) parts[[4]] <- do.call(c, eventBytes)
       do.call(c, parts)
     }
   ),
-
   active = list(),
-
   private = list()
 )
 
@@ -1639,20 +1477,12 @@ SaveAppLogRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field pendingUpdatesCount integer Count of pending updates.
 #' @field message character Additional message.
-#'
-#' Methods:
-#' - initialize(pendingUpdatesCount, message)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class method)
-#'
 #' @export
 SetBotUpdatesStatusRequest <- R6::R6Class(
   "SetBotUpdatesStatusRequest",
   public = list(
     CONSTRUCTOR_ID = as.integer(0xec22cfcd),
     SUBCLASS_OF_ID = as.integer(0xf5b399ac),
-
     pendingUpdatesCount = 0L,
     message = "",
 
@@ -1700,7 +1530,6 @@ SetBotUpdatesStatusRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list()
 )
 

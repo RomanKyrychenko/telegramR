@@ -3,10 +3,6 @@
 #' @field CONSTRUCTOR_ID The constructor ID for this request.
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field query The query string (optional).
-#' @method initialize Initialize the CheckSearchPostsFloodRequest.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 CheckSearchPostsFloodRequest <- R6::R6Class(
   "CheckSearchPostsFloodRequest",
   inherit = TLRequest,
@@ -44,12 +40,13 @@ CheckSearchPostsFloodRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
+#'
 #' @param reader The reader object.
 #' @return An instance of CheckSearchPostsFloodRequest.
 CheckSearchPostsFloodRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
-  query <- if ((flags & 1) != 0) reader$tgread_string() else NULL
+  query <- if ((flags && 1) != 0) reader$tgread_string() else NULL
   CheckSearchPostsFloodRequest$new(query = query)
 }
 
@@ -59,11 +56,6 @@ CheckSearchPostsFloodRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field username The username.
-#' @method initialize Initialize the CheckUsernameRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 CheckUsernameRequest <- R6::R6Class(
   "CheckUsernameRequest",
   inherit = TLRequest,
@@ -111,7 +103,7 @@ CheckUsernameRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of CheckUsernameRequest.
 CheckUsernameRequest$from_reader <- function(reader) {
@@ -125,11 +117,6 @@ CheckUsernameRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID The constructor ID for this request.
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
-#' @method initialize Initialize the ConvertToGigagroupRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ConvertToGigagroupRequest <- R6::R6Class(
   "ConvertToGigagroupRequest",
   inherit = TLRequest,
@@ -172,7 +159,8 @@ ConvertToGigagroupRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
+#'
 #' @param reader The reader object.
 #' @return An instance of ConvertToGigagroupRequest.
 ConvertToGigagroupRequest$from_reader <- function(reader) {
@@ -193,10 +181,6 @@ ConvertToGigagroupRequest$from_reader <- function(reader) {
 #' @field geo_point The geo point for the channel.
 #' @field address The address for the channel.
 #' @field ttl_period The TTL period for the channel.
-#' @method initialize Initialize the CreateChannelRequest.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 CreateChannelRequest <- R6::R6Class(
   "CreateChannelRequest",
   inherit = TLRequest,
@@ -256,12 +240,12 @@ CreateChannelRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$broadcast) || !self$broadcast) 0 else 1) |
-                (if (is.null(self$megagroup) || !self$megagroup) 0 else 2) |
-                (if (is.null(self$for_import) || !self$for_import) 0 else 8) |
-                (if (is.null(self$forum) || !self$forum) 0 else 32) |
-                (if (is.null(self$geo_point) || !self$geo_point) 0 else 4) |
-                (if (is.null(self$address) || !self$address) 0 else 4) |
-                (if (is.null(self$ttl_period) || !self$ttl_period) 0 else 16)
+        (if (is.null(self$megagroup) || !self$megagroup) 0 else 2) |
+        (if (is.null(self$for_import) || !self$for_import) 0 else 8) |
+        (if (is.null(self$forum) || !self$forum) 0 else 32) |
+        (if (is.null(self$geo_point) || !self$geo_point) 0 else 4) |
+        (if (is.null(self$address) || !self$address) 0 else 4) |
+        (if (is.null(self$ttl_period) || !self$ttl_period) 0 else 16)
       c(
         as.raw(c(0x07, 0x67, 0x00, 0x91)),
         pack("<I", flags),
@@ -276,7 +260,7 @@ CreateChannelRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of CreateChannelRequest.
 CreateChannelRequest$from_reader <- function(reader) {
@@ -287,9 +271,9 @@ CreateChannelRequest$from_reader <- function(reader) {
   forum <- (flags & 32) != 0
   title <- reader$tgread_string()
   about <- reader$tgread_string()
-  geo_point <- if ((flags & 4) != 0) reader$tgread_object() else NULL
-  address <- if ((flags & 4) != 0) reader$tgread_string() else NULL
-  ttl_period <- if ((flags & 16) != 0) reader$read_int() else NULL
+  geo_point <- if ((flags && 4) != 0) reader$tgread_object() else NULL
+  address <- if ((flags && 4) != 0) reader$tgread_string() else NULL
+  ttl_period <- if ((flags && 16) != 0) reader$read_int() else NULL
   CreateChannelRequest$new(title = title, about = about, broadcast = broadcast, megagroup = megagroup, for_import = for_import, forum = forum, geo_point = geo_point, address = address, ttl_period = ttl_period)
 }
 
@@ -304,11 +288,6 @@ CreateChannelRequest$from_reader <- function(reader) {
 #' @field icon_emoji_id The icon emoji ID (optional).
 #' @field random_id The random ID.
 #' @field send_as The send as peer (optional).
-#' @method initialize Initialize the CreateForumTopicRequest.
-#' @method resolve Resolve the channel and send_as entities asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 CreateForumTopicRequest <- R6::R6Class(
   "CreateForumTopicRequest",
   inherit = TLRequest,
@@ -334,7 +313,7 @@ CreateForumTopicRequest <- R6::R6Class(
       self$title <- title
       self$icon_color <- icon_color
       self$icon_emoji_id <- icon_emoji_id
-      self$random_id <- if (is.null(random_id)) as.integer(runif(1) * 2^32) else random_id  # Simplified random generation for 32-bit; adjust for 64-bit if needed
+      self$random_id <- if (is.null(random_id)) as.integer(runif(1) * 2^32) else random_id # Simplified random generation for 32-bit; adjust for 64-bit if needed
       self$send_as <- send_as
     },
 
@@ -366,8 +345,8 @@ CreateForumTopicRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$icon_color) || !self$icon_color) 0 else 1) |
-                (if (is.null(self$icon_emoji_id) || !self$icon_emoji_id) 0 else 8) |
-                (if (is.null(self$send_as) || !self$send_as) 0 else 4)
+        (if (is.null(self$icon_emoji_id) || !self$icon_emoji_id) 0 else 8) |
+        (if (is.null(self$send_as) || !self$send_as) 0 else 4)
       c(
         as.raw(c(0x24, 0x02, 0x0c, 0xf4)),
         pack("<I", flags),
@@ -383,17 +362,18 @@ CreateForumTopicRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
+#'
 #' @param reader The reader object.
 #' @return An instance of CreateForumTopicRequest.
 CreateForumTopicRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   channel <- reader$tgread_object()
   title <- reader$tgread_string()
-  icon_color <- if ((flags & 1) != 0) reader$read_int() else NULL
-  icon_emoji_id <- if ((flags & 8) != 0) reader$read_long() else NULL
+  icon_color <- if ((flags && 1) != 0) reader$read_int() else NULL
+  icon_emoji_id <- if ((flags && 8) != 0) reader$read_long() else NULL
   random_id <- reader$read_long()
-  send_as <- if ((flags & 4) != 0) reader$tgread_object() else NULL
+  send_as <- if ((flags && 4) != 0) reader$tgread_object() else NULL
   CreateForumTopicRequest$new(channel = channel, title = title, icon_color = icon_color, icon_emoji_id = icon_emoji_id, random_id = random_id, send_as = send_as)
 }
 
@@ -402,11 +382,6 @@ CreateForumTopicRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID The constructor ID for this request.
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
-#' @method initialize Initialize the DeactivateAllUsernamesRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 DeactivateAllUsernamesRequest <- R6::R6Class(
   "DeactivateAllUsernamesRequest",
   inherit = TLRequest,
@@ -449,7 +424,8 @@ DeactivateAllUsernamesRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
+#'
 #' @param reader The reader object.
 #' @return An instance of DeactivateAllUsernamesRequest.
 DeactivateAllUsernamesRequest$from_reader <- function(reader) {
@@ -462,11 +438,6 @@ DeactivateAllUsernamesRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID The constructor ID for this request.
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
-#' @method initialize Initialize the DeleteChannelRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 DeleteChannelRequest <- R6::R6Class(
   "DeleteChannelRequest",
   inherit = TLRequest,
@@ -509,7 +480,8 @@ DeleteChannelRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
+#'
 #' @param reader The reader object.
 #' @return An instance of DeleteChannelRequest.
 DeleteChannelRequest$from_reader <- function(reader) {
@@ -525,11 +497,6 @@ DeleteChannelRequest$from_reader <- function(reader) {
 #' @field channel The input channel.
 #' @field max_id The maximum message ID to delete up to.
 #' @field for_everyone Whether to delete for everyone.
-#' @method initialize Initialize the DeleteHistoryRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 DeleteHistoryRequest <- R6::R6Class(
   "DeleteHistoryRequest",
   inherit = TLRequest,
@@ -583,7 +550,8 @@ DeleteHistoryRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
+#'
 #' @param reader The reader object.
 #' @return An instance of DeleteHistoryRequest.
 DeleteHistoryRequest$from_reader <- function(reader) {
@@ -600,11 +568,6 @@ DeleteHistoryRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field id The list of message IDs to delete.
-#' @method initialize Initialize the DeleteMessagesRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 DeleteMessagesRequest <- R6::R6Class(
   "DeleteMessagesRequest",
   inherit = TLRequest,
@@ -654,7 +617,8 @@ DeleteMessagesRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
+#'
 #' @param reader The reader object.
 #' @return An instance of DeleteMessagesRequest.
 DeleteMessagesRequest$from_reader <- function(reader) {
@@ -674,11 +638,6 @@ DeleteMessagesRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field participant The input participant.
-#' @method initialize Initialize the DeleteParticipantHistoryRequest.
-#' @method resolve Resolve the channel and participant entities asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 DeleteParticipantHistoryRequest <- R6::R6Class(
   "DeleteParticipantHistoryRequest",
   inherit = TLRequest,
@@ -727,7 +686,8 @@ DeleteParticipantHistoryRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
+#'
 #' @param reader The reader object.
 #' @return An instance of DeleteParticipantHistoryRequest.
 DeleteParticipantHistoryRequest$from_reader <- function(reader) {
@@ -743,11 +703,6 @@ DeleteParticipantHistoryRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field top_msg_id The top message ID.
-#' @method initialize Initialize the DeleteTopicHistoryRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 DeleteTopicHistoryRequest <- R6::R6Class(
   "DeleteTopicHistoryRequest",
   inherit = TLRequest,
@@ -795,7 +750,8 @@ DeleteTopicHistoryRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
+#'
 #' @param reader The reader object.
 #' @return An instance of DeleteTopicHistoryRequest.
 DeleteTopicHistoryRequest$from_reader <- function(reader) {
@@ -812,11 +768,6 @@ DeleteTopicHistoryRequest$from_reader <- function(reader) {
 #' @field user_id The input user ID.
 #' @field admin_rights The chat admin rights.
 #' @field rank The rank string.
-#' @method initialize Initialize the EditAdminRequest.
-#' @method resolve Resolve the channel and user_id entities asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 EditAdminRequest <- R6::R6Class(
   "EditAdminRequest",
   inherit = TLRequest,
@@ -875,7 +826,7 @@ EditAdminRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of EditAdminRequest.
 EditAdminRequest$from_reader <- function(reader) {
@@ -893,11 +844,6 @@ EditAdminRequest$from_reader <- function(reader) {
 #' @field channel The input channel.
 #' @field participant The input participant.
 #' @field banned_rights The chat banned rights.
-#' @method initialize Initialize the EditBannedRequest.
-#' @method resolve Resolve the channel and participant entities asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 EditBannedRequest <- R6::R6Class(
   "EditBannedRequest",
   inherit = TLRequest,
@@ -951,7 +897,7 @@ EditBannedRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of EditBannedRequest.
 EditBannedRequest$from_reader <- function(reader) {
@@ -969,11 +915,7 @@ EditBannedRequest$from_reader <- function(reader) {
 #' @field channel The input channel.
 #' @field user_id The input user ID.
 #' @field password The input check password SRP.
-#' @method initialize Initialize the EditCreatorRequest.
-#' @method resolve Resolve the channel and user_id entities asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 EditCreatorRequest <- R6::R6Class(
   "EditCreatorRequest",
   inherit = TLRequest,
@@ -1027,7 +969,7 @@ EditCreatorRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of EditCreatorRequest.
 EditCreatorRequest$from_reader <- function(reader) {
@@ -1047,11 +989,6 @@ EditCreatorRequest$from_reader <- function(reader) {
 #' @field icon_emoji_id The icon emoji ID (optional).
 #' @field closed Whether the topic is closed (optional).
 #' @field hidden Whether the topic is hidden (optional).
-#' @method initialize Initialize the EditForumTopicRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 EditForumTopicRequest <- R6::R6Class(
   "EditForumTopicRequest",
   inherit = TLRequest,
@@ -1106,9 +1043,9 @@ EditForumTopicRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$title) || !self$title) 0 else 1) |
-                (if (is.null(self$icon_emoji_id) || !self$icon_emoji_id) 0 else 2) |
-                (if (is.null(self$closed)) 0 else 4) |
-                (if (is.null(self$hidden)) 0 else 8)
+        (if (is.null(self$icon_emoji_id) || !self$icon_emoji_id) 0 else 2) |
+        (if (is.null(self$closed)) 0 else 4) |
+        (if (is.null(self$hidden)) 0 else 8)
       c(
         as.raw(c(0x85, 0xa1, 0xdf, 0xf4)),
         pack("<I", flags),
@@ -1124,17 +1061,17 @@ EditForumTopicRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of EditForumTopicRequest.
 EditForumTopicRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   channel <- reader$tgread_object()
   topic_id <- reader$read_int()
-  title <- if ((flags & 1) != 0) reader$tgread_string() else NULL
-  icon_emoji_id <- if ((flags & 2) != 0) reader$read_long() else NULL
-  closed <- if ((flags & 4) != 0) reader$tgread_bool() else NULL
-  hidden <- if ((flags & 8) != 0) reader$tgread_bool() else NULL
+  title <- if ((flags && 1) != 0) reader$tgread_string() else NULL
+  icon_emoji_id <- if ((flags && 2) != 0) reader$read_long() else NULL
+  closed <- if ((flags && 4) != 0) reader$tgread_bool() else NULL
+  hidden <- if ((flags && 8) != 0) reader$tgread_bool() else NULL
   EditForumTopicRequest$new(channel = channel, topic_id = topic_id, title = title, icon_emoji_id = icon_emoji_id, closed = closed, hidden = hidden)
 }
 
@@ -1145,11 +1082,6 @@ EditForumTopicRequest$from_reader <- function(reader) {
 #' @field channel The input channel.
 #' @field geo_point The input geo point.
 #' @field address The address.
-#' @method initialize Initialize the EditLocationRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 EditLocationRequest <- R6::R6Class(
   "EditLocationRequest",
   inherit = TLRequest,
@@ -1202,7 +1134,7 @@ EditLocationRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of EditLocationRequest.
 EditLocationRequest$from_reader <- function(reader) {
@@ -1219,11 +1151,6 @@ EditLocationRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field photo The input chat photo.
-#' @method initialize Initialize the EditPhotoRequest.
-#' @method resolve Resolve the channel and photo entities asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 EditPhotoRequest <- R6::R6Class(
   "EditPhotoRequest",
   inherit = TLRequest,
@@ -1272,7 +1199,7 @@ EditPhotoRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of EditPhotoRequest.
 EditPhotoRequest$from_reader <- function(reader) {
@@ -1287,11 +1214,6 @@ EditPhotoRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field title The new title.
-#' @method initialize Initialize the EditTitleRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 EditTitleRequest <- R6::R6Class(
   "EditTitleRequest",
   inherit = TLRequest,
@@ -1339,7 +1261,7 @@ EditTitleRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of EditTitleRequest.
 EditTitleRequest$from_reader <- function(reader) {
@@ -1356,11 +1278,6 @@ EditTitleRequest$from_reader <- function(reader) {
 #' @field id The message ID.
 #' @field grouped Whether to include grouped messages.
 #' @field thread Whether to include thread.
-#' @method initialize Initialize the ExportMessageLinkRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ExportMessageLinkRequest <- R6::R6Class(
   "ExportMessageLinkRequest",
   inherit = TLRequest,
@@ -1407,7 +1324,7 @@ ExportMessageLinkRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$grouped) || !self$grouped) 0 else 1) |
-                (if (is.null(self$thread) || !self$thread) 0 else 2)
+        (if (is.null(self$thread) || !self$thread) 0 else 2)
       c(
         as.raw(c(0xeb, 0xad, 0x3f, 0xe6)),
         pack("<I", flags),
@@ -1419,7 +1336,7 @@ ExportMessageLinkRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ExportMessageLinkRequest.
 ExportMessageLinkRequest$from_reader <- function(reader) {
@@ -1443,11 +1360,6 @@ ExportMessageLinkRequest$from_reader <- function(reader) {
 #' @field limit The limit on the number of results.
 #' @field events_filter The events filter (optional).
 #' @field admins The list of admin users (optional).
-#' @method initialize Initialize the GetAdminLogRequest.
-#' @method resolve Resolve the channel and admins entities asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetAdminLogRequest <- R6::R6Class(
   "GetAdminLogRequest",
   inherit = TLRequest,
@@ -1513,7 +1425,7 @@ GetAdminLogRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$events_filter) || !self$events_filter) 0 else 1) |
-                (if (is.null(self$admins) || !self$admins) 0 else 2)
+        (if (is.null(self$admins) || !self$admins) 0 else 2)
       c(
         as.raw(c(0x80, 0xf4, 0xdd, 0x33)),
         pack("<I", flags),
@@ -1530,7 +1442,7 @@ GetAdminLogRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetAdminLogRequest.
 GetAdminLogRequest$from_reader <- function(reader) {
@@ -1546,7 +1458,9 @@ GetAdminLogRequest$from_reader <- function(reader) {
       tmp <- c(tmp, x)
     }
     tmp
-  } else NULL
+  } else {
+    NULL
+  }
   max_id <- reader$read_long()
   min_id <- reader$read_long()
   limit <- reader$read_int()
@@ -1560,10 +1474,6 @@ GetAdminLogRequest$from_reader <- function(reader) {
 #' @field by_location Whether to filter by location.
 #' @field check_limit Whether to check the limit.
 #' @field for_personal Whether for personal use.
-#' @method initialize Initialize the GetAdminedPublicChannelsRequest.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetAdminedPublicChannelsRequest <- R6::R6Class(
   "GetAdminedPublicChannelsRequest",
   inherit = TLRequest,
@@ -1599,8 +1509,8 @@ GetAdminedPublicChannelsRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$by_location) || !self$by_location) 0 else 1) |
-                (if (is.null(self$check_limit) || !self$check_limit) 0 else 2) |
-                (if (is.null(self$for_personal) || !self$for_personal) 0 else 4)
+        (if (is.null(self$check_limit) || !self$check_limit) 0 else 2) |
+        (if (is.null(self$for_personal) || !self$for_personal) 0 else 4)
       c(
         as.raw(c(0xaf, 0x36, 0xb0, 0xf8)),
         pack("<I", flags)
@@ -1610,7 +1520,7 @@ GetAdminedPublicChannelsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetAdminedPublicChannelsRequest.
 GetAdminedPublicChannelsRequest$from_reader <- function(reader) {
@@ -1626,11 +1536,6 @@ GetAdminedPublicChannelsRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID The constructor ID for this request.
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel (optional).
-#' @method initialize Initialize the GetChannelRecommendationsRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetChannelRecommendationsRequest <- R6::R6Class(
   "GetChannelRecommendationsRequest",
   inherit = TLRequest,
@@ -1677,12 +1582,12 @@ GetChannelRecommendationsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetChannelRecommendationsRequest.
 GetChannelRecommendationsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
-  channel <- if ((flags & 1) != 0) reader$tgread_object() else NULL
+  channel <- if ((flags && 1) != 0) reader$tgread_object() else NULL
   GetChannelRecommendationsRequest$new(channel = channel)
 }
 
@@ -1692,11 +1597,6 @@ GetChannelRecommendationsRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID The constructor ID for this request.
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field id The list of input channels.
-#' @method initialize Initialize the GetChannelsRequest.
-#' @method resolve Resolve the channel entities asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetChannelsRequest <- R6::R6Class(
   "GetChannelsRequest",
   inherit = TLRequest,
@@ -1745,7 +1645,7 @@ GetChannelsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetChannelsRequest.
 GetChannelsRequest$from_reader <- function(reader) {
@@ -1768,11 +1668,6 @@ GetChannelsRequest$from_reader <- function(reader) {
 #' @field offset_topic The offset topic for pagination.
 #' @field limit The limit on the number of results.
 #' @field q The query string (optional).
-#' @method initialize Initialize the GetForumTopicsRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetForumTopicsRequest <- R6::R6Class(
   "GetForumTopicsRequest",
   inherit = TLRequest,
@@ -1842,13 +1737,13 @@ GetForumTopicsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetForumTopicsRequest.
 GetForumTopicsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   channel <- reader$tgread_object()
-  q <- if ((flags & 1) != 0) reader$tgread_string() else NULL
+  q <- if ((flags && 1) != 0) reader$tgread_string() else NULL
   offset_date <- reader$tgread_date()
   offset_id <- reader$read_int()
   offset_topic <- reader$read_int()
@@ -1862,11 +1757,6 @@ GetForumTopicsRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field topics The list of topic IDs.
-#' @method initialize Initialize the GetForumTopicsByIDRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetForumTopicsByIDRequest <- R6::R6Class(
   "GetForumTopicsByIDRequest",
   inherit = TLRequest,
@@ -1916,7 +1806,7 @@ GetForumTopicsByIDRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetForumTopicsByIDRequest.
 GetForumTopicsByIDRequest$from_reader <- function(reader) {
@@ -1936,11 +1826,6 @@ GetForumTopicsByIDRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID The constructor ID for this request.
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
-#' @method initialize Initialize the GetFullChannelRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetFullChannelRequest <- R6::R6Class(
   "GetFullChannelRequest",
   inherit = TLRequest,
@@ -1983,7 +1868,7 @@ GetFullChannelRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetFullChannelRequest.
 GetFullChannelRequest$from_reader <- function(reader) {
@@ -1995,10 +1880,6 @@ GetFullChannelRequest$from_reader <- function(reader) {
 #' @description Represents a request to get groups available for discussion.
 #' @field CONSTRUCTOR_ID The constructor ID for this request.
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @method initialize Initialize the GetGroupsForDiscussionRequest.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetGroupsForDiscussionRequest <- R6::R6Class(
   "GetGroupsForDiscussionRequest",
   inherit = TLRequest,
@@ -2028,7 +1909,7 @@ GetGroupsForDiscussionRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetGroupsForDiscussionRequest.
 GetGroupsForDiscussionRequest$from_reader <- function(reader) {
@@ -2039,10 +1920,6 @@ GetGroupsForDiscussionRequest$from_reader <- function(reader) {
 #' @description Represents a request to get inactive channels.
 #' @field CONSTRUCTOR_ID The constructor ID for this request.
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @method initialize Initialize the GetInactiveChannelsRequest.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetInactiveChannelsRequest <- R6::R6Class(
   "GetInactiveChannelsRequest",
   inherit = TLRequest,
@@ -2072,7 +1949,7 @@ GetInactiveChannelsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetInactiveChannelsRequest.
 GetInactiveChannelsRequest$from_reader <- function(reader) {
@@ -2085,10 +1962,6 @@ GetInactiveChannelsRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID The constructor ID for this request.
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field offset The offset for pagination.
-#' @method initialize Initialize the GetLeftChannelsRequest.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetLeftChannelsRequest <- R6::R6Class(
   "GetLeftChannelsRequest",
   inherit = TLRequest,
@@ -2124,7 +1997,7 @@ GetLeftChannelsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetLeftChannelsRequest.
 GetLeftChannelsRequest$from_reader <- function(reader) {
@@ -2138,11 +2011,6 @@ GetLeftChannelsRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field id The message ID.
-#' @method initialize Initialize the GetMessageAuthorRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetMessageAuthorRequest <- R6::R6Class(
   "GetMessageAuthorRequest",
   inherit = TLRequest,
@@ -2190,7 +2058,7 @@ GetMessageAuthorRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetMessageAuthorRequest.
 GetMessageAuthorRequest$from_reader <- function(reader) {
@@ -2205,11 +2073,6 @@ GetMessageAuthorRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field id The list of input messages.
-#' @method initialize Initialize the GetMessagesRequest.
-#' @method resolve Resolve the channel and messages entities asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetMessagesRequest <- R6::R6Class(
   "GetMessagesRequest",
   inherit = TLRequest,
@@ -2264,7 +2127,7 @@ GetMessagesRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetMessagesRequest.
 GetMessagesRequest$from_reader <- function(reader) {
@@ -2285,11 +2148,6 @@ GetMessagesRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field participant The input participant.
-#' @method initialize Initialize the GetParticipantRequest.
-#' @method resolve Resolve the channel and participant entities asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetParticipantRequest <- R6::R6Class(
   "GetParticipantRequest",
   inherit = TLRequest,
@@ -2338,7 +2196,7 @@ GetParticipantRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetParticipantRequest.
 GetParticipantRequest$from_reader <- function(reader) {
@@ -2356,11 +2214,6 @@ GetParticipantRequest$from_reader <- function(reader) {
 #' @field offset The offset for pagination.
 #' @field limit The limit on the number of results.
 #' @field hash The hash for caching.
-#' @method initialize Initialize the GetParticipantsRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetParticipantsRequest <- R6::R6Class(
   "GetParticipantsRequest",
   inherit = TLRequest,
@@ -2423,7 +2276,7 @@ GetParticipantsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetParticipantsRequest.
 GetParticipantsRequest$from_reader <- function(reader) {
@@ -2441,11 +2294,6 @@ GetParticipantsRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field peer The input peer.
 #' @field for_paid_reactions Whether for paid reactions.
-#' @method initialize Initialize the GetSendAsRequest.
-#' @method resolve Resolve the peer entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 GetSendAsRequest <- R6::R6Class(
   "GetSendAsRequest",
   inherit = TLRequest,
@@ -2494,7 +2342,7 @@ GetSendAsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of GetSendAsRequest.
 GetSendAsRequest$from_reader <- function(reader) {
@@ -2511,11 +2359,6 @@ GetSendAsRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field users The list of input users to invite.
-#' @method initialize Initialize the InviteToChannelRequest.
-#' @method resolve Resolve the channel and users entities asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 InviteToChannelRequest <- R6::R6Class(
   "InviteToChannelRequest",
   inherit = TLRequest,
@@ -2570,7 +2413,7 @@ InviteToChannelRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of InviteToChannelRequest.
 InviteToChannelRequest$from_reader <- function(reader) {
@@ -2589,11 +2432,6 @@ InviteToChannelRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID The constructor ID for this request.
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
-#' @method initialize Initialize the JoinChannelRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 JoinChannelRequest <- R6::R6Class(
   "JoinChannelRequest",
   inherit = TLRequest,
@@ -2636,7 +2474,7 @@ JoinChannelRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of JoinChannelRequest.
 JoinChannelRequest$from_reader <- function(reader) {
@@ -2649,11 +2487,6 @@ JoinChannelRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID The constructor ID for this request.
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
-#' @method initialize Initialize the LeaveChannelRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 LeaveChannelRequest <- R6::R6Class(
   "LeaveChannelRequest",
   inherit = TLRequest,
@@ -2696,7 +2529,7 @@ LeaveChannelRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of LeaveChannelRequest.
 LeaveChannelRequest$from_reader <- function(reader) {
@@ -2711,11 +2544,6 @@ LeaveChannelRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field max_id The maximum message ID to read up to.
-#' @method initialize Initialize the ReadHistoryRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ReadHistoryRequest <- R6::R6Class(
   "ReadHistoryRequest",
   inherit = TLRequest,
@@ -2763,7 +2591,7 @@ ReadHistoryRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ReadHistoryRequest.
 ReadHistoryRequest$from_reader <- function(reader) {
@@ -2778,11 +2606,6 @@ ReadHistoryRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field id The list of message IDs to read.
-#' @method initialize Initialize the ReadMessageContentsRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ReadMessageContentsRequest <- R6::R6Class(
   "ReadMessageContentsRequest",
   inherit = TLRequest,
@@ -2832,7 +2655,7 @@ ReadMessageContentsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ReadMessageContentsRequest.
 ReadMessageContentsRequest$from_reader <- function(reader) {
@@ -2854,11 +2677,6 @@ ReadMessageContentsRequest$from_reader <- function(reader) {
 #' @field channel The input channel.
 #' @field order The list of topic IDs in the new order.
 #' @field force Whether to force the reorder.
-#' @method initialize Initialize the ReorderPinnedForumTopicsRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ReorderPinnedForumTopicsRequest <- R6::R6Class(
   "ReorderPinnedForumTopicsRequest",
   inherit = TLRequest,
@@ -2914,7 +2732,7 @@ ReorderPinnedForumTopicsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ReorderPinnedForumTopicsRequest.
 ReorderPinnedForumTopicsRequest$from_reader <- function(reader) {
@@ -2936,11 +2754,6 @@ ReorderPinnedForumTopicsRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field order The list of usernames in the new order.
-#' @method initialize Initialize the ReorderUsernamesRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ReorderUsernamesRequest <- R6::R6Class(
   "ReorderUsernamesRequest",
   inherit = TLRequest,
@@ -2990,7 +2803,7 @@ ReorderUsernamesRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ReorderUsernamesRequest.
 ReorderUsernamesRequest$from_reader <- function(reader) {
@@ -3010,11 +2823,6 @@ ReorderUsernamesRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field msg_id The message ID.
-#' @method initialize Initialize the ReportAntiSpamFalsePositiveRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ReportAntiSpamFalsePositiveRequest <- R6::R6Class(
   "ReportAntiSpamFalsePositiveRequest",
   inherit = TLRequest,
@@ -3062,7 +2870,7 @@ ReportAntiSpamFalsePositiveRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ReportAntiSpamFalsePositiveRequest.
 ReportAntiSpamFalsePositiveRequest$from_reader <- function(reader) {
@@ -3079,11 +2887,6 @@ ReportAntiSpamFalsePositiveRequest$from_reader <- function(reader) {
 #' @field channel The input channel.
 #' @field participant The input participant.
 #' @field id The list of message IDs.
-#' @method initialize Initialize the ReportSpamRequest.
-#' @method resolve Resolve the channel and participant entities asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ReportSpamRequest <- R6::R6Class(
   "ReportSpamRequest",
   inherit = TLRequest,
@@ -3139,7 +2942,7 @@ ReportSpamRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ReportSpamRequest.
 ReportSpamRequest$from_reader <- function(reader) {
@@ -3160,11 +2963,6 @@ ReportSpamRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field restricted Whether sponsored messages are restricted.
-#' @method initialize Initialize the RestrictSponsoredMessagesRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 RestrictSponsoredMessagesRequest <- R6::R6Class(
   "RestrictSponsoredMessagesRequest",
   inherit = TLRequest,
@@ -3212,7 +3010,7 @@ RestrictSponsoredMessagesRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of RestrictSponsoredMessagesRequest.
 RestrictSponsoredMessagesRequest$from_reader <- function(reader) {
@@ -3233,11 +3031,6 @@ RestrictSponsoredMessagesRequest$from_reader <- function(reader) {
 #' @field hashtag The hashtag to search for (optional).
 #' @field query The query string to search for (optional).
 #' @field allow_paid_stars The number of allowed paid stars (optional).
-#' @method initialize Initialize the SearchPostsRequest.
-#' @method resolve Resolve the offset_peer entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 SearchPostsRequest <- R6::R6Class(
   "SearchPostsRequest",
   inherit = TLRequest,
@@ -3296,8 +3089,8 @@ SearchPostsRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$hashtag) || !self$hashtag) 0 else 1) |
-                (if (is.null(self$query) || !self$query) 0 else 2) |
-                (if (is.null(self$allow_paid_stars) || !self$allow_paid_stars) 0 else 4)
+        (if (is.null(self$query) || !self$query) 0 else 2) |
+        (if (is.null(self$allow_paid_stars) || !self$allow_paid_stars) 0 else 4)
       c(
         as.raw(c(0x4d, 0xf2, 0xc4, 0xf2)),
         pack("<I", flags),
@@ -3314,18 +3107,18 @@ SearchPostsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of SearchPostsRequest.
 SearchPostsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
-  hashtag <- if ((flags & 1) != 0) reader$tgread_string() else NULL
-  query <- if ((flags & 2) != 0) reader$tgread_string() else NULL
+  hashtag <- if ((flags && 1) != 0) reader$tgread_string() else NULL
+  query <- if ((flags && 2) != 0) reader$tgread_string() else NULL
   offset_rate <- reader$read_int()
   offset_peer <- reader$tgread_object()
   offset_id <- reader$read_int()
   limit <- reader$read_int()
-  allow_paid_stars <- if ((flags & 4) != 0) reader$read_long() else NULL
+  allow_paid_stars <- if ((flags && 4) != 0) reader$read_long() else NULL
   SearchPostsRequest$new(offset_rate = offset_rate, offset_peer = offset_peer, offset_id = offset_id, limit = limit, hashtag = hashtag, query = query, allow_paid_stars = allow_paid_stars)
 }
 
@@ -3335,11 +3128,6 @@ SearchPostsRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field boosts The number of boosts.
-#' @method initialize Initialize the SetBoostsToUnblockRestrictionsRequest.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 SetBoostsToUnblockRestrictionsRequest <- R6::R6Class(
   "SetBoostsToUnblockRestrictionsRequest",
   inherit = TLRequest,
@@ -3387,7 +3175,7 @@ SetBoostsToUnblockRestrictionsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of SetBoostsToUnblockRestrictionsRequest.
 SetBoostsToUnblockRestrictionsRequest$from_reader <- function(reader) {
@@ -3403,11 +3191,6 @@ SetBoostsToUnblockRestrictionsRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field broadcast The input broadcast channel.
 #' @field group The input group channel.
-#' @method initialize Initialize the request with broadcast and group.
-#' @method resolve Resolve the broadcast and group entities asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 SetDiscussionGroupRequest <- R6::R6Class(
   "SetDiscussionGroupRequest",
   inherit = TLRequest,
@@ -3456,7 +3239,7 @@ SetDiscussionGroupRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of SetDiscussionGroupRequest.
 SetDiscussionGroupRequest$from_reader <- function(reader) {
@@ -3471,11 +3254,6 @@ SetDiscussionGroupRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field stickerset The input sticker set.
-#' @method initialize Initialize the request with channel and stickerset.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 SetEmojiStickersRequest <- R6::R6Class(
   "SetEmojiStickersRequest",
   inherit = TLRequest,
@@ -3523,7 +3301,7 @@ SetEmojiStickersRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of SetEmojiStickersRequest.
 SetEmojiStickersRequest$from_reader <- function(reader) {
@@ -3538,11 +3316,6 @@ SetEmojiStickersRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field tab The profile tab.
-#' @method initialize Initialize the request with channel and tab.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 SetMainProfileTabRequest <- R6::R6Class(
   "SetMainProfileTabRequest",
   inherit = TLRequest,
@@ -3590,7 +3363,7 @@ SetMainProfileTabRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of SetMainProfileTabRequest.
 SetMainProfileTabRequest$from_reader <- function(reader) {
@@ -3606,11 +3379,6 @@ SetMainProfileTabRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field stickerset The input sticker set.
-#' @method initialize Initialize the request with channel and stickerset.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 SetStickersRequest <- R6::R6Class(
   "SetStickersRequest",
   inherit = TLRequest,
@@ -3658,7 +3426,7 @@ SetStickersRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of SetStickersRequest.
 SetStickersRequest$from_reader <- function(reader) {
@@ -3673,11 +3441,6 @@ SetStickersRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field enabled Whether anti-spam is enabled.
-#' @method initialize Initialize the request with channel and enabled status.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ToggleAntiSpamRequest <- R6::R6Class(
   "ToggleAntiSpamRequest",
   inherit = TLRequest,
@@ -3725,7 +3488,7 @@ ToggleAntiSpamRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ToggleAntiSpamRequest.
 ToggleAntiSpamRequest$from_reader <- function(reader) {
@@ -3740,11 +3503,6 @@ ToggleAntiSpamRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field enabled Whether autotranslation is enabled.
-#' @method initialize Initialize the request with channel and enabled status.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ToggleAutotranslationRequest <- R6::R6Class(
   "ToggleAutotranslationRequest",
   inherit = TLRequest,
@@ -3792,7 +3550,7 @@ ToggleAutotranslationRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ToggleAutotranslationRequest.
 ToggleAutotranslationRequest$from_reader <- function(reader) {
@@ -3809,11 +3567,6 @@ ToggleAutotranslationRequest$from_reader <- function(reader) {
 #' @field channel The input channel.
 #' @field enabled Whether the forum is enabled.
 #' @field tabs Whether tabs are enabled.
-#' @method initialize Initialize the request with channel, enabled, and tabs.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ToggleForumRequest <- R6::R6Class(
   "ToggleForumRequest",
   inherit = TLRequest,
@@ -3866,7 +3619,7 @@ ToggleForumRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ToggleForumRequest.
 ToggleForumRequest$from_reader <- function(reader) {
@@ -3882,11 +3635,6 @@ ToggleForumRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field enabled Whether join requests are enabled.
-#' @method initialize Initialize the request with channel and enabled status.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ToggleJoinRequestRequest <- R6::R6Class(
   "ToggleJoinRequestRequest",
   inherit = TLRequest,
@@ -3934,7 +3682,7 @@ ToggleJoinRequestRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ToggleJoinRequestRequest.
 ToggleJoinRequestRequest$from_reader <- function(reader) {
@@ -3949,11 +3697,6 @@ ToggleJoinRequestRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field enabled Whether join to send is enabled.
-#' @method initialize Initialize the request with channel and enabled status.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ToggleJoinToSendRequest <- R6::R6Class(
   "ToggleJoinToSendRequest",
   inherit = TLRequest,
@@ -4001,7 +3744,7 @@ ToggleJoinToSendRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ToggleJoinToSendRequest.
 ToggleJoinToSendRequest$from_reader <- function(reader) {
@@ -4017,11 +3760,6 @@ ToggleJoinToSendRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field enabled Whether the feature is enabled.
-#' @method initialize Initialize the request with channel and enabled status.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ToggleParticipantsHiddenRequest <- R6::R6Class(
   "ToggleParticipantsHiddenRequest",
   inherit = TLRequest,
@@ -4069,7 +3807,7 @@ ToggleParticipantsHiddenRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ToggleParticipantsHiddenRequest.
 ToggleParticipantsHiddenRequest$from_reader <- function(reader) {
@@ -4084,11 +3822,6 @@ ToggleParticipantsHiddenRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field enabled Whether the feature is enabled.
-#' @method initialize Initialize the request with channel and enabled status.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 TogglePreHistoryHiddenRequest <- R6::R6Class(
   "TogglePreHistoryHiddenRequest",
   inherit = TLRequest,
@@ -4136,7 +3869,7 @@ TogglePreHistoryHiddenRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of TogglePreHistoryHiddenRequest.
 TogglePreHistoryHiddenRequest$from_reader <- function(reader) {
@@ -4152,11 +3885,6 @@ TogglePreHistoryHiddenRequest$from_reader <- function(reader) {
 #' @field channel The input channel.
 #' @field signatures_enabled Whether signatures are enabled.
 #' @field profiles_enabled Whether profiles are enabled.
-#' @method initialize Initialize the request with channel and optional parameters.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ToggleSignaturesRequest <- R6::R6Class(
   "ToggleSignaturesRequest",
   inherit = TLRequest,
@@ -4199,7 +3927,7 @@ ToggleSignaturesRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$signatures_enabled) || !self$signatures_enabled) 0 else 1) |
-                (if (is.null(self$profiles_enabled) || !self$profiles_enabled) 0 else 2)
+        (if (is.null(self$profiles_enabled) || !self$profiles_enabled) 0 else 2)
       c(
         as.raw(c(0x9c, 0x54, 0x8d, 0x41)),
         pack("<I", flags),
@@ -4210,7 +3938,7 @@ ToggleSignaturesRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ToggleSignaturesRequest.
 ToggleSignaturesRequest$from_reader <- function(reader) {
@@ -4228,11 +3956,6 @@ ToggleSignaturesRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field seconds The number of seconds for slow mode.
-#' @method initialize Initialize the request with channel and seconds.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ToggleSlowModeRequest <- R6::R6Class(
   "ToggleSlowModeRequest",
   inherit = TLRequest,
@@ -4280,7 +4003,7 @@ ToggleSlowModeRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ToggleSlowModeRequest.
 ToggleSlowModeRequest$from_reader <- function(reader) {
@@ -4296,11 +4019,6 @@ ToggleSlowModeRequest$from_reader <- function(reader) {
 #' @field channel The input channel.
 #' @field username The username.
 #' @field active Whether the username is active.
-#' @method initialize Initialize the request with channel, username, and active status.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ToggleUsernameRequest <- R6::R6Class(
   "ToggleUsernameRequest",
   inherit = TLRequest,
@@ -4353,7 +4071,7 @@ ToggleUsernameRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ToggleUsernameRequest.
 ToggleUsernameRequest$from_reader <- function(reader) {
@@ -4369,11 +4087,6 @@ ToggleUsernameRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field enabled Whether the feature is enabled.
-#' @method initialize Initialize the request with channel and enabled status.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 ToggleViewForumAsMessagesRequest <- R6::R6Class(
   "ToggleViewForumAsMessagesRequest",
   inherit = TLRequest,
@@ -4421,7 +4134,7 @@ ToggleViewForumAsMessagesRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of ToggleViewForumAsMessagesRequest.
 ToggleViewForumAsMessagesRequest$from_reader <- function(reader) {
@@ -4439,11 +4152,6 @@ ToggleViewForumAsMessagesRequest$from_reader <- function(reader) {
 #' @field for_profile Whether the color is for the profile.
 #' @field color The color value.
 #' @field background_emoji_id The background emoji ID.
-#' @method initialize Initialize the request with channel and optional parameters.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 UpdateColorRequest <- R6::R6Class(
   "UpdateColorRequest",
   inherit = TLRequest,
@@ -4490,8 +4198,8 @@ UpdateColorRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$for_profile) || !self$for_profile) 0 else 2) |
-                (if (is.null(self$color) || !self$color) 0 else 4) |
-                (if (is.null(self$background_emoji_id) || !self$background_emoji_id) 0 else 1)
+        (if (is.null(self$color) || !self$color) 0 else 4) |
+        (if (is.null(self$background_emoji_id) || !self$background_emoji_id) 0 else 1)
       c(
         as.raw(c(0x71, 0x36, 0xaa, 0xd8)),
         pack("<I", flags),
@@ -4504,15 +4212,15 @@ UpdateColorRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of UpdateColorRequest.
 UpdateColorRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   for_profile <- (flags & 2) != 0
   channel <- reader$tgread_object()
-  color <- if ((flags & 4) != 0) reader$read_int() else NULL
-  background_emoji_id <- if ((flags & 1) != 0) reader$read_long() else NULL
+  color <- if ((flags && 4) != 0) reader$read_int() else NULL
+  background_emoji_id <- if ((flags && 1) != 0) reader$read_long() else NULL
   UpdateColorRequest$new(channel = channel, for_profile = for_profile, color = color, background_emoji_id = background_emoji_id)
 }
 
@@ -4522,11 +4230,6 @@ UpdateColorRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field emoji_status The emoji status.
-#' @method initialize Initialize the request with channel and emoji_status.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 UpdateEmojiStatusRequest <- R6::R6Class(
   "UpdateEmojiStatusRequest",
   inherit = TLRequest,
@@ -4574,7 +4277,7 @@ UpdateEmojiStatusRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of UpdateEmojiStatusRequest.
 UpdateEmojiStatusRequest$from_reader <- function(reader) {
@@ -4590,11 +4293,6 @@ UpdateEmojiStatusRequest$from_reader <- function(reader) {
 #' @field channel The input channel.
 #' @field send_paid_messages_stars The number of stars for paid messages.
 #' @field broadcast_messages_allowed Whether broadcast messages are allowed.
-#' @method initialize Initialize the request with channel, send_paid_messages_stars, and optional broadcast_messages_allowed.
-#' @method resolve Resolve the channel entity asynchronously.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 UpdatePaidMessagesPriceRequest <- R6::R6Class(
   "UpdatePaidMessagesPriceRequest",
   inherit = TLRequest,
@@ -4648,7 +4346,7 @@ UpdatePaidMessagesPriceRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of UpdatePaidMessagesPriceRequest.
 UpdatePaidMessagesPriceRequest$from_reader <- function(reader) {
@@ -4667,11 +4365,6 @@ UpdatePaidMessagesPriceRequest$from_reader <- function(reader) {
 #' @field channel The input channel.
 #' @field topic_id The ID of the topic.
 #' @field pinned Whether the topic is pinned.
-#' @method initialize Initialize the request with channel, topic_id, and pinned status.
-#' @method resolve Resolve the channel using client and utils.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 UpdatePinnedForumTopicRequest <- R6::R6Class(
   "UpdatePinnedForumTopicRequest",
   inherit = TLRequest,
@@ -4724,7 +4417,7 @@ UpdatePinnedForumTopicRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of UpdatePinnedForumTopicRequest.
 UpdatePinnedForumTopicRequest$from_reader <- function(reader) {
@@ -4740,11 +4433,6 @@ UpdatePinnedForumTopicRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID The subclass ID for this request.
 #' @field channel The input channel.
 #' @field username The new username.
-#' @method initialize Initialize the request with channel and username.
-#' @method resolve Resolve the channel using client and utils.
-#' @method to_dict Convert the object to a dictionary.
-#' @method bytes Serialize the object to bytes.
-#' @method from_reader Deserialize from a reader.
 UpdateUsernameRequest <- R6::R6Class(
   "UpdateUsernameRequest",
   inherit = TLRequest,
@@ -4792,7 +4480,7 @@ UpdateUsernameRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' @method from_reader Deserialize from a reader.
+#' Deserialize from a reader.
 #' @param reader The reader object.
 #' @return An instance of UpdateUsernameRequest.
 UpdateUsernameRequest$from_reader <- function(reader) {

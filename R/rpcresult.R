@@ -54,10 +54,10 @@ RpcResult <- R6::R6Class(
     to_dict = function() {
       return(
         list(
-          '_' = 'RpcResult',
-          'req_msg_id' = self$req_msg_id,
-          'body' = self$body,
-          'error' = self$error
+          "_" = "RpcResult",
+          "req_msg_id" = self$req_msg_id,
+          "body" = self$body,
+          "error" = self$error
         )
       )
     }

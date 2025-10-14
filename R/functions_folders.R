@@ -14,9 +14,8 @@ EditPeerFoldersRequest <- R6::R6Class(
   "EditPeerFoldersRequest",
   public = list(
     CONSTRUCTOR_ID = 0x6847d0ab,
-    SUBCLASS_OF_ID  = 0x8af52aac,
+    SUBCLASS_OF_ID = 0x8af52aac,
     folder_peers = NULL,
-
     initialize = function(folder_peers = list()) {
       if (is.null(folder_peers)) folder_peers <- list()
       if (!is.list(folder_peers)) stop("folder_peers must be a list")
@@ -57,7 +56,6 @@ EditPeerFoldersRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   private = list(
     int_to_raw_le = function(x) {
       writeBin(as.integer(x), con = raw(), size = 4, endian = "little")
@@ -82,4 +80,3 @@ EditPeerFoldersRequest$read_from <- function(reader) {
   }
   EditPeerFoldersRequest$new(folder_peers = folder_peers_list)
 }
-

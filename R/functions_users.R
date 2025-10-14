@@ -1,11 +1,22 @@
 #' GetFullUserRequest
 #'
-#' Request to get full information about a user.
+#' An R6 class representing a request to get full information about a user.
+#' This class inherits from TLRequest and is used to construct and serialize
+#' Telegram API requests for retrieving detailed user data.
 #'
-#' Fields:
-#' - id: TLInputUser or a representation accepted by utils$get_input_user
+#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb60f5918).
+#' @field SUBCLASS_OF_ID The subclass ID (0x83df9df5).
+#' @field id The user identifier, which can be a TLInputUser object or a
+#'   representation accepted by utils$get_input_user. This field is resolved
+#'   during the request preparation.
+#' @examples
+#' # Example usage (assuming client and utils are set up)
+#' request <- GetFullUserRequest$new(id = some_user_id)
+#' request$resolve(client, utils)
+#' dict <- request$to_dict()
+#' bytes <- request$.bytes()
 #'
-#' Returns: users.UserFull
+#' @export
 GetFullUserRequest <- R6::R6Class(
   "GetFullUserRequest",
   inherit = TLRequest,
@@ -13,24 +24,20 @@ GetFullUserRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xb60f5918,
     SUBCLASS_OF_ID = 0x83df9df5,
     id = NULL,
-
     initialize = function(id = NULL) {
       self$id <- id
     },
-
     resolve = function(client, utils) {
       if (!is.null(self$id)) {
         self$id <- utils$get_input_user(client$get_input_entity(self$id))
       }
     },
-
     to_dict = function() {
       list(
         `_` = "GetFullUserRequest",
         id = if (!is.null(self$id) && inherits(self$id, "TLObject")) self$id$to_dict() else self$id
       )
     },
-
     .bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
@@ -47,7 +54,6 @@ GetFullUserRequest <- R6::R6Class(
 
       rawConnectionValue(con)
     },
-
     from_reader = function(reader) {
       id_obj <- reader$tgread_object()
       self$new(id = id_obj)
@@ -69,11 +75,9 @@ GetRequirementsToContactRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xd89a83a3,
     SUBCLASS_OF_ID = 0x322623c3,
     id = NULL,
-
     initialize = function(id = NULL) {
       self$id <- id
     },
-
     resolve = function(client, utils) {
       if (!is.null(self$id) && length(self$id) > 0) {
         tmp_list <- list()
@@ -83,14 +87,12 @@ GetRequirementsToContactRequest <- R6::R6Class(
         self$id <- tmp_list
       }
     },
-
     to_dict = function() {
       list(
         `_` = "GetRequirementsToContactRequest",
         id = if (is.null(self$id)) list() else lapply(self$id, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
       )
     },
-
     .bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
@@ -117,7 +119,6 @@ GetRequirementsToContactRequest <- R6::R6Class(
 
       rawConnectionValue(con)
     },
-
     from_reader = function(reader) {
       # read and ignore the vector constructor int
       reader$read_int()
@@ -156,20 +157,17 @@ GetSavedMusicRequest <- R6::R6Class(
     offset = NULL,
     limit = NULL,
     hash = NULL,
-
     initialize = function(id = NULL, offset = NULL, limit = NULL, hash = NULL) {
       self$id <- id
       self$offset <- offset
       self$limit <- limit
       self$hash <- hash
     },
-
     resolve = function(client, utils) {
       if (!is.null(self$id)) {
         self$id <- utils$get_input_user(client$get_input_entity(self$id))
       }
     },
-
     to_dict = function() {
       list(
         `_` = "GetSavedMusicRequest",
@@ -179,7 +177,6 @@ GetSavedMusicRequest <- R6::R6Class(
         hash = self$hash
       )
     },
-
     .bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
@@ -205,7 +202,6 @@ GetSavedMusicRequest <- R6::R6Class(
 
       rawConnectionValue(con)
     },
-
     from_reader = function(reader) {
       id_obj <- reader$tgread_object()
       offset_val <- reader$read_int()
@@ -232,12 +228,10 @@ GetSavedMusicByIDRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xf813ae37,
     id = NULL,
     documents = NULL,
-
     initialize = function(id = NULL, documents = NULL) {
       self$id <- id
       self$documents <- documents
     },
-
     resolve = function(client, utils) {
       # Translate asynchronous style to synchronous calls expected in R.
       if (!is.null(self$id)) {
@@ -251,7 +245,6 @@ GetSavedMusicByIDRequest <- R6::R6Class(
         self$documents <- tmp_list
       }
     },
-
     to_dict = function() {
       list(
         `_` = "GetSavedMusicByIDRequest",
@@ -259,7 +252,6 @@ GetSavedMusicByIDRequest <- R6::R6Class(
         documents = if (is.null(self$documents)) list() else lapply(self$documents, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
       )
     },
-
     .bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
@@ -293,7 +285,6 @@ GetSavedMusicByIDRequest <- R6::R6Class(
 
       rawConnectionValue(con)
     },
-
     from_reader = function(reader) {
       id_obj <- reader$tgread_object()
       # read and ignore the vector constructor int (present in Python-generated code)
@@ -325,11 +316,9 @@ GetUsersRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x0d91a548,
     SUBCLASS_OF_ID = 0x406da4d,
     id = NULL,
-
     initialize = function(id = NULL) {
       self$id <- id
     },
-
     resolve = function(client, utils) {
       # Translate asynchronous style to synchronous calls expected in R.
       if (!is.null(self$id) && length(self$id) > 0) {
@@ -340,14 +329,12 @@ GetUsersRequest <- R6::R6Class(
         self$id <- tmp_list
       }
     },
-
     to_dict = function() {
       list(
         `_` = "GetUsersRequest",
         id = if (is.null(self$id)) list() else lapply(self$id, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
       )
     },
-
     .bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
@@ -374,7 +361,6 @@ GetUsersRequest <- R6::R6Class(
 
       rawConnectionValue(con)
     },
-
     from_reader = function(reader) {
       # read and ignore the vector constructor int (present in Python-generated code)
       reader$read_int()
@@ -392,6 +378,17 @@ GetUsersRequest <- R6::R6Class(
 )
 
 
+#' @title SetSecureValueErrorsRequest R6 Class
+#'
+#' @description
+#' Represents a request to set secure value errors for a Telegram user. This class is typically used internally to serialize and deserialize requests and responses when interacting with the Telegram API.
+#'
+#' @field CONSTRUCTOR_ID Integer. Unique constructor ID for this request type.
+#' @field SUBCLASS_OF_ID Integer. Unique subclass ID.
+#' @field id Object or NULL. The user identifier, expected to be a TLObject or compatible input.
+#' @field errors List or NULL. List of error objects (typically TLObjects) to be set for the user.
+#'
+#' @export
 SetSecureValueErrorsRequest <- R6::R6Class(
   "SetSecureValueErrorsRequest",
   inherit = TLRequest,
@@ -400,17 +397,14 @@ SetSecureValueErrorsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xf5b399ac,
     id = NULL,
     errors = NULL,
-
     initialize = function(id = NULL, errors = NULL) {
       self$id <- id
       self$errors <- errors
     },
-
     resolve = function(client, utils) {
       # translate await/async style to synchronous calls expected in R
       self$id <- utils$get_input_user(client$get_input_entity(self$id))
     },
-
     to_dict = function() {
       list(
         `_` = "SetSecureValueErrorsRequest",
@@ -418,7 +412,6 @@ SetSecureValueErrorsRequest <- R6::R6Class(
         errors = if (is.null(self$errors)) list() else lapply(self$errors, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
       )
     },
-
     .bytes = function() {
       # build raw bytes similar to Python implementation
       con <- rawConnection(raw(0), "r+")
@@ -451,7 +444,6 @@ SetSecureValueErrorsRequest <- R6::R6Class(
 
       rawConnectionValue(con)
     },
-
     from_reader = function(reader) {
       id <- reader$tgread_object()
       # read and ignore the vector constructor int (Python code called reader.read_int())

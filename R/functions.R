@@ -230,8 +230,8 @@ InitConnectionRequest <- R6::R6Class(
                           system_lang_code, lang_pack, lang_code,
                           query, proxy = NULL, params = NULL) {
       if (missing(api_id) || missing(device_model) || missing(system_version) ||
-          missing(app_version) || missing(system_lang_code) || missing(lang_pack) ||
-          missing(lang_code) || missing(query)) {
+        missing(app_version) || missing(system_lang_code) || missing(lang_pack) ||
+        missing(lang_code) || missing(query)) {
         stop("api_id, device_model, system_version, app_version, system_lang_code, lang_pack, lang_code and query are required")
       }
       self$api_id <- as.integer(api_id)
@@ -252,18 +252,27 @@ InitConnectionRequest <- R6::R6Class(
     to_list = function() {
       proxy_out <- NULL
       if (!is.null(self$proxy)) {
-        if (is.function(self$proxy$to_list)) proxy_out <- self$proxy$to_list()
-        else proxy_out <- self$proxy
+        if (is.function(self$proxy$to_list)) {
+          proxy_out <- self$proxy$to_list()
+        } else {
+          proxy_out <- self$proxy
+        }
       }
       params_out <- NULL
       if (!is.null(self$params)) {
-        if (is.function(self$params$to_list)) params_out <- self$params$to_list()
-        else params_out <- self$params
+        if (is.function(self$params$to_list)) {
+          params_out <- self$params$to_list()
+        } else {
+          params_out <- self$params
+        }
       }
       query_out <- NULL
       if (!is.null(self$query)) {
-        if (is.function(self$query$to_list)) query_out <- self$query$to_list()
-        else query_out <- self$query
+        if (is.function(self$query$to_list)) {
+          query_out <- self$query$to_list()
+        } else {
+          query_out <- self$query
+        }
       }
       list(
         `_` = "InitConnectionRequest",
@@ -369,9 +378,9 @@ InitConnectionRequest <- R6::R6Class(
 #' @return InitConnectionRequest instance
 InitConnectionRequest$from_reader <- function(reader) {
   if (is.null(reader) ||
-      !is.function(reader$read_int) ||
-      !is.function(reader$tgread_string) ||
-      !is.function(reader$tgread_object)) {
+    !is.function(reader$read_int) ||
+    !is.function(reader$tgread_string) ||
+    !is.function(reader$tgread_object)) {
     stop("reader must implement read_int(), tgread_string() and tgread_object()")
   }
 
@@ -451,8 +460,11 @@ InvokeAfterMsgRequest <- R6::R6Class(
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
-        if (is.function(self$query$to_list)) query_out <- self$query$to_list()
-        else query_out <- self$query
+        if (is.function(self$query$to_list)) {
+          query_out <- self$query$to_list()
+        } else {
+          query_out <- self$query
+        }
       }
       list(
         `_` = "InvokeAfterMsgRequest",
@@ -550,8 +562,11 @@ InvokeAfterMsgsRequest <- R6::R6Class(
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
-        if (is.function(self$query$to_list)) query_out <- self$query$to_list()
-        else query_out <- self$query
+        if (is.function(self$query$to_list)) {
+          query_out <- self$query$to_list()
+        } else {
+          query_out <- self$query
+        }
       }
       list(
         `_` = "InvokeAfterMsgsRequest",
@@ -612,9 +627,9 @@ InvokeAfterMsgsRequest <- R6::R6Class(
 #' @return InvokeAfterMsgsRequest instance
 InvokeAfterMsgsRequest$from_reader <- function(reader) {
   if (is.null(reader) ||
-      !is.function(reader$read_int) ||
-      !is.function(reader$read_long) ||
-      !is.function(reader$tgread_object)) {
+    !is.function(reader$read_int) ||
+    !is.function(reader$read_long) ||
+    !is.function(reader$tgread_object)) {
     stop("reader must implement read_int(), read_long() and tgread_object()")
   }
   # consume vector constructor id (ignored)
@@ -675,8 +690,11 @@ InvokeWithApnsSecretRequest <- R6::R6Class(
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
-        if (is.function(self$query$to_list)) query_out <- self$query$to_list()
-        else query_out <- self$query
+        if (is.function(self$query$to_list)) {
+          query_out <- self$query$to_list()
+        } else {
+          query_out <- self$query
+        }
       }
       list(
         `_` = "InvokeWithApnsSecretRequest",
@@ -774,8 +792,11 @@ InvokeWithBusinessConnectionRequest <- R6::R6Class(
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
-        if (is.function(self$query$to_list)) query_out <- self$query$to_list()
-        else query_out <- self$query
+        if (is.function(self$query$to_list)) {
+          query_out <- self$query$to_list()
+        } else {
+          query_out <- self$query
+        }
       }
       list(
         `_` = "InvokeWithBusinessConnectionRequest",
@@ -877,8 +898,11 @@ InvokeWithGooglePlayIntegrityRequest <- R6::R6Class(
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
-        if (is.function(self$query$to_list)) query_out <- self$query$to_list()
-        else query_out <- self$query
+        if (is.function(self$query$to_list)) {
+          query_out <- self$query$to_list()
+        } else {
+          query_out <- self$query
+        }
       }
       list(
         `_` = "InvokeWithGooglePlayIntegrityRequest",
@@ -978,8 +1002,11 @@ InvokeWithLayerRequest <- R6::R6Class(
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
-        if (is.function(self$query$to_list)) query_out <- self$query$to_list()
-        else query_out <- self$query
+        if (is.function(self$query$to_list)) {
+          query_out <- self$query$to_list()
+        } else {
+          query_out <- self$query
+        }
       }
       list(
         `_` = "InvokeWithLayerRequest",
@@ -1071,13 +1098,19 @@ InvokeWithMessagesRangeRequest <- R6::R6Class(
     to_list = function() {
       range_out <- NULL
       if (!is.null(self$range)) {
-        if (is.function(self$range$to_list)) range_out <- self$range$to_list()
-        else range_out <- self$range
+        if (is.function(self$range$to_list)) {
+          range_out <- self$range$to_list()
+        } else {
+          range_out <- self$range
+        }
       }
       query_out <- NULL
       if (!is.null(self$query)) {
-        if (is.function(self$query$to_list)) query_out <- self$query$to_list()
-        else query_out <- self$query
+        if (is.function(self$query$to_list)) {
+          query_out <- self$query$to_list()
+        } else {
+          query_out <- self$query
+        }
       }
       list(
         `_` = "InvokeWithMessagesRangeRequest",
@@ -1178,8 +1211,11 @@ InvokeWithReCaptchaRequest <- R6::R6Class(
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
-        if (is.function(self$query$to_list)) query_out <- self$query$to_list()
-        else query_out <- self$query
+        if (is.function(self$query$to_list)) {
+          query_out <- self$query$to_list()
+        } else {
+          query_out <- self$query
+        }
       }
       list(
         `_` = "InvokeWithReCaptchaRequest",
@@ -1272,8 +1308,11 @@ InvokeWithTakeoutRequest <- R6::R6Class(
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
-        if (is.function(self$query$to_list)) query_out <- self$query$to_list()
-        else query_out <- self$query
+        if (is.function(self$query$to_list)) {
+          query_out <- self$query$to_list()
+        } else {
+          query_out <- self$query
+        }
       }
       list(
         `_` = "InvokeWithTakeoutRequest",
@@ -1361,8 +1400,11 @@ InvokeWithoutUpdatesRequest <- R6::R6Class(
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
-        if (is.function(self$query$to_list)) query_out <- self$query$to_list()
-        else query_out <- self$query
+        if (is.function(self$query$to_list)) {
+          query_out <- self$query$to_list()
+        } else {
+          query_out <- self$query
+        }
       }
       list(
         `_` = "InvokeWithoutUpdatesRequest",
@@ -1598,7 +1640,7 @@ ReqDHParamsRequest <- R6::R6Class(
     #' @param encrypted_data raw or character convertible to raw
     initialize = function(nonce, server_nonce, p, q, public_key_fingerprint, encrypted_data) {
       if (missing(nonce) || missing(server_nonce) || missing(p) || missing(q) ||
-          missing(public_key_fingerprint) || missing(encrypted_data)) {
+        missing(public_key_fingerprint) || missing(encrypted_data)) {
         stop("nonce, server_nonce, p, q, public_key_fingerprint and encrypted_data are required")
       }
       self$nonce <- nonce
@@ -1606,8 +1648,12 @@ ReqDHParamsRequest <- R6::R6Class(
 
       # normalize byte fields to raw
       to_raw_field <- function(x) {
-        if (is.raw(x)) return(x)
-        if (is.character(x)) return(charToRaw(x))
+        if (is.raw(x)) {
+          return(x)
+        }
+        if (is.character(x)) {
+          return(charToRaw(x))
+        }
         stop("byte fields must be raw or character convertible to raw")
       }
       self$p <- to_raw_field(p)
@@ -1675,7 +1721,7 @@ ReqDHParamsRequest <- R6::R6Class(
 #' @return ReqDHParamsRequest instance
 ReqDHParamsRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$read_large_int) ||
-      !is.function(reader$tgread_bytes) || !is.function(reader$read_long)) {
+    !is.function(reader$tgread_bytes) || !is.function(reader$read_long)) {
     stop("reader must implement read_large_int(bits = 128), tgread_bytes() and read_long()")
   }
   nonce_val <- reader$read_large_int(bits = 128)
@@ -1946,8 +1992,11 @@ SetClientDHParamsRequest <- R6::R6Class(
       self$server_nonce <- server_nonce
       if (!is.raw(encrypted_data)) {
         # allow character or raw; convert character to raw via charToRaw
-        if (is.character(encrypted_data)) encrypted_data <- charToRaw(encrypted_data)
-        else stop("encrypted_data must be raw or character convertible to raw")
+        if (is.character(encrypted_data)) {
+          encrypted_data <- charToRaw(encrypted_data)
+        } else {
+          stop("encrypted_data must be raw or character convertible to raw")
+        }
       }
       self$encrypted_data <- encrypted_data
     },

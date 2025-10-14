@@ -59,20 +59,25 @@ MTProxyIO <- R6::R6Class("MTProxyIO",
       # Validate dd-secret conditions.
       is_dd <- (length(secret) == 17 && secret[1] == as.raw(0xDD))
       is_rand_codec <- inherits(packet_codec, "RandomizedIntermediatePacketCodec")
-      if (is_dd && !is_rand_codec)
+      if (is_dd && !is_rand_codec) {
         stop("Only RandomizedIntermediate can be used with dd-secrets")
-      if (is_dd)
+      }
+      if (is_dd) {
         secret <- secret[-1]
-      if (length(secret) != 16)
+      }
+      if (length(secret) != 16) {
         stop("MTProxy secret must be a hex-string representing 16 bytes")
+      }
 
       # Generate 64 random bytes.
       repeat {
         random <- as.raw(sample(0:255, 64, replace = TRUE))
-        keywords <- list(as.raw(c(0x50, 0x56, 0x72, 0x47)),
-                         as.raw(c(0x47, 0x45, 0x54, 0x20)),
-                         as.raw(c(0x50, 0x4F, 0x53, 0x54)),
-                         as.raw(c(0xee, 0xee, 0xee, 0xee)))
+        keywords <- list(
+          as.raw(c(0x50, 0x56, 0x72, 0x47)),
+          as.raw(c(0x47, 0x45, 0x54, 0x20)),
+          as.raw(c(0x50, 0x4F, 0x53, 0x54)),
+          as.raw(c(0xee, 0xee, 0xee, 0xee))
+        )
         cond1 <- random[1] != as.raw(0xef)
         cond2 <- !any(sapply(keywords, function(kw) identical(random[1:4], kw)))
         cond3 <- !identical(random[5:8], as.raw(rep(0, 4)))
@@ -136,8 +141,9 @@ TcpMTProxy <- R6::R6Class("TcpMTProxy",
     #' @param loggers Optional logger.
     #' @param proxy A list containing proxy_host, proxy_port, and secret.
     initialize = function(ip, port, dc_id, loggers = NULL, proxy = NULL) {
-      if (is.null(proxy))
+      if (is.null(proxy)) {
         stop("No proxy info specified for MTProxy connection")
+      }
       proxy_host <- proxy[[1]]
       proxy_port <- proxy[[2]]
       self$secret <- private$normalize_secret(proxy[[3]])
@@ -176,16 +182,20 @@ TcpMTProxy <- R6::R6Class("TcpMTProxy",
     #' @param secret Secret as a character string.
     #' @return A raw vector representing the first 16 bytes of the secret.
     normalize_secret = function(secret) {
-      if (startsWith(secret, "ee") || startsWith(secret, "dd"))
+      if (startsWith(secret, "ee") || startsWith(secret, "dd")) {
         secret <- substring(secret, 3)
-      secret_bytes <- tryCatch({
-        hex_vec <- as.integer(sapply(seq(1, nchar(secret), 2), function(i) {
-          strtoi(substr(secret, i, i + 1), base = 16L)
-        }))
-        as.raw(hex_vec)
-      }, error = function(e) {
-        base64enc::base64decode(secret)
-      })
+      }
+      secret_bytes <- tryCatch(
+        {
+          hex_vec <- as.integer(sapply(seq(1, nchar(secret), 2), function(i) {
+            strtoi(substr(secret, i, i + 1), base = 16L)
+          }))
+          as.raw(hex_vec)
+        },
+        error = function(e) {
+          base64enc::base64decode(secret)
+        }
+      )
       secret_bytes[1:16]
     }
   )

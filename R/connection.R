@@ -8,23 +8,26 @@ cancel <- function(future) {
   if (requireNamespace("future", quietly = TRUE)) {
     # Try to halt the future if it's still running
     if (!future::resolved(future)) {
-      tryCatch({
-        # Kill the process if possible
-        if (inherits(future, "MulticoreFuture")) {
-          tools::pskill(future$worker$pid, tools::SIGTERM)
-          return(invisible(NULL))
-        }
+      tryCatch(
+        {
+          # Kill the process if possible
+          if (inherits(future, "MulticoreFuture")) {
+            tools::pskill(future$worker$pid, tools::SIGTERM)
+            return(invisible(NULL))
+          }
 
-        # For other future types, try a general approach
-        reg.finalizer(environment(future), function(e) NULL, onexit = TRUE)
+          # For other future types, try a general approach
+          reg.finalizer(environment(future), function(e) NULL, onexit = TRUE)
 
-        # Try to interrupt if available
-        if (inherits(future, "ClusterFuture") && !is.null(future$workers)) {
-          parallel::stopCluster(future$workers)
+          # Try to interrupt if available
+          if (inherits(future, "ClusterFuture") && !is.null(future$workers)) {
+            parallel::stopCluster(future$workers)
+          }
+        },
+        error = function(e) {
+          warning(paste("Failed to cancel future:", e$message))
         }
-      }, error = function(e) {
-        warning(paste("Failed to cancel future:", e$message))
-      })
+      )
     }
   }
   invisible(NULL)
@@ -89,8 +92,12 @@ Connection <- R6Class(
     connect = function(timeout = NULL, ssl = NULL) {
       promise_resolve(private$._connect(timeout = timeout, ssl = ssl)) %...>% (function(result) {
         private$._connected <<- TRUE
-        private$._send_task <<- future({ private$._send_loop() })
-        private$._recv_task <<- future({ private$._recv_loop() })
+        private$._send_task <<- future({
+          private$._send_loop()
+        })
+        private$._recv_task <<- future({
+          private$._recv_loop()
+        })
         result
       })
     },
@@ -99,18 +106,23 @@ Connection <- R6Class(
     #' Disconnect from the server and clear pending messages.
     #' @return A promise resolving when disconnected.
     disconnect = function() {
-      if (!private$._connected) return(promise_resolve(NULL))
+      if (!private$._connected) {
+        return(promise_resolve(NULL))
+      }
       private$._connected <<- FALSE
       if (!is.null(private$._send_task)) cancel(private$._send_task)
       if (!is.null(private$._recv_task)) cancel(private$._recv_task)
 
       if (!is.null(private$._writer)) {
         close_writer <- function() {
-          tryCatch({
-            private$._writer$close()
-          }, error = function(e) {
-            private$._log$info(sprintf("Error during disconnect: %s", e$message))
-          })
+          tryCatch(
+            {
+              private$._writer$close()
+            },
+            error = function(e) {
+              private$._log$info(sprintf("Error during disconnect: %s", e$message))
+            }
+          )
         }
         promise_resolve(close_writer())
       } else {
@@ -139,13 +151,13 @@ Connection <- R6Class(
         private$._recv_queue$get() %...>% (function(item) {
           res <- item[[1]]
           err <- item[[2]]
-          if (!is.null(err)) reject(err)
-          else if (!is.null(res)) resolve(res)
+          if (!is.null(err)) {
+            reject(err)
+          } else if (!is.null(res)) resolve(res)
         })
       })
     }
   ),
-
   private = list(
     ._ip = NULL,
     ._port = NULL,
@@ -162,49 +174,63 @@ Connection <- R6Class(
     ._obfuscation = NULL,
     ._send_queue = NULL,
     ._recv_queue = NULL,
-
     ._wrap_socket_ssl = function(sock) {
       if (!requireNamespace("openssl", quietly = TRUE)) {
         stop("Cannot use proxy that requires SSL without the openssl package")
       }
-      #openssl::ssl_wrap_socket(sock,
+      # openssl::ssl_wrap_socket(sock,
       #                          do_handshake_on_connect = TRUE,
       #                          ssl_version = "SSLv23",
       #                          ciphers = "ADH-AES256-SHA")
     },
-
     ._parse_proxy = function(proxy_type, addr, port, rdns = TRUE, username = NULL, password = NULL) {
       if (is.character(proxy_type)) proxy_type <- tolower(proxy_type)
-      SOCKS5 <- 2; SOCKS4 <- 1; HTTP <- 3
-      if (proxy_type == SOCKS5 || proxy_type == "socks5") protocol <- SOCKS5
-      else if (proxy_type == SOCKS4 || proxy_type == "socks4") protocol <- SOCKS4
-      else if (proxy_type == HTTP || proxy_type == "http") protocol <- HTTP
-      else stop(sprintf("Unknown proxy protocol type: %s", proxy_type))
-      list(protocol = protocol, addr = addr, port = port,
-           rdns = rdns, username = username, password = password)
+      SOCKS5 <- 2
+      SOCKS4 <- 1
+      HTTP <- 3
+      if (proxy_type == SOCKS5 || proxy_type == "socks5") {
+        protocol <- SOCKS5
+      } else if (proxy_type == SOCKS4 || proxy_type == "socks4") {
+        protocol <- SOCKS4
+      } else if (proxy_type == HTTP || proxy_type == "http") {
+        protocol <- HTTP
+      } else {
+        stop(sprintf("Unknown proxy protocol type: %s", proxy_type))
+      }
+      list(
+        protocol = protocol, addr = addr, port = port,
+        rdns = rdns, username = username, password = password
+      )
     },
-
     ._proxy_connect = function(timeout = NULL, local_addr = NULL) {
       promise(function(resolve, reject) {
-        tryCatch({
-          if (is.list(private$._proxy) || is.vector(private$._proxy)) {
-            parsed <- if (is.vector(private$._proxy)) {
-              do.call(private$._parse_proxy, as.list(private$._proxy))
+        tryCatch(
+          {
+            if (is.list(private$._proxy) || is.vector(private$._proxy)) {
+              parsed <- if (is.vector(private$._proxy)) {
+                do.call(private$._parse_proxy, as.list(private$._proxy))
+              } else {
+                do.call(private$._parse_proxy, private$._proxy)
+              }
             } else {
-              do.call(private$._parse_proxy, private$._proxy)
+              stop(sprintf("Proxy of unknown format: %s", class(private$._proxy)[1]))
             }
-          } else stop(sprintf("Proxy of unknown format: %s", class(private$._proxy)[1]))
 
-          sock <- create_socket_connection(host = private$._ip,
-                                             port = private$._port,
-                                             proxy = parsed,
-                                             local_addr = local_addr,
-                                             timeout = timeout)
-          resolve(sock)
-        }, error = function(e) { reject(e) })
+            sock <- create_socket_connection(
+              host = private$._ip,
+              port = private$._port,
+              proxy = parsed,
+              local_addr = local_addr,
+              timeout = timeout
+            )
+            resolve(sock)
+          },
+          error = function(e) {
+            reject(e)
+          }
+        )
       })
     },
-
     ._connect = function(timeout = NULL, ssl = NULL) {
       promise(function(resolve, reject) {
         local_addr <- NULL
@@ -213,15 +239,19 @@ Connection <- R6Class(
             local_addr <- private$._local_addr
           } else if (is.character(private$._local_addr)) {
             local_addr <- c(private$._local_addr, 0)
-          } else stop(sprintf("Unknown local address format: %s", private$._local_addr))
+          } else {
+            stop(sprintf("Unknown local address format: %s", private$._local_addr))
+          }
         }
         open_connection <- function() {
           if (is.null(private$._proxy)) {
-            connection <- async_open_connection(host = private$._ip,
-                                                  port = private$._port,
-                                                  ssl = ssl,
-                                                  local_addr = local_addr,
-                                                  timeout = timeout)
+            connection <- async_open_connection(
+              host = private$._ip,
+              port = private$._port,
+              ssl = ssl,
+              local_addr = local_addr,
+              timeout = timeout
+            )
             connection %...>% (function(conn) {
               private$._reader <<- conn$reader
               private$._writer <<- conn$writer
@@ -243,57 +273,61 @@ Connection <- R6Class(
             })
           }
         }
-        tryCatch(open_connection(), error = function(e) { reject(e) })
+        tryCatch(open_connection(), error = function(e) {
+          reject(e)
+        })
       })
     },
-
     ._init_conn = function() {
       if (!is.null(private$._codec$tag)) {
         private$._writer$write(private$._codec$tag)
       }
     },
-
     ._send = function(data) {
       private$._writer$write(private$._codec$encode_packet(data))
     },
-
     ._recv = function() {
       private$._codec$read_packet(private$._reader)
     },
-
     ._send_loop = function() {
       while (private$._connected) {
-        tryCatch({
-          data <- private$._send_queue$get()$value()
-          private$._send(data)
-          private$._writer$drain()
-        }, error = function(e) {
-          if (inherits(e, "IOError"))
-            private$._log$info("Server closed connection during sending")
-          else
-            private$._log$exception("Unexpected exception in send loop")
-          private$._connected <<- FALSE
-          break
-        })
+        tryCatch(
+          {
+            data <- private$._send_queue$get()$value()
+            private$._send(data)
+            private$._writer$drain()
+          },
+          error = function(e) {
+            if (inherits(e, "IOError")) {
+              private$._log$info("Server closed connection during sending")
+            } else {
+              private$._log$exception("Unexpected exception in send loop")
+            }
+            private$._connected <<- FALSE
+            break
+          }
+        )
       }
     },
-
     ._recv_loop = function() {
       while (private$._connected) {
-        tryCatch({
-          data <- private$._recv()$value()
-          private$._recv_queue$put(list(data, NULL))
-        }, error = function(e) {
-          if (inherits(e, "IOError") || inherits(e, "IncompleteReadError")) {
-            private$._log$warning(sprintf("Server closed connection: %s", e$message))
-            private$._recv_queue$put(list(NULL, e))
-            private$._connected <<- FALSE
-          } else {
-            private$._log$exception("Unexpected exception in receive loop")
-            private$._recv_queue$put(list(NULL, e))
-            private$._connected <<- FALSE
+        tryCatch(
+          {
+            data <- private$._recv()$value()
+            private$._recv_queue$put(list(data, NULL))
+          },
+          error = function(e) {
+            if (inherits(e, "IOError") || inherits(e, "IncompleteReadError")) {
+              private$._log$warning(sprintf("Server closed connection: %s", e$message))
+              private$._recv_queue$put(list(NULL, e))
+              private$._connected <<- FALSE
+            } else {
+              private$._log$exception("Unexpected exception in receive loop")
+              private$._recv_queue$put(list(NULL, e))
+              private$._connected <<- FALSE
+            }
           }
-        })
+        )
       }
     }
   )
@@ -316,11 +350,9 @@ ObfuscatedConnection <- R6Class(
       private$._obfuscation <- self$obfuscated_io$new(self)
       private$._writer$write(private$._obfuscation$header)
     },
-
     ._send = function(data) {
       private$._obfuscation$write(private$._codec$encode_packet(data))
     },
-
     ._recv = function() {
       private$._codec$read_packet(private$._obfuscation)
     }
@@ -451,40 +483,43 @@ AsyncQueue <- R6Class(
 #' @return A promise resolving with a list containing reader and writer.
 async_open_connection <- function(host = NULL, port = NULL, ssl = NULL, local_addr = NULL, sock = NULL, timeout = NULL) {
   promise(function(resolve, reject) {
-    tryCatch({
-      # Use existing socket or create a new one
-      conn <- if (!is.null(sock)) {
-        sock
-      } else if (!is.null(host) && !is.null(port)) {
-        create_socket_connection(host = host, port = port, local_addr = local_addr, timeout = timeout)
-      } else {
-        stop("Either a socket or host and port must be provided")
-      }
-
-      # Apply SSL if needed
-      if (!is.null(ssl)) {
-        if (!requireNamespace("openssl", quietly = TRUE)) {
-          stop("SSL connections require the openssl package")
+    tryCatch(
+      {
+        # Use existing socket or create a new one
+        conn <- if (!is.null(sock)) {
+          sock
+        } else if (!is.null(host) && !is.null(port)) {
+          create_socket_connection(host = host, port = port, local_addr = local_addr, timeout = timeout)
+        } else {
+          stop("Either a socket or host and port must be provided")
         }
-        #conn <- openssl::ssl_wrap_socket(
-        #  conn,
-        #  do_handshake_on_connect = TRUE,
-        #  ssl_version = if(is.character(ssl)) ssl else "SSLv23",
-        #  ciphers = "HIGH:!aNULL:!MD5"
-        #)
+
+        # Apply SSL if needed
+        if (!is.null(ssl)) {
+          if (!requireNamespace("openssl", quietly = TRUE)) {
+            stop("SSL connections require the openssl package")
+          }
+          # conn <- openssl::ssl_wrap_socket(
+          #  conn,
+          #  do_handshake_on_connect = TRUE,
+          #  ssl_version = if(is.character(ssl)) ssl else "SSLv23",
+          #  ciphers = "HIGH:!aNULL:!MD5"
+          # )
+        }
+
+        # Create reader and writer objects
+        reader <- Reader$new()
+        reader$socket <- conn
+
+        writer <- Writer$new()
+        writer$socket <- conn
+
+        resolve(list(reader = reader, writer = writer))
+      },
+      error = function(e) {
+        reject(sprintf("Failed to open connection: %s", e$message))
       }
-
-      # Create reader and writer objects
-      reader <- Reader$new()
-      reader$socket <- conn
-
-      writer <- Writer$new()
-      writer$socket <- conn
-
-      resolve(list(reader = reader, writer = writer))
-    }, error = function(e) {
-      reject(sprintf("Failed to open connection: %s", e$message))
-    })
+    )
   })
 }
 
@@ -524,11 +559,14 @@ Writer <- R6Class(
 
       # If we have a socket connection, try to write immediately
       if (!is.null(self$socket) && isOpen(self$socket)) {
-        tryCatch({
-          self$.write_to_socket()
-        }, error = function(e) {
-          warning(sprintf("Error writing to socket: %s", e$message))
-        })
+        tryCatch(
+          {
+            self$.write_to_socket()
+          },
+          error = function(e) {
+            warning(sprintf("Error writing to socket: %s", e$message))
+          }
+        )
       }
     },
 
@@ -562,7 +600,7 @@ Writer <- R6Class(
 #' @return A socket object.
 create_socket_connection <- function(host, port, proxy = NULL, local_addr = NULL, timeout = NULL) {
   if (!is.null(proxy)) {
-    if (TRUE) {  # HTTP proxy proxy$protocol == 3
+    if (TRUE) { # HTTP proxy proxy$protocol == 3
       # Connect to the proxy server.
       con <- socketConnection(host = proxy$addr, port = proxy$port, blocking = TRUE, open = "r+", timeout = timeout)
       # Construct the CONNECT request.

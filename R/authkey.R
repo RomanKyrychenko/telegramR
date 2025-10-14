@@ -27,8 +27,10 @@ AuthKey <- R6::R6Class(
     calc_new_nonce_hash = function(new_nonce, number) {
       stopifnot(is.raw(new_nonce), length(new_nonce) == 32)
       new_nonce <- as.raw(new_nonce)
-      data <- c(new_nonce, writeBin(as.integer(number), raw(), size = 8, endian = "little"),
-                writeBin(as.integer(self$aux_hash), raw(), size = 8, endian = "little"))
+      data <- c(
+        new_nonce, writeBin(as.integer(number), raw(), size = 8, endian = "little"),
+        writeBin(as.integer(self$aux_hash), raw(), size = 8, endian = "little")
+      )
       hash <- sha1(data)
       return(sum(as.integer(hash[5:20]) * 256^(seq_along(hash[5:20]) - 1)))
     },

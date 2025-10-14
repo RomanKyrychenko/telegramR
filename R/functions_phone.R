@@ -184,7 +184,7 @@ CheckGroupCallRequest <- R6::R6Class(
 #' @export
 CheckGroupCallRequest$set("public", "from_reader", function(reader) {
   call <- reader$tgread_object()
-  reader$read_int()  # skip vector constructor id
+  reader$read_int() # skip vector constructor id
   sources_count <- reader$read_int()
   sources_list <- vector("list", sources_count)
   for (i in seq_len(sources_count)) {
@@ -746,7 +746,7 @@ DeleteConferenceCallParticipantsRequest <- R6::R6Class(
       ids_raw <- raw(0)
       if (ids_count > 0) {
         for (id_val in ids_list) {
-          ids_raw <- c(ids_raw, int_to_raw_le(as.integer(id_val), 8L))  # Assuming long (64-bit)
+          ids_raw <- c(ids_raw, int_to_raw_le(as.integer(id_val), 8L)) # Assuming long (64-bit)
         }
       }
 
@@ -780,7 +780,7 @@ DeleteConferenceCallParticipantsRequest$set("public", "from_reader", function(re
   only_left_val <- bitwAnd(flags, 1L) != 0L
   kick_val <- bitwAnd(flags, 2L) != 0L
   call_obj <- reader$tgread_object()
-  reader$read_int()  # skip vector constructor id
+  reader$read_int() # skip vector constructor id
   ids_count <- reader$read_int()
   ids_list <- vector("list", ids_count)
   for (i in seq_len(ids_count)) {

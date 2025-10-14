@@ -19,7 +19,6 @@ GetChannelDifferenceRequest <- R6::R6Class(
     pts = NULL,
     limit = NULL,
     force = NULL,
-
     initialize = function(channel, filter, pts, limit, force = NULL) {
       self$channel <- channel
       self$filter <- filter
@@ -27,7 +26,6 @@ GetChannelDifferenceRequest <- R6::R6Class(
       self$limit <- as.integer(limit)
       self$force <- if (!is.null(force)) as.logical(force) else NULL
     },
-
     to_list = function() {
       list(
         `_` = "GetChannelDifferenceRequest",
@@ -38,7 +36,6 @@ GetChannelDifferenceRequest <- R6::R6Class(
         force = self$force
       )
     },
-
     bytes = function() {
       # header constructor id: 0x03173d78 (0x3173d78)
       flags <- 0L
@@ -59,9 +56,7 @@ GetChannelDifferenceRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   active = list(),
-
   private = list(
     pack_int32_le = function(x) {
       con <- rawConnection(raw(0), "wr")
@@ -69,7 +64,6 @@ GetChannelDifferenceRequest <- R6::R6Class(
       writeBin(as.integer(x), con, size = 4L, endian = "little")
       rawConnectionValue(con)
     },
-
     get_object_bytes = function(obj) {
       # If already raw, return as is. If R6 object with bytes() method, call it.
       if (is.raw(obj)) {
@@ -84,7 +78,6 @@ GetChannelDifferenceRequest <- R6::R6Class(
       }
     }
   ),
-
   class = TRUE
 )
 
@@ -133,7 +126,6 @@ GetDifferenceRequest <- R6::R6Class(
     pts_limit = NULL,
     pts_total_limit = NULL,
     qts_limit = NULL,
-
     initialize = function(pts, date = NULL, qts, pts_limit = NULL, pts_total_limit = NULL, qts_limit = NULL) {
       self$pts <- as.integer(pts)
       self$date <- date
@@ -142,7 +134,6 @@ GetDifferenceRequest <- R6::R6Class(
       self$pts_total_limit <- if (!is.null(pts_total_limit)) as.integer(pts_total_limit) else NULL
       self$qts_limit <- if (!is.null(qts_limit)) as.integer(qts_limit) else NULL
     },
-
     to_list = function() {
       list(
         `_` = "GetDifferenceRequest",
@@ -154,7 +145,6 @@ GetDifferenceRequest <- R6::R6Class(
         qts_limit = self$qts_limit
       )
     },
-
     bytes = function() {
       # header constructor id: 0x19c2f763
       flags <- 0L
@@ -177,9 +167,7 @@ GetDifferenceRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   active = list(),
-
   private = list(
     pack_int32_le = function(x) {
       con <- rawConnection(raw(0), "wr")
@@ -188,7 +176,6 @@ GetDifferenceRequest <- R6::R6Class(
       rawConnectionValue(con)
     }
   ),
-
   class = TRUE
 )
 
@@ -227,16 +214,13 @@ GetStateRequest <- R6::R6Class(
   "GetStateRequest",
   public = list(
     initialize = function() {},
-
     to_list = function() {
       list(`_` = "GetStateRequest")
     },
-
     bytes = function() {
       private$pack_int32_le(0xedd4882a)
     }
   ),
-
   private = list(
     pack_int32_le = function(x) {
       con <- rawConnection(raw(0), "wr")
@@ -245,7 +229,6 @@ GetStateRequest <- R6::R6Class(
       rawConnectionValue(con)
     }
   ),
-
   class = TRUE
 )
 
@@ -256,4 +239,3 @@ GetStateRequest <- R6::R6Class(
 GetStateRequest$set("public", "from_reader", function(reader) {
   GetStateRequest$new()
 })
-

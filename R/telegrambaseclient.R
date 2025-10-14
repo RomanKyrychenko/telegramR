@@ -6,12 +6,12 @@
 NULL
 #' Constants
 DEFAULT_DC_ID <- 2
-DEFAULT_IPV4_IP <- '149.154.167.51'
-DEFAULT_IPV6_IP <- '2001:67c:4e8:f002::a'
+DEFAULT_IPV4_IP <- "149.154.167.51"
+DEFAULT_IPV6_IP <- "2001:67c:4e8:f002::a"
 DEFAULT_PORT <- 443
 
 # Global variables
-LAYER <- 143  # Layer version (imported from ..tl.alltlobjects in Python)
+LAYER <- 143 # Layer version (imported from ..tl.alltlobjects in Python)
 
 # Time in seconds before disconnecting exported senders
 DISCONNECT_EXPORTED_AFTER <- 60
@@ -61,8 +61,8 @@ ExportState <- R6Class("ExportState",
     #' @return TRUE if should disconnect, FALSE otherwise.
     should_disconnect = function() {
       return(private$n == 0 &&
-             private$connected &&
-             (as.numeric(Sys.time()) - private$zero_ts) > DISCONNECT_EXPORTED_AFTER)
+        private$connected &&
+        (as.numeric(Sys.time()) - private$zero_ts) > DISCONNECT_EXPORTED_AFTER)
     },
 
     #' @description
@@ -125,32 +125,30 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
     #' @param receive_updates Whether to receive updates
     #' @param catch_up Whether to catch up on missed updates
     #' @param entity_cache_limit Maximum number of entities to keep in cache
-    initialize = function(
-      session,
-      api_id,
-      api_hash,
-      connection = NULL,  # ConnectionTcpFull in Python
-      use_ipv6 = FALSE,
-      proxy = NULL,
-      local_addr = NULL,
-      timeout = 10,
-      request_retries = 5,
-      connection_retries = 5,
-      retry_delay = 1,
-      auto_reconnect = TRUE,
-      sequential_updates = FALSE,
-      flood_sleep_threshold = 60,
-      raise_last_call_error = FALSE,
-      device_model = NULL,
-      system_version = NULL,
-      app_version = NULL,
-      lang_code = "en",
-      system_lang_code = "en",
-      base_logger = NULL,
-      receive_updates = TRUE,
-      catch_up = FALSE,
-      entity_cache_limit = 5000
-    ) {
+    initialize = function(session,
+                          api_id,
+                          api_hash,
+                          connection = NULL, # ConnectionTcpFull in Python
+                          use_ipv6 = FALSE,
+                          proxy = NULL,
+                          local_addr = NULL,
+                          timeout = 10,
+                          request_retries = 5,
+                          connection_retries = 5,
+                          retry_delay = 1,
+                          auto_reconnect = TRUE,
+                          sequential_updates = FALSE,
+                          flood_sleep_threshold = 60,
+                          raise_last_call_error = FALSE,
+                          device_model = NULL,
+                          system_version = NULL,
+                          app_version = NULL,
+                          lang_code = "en",
+                          system_lang_code = "en",
+                          base_logger = NULL,
+                          receive_updates = TRUE,
+                          catch_up = FALSE,
+                          entity_cache_limit = 5000) {
       if (is.null(api_id) || is.null(api_hash) || api_id == "" || api_hash == "") {
         stop("Your API ID or Hash cannot be empty or NULL. Refer to telethon.rtfd.io for more information.")
       }
@@ -187,7 +185,7 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       private$local_addr <- local_addr
       private$timeout <- timeout
       private$auto_reconnect <- auto_reconnect
-      private$connection <- connection  # This would be a factory in a full implementation
+      private$connection <- connection # This would be a factory in a full implementation
 
       # System info for connection initialization
       sys_info <- Sys.info()
@@ -210,16 +208,16 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         app_version = if (!is.null(app_version)) app_version else private$version,
         lang_code = lang_code,
         system_lang_code = system_lang_code,
-        lang_pack = "",  # "langPacks are for official apps only"
+        lang_pack = "", # "langPacks are for official apps only"
         query = NULL,
-        proxy = NULL  # init_proxy would be set here in the Python version
+        proxy = NULL # init_proxy would be set here in the Python version
       )
 
       # State fields
       private$flood_sleep_threshold <- min(flood_sleep_threshold %||% 0, 24 * 60 * 60)
       private$flood_waited_requests <- list()
       private$borrowed_senders <- list()
-      private$borrow_sender_lock <- NULL  # Would be a mutex in a real implementation
+      private$borrow_sender_lock <- NULL # Would be a mutex in a real implementation
       private$exported_sessions <- list()
       private$loop <- NULL
       private$updates_error <- NULL
@@ -229,35 +227,35 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       private$no_updates <- !receive_updates
       private$sequential_updates <- sequential_updates
       private$event_handler_tasks <- list()
-      private$authorized <- NULL  # NULL = unknown, FALSE = no, TRUE = yes
+      private$authorized <- NULL # NULL = unknown, FALSE = no, TRUE = yes
       private$event_builders <- list()
       private$conversations <- list()
       private$albums <- list()
-      private$parse_mode <- "markdown"  # Default parse mode
+      private$parse_mode <- "markdown" # Default parse mode
       private$phone_code_hash <- list()
       private$phone <- NULL
       private$tos <- NULL
       private$megagroup_cache <- list()
       private$catch_up <- catch_up
-      private$updates_queue <- NULL  # Would be a queue in a full implementation
-      private$message_box <- NULL    # Would be a MessageBox in a full implementation
+      private$updates_queue <- NULL # Would be a queue in a full implementation
+      private$message_box <- NULL # Would be a MessageBox in a full implementation
       private$mb_entity_cache <- list()
       private$entity_cache_limit <- entity_cache_limit
 
       # Create sender
       private$sender <- MTProtoSender$new(
-        auth_key_callback = NULL,  # Will be set later based on session
-        #connection = private$connection,
+        auth_key_callback = NULL, # Will be set later based on session
+        # connection = private$connection,
         retries = private$connection_retries,
         delay = private$retry_delay,
         auto_reconnect = private$auto_reconnect,
         connect_timeout = private$timeout,
-        #update_callback = NULL,  # Will be set to handle updates
-        auto_reconnect_callback = NULL  # Will be set later
-      )  # MTProtoSender handles low-level Telegram protocol
+        # update_callback = NULL,  # Will be set to handle updates
+        auto_reconnect_callback = NULL # Will be set later
+      ) # MTProtoSender handles low-level Telegram protocol
 
       # Version
-      private$version <- "1.0.0"  # Version of the R client
+      private$version <- "1.0.0" # Version of the R client
     },
 
     #' Connect to Telegram
@@ -272,7 +270,7 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         }
 
         if (is.null(private$loop)) {
-          private$loop <- "running"  # Placeholder for the event loop
+          private$loop <- "running" # Placeholder for the event loop
         }
 
         # Actually connect the sender
@@ -336,8 +334,8 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
 
         # Create update and keepalive loops
         if (!private$no_updates) {
-          private$updates_queue <- Queue$new()  # Create queue for updates
-          private$updates_handle <- "active"  # Would start update processing loop
+          private$updates_queue <- Queue$new() # Create queue for updates
+          private$updates_handle <- "active" # Would start update processing loop
 
           # Start keepalive loop to prevent disconnection
           private$keepalive_handle <- "active"
@@ -405,7 +403,6 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       private$flood_sleep_threshold <- min(value %||% 0, 24 * 60 * 60)
     }
   ),
-
   private = list(
     # Core attributes
     session = NULL,
@@ -474,11 +471,14 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         sender <- state_sender[[2]]
         logger::log_debug("Disconnecting borrowed sender for DC %s", dc_id)
         # Disconnect the sender
-        tryCatch({
-          sender$disconnect()
-        }, error = function(e) {
-          logger::log_warning("Error disconnecting sender for DC %s: %s", dc_id, e$message)
-        })
+        tryCatch(
+          {
+            sender$disconnect()
+          },
+          error = function(e) {
+            logger::log_warning("Error disconnecting sender for DC %s: %s", dc_id, e$message)
+          }
+        )
       }
       private$borrowed_senders <- list()
 
@@ -491,7 +491,6 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       # Close session
       private$close_session()
     },
-
     save_session = function() {
       if (is.null(private$session)) {
         logger::log_warning("Cannot save session, session is NULL")
@@ -512,7 +511,6 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         logger::log_debug("Session data saved to %s", private$session$path)
       }
     },
-
     close_session = function() {
       if (is.null(private$session)) {
         return(NULL)
@@ -523,18 +521,20 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
 
       # Disconnect the sender if it exists
       if (!is.null(private$sender)) {
-        tryCatch({
-          private$sender$disconnect()
-        }, error = function(e) {
-          logger::log_warning("Error disconnecting sender: %s", e$message)
-        })
+        tryCatch(
+          {
+            private$sender$disconnect()
+          },
+          error = function(e) {
+            logger::log_warning("Error disconnecting sender: %s", e$message)
+          }
+        )
       }
 
       # Clear session data
       private$session <- NULL
       logger::log_info("Session closed")
     },
-
     save_states_and_entities = function() {
       # Save message box state if it exists
       if (!is.null(private$message_box)) {
@@ -548,7 +548,6 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         logger::log_debug("Saved %d entities to session", length(private$mb_entity_cache))
       }
     },
-
     get_dc = function(dc_id, cdn = FALSE) {
       # Would get DC information in a real implementation
       future({
@@ -561,8 +560,8 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         dc_options <- private$config$dc_options
         for (dc in dc_options) {
           if (dc$id == dc_id &&
-              identical(isTRUE(dc$ipv6), private$use_ipv6) &&
-              identical(isTRUE(dc$cdn), cdn)) {
+            identical(isTRUE(dc$ipv6), private$use_ipv6) &&
+            identical(isTRUE(dc$cdn), cdn)) {
             return(dc)
           }
         }
@@ -582,12 +581,11 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         stop(sprintf("Failed to get DC %d (cdn = %s)", dc_id, cdn))
       })
     },
-
     create_exported_sender = function(dc_id) {
       # Would create an exported sender in a real implementation
       future({
         dc <- private$get_dc(dc_id)
-        sender <- "new_sender"  # Placeholder for a new sender
+        sender <- "new_sender" # Placeholder for a new sender
 
         # Would connect the sender to the DC
 
@@ -598,7 +596,6 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         return(sender)
       })
     },
-
     borrow_exported_sender = function(dc_id) {
       future({
         logger::log_debug("Borrowing sender for DC %d", dc_id)
@@ -623,7 +620,6 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         return(sender)
       })
     },
-
     return_exported_sender = function(sender) {
       future({
         logger::log_debug("Returning borrowed sender for DC %d", sender$dc_id)
@@ -635,7 +631,6 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         return(TRUE)
       })
     },
-
     clean_exported_senders = function() {
       future({
         for (dc_id in names(private$borrowed_senders)) {
@@ -653,7 +648,6 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         return(TRUE)
       })
     },
-
     get_cdn_client = function(cdn_redirect) {
       future({
         session <- private$exported_sessions[[as.character(cdn_redirect$dc_id)]]
@@ -676,10 +670,9 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         # Would create a new MTProtoSender for this CDN connection
         # and configure it with the CDN session
 
-        return("cdn_client")  # Placeholder for a new client
+        return("cdn_client") # Placeholder for a new client
       })
     },
-
     clone_session = function() {
       # Clone current session
       return(private$session)

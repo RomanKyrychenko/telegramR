@@ -14,7 +14,6 @@ GetCollectibleInfoRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xbe1e85ba,
     SUBCLASS_OF_ID = 0xd4ea5790,
     collectible = NULL,
-
     initialize = function(collectible) {
       self$collectible <- collectible
     },
@@ -60,7 +59,6 @@ GetCollectibleInfoRequest <- R6::R6Class(
       c(constructor_raw, collectible_bytes)
     }
   ),
-
   active = list(
     # factory to create instance from a reader
     from_reader = function(value) {

@@ -22,7 +22,7 @@ GetDifferenceRequest <- R6::R6Class(
     },
     to_dict = function() {
       list(
-        '_' = 'GetDifferenceRequest',
+        "_" = "GetDifferenceRequest",
         lang_pack = self$lang_pack,
         lang_code = self$lang_code,
         from_version = self$from_version
@@ -67,7 +67,7 @@ GetLangPackRequest <- R6::R6Class(
       self$lang_code <- lang_code
     },
     to_dict = function() {
-      list('_' = 'GetLangPackRequest', lang_pack = self$lang_pack, lang_code = self$lang_code)
+      list("_" = "GetLangPackRequest", lang_pack = self$lang_pack, lang_code = self$lang_code)
     },
     bytes = function() {
       c(
@@ -104,7 +104,7 @@ GetLanguageRequest <- R6::R6Class(
       self$lang_code <- lang_code
     },
     to_dict = function() {
-      list('_' = 'GetLanguageRequest', lang_pack = self$lang_pack, lang_code = self$lang_code)
+      list("_" = "GetLanguageRequest", lang_pack = self$lang_pack, lang_code = self$lang_code)
     },
     bytes = function() {
       c(
@@ -139,7 +139,7 @@ GetLanguagesRequest <- R6::R6Class(
       self$lang_pack <- lang_pack
     },
     to_dict = function() {
-      list('_' = 'GetLanguagesRequest', lang_pack = self$lang_pack)
+      list("_" = "GetLanguagesRequest", lang_pack = self$lang_pack)
     },
     bytes = function() {
       c(
@@ -178,7 +178,7 @@ GetStringsRequest <- R6::R6Class(
     },
     to_dict = function() {
       list(
-        '_' = 'GetStringsRequest',
+        "_" = "GetStringsRequest",
         lang_pack = self$lang_pack,
         lang_code = self$lang_code,
         keys = if (is.null(self$keys)) character() else as.character(self$keys)

@@ -1553,9 +1553,9 @@ GetResaleStarGiftsRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$sort_by_price) || !self$sort_by_price) 0 else 2) |
-                (if (is.null(self$sort_by_num) || !self$sort_by_num) 0 else 4) |
-                (if (is.null(self$attributes_hash)) 0 else 1) |
-                (if (is.null(self$attributes)) 0 else 8)
+        (if (is.null(self$sort_by_num) || !self$sort_by_num) 0 else 4) |
+        (if (is.null(self$attributes_hash)) 0 else 1) |
+        (if (is.null(self$attributes)) 0 else 8)
       c(
         as.raw(c(0x36, 0xa2, 0x5f, 0x7a)),
         pack("<I", flags),
@@ -1794,13 +1794,13 @@ GetSavedStarGiftsRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$exclude_unsaved) || !self$exclude_unsaved) 0 else 1) |
-                (if (is.null(self$exclude_saved) || !self$exclude_saved) 0 else 2) |
-                (if (is.null(self$exclude_unlimited) || !self$exclude_unlimited) 0 else 4) |
-                (if (is.null(self$exclude_unique) || !self$exclude_unique) 0 else 16) |
-                (if (is.null(self$sort_by_value) || !self$sort_by_value) 0 else 32) |
-                (if (is.null(self$exclude_upgradable) || !self$exclude_upgradable) 0 else 128) |
-                (if (is.null(self$exclude_unupgradable) || !self$exclude_unupgradable) 0 else 256) |
-                (if (is.null(self$collection_id)) 0 else 64)
+        (if (is.null(self$exclude_saved) || !self$exclude_saved) 0 else 2) |
+        (if (is.null(self$exclude_unlimited) || !self$exclude_unlimited) 0 else 4) |
+        (if (is.null(self$exclude_unique) || !self$exclude_unique) 0 else 16) |
+        (if (is.null(self$sort_by_value) || !self$sort_by_value) 0 else 32) |
+        (if (is.null(self$exclude_upgradable) || !self$exclude_upgradable) 0 else 128) |
+        (if (is.null(self$exclude_unupgradable) || !self$exclude_unupgradable) 0 else 256) |
+        (if (is.null(self$collection_id)) 0 else 64)
       c(
         as.raw(c(0x69, 0xe5, 0x19, 0xa3)),
         pack("<I", flags),
@@ -2653,10 +2653,10 @@ GetStarsTransactionsRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$inbound) || !self$inbound) 0 else 1) |
-                (if (is.null(self$outbound) || !self$outbound) 0 else 2) |
-                (if (is.null(self$ascending) || !self$ascending) 0 else 4) |
-                (if (is.null(self$ton) || !self$ton) 0 else 16) |
-                (if (is.null(self$subscription_id) || !nzchar(self$subscription_id)) 0 else 8)
+        (if (is.null(self$outbound) || !self$outbound) 0 else 2) |
+        (if (is.null(self$ascending) || !self$ascending) 0 else 4) |
+        (if (is.null(self$ton) || !self$ton) 0 else 16) |
+        (if (is.null(self$subscription_id) || !nzchar(self$subscription_id)) 0 else 8)
       c(
         as.raw(c(0x57, 0x45, 0xda, 0x69)),
         pack("<I", flags),
@@ -3299,8 +3299,8 @@ SendPaymentFormRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$requested_info_id) || !nzchar(self$requested_info_id)) 0 else 1) |
-                (if (is.null(self$shipping_option_id) || !nzchar(self$shipping_option_id)) 0 else 2) |
-                (if (is.null(self$tip_amount)) 0 else 4)
+        (if (is.null(self$shipping_option_id) || !nzchar(self$shipping_option_id)) 0 else 2) |
+        (if (is.null(self$tip_amount)) 0 else 4)
       c(
         as.raw(c(0x2f, 0x52, 0x03, 0x2d)),
         pack("<I", flags),
@@ -3668,9 +3668,9 @@ UpdateStarGiftCollectionRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$title) || !nzchar(self$title)) 0 else 1) |
-                (if (is.null(self$delete_stargift)) 0 else 2) |
-                (if (is.null(self$add_stargift)) 0 else 4) |
-                (if (is.null(self$order)) 0 else 8)
+        (if (is.null(self$delete_stargift)) 0 else 2) |
+        (if (is.null(self$add_stargift)) 0 else 4) |
+        (if (is.null(self$order)) 0 else 8)
       c(
         as.raw(c(0xe7, 0xbe, 0xdd, 0x4f)),
         pack("<I", flags),
@@ -3694,15 +3694,21 @@ UpdateStarGiftCollectionRequest <- R6::R6Class(
       delete_stargift <- if (bitwAnd(flags, 2) != 0) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
       add_stargift <- if (bitwAnd(flags, 4) != 0) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
       order <- if (bitwAnd(flags, 8) != 0) {
         reader$read_int()
         lapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
-      } else NULL
+      } else {
+        NULL
+      }
       self$initialize(peer, collection_id, title, delete_stargift, add_stargift, order)
       self
     }

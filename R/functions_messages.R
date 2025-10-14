@@ -111,10 +111,10 @@ AcceptUrlAuthRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$writeAllowed) || !self$writeAllowed) 0 else 1) |
-                (if (is.null(self$peer)) 0 else 2) |
-                (if (is.null(self$msgId)) 0 else 2) |
-                (if (is.null(self$buttonId)) 0 else 2) |
-                (if (is.null(self$url)) 0 else 4)
+        (if (is.null(self$peer)) 0 else 2) |
+        (if (is.null(self$msgId)) 0 else 2) |
+        (if (is.null(self$buttonId)) 0 else 2) |
+        (if (is.null(self$url)) 0 else 4)
       c(
         as.raw(c(0x25, 0x71, 0x2c, 0xb1)),
         pack("<I", flags),
@@ -651,7 +651,7 @@ ClickSponsoredMessageRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$media) || !self$media) 0 else 1) |
-                (if (is.null(self$fullscreen) || !self$fullscreen) 0 else 2)
+        (if (is.null(self$fullscreen) || !self$fullscreen) 0 else 2)
       c(
         as.raw(c(0x7e, 0x05, 0x35, 0x82)),
         pack("<I", flags),
@@ -1046,9 +1046,9 @@ DeleteHistoryRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$justClear) || !self$justClear) 0 else 1) |
-                (if (is.null(self$revoke) || !self$revoke) 0 else 2) |
-                (if (is.null(self$minDate)) 0 else 4) |
-                (if (is.null(self$maxDate)) 0 else 8)
+        (if (is.null(self$revoke) || !self$revoke) 0 else 2) |
+        (if (is.null(self$minDate)) 0 else 4) |
+        (if (is.null(self$maxDate)) 0 else 8)
       c(
         as.raw(c(0x2a, 0x92, 0x8f, 0xb0)),
         pack("<I", flags),
@@ -1415,8 +1415,8 @@ DeleteSavedHistoryRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$parentPeer)) 0 else 1) |
-                (if (is.null(self$minDate)) 0 else 4) |
-                (if (is.null(self$maxDate)) 0 else 8)
+        (if (is.null(self$minDate)) 0 else 4) |
+        (if (is.null(self$maxDate)) 0 else 8)
       c(
         as.raw(c(0x5f, 0x08, 0xc5, 0x4d)),
         pack("<I", flags),
@@ -1929,10 +1929,10 @@ EditExportedChatInviteRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$revoked) || !self$revoked) 0 else 4) |
-                (if (is.null(self$expireDate)) 0 else 1) |
-                (if (is.null(self$usageLimit)) 0 else 2) |
-                (if (is.null(self$requestNeeded)) 0 else 8) |
-                (if (is.null(self$title)) 0 else 16)
+        (if (is.null(self$expireDate)) 0 else 1) |
+        (if (is.null(self$usageLimit)) 0 else 2) |
+        (if (is.null(self$requestNeeded)) 0 else 8) |
+        (if (is.null(self$title)) 0 else 16)
       c(
         as.raw(c(0x75, 0x2f, 0xca, 0xbd)),
         pack("<I", flags),
@@ -2090,11 +2090,11 @@ EditInlineBotMessageRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$noWebpage) || !self$noWebpage) 0 else 2) |
-                (if (is.null(self$invertMedia) || !self$invertMedia) 0 else 65536) |
-                (if (is.null(self$message)) 0 else 2048) |
-                (if (is.null(self$media)) 0 else 16384) |
-                (if (is.null(self$replyMarkup)) 0 else 4) |
-                (if (is.null(self$entities)) 0 else 8)
+        (if (is.null(self$invertMedia) || !self$invertMedia) 0 else 65536) |
+        (if (is.null(self$message)) 0 else 2048) |
+        (if (is.null(self$media)) 0 else 16384) |
+        (if (is.null(self$replyMarkup)) 0 else 4) |
+        (if (is.null(self$entities)) 0 else 8)
       c(
         as.raw(c(0xba, 0x7d, 0x55, 0x83)),
         pack("<I", flags),
@@ -2123,7 +2123,9 @@ EditInlineBotMessageRequest$fromReader <- function(reader) {
   entities <- if (bitwAnd(flags, 8) != 0) {
     reader$readInt()
     lapply(1:reader$readInt(), function(i) reader$tgreadObject())
-  } else NULL
+  } else {
+    NULL
+  }
   EditInlineBotMessageRequest$new(id = id, noWebpage = noWebpage, invertMedia = invertMedia, message = message, media = media, replyMarkup = replyMarkup, entities = entities)
 }
 
@@ -2197,13 +2199,13 @@ EditMessageRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$noWebpage) || !self$noWebpage) 0 else 2) |
-                (if (is.null(self$invertMedia) || !self$invertMedia) 0 else 65536) |
-                (if (is.null(self$message)) 0 else 2048) |
-                (if (is.null(self$media)) 0 else 16384) |
-                (if (is.null(self$replyMarkup)) 0 else 4) |
-                (if (is.null(self$entities)) 0 else 8) |
-                (if (is.null(self$scheduleDate)) 0 else 32768) |
-                (if (is.null(self$quickReplyShortcutId)) 0 else 131072)
+        (if (is.null(self$invertMedia) || !self$invertMedia) 0 else 65536) |
+        (if (is.null(self$message)) 0 else 2048) |
+        (if (is.null(self$media)) 0 else 16384) |
+        (if (is.null(self$replyMarkup)) 0 else 4) |
+        (if (is.null(self$entities)) 0 else 8) |
+        (if (is.null(self$scheduleDate)) 0 else 32768) |
+        (if (is.null(self$quickReplyShortcutId)) 0 else 131072)
       c(
         as.raw(c(0x05, 0x40, 0xd1, 0xdf)),
         pack("<I", flags),
@@ -2236,7 +2238,9 @@ EditMessageRequest$fromReader <- function(reader) {
   entities <- if (bitwAnd(flags, 8) != 0) {
     reader$readInt()
     lapply(1:reader$readInt(), function(i) reader$tgreadObject())
-  } else NULL
+  } else {
+    NULL
+  }
   scheduleDate <- if (bitwAnd(flags, 32768) != 0) reader$tgreadDate() else NULL
   quickReplyShortcutId <- if (bitwAnd(flags, 131072) != 0) reader$readInt() else NULL
   EditMessageRequest$new(peer = peer, id = id, noWebpage = noWebpage, invertMedia = invertMedia, message = message, media = media, replyMarkup = replyMarkup, entities = entities, scheduleDate = scheduleDate, quickReplyShortcutId = quickReplyShortcutId)
@@ -2355,11 +2359,11 @@ ExportChatInviteRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$legacyRevokePermanent) || !self$legacyRevokePermanent) 0 else 4) |
-                (if (is.null(self$requestNeeded) || !self$requestNeeded) 0 else 8) |
-                (if (is.null(self$expireDate)) 0 else 1) |
-                (if (is.null(self$usageLimit)) 0 else 2) |
-                (if (is.null(self$title) || !nchar(self$title)) 0 else 16) |
-                (if (is.null(self$subscriptionPricing)) 0 else 32)
+        (if (is.null(self$requestNeeded) || !self$requestNeeded) 0 else 8) |
+        (if (is.null(self$expireDate)) 0 else 1) |
+        (if (is.null(self$usageLimit)) 0 else 2) |
+        (if (is.null(self$title) || !nchar(self$title)) 0 else 16) |
+        (if (is.null(self$subscriptionPricing)) 0 else 32)
       c(
         as.raw(c(0x90, 0xde, 0x55, 0xa4)),
         pack("<I", flags),
@@ -2556,20 +2560,20 @@ ForwardMessagesRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$silent) || !self$silent) 0 else 32) |
-                (if (is.null(self$background) || !self$background) 0 else 64) |
-                (if (is.null(self$withMyScore) || !self$withMyScore) 0 else 256) |
-                (if (is.null(self$dropAuthor) || !self$dropAuthor) 0 else 2048) |
-                (if (is.null(self$dropMediaCaptions) || !self$dropMediaCaptions) 0 else 4096) |
-                (if (is.null(self$noforwards) || !self$noforwards) 0 else 16384) |
-                (if (is.null(self$allowPaidFloodskip) || !self$allowPaidFloodskip) 0 else 524288) |
-                (if (is.null(self$topMsgId)) 0 else 512) |
-                (if (is.null(self$replyTo)) 0 else 4194304) |
-                (if (is.null(self$scheduleDate)) 0 else 1024) |
-                (if (is.null(self$sendAs)) 0 else 8192) |
-                (if (is.null(self$quickReplyShortcut)) 0 else 131072) |
-                (if (is.null(self$videoTimestamp)) 0 else 1048576) |
-                (if (is.null(self$allowPaidStars)) 0 else 2097152) |
-                (if (is.null(self$suggestedPost)) 0 else 8388608)
+        (if (is.null(self$background) || !self$background) 0 else 64) |
+        (if (is.null(self$withMyScore) || !self$withMyScore) 0 else 256) |
+        (if (is.null(self$dropAuthor) || !self$dropAuthor) 0 else 2048) |
+        (if (is.null(self$dropMediaCaptions) || !self$dropMediaCaptions) 0 else 4096) |
+        (if (is.null(self$noforwards) || !self$noforwards) 0 else 16384) |
+        (if (is.null(self$allowPaidFloodskip) || !self$allowPaidFloodskip) 0 else 524288) |
+        (if (is.null(self$topMsgId)) 0 else 512) |
+        (if (is.null(self$replyTo)) 0 else 4194304) |
+        (if (is.null(self$scheduleDate)) 0 else 1024) |
+        (if (is.null(self$sendAs)) 0 else 8192) |
+        (if (is.null(self$quickReplyShortcut)) 0 else 131072) |
+        (if (is.null(self$videoTimestamp)) 0 else 1048576) |
+        (if (is.null(self$allowPaidStars)) 0 else 2097152) |
+        (if (is.null(self$suggestedPost)) 0 else 8388608)
       c(
         as.raw(c(0xca, 0x28, 0x89, 0x97)),
         pack("<I", flags),
@@ -2812,7 +2816,7 @@ GetArchivedStickersRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$masks) || !self$masks) 0 else 1) |
-                (if (is.null(self$emojis) || !self$emojis) 0 else 2)
+        (if (is.null(self$emojis) || !self$emojis) 0 else 2)
       c(
         as.raw(c(0x92, 0x76, 0xf1, 0x57)),
         pack("<I", flags),
@@ -3195,8 +3199,8 @@ GetBotCallbackAnswerRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$game) || !self$game) 0 else 2) |
-                (if (is.null(self$data) || !length(self$data)) 0 else 1) |
-                (if (is.null(self$password)) 0 else 4)
+        (if (is.null(self$data) || !length(self$data)) 0 else 1) |
+        (if (is.null(self$password)) 0 else 4)
       c(
         as.raw(c(0x93, 0x42, 0xca, 0x07)),
         pack("<I", flags),
@@ -3286,9 +3290,9 @@ GetChatInviteImportersRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$requested) || !self$requested) 0 else 1) |
-                (if (is.null(self$subscriptionExpired) || !self$subscriptionExpired) 0 else 8) |
-                (if (is.null(self$link) || !nchar(self$link)) 0 else 2) |
-                (if (is.null(self$q) || !nchar(self$q)) 0 else 4)
+        (if (is.null(self$subscriptionExpired) || !self$subscriptionExpired) 0 else 8) |
+        (if (is.null(self$link) || !nchar(self$link)) 0 else 2) |
+        (if (is.null(self$q) || !nchar(self$q)) 0 else 4)
       c(
         as.raw(c(0xdf, 0x04, 0xdd, 0x4e)),
         pack("<I", flags),
@@ -3794,7 +3798,7 @@ GetDialogsRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$excludePinned) || !self$excludePinned) 0 else 1) |
-                (if (is.null(self$folderId)) 0 else 2)
+        (if (is.null(self$folderId)) 0 else 2)
       c(
         as.raw(c(0xa0, 0xf4, 0xcb, 0x4f)),
         pack("<I", flags),
@@ -4520,12 +4524,12 @@ GetExportedChatInvitesRequest <- R6::R6Class(
     bytes = function() {
       stopifnot(
         ((self$offsetDate || !is.null(self$offsetDate)) && (self$offsetLink || !is.null(self$offsetLink))) ||
-        ((is.null(self$offsetDate) || !self$offsetDate) && (is.null(self$offsetLink) || !self$offsetLink)),
+          ((is.null(self$offsetDate) || !self$offsetDate) && (is.null(self$offsetLink) || !self$offsetLink)),
         "offsetDate, offsetLink parameters must all be FALSE-y (like NULL) or all TRUE-y"
       )
       flags <- (if (is.null(self$revoked) || !self$revoked) 0 else 8) |
-                (if (is.null(self$offsetDate) || !self$offsetDate) 0 else 4) |
-                (if (is.null(self$offsetLink) || !self$offsetLink) 0 else 4)
+        (if (is.null(self$offsetDate) || !self$offsetDate) 0 else 4) |
+        (if (is.null(self$offsetLink) || !self$offsetLink) 0 else 4)
       c(
         as.raw(c(0xf6, 0xa3, 0xb5, 0xa2)),
         pack("<I", flags),
@@ -8391,7 +8395,7 @@ InitHistoryImportRequest <- R6::R6Class(
         as.raw(c(0x3b, 0x0c, 0x09, 0x34)),
         self$peer$bytes(),
         self$file$bytes(),
-        packBits(intToBits(self$mediaCount)[1:32], type = "raw")  # Assuming little-endian int32
+        packBits(intToBits(self$mediaCount)[1:32], type = "raw") # Assuming little-endian int32
       )
     }
   )
@@ -9351,7 +9355,7 @@ ReceivedQueueRequest$fromReader <- function(reader) {
 #' @param reader The reader object.
 #' @return A list of long values.
 ReceivedQueueRequest$readResult <- function(reader) {
-  reader$readInt()  # Vector ID
+  reader$readInt() # Vector ID
   sapply(1:reader$readInt(), function(x) reader$readLong())
 }
 
@@ -10089,8 +10093,8 @@ RequestAppWebViewRequest <- R6::R6Class(
       if (!is.null(self$startParam)) flags <- bitwOr(flags, 2L)
       if (!is.null(self$themeParams)) flags <- bitwOr(flags, 4L)
       c(
-        as.raw(c(0xce, 0x8b, 0xa1, 0x53)),  # Note: Adjusted for little-endian if needed, but keeping as is
-        packBits(intToBits(flags), type = "raw")[1:4],  # Assuming packBits for flags
+        as.raw(c(0xce, 0x8b, 0xa1, 0x53)), # Note: Adjusted for little-endian if needed, but keeping as is
+        packBits(intToBits(flags), type = "raw")[1:4], # Assuming packBits for flags
         self$peer$bytes(),
         self$app$bytes(),
         if (!is.null(self$startParam)) self$serialize_bytes(self$startParam) else raw(0),
@@ -10436,7 +10440,7 @@ RequestUrlAuthRequest <- R6::R6Class(
     bytes = function() {
       stopifnot(
         ((!is.null(self$peer)) && (!is.null(self$msg_id)) && (!is.null(self$button_id))) ||
-        (is.null(self$peer) && is.null(self$msg_id) && is.null(self$button_id)),
+          (is.null(self$peer) && is.null(self$msg_id) && is.null(self$button_id)),
         "peer, msg_id, button_id parameters must all be present or all NULL"
       )
       flags <- 0L
@@ -10783,9 +10787,11 @@ SaveDraftRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   message <- reader$tgread_string()
   entities <- if (bitwAnd(flags, 8L) != 0) {
-    reader$read_int()  # skip vector ID
+    reader$read_int() # skip vector ID
     lapply(1:reader$read_int(), function(i) reader$tgread_object())
-  } else NULL
+  } else {
+    NULL
+  }
   media <- if (bitwAnd(flags, 32L) != 0) reader$tgread_object() else NULL
   effect <- if (bitwAnd(flags, 128L) != 0) reader$read_long() else NULL
   suggested_post <- if (bitwAnd(flags, 256L) != 0) reader$tgread_object() else NULL
@@ -10906,11 +10912,15 @@ SavePreparedInlineMessageRequest <- R6::R6Class(
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$result$bytes(),
         self$user_id$bytes(),
-        if (is.null(self$peer_types)) raw() else c(
-          as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
-          writeBin(length(self$peer_types), raw(), size = 4, endian = "little"),
-          unlist(lapply(self$peer_types, function(x) x$bytes()))
-        )
+        if (is.null(self$peer_types)) {
+          raw()
+        } else {
+          c(
+            as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+            writeBin(length(self$peer_types), raw(), size = 4, endian = "little"),
+            unlist(lapply(self$peer_types, function(x) x$bytes()))
+          )
+        }
       )
     }
   )
@@ -10925,7 +10935,7 @@ SavePreparedInlineMessageRequest$from_reader <- function(reader) {
   result <- reader$tgread_object()
   user_id <- reader$tgread_object()
   if (bitwAnd(flags, 1L) != 0) {
-    reader$read_int()  # skip vector ID
+    reader$read_int() # skip vector ID
     peer_types <- list()
     for (i in 1:reader$read_int()) {
       peer_types[[i]] <- reader$tgread_object()
@@ -11132,9 +11142,11 @@ SearchRequest$from_reader <- function(reader) {
   from_id <- if (bitwAnd(flags, 1L) != 0) reader$tgread_object() else NULL
   saved_peer_id <- if (bitwAnd(flags, 4L) != 0) reader$tgread_object() else NULL
   saved_reaction <- if (bitwAnd(flags, 8L) != 0) {
-    reader$read_int()  # skip vector ID
+    reader$read_int() # skip vector ID
     lapply(1:reader$read_int(), function(i) reader$tgread_object())
-  } else NULL
+  } else {
+    NULL
+  }
   top_msg_id <- if (bitwAnd(flags, 2L) != 0) reader$read_int() else NULL
   filter <- reader$tgread_object()
   min_date <- reader$tgread_date()
@@ -11577,7 +11589,7 @@ SearchStickersRequest$from_reader <- function(reader) {
   emojis <- bitwAnd(flags, 1L) != 0
   q <- reader$tgread_string()
   emoticon <- reader$tgread_string()
-  reader$read_int()  # skip vector ID
+  reader$read_int() # skip vector ID
   lang_code <- list()
   for (i in 1:reader$read_int()) {
     lang_code[[i]] <- reader$tgread_string()
@@ -11661,7 +11673,7 @@ SendBotRequestedPeerRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   msg_id <- reader$read_int()
   button_id <- reader$read_int()
-  reader$read_int()  # skip vector ID
+  reader$read_int() # skip vector ID
   requested_peers <- list()
   for (i in 1:reader$read_int()) {
     requested_peers[[i]] <- reader$tgread_object()
@@ -12162,9 +12174,11 @@ SendMediaRequest$from_reader <- function(reader) {
   random_id <- reader$read_long()
   reply_markup <- if (bitwAnd(flags, 4L) != 0) reader$tgread_object() else NULL
   entities <- if (bitwAnd(flags, 8L) != 0) {
-    reader$read_int()  # skip vector ID
+    reader$read_int() # skip vector ID
     lapply(1:reader$read_int(), function(i) reader$tgread_object())
-  } else NULL
+  } else {
+    NULL
+  }
   schedule_date <- if (bitwAnd(flags, 1024L) != 0) reader$tgread_date() else NULL
   send_as <- if (bitwAnd(flags, 8192L) != 0) reader$tgread_object() else NULL
   quick_reply_shortcut <- if (bitwAnd(flags, 131072L) != 0) reader$tgread_object() else NULL
@@ -12331,9 +12345,11 @@ SendMessageRequest$from_reader <- function(reader) {
   random_id <- reader$read_long()
   reply_markup <- if (bitwAnd(flags, 4L) != 0) reader$tgread_object() else NULL
   entities <- if (bitwAnd(flags, 8L) != 0) {
-    reader$read_int()  # skip vector ID
+    reader$read_int() # skip vector ID
     lapply(1:reader$read_int(), function(i) reader$tgread_object())
-  } else NULL
+  } else {
+    NULL
+  }
   schedule_date <- if (bitwAnd(flags, 1024L) != 0) reader$tgread_date() else NULL
   send_as <- if (bitwAnd(flags, 8192L) != 0) reader$tgread_object() else NULL
   quick_reply_shortcut <- if (bitwAnd(flags, 131072L) != 0) reader$tgread_object() else NULL
@@ -12475,7 +12491,7 @@ SendMultiMediaRequest$from_reader <- function(reader) {
   allow_paid_floodskip <- bitwAnd(flags, 524288L) != 0
   peer <- reader$tgread_object()
   reply_to <- if (bitwAnd(flags, 1L) != 0) reader$tgread_object() else NULL
-  reader$read_int()  # skip vector ID
+  reader$read_int() # skip vector ID
   multi_media <- list()
   for (i in 1:reader$read_int()) {
     x <- reader$tgread_object()
@@ -12723,7 +12739,9 @@ SendReactionRequest <- R6::R6Class(
             packBits(intToBits(length(self$reaction)), type = "raw")[1:4],
             unlist(lapply(self$reaction, function(x) x$bytes()))
           )
-        } else raw(0)
+        } else {
+          raw(0)
+        }
       )
     }
   )
@@ -12742,7 +12760,9 @@ SendReactionRequest$from_reader <- function(reader) {
   reaction <- if (bitwAnd(flags, 1L) != 0) {
     reader$read_int()
     lapply(1:reader$read_int(), function(i) reader$tgread_object())
-  } else NULL
+  } else {
+    NULL
+  }
   SendReactionRequest$new(peer = peer, msg_id = msg_id, big = big, add_to_recent = add_to_recent, reaction = reaction)
 }
 
@@ -13279,7 +13299,9 @@ SetBotShippingResultsRequest$from_reader <- function(reader) {
   shipping_options <- if (bitwAnd(flags, 2L) != 0) {
     reader$read_int()
     lapply(1:reader$read_int(), function(i) reader$tgread_object())
-  } else NULL
+  } else {
+    NULL
+  }
   SetBotShippingResultsRequest$new(query_id = query_id, error = error, shipping_options = shipping_options)
 }
 
@@ -14078,7 +14100,7 @@ StartBotRequest <- R6::R6Class(
       self$peer <- peer
       self$start_param <- start_param
       if (is.null(random_id)) {
-        self$random_id <- int.from_bytes(os.urandom(8), 'big', signed = TRUE)
+        self$random_id <- int.from_bytes(os.urandom(8), "big", signed = TRUE)
       } else {
         self$random_id <- random_id
       }
@@ -14111,7 +14133,7 @@ StartBotRequest <- R6::R6Class(
         as.raw(c(0x78, 0x73, 0xdf, 0xe6)),
         self$bot$bytes(),
         self$peer$bytes(),
-        struct.pack('<q', self$random_id),
+        struct.pack("<q", self$random_id),
         self$serialize_bytes(self$start_param)
       )
     }
@@ -14175,7 +14197,7 @@ StartHistoryImportRequest <- R6::R6Class(
       c(
         as.raw(c(0x44, 0xf3, 0x3d, 0xb4)),
         self$peer$bytes(),
-        struct.pack('<q', self$import_id)
+        struct.pack("<q", self$import_id)
       )
     }
   )
@@ -14240,7 +14262,7 @@ ToggleBotInAttachMenuRequest <- R6::R6Class(
       if (!is.null(self$write_allowed) && self$write_allowed != FALSE) flags <- bitwOr(flags, 1L)
       c(
         as.raw(c(0x69, 0x9d, 0xf5, 0x69)),
-        struct.pack('<I', flags),
+        struct.pack("<I", flags),
         self$bot$bytes(),
         if (self$enabled) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
       )
@@ -14981,7 +15003,7 @@ TranslateTextRequest <- R6::R6Class(
     #' @return A raw vector of bytes.
     bytes = function() {
       if (!((!is.null(self$peer) && self$peer != FALSE) && (!is.null(self$id) && self$id != FALSE)) &&
-            ((is.null(self$peer) || self$peer == FALSE) && (is.null(self$id) || self$id == FALSE))) {
+        ((is.null(self$peer) || self$peer == FALSE) && (is.null(self$id) || self$id == FALSE))) {
         stop("peer, id parameters must all be False-y (like NULL) or all be True-y")
       }
       flags <- 0L

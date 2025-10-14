@@ -86,7 +86,7 @@ MTProtoState <- R6::R6Class("MTProtoState",
     #' @param loggers Logger objects
     initialize = function(auth_key, loggers) {
       self$auth_key <- auth_key
-      private$log <- loggers[["MTProtoState"]]  # Equivalent to __name__ in Python
+      private$log <- loggers[["MTProtoState"]] # Equivalent to __name__ in Python
       self$time_offset <- 0
       self$salt <- 0
 
@@ -208,7 +208,7 @@ MTProtoState <- R6::R6Class("MTProtoState",
       }
 
       reader <- BinaryReader$new(body)
-      reader$read_long()  # remote_salt
+      reader$read_long() # remote_salt
 
       # Verify session ID
       if (reader$read_long() != self$id) {
@@ -224,14 +224,14 @@ MTProtoState <- R6::R6Class("MTProtoState",
 
       # Check for duplicate message
       if (remote_msg_id <= private$highest_remote_id &&
-          private$recent_remote_ids$contains(remote_msg_id)) {
-        private$log$warning('Server resent the older message %d, ignoring', remote_msg_id)
+        private$recent_remote_ids$contains(remote_msg_id)) {
+        private$log$warning("Server resent the older message %d, ignoring", remote_msg_id)
         private$count_ignored()
         return(NULL)
       }
 
       remote_sequence <- reader$read_int()
-      reader$read_int()  # msg_len for inner object, padding ignored
+      reader$read_int() # msg_len for inner object, padding ignored
 
       # Read the TL object
       obj <- reader$tgread_object()
@@ -243,14 +243,14 @@ MTProtoState <- R6::R6Class("MTProtoState",
 
         # Check if message is too old
         if (time_delta > MSG_TOO_OLD_DELTA) {
-          private$log$warning('Server sent a very old message with ID %d, ignoring', remote_msg_id)
+          private$log$warning("Server sent a very old message with ID %d, ignoring", remote_msg_id)
           private$count_ignored()
           return(NULL)
         }
 
         # Check if message is too new (from the future)
         if (-time_delta > MSG_TOO_NEW_DELTA) {
-          private$log$warning('Server sent a very new message with ID %d, ignoring', remote_msg_id)
+          private$log$warning("Server sent a very new message with ID %d, ignoring", remote_msg_id)
           private$count_ignored()
           return(NULL)
         }
@@ -293,7 +293,7 @@ MTProtoState <- R6::R6Class("MTProtoState",
       if (self$time_offset != old) {
         private$last_msg_id <- 0
         private$log$debug(
-          'Updated time offset (old offset %d, bad %d, good %d, new %d)',
+          "Updated time offset (old offset %d, bad %d, good %d, new %d)",
           old, bad, correct_msg_id, self$time_offset
         )
       }
@@ -301,7 +301,6 @@ MTProtoState <- R6::R6Class("MTProtoState",
       return(self$time_offset)
     }
   ),
-
   private = list(
     log = NULL,
     sequence = NULL,
@@ -372,22 +371,18 @@ deque <- function(maxlen) {
     public = list(
       items = list(),
       maxlen = NULL,
-
       initialize = function(maxlen) {
         self$maxlen <- maxlen
       },
-
       append = function(item) {
         self$items <- c(self$items, list(item))
         if (!is.null(self$maxlen) && length(self$items) > self$maxlen) {
           self$items <- self$items[-1]
         }
       },
-
       clear = function() {
         self$items <- list()
       },
-
       contains = function(item) {
         return(item %in% unlist(self$items))
       }

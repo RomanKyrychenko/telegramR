@@ -41,10 +41,7 @@ VALID_USERNAME_RE <- "^[a-z](?:(?!__)\\w){1,30}[a-z\\d]$"
 #' FileInfo Class
 #'
 #' An R6 class representing file information with dc_id, location, and size.
-#'
-#' @field dc_id The data center ID.
-#' @field location The file location.
-#' @field size The file size.
+#' @export
 FileInfo <- R6::R6Class(
   "FileInfo",
   public = list(
@@ -79,7 +76,7 @@ FileInfo <- R6::R6Class(
 #' @return A list of vectors, each representing a chunk of the original iterable.
 #' @examples
 #' \dontrun{
-#' chunks(1:10, 3)  # Returns list(c(1,2,3), c(4,5,6), c(7,8,9), c(10))
+#' chunks(1:10, 3) # Returns list(c(1,2,3), c(4,5,6), c(7,8,9), c(10))
 #' }
 chunks <- function(iterable, size = 100L) {
   result <- list()
@@ -132,29 +129,32 @@ get_display_name <- function(entity) {
 #' ext <- get_extension(media)
 #' }
 get_extension <- function(media) {
-  tryCatch({
-    get_input_photo(media)
-    return('.jpg')
-  }, error = function(e) {
-    if (inherits(media, c("UserProfilePhoto", "ChatPhoto"))) {
-      return('.jpg')
+  tryCatch(
+    {
+      get_input_photo(media)
+      return(".jpg")
+    },
+    error = function(e) {
+      if (inherits(media, c("UserProfilePhoto", "ChatPhoto"))) {
+        return(".jpg")
+      }
     }
-  })
+  )
 
   if (inherits(media, "MessageMediaDocument")) {
     media <- media$document
   }
 
   if (inherits(media, c("Document", "WebDocument", "WebDocumentNoProxy"))) {
-    if (media$mime_type == 'application/octet-stream') {
-      return('')
+    if (media$mime_type == "application/octet-stream") {
+      return("")
     } else {
       ext <- guess_extension(media$mime_type)
-      return(ifelse(is.null(ext), '', ext))
+      return(ifelse(is.null(ext), "", ext))
     }
   }
 
-  return('')
+  return("")
 }
 
 #' Raise Cast Fail
@@ -168,7 +168,7 @@ get_extension <- function(media) {
 #' raise_cast_fail(some_entity, "InputPeer")
 #' }
 raise_cast_fail <- function(entity, target) {
-  stop(sprintf('Cannot cast %s to any kind of %s.', class(entity)[1], target))
+  stop(sprintf("Cannot cast %s to any kind of %s.", class(entity)[1], target))
 }
 
 
@@ -215,20 +215,23 @@ get_input_peer <- function(entity, allow_self = TRUE, check_hash = TRUE) {
   #     > Yes.
   #
   # More information: https://core.telegram.org/api/min
-  tryCatch({
-    if (entity$SUBCLASS_OF_ID == 0xc91c90b6) {  # crc32(b'InputPeer')
-      return(entity)
+  tryCatch(
+    {
+      if (entity$SUBCLASS_OF_ID == 0xc91c90b6) { # crc32(b'InputPeer')
+        return(entity)
+      }
+    },
+    error = function(e) {
+      # e.g. custom.Dialog (can't cyclic import).
+      if (allow_self && !is.null(entity$input_entity)) {
+        return(entity$input_entity)
+      } else if (!is.null(entity$entity)) {
+        return(get_input_peer(entity$entity))
+      } else {
+        raise_cast_fail(entity, "InputPeer")
+      }
     }
-  }, error = function(e) {
-    # e.g. custom.Dialog (can't cyclic import).
-    if (allow_self && !is.null(entity$input_entity)) {
-      return(entity$input_entity)
-    } else if (!is.null(entity$entity)) {
-      return(get_input_peer(entity$entity))
-    } else {
-      raise_cast_fail(entity, 'InputPeer')
-    }
-  })
+  )
 
   if (inherits(entity, "User")) {
     if (entity$is_self && allow_self) {
@@ -236,7 +239,7 @@ get_input_peer <- function(entity, allow_self = TRUE, check_hash = TRUE) {
     } else if ((!is.null(entity$access_hash) && !entity$min) || !check_hash) {
       return(types$InputPeerUser(entity$id, entity$access_hash))
     } else {
-      stop('User without access_hash or min info cannot be input')
+      stop("User without access_hash or min info cannot be input")
     }
   }
 
@@ -248,7 +251,7 @@ get_input_peer <- function(entity, allow_self = TRUE, check_hash = TRUE) {
     if ((!is.null(entity$access_hash) && !entity$min) || !check_hash) {
       return(types$InputPeerChannel(entity$id, entity$access_hash))
     } else {
-      stop('Channel without access_hash or min info cannot be input')
+      stop("Channel without access_hash or min info cannot be input")
     }
   }
 
@@ -294,7 +297,7 @@ get_input_peer <- function(entity, allow_self = TRUE, check_hash = TRUE) {
     return(types$InputPeerChat(entity$chat_id))
   }
 
-  raise_cast_fail(entity, 'InputPeer')
+  raise_cast_fail(entity, "InputPeer")
 }
 
 #' Get Input Channel
@@ -309,13 +312,16 @@ get_input_peer <- function(entity, allow_self = TRUE, check_hash = TRUE) {
 #' input_channel <- get_input_channel(entity)
 #' }
 get_input_channel <- function(entity) {
-  tryCatch({
-    if (entity$SUBCLASS_OF_ID == 0x40f202fd) {  # crc32(b'InputChannel')
-      return(entity)
+  tryCatch(
+    {
+      if (entity$SUBCLASS_OF_ID == 0x40f202fd) { # crc32(b'InputChannel')
+        return(entity)
+      }
+    },
+    error = function(e) {
+      raise_cast_fail(entity, "InputChannel")
     }
-  }, error = function(e) {
-    raise_cast_fail(entity, 'InputChannel')
-  })
+  )
 
   if (inherits(entity, c("Channel", "ChannelForbidden"))) {
     return(types$InputChannel(entity$id, entity$access_hash %||% 0))
@@ -329,7 +335,7 @@ get_input_channel <- function(entity) {
     return(types$InputChannelFromMessage(entity$peer, entity$msg_id, entity$channel_id))
   }
 
-  raise_cast_fail(entity, 'InputChannel')
+  raise_cast_fail(entity, "InputChannel")
 }
 
 
@@ -345,13 +351,16 @@ get_input_channel <- function(entity) {
 #' input_user <- get_input_user(entity)
 #' }
 get_input_user <- function(entity) {
-  tryCatch({
-    if (entity$SUBCLASS_OF_ID == 0xe669bf46) {  # crc32(b'InputUser')
-      return(entity)
+  tryCatch(
+    {
+      if (entity$SUBCLASS_OF_ID == 0xe669bf46) { # crc32(b'InputUser')
+        return(entity)
+      }
+    },
+    error = function(e) {
+      raise_cast_fail(entity, "InputUser")
     }
-  }, error = function(e) {
-    raise_cast_fail(entity, 'InputUser')
-  })
+  )
 
   if (inherits(entity, "User")) {
     if (entity$is_self) {
@@ -381,7 +390,7 @@ get_input_user <- function(entity) {
     return(types$InputUserFromMessage(entity$peer, entity$msg_id, entity$user_id))
   }
 
-  raise_cast_fail(entity, 'InputUser')
+  raise_cast_fail(entity, "InputUser")
 }
 
 #' Get Input Dialog
@@ -396,24 +405,30 @@ get_input_user <- function(entity) {
 #' input_dialog <- get_input_dialog(dialog)
 #' }
 get_input_dialog <- function(dialog) {
-  tryCatch({
-    if (dialog$SUBCLASS_OF_ID == 0xa21c9795) {  # crc32(b'InputDialogPeer')
-      return(dialog)
+  tryCatch(
+    {
+      if (dialog$SUBCLASS_OF_ID == 0xa21c9795) { # crc32(b'InputDialogPeer')
+        return(dialog)
+      }
+      if (dialog$SUBCLASS_OF_ID == 0xc91c90b6) { # crc32(b'InputPeer')
+        return(types$InputDialogPeer(dialog))
+      }
+    },
+    error = function(e) {
+      raise_cast_fail(dialog, "InputDialogPeer")
     }
-    if (dialog$SUBCLASS_OF_ID == 0xc91c90b6) {  # crc32(b'InputPeer')
-      return(types$InputDialogPeer(dialog))
+  )
+
+  tryCatch(
+    {
+      return(types$InputDialogPeer(get_input_peer(dialog)))
+    },
+    error = function(e) {
+      # Pass
     }
-  }, error = function(e) {
-    raise_cast_fail(dialog, 'InputDialogPeer')
-  })
+  )
 
-  tryCatch({
-    return(types$InputDialogPeer(get_input_peer(dialog)))
-  }, error = function(e) {
-    # Pass
-  })
-
-  raise_cast_fail(dialog, 'InputDialogPeer')
+  raise_cast_fail(dialog, "InputDialogPeer")
 }
 
 #' Get Input Document
@@ -428,13 +443,16 @@ get_input_dialog <- function(dialog) {
 #' input_doc <- get_input_document(document)
 #' }
 get_input_document <- function(document) {
-  tryCatch({
-    if (document$SUBCLASS_OF_ID == 0xf33fdb68) {  # crc32(b'InputDocument')
-      return(document)
+  tryCatch(
+    {
+      if (document$SUBCLASS_OF_ID == 0xf33fdb68) { # crc32(b'InputDocument')
+        return(document)
+      }
+    },
+    error = function(e) {
+      raise_cast_fail(document, "InputDocument")
     }
-  }, error = function(e) {
-    raise_cast_fail(document, 'InputDocument')
-  })
+  )
 
   if (inherits(document, "Document")) {
     return(types$InputDocument(
@@ -456,7 +474,7 @@ get_input_document <- function(document) {
     return(get_input_document(document$media))
   }
 
-  raise_cast_fail(document, 'InputDocument')
+  raise_cast_fail(document, "InputDocument")
 }
 
 #' Bitwise Length
@@ -465,7 +483,9 @@ get_input_document <- function(document) {
 #' @param x An integer value.
 #' @return The bitwise length of the integer.
 bitwLength <- function(x) {
-  if (x == 0) return(1)
+  if (x == 0) {
+    return(1)
+  }
   floor(log2(abs(x))) + 1
 }
 
@@ -479,7 +499,7 @@ bitwLength <- function(x) {
 check_prime_and_good_check <- function(prime, g) {
   good_prime_bits_count <- 2048
   if (prime < 0 || bitwLength(prime) != good_prime_bits_count) {
-    stop(sprintf('bad prime count %d, expected %d', bitwLength(prime), good_prime_bits_count))
+    stop(sprintf("bad prime count %d, expected %d", bitwLength(prime), good_prime_bits_count))
   }
 
   # TODO This is awfully slow
@@ -489,33 +509,33 @@ check_prime_and_good_check <- function(prime, g) {
 
   if (g == 2) {
     if (prime %% 8 != 7) {
-      stop(sprintf('bad g %d, mod8 %d', g, prime %% 8))
+      stop(sprintf("bad g %d, mod8 %d", g, prime %% 8))
     }
   } else if (g == 3) {
     if (prime %% 3 != 2) {
-      stop(sprintf('bad g %d, mod3 %d', g, prime %% 3))
+      stop(sprintf("bad g %d, mod3 %d", g, prime %% 3))
     }
   } else if (g == 4) {
     # pass
   } else if (g == 5) {
     if (!(prime %% 5 %in% c(1, 4))) {
-      stop(sprintf('bad g %d, mod5 %d', g, prime %% 5))
+      stop(sprintf("bad g %d, mod5 %d", g, prime %% 5))
     }
   } else if (g == 6) {
     if (!(prime %% 24 %in% c(19, 23))) {
-      stop(sprintf('bad g %d, mod24 %d', g, prime %% 24))
+      stop(sprintf("bad g %d, mod24 %d", g, prime %% 24))
     }
   } else if (g == 7) {
     if (!(prime %% 7 %in% c(3, 5, 6))) {
-      stop(sprintf('bad g %d, mod7 %d', g, prime %% 7))
+      stop(sprintf("bad g %d, mod7 %d", g, prime %% 7))
     }
   } else {
-    stop(sprintf('bad g %d', g))
+    stop(sprintf("bad g %d", g))
   }
 
   prime_sub1_div2 <- (prime - 1) %/% 2
   if (Factorization$new()$factorize(prime_sub1_div2)[[1]] != 1) {
-    stop('(prime - 1) // 2 is not prime')
+    stop("(prime - 1) // 2 is not prime")
   }
 
   # Else it's good
@@ -545,15 +565,16 @@ check_prime_and_good <- function(prime_bytes, g) {
     0xE4, 0x18, 0xFC, 0x15, 0xE8, 0x3E, 0xBE, 0xA0, 0xF8, 0x7F, 0xA9, 0xFF, 0x5E, 0xED, 0x70, 0x05,
     0x0D, 0xED, 0x28, 0x49, 0xF4, 0x7B, 0xF9, 0x59, 0xD9, 0x56, 0x85, 0x0C, 0xE9, 0x29, 0x85, 0x1F,
     0x0D, 0x81, 0x15, 0xF6, 0x35, 0xB1, 0x05, 0xEE, 0x2E, 0x4E, 0x15, 0xD0, 0x4B, 0x24, 0x54, 0xBF,
-    0x6F, 0x4F, 0xAD, 0xF0, 0x34, 0xB1, 0x04, 0x03, 0x11, 0x9C, 0xD8, 0xE3, 0xB9, 0x2F, 0xCC, 0x5B))
+    0x6F, 0x4F, 0xAD, 0xF0, 0x34, 0xB1, 0x04, 0x03, 0x11, 0x9C, 0xD8, 0xE3, 0xB9, 0x2F, 0xCC, 0x5B
+  ))
 
   if (identical(good_prime, prime_bytes)) {
     if (g %in% c(3, 4, 5, 7)) {
-      return()  # It's good
+      return() # It's good
     }
   }
 
-  check_prime_and_good_check(as.integer(prime_bytes, 'big'), g)
+  check_prime_and_good_check(as.integer(prime_bytes, "big"), g)
 }
 
 #' Is Good Large
@@ -586,7 +607,7 @@ num_bytes_for_hash <- function(number) {
 #' @param g An integer.
 #' @return A raw vector.
 big_num_for_hash <- function(g) {
-  return(as.raw(intToBits(g)[1:256]))  # Simplified, adjust for big-endian
+  return(as.raw(intToBits(g)[1:256])) # Simplified, adjust for big-endian
 }
 
 #' SHA256
@@ -613,9 +634,9 @@ is_good_mod_exp_first <- function(modexp, prime) {
   min_diff_bits_count <- 2048 - 64
   max_mod_exp_size <- 256
   if (diff < 0 ||
-      bitwLength(diff) < min_diff_bits_count ||
-      bitwLength(modexp) < min_diff_bits_count ||
-      ((bitwLength(modexp) + 7) %/% 8) > max_mod_exp_size) {
+    bitwLength(diff) < min_diff_bits_count ||
+    bitwLength(modexp) < min_diff_bits_count ||
+    ((bitwLength(modexp) + 7) %/% 8) > max_mod_exp_size) {
     return(FALSE)
   }
   return(TRUE)
@@ -666,15 +687,20 @@ compute_hash <- function(algo, password) {
 #' @param password A string.
 #' @return A raw vector.
 compute_digest <- function(algo, password) {
-  tryCatch({
-    check_prime_and_good(algo$p, algo$g)
-  }, error = function(e) {
-    stop('bad p/g in password')
-  })
+  tryCatch(
+    {
+      check_prime_and_good(algo$p, algo$g)
+    },
+    error = function(e) {
+      stop("bad p/g in password")
+    }
+  )
 
-  value <- pow(algo$g,
-               as.integer(compute_hash(algo, password), 'big'),
-               as.integer(algo$p, 'big'))
+  value <- pow(
+    algo$g,
+    as.integer(compute_hash(algo, password), "big"),
+    as.integer(algo$p, "big")
+  )
 
   return(big_num_for_hash(value))
 }
@@ -689,41 +715,44 @@ compute_digest <- function(algo, password) {
 compute_check <- function(request, password) {
   algo <- request$current_algo
   if (!inherits(algo, "PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow")) {
-    stop(sprintf('unsupported password algorithm %s', class(algo)))
+    stop(sprintf("unsupported password algorithm %s", class(algo)))
   }
 
   pw_hash <- compute_hash(algo, password)
 
-  p <- as.integer(algo$p, 'big')
+  p <- as.integer(algo$p, "big")
   g <- algo$g
-  B <- as.integer(request$srp_B, 'big')
-  tryCatch({
-    check_prime_and_good(algo$p, g)
-  }, error = function(e) {
-    stop('bad p/g in password')
-  })
+  B <- as.integer(request$srp_B, "big")
+  tryCatch(
+    {
+      check_prime_and_good(algo$p, g)
+    },
+    error = function(e) {
+      stop("bad p/g in password")
+    }
+  )
 
   if (!is_good_large(B, p)) {
-    stop('bad b in check')
+    stop("bad b in check")
   }
 
-  x <- as.integer(pw_hash, 'big')
+  x <- as.integer(pw_hash, "big")
   p_for_hash <- num_bytes_for_hash(algo$p)
   g_for_hash <- big_num_for_hash(g)
   b_for_hash <- num_bytes_for_hash(request$srp_B)
   g_x <- pow(g, x, p)
-  k <- as.integer(sha256(p_for_hash, g_for_hash), 'big')
+  k <- as.integer(sha256(p_for_hash, g_for_hash), "big")
   kg_x <- (k * g_x) %% p
 
   generate_and_check_random <- function() {
     random_size <- 256
     while (TRUE) {
       random <- as.raw(runif(random_size, 0, 255))
-      a <- as.integer(random, 'big')
+      a <- as.integer(random, "big")
       A <- pow(g, a, p)
       if (is_good_mod_exp_first(A, p)) {
         a_for_hash <- big_num_for_hash(A)
-        u <- as.integer(sha256(a_for_hash, b_for_hash), 'big')
+        u <- as.integer(sha256(a_for_hash, b_for_hash), "big")
         if (u > 0) {
           return(list(a = a, a_for_hash = a_for_hash, u = u))
         }
@@ -737,7 +766,7 @@ compute_check <- function(request, password) {
   u <- res$u
   g_b <- (B - kg_x) %% p
   if (!is_good_mod_exp_first(g_b, p)) {
-    stop('bad g_b')
+    stop("bad g_b")
   }
 
   ux <- u * x
@@ -754,7 +783,8 @@ compute_check <- function(request, password) {
   )
 
   return(types$InputCheckPasswordSRP(
-    request$srp_id, a_for_hash, M1))
+    request$srp_id, a_for_hash, M1
+  ))
 }
 
 
@@ -776,151 +806,154 @@ compute_check <- function(request, password) {
 #' @param ttl The time-to-live in seconds. Default is \code{NULL}.
 #' @return An InputMedia object.
 get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_document = FALSE,
-              voice_note = FALSE, video_note = FALSE, supports_streaming = FALSE,
-              ttl = NULL) {
-  tryCatch({
-  if (media$SUBCLASS_OF_ID == 0xfaf846f4) {  # crc32(b'InputMedia')
-    return(media)
-  } else if (media$SUBCLASS_OF_ID == 0x846363e0) {  # crc32(b'InputPhoto')
-    return(types$InputMediaPhoto(media, ttl_seconds = ttl))
-  } else if (media$SUBCLASS_OF_ID == 0xf33fdb68) {  # crc32(b'InputDocument')
-    return(types$InputMediaDocument(media, ttl_seconds = ttl))
-  }
-  }, error = function(e) {
-  # AttributeError equivalent
-  })
+                            voice_note = FALSE, video_note = FALSE, supports_streaming = FALSE,
+                            ttl = NULL) {
+  tryCatch(
+    {
+      if (media$SUBCLASS_OF_ID == 0xfaf846f4) { # crc32(b'InputMedia')
+        return(media)
+      } else if (media$SUBCLASS_OF_ID == 0x846363e0) { # crc32(b'InputPhoto')
+        return(types$InputMediaPhoto(media, ttl_seconds = ttl))
+      } else if (media$SUBCLASS_OF_ID == 0xf33fdb68) { # crc32(b'InputDocument')
+        return(types$InputMediaDocument(media, ttl_seconds = ttl))
+      }
+    },
+    error = function(e) {
+      # AttributeError equivalent
+    }
+  )
 
   if (inherits(media, "MessageMediaPhoto")) {
-  return(types$InputMediaPhoto(
-    id = get_input_photo(media$photo),
-    spoiler = media$spoiler,
-    ttl_seconds = ttl %||% media$ttl_seconds
-  ))
+    return(types$InputMediaPhoto(
+      id = get_input_photo(media$photo),
+      spoiler = media$spoiler,
+      ttl_seconds = ttl %||% media$ttl_seconds
+    ))
   }
 
   if (inherits(media, c("Photo", "photos.Photo", "PhotoEmpty"))) {
-  return(types$InputMediaPhoto(
-    id = get_input_photo(media),
-    ttl_seconds = ttl
-  ))
+    return(types$InputMediaPhoto(
+      id = get_input_photo(media),
+      ttl_seconds = ttl
+    ))
   }
 
   if (inherits(media, "MessageMediaDocument")) {
-  return(types$InputMediaDocument(
-    id = get_input_document(media$document),
-    spoiler = media$spoiler,
-    ttl_seconds = ttl %||% media$ttl_seconds
-  ))
+    return(types$InputMediaDocument(
+      id = get_input_document(media$document),
+      spoiler = media$spoiler,
+      ttl_seconds = ttl %||% media$ttl_seconds
+    ))
   }
 
   if (inherits(media, c("Document", "DocumentEmpty"))) {
-  return(types$InputMediaDocument(
-    id = get_input_document(media),
-    ttl_seconds = ttl
-  ))
+    return(types$InputMediaDocument(
+      id = get_input_document(media),
+      ttl_seconds = ttl
+    ))
   }
 
   if (inherits(media, c("InputFile", "InputFileBig"))) {
-  if (is_photo) {
-    return(types$InputMediaUploadedPhoto(file = media, ttl_seconds = ttl))
-  } else {
-    attrs_mime <- get_attributes(
-    media,
-    attributes = attributes,
-    force_document = force_document,
-    voice_note = voice_note,
-    video_note = video_note,
-    supports_streaming = supports_streaming
-    )
-    return(types$InputMediaUploadedDocument(
-    file = media, mime_type = attrs_mime[[2]], attributes = attrs_mime[[1]], force_file = force_document,
-    ttl_seconds = ttl
-    ))
-  }
+    if (is_photo) {
+      return(types$InputMediaUploadedPhoto(file = media, ttl_seconds = ttl))
+    } else {
+      attrs_mime <- get_attributes(
+        media,
+        attributes = attributes,
+        force_document = force_document,
+        voice_note = voice_note,
+        video_note = video_note,
+        supports_streaming = supports_streaming
+      )
+      return(types$InputMediaUploadedDocument(
+        file = media, mime_type = attrs_mime[[2]], attributes = attrs_mime[[1]], force_file = force_document,
+        ttl_seconds = ttl
+      ))
+    }
   }
 
   if (inherits(media, "MessageMediaGame")) {
-  return(types$InputMediaGame(id = types$InputGameID(
-    id = media$game$id,
-    access_hash = media$game$access_hash
-  )))
+    return(types$InputMediaGame(id = types$InputGameID(
+      id = media$game$id,
+      access_hash = media$game$access_hash
+    )))
   }
 
   if (inherits(media, "MessageMediaContact")) {
-  return(types$InputMediaContact(
-    phone_number = media$phone_number,
-    first_name = media$first_name,
-    last_name = media$last_name,
-    vcard = ''
-  ))
+    return(types$InputMediaContact(
+      phone_number = media$phone_number,
+      first_name = media$first_name,
+      last_name = media$last_name,
+      vcard = ""
+    ))
   }
 
   if (inherits(media, "MessageMediaGeo")) {
-  return(types$InputMediaGeoPoint(geo_point = get_input_geo(media$geo)))
+    return(types$InputMediaGeoPoint(geo_point = get_input_geo(media$geo)))
   }
 
   if (inherits(media, "MessageMediaGeoLive")) {
-  return(types$InputMediaGeoLive(
-    geo_point = get_input_geo(media$geo),
-    period = media$period,
-    heading = media$heading,
-    proximity_notification_radius = media$proximity_notification_radius
-  ))
+    return(types$InputMediaGeoLive(
+      geo_point = get_input_geo(media$geo),
+      period = media$period,
+      heading = media$heading,
+      proximity_notification_radius = media$proximity_notification_radius
+    ))
   }
 
   if (inherits(media, "MessageMediaVenue")) {
-  return(types$InputMediaVenue(
-    geo_point = get_input_geo(media$geo),
-    title = media$title,
-    address = media$address,
-    provider = media$provider,
-    venue_id = media$venue_id,
-    venue_type = ''
-  ))
+    return(types$InputMediaVenue(
+      geo_point = get_input_geo(media$geo),
+      title = media$title,
+      address = media$address,
+      provider = media$provider,
+      venue_id = media$venue_id,
+      venue_type = ""
+    ))
   }
 
   if (inherits(media, "MessageMediaDice")) {
-  return(types$InputMediaDice(media$emoticon))
+    return(types$InputMediaDice(media$emoticon))
   }
 
   if (inherits(media, c(
-  "MessageMediaEmpty", "MessageMediaUnsupported",
-  "ChatPhotoEmpty", "UserProfilePhotoEmpty",
-  "ChatPhoto", "UserProfilePhoto"
+    "MessageMediaEmpty", "MessageMediaUnsupported",
+    "ChatPhotoEmpty", "UserProfilePhotoEmpty",
+    "ChatPhoto", "UserProfilePhoto"
   ))) {
-  return(types$InputMediaEmpty())
+    return(types$InputMediaEmpty())
   }
 
   if (inherits(media, "Message")) {
-  return(get_input_media(media$media, is_photo = is_photo, ttl = ttl))
+    return(get_input_media(media$media, is_photo = is_photo, ttl = ttl))
   }
 
   if (inherits(media, "MessageMediaPoll")) {
-  if (media$poll$quiz) {
-    if (length(media$results$results) == 0) {
-    # A quiz has correct answers, which we don't know until answered.
-    # If the quiz hasn't been answered we can't reconstruct it properly.
-    stop('Cannot cast unanswered quiz to any kind of InputMedia.')
+    if (media$poll$quiz) {
+      if (length(media$results$results) == 0) {
+        # A quiz has correct answers, which we don't know until answered.
+        # If the quiz hasn't been answered we can't reconstruct it properly.
+        stop("Cannot cast unanswered quiz to any kind of InputMedia.")
+      }
+      correct_answers <- sapply(media$results$results, function(r) if (r$correct) r$option else NULL)
+      correct_answers <- correct_answers[!sapply(correct_answers, is.null)]
+    } else {
+      correct_answers <- NULL
     }
-    correct_answers <- sapply(media$results$results, function(r) if (r$correct) r$option else NULL)
-    correct_answers <- correct_answers[!sapply(correct_answers, is.null)]
-  } else {
-    correct_answers <- NULL
-  }
 
-  return(types$InputMediaPoll(
-    poll = media$poll,
-    correct_answers = correct_answers,
-    solution = media$results$solution,
-    solution_entities = media$results$solution_entities
-  ))
+    return(types$InputMediaPoll(
+      poll = media$poll,
+      correct_answers = correct_answers,
+      solution = media$results$solution,
+      solution_entities = media$results$solution_entities
+    ))
   }
 
   if (inherits(media, "Poll")) {
-  return(types$InputMediaPoll(media))
+    return(types$InputMediaPoll(media))
   }
 
-  raise_cast_fail(media, 'InputMedia')
+  raise_cast_fail(media, "InputMedia")
 }
 
 #' Get Input Message
@@ -930,19 +963,22 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
 #' @param message The message object or ID to convert.
 #' @return An InputMessage object.
 get_input_message <- function(message) {
-  tryCatch({
-  if (is.integer(message)) {  # This case is really common too
-    return(types$InputMessageID(message))
-  } else if (message$SUBCLASS_OF_ID == 0x54b6bcc5) {  # crc32(b'InputMessage')
-    return(message)
-  } else if (message$SUBCLASS_OF_ID == 0x790009e3) {  # crc32(b'Message')
-    return(types$InputMessageID(message$id))
-  }
-  }, error = function(e) {
-  # Pass
-  })
+  tryCatch(
+    {
+      if (is.integer(message)) { # This case is really common too
+        return(types$InputMessageID(message))
+      } else if (message$SUBCLASS_OF_ID == 0x54b6bcc5) { # crc32(b'InputMessage')
+        return(message)
+      } else if (message$SUBCLASS_OF_ID == 0x790009e3) { # crc32(b'Message')
+        return(types$InputMessageID(message$id))
+      }
+    },
+    error = function(e) {
+      # Pass
+    }
+  )
 
-  raise_cast_fail(message, 'InputMessage')
+  raise_cast_fail(message, "InputMessage")
 }
 
 
@@ -953,15 +989,18 @@ get_input_message <- function(message) {
 #' @param call The call object to convert.
 #' @return An InputGroupCall object.
 get_input_group_call <- function(call) {
-  tryCatch({
-    if (call$SUBCLASS_OF_ID == 0x58611ab1) {  # crc32(b'InputGroupCall')
-      return(call)
-    } else if (call$SUBCLASS_OF_ID == 0x20b4f320) {  # crc32(b'GroupCall')
-      return(types$InputGroupCall(id = call$id, access_hash = call$access_hash))
+  tryCatch(
+    {
+      if (call$SUBCLASS_OF_ID == 0x58611ab1) { # crc32(b'InputGroupCall')
+        return(call)
+      } else if (call$SUBCLASS_OF_ID == 0x20b4f320) { # crc32(b'GroupCall')
+        return(types$InputGroupCall(id = call$id, access_hash = call$access_hash))
+      }
+    },
+    error = function(e) {
+      raise_cast_fail(call, "InputGroupCall")
     }
-  }, error = function(e) {
-    raise_cast_fail(call, 'InputGroupCall')
-  })
+  )
 }
 
 #' Get Entity Pair
@@ -980,18 +1019,24 @@ get_entity_pair <- function(entity_id, entities, cache, get_input_peer = get_inp
 
   entity <- entities[[as.character(entity_id)]]
   input_entity <- NULL
-  tryCatch({
-    resolved_id <- resolve_id(entity_id)[[1]]
-    cached <- cache$get(resolved_id)
-    input_entity <- cached$`_as_input_peer`()
-  }, error = function(e) {
-    # AttributeError is unlikely, so another error won't hurt
-    tryCatch({
-      input_entity <- get_input_peer(entity)
-    }, error = function(e2) {
-      input_entity <- NULL
-    })
-  })
+  tryCatch(
+    {
+      resolved_id <- resolve_id(entity_id)[[1]]
+      cached <- cache$get(resolved_id)
+      input_entity <- cached$`_as_input_peer`()
+    },
+    error = function(e) {
+      # AttributeError is unlikely, so another error won't hurt
+      tryCatch(
+        {
+          input_entity <- get_input_peer(entity)
+        },
+        error = function(e2) {
+          input_entity <- NULL
+        }
+      )
+    }
+  )
 
   return(list(entity, input_entity))
 }
@@ -1015,15 +1060,18 @@ get_message_id <- function(message) {
     return(message$id)
   }
 
-  tryCatch({
-    if (message$SUBCLASS_OF_ID == 0x790009e3) {  # hex(crc32(b'Message')) = 0x790009e3
-      return(message$id)
+  tryCatch(
+    {
+      if (message$SUBCLASS_OF_ID == 0x790009e3) { # hex(crc32(b'Message')) = 0x790009e3
+        return(message$id)
+      }
+    },
+    error = function(e) {
+      # Pass
     }
-  }, error = function(e) {
-    # Pass
-  })
+  )
 
-  stop('Invalid message type: ', typeof(message))
+  stop("Invalid message type: ", typeof(message))
 }
 
 
@@ -1093,7 +1141,6 @@ get_metadata <- function(file) {
     }
 
     return(metadata)
-
   }, error = function(e) {
     warning(sprintf("Failed to analyze %s: %s", file, conditionMessage(e)))
     return(NULL)
@@ -1126,14 +1173,14 @@ get_metadata <- function(file) {
 #' attrs <- get_attributes("example.mp3", voice_note = TRUE)
 #' }
 get_attributes <- function(file, attributes = NULL, mime_type = NULL,
-              force_document = FALSE, voice_note = FALSE, video_note = FALSE,
-              supports_streaming = FALSE, thumb = NULL) {
+                           force_document = FALSE, voice_note = FALSE, video_note = FALSE,
+                           supports_streaming = FALSE, thumb = NULL) {
   # Determine the file name
   name <- if (is.character(file)) file else (file$name %||% "unnamed")
 
   # Guess MIME type if not provided
   if (is.null(mime_type)) {
-  mime_type <- mimetypes$guess_type(name)[[1]]
+    mime_type <- mimetypes$guess_type(name)[[1]]
   }
 
   # Initialize attributes list
@@ -1144,74 +1191,74 @@ get_attributes <- function(file, attributes = NULL, mime_type = NULL,
 
   # Check for audio attributes
   if (is_audio(file)) {
-  m <- get_metadata(file)
-  if (!is.null(m)) {
-    performer <- if (m$has('author')) m$get('author') else if (m$has('artist')) m$get('artist') else NULL
-    attributes_list <- c(attributes_list, types$DocumentAttributeAudio(
-    voice = voice_note,
-    title = if (m$has('title')) m$get('title') else NULL,
-    performer = performer,
-    duration = if (m$has('duration')) as.integer(m$get('duration')$seconds) else 0L
-    ))
-  }
+    m <- get_metadata(file)
+    if (!is.null(m)) {
+      performer <- if (m$has("author")) m$get("author") else if (m$has("artist")) m$get("artist") else NULL
+      attributes_list <- c(attributes_list, types$DocumentAttributeAudio(
+        voice = voice_note,
+        title = if (m$has("title")) m$get("title") else NULL,
+        performer = performer,
+        duration = if (m$has("duration")) as.integer(m$get("duration")$seconds) else 0L
+      ))
+    }
   }
 
   # Check for video attributes if not forcing document
   if (!force_document && is_video(file)) {
-  m <- get_metadata(file)
-  if (!is.null(m)) {
-    doc <- types$DocumentAttributeVideo(
-    round_message = video_note,
-    w = if (m$has('width')) m$get('width') else 1L,
-    h = if (m$has('height')) m$get('height') else 1L,
-    duration = if (m$has('duration')) as.integer(m$get('duration')$seconds) else 1L,
-    supports_streaming = supports_streaming
-    )
-  } else if (!is.null(thumb)) {
-    t_m <- get_metadata(thumb)
-    width <- 1L
-    height <- 1L
-    if (!is.null(t_m) && t_m$has("width")) width <- t_m$get("width")
-    if (!is.null(t_m) && t_m$has("height")) height <- t_m$get("height")
-    doc <- types$DocumentAttributeVideo(
-    duration = 0L, w = width, h = height, round_message = video_note,
-    supports_streaming = supports_streaming
-    )
-  } else {
-    doc <- types$DocumentAttributeVideo(
-    duration = 0L, w = 1L, h = 1L, round_message = video_note,
-    supports_streaming = supports_streaming
-    )
-  }
-  attributes_list <- c(attributes_list, doc)
+    m <- get_metadata(file)
+    if (!is.null(m)) {
+      doc <- types$DocumentAttributeVideo(
+        round_message = video_note,
+        w = if (m$has("width")) m$get("width") else 1L,
+        h = if (m$has("height")) m$get("height") else 1L,
+        duration = if (m$has("duration")) as.integer(m$get("duration")$seconds) else 1L,
+        supports_streaming = supports_streaming
+      )
+    } else if (!is.null(thumb)) {
+      t_m <- get_metadata(thumb)
+      width <- 1L
+      height <- 1L
+      if (!is.null(t_m) && t_m$has("width")) width <- t_m$get("width")
+      if (!is.null(t_m) && t_m$has("height")) height <- t_m$get("height")
+      doc <- types$DocumentAttributeVideo(
+        duration = 0L, w = width, h = height, round_message = video_note,
+        supports_streaming = supports_streaming
+      )
+    } else {
+      doc <- types$DocumentAttributeVideo(
+        duration = 0L, w = 1L, h = 1L, round_message = video_note,
+        supports_streaming = supports_streaming
+      )
+    }
+    attributes_list <- c(attributes_list, doc)
   }
 
   # Handle voice note
   if (voice_note) {
-  audio_attr_idx <- which(sapply(attributes_list, function(x) inherits(x, "DocumentAttributeAudio")))
-  if (length(audio_attr_idx) > 0) {
-    attributes_list[[audio_attr_idx]]$voice <- TRUE
-  } else {
-    attributes_list <- c(attributes_list, types$DocumentAttributeAudio(duration = 0L, voice = TRUE))
-  }
+    audio_attr_idx <- which(sapply(attributes_list, function(x) inherits(x, "DocumentAttributeAudio")))
+    if (length(audio_attr_idx) > 0) {
+      attributes_list[[audio_attr_idx]]$voice <- TRUE
+    } else {
+      attributes_list <- c(attributes_list, types$DocumentAttributeAudio(duration = 0L, voice = TRUE))
+    }
   }
 
   # Override with user-provided attributes
   if (!is.null(attributes)) {
-  for (a in attributes) {
-    type_a <- class(a)
-    idx <- which(sapply(attributes_list, function(x) class(x) == type_a))
-    if (length(idx) > 0) {
-    attributes_list[[idx]] <- a
-    } else {
-    attributes_list <- c(attributes_list, a)
+    for (a in attributes) {
+      type_a <- class(a)
+      idx <- which(sapply(attributes_list, function(x) class(x) == type_a))
+      if (length(idx) > 0) {
+        attributes_list[[idx]] <- a
+      } else {
+        attributes_list <- c(attributes_list, a)
+      }
     }
-  }
   }
 
   # Ensure MIME type is set
   if (is.null(mime_type)) {
-  mime_type <- 'application/octet-stream'
+    mime_type <- "application/octet-stream"
   }
 
   return(list(attributes_list, mime_type))
@@ -1229,16 +1276,16 @@ get_attributes <- function(file, attributes = NULL, mime_type = NULL,
 #' @examples
 #' \dontrun{
 #' # Assuming markdown and html are defined elsewhere
-#' mode <- sanitize_parse_mode('markdown')
-#' parsed <- mode$parse('**bold**')
+#' mode <- sanitize_parse_mode("markdown")
+#' parsed <- mode$parse("**bold**")
 #' }
 sanitize_parse_mode <- function(mode) {
   if (is.null(mode)) {
     return(NULL)
   }
 
-  if (all(c('parse', 'unparse') %in% names(mode)) &&
-      all(sapply(c(mode$parse, mode$unparse), is.function))) {
+  if (all(c("parse", "unparse") %in% names(mode)) &&
+    all(sapply(c(mode$parse, mode$unparse), is.function))) {
     return(mode)
   } else if (is.function(mode)) {
     custom_mode <- CustomMode$new()
@@ -1246,23 +1293,22 @@ sanitize_parse_mode <- function(mode) {
     return(custom_mode)
   } else if (is.character(mode)) {
     mode_lower <- tolower(mode)
-    if (mode_lower %in% c('md', 'markdown')) {
+    if (mode_lower %in% c("md", "markdown")) {
       return(markdown)
-    } else if (mode_lower %in% c('htm', 'html')) {
+    } else if (mode_lower %in% c("htm", "html")) {
       return(html)
     } else {
-      stop(sprintf('Unknown parse mode %s', mode))
+      stop(sprintf("Unknown parse mode %s", mode))
     }
   } else {
-    stop(sprintf('Invalid parse mode type %s', typeof(mode)))
+    stop(sprintf("Invalid parse mode type %s", typeof(mode)))
   }
 }
 
 #' @title CustomMode
 #' @description An R6 class representing a custom parse mode with parse and unparse methods.
 #' This class is used when a callable function is provided as the parse mode.
-#' @field parse A function to parse text into entities.
-#' @field unparse A function to unparse entities back to text (raises an error by default).
+#' @export
 CustomMode <- R6::R6Class(
   "CustomMode",
   public = list(
@@ -1306,13 +1352,16 @@ get_input_location <- function(location) {
 #' @param location The location object.
 #' @return A list with elements \code{dc_id}, \code{location}, and \code{size}.
 get_file_info <- function(location) {
-  tryCatch({
-    if (location$SUBCLASS_OF_ID == 0x1523d462) {
-      return(list(dc_id = NULL, location = location, size = NULL))
+  tryCatch(
+    {
+      if (location$SUBCLASS_OF_ID == 0x1523d462) {
+        return(list(dc_id = NULL, location = location, size = NULL))
+      }
+    },
+    error = function(e) {
+      raise_cast_fail(location, "InputFileLocation")
     }
-  }, error = function(e) {
-    raise_cast_fail(location, 'InputFileLocation')
-  })
+  )
 
   if (inherits(location, "Message")) {
     location <- location$media
@@ -1331,7 +1380,7 @@ get_file_info <- function(location) {
         id = location$id,
         access_hash = location$access_hash,
         file_reference = location$file_reference,
-        thumb_size = ''  # Presumably to download one of its thumbnails
+        thumb_size = "" # Presumably to download one of its thumbnails
       ),
       size = location$size
     ))
@@ -1349,7 +1398,7 @@ get_file_info <- function(location) {
     ))
   }
 
-  raise_cast_fail(location, 'InputFileLocation')
+  raise_cast_fail(location, "InputFileLocation")
 }
 
 #' Get File Extension
@@ -1362,7 +1411,7 @@ get_file_info <- function(location) {
 get_file_extension <- function(file) {
   if (is.character(file)) {
     return(tools::file_ext(file))
-  } else if (inherits(file, "fs_path")) {  # Assuming fs package for path objects
+  } else if (inherits(file, "fs_path")) { # Assuming fs package for path objects
     return(fs::path_ext(file))
   } else if (!is.null(file$name)) {
     return(get_file_extension(file$name))
@@ -1412,15 +1461,15 @@ is_audio <- function(file) {
   ext <- get_extension(file)
   if (!ext) {
     metadata <- get_metadata(file)
-    if (!is.null(metadata) && metadata$has('mime_type')) {
-      return(startsWith(metadata$get('mime_type'), 'audio/'))
+    if (!is.null(metadata) && metadata$has("mime_type")) {
+      return(startsWith(metadata$get("mime_type"), "audio/"))
     } else {
       return(FALSE)
     }
   } else {
-    dummy_file <- paste0('a', ext)
+    dummy_file <- paste0("a", ext)
     mime_type <- mimetypes$guess_type(dummy_file)[[1]]
-    return(startsWith(mime_type %||% '', 'audio/'))
+    return(startsWith(mime_type %||% "", "audio/"))
   }
 }
 
@@ -1435,15 +1484,15 @@ is_video <- function(file) {
   ext <- get_extension(file)
   if (!ext) {
     metadata <- get_metadata(file)
-    if (!is.null(metadata) && metadata$has('mime_type')) {
-      return(startsWith(metadata$get('mime_type'), 'video/'))
+    if (!is.null(metadata) && metadata$has("mime_type")) {
+      return(startsWith(metadata$get("mime_type"), "video/"))
     } else {
       return(FALSE)
     }
   } else {
-    dummy_file <- paste0('a', ext)
+    dummy_file <- paste0("a", ext)
     mime_type <- mimetypes$guess_type(dummy_file)[[1]]
-    return(startsWith(mime_type %||% '', 'video/'))
+    return(startsWith(mime_type %||% "", "video/"))
   }
 }
 
@@ -1459,15 +1508,19 @@ is_video <- function(file) {
 #' @return A logical value indicating whether the object is list-like.
 #' @examples
 #' \dontrun{
-#' is_list_like(list(1, 2, 3))  # TRUE
-#' is_list_like(1:10)  # TRUE
-#' is_list_like("string")  # FALSE
-#' is_list_like(as.raw(c(1, 2)))  # FALSE
+#' is_list_like(list(1, 2, 3)) # TRUE
+#' is_list_like(1:10) # TRUE
+#' is_list_like("string") # FALSE
+#' is_list_like(as.raw(c(1, 2))) # FALSE
 #' }
 is_list_like <- function(obj) {
   # Exclude strings and raw vectors to match Python's behavior
-  if (is.character(obj) && length(obj) == 1) return(FALSE)
-  if (is.raw(obj)) return(FALSE)
+  if (is.character(obj) && length(obj) == 1) {
+    return(FALSE)
+  }
+  if (is.raw(obj)) {
+    return(FALSE)
+  }
   # Check for common list-like types
   return(is.list(obj) || is.vector(obj) || is.matrix(obj) || is.array(obj) || is.data.frame(obj) || is.environment(obj))
 }
@@ -1481,9 +1534,9 @@ is_list_like <- function(obj) {
 #' @return A character string of the parsed phone number, or `NULL` if invalid.
 #' @examples
 #' \dontrun{
-#' parse_phone(1234567890)  # "1234567890"
-#' parse_phone("+1 (234) 567-890")  # "1234567890"
-#' parse_phone("invalid")  # NULL
+#' parse_phone(1234567890) # "1234567890"
+#' parse_phone("+1 (234) 567-890") # "1234567890"
+#' parse_phone("invalid") # NULL
 #' }
 parse_phone <- function(phone) {
   if (is.integer(phone)) {
@@ -1508,16 +1561,16 @@ parse_phone <- function(phone) {
 #' @return A list with two elements: the parsed username (or `NULL`) and a logical for invite status.
 #' @examples
 #' \dontrun{
-#' parse_username("@username")  # list("username", FALSE)
-#' parse_username("https://t.me/joinchat/abc123")  # list("abc123", TRUE)
-#' parse_username("invalid")  # list(NULL, FALSE)
+#' parse_username("@username") # list("username", FALSE)
+#' parse_username("https://t.me/joinchat/abc123") # list("abc123", TRUE)
+#' parse_username("invalid") # list(NULL, FALSE)
 #' }
 parse_username <- function(username) {
   username <- trimws(username)
   # Define regex patterns (translated from Python)
   username_re <- "@|(?:https?://)?(?:www\\.)?(?:telegram\\.(?:me|dog)|t\\.me)/(@|\\+|joinchat/)?"
   tg_join_re <- "tg://(join)\\?invite="
-  valid_username_re <- "^[a-z](?:[a-zA-Z0-9_]{0,30})?[a-z0-9]$"  # Simplified approximation without negative lookahead
+  valid_username_re <- "^[a-z](?:[a-zA-Z0-9_]{0,30})?[a-z0-9]$" # Simplified approximation without negative lookahead
 
   # Check USERNAME_RE
   m <- regexpr(username_re, username, perl = TRUE)
@@ -1563,7 +1616,7 @@ get_inner_text <- function(text, entities) {
   text <- add_surrogate(text)
   result <- list()
   for (e in entities) {
-    start <- e$offset + 1  # R is 1-indexed
+    start <- e$offset + 1 # R is 1-indexed
     end <- e$offset + e$length
     result <- c(result, del_surrogate(substr(text, start, end)))
   }
@@ -1578,39 +1631,42 @@ get_inner_text <- function(text, entities) {
 #' @param peer The peer object or integer to convert.
 #' @return A Peer object (PeerUser, PeerChat, or PeerChannel).
 get_peer <- function(peer) {
-  tryCatch({
-    if (is.integer(peer)) {
-      pid_cls <- resolve_id(peer)
-      return(pid_cls[[2]](pid_cls[[1]]))
-    } else if (peer$SUBCLASS_OF_ID == 0x2d45687) {
-      return(peer)
-    } else if (inherits(peer, c("ResolvedPeer", "InputNotifyPeer", "TopPeer", "Dialog", "DialogPeer"))) {
-      return(peer$peer)
-    } else if (inherits(peer, "ChannelFull")) {
-      return(types$PeerChannel(peer$id))
-    } else if (inherits(peer, "UserEmpty")) {
-      return(types$PeerUser(peer$id))
-    } else if (inherits(peer, "ChatEmpty")) {
-      return(types$PeerChat(peer$id))
-    }
+  tryCatch(
+    {
+      if (is.integer(peer)) {
+        pid_cls <- resolve_id(peer)
+        return(pid_cls[[2]](pid_cls[[1]]))
+      } else if (peer$SUBCLASS_OF_ID == 0x2d45687) {
+        return(peer)
+      } else if (inherits(peer, c("ResolvedPeer", "InputNotifyPeer", "TopPeer", "Dialog", "DialogPeer"))) {
+        return(peer$peer)
+      } else if (inherits(peer, "ChannelFull")) {
+        return(types$PeerChannel(peer$id))
+      } else if (inherits(peer, "UserEmpty")) {
+        return(types$PeerUser(peer$id))
+      } else if (inherits(peer, "ChatEmpty")) {
+        return(types$PeerChat(peer$id))
+      }
 
-    if (peer$SUBCLASS_OF_ID %in% c(0x7d7c6f86, 0xd9c7fc18)) {
-      # ChatParticipant, ChannelParticipant
-      return(types$PeerUser(peer$user_id))
-    }
+      if (peer$SUBCLASS_OF_ID %in% c(0x7d7c6f86, 0xd9c7fc18)) {
+        # ChatParticipant, ChannelParticipant
+        return(types$PeerUser(peer$user_id))
+      }
 
-    peer <- get_input_peer(peer, allow_self = FALSE, check_hash = FALSE)
-    if (inherits(peer, c("InputPeerUser", "InputPeerUserFromMessage"))) {
-      return(types$PeerUser(peer$user_id))
-    } else if (inherits(peer, "InputPeerChat")) {
-      return(types$PeerChat(peer$chat_id))
-    } else if (inherits(peer, c("InputPeerChannel", "InputPeerChannelFromMessage"))) {
-      return(types$PeerChannel(peer$channel_id))
+      peer <- get_input_peer(peer, allow_self = FALSE, check_hash = FALSE)
+      if (inherits(peer, c("InputPeerUser", "InputPeerUserFromMessage"))) {
+        return(types$PeerUser(peer$user_id))
+      } else if (inherits(peer, "InputPeerChat")) {
+        return(types$PeerChat(peer$chat_id))
+      } else if (inherits(peer, c("InputPeerChannel", "InputPeerChannelFromMessage"))) {
+        return(types$PeerChannel(peer$channel_id))
+      }
+    },
+    error = function(e) {
+      # Handle AttributeError or TypeError equivalent
     }
-  }, error = function(e) {
-    # Handle AttributeError or TypeError equivalent
-  })
-  raise_cast_fail(peer, 'Peer')
+  )
+  raise_cast_fail(peer, "Peer")
 }
 
 
@@ -1648,11 +1704,14 @@ get_peer_id <- function(peer, add_mark = TRUE) {
     stop("Cannot cast InputPeerSelf to int (you might want to use client.get_peer_id)")
   }
 
-  tryCatch({
-    peer <- get_peer(peer)
-  }, error = function(e) {
-    stop("Cannot cast ", class(peer), " to int")
-  })
+  tryCatch(
+    {
+      peer <- get_peer(peer)
+    },
+    error = function(e) {
+      stop("Cannot cast ", class(peer), " to int")
+    }
+  )
 
   if (inherits(peer, "PeerUser")) {
     return(peer$user_id)
@@ -1662,7 +1721,7 @@ get_peer_id <- function(peer, add_mark = TRUE) {
       peer$chat_id <- resolve_id(peer$chat_id)[[1]]
     }
     return(if (add_mark) -peer$chat_id else peer$chat_id)
-  } else {  # PeerChannel
+  } else { # PeerChannel
     # Check in case the user mixed things up to avoid blowing up
     if (!(0 < peer$channel_id && peer$channel_id <= 9999999999)) {
       peer$channel_id <- resolve_id(peer$channel_id)[[1]]
@@ -1761,16 +1820,19 @@ rle_encode <- function(string) {
 #' @param string A character string representing the url-safe base64-encoded data.
 #' @return A raw vector of bytes if decoding succeeds, otherwise NULL.
 decode_telegram_base64 <- function(string) {
-  tryCatch({
-    # Add padding to make length multiple of 4
-    padded <- paste0(string, strrep("=", (4 - nchar(string) %% 4) %% 4))
-    # Convert url-safe to standard base64
-    standard <- chartr("-_", "+/", padded)
-    # Decode
-    base64enc::base64decode(standard)
-  }, error = function(e) {
-    NULL  # not valid base64, not valid ascii, not a string
-  })
+  tryCatch(
+    {
+      # Add padding to make length multiple of 4
+      padded <- paste0(string, strrep("=", (4 - nchar(string) %% 4) %% 4))
+      # Convert url-safe to standard base64
+      standard <- chartr("-_", "+/", padded)
+      # Decode
+      base64enc::base64decode(standard)
+    },
+    error = function(e) {
+      NULL # not valid base64, not valid ascii, not a string
+    }
+  )
 }
 
 #' Encode Telegram Base64
@@ -1781,15 +1843,18 @@ decode_telegram_base64 <- function(string) {
 #' @param bytes A raw vector of bytes to encode.
 #' @return A character string representing the url-safe base64-encoded data if encoding succeeds, otherwise NULL.
 encode_telegram_base64 <- function(bytes) {
-  tryCatch({
-    # Encode to standard base64
-    encoded <- base64enc::base64encode(bytes)
-    # Convert to url-safe and strip padding
-    urlsafe <- chartr("+/", "-_", encoded)
-    sub("=+$", "", urlsafe)
-  }, error = function(e) {
-    NULL  # not valid base64, not valid ascii, not a string
-  })
+  tryCatch(
+    {
+      # Encode to standard base64
+      encoded <- base64enc::base64encode(bytes)
+      # Convert to url-safe and strip padding
+      urlsafe <- chartr("+/", "-_", encoded)
+      sub("=+$", "", urlsafe)
+    },
+    error = function(e) {
+      NULL # not valid base64, not valid ascii, not a string
+    }
+  )
 }
 
 
@@ -1856,7 +1921,7 @@ resolve_bot_file_id <- function(file_id) {
       ))
     } else if (file_type == 8) {
       attributes <- c(attributes, types$DocumentAttributeSticker(
-        alt = '',
+        alt = "",
         stickerset = types$InputStickerSetEmpty()
       ))
     } else if (file_type == 10) {
@@ -1867,7 +1932,7 @@ resolve_bot_file_id <- function(file_id) {
       id = media_id,
       access_hash = access_hash,
       date = NULL,
-      mime_type = '',
+      mime_type = "",
       size = 0,
       thumbs = NULL,
       dc_id = dc_id,
@@ -1910,7 +1975,7 @@ resolve_bot_file_id <- function(file_id) {
     }
 
     # Thumbnails (small) always have ID 0; otherwise size 'x'
-    photo_size <- if (media_id == 0 && access_hash == 0) 's' else 'x'
+    photo_size <- if (media_id == 0 && access_hash == 0) "s" else "x"
     return(types$Photo(
       id = media_id,
       access_hash = access_hash,
@@ -1981,7 +2046,9 @@ pack_bot_file_id <- function(file) {
       }
     }
 
-    if (is.null(size)) return(NULL)
+    if (is.null(size)) {
+      return(NULL)
+    }
 
     size <- size$location
 
@@ -2039,28 +2106,31 @@ resolve_invite_link <- function(link) {
     payload <- decode_telegram_base64(link_hash)
   }
 
-  tryCatch({
-    if (length(payload) == 12) {
-      # Unpack as big-endian: unsigned long (8 bytes), unsigned long long (8 bytes)
-      con <- rawConnection(payload, "rb")
-      user_id <- readBin(con, "integer", size = 8, endian = "big", signed = FALSE)
-      chat_id <- readBin(con, "integer", size = 8, endian = "big", signed = FALSE)
-      close(con)
-      return(list(0, user_id, chat_id))
-    } else if (length(payload) == 16) {
-      # Unpack as big-endian: unsigned long (4 bytes), unsigned long (4 bytes), unsigned long long (8 bytes)
-      con <- rawConnection(payload, "rb")
-      creator_id <- readBin(con, "integer", size = 4, endian = "big", signed = FALSE)
-      chat_id <- readBin(con, "integer", size = 4, endian = "big", signed = FALSE)
-      random_int <- readBin(con, "integer", size = 8, endian = "big", signed = FALSE)
-      close(con)
-      return(list(creator_id, chat_id, random_int))
-    } else {
+  tryCatch(
+    {
+      if (length(payload) == 12) {
+        # Unpack as big-endian: unsigned long (8 bytes), unsigned long long (8 bytes)
+        con <- rawConnection(payload, "rb")
+        user_id <- readBin(con, "integer", size = 8, endian = "big", signed = FALSE)
+        chat_id <- readBin(con, "integer", size = 8, endian = "big", signed = FALSE)
+        close(con)
+        return(list(0, user_id, chat_id))
+      } else if (length(payload) == 16) {
+        # Unpack as big-endian: unsigned long (4 bytes), unsigned long (4 bytes), unsigned long long (8 bytes)
+        con <- rawConnection(payload, "rb")
+        creator_id <- readBin(con, "integer", size = 4, endian = "big", signed = FALSE)
+        chat_id <- readBin(con, "integer", size = 4, endian = "big", signed = FALSE)
+        random_int <- readBin(con, "integer", size = 8, endian = "big", signed = FALSE)
+        close(con)
+        return(list(creator_id, chat_id, random_int))
+      } else {
+        return(list(NULL, NULL, NULL))
+      }
+    },
+    error = function(e) {
       return(list(NULL, NULL, NULL))
     }
-  }, error = function(e) {
-    return(list(NULL, NULL, NULL))
-  })
+  )
 }
 
 
@@ -2079,24 +2149,27 @@ resolve_invite_link <- function(link) {
 #' @param inline_msg_id A character string representing the inline message ID.
 #' @return A list containing message_id, peer, dc_id, access_hash, or NULLs if invalid.
 resolve_inline_message_id <- function(inline_msg_id) {
-  tryCatch({
-    data <- decode_telegram_base64(inline_msg_id)
-    if (is.null(data)) {
+  tryCatch(
+    {
+      data <- decode_telegram_base64(inline_msg_id)
+      if (is.null(data)) {
+        return(list(NULL, NULL, NULL, NULL))
+      }
+      # Unpack as little-endian: 3 ints (4 bytes each) and 1 long long (8 bytes)
+      con <- rawConnection(data, "rb")
+      dc_id <- readBin(con, "integer", size = 4, endian = "little", signed = TRUE)
+      message_id <- readBin(con, "integer", size = 4, endian = "little", signed = TRUE)
+      pid <- readBin(con, "integer", size = 4, endian = "little", signed = TRUE)
+      access_hash <- readBin(con, "integer", size = 8, endian = "little", signed = TRUE)
+      close(con)
+
+      peer <- if (pid < 0) types$PeerChannel(-pid) else types$PeerUser(pid)
+      return(list(message_id, peer, dc_id, access_hash))
+    },
+    error = function(e) {
       return(list(NULL, NULL, NULL, NULL))
     }
-    # Unpack as little-endian: 3 ints (4 bytes each) and 1 long long (8 bytes)
-    con <- rawConnection(data, "rb")
-    dc_id <- readBin(con, "integer", size = 4, endian = "little", signed = TRUE)
-    message_id <- readBin(con, "integer", size = 4, endian = "little", signed = TRUE)
-    pid <- readBin(con, "integer", size = 4, endian = "little", signed = TRUE)
-    access_hash <- readBin(con, "integer", size = 8, endian = "little", signed = TRUE)
-    close(con)
-
-    peer <- if (pid < 0) types$PeerChannel(-pid) else types$PeerUser(pid)
-    return(list(message_id, peer, dc_id, access_hash))
-  }, error = function(e) {
-    return(list(NULL, NULL, NULL, NULL))
-  })
+  )
 }
 
 #' Get Appropriated Part Size
@@ -2107,10 +2180,10 @@ resolve_inline_message_id <- function(inline_msg_id) {
 #' @param file_size An integer representing the file size in bytes.
 #' @return An integer representing the part size.
 get_appropriated_part_size <- function(file_size) {
-  if (file_size <= 104857600) {  # 100MB
+  if (file_size <= 104857600) { # 100MB
     return(128)
   }
-  if (file_size <= 786432000) {  # 750MB
+  if (file_size <= 786432000) { # 750MB
     return(256)
   }
   return(512)
@@ -2127,14 +2200,14 @@ get_appropriated_part_size <- function(file_size) {
 #' @return A raw vector containing the encoded waveform.
 #' @examples
 #' \dontrun{
-#'   # Send 'my.ogg' with an ascending-triangle waveform
-#'   waveform <- as.raw(0:31)  # 2^5 values for 5-bit
-#'   encoded <- encode_waveform(waveform)
-#'   # Use encoded in attributes
+#' # Send 'my.ogg' with an ascending-triangle waveform
+#' waveform <- as.raw(0:31) # 2^5 values for 5-bit
+#' encoded <- encode_waveform(waveform)
+#' # Use encoded in attributes
 #'
-#'   # Send 'my.ogg' with a square waveform
-#'   waveform <- rep(as.raw(c(31, 31, 15, 15, 15, 15, 31, 31)), 4)
-#'   encoded <- encode_waveform(waveform)
+#' # Send 'my.ogg' with a square waveform
+#' waveform <- rep(as.raw(c(31, 31, 15, 15, 15, 15, 31, 31)), 4)
+#' encoded <- encode_waveform(waveform)
 #' }
 encode_waveform <- function(waveform) {
   bits_count <- length(waveform) * 5
@@ -2183,9 +2256,9 @@ encode_waveform <- function(waveform) {
 #' @return A raw vector containing the decoded 5-bit values.
 #' @examples
 #' \dontrun{
-#'   # Example usage (assuming encoded waveform)
-#'   encoded <- as.raw(c(0x00, 0x00))  # Placeholder
-#'   decoded <- decode_waveform(encoded)
+#' # Example usage (assuming encoded waveform)
+#' encoded <- as.raw(c(0x00, 0x00)) # Placeholder
+#' decoded <- decode_waveform(encoded)
 #' }
 decode_waveform <- function(waveform) {
   bit_count <- length(waveform) * 8
@@ -2240,13 +2313,13 @@ decode_waveform <- function(waveform) {
 #'   Each pair represents a portion of the original text and its corresponding entities.
 #' @examples
 #' \dontrun{
-#'   # Assuming entities are lists like list(offset = 0, length = 5, ...)
-#'   text <- "This is a very long message that needs to be split."
-#'   entities <- list(list(offset = 0, length = 4))  # Example entity
-#'   splits <- split_text(text, entities, limit = 20)
-#'   for (split in splits) {
-#'     # Send split[[1]] (text) with split[[2]] (entities)
-#'   }
+#' # Assuming entities are lists like list(offset = 0, length = 5, ...)
+#' text <- "This is a very long message that needs to be split."
+#' entities <- list(list(offset = 0, length = 4)) # Example entity
+#' splits <- split_text(text, entities, limit = 20)
+#' for (split in splits) {
+#'   # Send split[[1]] (text) with split[[2]] (entities)
+#' }
 #' }
 split_text <- function(text, entities, limit = 4096L, max_entities = 100L, split_at = c("\\n", "\\s", ".")) {
   # Helper function to update an entity with new values
@@ -2331,7 +2404,7 @@ split_text <- function(text, entities, limit = 4096L, max_entities = 100L, split
 #' @title AsyncClassWrapper
 #' @description An R6 class that wraps an object and provides asynchronous method wrapping.
 #' This class mimics the behavior of a Python class that wraps objects to handle asynchronous calls.
-#' @field wrapped The wrapped object.
+#' @export
 AsyncClassWrapper <- R6::R6Class(
   "AsyncClassWrapper",
   public = list(
@@ -2380,7 +2453,7 @@ AsyncClassWrapper <- R6::R6Class(
 #' @examples
 #' \dontrun{
 #' # Assuming stripped is a raw vector from a stripped photo
-#' stripped <- as.raw(c(0x01, 0x80, 0x60, ...))  # example bytes
+#' stripped <- as.raw(c(0x01, 0x80, 0x60, ...)) # example bytes
 #' jpg_bytes <- stripped_photo_to_jpg(stripped)
 #' }
 stripped_photo_to_jpg <- function(stripped) {
@@ -2453,7 +2526,7 @@ stripped_photo_to_jpg <- function(stripped) {
 #' \dontrun{
 #' # Assuming types are defined elsewhere, e.g., types$PhotoSize
 #' size <- types$PhotoSize(size = 1024)
-#' photo_size_byte_count(size)  # Returns 1024
+#' photo_size_byte_count(size) # Returns 1024
 #' }
 photo_size_byte_count <- function(size) {
   if (inherits(size, "PhotoSize")) {
@@ -2490,8 +2563,11 @@ photo_size_byte_count <- function(size) {
 #' \dontrun{
 #' # Assuming 'future' package is used for async operations
 #' library(future)
-#' f <- future({ Sys.sleep(1); 42 })
-#' result <- maybe_async(f)  # Will warn and resolve to 42
+#' f <- future({
+#'   Sys.sleep(1)
+#'   42
+#' })
+#' result <- maybe_async(f) # Will warn and resolve to 42
 #' }
 maybe_async <- function(coro) {
   result <- coro

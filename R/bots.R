@@ -34,7 +34,6 @@ BotMethods <- R6::R6Class(
     #'
     #' @return A list of inline results.
     inline_query = function(bot, query, entity = NULL, offset = NULL, geo_point = NULL) {
-
       bot <- self$get_input_entity(bot)
 
       if (!is.null(entity)) {

@@ -1,6 +1,6 @@
 #' @import base64enc
 #' @import jsonlite
-
+NULL
 EPOCH_NAIVE <- as.POSIXct("1970-01-01 00:00:00", tz = "UTC")
 EPOCH_NAIVE_LOCAL <- as.POSIXct(format(Sys.time(), "%Y-%m-%d %H:%M:%S"), tz = Sys.timezone())
 EPOCH <- EPOCH_NAIVE
@@ -72,7 +72,8 @@ pretty_format <- function(obj, indent = NULL) {
           } else {
             paste0(k, "=", pretty_format(v))
           }
-        }), collapse = ", "
+        }),
+        collapse = ", "
       ), "}"))
     } else if (is.character(obj) || is.raw(obj)) {
       return(obj)
@@ -81,7 +82,8 @@ pretty_format <- function(obj, indent = NULL) {
         return(as.character(obj))
       }
       return(paste0("[", paste(
-        sapply(obj, pretty_format), collapse = ", "
+        sapply(obj, pretty_format),
+        collapse = ", "
       ), "]"))
     } else {
       return(as.character(obj))
@@ -251,13 +253,15 @@ TLObject <- R6::R6Class(
           return(paste0("{", paste(
             sapply(names(obj), function(k) {
               paste0(k, "=", self$pretty_format(obj[[k]]))
-            }), collapse = ", "
+            }),
+            collapse = ", "
           ), "}"))
         } else if (is.character(obj) || is.raw(obj)) {
           return(obj)
         } else if (is.vector(obj)) {
           return(paste0("[", paste(
-            sapply(obj, self$pretty_format), collapse = ", "
+            sapply(obj, self$pretty_format),
+            collapse = ", "
           ), "]"))
         } else {
           return(as.character(obj))
@@ -721,7 +725,6 @@ SetClientDHParamsRequest <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     #' @description
     #' Create a new object from a binary reader.
@@ -787,7 +790,6 @@ ReqPqMultiRequest <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     #' @description
     #' Create a new object from a binary reader.
@@ -886,7 +888,6 @@ ReqDHParamsRequest <- R6::R6Class(
       )
     }
   ),
-
   private = list(
     #' @description
     #' Create a new object from a binary reader.

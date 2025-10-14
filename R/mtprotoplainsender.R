@@ -22,7 +22,7 @@ MTProtoPlainSender <- R6::R6Class("MTProtoPlainSender",
         msg_id <- private$state$get_new_msg_id()
 
         # Pack data: <qqi format in Python struct is 8 bytes + 8 bytes + 4 bytes
-        header <- packInt64(0)  # auth_key_id (0 for plain messages)
+        header <- packInt64(0) # auth_key_id (0 for plain messages)
         header <- c(header, packInt64(msg_id))
         header <- c(header, packInt32(length(body)))
 
@@ -59,7 +59,6 @@ MTProtoPlainSender <- R6::R6Class("MTProtoPlainSender",
       })
     }
   ),
-
   private = list(
     state = NULL,
     connection = NULL

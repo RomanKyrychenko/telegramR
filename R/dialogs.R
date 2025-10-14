@@ -33,7 +33,6 @@ dialog_message_key <- function(peer, message_id) {
 #' @export
 DialogsIter <- R6::R6Class("DialogsIter",
   inherit = RequestIter,
-
   public = list(
 
     #' @description
@@ -152,7 +151,7 @@ DialogsIter <- R6::R6Class("DialogsIter",
           }
 
           if (length(self$buffer) == 0 || length(r$dialogs) < self$request$limit ||
-              !inherits(r, "messages.DialogsSlice")) {
+            !inherits(r, "messages.DialogsSlice")) {
             # Buffer being empty means all returned dialogs were skipped (due to offsets).
             # Less than we requested means we reached the end, or
             # we didn't get a DialogsSlice which means we got all.
@@ -183,8 +182,8 @@ DialogsIter <- R6::R6Class("DialogsIter",
           self$request$offset_peer <- self$buffer[[length(self$buffer)]]$input_entity
 
           return(FALSE)
-        }
-      ))
+        })
+      )
     },
 
     #' @description
@@ -194,7 +193,6 @@ DialogsIter <- R6::R6Class("DialogsIter",
       return(private$init_future)
     }
   ),
-
   private = list(
     init_future = NULL
   )
@@ -206,7 +204,6 @@ DialogsIter <- R6::R6Class("DialogsIter",
 #' @export
 DraftsIter <- R6::R6Class("DraftsIter",
   inherit = RequestIter,
-
   public = list(
 
     #' @description
@@ -254,7 +251,9 @@ DraftsIter <- R6::R6Class("DraftsIter",
     #' Loads the next chunk of drafts.
     #' @return A future that resolves to a list of drafts.
     load_next_chunk = function() {
-      return(future({ return(list()) }))
+      return(future({
+        return(list())
+      }))
     },
 
     #' @description
@@ -264,7 +263,6 @@ DraftsIter <- R6::R6Class("DraftsIter",
       return(private$init_future)
     }
   ),
-
   private = list(
     init_future = NULL
   )
@@ -290,17 +288,14 @@ DialogMethods <- R6::R6Class("DialogMethods",
     #' @param archived Alias for folder. If unspecified, all will be returned,
     #'          FALSE implies folder=0 and TRUE implies folder=1.
     #' @return An iterator over dialogs.
-    iter_dialogs = function(
-      limit = NULL,
-      offset_date = NULL,
-      offset_id = 0,
-      offset_peer = types$InputPeerEmpty(),
-      ignore_pinned = FALSE,
-      ignore_migrated = FALSE,
-      folder = NULL,
-      archived = NULL
-    ) {
-
+    iter_dialogs = function(limit = NULL,
+                            offset_date = NULL,
+                            offset_id = 0,
+                            offset_peer = types$InputPeerEmpty(),
+                            ignore_pinned = FALSE,
+                            ignore_migrated = FALSE,
+                            folder = NULL,
+                            archived = NULL) {
       if (!is.null(archived)) {
         folder <- if (archived) 1 else 0
       }
@@ -336,17 +331,14 @@ DialogMethods <- R6::R6Class("DialogMethods",
     #' @param archived Alias for folder. If unspecified, all will be returned,
     #'           FALSE implies folder=0 and TRUE implies folder=1.
     #' @return A list of dialogs.
-    get_dialogs = function(
-      limit = NULL,
-      offset_date = NULL,
-      offset_id = 0,
-      offset_peer = types$InputPeerEmpty(),
-      ignore_pinned = FALSE,
-      ignore_migrated = FALSE,
-      folder = NULL,
-      archived = NULL
-    ) {
-
+    get_dialogs = function(limit = NULL,
+                           offset_date = NULL,
+                           offset_id = 0,
+                           offset_peer = types$InputPeerEmpty(),
+                           ignore_pinned = FALSE,
+                           ignore_migrated = FALSE,
+                           folder = NULL,
+                           archived = NULL) {
       return(future({
         iter <- private$self$iter_dialogs(
           limit = limit,
@@ -382,7 +374,6 @@ DialogMethods <- R6::R6Class("DialogMethods",
     #' @return A list of draft messages.
     #' @export
     get_drafts = function(entity = NULL) {
-
       return(future({
         iter <- private$self$iter_drafts(entity)
         await(iter$get_init_future())
@@ -405,7 +396,6 @@ DialogMethods <- R6::R6Class("DialogMethods",
     #' @return The Updates object that the request produces.
     #' @export
     edit_folder = function(entity = NULL, folder = NULL, unpack = NULL) {
-
       return(future({
         if ((is.null(entity)) == (is.null(unpack))) {
           stop("You can only set either entities or unpack, not both")
@@ -436,8 +426,10 @@ DialogMethods <- R6::R6Class("DialogMethods",
 
         input_folder_peers <- list()
         for (i in seq_along(entities_list)) {
-          input_folder_peers <- c(input_folder_peers,
-                                 list(InputFolderPeer$new(entities_list[[i]], folder_id = folder[i])))
+          input_folder_peers <- c(
+            input_folder_peers,
+            list(InputFolderPeer$new(entities_list[[i]], folder_id = folder[i]))
+          )
         }
 
         return(await(private$self(EditPeerFoldersRequest$new(input_folder_peers))))
@@ -451,7 +443,6 @@ DialogMethods <- R6::R6Class("DialogMethods",
     #' @return The Updates object that the request produces, or nothing for private conversations.
     #' @export
     delete_dialog = function(entity, revoke = FALSE) {
-
       return(future({
         # If we have enough information (`Dialog.delete` gives it to us),
         # then we know we don't have to kick ourselves in deactivated chats.
@@ -469,18 +460,22 @@ DialogMethods <- R6::R6Class("DialogMethods",
 
         result <- NULL
         if (ty == EntityType$CHAT && !deactivated) {
-          tryCatch({
-            result <- await(private$self(DeleteChatUserRequest$new(
-              entity$chat_id, InputUserSelf$new(), revoke_history = revoke
-            )))
-          }, error = function(e) {
-            if (inherits(e, "PeerIdInvalidError")) {
-              # Happens if we didn't have the deactivated information
-              result <- NULL
-            } else {
-              stop(e)
+          tryCatch(
+            {
+              result <- await(private$self(DeleteChatUserRequest$new(
+                entity$chat_id, InputUserSelf$new(),
+                revoke_history = revoke
+              )))
+            },
+            error = function(e) {
+              if (inherits(e, "PeerIdInvalidError")) {
+                # Happens if we didn't have the deactivated information
+                result <- NULL
+              } else {
+                stop(e)
+              }
             }
-          })
+          )
         }
 
         is_bot <- await(private$self$is_bot())
@@ -502,14 +497,12 @@ DialogMethods <- R6::R6Class("DialogMethods",
     #' @param replies_are_responses Whether replies should be treated as responses or not.
     #' @return A new Conversation object.
     #' @export
-    conversation = function(
-      entity,
-      timeout = 60,
-      total_timeout = NULL,
-      max_messages = 100,
-      exclusive = TRUE,
-      replies_are_responses = TRUE
-    ) {
+    conversation = function(entity,
+                            timeout = 60,
+                            total_timeout = NULL,
+                            max_messages = 100,
+                            exclusive = TRUE,
+                            replies_are_responses = TRUE) {
       return(custom$Conversation(
         private$self,
         entity,
@@ -521,10 +514,8 @@ DialogMethods <- R6::R6Class("DialogMethods",
       ))
     }
   ),
-
   private = list(
     .self = NULL,
-
     .initialize = function(client) {
       private$.self <- client
     }

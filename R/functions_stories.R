@@ -2,13 +2,6 @@
 #'
 #' Request to activate stealth mode with optional past/future flags.
 #' Returns Updates.
-#'
-#' Methods:
-#' - initialize(past = NULL, future = NULL)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
-#'
 #' @param past logical or NULL
 #' @param future logical or NULL
 #' @export
@@ -89,14 +82,6 @@ ActivateStealthModeRequest <- R6::R6Class(
 #'
 #' Request to check whether a story can be sent to a given peer.
 #' Returns stories.CanSendStoryCount.
-#'
-#' Methods:
-#' - initialize(peer)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
-#'
 #' @param peer TypeInputPeer
 #' @export
 CanSendStoryRequest <- R6::R6Class(
@@ -181,14 +166,6 @@ CanSendStoryRequest <- R6::R6Class(
 #'
 #' Request to create a story album for a given peer with a title and list of story ids.
 #' Returns StoryAlbum.
-#'
-#' Methods:
-#' - initialize(peer, title, stories)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
-#'
 #' @param peer TypeInputPeer
 #' @param title character album title
 #' @param stories integer vector of story ids
@@ -313,14 +290,6 @@ CreateAlbumRequest <- R6::R6Class(
 #' DeleteAlbumRequest R6 class
 #'
 #' Request to delete an album for a given peer. Returns Bool.
-#'
-#' Methods:
-#' - initialize(peer, album_id)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
-#'
 #' @param peer TypeInputPeer
 #' @param album_id integer album id
 #' @export
@@ -412,15 +381,6 @@ DeleteAlbumRequest <- R6::R6Class(
 #' DeleteStoriesRequest R6 class
 #'
 #' Request to delete one or more stories for a given peer. Returns Vector<int>.
-#'
-#' Methods:
-#' - initialize(peer, id)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
-#' - read_result(reader) (class)
-#'
 #' @param peer TypeInputPeer
 #' @param id integer vector of story ids
 #' @export
@@ -544,14 +504,6 @@ DeleteStoriesRequest <- R6::R6Class(
 #' Request to edit an existing story. Depending on flags this may include media,
 #' media areas, caption+entities (both must be provided together) and privacy rules.
 #' Returns Updates.
-#'
-#' Methods:
-#' - initialize(peer, id, media = NULL, media_areas = NULL, caption = NULL, entities = NULL, privacy_rules = NULL)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
-#'
 #' @param peer TypeInputPeer
 #' @param id integer story id
 #' @param media TypeInputMedia or NULL
@@ -628,6 +580,7 @@ EditStoryRequest <- R6::R6Class(
     },
 
     #' Serialize to raw TL bytes
+    #'
     #' @return raw
     to_bytes = function() {
       # constructor bytes little-endian for 0xb583ba46 -> 0x46 0xba 0x83 0xb5
@@ -801,14 +754,6 @@ EditStoryRequest <- R6::R6Class(
 #'
 #' Request to export a story link for a given peer and story id.
 #' Returns stories.ExportedStoryLink.
-#'
-#' Methods:
-#' - initialize(peer, id)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
-#'
 #' @param peer TypeInputPeer
 #' @param id integer story id
 #' @export
@@ -841,6 +786,7 @@ ExportStoryLinkRequest <- R6::R6Class(
     },
 
     #' Convert to list
+    #'
     #' @return list
     to_list = function() {
       list(
@@ -881,6 +827,7 @@ ExportStoryLinkRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' Read an ExportStoryLinkRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -899,14 +846,6 @@ ExportStoryLinkRequest <- R6::R6Class(
 #'
 #' Request to get stories from an album for a given peer with paging (offset, limit).
 #' Returns stories.Stories.
-#'
-#' Methods:
-#' - initialize(peer, album_id, offset, limit)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
-#'
 #' @param peer TypeInputPeer
 #' @param album_id integer album id
 #' @param offset integer offset id
@@ -947,6 +886,7 @@ GetAlbumStoriesRequest <- R6::R6Class(
     },
 
     #' Convert to list
+    #'
     #' @return list
     to_list = function() {
       list(
@@ -1010,14 +950,6 @@ GetAlbumStoriesRequest <- R6::R6Class(
 #' GetAlbumsRequest R6 class
 #'
 #' Request to get albums for a peer. Returns stories.Albums (or AlbumsNotModified).
-#'
-#' Methods:
-#' - initialize(peer, hash)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
-#'
 #' @param peer TypeInputPeer
 #' @param hash numeric/int64 hash value
 #' @export
@@ -1050,6 +982,7 @@ GetAlbumsRequest <- R6::R6Class(
     },
 
     #' Convert to list
+    #'
     #' @return list
     to_list = function() {
       list(
@@ -1107,17 +1040,12 @@ GetAlbumsRequest <- R6::R6Class(
 #' GetAllReadPeerStoriesRequest R6 class
 #'
 #' Request without parameters; returns all read peer stories.
-#'
-#' Methods:
-#' - to_list(): Convert to list
-#' - to_bytes(): Serialize to raw TL bytes
-#' - from_reader(reader) (class): Read instance from reader
-#'
 #' @export
 GetAllReadPeerStoriesRequest <- R6::R6Class(
   "GetAllReadPeerStoriesRequest",
   inherit = TLRequest,
   public = list(
+
     #' Convert to list
     #'
     #' @return list
@@ -1156,13 +1084,6 @@ GetAllReadPeerStoriesRequest <- R6::R6Class(
 #'
 #' Request to get all stories with optional pagination/visibility/state.
 #' Returns stories.AllStories (or AllStoriesNotModified).
-#'
-#' Methods:
-#' - initialize(next = NULL, hidden = NULL, state = NULL)
-#' - to_list(): Convert to list
-#' - to_bytes(): Serialize to raw TL bytes
-#' - from_reader(reader) (class): Read instance from reader
-#'
 #' @param next logical or NULL (controls paging)
 #' @param hidden logical or NULL (include hidden)
 #' @param state character or NULL state cursor
@@ -1260,17 +1181,12 @@ GetAllStoriesRequest <- R6::R6Class(
 #' GetChatsToSendRequest R6 class
 #'
 #' Request without parameters; returns chats to send.
-#'
-#' Methods:
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
-#'
 #' @export
 GetChatsToSendRequest <- R6::R6Class(
   "GetChatsToSendRequest",
   inherit = TLRequest,
   public = list(
+
     #' Convert to list
     #'
     #' @return list
@@ -1289,7 +1205,7 @@ GetChatsToSendRequest <- R6::R6Class(
 
   active = list(
     CONSTRUCTOR_ID = function() 0xa56a8b60,
-    SUBCLASS_OF_ID = function() 0x99d5cb14L
+    SUBCLASS_OF_ID = function() 0x99d5cb14
   ),
 
   class = list(
@@ -1308,15 +1224,6 @@ GetChatsToSendRequest <- R6::R6Class(
 #' GetPeerMaxIDsRequest R6 class
 #'
 #' Request to get maximum IDs for a vector of input peers. Returns Vector<int>.
-#'
-#' Methods:
-#' - initialize(id)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
-#' - read_result(reader) (class)
-#'
 #' @param id list of TypeInputPeer
 #' @export
 GetPeerMaxIDsRequest <- R6::R6Class(
@@ -1435,13 +1342,6 @@ GetPeerMaxIDsRequest <- R6::R6Class(
 #' GetPeerStoriesRequest R6 class
 #'
 #' Request to get stories for a given peer. Returns stories.PeerStories.
-#'
-#' Methods:
-#' - initialize(peer)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
 GetPeerStoriesRequest <- R6::R6Class(
   "GetPeerStoriesRequest",
   inherit = TLRequest,
@@ -1523,13 +1423,6 @@ GetPeerStoriesRequest <- R6::R6Class(
 #'
 #' Request to get pinned stories for a peer with pagination (offset_id, limit).
 #' Returns stories.Stories.
-#'
-#' Methods:
-#' - initialize(peer, offset_id, limit)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
 GetPinnedStoriesRequest <- R6::R6Class(
   "GetPinnedStoriesRequest",
   inherit = TLRequest,
@@ -1626,13 +1519,6 @@ GetPinnedStoriesRequest <- R6::R6Class(
 #'
 #' Request to get archived stories for a peer with pagination (offset_id, limit).
 #' Returns stories.Stories.
-#'
-#' Methods:
-#' - initialize(peer, offset_id, limit)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
 GetStoriesArchiveRequest <- R6::R6Class(
   "GetStoriesArchiveRequest",
   inherit = TLRequest,
@@ -1729,13 +1615,6 @@ GetStoriesArchiveRequest <- R6::R6Class(
 #'
 #' Request to get stories by explicit ids for a given peer.
 #' Returns stories.Stories.
-#'
-#' Methods:
-#' - initialize(peer, id)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
 GetStoriesByIDRequest <- R6::R6Class(
   "GetStoriesByIDRequest",
   inherit = TLRequest,
@@ -1840,13 +1719,6 @@ GetStoriesByIDRequest <- R6::R6Class(
 #'
 #' Request to get story views for a peer and a vector of story ids.
 #' Returns stories.StoryViews.
-#'
-#' Methods:
-#' - initialize(peer, id)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
 GetStoriesViewsRequest <- R6::R6Class(
   "GetStoriesViewsRequest",
   inherit = TLRequest,
@@ -1948,13 +1820,6 @@ GetStoriesViewsRequest <- R6::R6Class(
 #'
 #' Request to get a list of story reactions with optional filters.
 #' Returns stories.StoryReactionsList.
-#'
-#' Methods:
-#' - initialize(peer, id, limit, forwards_first = NULL, reaction = NULL, offset = NULL)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
 GetStoryReactionsListRequest <- R6::R6Class(
   "GetStoryReactionsListRequest",
   inherit = TLRequest,
@@ -2107,13 +1972,6 @@ GetStoryReactionsListRequest <- R6::R6Class(
 #'
 #' Request to get a list of story views with optional filters (just_contacts,
 #' reactions_first, forwards_first, q). Returns a stories.StoryViewsList.
-#'
-#' Methods:
-#' - initialize(peer, id, offset, limit, just_contacts = NULL, reactions_first = NULL, forwards_first = NULL, q = NULL)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
 GetStoryViewsListRequest <- R6::R6Class(
   "GetStoryViewsListRequest",
   inherit = TLRequest,
@@ -2273,13 +2131,6 @@ GetStoryViewsListRequest <- R6::R6Class(
 #'
 #' Request to increment story views for a peer and a vector of ids.
 #' Returns Bool.
-#'
-#' Methods:
-#' - initialize(peer, id)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader) (class)
 IncrementStoryViewsRequest <- R6::R6Class(
   "IncrementStoryViewsRequest",
   inherit = TLRequest,
@@ -2388,14 +2239,6 @@ IncrementStoryViewsRequest <- R6::R6Class(
 #' @field peer TypeInputPeer input peer
 #' @field max_id integer max story id
 #' @export
-#'
-#' @details
-#' Methods:
-#' - initialize(peer, max_id): Create new request.
-#' - resolve(client, utils): Resolve peer (synchronous style).
-#' - to_list(): Convert to a plain R list.
-#' - to_bytes(): Serialize to TL raw bytes.
-#' - from_reader(reader): Class method to read object from reader.
 ReadStoriesRequest <- R6::R6Class(
   "ReadStoriesRequest",
   inherit = TLRequest,
@@ -2503,14 +2346,6 @@ ReadStoriesRequest <- R6::R6Class(
 #' @field peer TypeInputPeer input peer
 #' @field order integer vector new order of album ids
 #' @export
-#'
-#' @details
-#' Methods:
-#' - initialize(peer, order): Create new request.
-#' - resolve(client, utils): Resolve peer (synchronous style).
-#' - to_list(): Convert to a plain R list.
-#' - to_bytes(): Serialize to TL raw bytes.
-#' - from_reader(reader): Class method to read object from a reader.
 ReorderAlbumsRequest <- R6::R6Class(
   "ReorderAlbumsRequest",
   inherit = TLRequest,
@@ -2621,14 +2456,6 @@ ReorderAlbumsRequest <- R6::R6Class(
 #' @field option raw bytes option
 #' @field message character comment/message
 #' @export
-#'
-#' @details
-#' Methods:
-#' - initialize(peer, id, option, message): Create new request.
-#' - resolve(client, utils): Resolve peer (synchronous style).
-#' - to_list(): Convert to a plain R list.
-#' - to_bytes(): Serialize to TL raw bytes.
-#' - from_reader(reader): Class method to read object from reader.
 ReportRequest <- R6::R6Class(
   "ReportRequest",
   inherit = TLRequest,
@@ -2773,14 +2600,6 @@ ReportRequest <- R6::R6Class(
 #' @field area TypeMediaArea or NULL
 #' @field peer TypeInputPeer or NULL
 #' @export
-#'
-#' @details
-#' Methods:
-#' - initialize(offset, limit, hashtag = NULL, area = NULL, peer = NULL)
-#' - resolve(client, utils)
-#' - to_list()
-#' - to_bytes()
-#' - from_reader(reader)
 SearchPostsRequest <- R6::R6Class(
   "SearchPostsRequest",
   inherit = TLRequest,
@@ -2927,15 +2746,6 @@ SearchPostsRequest <- R6::R6Class(
 #' @field reaction TypeReaction
 #' @field add_to_recent logical or NULL
 #' @export
-#'
-#' @details
-#' Methods:
-#' - initialize(peer, story_id, reaction, add_to_recent = NULL): create new request instance
-#' - resolve(client, utils): resolve peer references (synchronous style)
-#' - to_list(): convert object to plain R list
-#' - to_bytes(): serialize to raw TL bytes (expects peer/reaction to provide a bytes method)
-#' - from_reader(reader): class-level method to read instance from a reader
-#'
 SendReactionRequest <- R6::R6Class(
   "SendReactionRequest",
   inherit = TLRequest,
@@ -3082,14 +2892,6 @@ SendReactionRequest <- R6::R6Class(
 #' @field fwd_from_story integer
 #' @field albums integer vector
 #' @export
-#'
-#' @details
-#' Methods:
-#' - initialize(...): create new request instance
-#' - resolve(client, utils): resolve peer / forward references (synchronous style)
-#' - to_list(): convert object to plain R list
-#' - to_bytes(): serialize to raw TL bytes (expects peer/media/etc to provide a bytes method)
-#' - from_reader(reader): class-level method to read instance from a reader
 SendStoryRequest <- R6::R6Class(
   "SendStoryRequest",
   inherit = TLRequest,
@@ -3425,13 +3227,6 @@ SendStoryRequest <- R6::R6Class(
 #' @format An R6 object inheriting from TLRequest (if available)
 #' @field hidden logical desired hidden state
 #' @export
-#'
-#' @details
-#' Methods:
-#' - initialize(hidden): Create a new request.
-#' - to_list(): Convert object to a plain R list.
-#' - to_bytes(): Serialize to raw TL bytes (expects TL bool encoding).
-#' - from_reader(reader): Class-level method to read object from a reader.
 ToggleAllStoriesHiddenRequest <- R6::R6Class(
   "ToggleAllStoriesHiddenRequest",
   inherit = TLRequest,
@@ -3502,14 +3297,6 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
 #' @field peer TypeInputPeer input peer
 #' @field hidden logical desired hidden state
 #' @export
-#'
-#' @details
-#' Methods:
-#' - initialize(peer, hidden): Create a new request.
-#' - resolve(client, utils): Resolve peer references (synchronous style).
-#' - to_list(): Convert object to a plain R list.
-#' - to_bytes(): Serialize to raw TL bytes (expects peer to provide bytes method).
-#' - from_reader(reader): Class-level method to read object from a reader.
 TogglePeerStoriesHiddenRequest <- R6::R6Class(
   "TogglePeerStoriesHiddenRequest",
   inherit = TLRequest,
@@ -3610,15 +3397,6 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
 #' @field id integer vector story ids
 #' @field pinned logical desired pinned state
 #' @export
-#'
-#' @details
-#' Methods:
-#' - initialize(peer, id, pinned): Create a new request.
-#' - resolve(client, utils): Resolve peer references (synchronous style).
-#' - to_list(): Convert object to a plain R list.
-#' - to_bytes(): Serialize to raw TL bytes (expects peer to provide bytes method).
-#' - from_reader(reader): Class-level method to read object from a reader.
-#' - read_result(reader): Class-level method to read result vector<int> from a reader.
 TogglePinnedRequest <- R6::R6Class(
   "TogglePinnedRequest",
   inherit = TLRequest,
@@ -3755,14 +3533,6 @@ TogglePinnedRequest <- R6::R6Class(
 #' @field peer TypeInputPeer input peer
 #' @field id integer vector story ids
 #' @export
-#'
-#' @details
-#' Methods:
-#' - initialize(peer, id): Create a new request.
-#' - resolve(client, utils): Resolve peer references (synchronous style).
-#' - to_list(): Convert object to a plain R list.
-#' - to_bytes(): Serialize to raw TL bytes (expects peer to provide bytes method).
-#' - from_reader(reader): Class-level method to read object from a reader.
 TogglePinnedToTopRequest <- R6::R6Class(
   "TogglePinnedToTopRequest",
   inherit = TLRequest,

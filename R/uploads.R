@@ -59,6 +59,7 @@ UploadMethods <- R6Class("UploadMethods",
     #' @param session The session object for the Telegram client.
     #' @param api_id The API ID for the Telegram client.
     #' @param api_hash The API hash for the Telegram client.
+    #' @return None.
     initialize = function(session, api_id, api_hash) {
       self$session <- session
       self$api_id <- api_id
@@ -76,7 +77,6 @@ UploadMethods <- R6Class("UploadMethods",
     #' @return A future object representing the result of the operation.
     send_file = function(entity, file, caption = NULL, force_document = FALSE,
                          file_size = NULL, progress_callback = NULL, ...) {
-
       future({
         input_entity <- self$get_input_entity(entity)
         media_result <- self$file_to_media(
@@ -114,7 +114,6 @@ UploadMethods <- R6Class("UploadMethods",
     #' @return A future object representing the uploaded file details.
     upload_file = function(file, part_size_kb = NULL, file_size = NULL,
                            progress_callback = NULL, ...) {
-
       future::future({
         stream <- FileStream$new(file, file_size)
         file_size <- stream$file_size
@@ -128,14 +127,14 @@ UploadMethods <- R6Class("UploadMethods",
         }
 
         part_size <- as.integer(part_size_kb * 1024)
-        file_id <- as.character(sample.int(2^31-1, 1))
+        file_id <- as.character(sample.int(2^31 - 1, 1))
         file_name <- stream$name %||% file_id
         is_big <- file_size > 10 * 1024 * 1024
         hash_md5 <- md5_init()
         part_count <- ceiling(file_size / part_size)
 
         pos <- 0
-        for (part_index in 0:(part_count-1)) {
+        for (part_index in 0:(part_count - 1)) {
           part <- stream$read(part_size)
           pos <- pos + length(part)
 
@@ -202,12 +201,11 @@ UploadMethods <- R6Class("UploadMethods",
     #' @param ... Additional parameters.
     #' @return A list containing the file handle, media, and whether it is an image.
     file_to_media = function(file, force_document = FALSE, file_size = NULL,
-                              progress_callback = NULL, attributes = NULL,
-                              thumb = NULL, allow_cache = TRUE, voice_note=FALSE,
-                              video_note=FALSE, supports_streaming=FALSE,
-                              mime_type=NULL, as_image=NULL, ttl=NULL,
-                              nosound_video=NULL) {
-
+                             progress_callback = NULL, attributes = NULL,
+                             thumb = NULL, allow_cache = TRUE, voice_note = FALSE,
+                             video_note = FALSE, supports_streaming = FALSE,
+                             mime_type = NULL, as_image = NULL, ttl = NULL,
+                             nosound_video = NULL) {
       if (is.null(file)) {
         return(list(file_handle = NULL, media = NULL, as_image = NULL))
       }
@@ -276,7 +274,30 @@ UploadMethods <- R6Class("UploadMethods",
       if (is.character(file) && file.exists(file)) {
         file_size <- file.info(file)$size
         if (file_size <= 10000000) {
-          tryCatch({
+          tryCatch(
+            {
+              img <- magick::image_read(file)
+              img_info <- magick::image_info(img)
+
+              if (img_info$width <= width && img_info$height <= height) {
+                return(file)
+              }
+
+              img_resized <- magick::image_resize(img, paste0(width, "x", height, "^"))
+              temp_file <- tempfile(fileext = ".jpg")
+              magick::image_write(img_resized, temp_file, format = "jpeg", quality = 90)
+              return(temp_file)
+            },
+            error = function(e) {
+              return(file)
+            }
+          )
+        } else {
+          return(file)
+        }
+      } else if (is.raw(file)) {
+        tryCatch(
+          {
             img <- magick::image_read(file)
             img_info <- magick::image_info(img)
 
@@ -285,29 +306,12 @@ UploadMethods <- R6Class("UploadMethods",
             }
 
             img_resized <- magick::image_resize(img, paste0(width, "x", height, "^"))
-            temp_file <- tempfile(fileext = ".jpg")
-            magick::image_write(img_resized, temp_file, format = "jpeg", quality = 90)
-            return(temp_file)
-          }, error = function(e) {
-            return(file)
-          })
-        } else {
-          return(file)
-        }
-      } else if (is.raw(file)) {
-        tryCatch({
-          img <- magick::image_read(file)
-          img_info <- magick::image_info(img)
-
-          if (img_info$width <= width && img_info$height <= height) {
+            return(magick::image_write(img_resized, format = "jpeg", quality = 90))
+          },
+          error = function(e) {
             return(file)
           }
-
-          img_resized <- magick::image_resize(img, paste0(width, "x", height, "^"))
-          return(magick::image_write(img_resized, format = "jpeg", quality = 90))
-        }, error = function(e) {
-          return(file)
-        })
+        )
       }
 
       return(file)
@@ -341,7 +345,7 @@ UploadMethods <- R6Class("UploadMethods",
     #' @param request The request to invoke.
     #' @return The result of the API call.
     invoke = function(request) {
-      TRUE  # Mock implementation
+      TRUE # Mock implementation
     }
   )
 )

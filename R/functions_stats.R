@@ -16,7 +16,6 @@ GetBroadcastStatsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x7ff25428,
     channel = NULL,
     dark = NULL,
-
     initialize = function(channel, dark = NULL) {
       self$channel <- channel
       self$dark <- dark
@@ -78,7 +77,6 @@ GetMegagroupStatsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x5b59be8d,
     channel = NULL,
     dark = NULL,
-
     initialize = function(channel, dark = NULL) {
       self$channel <- channel
       self$dark <- dark
@@ -144,7 +142,6 @@ GetMessagePublicForwardsRequest <- R6::R6Class(
     msg_id = NULL,
     offset = NULL,
     limit = NULL,
-
     initialize = function(channel, msg_id, offset, limit) {
       self$channel <- channel
       self$msg_id <- as.integer(msg_id)
@@ -221,7 +218,6 @@ GetMessageStatsRequest <- R6::R6Class(
     channel = NULL,
     msg_id = NULL,
     dark = NULL,
-
     initialize = function(channel, msg_id, dark = NULL) {
       self$channel <- channel
       self$msg_id <- as.integer(msg_id)
@@ -290,7 +286,6 @@ GetStoryPublicForwardsRequest <- R6::R6Class(
     id = NULL,
     offset = NULL,
     limit = NULL,
-
     initialize = function(peer, id, offset, limit) {
       self$peer <- peer
       self$id <- as.integer(id)
@@ -367,7 +362,6 @@ GetStoryStatsRequest <- R6::R6Class(
     peer = NULL,
     id = NULL,
     dark = NULL,
-
     initialize = function(peer, id, dark = NULL) {
       self$peer <- peer
       self$id <- as.integer(id)
@@ -432,12 +426,10 @@ LoadAsyncGraphRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x9b903153,
     token = NULL,
     x = NULL,
-
     initialize = function(token, x = NULL) {
       self$token <- as.character(token)
       self$x <- if (!is.null(x)) as.numeric(x) else NULL
     },
-
     to_list = function() {
       list(
         `_` = "LoadAsyncGraphRequest",
@@ -445,7 +437,6 @@ LoadAsyncGraphRequest <- R6::R6Class(
         x = self$x
       )
     },
-
     to_bytes = function() {
       con <- rawConnection(raw(), "r+")
       on.exit(close(con))
@@ -468,7 +459,6 @@ LoadAsyncGraphRequest <- R6::R6Class(
       }
       rawConnectionValue(con)
     },
-
     from_reader = function(reader) {
       flags <- reader$read_int()
       token_val <- reader$tgread_string()

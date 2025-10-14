@@ -91,13 +91,10 @@ DeletePhotosRequest <- R6::R6Class(
       rawConnectionValue(con)
     }
   ),
-
   active = list(
     # nothing active
   ),
-
   class = TRUE,
-
   private = list(
     from_reader_impl = function(reader) {
       # Read and verify vector constructor id (already provided by stream; still consume)
@@ -110,7 +107,6 @@ DeletePhotosRequest <- R6::R6Class(
       DeletePhotosRequest$new(id = ids_list)
     }
   ),
-
   portable = TRUE
 )
 
@@ -246,13 +242,10 @@ GetUserPhotosRequest <- R6::R6Class(
       rawConnectionValue(con)
     }
   ),
-
   active = list(
     # nothing active
   ),
-
   class = TRUE,
-
   private = list(
     from_reader_impl = function(reader) {
       user_entity <- reader$tgread_object()
@@ -267,7 +260,6 @@ GetUserPhotosRequest <- R6::R6Class(
       )
     }
   ),
-
   portable = TRUE
 )
 
@@ -397,13 +389,10 @@ UpdateProfilePhotoRequest <- R6::R6Class(
       rawConnectionValue(con)
     }
   ),
-
   active = list(
     # nothing active
   ),
-
   class = TRUE,
-
   private = list(
     # class-level helper to construct from reader
     from_reader_impl = function(reader) {
@@ -425,7 +414,6 @@ UpdateProfilePhotoRequest <- R6::R6Class(
       )
     }
   ),
-
   portable = TRUE
 )
 

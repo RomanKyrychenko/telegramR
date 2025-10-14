@@ -245,8 +245,9 @@ InitConnectionRequest <- R6::R6Class(
         as.raw(c(0xa9, 0x5e, 0xcd, 0xc1)),
         writeBin(
           as.integer((if (is.null(self$proxy) || identical(self$proxy, FALSE)) 0 else 1) |
-                     (if (is.null(self$params) || identical(self$params, FALSE)) 0 else 2)),
-          raw(), size = 4, endian = "little"
+            (if (is.null(self$params) || identical(self$params, FALSE)) 0 else 2)),
+          raw(),
+          size = 4, endian = "little"
         ),
         writeBin(as.integer(self$api_id), raw(), size = 4, endian = "little"),
         serialize_bytes(self$device_model),

@@ -100,6 +100,6 @@ PGHKSMeRFvp3IWcmdJqXahxLCUS1Eh6MAQIDAQAB
 -----END RSA PUBLIC KEY-----"
 )
 
-#for (pub in default_keys) {
+# for (pub in default_keys) {
 #  add_key(pub, old = FALSE)
-#}
+# }
