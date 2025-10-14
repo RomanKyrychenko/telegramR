@@ -181,12 +181,15 @@ AccountMethods <- R6::R6Class(
     #' @param success A logical indicating whether the takeout session was successful.
     #' @return A logical indicating whether the takeout session was finalized successfully.
     end_takeout = function(success) {
-      tryCatch({
-        takeout <- TakeoutClient$new(TRUE, self, NULL)
-        takeout$set_success(success)
-      }, error = function(e) {
-        return(FALSE)
-      })
+      tryCatch(
+        {
+          takeout <- TakeoutClient$new(TRUE, self, NULL)
+          takeout$set_success(success)
+        },
+        error = function(e) {
+          return(FALSE)
+        }
+      )
       return(TRUE)
     }
   )
