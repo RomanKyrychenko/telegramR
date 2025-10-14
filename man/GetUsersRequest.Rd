@@ -6,12 +6,19 @@
 \description{
 Request to get a vector of users by input user references.
 }
-\details{
-Fields:
-- id: list of TLInputUser (or representations accepted by utils/get_input_user)
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetUsersRequest}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the GetSavedMusicByIDRequest class.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the GetSavedMusicByIDRequest class.}
+
+\item{\code{id}}{TLInputUser or a representation accepted by get_input_user}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -43,46 +50,83 @@ Fields:
 \if{html}{\out{<a id="method-GetUsersRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetUsersRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initializes the GetUsersRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetUsersRequest$new(id = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{List of TLInputUser or representations accepted by get_input_user}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetUsersRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetUsersRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolves the id field using the provided client and utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetUsersRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{client}}{A client object to resolve user references.}
+
+\item{\code{utils}}{A utils object with methods to get input user representations.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetUsersRequest-to_dict"></a>}}
 \if{latex}{\out{\hypertarget{method-GetUsersRequest-to_dict}{}}}
 \subsection{Method \code{to_dict()}}{
+Request to get a vector of users by input user references.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetUsersRequest$to_dict()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+List of resolved id objects.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetUsersRequest-.bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetUsersRequest-.bytes}{}}}
 \subsection{Method \code{.bytes()}}{
+Initializes the GetUsersRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetUsersRequest$.bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+List of resolved id objects.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetUsersRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetUsersRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Converts the GetUsersRequest to raw bytes.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetUsersRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{A reader object to read the response.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A raw vector representing the GetUsersRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetUsersRequest-clone"></a>}}

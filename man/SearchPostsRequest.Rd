@@ -12,7 +12,8 @@ SearchPostsRequest$new(offset, limit, hashtag = NULL, area = NULL, peer = NULL)
 }
 \description{
 Represents a request to search for posts with specified parameters.
-
+}
+\details{
 Represents a TL request to search posts/stories (by hashtag/area/peer).
 }
 \section{Super classes}{
@@ -188,6 +189,7 @@ The objects of this class are cloneable with this method.
 \if{html}{\out{<a id="method-SearchPostsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SearchPostsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize SearchPostsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SearchPostsRequest$new(offset, limit, hashtag = NULL, area = NULL, peer = NULL)}\if{html}{\out{</div>}}
 }
@@ -203,8 +205,7 @@ The objects of this class are cloneable with this method.
 
 \item{\code{area}}{TypeMediaArea or NULL}
 
-\item{\code{peer}}{TypeInputPeer or NULL
-Resolve peer/area references}
+\item{\code{peer}}{TypeInputPeer or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -213,6 +214,7 @@ Resolve peer/area references}
 \if{html}{\out{<a id="method-SearchPostsRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-SearchPostsRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer/area references
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SearchPostsRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -222,8 +224,7 @@ Resolve peer/area references}
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer/get_input_media_area (area expected as TL object normally)
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer/get_input_media_area (area expected as TL object normally)}
 }
 \if{html}{\out{</div>}}
 }
@@ -232,28 +233,26 @@ Convert to list}
 \if{html}{\out{<a id="method-SearchPostsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SearchPostsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SearchPostsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SearchPostsRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SearchPostsRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SearchPostsRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a SearchPostsRequest instance from reader
-
-reader is expected to implement: read_int(), tgread_object(), tgread_string(), tgread_bytes()
 }
 }
 \if{html}{\out{<hr>}}

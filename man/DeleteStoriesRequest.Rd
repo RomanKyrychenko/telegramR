@@ -4,6 +4,11 @@
 \alias{DeleteStoriesRequest}
 \title{DeleteStoriesRequest R6 class}
 \description{
+DeleteStoriesRequest R6 class
+
+DeleteStoriesRequest R6 class
+}
+\details{
 Request to delete one or more stories for a given peer. Returns Vector<int>.
 }
 \section{Super classes}{
@@ -41,6 +46,7 @@ Request to delete one or more stories for a given peer. Returns Vector<int>.
 \if{html}{\out{<a id="method-DeleteStoriesRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteStoriesRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize DeleteStoriesRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteStoriesRequest$new(peer, id)}\if{html}{\out{</div>}}
 }
@@ -50,10 +56,7 @@ Request to delete one or more stories for a given peer. Returns Vector<int>.
 \describe{
 \item{\code{peer}}{TypeInputPeer}
 
-\item{\code{id}}{integer vector of story ids
-Resolve peer references
-
-Convert a high-level peer reference to an input peer using client/utils.}
+\item{\code{id}}{integer vector of story ids}
 }
 \if{html}{\out{</div>}}
 }
@@ -62,6 +65,9 @@ Convert a high-level peer reference to an input peer using client/utils.}
 \if{html}{\out{<a id="method-DeleteStoriesRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteStoriesRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert a high-level peer reference to an input peer using client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteStoriesRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -71,8 +77,7 @@ Convert a high-level peer reference to an input peer using client/utils.}
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer}
 }
 \if{html}{\out{</div>}}
 }
@@ -81,28 +86,26 @@ Convert to list}
 \if{html}{\out{<a id="method-DeleteStoriesRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteStoriesRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteStoriesRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DeleteStoriesRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteStoriesRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteStoriesRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a DeleteStoriesRequest instance from a reader
-
-reader expected to implement: tgread_object(), read_int()
 }
 }
 \if{html}{\out{<hr>}}

@@ -4,6 +4,11 @@
 \alias{GetFileRequest}
 \title{GetFileRequest R6 class}
 \description{
+GetFileRequest R6 class
+
+GetFileRequest R6 class
+}
+\details{
 Represents the TL request upload.GetFileRequest.
 }
 \section{Public fields}{
@@ -35,6 +40,7 @@ Represents the TL request upload.GetFileRequest.
 \if{html}{\out{<a id="method-GetFileRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetFileRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a GetFileRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetFileRequest$new(
   location,
@@ -56,8 +62,7 @@ Represents the TL request upload.GetFileRequest.
 
 \item{\code{precise}}{logical or NULL}
 
-\item{\code{cdn_supported}}{logical or NULL
-Convert to list (dictionary-like)}
+\item{\code{cdn_supported}}{logical or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -66,19 +71,20 @@ Convert to list (dictionary-like)}
 \if{html}{\out{<a id="method-GetFileRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetFileRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetFileRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw vector
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetFileRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetFileRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw vector
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetFileRequest$to_bytes()}\if{html}{\out{</div>}}
 }

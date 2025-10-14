@@ -11,6 +11,11 @@ An R6 object inheriting from TLRequest
 ReorderAlbumsRequest$new(peer, order)
 }
 \description{
+ReorderAlbumsRequest R6 class
+
+ReorderAlbumsRequest R6 class
+}
+\details{
 Represents a TL request to reorder albums for a peer; returns Bool.
 }
 \section{Super classes}{
@@ -57,6 +62,7 @@ Represents a TL request to reorder albums for a peer; returns Bool.
 \if{html}{\out{<a id="method-ReorderAlbumsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ReorderAlbumsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ReorderAlbumsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReorderAlbumsRequest$new(peer, order)}\if{html}{\out{</div>}}
 }
@@ -66,10 +72,7 @@ Represents a TL request to reorder albums for a peer; returns Bool.
 \describe{
 \item{\code{peer}}{TypeInputPeer}
 
-\item{\code{order}}{integer vector
-Resolve peer references
-
-Convert a high-level peer reference to an input peer using client/utils.}
+\item{\code{order}}{integer vector}
 }
 \if{html}{\out{</div>}}
 }
@@ -78,6 +81,9 @@ Convert a high-level peer reference to an input peer using client/utils.}
 \if{html}{\out{<a id="method-ReorderAlbumsRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-ReorderAlbumsRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert a high-level peer reference to an input peer using client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReorderAlbumsRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -87,8 +93,7 @@ Convert a high-level peer reference to an input peer using client/utils.}
 \describe{
 \item{\code{client}}{client object with get_input_entity method}
 
-\item{\code{utils}}{utils object with get_input_peer method
-Convert to list}
+\item{\code{utils}}{utils object with get_input_peer method}
 }
 \if{html}{\out{</div>}}
 }
@@ -97,28 +102,26 @@ Convert to list}
 \if{html}{\out{<a id="method-ReorderAlbumsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ReorderAlbumsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReorderAlbumsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ReorderAlbumsRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ReorderAlbumsRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReorderAlbumsRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a ReorderAlbumsRequest instance from a reader
-
-reader is expected to implement: tgread_object(), read_int()
 }
 }
 \if{html}{\out{<hr>}}

@@ -4,6 +4,11 @@
 \alias{GetCdnFileHashesRequest}
 \title{GetCdnFileHashesRequest R6 class}
 \description{
+GetCdnFileHashesRequest R6 class
+
+GetCdnFileHashesRequest R6 class
+}
+\details{
 Represents the TL request upload.GetCdnFileHashesRequest.
 }
 \section{Public fields}{
@@ -29,6 +34,7 @@ Represents the TL request upload.GetCdnFileHashesRequest.
 \if{html}{\out{<a id="method-GetCdnFileHashesRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCdnFileHashesRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a GetCdnFileHashesRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCdnFileHashesRequest$new(file_token, offset)}\if{html}{\out{</div>}}
 }
@@ -38,8 +44,7 @@ Represents the TL request upload.GetCdnFileHashesRequest.
 \describe{
 \item{\code{file_token}}{raw|integer|character}
 
-\item{\code{offset}}{numeric (64-bit)
-Convert to list (dictionary-like)}
+\item{\code{offset}}{numeric (64-bit)}
 }
 \if{html}{\out{</div>}}
 }
@@ -48,19 +53,20 @@ Convert to list (dictionary-like)}
 \if{html}{\out{<a id="method-GetCdnFileHashesRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCdnFileHashesRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCdnFileHashesRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw vector
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetCdnFileHashesRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCdnFileHashesRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw vector
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCdnFileHashesRequest$to_bytes()}\if{html}{\out{</div>}}
 }

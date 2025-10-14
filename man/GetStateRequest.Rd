@@ -3,10 +3,12 @@
 \name{GetStateRequest}
 \alias{GetStateRequest}
 \title{GetStateRequest R6 class}
-\value{
-R6 object of class GetStateRequest
-}
 \description{
+GetStateRequest R6 class
+
+GetStateRequest R6 class
+}
+\details{
 Representation of updates.GetState request.
 }
 \examples{
@@ -26,6 +28,7 @@ Representation of updates.GetState request.
 \if{html}{\out{<a id="method-GetStateRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStateRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Converts the request to a list representation.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStateRequest$new()}\if{html}{\out{</div>}}
 }
@@ -35,19 +38,27 @@ Representation of updates.GetState request.
 \if{html}{\out{<a id="method-GetStateRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStateRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Serializes the request to raw bytes.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStateRequest$to_list()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A raw vector representing the serialized request.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStateRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStateRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Initializes a new GetStateRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStateRequest$bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A new GetStateRequest instance.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStateRequest-from_reader"></a>}}

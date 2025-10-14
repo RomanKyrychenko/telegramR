@@ -4,6 +4,11 @@
 \alias{GetFullUserRequest}
 \title{GetFullUserRequest}
 \description{
+GetFullUserRequest
+
+GetFullUserRequest
+}
+\details{
 An R6 class representing a request to get full information about a user.
 This class inherits from TLRequest and is used to construct and serialize
 Telegram API requests for retrieving detailed user data.
@@ -27,7 +32,7 @@ bytes <- request$.bytes()
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID (0x83df9df5).}
 
 \item{\code{id}}{The user identifier, which can be a TLInputUser object or a
-representation accepted by utils$get_input_user. This field is resolved
+representation accepted by get_input_user. This field is resolved
 during the request preparation.}
 }
 \if{html}{\out{</div>}}
@@ -62,46 +67,83 @@ during the request preparation.}
 \if{html}{\out{<a id="method-GetFullUserRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetFullUserRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Request to get full information about a user.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetFullUserRequest$new(id = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{TLInputUser or a representation accepted by utils$get_input_user}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetFullUserRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetFullUserRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolves the id field using the provided client and utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetFullUserRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{client}}{A client object to resolve user references.}
+
+\item{\code{utils}}{A utils object with methods to get input user representations.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetFullUserRequest-to_dict"></a>}}
 \if{latex}{\out{\hypertarget{method-GetFullUserRequest-to_dict}{}}}
 \subsection{Method \code{to_dict()}}{
+Converts the GetFullUserRequest to a dictionary (list).
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetFullUserRequest$to_dict()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A list representation of the GetFullUserRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetFullUserRequest-.bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetFullUserRequest-.bytes}{}}}
 \subsection{Method \code{.bytes()}}{
+Converts the GetFullUserRequest to raw bytes.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetFullUserRequest$.bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A raw vector representing the GetFullUserRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetFullUserRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetFullUserRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Creates a GetFullUserRequest from a reader object.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetFullUserRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{A reader object to read the response.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A new instance of GetFullUserRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetFullUserRequest-clone"></a>}}

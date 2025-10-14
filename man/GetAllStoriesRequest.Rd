@@ -4,6 +4,11 @@
 \alias{GetAllStoriesRequest}
 \title{GetAllStoriesRequest R6 class}
 \description{
+GetAllStoriesRequest R6 class
+
+GetAllStoriesRequest R6 class
+}
+\details{
 Request to get all stories with optional pagination/visibility/state.
 Returns stories.AllStories (or AllStoriesNotModified).
 }
@@ -42,6 +47,7 @@ Returns stories.AllStories (or AllStoriesNotModified).
 \if{html}{\out{<a id="method-GetAllStoriesRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAllStoriesRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetAllStoriesRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAllStoriesRequest$new(.next = NULL, hidden = NULL, state = NULL)}\if{html}{\out{</div>}}
 }
@@ -59,35 +65,32 @@ Returns stories.AllStories (or AllStoriesNotModified).
 }
 \subsection{Returns}{
 invisible self
-Convert to list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetAllStoriesRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAllStoriesRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAllStoriesRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetAllStoriesRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAllStoriesRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAllStoriesRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a GetAllStoriesRequest instance from a reader
-
-reader expected to implement: read_int(), tgread_string()
 }
 }
 \if{html}{\out{<hr>}}

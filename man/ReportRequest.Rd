@@ -12,7 +12,8 @@ ReportRequest$new(peer, id, option, message)
 }
 \description{
 Represents a request to report messages. This class inherits from TLRequest.
-
+}
+\details{
 Represents a TL request to report stories.
 }
 \section{Super classes}{
@@ -161,6 +162,7 @@ The objects of this class are cloneable with this method.
 \if{html}{\out{<a id="method-ReportRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ReportRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ReportRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReportRequest$new(peer, id, option, message)}\if{html}{\out{</div>}}
 }
@@ -174,8 +176,7 @@ The objects of this class are cloneable with this method.
 
 \item{\code{option}}{raw or raw-like bytes}
 
-\item{\code{message}}{character
-Resolve peer references}
+\item{\code{message}}{character}
 }
 \if{html}{\out{</div>}}
 }
@@ -184,6 +185,7 @@ Resolve peer references}
 \if{html}{\out{<a id="method-ReportRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-ReportRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReportRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -193,8 +195,7 @@ Resolve peer references}
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer}
 }
 \if{html}{\out{</div>}}
 }
@@ -203,28 +204,26 @@ Convert to list}
 \if{html}{\out{<a id="method-ReportRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ReportRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReportRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ReportRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ReportRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReportRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a ReportRequest instance from reader
-
-reader is expected to implement: tgread_object(), read_int(), tgread_bytes(), tgread_string()
 }
 }
 \if{html}{\out{<hr>}}

@@ -4,6 +4,11 @@
 \alias{EditStoryRequest}
 \title{EditStoryRequest R6 class}
 \description{
+EditStoryRequest R6 class
+
+EditStoryRequest R6 class
+}
+\details{
 Request to edit an existing story. Depending on flags this may include media,
 media areas, caption+entities (both must be provided together) and privacy rules.
 Returns Updates.
@@ -43,6 +48,7 @@ Returns Updates.
 \if{html}{\out{<a id="method-EditStoryRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-EditStoryRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize EditStoryRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditStoryRequest$new(
   peer,
@@ -70,10 +76,7 @@ Returns Updates.
 
 \item{\code{entities}}{list or NULL (must be provided together with caption)}
 
-\item{\code{privacy_rules}}{list or NULL
-Resolve peer/media references
-
-Convert high-level references to input forms using client/utils.}
+\item{\code{privacy_rules}}{list or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -82,6 +85,9 @@ Convert high-level references to input forms using client/utils.}
 \if{html}{\out{<a id="method-EditStoryRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-EditStoryRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer/media references
+
+Convert high-level references to input forms using client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditStoryRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -91,8 +97,7 @@ Convert high-level references to input forms using client/utils.}
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer and get_input_media
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer and get_input_media}
 }
 \if{html}{\out{</div>}}
 }
@@ -101,28 +106,26 @@ Convert to list}
 \if{html}{\out{<a id="method-EditStoryRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-EditStoryRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditStoryRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-EditStoryRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-EditStoryRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditStoryRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read an EditStoryRequest instance from a reader
-
-reader expected to implement: read_int(), tgread_object(), tgread_string()
 }
 }
 \if{html}{\out{<hr>}}

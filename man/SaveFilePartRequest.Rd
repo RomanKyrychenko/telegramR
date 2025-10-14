@@ -4,16 +4,21 @@
 \alias{SaveFilePartRequest}
 \title{SaveFilePartRequest R6 class}
 \description{
-Represents the TL request upload.SaveFilePartRequest.
+R6 representation of the Telegram TL request upload.SaveFilePartRequest.
+  Saves a single (non-big) part of an uploaded file to Telegram's servers.
+  Use this for files below the "big file" threshold. Each call uploads one
+  sequential part identified by its index.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{file_id}}{numeric 64-bit file id (stored as numeric)}
+\item{\code{file_id}}{numeric (64-bit) Unique file identifier (stable per upload session).}
 
-\item{\code{file_part}}{integer part index}
+\item{\code{file_part}}{integer Zero-based index of this file part.}
 
-\item{\code{bytes_data}}{raw|integer|character payload bytes}
+\item{\code{bytes_data}}{raw|integer|character The binary payload for this part.
+Accepts: raw vector, integer/ numeric vector (converted mod 256), or character
+(converted with charToRaw).}
 }
 \if{html}{\out{</div>}}
 }
@@ -31,6 +36,7 @@ Represents the TL request upload.SaveFilePartRequest.
 \if{html}{\out{<a id="method-SaveFilePartRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveFilePartRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a new SaveFilePartRequest instance.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveFilePartRequest$new(file_id, file_part, bytes_data)}\if{html}{\out{</div>}}
 }
@@ -38,49 +44,65 @@ Represents the TL request upload.SaveFilePartRequest.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{file_id}}{numeric (64-bit)}
+\item{\code{file_id}}{numeric (64-bit) Unique file identifier.}
 
-\item{\code{file_part}}{integer}
+\item{\code{file_part}}{integer Zero-based index of this part.}
 
-\item{\code{bytes_data}}{raw|integer|character
-Convert to list (dictionary-like)}
+\item{\code{bytes_data}}{raw|integer|character Payload bytes for this part.}
 }
 \if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+SaveFilePartRequest (invisibly) for chaining.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveFilePartRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveFilePartRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert the request to a plain list (for inspection or JSON).
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveFilePartRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
-list
-Serialize to raw vector
+list A named list with class tag and fields.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveFilePartRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveFilePartRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize the request into TL-compliant raw bytes.
+  Layout: constructor_id | file_id(int64) | file_part(int32) | bytes (length-prefixed, padded).
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveFilePartRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
-raw
+raw Serialized byte vector.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveFilePartRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveFilePartRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Internal helper: serialize arbitrary byte-like input with
+  4-byte little-endian length and 0-padding to 4-byte boundary.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveFilePartRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{b}}{raw|integer|numeric|character Data to serialize.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+raw Serialized bytes with length prefix and padding.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveFilePartRequest-clone"></a>}}

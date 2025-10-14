@@ -4,6 +4,11 @@
 \alias{SaveBigFilePartRequest}
 \title{SaveBigFilePartRequest R6 class}
 \description{
+SaveBigFilePartRequest R6 class
+
+SaveBigFilePartRequest R6 class
+}
+\details{
 Represents the TL request upload.SaveBigFilePartRequest.
 }
 \section{Public fields}{
@@ -33,6 +38,7 @@ Represents the TL request upload.SaveBigFilePartRequest.
 \if{html}{\out{<a id="method-SaveBigFilePartRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveBigFilePartRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a SaveBigFilePartRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveBigFilePartRequest$new(file_id, file_part, file_total_parts, bytes_data)}\if{html}{\out{</div>}}
 }
@@ -46,8 +52,7 @@ Represents the TL request upload.SaveBigFilePartRequest.
 
 \item{\code{file_total_parts}}{integer}
 
-\item{\code{bytes_data}}{raw|integer|character
-Convert to list (dictionary-like)}
+\item{\code{bytes_data}}{raw|integer|character}
 }
 \if{html}{\out{</div>}}
 }
@@ -56,19 +61,20 @@ Convert to list (dictionary-like)}
 \if{html}{\out{<a id="method-SaveBigFilePartRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveBigFilePartRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveBigFilePartRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw vector
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveBigFilePartRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveBigFilePartRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw vector
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveBigFilePartRequest$to_bytes()}\if{html}{\out{</div>}}
 }

@@ -4,9 +4,13 @@
 \alias{GetWebFileRequest}
 \title{GetWebFileRequest R6 class}
 \description{
-Represents the TL request upload.GetWebFileRequest.
+GetWebFileRequest R6 class
+
+GetWebFileRequest R6 class
 }
 \details{
+Represents the TL request upload.GetWebFileRequest.
+
 Fields:
 }
 \section{Public fields}{
@@ -34,6 +38,7 @@ Fields:
 \if{html}{\out{<a id="method-GetWebFileRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetWebFileRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a GetWebFileRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetWebFileRequest$new(location, offset, limit)}\if{html}{\out{</div>}}
 }
@@ -45,8 +50,7 @@ Fields:
 
 \item{\code{offset}}{integer}
 
-\item{\code{limit}}{integer
-Convert to list (dictionary-like)}
+\item{\code{limit}}{integer}
 }
 \if{html}{\out{</div>}}
 }
@@ -55,19 +59,20 @@ Convert to list (dictionary-like)}
 \if{html}{\out{<a id="method-GetWebFileRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetWebFileRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetWebFileRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw vector
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetWebFileRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetWebFileRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw vector
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetWebFileRequest$to_bytes()}\if{html}{\out{</div>}}
 }

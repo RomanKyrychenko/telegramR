@@ -4,9 +4,13 @@
 \alias{GetStoriesArchiveRequest}
 \title{GetStoriesArchiveRequest R6 class}
 \description{
+GetStoriesArchiveRequest R6 class
+
+GetStoriesArchiveRequest R6 class
+}
+\details{
 Request to get archived stories for a peer with pagination (offset_id, limit).
 Returns stories.Stories.
-Initialize GetStoriesArchiveRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetStoriesArchiveRequest}
@@ -43,6 +47,7 @@ Initialize GetStoriesArchiveRequest
 \if{html}{\out{<a id="method-GetStoriesArchiveRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoriesArchiveRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetStoriesArchiveRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoriesArchiveRequest$new(peer, offset_id, limit)}\if{html}{\out{</div>}}
 }
@@ -60,15 +65,15 @@ Initialize GetStoriesArchiveRequest
 }
 \subsection{Returns}{
 invisible self
-Resolve peer references
-
-Convert high-level peer reference to input peer using client/utils.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStoriesArchiveRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoriesArchiveRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert high-level peer reference to input peer using client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoriesArchiveRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -84,35 +89,32 @@ Convert high-level peer reference to input peer using client/utils.
 }
 \subsection{Returns}{
 invisible self
-Convert to list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStoriesArchiveRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoriesArchiveRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoriesArchiveRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStoriesArchiveRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoriesArchiveRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoriesArchiveRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a GetStoriesArchiveRequest instance from a reader
-
-reader expected to implement: tgread_object(), read_int()
 }
 }
 \if{html}{\out{<hr>}}

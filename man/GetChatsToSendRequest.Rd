@@ -4,6 +4,11 @@
 \alias{GetChatsToSendRequest}
 \title{GetChatsToSendRequest R6 class}
 \description{
+GetChatsToSendRequest R6 class
+
+GetChatsToSendRequest R6 class
+}
+\details{
 Request without parameters; returns chats to send.
 }
 \section{Super classes}{

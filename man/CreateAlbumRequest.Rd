@@ -4,6 +4,11 @@
 \alias{CreateAlbumRequest}
 \title{CreateAlbumRequest R6 class}
 \description{
+CreateAlbumRequest R6 class
+
+CreateAlbumRequest R6 class
+}
+\details{
 Request to create a story album for a given peer with a title and list of story ids.
 Returns StoryAlbum.
 }
@@ -42,6 +47,7 @@ Returns StoryAlbum.
 \if{html}{\out{<a id="method-CreateAlbumRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateAlbumRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize CreateAlbumRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateAlbumRequest$new(peer, title, stories)}\if{html}{\out{</div>}}
 }
@@ -59,15 +65,15 @@ Returns StoryAlbum.
 }
 \subsection{Returns}{
 invisible self
-Resolve peer references
-
-Convert high-level peer reference to an input peer using client/utils.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CreateAlbumRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateAlbumRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert high-level peer reference to an input peer using client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateAlbumRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -77,8 +83,7 @@ Convert high-level peer reference to an input peer using client/utils.
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer}
 }
 \if{html}{\out{</div>}}
 }
@@ -87,28 +92,26 @@ Convert to list}
 \if{html}{\out{<a id="method-CreateAlbumRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateAlbumRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateAlbumRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CreateAlbumRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateAlbumRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateAlbumRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a CreateAlbumRequest instance from a reader
-
-reader expected to implement: tgread_object(), tgread_string(), read_int()
 }
 }
 \if{html}{\out{<hr>}}

@@ -4,6 +4,11 @@
 \alias{ExportStoryLinkRequest}
 \title{ExportStoryLinkRequest R6 class}
 \description{
+ExportStoryLinkRequest R6 class
+
+ExportStoryLinkRequest R6 class
+}
+\details{
 Request to export a story link for a given peer and story id.
 Returns stories.ExportedStoryLink.
 }
@@ -42,6 +47,7 @@ Returns stories.ExportedStoryLink.
 \if{html}{\out{<a id="method-ExportStoryLinkRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportStoryLinkRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ExportStoryLinkRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportStoryLinkRequest$new(peer, id)}\if{html}{\out{</div>}}
 }
@@ -51,10 +57,7 @@ Returns stories.ExportedStoryLink.
 \describe{
 \item{\code{peer}}{TypeInputPeer}
 
-\item{\code{id}}{integer story id
-Resolve peer references
-
-Convert high-level peer reference to input peer using client/utils.}
+\item{\code{id}}{integer story id}
 }
 \if{html}{\out{</div>}}
 }
@@ -63,6 +66,9 @@ Convert high-level peer reference to input peer using client/utils.}
 \if{html}{\out{<a id="method-ExportStoryLinkRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportStoryLinkRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert high-level peer reference to input peer using client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportStoryLinkRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -72,8 +78,7 @@ Convert high-level peer reference to input peer using client/utils.}
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer}
 }
 \if{html}{\out{</div>}}
 }
@@ -82,28 +87,26 @@ Convert to list}
 \if{html}{\out{<a id="method-ExportStoryLinkRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportStoryLinkRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportStoryLinkRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportStoryLinkRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportStoryLinkRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportStoryLinkRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read an ExportStoryLinkRequest instance from a reader
-
-reader expected to implement: tgread_object(), read_int()
 }
 }
 \if{html}{\out{<hr>}}

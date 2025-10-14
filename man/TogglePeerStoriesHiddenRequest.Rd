@@ -11,6 +11,11 @@ An R6 object inheriting from TLRequest (if available)
 TogglePeerStoriesHiddenRequest$new(peer, hidden)
 }
 \description{
+TogglePeerStoriesHiddenRequest R6 class
+
+TogglePeerStoriesHiddenRequest R6 class
+}
+\details{
 Represents a TL request to toggle hidden state for stories of a particular peer.
 }
 \section{Super classes}{
@@ -57,6 +62,7 @@ Represents a TL request to toggle hidden state for stories of a particular peer.
 \if{html}{\out{<a id="method-TogglePeerStoriesHiddenRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-TogglePeerStoriesHiddenRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize TogglePeerStoriesHiddenRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TogglePeerStoriesHiddenRequest$new(peer, hidden)}\if{html}{\out{</div>}}
 }
@@ -66,10 +72,7 @@ Represents a TL request to toggle hidden state for stories of a particular peer.
 \describe{
 \item{\code{peer}}{TypeInputPeer}
 
-\item{\code{hidden}}{logical
-Resolve peer references
-
-Convert high-level peer references to input peers using provided client/utils.}
+\item{\code{hidden}}{logical}
 }
 \if{html}{\out{</div>}}
 }
@@ -78,6 +81,9 @@ Convert high-level peer references to input peers using provided client/utils.}
 \if{html}{\out{<a id="method-TogglePeerStoriesHiddenRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-TogglePeerStoriesHiddenRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert high-level peer references to input peers using provided client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TogglePeerStoriesHiddenRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -87,8 +93,7 @@ Convert high-level peer references to input peers using provided client/utils.}
 \describe{
 \item{\code{client}}{client object with get_input_entity method}
 
-\item{\code{utils}}{utils object with get_input_peer method
-Convert to list (similar to to_dict)}
+\item{\code{utils}}{utils object with get_input_peer method}
 }
 \if{html}{\out{</div>}}
 }
@@ -97,31 +102,29 @@ Convert to list (similar to to_dict)}
 \if{html}{\out{<a id="method-TogglePeerStoriesHiddenRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-TogglePeerStoriesHiddenRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TogglePeerStoriesHiddenRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw bytes
-
-Produces a raw vector matching TL binary layout.
-Expects helper serialization methods on peer (to_bytes/bytes/_bytes).
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TogglePeerStoriesHiddenRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-TogglePeerStoriesHiddenRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes
+
+Produces a raw vector matching TL binary layout.
+Expects helper serialization methods on peer (to_bytes/bytes/_bytes).
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TogglePeerStoriesHiddenRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a TogglePeerStoriesHiddenRequest instance from a reader
-
-reader is expected to implement: tgread_object(), tgread_bool()
 }
 }
 \if{html}{\out{<hr>}}

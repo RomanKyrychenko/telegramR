@@ -4,6 +4,11 @@
 \alias{ActivateStealthModeRequest}
 \title{ActivateStealthModeRequest R6 class}
 \description{
+ActivateStealthModeRequest R6 class
+
+ActivateStealthModeRequest R6 class
+}
+\details{
 Request to activate stealth mode with optional past/future flags.
 Returns Updates.
 }
@@ -42,6 +47,7 @@ Returns Updates.
 \if{html}{\out{<a id="method-ActivateStealthModeRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ActivateStealthModeRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ActivateStealthModeRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ActivateStealthModeRequest$new(past = NULL, future = NULL)}\if{html}{\out{</div>}}
 }
@@ -57,35 +63,32 @@ Returns Updates.
 }
 \subsection{Returns}{
 invisible self
-Convert to list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ActivateStealthModeRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ActivateStealthModeRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ActivateStealthModeRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ActivateStealthModeRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ActivateStealthModeRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ActivateStealthModeRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read an ActivateStealthModeRequest instance from a reader
-
-reader expected to implement: read_int()
 }
 }
 \if{html}{\out{<hr>}}

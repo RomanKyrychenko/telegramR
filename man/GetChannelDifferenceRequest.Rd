@@ -7,6 +7,11 @@
 R6 object of class GetChannelDifferenceRequest
 }
 \description{
+GetChannelDifferenceRequest R6 class
+
+GetChannelDifferenceRequest R6 class
+}
+\details{
 Representation of updates.GetChannelDifference request.
 }
 \examples{
@@ -41,28 +46,52 @@ Representation of updates.GetChannelDifference request.
 \if{html}{\out{<a id="method-GetChannelDifferenceRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetChannelDifferenceRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initializes a new GetChannelDifferenceRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetChannelDifferenceRequest$new(channel, filter, pts, limit, force = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{channel}}{TypeInputChannel Input channel (R6 object with bytes() or raw}
+
+\item{\code{filter}}{TypeChannelMessagesFilter Filter (R6 object with bytes() or raw())}
+
+\item{\code{pts}}{integer PTS}
+
+\item{\code{limit}}{integer Limit}
+
+\item{\code{force}}{logical|NULL Optional force flag}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetChannelDifferenceRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetChannelDifferenceRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Converts the request to a list representation.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetChannelDifferenceRequest$to_list()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A list representing the request.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetChannelDifferenceRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetChannelDifferenceRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Serializes the request to raw bytes.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetChannelDifferenceRequest$bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A raw vector representing the serialized request.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetChannelDifferenceRequest-from_reader"></a>}}

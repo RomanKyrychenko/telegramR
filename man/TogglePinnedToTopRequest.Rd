@@ -11,6 +11,11 @@ An R6 object inheriting from TLRequest (if available)
 TogglePinnedToTopRequest$new(peer, id)
 }
 \description{
+TogglePinnedToTopRequest R6 class
+
+TogglePinnedToTopRequest R6 class
+}
+\details{
 Represents a TL request to toggle pinned-to-top state for stories.
 }
 \section{Super classes}{
@@ -57,6 +62,7 @@ Represents a TL request to toggle pinned-to-top state for stories.
 \if{html}{\out{<a id="method-TogglePinnedToTopRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-TogglePinnedToTopRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize TogglePinnedToTopRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TogglePinnedToTopRequest$new(peer, id)}\if{html}{\out{</div>}}
 }
@@ -66,10 +72,7 @@ Represents a TL request to toggle pinned-to-top state for stories.
 \describe{
 \item{\code{peer}}{TypeInputPeer}
 
-\item{\code{id}}{integer vector of story ids
-Resolve peer references
-
-Convert high-level peer references to input peers using provided client/utils.}
+\item{\code{id}}{integer vector of story ids}
 }
 \if{html}{\out{</div>}}
 }
@@ -78,6 +81,9 @@ Convert high-level peer references to input peers using provided client/utils.}
 \if{html}{\out{<a id="method-TogglePinnedToTopRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-TogglePinnedToTopRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert high-level peer references to input peers using provided client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TogglePinnedToTopRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -87,10 +93,7 @@ Convert high-level peer references to input peers using provided client/utils.}
 \describe{
 \item{\code{client}}{client object with get_input_entity method}
 
-\item{\code{utils}}{utils object with get_input_peer method
-Convert to list (similar to to_dict)
-
-Prepare a pure R list representation suitable for inspection or JSON.}
+\item{\code{utils}}{utils object with get_input_peer method}
 }
 \if{html}{\out{</div>}}
 }
@@ -99,31 +102,31 @@ Prepare a pure R list representation suitable for inspection or JSON.}
 \if{html}{\out{<a id="method-TogglePinnedToTopRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-TogglePinnedToTopRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (similar to to_dict)
+
+Prepare a pure R list representation suitable for inspection or JSON.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TogglePinnedToTopRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw bytes
-
-Produces a raw vector matching TL binary layout.
-Expects helper serialization methods on peer (to_bytes/bytes/_bytes) and writeBin available.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TogglePinnedToTopRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-TogglePinnedToTopRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes
+
+Produces a raw vector matching TL binary layout.
+Expects helper serialization methods on peer (to_bytes/bytes/_bytes) and writeBin available.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TogglePinnedToTopRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a TogglePinnedToTopRequest instance from a reader
-
-reader is expected to implement: read_int(), tgread_object()
 }
 }
 \if{html}{\out{<hr>}}

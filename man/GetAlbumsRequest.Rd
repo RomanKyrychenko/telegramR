@@ -4,6 +4,11 @@
 \alias{GetAlbumsRequest}
 \title{GetAlbumsRequest R6 class}
 \description{
+GetAlbumsRequest R6 class
+
+GetAlbumsRequest R6 class
+}
+\details{
 Request to get albums for a peer. Returns stories.Albums (or AlbumsNotModified).
 }
 \section{Super classes}{
@@ -41,6 +46,7 @@ Request to get albums for a peer. Returns stories.Albums (or AlbumsNotModified).
 \if{html}{\out{<a id="method-GetAlbumsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAlbumsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetAlbumsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAlbumsRequest$new(peer, hash)}\if{html}{\out{</div>}}
 }
@@ -50,8 +56,7 @@ Request to get albums for a peer. Returns stories.Albums (or AlbumsNotModified).
 \describe{
 \item{\code{peer}}{TypeInputPeer}
 
-\item{\code{hash}}{numeric/integer (64-bit)
-Resolve peer references}
+\item{\code{hash}}{numeric/integer (64-bit)}
 }
 \if{html}{\out{</div>}}
 }
@@ -60,6 +65,7 @@ Resolve peer references}
 \if{html}{\out{<a id="method-GetAlbumsRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAlbumsRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAlbumsRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -69,8 +75,7 @@ Resolve peer references}
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer}
 }
 \if{html}{\out{</div>}}
 }
@@ -79,28 +84,26 @@ Convert to list}
 \if{html}{\out{<a id="method-GetAlbumsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAlbumsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAlbumsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetAlbumsRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAlbumsRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAlbumsRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a GetAlbumsRequest instance from a reader
-
-reader expected to implement: tgread_object(), read_long()
 }
 }
 \if{html}{\out{<hr>}}

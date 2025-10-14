@@ -11,6 +11,11 @@ An R6 object inheriting from TLRequest (if available)
 ToggleAllStoriesHiddenRequest$new(hidden)
 }
 \description{
+ToggleAllStoriesHiddenRequest R6 class
+
+ToggleAllStoriesHiddenRequest R6 class
+}
+\details{
 Represents a TL request to toggle the "all stories hidden" flag.
 }
 \section{Super classes}{
@@ -55,6 +60,7 @@ Represents a TL request to toggle the "all stories hidden" flag.
 \if{html}{\out{<a id="method-ToggleAllStoriesHiddenRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleAllStoriesHiddenRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ToggleAllStoriesHiddenRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleAllStoriesHiddenRequest$new(hidden)}\if{html}{\out{</div>}}
 }
@@ -62,8 +68,7 @@ Represents a TL request to toggle the "all stories hidden" flag.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{hidden}}{logical
-Convert to list (similar to to_dict)}
+\item{\code{hidden}}{logical}
 }
 \if{html}{\out{</div>}}
 }
@@ -72,30 +77,28 @@ Convert to list (similar to to_dict)}
 \if{html}{\out{<a id="method-ToggleAllStoriesHiddenRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleAllStoriesHiddenRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleAllStoriesHiddenRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw bytes
-
-Produces a raw vector matching TL binary layout for this request.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ToggleAllStoriesHiddenRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleAllStoriesHiddenRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes
+
+Produces a raw vector matching TL binary layout for this request.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleAllStoriesHiddenRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a ToggleAllStoriesHiddenRequest instance from a reader
-
-reader is expected to implement: tgread_bool()
 }
 }
 \if{html}{\out{<hr>}}

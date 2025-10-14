@@ -4,6 +4,11 @@
 \alias{CanSendStoryRequest}
 \title{CanSendStoryRequest R6 class}
 \description{
+CanSendStoryRequest R6 class
+
+CanSendStoryRequest R6 class
+}
+\details{
 Request to check whether a story can be sent to a given peer.
 Returns stories.CanSendStoryCount.
 }
@@ -42,6 +47,7 @@ Returns stories.CanSendStoryCount.
 \if{html}{\out{<a id="method-CanSendStoryRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-CanSendStoryRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize CanSendStoryRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CanSendStoryRequest$new(peer)}\if{html}{\out{</div>}}
 }
@@ -55,15 +61,15 @@ Returns stories.CanSendStoryCount.
 }
 \subsection{Returns}{
 invisible self
-Resolve peer references
-
-Convert high-level peer reference to an input peer using client/utils.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CanSendStoryRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-CanSendStoryRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert high-level peer reference to an input peer using client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CanSendStoryRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -73,8 +79,7 @@ Convert high-level peer reference to an input peer using client/utils.
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer}
 }
 \if{html}{\out{</div>}}
 }
@@ -83,28 +88,26 @@ Convert to list}
 \if{html}{\out{<a id="method-CanSendStoryRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-CanSendStoryRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CanSendStoryRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CanSendStoryRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-CanSendStoryRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CanSendStoryRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a CanSendStoryRequest instance from a reader
-
-reader expected to implement: tgread_object()
 }
 }
 \if{html}{\out{<hr>}}

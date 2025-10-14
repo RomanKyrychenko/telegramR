@@ -52,46 +52,85 @@ Represents a request to set secure value errors for a Telegram user. This class 
 \if{html}{\out{<a id="method-SetSecureValueErrorsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SetSecureValueErrorsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Request to set secure value errors for a user.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetSecureValueErrorsRequest$new(id = NULL, errors = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{TLInputUser or a representation accepted by get_input_user}
+
+\item{\code{errors}}{List of TLSecureValueError or representations accepted by get_secure_value_error}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SetSecureValueErrorsRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-SetSecureValueErrorsRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Initializes the SetSecureValueErrorsRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetSecureValueErrorsRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{TLInputUser or a representation accepted by get_input_user}
+
+\item{\code{errors}}{List of TLSecureValueError or representations accepted by get_secure_value}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SetSecureValueErrorsRequest-to_dict"></a>}}
 \if{latex}{\out{\hypertarget{method-SetSecureValueErrorsRequest-to_dict}{}}}
 \subsection{Method \code{to_dict()}}{
+Resolves the id and errors fields using the provided client and utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetSecureValueErrorsRequest$to_dict()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+List with resolved id and errors.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SetSecureValueErrorsRequest-.bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SetSecureValueErrorsRequest-.bytes}{}}}
 \subsection{Method \code{.bytes()}}{
+Converts the SetSecureValueErrorsRequest to a dictionary (list).
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetSecureValueErrorsRequest$.bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A list representation of the SetSecureValueErrorsRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SetSecureValueErrorsRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-SetSecureValueErrorsRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Converts the SetSecureValueErrorsRequest to raw bytes.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetSecureValueErrorsRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{A reader object to read the response.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A raw vector representing the SetSecureValueErrorsRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SetSecureValueErrorsRequest-clone"></a>}}

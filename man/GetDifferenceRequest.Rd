@@ -5,12 +5,11 @@
 \title{GetDifferenceRequest R6 class}
 \value{
 A GetDifferenceRequest R6 object
-
-R6 object of class GetDifferenceRequest
 }
 \description{
 TLRequest: GetDifferenceRequest
-
+}
+\details{
 Representation of updates.GetDifference request.
 }
 \examples{
@@ -141,6 +140,7 @@ The objects of this class are cloneable with this method.
 \if{html}{\out{<a id="method-GetDifferenceRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetDifferenceRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Converts the request to a list representation.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetDifferenceRequest$new(
   pts,
@@ -152,24 +152,49 @@ The objects of this class are cloneable with this method.
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{pts}}{integer PTS}
+
+\item{\code{date}}{POSIXct|NULL Date}
+
+\item{\code{qts}}{integer QTS}
+
+\item{\code{pts_limit}}{integer|NULL Optional pts_limit}
+
+\item{\code{pts_total_limit}}{integer|NULL Optional pts_total_limit}
+
+\item{\code{qts_limit}}{integer|NULL Optional qts_limit}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetDifferenceRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetDifferenceRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Initializes a new GetDifferenceRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetDifferenceRequest$to_list()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A new GetDifferenceRequest instance.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetDifferenceRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetDifferenceRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Converts the request to a list representation.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetDifferenceRequest$bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A list representing the request.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetDifferenceRequest-from_reader"></a>}}

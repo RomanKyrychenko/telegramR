@@ -4,19 +4,32 @@
 \alias{GetSavedMusicRequest}
 \title{GetSavedMusicRequest}
 \description{
-Request to get saved music for a user.
+GetSavedMusicRequest
+
+GetSavedMusicRequest
 }
 \details{
-Fields:
-- id: TLInputUser or a representation accepted by utils$get_input_user
-- offset: integer
-- limit: integer
-- hash: integer64 (may be represented as numeric in R)
-
-Returns: users.SavedMusic (either SavedMusicNotModified or SavedMusic)
+Request to get saved music for a user.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetSavedMusicRequest}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the GetSavedMusicRequest class.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the GetSavedMusicRequest class.}
+
+\item{\code{id}}{TLInputUser or a representation accepted by get_input_user}
+
+\item{\code{offset}}{Integer offset for pagination.}
+
+\item{\code{limit}}{Integer limit for the number of items to retrieve.}
+
+\item{\code{hash}}{Integer64 hash for caching purposes (may be represented as numeric in R}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -48,46 +61,92 @@ Returns: users.SavedMusic (either SavedMusicNotModified or SavedMusic)
 \if{html}{\out{<a id="method-GetSavedMusicRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSavedMusicRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Request to get saved music for a user.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicRequest$new(id = NULL, offset = NULL, limit = NULL, hash = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{TLInputUser or a representation accepted by get_input_user}
+
+\item{\code{offset}}{Integer offset for pagination.}
+
+\item{\code{limit}}{Integer limit for the number of items to retrieve.}
+
+\item{\code{hash}}{Integer64 hash for caching purposes (may be represented as numeric in R}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetSavedMusicRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSavedMusicRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Converts the GetSavedMusicRequest to a dictionary (list).
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{client}}{A client object to resolve user references.}
+
+\item{\code{utils}}{A utils object with methods to get input user representations.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A list representation of the GetSavedMusicRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetSavedMusicRequest-to_dict"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSavedMusicRequest-to_dict}{}}}
 \subsection{Method \code{to_dict()}}{
+Resolves the id field using the provided client and utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicRequest$to_dict()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A raw vector representing the GetSavedMusicRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetSavedMusicRequest-.bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSavedMusicRequest-.bytes}{}}}
 \subsection{Method \code{.bytes()}}{
+Converts the GetSavedMusicRequest to raw bytes.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicRequest$.bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A raw vector representing the GetSavedMusicRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetSavedMusicRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSavedMusicRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Initializes the GetSavedMusicRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{A reader object to read the response.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A new instance of GetSavedMusicRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetSavedMusicRequest-clone"></a>}}

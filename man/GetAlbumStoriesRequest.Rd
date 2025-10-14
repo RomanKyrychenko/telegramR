@@ -4,6 +4,11 @@
 \alias{GetAlbumStoriesRequest}
 \title{GetAlbumStoriesRequest R6 class}
 \description{
+GetAlbumStoriesRequest R6 class
+
+GetAlbumStoriesRequest R6 class
+}
+\details{
 Request to get stories from an album for a given peer with paging (offset, limit).
 Returns stories.Stories.
 }
@@ -42,6 +47,7 @@ Returns stories.Stories.
 \if{html}{\out{<a id="method-GetAlbumStoriesRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAlbumStoriesRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetAlbumStoriesRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAlbumStoriesRequest$new(peer, album_id, offset, limit)}\if{html}{\out{</div>}}
 }
@@ -55,10 +61,7 @@ Returns stories.Stories.
 
 \item{\code{offset}}{integer}
 
-\item{\code{limit}}{integer
-Resolve peer references
-
-Convert high-level peer reference to input peer using client/utils.}
+\item{\code{limit}}{integer}
 }
 \if{html}{\out{</div>}}
 }
@@ -67,6 +70,9 @@ Convert high-level peer reference to input peer using client/utils.}
 \if{html}{\out{<a id="method-GetAlbumStoriesRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAlbumStoriesRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert high-level peer reference to input peer using client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAlbumStoriesRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -76,8 +82,7 @@ Convert high-level peer reference to input peer using client/utils.}
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer}
 }
 \if{html}{\out{</div>}}
 }
@@ -86,28 +91,26 @@ Convert to list}
 \if{html}{\out{<a id="method-GetAlbumStoriesRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAlbumStoriesRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAlbumStoriesRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetAlbumStoriesRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAlbumStoriesRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAlbumStoriesRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a GetAlbumStoriesRequest instance from a reader
-
-reader expected to implement: tgread_object(), read_int()
 }
 }
 \if{html}{\out{<hr>}}

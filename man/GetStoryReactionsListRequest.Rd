@@ -4,9 +4,13 @@
 \alias{GetStoryReactionsListRequest}
 \title{GetStoryReactionsListRequest R6 class}
 \description{
+GetStoryReactionsListRequest R6 class
+
+GetStoryReactionsListRequest R6 class
+}
+\details{
 Request to get a list of story reactions with optional filters.
 Returns stories.StoryReactionsList.
-Initialize GetStoryReactionsListRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetStoryReactionsListRequest}
@@ -43,6 +47,7 @@ Initialize GetStoryReactionsListRequest
 \if{html}{\out{<a id="method-GetStoryReactionsListRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoryReactionsListRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetStoryReactionsListRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoryReactionsListRequest$new(
   peer,
@@ -67,10 +72,7 @@ Initialize GetStoryReactionsListRequest
 
 \item{\code{reaction}}{TypeReaction or NULL}
 
-\item{\code{offset}}{character or NULL
-Resolve peer references
-
-Convert high-level peer reference to input peer using client/utils.}
+\item{\code{offset}}{character or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -79,6 +81,9 @@ Convert high-level peer reference to input peer using client/utils.}
 \if{html}{\out{<a id="method-GetStoryReactionsListRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoryReactionsListRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert high-level peer reference to input peer using client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoryReactionsListRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -88,8 +93,7 @@ Convert high-level peer reference to input peer using client/utils.}
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer}
 }
 \if{html}{\out{</div>}}
 }
@@ -98,28 +102,26 @@ Convert to list}
 \if{html}{\out{<a id="method-GetStoryReactionsListRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoryReactionsListRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoryReactionsListRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStoryReactionsListRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoryReactionsListRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoryReactionsListRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a GetStoryReactionsListRequest instance from a reader
-
-reader expected to implement: read_int(), tgread_object(), tgread_string()
 }
 }
 \if{html}{\out{<hr>}}

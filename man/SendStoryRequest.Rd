@@ -14,6 +14,11 @@ SendStoryRequest$new(peer, media, privacy_rules, pinned = NULL, noforwards = NUL
                             fwd_from_id = NULL, fwd_from_story = NULL, albums = NULL)
 }
 \description{
+SendStoryRequest R6 class
+
+SendStoryRequest R6 class
+}
+\details{
 Represents a TL request to send a story.
 }
 \section{Super classes}{
@@ -84,6 +89,7 @@ Represents a TL request to send a story.
 \if{html}{\out{<a id="method-SendStoryRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SendStoryRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize SendStoryRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendStoryRequest$new(
   peer,
@@ -132,8 +138,7 @@ Represents a TL request to send a story.
 
 \item{\code{fwd_from_story}}{integer or NULL}
 
-\item{\code{albums}}{integer vector or NULL
-Resolve peer and forward references}
+\item{\code{albums}}{integer vector or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -142,6 +147,7 @@ Resolve peer and forward references}
 \if{html}{\out{<a id="method-SendStoryRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-SendStoryRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer and forward references
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendStoryRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -151,8 +157,7 @@ Resolve peer and forward references}
 \describe{
 \item{\code{client}}{client object with get_input_entity}
 
-\item{\code{utils}}{utils object with get_input_peer / get_input_media
-Convert to list (similar to to_dict)}
+\item{\code{utils}}{utils object with get_input_peer / get_input_media}
 }
 \if{html}{\out{</div>}}
 }
@@ -161,31 +166,29 @@ Convert to list (similar to to_dict)}
 \if{html}{\out{<a id="method-SendStoryRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SendStoryRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendStoryRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw bytes
-
-Produces a raw vector matching TL binary layout for this request.
-Expects helper serialization methods on peer/media/privacy_rules/media_areas/entities/fwd_from_id.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SendStoryRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SendStoryRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes
+
+Produces a raw vector matching TL binary layout for this request.
+Expects helper serialization methods on peer/media/privacy_rules/media_areas/entities/fwd_from_id.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendStoryRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a SendStoryRequest instance from a reader
-
-reader is expected to implement: read_int(), tgread_object(), tgread_string(), read_long()
 }
 }
 \if{html}{\out{<hr>}}

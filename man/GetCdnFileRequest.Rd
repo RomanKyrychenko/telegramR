@@ -4,6 +4,11 @@
 \alias{GetCdnFileRequest}
 \title{GetCdnFileRequest R6 class}
 \description{
+GetCdnFileRequest R6 class
+
+GetCdnFileRequest R6 class
+}
+\details{
 Represents the TL request upload.GetCdnFileRequest.
 }
 \section{Public fields}{
@@ -31,6 +36,7 @@ Represents the TL request upload.GetCdnFileRequest.
 \if{html}{\out{<a id="method-GetCdnFileRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCdnFileRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a GetCdnFileRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCdnFileRequest$new(file_token, offset, limit)}\if{html}{\out{</div>}}
 }
@@ -42,8 +48,7 @@ Represents the TL request upload.GetCdnFileRequest.
 
 \item{\code{offset}}{numeric (64-bit)}
 
-\item{\code{limit}}{integer
-Convert to list (dictionary-like)}
+\item{\code{limit}}{integer}
 }
 \if{html}{\out{</div>}}
 }
@@ -52,19 +57,20 @@ Convert to list (dictionary-like)}
 \if{html}{\out{<a id="method-GetCdnFileRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCdnFileRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCdnFileRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw vector
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetCdnFileRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCdnFileRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw vector
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCdnFileRequest$to_bytes()}\if{html}{\out{</div>}}
 }

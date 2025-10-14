@@ -4,9 +4,13 @@
 \alias{GetStoryViewsListRequest}
 \title{GetStoryViewsListRequest R6 class}
 \description{
+GetStoryViewsListRequest R6 class
+
+GetStoryViewsListRequest R6 class
+}
+\details{
 Request to get a list of story views with optional filters (just_contacts,
 reactions_first, forwards_first, q). Returns a stories.StoryViewsList.
-Initialize GetStoryViewsListRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetStoryViewsListRequest}
@@ -43,6 +47,7 @@ Initialize GetStoryViewsListRequest
 \if{html}{\out{<a id="method-GetStoryViewsListRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoryViewsListRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetStoryViewsListRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoryViewsListRequest$new(
   peer,
@@ -73,8 +78,7 @@ Initialize GetStoryViewsListRequest
 
 \item{\code{forwards_first}}{logical or NULL}
 
-\item{\code{q}}{character or NULL search query
-Resolve peer references}
+\item{\code{q}}{character or NULL search query}
 }
 \if{html}{\out{</div>}}
 }
@@ -83,6 +87,7 @@ Resolve peer references}
 \if{html}{\out{<a id="method-GetStoryViewsListRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoryViewsListRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoryViewsListRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -92,8 +97,7 @@ Resolve peer references}
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer}
 }
 \if{html}{\out{</div>}}
 }
@@ -102,28 +106,26 @@ Convert to list}
 \if{html}{\out{<a id="method-GetStoryViewsListRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoryViewsListRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoryViewsListRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStoryViewsListRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoryViewsListRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoryViewsListRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a GetStoryViewsListRequest instance from a reader
-
-reader expected to implement: read_int(), tgread_object(), tgread_string()
 }
 }
 \if{html}{\out{<hr>}}

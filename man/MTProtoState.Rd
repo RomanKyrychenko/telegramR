@@ -182,7 +182,6 @@ Update time offset based on a correct message ID
 }
 \subsection{Returns}{
 Updated time offset
-Calculate encryption key and initialization vector
 }
 }
 \if{html}{\out{<hr>}}

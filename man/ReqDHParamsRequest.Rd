@@ -6,13 +6,6 @@
 \description{
 Represents the TL request `ReqDHParamsRequest`.
 
-R6 class representing a request for Diffie-Hellman parameters during
-the key exchange phase. This request carries:
-- `nonce` and `server_nonce`: 128-bit nonces used for the DH handshake,
-- `p` and `q`: byte sequences containing prime parameters,
-- `public_key_fingerprint`: 64-bit fingerprint of the server public key,
-- `encrypted_data`: bytes with encrypted DH payload.
-
 A class representing the `ReqDHParamsRequest` object. This class is used to handle
 the serialization and deserialization of the `ReqDHParamsRequest` object.
 }
@@ -34,6 +27,13 @@ Note: 128-bit integer handling is represented as numeric/double placeholders.
 For precise 128-bit two's-complement behavior, use a big-integer library and
 implement a precise serializer.
 Initialize a ReqDHParamsRequest
+
+R6 class representing a request for Diffie-Hellman parameters during
+the key exchange phase. This request carries:
+- `nonce` and `server_nonce`: 128-bit nonces used for the DH handshake,
+- `p` and `q`: byte sequences containing prime parameters,
+- `public_key_fingerprint`: 64-bit fingerprint of the server public key,
+- `encrypted_data`: bytes with encrypted DH payload.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ReqDHParamsRequest}
@@ -136,8 +136,7 @@ The objects of this class are cloneable with this method.
 
 \item{\code{public_key_fingerprint}}{64-bit fingerprint of the public key.}
 
-\item{\code{encrypted_data}}{Encrypted payload bytes.
-Initialize a new ReqDHParamsRequest}
+\item{\code{encrypted_data}}{Encrypted payload bytes.}
 }
 \if{html}{\out{</div>}}
 }

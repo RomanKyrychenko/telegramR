@@ -11,6 +11,11 @@ An R6 object inheriting from TLRequest
 ReadStoriesRequest$new(peer, max_id)
 }
 \description{
+ReadStoriesRequest R6 class
+
+ReadStoriesRequest R6 class
+}
+\details{
 Represents a TL request that reads stories up to a given max_id and
 returns a Vector<int> result.
 }
@@ -58,6 +63,7 @@ returns a Vector<int> result.
 \if{html}{\out{<a id="method-ReadStoriesRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ReadStoriesRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ReadStoriesRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReadStoriesRequest$new(peer, max_id)}\if{html}{\out{</div>}}
 }
@@ -67,10 +73,7 @@ returns a Vector<int> result.
 \describe{
 \item{\code{peer}}{TypeInputPeer}
 
-\item{\code{max_id}}{integer
-Resolve peer references
-
-Convert a high-level peer reference to an input peer using client/utils.}
+\item{\code{max_id}}{integer}
 }
 \if{html}{\out{</div>}}
 }
@@ -79,6 +82,9 @@ Convert a high-level peer reference to an input peer using client/utils.}
 \if{html}{\out{<a id="method-ReadStoriesRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-ReadStoriesRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert a high-level peer reference to an input peer using client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReadStoriesRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -88,8 +94,7 @@ Convert a high-level peer reference to an input peer using client/utils.}
 \describe{
 \item{\code{client}}{client object with get_input_entity method}
 
-\item{\code{utils}}{utils object with get_input_peer method
-Convert to list}
+\item{\code{utils}}{utils object with get_input_peer method}
 }
 \if{html}{\out{</div>}}
 }
@@ -98,28 +103,26 @@ Convert to list}
 \if{html}{\out{<a id="method-ReadStoriesRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ReadStoriesRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReadStoriesRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ReadStoriesRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ReadStoriesRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReadStoriesRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a ReadStoriesRequest instance from a reader
-
-reader is expected to implement: tgread_object(), read_int()
 }
 }
 \if{html}{\out{<hr>}}

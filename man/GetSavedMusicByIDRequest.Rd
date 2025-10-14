@@ -4,15 +4,28 @@
 \alias{GetSavedMusicByIDRequest}
 \title{GetSavedMusicByIDRequest}
 \description{
-Request to get saved music by document IDs for a user.
+GetSavedMusicByIDRequest
+
+GetSavedMusicByIDRequest
 }
 \details{
-Fields:
-- id: TLInputUser or a representation accepted by utils$get_input_user
-- documents: list of TLInputDocument or representations accepted by utils$get_input_document
+Request to get saved music by document IDs for a user.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetSavedMusicByIDRequest}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the GetSavedMusicByIDRequest class.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the GetSavedMusicByIDRequest class.}
+
+\item{\code{id}}{TLInputUser or a representation accepted by get_input_user}
+
+\item{\code{documents}}{List of TLInputDocument or representations accepted by get_input_document}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -44,46 +57,85 @@ Fields:
 \if{html}{\out{<a id="method-GetSavedMusicByIDRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSavedMusicByIDRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Request to get saved music by document IDs for a user.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicByIDRequest$new(id = NULL, documents = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{TLInputUser or a representation accepted by get_input_user}
+
+\item{\code{documents}}{List of TLInputDocument or representations accepted by get_input_document}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetSavedMusicByIDRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSavedMusicByIDRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Converts the GetSavedMusicByIDRequest to a dictionary (list).
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicByIDRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{client}}{A client object to resolve user references.}
+
+\item{\code{utils}}{A utils object with methods to get input user and document representations.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetSavedMusicByIDRequest-to_dict"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSavedMusicByIDRequest-to_dict}{}}}
 \subsection{Method \code{to_dict()}}{
+Converts the GetSavedMusicByIDRequest to raw bytes.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicByIDRequest$to_dict()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A raw vector representing the GetSavedMusicByIDRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetSavedMusicByIDRequest-.bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSavedMusicByIDRequest-.bytes}{}}}
 \subsection{Method \code{.bytes()}}{
+Initializes the GetSavedMusicByIDRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicByIDRequest$.bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A raw vector representing the GetSavedMusicByIDRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetSavedMusicByIDRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSavedMusicByIDRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Request to get saved music by document IDs for a user.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicByIDRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{A reader object to read the response.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A new instance of GetSavedMusicByIDRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetSavedMusicByIDRequest-clone"></a>}}

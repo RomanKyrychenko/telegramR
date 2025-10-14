@@ -4,6 +4,11 @@
 \alias{DeleteAlbumRequest}
 \title{DeleteAlbumRequest R6 class}
 \description{
+DeleteAlbumRequest R6 class
+
+DeleteAlbumRequest R6 class
+}
+\details{
 Request to delete an album for a given peer. Returns Bool.
 }
 \section{Super classes}{
@@ -41,6 +46,7 @@ Request to delete an album for a given peer. Returns Bool.
 \if{html}{\out{<a id="method-DeleteAlbumRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteAlbumRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize DeleteAlbumRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteAlbumRequest$new(peer, album_id)}\if{html}{\out{</div>}}
 }
@@ -50,10 +56,7 @@ Request to delete an album for a given peer. Returns Bool.
 \describe{
 \item{\code{peer}}{TypeInputPeer}
 
-\item{\code{album_id}}{integer
-Resolve peer references
-
-Convert a high-level peer reference to an input peer using client/utils.}
+\item{\code{album_id}}{integer}
 }
 \if{html}{\out{</div>}}
 }
@@ -62,6 +65,9 @@ Convert a high-level peer reference to an input peer using client/utils.}
 \if{html}{\out{<a id="method-DeleteAlbumRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteAlbumRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert a high-level peer reference to an input peer using client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteAlbumRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -71,8 +77,7 @@ Convert a high-level peer reference to an input peer using client/utils.}
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer}
 }
 \if{html}{\out{</div>}}
 }
@@ -81,28 +86,26 @@ Convert to list}
 \if{html}{\out{<a id="method-DeleteAlbumRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteAlbumRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteAlbumRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DeleteAlbumRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteAlbumRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteAlbumRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a DeleteAlbumRequest instance from a reader
-
-reader expected to implement: tgread_object(), read_int()
 }
 }
 \if{html}{\out{<hr>}}

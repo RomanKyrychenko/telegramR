@@ -4,9 +4,13 @@
 \alias{IncrementStoryViewsRequest}
 \title{IncrementStoryViewsRequest R6 class}
 \description{
+IncrementStoryViewsRequest R6 class
+
+IncrementStoryViewsRequest R6 class
+}
+\details{
 Request to increment story views for a peer and a vector of ids.
 Returns Bool.
-Initialize IncrementStoryViewsRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{IncrementStoryViewsRequest}
@@ -43,6 +47,7 @@ Initialize IncrementStoryViewsRequest
 \if{html}{\out{<a id="method-IncrementStoryViewsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-IncrementStoryViewsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize IncrementStoryViewsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{IncrementStoryViewsRequest$new(peer, id)}\if{html}{\out{</div>}}
 }
@@ -52,8 +57,7 @@ Initialize IncrementStoryViewsRequest
 \describe{
 \item{\code{peer}}{TypeInputPeer}
 
-\item{\code{id}}{integer vector of story ids
-Resolve peer references}
+\item{\code{id}}{integer vector of story ids}
 }
 \if{html}{\out{</div>}}
 }
@@ -62,6 +66,7 @@ Resolve peer references}
 \if{html}{\out{<a id="method-IncrementStoryViewsRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-IncrementStoryViewsRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{IncrementStoryViewsRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -71,8 +76,7 @@ Resolve peer references}
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer}
 }
 \if{html}{\out{</div>}}
 }
@@ -81,28 +85,26 @@ Convert to list}
 \if{html}{\out{<a id="method-IncrementStoryViewsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-IncrementStoryViewsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{IncrementStoryViewsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-IncrementStoryViewsRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-IncrementStoryViewsRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{IncrementStoryViewsRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read an IncrementStoryViewsRequest instance from a reader
-
-reader expected to implement: tgread_object(), read_int()
 }
 }
 \if{html}{\out{<hr>}}

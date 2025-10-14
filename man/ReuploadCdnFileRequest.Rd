@@ -4,6 +4,11 @@
 \alias{ReuploadCdnFileRequest}
 \title{ReuploadCdnFileRequest R6 class}
 \description{
+ReuploadCdnFileRequest R6 class
+
+ReuploadCdnFileRequest R6 class
+}
+\details{
 Represents the TL request upload.ReuploadCdnFileRequest.
 }
 \section{Public fields}{
@@ -29,6 +34,7 @@ Represents the TL request upload.ReuploadCdnFileRequest.
 \if{html}{\out{<a id="method-ReuploadCdnFileRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ReuploadCdnFileRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a ReuploadCdnFileRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReuploadCdnFileRequest$new(file_token, request_token)}\if{html}{\out{</div>}}
 }
@@ -38,8 +44,7 @@ Represents the TL request upload.ReuploadCdnFileRequest.
 \describe{
 \item{\code{file_token}}{raw|integer|character}
 
-\item{\code{request_token}}{raw|integer|character
-Convert to list (dictionary-like)}
+\item{\code{request_token}}{raw|integer|character}
 }
 \if{html}{\out{</div>}}
 }
@@ -48,19 +53,20 @@ Convert to list (dictionary-like)}
 \if{html}{\out{<a id="method-ReuploadCdnFileRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ReuploadCdnFileRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReuploadCdnFileRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw vector
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ReuploadCdnFileRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ReuploadCdnFileRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw vector
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReuploadCdnFileRequest$to_bytes()}\if{html}{\out{</div>}}
 }

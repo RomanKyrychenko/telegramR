@@ -4,6 +4,11 @@
 \alias{GetAllReadPeerStoriesRequest}
 \title{GetAllReadPeerStoriesRequest R6 class}
 \description{
+GetAllReadPeerStoriesRequest R6 class
+
+GetAllReadPeerStoriesRequest R6 class
+}
+\details{
 Request without parameters; returns all read peer stories.
 }
 \section{Super classes}{

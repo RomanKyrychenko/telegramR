@@ -4,9 +4,13 @@
 \alias{GetPinnedStoriesRequest}
 \title{GetPinnedStoriesRequest R6 class}
 \description{
+GetPinnedStoriesRequest R6 class
+
+GetPinnedStoriesRequest R6 class
+}
+\details{
 Request to get pinned stories for a peer with pagination (offset_id, limit).
 Returns stories.Stories.
-Initialize GetPinnedStoriesRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetPinnedStoriesRequest}
@@ -43,6 +47,7 @@ Initialize GetPinnedStoriesRequest
 \if{html}{\out{<a id="method-GetPinnedStoriesRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPinnedStoriesRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetPinnedStoriesRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPinnedStoriesRequest$new(peer, offset_id, limit)}\if{html}{\out{</div>}}
 }
@@ -60,15 +65,15 @@ Initialize GetPinnedStoriesRequest
 }
 \subsection{Returns}{
 invisible self
-Resolve peer references
-
-Convert high-level peer reference to input peer using client/utils.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetPinnedStoriesRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPinnedStoriesRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert high-level peer reference to input peer using client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPinnedStoriesRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -84,35 +89,32 @@ Convert high-level peer reference to input peer using client/utils.
 }
 \subsection{Returns}{
 invisible self
-Convert to list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetPinnedStoriesRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPinnedStoriesRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPinnedStoriesRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetPinnedStoriesRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPinnedStoriesRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPinnedStoriesRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a GetPinnedStoriesRequest instance from a reader
-
-reader expected to implement: tgread_object(), read_int()
 }
 }
 \if{html}{\out{<hr>}}

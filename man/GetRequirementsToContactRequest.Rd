@@ -4,14 +4,21 @@
 \alias{GetRequirementsToContactRequest}
 \title{GetRequirementsToContactRequest}
 \description{
-Request to get a vector of RequirementToContact by input user references.
-}
-\details{
-Fields:
-- id: list of TLInputUser (or representations accepted by utils/get_input_user)
+R6 request class to obtain a vector of RequirementToContact objects for multiple users. It serializes the request to Telegram TL bytes and can deserialize from a TL reader. The request resolves plain user references into TLInputUser objects before serialization.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetRequirementsToContactRequest}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Integer. Unique constructor ID for this request (0xd89a83a3).}
+
+\item{\code{SUBCLASS_OF_ID}}{Integer. Subclass (result) ID (0x322623c3).}
+
+\item{\code{id}}{list. List of TLInputUser objects or values resolvable via get_input_user identifying target users.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -43,46 +50,89 @@ Fields:
 \if{html}{\out{<a id="method-GetRequirementsToContactRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetRequirementsToContactRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a new GetRequirementsToContactRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetRequirementsToContactRequest$new(id = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{list|NULL List of user references (usernames, ids, TL objects) to be resolved to TLInputUser; NULL for an empty list.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A new GetRequirementsToContactRequest object.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetRequirementsToContactRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetRequirementsToContactRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve plain user references in id to TLInputUser objects using the provided client/utilities.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetRequirementsToContactRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{client}}{An object exposing get_input_entity for resolving user references.}
+
+\item{\code{utils}}{Auxiliary utilities object (not directly used but kept for parity with other requests).}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+NULL (modifies the object in place).
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetRequirementsToContactRequest-to_dict"></a>}}
 \if{latex}{\out{\hypertarget{method-GetRequirementsToContactRequest-to_dict}{}}}
 \subsection{Method \code{to_dict()}}{
+Convert the request to a plain list (dictionary style) suitable for JSON/logging.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetRequirementsToContactRequest$to_dict()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+list Representation with `_` discriminator and serialized id list.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetRequirementsToContactRequest-.bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetRequirementsToContactRequest-.bytes}{}}}
 \subsection{Method \code{.bytes()}}{
+Serialize the request into a raw vector of TL-encoded bytes.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetRequirementsToContactRequest$.bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+raw Raw vector containing the TL serialization.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetRequirementsToContactRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetRequirementsToContactRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Deserialize a GetRequirementsToContactRequest from a TL reader.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetRequirementsToContactRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{A TL reader object providing tgread_object(), read_int().}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+GetRequirementsToContactRequest A newly constructed request object populated from the reader.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetRequirementsToContactRequest-clone"></a>}}

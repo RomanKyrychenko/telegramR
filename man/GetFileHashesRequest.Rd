@@ -4,6 +4,11 @@
 \alias{GetFileHashesRequest}
 \title{GetFileHashesRequest R6 class}
 \description{
+GetFileHashesRequest R6 class
+
+GetFileHashesRequest R6 class
+}
+\details{
 Represents the TL request upload.GetFileHashesRequest.
 }
 \section{Public fields}{
@@ -29,6 +34,7 @@ Represents the TL request upload.GetFileHashesRequest.
 \if{html}{\out{<a id="method-GetFileHashesRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetFileHashesRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a GetFileHashesRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetFileHashesRequest$new(location, offset)}\if{html}{\out{</div>}}
 }
@@ -38,8 +44,7 @@ Represents the TL request upload.GetFileHashesRequest.
 \describe{
 \item{\code{location}}{TLObject-like}
 
-\item{\code{offset}}{numeric (64-bit)
-Convert to list (dictionary-like)}
+\item{\code{offset}}{numeric (64-bit)}
 }
 \if{html}{\out{</div>}}
 }
@@ -48,19 +53,20 @@ Convert to list (dictionary-like)}
 \if{html}{\out{<a id="method-GetFileHashesRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetFileHashesRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetFileHashesRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw vector
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetFileHashesRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetFileHashesRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw vector
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetFileHashesRequest$to_bytes()}\if{html}{\out{</div>}}
 }

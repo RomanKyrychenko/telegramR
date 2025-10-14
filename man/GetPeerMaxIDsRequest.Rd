@@ -4,6 +4,11 @@
 \alias{GetPeerMaxIDsRequest}
 \title{GetPeerMaxIDsRequest R6 class}
 \description{
+GetPeerMaxIDsRequest R6 class
+
+GetPeerMaxIDsRequest R6 class
+}
+\details{
 Request to get maximum IDs for a vector of input peers. Returns Vector<int>.
 }
 \section{Super classes}{
@@ -41,6 +46,7 @@ Request to get maximum IDs for a vector of input peers. Returns Vector<int>.
 \if{html}{\out{<a id="method-GetPeerMaxIDsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPeerMaxIDsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetPeerMaxIDsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPeerMaxIDsRequest$new(id)}\if{html}{\out{</div>}}
 }
@@ -48,10 +54,7 @@ Request to get maximum IDs for a vector of input peers. Returns Vector<int>.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{id}}{list of TypeInputPeer
-Resolve peer references
-
-Convert high-level peer references to input peers using client/utils.}
+\item{\code{id}}{list of TypeInputPeer}
 }
 \if{html}{\out{</div>}}
 }
@@ -60,6 +63,9 @@ Convert high-level peer references to input peers using client/utils.}
 \if{html}{\out{<a id="method-GetPeerMaxIDsRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPeerMaxIDsRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert high-level peer references to input peers using client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPeerMaxIDsRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -69,8 +75,7 @@ Convert high-level peer references to input peers using client/utils.}
 \describe{
 \item{\code{client}}{client with get_input_entity}
 
-\item{\code{utils}}{utils with get_input_peer
-Convert to list}
+\item{\code{utils}}{utils with get_input_peer}
 }
 \if{html}{\out{</div>}}
 }
@@ -79,28 +84,26 @@ Convert to list}
 \if{html}{\out{<a id="method-GetPeerMaxIDsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPeerMaxIDsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPeerMaxIDsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw TL bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetPeerMaxIDsRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPeerMaxIDsRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw TL bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPeerMaxIDsRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a GetPeerMaxIDsRequest instance from a reader
-
-reader expected to implement: tgread_object(), read_int()
 }
 }
 \if{html}{\out{<hr>}}

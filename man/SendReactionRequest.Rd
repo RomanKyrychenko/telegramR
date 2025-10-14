@@ -12,7 +12,8 @@ SendReactionRequest$new(peer, story_id, reaction, add_to_recent = NULL)
 }
 \description{
 Represents a request to send a reaction. This class inherits from TLRequest.
-
+}
+\details{
 Represents a TL request to send a reaction to a story.
 }
 \section{Super classes}{
@@ -161,6 +162,7 @@ The objects of this class are cloneable with this method.
 \if{html}{\out{<a id="method-SendReactionRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SendReactionRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize SendReactionRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendReactionRequest$new(peer, story_id, reaction, add_to_recent = NULL)}\if{html}{\out{</div>}}
 }
@@ -174,10 +176,7 @@ The objects of this class are cloneable with this method.
 
 \item{\code{reaction}}{TypeReaction}
 
-\item{\code{add_to_recent}}{logical or NULL
-Resolve peer references
-
-Convert high-level peer references to input peers using provided client/utils.}
+\item{\code{add_to_recent}}{logical or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -186,6 +185,9 @@ Convert high-level peer references to input peers using provided client/utils.}
 \if{html}{\out{<a id="method-SendReactionRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-SendReactionRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert high-level peer references to input peers using provided client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendReactionRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -195,8 +197,7 @@ Convert high-level peer references to input peers using provided client/utils.}
 \describe{
 \item{\code{client}}{client object with get_input_entity method}
 
-\item{\code{utils}}{utils object with get_input_peer method
-Convert to list (similar to to_dict)}
+\item{\code{utils}}{utils object with get_input_peer method}
 }
 \if{html}{\out{</div>}}
 }
@@ -205,31 +206,29 @@ Convert to list (similar to to_dict)}
 \if{html}{\out{<a id="method-SendReactionRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SendReactionRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendReactionRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw bytes
-
-Produces a raw vector matching TL binary layout for this request.
-Expects helper serialization methods on peer and reaction (to_bytes/bytes/_bytes).
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SendReactionRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SendReactionRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes
+
+Produces a raw vector matching TL binary layout for this request.
+Expects helper serialization methods on peer and reaction (to_bytes/bytes/_bytes).
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendReactionRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw
-Read a SendReactionRequest instance from a reader
-
-reader is expected to implement: read_int(), tgread_object()
 }
 }
 \if{html}{\out{<hr>}}

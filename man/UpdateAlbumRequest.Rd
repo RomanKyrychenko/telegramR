@@ -11,6 +11,11 @@ An R6 object inheriting from TLRequest (if available)
 UpdateAlbumRequest$new(peer, album_id, title = NULL, delete_stories = NULL, add_stories = NULL, order = NULL)
 }
 \description{
+UpdateAlbumRequest R6 class
+
+UpdateAlbumRequest R6 class
+}
+\details{
 Represents a TL request to update a story album.
 }
 \section{Super classes}{
@@ -65,6 +70,7 @@ Represents a TL request to update a story album.
 \if{html}{\out{<a id="method-UpdateAlbumRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-UpdateAlbumRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize UpdateAlbumRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateAlbumRequest$new(
   peer,
@@ -89,10 +95,7 @@ Represents a TL request to update a story album.
 
 \item{\code{add_stories}}{integer vector or NULL}
 
-\item{\code{order}}{integer vector or NULL
-Resolve peer references
-
-Convert high-level peer references to input peers using provided client/utils.}
+\item{\code{order}}{integer vector or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -101,6 +104,9 @@ Convert high-level peer references to input peers using provided client/utils.}
 \if{html}{\out{<a id="method-UpdateAlbumRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-UpdateAlbumRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer references
+
+Convert high-level peer references to input peers using provided client/utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateAlbumRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -110,10 +116,7 @@ Convert high-level peer references to input peers using provided client/utils.}
 \describe{
 \item{\code{client}}{client object with get_input_entity method}
 
-\item{\code{utils}}{utils object with get_input_peer method
-Convert to list (similar to to_dict)
-
-Prepare a pure R list representation suitable for inspection or JSON.}
+\item{\code{utils}}{utils object with get_input_peer method}
 }
 \if{html}{\out{</div>}}
 }
@@ -122,23 +125,26 @@ Prepare a pure R list representation suitable for inspection or JSON.}
 \if{html}{\out{<a id="method-UpdateAlbumRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-UpdateAlbumRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (similar to to_dict)
+
+Prepare a pure R list representation suitable for inspection or JSON.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateAlbumRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw bytes
-
-This produces a raw vector intended to match the TL binary layout used in the original implementation.
-It expects helper serialization methods available on the peer object (peer$to_bytes / peer$bytes),
-and a serialize_bytes(self, string) method on the TLRequest base or in scope.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-UpdateAlbumRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-UpdateAlbumRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes
+
+This produces a raw vector intended to match the TL binary layout used in the original implementation.
+It expects helper serialization methods available on the peer object (peer$to_bytes / peer$bytes),
+and a serialize_bytes(self, string) method on the TLRequest base or in scope.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateAlbumRequest$to_bytes()}\if{html}{\out{</div>}}
 }
@@ -147,9 +153,6 @@ and a serialize_bytes(self, string) method on the TLRequest base or in scope.
 raw
 Class-level constructor id (read-only)
 Subclass id (read-only)
-Read an UpdateAlbumRequest instance from a reader
-
-reader is expected to implement: read_int(), tgread_object(), tgread_string()
 }
 }
 \if{html}{\out{<hr>}}

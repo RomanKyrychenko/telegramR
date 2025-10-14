@@ -204,22 +204,6 @@ Update time offset based on a correct message ID
 }
 \subsection{Returns}{
 Updated time offset
-Internal method to perform connection
-Try to establish connection
-Try to generate authentication key
-Disconnect from server
-Reconnect to server
-Start reconnection process in background
-Send a keep-alive ping
-Send loop - encrypts and sends messages
-Receive loop - reads and processes incoming data
-Process received message
-Find states matching a message ID
-Handle RPC results
-Handle message containers
-Handle gzipped data
-Handle updates
-Store updates originating from our own requests
 }
 }
 \if{html}{\out{<hr>}}
