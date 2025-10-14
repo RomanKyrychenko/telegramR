@@ -6,14 +6,6 @@
 \description{
 Request to get story views for a peer and a vector of story ids.
 Returns stories.StoryViews.
-}
-\details{
-Methods:
-- initialize(peer, id)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
 Initialize GetStoriesViewsRequest
 }
 \section{Super classes}{

@@ -13,13 +13,7 @@ Request to hide promo data for a peer.
 
 \item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
 
-\item{\code{peer}}{TLObject-like input peer (environment with to_bytes()/to_list() or raw)
-
-Methods:
-- initialize(peer) : create new instance.
-- resolve(client, utils) : resolve peer via client and utils (mutates self$peer).
-- to_list() : return a list representation.
-- to_bytes() : serialize to raw vector (Telegram-style).}
+\item{\code{peer}}{TLObject-like input peer (environment with to_bytes()/to_list() or raw)}
 }
 \if{html}{\out{</div>}}
 }

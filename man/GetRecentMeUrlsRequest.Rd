@@ -13,12 +13,7 @@ Request to get recent "me" URLs with a referer string.
 
 \item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
 
-\item{\code{referer}}{character Referer string
-
-Methods:
-- initialize(referer) : create new instance.
-- to_list() : return a list representation.
-- to_bytes() : serialize to raw vector (Telegram-style).}
+\item{\code{referer}}{character Referer string}
 }
 \if{html}{\out{</div>}}
 }

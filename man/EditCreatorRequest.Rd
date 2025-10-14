@@ -20,7 +20,8 @@ Represents a request to edit the creator of a channel.
 
 \item{\code{user_id}}{The input user ID.}
 
-\item{\code{password}}{The input check password SRP.}
+\item{\code{password}}{The input check password SRP.
+Deserialize from a reader.}
 }
 \if{html}{\out{</div>}}
 }

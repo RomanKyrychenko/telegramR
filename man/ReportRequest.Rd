@@ -15,15 +15,6 @@ Represents a request to report messages. This class inherits from TLRequest.
 
 Represents a TL request to report stories.
 }
-\details{
-Methods:
-- initialize(peer, id, option, message): Create new request.
-- resolve(client, utils): Resolve peer (synchronous style).
-- to_list(): Convert to a plain R list.
-- to_bytes(): Serialize to TL raw bytes.
-- from_reader(reader): Class method to read object from reader.
-Initialize ReportRequest
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ReportRequest}
 }

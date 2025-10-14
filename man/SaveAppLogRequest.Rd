@@ -13,13 +13,7 @@ Request to save application log events.
 
 \item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
 
-\item{\code{events}}{list List of input app events (TLObject-like).
-
-Methods:
-- initialize(events): create new instance.
-- to_list(): return a list representation.
-- to_bytes(): serialize to raw vector (Telegram-style).
-- from_reader(reader): class method to read from a reader object.}
+\item{\code{events}}{list List of input app events (TLObject-like).}
 }
 \if{html}{\out{</div>}}
 }

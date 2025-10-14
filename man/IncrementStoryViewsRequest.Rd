@@ -6,14 +6,6 @@
 \description{
 Request to increment story views for a peer and a vector of ids.
 Returns Bool.
-}
-\details{
-Methods:
-- initialize(peer, id)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
 Initialize IncrementStoryViewsRequest
 }
 \section{Super classes}{

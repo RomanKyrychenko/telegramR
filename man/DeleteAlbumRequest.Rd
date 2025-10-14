@@ -6,14 +6,6 @@
 \description{
 Request to delete an album for a given peer. Returns Bool.
 }
-\details{
-Methods:
-- initialize(peer, album_id)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{DeleteAlbumRequest}
 }

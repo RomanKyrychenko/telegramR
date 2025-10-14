@@ -13,12 +13,7 @@ Request to get deep link info.
 
 \item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
 
-\item{\code{path}}{character Deep link path.
-
-Methods:
-- initialize(path) : create new instance.
-- to_list() : return a list representation.
-- to_bytes() : serialize to raw vector (Telegram-style).}
+\item{\code{path}}{character Deep link path.}
 }
 \if{html}{\out{</div>}}
 }

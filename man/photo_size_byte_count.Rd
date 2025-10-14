@@ -23,6 +23,6 @@ appropriate byte count based on the type and its properties.
 \dontrun{
 # Assuming types are defined elsewhere, e.g., types$PhotoSize
 size <- types$PhotoSize(size = 1024)
-photo_size_byte_count(size)  # Returns 1024
+photo_size_byte_count(size) # Returns 1024
 }
 }

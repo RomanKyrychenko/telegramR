@@ -15,15 +15,6 @@ Represents a request to search for posts with specified parameters.
 
 Represents a TL request to search posts/stories (by hashtag/area/peer).
 }
-\details{
-Methods:
-- initialize(offset, limit, hashtag = NULL, area = NULL, peer = NULL)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader)
-Initialize SearchPostsRequest
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SearchPostsRequest}
 }

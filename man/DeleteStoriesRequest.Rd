@@ -6,15 +6,6 @@
 \description{
 Request to delete one or more stories for a given peer. Returns Vector<int>.
 }
-\details{
-Methods:
-- initialize(peer, id)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
-- read_result(reader) (class)
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{DeleteStoriesRequest}
 }

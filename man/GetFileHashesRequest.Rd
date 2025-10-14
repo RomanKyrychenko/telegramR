@@ -6,17 +6,12 @@
 \description{
 Represents the TL request upload.GetFileHashesRequest.
 }
-\details{
-Fields:
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{location}}{TLObject-like object (input file location)}
 
-\item{\code{offset}}{numeric 64-bit offset
-
-Methods:}
+\item{\code{offset}}{numeric 64-bit offset}
 }
 \if{html}{\out{</div>}}
 }

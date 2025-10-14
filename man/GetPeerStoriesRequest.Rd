@@ -5,14 +5,6 @@
 \title{GetPeerStoriesRequest R6 class}
 \description{
 Request to get stories for a given peer. Returns stories.PeerStories.
-}
-\details{
-Methods:
-- initialize(peer)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
 Initialize GetPeerStoriesRequest
 }
 \section{Super classes}{

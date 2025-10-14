@@ -16,7 +16,7 @@ The text string with surrogate pairs added.
 Add surrogate pairs to text
 }
 \examples{
-text <- "Hello \U0001F600 World"  # Contains a surrogate pair
+text <- "Hello \U0001F600 World" # Contains a surrogate pair
 surrogate_text <- add_surrogate(text)
-print(surrogate_text)  # "Hello 😀 World"
+print(surrogate_text) # "Hello 😀 World"
 }

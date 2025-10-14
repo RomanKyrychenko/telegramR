@@ -4,16 +4,33 @@
 \alias{GetFullUserRequest}
 \title{GetFullUserRequest}
 \description{
-Request to get full information about a user.
+An R6 class representing a request to get full information about a user.
+This class inherits from TLRequest and is used to construct and serialize
+Telegram API requests for retrieving detailed user data.
 }
-\details{
-Fields:
-- id: TLInputUser or a representation accepted by utils$get_input_user
+\examples{
+# Example usage (assuming client and utils are set up)
+request <- GetFullUserRequest$new(id = some_user_id)
+request$resolve(client, utils)
+dict <- request$to_dict()
+bytes <- request$.bytes()
 
-Returns: users.UserFull
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetFullUserRequest}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xb60f5918).}
+
+\item{\code{SUBCLASS_OF_ID}}{The subclass ID (0x83df9df5).}
+
+\item{\code{id}}{The user identifier, which can be a TLInputUser object or a
+representation accepted by utils$get_input_user. This field is resolved
+during the request preparation.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

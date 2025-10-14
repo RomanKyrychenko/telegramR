@@ -7,10 +7,6 @@
 An R6 class for handling password key derivation functions (KDF) as per Telegram's specifications.
 This class provides utility methods for checking modular exponentiation, XOR operations, PBKDF2 hashing,
 and computing password hashes and digests.
-
-An R6 class for handling password key derivation functions (KDF) as per Telegram's specifications.
-This class provides utility methods for checking modular exponentiation, XOR operations, PBKDF2 hashing,
-and computing password hashes and digests.
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -20,159 +16,12 @@ and computing password hashes and digests.
 \item \href{#method-PasswordKdf-pbkdf2sha512}{\code{PasswordKdf$pbkdf2sha512()}}
 \item \href{#method-PasswordKdf-compute_hash}{\code{PasswordKdf$compute_hash()}}
 \item \href{#method-PasswordKdf-compute_digest}{\code{PasswordKdf$compute_digest()}}
-\item \href{#method-PasswordKdf-clone}{\code{PasswordKdf$clone()}}
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-PasswordKdf-is_good_mod_exp_first"></a>}}
-\if{latex}{\out{\hypertarget{method-PasswordKdf-is_good_mod_exp_first}{}}}
-\subsection{Method \code{is_good_mod_exp_first()}}{
-Check if a modular exponentiation result is good for the first check.
-
-
-Perform XOR operation on two byte vectors.
-
-
-Compute PBKDF2 with SHA512.
-
-
-Compute the hash for the password KDF algorithm.
-
-
-Compute the digest for the password KDF algorithm.
-
-
-Check if the prime and generator are good.
-
-
-Check if the prime and generator are good with detailed checks.
-
-
-Check if a number is good and large.
-
-
-Prepare bytes for hashing by padding.
-
-
-Convert a big integer to bytes for hashing.
-
-
-Compute SHA256 hash of concatenated inputs.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PasswordKdf$is_good_mod_exp_first(modexp, prime)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{modexp}}{A big integer representing the modular exponentiation result.}
-
-\item{\code{prime}}{A big integer representing the prime modulus.}
-
-\item{\code{prime}}{An integer representing the prime.}
-
-\item{\code{a}}{A raw vector (bytes).}
-
-\item{\code{b}}{A raw vector (bytes).}
-
-\item{\code{password}}{A raw vector representing the password.}
-
-\item{\code{salt}}{A raw vector representing the salt.}
-
-\item{\code{iterations}}{An integer for the number of iterations.}
-
-\item{\code{algo}}{An object of type PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow.}
-
-\item{\code{password}}{A string representing the password.}
-
-\item{\code{algo}}{An object of type PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow.}
-
-\item{\code{password}}{A string representing the password.}
-
-\item{\code{prime_bytes}}{A raw vector representing the prime in bytes.}
-
-\item{\code{g}}{An integer representing the generator.}
-
-\item{\code{g}}{An integer representing the generator.}
-
-\item{\code{number}}{An integer representing the number to check.}
-
-\item{\code{p}}{An integer representing the prime modulus.}
-
-\item{\code{number}}{A raw vector representing the number in bytes.}
-
-\item{\code{g}}{An integer to convert.}
-
-\item{\code{...}}{Raw vectors to hash.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A logical value indicating if the check passes.
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-PasswordKdf-xor"></a>}}
-\if{latex}{\out{\hypertarget{method-PasswordKdf-xor}{}}}
-\subsection{Method \code{xor()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PasswordKdf$xor(a, b)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-PasswordKdf-pbkdf2sha512"></a>}}
-\if{latex}{\out{\hypertarget{method-PasswordKdf-pbkdf2sha512}{}}}
-\subsection{Method \code{pbkdf2sha512()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PasswordKdf$pbkdf2sha512(password, salt, iterations)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-PasswordKdf-compute_hash"></a>}}
-\if{latex}{\out{\hypertarget{method-PasswordKdf-compute_hash}{}}}
-\subsection{Method \code{compute_hash()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PasswordKdf$compute_hash(algo, password)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-PasswordKdf-compute_digest"></a>}}
-\if{latex}{\out{\hypertarget{method-PasswordKdf-compute_digest}{}}}
-\subsection{Method \code{compute_digest()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PasswordKdf$compute_digest(algo, password)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-PasswordKdf-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-PasswordKdf-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PasswordKdf$clone(deep = FALSE)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
-}
-\section{Methods}{
-\subsection{Public methods}{
-\itemize{
-\item \href{#method-PasswordKdf-is_good_mod_exp_first}{\code{PasswordKdf$is_good_mod_exp_first()}}
-\item \href{#method-PasswordKdf-xor}{\code{PasswordKdf$xor()}}
-\item \href{#method-PasswordKdf-pbkdf2sha512}{\code{PasswordKdf$pbkdf2sha512()}}
-\item \href{#method-PasswordKdf-compute_hash}{\code{PasswordKdf$compute_hash()}}
-\item \href{#method-PasswordKdf-compute_digest}{\code{PasswordKdf$compute_digest()}}
+\item \href{#method-PasswordKdf-check_prime_and_good}{\code{PasswordKdf$check_prime_and_good()}}
+\item \href{#method-PasswordKdf-check_prime_and_good_check}{\code{PasswordKdf$check_prime_and_good_check()}}
+\item \href{#method-PasswordKdf-is_good_large}{\code{PasswordKdf$is_good_large()}}
+\item \href{#method-PasswordKdf-num_bytes_for_hash}{\code{PasswordKdf$num_bytes_for_hash()}}
+\item \href{#method-PasswordKdf-big_num_for_hash}{\code{PasswordKdf$big_num_for_hash()}}
+\item \href{#method-PasswordKdf-sha256}{\code{PasswordKdf$sha256()}}
 \item \href{#method-PasswordKdf-clone}{\code{PasswordKdf$clone()}}
 }
 }
@@ -286,6 +135,126 @@ Compute the digest for the password KDF algorithm.
 }
 \subsection{Returns}{
 A raw vector of the computed digest.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PasswordKdf-check_prime_and_good"></a>}}
+\if{latex}{\out{\hypertarget{method-PasswordKdf-check_prime_and_good}{}}}
+\subsection{Method \code{check_prime_and_good()}}{
+Check if the prime and generator are good.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PasswordKdf$check_prime_and_good(prime_bytes, g)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{prime_bytes}}{A raw vector representing the prime in bytes.}
+
+\item{\code{g}}{An integer representing the generator.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PasswordKdf-check_prime_and_good_check"></a>}}
+\if{latex}{\out{\hypertarget{method-PasswordKdf-check_prime_and_good_check}{}}}
+\subsection{Method \code{check_prime_and_good_check()}}{
+Check if the prime and generator are good with detailed checks.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PasswordKdf$check_prime_and_good_check(prime, g)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{prime}}{An integer representing the prime.}
+
+\item{\code{g}}{An integer representing the generator.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PasswordKdf-is_good_large"></a>}}
+\if{latex}{\out{\hypertarget{method-PasswordKdf-is_good_large}{}}}
+\subsection{Method \code{is_good_large()}}{
+Check if a number is good and large.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PasswordKdf$is_good_large(number, p)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{number}}{An integer representing the number to check.}
+
+\item{\code{p}}{An integer representing the prime modulus.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A logical value indicating if the check passes.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PasswordKdf-num_bytes_for_hash"></a>}}
+\if{latex}{\out{\hypertarget{method-PasswordKdf-num_bytes_for_hash}{}}}
+\subsection{Method \code{num_bytes_for_hash()}}{
+Prepare bytes for hashing by padding.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PasswordKdf$num_bytes_for_hash(number)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{number}}{A raw vector representing the number in bytes.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A raw vector padded to SIZE_FOR_HASH bytes.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PasswordKdf-big_num_for_hash"></a>}}
+\if{latex}{\out{\hypertarget{method-PasswordKdf-big_num_for_hash}{}}}
+\subsection{Method \code{big_num_for_hash()}}{
+Convert a big integer to bytes for hashing.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PasswordKdf$big_num_for_hash(g)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{g}}{An integer to convert.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A raw vector of the big-endian bytes.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-PasswordKdf-sha256"></a>}}
+\if{latex}{\out{\hypertarget{method-PasswordKdf-sha256}{}}}
+\subsection{Method \code{sha256()}}{
+Compute SHA256 hash of concatenated inputs.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PasswordKdf$sha256(...)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{...}}{Raw vectors to hash.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A raw vector of the SHA256 digest.
 }
 }
 \if{html}{\out{<hr>}}

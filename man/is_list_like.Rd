@@ -29,9 +29,9 @@ to avoid false positives (similar to Python's check ignoring str/bytes).
 }
 \examples{
 \dontrun{
-is_list_like(list(1, 2, 3))  # TRUE
-is_list_like(1:10)  # TRUE
-is_list_like("string")  # FALSE
-is_list_like(as.raw(c(1, 2)))  # FALSE
+is_list_like(list(1, 2, 3)) # TRUE
+is_list_like(1:10) # TRUE
+is_list_like("string") # FALSE
+is_list_like(as.raw(c(1, 2))) # FALSE
 }
 }

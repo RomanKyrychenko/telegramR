@@ -11,8 +11,6 @@ This class mimics the behavior of a Python class that wraps objects to handle as
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{wrapped}}{The wrapped object.}
-
-\item{\code{wrapped}}{The wrapped object.}
 }
 \if{html}{\out{</div>}}
 }

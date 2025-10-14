@@ -13,14 +13,6 @@ ToggleAllStoriesHiddenRequest$new(hidden)
 \description{
 Represents a TL request to toggle the "all stories hidden" flag.
 }
-\details{
-Methods:
-- initialize(hidden): Create a new request.
-- to_list(): Convert object to a plain R list.
-- to_bytes(): Serialize to raw TL bytes (expects TL bool encoding).
-- from_reader(reader): Class-level method to read object from a reader.
-Initialize ToggleAllStoriesHiddenRequest
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ToggleAllStoriesHiddenRequest}
 }

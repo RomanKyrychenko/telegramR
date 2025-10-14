@@ -139,6 +139,35 @@ expires
 peer
 @field cooldown_until_date integer \cr
 cooldown_until_date}
+
+\item{\code{CONSTRUCTOR_ID}}{Integer. Constructor ID of the class.}
+
+\item{\code{SUBCLASS_OF_ID}}{Integer. Subclass of ID of the parent class.}
+
+\item{\code{pq}}{Integer. Subclass of ID of the parent class.}
+
+\item{\code{peer}}{Object. Peer where the story is from.}
+
+\item{\code{id}}{Integer. Story ID.}
+
+\item{\code{via_mention}}{Logical. Whether the story was sent via mention.}
+
+\item{\code{story}}{Object. Story object.}
+
+\item{\code{new_nonce}}{Logical. New nonce for the story.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{peer}}{Object. Peer where the story is from.}
+
+\item{\code{id}}{Integer. Story ID.}
+
+\item{\code{via_mention}}{Logical. Whether the story was sent via mention.}
+
+\item{\code{story}}{Object. Story object.}
 }
 \if{html}{\out{</div>}}
 }

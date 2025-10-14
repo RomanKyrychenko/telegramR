@@ -7,14 +7,6 @@
 Request to create a story album for a given peer with a title and list of story ids.
 Returns StoryAlbum.
 }
-\details{
-Methods:
-- initialize(peer, title, stories)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{CreateAlbumRequest}
 }

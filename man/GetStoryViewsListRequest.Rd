@@ -6,14 +6,6 @@
 \description{
 Request to get a list of story views with optional filters (just_contacts,
 reactions_first, forwards_first, q). Returns a stories.StoryViewsList.
-}
-\details{
-Methods:
-- initialize(peer, id, offset, limit, just_contacts = NULL, reactions_first = NULL, forwards_first = NULL, q = NULL)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
 Initialize GetStoryViewsListRequest
 }
 \section{Super classes}{

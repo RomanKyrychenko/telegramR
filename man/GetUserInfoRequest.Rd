@@ -13,13 +13,7 @@ Request to get user info (help.UserInfo).
 
 \item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
 
-\item{\code{userId}}{TLObject-like input user (environment with to_bytes()/to_list() or raw)
-
-Methods:
-- initialize(userId) : create new instance.
-- resolve(client, utils) : resolve userId via client and utils (mutates self$userId).
-- to_list() : return a list representation.
-- to_bytes() : serialize to raw vector (Telegram-style).}
+\item{\code{userId}}{TLObject-like input user (environment with to_bytes()/to_list() or raw)}
 }
 \if{html}{\out{</div>}}
 }

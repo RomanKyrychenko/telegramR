@@ -11,17 +11,6 @@ This class is used when a callable function is provided as the parse mode.
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{parse}}{A function to parse text into entities.}
-
-\item{\code{unparse}}{A function to unparse entities back to text (raises an error by default).}
-
-\item{\code{parse}}{A function to parse text into entities.}
-}
-\if{html}{\out{</div>}}
-}
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
-\item{\code{unparse}}{A function to unparse entities back to text (raises an error by default).}
 }
 \if{html}{\out{</div>}}
 }

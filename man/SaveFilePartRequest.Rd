@@ -6,9 +6,6 @@
 \description{
 Represents the TL request upload.SaveFilePartRequest.
 }
-\details{
-Fields:
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -16,9 +13,7 @@ Fields:
 
 \item{\code{file_part}}{integer part index}
 
-\item{\code{bytes_data}}{raw|integer|character payload bytes
-
-Methods:}
+\item{\code{bytes_data}}{raw|integer|character payload bytes}
 }
 \if{html}{\out{</div>}}
 }

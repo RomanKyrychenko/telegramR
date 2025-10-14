@@ -6,17 +6,12 @@
 \description{
 Represents the TL request upload.ReuploadCdnFileRequest.
 }
-\details{
-Fields:
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{file_token}}{raw|integer|character}
 
-\item{\code{request_token}}{raw|integer|character
-
-Methods:}
+\item{\code{request_token}}{raw|integer|character}
 }
 \if{html}{\out{</div>}}
 }

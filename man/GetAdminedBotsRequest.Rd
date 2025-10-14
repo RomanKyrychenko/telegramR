@@ -2,20 +2,11 @@
 % Please edit documentation in R/functions_bots.R
 \name{GetAdminedBotsRequest}
 \alias{GetAdminedBotsRequest}
-\title{GetAdminedBotsRequest R6 class}
+\title{Initialize GetAdminedBotsRequest}
 \description{
-Methods:
-- initialize()
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-}
-\details{
-Represents the GetAdminedBotsRequest TL request.
+Initialize GetAdminedBotsRequest
 
-No fields.
-}
-\examples{
-# o <- GetAdminedBotsRequest$new()
+Initialize GetAdminedBotsRequest
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -39,6 +30,7 @@ No fields.
 \if{html}{\out{<a id="method-GetAdminedBotsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAdminedBotsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAdminedBotsRequest$to_list()}\if{html}{\out{</div>}}
 }

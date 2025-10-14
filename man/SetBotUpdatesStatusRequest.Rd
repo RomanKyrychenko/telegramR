@@ -15,13 +15,7 @@ Notify server of bot updates status.
 
 \item{\code{pendingUpdatesCount}}{integer Count of pending updates.}
 
-\item{\code{message}}{character Additional message.
-
-Methods:
-- initialize(pendingUpdatesCount, message)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class method)}
+\item{\code{message}}{character Additional message.}
 }
 \if{html}{\out{</div>}}
 }

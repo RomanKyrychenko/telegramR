@@ -15,13 +15,7 @@ Dismiss a suggestion for a peer with an associated suggestion string.
 
 \item{\code{peer}}{TLObject-like input peer (environment with to_bytes()/to_list() or raw)}
 
-\item{\code{suggestion}}{character Suggestion string
-
-Methods:
-- initialize(peer, suggestion) : create new instance.
-- resolve(client, utils) : resolve peer via client and utils (mutates self$peer).
-- to_list() : return a list representation.
-- to_bytes() : serialize to raw vector (Telegram-style).}
+\item{\code{suggestion}}{character Suggestion string}
 }
 \if{html}{\out{</div>}}
 }

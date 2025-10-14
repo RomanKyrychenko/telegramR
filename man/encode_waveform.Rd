@@ -19,13 +19,13 @@ for the reverse operation.
 }
 \examples{
 \dontrun{
-  # Send 'my.ogg' with an ascending-triangle waveform
-  waveform <- as.raw(0:31)  # 2^5 values for 5-bit
-  encoded <- encode_waveform(waveform)
-  # Use encoded in attributes
+# Send 'my.ogg' with an ascending-triangle waveform
+waveform <- as.raw(0:31) # 2^5 values for 5-bit
+encoded <- encode_waveform(waveform)
+# Use encoded in attributes
 
-  # Send 'my.ogg' with a square waveform
-  waveform <- rep(as.raw(c(31, 31, 15, 15, 15, 15, 31, 31)), 4)
-  encoded <- encode_waveform(waveform)
+# Send 'my.ogg' with a square waveform
+waveform <- rep(as.raw(c(31, 31, 15, 15, 15, 15, 31, 31)), 4)
+encoded <- encode_waveform(waveform)
 }
 }

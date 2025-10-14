@@ -6,9 +6,6 @@
 \description{
 Represents the TL request upload.GetFileRequest.
 }
-\details{
-Fields:
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -20,9 +17,7 @@ Fields:
 
 \item{\code{precise}}{logical|null}
 
-\item{\code{cdn_supported}}{logical|null
-
-Methods:}
+\item{\code{cdn_supported}}{logical|null}
 }
 \if{html}{\out{</div>}}
 }

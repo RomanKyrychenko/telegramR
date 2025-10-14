@@ -6,6 +6,13 @@
 \description{
 Handles updates and events for the Telegram client.
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{client}}{The Telegram client instance.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

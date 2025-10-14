@@ -6,17 +6,12 @@
 \description{
 Represents the TL request upload.GetCdnFileHashesRequest.
 }
-\details{
-Fields:
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{file_token}}{raw|integer|character token bytes}
 
-\item{\code{offset}}{numeric 64-bit offset
-
-Methods:}
+\item{\code{offset}}{numeric 64-bit offset}
 }
 \if{html}{\out{</div>}}
 }

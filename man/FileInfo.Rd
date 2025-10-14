@@ -19,12 +19,6 @@ An R6 class representing file information with dc_id, location, and size.
 \item{\code{location}}{The file location.}
 
 \item{\code{size}}{The file size.}
-
-\item{\code{dc_id}}{The data center ID.}
-
-\item{\code{location}}{The file location.}
-
-\item{\code{size}}{The file size.}
 }
 \if{html}{\out{</div>}}
 }

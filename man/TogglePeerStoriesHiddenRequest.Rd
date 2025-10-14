@@ -13,15 +13,6 @@ TogglePeerStoriesHiddenRequest$new(peer, hidden)
 \description{
 Represents a TL request to toggle hidden state for stories of a particular peer.
 }
-\details{
-Methods:
-- initialize(peer, hidden): Create a new request.
-- resolve(client, utils): Resolve peer references (synchronous style).
-- to_list(): Convert object to a plain R list.
-- to_bytes(): Serialize to raw TL bytes (expects peer to provide bytes method).
-- from_reader(reader): Class-level method to read object from a reader.
-Initialize TogglePeerStoriesHiddenRequest
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{TogglePeerStoriesHiddenRequest}
 }

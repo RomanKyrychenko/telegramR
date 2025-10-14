@@ -13,12 +13,7 @@ Accept terms of service (help.TermsOfService). Serializes a DataJSON id.
 
 \item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
 
-\item{\code{id}}{TLObject-like TypeDataJSON (environment with to_bytes()/to_list() or raw)
-
-Methods:
-- initialize(id) : create new instance.
-- to_list() : return a list representation.
-- to_bytes() : serialize to raw vector (Telegram-style).}
+\item{\code{id}}{TLObject-like TypeDataJSON (environment with to_bytes()/to_list() or raw)}
 }
 \if{html}{\out{</div>}}
 }

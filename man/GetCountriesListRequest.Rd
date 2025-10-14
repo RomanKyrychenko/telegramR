@@ -15,12 +15,7 @@ Request to get the list of countries (possibly not modified).
 
 \item{\code{langCode}}{character Language code.}
 
-\item{\code{hash}}{integer Hash to check for modifications.
-
-Methods:
-- initialize(langCode, hash) : create new instance.
-- to_list() : return a list representation.
-- to_bytes() : serialize to raw vector (Telegram-style).}
+\item{\code{hash}}{integer Hash to check for modifications.}
 }
 \if{html}{\out{</div>}}
 }

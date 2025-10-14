@@ -6,14 +6,6 @@
 \description{
 Request to get stories by explicit ids for a given peer.
 Returns stories.Stories.
-}
-\details{
-Methods:
-- initialize(peer, id)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
 Initialize GetStoriesByIDRequest
 }
 \section{Super classes}{

@@ -22,6 +22,6 @@ Strip text and adjust entities
 text <- "  Hello, World!  "
 entities <- list(list(offset = 2, length = 5), list(offset = 10, length = 3))
 stripped_text <- strip_text(text, entities)
-print(stripped_text)  # "Hello, World!"
-print(entities)      # Adjusted entities
+print(stripped_text) # "Hello, World!"
+print(entities) # Adjusted entities
 }

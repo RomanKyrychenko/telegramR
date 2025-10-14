@@ -13,15 +13,6 @@ ReorderAlbumsRequest$new(peer, order)
 \description{
 Represents a TL request to reorder albums for a peer; returns Bool.
 }
-\details{
-Methods:
-- initialize(peer, order): Create new request.
-- resolve(client, utils): Resolve peer (synchronous style).
-- to_list(): Convert to a plain R list.
-- to_bytes(): Serialize to TL raw bytes.
-- from_reader(reader): Class method to read object from a reader.
-Initialize ReorderAlbumsRequest
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ReorderAlbumsRequest}
 }

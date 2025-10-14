@@ -13,12 +13,7 @@ Request to get app update info.
 
 \item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
 
-\item{\code{source}}{character Source string.
-
-Methods:
-- initialize(source) : create new instance.
-- to_list() : return a list representation.
-- to_bytes() : serialize to raw vector (Telegram-style).}
+\item{\code{source}}{character Source string.}
 }
 \if{html}{\out{</div>}}
 }

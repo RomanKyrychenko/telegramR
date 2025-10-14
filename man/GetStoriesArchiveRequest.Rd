@@ -6,14 +6,6 @@
 \description{
 Request to get archived stories for a peer with pagination (offset_id, limit).
 Returns stories.Stories.
-}
-\details{
-Methods:
-- initialize(peer, offset_id, limit)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
 Initialize GetStoriesArchiveRequest
 }
 \section{Super classes}{

@@ -6,15 +6,6 @@
 \description{
 Request to get maximum IDs for a vector of input peers. Returns Vector<int>.
 }
-\details{
-Methods:
-- initialize(id)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
-- read_result(reader) (class)
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetPeerMaxIDsRequest}
 }

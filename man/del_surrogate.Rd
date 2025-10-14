@@ -16,7 +16,7 @@ The text string with surrogate pairs removed.
 Remove surrogate pairs from text
 }
 \examples{
-text <- "Hello \U0001F600 World"  # Contains a surrogate pair
+text <- "Hello \U0001F600 World" # Contains a surrogate pair
 cleaned_text <- del_surrogate(text)
-print(cleaned_text)  # "Hello  World"
+print(cleaned_text) # "Hello  World"
 }

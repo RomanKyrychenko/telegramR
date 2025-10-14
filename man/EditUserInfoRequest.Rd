@@ -18,13 +18,7 @@ of message entities.
 
 \item{\code{message}}{character Message text}
 
-\item{\code{entities}}{list List of TLObject-like message entities
-
-Methods:
-- initialize(userId, message, entities) : create new instance.
-- resolve(client, utils) : resolve userId via client and utils (mutates self$userId).
-- to_list() : return a list representation.
-- to_bytes() : serialize to raw vector (Telegram-style).}
+\item{\code{entities}}{list List of TLObject-like message entities}
 }
 \if{html}{\out{</div>}}
 }

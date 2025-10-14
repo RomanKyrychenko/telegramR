@@ -8,14 +8,6 @@ Request to edit an existing story. Depending on flags this may include media,
 media areas, caption+entities (both must be provided together) and privacy rules.
 Returns Updates.
 }
-\details{
-Methods:
-- initialize(peer, id, media = NULL, media_areas = NULL, caption = NULL, entities = NULL, privacy_rules = NULL)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{EditStoryRequest}
 }

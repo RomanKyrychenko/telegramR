@@ -6,9 +6,6 @@
 \description{
 Represents the TL request upload.GetCdnFileRequest.
 }
-\details{
-Fields:
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -16,9 +13,7 @@ Fields:
 
 \item{\code{offset}}{numeric 64-bit offset}
 
-\item{\code{limit}}{integer
-
-Methods:}
+\item{\code{limit}}{integer}
 }
 \if{html}{\out{</div>}}
 }

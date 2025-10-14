@@ -7,13 +7,6 @@
 Request to activate stealth mode with optional past/future flags.
 Returns Updates.
 }
-\details{
-Methods:
-- initialize(past = NULL, future = NULL)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ActivateStealthModeRequest}
 }

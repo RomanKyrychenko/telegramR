@@ -15,16 +15,6 @@ Represents a request to send a reaction. This class inherits from TLRequest.
 
 Represents a TL request to send a reaction to a story.
 }
-\details{
-Methods:
-- initialize(peer, story_id, reaction, add_to_recent = NULL): create new request instance
-- resolve(client, utils): resolve peer references (synchronous style)
-- to_list(): convert object to plain R list
-- to_bytes(): serialize to raw TL bytes (expects peer/reaction to provide a bytes method)
-- from_reader(reader): class-level method to read instance from a reader
-
-Initialize SendReactionRequest
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SendReactionRequest}
 }

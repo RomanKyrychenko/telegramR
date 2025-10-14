@@ -22,7 +22,10 @@ operations need to be handled in a synchronous manner.
 \dontrun{
 # Assuming 'future' package is used for async operations
 library(future)
-f <- future({ Sys.sleep(1); 42 })
-result <- maybe_async(f)  # Will warn and resolve to 42
+f <- future({
+  Sys.sleep(1)
+  42
+})
+result <- maybe_async(f) # Will warn and resolve to 42
 }
 }

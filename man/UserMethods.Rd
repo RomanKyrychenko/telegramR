@@ -10,6 +10,13 @@ UserMethods class for handling user-related methods in Telethon.
 This class provides methods to interact with Telegram's API, including user authorization,
 getting user information, and handling input entities.
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{client}}{The client object.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

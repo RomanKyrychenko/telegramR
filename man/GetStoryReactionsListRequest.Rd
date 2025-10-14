@@ -6,14 +6,6 @@
 \description{
 Request to get a list of story reactions with optional filters.
 Returns stories.StoryReactionsList.
-}
-\details{
-Methods:
-- initialize(peer, id, limit, forwards_first = NULL, reaction = NULL, offset = NULL)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
 Initialize GetStoryReactionsListRequest
 }
 \section{Super classes}{

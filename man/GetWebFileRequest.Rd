@@ -16,9 +16,7 @@ Fields:
 
 \item{\code{offset}}{integer}
 
-\item{\code{limit}}{integer
-
-Methods:}
+\item{\code{limit}}{integer}
 }
 \if{html}{\out{</div>}}
 }

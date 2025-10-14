@@ -7,13 +7,6 @@
 Request to get all stories with optional pagination/visibility/state.
 Returns stories.AllStories (or AllStoriesNotModified).
 }
-\details{
-Methods:
-- initialize(next = NULL, hidden = NULL, state = NULL)
-- to_list(): Convert to list
-- to_bytes(): Serialize to raw TL bytes
-- from_reader(reader) (class): Read instance from reader
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetAllStoriesRequest}
 }

@@ -7,14 +7,6 @@
 Request to export a story link for a given peer and story id.
 Returns stories.ExportedStoryLink.
 }
-\details{
-Methods:
-- initialize(peer, id)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ExportStoryLinkRequest}
 }

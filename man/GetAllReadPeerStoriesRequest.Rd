@@ -6,12 +6,6 @@
 \description{
 Request without parameters; returns all read peer stories.
 }
-\details{
-Methods:
-- to_list(): Convert to list
-- to_bytes(): Serialize to raw TL bytes
-- from_reader(reader) (class): Read instance from reader
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetAllReadPeerStoriesRequest}
 }

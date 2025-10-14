@@ -6,14 +6,6 @@
 \description{
 Request to get albums for a peer. Returns stories.Albums (or AlbumsNotModified).
 }
-\details{
-Methods:
-- initialize(peer, hash)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetAlbumsRequest}
 }

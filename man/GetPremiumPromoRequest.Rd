@@ -11,12 +11,7 @@ Request to get premium promotion info.
 \describe{
 \item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex).}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).
-
-Methods:
-- initialize() : create new instance.
-- to_list() : return a list representation.
-- to_bytes() : serialize to raw vector (Telegram-style).}
+\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
 }
 \if{html}{\out{</div>}}
 }

@@ -7,14 +7,6 @@
 Request to check whether a story can be sent to a given peer.
 Returns stories.CanSendStoryCount.
 }
-\details{
-Methods:
-- initialize(peer)
-- resolve(client, utils)
-- to_list()
-- to_bytes()
-- from_reader(reader) (class)
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{CanSendStoryRequest}
 }

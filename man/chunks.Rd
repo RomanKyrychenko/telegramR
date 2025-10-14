@@ -20,6 +20,6 @@ which is 100 by default since that's what Telegram uses the most.
 }
 \examples{
 \dontrun{
-chunks(1:10, 3)  # Returns list(c(1,2,3), c(4,5,6), c(7,8,9), c(10))
+chunks(1:10, 3) # Returns list(c(1,2,3), c(4,5,6), c(7,8,9), c(10))
 }
 }

@@ -16,15 +16,6 @@ SendStoryRequest$new(peer, media, privacy_rules, pinned = NULL, noforwards = NUL
 \description{
 Represents a TL request to send a story.
 }
-\details{
-Methods:
-- initialize(...): create new request instance
-- resolve(client, utils): resolve peer / forward references (synchronous style)
-- to_list(): convert object to plain R list
-- to_bytes(): serialize to raw TL bytes (expects peer/media/etc to provide a bytes method)
-- from_reader(reader): class-level method to read instance from a reader
-Initialize SendStoryRequest
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SendStoryRequest}
 }

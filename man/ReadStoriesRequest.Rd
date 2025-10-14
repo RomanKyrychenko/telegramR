@@ -14,15 +14,6 @@ ReadStoriesRequest$new(peer, max_id)
 Represents a TL request that reads stories up to a given max_id and
 returns a Vector<int> result.
 }
-\details{
-Methods:
-- initialize(peer, max_id): Create new request.
-- resolve(client, utils): Resolve peer (synchronous style).
-- to_list(): Convert to a plain R list.
-- to_bytes(): Serialize to TL raw bytes.
-- from_reader(reader): Class method to read object from reader.
-Initialize ReadStoriesRequest
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ReadStoriesRequest}
 }

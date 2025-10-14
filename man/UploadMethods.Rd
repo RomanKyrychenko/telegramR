@@ -140,7 +140,13 @@ Converts a file to a media format.
   attributes = NULL,
   thumb = NULL,
   allow_cache = TRUE,
-  ...
+  voice_note = FALSE,
+  video_note = FALSE,
+  supports_streaming = FALSE,
+  mime_type = NULL,
+  as_image = NULL,
+  ttl = NULL,
+  nosound_video = NULL
 )}\if{html}{\out{</div>}}
 }
 
