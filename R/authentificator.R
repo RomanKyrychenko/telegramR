@@ -66,7 +66,7 @@ do_authentication <- function(sender) {
   ))
 
   if (server_dh_params$nonce != res_pq$nonce ||
-      server_dh_params$server_nonce != res_pq$server_nonce) {
+    server_dh_params$server_nonce != res_pq$server_nonce) {
     stop("Step 2: nonce validation failed")
   }
   if ("ServerDHParamsFail" %in% class(server_dh_params)) {
@@ -90,11 +90,11 @@ do_authentication <- function(sender) {
   plain_text_answer <- AES$decrypt_ige(server_dh_params$encrypted_answer, key, iv)
 
   reader <- BinaryReader(plain_text_answer)
-  reader$read(20)  # Discard hash sum
+  reader$read(20) # Discard hash sum
   server_dh_inner <- reader$tgread_object()
 
   if (server_dh_inner$nonce != res_pq$nonce ||
-      server_dh_inner$server_nonce != res_pq$server_nonce) {
+    server_dh_inner$server_nonce != res_pq$server_nonce) {
     stop("Step 3: invalid nonces in encrypted answer")
   }
 
@@ -108,13 +108,13 @@ do_authentication <- function(sender) {
   gab <- modexp(g_a, b, dh_prime)
 
   if (!(1 < g && g < (dh_prime - 1)) ||
-      !(1 < g_a && g_a < (dh_prime - 1)) ||
-      !(1 < g_b && g_b < (dh_prime - 1))) {
+    !(1 < g_a && g_a < (dh_prime - 1)) ||
+    !(1 < g_b && g_b < (dh_prime - 1))) {
     stop("Diffie-Hellman values are not in the valid range")
   }
   safety_range <- 2^(2048 - 64)
   if (!(g_a >= safety_range && g_a <= (dh_prime - safety_range)) ||
-      !(g_b >= safety_range && g_b <= (dh_prime - safety_range))) {
+    !(g_b >= safety_range && g_b <= (dh_prime - safety_range))) {
     stop("Diffie-Hellman values are not within the safety range")
   }
 
@@ -134,7 +134,7 @@ do_authentication <- function(sender) {
   ))
 
   if (dh_gen$nonce != res_pq$nonce ||
-      dh_gen$server_nonce != res_pq$server_nonce) {
+    dh_gen$server_nonce != res_pq$server_nonce) {
     stop("Step 3: nonce validation failed in DH generation")
   }
   nonce_types <- c("DhGenOk", "DhGenRetry", "DhGenFail")
@@ -160,7 +160,7 @@ do_authentication <- function(sender) {
 #' @return An integer converted from the byte array.
 #' @export
 get_int <- function(byte_array, signed = TRUE) {
-  int_val <- gmp::as.bigz(paste0("0x", paste(as.character(byte_array), collapse = ""))) #, 16L)
+  int_val <- gmp::as.bigz(paste0("0x", paste(as.character(byte_array), collapse = ""))) # , 16L)
   if (signed) {
     return(int_val)
   } else {
@@ -192,5 +192,5 @@ get_int_little <- function(byte_array, signed = TRUE) {
 #' @export
 modexp <- function(base, exp, mod) {
   # Placeholder implementation: an actual implementation is required for large integers.
-  return(as.integer((base ^ exp) %% mod))
+  return(as.integer((base^exp) %% mod))
 }
