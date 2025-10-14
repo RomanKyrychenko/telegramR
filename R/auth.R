@@ -21,7 +21,6 @@ AuthMethods <- R6::R6Class(
                      password = function() getPass::getPass("Please enter your password: "),
                      bot_token = NULL, force_sms = FALSE, code_callback = NULL,
                      first_name = "New User", last_name = "", max_attempts = 3) {
-
       if (is.null(code_callback)) {
         code_callback <- function() readline("Please enter the code you received: ")
       } else if (!is.function(code_callback)) {
@@ -64,7 +63,6 @@ AuthMethods <- R6::R6Class(
     #' @return The signed in user or information about send_code_request
     sign_in = function(phone = NULL, code = NULL, password = NULL,
                        bot_token = NULL, phone_code_hash = NULL) {
-
       me <- self$get_me()
       if (!is.null(me)) {
         return(me)
@@ -94,14 +92,17 @@ AuthMethods <- R6::R6Class(
         stop("You must provide a phone and a code the first time, and a password only if an RPCError was raised before.")
       }
 
-      tryCatch({
-        result <- self$invoke(request)
-      }, error = function(e) {
-        if (inherits(e, "PhoneCodeExpiredError")) {
-          private$phone_code_hash[[phone]] <- NULL
+      tryCatch(
+        {
+          result <- self$invoke(request)
+        },
+        error = function(e) {
+          if (inherits(e, "PhoneCodeExpiredError")) {
+            private$phone_code_hash[[phone]] <- NULL
+          }
+          stop(e)
         }
-        stop(e)
-      })
+      )
 
       if (inherits(result, "auth.AuthorizationSignUpRequired")) {
         private$tos <- result$terms_of_service
@@ -138,17 +139,20 @@ AuthMethods <- R6::R6Class(
       phone_hash <- private$phone_code_hash[[phone]]
 
       if (is.null(phone_hash)) {
-        tryCatch({
-          result <- self$invoke(SendCodeRequest$new(
-            phone, self$api_id, self$api_hash, types$CodeSettings()
-          ))
-        }, error = function(e) {
-          if (inherits(e, "AuthRestartError")) {
-            if (retry_count > 2) stop(e)
-            return(self$send_code_request(phone, force_sms = force_sms, retry_count = retry_count + 1))
+        tryCatch(
+          {
+            result <- self$invoke(SendCodeRequest$new(
+              phone, self$api_id, self$api_hash, types$CodeSettings()
+            ))
+          },
+          error = function(e) {
+            if (inherits(e, "AuthRestartError")) {
+              if (retry_count > 2) stop(e)
+              return(self$send_code_request(phone, force_sms = force_sms, retry_count = retry_count + 1))
+            }
+            stop(e)
           }
-          stop(e)
-        })
+        )
 
         if (inherits(result, "auth.SentCodeSuccess")) {
           stop("Logged in right after sending the code")
@@ -168,17 +172,20 @@ AuthMethods <- R6::R6Class(
       private$phone <- phone
 
       if (force_sms) {
-        tryCatch({
-          result <- self$invoke(ResendCodeRequest$new(phone, phone_hash))
-        }, error = function(e) {
-          if (inherits(e, "PhoneCodeExpiredError")) {
-            if (retry_count > 2) stop(e)
-            private$phone_code_hash[[phone]] <- NULL
-            private$log$info("Phone code expired in ResendCodeRequest, requesting a new code")
-            return(self$send_code_request(phone, force_sms = FALSE, retry_count = retry_count + 1))
+        tryCatch(
+          {
+            result <- self$invoke(ResendCodeRequest$new(phone, phone_hash))
+          },
+          error = function(e) {
+            if (inherits(e, "PhoneCodeExpiredError")) {
+              if (retry_count > 2) stop(e)
+              private$phone_code_hash[[phone]] <- NULL
+              private$log$info("Phone code expired in ResendCodeRequest, requesting a new code")
+              return(self$send_code_request(phone, force_sms = FALSE, retry_count = retry_count + 1))
+            }
+            stop(e)
           }
-          stop(e)
-        })
+        )
 
         if (inherits(result, "auth.SentCodeSuccess")) {
           stop("Logged in right after resending the code")
@@ -204,11 +211,14 @@ AuthMethods <- R6::R6Class(
     #' Logs out of Telegram and deletes the current session file
     #' @return TRUE if successful, FALSE otherwise
     log_out = function() {
-      tryCatch({
-        self$invoke(LogOutRequest$new())
-      }, error = function(e) {
-        return(FALSE)
-      })
+      tryCatch(
+        {
+          self$invoke(LogOutRequest$new())
+        },
+        error = function(e) {
+          return(FALSE)
+        }
+      )
 
       private$mb_entity_cache$set_self_user(NULL, NULL, NULL)
       private$authorized <- FALSE
@@ -228,7 +238,7 @@ AuthMethods <- R6::R6Class(
     #' @param email_code_callback Function to retrieve email verification code
     #' @return TRUE if successful, FALSE otherwise
     edit_2fa = function(current_password = NULL, new_password = NULL,
-                         hint = "", email = NULL, email_code_callback = NULL) {
+                        hint = "", email = NULL, email_code_callback = NULL) {
       if (is.null(new_password) && is.null(current_password)) {
         return(FALSE)
       }
@@ -256,37 +266,38 @@ AuthMethods <- R6::R6Class(
         new_password_hash <- raw(0)
       }
 
-      tryCatch({
-        self$invoke(UpdatePasswordSettingsRequest$new(
-          password = password,
-          new_settings = types$account$PasswordInputSettings(
-            new_algo = pwd$new_algo,
-            new_password_hash = new_password_hash,
-            hint = hint,
-            email = email,
-            new_secure_settings = NULL
-          )
-        ))
-      }, error = function(e) {
-        if (inherits(e, "EmailUnconfirmedError")) {
-          code <- email_code_callback(e$code_length)
-          code <- as.character(code)
-          self$invoke(ConfirmPasswordEmailRequest$new(code))
-        } else {
-          stop(e)
+      tryCatch(
+        {
+          self$invoke(UpdatePasswordSettingsRequest$new(
+            password = password,
+            new_settings = types$account$PasswordInputSettings(
+              new_algo = pwd$new_algo,
+              new_password_hash = new_password_hash,
+              hint = hint,
+              email = email,
+              new_secure_settings = NULL
+            )
+          ))
+        },
+        error = function(e) {
+          if (inherits(e, "EmailUnconfirmedError")) {
+            code <- email_code_callback(e$code_length)
+            code <- as.character(code)
+            self$invoke(ConfirmPasswordEmailRequest$new(code))
+          } else {
+            stop(e)
+          }
         }
-      })
+      )
 
       return(TRUE)
     }
   ),
-
   private = list(
     phone = NULL,
     phone_code_hash = list(),
     tos = NULL,
     authorized = FALSE,
-
     parse_phone_and_hash = function(phone, phone_hash) {
       phone <- private$parse_phone(phone) %||% private$phone
       if (is.null(phone)) {
@@ -300,7 +311,6 @@ AuthMethods <- R6::R6Class(
 
       return(list(phone, phone_hash))
     },
-
     on_login = function(user) {
       private$mb_entity_cache$set_self_user(user$id, user$bot, user$access_hash)
       private$authorized <- TRUE
@@ -325,7 +335,6 @@ AuthMethods <- R6::R6Class(
 
       return(user)
     },
-
     start_impl = function(phone, password, bot_token, force_sms, code_callback,
                           first_name, last_name, max_attempts) {
       if (!self$is_connected()) {
@@ -370,25 +379,30 @@ AuthMethods <- R6::R6Class(
       self$send_code_request(phone, force_sms = force_sms)
 
       while (attempts < max_attempts) {
-        tryCatch({
-          value <- code_callback()
+        tryCatch(
+          {
+            value <- code_callback()
 
-          if (is.null(value) || !nzchar(value)) {
-            stop("PhoneCodeEmptyError")
-          }
+            if (is.null(value) || !nzchar(value)) {
+              stop("PhoneCodeEmptyError")
+            }
 
-          me <- self$sign_in(phone, code = value)
-          break
-        }, error = function(e) {
-          if (inherits(e, "SessionPasswordNeededError")) {
-            two_step_detected <- TRUE
-          } else if (any(c("PhoneCodeEmptyError", "PhoneCodeExpiredError",
-                          "PhoneCodeHashEmptyError", "PhoneCodeInvalidError") %in% class(e))) {
-            cat("Invalid code. Please try again.\n", file = stderr())
-          } else {
-            stop(e)
+            me <- self$sign_in(phone, code = value)
+            break
+          },
+          error = function(e) {
+            if (inherits(e, "SessionPasswordNeededError")) {
+              two_step_detected <- TRUE
+            } else if (any(c(
+              "PhoneCodeEmptyError", "PhoneCodeExpiredError",
+              "PhoneCodeHashEmptyError", "PhoneCodeInvalidError"
+            ) %in% class(e))) {
+              cat("Invalid code. Please try again.\n", file = stderr())
+            } else {
+              stop(e)
+            }
           }
-        })
+        )
 
         attempts <- attempts + 1
       }
@@ -404,17 +418,20 @@ AuthMethods <- R6::R6Class(
 
         if (is.function(password)) {
           for (i in 1:max_attempts) {
-            tryCatch({
-              value <- password()
-              me <- self$sign_in(phone = phone, password = value)
-              break
-            }, error = function(e) {
-              if (inherits(e, "PasswordHashInvalidError")) {
-                cat("Invalid password. Please try again\n", file = stderr())
-              } else {
-                stop(e)
+            tryCatch(
+              {
+                value <- password()
+                me <- self$sign_in(phone = phone, password = value)
+                break
+              },
+              error = function(e) {
+                if (inherits(e, "PasswordHashInvalidError")) {
+                  cat("Invalid password. Please try again\n", file = stderr())
+                } else {
+                  stop(e)
+                }
               }
-            })
+            )
           }
           if (is.null(me)) {
             stop("PasswordHashInvalidError")
@@ -428,21 +445,27 @@ AuthMethods <- R6::R6Class(
       name <- private$get_display_name(me)
       tos_msg <- "; remember to not break the ToS or you will risk an account ban!"
 
-      tryCatch({
-        cat(signed_msg, name, tos_msg, sep = "")
-      }, error = function(e) {
-        name_encoded <- iconv(name, "UTF-8", "ASCII", sub = "")
-        cat(signed_msg, name_encoded, tos_msg, sep = "")
-      })
+      tryCatch(
+        {
+          cat(signed_msg, name, tos_msg, sep = "")
+        },
+        error = function(e) {
+          name_encoded <- iconv(name, "UTF-8", "ASCII", sub = "")
+          cat(signed_msg, name_encoded, tos_msg, sep = "")
+        }
+      )
 
       return(self)
     },
-
     parse_phone = function(phone) {
-      if (is.null(phone)) return(NULL)
+      if (is.null(phone)) {
+        return(NULL)
+      }
       # Simple phone number parsing logic
       phone <- gsub("[^0-9+]", "", as.character(phone))
-      if (nchar(phone) < 5) return(NULL)
+      if (nchar(phone) < 5) {
+        return(NULL)
+      }
       return(phone)
     },
 
@@ -452,13 +475,11 @@ AuthMethods <- R6::R6Class(
       # This is a placeholder
       return(list(password_hash = digest::digest(paste0(pwd$salt, password, pwd$salt))))
     },
-
     compute_digest = function(algo, password) {
       # Implementation would depend on the actual password hashing algorithm
       # This is a placeholder
       return(digest::digest(paste0(algo$salt, password, algo$salt), raw = TRUE))
     },
-
     get_display_name = function(user) {
       if (!is.null(user$first_name)) {
         if (!is.null(user$last_name) && nzchar(user$last_name)) {
