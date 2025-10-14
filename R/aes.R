@@ -36,7 +36,7 @@ AES <- R6::R6Class(
 
       for (block_index in seq_len(blocks_count)) {
         cipher_text_block <- xor(cipher_text[((block_index - 1) * 16 + 1):(block_index * 16)], iv2)
-        plain_text_block <- aes$decrypt(cipher_text_block, raw=TRUE)
+        plain_text_block <- aes$decrypt(cipher_text_block, raw = TRUE)
         plain_text_block <- xor(plain_text_block, iv1)
 
         iv1 <- cipher_text[((block_index - 1) * 16 + 1):(block_index * 16)]
