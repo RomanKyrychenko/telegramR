@@ -412,7 +412,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     sequence = NULL,
     # disconnected = future::future(NULL, seed = TRUE),
 
-    #' Internal method to perform connection
+    #' @description Internal method to perform connection
     .connect = function() {
       private$log$info("Connecting to %s...", private$connection$to_string())
 
@@ -492,7 +492,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$log$info("Connection to %s complete!", private$connection$to_string())
     },
 
-    #' Try to establish connection
+    #' @description Try to establish connection
     try_connect = function(attempt) {
       tryCatch(
         {
@@ -512,7 +512,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       )
     },
 
-    #' Try to generate authentication key
+    #' @description Try to generate authentication key
     try_gen_auth_key = function(attempt) {
       plain <- MTProtoPlainSender$new(private$connection, loggers = private$loggers)
       tryCatch(
@@ -543,7 +543,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       )
     },
 
-    #' Disconnect from server
+    #' @description Disconnect from server
     .disconnect = function(error = NULL) {
       if (is.null(private$connection)) {
         private$log$info("Not disconnecting (already have no connection)")
@@ -587,7 +587,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #' Reconnect to server
+    #' @description Reconnect to server
     .reconnect = function(last_error) {
       private$log$info("Closing current connection to begin reconnect...")
       future::value(private$connection$disconnect())
@@ -669,7 +669,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #' Start reconnection process in background
+    #' @description Start reconnection process in background
     start_reconnect = function(error) {
       if (private$user_connected && !private$reconnecting) {
         # Set reconnecting flag to avoid race conditions
@@ -683,7 +683,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #' Send a keep-alive ping
+    #' @description Send a keep-alive ping
     keepalive_ping = function(rnd_id) {
       # If no ping is in progress, send one
       if (is.null(private$ping)) {
@@ -697,7 +697,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
 
     # Main processing loops
 
-    #' Send loop - encrypts and sends messages
+    #' @description Send loop - encrypts and sends messages
     send_loop = function() {
       while (private$user_connected && !private$reconnecting) {
         # Handle pending acknowledgments
@@ -758,7 +758,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #' Receive loop - reads and processes incoming data
+    #' @description Receive loop - reads and processes incoming data
     recv_loop = function() {
       while (private$user_connected && !private$reconnecting) {
         private$log$debug("Receiving items from the network...")
@@ -847,7 +847,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
 
     # Message handlers
 
-    #' Process received message
+    #' @description Process received message
     process_message = function(message) {
       # Add to pending acknowledgments
       private$pending_ack$add(message$msg_id)
@@ -865,7 +865,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       return(handler(message))
     },
 
-    #' Find states matching a message ID
+    #' @description Find states matching a message ID
     pop_states = function(msg_id) {
       # Look for exact match
       msg_id_str <- as.character(msg_id)
@@ -902,7 +902,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       return(list())
     },
 
-    #' Handle RPC results
+    #' @description Handle RPC results
     handle_rpc_result = function(message) {
       rpc_result <- message$obj
       state <- private$pending_state[[as.character(rpc_result$req_msg_id)]]
@@ -963,7 +963,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #' Handle message containers
+    #' @description Handle message containers
     handle_container = function(message) {
       private$log$debug("Handling container")
       for (inner_message in message$obj$messages) {
@@ -971,7 +971,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #' Handle gzipped data
+    #' @description Handle gzipped data
     handle_gzip_packed = function(message) {
       private$log$debug("Handling gzipped data")
       reader <- BinaryReader$new(message$obj$data)
@@ -979,7 +979,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       future::value(private$process_message(message))
     },
 
-    #' Handle updates
+    #' @description Handle updates
     handle_update = function(message) {
       tryCatch(
         {
@@ -1001,7 +1001,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       )
     },
 
-    #' Store updates originating from our own requests
+    #' @description Store updates originating from our own requests
     #' @param obj Object to check for updates
     store_own_updates = function(obj) {
       update_ids <- c(
@@ -1052,7 +1052,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       )
     },
 
-    #' Handle pong results
+    #' @description Handle pong results
     #' @param message Message containing pong
     handle_pong = function(message) {
       pong <- message$obj
@@ -1069,7 +1069,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #' Handle bad server salt notifications
+    #' @description Handle bad server salt notifications
     #' @param message Message containing bad salt notification
     handle_bad_server_salt = function(message) {
       bad_salt <- message$obj
@@ -1081,7 +1081,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$log$debug("%d message(s) will be resent", length(states))
     },
 
-    #' Handle bad message notifications
+    #' @description Handle bad message notifications
     #' @param message Message containing bad message notification
     handle_bad_notification = function(message) {
       bad_msg <- message$obj
@@ -1114,7 +1114,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$log$debug("%d messages will be resent due to bad msg", length(states))
     },
 
-    #' Handle detailed info messages
+    #' @description Handle detailed info messages
     #' @param message Message containing detailed info
     handle_detailed_info = function(message) {
       msg_id <- message$obj$answer_msg_id
@@ -1122,7 +1122,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$pending_ack$add(msg_id)
     },
 
-    #' Handle new detailed info messages
+    #' @description Handle new detailed info messages
     #' @param message Message containing new detailed info
     handle_new_detailed_info = function(message) {
       msg_id <- message$obj$answer_msg_id
@@ -1130,14 +1130,14 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$pending_ack$add(msg_id)
     },
 
-    #' Handle new session created
+    #' @description Handle new session created
     #' @param message Message containing new session info
     handle_new_session_created = function(message) {
       private$log$debug("Handling new session created")
       private$state$salt <- message$obj$server_salt
     },
 
-    #' Handle server acknowledgments
+    #' @description Handle server acknowledgments
     #' @param message Message containing acknowledgments
     handle_ack = function(message) {
       ack <- message$obj

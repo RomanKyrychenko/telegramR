@@ -1,14 +1,3 @@
-#' MTProtoState Class
-#'
-#' This class manages the state needed by MTProtoSender for encrypting and
-#' decrypting incoming/outgoing messages and generating message IDs.
-#'
-#' @details
-#' MTProtoState handles authentication key management, message sequencing,
-#' and encryption/decryption required by Telegram's MTProto protocol.
-#' It is not concerned with storing information to disk, as users may create
-#' multiple senders for different data centers or CDNs.
-#'
 #' @importFrom digest digest
 #' @importFrom stringr str_sub
 NULL
@@ -309,7 +298,7 @@ MTProtoState <- R6::R6Class("MTProtoState",
     highest_remote_id = NULL,
     ignore_count = NULL,
 
-    #' Calculate encryption key and initialization vector
+    #' @description Calculate encryption key and initialization vector
     #' @param auth_key Authentication key
     #' @param msg_key Message key
     #' @param client Boolean indicating if this is for client or server
@@ -338,7 +327,7 @@ MTProtoState <- R6::R6Class("MTProtoState",
       return(list(aes_key = aes_key, aes_iv = aes_iv))
     },
 
-    #' Generate next sequence number
+    #' @description Generate next sequence number
     #' @param content_related Boolean indicating if message is content-related
     #' @return Next sequence number
     get_seq_no = function(content_related) {
@@ -351,7 +340,7 @@ MTProtoState <- R6::R6Class("MTProtoState",
       }
     },
 
-    #' Track ignored messages and throw error if too many consecutive
+    #' @description Track ignored messages and throw error if too many consecutive
     count_ignored = function() {
       private$ignore_count <- private$ignore_count + 1
       if (private$ignore_count >= MAX_CONSECUTIVE_IGNORED) {

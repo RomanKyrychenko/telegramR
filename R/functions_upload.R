@@ -12,7 +12,7 @@ GetCdnFileRequest <- R6::R6Class(
     offset = NULL,
     limit = NULL,
 
-    #' Initialize a GetCdnFileRequest
+    #' @description Initialize a GetCdnFileRequest
     #' @param file_token raw|integer|character
     #' @param offset numeric (64-bit)
     #' @param limit integer
@@ -23,7 +23,7 @@ GetCdnFileRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(
@@ -34,7 +34,7 @@ GetCdnFileRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw vector
+    #' @description Serialize to raw vector
     #' @return raw
     to_bytes = function() {
       c(
@@ -107,7 +107,7 @@ GetCdnFileHashesRequest <- R6::R6Class(
     file_token = NULL,
     offset = NULL,
 
-    #' Initialize a GetCdnFileHashesRequest
+    #' @description Initialize a GetCdnFileHashesRequest
     #' @param file_token raw|integer|character
     #' @param offset numeric (64-bit)
     initialize = function(file_token, offset) {
@@ -116,7 +116,7 @@ GetCdnFileHashesRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(
@@ -126,7 +126,7 @@ GetCdnFileHashesRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw vector
+    #' @description Serialize to raw vector
     #' @return raw
     to_bytes = function() {
       c(
@@ -197,7 +197,7 @@ GetFileRequest <- R6::R6Class(
     precise = NULL,
     cdn_supported = NULL,
 
-    #' Initialize a GetFileRequest
+    #' @description Initialize a GetFileRequest
     #' @param location TLObject-like
     #' @param offset numeric (64-bit)
     #' @param limit integer
@@ -212,7 +212,7 @@ GetFileRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(
@@ -225,7 +225,7 @@ GetFileRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw vector
+    #' @description Serialize to raw vector
     #' @return raw
     to_bytes = function() {
       flags <- 0L
@@ -286,7 +286,7 @@ GetFileHashesRequest <- R6::R6Class(
     location = NULL,
     offset = NULL,
 
-    #' Initialize a GetFileHashesRequest
+    #' @description Initialize a GetFileHashesRequest
     #' @param location TLObject-like
     #' @param offset numeric (64-bit)
     initialize = function(location, offset) {
@@ -295,7 +295,7 @@ GetFileHashesRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(
@@ -305,7 +305,7 @@ GetFileHashesRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw vector
+    #' @description Serialize to raw vector
     #' @return raw
     to_bytes = function() {
       c(
@@ -382,7 +382,7 @@ GetWebFileRequest <- R6::R6Class(
     offset = NULL,
     limit = NULL,
 
-    #' Initialize a GetWebFileRequest
+    #' @description Initialize a GetWebFileRequest
     #' @param location TLObject-like
     #' @param offset integer
     #' @param limit integer
@@ -393,7 +393,7 @@ GetWebFileRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(
@@ -404,7 +404,7 @@ GetWebFileRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw vector
+    #' @description Serialize to raw vector
     #' @return raw
     to_bytes = function() {
       c(
@@ -478,7 +478,7 @@ ReuploadCdnFileRequest <- R6::R6Class(
     file_token = NULL,
     request_token = NULL,
 
-    #' Initialize a ReuploadCdnFileRequest
+    #' @description Initialize a ReuploadCdnFileRequest
     #' @param file_token raw|integer|character
     #' @param request_token raw|integer|character
     initialize = function(file_token, request_token) {
@@ -487,7 +487,7 @@ ReuploadCdnFileRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(
@@ -497,7 +497,7 @@ ReuploadCdnFileRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw vector
+    #' @description Serialize to raw vector
     #' @return raw
     to_bytes = function() {
       c(
@@ -545,7 +545,6 @@ ReuploadCdnFileRequest <- R6::R6Class(
   )
 )
 
-# class-level from_reader
 #' Read ReuploadCdnFileRequest from a reader
 #' @param reader an object providing tgread_bytes()
 #' @return ReuploadCdnFileRequest
@@ -572,7 +571,7 @@ SaveBigFilePartRequest <- R6::R6Class(
     file_total_parts = NULL,
     bytes_data = NULL,
 
-    #' Initialize a SaveBigFilePartRequest
+    #' @description Initialize a SaveBigFilePartRequest
     #' @param file_id numeric (64-bit)
     #' @param file_part integer
     #' @param file_total_parts integer
@@ -585,7 +584,7 @@ SaveBigFilePartRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(
@@ -597,7 +596,7 @@ SaveBigFilePartRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw vector
+    #' @description Serialize to raw vector
     #' @return raw
     to_bytes = function() {
       c(
@@ -670,12 +669,16 @@ SaveBigFilePartRequest$set("public", "from_reader", function(reader) {
 
 
 
-#' SaveFilePartRequest R6 class
-#'
-#' Represents the TL request upload.SaveFilePartRequest.
-#' @field file_id numeric 64-bit file id (stored as numeric)
-#' @field file_part integer part index
-#' @field bytes_data raw|integer|character payload bytes
+#' @title SaveFilePartRequest R6 class
+#' @description R6 representation of the Telegram TL request upload.SaveFilePartRequest.
+#'   Saves a single (non-big) part of an uploaded file to Telegram's servers.
+#'   Use this for files below the "big file" threshold. Each call uploads one
+#'   sequential part identified by its index.
+#' @field file_id numeric (64-bit) Unique file identifier (stable per upload session).
+#' @field file_part integer Zero-based index of this file part.
+#' @field bytes_data raw|integer|character The binary payload for this part.
+#'   Accepts: raw vector, integer/ numeric vector (converted mod 256), or character
+#'   (converted with charToRaw).
 #' @export
 SaveFilePartRequest <- R6::R6Class(
   "SaveFilePartRequest",
@@ -684,10 +687,11 @@ SaveFilePartRequest <- R6::R6Class(
     file_part = NULL,
     bytes_data = NULL,
 
-    #' Initialize a SaveFilePartRequest
-    #' @param file_id numeric (64-bit)
-    #' @param file_part integer
-    #' @param bytes_data raw|integer|character
+    #' @description Initialize a new SaveFilePartRequest instance.
+    #' @param file_id numeric (64-bit) Unique file identifier.
+    #' @param file_part integer Zero-based index of this part.
+    #' @param bytes_data raw|integer|character Payload bytes for this part.
+    #' @return SaveFilePartRequest (invisibly) for chaining.
     initialize = function(file_id, file_part, bytes_data) {
       self$file_id <- file_id
       self$file_part <- as.integer(file_part)
@@ -695,8 +699,8 @@ SaveFilePartRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #' @return list
+    #' @description Convert the request to a plain list (for inspection or JSON).
+    #' @return list A named list with class tag and fields.
     to_list = function() {
       list(
         `_` = "SaveFilePartRequest",
@@ -706,8 +710,9 @@ SaveFilePartRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw vector
-    #' @return raw
+    #' @description Serialize the request into TL-compliant raw bytes.
+    #'   Layout: constructor_id | file_id(int64) | file_part(int32) | bytes (length-prefixed, padded).
+    #' @return raw Serialized byte vector.
     to_bytes = function() {
       c(
         private$constructor_id,
@@ -731,6 +736,11 @@ SaveFilePartRequest <- R6::R6Class(
       writeBin(as.numeric(x), con, size = 8L, endian = "little")
       rawConnectionValue(con)
     },
+
+    #' @description Internal helper: serialize arbitrary byte-like input with
+    #'   4-byte little-endian length and 0-padding to 4-byte boundary.
+    #' @param b raw|integer|numeric|character Data to serialize.
+    #' @return raw Serialized bytes with length prefix and padding.
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b

@@ -11,6 +11,7 @@
 #' @return R6 object of class GetChannelDifferenceRequest
 #' @examples
 #' # req <- GetChannelDifferenceRequest$new(channel = some_channel, filter = some_filter, pts = 0, limit = 100)
+#' @export
 GetChannelDifferenceRequest <- R6::R6Class(
   "GetChannelDifferenceRequest",
   public = list(
@@ -19,6 +20,13 @@ GetChannelDifferenceRequest <- R6::R6Class(
     pts = NULL,
     limit = NULL,
     force = NULL,
+
+    #' @description Initializes a new GetChannelDifferenceRequest.
+    #' @param channel TypeInputChannel Input channel (R6 object with bytes() or raw
+    #' @param filter TypeChannelMessagesFilter Filter (R6 object with bytes() or raw())
+    #' @param pts integer PTS
+    #' @param limit integer Limit
+    #' @param force logical|NULL Optional force flag
     initialize = function(channel, filter, pts, limit, force = NULL) {
       self$channel <- channel
       self$filter <- filter
@@ -26,6 +34,9 @@ GetChannelDifferenceRequest <- R6::R6Class(
       self$limit <- as.integer(limit)
       self$force <- if (!is.null(force)) as.logical(force) else NULL
     },
+
+    #' @description Converts the request to a list representation.
+    #' @return A list representing the request.
     to_list = function() {
       list(
         `_` = "GetChannelDifferenceRequest",
@@ -36,6 +47,9 @@ GetChannelDifferenceRequest <- R6::R6Class(
         force = self$force
       )
     },
+
+    #' @description Serializes the request to raw bytes.
+    #' @return A raw vector representing the serialized request.
     bytes = function() {
       # header constructor id: 0x03173d78 (0x3173d78)
       flags <- 0L
@@ -113,10 +127,9 @@ GetChannelDifferenceRequest$set("public", "from_reader", function(reader) {
 #' @field pts_limit integer|NULL Optional pts_limit
 #' @field pts_total_limit integer|NULL Optional pts_total_limit
 #' @field qts_limit integer|NULL Optional qts_limit
-#'
-#' @return R6 object of class GetDifferenceRequest
 #' @examples
 #' # req <- GetDifferenceRequest$new(pts = 0, date = Sys.time(), qts = 0)
+#' @export
 GetDifferenceRequest <- R6::R6Class(
   "GetDifferenceRequest",
   public = list(
@@ -126,6 +139,14 @@ GetDifferenceRequest <- R6::R6Class(
     pts_limit = NULL,
     pts_total_limit = NULL,
     qts_limit = NULL,
+
+    #' @description Converts the request to a list representation.
+    #' @param pts integer PTS
+    #' @param date POSIXct|NULL Date
+    #' @param qts integer QTS
+    #' @param pts_limit integer|NULL Optional pts_limit
+    #' @param pts_total_limit integer|NULL Optional pts_total_limit
+    #' @param qts_limit integer|NULL Optional qts_limit
     initialize = function(pts, date = NULL, qts, pts_limit = NULL, pts_total_limit = NULL, qts_limit = NULL) {
       self$pts <- as.integer(pts)
       self$date <- date
@@ -134,6 +155,9 @@ GetDifferenceRequest <- R6::R6Class(
       self$pts_total_limit <- if (!is.null(pts_total_limit)) as.integer(pts_total_limit) else NULL
       self$qts_limit <- if (!is.null(qts_limit)) as.integer(qts_limit) else NULL
     },
+
+    #' @description Initializes a new GetDifferenceRequest.
+    #' @return A new GetDifferenceRequest instance.
     to_list = function() {
       list(
         `_` = "GetDifferenceRequest",
@@ -145,6 +169,9 @@ GetDifferenceRequest <- R6::R6Class(
         qts_limit = self$qts_limit
       )
     },
+
+    #' @description Converts the request to a list representation.
+    #' @return A list representing the request.
     bytes = function() {
       # header constructor id: 0x19c2f763
       flags <- 0L
@@ -207,16 +234,24 @@ GetDifferenceRequest$set("public", "from_reader", function(reader) {
 #'
 #' Representation of updates.GetState request.
 #'
-#' @return R6 object of class GetStateRequest
 #' @examples
 #' # req <- GetStateRequest$new()
+#' @export
 GetStateRequest <- R6::R6Class(
   "GetStateRequest",
   public = list(
+
+    #' @description Converts the request to a list representation.
     initialize = function() {},
+
+    #' @description Serializes the request to raw bytes.
+    #' @return A raw vector representing the serialized request.
     to_list = function() {
       list(`_` = "GetStateRequest")
     },
+
+    #' @description Initializes a new GetStateRequest.
+    #' @return A new GetStateRequest instance.
     bytes = function() {
       private$pack_int32_le(0xedd4882a)
     }
