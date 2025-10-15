@@ -4,6 +4,11 @@
 \alias{ReplaceStickerRequest}
 \title{ReplaceStickerRequest R6 class}
 \description{
+ReplaceStickerRequest R6 class
+
+ReplaceStickerRequest R6 class
+}
+\details{
 Represents a request to replace a sticker with a new sticker item.
 }
 \section{Methods}{
@@ -43,6 +48,7 @@ Represents a request to replace a sticker with a new sticker item.
 \if{html}{\out{<a id="method-ReplaceStickerRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ReplaceStickerRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a ReplaceStickerRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReplaceStickerRequest$new(sticker, new_sticker)}\if{html}{\out{</div>}}
 }
@@ -52,8 +58,7 @@ Represents a request to replace a sticker with a new sticker item.
 \describe{
 \item{\code{sticker}}{InputDocument (TL object or representation)}
 
-\item{\code{new_sticker}}{InputStickerSetItem (TL object or representation)
-Resolve references (e.g. convert user-friendly inputs to TL inputs)}
+\item{\code{new_sticker}}{InputStickerSetItem (TL object or representation)}
 }
 \if{html}{\out{</div>}}
 }
@@ -62,6 +67,7 @@ Resolve references (e.g. convert user-friendly inputs to TL inputs)}
 \if{html}{\out{<a id="method-ReplaceStickerRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-ReplaceStickerRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve references (e.g. convert user-friendly inputs to TL inputs)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReplaceStickerRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -71,8 +77,7 @@ Resolve references (e.g. convert user-friendly inputs to TL inputs)}
 \describe{
 \item{\code{client}}{client object (used for entity resolution if needed)}
 
-\item{\code{utils}}{utilities object with helper conversions (must implement get_input_document)
-Convert to an R list (dictionary-like)}
+\item{\code{utils}}{utilities object with helper conversions (must implement get_input_document)}
 }
 \if{html}{\out{</div>}}
 }
@@ -81,19 +86,20 @@ Convert to an R list (dictionary-like)}
 \if{html}{\out{<a id="method-ReplaceStickerRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ReplaceStickerRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReplaceStickerRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation of the request
-Serialize to raw bytes (simple TL-like approximation)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ReplaceStickerRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ReplaceStickerRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes (simple TL-like approximation)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReplaceStickerRequest$to_bytes()}\if{html}{\out{</div>}}
 }

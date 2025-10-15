@@ -4,6 +4,11 @@
 \alias{RenameStickerSetRequest}
 \title{RenameStickerSetRequest R6 class}
 \description{
+RenameStickerSetRequest R6 class
+
+RenameStickerSetRequest R6 class
+}
+\details{
 Represents a request to rename a sticker set.
 }
 \section{Methods}{
@@ -41,6 +46,7 @@ Represents a request to rename a sticker set.
 \if{html}{\out{<a id="method-RenameStickerSetRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-RenameStickerSetRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a RenameStickerSetRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RenameStickerSetRequest$new(stickerset, title)}\if{html}{\out{</div>}}
 }
@@ -50,8 +56,7 @@ Represents a request to rename a sticker set.
 \describe{
 \item{\code{stickerset}}{InputStickerSet (TL object or representation)}
 
-\item{\code{title}}{character Title string
-Convert to an R list (dictionary-like)}
+\item{\code{title}}{character Title string}
 }
 \if{html}{\out{</div>}}
 }
@@ -60,19 +65,20 @@ Convert to an R list (dictionary-like)}
 \if{html}{\out{<a id="method-RenameStickerSetRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-RenameStickerSetRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RenameStickerSetRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation of the request
-Serialize to raw bytes (simple TL-like approximation)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-RenameStickerSetRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-RenameStickerSetRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes (simple TL-like approximation)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RenameStickerSetRequest$to_bytes()}\if{html}{\out{</div>}}
 }

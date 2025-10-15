@@ -33,14 +33,17 @@ R6 translation of the TLRequest GetUserPhotosRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{CONSTRUCTOR_ID}}{integer}
+
+\item{\code{SUBCLASS_OF_ID}}{integer}
+
 \item{\code{user_id}}{TLObject or NULL}
 
 \item{\code{offset}}{integer}
 
 \item{\code{max_id}}{numeric (64-bit representation)}
 
-\item{\code{limit}}{integer
-Initialize a new GetUserPhotosRequest}
+\item{\code{limit}}{integer}
 }
 \if{html}{\out{</div>}}
 }
@@ -76,6 +79,7 @@ Initialize a new GetUserPhotosRequest}
 \if{html}{\out{<a id="method-GetUserPhotosRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetUserPhotosRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a new GetUserPhotosRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetUserPhotosRequest$new(user_id = NULL, offset = 0L, max_id = 0, limit = 0L)}\if{html}{\out{</div>}}
 }
@@ -89,10 +93,7 @@ Initialize a new GetUserPhotosRequest}
 
 \item{\code{max_id}}{numeric (64-bit)}
 
-\item{\code{limit}}{integer
-Resolve references (client + utils)
-
-Convert provided user identifier into an input user using client and utils.}
+\item{\code{limit}}{integer}
 }
 \if{html}{\out{</div>}}
 }
@@ -101,6 +102,9 @@ Convert provided user identifier into an input user using client and utils.}
 \if{html}{\out{<a id="method-GetUserPhotosRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetUserPhotosRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve references (client + utils)
+
+Convert provided user identifier into an input user using client and utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetUserPhotosRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -110,8 +114,7 @@ Convert provided user identifier into an input user using client and utils.}
 \describe{
 \item{\code{client}}{client with get_input_entity method}
 
-\item{\code{utils}}{helper with get_input_user method
-Convert object to a list}
+\item{\code{utils}}{helper with get_input_user method}
 }
 \if{html}{\out{</div>}}
 }
@@ -120,22 +123,23 @@ Convert object to a list}
 \if{html}{\out{<a id="method-GetUserPhotosRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetUserPhotosRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetUserPhotosRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation of the request
-Serialize to bytes (raw vector)
-
-Packs constructor id and fields in little-endian order.
-Relies on user_id implementing to_bytes(). max_id is written as 8 bytes (numeric).
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetUserPhotosRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetUserPhotosRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes (raw vector)
+
+Packs constructor id and fields in little-endian order.
+Relies on user_id implementing to_bytes(). max_id is written as 8 bytes (numeric).
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetUserPhotosRequest$to_bytes()}\if{html}{\out{</div>}}
 }

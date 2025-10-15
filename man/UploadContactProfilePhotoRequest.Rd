@@ -34,6 +34,10 @@ R6 translation of the TLRequest UploadContactProfilePhotoRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{CONSTRUCTOR_ID}}{integer}
+
+\item{\code{SUBCLASS_OF_ID}}{integer}
+
 \item{\code{user_id}}{TLObject or NULL}
 
 \item{\code{suggest}}{logical (optional)}
@@ -46,8 +50,7 @@ R6 translation of the TLRequest UploadContactProfilePhotoRequest.
 
 \item{\code{video_start_ts}}{numeric or NULL}
 
-\item{\code{video_emoji_markup}}{TLObject or NULL
-Initialize a new UploadContactProfilePhotoRequest}
+\item{\code{video_emoji_markup}}{TLObject or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -83,6 +86,7 @@ Initialize a new UploadContactProfilePhotoRequest}
 \if{html}{\out{<a id="method-UploadContactProfilePhotoRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-UploadContactProfilePhotoRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a new UploadContactProfilePhotoRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UploadContactProfilePhotoRequest$new(
   user_id = NULL,
@@ -110,10 +114,7 @@ Initialize a new UploadContactProfilePhotoRequest}
 
 \item{\code{video_start_ts}}{numeric or NULL}
 
-\item{\code{video_emoji_markup}}{TLObject or NULL
-Resolve references (client + utils)
-
-Convert provided user identifier into an input user using client and utils.}
+\item{\code{video_emoji_markup}}{TLObject or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -122,6 +123,9 @@ Convert provided user identifier into an input user using client and utils.}
 \if{html}{\out{<a id="method-UploadContactProfilePhotoRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-UploadContactProfilePhotoRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve references (client + utils)
+
+Convert provided user identifier into an input user using client and utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UploadContactProfilePhotoRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -131,8 +135,7 @@ Convert provided user identifier into an input user using client and utils.}
 \describe{
 \item{\code{client}}{client with get_input_entity method}
 
-\item{\code{utils}}{helper with get_input_user method
-Convert object to a list}
+\item{\code{utils}}{helper with get_input_user method}
 }
 \if{html}{\out{</div>}}
 }
@@ -141,22 +144,23 @@ Convert object to a list}
 \if{html}{\out{<a id="method-UploadContactProfilePhotoRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-UploadContactProfilePhotoRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UploadContactProfilePhotoRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation of the request
-Serialize to bytes (raw vector)
-
-Packs constructor id, flags and present fields in little-endian order.
-Relies on contained TLObject instances implementing to_bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-UploadContactProfilePhotoRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-UploadContactProfilePhotoRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes (raw vector)
+
+Packs constructor id, flags and present fields in little-endian order.
+Relies on contained TLObject instances implementing to_bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UploadContactProfilePhotoRequest$to_bytes()}\if{html}{\out{</div>}}
 }

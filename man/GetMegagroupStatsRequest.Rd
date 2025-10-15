@@ -4,6 +4,11 @@
 \alias{GetMegagroupStatsRequest}
 \title{GetMegagroupStatsRequest}
 \description{
+GetMegagroupStatsRequest
+
+GetMegagroupStatsRequest
+}
+\details{
 R6 class representing a GetMegagroupStatsRequest TLRequest.
 }
 \section{Super classes}{
@@ -54,46 +59,83 @@ R6 class representing a GetMegagroupStatsRequest TLRequest.
 \if{html}{\out{<a id="method-GetMegagroupStatsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetMegagroupStatsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initializes a new GetMegagroupStatsRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetMegagroupStatsRequest$new(channel, dark = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{channel}}{input channel object}
+
+\item{\code{dark}}{logical; optional dark flag}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetMegagroupStatsRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetMegagroupStatsRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input entities (expects client and utils helpers to exist)
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GetMegagroupStatsRequest$resolve(client, utils)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GetMegagroupStatsRequest$resolve(client)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{client}}{The client instance to resolve entities.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetMegagroupStatsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetMegagroupStatsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to a plain list (like to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetMegagroupStatsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A list representing the request.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetMegagroupStatsRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetMegagroupStatsRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes (relies on channel$to_bytes() and helper utils in parent)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetMegagroupStatsRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A raw vector representing the serialized request.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetMegagroupStatsRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetMegagroupStatsRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Create instance from a reader object (reader must provide read_int, tgread_object)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetMegagroupStatsRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{A reader object to read the serialized data.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A new instance of GetMegagroupStatsRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetMegagroupStatsRequest-clone"></a>}}

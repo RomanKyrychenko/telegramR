@@ -4,6 +4,11 @@
 \alias{CreateStickerSetRequest}
 \title{CreateStickerSetRequest R6 class}
 \description{
+CreateStickerSetRequest R6 class
+
+CreateStickerSetRequest R6 class
+}
+\details{
 Represents a request to create a sticker set.
 }
 \section{Methods}{
@@ -59,6 +64,7 @@ All methods are exported as part of the R6 object.
 \if{html}{\out{<a id="method-CreateStickerSetRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateStickerSetRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a CreateStickerSetRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateStickerSetRequest$new(
   user_id,
@@ -92,8 +98,7 @@ All methods are exported as part of the R6 object.
 
 \item{\code{thumb}}{optional InputDocument TL object (or raw)}
 
-\item{\code{software}}{optional character string
-Resolve friendly inputs to TL input objects}
+\item{\code{software}}{optional character string}
 }
 \if{html}{\out{</div>}}
 }
@@ -102,6 +107,7 @@ Resolve friendly inputs to TL input objects}
 \if{html}{\out{<a id="method-CreateStickerSetRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateStickerSetRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve friendly inputs to TL input objects
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateStickerSetRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -111,8 +117,7 @@ Resolve friendly inputs to TL input objects}
 \describe{
 \item{\code{client}}{client object (used for entity resolution if needed)}
 
-\item{\code{utils}}{utilities object with helper conversions (must implement get_input_user and get_input_document)
-Convert to an R list}
+\item{\code{utils}}{utilities object with helper conversions (must implement get_input_user and get_input_document)}
 }
 \if{html}{\out{</div>}}
 }
@@ -121,19 +126,20 @@ Convert to an R list}
 \if{html}{\out{<a id="method-CreateStickerSetRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateStickerSetRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateStickerSetRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation
-Serialize to raw bytes (TL-like approximation)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CreateStickerSetRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateStickerSetRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes (TL-like approximation)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateStickerSetRequest$to_bytes()}\if{html}{\out{</div>}}
 }

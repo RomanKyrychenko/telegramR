@@ -146,6 +146,8 @@ Sends the verification code to the given phone number
 \item{\code{phone}}{Phone number to send the code to}
 
 \item{\code{force_sms}}{Whether to force sending as SMS}
+
+\item{\code{retry_count}}{Internal parameter for recursion, do not set}
 }
 \if{html}{\out{</div>}}
 }

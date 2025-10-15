@@ -33,12 +33,15 @@ R6 translation of the TLRequest UpdateProfilePhotoRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{CONSTRUCTOR_ID}}{integer}
+
+\item{\code{SUBCLASS_OF_ID}}{integer}
+
 \item{\code{id}}{TLObject or NULL}
 
 \item{\code{fallback}}{logical or NULL}
 
-\item{\code{bot}}{TLObject or NULL
-Initialize a new UpdateProfilePhotoRequest}
+\item{\code{bot}}{TLObject or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -74,6 +77,7 @@ Initialize a new UpdateProfilePhotoRequest}
 \if{html}{\out{<a id="method-UpdateProfilePhotoRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-UpdateProfilePhotoRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a new UpdateProfilePhotoRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateProfilePhotoRequest$new(id = NULL, fallback = NULL, bot = NULL)}\if{html}{\out{</div>}}
 }
@@ -85,10 +89,7 @@ Initialize a new UpdateProfilePhotoRequest}
 
 \item{\code{fallback}}{logical or NULL}
 
-\item{\code{bot}}{TLObject or identifier for input user or NULL
-Resolve references (client + utils)
-
-Convert provided id into an input photo and bot into an input user using client and utils.}
+\item{\code{bot}}{TLObject or identifier for input user or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -97,6 +98,9 @@ Convert provided id into an input photo and bot into an input user using client 
 \if{html}{\out{<a id="method-UpdateProfilePhotoRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-UpdateProfilePhotoRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve references (client + utils)
+
+Convert provided id into an input photo and bot into an input user using client and utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateProfilePhotoRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -106,8 +110,7 @@ Convert provided id into an input photo and bot into an input user using client 
 \describe{
 \item{\code{client}}{client with get_input_entity method}
 
-\item{\code{utils}}{helper with get_input_photo and get_input_user methods
-Convert object to a list}
+\item{\code{utils}}{helper with get_input_photo and get_input_user methods}
 }
 \if{html}{\out{</div>}}
 }
@@ -116,22 +119,23 @@ Convert object to a list}
 \if{html}{\out{<a id="method-UpdateProfilePhotoRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-UpdateProfilePhotoRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateProfilePhotoRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation of the request
-Serialize to bytes (raw vector)
-
-Packs constructor id, flags and present fields in little-endian order.
-Relies on contained TLObject instances implementing to_bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-UpdateProfilePhotoRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-UpdateProfilePhotoRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes (raw vector)
+
+Packs constructor id, flags and present fields in little-endian order.
+Relies on contained TLObject instances implementing to_bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateProfilePhotoRequest$to_bytes()}\if{html}{\out{</div>}}
 }

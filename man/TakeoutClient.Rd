@@ -23,19 +23,6 @@ The `TakeoutClient` class is used to handle the takeout session and its associat
 }
 \if{html}{\out{</div>}}
 }
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
-\item{\code{finalize}}{A logical indicating whether to finalize the takeout session.}
-
-\item{\code{client}}{An instance of the client to use for the takeout session.}
-
-\item{\code{request}}{An optional request object for the takeout session.}
-
-\item{\code{success}}{A logical indicating whether the takeout session was successful.}
-}
-\if{html}{\out{</div>}}
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

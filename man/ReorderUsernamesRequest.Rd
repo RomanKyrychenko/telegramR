@@ -7,20 +7,12 @@
 \description{
 R6 class representing a ReorderUsernamesRequest.
 
-Methods:
-- initialize(bot, order)
-- resolve(client, utils)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
-Each method is documented inline below.
+Represents the ReorderUsernamesRequest TL request.
 
 Represents a request to reorder usernames in a channel.
 }
 \details{
 This class handles reordering usernames.
-
-Represents the ReorderUsernamesRequest TL request.
 }
 \examples{
 # o <- ReorderUsernamesRequest$new(bot, list("u1", "u2"))

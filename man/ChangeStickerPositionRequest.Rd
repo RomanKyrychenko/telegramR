@@ -4,6 +4,11 @@
 \alias{ChangeStickerPositionRequest}
 \title{ChangeStickerPositionRequest R6 class}
 \description{
+ChangeStickerPositionRequest R6 class
+
+ChangeStickerPositionRequest R6 class
+}
+\details{
 Represents a request to change a sticker's position within a sticker set.
 }
 \section{Methods}{
@@ -45,6 +50,7 @@ All methods are exported as part of the R6 object.
 \if{html}{\out{<a id="method-ChangeStickerPositionRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ChangeStickerPositionRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a ChangeStickerPositionRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ChangeStickerPositionRequest$new(sticker, position)}\if{html}{\out{</div>}}
 }
@@ -54,8 +60,7 @@ All methods are exported as part of the R6 object.
 \describe{
 \item{\code{sticker}}{InputDocument (TL object or representation)}
 
-\item{\code{position}}{integer new position
-Resolve friendly inputs to TL input objects}
+\item{\code{position}}{integer new position}
 }
 \if{html}{\out{</div>}}
 }
@@ -64,6 +69,7 @@ Resolve friendly inputs to TL input objects}
 \if{html}{\out{<a id="method-ChangeStickerPositionRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-ChangeStickerPositionRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve friendly inputs to TL input objects
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ChangeStickerPositionRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -73,8 +79,7 @@ Resolve friendly inputs to TL input objects}
 \describe{
 \item{\code{client}}{client object (used for entity resolution if needed)}
 
-\item{\code{utils}}{utilities object with helper conversions (must implement get_input_document)
-Convert to an R list}
+\item{\code{utils}}{utilities object with helper conversions (must implement get_input_document)}
 }
 \if{html}{\out{</div>}}
 }
@@ -83,19 +88,20 @@ Convert to an R list}
 \if{html}{\out{<a id="method-ChangeStickerPositionRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ChangeStickerPositionRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ChangeStickerPositionRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation
-Serialize to raw bytes (TL-like approximation)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ChangeStickerPositionRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ChangeStickerPositionRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes (TL-like approximation)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ChangeStickerPositionRequest$to_bytes()}\if{html}{\out{</div>}}
 }

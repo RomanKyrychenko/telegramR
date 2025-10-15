@@ -4,6 +4,11 @@
 \alias{SuggestShortNameRequest}
 \title{SuggestShortNameRequest R6 class}
 \description{
+SuggestShortNameRequest R6 class
+
+SuggestShortNameRequest R6 class
+}
+\details{
 Represents a request to suggest a short name for a sticker set.
 }
 \section{Methods}{
@@ -39,6 +44,7 @@ Represents a request to suggest a short name for a sticker set.
 \if{html}{\out{<a id="method-SuggestShortNameRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SuggestShortNameRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a SuggestShortNameRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SuggestShortNameRequest$new(title)}\if{html}{\out{</div>}}
 }
@@ -46,8 +52,7 @@ Represents a request to suggest a short name for a sticker set.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{title}}{character Title string
-Convert to an R list (dictionary-like)}
+\item{\code{title}}{character Title string}
 }
 \if{html}{\out{</div>}}
 }
@@ -56,19 +61,20 @@ Convert to an R list (dictionary-like)}
 \if{html}{\out{<a id="method-SuggestShortNameRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SuggestShortNameRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SuggestShortNameRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation
-Serialize to raw bytes (simple TL-like approximation)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SuggestShortNameRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SuggestShortNameRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes (simple TL-like approximation)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SuggestShortNameRequest$to_bytes()}\if{html}{\out{</div>}}
 }

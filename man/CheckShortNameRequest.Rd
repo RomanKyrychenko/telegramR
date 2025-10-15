@@ -4,6 +4,11 @@
 \alias{CheckShortNameRequest}
 \title{CheckShortNameRequest R6 class}
 \description{
+CheckShortNameRequest R6 class
+
+CheckShortNameRequest R6 class
+}
+\details{
 Represents a request to check whether a short name is available/valid.
 }
 \section{Methods}{
@@ -39,6 +44,7 @@ Represents a request to check whether a short name is available/valid.
 \if{html}{\out{<a id="method-CheckShortNameRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-CheckShortNameRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a CheckShortNameRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CheckShortNameRequest$new(short_name)}\if{html}{\out{</div>}}
 }
@@ -46,8 +52,7 @@ Represents a request to check whether a short name is available/valid.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{short_name}}{character short name string
-Convert to an R list}
+\item{\code{short_name}}{character short name string}
 }
 \if{html}{\out{</div>}}
 }
@@ -56,19 +61,20 @@ Convert to an R list}
 \if{html}{\out{<a id="method-CheckShortNameRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-CheckShortNameRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CheckShortNameRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation
-Serialize to raw bytes (TL-like approximation)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CheckShortNameRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-CheckShortNameRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes (TL-like approximation)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CheckShortNameRequest$to_bytes()}\if{html}{\out{</div>}}
 }

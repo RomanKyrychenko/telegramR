@@ -4,6 +4,11 @@
 \alias{DeleteStickerSetRequest}
 \title{DeleteStickerSetRequest R6 class}
 \description{
+DeleteStickerSetRequest R6 class
+
+DeleteStickerSetRequest R6 class
+}
+\details{
 Represents a request to delete a sticker set.
 }
 \section{Methods}{
@@ -39,6 +44,7 @@ Represents a request to delete a sticker set.
 \if{html}{\out{<a id="method-DeleteStickerSetRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteStickerSetRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a DeleteStickerSetRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteStickerSetRequest$new(stickerset)}\if{html}{\out{</div>}}
 }
@@ -46,8 +52,7 @@ Represents a request to delete a sticker set.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{stickerset}}{InputStickerSet (TL object or representation)
-Convert to an R list (dictionary-like)}
+\item{\code{stickerset}}{InputStickerSet (TL object or representation)}
 }
 \if{html}{\out{</div>}}
 }
@@ -56,19 +61,20 @@ Convert to an R list (dictionary-like)}
 \if{html}{\out{<a id="method-DeleteStickerSetRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteStickerSetRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteStickerSetRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation of the request
-Serialize to raw bytes (simple TL-like approximation)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DeleteStickerSetRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteStickerSetRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes (simple TL-like approximation)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteStickerSetRequest$to_bytes()}\if{html}{\out{</div>}}
 }

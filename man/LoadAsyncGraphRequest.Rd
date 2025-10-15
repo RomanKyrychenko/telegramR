@@ -4,6 +4,11 @@
 \alias{LoadAsyncGraphRequest}
 \title{LoadAsyncGraphRequest}
 \description{
+LoadAsyncGraphRequest
+
+LoadAsyncGraphRequest
+}
+\details{
 R6 class representing a LoadAsyncGraphRequest TLRequest.
 }
 \section{Super classes}{
@@ -54,37 +59,66 @@ R6 class representing a LoadAsyncGraphRequest TLRequest.
 \if{html}{\out{<a id="method-LoadAsyncGraphRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-LoadAsyncGraphRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initializes a new LoadAsyncGraphRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LoadAsyncGraphRequest$new(token, x = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{token}}{character token}
+
+\item{\code{x}}{integer64 or numeric; optional x}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LoadAsyncGraphRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-LoadAsyncGraphRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Initialize a new LoadAsyncGraphRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LoadAsyncGraphRequest$to_list()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+List representing the request.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LoadAsyncGraphRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-LoadAsyncGraphRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Convert to a plain list (like to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LoadAsyncGraphRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A list representing the request.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LoadAsyncGraphRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-LoadAsyncGraphRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Serialize to raw bytes (relies on token serialization and helper utils in parent)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LoadAsyncGraphRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{A reader object to read the serialized data.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A raw vector representing the serialized request.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LoadAsyncGraphRequest-clone"></a>}}

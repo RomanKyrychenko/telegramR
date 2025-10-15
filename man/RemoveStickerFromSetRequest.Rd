@@ -4,6 +4,11 @@
 \alias{RemoveStickerFromSetRequest}
 \title{RemoveStickerFromSetRequest R6 class}
 \description{
+RemoveStickerFromSetRequest R6 class
+
+RemoveStickerFromSetRequest R6 class
+}
+\details{
 Represents a request to remove a sticker from a set.
 }
 \section{Methods}{
@@ -41,6 +46,7 @@ Represents a request to remove a sticker from a set.
 \if{html}{\out{<a id="method-RemoveStickerFromSetRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-RemoveStickerFromSetRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a RemoveStickerFromSetRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RemoveStickerFromSetRequest$new(sticker)}\if{html}{\out{</div>}}
 }
@@ -48,8 +54,7 @@ Represents a request to remove a sticker from a set.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{sticker}}{InputDocument (TL object or representation)
-Resolve references (e.g. convert user-friendly inputs to TL inputs)}
+\item{\code{sticker}}{InputDocument (TL object or representation)}
 }
 \if{html}{\out{</div>}}
 }
@@ -58,6 +63,7 @@ Resolve references (e.g. convert user-friendly inputs to TL inputs)}
 \if{html}{\out{<a id="method-RemoveStickerFromSetRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-RemoveStickerFromSetRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve references (e.g. convert user-friendly inputs to TL inputs)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RemoveStickerFromSetRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -67,8 +73,7 @@ Resolve references (e.g. convert user-friendly inputs to TL inputs)}
 \describe{
 \item{\code{client}}{client object (used for entity resolution if needed)}
 
-\item{\code{utils}}{utilities object with helper conversions (must implement get_input_document)
-Convert to an R list (dictionary-like)}
+\item{\code{utils}}{utilities object with helper conversions (must implement get_input_document)}
 }
 \if{html}{\out{</div>}}
 }
@@ -77,19 +82,20 @@ Convert to an R list (dictionary-like)}
 \if{html}{\out{<a id="method-RemoveStickerFromSetRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-RemoveStickerFromSetRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RemoveStickerFromSetRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation of the request
-Serialize to raw bytes (simple TL-like approximation)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-RemoveStickerFromSetRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-RemoveStickerFromSetRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes (simple TL-like approximation)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RemoveStickerFromSetRequest$to_bytes()}\if{html}{\out{</div>}}
 }

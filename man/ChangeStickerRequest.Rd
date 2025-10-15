@@ -4,6 +4,11 @@
 \alias{ChangeStickerRequest}
 \title{ChangeStickerRequest R6 class}
 \description{
+ChangeStickerRequest R6 class
+
+ChangeStickerRequest R6 class
+}
+\details{
 Represents a request to change sticker attributes (emoji, mask coordinates, keywords).
 }
 \section{Methods}{
@@ -49,6 +54,7 @@ All methods are exported as part of the R6 object.
 \if{html}{\out{<a id="method-ChangeStickerRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ChangeStickerRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a ChangeStickerRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ChangeStickerRequest$new(
   sticker,
@@ -67,8 +73,7 @@ All methods are exported as part of the R6 object.
 
 \item{\code{mask_coords}}{optional MaskCoords TL object (or raw representation)}
 
-\item{\code{keywords}}{optional character keywords string
-Resolve friendly inputs to TL input objects}
+\item{\code{keywords}}{optional character keywords string}
 }
 \if{html}{\out{</div>}}
 }
@@ -77,6 +82,7 @@ Resolve friendly inputs to TL input objects}
 \if{html}{\out{<a id="method-ChangeStickerRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-ChangeStickerRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve friendly inputs to TL input objects
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ChangeStickerRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -86,8 +92,7 @@ Resolve friendly inputs to TL input objects}
 \describe{
 \item{\code{client}}{client object (used for entity resolution if needed)}
 
-\item{\code{utils}}{utilities object with helper conversions (must implement get_input_document)
-Convert to an R list}
+\item{\code{utils}}{utilities object with helper conversions (must implement get_input_document)}
 }
 \if{html}{\out{</div>}}
 }
@@ -96,19 +101,20 @@ Convert to an R list}
 \if{html}{\out{<a id="method-ChangeStickerRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ChangeStickerRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ChangeStickerRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation
-Serialize to raw bytes (TL-like approximation)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ChangeStickerRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ChangeStickerRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes (TL-like approximation)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ChangeStickerRequest$to_bytes()}\if{html}{\out{</div>}}
 }

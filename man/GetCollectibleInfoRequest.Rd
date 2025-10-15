@@ -7,6 +7,11 @@
 R6 object of class GetCollectibleInfoRequest
 }
 \description{
+GetCollectibleInfoRequest R6 class
+
+GetCollectibleInfoRequest R6 class
+}
+\details{
 Request to retrieve collectible information (fragment.CollectibleInfo).
 }
 \section{Super classes}{
@@ -54,28 +59,44 @@ Request to retrieve collectible information (fragment.CollectibleInfo).
 \if{html}{\out{<a id="method-GetCollectibleInfoRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCollectibleInfoRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initializes a new GetCollectibleInfoRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCollectibleInfoRequest$new(collectible)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{collectible}}{TLObject-like R6 object (must provide to_list/to_bytes or}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetCollectibleInfoRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCollectibleInfoRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+convert to a list representation (analogous to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCollectibleInfoRequest$to_list()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A raw vector representing the serialized request.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetCollectibleInfoRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCollectibleInfoRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+raw bytes for the request (constructor id + collectible bytes)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCollectibleInfoRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A raw vector representing the serialized request.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetCollectibleInfoRequest-clone"></a>}}

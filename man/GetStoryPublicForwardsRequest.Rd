@@ -4,6 +4,11 @@
 \alias{GetStoryPublicForwardsRequest}
 \title{GetStoryPublicForwardsRequest}
 \description{
+GetStoryPublicForwardsRequest
+
+GetStoryPublicForwardsRequest
+}
+\details{
 R6 class representing a GetStoryPublicForwardsRequest TLRequest.
 }
 \section{Super classes}{
@@ -58,46 +63,87 @@ R6 class representing a GetStoryPublicForwardsRequest TLRequest.
 \if{html}{\out{<a id="method-GetStoryPublicForwardsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoryPublicForwardsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initializes a new GetStoryPublicForwardsRequest.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoryPublicForwardsRequest$new(peer, id, offset, limit)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{peer}}{input peer object}
+
+\item{\code{id}}{integer story id}
+
+\item{\code{offset}}{character offset string}
+
+\item{\code{limit}}{integer limit}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStoryPublicForwardsRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoryPublicForwardsRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input entities (expects client and utils helpers to exist)
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GetStoryPublicForwardsRequest$resolve(client, utils)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GetStoryPublicForwardsRequest$resolve(client)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{client}}{The client instance to resolve entities.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStoryPublicForwardsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoryPublicForwardsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to a plain list (like to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoryPublicForwardsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+List representing the request.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStoryPublicForwardsRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoryPublicForwardsRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes (relies on peer$to_bytes() and helper utils in parent)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoryPublicForwardsRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+A raw vector representing the serialized request.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStoryPublicForwardsRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStoryPublicForwardsRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Create instance from a reader object (reader must provide tgread_object, read_int, tgread_string)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStoryPublicForwardsRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{A reader object to read the serialized data.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A new instance of GetStoryPublicForwardsRequest.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStoryPublicForwardsRequest-clone"></a>}}

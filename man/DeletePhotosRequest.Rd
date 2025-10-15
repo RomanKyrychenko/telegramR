@@ -32,8 +32,11 @@ R6 translation of the TLRequest DeletePhotosRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{id}}{list of TLObject or NULL
-Initialize a new DeletePhotosRequest}
+\item{\code{CONSTRUCTOR_ID}}{integer}
+
+\item{\code{SUBCLASS_OF_ID}}{integer}
+
+\item{\code{id}}{list of TLObject or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -69,6 +72,7 @@ Initialize a new DeletePhotosRequest}
 \if{html}{\out{<a id="method-DeletePhotosRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-DeletePhotosRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a new DeletePhotosRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeletePhotosRequest$new(id = NULL)}\if{html}{\out{</div>}}
 }
@@ -76,10 +80,7 @@ Initialize a new DeletePhotosRequest}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{id}}{list of TLObject or identifiers for input photos
-Resolve references (client + utils)
-
-Convert each provided id into an input photo using utils.}
+\item{\code{id}}{list of TLObject or identifiers for input photos}
 }
 \if{html}{\out{</div>}}
 }
@@ -88,6 +89,9 @@ Convert each provided id into an input photo using utils.}
 \if{html}{\out{<a id="method-DeletePhotosRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-DeletePhotosRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve references (client + utils)
+
+Convert each provided id into an input photo using utils.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeletePhotosRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -97,8 +101,7 @@ Convert each provided id into an input photo using utils.}
 \describe{
 \item{\code{client}}{client (not used here, included for API symmetry)}
 
-\item{\code{utils}}{helper with get_input_photo method
-Convert object to a list}
+\item{\code{utils}}{helper with get_input_photo method}
 }
 \if{html}{\out{</div>}}
 }
@@ -107,22 +110,23 @@ Convert object to a list}
 \if{html}{\out{<a id="method-DeletePhotosRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-DeletePhotosRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeletePhotosRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation of the request
-Serialize to bytes (raw vector)
-
-Packs constructor id, vector constructor id, length and elements in little-endian order.
-Each element must implement to_bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DeletePhotosRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-DeletePhotosRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes (raw vector)
+
+Packs constructor id, vector constructor id, length and elements in little-endian order.
+Each element must implement to_bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeletePhotosRequest$to_bytes()}\if{html}{\out{</div>}}
 }

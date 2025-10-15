@@ -4,6 +4,11 @@
 \alias{SetStickerSetThumbRequest}
 \title{SetStickerSetThumbRequest R6 class}
 \description{
+SetStickerSetThumbRequest R6 class
+
+SetStickerSetThumbRequest R6 class
+}
+\details{
 Represents a request to set a thumbnail for a sticker set.
 }
 \section{Methods}{
@@ -45,6 +50,7 @@ Represents a request to set a thumbnail for a sticker set.
 \if{html}{\out{<a id="method-SetStickerSetThumbRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SetStickerSetThumbRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a SetStickerSetThumbRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetStickerSetThumbRequest$new(
   stickerset,
@@ -60,8 +66,7 @@ Represents a request to set a thumbnail for a sticker set.
 
 \item{\code{thumb}}{Optional InputDocument (TL object or representation)}
 
-\item{\code{thumb_document_id}}{Optional integer identifier for thumb document
-Resolve references (e.g. convert user-friendly inputs to TL inputs)}
+\item{\code{thumb_document_id}}{Optional integer identifier for thumb document}
 }
 \if{html}{\out{</div>}}
 }
@@ -70,6 +75,7 @@ Resolve references (e.g. convert user-friendly inputs to TL inputs)}
 \if{html}{\out{<a id="method-SetStickerSetThumbRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-SetStickerSetThumbRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve references (e.g. convert user-friendly inputs to TL inputs)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetStickerSetThumbRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -79,8 +85,7 @@ Resolve references (e.g. convert user-friendly inputs to TL inputs)}
 \describe{
 \item{\code{client}}{client object (used for entity resolution if needed)}
 
-\item{\code{utils}}{utilities object with helper conversions (must implement get_input_document)
-Convert to an R list (dictionary-like)}
+\item{\code{utils}}{utilities object with helper conversions (must implement get_input_document)}
 }
 \if{html}{\out{</div>}}
 }
@@ -89,19 +94,20 @@ Convert to an R list (dictionary-like)}
 \if{html}{\out{<a id="method-SetStickerSetThumbRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SetStickerSetThumbRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetStickerSetThumbRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list representation of the request
-Serialize to raw bytes (simple TL-like approximation)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SetStickerSetThumbRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SetStickerSetThumbRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to raw bytes (simple TL-like approximation)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetStickerSetThumbRequest$to_bytes()}\if{html}{\out{</div>}}
 }
