@@ -16,17 +16,23 @@ GetBroadcastStatsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x7ff25428,
     channel = NULL,
     dark = NULL,
+
+    #' @description Initializes a new GetBroadcastStatsRequest.
+    #' @param channel input channel object
+    #' @param dark logical; optional dark flag
     initialize = function(channel, dark = NULL) {
       self$channel <- channel
       self$dark <- dark
     },
 
-    # Resolve input entities (expects client and utils helpers to exist)
-    resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+    #' @description Resolve input entities (expects client and utils helpers to exist)
+    #' @param client The client instance to resolve entities.
+    resolve = function(client) {
+      self$channel <- get_input_channel(client$get_input_entity(self$channel))
     },
 
-    # Convert to a plain list (like to_dict)
+    #' @description Convert to a plain list (like to_dict)
+    #' @return A list representing the request.
     to_list = function() {
       list(
         `_` = "GetBroadcastStatsRequest",
@@ -35,7 +41,8 @@ GetBroadcastStatsRequest <- R6::R6Class(
       )
     },
 
-    # Serialize to raw bytes (relies on channel$to_bytes() and helper utils in parent)
+    #' @description Serialize to raw bytes (relies on channel$to_bytes() and helper utils in parent)
+    #' @return A raw vector representing the serialized request.
     to_bytes = function() {
       con <- rawConnection(raw(), "r+")
       on.exit(close(con))
@@ -48,7 +55,9 @@ GetBroadcastStatsRequest <- R6::R6Class(
       rawConnectionValue(con)
     },
 
-    # Create instance from a reader object (reader must provide read_int, tgread_object)
+    #' @description Create instance from a reader object (reader must provide read_int, tgread_object)
+    #' @param reader A reader object to read the serialized data.
+    #' @return A new instance of GetBroadcastStatsRequest.
     from_reader = function(reader) {
       flagsVal <- reader$read_int()
       darkFlag <- as.logical(bitwAnd(flagsVal, 1L))
@@ -77,17 +86,23 @@ GetMegagroupStatsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x5b59be8d,
     channel = NULL,
     dark = NULL,
+
+    #' @description Initializes a new GetMegagroupStatsRequest.
+    #' @param channel input channel object
+    #' @param dark logical; optional dark flag
     initialize = function(channel, dark = NULL) {
       self$channel <- channel
       self$dark <- dark
     },
 
-    # Resolve input entities (expects client and utils helpers to exist)
-    resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+    #' @description Resolve input entities (expects client and utils helpers to exist)
+    #' @param client The client instance to resolve entities.
+    resolve = function(client) {
+      self$channel <- get_input_channel(client$get_input_entity(self$channel))
     },
 
-    # Convert to a plain list (like to_dict)
+    #' @description Convert to a plain list (like to_dict)
+    #' @return A list representing the request.
     to_list = function() {
       list(
         `_` = "GetMegagroupStatsRequest",
@@ -96,7 +111,8 @@ GetMegagroupStatsRequest <- R6::R6Class(
       )
     },
 
-    # Serialize to raw bytes (relies on channel$to_bytes() and helper utils in parent)
+    #' @description Serialize to raw bytes (relies on channel$to_bytes() and helper utils in parent)
+    #' @return A raw vector representing the serialized request.
     to_bytes = function() {
       con <- rawConnection(raw(), "r+")
       on.exit(close(con))
@@ -109,7 +125,9 @@ GetMegagroupStatsRequest <- R6::R6Class(
       rawConnectionValue(con)
     },
 
-    # Create instance from a reader object (reader must provide read_int, tgread_object)
+    #' @description Create instance from a reader object (reader must provide read_int, tgread_object)
+    #' @param reader A reader object to read the serialized data.
+    #' @return A new instance of GetMegagroupStatsRequest.
     from_reader = function(reader) {
       flagsVal <- reader$read_int()
       darkFlag <- as.logical(bitwAnd(flagsVal, 1L))
@@ -142,6 +160,12 @@ GetMessagePublicForwardsRequest <- R6::R6Class(
     msg_id = NULL,
     offset = NULL,
     limit = NULL,
+
+    #' @description Initializes a new GetMessagePublicForwardsRequest.
+    #' @param channel input channel object
+    #' @param msg_id integer message id
+    #' @param offset character offset string
+    #' @param limit integer limit
     initialize = function(channel, msg_id, offset, limit) {
       self$channel <- channel
       self$msg_id <- as.integer(msg_id)
@@ -149,12 +173,14 @@ GetMessagePublicForwardsRequest <- R6::R6Class(
       self$limit <- as.integer(limit)
     },
 
-    # Resolve input entities (expects client and utils helpers to exist)
-    resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+    #' @description Resolve input entities (expects client and utils helpers to exist)
+    #' @param client The client instance to resolve entities.
+    resolve = function(client) {
+      self$channel <- get_input_channel(client$get_input_entity(self$channel))
     },
 
-    # Convert to a plain list (like to_dict)
+    #' @description Convert to a plain list (like to_dict)
+    #' @return A list representing the request.
     to_list = function() {
       list(
         `_` = "GetMessagePublicForwardsRequest",
@@ -165,7 +191,8 @@ GetMessagePublicForwardsRequest <- R6::R6Class(
       )
     },
 
-    # Serialize to raw bytes (relies on channel$to_bytes() and helper utils in parent)
+    #' @description Serialize to raw bytes (relies on channel$to_bytes() and helper utils in parent)
+    #' @return A raw vector representing the serialized request.
     to_bytes = function() {
       con <- rawConnection(raw(), "r+")
       on.exit(close(con))
@@ -186,7 +213,9 @@ GetMessagePublicForwardsRequest <- R6::R6Class(
       rawConnectionValue(con)
     },
 
-    # Create instance from a reader object (reader must provide tgread_object, read_int, tgread_string)
+    #' @description Create instance from a reader object (reader must provide tgread_object, read_int, tgread_string)
+    #' @param reader A reader object to read the serialized data.
+    #' @return A new instance of GetMessagePublicForwardsRequest.
     from_reader = function(reader) {
       channelObj <- reader$tgread_object()
       msgId <- reader$read_int()
@@ -218,18 +247,25 @@ GetMessageStatsRequest <- R6::R6Class(
     channel = NULL,
     msg_id = NULL,
     dark = NULL,
+
+    #' @description Initializes a new GetMessageStatsRequest.
+    #' @param channel input channel object
+    #' @param msg_id integer message id
+    #' @param dark logical; optional dark flag
     initialize = function(channel, msg_id, dark = NULL) {
       self$channel <- channel
       self$msg_id <- as.integer(msg_id)
       self$dark <- dark
     },
 
-    # Resolve input entities (expects client and utils helpers to exist)
-    resolve = function(client, utils) {
-      self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
+    #' @description Resolve input entities (expects client and utils helpers to exist)
+    #' @param client The client instance to resolve entities.
+    resolve = function(client) {
+      self$channel <- get_input_channel(client$get_input_entity(self$channel))
     },
 
-    # Convert to a plain list (like to_dict)
+    #' @description Convert to a plain list (like to_dict)
+    #' @return A list representing the request.
     to_list = function() {
       list(
         `_` = "GetMessageStatsRequest",
@@ -239,7 +275,8 @@ GetMessageStatsRequest <- R6::R6Class(
       )
     },
 
-    # Serialize to raw bytes (relies on channel$to_bytes() and helper utils in parent)
+    #' @description Serialize to raw bytes (relies on channel$to_bytes() and helper utils in parent)
+    #' @return A raw vector representing the serialized request.
     to_bytes = function() {
       con <- rawConnection(raw(), "r+")
       on.exit(close(con))
@@ -253,7 +290,9 @@ GetMessageStatsRequest <- R6::R6Class(
       rawConnectionValue(con)
     },
 
-    # Create instance from a reader object (reader must provide read_int, tgread_object, read_int)
+    #' @description Create instance from a reader object (reader must provide read_int, tgread_object, read_int)
+    #' @param reader A reader object to read the serialized data.
+    #' @return A raw vector representing the serialized request.
     from_reader = function(reader) {
       flagsVal <- reader$read_int()
       darkFlag <- as.logical(bitwAnd(flagsVal, 1L))
@@ -286,6 +325,12 @@ GetStoryPublicForwardsRequest <- R6::R6Class(
     id = NULL,
     offset = NULL,
     limit = NULL,
+
+    #' @description Initializes a new GetStoryPublicForwardsRequest.
+    #' @param peer input peer object
+    #' @param id integer story id
+    #' @param offset character offset string
+    #' @param limit integer limit
     initialize = function(peer, id, offset, limit) {
       self$peer <- peer
       self$id <- as.integer(id)
@@ -293,12 +338,14 @@ GetStoryPublicForwardsRequest <- R6::R6Class(
       self$limit <- as.integer(limit)
     },
 
-    # Resolve input entities (expects client and utils helpers to exist)
-    resolve = function(client, utils) {
-      self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
+    #' @description Resolve input entities (expects client and utils helpers to exist)
+    #' @param client The client instance to resolve entities.
+    resolve = function(client) {
+      self$peer <- get_input_peer(client$get_input_entity(self$peer))
     },
 
-    # Convert to a plain list (like to_dict)
+    #' @description Convert to a plain list (like to_dict)
+    #' @return List representing the request.
     to_list = function() {
       list(
         `_` = "GetStoryPublicForwardsRequest",
@@ -309,7 +356,8 @@ GetStoryPublicForwardsRequest <- R6::R6Class(
       )
     },
 
-    # Serialize to raw bytes (relies on peer$to_bytes() and helper utils in parent)
+    #' @description Serialize to raw bytes (relies on peer$to_bytes() and helper utils in parent)
+    #' @return A raw vector representing the serialized request.
     to_bytes = function() {
       con <- rawConnection(raw(), "r+")
       on.exit(close(con))
@@ -330,7 +378,9 @@ GetStoryPublicForwardsRequest <- R6::R6Class(
       rawConnectionValue(con)
     },
 
-    # Create instance from a reader object (reader must provide tgread_object, read_int, tgread_string)
+    #' @description Create instance from a reader object (reader must provide tgread_object, read_int, tgread_string)
+    #' @param reader A reader object to read the serialized data.
+    #' @return A new instance of GetStoryPublicForwardsRequest.
     from_reader = function(reader) {
       peerObj <- reader$tgread_object()
       idVal <- reader$read_int()
@@ -362,18 +412,25 @@ GetStoryStatsRequest <- R6::R6Class(
     peer = NULL,
     id = NULL,
     dark = NULL,
+
+    #' @description Initializes a new GetStoryStatsRequest.
+    #' @param peer input peer object
+    #' @param id integer story id
+    #' @param dark logical; optional dark flag
     initialize = function(peer, id, dark = NULL) {
       self$peer <- peer
       self$id <- as.integer(id)
       self$dark <- dark
     },
 
-    # Resolve input entities (expects client and utils helpers to exist)
-    resolve = function(client, utils) {
-      self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
+    #' @description Resolve input entities (expects client and utils helpers to exist)
+    #' @param client The client instance to resolve entities.
+    resolve = function(client) {
+      self$peer <- get_input_peer(client$get_input_entity(self$peer))
     },
 
-    # Convert to a plain list (like to_dict)
+    #' @description Convert to a plain list (like to_dict)
+    #' @return List representing the request.
     to_list = function() {
       list(
         `_` = "GetStoryStatsRequest",
@@ -383,7 +440,8 @@ GetStoryStatsRequest <- R6::R6Class(
       )
     },
 
-    # Serialize to raw bytes (relies on peer$to_bytes() and helper utils in parent)
+    #' @description Serialize to raw bytes (relies on peer$to_bytes() and helper utils in parent)
+    #' @return List representing the request.
     to_bytes = function() {
       con <- rawConnection(raw(), "r+")
       on.exit(close(con))
@@ -397,7 +455,9 @@ GetStoryStatsRequest <- R6::R6Class(
       rawConnectionValue(con)
     },
 
-    # Create instance from a reader object (reader must provide read_int, tgread_object, read_int)
+    #' @description Create instance from a reader object (reader must provide read_int, tgread_object, read_int)
+    #' @param reader A reader object to read the serialized data.
+    #' @return A raw vector representing the serialized request.
     from_reader = function(reader) {
       flags <- reader$read_int()
       darkFlag <- as.logical(bitwAnd(flags, 1L))
@@ -426,10 +486,17 @@ LoadAsyncGraphRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x9b903153,
     token = NULL,
     x = NULL,
+
+    #' @description Initializes a new LoadAsyncGraphRequest.
+    #' @param token character token
+    #' @param x integer64 or numeric; optional x
     initialize = function(token, x = NULL) {
       self$token <- as.character(token)
       self$x <- if (!is.null(x)) as.numeric(x) else NULL
     },
+
+    #' @description Initialize a new LoadAsyncGraphRequest.
+    #' @return List representing the request.
     to_list = function() {
       list(
         `_` = "LoadAsyncGraphRequest",
@@ -437,6 +504,9 @@ LoadAsyncGraphRequest <- R6::R6Class(
         x = self$x
       )
     },
+
+    #' @description Convert to a plain list (like to_dict)
+    #' @return A list representing the request.
     to_bytes = function() {
       con <- rawConnection(raw(), "r+")
       on.exit(close(con))
@@ -459,6 +529,10 @@ LoadAsyncGraphRequest <- R6::R6Class(
       }
       rawConnectionValue(con)
     },
+
+    #' @description Serialize to raw bytes (relies on token serialization and helper utils in parent)
+    #' @param reader A reader object to read the serialized data.
+    #' @return A raw vector representing the serialized request.
     from_reader = function(reader) {
       flags <- reader$read_int()
       token_val <- reader$tgread_string()

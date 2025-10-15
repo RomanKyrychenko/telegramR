@@ -5,7 +5,7 @@
 #' @export
 TakeoutClient <- R6::R6Class(
   "TakeoutClient",
-  private = list(
+  public = list(
 
     #' @field finalize A logical indicating whether to finalize the takeout session.
     finalize = NULL,
@@ -17,9 +17,7 @@ TakeoutClient <- R6::R6Class(
     request = NULL,
 
     #' @field success A logical indicating whether the takeout session was successful.
-    success = NULL
-  ),
-  public = list(
+    success = NULL,
 
     #' @description Initialize a new `TakeoutClient` object.
     #' @param finalize A logical indicating whether to finalize the takeout session.
@@ -27,32 +25,32 @@ TakeoutClient <- R6::R6Class(
     #' @param request An optional request object for the takeout session.
     #' @return A new `TakeoutClient` object.
     initialize = function(finalize, client, request) {
-      private$finalize <- finalize
-      private$client <- client
-      private$request <- request
-      private$success <- NULL
+      self$finalize <- finalize
+      self$client <- client
+      self$request <- request
+      self$success <- NULL
     },
 
     #' @description Get the success status of the takeout session.
     #' @return A logical indicating whether the takeout session was successful.
     get_success = function() {
-      private$success
+      self$success
     },
 
     #' @description Set the success status of the takeout session.
     #' @param value A logical indicating whether the takeout session was successful.
     #' @return None.
     set_success = function(value) {
-      private$success <- value
+      self$success <- value
     },
 
     #' @description Enter the takeout session context.
     #' @return The current instance of the `TakeoutClient`.
     aenter = function() {
-      client <- private$client
+      client <- self$client
       if (is.null(client$session$takeout_id)) {
-        client$session$takeout_id <- client$invoke(private$request)$id
-      } else if (!is.null(private$request)) {
+        client$session$takeout_id <- client$invoke(self$request)$id
+      } else if (!is.null(self$request)) {
         stop("Can't send a takeout request while another takeout for the current session is still not finished.")
       }
       return(self)
@@ -64,16 +62,16 @@ TakeoutClient <- R6::R6Class(
     #' @param traceback The traceback of the exception raised, if any.
     #' @return None.
     aexit = function(exc_type, exc_value, traceback) {
-      if (is.null(private$success) && private$finalize) {
-        private$success <- is.null(exc_type)
+      if (is.null(self$success) && self$finalize) {
+        self$success <- is.null(exc_type)
       }
 
-      if (!is.null(private$success)) {
-        result <- private$client$invoke(FinishTakeoutSessionRequest(private$success))
+      if (!is.null(self$success)) {
+        result <- self$client$invoke(FinishTakeoutSessionRequest(self$success))
         if (!result) {
           stop("Failed to finish the takeout.")
         }
-        private$client$session$takeout_id <- NULL
+        self$client$session$takeout_id <- NULL
       }
     },
 
@@ -82,7 +80,7 @@ TakeoutClient <- R6::R6Class(
     #' @param ordered A logical indicating whether the request should be ordered.
     #' @return The result of the request.
     call = function(request, ordered = FALSE) {
-      takeout_id <- private$client$session$takeout_id
+      takeout_id <- self$client$session$takeout_id
       if (is.null(takeout_id)) {
         stop("Takeout mode has not been initialized (are you calling outside of 'with'?)")
       }
@@ -97,14 +95,14 @@ TakeoutClient <- R6::R6Class(
         InvokeWithTakeoutRequest(takeout_id, r)
       })
 
-      private$client$invoke(if (single) wrapped[[1]] else wrapped, ordered = ordered)
+      self$client$invoke(if (single) wrapped[[1]] else wrapped, ordered = ordered)
     },
 
     #' @description Get the result of the request.
     #' @param name The name of the attribute to get.
     #' @return The result of the request.
     get_attribute = function(name) {
-      if (startsWith(name, "__") && !(name %in% private$PROXY_INTERFACE)) {
+      if (startsWith(name, "__") && !(name %in% self$PROXY_INTERFACE)) {
         stop("AttributeError")
       }
       super$get_attribute(name)
@@ -114,7 +112,7 @@ TakeoutClient <- R6::R6Class(
     #' @param name The name of the attribute to get.
     #' @return The value of the attribute.
     get_attr = function(name) {
-      value <- private$client$get_attr(name)
+      value <- self$client$get_attr(name)
       if (is.function(value)) {
         function(...) value(self, ...)
       } else {
@@ -130,7 +128,7 @@ TakeoutClient <- R6::R6Class(
       if (startsWith(name, paste0("_", class(self), "__"))) {
         super$set_attr(name, value)
       } else {
-        private$client$set_attr(name, value)
+        self$client$set_attr(name, value)
       }
     }
   )

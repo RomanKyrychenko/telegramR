@@ -14,11 +14,15 @@ GetCollectibleInfoRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xbe1e85ba,
     SUBCLASS_OF_ID = 0xd4ea5790,
     collectible = NULL,
+
+    #' @description Initializes a new GetCollectibleInfoRequest.
+    #' @param collectible TLObject-like R6 object (must provide to_list/to_bytes or
     initialize = function(collectible) {
       self$collectible <- collectible
     },
 
-    # convert to a list representation (analogous to to_dict)
+    #' @description convert to a list representation (analogous to to_dict)
+    #' @return A raw vector representing the serialized request.
     to_list = function() {
       collectible_value <- if (inherits(self$collectible, "TLObject")) {
         if (!is.null(self$collectible$to_list)) {
@@ -38,7 +42,8 @@ GetCollectibleInfoRequest <- R6::R6Class(
       )
     },
 
-    # produce raw bytes for the request (constructor id + collectible bytes)
+    #' @description raw bytes for the request (constructor id + collectible bytes)
+    #' @return A raw vector representing the serialized request.
     to_bytes = function() {
       constructor_raw <- as.raw(c(0xba, 0x85, 0x1e, 0xbe)) # little-endian bytes for 0xbe1e85ba
 

@@ -25,7 +25,7 @@ AddStickerToSetRequest <- R6::R6Class(
     stickerset = NULL,
     sticker = NULL,
 
-    #' Initialize AddStickerToSetRequest
+    #' @description Initialize AddStickerToSetRequest
     #'
     #' @param stickerset InputStickerSet (TL object or representation)
     #' @param sticker InputStickerSetItem (TL object or representation)
@@ -37,7 +37,7 @@ AddStickerToSetRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Optionally resolve friendly inputs to TL input objects
+    #' @description Optionally resolve friendly inputs to TL input objects
     #'
     #' @param client client object (used for entity resolution if needed)
     #' @param utils utilities object with helper conversions (may implement get_input_document / get_input_user)
@@ -51,7 +51,7 @@ AddStickerToSetRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list
+    #' @description Convert to an R list
     #'
     #' @return list representation
     to_list = function() {
@@ -62,7 +62,7 @@ AddStickerToSetRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes (TL-like approximation)
+    #' @description Serialize to raw bytes (TL-like approximation)
     #'
     #' @return raw vector
     to_bytes = function() {
@@ -139,7 +139,7 @@ ChangeStickerRequest <- R6::R6Class(
     mask_coords = NULL,
     keywords = NULL,
 
-    #' Initialize a ChangeStickerRequest
+    #' @description Initialize a ChangeStickerRequest
     #'
     #' @param sticker InputDocument (TL object or representation)
     #' @param emoji optional character emoji string
@@ -154,7 +154,7 @@ ChangeStickerRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve friendly inputs to TL input objects
+    #' @description Resolve friendly inputs to TL input objects
     #'
     #' @param client client object (used for entity resolution if needed)
     #' @param utils utilities object with helper conversions (must implement get_input_document)
@@ -164,7 +164,7 @@ ChangeStickerRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list
+    #' @description Convert to an R list
     #'
     #' @return list representation
     to_list = function() {
@@ -177,7 +177,7 @@ ChangeStickerRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes (TL-like approximation)
+    #' @description Serialize to raw bytes (TL-like approximation)
     #'
     #' @return raw vector
     to_bytes = function() {
@@ -286,7 +286,7 @@ ChangeStickerPositionRequest <- R6::R6Class(
     sticker = NULL,
     position = NULL,
 
-    #' Initialize a ChangeStickerPositionRequest
+    #' @description Initialize a ChangeStickerPositionRequest
     #'
     #' @param sticker InputDocument (TL object or representation)
     #' @param position integer new position
@@ -298,7 +298,7 @@ ChangeStickerPositionRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve friendly inputs to TL input objects
+    #' @description Resolve friendly inputs to TL input objects
     #'
     #' @param client client object (used for entity resolution if needed)
     #' @param utils utilities object with helper conversions (must implement get_input_document)
@@ -308,7 +308,7 @@ ChangeStickerPositionRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list
+    #' @description Convert to an R list
     #'
     #' @return list representation
     to_list = function() {
@@ -319,7 +319,7 @@ ChangeStickerPositionRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes (TL-like approximation)
+    #' @description Serialize to raw bytes (TL-like approximation)
     #'
     #' @return raw vector
     to_bytes = function() {
@@ -393,7 +393,7 @@ CheckShortNameRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xf5b399ac,
     short_name = NULL,
 
-    #' Initialize a CheckShortNameRequest
+    #' @description Initialize a CheckShortNameRequest
     #'
     #' @param short_name character short name string
     initialize = function(short_name) {
@@ -402,7 +402,7 @@ CheckShortNameRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list
+    #' @description Convert to an R list
     #'
     #' @return list representation
     to_list = function() {
@@ -412,7 +412,7 @@ CheckShortNameRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes (TL-like approximation)
+    #' @description Serialize to raw bytes (TL-like approximation)
     #'
     #' @return raw vector
     to_bytes = function() {
@@ -494,7 +494,7 @@ CreateStickerSetRequest <- R6::R6Class(
     thumb = NULL,
     software = NULL,
 
-    #' Initialize a CreateStickerSetRequest
+    #' @description Initialize a CreateStickerSetRequest
     #'
     #' @param user_id InputUser (TL object or representation)
     #' @param title character Title string
@@ -522,7 +522,7 @@ CreateStickerSetRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve friendly inputs to TL input objects
+    #' @description Resolve friendly inputs to TL input objects
     #'
     #' @param client client object (used for entity resolution if needed)
     #' @param utils utilities object with helper conversions (must implement get_input_user and get_input_document)
@@ -535,7 +535,7 @@ CreateStickerSetRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list
+    #' @description Convert to an R list
     #'
     #' @return list representation
     to_list = function() {
@@ -553,7 +553,7 @@ CreateStickerSetRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes (TL-like approximation)
+    #' @description Serialize to raw bytes (TL-like approximation)
     #'
     #' @return raw vector
     to_bytes = function() {
@@ -704,7 +704,7 @@ DeleteStickerSetRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xf5b399ac,
     stickerset = NULL,
 
-    #' Initialize a DeleteStickerSetRequest
+    #' @description Initialize a DeleteStickerSetRequest
     #'
     #' @param stickerset InputStickerSet (TL object or representation)
     initialize = function(stickerset) {
@@ -713,7 +713,7 @@ DeleteStickerSetRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (dictionary-like)
+    #' @description Convert to an R list (dictionary-like)
     #'
     #' @return list representation of the request
     to_list = function() {
@@ -723,7 +723,7 @@ DeleteStickerSetRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes (simple TL-like approximation)
+    #' @description Serialize to raw bytes (simple TL-like approximation)
     #'
     #' @return raw vector
     to_bytes = function() {
@@ -783,7 +783,7 @@ RemoveStickerFromSetRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x9b704a5a,
     sticker = NULL,
 
-    #' Initialize a RemoveStickerFromSetRequest
+    #' @description Initialize a RemoveStickerFromSetRequest
     #'
     #' @param sticker InputDocument (TL object or representation)
     initialize = function(sticker) {
@@ -792,7 +792,7 @@ RemoveStickerFromSetRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (e.g. convert user-friendly inputs to TL inputs)
+    #' @description Resolve references (e.g. convert user-friendly inputs to TL inputs)
     #'
     #' @param client client object (used for entity resolution if needed)
     #' @param utils utilities object with helper conversions (must implement get_input_document)
@@ -802,7 +802,7 @@ RemoveStickerFromSetRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (dictionary-like)
+    #' @description Convert to an R list (dictionary-like)
     #'
     #' @return list representation of the request
     to_list = function() {
@@ -812,7 +812,7 @@ RemoveStickerFromSetRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes (simple TL-like approximation)
+    #' @description Serialize to raw bytes (simple TL-like approximation)
     #'
     #' @return raw vector
     to_bytes = function() {
@@ -873,7 +873,7 @@ RenameStickerSetRequest <- R6::R6Class(
     stickerset = NULL,
     title = NULL,
 
-    #' Initialize a RenameStickerSetRequest
+    #' @description Initialize a RenameStickerSetRequest
     #'
     #' @param stickerset InputStickerSet (TL object or representation)
     #' @param title character Title string
@@ -885,7 +885,7 @@ RenameStickerSetRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (dictionary-like)
+    #' @description Convert to an R list (dictionary-like)
     #'
     #' @return list representation of the request
     to_list = function() {
@@ -896,7 +896,7 @@ RenameStickerSetRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes (simple TL-like approximation)
+    #' @description Serialize to raw bytes (simple TL-like approximation)
     #'
     #' @return raw vector
     to_bytes = function() {
@@ -976,7 +976,7 @@ ReplaceStickerRequest <- R6::R6Class(
     sticker = NULL,
     new_sticker = NULL,
 
-    #' Initialize a ReplaceStickerRequest
+    #' @description Initialize a ReplaceStickerRequest
     #'
     #' @param sticker InputDocument (TL object or representation)
     #' @param new_sticker InputStickerSetItem (TL object or representation)
@@ -988,7 +988,7 @@ ReplaceStickerRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (e.g. convert user-friendly inputs to TL inputs)
+    #' @description Resolve references (e.g. convert user-friendly inputs to TL inputs)
     #'
     #' @param client client object (used for entity resolution if needed)
     #' @param utils utilities object with helper conversions (must implement get_input_document)
@@ -998,7 +998,7 @@ ReplaceStickerRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (dictionary-like)
+    #' @description Convert to an R list (dictionary-like)
     #'
     #' @return list representation of the request
     to_list = function() {
@@ -1009,7 +1009,7 @@ ReplaceStickerRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes (simple TL-like approximation)
+    #' @description Serialize to raw bytes (simple TL-like approximation)
     #'
     #' @return raw vector
     to_bytes = function() {
@@ -1082,7 +1082,7 @@ SetStickerSetThumbRequest <- R6::R6Class(
     thumb = NULL,
     thumb_document_id = NULL,
 
-    #' Initialize a SetStickerSetThumbRequest
+    #' @description Initialize a SetStickerSetThumbRequest
     #'
     #' @param stickerset InputStickerSet (TL object or representation)
     #' @param thumb Optional InputDocument (TL object or representation)
@@ -1095,7 +1095,7 @@ SetStickerSetThumbRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (e.g. convert user-friendly inputs to TL inputs)
+    #' @description Resolve references (e.g. convert user-friendly inputs to TL inputs)
     #'
     #' @param client client object (used for entity resolution if needed)
     #' @param utils utilities object with helper conversions (must implement get_input_document)
@@ -1107,7 +1107,7 @@ SetStickerSetThumbRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (dictionary-like)
+    #' @description Convert to an R list (dictionary-like)
     #'
     #' @return list representation of the request
     to_list = function() {
@@ -1119,7 +1119,7 @@ SetStickerSetThumbRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes (simple TL-like approximation)
+    #' @description Serialize to raw bytes (simple TL-like approximation)
     #'
     #' @return raw vector
     to_bytes = function() {
@@ -1223,7 +1223,7 @@ SuggestShortNameRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xc44a4b21,
     title = NULL,
 
-    #' Initialize a SuggestShortNameRequest
+    #' @description Initialize a SuggestShortNameRequest
     #'
     #' @param title character Title string
     initialize = function(title) {
@@ -1232,7 +1232,7 @@ SuggestShortNameRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (dictionary-like)
+    #' @description Convert to an R list (dictionary-like)
     #'
     #' @return list representation
     to_list = function() {
@@ -1242,7 +1242,7 @@ SuggestShortNameRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes (simple TL-like approximation)
+    #' @description Serialize to raw bytes (simple TL-like approximation)
     #'
     #' @return raw vector
     to_bytes = function() {

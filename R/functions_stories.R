@@ -364,6 +364,7 @@ DeleteAlbumRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a DeleteAlbumRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -680,6 +681,7 @@ EditStoryRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read an EditStoryRequest instance from a reader
     #'
     #' reader expected to implement: read_int(), tgread_object(), tgread_string()
@@ -1023,6 +1025,7 @@ GetAlbumsRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a GetAlbumsRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_long()
@@ -1068,6 +1071,7 @@ GetAllReadPeerStoriesRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a GetAllReadPeerStoriesRequest instance from a reader
     #'
     #' reader expected to implement nothing special for this class
@@ -1103,7 +1107,7 @@ GetAllStoriesRequest <- R6::R6Class(
     #' @param state character or NULL
     #' @return invisible self
     initialize = function(.next = NULL, hidden = NULL, state = NULL) {
-      self$.next <- if (!is.null(next)) as.logical(.next) else NULL
+      self$.next <- if (!is.null(.next)) as.logical(.next) else NULL
       self$hidden <- if (!is.null(hidden)) as.logical(hidden) else NULL
       self$state <- if (!is.null(state)) as.character(state) else NULL
       invisible(self)
@@ -1159,6 +1163,7 @@ GetAllStoriesRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a GetAllStoriesRequest instance from a reader
     #'
     #' reader expected to implement: read_int(), tgread_string()
@@ -1209,6 +1214,7 @@ GetChatsToSendRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a GetChatsToSendRequest instance from a reader
     #'
     #' reader expected to implement nothing special for this class
@@ -1406,6 +1412,7 @@ GetPeerStoriesRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a GetPeerStoriesRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object()
@@ -1500,6 +1507,7 @@ GetPinnedStoriesRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a GetPinnedStoriesRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -1596,6 +1604,7 @@ GetStoriesArchiveRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a GetStoriesArchiveRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -1691,6 +1700,7 @@ GetStoriesByIDRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a GetStoriesByIDRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -1792,6 +1802,7 @@ GetStoriesViewsRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a GetStoriesViewsRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -1938,6 +1949,7 @@ GetStoryReactionsListRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a GetStoryReactionsListRequest instance from a reader
     #'
     #' reader expected to implement: read_int(), tgread_object(), tgread_string()
@@ -2094,6 +2106,7 @@ GetStoryViewsListRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a GetStoryViewsListRequest instance from a reader
     #'
     #' reader expected to implement: read_int(), tgread_object(), tgread_string()
@@ -2203,6 +2216,7 @@ IncrementStoryViewsRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read an IncrementStoryViewsRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -2307,6 +2321,7 @@ ReadStoriesRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a ReadStoriesRequest instance from a reader
     #'
     #' reader is expected to implement: tgread_object(), read_int()
@@ -2561,6 +2576,7 @@ ReportRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a ReportRequest instance from reader
     #'
     #' reader is expected to implement: tgread_object(), read_int(), tgread_bytes(), tgread_string()
@@ -2842,6 +2858,7 @@ SendReactionRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a SendReactionRequest instance from a reader
     #'
     #' reader is expected to implement: read_int(), tgread_object()
@@ -3131,6 +3148,7 @@ SendStoryRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a SendStoryRequest instance from a reader
     #'
     #' reader is expected to implement: read_int(), tgread_object(), tgread_string(), read_long()
@@ -3273,6 +3291,7 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a ToggleAllStoriesHiddenRequest instance from a reader
     #'
     #' reader is expected to implement: tgread_bool()
@@ -3371,6 +3390,7 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
   ),
 
   class = list(
+
     #' @description Read a TogglePeerStoriesHiddenRequest instance from a reader
     #'
     #' reader is expected to implement: tgread_object(), tgread_bool()
@@ -3786,6 +3806,7 @@ UpdateAlbumRequest <- R6::R6Class(
 
   # class method implemented as public so it can be called like UpdateAlbumRequest$from_reader(reader)
   class = list(
+
     #' @description Read an UpdateAlbumRequest instance from a reader
     #'
     #' reader is expected to implement: read_int(), tgread_object(), tgread_string()

@@ -8,11 +8,9 @@ ApplyGiftCodeRequest <- R6::R6Class(
   "ApplyGiftCodeRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xf6e26854,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field slug
     slug = NULL,
 
     #' @description Initialize the ApplyGiftCodeRequest object.
@@ -61,13 +59,10 @@ AssignAppStoreTransactionRequest <- R6::R6Class(
   "AssignAppStoreTransactionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x80ed747d,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field receipt
     receipt = NULL,
-    #' @field purpose
     purpose = NULL,
 
     #' @description Initialize the AssignAppStoreTransactionRequest object.
@@ -121,13 +116,10 @@ AssignPlayMarketTransactionRequest <- R6::R6Class(
   "AssignPlayMarketTransactionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xdffd50d3,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field receipt
     receipt = NULL,
-    #' @field purpose
     purpose = NULL,
 
     #' @description Initialize the AssignPlayMarketTransactionRequest object.
@@ -183,15 +175,11 @@ BotCancelStarsSubscriptionRequest <- R6::R6Class(
   "BotCancelStarsSubscriptionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x6dfa0622,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field user_id
     user_id = NULL,
-    #' @field charge_id
     charge_id = NULL,
-    #' @field restore
     restore = NULL,
 
     #' @description Initialize the BotCancelStarsSubscriptionRequest object.
@@ -258,11 +246,9 @@ CanPurchaseStoreRequest <- R6::R6Class(
   "CanPurchaseStoreRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x4fdc5ea7,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field purpose
     purpose = NULL,
 
     #' @description Initialize the CanPurchaseStoreRequest object.
@@ -312,15 +298,11 @@ ChangeStarsSubscriptionRequest <- R6::R6Class(
   "ChangeStarsSubscriptionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xc7770878,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field peer
     peer = NULL,
-    #' @field subscription_id
     subscription_id = NULL,
-    #' @field canceled
     canceled = NULL,
 
     #' @description Initialize the ChangeStarsSubscriptionRequest object.
@@ -390,11 +372,9 @@ CheckCanSendGiftRequest <- R6::R6Class(
   "CheckCanSendGiftRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xc0c4edc9,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x632efa30,
-    #' @field gift_id
     gift_id = NULL,
 
     #' @description Initialize the CheckCanSendGiftRequest object.
@@ -442,11 +422,9 @@ CheckGiftCodeRequest <- R6::R6Class(
   "CheckGiftCodeRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x8e51b4c1,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x5b2997e8,
-    #' @field slug
     slug = NULL,
 
     #' @description Initialize the CheckGiftCodeRequest object.
@@ -495,13 +473,10 @@ ClearSavedInfoRequest <- R6::R6Class(
   "ClearSavedInfoRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xd83d70c1,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field credentials
     credentials = NULL,
-    #' @field info
     info = NULL,
 
     #' @description Initialize the ClearSavedInfoRequest object.
@@ -556,13 +531,10 @@ ConnectStarRefBotRequest <- R6::R6Class(
   "ConnectStarRefBotRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x7ed5348a,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x235e1a67,
-    #' @field peer
     peer = NULL,
-    #' @field bot
     bot = NULL,
 
     #' @description Initialize the ConnectStarRefBotRequest object.
@@ -623,11 +595,9 @@ ConvertStarGiftRequest <- R6::R6Class(
   "ConvertStarGiftRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x74bf076b,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field stargift
     stargift = NULL,
 
     #' @description Initialize the ConvertStarGiftRequest object.
@@ -677,15 +647,11 @@ CreateStarGiftCollectionRequest <- R6::R6Class(
   "CreateStarGiftCollectionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x1f4a0e87,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x43e0cb4a,
-    #' @field peer
     peer = NULL,
-    #' @field title
     title = NULL,
-    #' @field stargift
     stargift = NULL,
 
     #' @description Initialize the CreateStarGiftCollectionRequest object.
@@ -753,13 +719,10 @@ DeleteStarGiftCollectionRequest <- R6::R6Class(
   "DeleteStarGiftCollectionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xad5648e8,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field peer
     peer = NULL,
-    #' @field collection_id
     collection_id = NULL,
 
     #' @description Initialize the DeleteStarGiftCollectionRequest object.
@@ -821,15 +784,11 @@ EditConnectedStarRefBotRequest <- R6::R6Class(
   "EditConnectedStarRefBotRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xe4fca4a3,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x235e1a67,
-    #' @field peer
     peer = NULL,
-    #' @field link
     link = NULL,
-    #' @field revoked
     revoked = NULL,
 
     #' @description Initialize the EditConnectedStarRefBotRequest object.
@@ -895,11 +854,9 @@ ExportInvoiceRequest <- R6::R6Class(
   "ExportInvoiceRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xf91b065,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x36105432,
-    #' @field invoice_media
     invoice_media = NULL,
 
     #' @description Initialize the ExportInvoiceRequest object.
@@ -956,13 +913,10 @@ FulfillStarsSubscriptionRequest <- R6::R6Class(
   "FulfillStarsSubscriptionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xcc5bebb3,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field peer
     peer = NULL,
-    #' @field subscription_id
     subscription_id = NULL,
 
     #' @description Initialize the FulfillStarsSubscriptionRequest object.
@@ -1022,11 +976,9 @@ GetBankCardDataRequest <- R6::R6Class(
   "GetBankCardDataRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x2e79d779,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x8c6dd68b,
-    #' @field number
     number = NULL,
 
     #' @description Initialize the GetBankCardDataRequest object.
@@ -1076,13 +1028,10 @@ GetConnectedStarRefBotRequest <- R6::R6Class(
   "GetConnectedStarRefBotRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xb7d998f0,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x235e1a67,
-    #' @field peer
     peer = NULL,
-    #' @field bot
     bot = NULL,
 
     #' @description Initialize the GetConnectedStarRefBotRequest object.
@@ -1146,17 +1095,12 @@ GetConnectedStarRefBotsRequest <- R6::R6Class(
   "GetConnectedStarRefBotsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x5869a553,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x235e1a67,
-    #' @field peer
     peer = NULL,
-    #' @field limit
     limit = NULL,
-    #' @field offset_date
     offset_date = NULL,
-    #' @field offset_link
     offset_link = NULL,
 
     #' @description Initialize the GetConnectedStarRefBotsRequest object.
@@ -1231,13 +1175,10 @@ GetGiveawayInfoRequest <- R6::R6Class(
   "GetGiveawayInfoRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xf4239425,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x96a377bd,
-    #' @field peer
     peer = NULL,
-    #' @field msg_id
     msg_id = NULL,
 
     #' @description Initialize the GetGiveawayInfoRequest object.
@@ -1298,13 +1239,10 @@ GetPaymentFormRequest <- R6::R6Class(
   "GetPaymentFormRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x37148dbb,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xa0483f19,
-    #' @field invoice
     invoice = NULL,
-    #' @field theme_params
     theme_params = NULL,
 
     #' @description Initialize the GetPaymentFormRequest object.
@@ -1361,13 +1299,10 @@ GetPaymentReceiptRequest <- R6::R6Class(
   "GetPaymentReceiptRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x2478d1cc,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x590093c9,
-    #' @field peer
     peer = NULL,
-    #' @field msg_id
     msg_id = NULL,
 
     #' @description Initialize the GetPaymentReceiptRequest object.
@@ -1427,11 +1362,9 @@ GetPremiumGiftCodeOptionsRequest <- R6::R6Class(
   "GetPremiumGiftCodeOptionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x2757ba54,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xaa92583,
-    #' @field boost_peer
     boost_peer = NULL,
 
     #' @description Initialize the GetPremiumGiftCodeOptionsRequest object.
@@ -1497,23 +1430,15 @@ GetResaleStarGiftsRequest <- R6::R6Class(
   "GetResaleStarGiftsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x7a5fa236,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xb2dbb7e3,
-    #' @field gift_id
     gift_id = NULL,
-    #' @field offset
     offset = NULL,
-    #' @field limit
     limit = NULL,
-    #' @field sort_by_price
     sort_by_price = NULL,
-    #' @field sort_by_num
     sort_by_num = NULL,
-    #' @field attributes_hash
     attributes_hash = NULL,
-    #' @field attributes
     attributes = NULL,
 
     #' @description Initialize the GetResaleStarGiftsRequest object.
@@ -1603,9 +1528,8 @@ GetSavedInfoRequest <- R6::R6Class(
   "GetSavedInfoRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x227d824b,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xad3cf146,
 
     #' @description Initialize the GetSavedInfoRequest object.
@@ -1711,31 +1635,19 @@ GetSavedStarGiftsRequest <- R6::R6Class(
   "GetSavedStarGiftsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xa319e569,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xd5112897,
-    #' @field peer
     peer = NULL,
-    #' @field offset
     offset = NULL,
-    #' @field limit
     limit = NULL,
-    #' @field exclude_unsaved
     exclude_unsaved = NULL,
-    #' @field exclude_saved
     exclude_saved = NULL,
-    #' @field exclude_unlimited
     exclude_unlimited = NULL,
-    #' @field exclude_unique
     exclude_unique = NULL,
-    #' @field sort_by_value
     sort_by_value = NULL,
-    #' @field exclude_upgradable
     exclude_upgradable = NULL,
-    #' @field exclude_unupgradable
     exclude_unupgradable = NULL,
-    #' @field collection_id
     collection_id = NULL,
 
     #' @description Initialize the GetSavedStarGiftsRequest object.
@@ -1911,11 +1823,9 @@ GetStarGiftUpgradePreviewRequest <- R6::R6Class(
   "GetStarGiftUpgradePreviewRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x9c9abcb1,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x5e2b68c7,
-    #' @field gift_id
     gift_id = NULL,
 
     #' @description Initialize the GetStarGiftUpgradePreviewRequest object.
@@ -1964,13 +1874,10 @@ GetStarGiftWithdrawalUrlRequest <- R6::R6Class(
   "GetStarGiftWithdrawalUrlRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xd06e93a8,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xa2822dc5,
-    #' @field stargift
     stargift = NULL,
-    #' @field password
     password = NULL,
 
     #' @description Initialize the GetStarGiftWithdrawalUrlRequest object.
@@ -2023,11 +1930,9 @@ GetStarGiftsRequest <- R6::R6Class(
   "GetStarGiftsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xc4563590,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x6178d9a4,
-    #' @field hash
     hash = NULL,
 
     #' @description Initialize the GetStarGiftsRequest object.
@@ -2076,11 +1981,9 @@ GetStarsGiftOptionsRequest <- R6::R6Class(
   "GetStarsGiftOptionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xd3c96bc8,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xe9a3b7d5,
-    #' @field user_id
     user_id = NULL,
 
     #' @description Initialize the GetStarsGiftOptionsRequest object.
@@ -2138,9 +2041,8 @@ GetStarsGiveawayOptionsRequest <- R6::R6Class(
   "GetStarsGiveawayOptionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xbd1efd3e,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xf8db30a9,
 
     #' @description Convert the object to a dictionary-like list.
@@ -2176,11 +2078,9 @@ GetStarsRevenueAdsAccountUrlRequest <- R6::R6Class(
   "GetStarsRevenueAdsAccountUrlRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xd1d7efc5,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x4a228b15,
-    #' @field peer
     peer = NULL,
 
     #' @description Initialize the GetStarsRevenueAdsAccountUrlRequest object.
@@ -2238,15 +2138,11 @@ GetStarsRevenueStatsRequest <- R6::R6Class(
   "GetStarsRevenueStatsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xd91ffad6,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xa54755f3,
-    #' @field peer
     peer = NULL,
-    #' @field dark
     dark = NULL,
-    #' @field ton
     ton = NULL,
 
     #' @description Initialize the GetStarsRevenueStatsRequest object.
@@ -2314,17 +2210,12 @@ GetStarsRevenueWithdrawalUrlRequest <- R6::R6Class(
   "GetStarsRevenueWithdrawalUrlRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x2433dc92,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x8466a0ee,
-    #' @field peer
     peer = NULL,
-    #' @field password
     password = NULL,
-    #' @field ton
     ton = NULL,
-    #' @field amount
     amount = NULL,
 
     #' @description Initialize the GetStarsRevenueWithdrawalUrlRequest object.
@@ -2397,13 +2288,10 @@ GetStarsStatusRequest <- R6::R6Class(
   "GetStarsStatusRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x4ea9b3bf,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x6e9c1d6f,
-    #' @field peer
     peer = NULL,
-    #' @field ton
     ton = NULL,
 
     #' @description Initialize the GetStarsStatusRequest object.
@@ -2466,15 +2354,11 @@ GetStarsSubscriptionsRequest <- R6::R6Class(
   "GetStarsSubscriptionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x32512c5,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x6e9c1d6f,
-    #' @field peer
     peer = NULL,
-    #' @field offset
     offset = NULL,
-    #' @field missing_balance
     missing_balance = NULL,
 
     #' @description Initialize the GetStarsSubscriptionsRequest object.
@@ -2540,9 +2424,8 @@ GetStarsTopupOptionsRequest <- R6::R6Class(
   "GetStarsTopupOptionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xc00ec7d3,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xd4fe8a99,
 
     #' @description Convert the object to a dictionary-like list.
@@ -2585,25 +2468,16 @@ GetStarsTransactionsRequest <- R6::R6Class(
   "GetStarsTransactionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x69da4557,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x6e9c1d6f,
-    #' @field peer
     peer = NULL,
-    #' @field offset
     offset = NULL,
-    #' @field limit
     limit = NULL,
-    #' @field inbound
     inbound = NULL,
-    #' @field outbound
     outbound = NULL,
-    #' @field ascending
     ascending = NULL,
-    #' @field ton
     ton = NULL,
-    #' @field subscription_id
     subscription_id = NULL,
 
     #' @description Initialize the GetStarsTransactionsRequest object.
@@ -2699,15 +2573,11 @@ GetStarsTransactionsByIDRequest <- R6::R6Class(
   "GetStarsTransactionsByIDRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x2dca16b8,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x6e9c1d6f,
-    #' @field peer
     peer = NULL,
-    #' @field id
     id = NULL,
-    #' @field ton
     ton = NULL,
 
     #' @description Initialize the GetStarsTransactionsByIDRequest object.
@@ -2778,19 +2648,13 @@ GetSuggestedStarRefBotsRequest <- R6::R6Class(
   "GetSuggestedStarRefBotsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xd6b48f7,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x70189243,
-    #' @field peer
     peer = NULL,
-    #' @field offset
     offset = NULL,
-    #' @field limit
     limit = NULL,
-    #' @field order_by_revenue
     order_by_revenue = NULL,
-    #' @field order_by_date
     order_by_date = NULL,
 
     #' @description Initialize the GetSuggestedStarRefBotsRequest object.
@@ -2866,11 +2730,9 @@ GetUniqueStarGiftRequest <- R6::R6Class(
   "GetUniqueStarGiftRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xa1974d72,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x78b0c5fb,
-    #' @field slug
     slug = NULL,
 
     #' @description Initialize the GetUniqueStarGiftRequest object.
@@ -2918,11 +2780,9 @@ GetUniqueStarGiftValueInfoRequest <- R6::R6Class(
   "GetUniqueStarGiftValueInfoRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x4365af6b,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x16355bc4,
-    #' @field slug
     slug = NULL,
 
     #' @description Initialize the GetUniqueStarGiftValueInfoRequest object.
@@ -2972,15 +2832,11 @@ LaunchPrepaidGiveawayRequest <- R6::R6Class(
   "LaunchPrepaidGiveawayRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x5ff58f20,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field peer
     peer = NULL,
-    #' @field giveaway_id
     giveaway_id = NULL,
-    #' @field purpose
     purpose = NULL,
 
     #' @description Initialize the LaunchPrepaidGiveawayRequest object.
@@ -3047,13 +2903,10 @@ RefundStarsChargeRequest <- R6::R6Class(
   "RefundStarsChargeRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x25ae8f4a,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field user_id
     user_id = NULL,
-    #' @field charge_id
     charge_id = NULL,
 
     #' @description Initialize the RefundStarsChargeRequest object.
@@ -3114,13 +2967,10 @@ ReorderStarGiftCollectionsRequest <- R6::R6Class(
   "ReorderStarGiftCollectionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xc32af4cc,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field peer
     peer = NULL,
-    #' @field order
     order = NULL,
 
     #' @description Initialize the ReorderStarGiftCollectionsRequest object.
@@ -3182,13 +3032,10 @@ SaveStarGiftRequest <- R6::R6Class(
   "SaveStarGiftRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x2a2a697c,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field stargift
     stargift = NULL,
-    #' @field unsave
     unsave = NULL,
 
     #' @description Initialize the SaveStarGiftRequest object.
@@ -3248,21 +3095,14 @@ SendPaymentFormRequest <- R6::R6Class(
   "SendPaymentFormRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x2d03522f,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x8ae16a9d,
-    #' @field form_id
     form_id = NULL,
-    #' @field invoice
     invoice = NULL,
-    #' @field credentials
     credentials = NULL,
-    #' @field requested_info_id
     requested_info_id = NULL,
-    #' @field shipping_option_id
     shipping_option_id = NULL,
-    #' @field tip_amount
     tip_amount = NULL,
 
     #' @description Initialize the SendPaymentFormRequest object.
@@ -3341,13 +3181,10 @@ SendStarsFormRequest <- R6::R6Class(
   "SendStarsFormRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x7998c914,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x8ae16a9d,
-    #' @field form_id
     form_id = NULL,
-    #' @field invoice
     invoice = NULL,
 
     #' @description Initialize the SendStarsFormRequest object.
@@ -3402,13 +3239,10 @@ ToggleChatStarGiftNotificationsRequest <- R6::R6Class(
   "ToggleChatStarGiftNotificationsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x60eaefa1,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field peer
     peer = NULL,
-    #' @field enabled
     enabled = NULL,
 
     #' @description Initialize the ToggleChatStarGiftNotificationsRequest object.
@@ -3470,13 +3304,10 @@ ToggleStarGiftsPinnedToTopRequest <- R6::R6Class(
   "ToggleStarGiftsPinnedToTopRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x1513e7b0,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field peer
     peer = NULL,
-    #' @field stargift
     stargift = NULL,
 
     #' @description Initialize the ToggleStarGiftsPinnedToTopRequest object.
@@ -3538,13 +3369,10 @@ TransferStarGiftRequest <- R6::R6Class(
   "TransferStarGiftRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x7f18176a,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field stargift
     stargift = NULL,
-    #' @field to_id
     to_id = NULL,
 
     #' @description Initialize the TransferStarGiftRequest object.
@@ -3610,21 +3438,14 @@ UpdateStarGiftCollectionRequest <- R6::R6Class(
   "UpdateStarGiftCollectionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0x4fddbee7,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x43e0cb4a,
-    #' @field peer
     peer = NULL,
-    #' @field collection_id
     collection_id = NULL,
-    #' @field title
     title = NULL,
-    #' @field delete_stargift
     delete_stargift = NULL,
-    #' @field add_stargift
     add_stargift = NULL,
-    #' @field order
     order = NULL,
 
     #' @description Initialize the UpdateStarGiftCollectionRequest object.
@@ -3726,13 +3547,10 @@ UpdateStarGiftPriceRequest <- R6::R6Class(
   "UpdateStarGiftPriceRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xedbe6ccb,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field stargift
     stargift = NULL,
-    #' @field resell_amount
     resell_amount = NULL,
 
     #' @description Initialize the UpdateStarGiftPriceRequest object.
@@ -3787,13 +3605,10 @@ UpgradeStarGiftRequest <- R6::R6Class(
   "UpgradeStarGiftRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xaed6e4f5,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field stargift
     stargift = NULL,
-    #' @field keep_original_details
     keep_original_details = NULL,
 
     #' @description Initialize the UpgradeStarGiftRequest object.
@@ -3851,15 +3666,11 @@ ValidateRequestedInfoRequest <- R6::R6Class(
   "ValidateRequestedInfoRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+
     CONSTRUCTOR_ID = 0xb6c8f12b,
-    #' @field SUBCLASS_OF_ID
     SUBCLASS_OF_ID = 0x8f8044b7,
-    #' @field invoice
     invoice = NULL,
-    #' @field info
     info = NULL,
-    #' @field save
     save = NULL,
 
     #' @description Initialize the ValidateRequestedInfoRequest object.

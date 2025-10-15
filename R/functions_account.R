@@ -244,55 +244,6 @@ ChangePhoneRequest <- R6::R6Class(
   lock_objects = FALSE
 )
 
-#' @title CheckUsernameRequest
-#' @description R6 class representing a CheckUsernameRequest.
-#' @details This class handles checking if a username is available.
-#' @export
-CheckUsernameRequest <- R6::R6Class(
-  "CheckUsernameRequest",
-  inherit = TLRequest,
-  public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID for the request.
-    CONSTRUCTOR_ID = as.raw(c(0x6c, 0xd8, 0x14, 0x27)),
-    #' @field SUBCLASS_OF_ID The subclass ID.
-    SUBCLASS_OF_ID = as.raw(c(0xac, 0x99, 0xb3, 0xf5)),
-
-    #' @description Initialize the CheckUsernameRequest.
-    #' @param username The username string.
-    initialize = function(username) {
-      self$username <- username
-    },
-
-    #' @description Convert to dictionary.
-    #' @return A list representing the object.
-    toDict = function() {
-      list(
-        "_" = "CheckUsernameRequest",
-        username = self$username
-      )
-    },
-
-    #' @description Serialize to bytes.
-    #' @return Raw bytes.
-    bytes = function() {
-      c(
-        as.raw(c(0x6c, 0xd8, 0x14, 0x27)),
-        self$serializeBytes(self$username)
-      )
-    },
-
-    #' @description Create from reader.
-    #' @param reader The reader object.
-    #' @return An instance of CheckUsernameRequest.
-    fromReader = function(reader) {
-      username <- reader$tgreadString()
-      CheckUsernameRequest$new(username = username)
-    }
-  ),
-  private = list(),
-  active = list(),
-  lock_objects = FALSE
-)
 
 #' @title ClearRecentEmojiStatusesRequest
 #' @description R6 class representing a ClearRecentEmojiStatusesRequest.

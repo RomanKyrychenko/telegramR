@@ -1993,30 +1993,20 @@ ReorderPreviewMediasRequest$from_reader <- function(reader) {
 
 #' ReorderUsernamesRequest R6 class
 #'
-#' Represents the ReorderUsernamesRequest TL request.
-#'
+#' @description Represents the ReorderUsernamesRequest TL request.
 #' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
 #' @field order list of character usernames
-#'
-#' @description
-#' Methods:
-#' - initialize(bot, order)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
-#'
-#' Each method is documented inline below.
-#'
 #' @examples
 #' # o <- ReorderUsernamesRequest$new(bot, list("u1", "u2"))
 #' @export
 ReorderUsernamesRequest <- R6::R6Class(
   "ReorderUsernamesRequest",
   public = list(
+
     bot = NULL,
     order = NULL,
 
-    #' Initialize ReorderUsernamesRequest
+    #' @description Initialize ReorderUsernamesRequest
     #'
     #' @param bot TypeInputUser or identifier
     #' @param order list of character
@@ -2026,18 +2016,17 @@ ReorderUsernamesRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
+    #' @description Resolve references (convert entities via client/utils)
     #'
     #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
     #' @return invisible(self)
-    resolve = function(client, utils) {
+    resolve = function(client) {
       input_entity <- client$get_input_entity(self$bot)
-      self$bot <- utils$get_input_user(input_entity)
+      self$bot <- get_input_user(input_entity)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #'
     #' @return list
     to_list = function() {
@@ -2053,7 +2042,7 @@ ReorderUsernamesRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
+    #' @description Serialize to bytes (raw vector)
     #'
     #' @return raw
     to_bytes = function() {

@@ -127,6 +127,7 @@ AuthMethods <- R6::R6Class(
     #' Sends the verification code to the given phone number
     #' @param phone Phone number to send the code to
     #' @param force_sms Whether to force sending as SMS
+    #' @param retry_count Internal parameter for recursion, do not set
     #' @return The sent code information
     send_code_request = function(phone, force_sms = FALSE, retry_count = 0) {
       if (force_sms) {

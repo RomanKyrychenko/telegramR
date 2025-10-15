@@ -729,7 +729,6 @@ GetNearestDcRequest <- R6::R6Class(
 #'
 #' @param reader object providing reader methods (not used here)
 #' @return instance of GetNearestDcRequest
-#' @export
 GetNearestDcRequest$from_reader <- function(reader) {
   GetNearestDcRequest$new()
 }
@@ -834,7 +833,6 @@ GetPeerColorsRequest <- R6::R6Class(
 #'
 #' @param reader object providing `read_int()` method
 #' @return instance of GetPeerColorsRequest
-#' @export
 GetPeerColorsRequest$from_reader <- function(reader) {
   hashVal <- reader$read_int()
   GetPeerColorsRequest$new(hash = hashVal)
@@ -887,7 +885,6 @@ GetPeerProfileColorsRequest <- R6::R6Class(
 #'
 #' @param reader object providing `read_int()` method
 #' @return instance of GetPeerProfileColorsRequest
-#' @export
 GetPeerProfileColorsRequest$from_reader <- function(reader) {
   hashVal <- reader$read_int()
   GetPeerProfileColorsRequest$new(hash = hashVal)

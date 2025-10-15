@@ -24,20 +24,24 @@ DeletePhotosRequest <- R6::R6Class(
   "DeletePhotosRequest",
   inherit = TLRequest,
   public = list(
+
+    #' @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0x87cf7f2f,
+
+    #' @field SUBCLASS_OF_ID integer
     SUBCLASS_OF_ID = 0x8918e168,
 
     #' @field id list of TLObject or NULL
     id = NULL,
 
-    #' Initialize a new DeletePhotosRequest
+    #' @description Initialize a new DeletePhotosRequest
     #'
     #' @param id list of TLObject or identifiers for input photos
     initialize = function(id = NULL) {
       self$id <- id
     },
 
-    #' Resolve references (client + utils)
+    #' @description Resolve references (client + utils)
     #'
     #' Convert each provided id into an input photo using utils.
     #' @param client client (not used here, included for API symmetry)
@@ -50,7 +54,7 @@ DeletePhotosRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return list representation of the request
     to_list = function() {
@@ -60,7 +64,7 @@ DeletePhotosRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
+    #' @description Serialize to bytes (raw vector)
     #'
     #' Packs constructor id, vector constructor id, length and elements in little-endian order.
     #' Each element must implement to_bytes().
@@ -165,7 +169,11 @@ GetUserPhotosRequest <- R6::R6Class(
   "GetUserPhotosRequest",
   inherit = TLRequest,
   public = list(
+
+    #' @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0x91cd32a8,
+
+    #' @field SUBCLASS_OF_ID integer
     SUBCLASS_OF_ID = 0x27cfb967,
 
     #' @field user_id TLObject or NULL
@@ -177,7 +185,7 @@ GetUserPhotosRequest <- R6::R6Class(
     #' @field limit integer
     limit = NULL,
 
-    #' Initialize a new GetUserPhotosRequest
+    #' @description Initialize a new GetUserPhotosRequest
     #'
     #' @param user_id TLObject or identifier for input user
     #' @param offset integer
@@ -190,7 +198,7 @@ GetUserPhotosRequest <- R6::R6Class(
       self$limit <- as.integer(limit)
     },
 
-    #' Resolve references (client + utils)
+    #' @description Resolve references (client + utils)
     #'
     #' Convert provided user identifier into an input user using client and utils.
     #' @param client client with get_input_entity method
@@ -203,7 +211,7 @@ GetUserPhotosRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return list representation of the request
     to_list = function() {
@@ -216,7 +224,7 @@ GetUserPhotosRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
+    #' @description Serialize to bytes (raw vector)
     #'
     #' Packs constructor id and fields in little-endian order.
     #' Relies on user_id implementing to_bytes(). max_id is written as 8 bytes (numeric).
@@ -301,7 +309,11 @@ UpdateProfilePhotoRequest <- R6::R6Class(
   "UpdateProfilePhotoRequest",
   inherit = TLRequest,
   public = list(
+
+    #' @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0x09e82039,
+
+    #' @field SUBCLASS_OF_ID integer
     SUBCLASS_OF_ID = 0xc292bd24,
 
     #' @field id TLObject or NULL
@@ -311,7 +323,7 @@ UpdateProfilePhotoRequest <- R6::R6Class(
     #' @field bot TLObject or NULL
     bot = NULL,
 
-    #' Initialize a new UpdateProfilePhotoRequest
+    #' @description Initialize a new UpdateProfilePhotoRequest
     #'
     #' @param id TLObject or identifier for input photo
     #' @param fallback logical or NULL
@@ -322,7 +334,7 @@ UpdateProfilePhotoRequest <- R6::R6Class(
       self$bot <- bot
     },
 
-    #' Resolve references (client + utils)
+    #' @description Resolve references (client + utils)
     #'
     #' Convert provided id into an input photo and bot into an input user using client and utils.
     #' @param client client with get_input_entity method
@@ -341,7 +353,7 @@ UpdateProfilePhotoRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return list representation of the request
     to_list = function() {
@@ -353,7 +365,7 @@ UpdateProfilePhotoRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
+    #' @description Serialize to bytes (raw vector)
     #'
     #' Packs constructor id, flags and present fields in little-endian order.
     #' Relies on contained TLObject instances implementing to_bytes().
@@ -456,7 +468,11 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
   "UploadContactProfilePhotoRequest",
   inherit = TLRequest,
   public = list(
+
+    #' @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0xe14c4a71,
+
+    #' @field SUBCLASS_OF_ID integer
     SUBCLASS_OF_ID = 0xc292bd24,
 
     #' @field user_id TLObject or NULL
@@ -474,7 +490,7 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
     #' @field video_emoji_markup TLObject or NULL
     video_emoji_markup = NULL,
 
-    #' Initialize a new UploadContactProfilePhotoRequest
+    #' @description Initialize a new UploadContactProfilePhotoRequest
     #'
     #' @param user_id TLObject or identifier for user
     #' @param suggest logical or NULL
@@ -494,7 +510,7 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
       self$video_emoji_markup <- video_emoji_markup
     },
 
-    #' Resolve references (client + utils)
+    #' @description Resolve references (client + utils)
     #'
     #' Convert provided user identifier into an input user using client and utils.
     #' @param client client with get_input_entity method
@@ -508,7 +524,7 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return list representation of the request
     to_list = function() {
@@ -524,7 +540,7 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
+    #' @description Serialize to bytes (raw vector)
     #'
     #' Packs constructor id, flags and present fields in little-endian order.
     #' Relies on contained TLObject instances implementing to_bytes().
@@ -617,12 +633,11 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
   portable = TRUE
 )
 
-#' Construct UploadContactProfilePhotoRequest from a reader
+#' @description Construct UploadContactProfilePhotoRequest from a reader
 #'
 #' Class-level convenience wrapper around the private from_reader_impl.
 #' @param reader Reader object providing read_int, tgread_object, read_double, etc.
 #' @return UploadContactProfilePhotoRequest instance
-#' @export
 UploadContactProfilePhotoRequest$from_reader <- function(reader) {
   UploadContactProfilePhotoRequest$private_methods$from_reader_impl(reader)
 }
@@ -656,7 +671,11 @@ UploadProfilePhotoRequest <- R6::R6Class(
   "UploadProfilePhotoRequest",
   inherit = TLRequest,
   public = list(
+
+    #' @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0x0388a3b5,
+
+    #' @field SUBCLASS_OF_ID integer
     SUBCLASS_OF_ID = 0xc292bd24,
 
     #' @field fallback logical (optional)
@@ -672,7 +691,7 @@ UploadProfilePhotoRequest <- R6::R6Class(
     #' @field video_emoji_markup TLObject or NULL
     video_emoji_markup = NULL,
 
-    #' Initialize a new UploadProfilePhotoRequest
+    #' @description Initialize a new UploadProfilePhotoRequest
     #'
     #' @param fallback logical or NULL
     #' @param bot TLObject or identifier for bot or NULL
@@ -690,7 +709,7 @@ UploadProfilePhotoRequest <- R6::R6Class(
       self$video_emoji_markup <- video_emoji_markup
     },
 
-    #' Resolve references (client + utils)
+    #' @description Resolve references (client + utils)
     #'
     #' Convert provided bot identifier into an input user using client and utils.
     #' @param client client with get_input_entity method
@@ -704,7 +723,7 @@ UploadProfilePhotoRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return list representation of the request
     to_list = function() {
@@ -719,7 +738,7 @@ UploadProfilePhotoRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
+    #' @description Serialize to bytes (raw vector)
     #'
     #' Packs constructor id, flags and present fields in little-endian order.
     #' Relies on contained TLObject instances implementing to_bytes().
@@ -809,12 +828,11 @@ UploadProfilePhotoRequest <- R6::R6Class(
   portable = TRUE
 )
 
-#' Construct UploadProfilePhotoRequest from a reader
+#' @description Construct UploadProfilePhotoRequest from a reader
 #'
 #' Class-level convenience wrapper around the private from_reader_impl.
 #' @param reader Reader object providing read_int, tgread_object, read_double, etc.
 #' @return UploadProfilePhotoRequest instance
-#' @export
 UploadProfilePhotoRequest$from_reader <- function(reader) {
   UploadProfilePhotoRequest$private_methods$from_reader_impl(reader)
 }
