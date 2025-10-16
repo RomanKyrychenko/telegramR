@@ -5,7 +5,6 @@
 #' @field CONSTRUCTOR_ID integer Constructor id (0x6847d0ab)
 #' @field SUBCLASS_OF_ID integer Subclass id (0x8af52aac)
 #' @field folder_peers list List of InputFolderPeer objects (each should provide to_list() and to_raw())
-#' @param folder_peers list List of folder peer TL objects (default: empty list)
 #' @return An R6 object of class EditPeerFoldersRequest
 #' @examples
 #' # EditPeerFoldersRequest$new(list_of_folder_peers)
@@ -16,13 +15,17 @@ EditPeerFoldersRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x6847d0ab,
     SUBCLASS_OF_ID = 0x8af52aac,
     folder_peers = NULL,
+
+    #' @description Initialize EditPeerFoldersRequest
+    #' @param folder_peers list List of InputFolderPeer objects
     initialize = function(folder_peers = list()) {
       if (is.null(folder_peers)) folder_peers <- list()
       if (!is.list(folder_peers)) stop("folder_peers must be a list")
       self$folder_peers <- folder_peers
     },
 
-    # Convert to a serializable R list (similar to to_dict)
+    #' @description Convert to a serializable R list (similar to to_dict)
+    #' @return list
     to_list = function() {
       list(
         `_` = "EditPeerFoldersRequest",
@@ -36,7 +39,8 @@ EditPeerFoldersRequest <- R6::R6Class(
       )
     },
 
-    # Serialize to raw bytes. Expects folder_peers elements to provide to_raw()
+    #' @description Serialize to raw bytes. Expects folder_peers elements to provide to_raw()
+    #' @return raw vector
     to_raw = function() {
       parts <- list()
       parts[[1]] <- private$int_to_raw_le(self$CONSTRUCTOR_ID)
@@ -69,7 +73,6 @@ EditPeerFoldersRequest <- R6::R6Class(
 #'
 #' @param reader Reader object with methods read_int() and tgread_object()
 #' @return EditPeerFoldersRequest
-#' @export
 EditPeerFoldersRequest$read_from <- function(reader) {
   # consume constructor id (if present)
   reader$read_int()

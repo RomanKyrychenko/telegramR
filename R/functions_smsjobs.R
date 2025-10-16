@@ -1,19 +1,8 @@
 #' FinishJobRequest R6 class
 #'
 #' Representation of the FinishJobRequest TLRequest.
-#'
-#' Fields:
-#' - job_id: character
-#' - error: character or NULL
-#'
-#' Methods:
-#' - new(job_id, error = NULL): create instance
-#' - to_list(): return a list representation
-#' - bytes(): return raw bytes for the TL constructor (includes flags and serialized fields)
-#' - from_reader(reader): class method to construct from a reader
-#'
-#' @param job_id character
-#' @param error character or NULL
+#' @field job_id character
+#' @field error character or NULL
 #' @export
 FinishJobRequest <- R6::R6Class(
   "FinishJobRequest",
@@ -21,7 +10,7 @@ FinishJobRequest <- R6::R6Class(
     job_id = NULL,
     error = NULL,
 
-    #' Initialize a FinishJobRequest
+    #' @description Initialize a FinishJobRequest
     #' @param job_id character
     #' @param error character or NULL
     #' @return self
@@ -37,7 +26,7 @@ FinishJobRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(
@@ -47,7 +36,7 @@ FinishJobRequest <- R6::R6Class(
       )
     },
 
-    #' Get raw bytes for this constructor
+    #' @description Get raw bytes for this constructor
     #' @return raw vector
     #' @details Encodes constructor id, flags (bit 0 for error), job_id and optional error.
     bytes = function() {
@@ -82,24 +71,14 @@ FinishJobRequest$set("public", "from_reader", function(reader) {
 #' GetSmsJobRequest R6 class
 #'
 #' Representation of the GetSmsJobRequest TLRequest.
-#'
-#' Fields:
-#' - job_id: character
-#'
-#' Methods:
-#' - new(job_id): create instance
-#' - to_list(): return a list representation
-#' - bytes(): return raw bytes for the TL constructor (includes serialized job_id)
-#' - from_reader(reader): class method to construct from a reader
-#'
-#' @param job_id character
+#' @field job_id character
 #' @export
 GetSmsJobRequest <- R6::R6Class(
   "GetSmsJobRequest",
   public = list(
     job_id = NULL,
 
-    #' Initialize a GetSmsJobRequest
+    #' @description Initialize a GetSmsJobRequest
     #' @param job_id character
     #' @return self
     initialize = function(job_id) {
@@ -110,7 +89,7 @@ GetSmsJobRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(
@@ -119,7 +98,7 @@ GetSmsJobRequest <- R6::R6Class(
       )
     },
 
-    #' Get raw bytes for this constructor
+    #' @description Get raw bytes for this constructor
     #' @return raw vector
     #' @details This calls a helper serialize_bytes() to encode the job_id.
     bytes = function() {
@@ -142,30 +121,24 @@ GetSmsJobRequest$set("public", "from_reader", function(reader) {
 #' GetStatusRequest R6 class
 #'
 #' Representation of the GetStatusRequest TLRequest.
-#'
-#' Methods:
-#' - new(): create instance
-#' - to_list(): return a list representation
-#' - bytes(): return raw bytes for the TL constructor
-#' - from_reader(reader): class method to construct from a reader
-#'
 #' @export
 GetStatusRequest <- R6::R6Class(
   "GetStatusRequest",
   public = list(
-    #' Initialize a GetStatusRequest
+
+    #' @description Initialize a GetStatusRequest
     #' @return self
     initialize = function() {
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(`_` = "GetStatusRequest")
     },
 
-    #' Get raw bytes for this constructor
+    #' @description Get raw bytes for this constructor
     #' @return raw vector
     bytes = function() {
       as.raw(c(0xe8, 0x98, 0xa6, 0x10))
@@ -184,30 +157,24 @@ GetStatusRequest$set("public", "from_reader", function(reader) {
 #' IsEligibleToJoinRequest R6 class
 #'
 #' Representation of the IsEligibleToJoinRequest TLRequest.
-#'
-#' Methods:
-#' - new(): create instance
-#' - to_list(): return a list representation
-#' - bytes(): return raw bytes for the TL constructor
-#' - from_reader(reader): class method to construct from a reader
-#'
 #' @export
 IsEligibleToJoinRequest <- R6::R6Class(
   "IsEligibleToJoinRequest",
   public = list(
-    #' Initialize an IsEligibleToJoinRequest
+
+    #' @description Initialize an IsEligibleToJoinRequest
     #' @return self
     initialize = function() {
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(`_` = "IsEligibleToJoinRequest")
     },
 
-    #' Get raw bytes for this constructor
+    #' @description Get raw bytes for this constructor
     #' @return raw vector
     bytes = function() {
       as.raw(c(0xd0, 0x39, 0xdc, 0x0e))
@@ -234,30 +201,24 @@ write_uint32_le <- function(x) {
 #' JoinRequest R6 class
 #'
 #' Representation of the JoinRequest TLRequest.
-#'
-#' Methods:
-#' - new(): create instance
-#' - to_list(): return a list representation
-#' - bytes(): return raw bytes for the TL constructor
-#' - from_reader(reader): class method to construct from a reader
-#'
 #' @export
 JoinRequest <- R6::R6Class(
   "JoinRequest",
   public = list(
-    #' Initialize a JoinRequest
+
+    #' @description Initialize a JoinRequest
     #' @return self
     initialize = function() {
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(`_` = "JoinRequest")
     },
 
-    #' Get raw bytes for this constructor
+    #' @description Get raw bytes for this constructor
     #' @return raw vector
     bytes = function() {
       as.raw(c(0x2d, 0xce, 0x4e, 0xa7))
@@ -276,30 +237,24 @@ JoinRequest$set("public", "from_reader", function(reader) {
 #' LeaveRequest R6 class
 #'
 #' Representation of the LeaveRequest TLRequest.
-#'
-#' Methods:
-#' - new(): create instance
-#' - to_list(): return a list representation
-#' - bytes(): return raw bytes for the TL constructor
-#' - from_reader(reader): class method to construct from a reader
-#'
 #' @export
 LeaveRequest <- R6::R6Class(
   "LeaveRequest",
   public = list(
-    #' Initialize a LeaveRequest
+
+    #' @description Initialize a LeaveRequest
     #' @return self
     initialize = function() {
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(`_` = "LeaveRequest")
     },
 
-    #' Get raw bytes for this constructor
+    #' @description Get raw bytes for this constructor
     #' @return raw vector
     bytes = function() {
       as.raw(c(0x73, 0xad, 0x98, 0x98))
@@ -317,24 +272,14 @@ LeaveRequest$set("public", "from_reader", function(reader) {
 #' UpdateSettingsRequest R6 class
 #'
 #' Representation of the UpdateSettingsRequest TLRequest.
-#'
-#' Fields:
-#' - allow_international: logical or NULL
-#'
-#' Methods:
-#' - new(allow_international = NULL): create instance
-#' - to_list(): return a list representation
-#' - bytes(): return raw bytes for the TL constructor (includes flags)
-#' - from_reader(reader): class method to construct from a reader
-#'
-#' @param allow_international logical or NULL
+#' @field allow_international logical or NULL
 #' @export
 UpdateSettingsRequest <- R6::R6Class(
   "UpdateSettingsRequest",
   public = list(
     allow_international = NULL,
 
-    #' Initialize UpdateSettingsRequest
+    #' @description Initialize UpdateSettingsRequest
     #' @param allow_international logical or NULL
     initialize = function(allow_international = NULL) {
       if (!is.null(allow_international)) {
@@ -344,7 +289,7 @@ UpdateSettingsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
+    #' @description Convert to list (dictionary-like)
     #' @return list
     to_list = function() {
       list(
@@ -353,7 +298,7 @@ UpdateSettingsRequest <- R6::R6Class(
       )
     },
 
-    #' Get raw bytes for this constructor
+    #' @description Get raw bytes for this constructor
     #' @return raw vector
     bytes = function() {
       # constructor id bytes: b'\xbf\xa0?\t' -> 0xbf 0xa0 0x3f 0x09

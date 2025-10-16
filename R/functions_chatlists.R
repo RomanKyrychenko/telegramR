@@ -13,7 +13,7 @@ CheckChatlistInviteRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0x41720e75),
     slug = NULL,
 
-    #' Initialize CheckChatlistInviteRequest
+    #' @description Initialize CheckChatlistInviteRequest
     #' @param slug Invite slug (string)
     initialize = function(slug = NULL) {
       self$slug <- slug
@@ -92,7 +92,7 @@ DeleteExportedInviteRequest <- R6::R6Class(
     chatlist = NULL,
     slug = NULL,
 
-    #' Initialize DeleteExportedInviteRequest
+    #' @description Initialize DeleteExportedInviteRequest
     #' @param chatlist Input chatlist object
     #' @param slug Invite slug (string)
     initialize = function(chatlist = NULL, slug = NULL) {
@@ -184,7 +184,7 @@ EditExportedInviteRequest <- R6::R6Class(
     title = NULL,
     peers = NULL,
 
-    #' Initialize EditExportedInviteRequest
+    #' @description Initialize EditExportedInviteRequest
     #' @param chatlist Input chatlist object
     #' @param slug Invite slug (string)
     #' @param title Optional invite title (string)
@@ -358,7 +358,7 @@ ExportChatlistInviteRequest <- R6::R6Class(
     title = NULL,
     peers = NULL,
 
-    #' Initialize ExportChatlistInviteRequest
+    #' @description Initialize ExportChatlistInviteRequest
     #' @param chatlist Input chatlist object
     #' @param title Invite title (string)
     #' @param peers List of input peers
@@ -494,7 +494,7 @@ GetChatlistUpdatesRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0x7d1641ea),
     chatlist = NULL,
 
-    #' Initialize GetChatlistUpdatesRequest
+    #' @description Initialize GetChatlistUpdatesRequest
     #' @param chatlist Input chatlist object
     initialize = function(chatlist = NULL) {
       self$chatlist <- chatlist
@@ -555,7 +555,7 @@ GetExportedInvitesRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0xe6c209c0),
     chatlist = NULL,
 
-    #' Initialize GetExportedInvitesRequest
+    #' @description Initialize GetExportedInvitesRequest
     #' @param chatlist Input chatlist object
     initialize = function(chatlist = NULL) {
       self$chatlist <- chatlist
@@ -616,7 +616,7 @@ GetLeaveChatlistSuggestionsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0xb9945d7e),
     chatlist = NULL,
 
-    #' Initialize GetLeaveChatlistSuggestionsRequest
+    #' @description Initialize GetLeaveChatlistSuggestionsRequest
     #' @param chatlist Input chatlist object
     initialize = function(chatlist = NULL) {
       self$chatlist <- chatlist
@@ -677,7 +677,7 @@ HideChatlistUpdatesRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0xf5b399ac),
     chatlist = NULL,
 
-    #' Initialize HideChatlistUpdatesRequest
+    #' @description Initialize HideChatlistUpdatesRequest
     #' @param chatlist Input chatlist object
     initialize = function(chatlist = NULL) {
       self$chatlist <- chatlist
@@ -741,7 +741,7 @@ JoinChatlistInviteRequest <- R6::R6Class(
     slug = NULL,
     peers = NULL,
 
-    #' Initialize JoinChatlistInviteRequest
+    #' @description Initialize JoinChatlistInviteRequest
     #' @param slug Invite slug string
     #' @param peers List of input peers
     initialize = function(slug = NULL, peers = NULL) {
@@ -875,7 +875,7 @@ JoinChatlistUpdatesRequest <- R6::R6Class(
     chatlist = NULL,
     peers = NULL,
 
-    #' Initialize JoinChatlistUpdatesRequest
+    #' @description Initialize JoinChatlistUpdatesRequest
     #' @param chatlist Input chatlist object
     #' @param peers List of input peers
     initialize = function(chatlist = NULL, peers = NULL) {
@@ -986,7 +986,7 @@ LeaveChatlistRequest <- R6::R6Class(
     chatlist = NULL,
     peers = NULL,
 
-    #' Initialize LeaveChatlistRequest
+    #' @description Initialize LeaveChatlistRequest
     #' @param chatlist Input chatlist object
     #' @param peers List of input peers
     initialize = function(chatlist = NULL, peers = NULL) {

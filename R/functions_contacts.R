@@ -24,7 +24,7 @@ AcceptContactRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x8af52aac,
     id = NULL,
 
-    #' Initialize AcceptContactRequest
+    #' @description Initialize AcceptContactRequest
     #'
     #' @param id input user object or identifier
     initialize = function(id) {
@@ -114,7 +114,7 @@ AddContactRequest <- R6::R6Class(
     phone = NULL,
     add_phone_privacy_exception = NULL,
 
-    #' Initialize AddContactRequest
+    #' @description Initialize AddContactRequest
     #'
     #' @param id input user object or identifier
     #' @param first_name character
@@ -268,7 +268,7 @@ BlockRequest <- R6::R6Class(
     id = NULL,
     my_stories_from = NULL,
 
-    #' Initialize BlockRequest
+    #' @description Initialize BlockRequest
     #'
     #' @param id input peer (object or identifier)
     #' @param my_stories_from logical or NULL
@@ -382,7 +382,7 @@ BlockFromRepliesRequest <- R6::R6Class(
     delete_history = NULL,
     report_spam = NULL,
 
-    #' Initialize BlockFromRepliesRequest
+    #' @description Initialize BlockFromRepliesRequest
     #'
     #' @param msg_id integer message id
     #' @param delete_message logical or NULL
@@ -479,7 +479,7 @@ DeleteByPhonesRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xf5b399ac,
     phones = NULL,
 
-    #' Initialize DeleteByPhonesRequest
+    #' @description Initialize DeleteByPhonesRequest
     #'
     #' @param phones character vector of phone strings
     initialize = function(phones) {
@@ -597,7 +597,7 @@ DeleteContactsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x8af52aac,
     id = NULL,
 
-    #' Initialize DeleteContactsRequest
+    #' @description Initialize DeleteContactsRequest
     #'
     #' @param id list of input_user objects or raw representations
     initialize = function(id) {
@@ -723,7 +723,7 @@ EditCloseFriendsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xf5b399ac,
     id = NULL,
 
-    #' Initialize EditCloseFriendsRequest
+    #' @description Initialize EditCloseFriendsRequest
     #'
     #' @param id numeric vector (64-bit integers)
     initialize = function(id) {
@@ -832,7 +832,7 @@ ExportContactTokenRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xf8654027,
     SUBCLASS_OF_ID = 0x86ddbed1,
 
-    #' Initialize ExportContactTokenRequest
+    #' @description Initialize ExportContactTokenRequest
     initialize = function() {
       invisible(NULL)
     },
@@ -882,7 +882,7 @@ GetBirthdaysRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xdaeda864,
     SUBCLASS_OF_ID = 0x0e7aabff, # keep provided subclass id (from original) - note: original had 0xe7aabff; preserve numeric
 
-    #' Initialize GetBirthdaysRequest
+    #' @description Initialize GetBirthdaysRequest
     initialize = function() {
       invisible(NULL)
     },
@@ -940,7 +940,7 @@ GetBlockedRequest <- R6::R6Class(
     limit = NULL,
     my_stories_from = NULL,
 
-    #' Initialize GetBlockedRequest
+    #' @description Initialize GetBlockedRequest
     #'
     #' @param offset integer
     #' @param limit integer
@@ -1034,7 +1034,7 @@ GetContactIDsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x5026710f,
     hash = NULL,
 
-    #' Initialize GetContactIDsRequest
+    #' @description Initialize GetContactIDsRequest
     #'
     #' @param hash numeric/integer (64-bit)
     initialize = function(hash) {
@@ -1132,7 +1132,7 @@ GetContactsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x38be25f6,
     hash = NULL,
 
-    #' Initialize GetContactsRequest
+    #' @description Initialize GetContactsRequest
     #'
     #' @param hash numeric/integer (64-bit)
     initialize = function(hash) {
@@ -1214,7 +1214,7 @@ GetLocatedRequest <- R6::R6Class(
     background = NULL,
     self_expires = NULL,
 
-    #' Initialize GetLocatedRequest
+    #' @description Initialize GetLocatedRequest
     #'
     #' @param geo_point input geo point object (TL)
     #' @param background logical or NULL
@@ -1304,7 +1304,7 @@ GetSavedRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x82f1e39f,
     SUBCLASS_OF_ID = 0x975dbef,
 
-    #' Initialize GetSavedRequest
+    #' @description Initialize GetSavedRequest
     initialize = function() {
       invisible(NULL)
     },
@@ -1358,7 +1358,7 @@ GetSponsoredPeersRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xb45d5ccc,
     q = NULL,
 
-    #' Initialize GetSponsoredPeersRequest
+    #' @description Initialize GetSponsoredPeersRequest
     #'
     #' @param q character query string
     initialize = function(q) {
@@ -1442,7 +1442,7 @@ GetStatusesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xc4a353ee,
     SUBCLASS_OF_ID = 0xdf815c90,
 
-    #' Initialize GetStatusesRequest
+    #' @description Initialize GetStatusesRequest
     initialize = function() {
       invisible(NULL)
     },
@@ -1519,7 +1519,7 @@ GetTopPeersRequest <- R6::R6Class(
     channels = NULL,
     bots_app = NULL,
 
-    #' Initialize GetTopPeersRequest
+    #' @description Initialize GetTopPeersRequest
     #'
     #' @param offset integer
     #' @param limit integer
@@ -1687,7 +1687,7 @@ ImportContactTokenRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x2da17977,
     token = NULL,
 
-    #' Initialize ImportContactTokenRequest
+    #' @description Initialize ImportContactTokenRequest
     #'
     #' @param token character token string
     initialize = function(token) {
@@ -1785,7 +1785,7 @@ ImportContactsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x8172ad93,
     contacts = NULL,
 
-    #' Initialize ImportContactsRequest
+    #' @description Initialize ImportContactsRequest
     #'
     #' @param contacts list of input_contact objects or raw representations
     initialize = function(contacts) {
@@ -1891,7 +1891,7 @@ ResetSavedRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x879537f1,
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' Initialize ResetSavedRequest
+    #' @description Initialize ResetSavedRequest
     #'
     #' No parameters.
     initialize = function() {
@@ -1952,7 +1952,7 @@ ResetTopPeerRatingRequest <- R6::R6Class(
     category = NULL,
     peer = NULL,
 
-    #' Initialize ResetTopPeerRatingRequest
+    #' @description Initialize ResetTopPeerRatingRequest
     #'
     #' @param category TL object for TopPeerCategory
     #' @param peer input_peer object or identifier
@@ -2052,7 +2052,7 @@ ResolvePhoneRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xf065b3a8,
     phone = NULL,
 
-    #' Initialize ResolvePhoneRequest
+    #' @description Initialize ResolvePhoneRequest
     #'
     #' @param phone character phone string
     initialize = function(phone) {
@@ -2152,7 +2152,7 @@ ResolveUsernameRequest <- R6::R6Class(
     username = NULL,
     referer = NULL,
 
-    #' Initialize ResolveUsernameRequest
+    #' @description Initialize ResolveUsernameRequest
     #'
     #' @param username character username
     #' @param referer character or NULL referer
@@ -2264,7 +2264,7 @@ SetBlockedRequest <- R6::R6Class(
     limit = NULL,
     my_stories_from = NULL,
 
-    #' Initialize SetBlockedRequest
+    #' @description Initialize SetBlockedRequest
     #'
     #' @param id list of input peer objects or raw representations
     #' @param limit integer
@@ -2412,7 +2412,7 @@ ToggleTopPeersRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xf5b399ac,
     enabled = NULL,
 
-    #' Initialize ToggleTopPeersRequest
+    #' @description Initialize ToggleTopPeersRequest
     #'
     #' @param enabled logical
     initialize = function(enabled) {
@@ -2479,7 +2479,7 @@ UnblockRequest <- R6::R6Class(
     id = NULL,
     my_stories_from = NULL,
 
-    #' Initialize UnblockRequest
+    #' @description Initialize UnblockRequest
     #'
     #' @param id input peer (object or identifier)
     #' @param my_stories_from logical or NULL

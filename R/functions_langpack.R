@@ -5,21 +5,30 @@
 #' @field lang_pack character Language pack identifier
 #' @field lang_code character Language code
 #' @field from_version integer Version to get difference from
-#' @return A GetDifferenceRequest R6 object
 #' @examples
 #' # req <- GetDifferenceRequest$new("default", "en", 123)
+#' @export
 GetDifferenceRequest <- R6::R6Class(
   "GetDifferenceRequest",
   inherit = TLRequest,
   public = list(
+
     lang_pack = NULL,
     lang_code = NULL,
     from_version = NULL,
+
+    #' @description Initialize GetDifferenceRequest
+    #' @param lang_pack character Language pack identifier
+    #' @param lang_code character Language code
+    #' @param from_version integer Version to get difference from
     initialize = function(lang_pack, lang_code, from_version) {
       self$lang_pack <- lang_pack
       self$lang_code <- lang_code
       self$from_version <- as.integer(from_version)
     },
+
+    #' @description Convert to a serializable R list (similar to to_dict)
+    #' @return list
     to_dict = function() {
       list(
         "_" = "GetDifferenceRequest",
@@ -28,6 +37,9 @@ GetDifferenceRequest <- R6::R6Class(
         from_version = self$from_version
       )
     },
+
+    #' @description Serialize to raw bytes
+    #' @return raw vector
     bytes = function() {
       version_raw <- writeBin(as.integer(self$from_version), raw(), size = 4, endian = "little")
       c(
@@ -37,6 +49,10 @@ GetDifferenceRequest <- R6::R6Class(
         version_raw
       )
     },
+
+    #' @description Create an instance from a reader
+    #' @param reader A reader object with methods tgread_string() and read_int()
+    #' @return A GetDifferenceRequest object
     from_reader = function(reader) {
       lang_pack <- reader$tgread_string()
       lang_code <- reader$tgread_string()
@@ -53,22 +69,32 @@ GetDifferenceRequest <- R6::R6Class(
 #'
 #' @field lang_pack character Language pack identifier
 #' @field lang_code character Language code
-#' @return A GetLangPackRequest R6 object
 #' @examples
 #' # req <- GetLangPackRequest$new("default", "en")
+#' @export
 GetLangPackRequest <- R6::R6Class(
   "GetLangPackRequest",
   inherit = TLRequest,
   public = list(
     lang_pack = NULL,
     lang_code = NULL,
+
+    #' @description Initialize GetLangPackRequest
+    #' @param lang_pack character Language pack identifier
+    #' @param lang_code character Language code
     initialize = function(lang_pack, lang_code) {
       self$lang_pack <- lang_pack
       self$lang_code <- lang_code
     },
+
+    #' @description Convert to a serializable R list (similar to to_dict)
+    #' @return list
     to_dict = function() {
       list("_" = "GetLangPackRequest", lang_pack = self$lang_pack, lang_code = self$lang_code)
     },
+
+    #' @description Serialize to raw bytes
+    #' @return raw vector
     bytes = function() {
       c(
         as.raw(c(0x0a, 0x33, 0xf2, 0xf2)),
@@ -76,6 +102,10 @@ GetLangPackRequest <- R6::R6Class(
         self$serialize_bytes(self$lang_code)
       )
     },
+
+    #' @description Create an instance from a reader
+    #' @param reader A reader object with method tgread_string()
+    #' @return A GetLangPackRequest object
     from_reader = function(reader) {
       lang_pack <- reader$tgread_string()
       lang_code <- reader$tgread_string()
@@ -90,22 +120,33 @@ GetLangPackRequest <- R6::R6Class(
 #'
 #' @field lang_pack character Language pack identifier
 #' @field lang_code character Language code
-#' @return A GetLanguageRequest R6 object
 #' @examples
 #' # req <- GetLanguageRequest$new("default", "en")
+#' @export
 GetLanguageRequest <- R6::R6Class(
   "GetLanguageRequest",
   inherit = TLRequest,
   public = list(
+
     lang_pack = NULL,
     lang_code = NULL,
+
+    #' @description Initialize GetLanguageRequest
+    #' @param lang_pack character Language pack identifier
+    #' @param lang_code character Language code
     initialize = function(lang_pack, lang_code) {
       self$lang_pack <- lang_pack
       self$lang_code <- lang_code
     },
+
+    #' @description Convert to a serializable R list (similar to to_dict)
+    #' @return list
     to_dict = function() {
       list("_" = "GetLanguageRequest", lang_pack = self$lang_pack, lang_code = self$lang_code)
     },
+
+    #' @description Serialize to raw bytes
+    #' @return raw vector
     bytes = function() {
       c(
         as.raw(c(0x02, 0x65, 0x59, 0x6a)),
@@ -113,6 +154,10 @@ GetLanguageRequest <- R6::R6Class(
         self$serialize_bytes(self$lang_code)
       )
     },
+
+    #' @description Create an instance from a reader
+    #' @param reader A reader object with method tgread_string()
+    #' @return A GetLanguageRequest object
     from_reader = function(reader) {
       lang_pack <- reader$tgread_string()
       lang_code <- reader$tgread_string()
@@ -127,26 +172,40 @@ GetLanguageRequest <- R6::R6Class(
 #' TLRequest: GetLanguagesRequest
 #'
 #' @field lang_pack character Language pack identifier
-#' @return A GetLanguagesRequest R6 object
 #' @examples
 #' # req <- GetLanguagesRequest$new("default")
+#' @export
 GetLanguagesRequest <- R6::R6Class(
   "GetLanguagesRequest",
   inherit = TLRequest,
   public = list(
+
     lang_pack = NULL,
+
+    #' @description Initialize GetLanguagesRequest
+    #' @param lang_pack character Language pack identifier
     initialize = function(lang_pack) {
       self$lang_pack <- lang_pack
     },
+
+    #' @description Convert to a serializable R list (similar to to_dict)
+    #' @return list
     to_dict = function() {
       list("_" = "GetLanguagesRequest", lang_pack = self$lang_pack)
     },
+
+    #' @description Serialize to raw bytes
+    #' @return raw vector
     bytes = function() {
       c(
         as.raw(c(0x8f, 0x97, 0xc6, 0x42)),
         self$serialize_bytes(self$lang_pack)
       )
     },
+
+    #' @description Create an instance from a reader
+    #' @param reader A reader object with method tgread_string()
+    #' @return A GetLanguagesRequest object
     from_reader = function(reader) {
       lang_pack <- reader$tgread_string()
       GetLanguagesRequest$new(lang_pack = lang_pack)
@@ -161,21 +220,30 @@ GetLanguagesRequest <- R6::R6Class(
 #' @field lang_pack character Language pack identifier
 #' @field lang_code character Language code
 #' @field keys character Vector of keys to request
-#' @return A GetStringsRequest R6 object
 #' @examples
 #' # req <- GetStringsRequest$new("default", "en", c("hello", "bye"))
+#' @export
 GetStringsRequest <- R6::R6Class(
   "GetStringsRequest",
   inherit = TLRequest,
   public = list(
+
     lang_pack = NULL,
     lang_code = NULL,
     keys = NULL,
+
+    #' @description Initialize GetStringsRequest
+    #' @param lang_pack character Language pack identifier
+    #' @param lang_code character Language code
+    #' @param keys character Vector of keys to request
     initialize = function(lang_pack, lang_code, keys) {
       self$lang_pack <- lang_pack
       self$lang_code <- lang_code
       self$keys <- keys
     },
+
+    #' @description Convert to a serializable R list (similar to to_dict)
+    #' @return list
     to_dict = function() {
       list(
         "_" = "GetStringsRequest",
@@ -184,6 +252,9 @@ GetStringsRequest <- R6::R6Class(
         keys = if (is.null(self$keys)) character() else as.character(self$keys)
       )
     },
+
+    #' @description Serialize to raw bytes
+    #' @return raw vector
     bytes = function() {
       # vector constructor (little-endian): 0x1cb5c415 -> bytes 15 c4 b5 1c
       len_raw <- writeBin(as.integer(length(self$keys)), raw(), size = 4, endian = "little")
@@ -197,6 +268,10 @@ GetStringsRequest <- R6::R6Class(
         keys_raw
       )
     },
+
+    #' @description Create an instance from a reader
+    #' @param reader A reader object with methods tgread_string() and read_int()
+    #' @return A GetStringsRequest object
     from_reader = function(reader) {
       lang_pack <- reader$tgread_string()
       lang_code <- reader$tgread_string()

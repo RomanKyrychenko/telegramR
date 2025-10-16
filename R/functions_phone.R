@@ -14,7 +14,7 @@ AcceptCallRequest <- R6::R6Class(
     g_b = NULL,
     protocol = NULL,
 
-    #' Initialize an AcceptCallRequest
+    #' @description Initialize an AcceptCallRequest
     #'
     #' @param peer Input phone call object.
     #' @param g_b Raw bytes.
@@ -27,7 +27,7 @@ AcceptCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -39,7 +39,7 @@ AcceptCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -85,7 +85,6 @@ AcceptCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object(), tgread_bytes() methods.
 #' @return AcceptCallRequest instance
-#' @export
 AcceptCallRequest$set("public", "from_reader", function(reader) {
   peer <- reader$tgread_object()
   gb <- reader$tgread_bytes()
@@ -96,7 +95,7 @@ AcceptCallRequest$set("public", "from_reader", function(reader) {
 
 #' CheckGroupCallRequest R6 class
 #'
-#' Represents CheckGroupCallRequest TLRequest.
+#' @description Represents CheckGroupCallRequest TLRequest.
 #'
 #' @field call The input group call object (expected to implement bytes()).
 #' @field sources List of integers.
@@ -108,7 +107,7 @@ CheckGroupCallRequest <- R6::R6Class(
     call = NULL,
     sources = NULL,
 
-    #' Initialize a CheckGroupCallRequest
+    #' @description Initialize a CheckGroupCallRequest
     #'
     #' @param call Input group call object.
     #' @param sources List of integers.
@@ -119,7 +118,7 @@ CheckGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -131,7 +130,7 @@ CheckGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -142,7 +141,7 @@ CheckGroupCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -181,7 +180,6 @@ CheckGroupCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object(), read_int() methods.
 #' @return CheckGroupCallRequest instance
-#' @export
 CheckGroupCallRequest$set("public", "from_reader", function(reader) {
   call <- reader$tgread_object()
   reader$read_int() # skip vector constructor id
@@ -212,7 +210,7 @@ ConfirmCallRequest <- R6::R6Class(
     key_fingerprint = NULL,
     protocol = NULL,
 
-    #' Initialize a ConfirmCallRequest
+    #' @description Initialize a ConfirmCallRequest
     #'
     #' @param peer Input phone call object.
     #' @param g_a Raw bytes.
@@ -227,7 +225,7 @@ ConfirmCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -240,7 +238,7 @@ ConfirmCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -288,7 +286,6 @@ ConfirmCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object(), tgread_bytes(), read_long() methods.
 #' @return ConfirmCallRequest instance
-#' @export
 ConfirmCallRequest$set("public", "from_reader", function(reader) {
   peer <- reader$tgread_object()
   ga <- reader$tgread_bytes()
@@ -322,7 +319,7 @@ CreateConferenceCallRequest <- R6::R6Class(
     block = NULL,
     params = NULL,
 
-    #' Initialize a CreateConferenceCallRequest
+    #' @description Initialize a CreateConferenceCallRequest
     #'
     #' @param muted Logical or NULL.
     #' @param video_stopped Logical or NULL.
@@ -348,7 +345,7 @@ CreateConferenceCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -364,7 +361,7 @@ CreateConferenceCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation.
     #' @return raw vector (bytes)
@@ -441,7 +438,6 @@ CreateConferenceCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing read_int(), read_large_int(), tgread_bytes(), tgread_object() methods.
 #' @return CreateConferenceCallRequest instance
-#' @export
 CreateConferenceCallRequest$set("public", "from_reader", function(reader) {
   flags <- reader$read_int()
   muted_val <- bitwAnd(flags, 1L) != 0L
@@ -480,7 +476,7 @@ CreateGroupCallRequest <- R6::R6Class(
     title = NULL,
     schedule_date = NULL,
 
-    #' Initialize a CreateGroupCallRequest
+    #' @description Initialize a CreateGroupCallRequest
     #'
     #' @param peer Input peer object.
     #' @param rtmp_stream Logical or NULL.
@@ -502,7 +498,7 @@ CreateGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -514,7 +510,7 @@ CreateGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -528,7 +524,7 @@ CreateGroupCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -578,7 +574,6 @@ CreateGroupCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing read_int(), tgread_object(), tgread_string(), tgread_date() methods.
 #' @return CreateGroupCallRequest instance
-#' @export
 CreateGroupCallRequest$set("public", "from_reader", function(reader) {
   flags <- reader$read_int()
   rtmp_stream_val <- bitwAnd(flags, 4L) != 0L
@@ -609,7 +604,7 @@ DeclineConferenceCallInviteRequest <- R6::R6Class(
   public = list(
     msg_id = NULL,
 
-    #' Initialize a DeclineConferenceCallInviteRequest
+    #' @description Initialize a DeclineConferenceCallInviteRequest
     #'
     #' @param msg_id Integer message id.
     #' @return invisible self
@@ -618,7 +613,7 @@ DeclineConferenceCallInviteRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -628,7 +623,7 @@ DeclineConferenceCallInviteRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation.
     #' @return raw vector (bytes)
@@ -647,7 +642,6 @@ DeclineConferenceCallInviteRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing read_int() method.
 #' @return DeclineConferenceCallInviteRequest instance
-#' @export
 DeclineConferenceCallInviteRequest$set("public", "from_reader", function(reader) {
   msg_id_val <- reader$read_int()
   DeclineConferenceCallInviteRequest$new(msg_id = msg_id_val)
@@ -674,7 +668,7 @@ DeleteConferenceCallParticipantsRequest <- R6::R6Class(
     only_left = NULL,
     kick = NULL,
 
-    #' Initialize a DeleteConferenceCallParticipantsRequest
+    #' @description Initialize a DeleteConferenceCallParticipantsRequest
     #'
     #' @param call Input group call object.
     #' @param ids List of integers.
@@ -691,7 +685,7 @@ DeleteConferenceCallParticipantsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -703,7 +697,7 @@ DeleteConferenceCallParticipantsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -717,7 +711,7 @@ DeleteConferenceCallParticipantsRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -774,7 +768,6 @@ DeleteConferenceCallParticipantsRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing read_int(), tgread_object(), tgread_bytes() methods.
 #' @return DeleteConferenceCallParticipantsRequest instance
-#' @export
 DeleteConferenceCallParticipantsRequest$set("public", "from_reader", function(reader) {
   flags <- reader$read_int()
   only_left_val <- bitwAnd(flags, 1L) != 0L
@@ -811,7 +804,7 @@ DiscardCallRequest <- R6::R6Class(
     connection_id = NULL,
     video = NULL,
 
-    #' Initialize a DiscardCallRequest
+    #' @description Initialize a DiscardCallRequest
     #'
     #' @param peer Input phone call object.
     #' @param duration Integer duration.
@@ -828,7 +821,7 @@ DiscardCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -842,7 +835,7 @@ DiscardCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -883,7 +876,6 @@ DiscardCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing read_int(), tgread_object(), tgread_bool() methods.
 #' @return DiscardCallRequest instance
-#' @export
 DiscardCallRequest$set("public", "from_reader", function(reader) {
   flags <- reader$read_int()
   video_val <- bitwAnd(flags, 1L) != 0L
@@ -907,7 +899,7 @@ DiscardGroupCallRequest <- R6::R6Class(
   public = list(
     call = NULL,
 
-    #' Initialize a DiscardGroupCallRequest
+    #' @description Initialize a DiscardGroupCallRequest
     #'
     #' @param call Input group call object.
     #' @return invisible self
@@ -916,7 +908,7 @@ DiscardGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -928,7 +920,7 @@ DiscardGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -938,7 +930,7 @@ DiscardGroupCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -964,7 +956,6 @@ DiscardGroupCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() method.
 #' @return DiscardGroupCallRequest instance
-#' @export
 DiscardGroupCallRequest$set("public", "from_reader", function(reader) {
   call_obj <- reader$tgread_object()
   DiscardGroupCallRequest$new(call = call_obj)
@@ -998,7 +989,7 @@ EditGroupCallParticipantRequest <- R6::R6Class(
     video_paused = NULL,
     presentation_paused = NULL,
 
-    #' Initialize an EditGroupCallParticipantRequest
+    #' @description Initialize an EditGroupCallParticipantRequest
     #'
     #' @param call Input group call object.
     #' @param participant Input peer object.
@@ -1021,7 +1012,7 @@ EditGroupCallParticipantRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -1034,7 +1025,7 @@ EditGroupCallParticipantRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -1051,7 +1042,7 @@ EditGroupCallParticipantRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -1123,7 +1114,6 @@ EditGroupCallParticipantRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing read_int(), tgread_object(), tgread_bool() methods.
 #' @return EditGroupCallParticipantRequest instance
-#' @export
 EditGroupCallParticipantRequest$set("public", "from_reader", function(reader) {
   flags <- reader$read_int()
   call_obj <- reader$tgread_object()
@@ -1152,7 +1142,7 @@ EditGroupCallTitleRequest <- R6::R6Class(
     call = NULL,
     title = NULL,
 
-    #' Initialize an EditGroupCallTitleRequest
+    #' @description Initialize an EditGroupCallTitleRequest
     #'
     #' @param call Input group call object.
     #' @param title String title.
@@ -1163,7 +1153,7 @@ EditGroupCallTitleRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -1175,7 +1165,7 @@ EditGroupCallTitleRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -1186,7 +1176,7 @@ EditGroupCallTitleRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -1218,7 +1208,6 @@ EditGroupCallTitleRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() and tgread_string() methods.
 #' @return EditGroupCallTitleRequest instance
-#' @export
 EditGroupCallTitleRequest$set("public", "from_reader", function(reader) {
   call_obj <- reader$tgread_object()
   title_val <- reader$tgread_string()
@@ -1240,7 +1229,7 @@ ExportGroupCallInviteRequest <- R6::R6Class(
     call = NULL,
     can_self_unmute = NULL,
 
-    #' Initialize an ExportGroupCallInviteRequest
+    #' @description Initialize an ExportGroupCallInviteRequest
     #'
     #' @param call Input group call object.
     #' @param can_self_unmute Logical or NULL.
@@ -1251,7 +1240,7 @@ ExportGroupCallInviteRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -1263,7 +1252,7 @@ ExportGroupCallInviteRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -1274,7 +1263,7 @@ ExportGroupCallInviteRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -1304,7 +1293,6 @@ ExportGroupCallInviteRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing read_int() and tgread_object() methods.
 #' @return ExportGroupCallInviteRequest instance
-#' @export
 ExportGroupCallInviteRequest$set("public", "from_reader", function(reader) {
   flags <- reader$read_int()
   can_self_unmute_val <- bitwAnd(flags, 1L) != 0L
@@ -1344,7 +1332,6 @@ GetCallConfigRequest <- R6::R6Class(
 #'
 #' @param reader An object (not used here).
 #' @return GetCallConfigRequest instance
-#' @export
 GetCallConfigRequest$set("public", "from_reader", function(reader) {
   GetCallConfigRequest$new()
 })
@@ -1364,7 +1351,7 @@ GetGroupCallRequest <- R6::R6Class(
     call = NULL,
     limit = NULL,
 
-    #' Initialize a GetGroupCallRequest
+    #' @description Initialize a GetGroupCallRequest
     #'
     #' @param call Input group call object.
     #' @param limit Integer limit.
@@ -1375,7 +1362,7 @@ GetGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -1387,7 +1374,7 @@ GetGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -1398,7 +1385,7 @@ GetGroupCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -1426,7 +1413,6 @@ GetGroupCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() and read_int() methods.
 #' @return GetGroupCallRequest instance
-#' @export
 GetGroupCallRequest$set("public", "from_reader", function(reader) {
   call_obj <- reader$tgread_object()
   limit_val <- reader$read_int()
@@ -1452,7 +1438,7 @@ GetGroupCallChainBlocksRequest <- R6::R6Class(
     offset = NULL,
     limit = NULL,
 
-    #' Initialize a GetGroupCallChainBlocksRequest
+    #' @description Initialize a GetGroupCallChainBlocksRequest
     #'
     #' @param call Input group call object.
     #' @param sub_chain_id Integer sub chain id.
@@ -1467,7 +1453,7 @@ GetGroupCallChainBlocksRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -1479,7 +1465,7 @@ GetGroupCallChainBlocksRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -1492,7 +1478,7 @@ GetGroupCallChainBlocksRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -1522,7 +1508,6 @@ GetGroupCallChainBlocksRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() and read_int() methods.
 #' @return GetGroupCallChainBlocksRequest instance
-#' @export
 GetGroupCallChainBlocksRequest$set("public", "from_reader", function(reader) {
   call_obj <- reader$tgread_object()
   sub_chain_id_val <- reader$read_int()
@@ -1544,7 +1529,7 @@ GetGroupCallJoinAsRequest <- R6::R6Class(
   public = list(
     peer = NULL,
 
-    #' Initialize a GetGroupCallJoinAsRequest
+    #' @description Initialize a GetGroupCallJoinAsRequest
     #'
     #' @param peer Input peer object.
     #' @return invisible self
@@ -1553,7 +1538,7 @@ GetGroupCallJoinAsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -1565,7 +1550,7 @@ GetGroupCallJoinAsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -1575,7 +1560,7 @@ GetGroupCallJoinAsRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -1601,7 +1586,6 @@ GetGroupCallJoinAsRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() method.
 #' @return GetGroupCallJoinAsRequest instance
-#' @export
 GetGroupCallJoinAsRequest$set("public", "from_reader", function(reader) {
   peer_obj <- reader$tgread_object()
   GetGroupCallJoinAsRequest$new(peer = peer_obj)
@@ -1620,7 +1604,7 @@ GetGroupCallStreamChannelsRequest <- R6::R6Class(
   public = list(
     call = NULL,
 
-    #' Initialize a GetGroupCallStreamChannelsRequest
+    #' @description Initialize a GetGroupCallStreamChannelsRequest
     #'
     #' @param call Input group call object.
     #' @return invisible self
@@ -1629,7 +1613,7 @@ GetGroupCallStreamChannelsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -1641,7 +1625,7 @@ GetGroupCallStreamChannelsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -1651,7 +1635,7 @@ GetGroupCallStreamChannelsRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -1677,7 +1661,6 @@ GetGroupCallStreamChannelsRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() method.
 #' @return GetGroupCallStreamChannelsRequest instance
-#' @export
 GetGroupCallStreamChannelsRequest$set("public", "from_reader", function(reader) {
   call_obj <- reader$tgread_object()
   GetGroupCallStreamChannelsRequest$new(call = call_obj)
@@ -1698,7 +1681,7 @@ GetGroupCallStreamRtmpUrlRequest <- R6::R6Class(
     peer = NULL,
     revoke = NULL,
 
-    #' Initialize a GetGroupCallStreamRtmpUrlRequest
+    #' @description Initialize a GetGroupCallStreamRtmpUrlRequest
     #'
     #' @param peer Input peer object.
     #' @param revoke Logical.
@@ -1709,7 +1692,7 @@ GetGroupCallStreamRtmpUrlRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -1721,7 +1704,7 @@ GetGroupCallStreamRtmpUrlRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -1732,7 +1715,7 @@ GetGroupCallStreamRtmpUrlRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -1760,7 +1743,6 @@ GetGroupCallStreamRtmpUrlRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() and tgread_bool() methods.
 #' @return GetGroupCallStreamRtmpUrlRequest instance
-#' @export
 GetGroupCallStreamRtmpUrlRequest$set("public", "from_reader", function(reader) {
   peer_obj <- reader$tgread_object()
   revoke_val <- reader$tgread_bool()
@@ -1788,7 +1770,7 @@ GetGroupParticipantsRequest <- R6::R6Class(
     offset = NULL,
     limit = NULL,
 
-    #' Initialize a GetGroupParticipantsRequest
+    #' @description Initialize a GetGroupParticipantsRequest
     #'
     #' @param call Input group call object.
     #' @param ids List of input peer objects.
@@ -1805,7 +1787,7 @@ GetGroupParticipantsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -1824,7 +1806,7 @@ GetGroupParticipantsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -1838,7 +1820,7 @@ GetGroupParticipantsRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -1901,7 +1883,6 @@ GetGroupParticipantsRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object(), read_int(), tgread_string() methods.
 #' @return GetGroupParticipantsRequest instance
-#' @export
 GetGroupParticipantsRequest$set("public", "from_reader", function(reader) {
   call_obj <- reader$tgread_object()
   reader$read_int() # skip vector constructor id
@@ -1938,7 +1919,7 @@ InviteConferenceCallParticipantRequest <- R6::R6Class(
     user_id = NULL,
     video = NULL,
 
-    #' Initialize an InviteConferenceCallParticipantRequest
+    #' @description Initialize an InviteConferenceCallParticipantRequest
     #'
     #' @param call Input group call object.
     #' @param user_id Input user object.
@@ -1951,7 +1932,7 @@ InviteConferenceCallParticipantRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -1964,7 +1945,7 @@ InviteConferenceCallParticipantRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -1976,7 +1957,7 @@ InviteConferenceCallParticipantRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -2013,7 +1994,6 @@ InviteConferenceCallParticipantRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing read_int(), tgread_object() methods.
 #' @return InviteConferenceCallParticipantRequest instance
-#' @export
 InviteConferenceCallParticipantRequest$set("public", "from_reader", function(reader) {
   flags_val <- reader$read_int()
   video_val <- bitwAnd(flags_val, 1L) != 0L
@@ -2037,7 +2017,7 @@ InviteToGroupCallRequest <- R6::R6Class(
     call = NULL,
     users = NULL,
 
-    #' Initialize an InviteToGroupCallRequest
+    #' @description Initialize an InviteToGroupCallRequest
     #'
     #' @param call Input group call object.
     #' @param users List of input user objects.
@@ -2048,7 +2028,7 @@ InviteToGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -2067,7 +2047,7 @@ InviteToGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -2078,7 +2058,7 @@ InviteToGroupCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -2122,7 +2102,6 @@ InviteToGroupCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object(), read_int() methods.
 #' @return InviteToGroupCallRequest instance
-#' @export
 InviteToGroupCallRequest$set("public", "from_reader", function(reader) {
   call_obj <- reader$tgread_object()
   reader$read_int() # skip vector constructor id
@@ -2161,7 +2140,7 @@ JoinGroupCallRequest <- R6::R6Class(
     public_key = NULL,
     block = NULL,
 
-    #' Initialize a JoinGroupCallRequest
+    #' @description Initialize a JoinGroupCallRequest
     #'
     #' @param call Input group call object.
     #' @param join_as Input peer object to join as.
@@ -2184,7 +2163,7 @@ JoinGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -2197,7 +2176,7 @@ JoinGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -2214,7 +2193,7 @@ JoinGroupCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -2314,7 +2293,6 @@ JoinGroupCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing read_int(), tgread_object(), tgread_string(), read_large_int(), tgread_bytes() methods.
 #' @return JoinGroupCallRequest instance
-#' @export
 JoinGroupCallRequest$set("public", "from_reader", function(reader) {
   flags_val <- reader$read_int()
   muted_val <- bitwAnd(flags_val, 1L) != 0L
@@ -2359,7 +2337,7 @@ JoinGroupCallPresentationRequest <- R6::R6Class(
     call = NULL,
     params = NULL,
 
-    #' Initialize a JoinGroupCallPresentationRequest
+    #' @description Initialize a JoinGroupCallPresentationRequest
     #'
     #' @param call Input group call object.
     #' @param params DataJSON-like object.
@@ -2370,7 +2348,7 @@ JoinGroupCallPresentationRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -2382,7 +2360,7 @@ JoinGroupCallPresentationRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -2393,7 +2371,7 @@ JoinGroupCallPresentationRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -2426,7 +2404,6 @@ JoinGroupCallPresentationRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() method.
 #' @return JoinGroupCallPresentationRequest instance
-#' @export
 JoinGroupCallPresentationRequest$set("public", "from_reader", function(reader) {
   call_obj <- reader$tgread_object()
   params_obj <- reader$tgread_object()
@@ -2448,7 +2425,7 @@ LeaveGroupCallRequest <- R6::R6Class(
     call = NULL,
     source = NULL,
 
-    #' Initialize a LeaveGroupCallRequest
+    #' @description Initialize a LeaveGroupCallRequest
     #'
     #' @param call Input group call object.
     #' @param source Integer source identifier.
@@ -2459,7 +2436,7 @@ LeaveGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -2471,7 +2448,7 @@ LeaveGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -2482,7 +2459,7 @@ LeaveGroupCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes `call$bytes()` exists.
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -2510,7 +2487,6 @@ LeaveGroupCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() and read_int() methods.
 #' @return LeaveGroupCallRequest instance
-#' @export
 LeaveGroupCallRequest$set("public", "from_reader", function(reader) {
   call_obj <- reader$tgread_object()
   source_val <- reader$read_int()
@@ -2530,7 +2506,7 @@ LeaveGroupCallPresentationRequest <- R6::R6Class(
   public = list(
     call = NULL,
 
-    #' Initialize a LeaveGroupCallPresentationRequest
+    #' @description Initialize a LeaveGroupCallPresentationRequest
     #'
     #' @param call Input group call object.
     #' @return invisible self
@@ -2539,7 +2515,7 @@ LeaveGroupCallPresentationRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -2551,7 +2527,7 @@ LeaveGroupCallPresentationRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -2561,7 +2537,7 @@ LeaveGroupCallPresentationRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes `call$bytes()` exists.
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -2587,7 +2563,6 @@ LeaveGroupCallPresentationRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() method.
 #' @return LeaveGroupCallPresentationRequest instance
-#' @export
 LeaveGroupCallPresentationRequest$set("public", "from_reader", function(reader) {
   call_obj <- reader$tgread_object()
   LeaveGroupCallPresentationRequest$new(call = call_obj)
@@ -2606,7 +2581,7 @@ ReceivedCallRequest <- R6::R6Class(
   public = list(
     peer = NULL,
 
-    #' Initialize a ReceivedCallRequest
+    #' @description Initialize a ReceivedCallRequest
     #'
     #' @param peer Input phone call object.
     #' @return invisible self
@@ -2615,7 +2590,7 @@ ReceivedCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' No-op kept for API parity.
     #'
@@ -2626,7 +2601,7 @@ ReceivedCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -2636,7 +2611,7 @@ ReceivedCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes `peer$bytes()` exists.
     #' @return raw vector (bytes). If dependent object doesn't provide bytes(),
@@ -2663,7 +2638,6 @@ ReceivedCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() method.
 #' @return ReceivedCallRequest instance
-#' @export
 ReceivedCallRequest$set("public", "from_reader", function(reader) {
   peer_obj <- reader$tgread_object()
   ReceivedCallRequest$new(peer = peer_obj)
@@ -2690,7 +2664,7 @@ RequestCallRequest <- R6::R6Class(
     video = NULL,
     random_id = NULL,
 
-    #' Initialize a RequestCallRequest
+    #' @description Initialize a RequestCallRequest
     #'
     #' @param user_id Input user object.
     #' @param g_a_hash Raw vector or single string representing bytes.
@@ -2712,7 +2686,7 @@ RequestCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -2725,7 +2699,7 @@ RequestCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -2739,7 +2713,7 @@ RequestCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes `user_id$bytes()` and
     #' `protocol$bytes()` exist. `g_a_hash` may be raw vector or single string.
@@ -2793,7 +2767,6 @@ RequestCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing read_int(), tgread_object(), tgread_bytes(), tgread_object() methods.
 #' @return RequestCallRequest instance
-#' @export
 RequestCallRequest$set("public", "from_reader", function(reader) {
   flags_val <- reader$read_int()
   video_flag <- bitwAnd(flags_val, 1L) != 0L
@@ -2819,7 +2792,7 @@ SaveCallDebugRequest <- R6::R6Class(
     peer = NULL,
     debug = NULL,
 
-    #' Initialize a SaveCallDebugRequest
+    #' @description Initialize a SaveCallDebugRequest
     #'
     #' @param peer Input phone call object.
     #' @param debug DataJSON-like object.
@@ -2830,7 +2803,7 @@ SaveCallDebugRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' This is a no-op here but kept for parity with other requests.
     #'
@@ -2841,7 +2814,7 @@ SaveCallDebugRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -2852,7 +2825,7 @@ SaveCallDebugRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes `peer$bytes()` and
     #' `debug$bytes()` exist. Returns raw(0) and emits a warning if they don't.
@@ -2886,7 +2859,6 @@ SaveCallDebugRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() method.
 #' @return SaveCallDebugRequest instance
-#' @export
 SaveCallDebugRequest$set("public", "from_reader", function(reader) {
   peer_obj <- reader$tgread_object()
   debug_obj <- reader$tgread_object()
@@ -2908,7 +2880,7 @@ SaveCallLogRequest <- R6::R6Class(
     peer = NULL,
     file = NULL,
 
-    #' Initialize a SaveCallLogRequest
+    #' @description Initialize a SaveCallLogRequest
     #'
     #' @param peer Input phone call object.
     #' @param file Input file object.
@@ -2919,7 +2891,7 @@ SaveCallLogRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' This is a no-op here but kept for parity with other requests.
     #'
@@ -2930,7 +2902,7 @@ SaveCallLogRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -2941,7 +2913,7 @@ SaveCallLogRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes `peer$bytes()` and
     #' `file$bytes()` exist. Returns raw(0) and emits a warning if they don't.
@@ -2975,7 +2947,6 @@ SaveCallLogRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() method.
 #' @return SaveCallLogRequest instance
-#' @export
 SaveCallLogRequest$set("public", "from_reader", function(reader) {
   peer_obj <- reader$tgread_object()
   file_obj <- reader$tgread_object()
@@ -2997,7 +2968,7 @@ SaveDefaultGroupCallJoinAsRequest <- R6::R6Class(
     peer = NULL,
     join_as = NULL,
 
-    #' Initialize a SaveDefaultGroupCallJoinAsRequest
+    #' @description Initialize a SaveDefaultGroupCallJoinAsRequest
     #'
     #' @param peer Input peer object.
     #' @param join_as Input peer object to join as.
@@ -3008,7 +2979,7 @@ SaveDefaultGroupCallJoinAsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -3022,7 +2993,7 @@ SaveDefaultGroupCallJoinAsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -3033,7 +3004,7 @@ SaveDefaultGroupCallJoinAsRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes `peer$bytes()` and
     #' `join_as$bytes()` exist.
@@ -3068,7 +3039,6 @@ SaveDefaultGroupCallJoinAsRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() method.
 #' @return SaveDefaultGroupCallJoinAsRequest instance
-#' @export
 SaveDefaultGroupCallJoinAsRequest$set("public", "from_reader", function(reader) {
   peer_obj <- reader$tgread_object()
   join_as_obj <- reader$tgread_object()
@@ -3090,7 +3060,7 @@ SendConferenceCallBroadcastRequest <- R6::R6Class(
     call = NULL,
     block = NULL,
 
-    #' Initialize a SendConferenceCallBroadcastRequest
+    #' @description Initialize a SendConferenceCallBroadcastRequest
     #'
     #' @param call Input group call object.
     #' @param block Raw vector or single string representing bytes.
@@ -3101,7 +3071,7 @@ SendConferenceCallBroadcastRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -3113,7 +3083,7 @@ SendConferenceCallBroadcastRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -3124,7 +3094,7 @@ SendConferenceCallBroadcastRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes `call$bytes()` exists.
     #' @return raw vector (bytes). If dependent objects don't provide bytes(),
@@ -3164,7 +3134,6 @@ SendConferenceCallBroadcastRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() and tgread_bytes() methods.
 #' @return SendConferenceCallBroadcastRequest instance
-#' @export
 SendConferenceCallBroadcastRequest$set("public", "from_reader", function(reader) {
   call_obj <- reader$tgread_object()
   block_val <- reader$tgread_bytes()
@@ -3186,7 +3155,7 @@ SendSignalingDataRequest <- R6::R6Class(
     peer = NULL,
     data = NULL,
 
-    #' Initialize a SendSignalingDataRequest
+    #' @description Initialize a SendSignalingDataRequest
     #'
     #' @param peer Input phone call object.
     #' @param data Raw vector containing bytes to send.
@@ -3196,7 +3165,7 @@ SendSignalingDataRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -3207,7 +3176,7 @@ SendSignalingDataRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes `peer$bytes()` exists.
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -3247,7 +3216,6 @@ SendSignalingDataRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() and tgread_bytes() methods.
 #' @return SendSignalingDataRequest instance
-#' @export
 SendSignalingDataRequest$set("public", "from_reader", function(reader) {
   peer_obj <- reader$tgread_object()
   data_val <- reader$tgread_bytes()
@@ -3273,7 +3241,7 @@ SetCallRatingRequest <- R6::R6Class(
     comment = NULL,
     user_initiative = NULL,
 
-    #' Initialize a SetCallRatingRequest
+    #' @description Initialize a SetCallRatingRequest
     #'
     #' @param peer Input phone call object.
     #' @param rating Integer rating value.
@@ -3287,7 +3255,7 @@ SetCallRatingRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #' @param client Client object (passed to utils functions).
@@ -3297,7 +3265,7 @@ SetCallRatingRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -3310,7 +3278,7 @@ SetCallRatingRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes `peer$bytes()` exists.
     #' @return raw vector (bytes). If dependent objects don't provide bytes(), a warning is emitted and raw(0) is returned.
@@ -3350,7 +3318,6 @@ SetCallRatingRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing read_int(), tgread_object(), tgread_string() methods.
 #' @return SetCallRatingRequest instance
-#' @export
 SetCallRatingRequest$set("public", "from_reader", function(reader) {
   flags_val <- reader$read_int()
   user_initiative_flag <- bitwAnd(flags_val, 1L) != 0L
@@ -3373,7 +3340,7 @@ StartScheduledGroupCallRequest <- R6::R6Class(
   public = list(
     call = NULL,
 
-    #' Initialize a StartScheduledGroupCallRequest
+    #' @description Initialize a StartScheduledGroupCallRequest
     #'
     #' @param call Input group call (object).
     initialize = function(call) {
@@ -3381,7 +3348,7 @@ StartScheduledGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -3392,7 +3359,7 @@ StartScheduledGroupCallRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -3402,7 +3369,7 @@ StartScheduledGroupCallRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. Assumes `self$call$bytes()` exists.
     #' @return raw vector (bytes). If dependent objects don't provide bytes(),
@@ -3429,7 +3396,6 @@ StartScheduledGroupCallRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object() method.
 #' @return StartScheduledGroupCallRequest instance
-#' @export
 StartScheduledGroupCallRequest$set("public", "from_reader", function(reader) {
   call_obj <- reader$tgread_object()
   StartScheduledGroupCallRequest$new(call = call_obj)
@@ -3456,7 +3422,7 @@ ToggleGroupCallRecordRequest <- R6::R6Class(
     title = NULL,
     video_portrait = NULL,
 
-    #' Initialize a ToggleGroupCallRecordRequest
+    #' @description Initialize a ToggleGroupCallRecordRequest
     #'
     #' @param call Input group call (object).
     #' @param start Logical or NULL.
@@ -3472,7 +3438,7 @@ ToggleGroupCallRecordRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' @param client Client object (passed to utils functions).
     #' @param utils Utility object with get_input_group_call method.
@@ -3481,7 +3447,7 @@ ToggleGroupCallRecordRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -3495,7 +3461,7 @@ ToggleGroupCallRecordRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' This constructs the TL-serialized bytes. Assumes `call$bytes()` exists.
     #' @return raw vector
@@ -3549,7 +3515,6 @@ ToggleGroupCallRecordRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing read_int(), tgread_object(), tgread_string(), tgread_bool() methods.
 #' @return ToggleGroupCallRecordRequest instance
-#' @export
 ToggleGroupCallRecordRequest$set("public", "from_reader", function(reader) {
   flags_val <- reader$read_int()
   start_flag <- bitwAnd(flags_val, 1L) != 0L
@@ -3602,7 +3567,7 @@ ToggleGroupCallSettingsRequest <- R6::R6Class(
     reset_invite_hash = NULL,
     join_muted = NULL,
 
-    #' Initialize a ToggleGroupCallSettingsRequest
+    #' @description Initialize a ToggleGroupCallSettingsRequest
     #'
     #' @param call Input group call (object).
     #' @param reset_invite_hash Logical or NULL.
@@ -3614,7 +3579,7 @@ ToggleGroupCallSettingsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' Typically used to convert high-level entities into input objects.
     #'
@@ -3626,7 +3591,7 @@ ToggleGroupCallSettingsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -3638,7 +3603,7 @@ ToggleGroupCallSettingsRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' Builds the TL-serialized byte representation. This implementation
     #' assumes `self$call` exposes a bytes() method returning a raw vector.
@@ -3680,7 +3645,6 @@ ToggleGroupCallSettingsRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing read_int(), tgread_object(), tgread_bool() methods.
 #' @return ToggleGroupCallSettingsRequest instance
-#' @export
 ToggleGroupCallSettingsRequest$set("public", "from_reader", function(reader) {
   flags_val <- reader$read_int()
   reset_invite_hash <- as.logical(bitwAnd(flags_val, 2L))
@@ -3704,7 +3668,7 @@ ToggleGroupCallStartSubscriptionRequest <- R6::R6Class(
     call = NULL,
     subscribed = NULL,
 
-    #' Initialize a ToggleGroupCallStartSubscriptionRequest
+    #' @description Initialize a ToggleGroupCallStartSubscriptionRequest
     #'
     #' @param call Input group call (object).
     #' @param subscribed Logical (TRUE/FALSE).
@@ -3714,7 +3678,7 @@ ToggleGroupCallStartSubscriptionRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve input references
+    #' @description Resolve input references
     #'
     #' @param client Client object (passed to utils functions).
     #' @param utils Utility object with get_input_group_call method.
@@ -3723,7 +3687,7 @@ ToggleGroupCallStartSubscriptionRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert object to a list
+    #' @description Convert object to a list
     #'
     #' @return A named list representing the request.
     to_list = function() {
@@ -3734,7 +3698,7 @@ ToggleGroupCallStartSubscriptionRequest <- R6::R6Class(
       )
     },
 
-    #' Produce raw bytes for the request
+    #' @description Produce raw bytes for the request
     #'
     #' This constructs the TL-serialized bytes. Assumes `call$bytes()` exists.
     #' @return raw vector
@@ -3760,7 +3724,6 @@ ToggleGroupCallStartSubscriptionRequest <- R6::R6Class(
 #'
 #' @param reader An object exposing tgread_object(), tgread_bool() methods.
 #' @return ToggleGroupCallStartSubscriptionRequest instance
-#' @export
 ToggleGroupCallStartSubscriptionRequest$set("public", "from_reader", function(reader) {
   call_obj <- reader$tgread_object()
   subscribed <- reader$tgread_bool()

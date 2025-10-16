@@ -25,7 +25,7 @@ AddPreviewMediaRequest <- R6::R6Class(
     lang_code = NULL,
     media = NULL,
 
-    #' Initialize AddPreviewMediaRequest
+    #' @description Initialize AddPreviewMediaRequest
     #'
     #' @param bot TypeInputUser or identifier
     #' @param lang_code character
@@ -162,7 +162,7 @@ AllowSendMessageRequest <- R6::R6Class(
   public = list(
     bot = NULL,
 
-    #' Initialize AllowSendMessageRequest
+    #' @description Initialize AllowSendMessageRequest
     #'
     #' @param bot TypeInputUser or identifier
     initialize = function(bot) {
@@ -268,7 +268,7 @@ AnswerWebhookJSONQueryRequest <- R6::R6Class(
     query_id = NULL,
     data = NULL,
 
-    #' Initialize AnswerWebhookJSONQueryRequest
+    #' @description Initialize AnswerWebhookJSONQueryRequest
     #'
     #' @param query_id numeric/integer (64-bit)
     #' @param data TypeDataJSON or representation
@@ -373,7 +373,7 @@ CanSendMessageRequest <- R6::R6Class(
   public = list(
     bot = NULL,
 
-    #' Initialize CanSendMessageRequest
+    #' @description Initialize CanSendMessageRequest
     #'
     #' @param bot TypeInputUser or identifier
     initialize = function(bot) {
@@ -482,7 +482,7 @@ CheckDownloadFileParamsRequest <- R6::R6Class(
     file_name = NULL,
     url = NULL,
 
-    #' Initialize CheckDownloadFileParamsRequest
+    #' @description Initialize CheckDownloadFileParamsRequest
     #'
     #' @param bot TypeInputUser or identifier
     #' @param file_name character
@@ -602,7 +602,7 @@ DeletePreviewMediaRequest <- R6::R6Class(
     lang_code = NULL,
     media = NULL,
 
-    #' Initialize DeletePreviewMediaRequest
+    #' @description Initialize DeletePreviewMediaRequest
     #'
     #' @param bot TypeInputUser or identifier
     #' @param lang_code character
@@ -770,7 +770,7 @@ EditPreviewMediaRequest <- R6::R6Class(
     media = NULL,
     new_media = NULL,
 
-    #' Initialize EditPreviewMediaRequest
+    #' @description Initialize EditPreviewMediaRequest
     #'
     #' @param bot TypeInputUser or identifier
     #' @param lang_code character
@@ -968,7 +968,7 @@ GetBotCommandsRequest <- R6::R6Class(
     scope = NULL,
     lang_code = NULL,
 
-    #' Initialize GetBotCommandsRequest
+    #' @description Initialize GetBotCommandsRequest
     #'
     #' @param scope TypeBotCommandScope or object
     #' @param lang_code character
@@ -1068,7 +1068,7 @@ GetBotInfoRequest <- R6::R6Class(
     lang_code = NULL,
     bot = NULL,
 
-    #' Initialize GetBotInfoRequest
+    #' @description Initialize GetBotInfoRequest
     #'
     #' @param lang_code character
     #' @param bot TypeInputUser or identifier (optional)
@@ -1189,7 +1189,7 @@ GetBotMenuButtonRequest <- R6::R6Class(
   public = list(
     user_id = NULL,
 
-    #' Initialize GetBotMenuButtonRequest
+    #' @description Initialize GetBotMenuButtonRequest
     #'
     #' @param user_id TypeInputUser or identifier
     initialize = function(user_id) {
@@ -1295,7 +1295,7 @@ GetBotRecommendationsRequest <- R6::R6Class(
   public = list(
     bot = NULL,
 
-    #' Initialize GetBotRecommendationsRequest
+    #' @description Initialize GetBotRecommendationsRequest
     #'
     #' @param bot TypeInputUser or identifier
     initialize = function(bot) {
@@ -1402,7 +1402,7 @@ GetPopularAppBotsRequest <- R6::R6Class(
     offset = NULL,
     limit = NULL,
 
-    #' Initialize GetPopularAppBotsRequest
+    #' @description Initialize GetPopularAppBotsRequest
     #'
     #' @param offset character offset
     #' @param limit integer
@@ -1494,7 +1494,7 @@ GetPreviewInfoRequest <- R6::R6Class(
     bot = NULL,
     lang_code = NULL,
 
-    #' Initialize GetPreviewInfoRequest
+    #' @description Initialize GetPreviewInfoRequest
     #'
     #' @param bot TypeInputUser or identifier
     #' @param lang_code character
@@ -1606,7 +1606,7 @@ GetPreviewMediasRequest <- R6::R6Class(
   public = list(
     bot = NULL,
 
-    #' Initialize GetPreviewMediasRequest
+    #' @description Initialize GetPreviewMediasRequest
     #'
     #' @param bot TypeInputUser or identifier
     initialize = function(bot) {
@@ -1715,7 +1715,7 @@ InvokeWebViewCustomMethodRequest <- R6::R6Class(
     custom_method = NULL,
     params = NULL,
 
-    #' Initialize InvokeWebViewCustomMethodRequest
+    #' @description Initialize InvokeWebViewCustomMethodRequest
     #'
     #' @param bot TypeInputUser or identifier
     #' @param custom_method character
@@ -1852,7 +1852,7 @@ ReorderPreviewMediasRequest <- R6::R6Class(
     lang_code = NULL,
     order = NULL,
 
-    #' Initialize ReorderPreviewMediasRequest
+    #' @description Initialize ReorderPreviewMediasRequest
     #'
     #' @param bot TypeInputUser or identifier
     #' @param lang_code character
@@ -2134,7 +2134,7 @@ ResetBotCommandsRequest <- R6::R6Class(
     scope = NULL,
     lang_code = NULL,
 
-    #' Initialize ResetBotCommandsRequest
+    #' @description Initialize ResetBotCommandsRequest
     #'
     #' @param scope TypeBotCommandScope or object
     #' @param lang_code character
@@ -2247,7 +2247,7 @@ SendCustomRequestRequest <- R6::R6Class(
     custom_method = NULL,
     params = NULL,
 
-    #' Initialize SendCustomRequestRequest
+    #' @description Initialize SendCustomRequestRequest
     #'
     #' @param custom_method character
     #' @param params TypeDataJSON or object
@@ -2355,7 +2355,7 @@ SetBotBroadcastDefaultAdminRightsRequest <- R6::R6Class(
   public = list(
     admin_rights = NULL,
 
-    #' Initialize SetBotBroadcastDefaultAdminRightsRequest
+    #' @description Initialize SetBotBroadcastDefaultAdminRightsRequest
     #'
     #' @param admin_rights TypeChatAdminRights or object
     initialize = function(admin_rights) {
@@ -2445,7 +2445,7 @@ SetBotCommandsRequest <- R6::R6Class(
     lang_code = NULL,
     commands = NULL,
 
-    #' Initialize SetBotCommandsRequest
+    #' @description Initialize SetBotCommandsRequest
     #'
     #' @param scope TypeBotCommandScope or object
     #' @param lang_code character
@@ -2596,7 +2596,7 @@ SetBotGroupDefaultAdminRightsRequest <- R6::R6Class(
   public = list(
     admin_rights = NULL,
 
-    #' Initialize SetBotGroupDefaultAdminRightsRequest
+    #' @description Initialize SetBotGroupDefaultAdminRightsRequest
     #'
     #' @param admin_rights TypeChatAdminRights or object
     initialize = function(admin_rights) {
@@ -2690,7 +2690,7 @@ SetBotInfoRequest <- R6::R6Class(
     about = NULL,
     description = NULL,
 
-    #' Initialize SetBotInfoRequest
+    #' @description Initialize SetBotInfoRequest
     #'
     #' @param lang_code character
     #' @param bot TypeInputUser or identifier (optional)
@@ -2825,7 +2825,7 @@ SetBotMenuButtonRequest <- R6::R6Class(
     user_id = NULL,
     button = NULL,
 
-    #' Initialize SetBotMenuButtonRequest
+    #' @description Initialize SetBotMenuButtonRequest
     #'
     #' @param user_id TypeInputUser or identifier
     #' @param button TypeBotMenuButton or object
@@ -2955,7 +2955,7 @@ SetCustomVerificationRequest <- R6::R6Class(
     bot = NULL,
     custom_description = NULL,
 
-    #' Initialize SetCustomVerificationRequest
+    #' @description Initialize SetCustomVerificationRequest
     #'
     #' @param peer TypeInputPeer or identifier
     #' @param enabled logical|null
@@ -3106,7 +3106,7 @@ ToggleUserEmojiStatusPermissionRequest <- R6::R6Class(
     bot = NULL,
     enabled = NULL,
 
-    #' Initialize ToggleUserEmojiStatusPermissionRequest
+    #' @description Initialize ToggleUserEmojiStatusPermissionRequest
     #'
     #' @param bot TypeInputUser or identifier
     #' @param enabled logical
@@ -3222,7 +3222,7 @@ ToggleUsernameRequest <- R6::R6Class(
     username = NULL,
     active = NULL,
 
-    #' Initialize ToggleUsernameRequest
+    #' @description Initialize ToggleUsernameRequest
     #'
     #' @param bot TypeInputUser or identifier
     #' @param username character
@@ -3343,7 +3343,7 @@ UpdateStarRefProgramRequest <- R6::R6Class(
     commission_permille = NULL,
     duration_months = NULL,
 
-    #' Initialize UpdateStarRefProgramRequest
+    #' @description Initialize UpdateStarRefProgramRequest
     #'
     #' @param bot TypeInputUser or identifier
     #' @param commission_permille integer
@@ -3465,7 +3465,7 @@ UpdateUserEmojiStatusRequest <- R6::R6Class(
     user_id = NULL,
     emoji_status = NULL,
 
-    #' Initialize UpdateUserEmojiStatusRequest
+    #' @description Initialize UpdateUserEmojiStatusRequest
     #'
     #' @param user_id TypeInputUser or identifier
     #' @param emoji_status TypeEmojiStatus object

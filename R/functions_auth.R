@@ -1,31 +1,9 @@
 #' AcceptLoginTokenRequest R6 class
 #'
 #' Represents the TLRequest auth.AcceptLoginTokenRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xe894ad4d).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xc913c01a).
 #' @field token raw|character Token bytes.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new AcceptLoginTokenRequest object.
-#'  @param token raw vector or string
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Read fields from a reader and return a new AcceptLoginTokenRequest.
-#'  @param reader Reader object implementing tgread_bytes()
-#'  @return AcceptLoginTokenRequest instance
-#'
 #' @export
 AcceptLoginTokenRequest <- R6::R6Class(
   "AcceptLoginTokenRequest",
@@ -34,14 +12,14 @@ AcceptLoginTokenRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xc913c01a,
     token = NULL,
 
-    #' Initialize an AcceptLoginTokenRequest
+    #' @description Initialize an AcceptLoginTokenRequest
     #' @param token raw vector or string
     initialize = function(token) {
       self$token <- token
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -50,7 +28,7 @@ AcceptLoginTokenRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       # constructor id (little-endian): 0xe894ad4d -> 0x4D 0xAD 0x94 0xE8
@@ -59,7 +37,7 @@ AcceptLoginTokenRequest <- R6::R6Class(
       c(constructor_bytes, token_raw)
     },
 
-    #' Read from reader and create AcceptLoginTokenRequest
+    #' @description Read from reader and create AcceptLoginTokenRequest
     #' @param reader Reader object implementing tgread_bytes()
     #' @return AcceptLoginTokenRequest instance
     from_reader = function(reader) {
@@ -73,37 +51,12 @@ AcceptLoginTokenRequest <- R6::R6Class(
 #' BindTempAuthKeyRequest R6 class
 #'
 #' Represents the TLRequest auth.BindTempAuthKeyRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xcdd42a05).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xf5b399ac).
 #' @field perm_auth_key_id numeric 64-bit id.
 #' @field nonce numeric 64-bit nonce.
 #' @field expires_at POSIXct|Date Optional expiration datetime.
 #' @field encrypted_message raw|character Encrypted message bytes.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new BindTempAuthKeyRequest object.
-#'  @param perm_auth_key_id numeric or integer (64-bit)
-#'  @param nonce numeric or integer (64-bit)
-#'  @param expires_at POSIXct|Date or NULL
-#'  @param encrypted_message raw vector or string
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Read fields from a reader and return a new BindTempAuthKeyRequest.
-#'  @param reader Reader object implementing read_long(), tgread_date(), tgread_bytes()
-#'  @return BindTempAuthKeyRequest instance
-#'
 #' @export
 BindTempAuthKeyRequest <- R6::R6Class(
   "BindTempAuthKeyRequest",
@@ -115,7 +68,7 @@ BindTempAuthKeyRequest <- R6::R6Class(
     expires_at = NULL,
     encrypted_message = NULL,
 
-    #' Initialize a BindTempAuthKeyRequest
+    #' @description Initialize a BindTempAuthKeyRequest
     #' @param perm_auth_key_id numeric or integer (64-bit)
     #' @param nonce numeric or integer (64-bit)
     #' @param expires_at POSIXct|Date or NULL
@@ -128,7 +81,7 @@ BindTempAuthKeyRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -140,7 +93,7 @@ BindTempAuthKeyRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       pack_int64_le <- function(x) {
@@ -161,7 +114,7 @@ BindTempAuthKeyRequest <- R6::R6Class(
       c(constructor_bytes, perm_raw, nonce_raw, expires_raw, enc_msg_raw)
     },
 
-    #' Read from reader and create BindTempAuthKeyRequest
+    #' @description Read from reader and create BindTempAuthKeyRequest
     #' @param reader Reader object implementing read_long(), tgread_date(), tgread_bytes()
     #' @return BindTempAuthKeyRequest instance
     from_reader = function(reader) {
@@ -184,33 +137,10 @@ BindTempAuthKeyRequest <- R6::R6Class(
 #' CancelCodeRequest R6 class
 #'
 #' Represents the TLRequest auth.CancelCodeRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x1f040578).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xf5b399ac).
 #' @field phone_number character Phone number.
 #' @field phone_code_hash character Phone code hash.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new CancelCodeRequest object.
-#'  @param phone_number character
-#'  @param phone_code_hash character
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Read fields from a reader and return a new CancelCodeRequest.
-#'  @param reader Reader object implementing tgread_string()
-#'  @return CancelCodeRequest instance
-#'
 #' @export
 CancelCodeRequest <- R6::R6Class(
   "CancelCodeRequest",
@@ -220,7 +150,7 @@ CancelCodeRequest <- R6::R6Class(
     phone_number = NULL,
     phone_code_hash = NULL,
 
-    #' Initialize a CancelCodeRequest
+    #' @description Initialize a CancelCodeRequest
     #' @param phone_number character
     #' @param phone_code_hash character
     initialize = function(phone_number, phone_code_hash) {
@@ -229,7 +159,7 @@ CancelCodeRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -239,7 +169,7 @@ CancelCodeRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       # constructor id bytes (little-endian): 0x1f040578 -> 0x78 0x05 0x04 0x1f
@@ -249,7 +179,7 @@ CancelCodeRequest <- R6::R6Class(
       c(constructor_bytes, phone_raw, hash_raw)
     },
 
-    #' Read from reader and create CancelCodeRequest
+    #' @description Read from reader and create CancelCodeRequest
     #' @param reader Reader object implementing tgread_string()
     #' @return CancelCodeRequest instance
     from_reader = function(reader) {
@@ -267,31 +197,9 @@ CancelCodeRequest <- R6::R6Class(
 #' CheckPasswordRequest R6 class
 #'
 #' Represents the TLRequest auth.CheckPasswordRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xd18b4d16).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xb9e04e39).
 #' @field password TL object TypeInputCheckPasswordSRP.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new CheckPasswordRequest object.
-#'  @param password TL object (TypeInputCheckPasswordSRP)
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Read fields from a reader and return a new CheckPasswordRequest.
-#'  @param reader Reader object implementing tgread_object()
-#'  @return CheckPasswordRequest instance
-#'
 #' @export
 CheckPasswordRequest <- R6::R6Class(
   "CheckPasswordRequest",
@@ -300,14 +208,14 @@ CheckPasswordRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xb9e04e39,
     password = NULL,
 
-    #' Initialize a CheckPasswordRequest
+    #' @description Initialize a CheckPasswordRequest
     #' @param password TL object (TypeInputCheckPasswordSRP)
     initialize = function(password) {
       self$password <- password
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -316,7 +224,7 @@ CheckPasswordRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       # constructor id bytes (little-endian): 0xd18b4d16 -> 0x16 0x4D 0x8B 0xD1
@@ -338,7 +246,7 @@ CheckPasswordRequest <- R6::R6Class(
       c(constructor_bytes, password_bytes)
     },
 
-    #' Read from reader and create CheckPasswordRequest
+    #' @description Read from reader and create CheckPasswordRequest
     #' @param reader Reader object implementing tgread_object()
     #' @return CheckPasswordRequest instance
     from_reader = function(reader) {
@@ -352,31 +260,9 @@ CheckPasswordRequest <- R6::R6Class(
 #' CheckRecoveryPasswordRequest R6 class
 #'
 #' Represents the TLRequest auth.CheckRecoveryPasswordRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x0d36bf79).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xf5b399ac).
 #' @field code character Recovery code.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new CheckRecoveryPasswordRequest object.
-#'  @param code character
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Read fields from a reader and return a new CheckRecoveryPasswordRequest.
-#'  @param reader Reader object implementing tgread_string()
-#'  @return CheckRecoveryPasswordRequest instance
-#'
 #' @export
 CheckRecoveryPasswordRequest <- R6::R6Class(
   "CheckRecoveryPasswordRequest",
@@ -385,14 +271,14 @@ CheckRecoveryPasswordRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xf5b399ac,
     code = NULL,
 
-    #' Initialize a CheckRecoveryPasswordRequest
+    #' @description Initialize a CheckRecoveryPasswordRequest
     #' @param code character
     initialize = function(code) {
       self$code <- code
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -401,7 +287,7 @@ CheckRecoveryPasswordRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       # constructor id bytes (little-endian): 0x0d36bf79 -> 0x79 0xBF 0x36 0x0D
@@ -410,7 +296,7 @@ CheckRecoveryPasswordRequest <- R6::R6Class(
       c(constructor_bytes, code_raw)
     },
 
-    #' Read from reader and create CheckRecoveryPasswordRequest
+    #' @description Read from reader and create CheckRecoveryPasswordRequest
     #' @param reader Reader object implementing tgread_string()
     #' @return CheckRecoveryPasswordRequest instance
     from_reader = function(reader) {
@@ -424,31 +310,9 @@ CheckRecoveryPasswordRequest <- R6::R6Class(
 #' DropTempAuthKeysRequest R6 class
 #'
 #' Represents the TLRequest auth.DropTempAuthKeysRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x8e48a188).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xf5b399ac).
 #' @field except_auth_keys numeric vector 64-bit ids to drop (except list).
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new DropTempAuthKeysRequest object.
-#'  @param except_auth_keys numeric vector (64-bit) or NULL
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Read fields from a reader and return a new DropTempAuthKeysRequest.
-#'  @param reader Reader object implementing read_int(), read_long()
-#'  @return DropTempAuthKeysRequest instance
-#'
 #' @export
 DropTempAuthKeysRequest <- R6::R6Class(
   "DropTempAuthKeysRequest",
@@ -457,7 +321,7 @@ DropTempAuthKeysRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0xf5b399ac,
     except_auth_keys = NULL,
 
-    #' Initialize a DropTempAuthKeysRequest
+    #' @description Initialize a DropTempAuthKeysRequest
     #' @param except_auth_keys numeric vector (64-bit) or NULL
     initialize = function(except_auth_keys = NULL) {
       if (is.null(except_auth_keys)) {
@@ -468,7 +332,7 @@ DropTempAuthKeysRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -477,7 +341,7 @@ DropTempAuthKeysRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       pack_int32_le <- function(x) {
@@ -508,7 +372,7 @@ DropTempAuthKeysRequest <- R6::R6Class(
       c(constructor_bytes, vector_constructor, count_raw, ids_raw)
     },
 
-    #' Read from reader and create DropTempAuthKeysRequest
+    #' @description Read from reader and create DropTempAuthKeysRequest
     #' @param reader Reader object implementing read_int(), read_long()
     #' @return DropTempAuthKeysRequest instance
     from_reader = function(reader) {
@@ -532,31 +396,9 @@ DropTempAuthKeysRequest <- R6::R6Class(
 #' ExportAuthorizationRequest R6 class
 #'
 #' Represents the TLRequest auth.ExportAuthorizationRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xe5bfffcd).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0x5fd1ec51).
 #' @field dc_id integer Destination DC id.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new ExportAuthorizationRequest object.
-#'  @param dc_id integer
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Read fields from a reader and return a new ExportAuthorizationRequest.
-#'  @param reader Reader object implementing read_int()
-#'  @return ExportAuthorizationRequest instance
-#'
 #' @export
 ExportAuthorizationRequest <- R6::R6Class(
   "ExportAuthorizationRequest",
@@ -565,7 +407,7 @@ ExportAuthorizationRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x5fd1ec51,
     dc_id = NULL,
 
-    #' Initialize an ExportAuthorizationRequest
+    #' @description Initialize an ExportAuthorizationRequest
     #' @param dc_id integer
     initialize = function(dc_id) {
       self$dc_id <- as.integer(dc_id)
@@ -581,7 +423,7 @@ ExportAuthorizationRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       pack_int32_le <- function(x) {
@@ -598,7 +440,7 @@ ExportAuthorizationRequest <- R6::R6Class(
       c(constructor_bytes, dc_raw)
     },
 
-    #' Read from reader and create ExportAuthorizationRequest
+    #' @description Read from reader and create ExportAuthorizationRequest
     #' @param reader Reader object implementing read_int()
     #' @return ExportAuthorizationRequest instance
     from_reader = function(reader) {
@@ -612,35 +454,11 @@ ExportAuthorizationRequest <- R6::R6Class(
 #' ExportLoginTokenRequest R6 class
 #'
 #' Represents the TLRequest auth.ExportLoginTokenRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xb7e085fe).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0x6b55f636).
 #' @field api_id integer API id.
 #' @field api_hash character API hash.
 #' @field except_ids numeric vector 64-bit ids to exclude.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new ExportLoginTokenRequest object.
-#'  @param api_id integer
-#'  @param api_hash character
-#'  @param except_ids numeric vector (64-bit) or NULL
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Read fields from a reader and return a new ExportLoginTokenRequest.
-#'  @param reader Reader object implementing read_int(), tgread_string(), read_long()
-#'  @return ExportLoginTokenRequest instance
-#'
 #' @export
 ExportLoginTokenRequest <- R6::R6Class(
   "ExportLoginTokenRequest",
@@ -651,7 +469,7 @@ ExportLoginTokenRequest <- R6::R6Class(
     api_hash = NULL,
     except_ids = NULL,
 
-    #' Initialize an ExportLoginTokenRequest
+    #' @description Initialize an ExportLoginTokenRequest
     #' @param api_id integer
     #' @param api_hash character
     #' @param except_ids numeric vector (64-bit) or NULL
@@ -666,7 +484,7 @@ ExportLoginTokenRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -677,7 +495,7 @@ ExportLoginTokenRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       pack_int32_le <- function(x) {
@@ -709,7 +527,7 @@ ExportLoginTokenRequest <- R6::R6Class(
       c(constructor_bytes, api_id_raw, api_hash_raw, vector_constructor, count_raw, ids_raw)
     },
 
-    #' Read from reader and create ExportLoginTokenRequest
+    #' @description Read from reader and create ExportLoginTokenRequest
     #' @param reader Reader object implementing read_int(), tgread_string(), read_long()
     #' @return ExportLoginTokenRequest instance
     from_reader = function(reader) {
@@ -740,34 +558,10 @@ ExportLoginTokenRequest <- R6::R6Class(
 #' ImportAuthorizationRequest R6 class
 #'
 #' Represents the TLRequest auth.ImportAuthorizationRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xa57a7dad).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xb9e04e39).
 #' @field id numeric 64-bit id.
 #' @field bytes raw|character Token bytes.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new ImportAuthorizationRequest object.
-#'  @param id numeric or integer (64-bit)
-#'  @param bytes raw vector or string
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new ImportAuthorizationRequest instance.
-#'  @param reader Reader object implementing read_long(), tgread_bytes()
-#'  @return ImportAuthorizationRequest instance
-#'
 #' @export
 ImportAuthorizationRequest <- R6::R6Class(
   "ImportAuthorizationRequest",
@@ -777,7 +571,7 @@ ImportAuthorizationRequest <- R6::R6Class(
     id = NULL,
     bytes = NULL,
 
-    #' Initialize an ImportAuthorizationRequest
+    #' @description Initialize an ImportAuthorizationRequest
     #' @param id numeric or integer (64-bit)
     #' @param bytes raw vector or string
     initialize = function(id, bytes) {
@@ -786,7 +580,7 @@ ImportAuthorizationRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -796,7 +590,7 @@ ImportAuthorizationRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       pack_int64_le <- function(x) {
@@ -816,7 +610,7 @@ ImportAuthorizationRequest <- R6::R6Class(
       c(constructor_bytes, id_raw, bytes_raw)
     },
 
-    #' Read from reader and create ImportAuthorizationRequest
+    #' @description Read from reader and create ImportAuthorizationRequest
     #' @param reader Reader object implementing read_long(), tgread_bytes()
     #' @return ImportAuthorizationRequest instance
     from_reader = function(reader) {
@@ -835,38 +629,12 @@ ImportAuthorizationRequest <- R6::R6Class(
 #' ImportBotAuthorizationRequest R6 class
 #'
 #' Represents the TLRequest auth.ImportBotAuthorizationRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x67a3ff2c).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xb9e04e39).
 #' @field flags integer Flags.
 #' @field api_id integer API id.
 #' @field api_hash character API hash.
 #' @field bot_auth_token character Bot auth token.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new ImportBotAuthorizationRequest object.
-#'  @param flags integer
-#'  @param api_id integer
-#'  @param api_hash character
-#'  @param bot_auth_token character
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new ImportBotAuthorizationRequest instance.
-#'  @param reader Reader object implementing read_int(), tgread_string()
-#'  @return ImportBotAuthorizationRequest instance
-#'
 #' @export
 ImportBotAuthorizationRequest <- R6::R6Class(
   "ImportBotAuthorizationRequest",
@@ -878,7 +646,7 @@ ImportBotAuthorizationRequest <- R6::R6Class(
     api_hash = NULL,
     bot_auth_token = NULL,
 
-    #' Initialize an ImportBotAuthorizationRequest
+    #' @description Initialize an ImportBotAuthorizationRequest
     #' @param flags integer
     #' @param api_id integer
     #' @param api_hash character
@@ -891,7 +659,7 @@ ImportBotAuthorizationRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -903,7 +671,7 @@ ImportBotAuthorizationRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       pack_int32_le <- function(x) {
@@ -923,7 +691,7 @@ ImportBotAuthorizationRequest <- R6::R6Class(
       c(constructor_bytes, flags_raw, api_id_raw, api_hash_raw, bot_token_raw)
     },
 
-    #' Read from reader and create ImportBotAuthorizationRequest
+    #' @description Read from reader and create ImportBotAuthorizationRequest
     #' @param reader Reader object implementing read_int(), tgread_string()
     #' @return ImportBotAuthorizationRequest instance
     from_reader = function(reader) {
@@ -946,32 +714,9 @@ ImportBotAuthorizationRequest <- R6::R6Class(
 #' ImportLoginTokenRequest R6 class
 #'
 #' Represents the TLRequest auth.ImportLoginTokenRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x95ac5ce4).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0x6b55f636).
 #' @field token raw|character Token bytes.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new ImportLoginTokenRequest object.
-#'  @param token raw vector or string
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new ImportLoginTokenRequest instance.
-#'  @param reader Reader object implementing read_int(), tgread_string(), tgread_bytes(), tgread_object()
-#'  @return ImportLoginTokenRequest instance
-#'
 #' @export
 ImportLoginTokenRequest <- R6::R6Class(
   "ImportLoginTokenRequest",
@@ -980,14 +725,14 @@ ImportLoginTokenRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x6b55f636,
     token = NULL,
 
-    #' Initialize an ImportLoginTokenRequest
+    #' @description Initialize an ImportLoginTokenRequest
     #' @param token raw vector or string
     initialize = function(token) {
       self$token <- token
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -996,7 +741,7 @@ ImportLoginTokenRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       # constructor id (little-endian): 0x95ac5ce4 -> 0xE4 0x5C 0xAC 0x95
@@ -1005,7 +750,7 @@ ImportLoginTokenRequest <- R6::R6Class(
       c(constructor_bytes, token_raw)
     },
 
-    #' Read from reader and create ImportLoginTokenRequest
+    #' @description Read from reader and create ImportLoginTokenRequest
     #' @param reader Reader object implementing read_int(), tgread_string(), tgread_bytes(), tgread_object()
     #' @return ImportLoginTokenRequest instance
     from_reader = function(reader) {
@@ -1019,36 +764,11 @@ ImportLoginTokenRequest <- R6::R6Class(
 #' ImportWebTokenAuthorizationRequest R6 class
 #'
 #' Represents the TLRequest auth.ImportWebTokenAuthorizationRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x2db873a9).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xb9e04e39).
 #' @field api_id integer API id.
 #' @field api_hash character API hash.
 #' @field web_auth_token character Web auth token.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new ImportWebTokenAuthorizationRequest object.
-#'  @param api_id integer
-#'  @param api_hash character
-#'  @param web_auth_token character
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new ImportWebTokenAuthorizationRequest instance.
-#'  @param reader Reader object implementing read_int(), tgread_string(), tgread_bytes(), tgread_object()
-#'  @return ImportWebTokenAuthorizationRequest instance
-#'
 #' @export
 ImportWebTokenAuthorizationRequest <- R6::R6Class(
   "ImportWebTokenAuthorizationRequest",
@@ -1059,7 +779,7 @@ ImportWebTokenAuthorizationRequest <- R6::R6Class(
     api_hash = NULL,
     web_auth_token = NULL,
 
-    #' Initialize an ImportWebTokenAuthorizationRequest
+    #' @description Initialize an ImportWebTokenAuthorizationRequest
     #' @param api_id integer
     #' @param api_hash character
     #' @param web_auth_token character
@@ -1070,7 +790,7 @@ ImportWebTokenAuthorizationRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -1081,7 +801,7 @@ ImportWebTokenAuthorizationRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       pack_uint32_le <- function(x) {
@@ -1100,7 +820,7 @@ ImportWebTokenAuthorizationRequest <- R6::R6Class(
       c(constructor_bytes, api_id_raw, api_hash_raw, web_auth_raw)
     },
 
-    #' Read from reader and create ImportWebTokenAuthorizationRequest
+    #' @description Read from reader and create ImportWebTokenAuthorizationRequest
     #' @param reader Reader object implementing read_int(), tgread_string(), tgread_bytes(), tgread_object()
     #' @return ImportWebTokenAuthorizationRequest instance
     from_reader = function(reader) {
@@ -1120,30 +840,8 @@ ImportWebTokenAuthorizationRequest <- R6::R6Class(
 #' LogOutRequest R6 class
 #'
 #' Represents the TLRequest auth.LogOutRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x3e72ba19).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0x0a804315).
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new LogOutRequest object.
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new LogOutRequest instance.
-#'  @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
-#'  @return LogOutRequest instance
-#'
 #' @export
 LogOutRequest <- R6::R6Class(
   "LogOutRequest",
@@ -1151,13 +849,13 @@ LogOutRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x3e72ba19,
     SUBCLASS_OF_ID = 0x0a804315,
 
-    #' Initialize a LogOutRequest
+    #' @description Initialize a LogOutRequest
     #' @return invisible self
     initialize = function() {
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -1165,14 +863,14 @@ LogOutRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       # constructor id in little-endian byte order: 0x3e72ba19 -> 0x19 0xba 0x72 0x3e
       as.raw(c(0x19, 0xBA, 0x72, 0x3E))
     },
 
-    #' Read from reader and create LogOutRequest
+    #' @description Read from reader and create LogOutRequest
     #' @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
     #' @return LogOutRequest instance
     from_reader = function(reader) {
@@ -1186,34 +884,10 @@ LogOutRequest <- R6::R6Class(
 #' RecoverPasswordRequest R6 class
 #'
 #' Represents the TLRequest auth.RecoverPasswordRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x37096c70).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xb9e04e39).
 #' @field code character Recovery code.
 #' @field new_settings TL object Optional new password settings (TypePasswordInputSettings).
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new RecoverPasswordRequest object.
-#'  @param code character
-#'  @param new_settings TL object or NULL
-#'  @return invisible self
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new RecoverPasswordRequest instance.
-#'  @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
-#'  @return RecoverPasswordRequest instance
-#'
 #' @export
 RecoverPasswordRequest <- R6::R6Class(
   "RecoverPasswordRequest",
@@ -1223,7 +897,7 @@ RecoverPasswordRequest <- R6::R6Class(
     code = NULL,
     new_settings = NULL,
 
-    #' Initialize a RecoverPasswordRequest
+    #' @description Initialize a RecoverPasswordRequest
     #' @param code character
     #' @param new_settings TL object or NULL
     initialize = function(code, new_settings = NULL) {
@@ -1232,7 +906,7 @@ RecoverPasswordRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -1242,7 +916,7 @@ RecoverPasswordRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       pack_uint32_le <- function(x) {
@@ -1273,7 +947,7 @@ RecoverPasswordRequest <- R6::R6Class(
       c(constructor_bytes, flags_raw, code_raw, new_settings_raw)
     },
 
-    #' Read from reader and create RecoverPasswordRequest
+    #' @description Read from reader and create RecoverPasswordRequest
     #' @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
     #' @return RecoverPasswordRequest instance
     from_reader = function(reader) {
@@ -1298,35 +972,11 @@ RecoverPasswordRequest <- R6::R6Class(
 #' ReportMissingCodeRequest R6 class
 #'
 #' Represents the TLRequest auth.ReportMissingCodeRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xcb9deff6).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xf5b399ac).
 #' @field phone_number character Phone number.
 #' @field phone_code_hash character Phone code hash.
 #' @field mnc character Mobile network code.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new ReportMissingCodeRequest object.
-#'  @param phone_number character
-#'  @param phone_code_hash character
-#'  @param mnc character
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new ReportMissingCodeRequest instance.
-#'  @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
-#'  @return ReportMissingCodeRequest instance
-#'
 #' @export
 ReportMissingCodeRequest <- R6::R6Class(
   "ReportMissingCodeRequest",
@@ -1337,7 +987,7 @@ ReportMissingCodeRequest <- R6::R6Class(
     phone_code_hash = NULL,
     mnc = NULL,
 
-    #' Initialize a ReportMissingCodeRequest
+    #' @description Initialize a ReportMissingCodeRequest
     #' @param phone_number character
     #' @param phone_code_hash character
     #' @param mnc character
@@ -1348,7 +998,7 @@ ReportMissingCodeRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -1371,7 +1021,7 @@ ReportMissingCodeRequest <- R6::R6Class(
       c(constructor_bytes, phone_raw, hash_raw, mnc_raw)
     },
 
-    #' Read from reader and create ReportMissingCodeRequest
+    #' @description Read from reader and create ReportMissingCodeRequest
     #' @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
     #' @return ReportMissingCodeRequest instance
     from_reader = function(reader) {
@@ -1401,30 +1051,6 @@ ReportMissingCodeRequest <- R6::R6Class(
 #' @field safety_net_token character Optional safety net token.
 #' @field play_integrity_token character Optional play integrity token.
 #' @field ios_push_secret character Optional iOS push secret.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new RequestFirebaseSmsRequest object.
-#'  @param phone_number character
-#'  @param phone_code_hash character
-#'  @param safety_net_token character or NULL
-#'  @param play_integrity_token character or NULL
-#'  @param ios_push_secret character or NULL
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new RequestFirebaseSmsRequest instance.
-#'  @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
-#'  @return RequestFirebaseSmsRequest instance
-#'
 #' @export
 RequestFirebaseSmsRequest <- R6::R6Class(
   "RequestFirebaseSmsRequest",
@@ -1437,7 +1063,7 @@ RequestFirebaseSmsRequest <- R6::R6Class(
     play_integrity_token = NULL,
     ios_push_secret = NULL,
 
-    #' Initialize a RequestFirebaseSmsRequest
+    #' @description Initialize a RequestFirebaseSmsRequest
     #' @param phone_number character
     #' @param phone_code_hash character
     #' @param safety_net_token character or NULL
@@ -1452,7 +1078,7 @@ RequestFirebaseSmsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -1465,7 +1091,7 @@ RequestFirebaseSmsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       pack_uint32_le <- function(x) {
@@ -1493,7 +1119,7 @@ RequestFirebaseSmsRequest <- R6::R6Class(
       c(constructor_bytes, flags_raw, phone_raw, hash_raw, safety_net_raw, play_integrity_raw, ios_push_raw)
     },
 
-    #' Read from reader and create RequestFirebaseSmsRequest
+    #' @description Read from reader and create RequestFirebaseSmsRequest
     #' @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
     #' @return RequestFirebaseSmsRequest instance
     from_reader = function(reader) {
@@ -1535,29 +1161,8 @@ RequestFirebaseSmsRequest <- R6::R6Class(
 #' RequestPasswordRecoveryRequest R6 class
 #'
 #' Represents the TLRequest auth.RequestPasswordRecoveryRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xd897bc66).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xfa72d43a).
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new RequestPasswordRecoveryRequest object.
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new RequestPasswordRecoveryRequest instance.
-#'  @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
-#'  @return RequestPasswordRecoveryRequest instance
-#'
 #' @export
 RequestPasswordRecoveryRequest <- R6::R6Class(
   "RequestPasswordRecoveryRequest",
@@ -1565,13 +1170,13 @@ RequestPasswordRecoveryRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xd897bc66,
     SUBCLASS_OF_ID = 0xfa72d43a,
 
-    #' Initialize a RequestPasswordRecoveryRequest
+    #' @description Initialize a RequestPasswordRecoveryRequest
     #' @return invisible self
     initialize = function() {
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -1579,14 +1184,14 @@ RequestPasswordRecoveryRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       # constructor id bytes as in Python b'f\xbc\x97\xd8' -> 0x66 0xBC 0x97 0xD8
       as.raw(c(0x66, 0xBC, 0x97, 0xD8))
     },
 
-    #' Read from reader and create RequestPasswordRecoveryRequest
+    #' @description Read from reader and create RequestPasswordRecoveryRequest
     #' @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
     #' @return RequestPasswordRecoveryRequest instance
     from_reader = function(reader) {
@@ -1600,35 +1205,11 @@ RequestPasswordRecoveryRequest <- R6::R6Class(
 #' ResendCodeRequest R6 class
 #'
 #' Represents the TLRequest auth.ResendCodeRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xcae47523).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0x6ce87081).
 #' @field phone_number character Phone number.
 #' @field phone_code_hash character Phone code hash.
 #' @field reason character Optional reason.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new ResendCodeRequest object.
-#'  @param phone_number character
-#'  @param phone_code_hash character
-#'  @param reason character or NULL
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new ResendCodeRequest instance.
-#'  @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
-#'  @return ResendCodeRequest instance
-#'
 #' @export
 ResendCodeRequest <- R6::R6Class(
   "ResendCodeRequest",
@@ -1639,7 +1220,7 @@ ResendCodeRequest <- R6::R6Class(
     phone_code_hash = NULL,
     reason = NULL,
 
-    #' Initialize a ResendCodeRequest
+    #' @description Initialize a ResendCodeRequest
     #' @param phone_number character
     #' @param phone_code_hash character
     #' @param reason character or NULL
@@ -1650,7 +1231,7 @@ ResendCodeRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -1661,7 +1242,7 @@ ResendCodeRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       pack_uint32_le <- function(x) {
@@ -1689,7 +1270,7 @@ ResendCodeRequest <- R6::R6Class(
       )
     },
 
-    #' Read from reader and create ResendCodeRequest
+    #' @description Read from reader and create ResendCodeRequest
     #' @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
     #' @return ResendCodeRequest instance
     from_reader = function(reader) {
@@ -1717,29 +1298,8 @@ ResendCodeRequest <- R6::R6Class(
 #' ResetAuthorizationsRequest R6 class
 #'
 #' Represents the TLRequest auth.ResetAuthorizationsRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x9fab0d1a).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xf5b399ac).
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new ResetAuthorizationsRequest object.
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new ResetAuthorizationsRequest instance.
-#'  @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
-#'  @return ResetAuthorizationsRequest instance
-#'
 #' @export
 ResetAuthorizationsRequest <- R6::R6Class(
   "ResetAuthorizationsRequest",
@@ -1747,13 +1307,13 @@ ResetAuthorizationsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x9fab0d1a,
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' Initialize a ResetAuthorizationsRequest
+    #' @description Initialize a ResetAuthorizationsRequest
     #' @return invisible self
     initialize = function() {
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -1761,14 +1321,14 @@ ResetAuthorizationsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       # constructor id in little-endian byte order: b'\x1a\r\xab\x9f'
       as.raw(c(0x1a, 0x0d, 0xab, 0x9f))
     },
 
-    #' Read from reader and create ResetAuthorizationsRequest
+    #' @description Read from reader and create ResetAuthorizationsRequest
     #' @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
     #' @return ResetAuthorizationsRequest instance
     from_reader = function(reader) {
@@ -1782,33 +1342,10 @@ ResetAuthorizationsRequest <- R6::R6Class(
 #' ResetLoginEmailRequest R6 class
 #'
 #' Represents the TLRequest auth.ResetLoginEmailRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x7e960193).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0x6ce87081).
 #' @field phone_number character Phone number.
 #' @field phone_code_hash character Phone code hash.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new ResetLoginEmailRequest object.
-#'  @param phone_number character
-#'  @param phone_code_hash character
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new ResetLoginEmailRequest instance.
-#'  @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
-#'  @return ResetLoginEmailRequest instance
-#'
 #' @export
 ResetLoginEmailRequest <- R6::R6Class(
   "ResetLoginEmailRequest",
@@ -1818,7 +1355,7 @@ ResetLoginEmailRequest <- R6::R6Class(
     phone_number = NULL,
     phone_code_hash = NULL,
 
-    #' Initialize a ResetLoginEmailRequest
+    #' @description Initialize a ResetLoginEmailRequest
     #' @param phone_number character
     #' @param phone_code_hash character
     initialize = function(phone_number, phone_code_hash) {
@@ -1827,7 +1364,7 @@ ResetLoginEmailRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -1837,7 +1374,7 @@ ResetLoginEmailRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       # constructor id in little-endian byte order: b'\x93\x01\x96~'
@@ -1848,7 +1385,7 @@ ResetLoginEmailRequest <- R6::R6Class(
       c(constructor_bytes, phone_raw, hash_raw)
     },
 
-    #' Read from reader and create ResetLoginEmailRequest
+    #' @description Read from reader and create ResetLoginEmailRequest
     #' @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
     #' @return ResetLoginEmailRequest instance
     from_reader = function(reader) {
@@ -1867,37 +1404,12 @@ ResetLoginEmailRequest <- R6::R6Class(
 #' SendCodeRequest R6 class
 #'
 #' Represents the TLRequest auth.SendCodeRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xa677244f).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0x6ce87081).
 #' @field phone_number character Phone number.
 #' @field api_id integer API id.
 #' @field api_hash character API hash.
 #' @field settings TL object TypeCodeSettings.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new SendCodeRequest object.
-#'  @param phone_number character
-#'  @param api_id integer
-#'  @param api_hash character
-#'  @param settings TL object (TypeCodeSettings)
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new SendCodeRequest instance.
-#'  @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
-#'  @return SendCodeRequest instance
-#'
 #' @export
 SendCodeRequest <- R6::R6Class(
   "SendCodeRequest",
@@ -1909,7 +1421,7 @@ SendCodeRequest <- R6::R6Class(
     api_hash = NULL,
     settings = NULL,
 
-    #' Initialize a SendCodeRequest
+    #' @description Initialize a SendCodeRequest
     #' @param phone_number character
     #' @param api_id integer
     #' @param api_hash character
@@ -1922,7 +1434,7 @@ SendCodeRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -1934,7 +1446,7 @@ SendCodeRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       pack_uint32_le <- function(x) {
@@ -1982,7 +1494,7 @@ SendCodeRequest <- R6::R6Class(
       )
     },
 
-    #' Read from reader and create SendCodeRequest
+    #' @description Read from reader and create SendCodeRequest
     #' @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
     #' @return SendCodeRequest instance
     from_reader = function(reader) {
@@ -2005,37 +1517,12 @@ SendCodeRequest <- R6::R6Class(
 #' SignInRequest R6 class
 #'
 #' Represents the TLRequest auth.SignInRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x8d52a951).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xb9e04e39).
 #' @field phone_number character Phone number.
 #' @field phone_code_hash character Phone code hash.
 #' @field phone_code character Optional phone code.
 #' @field email_verification TL object Optional email verification object.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new SignInRequest object.
-#'  @param phone_number character
-#'  @param phone_code_hash character
-#'  @param phone_code character NULL or string
-#'  @param email_verification TL object or NULL
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object.
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. Uses serialize_bytes helper
-#'  from TL base environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new SignInRequest instance.
-#'  @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
-#'  @return SignInRequest instance
-#'
 #' @export
 SignInRequest <- R6::R6Class(
   "SignInRequest",
@@ -2047,7 +1534,7 @@ SignInRequest <- R6::R6Class(
     phone_code = NULL,
     email_verification = NULL,
 
-    #' Initialize a SignInRequest
+    #' @description Initialize a SignInRequest
     #' @param phone_number character
     #' @param phone_code_hash character
     #' @param phone_code character or NULL
@@ -2060,7 +1547,7 @@ SignInRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -2072,7 +1559,7 @@ SignInRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       pack_uint32_le <- function(x) {
@@ -2114,7 +1601,7 @@ SignInRequest <- R6::R6Class(
       )
     },
 
-    #' Read from reader and create SignInRequest
+    #' @description Read from reader and create SignInRequest
     #' @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
     #' @return SignInRequest instance
     from_reader = function(reader) {
@@ -2149,8 +1636,6 @@ SignInRequest <- R6::R6Class(
 #' SignUpRequest R6 class
 #'
 #' Represents the TLRequest auth.SignUpRequest.
-#'
-#' Fields:
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xaac7b717).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xb9e04e39).
 #' @field phone_number character Phone number.
@@ -2158,32 +1643,6 @@ SignInRequest <- R6::R6Class(
 #' @field first_name character First name.
 #' @field last_name character Last name.
 #' @field no_joined_notifications logical Optional flag.
-#'
-#' Methods:
-#' @section initialize:
-#'  Create a new SignUpRequest object.
-#'  @param phone_number character
-#'  @param phone_code_hash character
-#'  @param first_name character
-#'  @param last_name character
-#'  @param no_joined_notifications logical NULL or TRUE/FALSE
-#'
-#' @section to_list:
-#'  Return a pure R list representation of the object (like to_dict).
-#'  @return list
-#'
-#' @section to_bytes:
-#'  Serialize the object into raw bytes for TL. This method uses helper
-#'  serialization functions (serialize_bytes) expected to exist in the TL base
-#'  class / environment.
-#'  @return raw vector
-#'
-#' @section from_reader:
-#'  Factory that reads fields from a reader and returns a new SignUpRequest
-#'  instance.
-#'  @param reader object with methods read_int(), tgread_string()
-#'  @return SignUpRequest instance
-#'
 #' @export
 SignUpRequest <- R6::R6Class(
   "SignUpRequest",
@@ -2196,7 +1655,7 @@ SignUpRequest <- R6::R6Class(
     last_name = NULL,
     no_joined_notifications = NULL,
 
-    #' Initialize a SignUpRequest
+    #' @description Initialize a SignUpRequest
     #' @param phone_number character
     #' @param phone_code_hash character
     #' @param first_name character
@@ -2211,7 +1670,7 @@ SignUpRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to an R list (similar to to_dict)
+    #' @description Convert to an R list (similar to to_dict)
     #' @return list
     to_list = function() {
       list(
@@ -2224,7 +1683,7 @@ SignUpRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes
+    #' @description Serialize to bytes
     #' @return raw vector
     to_bytes = function() {
       # helper to pack a 32-bit unsigned integer little-endian
@@ -2258,7 +1717,7 @@ SignUpRequest <- R6::R6Class(
       )
     },
 
-    #' Read from reader and create SignUpRequest
+    #' @description Read from reader and create SignUpRequest
     #' @param reader Reader object implementing read_int() and tgread_string()
     #' @return SignUpRequest instance
     from_reader = function(reader) {

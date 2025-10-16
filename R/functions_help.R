@@ -13,7 +13,7 @@ AcceptTermsOfServiceRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0xf5b399ac),
     id = NULL,
 
-    #' Initialize AcceptTermsOfServiceRequest
+    #' @description Initialize AcceptTermsOfServiceRequest
     #' @param id TLObject-like or raw
     initialize = function(id = NULL) {
       self$id <- id
@@ -78,7 +78,7 @@ DismissSuggestionRequest <- R6::R6Class(
     peer = NULL,
     suggestion = "",
 
-    #' Initialize DismissSuggestionRequest
+    #' @description Initialize DismissSuggestionRequest
     #' @param peer TLObject-like or raw
     #' @param suggestion character
     initialize = function(peer = NULL, suggestion = "") {
@@ -174,7 +174,7 @@ EditUserInfoRequest <- R6::R6Class(
     message = "",
     entities = list(),
 
-    #' Initialize EditUserInfoRequest
+    #' @description Initialize EditUserInfoRequest
     #' @param userId TLObject-like or raw
     #' @param message character
     #' @param entities list of TLObject-like entities
@@ -303,7 +303,7 @@ GetAppConfigRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0x14381c9a),
     hash = 0L,
 
-    #' Initialize GetAppConfigRequest
+    #' @description Initialize GetAppConfigRequest
     #' @param hash integer
     initialize = function(hash = 0L) {
       self$hash <- as.integer(hash)
@@ -356,7 +356,7 @@ GetAppUpdateRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0x5897069e),
     source = "",
 
-    #' Initialize GetAppUpdateRequest
+    #' @description Initialize GetAppUpdateRequest
     #' @param source character
     initialize = function(source = "") {
       self$source <- as.character(source)
@@ -421,7 +421,7 @@ GetCdnConfigRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.integer(0x52029342),
     SUBCLASS_OF_ID = as.integer(0xecda397c),
 
-    #' Initialize GetCdnConfigRequest
+    #' @description Initialize GetCdnConfigRequest
     #' @return invisible NULL
     initialize = function() {
       invisible(NULL)
@@ -467,7 +467,7 @@ GetConfigRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.integer(0xc4f9186b),
     SUBCLASS_OF_ID = as.integer(0xd3262a4a),
 
-    #' Initialize GetConfigRequest
+    #' @description Initialize GetConfigRequest
     #' @return invisible NULL
     initialize = function() {
       invisible(NULL)
@@ -518,7 +518,7 @@ GetCountriesListRequest <- R6::R6Class(
     langCode = "",
     hash = 0L,
 
-    #' Initialize GetCountriesListRequest
+    #' @description Initialize GetCountriesListRequest
     #' @param langCode character
     #' @param hash integer
     initialize = function(langCode = "", hash = 0L) {
@@ -591,7 +591,7 @@ GetDeepLinkInfoRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0x984aac38),
     path = "",
 
-    #' Initialize GetDeepLinkInfoRequest
+    #' @description Initialize GetDeepLinkInfoRequest
     #' @param path character
     initialize = function(path = "") {
       self$path <- as.character(path)
@@ -656,7 +656,7 @@ GetInviteTextRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.integer(0x4d392343),
     SUBCLASS_OF_ID = as.integer(0xcf70aa35),
 
-    #' Initialize GetInviteTextRequest
+    #' @description Initialize GetInviteTextRequest
     #' @return invisible NULL
     initialize = function() {
       invisible(NULL)
@@ -702,7 +702,7 @@ GetNearestDcRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.integer(0x1fb33026),
     SUBCLASS_OF_ID = as.integer(0x3877045f),
 
-    #' Initialize GetNearestDcRequest
+    #' @description Initialize GetNearestDcRequest
     #' @return invisible NULL
     initialize = function() {
       invisible(NULL)
@@ -749,7 +749,7 @@ GetPassportConfigRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0xc666c0ad),
     hash = 0L,
 
-    #' Initialize GetPassportConfigRequest
+    #' @description Initialize GetPassportConfigRequest
     #' @param hash integer
     initialize = function(hash = 0L) {
       self$hash <- as.integer(hash)
@@ -802,7 +802,7 @@ GetPeerColorsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0x0e3f6733),
     hash = 0L,
 
-    #' Initialize GetPeerColorsRequest
+    #' @description Initialize GetPeerColorsRequest
     #' @param hash integer
     initialize = function(hash = 0L) {
       self$hash <- as.integer(hash)
@@ -854,7 +854,7 @@ GetPeerProfileColorsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0x0e3f6733),
     hash = 0L,
 
-    #' Initialize GetPeerProfileColorsRequest
+    #' @description Initialize GetPeerProfileColorsRequest
     #' @param hash integer
     initialize = function(hash = 0L) {
       self$hash <- as.integer(hash)
@@ -904,7 +904,7 @@ GetPremiumPromoRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.integer(0xb81b93d4),
     SUBCLASS_OF_ID = as.integer(0xc987a338),
 
-    #' Initialize GetPremiumPromoRequest
+    #' @description Initialize GetPremiumPromoRequest
     #' @return invisible NULL
     initialize = function() {
       invisible(NULL)
@@ -950,7 +950,7 @@ GetPromoDataRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.integer(0xc0977421),
     SUBCLASS_OF_ID = as.integer(0x9d595542),
 
-    #' Initialize GetPromoDataRequest
+    #' @description Initialize GetPromoDataRequest
     #' @return invisible NULL
     initialize = function() {
       invisible(NULL)
@@ -998,7 +998,7 @@ GetRecentMeUrlsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0xf269c477),
     referer = "",
 
-    #' Initialize GetRecentMeUrlsRequest
+    #' @description Initialize GetRecentMeUrlsRequest
     #' @param referer character
     initialize = function(referer = "") {
       self$referer <- as.character(referer)
@@ -1063,7 +1063,7 @@ GetSupportRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.integer(0x9cdf08cd),
     SUBCLASS_OF_ID = as.integer(0x7159bceb),
 
-    #' Initialize GetSupportRequest
+    #' @description Initialize GetSupportRequest
     #' @return invisible NULL
     initialize = function() {
       invisible(NULL)
@@ -1109,7 +1109,7 @@ GetSupportNameRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.integer(0xd360e72c),
     SUBCLASS_OF_ID = as.integer(0x7f50b7c2),
 
-    #' Initialize GetSupportNameRequest
+    #' @description Initialize GetSupportNameRequest
     #' @return invisible NULL
     initialize = function() {
       invisible(NULL)
@@ -1156,7 +1156,7 @@ GetTermsOfServiceUpdateRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.integer(0x2ca51fd1),
     SUBCLASS_OF_ID = as.integer(0x293c2977),
 
-    #' Initialize GetTermsOfServiceUpdateRequest
+    #' @description Initialize GetTermsOfServiceUpdateRequest
     #' @return invisible NULL
     initialize = function() {
       invisible(NULL)
@@ -1204,7 +1204,7 @@ GetTimezonesListRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0xca76e475),
     hash = 0L,
 
-    #' Initialize GetTimezonesListRequest
+    #' @description Initialize GetTimezonesListRequest
     #' @param hash integer
     initialize = function(hash = 0L) {
       self$hash <- as.integer(hash)
@@ -1257,7 +1257,7 @@ GetUserInfoRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0x5c53d7d8),
     userId = NULL,
 
-    #' Initialize GetUserInfoRequest
+    #' @description Initialize GetUserInfoRequest
     #' @param userId TLObject-like or raw
     initialize = function(userId = NULL) {
       self$userId <- userId
@@ -1330,7 +1330,7 @@ HidePromoDataRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0xf5b399ac),
     peer = NULL,
 
-    #' Initialize HidePromoDataRequest
+    #' @description Initialize HidePromoDataRequest
     #' @param peer TLObject-like or raw
     initialize = function(peer = NULL) {
       self$peer <- peer
@@ -1400,7 +1400,7 @@ SaveAppLogRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.integer(0xf5b399ac),
     events = NULL,
 
-    #' Initialize SaveAppLogRequest
+    #' @description Initialize SaveAppLogRequest
     #' @param events list of TLObject-like events
     initialize = function(events = list()) {
       self$events <- events
@@ -1483,7 +1483,7 @@ SetBotUpdatesStatusRequest <- R6::R6Class(
     pendingUpdatesCount = 0L,
     message = "",
 
-    #' Initialize SetBotUpdatesStatusRequest
+    #' @description Initialize SetBotUpdatesStatusRequest
     #' @param pendingUpdatesCount integer
     #' @param message character
     initialize = function(pendingUpdatesCount = 0L, message = "") {

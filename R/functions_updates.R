@@ -7,8 +7,6 @@
 #' @field pts integer PTS
 #' @field limit integer Limit
 #' @field force logical|NULL Optional force flag
-#'
-#' @return R6 object of class GetChannelDifferenceRequest
 #' @examples
 #' # req <- GetChannelDifferenceRequest$new(channel = some_channel, filter = some_filter, pts = 0, limit = 100)
 #' @export
