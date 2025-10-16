@@ -7,6 +7,11 @@
 An R6 object of class EditPeerFoldersRequest
 }
 \description{
+EditPeerFoldersRequest R6 class
+
+EditPeerFoldersRequest R6 class
+}
+\details{
 Represents the TL request EditPeerFoldersRequest.
 }
 \examples{
@@ -36,6 +41,7 @@ Represents the TL request EditPeerFoldersRequest.
 \if{html}{\out{<a id="method-EditPeerFoldersRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-EditPeerFoldersRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize EditPeerFoldersRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditPeerFoldersRequest$new(folder_peers = list())}\if{html}{\out{</div>}}
 }
@@ -43,7 +49,7 @@ Represents the TL request EditPeerFoldersRequest.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{folder_peers}}{list List of folder peer TL objects (default: empty list)}
+\item{\code{folder_peers}}{list List of InputFolderPeer objects}
 }
 \if{html}{\out{</div>}}
 }
@@ -52,19 +58,27 @@ Represents the TL request EditPeerFoldersRequest.
 \if{html}{\out{<a id="method-EditPeerFoldersRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-EditPeerFoldersRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to a serializable R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditPeerFoldersRequest$to_list()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+list
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-EditPeerFoldersRequest-to_raw"></a>}}
 \if{latex}{\out{\hypertarget{method-EditPeerFoldersRequest-to_raw}{}}}
 \subsection{Method \code{to_raw()}}{
+Serialize to raw bytes. Expects folder_peers elements to provide to_raw()
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditPeerFoldersRequest$to_raw()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+raw vector
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-EditPeerFoldersRequest-clone"></a>}}

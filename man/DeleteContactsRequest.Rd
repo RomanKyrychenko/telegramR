@@ -9,7 +9,6 @@ Methods:
 - resolve(client, utils): resolve each id element into an input_user via client and utils
 - to_list(): return list representation
 - to_bytes(): serialize to raw TL bytes (constructor + vector + item bytes)
-Initialize DeleteContactsRequest
 }
 \details{
 R6 representation of the TL request: DeleteContactsRequest
@@ -60,6 +59,7 @@ R6 representation of the TL request: DeleteContactsRequest
 \if{html}{\out{<a id="method-DeleteContactsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteContactsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize DeleteContactsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteContactsRequest$new(id)}\if{html}{\out{</div>}}
 }

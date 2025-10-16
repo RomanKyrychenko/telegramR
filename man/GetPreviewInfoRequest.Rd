@@ -41,6 +41,7 @@ Represents the GetPreviewInfoRequest TL request.
 \if{html}{\out{<a id="method-GetPreviewInfoRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPreviewInfoRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetPreviewInfoRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPreviewInfoRequest$new(bot, lang_code)}\if{html}{\out{</div>}}
 }

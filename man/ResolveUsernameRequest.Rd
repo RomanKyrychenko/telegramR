@@ -14,8 +14,6 @@ R6 representation of the TL request: ResolveUsernameRequest
 }
 \examples{
 ResolveUsernameRequest$new("bob", "ref")$to_list()
-Initialize ResolveUsernameRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ResolveUsernameRequest}
@@ -65,6 +63,7 @@ Initialize ResolveUsernameRequest
 \if{html}{\out{<a id="method-ResolveUsernameRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ResolveUsernameRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ResolveUsernameRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResolveUsernameRequest$new(username, referer = NULL)}\if{html}{\out{</div>}}
 }

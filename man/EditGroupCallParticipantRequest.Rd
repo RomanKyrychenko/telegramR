@@ -4,6 +4,11 @@
 \alias{EditGroupCallParticipantRequest}
 \title{EditGroupCallParticipantRequest R6 class}
 \description{
+EditGroupCallParticipantRequest R6 class
+
+EditGroupCallParticipantRequest R6 class
+}
+\details{
 Represents EditGroupCallParticipantRequest TLRequest.
 }
 \section{Public fields}{
@@ -42,6 +47,7 @@ Represents EditGroupCallParticipantRequest TLRequest.
 \if{html}{\out{<a id="method-EditGroupCallParticipantRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-EditGroupCallParticipantRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize an EditGroupCallParticipantRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditGroupCallParticipantRequest$new(
   call,
@@ -78,15 +84,15 @@ Represents EditGroupCallParticipantRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-Typically used to convert high-level entities into input objects.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-EditGroupCallParticipantRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-EditGroupCallParticipantRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditGroupCallParticipantRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -102,28 +108,28 @@ Typically used to convert high-level entities into input objects.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-EditGroupCallParticipantRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-EditGroupCallParticipantRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditGroupCallParticipantRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-EditGroupCallParticipantRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-EditGroupCallParticipantRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditGroupCallParticipantRequest$bytes()}\if{html}{\out{</div>}}
 }

@@ -39,6 +39,7 @@ Represents the AllowSendMessageRequest TL request.
 \if{html}{\out{<a id="method-AllowSendMessageRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-AllowSendMessageRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize AllowSendMessageRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AllowSendMessageRequest$new(bot)}\if{html}{\out{</div>}}
 }

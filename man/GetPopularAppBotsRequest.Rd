@@ -41,6 +41,7 @@ Represents the GetPopularAppBotsRequest TL request.
 \if{html}{\out{<a id="method-GetPopularAppBotsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPopularAppBotsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetPopularAppBotsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPopularAppBotsRequest$new(offset, limit)}\if{html}{\out{</div>}}
 }

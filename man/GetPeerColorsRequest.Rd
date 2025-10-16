@@ -4,6 +4,11 @@
 \alias{GetPeerColorsRequest}
 \title{GetPeerColorsRequest R6 class}
 \description{
+GetPeerColorsRequest R6 class
+
+GetPeerColorsRequest R6 class
+}
+\details{
 Request to get peer colors (possibly not modified).
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Request to get peer colors (possibly not modified).
 \if{html}{\out{<a id="method-GetPeerColorsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPeerColorsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetPeerColorsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPeerColorsRequest$new(hash = 0L)}\if{html}{\out{</div>}}
 }

@@ -3,10 +3,12 @@
 \name{GetStringsRequest}
 \alias{GetStringsRequest}
 \title{GetStringsRequest R6 class}
-\value{
-A GetStringsRequest R6 object
-}
 \description{
+GetStringsRequest R6 class
+
+GetStringsRequest R6 class
+}
+\details{
 TLRequest: GetStringsRequest
 }
 \examples{
@@ -57,37 +59,68 @@ TLRequest: GetStringsRequest
 \if{html}{\out{<a id="method-GetStringsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStringsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetStringsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStringsRequest$new(lang_pack, lang_code, keys)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{lang_pack}}{character Language pack identifier}
+
+\item{\code{lang_code}}{character Language code}
+
+\item{\code{keys}}{character Vector of keys to request}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStringsRequest-to_dict"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStringsRequest-to_dict}{}}}
 \subsection{Method \code{to_dict()}}{
+Convert to a serializable R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStringsRequest$to_dict()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+list
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStringsRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStringsRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Serialize to raw bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStringsRequest$bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+raw vector
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStringsRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStringsRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Create an instance from a reader
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStringsRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{A reader object with methods tgread_string() and read_int()}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A GetStringsRequest object
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStringsRequest-clone"></a>}}

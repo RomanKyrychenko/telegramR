@@ -45,6 +45,7 @@ Represents the EditPreviewMediaRequest TL request.
 \if{html}{\out{<a id="method-EditPreviewMediaRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-EditPreviewMediaRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize EditPreviewMediaRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditPreviewMediaRequest$new(bot, lang_code, media, new_media)}\if{html}{\out{</div>}}
 }

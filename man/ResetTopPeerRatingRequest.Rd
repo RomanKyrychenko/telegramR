@@ -15,8 +15,6 @@ R6 representation of the TL request: ResetTopPeerRatingRequest
 }
 \examples{
 ResetTopPeerRatingRequest$new(categoryObj, peerObj)$to_list()
-Initialize ResetTopPeerRatingRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ResetTopPeerRatingRequest}
@@ -62,6 +60,7 @@ Initialize ResetTopPeerRatingRequest
 \if{html}{\out{<a id="method-ResetTopPeerRatingRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ResetTopPeerRatingRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ResetTopPeerRatingRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResetTopPeerRatingRequest$new(category, peer)}\if{html}{\out{</div>}}
 }

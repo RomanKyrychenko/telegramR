@@ -4,6 +4,11 @@
 \alias{CreateGroupCallRequest}
 \title{CreateGroupCallRequest R6 class}
 \description{
+CreateGroupCallRequest R6 class
+
+CreateGroupCallRequest R6 class
+}
+\details{
 Represents CreateGroupCallRequest TLRequest.
 }
 \section{Public fields}{
@@ -36,6 +41,7 @@ Represents CreateGroupCallRequest TLRequest.
 \if{html}{\out{<a id="method-CreateGroupCallRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateGroupCallRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a CreateGroupCallRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateGroupCallRequest$new(
   peer,
@@ -63,15 +69,15 @@ Represents CreateGroupCallRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-Typically used to convert high-level entities into input objects.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CreateGroupCallRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateGroupCallRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateGroupCallRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -87,28 +93,28 @@ Typically used to convert high-level entities into input objects.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CreateGroupCallRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateGroupCallRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateGroupCallRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CreateGroupCallRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateGroupCallRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateGroupCallRequest$bytes()}\if{html}{\out{</div>}}
 }

@@ -39,6 +39,7 @@ Represents the CanSendMessageRequest TL request.
 \if{html}{\out{<a id="method-CanSendMessageRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-CanSendMessageRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize CanSendMessageRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CanSendMessageRequest$new(bot)}\if{html}{\out{</div>}}
 }

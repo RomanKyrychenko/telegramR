@@ -4,7 +4,14 @@
 \alias{CheckChatlistInviteRequest}
 \title{CheckChatlistInviteRequest R6 class}
 \description{
+CheckChatlistInviteRequest R6 class
+
+CheckChatlistInviteRequest R6 class
+}
+\details{
 Request to check a chatlist invite by slug.
+
+Serializes constructor id followed by TL-string encoded slug.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
@@ -31,6 +38,7 @@ Request to check a chatlist invite by slug.
 \if{html}{\out{<a id="method-CheckChatlistInviteRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-CheckChatlistInviteRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize CheckChatlistInviteRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CheckChatlistInviteRequest$new(slug = NULL)}\if{html}{\out{</div>}}
 }
@@ -63,10 +71,6 @@ Serialize to raw bytes
 \subsection{Method \code{bytes()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CheckChatlistInviteRequest$bytes()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Serializes constructor id followed by TL-string encoded slug.
 }
 
 \subsection{Returns}{

@@ -4,39 +4,13 @@
 \alias{RecoverPasswordRequest}
 \title{RecoverPasswordRequest R6 class}
 \description{
-Represents the TLRequest auth.RecoverPasswordRequest.
+RecoverPasswordRequest R6 class
+
+RecoverPasswordRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.RecoverPasswordRequest.
 }
-\section{initialize}{
-
- Create a new RecoverPasswordRequest object.
- @param code character
- @param new_settings TL object or NULL
- @return invisible self
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new RecoverPasswordRequest instance.
- @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
- @return RecoverPasswordRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -46,9 +20,7 @@ Fields:
 
 \item{\code{code}}{character Recovery code.}
 
-\item{\code{new_settings}}{TL object Optional new password settings (TypePasswordInputSettings).
-
-Methods:}
+\item{\code{new_settings}}{TL object Optional new password settings (TypePasswordInputSettings).}
 }
 \if{html}{\out{</div>}}
 }
@@ -66,6 +38,7 @@ Methods:}
 \if{html}{\out{<a id="method-RecoverPasswordRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-RecoverPasswordRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a RecoverPasswordRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RecoverPasswordRequest$new(code, new_settings = NULL)}\if{html}{\out{</div>}}
 }
@@ -75,8 +48,7 @@ Methods:}
 \describe{
 \item{\code{code}}{character}
 
-\item{\code{new_settings}}{TL object or NULL
-Convert to an R list (similar to to_dict)}
+\item{\code{new_settings}}{TL object or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -85,32 +57,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-RecoverPasswordRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-RecoverPasswordRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RecoverPasswordRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-RecoverPasswordRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-RecoverPasswordRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RecoverPasswordRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create RecoverPasswordRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-RecoverPasswordRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-RecoverPasswordRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create RecoverPasswordRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RecoverPasswordRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

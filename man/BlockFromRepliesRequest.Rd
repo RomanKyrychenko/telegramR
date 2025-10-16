@@ -14,8 +14,6 @@ R6 representation of the TL request: BlockFromRepliesRequest
 }
 \examples{
 BlockFromRepliesRequest$new(123, TRUE, FALSE, TRUE)$to_list()
-Initialize BlockFromRepliesRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{BlockFromRepliesRequest}
@@ -69,6 +67,7 @@ Initialize BlockFromRepliesRequest
 \if{html}{\out{<a id="method-BlockFromRepliesRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-BlockFromRepliesRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize BlockFromRepliesRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{BlockFromRepliesRequest$new(
   msg_id,

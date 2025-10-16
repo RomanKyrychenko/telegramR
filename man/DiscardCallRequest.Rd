@@ -4,6 +4,11 @@
 \alias{DiscardCallRequest}
 \title{DiscardCallRequest R6 class}
 \description{
+DiscardCallRequest R6 class
+
+DiscardCallRequest R6 class
+}
+\details{
 Represents DiscardCallRequest TLRequest.
 }
 \section{Public fields}{
@@ -35,6 +40,7 @@ Represents DiscardCallRequest TLRequest.
 \if{html}{\out{<a id="method-DiscardCallRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-DiscardCallRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a DiscardCallRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DiscardCallRequest$new(peer, duration, reason, connection_id, video = NULL)}\if{html}{\out{</div>}}
 }
@@ -56,28 +62,28 @@ Represents DiscardCallRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DiscardCallRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-DiscardCallRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DiscardCallRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DiscardCallRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-DiscardCallRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DiscardCallRequest$bytes()}\if{html}{\out{</div>}}
 }

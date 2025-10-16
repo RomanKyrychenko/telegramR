@@ -41,6 +41,7 @@ Represents the UpdateStarRefProgramRequest TL request.
 \if{html}{\out{<a id="method-UpdateStarRefProgramRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-UpdateStarRefProgramRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize UpdateStarRefProgramRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateStarRefProgramRequest$new(
   bot,

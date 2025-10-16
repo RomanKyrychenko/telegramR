@@ -43,6 +43,7 @@ Represents the AddPreviewMediaRequest TL request.
 \if{html}{\out{<a id="method-AddPreviewMediaRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-AddPreviewMediaRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize AddPreviewMediaRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AddPreviewMediaRequest$new(bot, lang_code, media)}\if{html}{\out{</div>}}
 }

@@ -43,6 +43,7 @@ Represents the SetCustomVerificationRequest TL request.
 \if{html}{\out{<a id="method-SetCustomVerificationRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SetCustomVerificationRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize SetCustomVerificationRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetCustomVerificationRequest$new(
   peer,

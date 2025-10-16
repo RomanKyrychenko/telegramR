@@ -4,14 +4,12 @@
 \alias{LeaveRequest}
 \title{LeaveRequest R6 class}
 \description{
-Representation of the LeaveRequest TLRequest.
+LeaveRequest R6 class
+
+LeaveRequest R6 class
 }
 \details{
-Methods:
-- new(): create instance
-- to_list(): return a list representation
-- bytes(): return raw bytes for the TL constructor
-- from_reader(reader): class method to construct from a reader
+Representation of the LeaveRequest TLRequest.
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -27,32 +25,33 @@ Methods:
 \if{html}{\out{<a id="method-LeaveRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-LeaveRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a LeaveRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LeaveRequest$new()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 self
-Convert to list (dictionary-like)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LeaveRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-LeaveRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LeaveRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Get raw bytes for this constructor
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LeaveRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-LeaveRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Get raw bytes for this constructor
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LeaveRequest$bytes()}\if{html}{\out{</div>}}
 }

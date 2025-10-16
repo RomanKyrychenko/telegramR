@@ -16,8 +16,6 @@ R6 representation of the TL request: SetBlockedRequest
 }
 \examples{
 SetBlockedRequest$new(list(peer1, peer2), 10, TRUE)$to_list()
-Initialize SetBlockedRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SetBlockedRequest}
@@ -69,6 +67,7 @@ Initialize SetBlockedRequest
 \if{html}{\out{<a id="method-SetBlockedRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SetBlockedRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize SetBlockedRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetBlockedRequest$new(id, limit, my_stories_from = NULL)}\if{html}{\out{</div>}}
 }

@@ -4,7 +4,14 @@
 \alias{GetExportedInvitesRequest}
 \title{GetExportedInvitesRequest R6 class}
 \description{
+GetExportedInvitesRequest R6 class
+
+GetExportedInvitesRequest R6 class
+}
+\details{
 Request to get exported invites for a chatlist.
+
+Serializes the constructor id followed by chatlist bytes.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
@@ -31,6 +38,7 @@ Request to get exported invites for a chatlist.
 \if{html}{\out{<a id="method-GetExportedInvitesRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetExportedInvitesRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetExportedInvitesRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetExportedInvitesRequest$new(chatlist = NULL)}\if{html}{\out{</div>}}
 }
@@ -63,10 +71,6 @@ Serialize to raw bytes
 \subsection{Method \code{bytes()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetExportedInvitesRequest$bytes()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Serializes the constructor id followed by chatlist bytes.
 }
 
 \subsection{Returns}{

@@ -14,8 +14,6 @@ R6 representation of the TL request: ResolvePhoneRequest
 }
 \examples{
 ResolvePhoneRequest$new("123456")$to_list()
-Initialize ResolvePhoneRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ResolvePhoneRequest}
@@ -63,6 +61,7 @@ Initialize ResolvePhoneRequest
 \if{html}{\out{<a id="method-ResolvePhoneRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ResolvePhoneRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ResolvePhoneRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResolvePhoneRequest$new(phone)}\if{html}{\out{</div>}}
 }

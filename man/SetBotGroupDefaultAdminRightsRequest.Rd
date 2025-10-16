@@ -37,6 +37,7 @@ Represents the SetBotGroupDefaultAdminRightsRequest TL request.
 \if{html}{\out{<a id="method-SetBotGroupDefaultAdminRightsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SetBotGroupDefaultAdminRightsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize SetBotGroupDefaultAdminRightsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetBotGroupDefaultAdminRightsRequest$new(admin_rights)}\if{html}{\out{</div>}}
 }

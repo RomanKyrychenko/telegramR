@@ -4,6 +4,11 @@
 \alias{GetInviteTextRequest}
 \title{GetInviteTextRequest R6 class}
 \description{
+GetInviteTextRequest R6 class
+
+GetInviteTextRequest R6 class
+}
+\details{
 Request to get invite text.
 }
 \section{Public fields}{
@@ -28,6 +33,7 @@ Request to get invite text.
 \if{html}{\out{<a id="method-GetInviteTextRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetInviteTextRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetInviteTextRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetInviteTextRequest$new()}\if{html}{\out{</div>}}
 }

@@ -4,6 +4,11 @@
 \alias{HidePromoDataRequest}
 \title{HidePromoDataRequest R6 class}
 \description{
+HidePromoDataRequest R6 class
+
+HidePromoDataRequest R6 class
+}
+\details{
 Request to hide promo data for a peer.
 }
 \section{Public fields}{
@@ -31,6 +36,7 @@ Request to hide promo data for a peer.
 \if{html}{\out{<a id="method-HidePromoDataRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-HidePromoDataRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize HidePromoDataRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{HidePromoDataRequest$new(peer = NULL)}\if{html}{\out{</div>}}
 }

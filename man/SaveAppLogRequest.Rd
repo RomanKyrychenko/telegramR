@@ -4,6 +4,11 @@
 \alias{SaveAppLogRequest}
 \title{SaveAppLogRequest R6 class}
 \description{
+SaveAppLogRequest R6 class
+
+SaveAppLogRequest R6 class
+}
+\details{
 Request to save application log events.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Request to save application log events.
 \if{html}{\out{<a id="method-SaveAppLogRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveAppLogRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize SaveAppLogRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveAppLogRequest$new(events = list())}\if{html}{\out{</div>}}
 }

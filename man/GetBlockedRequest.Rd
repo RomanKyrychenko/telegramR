@@ -14,8 +14,6 @@ R6 representation of the TL request: GetBlockedRequest
 }
 \examples{
 GetBlockedRequest$new(0, 100, TRUE)$to_list()
-Initialize GetBlockedRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetBlockedRequest}
@@ -67,6 +65,7 @@ Initialize GetBlockedRequest
 \if{html}{\out{<a id="method-GetBlockedRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetBlockedRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetBlockedRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetBlockedRequest$new(offset, limit, my_stories_from = NULL)}\if{html}{\out{</div>}}
 }

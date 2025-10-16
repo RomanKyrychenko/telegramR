@@ -4,44 +4,19 @@
 \alias{ResetAuthorizationsRequest}
 \title{ResetAuthorizationsRequest R6 class}
 \description{
-Represents the TLRequest auth.ResetAuthorizationsRequest.
+ResetAuthorizationsRequest R6 class
+
+ResetAuthorizationsRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.ResetAuthorizationsRequest.
 }
-\section{initialize}{
-
- Create a new ResetAuthorizationsRequest object.
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new ResetAuthorizationsRequest instance.
- @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
- @return ResetAuthorizationsRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0x9fab0d1a).}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0xf5b399ac).
-
-Methods:}
+\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0xf5b399ac).}
 }
 \if{html}{\out{</div>}}
 }
@@ -59,45 +34,46 @@ Methods:}
 \if{html}{\out{<a id="method-ResetAuthorizationsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ResetAuthorizationsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a ResetAuthorizationsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResetAuthorizationsRequest$new()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 invisible self
-Convert to an R list (similar to to_dict)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ResetAuthorizationsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ResetAuthorizationsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResetAuthorizationsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ResetAuthorizationsRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ResetAuthorizationsRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResetAuthorizationsRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create ResetAuthorizationsRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ResetAuthorizationsRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-ResetAuthorizationsRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create ResetAuthorizationsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResetAuthorizationsRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

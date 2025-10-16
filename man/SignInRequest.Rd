@@ -4,40 +4,13 @@
 \alias{SignInRequest}
 \title{SignInRequest R6 class}
 \description{
-Represents the TLRequest auth.SignInRequest.
+SignInRequest R6 class
+
+SignInRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.SignInRequest.
 }
-\section{initialize}{
-
- Create a new SignInRequest object.
- @param phone_number character
- @param phone_code_hash character
- @param phone_code character NULL or string
- @param email_verification TL object or NULL
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new SignInRequest instance.
- @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
- @return SignInRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -51,9 +24,7 @@ Fields:
 
 \item{\code{phone_code}}{character Optional phone code.}
 
-\item{\code{email_verification}}{TL object Optional email verification object.
-
-Methods:}
+\item{\code{email_verification}}{TL object Optional email verification object.}
 }
 \if{html}{\out{</div>}}
 }
@@ -71,6 +42,7 @@ Methods:}
 \if{html}{\out{<a id="method-SignInRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SignInRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a SignInRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SignInRequest$new(
   phone_number,
@@ -89,8 +61,7 @@ Methods:}
 
 \item{\code{phone_code}}{character or NULL}
 
-\item{\code{email_verification}}{TL object or NULL
-Convert to an R list (similar to to_dict)}
+\item{\code{email_verification}}{TL object or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -99,32 +70,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-SignInRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SignInRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SignInRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SignInRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SignInRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SignInRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create SignInRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SignInRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-SignInRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create SignInRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SignInRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

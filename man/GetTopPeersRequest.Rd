@@ -15,8 +15,6 @@ R6 representation of the TL request: GetTopPeersRequest
 }
 \examples{
 GetTopPeersRequest$new(0, 10, 0)$to_list()
-Initialize GetTopPeersRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetTopPeersRequest}
@@ -82,6 +80,7 @@ Initialize GetTopPeersRequest
 \if{html}{\out{<a id="method-GetTopPeersRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetTopPeersRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetTopPeersRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetTopPeersRequest$new(
   offset,

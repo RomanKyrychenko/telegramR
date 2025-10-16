@@ -4,6 +4,11 @@
 \alias{CreateConferenceCallRequest}
 \title{CreateConferenceCallRequest R6 class}
 \description{
+CreateConferenceCallRequest R6 class
+
+CreateConferenceCallRequest R6 class
+}
+\details{
 Represents CreateConferenceCallRequest TLRequest.
 }
 \section{Public fields}{
@@ -39,6 +44,7 @@ Represents CreateConferenceCallRequest TLRequest.
 \if{html}{\out{<a id="method-CreateConferenceCallRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateConferenceCallRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a CreateConferenceCallRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateConferenceCallRequest$new(
   muted = NULL,
@@ -72,28 +78,28 @@ Represents CreateConferenceCallRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CreateConferenceCallRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateConferenceCallRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateConferenceCallRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CreateConferenceCallRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateConferenceCallRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CreateConferenceCallRequest$bytes()}\if{html}{\out{</div>}}
 }

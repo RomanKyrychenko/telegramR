@@ -4,6 +4,11 @@
 \alias{GetNearestDcRequest}
 \title{GetNearestDcRequest R6 class}
 \description{
+GetNearestDcRequest R6 class
+
+GetNearestDcRequest R6 class
+}
+\details{
 Request to get the nearest data-center info.
 }
 \section{Public fields}{
@@ -28,6 +33,7 @@ Request to get the nearest data-center info.
 \if{html}{\out{<a id="method-GetNearestDcRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetNearestDcRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetNearestDcRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetNearestDcRequest$new()}\if{html}{\out{</div>}}
 }

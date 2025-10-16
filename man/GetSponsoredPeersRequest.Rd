@@ -14,8 +14,6 @@ R6 representation of the TL request: GetSponsoredPeersRequest
 }
 \examples{
 GetSponsoredPeersRequest$new("query")$to_list()
-Initialize GetSponsoredPeersRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetSponsoredPeersRequest}
@@ -59,6 +57,7 @@ Initialize GetSponsoredPeersRequest
 \if{html}{\out{<a id="method-GetSponsoredPeersRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSponsoredPeersRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetSponsoredPeersRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSponsoredPeersRequest$new(q)}\if{html}{\out{</div>}}
 }

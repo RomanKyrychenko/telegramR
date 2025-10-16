@@ -4,6 +4,11 @@
 \alias{GetTermsOfServiceUpdateRequest}
 \title{GetTermsOfServiceUpdateRequest R6 class}
 \description{
+GetTermsOfServiceUpdateRequest R6 class
+
+GetTermsOfServiceUpdateRequest R6 class
+}
+\details{
 Request to get terms of service update.
 }
 \section{Public fields}{
@@ -28,6 +33,7 @@ Request to get terms of service update.
 \if{html}{\out{<a id="method-GetTermsOfServiceUpdateRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetTermsOfServiceUpdateRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetTermsOfServiceUpdateRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetTermsOfServiceUpdateRequest$new()}\if{html}{\out{</div>}}
 }

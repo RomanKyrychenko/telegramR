@@ -4,14 +4,12 @@
 \alias{JoinRequest}
 \title{JoinRequest R6 class}
 \description{
-Representation of the JoinRequest TLRequest.
+JoinRequest R6 class
+
+JoinRequest R6 class
 }
 \details{
-Methods:
-- new(): create instance
-- to_list(): return a list representation
-- bytes(): return raw bytes for the TL constructor
-- from_reader(reader): class method to construct from a reader
+Representation of the JoinRequest TLRequest.
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -27,32 +25,33 @@ Methods:
 \if{html}{\out{<a id="method-JoinRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-JoinRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a JoinRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{JoinRequest$new()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 self
-Convert to list (dictionary-like)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-JoinRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-JoinRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{JoinRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Get raw bytes for this constructor
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-JoinRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-JoinRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Get raw bytes for this constructor
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{JoinRequest$bytes()}\if{html}{\out{</div>}}
 }

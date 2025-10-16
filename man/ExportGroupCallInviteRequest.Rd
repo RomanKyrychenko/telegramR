@@ -4,6 +4,11 @@
 \alias{ExportGroupCallInviteRequest}
 \title{ExportGroupCallInviteRequest R6 class}
 \description{
+ExportGroupCallInviteRequest R6 class
+
+ExportGroupCallInviteRequest R6 class
+}
+\details{
 Represents ExportGroupCallInviteRequest TLRequest.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Represents ExportGroupCallInviteRequest TLRequest.
 \if{html}{\out{<a id="method-ExportGroupCallInviteRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportGroupCallInviteRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize an ExportGroupCallInviteRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportGroupCallInviteRequest$new(call, can_self_unmute = NULL)}\if{html}{\out{</div>}}
 }
@@ -45,15 +51,15 @@ Represents ExportGroupCallInviteRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-Typically used to convert high-level entities into input objects.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportGroupCallInviteRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportGroupCallInviteRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportGroupCallInviteRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -69,28 +75,28 @@ Typically used to convert high-level entities into input objects.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportGroupCallInviteRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportGroupCallInviteRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportGroupCallInviteRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportGroupCallInviteRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportGroupCallInviteRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportGroupCallInviteRequest$bytes()}\if{html}{\out{</div>}}
 }

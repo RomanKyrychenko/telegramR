@@ -4,6 +4,11 @@
 \alias{GetCdnConfigRequest}
 \title{GetCdnConfigRequest R6 class}
 \description{
+GetCdnConfigRequest R6 class
+
+GetCdnConfigRequest R6 class
+}
+\details{
 Request to get CDN configuration.
 }
 \section{Public fields}{
@@ -28,6 +33,7 @@ Request to get CDN configuration.
 \if{html}{\out{<a id="method-GetCdnConfigRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCdnConfigRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetCdnConfigRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCdnConfigRequest$new()}\if{html}{\out{</div>}}
 }

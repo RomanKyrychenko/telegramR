@@ -4,6 +4,11 @@
 \alias{GetSupportRequest}
 \title{GetSupportRequest R6 class}
 \description{
+GetSupportRequest R6 class
+
+GetSupportRequest R6 class
+}
+\details{
 Request to get support information.
 }
 \section{Public fields}{
@@ -28,6 +33,7 @@ Request to get support information.
 \if{html}{\out{<a id="method-GetSupportRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSupportRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetSupportRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSupportRequest$new()}\if{html}{\out{</div>}}
 }

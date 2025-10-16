@@ -41,6 +41,7 @@ Represents the ToggleUserEmojiStatusPermissionRequest TL request.
 \if{html}{\out{<a id="method-ToggleUserEmojiStatusPermissionRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleUserEmojiStatusPermissionRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ToggleUserEmojiStatusPermissionRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleUserEmojiStatusPermissionRequest$new(bot, enabled)}\if{html}{\out{</div>}}
 }

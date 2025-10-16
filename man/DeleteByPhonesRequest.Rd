@@ -8,7 +8,6 @@ Methods:
 - initialize(phones): create new request where phones is a character vector
 - to_list(): return list representation
 - to_bytes(): serialize to raw TL bytes (constructor + vector + strings)
-Initialize DeleteByPhonesRequest
 }
 \details{
 R6 representation of the TL request: DeleteByPhonesRequest
@@ -59,6 +58,7 @@ R6 representation of the TL request: DeleteByPhonesRequest
 \if{html}{\out{<a id="method-DeleteByPhonesRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteByPhonesRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize DeleteByPhonesRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteByPhonesRequest$new(phones)}\if{html}{\out{</div>}}
 }

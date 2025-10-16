@@ -8,10 +8,6 @@ Methods:
 - initialize(): create new request
 - to_list(): return list representation
 - to_bytes(): serialize to raw TL bytes
-
-Initialize GetBirthdaysRequest
-Convert to list
-Serialize to bytes (raw vector)
 }
 \details{
 R6 representation of the TL request: GetBirthdaysRequest
@@ -60,6 +56,9 @@ R6 representation of the TL request: GetBirthdaysRequest
 \if{html}{\out{<a id="method-GetBirthdaysRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetBirthdaysRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetBirthdaysRequest
+Convert to list
+Serialize to bytes (raw vector)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetBirthdaysRequest$new()}\if{html}{\out{</div>}}
 }

@@ -4,37 +4,13 @@
 \alias{CheckRecoveryPasswordRequest}
 \title{CheckRecoveryPasswordRequest R6 class}
 \description{
-Represents the TLRequest auth.CheckRecoveryPasswordRequest.
+CheckRecoveryPasswordRequest R6 class
+
+CheckRecoveryPasswordRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.CheckRecoveryPasswordRequest.
 }
-\section{initialize}{
-
- Create a new CheckRecoveryPasswordRequest object.
- @param code character
- @return invisible self
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Read fields from a reader and return a new CheckRecoveryPasswordRequest.
- @param reader Reader object implementing tgread_string()
- @return CheckRecoveryPasswordRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -42,9 +18,7 @@ Fields:
 
 \item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0xf5b399ac).}
 
-\item{\code{code}}{character Recovery code.
-
-Methods:}
+\item{\code{code}}{character Recovery code.}
 }
 \if{html}{\out{</div>}}
 }
@@ -62,6 +36,7 @@ Methods:}
 \if{html}{\out{<a id="method-CheckRecoveryPasswordRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-CheckRecoveryPasswordRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a CheckRecoveryPasswordRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CheckRecoveryPasswordRequest$new(code)}\if{html}{\out{</div>}}
 }
@@ -69,8 +44,7 @@ Methods:}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{code}}{character
-Convert to an R list (similar to to_dict)}
+\item{\code{code}}{character}
 }
 \if{html}{\out{</div>}}
 }
@@ -79,32 +53,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-CheckRecoveryPasswordRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-CheckRecoveryPasswordRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CheckRecoveryPasswordRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CheckRecoveryPasswordRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-CheckRecoveryPasswordRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CheckRecoveryPasswordRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create CheckRecoveryPasswordRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CheckRecoveryPasswordRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-CheckRecoveryPasswordRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create CheckRecoveryPasswordRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CheckRecoveryPasswordRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

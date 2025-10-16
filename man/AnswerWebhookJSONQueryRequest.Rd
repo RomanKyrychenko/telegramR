@@ -39,6 +39,7 @@ Represents the AnswerWebhookJSONQueryRequest TL request.
 \if{html}{\out{<a id="method-AnswerWebhookJSONQueryRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-AnswerWebhookJSONQueryRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize AnswerWebhookJSONQueryRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AnswerWebhookJSONQueryRequest$new(query_id, data)}\if{html}{\out{</div>}}
 }

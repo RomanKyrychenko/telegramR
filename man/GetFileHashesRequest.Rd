@@ -79,10 +79,21 @@ raw
 \if{html}{\out{<a id="method-GetFileHashesRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetFileHashesRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read GetFileHashesRequest from a reader
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetFileHashesRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{an object providing read_long() and tgread_object()}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+GetFileHashesRequest
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetFileHashesRequest-clone"></a>}}

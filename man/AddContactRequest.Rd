@@ -16,8 +16,6 @@ R6 representation of the TL request: AddContactRequest
 }
 \examples{
 AddContactRequest$new(inputUser, "John", "Doe", "+123", TRUE)$to_list()
-Initialize AddContactRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{AddContactRequest}
@@ -73,6 +71,7 @@ Initialize AddContactRequest
 \if{html}{\out{<a id="method-AddContactRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-AddContactRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize AddContactRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AddContactRequest$new(
   id,

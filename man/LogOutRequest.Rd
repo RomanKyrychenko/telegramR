@@ -4,45 +4,19 @@
 \alias{LogOutRequest}
 \title{LogOutRequest R6 class}
 \description{
-Represents the TLRequest auth.LogOutRequest.
+LogOutRequest R6 class
+
+LogOutRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.LogOutRequest.
 }
-\section{initialize}{
-
- Create a new LogOutRequest object.
- @return invisible self
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new LogOutRequest instance.
- @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
- @return LogOutRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0x3e72ba19).}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0x0a804315).
-
-Methods:}
+\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0x0a804315).}
 }
 \if{html}{\out{</div>}}
 }
@@ -60,45 +34,46 @@ Methods:}
 \if{html}{\out{<a id="method-LogOutRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-LogOutRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a LogOutRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LogOutRequest$new()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 invisible self
-Convert to an R list (similar to to_dict)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LogOutRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-LogOutRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LogOutRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LogOutRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-LogOutRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LogOutRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create LogOutRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LogOutRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-LogOutRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create LogOutRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LogOutRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

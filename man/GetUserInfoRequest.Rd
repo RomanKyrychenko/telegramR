@@ -4,6 +4,11 @@
 \alias{GetUserInfoRequest}
 \title{GetUserInfoRequest R6 class}
 \description{
+GetUserInfoRequest R6 class
+
+GetUserInfoRequest R6 class
+}
+\details{
 Request to get user info (help.UserInfo).
 }
 \section{Public fields}{
@@ -31,6 +36,7 @@ Request to get user info (help.UserInfo).
 \if{html}{\out{<a id="method-GetUserInfoRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetUserInfoRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetUserInfoRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetUserInfoRequest$new(userId = NULL)}\if{html}{\out{</div>}}
 }

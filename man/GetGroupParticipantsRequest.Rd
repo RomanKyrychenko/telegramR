@@ -4,6 +4,11 @@
 \alias{GetGroupParticipantsRequest}
 \title{GetGroupParticipantsRequest R6 class}
 \description{
+GetGroupParticipantsRequest R6 class
+
+GetGroupParticipantsRequest R6 class
+}
+\details{
 Represents GetGroupParticipantsRequest TLRequest.
 }
 \section{Public fields}{
@@ -36,6 +41,7 @@ Represents GetGroupParticipantsRequest TLRequest.
 \if{html}{\out{<a id="method-GetGroupParticipantsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetGroupParticipantsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a GetGroupParticipantsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetGroupParticipantsRequest$new(call, ids, sources, offset, limit)}\if{html}{\out{</div>}}
 }
@@ -57,15 +63,15 @@ Represents GetGroupParticipantsRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-Typically used to convert high-level entities into input objects.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetGroupParticipantsRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetGroupParticipantsRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetGroupParticipantsRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -81,28 +87,28 @@ Typically used to convert high-level entities into input objects.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetGroupParticipantsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetGroupParticipantsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetGroupParticipantsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetGroupParticipantsRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetGroupParticipantsRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetGroupParticipantsRequest$bytes()}\if{html}{\out{</div>}}
 }

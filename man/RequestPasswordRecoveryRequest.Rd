@@ -4,44 +4,19 @@
 \alias{RequestPasswordRecoveryRequest}
 \title{RequestPasswordRecoveryRequest R6 class}
 \description{
-Represents the TLRequest auth.RequestPasswordRecoveryRequest.
+RequestPasswordRecoveryRequest R6 class
+
+RequestPasswordRecoveryRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.RequestPasswordRecoveryRequest.
 }
-\section{initialize}{
-
- Create a new RequestPasswordRecoveryRequest object.
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new RequestPasswordRecoveryRequest instance.
- @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
- @return RequestPasswordRecoveryRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0xd897bc66).}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0xfa72d43a).
-
-Methods:}
+\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0xfa72d43a).}
 }
 \if{html}{\out{</div>}}
 }
@@ -59,45 +34,46 @@ Methods:}
 \if{html}{\out{<a id="method-RequestPasswordRecoveryRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-RequestPasswordRecoveryRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a RequestPasswordRecoveryRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RequestPasswordRecoveryRequest$new()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 invisible self
-Convert to an R list (similar to to_dict)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-RequestPasswordRecoveryRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-RequestPasswordRecoveryRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RequestPasswordRecoveryRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-RequestPasswordRecoveryRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-RequestPasswordRecoveryRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RequestPasswordRecoveryRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create RequestPasswordRecoveryRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-RequestPasswordRecoveryRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-RequestPasswordRecoveryRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create RequestPasswordRecoveryRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RequestPasswordRecoveryRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

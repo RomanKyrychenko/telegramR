@@ -4,40 +4,13 @@
 \alias{SendCodeRequest}
 \title{SendCodeRequest R6 class}
 \description{
-Represents the TLRequest auth.SendCodeRequest.
+SendCodeRequest R6 class
+
+SendCodeRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.SendCodeRequest.
 }
-\section{initialize}{
-
- Create a new SendCodeRequest object.
- @param phone_number character
- @param api_id integer
- @param api_hash character
- @param settings TL object (TypeCodeSettings)
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new SendCodeRequest instance.
- @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
- @return SendCodeRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -51,9 +24,7 @@ Fields:
 
 \item{\code{api_hash}}{character API hash.}
 
-\item{\code{settings}}{TL object TypeCodeSettings.
-
-Methods:}
+\item{\code{settings}}{TL object TypeCodeSettings.}
 }
 \if{html}{\out{</div>}}
 }
@@ -71,6 +42,7 @@ Methods:}
 \if{html}{\out{<a id="method-SendCodeRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SendCodeRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a SendCodeRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendCodeRequest$new(phone_number, api_id, api_hash, settings)}\if{html}{\out{</div>}}
 }
@@ -84,8 +56,7 @@ Methods:}
 
 \item{\code{api_hash}}{character}
 
-\item{\code{settings}}{TL object
-Convert to an R list (similar to to_dict)}
+\item{\code{settings}}{TL object}
 }
 \if{html}{\out{</div>}}
 }
@@ -94,32 +65,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-SendCodeRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SendCodeRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendCodeRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SendCodeRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SendCodeRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendCodeRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create SendCodeRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SendCodeRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-SendCodeRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create SendCodeRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendCodeRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

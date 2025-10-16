@@ -14,11 +14,6 @@ R6 representation of the TL request: ResetSavedRequest
 }
 \examples{
 ResetSavedRequest$new()$to_list()
-Initialize ResetSavedRequest
-
-No parameters.
-Convert to list
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ResetSavedRequest}
@@ -55,6 +50,10 @@ Convert to list
 \if{html}{\out{<a id="method-ResetSavedRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ResetSavedRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ResetSavedRequest
+
+No parameters.
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResetSavedRequest$new()}\if{html}{\out{</div>}}
 }

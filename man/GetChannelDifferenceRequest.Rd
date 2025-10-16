@@ -3,9 +3,6 @@
 \name{GetChannelDifferenceRequest}
 \alias{GetChannelDifferenceRequest}
 \title{GetChannelDifferenceRequest R6 class}
-\value{
-R6 object of class GetChannelDifferenceRequest
-}
 \description{
 GetChannelDifferenceRequest R6 class
 

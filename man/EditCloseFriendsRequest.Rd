@@ -8,8 +8,6 @@ Methods:
 - initialize(id): create new request where id is a numeric vector of 64-bit integers
 - to_list(): return list representation
 - to_bytes(): serialize to raw TL bytes (constructor + vector + int64 items)
-
-Initialize EditCloseFriendsRequest
 }
 \details{
 R6 representation of the TL request: EditCloseFriendsRequest
@@ -60,6 +58,7 @@ R6 representation of the TL request: EditCloseFriendsRequest
 \if{html}{\out{<a id="method-EditCloseFriendsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-EditCloseFriendsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize EditCloseFriendsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditCloseFriendsRequest$new(id)}\if{html}{\out{</div>}}
 }

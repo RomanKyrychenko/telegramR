@@ -15,8 +15,6 @@ R6 representation of the TL request: BlockRequest
 }
 \examples{
 BlockRequest$new(peerObj, TRUE)$to_list()
-Initialize BlockRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{BlockRequest}
@@ -66,6 +64,7 @@ Initialize BlockRequest
 \if{html}{\out{<a id="method-BlockRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-BlockRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize BlockRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{BlockRequest$new(id, my_stories_from = NULL)}\if{html}{\out{</div>}}
 }

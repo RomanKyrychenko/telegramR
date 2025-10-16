@@ -4,37 +4,13 @@
 \alias{ExportAuthorizationRequest}
 \title{ExportAuthorizationRequest R6 class}
 \description{
-Represents the TLRequest auth.ExportAuthorizationRequest.
+ExportAuthorizationRequest R6 class
+
+ExportAuthorizationRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.ExportAuthorizationRequest.
 }
-\section{initialize}{
-
- Create a new ExportAuthorizationRequest object.
- @param dc_id integer
- @return invisible self
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Read fields from a reader and return a new ExportAuthorizationRequest.
- @param reader Reader object implementing read_int()
- @return ExportAuthorizationRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -42,9 +18,7 @@ Fields:
 
 \item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0x5fd1ec51).}
 
-\item{\code{dc_id}}{integer Destination DC id.
-
-Methods:}
+\item{\code{dc_id}}{integer Destination DC id.}
 }
 \if{html}{\out{</div>}}
 }
@@ -62,6 +36,7 @@ Methods:}
 \if{html}{\out{<a id="method-ExportAuthorizationRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportAuthorizationRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize an ExportAuthorizationRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportAuthorizationRequest$new(dc_id)}\if{html}{\out{</div>}}
 }
@@ -85,26 +60,26 @@ Convert to an R list (similar to to_dict)}
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportAuthorizationRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportAuthorizationRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportAuthorizationRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create ExportAuthorizationRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportAuthorizationRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportAuthorizationRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create ExportAuthorizationRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportAuthorizationRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

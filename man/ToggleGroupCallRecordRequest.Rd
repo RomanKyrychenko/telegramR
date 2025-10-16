@@ -4,6 +4,11 @@
 \alias{ToggleGroupCallRecordRequest}
 \title{ToggleGroupCallRecordRequest R6 class}
 \description{
+ToggleGroupCallRecordRequest R6 class
+
+ToggleGroupCallRecordRequest R6 class
+}
+\details{
 Represents ToggleGroupCallRecordRequest TLRequest.
 }
 \section{Public fields}{
@@ -36,6 +41,7 @@ Represents ToggleGroupCallRecordRequest TLRequest.
 \if{html}{\out{<a id="method-ToggleGroupCallRecordRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleGroupCallRecordRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a ToggleGroupCallRecordRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleGroupCallRecordRequest$new(
   call,
@@ -57,8 +63,7 @@ Represents ToggleGroupCallRecordRequest TLRequest.
 
 \item{\code{title}}{Optional string or NULL.}
 
-\item{\code{video_portrait}}{Logical or NULL.
-Resolve input references}
+\item{\code{video_portrait}}{Logical or NULL.}
 }
 \if{html}{\out{</div>}}
 }
@@ -67,6 +72,7 @@ Resolve input references}
 \if{html}{\out{<a id="method-ToggleGroupCallRecordRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleGroupCallRecordRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleGroupCallRecordRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -76,8 +82,7 @@ Resolve input references}
 \describe{
 \item{\code{client}}{Client object (passed to utils functions).}
 
-\item{\code{utils}}{Utility object with get_input_group_call method.
-Convert object to a list}
+\item{\code{utils}}{Utility object with get_input_group_call method.}
 }
 \if{html}{\out{</div>}}
 }
@@ -86,21 +91,22 @@ Convert object to a list}
 \if{html}{\out{<a id="method-ToggleGroupCallRecordRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleGroupCallRecordRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleGroupCallRecordRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-This constructs the TL-serialized bytes. Assumes `call$bytes()` exists.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ToggleGroupCallRecordRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleGroupCallRecordRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+This constructs the TL-serialized bytes. Assumes `call$bytes()` exists.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleGroupCallRecordRequest$bytes()}\if{html}{\out{</div>}}
 }

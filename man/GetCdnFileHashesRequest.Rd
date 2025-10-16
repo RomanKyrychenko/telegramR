@@ -79,10 +79,21 @@ raw
 \if{html}{\out{<a id="method-GetCdnFileHashesRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCdnFileHashesRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read GetCdnFileHashesRequest from a reader
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCdnFileHashesRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{an object providing tgread_bytes() and read_long()}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+GetCdnFileHashesRequest
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetCdnFileHashesRequest-clone"></a>}}

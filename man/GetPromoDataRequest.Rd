@@ -4,6 +4,11 @@
 \alias{GetPromoDataRequest}
 \title{GetPromoDataRequest R6 class}
 \description{
+GetPromoDataRequest R6 class
+
+GetPromoDataRequest R6 class
+}
+\details{
 Request to get promo data.
 }
 \section{Public fields}{
@@ -28,6 +33,7 @@ Request to get promo data.
 \if{html}{\out{<a id="method-GetPromoDataRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPromoDataRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetPromoDataRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPromoDataRequest$new()}\if{html}{\out{</div>}}
 }

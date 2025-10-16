@@ -4,18 +4,23 @@
 \alias{GetBoostsStatusRequest}
 \title{GetBoostsStatusRequest R6 class}
 \description{
-Representation of the TL request "GetBoostsStatusRequest".
+GetBoostsStatusRequest R6 class
+
+GetBoostsStatusRequest R6 class
 }
 \details{
-Fields:
-- peer: input peer (object or identifier)
+Representation of the TL request "GetBoostsStatusRequest".
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the request}
 
-Methods:
-- initialize(peer = NULL)
-- resolve(client, utils): resolve peer using client/utils helpers
-- to_list(): return a list (dictionary) representation
-- bytes(): serialize to raw vector (prefix + peer bytes)
-- from_reader(reader): read peer from reader and return a new instance
+\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the request}
+
+\item{\code{peer}}{Input peer (object or identifier)}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -32,6 +37,7 @@ Methods:
 \if{html}{\out{<a id="method-GetBoostsStatusRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetBoostsStatusRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Create a new GetBoostsStatusRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetBoostsStatusRequest$new(peer = NULL)}\if{html}{\out{</div>}}
 }
@@ -45,13 +51,13 @@ Methods:
 }
 \subsection{Returns}{
 self
-Resolve peer using client/utils helpers
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetBoostsStatusRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetBoostsStatusRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer using client/utils helpers
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetBoostsStatusRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -67,39 +73,39 @@ Resolve peer using client/utils helpers
 }
 \subsection{Returns}{
 self
-Convert request to list (dictionary)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetBoostsStatusRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetBoostsStatusRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert request to list (dictionary)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetBoostsStatusRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetBoostsStatusRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetBoostsStatusRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Serialize to raw bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetBoostsStatusRequest$bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Construct a new GetBoostsStatusRequest from a reader
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetBoostsStatusRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetBoostsStatusRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Construct a new GetBoostsStatusRequest from a reader
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetBoostsStatusRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

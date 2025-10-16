@@ -14,8 +14,6 @@ R6 representation of the TL request: GetSavedRequest
 }
 \examples{
 GetSavedRequest$new()$to_list()
-Initialize GetSavedRequest
-Convert to list
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetSavedRequest}
@@ -52,6 +50,8 @@ Convert to list
 \if{html}{\out{<a id="method-GetSavedRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSavedRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetSavedRequest
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSavedRequest$new()}\if{html}{\out{</div>}}
 }

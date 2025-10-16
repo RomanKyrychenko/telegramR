@@ -43,6 +43,7 @@ Represents the InvokeWebViewCustomMethodRequest TL request.
 \if{html}{\out{<a id="method-InvokeWebViewCustomMethodRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-InvokeWebViewCustomMethodRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize InvokeWebViewCustomMethodRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvokeWebViewCustomMethodRequest$new(bot, custom_method, params)}\if{html}{\out{</div>}}
 }

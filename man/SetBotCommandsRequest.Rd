@@ -43,6 +43,7 @@ Represents the SetBotCommandsRequest TL request.
 \if{html}{\out{<a id="method-SetBotCommandsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SetBotCommandsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize SetBotCommandsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetBotCommandsRequest$new(scope, lang_code, commands)}\if{html}{\out{</div>}}
 }

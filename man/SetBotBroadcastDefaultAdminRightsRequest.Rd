@@ -37,6 +37,7 @@ Represents the SetBotBroadcastDefaultAdminRightsRequest TL request.
 \if{html}{\out{<a id="method-SetBotBroadcastDefaultAdminRightsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SetBotBroadcastDefaultAdminRightsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize SetBotBroadcastDefaultAdminRightsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetBotBroadcastDefaultAdminRightsRequest$new(admin_rights)}\if{html}{\out{</div>}}
 }

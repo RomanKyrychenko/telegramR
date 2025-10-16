@@ -4,6 +4,11 @@
 \alias{GetGroupCallStreamRtmpUrlRequest}
 \title{GetGroupCallStreamRtmpUrlRequest R6 class}
 \description{
+GetGroupCallStreamRtmpUrlRequest R6 class
+
+GetGroupCallStreamRtmpUrlRequest R6 class
+}
+\details{
 Represents GetGroupCallStreamRtmpUrlRequest TLRequest.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Represents GetGroupCallStreamRtmpUrlRequest TLRequest.
 \if{html}{\out{<a id="method-GetGroupCallStreamRtmpUrlRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetGroupCallStreamRtmpUrlRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a GetGroupCallStreamRtmpUrlRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetGroupCallStreamRtmpUrlRequest$new(peer, revoke)}\if{html}{\out{</div>}}
 }
@@ -45,15 +51,15 @@ Represents GetGroupCallStreamRtmpUrlRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-Typically used to convert high-level entities into input objects.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetGroupCallStreamRtmpUrlRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetGroupCallStreamRtmpUrlRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetGroupCallStreamRtmpUrlRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -69,28 +75,28 @@ Typically used to convert high-level entities into input objects.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetGroupCallStreamRtmpUrlRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetGroupCallStreamRtmpUrlRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetGroupCallStreamRtmpUrlRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetGroupCallStreamRtmpUrlRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetGroupCallStreamRtmpUrlRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetGroupCallStreamRtmpUrlRequest$bytes()}\if{html}{\out{</div>}}
 }

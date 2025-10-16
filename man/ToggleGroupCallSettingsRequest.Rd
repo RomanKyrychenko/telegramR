@@ -4,6 +4,11 @@
 \alias{ToggleGroupCallSettingsRequest}
 \title{ToggleGroupCallSettingsRequest R6 class}
 \description{
+ToggleGroupCallSettingsRequest R6 class
+
+ToggleGroupCallSettingsRequest R6 class
+}
+\details{
 Represents ToggleGroupCallSettingsRequest TLRequest.
 }
 \section{Public fields}{
@@ -32,6 +37,7 @@ Represents ToggleGroupCallSettingsRequest TLRequest.
 \if{html}{\out{<a id="method-ToggleGroupCallSettingsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleGroupCallSettingsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a ToggleGroupCallSettingsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleGroupCallSettingsRequest$new(
   call,
@@ -47,10 +53,7 @@ Represents ToggleGroupCallSettingsRequest TLRequest.
 
 \item{\code{reset_invite_hash}}{Logical or NULL.}
 
-\item{\code{join_muted}}{Logical or NULL.
-Resolve input references
-
-Typically used to convert high-level entities into input objects.}
+\item{\code{join_muted}}{Logical or NULL.}
 }
 \if{html}{\out{</div>}}
 }
@@ -59,6 +62,9 @@ Typically used to convert high-level entities into input objects.}
 \if{html}{\out{<a id="method-ToggleGroupCallSettingsRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleGroupCallSettingsRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleGroupCallSettingsRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -68,8 +74,7 @@ Typically used to convert high-level entities into input objects.}
 \describe{
 \item{\code{client}}{Client object (passed to utils functions).}
 
-\item{\code{utils}}{Utility object with get_input_group_call method.
-Convert object to a list}
+\item{\code{utils}}{Utility object with get_input_group_call method.}
 }
 \if{html}{\out{</div>}}
 }
@@ -78,22 +83,23 @@ Convert object to a list}
 \if{html}{\out{<a id="method-ToggleGroupCallSettingsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleGroupCallSettingsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleGroupCallSettingsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. This implementation
-assumes `self$call` exposes a bytes() method returning a raw vector.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ToggleGroupCallSettingsRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleGroupCallSettingsRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. This implementation
+assumes `self$call` exposes a bytes() method returning a raw vector.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleGroupCallSettingsRequest$bytes()}\if{html}{\out{</div>}}
 }

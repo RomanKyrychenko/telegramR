@@ -10,8 +10,6 @@ GetWebFileRequest R6 class
 }
 \details{
 Represents the TL request upload.GetWebFileRequest.
-
-Fields:
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
@@ -85,10 +83,21 @@ raw
 \if{html}{\out{<a id="method-GetWebFileRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetWebFileRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read GetWebFileRequest from a reader
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetWebFileRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{an object providing tgread_object(), read_int()}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+GetWebFileRequest
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetWebFileRequest-clone"></a>}}

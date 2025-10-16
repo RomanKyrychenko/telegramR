@@ -4,6 +4,11 @@
 \alias{InviteToGroupCallRequest}
 \title{InviteToGroupCallRequest R6 class}
 \description{
+InviteToGroupCallRequest R6 class
+
+InviteToGroupCallRequest R6 class
+}
+\details{
 Represents InviteToGroupCallRequest TLRequest.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Represents InviteToGroupCallRequest TLRequest.
 \if{html}{\out{<a id="method-InviteToGroupCallRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-InviteToGroupCallRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize an InviteToGroupCallRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InviteToGroupCallRequest$new(call, users)}\if{html}{\out{</div>}}
 }
@@ -45,15 +51,15 @@ Represents InviteToGroupCallRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-Typically used to convert high-level entities into input objects.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-InviteToGroupCallRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-InviteToGroupCallRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InviteToGroupCallRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -69,28 +75,28 @@ Typically used to convert high-level entities into input objects.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-InviteToGroupCallRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-InviteToGroupCallRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InviteToGroupCallRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-InviteToGroupCallRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-InviteToGroupCallRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InviteToGroupCallRequest$bytes()}\if{html}{\out{</div>}}
 }

@@ -4,20 +4,23 @@
 \alias{FinishJobRequest}
 \title{FinishJobRequest R6 class}
 \description{
-Representation of the FinishJobRequest TLRequest.
+FinishJobRequest R6 class
+
+FinishJobRequest R6 class
 }
 \details{
-Fields:
-- job_id: character
-- error: character or NULL
-
-Methods:
-- new(job_id, error = NULL): create instance
-- to_list(): return a list representation
-- bytes(): return raw bytes for the TL constructor (includes flags and serialized fields)
-- from_reader(reader): class method to construct from a reader
+Representation of the FinishJobRequest TLRequest.
 
 Encodes constructor id, flags (bit 0 for error), job_id and optional error.
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{job_id}}{character}
+
+\item{\code{error}}{character or NULL}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -33,6 +36,7 @@ Encodes constructor id, flags (bit 0 for error), job_id and optional error.
 \if{html}{\out{<a id="method-FinishJobRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-FinishJobRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a FinishJobRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FinishJobRequest$new(job_id, error = NULL)}\if{html}{\out{</div>}}
 }
@@ -48,26 +52,26 @@ Encodes constructor id, flags (bit 0 for error), job_id and optional error.
 }
 \subsection{Returns}{
 self
-Convert to list (dictionary-like)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-FinishJobRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-FinishJobRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FinishJobRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Get raw bytes for this constructor
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-FinishJobRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-FinishJobRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Get raw bytes for this constructor
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FinishJobRequest$bytes()}\if{html}{\out{</div>}}
 }

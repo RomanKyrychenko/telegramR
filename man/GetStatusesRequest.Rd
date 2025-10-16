@@ -14,8 +14,6 @@ R6 representation of the TL request: GetStatusesRequest
 }
 \examples{
 GetStatusesRequest$new()$to_list()
-Initialize GetStatusesRequest
-Convert to list
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetStatusesRequest}
@@ -52,6 +50,8 @@ Convert to list
 \if{html}{\out{<a id="method-GetStatusesRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStatusesRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetStatusesRequest
+Convert to list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStatusesRequest$new()}\if{html}{\out{</div>}}
 }

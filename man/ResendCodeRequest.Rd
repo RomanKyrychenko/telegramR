@@ -4,39 +4,13 @@
 \alias{ResendCodeRequest}
 \title{ResendCodeRequest R6 class}
 \description{
-Represents the TLRequest auth.ResendCodeRequest.
+ResendCodeRequest R6 class
+
+ResendCodeRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.ResendCodeRequest.
 }
-\section{initialize}{
-
- Create a new ResendCodeRequest object.
- @param phone_number character
- @param phone_code_hash character
- @param reason character or NULL
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new ResendCodeRequest instance.
- @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
- @return ResendCodeRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -48,9 +22,7 @@ Fields:
 
 \item{\code{phone_code_hash}}{character Phone code hash.}
 
-\item{\code{reason}}{character Optional reason.
-
-Methods:}
+\item{\code{reason}}{character Optional reason.}
 }
 \if{html}{\out{</div>}}
 }
@@ -68,6 +40,7 @@ Methods:}
 \if{html}{\out{<a id="method-ResendCodeRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ResendCodeRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a ResendCodeRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResendCodeRequest$new(phone_number, phone_code_hash, reason = NULL)}\if{html}{\out{</div>}}
 }
@@ -79,8 +52,7 @@ Methods:}
 
 \item{\code{phone_code_hash}}{character}
 
-\item{\code{reason}}{character or NULL
-Convert to an R list (similar to to_dict)}
+\item{\code{reason}}{character or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -89,32 +61,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-ResendCodeRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ResendCodeRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResendCodeRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ResendCodeRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ResendCodeRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResendCodeRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create ResendCodeRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ResendCodeRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-ResendCodeRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create ResendCodeRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResendCodeRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

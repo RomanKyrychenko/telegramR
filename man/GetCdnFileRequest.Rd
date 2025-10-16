@@ -83,10 +83,21 @@ raw
 \if{html}{\out{<a id="method-GetCdnFileRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCdnFileRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read GetCdnFileRequest from a reader
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCdnFileRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{an object providing tgread_bytes(), read_long(), read_int()}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+GetCdnFileRequest
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetCdnFileRequest-clone"></a>}}

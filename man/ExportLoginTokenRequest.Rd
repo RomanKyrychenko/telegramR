@@ -4,39 +4,13 @@
 \alias{ExportLoginTokenRequest}
 \title{ExportLoginTokenRequest R6 class}
 \description{
-Represents the TLRequest auth.ExportLoginTokenRequest.
+ExportLoginTokenRequest R6 class
+
+ExportLoginTokenRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.ExportLoginTokenRequest.
 }
-\section{initialize}{
-
- Create a new ExportLoginTokenRequest object.
- @param api_id integer
- @param api_hash character
- @param except_ids numeric vector (64-bit) or NULL
- @return invisible self
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Read fields from a reader and return a new ExportLoginTokenRequest.
- @param reader Reader object implementing read_int(), tgread_string(), read_long()
- @return ExportLoginTokenRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -48,9 +22,7 @@ Fields:
 
 \item{\code{api_hash}}{character API hash.}
 
-\item{\code{except_ids}}{numeric vector 64-bit ids to exclude.
-
-Methods:}
+\item{\code{except_ids}}{numeric vector 64-bit ids to exclude.}
 }
 \if{html}{\out{</div>}}
 }
@@ -68,6 +40,7 @@ Methods:}
 \if{html}{\out{<a id="method-ExportLoginTokenRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportLoginTokenRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize an ExportLoginTokenRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportLoginTokenRequest$new(api_id, api_hash, except_ids = NULL)}\if{html}{\out{</div>}}
 }
@@ -79,8 +52,7 @@ Methods:}
 
 \item{\code{api_hash}}{character}
 
-\item{\code{except_ids}}{numeric vector (64-bit) or NULL
-Convert to an R list (similar to to_dict)}
+\item{\code{except_ids}}{numeric vector (64-bit) or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -89,32 +61,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-ExportLoginTokenRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportLoginTokenRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportLoginTokenRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportLoginTokenRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportLoginTokenRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportLoginTokenRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create ExportLoginTokenRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ExportLoginTokenRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportLoginTokenRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create ExportLoginTokenRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportLoginTokenRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

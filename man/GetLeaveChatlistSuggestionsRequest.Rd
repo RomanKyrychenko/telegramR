@@ -4,7 +4,14 @@
 \alias{GetLeaveChatlistSuggestionsRequest}
 \title{GetLeaveChatlistSuggestionsRequest R6 class}
 \description{
+GetLeaveChatlistSuggestionsRequest R6 class
+
+GetLeaveChatlistSuggestionsRequest R6 class
+}
+\details{
 Request to get suggestions of peers to leave from a chatlist.
+
+Serializes the constructor id followed by chatlist bytes.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
@@ -31,6 +38,7 @@ Request to get suggestions of peers to leave from a chatlist.
 \if{html}{\out{<a id="method-GetLeaveChatlistSuggestionsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetLeaveChatlistSuggestionsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetLeaveChatlistSuggestionsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetLeaveChatlistSuggestionsRequest$new(chatlist = NULL)}\if{html}{\out{</div>}}
 }
@@ -63,10 +71,6 @@ Serialize to raw bytes
 \subsection{Method \code{bytes()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetLeaveChatlistSuggestionsRequest$bytes()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Serializes the constructor id followed by chatlist bytes.
 }
 
 \subsection{Returns}{

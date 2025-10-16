@@ -4,6 +4,11 @@
 \alias{GetTimezonesListRequest}
 \title{GetTimezonesListRequest R6 class}
 \description{
+GetTimezonesListRequest R6 class
+
+GetTimezonesListRequest R6 class
+}
+\details{
 Request to get timezones list (possibly not modified).
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Request to get timezones list (possibly not modified).
 \if{html}{\out{<a id="method-GetTimezonesListRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetTimezonesListRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetTimezonesListRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetTimezonesListRequest$new(hash = 0L)}\if{html}{\out{</div>}}
 }

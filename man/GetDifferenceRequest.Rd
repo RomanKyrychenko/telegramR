@@ -3,13 +3,18 @@
 \name{GetDifferenceRequest}
 \alias{GetDifferenceRequest}
 \title{GetDifferenceRequest R6 class}
-\value{
-A GetDifferenceRequest R6 object
-}
 \description{
-TLRequest: GetDifferenceRequest
+GetDifferenceRequest R6 class
+
+GetDifferenceRequest R6 class
+
+GetDifferenceRequest R6 class
+
+GetDifferenceRequest R6 class
 }
 \details{
+TLRequest: GetDifferenceRequest
+
 Representation of updates.GetDifference request.
 }
 \examples{

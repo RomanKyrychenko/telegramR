@@ -4,39 +4,13 @@
 \alias{ImportAuthorizationRequest}
 \title{ImportAuthorizationRequest R6 class}
 \description{
-Represents the TLRequest auth.ImportAuthorizationRequest.
+ImportAuthorizationRequest R6 class
+
+ImportAuthorizationRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.ImportAuthorizationRequest.
 }
-\section{initialize}{
-
- Create a new ImportAuthorizationRequest object.
- @param id numeric or integer (64-bit)
- @param bytes raw vector or string
- @return invisible self
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new ImportAuthorizationRequest instance.
- @param reader Reader object implementing read_long(), tgread_bytes()
- @return ImportAuthorizationRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -46,9 +20,7 @@ Fields:
 
 \item{\code{id}}{numeric 64-bit id.}
 
-\item{\code{bytes}}{raw|character Token bytes.
-
-Methods:}
+\item{\code{bytes}}{raw|character Token bytes.}
 }
 \if{html}{\out{</div>}}
 }
@@ -66,6 +38,7 @@ Methods:}
 \if{html}{\out{<a id="method-ImportAuthorizationRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportAuthorizationRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize an ImportAuthorizationRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportAuthorizationRequest$new(id, bytes)}\if{html}{\out{</div>}}
 }
@@ -75,8 +48,7 @@ Methods:}
 \describe{
 \item{\code{id}}{numeric or integer (64-bit)}
 
-\item{\code{bytes}}{raw vector or string
-Convert to an R list (similar to to_dict)}
+\item{\code{bytes}}{raw vector or string}
 }
 \if{html}{\out{</div>}}
 }
@@ -85,32 +57,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-ImportAuthorizationRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportAuthorizationRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportAuthorizationRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ImportAuthorizationRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportAuthorizationRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportAuthorizationRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create ImportAuthorizationRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ImportAuthorizationRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportAuthorizationRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create ImportAuthorizationRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportAuthorizationRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

@@ -4,14 +4,21 @@
 \alias{GetMyBoostsRequest}
 \title{GetMyBoostsRequest R6 class}
 \description{
-Representation of the TL request "GetMyBoostsRequest".
+GetMyBoostsRequest R6 class
+
+GetMyBoostsRequest R6 class
 }
 \details{
-Methods:
-- initialize(): create new request object
-- to_list(): return a list (dictionary) representation ready for JSON/serialization
-- bytes(): serialize a small raw prefix for network transmission (raw vector)
-- from_reader(reader): construct a new instance from a reader object
+Representation of the TL request "GetMyBoostsRequest".
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the request}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the request}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -27,32 +34,33 @@ Methods:
 \if{html}{\out{<a id="method-GetMyBoostsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetMyBoostsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Create a new GetMyBoostsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetMyBoostsRequest$new()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 self
-Convert request to a list (dictionary)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetMyBoostsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetMyBoostsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert request to a list (dictionary)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetMyBoostsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetMyBoostsRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetMyBoostsRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Serialize to raw bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetMyBoostsRequest$bytes()}\if{html}{\out{</div>}}
 }

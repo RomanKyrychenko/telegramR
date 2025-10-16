@@ -4,39 +4,13 @@
 \alias{ReportMissingCodeRequest}
 \title{ReportMissingCodeRequest R6 class}
 \description{
-Represents the TLRequest auth.ReportMissingCodeRequest.
+ReportMissingCodeRequest R6 class
+
+ReportMissingCodeRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.ReportMissingCodeRequest.
 }
-\section{initialize}{
-
- Create a new ReportMissingCodeRequest object.
- @param phone_number character
- @param phone_code_hash character
- @param mnc character
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new ReportMissingCodeRequest instance.
- @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
- @return ReportMissingCodeRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -48,9 +22,7 @@ Fields:
 
 \item{\code{phone_code_hash}}{character Phone code hash.}
 
-\item{\code{mnc}}{character Mobile network code.
-
-Methods:}
+\item{\code{mnc}}{character Mobile network code.}
 }
 \if{html}{\out{</div>}}
 }
@@ -68,6 +40,7 @@ Methods:}
 \if{html}{\out{<a id="method-ReportMissingCodeRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ReportMissingCodeRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a ReportMissingCodeRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReportMissingCodeRequest$new(phone_number, phone_code_hash, mnc)}\if{html}{\out{</div>}}
 }
@@ -79,8 +52,7 @@ Methods:}
 
 \item{\code{phone_code_hash}}{character}
 
-\item{\code{mnc}}{character
-Convert to an R list (similar to to_dict)}
+\item{\code{mnc}}{character}
 }
 \if{html}{\out{</div>}}
 }
@@ -89,6 +61,7 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-ReportMissingCodeRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ReportMissingCodeRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReportMissingCodeRequest$to_list()}\if{html}{\out{</div>}}
 }
@@ -108,13 +81,13 @@ Serialize to bytes
 
 \subsection{Returns}{
 raw vector
-Read from reader and create ReportMissingCodeRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ReportMissingCodeRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-ReportMissingCodeRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create ReportMissingCodeRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReportMissingCodeRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

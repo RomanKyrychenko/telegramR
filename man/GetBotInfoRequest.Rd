@@ -41,6 +41,7 @@ Represents the GetBotInfoRequest TL request.
 \if{html}{\out{<a id="method-GetBotInfoRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetBotInfoRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetBotInfoRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetBotInfoRequest$new(lang_code, bot = NULL)}\if{html}{\out{</div>}}
 }

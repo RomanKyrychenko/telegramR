@@ -41,6 +41,7 @@ Represents the ResetBotCommandsRequest TL request.
 \if{html}{\out{<a id="method-ResetBotCommandsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ResetBotCommandsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ResetBotCommandsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResetBotCommandsRequest$new(scope, lang_code)}\if{html}{\out{</div>}}
 }

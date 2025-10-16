@@ -4,6 +4,11 @@
 \alias{DeclineConferenceCallInviteRequest}
 \title{DeclineConferenceCallInviteRequest R6 class}
 \description{
+DeclineConferenceCallInviteRequest R6 class
+
+DeclineConferenceCallInviteRequest R6 class
+}
+\details{
 Represents DeclineConferenceCallInviteRequest TLRequest.
 }
 \section{Public fields}{
@@ -27,6 +32,7 @@ Represents DeclineConferenceCallInviteRequest TLRequest.
 \if{html}{\out{<a id="method-DeclineConferenceCallInviteRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-DeclineConferenceCallInviteRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a DeclineConferenceCallInviteRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeclineConferenceCallInviteRequest$new(msg_id)}\if{html}{\out{</div>}}
 }
@@ -40,28 +46,28 @@ Represents DeclineConferenceCallInviteRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DeclineConferenceCallInviteRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-DeclineConferenceCallInviteRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeclineConferenceCallInviteRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DeclineConferenceCallInviteRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-DeclineConferenceCallInviteRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeclineConferenceCallInviteRequest$bytes()}\if{html}{\out{</div>}}
 }

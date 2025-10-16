@@ -4,6 +4,11 @@
 \alias{DismissSuggestionRequest}
 \title{DismissSuggestionRequest R6 class}
 \description{
+DismissSuggestionRequest R6 class
+
+DismissSuggestionRequest R6 class
+}
+\details{
 Dismiss a suggestion for a peer with an associated suggestion string.
 }
 \section{Public fields}{
@@ -33,6 +38,7 @@ Dismiss a suggestion for a peer with an associated suggestion string.
 \if{html}{\out{<a id="method-DismissSuggestionRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-DismissSuggestionRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize DismissSuggestionRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DismissSuggestionRequest$new(peer = NULL, suggestion = "")}\if{html}{\out{</div>}}
 }

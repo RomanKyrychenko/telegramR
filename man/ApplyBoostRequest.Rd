@@ -4,33 +4,25 @@
 \alias{ApplyBoostRequest}
 \title{ApplyBoostRequest R6 class}
 \description{
-Representation of the TL request "ApplyBoostRequest".
+ApplyBoostRequest R6 class
+
+ApplyBoostRequest R6 class
 }
 \details{
-Fields:
-- peer: input peer (object or identifier)
-- slots: integer vector of slot ids (optional)
+Representation of the TL request "ApplyBoostRequest".
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the request}
 
-Methods:
-- initialize(peer = NULL, slots = NULL)
-  Create a new ApplyBoostRequest.
+\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the request}
 
-- resolve(client, utils)
-  Resolve peer using client/utils helpers. This will replace `peer` with
-  an input-peer object via utils$get_input_peer(client$get_input_entity(peer)).
+\item{\code{peer}}{Input peer (object or identifier)}
 
-- to_list()
-  Return a list (dictionary) representation suitable for JSON/serialization.
-
-- bytes()
-  Serialize to raw bytes. Layout:
-    prefix (4 bytes) +
-    flags (int32) +
-    [vector constructor + count + items...] (if slots present) +
-    peer bytes
-
-- from_reader(reader)
-  Construct a new ApplyBoostRequest from a reader exposing read_int / tgread_object.
+\item{\code{slots}}{Integer vector of slots or NULL}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -47,6 +39,7 @@ Methods:
 \if{html}{\out{<a id="method-ApplyBoostRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ApplyBoostRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Create a new ApplyBoostRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApplyBoostRequest$new(peer = NULL, slots = NULL)}\if{html}{\out{</div>}}
 }
@@ -62,13 +55,13 @@ Methods:
 }
 \subsection{Returns}{
 self
-Resolve peer using client/utils helpers
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ApplyBoostRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-ApplyBoostRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve peer using client/utils helpers
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApplyBoostRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -84,39 +77,39 @@ Resolve peer using client/utils helpers
 }
 \subsection{Returns}{
 self
-Convert request to list (dictionary)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ApplyBoostRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ApplyBoostRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert request to list (dictionary)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApplyBoostRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to raw bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ApplyBoostRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ApplyBoostRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Serialize to raw bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApplyBoostRequest$bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Construct a new ApplyBoostRequest from a reader
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ApplyBoostRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-ApplyBoostRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Construct a new ApplyBoostRequest from a reader
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApplyBoostRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

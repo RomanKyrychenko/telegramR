@@ -4,6 +4,11 @@
 \alias{GetDeepLinkInfoRequest}
 \title{GetDeepLinkInfoRequest R6 class}
 \description{
+GetDeepLinkInfoRequest R6 class
+
+GetDeepLinkInfoRequest R6 class
+}
+\details{
 Request to get deep link info.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Request to get deep link info.
 \if{html}{\out{<a id="method-GetDeepLinkInfoRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetDeepLinkInfoRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetDeepLinkInfoRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetDeepLinkInfoRequest$new(path = "")}\if{html}{\out{</div>}}
 }

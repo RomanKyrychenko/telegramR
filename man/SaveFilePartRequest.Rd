@@ -4,10 +4,12 @@
 \alias{SaveFilePartRequest}
 \title{SaveFilePartRequest R6 class}
 \description{
+SaveFilePartRequest R6 class
+
+SaveFilePartRequest R6 class
+}
+\details{
 R6 representation of the Telegram TL request upload.SaveFilePartRequest.
-  Saves a single (non-big) part of an uploaded file to Telegram's servers.
-  Use this for files below the "big file" threshold. Each call uploads one
-  sequential part identified by its index.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
@@ -16,9 +18,7 @@ R6 representation of the Telegram TL request upload.SaveFilePartRequest.
 
 \item{\code{file_part}}{integer Zero-based index of this file part.}
 
-\item{\code{bytes_data}}{raw|integer|character The binary payload for this part.
-Accepts: raw vector, integer/ numeric vector (converted mod 256), or character
-(converted with charToRaw).}
+\item{\code{bytes_data}}{raw|integer|character The binary payload for this part.}
 }
 \if{html}{\out{</div>}}
 }
@@ -74,7 +74,6 @@ list A named list with class tag and fields.
 \if{latex}{\out{\hypertarget{method-SaveFilePartRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
 Serialize the request into TL-compliant raw bytes.
-  Layout: constructor_id | file_id(int64) | file_part(int32) | bytes (length-prefixed, padded).
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveFilePartRequest$to_bytes()}\if{html}{\out{</div>}}
 }
@@ -87,8 +86,7 @@ raw Serialized byte vector.
 \if{html}{\out{<a id="method-SaveFilePartRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveFilePartRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
-Internal helper: serialize arbitrary byte-like input with
-  4-byte little-endian length and 0-padding to 4-byte boundary.
+Read SaveFilePartRequest from a reader
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveFilePartRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
@@ -96,12 +94,12 @@ Internal helper: serialize arbitrary byte-like input with
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{b}}{raw|integer|numeric|character Data to serialize.}
+\item{\code{reader}}{an object providing read_long(), read_int() and tgread_bytes()}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Returns}{
-raw Serialized bytes with length prefix and padding.
+SaveFilePartRequest
 }
 }
 \if{html}{\out{<hr>}}

@@ -4,19 +4,21 @@
 \alias{GetSmsJobRequest}
 \title{GetSmsJobRequest R6 class}
 \description{
-Representation of the GetSmsJobRequest TLRequest.
+GetSmsJobRequest R6 class
+
+GetSmsJobRequest R6 class
 }
 \details{
-Fields:
-- job_id: character
-
-Methods:
-- new(job_id): create instance
-- to_list(): return a list representation
-- bytes(): return raw bytes for the TL constructor (includes serialized job_id)
-- from_reader(reader): class method to construct from a reader
+Representation of the GetSmsJobRequest TLRequest.
 
 This calls a helper serialize_bytes() to encode the job_id.
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{job_id}}{character}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -32,6 +34,7 @@ This calls a helper serialize_bytes() to encode the job_id.
 \if{html}{\out{<a id="method-GetSmsJobRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSmsJobRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a GetSmsJobRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSmsJobRequest$new(job_id)}\if{html}{\out{</div>}}
 }
@@ -45,26 +48,26 @@ This calls a helper serialize_bytes() to encode the job_id.
 }
 \subsection{Returns}{
 self
-Convert to list (dictionary-like)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetSmsJobRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSmsJobRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSmsJobRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Get raw bytes for this constructor
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetSmsJobRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetSmsJobRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Get raw bytes for this constructor
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetSmsJobRequest$bytes()}\if{html}{\out{</div>}}
 }

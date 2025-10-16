@@ -14,8 +14,6 @@ R6 representation of the TL request: ImportContactsRequest
 }
 \examples{
 ImportContactsRequest$new(list(contact1, contact2))$to_list()
-Initialize ImportContactsRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ImportContactsRequest}
@@ -63,6 +61,7 @@ Initialize ImportContactsRequest
 \if{html}{\out{<a id="method-ImportContactsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportContactsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ImportContactsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportContactsRequest$new(contacts)}\if{html}{\out{</div>}}
 }

@@ -4,38 +4,13 @@
 \alias{ImportLoginTokenRequest}
 \title{ImportLoginTokenRequest R6 class}
 \description{
-Represents the TLRequest auth.ImportLoginTokenRequest.
+ImportLoginTokenRequest R6 class
+
+ImportLoginTokenRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.ImportLoginTokenRequest.
 }
-\section{initialize}{
-
- Create a new ImportLoginTokenRequest object.
- @param token raw vector or string
- @return invisible self
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new ImportLoginTokenRequest instance.
- @param reader Reader object implementing read_int(), tgread_string(), tgread_bytes(), tgread_object()
- @return ImportLoginTokenRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -43,9 +18,7 @@ Fields:
 
 \item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0x6b55f636).}
 
-\item{\code{token}}{raw|character Token bytes.
-
-Methods:}
+\item{\code{token}}{raw|character Token bytes.}
 }
 \if{html}{\out{</div>}}
 }
@@ -63,6 +36,7 @@ Methods:}
 \if{html}{\out{<a id="method-ImportLoginTokenRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportLoginTokenRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize an ImportLoginTokenRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportLoginTokenRequest$new(token)}\if{html}{\out{</div>}}
 }
@@ -70,8 +44,7 @@ Methods:}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{token}}{raw vector or string
-Convert to an R list (similar to to_dict)}
+\item{\code{token}}{raw vector or string}
 }
 \if{html}{\out{</div>}}
 }
@@ -80,32 +53,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-ImportLoginTokenRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportLoginTokenRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportLoginTokenRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ImportLoginTokenRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportLoginTokenRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportLoginTokenRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create ImportLoginTokenRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ImportLoginTokenRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportLoginTokenRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create ImportLoginTokenRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportLoginTokenRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

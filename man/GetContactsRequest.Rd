@@ -14,8 +14,6 @@ R6 representation of the TL request: GetContactsRequest
 }
 \examples{
 GetContactsRequest$new(0)$to_list()
-Initialize GetContactsRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetContactsRequest}
@@ -63,6 +61,7 @@ Initialize GetContactsRequest
 \if{html}{\out{<a id="method-GetContactsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetContactsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetContactsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetContactsRequest$new(hash)}\if{html}{\out{</div>}}
 }

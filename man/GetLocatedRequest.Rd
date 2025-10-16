@@ -15,8 +15,6 @@ R6 representation of the TL request: GetLocatedRequest
 }
 \examples{
 GetLocatedRequest$new(geoPointObj, TRUE, 60)$to_list()
-Initialize GetLocatedRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetLocatedRequest}
@@ -68,6 +66,7 @@ Initialize GetLocatedRequest
 \if{html}{\out{<a id="method-GetLocatedRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetLocatedRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetLocatedRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetLocatedRequest$new(geo_point, background = NULL, self_expires = NULL)}\if{html}{\out{</div>}}
 }

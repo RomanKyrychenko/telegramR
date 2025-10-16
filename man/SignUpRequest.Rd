@@ -4,43 +4,13 @@
 \alias{SignUpRequest}
 \title{SignUpRequest R6 class}
 \description{
-Represents the TLRequest auth.SignUpRequest.
+SignUpRequest R6 class
+
+SignUpRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.SignUpRequest.
 }
-\section{initialize}{
-
- Create a new SignUpRequest object.
- @param phone_number character
- @param phone_code_hash character
- @param first_name character
- @param last_name character
- @param no_joined_notifications logical NULL or TRUE/FALSE
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object (like to_dict).
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. This method uses helper
- serialization functions (serialize_bytes) expected to exist in the TL base
- class / environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new SignUpRequest
- instance.
- @param reader object with methods read_int(), tgread_string()
- @return SignUpRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -56,9 +26,7 @@ Fields:
 
 \item{\code{last_name}}{character Last name.}
 
-\item{\code{no_joined_notifications}}{logical Optional flag.
-
-Methods:}
+\item{\code{no_joined_notifications}}{logical Optional flag.}
 }
 \if{html}{\out{</div>}}
 }
@@ -76,6 +44,7 @@ Methods:}
 \if{html}{\out{<a id="method-SignUpRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SignUpRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a SignUpRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SignUpRequest$new(
   phone_number,
@@ -97,8 +66,7 @@ Methods:}
 
 \item{\code{last_name}}{character}
 
-\item{\code{no_joined_notifications}}{logical or NULL
-Convert to an R list (similar to to_dict)}
+\item{\code{no_joined_notifications}}{logical or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -107,32 +75,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-SignUpRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SignUpRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SignUpRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SignUpRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SignUpRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SignUpRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create SignUpRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SignUpRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-SignUpRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create SignUpRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SignUpRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

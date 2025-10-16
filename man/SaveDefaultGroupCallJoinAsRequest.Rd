@@ -4,6 +4,11 @@
 \alias{SaveDefaultGroupCallJoinAsRequest}
 \title{SaveDefaultGroupCallJoinAsRequest R6 class}
 \description{
+SaveDefaultGroupCallJoinAsRequest R6 class
+
+SaveDefaultGroupCallJoinAsRequest R6 class
+}
+\details{
 Represents SaveDefaultGroupCallJoinAsRequest TLRequest.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Represents SaveDefaultGroupCallJoinAsRequest TLRequest.
 \if{html}{\out{<a id="method-SaveDefaultGroupCallJoinAsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveDefaultGroupCallJoinAsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a SaveDefaultGroupCallJoinAsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveDefaultGroupCallJoinAsRequest$new(peer, join_as)}\if{html}{\out{</div>}}
 }
@@ -45,15 +51,15 @@ Represents SaveDefaultGroupCallJoinAsRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-Typically used to convert high-level entities into input objects.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveDefaultGroupCallJoinAsRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveDefaultGroupCallJoinAsRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveDefaultGroupCallJoinAsRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -69,29 +75,29 @@ Typically used to convert high-level entities into input objects.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveDefaultGroupCallJoinAsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveDefaultGroupCallJoinAsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveDefaultGroupCallJoinAsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes `peer$bytes()` and
-`join_as$bytes()` exist.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveDefaultGroupCallJoinAsRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveDefaultGroupCallJoinAsRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes `peer$bytes()` and
+`join_as$bytes()` exist.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveDefaultGroupCallJoinAsRequest$bytes()}\if{html}{\out{</div>}}
 }

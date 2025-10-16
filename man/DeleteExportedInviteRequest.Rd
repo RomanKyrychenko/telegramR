@@ -4,7 +4,14 @@
 \alias{DeleteExportedInviteRequest}
 \title{DeleteExportedInviteRequest R6 class}
 \description{
+DeleteExportedInviteRequest R6 class
+
+DeleteExportedInviteRequest R6 class
+}
+\details{
 Request to delete an exported invite for a chatlist.
+
+Serializes constructor id, chatlist bytes, then TL-string encoded slug.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
@@ -33,6 +40,7 @@ Request to delete an exported invite for a chatlist.
 \if{html}{\out{<a id="method-DeleteExportedInviteRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteExportedInviteRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize DeleteExportedInviteRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteExportedInviteRequest$new(chatlist = NULL, slug = NULL)}\if{html}{\out{</div>}}
 }
@@ -67,10 +75,6 @@ Serialize to raw bytes
 \subsection{Method \code{bytes()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteExportedInviteRequest$bytes()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Serializes constructor id, chatlist bytes, then TL-string encoded slug.
 }
 
 \subsection{Returns}{

@@ -4,6 +4,11 @@
 \alias{RequestCallRequest}
 \title{RequestCallRequest R6 class}
 \description{
+RequestCallRequest R6 class
+
+RequestCallRequest R6 class
+}
+\details{
 Represents RequestCallRequest TLRequest.
 }
 \section{Public fields}{
@@ -36,6 +41,7 @@ Represents RequestCallRequest TLRequest.
 \if{html}{\out{<a id="method-RequestCallRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-RequestCallRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a RequestCallRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RequestCallRequest$new(
   user_id,
@@ -63,15 +69,15 @@ Represents RequestCallRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-Typically used to convert high-level entities into input objects.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-RequestCallRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-RequestCallRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RequestCallRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -87,29 +93,29 @@ Typically used to convert high-level entities into input objects.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-RequestCallRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-RequestCallRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RequestCallRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes `user_id$bytes()` and
-`protocol$bytes()` exist. `g_a_hash` may be raw vector or single string.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-RequestCallRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-RequestCallRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes `user_id$bytes()` and
+`protocol$bytes()` exist. `g_a_hash` may be raw vector or single string.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RequestCallRequest$bytes()}\if{html}{\out{</div>}}
 }

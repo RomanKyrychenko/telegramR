@@ -4,6 +4,11 @@
 \alias{DeleteConferenceCallParticipantsRequest}
 \title{DeleteConferenceCallParticipantsRequest R6 class}
 \description{
+DeleteConferenceCallParticipantsRequest R6 class
+
+DeleteConferenceCallParticipantsRequest R6 class
+}
+\details{
 Represents DeleteConferenceCallParticipantsRequest TLRequest.
 }
 \section{Public fields}{
@@ -36,6 +41,7 @@ Represents DeleteConferenceCallParticipantsRequest TLRequest.
 \if{html}{\out{<a id="method-DeleteConferenceCallParticipantsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteConferenceCallParticipantsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a DeleteConferenceCallParticipantsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteConferenceCallParticipantsRequest$new(
   call,
@@ -63,15 +69,15 @@ Represents DeleteConferenceCallParticipantsRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-Typically used to convert high-level entities into input objects.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DeleteConferenceCallParticipantsRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteConferenceCallParticipantsRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteConferenceCallParticipantsRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -87,28 +93,28 @@ Typically used to convert high-level entities into input objects.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DeleteConferenceCallParticipantsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteConferenceCallParticipantsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteConferenceCallParticipantsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DeleteConferenceCallParticipantsRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-DeleteConferenceCallParticipantsRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeleteConferenceCallParticipantsRequest$bytes()}\if{html}{\out{</div>}}
 }

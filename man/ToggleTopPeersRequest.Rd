@@ -15,8 +15,6 @@ R6 representation of the TL request: ToggleTopPeersRequest
 }
 \examples{
 ToggleTopPeersRequest$new(TRUE)$to_list()
-Initialize ToggleTopPeersRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ToggleTopPeersRequest}
@@ -64,6 +62,7 @@ Initialize ToggleTopPeersRequest
 \if{html}{\out{<a id="method-ToggleTopPeersRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleTopPeersRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ToggleTopPeersRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleTopPeersRequest$new(enabled)}\if{html}{\out{</div>}}
 }

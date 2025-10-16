@@ -4,6 +4,11 @@
 \alias{GetAppUpdateRequest}
 \title{GetAppUpdateRequest R6 class}
 \description{
+GetAppUpdateRequest R6 class
+
+GetAppUpdateRequest R6 class
+}
+\details{
 Request to get app update info.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Request to get app update info.
 \if{html}{\out{<a id="method-GetAppUpdateRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAppUpdateRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetAppUpdateRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAppUpdateRequest$new(source = "")}\if{html}{\out{</div>}}
 }

@@ -43,6 +43,7 @@ Represents the DeletePreviewMediaRequest TL request.
 \if{html}{\out{<a id="method-DeletePreviewMediaRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-DeletePreviewMediaRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize DeletePreviewMediaRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeletePreviewMediaRequest$new(bot, lang_code, media)}\if{html}{\out{</div>}}
 }

@@ -4,6 +4,11 @@
 \alias{SetCallRatingRequest}
 \title{SetCallRatingRequest R6 class}
 \description{
+SetCallRatingRequest R6 class
+
+SetCallRatingRequest R6 class
+}
+\details{
 Represents SetCallRatingRequest TLRequest.
 }
 \section{Public fields}{
@@ -34,6 +39,7 @@ Represents SetCallRatingRequest TLRequest.
 \if{html}{\out{<a id="method-SetCallRatingRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SetCallRatingRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a SetCallRatingRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetCallRatingRequest$new(peer, rating, comment, user_initiative = NULL)}\if{html}{\out{</div>}}
 }
@@ -47,10 +53,7 @@ Represents SetCallRatingRequest TLRequest.
 
 \item{\code{comment}}{String comment.}
 
-\item{\code{user_initiative}}{Logical or NULL.
-Resolve input references
-
-Typically used to convert high-level entities into input objects.}
+\item{\code{user_initiative}}{Logical or NULL.}
 }
 \if{html}{\out{</div>}}
 }
@@ -59,6 +62,9 @@ Typically used to convert high-level entities into input objects.}
 \if{html}{\out{<a id="method-SetCallRatingRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-SetCallRatingRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetCallRatingRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -68,8 +74,7 @@ Typically used to convert high-level entities into input objects.}
 \describe{
 \item{\code{client}}{Client object (passed to utils functions).}
 
-\item{\code{utils}}{Utility object (not used here but kept for parity).
-Convert object to a list}
+\item{\code{utils}}{Utility object (not used here but kept for parity).}
 }
 \if{html}{\out{</div>}}
 }
@@ -78,21 +83,22 @@ Convert object to a list}
 \if{html}{\out{<a id="method-SetCallRatingRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SetCallRatingRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetCallRatingRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes `peer$bytes()` exists.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SetCallRatingRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SetCallRatingRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes `peer$bytes()` exists.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetCallRatingRequest$bytes()}\if{html}{\out{</div>}}
 }

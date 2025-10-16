@@ -4,41 +4,13 @@
 \alias{ImportBotAuthorizationRequest}
 \title{ImportBotAuthorizationRequest R6 class}
 \description{
-Represents the TLRequest auth.ImportBotAuthorizationRequest.
+ImportBotAuthorizationRequest R6 class
+
+ImportBotAuthorizationRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.ImportBotAuthorizationRequest.
 }
-\section{initialize}{
-
- Create a new ImportBotAuthorizationRequest object.
- @param flags integer
- @param api_id integer
- @param api_hash character
- @param bot_auth_token character
- @return invisible self
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new ImportBotAuthorizationRequest instance.
- @param reader Reader object implementing read_int(), tgread_string()
- @return ImportBotAuthorizationRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -52,9 +24,7 @@ Fields:
 
 \item{\code{api_hash}}{character API hash.}
 
-\item{\code{bot_auth_token}}{character Bot auth token.
-
-Methods:}
+\item{\code{bot_auth_token}}{character Bot auth token.}
 }
 \if{html}{\out{</div>}}
 }
@@ -72,6 +42,7 @@ Methods:}
 \if{html}{\out{<a id="method-ImportBotAuthorizationRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportBotAuthorizationRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize an ImportBotAuthorizationRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportBotAuthorizationRequest$new(flags, api_id, api_hash, bot_auth_token)}\if{html}{\out{</div>}}
 }
@@ -85,8 +56,7 @@ Methods:}
 
 \item{\code{api_hash}}{character}
 
-\item{\code{bot_auth_token}}{character
-Convert to an R list (similar to to_dict)}
+\item{\code{bot_auth_token}}{character}
 }
 \if{html}{\out{</div>}}
 }
@@ -95,32 +65,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-ImportBotAuthorizationRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportBotAuthorizationRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportBotAuthorizationRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ImportBotAuthorizationRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportBotAuthorizationRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportBotAuthorizationRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create ImportBotAuthorizationRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ImportBotAuthorizationRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportBotAuthorizationRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create ImportBotAuthorizationRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportBotAuthorizationRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

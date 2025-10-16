@@ -4,41 +4,15 @@
 \alias{RequestFirebaseSmsRequest}
 \title{RequestFirebaseSmsRequest R6 class}
 \description{
-Represents the TLRequest auth.RequestFirebaseSmsRequest.
+RequestFirebaseSmsRequest R6 class
+
+RequestFirebaseSmsRequest R6 class
 }
 \details{
+Represents the TLRequest auth.RequestFirebaseSmsRequest.
+
 Fields:
 }
-\section{initialize}{
-
- Create a new RequestFirebaseSmsRequest object.
- @param phone_number character
- @param phone_code_hash character
- @param safety_net_token character or NULL
- @param play_integrity_token character or NULL
- @param ios_push_secret character or NULL
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new RequestFirebaseSmsRequest instance.
- @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
- @return RequestFirebaseSmsRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -54,9 +28,7 @@ Fields:
 
 \item{\code{play_integrity_token}}{character Optional play integrity token.}
 
-\item{\code{ios_push_secret}}{character Optional iOS push secret.
-
-Methods:}
+\item{\code{ios_push_secret}}{character Optional iOS push secret.}
 }
 \if{html}{\out{</div>}}
 }
@@ -74,6 +46,7 @@ Methods:}
 \if{html}{\out{<a id="method-RequestFirebaseSmsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-RequestFirebaseSmsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a RequestFirebaseSmsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RequestFirebaseSmsRequest$new(
   phone_number,
@@ -95,8 +68,7 @@ Methods:}
 
 \item{\code{play_integrity_token}}{character or NULL}
 
-\item{\code{ios_push_secret}}{character or NULL
-Convert to an R list (similar to to_dict)}
+\item{\code{ios_push_secret}}{character or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -105,32 +77,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-RequestFirebaseSmsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-RequestFirebaseSmsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RequestFirebaseSmsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-RequestFirebaseSmsRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-RequestFirebaseSmsRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RequestFirebaseSmsRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create RequestFirebaseSmsRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-RequestFirebaseSmsRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-RequestFirebaseSmsRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create RequestFirebaseSmsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RequestFirebaseSmsRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

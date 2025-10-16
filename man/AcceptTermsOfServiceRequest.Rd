@@ -4,6 +4,11 @@
 \alias{AcceptTermsOfServiceRequest}
 \title{AcceptTermsOfServiceRequest R6 class}
 \description{
+AcceptTermsOfServiceRequest R6 class
+
+AcceptTermsOfServiceRequest R6 class
+}
+\details{
 Accept terms of service (help.TermsOfService). Serializes a DataJSON id.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Accept terms of service (help.TermsOfService). Serializes a DataJSON id.
 \if{html}{\out{<a id="method-AcceptTermsOfServiceRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-AcceptTermsOfServiceRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize AcceptTermsOfServiceRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AcceptTermsOfServiceRequest$new(id = NULL)}\if{html}{\out{</div>}}
 }

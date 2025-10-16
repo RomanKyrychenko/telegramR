@@ -4,6 +4,11 @@
 \alias{ToggleGroupCallStartSubscriptionRequest}
 \title{ToggleGroupCallStartSubscriptionRequest R6 class}
 \description{
+ToggleGroupCallStartSubscriptionRequest R6 class
+
+ToggleGroupCallStartSubscriptionRequest R6 class
+}
+\details{
 Represents ToggleGroupCallStartSubscriptionRequest TLRequest.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Represents ToggleGroupCallStartSubscriptionRequest TLRequest.
 \if{html}{\out{<a id="method-ToggleGroupCallStartSubscriptionRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleGroupCallStartSubscriptionRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a ToggleGroupCallStartSubscriptionRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleGroupCallStartSubscriptionRequest$new(call, subscribed)}\if{html}{\out{</div>}}
 }
@@ -39,8 +45,7 @@ Represents ToggleGroupCallStartSubscriptionRequest TLRequest.
 \describe{
 \item{\code{call}}{Input group call (object).}
 
-\item{\code{subscribed}}{Logical (TRUE/FALSE).
-Resolve input references}
+\item{\code{subscribed}}{Logical (TRUE/FALSE).}
 }
 \if{html}{\out{</div>}}
 }
@@ -49,6 +54,7 @@ Resolve input references}
 \if{html}{\out{<a id="method-ToggleGroupCallStartSubscriptionRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleGroupCallStartSubscriptionRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleGroupCallStartSubscriptionRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -58,8 +64,7 @@ Resolve input references}
 \describe{
 \item{\code{client}}{Client object (passed to utils functions).}
 
-\item{\code{utils}}{Utility object with get_input_group_call method.
-Convert object to a list}
+\item{\code{utils}}{Utility object with get_input_group_call method.}
 }
 \if{html}{\out{</div>}}
 }
@@ -68,21 +73,22 @@ Convert object to a list}
 \if{html}{\out{<a id="method-ToggleGroupCallStartSubscriptionRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleGroupCallStartSubscriptionRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleGroupCallStartSubscriptionRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-This constructs the TL-serialized bytes. Assumes `call$bytes()` exists.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ToggleGroupCallStartSubscriptionRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ToggleGroupCallStartSubscriptionRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+This constructs the TL-serialized bytes. Assumes `call$bytes()` exists.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ToggleGroupCallStartSubscriptionRequest$bytes()}\if{html}{\out{</div>}}
 }

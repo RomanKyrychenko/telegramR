@@ -4,6 +4,11 @@
 \alias{SetBotUpdatesStatusRequest}
 \title{SetBotUpdatesStatusRequest R6 class}
 \description{
+SetBotUpdatesStatusRequest R6 class
+
+SetBotUpdatesStatusRequest R6 class
+}
+\details{
 Notify server of bot updates status.
 }
 \section{Public fields}{
@@ -32,6 +37,7 @@ Notify server of bot updates status.
 \if{html}{\out{<a id="method-SetBotUpdatesStatusRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SetBotUpdatesStatusRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize SetBotUpdatesStatusRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetBotUpdatesStatusRequest$new(pendingUpdatesCount = 0L, message = "")}\if{html}{\out{</div>}}
 }

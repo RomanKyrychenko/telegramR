@@ -4,6 +4,11 @@
 \alias{GetConfigRequest}
 \title{GetConfigRequest R6 class}
 \description{
+GetConfigRequest R6 class
+
+GetConfigRequest R6 class
+}
+\details{
 Request to get configuration.
 }
 \section{Public fields}{
@@ -28,6 +33,7 @@ Request to get configuration.
 \if{html}{\out{<a id="method-GetConfigRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetConfigRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetConfigRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetConfigRequest$new()}\if{html}{\out{</div>}}
 }

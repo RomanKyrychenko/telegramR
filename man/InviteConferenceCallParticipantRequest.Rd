@@ -4,6 +4,11 @@
 \alias{InviteConferenceCallParticipantRequest}
 \title{InviteConferenceCallParticipantRequest R6 class}
 \description{
+InviteConferenceCallParticipantRequest R6 class
+
+InviteConferenceCallParticipantRequest R6 class
+}
+\details{
 Represents InviteConferenceCallParticipantRequest TLRequest.
 }
 \section{Public fields}{
@@ -32,6 +37,7 @@ Represents InviteConferenceCallParticipantRequest TLRequest.
 \if{html}{\out{<a id="method-InviteConferenceCallParticipantRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-InviteConferenceCallParticipantRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize an InviteConferenceCallParticipantRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InviteConferenceCallParticipantRequest$new(call, user_id, video = NULL)}\if{html}{\out{</div>}}
 }
@@ -49,15 +55,15 @@ Represents InviteConferenceCallParticipantRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-Typically used to convert high-level entities into input objects.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-InviteConferenceCallParticipantRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-InviteConferenceCallParticipantRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InviteConferenceCallParticipantRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -73,28 +79,28 @@ Typically used to convert high-level entities into input objects.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-InviteConferenceCallParticipantRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-InviteConferenceCallParticipantRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InviteConferenceCallParticipantRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-InviteConferenceCallParticipantRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-InviteConferenceCallParticipantRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InviteConferenceCallParticipantRequest$bytes()}\if{html}{\out{</div>}}
 }

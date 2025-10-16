@@ -47,6 +47,7 @@ Represents the SetBotInfoRequest TL request.
 \if{html}{\out{<a id="method-SetBotInfoRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SetBotInfoRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize SetBotInfoRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetBotInfoRequest$new(
   lang_code,

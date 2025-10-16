@@ -4,7 +4,14 @@
 \alias{JoinChatlistInviteRequest}
 \title{JoinChatlistInviteRequest R6 class}
 \description{
+JoinChatlistInviteRequest R6 class
+
+JoinChatlistInviteRequest R6 class
+}
+\details{
 Request to join a chatlist invite (by slug) with specific peers.
+
+Serializes constructor id, slug (TL-string encoding), then peers vector.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
@@ -34,6 +41,7 @@ Request to join a chatlist invite (by slug) with specific peers.
 \if{html}{\out{<a id="method-JoinChatlistInviteRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-JoinChatlistInviteRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize JoinChatlistInviteRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{JoinChatlistInviteRequest$new(slug = NULL, peers = NULL)}\if{html}{\out{</div>}}
 }
@@ -93,10 +101,6 @@ Serialize to raw bytes
 \subsection{Method \code{bytes()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{JoinChatlistInviteRequest$bytes()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Serializes constructor id, slug (TL-string encoding), then peers vector.
 }
 
 \subsection{Returns}{

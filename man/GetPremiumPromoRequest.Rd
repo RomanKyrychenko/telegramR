@@ -4,6 +4,11 @@
 \alias{GetPremiumPromoRequest}
 \title{GetPremiumPromoRequest R6 class}
 \description{
+GetPremiumPromoRequest R6 class
+
+GetPremiumPromoRequest R6 class
+}
+\details{
 Request to get premium promotion info.
 }
 \section{Public fields}{
@@ -28,6 +33,7 @@ Request to get premium promotion info.
 \if{html}{\out{<a id="method-GetPremiumPromoRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPremiumPromoRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetPremiumPromoRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPremiumPromoRequest$new()}\if{html}{\out{</div>}}
 }

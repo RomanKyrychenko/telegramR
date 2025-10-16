@@ -4,6 +4,11 @@
 \alias{GetPassportConfigRequest}
 \title{GetPassportConfigRequest R6 class}
 \description{
+GetPassportConfigRequest R6 class
+
+GetPassportConfigRequest R6 class
+}
+\details{
 Request to get passport configuration (possibly not modified).
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Request to get passport configuration (possibly not modified).
 \if{html}{\out{<a id="method-GetPassportConfigRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPassportConfigRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetPassportConfigRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPassportConfigRequest$new(hash = 0L)}\if{html}{\out{</div>}}
 }

@@ -4,6 +4,11 @@
 \alias{SaveCallLogRequest}
 \title{SaveCallLogRequest R6 class}
 \description{
+SaveCallLogRequest R6 class
+
+SaveCallLogRequest R6 class
+}
+\details{
 Represents SaveCallLogRequest TLRequest.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Represents SaveCallLogRequest TLRequest.
 \if{html}{\out{<a id="method-SaveCallLogRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveCallLogRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a SaveCallLogRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveCallLogRequest$new(peer, file)}\if{html}{\out{</div>}}
 }
@@ -45,15 +51,15 @@ Represents SaveCallLogRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-This is a no-op here but kept for parity with other requests.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveCallLogRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveCallLogRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+This is a no-op here but kept for parity with other requests.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveCallLogRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -69,29 +75,29 @@ This is a no-op here but kept for parity with other requests.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveCallLogRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveCallLogRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveCallLogRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes `peer$bytes()` and
-`file$bytes()` exist. Returns raw(0) and emits a warning if they don't.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveCallLogRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveCallLogRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes `peer$bytes()` and
+`file$bytes()` exist. Returns raw(0) and emits a warning if they don't.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveCallLogRequest$bytes()}\if{html}{\out{</div>}}
 }

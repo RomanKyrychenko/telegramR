@@ -41,6 +41,7 @@ Represents the SetBotMenuButtonRequest TL request.
 \if{html}{\out{<a id="method-SetBotMenuButtonRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SetBotMenuButtonRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize SetBotMenuButtonRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SetBotMenuButtonRequest$new(user_id, button)}\if{html}{\out{</div>}}
 }

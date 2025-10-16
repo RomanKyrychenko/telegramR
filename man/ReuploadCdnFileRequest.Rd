@@ -79,10 +79,21 @@ raw
 \if{html}{\out{<a id="method-ReuploadCdnFileRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-ReuploadCdnFileRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read ReuploadCdnFileRequest from a reader
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReuploadCdnFileRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{an object providing tgread_bytes()}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+ReuploadCdnFileRequest
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ReuploadCdnFileRequest-clone"></a>}}

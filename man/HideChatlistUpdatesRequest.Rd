@@ -4,7 +4,14 @@
 \alias{HideChatlistUpdatesRequest}
 \title{HideChatlistUpdatesRequest R6 class}
 \description{
+HideChatlistUpdatesRequest R6 class
+
+HideChatlistUpdatesRequest R6 class
+}
+\details{
 Request to hide updates for a chatlist.
+
+Serializes the constructor id followed by chatlist bytes.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
@@ -31,6 +38,7 @@ Request to hide updates for a chatlist.
 \if{html}{\out{<a id="method-HideChatlistUpdatesRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-HideChatlistUpdatesRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize HideChatlistUpdatesRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{HideChatlistUpdatesRequest$new(chatlist = NULL)}\if{html}{\out{</div>}}
 }
@@ -63,10 +71,6 @@ Serialize to raw bytes
 \subsection{Method \code{bytes()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{HideChatlistUpdatesRequest$bytes()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Serializes the constructor id followed by chatlist bytes.
 }
 
 \subsection{Returns}{

@@ -16,8 +16,6 @@ R6 representation of the TL request: AcceptContactRequest
 }
 \examples{
 AcceptContactRequest$new(inputUserObj)$to_list()
-Initialize AcceptContactRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{AcceptContactRequest}
@@ -65,6 +63,7 @@ Initialize AcceptContactRequest
 \if{html}{\out{<a id="method-AcceptContactRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-AcceptContactRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize AcceptContactRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AcceptContactRequest$new(id)}\if{html}{\out{</div>}}
 }

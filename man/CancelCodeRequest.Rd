@@ -4,38 +4,13 @@
 \alias{CancelCodeRequest}
 \title{CancelCodeRequest R6 class}
 \description{
-Represents the TLRequest auth.CancelCodeRequest.
+CancelCodeRequest R6 class
+
+CancelCodeRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.CancelCodeRequest.
 }
-\section{initialize}{
-
- Create a new CancelCodeRequest object.
- @param phone_number character
- @param phone_code_hash character
- @return invisible self
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Read fields from a reader and return a new CancelCodeRequest.
- @param reader Reader object implementing tgread_string()
- @return CancelCodeRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -45,9 +20,7 @@ Fields:
 
 \item{\code{phone_number}}{character Phone number.}
 
-\item{\code{phone_code_hash}}{character Phone code hash.
-
-Methods:}
+\item{\code{phone_code_hash}}{character Phone code hash.}
 }
 \if{html}{\out{</div>}}
 }
@@ -65,6 +38,7 @@ Methods:}
 \if{html}{\out{<a id="method-CancelCodeRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-CancelCodeRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a CancelCodeRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CancelCodeRequest$new(phone_number, phone_code_hash)}\if{html}{\out{</div>}}
 }
@@ -74,8 +48,7 @@ Methods:}
 \describe{
 \item{\code{phone_number}}{character}
 
-\item{\code{phone_code_hash}}{character
-Convert to an R list (similar to to_dict)}
+\item{\code{phone_code_hash}}{character}
 }
 \if{html}{\out{</div>}}
 }
@@ -84,32 +57,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-CancelCodeRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-CancelCodeRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CancelCodeRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CancelCodeRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-CancelCodeRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CancelCodeRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create CancelCodeRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CancelCodeRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-CancelCodeRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create CancelCodeRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CancelCodeRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

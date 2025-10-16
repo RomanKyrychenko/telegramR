@@ -97,10 +97,21 @@ raw
 \if{html}{\out{<a id="method-GetFileRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetFileRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read GetFileRequest from a reader
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetFileRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{an object providing read_int(), tgread_object(), read_long(), read_int()}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+GetFileRequest
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetFileRequest-clone"></a>}}

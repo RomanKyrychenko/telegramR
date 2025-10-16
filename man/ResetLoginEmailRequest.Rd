@@ -4,38 +4,13 @@
 \alias{ResetLoginEmailRequest}
 \title{ResetLoginEmailRequest R6 class}
 \description{
-Represents the TLRequest auth.ResetLoginEmailRequest.
+ResetLoginEmailRequest R6 class
+
+ResetLoginEmailRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.ResetLoginEmailRequest.
 }
-\section{initialize}{
-
- Create a new ResetLoginEmailRequest object.
- @param phone_number character
- @param phone_code_hash character
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new ResetLoginEmailRequest instance.
- @param reader Reader object implementing read_int(), tgread_string(), tgread_object()
- @return ResetLoginEmailRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -45,9 +20,7 @@ Fields:
 
 \item{\code{phone_number}}{character Phone number.}
 
-\item{\code{phone_code_hash}}{character Phone code hash.
-
-Methods:}
+\item{\code{phone_code_hash}}{character Phone code hash.}
 }
 \if{html}{\out{</div>}}
 }
@@ -65,6 +38,7 @@ Methods:}
 \if{html}{\out{<a id="method-ResetLoginEmailRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ResetLoginEmailRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a ResetLoginEmailRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResetLoginEmailRequest$new(phone_number, phone_code_hash)}\if{html}{\out{</div>}}
 }
@@ -74,8 +48,7 @@ Methods:}
 \describe{
 \item{\code{phone_number}}{character}
 
-\item{\code{phone_code_hash}}{character
-Convert to an R list (similar to to_dict)}
+\item{\code{phone_code_hash}}{character}
 }
 \if{html}{\out{</div>}}
 }
@@ -84,32 +57,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-ResetLoginEmailRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ResetLoginEmailRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResetLoginEmailRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ResetLoginEmailRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ResetLoginEmailRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResetLoginEmailRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create ResetLoginEmailRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ResetLoginEmailRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-ResetLoginEmailRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create ResetLoginEmailRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResetLoginEmailRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

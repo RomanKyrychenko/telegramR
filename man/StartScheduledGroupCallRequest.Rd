@@ -4,6 +4,11 @@
 \alias{StartScheduledGroupCallRequest}
 \title{StartScheduledGroupCallRequest R6 class}
 \description{
+StartScheduledGroupCallRequest R6 class
+
+StartScheduledGroupCallRequest R6 class
+}
+\details{
 Represents StartScheduledGroupCallRequest TLRequest.
 }
 \section{Public fields}{
@@ -28,6 +33,7 @@ Represents StartScheduledGroupCallRequest TLRequest.
 \if{html}{\out{<a id="method-StartScheduledGroupCallRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-StartScheduledGroupCallRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a StartScheduledGroupCallRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StartScheduledGroupCallRequest$new(call)}\if{html}{\out{</div>}}
 }
@@ -35,10 +41,7 @@ Represents StartScheduledGroupCallRequest TLRequest.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{call}}{Input group call (object).
-Resolve input references
-
-Typically used to convert high-level entities into input objects.}
+\item{\code{call}}{Input group call (object).}
 }
 \if{html}{\out{</div>}}
 }
@@ -47,6 +50,9 @@ Typically used to convert high-level entities into input objects.}
 \if{html}{\out{<a id="method-StartScheduledGroupCallRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-StartScheduledGroupCallRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StartScheduledGroupCallRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -56,8 +62,7 @@ Typically used to convert high-level entities into input objects.}
 \describe{
 \item{\code{client}}{Client object (passed to utils functions).}
 
-\item{\code{utils}}{Utility object with get_input_group_call method.
-Convert object to a list}
+\item{\code{utils}}{Utility object with get_input_group_call method.}
 }
 \if{html}{\out{</div>}}
 }
@@ -66,21 +71,22 @@ Convert object to a list}
 \if{html}{\out{<a id="method-StartScheduledGroupCallRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-StartScheduledGroupCallRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StartScheduledGroupCallRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes `self$call$bytes()` exists.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-StartScheduledGroupCallRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-StartScheduledGroupCallRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes `self$call$bytes()` exists.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StartScheduledGroupCallRequest$bytes()}\if{html}{\out{</div>}}
 }

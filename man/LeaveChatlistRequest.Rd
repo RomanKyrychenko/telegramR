@@ -4,6 +4,11 @@
 \alias{LeaveChatlistRequest}
 \title{LeaveChatlistRequest R6 class}
 \description{
+LeaveChatlistRequest R6 class
+
+LeaveChatlistRequest R6 class
+}
+\details{
 Request to leave a chatlist for specific peers.
 }
 \section{Public fields}{
@@ -34,6 +39,7 @@ Request to leave a chatlist for specific peers.
 \if{html}{\out{<a id="method-LeaveChatlistRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-LeaveChatlistRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize LeaveChatlistRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LeaveChatlistRequest$new(chatlist = NULL, peers = NULL)}\if{html}{\out{</div>}}
 }

@@ -39,6 +39,7 @@ Represents the GetBotMenuButtonRequest TL request.
 \if{html}{\out{<a id="method-GetBotMenuButtonRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetBotMenuButtonRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetBotMenuButtonRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetBotMenuButtonRequest$new(user_id)}\if{html}{\out{</div>}}
 }

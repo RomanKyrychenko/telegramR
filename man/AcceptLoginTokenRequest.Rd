@@ -4,37 +4,13 @@
 \alias{AcceptLoginTokenRequest}
 \title{AcceptLoginTokenRequest R6 class}
 \description{
-Represents the TLRequest auth.AcceptLoginTokenRequest.
+AcceptLoginTokenRequest R6 class
+
+AcceptLoginTokenRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.AcceptLoginTokenRequest.
 }
-\section{initialize}{
-
- Create a new AcceptLoginTokenRequest object.
- @param token raw vector or string
- @return invisible self
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Read fields from a reader and return a new AcceptLoginTokenRequest.
- @param reader Reader object implementing tgread_bytes()
- @return AcceptLoginTokenRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -42,9 +18,7 @@ Fields:
 
 \item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0xc913c01a).}
 
-\item{\code{token}}{raw|character Token bytes.
-
-Methods:}
+\item{\code{token}}{raw|character Token bytes.}
 }
 \if{html}{\out{</div>}}
 }
@@ -62,6 +36,7 @@ Methods:}
 \if{html}{\out{<a id="method-AcceptLoginTokenRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-AcceptLoginTokenRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize an AcceptLoginTokenRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AcceptLoginTokenRequest$new(token)}\if{html}{\out{</div>}}
 }
@@ -69,8 +44,7 @@ Methods:}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{token}}{raw vector or string
-Convert to an R list (similar to to_dict)}
+\item{\code{token}}{raw vector or string}
 }
 \if{html}{\out{</div>}}
 }
@@ -79,32 +53,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-AcceptLoginTokenRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-AcceptLoginTokenRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AcceptLoginTokenRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-AcceptLoginTokenRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-AcceptLoginTokenRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AcceptLoginTokenRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create AcceptLoginTokenRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-AcceptLoginTokenRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-AcceptLoginTokenRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create AcceptLoginTokenRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AcceptLoginTokenRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

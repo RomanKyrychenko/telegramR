@@ -8,10 +8,6 @@ Methods:
 - initialize(): create new request
 - to_list(): return list representation
 - to_bytes(): serialize to raw TL bytes
-
-Initialize ExportContactTokenRequest
-Convert to list
-Serialize to bytes (raw vector)
 }
 \details{
 R6 representation of the TL request: ExportContactTokenRequest
@@ -60,6 +56,9 @@ R6 representation of the TL request: ExportContactTokenRequest
 \if{html}{\out{<a id="method-ExportContactTokenRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportContactTokenRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ExportContactTokenRequest
+Convert to list
+Serialize to bytes (raw vector)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportContactTokenRequest$new()}\if{html}{\out{</div>}}
 }

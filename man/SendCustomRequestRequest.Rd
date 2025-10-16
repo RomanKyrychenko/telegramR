@@ -41,6 +41,7 @@ Represents the SendCustomRequestRequest TL request.
 \if{html}{\out{<a id="method-SendCustomRequestRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SendCustomRequestRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize SendCustomRequestRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendCustomRequestRequest$new(custom_method, params)}\if{html}{\out{</div>}}
 }

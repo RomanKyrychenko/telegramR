@@ -4,6 +4,11 @@
 \alias{JoinChatlistUpdatesRequest}
 \title{JoinChatlistUpdatesRequest R6 class}
 \description{
+JoinChatlistUpdatesRequest R6 class
+
+JoinChatlistUpdatesRequest R6 class
+}
+\details{
 Request to join a chatlist with specific peers.
 }
 \section{Public fields}{
@@ -34,6 +39,7 @@ Request to join a chatlist with specific peers.
 \if{html}{\out{<a id="method-JoinChatlistUpdatesRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-JoinChatlistUpdatesRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize JoinChatlistUpdatesRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{JoinChatlistUpdatesRequest$new(chatlist = NULL, peers = NULL)}\if{html}{\out{</div>}}
 }

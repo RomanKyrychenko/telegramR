@@ -4,6 +4,11 @@
 \alias{GetCountriesListRequest}
 \title{GetCountriesListRequest R6 class}
 \description{
+GetCountriesListRequest R6 class
+
+GetCountriesListRequest R6 class
+}
+\details{
 Request to get the list of countries (possibly not modified).
 }
 \section{Public fields}{
@@ -32,6 +37,7 @@ Request to get the list of countries (possibly not modified).
 \if{html}{\out{<a id="method-GetCountriesListRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetCountriesListRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetCountriesListRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetCountriesListRequest$new(langCode = "", hash = 0L)}\if{html}{\out{</div>}}
 }

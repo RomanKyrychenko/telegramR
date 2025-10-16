@@ -4,7 +4,14 @@
 \alias{ExportChatlistInviteRequest}
 \title{ExportChatlistInviteRequest R6 class}
 \description{
+ExportChatlistInviteRequest R6 class
+
+ExportChatlistInviteRequest R6 class
+}
+\details{
 Request to export an invite for a chatlist with a title and list of peers.
+
+Serializes constructor id, chatlist bytes, title (TL-string), then peers vector.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
@@ -36,6 +43,7 @@ Request to export an invite for a chatlist with a title and list of peers.
 \if{html}{\out{<a id="method-ExportChatlistInviteRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ExportChatlistInviteRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ExportChatlistInviteRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportChatlistInviteRequest$new(chatlist = NULL, title = NULL, peers = NULL)}\if{html}{\out{</div>}}
 }
@@ -97,10 +105,6 @@ Serialize to raw bytes
 \subsection{Method \code{bytes()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExportChatlistInviteRequest$bytes()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-Serializes constructor id, chatlist bytes, title (TL-string), then peers vector.
 }
 
 \subsection{Returns}{

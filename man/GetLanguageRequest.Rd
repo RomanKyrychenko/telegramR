@@ -3,10 +3,12 @@
 \name{GetLanguageRequest}
 \alias{GetLanguageRequest}
 \title{GetLanguageRequest R6 class}
-\value{
-A GetLanguageRequest R6 object
-}
 \description{
+GetLanguageRequest R6 class
+
+GetLanguageRequest R6 class
+}
+\details{
 TLRequest: GetLanguageRequest
 }
 \examples{
@@ -55,37 +57,66 @@ TLRequest: GetLanguageRequest
 \if{html}{\out{<a id="method-GetLanguageRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetLanguageRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetLanguageRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetLanguageRequest$new(lang_pack, lang_code)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{lang_pack}}{character Language pack identifier}
+
+\item{\code{lang_code}}{character Language code}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetLanguageRequest-to_dict"></a>}}
 \if{latex}{\out{\hypertarget{method-GetLanguageRequest-to_dict}{}}}
 \subsection{Method \code{to_dict()}}{
+Convert to a serializable R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetLanguageRequest$to_dict()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+list
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetLanguageRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetLanguageRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Serialize to raw bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetLanguageRequest$bytes()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+raw vector
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetLanguageRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-GetLanguageRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Create an instance from a reader
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetLanguageRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{A reader object with method tgread_string()}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A GetLanguageRequest object
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetLanguageRequest-clone"></a>}}

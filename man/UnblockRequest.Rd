@@ -16,8 +16,6 @@ R6 representation of the TL request: UnblockRequest
 }
 \examples{
 UnblockRequest$new(id = somePeer, my_stories_from = TRUE)$to_list()
-Initialize UnblockRequest
-
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{UnblockRequest}
@@ -67,6 +65,7 @@ Initialize UnblockRequest
 \if{html}{\out{<a id="method-UnblockRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-UnblockRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize UnblockRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UnblockRequest$new(id, my_stories_from = NULL)}\if{html}{\out{</div>}}
 }

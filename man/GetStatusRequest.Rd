@@ -4,14 +4,12 @@
 \alias{GetStatusRequest}
 \title{GetStatusRequest R6 class}
 \description{
-Representation of the GetStatusRequest TLRequest.
+GetStatusRequest R6 class
+
+GetStatusRequest R6 class
 }
 \details{
-Methods:
-- new(): create instance
-- to_list(): return a list representation
-- bytes(): return raw bytes for the TL constructor
-- from_reader(reader): class method to construct from a reader
+Representation of the GetStatusRequest TLRequest.
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -27,32 +25,33 @@ Methods:
 \if{html}{\out{<a id="method-GetStatusRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStatusRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a GetStatusRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStatusRequest$new()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 self
-Convert to list (dictionary-like)
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStatusRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStatusRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStatusRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Get raw bytes for this constructor
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetStatusRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetStatusRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Get raw bytes for this constructor
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetStatusRequest$bytes()}\if{html}{\out{</div>}}
 }

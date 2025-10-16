@@ -87,10 +87,21 @@ raw
 \if{html}{\out{<a id="method-SaveBigFilePartRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveBigFilePartRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read SaveBigFilePartRequest from a reader
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveBigFilePartRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{reader}}{an object providing read_long(), read_int() and tgread_bytes()}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+SaveBigFilePartRequest
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveBigFilePartRequest-clone"></a>}}

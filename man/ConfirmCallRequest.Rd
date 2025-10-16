@@ -4,6 +4,11 @@
 \alias{ConfirmCallRequest}
 \title{ConfirmCallRequest R6 class}
 \description{
+ConfirmCallRequest R6 class
+
+ConfirmCallRequest R6 class
+}
+\details{
 Represents ConfirmCallRequest TLRequest.
 }
 \section{Public fields}{
@@ -33,6 +38,7 @@ Represents ConfirmCallRequest TLRequest.
 \if{html}{\out{<a id="method-ConfirmCallRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfirmCallRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a ConfirmCallRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ConfirmCallRequest$new(peer, g_a, key_fingerprint, protocol)}\if{html}{\out{</div>}}
 }
@@ -52,28 +58,28 @@ Represents ConfirmCallRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfirmCallRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfirmCallRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ConfirmCallRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfirmCallRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfirmCallRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ConfirmCallRequest$bytes()}\if{html}{\out{</div>}}
 }

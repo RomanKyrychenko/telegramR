@@ -4,6 +4,11 @@
 \alias{EditExportedInviteRequest}
 \title{EditExportedInviteRequest R6 class}
 \description{
+EditExportedInviteRequest R6 class
+
+EditExportedInviteRequest R6 class
+}
+\details{
 Request to edit an exported invite for a chatlist (optional title and peers).
 }
 \section{Public fields}{
@@ -38,6 +43,7 @@ Request to edit an exported invite for a chatlist (optional title and peers).
 \if{html}{\out{<a id="method-EditExportedInviteRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-EditExportedInviteRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize EditExportedInviteRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditExportedInviteRequest$new(
   chatlist = NULL,

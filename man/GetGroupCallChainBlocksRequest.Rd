@@ -4,6 +4,11 @@
 \alias{GetGroupCallChainBlocksRequest}
 \title{GetGroupCallChainBlocksRequest R6 class}
 \description{
+GetGroupCallChainBlocksRequest R6 class
+
+GetGroupCallChainBlocksRequest R6 class
+}
+\details{
 Represents GetGroupCallChainBlocksRequest TLRequest.
 }
 \section{Public fields}{
@@ -34,6 +39,7 @@ Represents GetGroupCallChainBlocksRequest TLRequest.
 \if{html}{\out{<a id="method-GetGroupCallChainBlocksRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetGroupCallChainBlocksRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a GetGroupCallChainBlocksRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetGroupCallChainBlocksRequest$new(call, sub_chain_id, offset, limit)}\if{html}{\out{</div>}}
 }
@@ -53,15 +59,15 @@ Represents GetGroupCallChainBlocksRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-Typically used to convert high-level entities into input objects.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetGroupCallChainBlocksRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-GetGroupCallChainBlocksRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetGroupCallChainBlocksRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -77,28 +83,28 @@ Typically used to convert high-level entities into input objects.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetGroupCallChainBlocksRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-GetGroupCallChainBlocksRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetGroupCallChainBlocksRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetGroupCallChainBlocksRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-GetGroupCallChainBlocksRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes dependent objects provide bytes().
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetGroupCallChainBlocksRequest$bytes()}\if{html}{\out{</div>}}
 }

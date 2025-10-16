@@ -4,40 +4,13 @@
 \alias{ImportWebTokenAuthorizationRequest}
 \title{ImportWebTokenAuthorizationRequest R6 class}
 \description{
-Represents the TLRequest auth.ImportWebTokenAuthorizationRequest.
+ImportWebTokenAuthorizationRequest R6 class
+
+ImportWebTokenAuthorizationRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.ImportWebTokenAuthorizationRequest.
 }
-\section{initialize}{
-
- Create a new ImportWebTokenAuthorizationRequest object.
- @param api_id integer
- @param api_hash character
- @param web_auth_token character
- @return invisible self
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL. Uses serialize_bytes helper
- from TL base environment.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Factory that reads fields from a reader and returns a new ImportWebTokenAuthorizationRequest instance.
- @param reader Reader object implementing read_int(), tgread_string(), tgread_bytes(), tgread_object()
- @return ImportWebTokenAuthorizationRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -49,9 +22,7 @@ Fields:
 
 \item{\code{api_hash}}{character API hash.}
 
-\item{\code{web_auth_token}}{character Web auth token.
-
-Methods:}
+\item{\code{web_auth_token}}{character Web auth token.}
 }
 \if{html}{\out{</div>}}
 }
@@ -69,6 +40,7 @@ Methods:}
 \if{html}{\out{<a id="method-ImportWebTokenAuthorizationRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportWebTokenAuthorizationRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize an ImportWebTokenAuthorizationRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportWebTokenAuthorizationRequest$new(api_id, api_hash, web_auth_token)}\if{html}{\out{</div>}}
 }
@@ -80,8 +52,7 @@ Methods:}
 
 \item{\code{api_hash}}{character}
 
-\item{\code{web_auth_token}}{character
-Convert to an R list (similar to to_dict)}
+\item{\code{web_auth_token}}{character}
 }
 \if{html}{\out{</div>}}
 }
@@ -90,32 +61,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-ImportWebTokenAuthorizationRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportWebTokenAuthorizationRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportWebTokenAuthorizationRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ImportWebTokenAuthorizationRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportWebTokenAuthorizationRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportWebTokenAuthorizationRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create ImportWebTokenAuthorizationRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ImportWebTokenAuthorizationRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-ImportWebTokenAuthorizationRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create ImportWebTokenAuthorizationRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImportWebTokenAuthorizationRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

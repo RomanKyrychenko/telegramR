@@ -43,6 +43,7 @@ Represents the ReorderPreviewMediasRequest TL request.
 \if{html}{\out{<a id="method-ReorderPreviewMediasRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ReorderPreviewMediasRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize ReorderPreviewMediasRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReorderPreviewMediasRequest$new(bot, lang_code, order)}\if{html}{\out{</div>}}
 }

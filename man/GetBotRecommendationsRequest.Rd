@@ -39,6 +39,7 @@ Represents the GetBotRecommendationsRequest TL request.
 \if{html}{\out{<a id="method-GetBotRecommendationsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetBotRecommendationsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetBotRecommendationsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetBotRecommendationsRequest$new(bot)}\if{html}{\out{</div>}}
 }

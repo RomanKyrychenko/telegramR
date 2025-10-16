@@ -39,6 +39,7 @@ Represents the UpdateUserEmojiStatusRequest TL request.
 \if{html}{\out{<a id="method-UpdateUserEmojiStatusRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-UpdateUserEmojiStatusRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize UpdateUserEmojiStatusRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateUserEmojiStatusRequest$new(user_id, emoji_status)}\if{html}{\out{</div>}}
 }

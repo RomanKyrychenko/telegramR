@@ -39,6 +39,7 @@ Represents the GetPreviewMediasRequest TL request.
 \if{html}{\out{<a id="method-GetPreviewMediasRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetPreviewMediasRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetPreviewMediasRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetPreviewMediasRequest$new(bot)}\if{html}{\out{</div>}}
 }

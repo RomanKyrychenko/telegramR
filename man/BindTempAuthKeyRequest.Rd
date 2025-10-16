@@ -4,40 +4,13 @@
 \alias{BindTempAuthKeyRequest}
 \title{BindTempAuthKeyRequest R6 class}
 \description{
-Represents the TLRequest auth.BindTempAuthKeyRequest.
+BindTempAuthKeyRequest R6 class
+
+BindTempAuthKeyRequest R6 class
 }
 \details{
-Fields:
+Represents the TLRequest auth.BindTempAuthKeyRequest.
 }
-\section{initialize}{
-
- Create a new BindTempAuthKeyRequest object.
- @param perm_auth_key_id numeric or integer (64-bit)
- @param nonce numeric or integer (64-bit)
- @param expires_at POSIXct|Date or NULL
- @param encrypted_message raw vector or string
- @return invisible self
-}
-
-\section{to_list}{
-
- Return a pure R list representation of the object.
- @return list
-}
-
-\section{to_bytes}{
-
- Serialize the object into raw bytes for TL.
- @return raw vector
-}
-
-\section{from_reader}{
-
- Read fields from a reader and return a new BindTempAuthKeyRequest.
- @param reader Reader object implementing read_long(), tgread_date(), tgread_bytes()
- @return BindTempAuthKeyRequest instance
-}
-
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -51,9 +24,7 @@ Fields:
 
 \item{\code{expires_at}}{POSIXct|Date Optional expiration datetime.}
 
-\item{\code{encrypted_message}}{raw|character Encrypted message bytes.
-
-Methods:}
+\item{\code{encrypted_message}}{raw|character Encrypted message bytes.}
 }
 \if{html}{\out{</div>}}
 }
@@ -71,6 +42,7 @@ Methods:}
 \if{html}{\out{<a id="method-BindTempAuthKeyRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-BindTempAuthKeyRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a BindTempAuthKeyRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{BindTempAuthKeyRequest$new(
   perm_auth_key_id,
@@ -89,8 +61,7 @@ Methods:}
 
 \item{\code{expires_at}}{POSIXct|Date or NULL}
 
-\item{\code{encrypted_message}}{raw vector or string
-Convert to an R list (similar to to_dict)}
+\item{\code{encrypted_message}}{raw vector or string}
 }
 \if{html}{\out{</div>}}
 }
@@ -99,32 +70,33 @@ Convert to an R list (similar to to_dict)}
 \if{html}{\out{<a id="method-BindTempAuthKeyRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-BindTempAuthKeyRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to an R list (similar to to_dict)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{BindTempAuthKeyRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Serialize to bytes
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-BindTempAuthKeyRequest-to_bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-BindTempAuthKeyRequest-to_bytes}{}}}
 \subsection{Method \code{to_bytes()}}{
+Serialize to bytes
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{BindTempAuthKeyRequest$to_bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 raw vector
-Read from reader and create BindTempAuthKeyRequest
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-BindTempAuthKeyRequest-from_reader"></a>}}
 \if{latex}{\out{\hypertarget{method-BindTempAuthKeyRequest-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
+Read from reader and create BindTempAuthKeyRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{BindTempAuthKeyRequest$from_reader(reader)}\if{html}{\out{</div>}}
 }

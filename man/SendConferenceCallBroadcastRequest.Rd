@@ -4,6 +4,11 @@
 \alias{SendConferenceCallBroadcastRequest}
 \title{SendConferenceCallBroadcastRequest R6 class}
 \description{
+SendConferenceCallBroadcastRequest R6 class
+
+SendConferenceCallBroadcastRequest R6 class
+}
+\details{
 Represents SendConferenceCallBroadcastRequest TLRequest.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Represents SendConferenceCallBroadcastRequest TLRequest.
 \if{html}{\out{<a id="method-SendConferenceCallBroadcastRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SendConferenceCallBroadcastRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a SendConferenceCallBroadcastRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendConferenceCallBroadcastRequest$new(call, block)}\if{html}{\out{</div>}}
 }
@@ -45,15 +51,15 @@ Represents SendConferenceCallBroadcastRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-Typically used to convert high-level entities into input objects.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SendConferenceCallBroadcastRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-SendConferenceCallBroadcastRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendConferenceCallBroadcastRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -69,28 +75,28 @@ Typically used to convert high-level entities into input objects.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SendConferenceCallBroadcastRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SendConferenceCallBroadcastRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendConferenceCallBroadcastRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes `call$bytes()` exists.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SendConferenceCallBroadcastRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SendConferenceCallBroadcastRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes `call$bytes()` exists.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SendConferenceCallBroadcastRequest$bytes()}\if{html}{\out{</div>}}
 }

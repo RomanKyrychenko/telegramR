@@ -4,6 +4,11 @@
 \alias{ReceivedCallRequest}
 \title{ReceivedCallRequest R6 class}
 \description{
+ReceivedCallRequest R6 class
+
+ReceivedCallRequest R6 class
+}
+\details{
 Represents ReceivedCallRequest TLRequest.
 }
 \section{Public fields}{
@@ -28,6 +33,7 @@ Represents ReceivedCallRequest TLRequest.
 \if{html}{\out{<a id="method-ReceivedCallRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-ReceivedCallRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a ReceivedCallRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReceivedCallRequest$new(peer)}\if{html}{\out{</div>}}
 }
@@ -41,15 +47,15 @@ Represents ReceivedCallRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-No-op kept for API parity.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ReceivedCallRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-ReceivedCallRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+No-op kept for API parity.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReceivedCallRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -65,28 +71,28 @@ No-op kept for API parity.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ReceivedCallRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-ReceivedCallRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReceivedCallRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes `peer$bytes()` exists.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ReceivedCallRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-ReceivedCallRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes `peer$bytes()` exists.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReceivedCallRequest$bytes()}\if{html}{\out{</div>}}
 }

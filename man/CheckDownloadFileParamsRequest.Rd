@@ -43,6 +43,7 @@ Represents the CheckDownloadFileParamsRequest TL request.
 \if{html}{\out{<a id="method-CheckDownloadFileParamsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-CheckDownloadFileParamsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize CheckDownloadFileParamsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CheckDownloadFileParamsRequest$new(bot, file_name, url)}\if{html}{\out{</div>}}
 }

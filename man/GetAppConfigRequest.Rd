@@ -4,6 +4,11 @@
 \alias{GetAppConfigRequest}
 \title{GetAppConfigRequest R6 class}
 \description{
+GetAppConfigRequest R6 class
+
+GetAppConfigRequest R6 class
+}
+\details{
 Request to get app configuration (possibly not modified).
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Request to get app configuration (possibly not modified).
 \if{html}{\out{<a id="method-GetAppConfigRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAppConfigRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetAppConfigRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetAppConfigRequest$new(hash = 0L)}\if{html}{\out{</div>}}
 }

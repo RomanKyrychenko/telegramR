@@ -4,6 +4,11 @@
 \alias{SaveCallDebugRequest}
 \title{SaveCallDebugRequest R6 class}
 \description{
+SaveCallDebugRequest R6 class
+
+SaveCallDebugRequest R6 class
+}
+\details{
 Represents SaveCallDebugRequest TLRequest.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Represents SaveCallDebugRequest TLRequest.
 \if{html}{\out{<a id="method-SaveCallDebugRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveCallDebugRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a SaveCallDebugRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveCallDebugRequest$new(peer, debug)}\if{html}{\out{</div>}}
 }
@@ -45,15 +51,15 @@ Represents SaveCallDebugRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-This is a no-op here but kept for parity with other requests.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveCallDebugRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveCallDebugRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+This is a no-op here but kept for parity with other requests.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveCallDebugRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -69,29 +75,29 @@ This is a no-op here but kept for parity with other requests.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveCallDebugRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveCallDebugRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveCallDebugRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes `peer$bytes()` and
-`debug$bytes()` exist. Returns raw(0) and emits a warning if they don't.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SaveCallDebugRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-SaveCallDebugRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes `peer$bytes()` and
+`debug$bytes()` exist. Returns raw(0) and emits a warning if they don't.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SaveCallDebugRequest$bytes()}\if{html}{\out{</div>}}
 }

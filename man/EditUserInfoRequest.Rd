@@ -4,6 +4,11 @@
 \alias{EditUserInfoRequest}
 \title{EditUserInfoRequest R6 class}
 \description{
+EditUserInfoRequest R6 class
+
+EditUserInfoRequest R6 class
+}
+\details{
 Edit user info (help.UserInfo). Serializes an input user, a message and a list
 of message entities.
 }
@@ -36,6 +41,7 @@ of message entities.
 \if{html}{\out{<a id="method-EditUserInfoRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-EditUserInfoRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize EditUserInfoRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{EditUserInfoRequest$new(userId = NULL, message = "", entities = list())}\if{html}{\out{</div>}}
 }

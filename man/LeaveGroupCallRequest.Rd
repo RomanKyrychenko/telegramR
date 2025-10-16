@@ -4,6 +4,11 @@
 \alias{LeaveGroupCallRequest}
 \title{LeaveGroupCallRequest R6 class}
 \description{
+LeaveGroupCallRequest R6 class
+
+LeaveGroupCallRequest R6 class
+}
+\details{
 Represents LeaveGroupCallRequest TLRequest.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Represents LeaveGroupCallRequest TLRequest.
 \if{html}{\out{<a id="method-LeaveGroupCallRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-LeaveGroupCallRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a LeaveGroupCallRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LeaveGroupCallRequest$new(call, source)}\if{html}{\out{</div>}}
 }
@@ -45,15 +51,15 @@ Represents LeaveGroupCallRequest TLRequest.
 }
 \subsection{Returns}{
 invisible self
-Resolve input references
-
-Typically used to convert high-level entities into input objects.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LeaveGroupCallRequest-resolve"></a>}}
 \if{latex}{\out{\hypertarget{method-LeaveGroupCallRequest-resolve}{}}}
 \subsection{Method \code{resolve()}}{
+Resolve input references
+
+Typically used to convert high-level entities into input objects.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LeaveGroupCallRequest$resolve(client, utils)}\if{html}{\out{</div>}}
 }
@@ -69,28 +75,28 @@ Typically used to convert high-level entities into input objects.
 }
 \subsection{Returns}{
 invisible self
-Convert object to a list
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LeaveGroupCallRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-LeaveGroupCallRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert object to a list
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LeaveGroupCallRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 A named list representing the request.
-Produce raw bytes for the request
-
-Builds the TL-serialized byte representation. Assumes `call$bytes()` exists.
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LeaveGroupCallRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-LeaveGroupCallRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Produce raw bytes for the request
+
+Builds the TL-serialized byte representation. Assumes `call$bytes()` exists.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LeaveGroupCallRequest$bytes()}\if{html}{\out{</div>}}
 }

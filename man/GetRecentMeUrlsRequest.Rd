@@ -4,6 +4,11 @@
 \alias{GetRecentMeUrlsRequest}
 \title{GetRecentMeUrlsRequest R6 class}
 \description{
+GetRecentMeUrlsRequest R6 class
+
+GetRecentMeUrlsRequest R6 class
+}
+\details{
 Request to get recent "me" URLs with a referer string.
 }
 \section{Public fields}{
@@ -30,6 +35,7 @@ Request to get recent "me" URLs with a referer string.
 \if{html}{\out{<a id="method-GetRecentMeUrlsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-GetRecentMeUrlsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize GetRecentMeUrlsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GetRecentMeUrlsRequest$new(referer = "")}\if{html}{\out{</div>}}
 }

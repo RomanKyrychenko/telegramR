@@ -4,17 +4,19 @@
 \alias{UpdateSettingsRequest}
 \title{UpdateSettingsRequest R6 class}
 \description{
-Representation of the UpdateSettingsRequest TLRequest.
+UpdateSettingsRequest R6 class
+
+UpdateSettingsRequest R6 class
 }
 \details{
-Fields:
-- allow_international: logical or NULL
-
-Methods:
-- new(allow_international = NULL): create instance
-- to_list(): return a list representation
-- bytes(): return raw bytes for the TL constructor (includes flags)
-- from_reader(reader): class method to construct from a reader
+Representation of the UpdateSettingsRequest TLRequest.
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{allow_international}}{logical or NULL}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -30,6 +32,7 @@ Methods:
 \if{html}{\out{<a id="method-UpdateSettingsRequest-new"></a>}}
 \if{latex}{\out{\hypertarget{method-UpdateSettingsRequest-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize UpdateSettingsRequest
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateSettingsRequest$new(allow_international = NULL)}\if{html}{\out{</div>}}
 }
@@ -37,8 +40,7 @@ Methods:
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{allow_international}}{logical or NULL
-Convert to list (dictionary-like)}
+\item{\code{allow_international}}{logical or NULL}
 }
 \if{html}{\out{</div>}}
 }
@@ -47,19 +49,20 @@ Convert to list (dictionary-like)}
 \if{html}{\out{<a id="method-UpdateSettingsRequest-to_list"></a>}}
 \if{latex}{\out{\hypertarget{method-UpdateSettingsRequest-to_list}{}}}
 \subsection{Method \code{to_list()}}{
+Convert to list (dictionary-like)
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateSettingsRequest$to_list()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
 list
-Get raw bytes for this constructor
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-UpdateSettingsRequest-bytes"></a>}}
 \if{latex}{\out{\hypertarget{method-UpdateSettingsRequest-bytes}{}}}
 \subsection{Method \code{bytes()}}{
+Get raw bytes for this constructor
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateSettingsRequest$bytes()}\if{html}{\out{</div>}}
 }
