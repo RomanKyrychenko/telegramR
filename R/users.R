@@ -24,17 +24,6 @@ UserMethods <- R6::R6Class(
   "UserMethods",
   public = list(
 
-    #' @field client The client object.
-    client = NULL,
-
-    #' @description
-    #' Initialize the UserMethods class.
-    #' @param client The client object.
-    #' @return None.
-    initialize = function(client) {
-      self$client <- client
-    },
-
     #' @description
     #' Make a call to the Telegram API.
     #' @param request The request object.
