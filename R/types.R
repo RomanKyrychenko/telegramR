@@ -1,3 +1,7 @@
+#' @include tlobject.R
+NULL
+
+#' @export
 AccessPointRule <- R6::R6Class(
   "AccessPointRule",
   inherit = TLObject,
@@ -78,7 +82,7 @@ AccessPointRule <- R6::R6Class(
   )
 )
 
-
+#' @export
 AccountDaysTTL <- R6::R6Class(
   "AccountDaysTTL",
   inherit = TLObject,
@@ -117,7 +121,7 @@ AccountDaysTTL <- R6::R6Class(
 )
 
 
-
+#' @export
 AccountDaysTTL <- R6::R6Class(
   "AccountDaysTTL",
   inherit = TLObject,
@@ -177,7 +181,7 @@ AccountDaysTTL <- R6::R6Class(
   )
 )
 
-
+#' @export
 AttachMenuBot <- R6::R6Class(
   "AttachMenuBot",
   inherit = TLObject,
@@ -352,7 +356,7 @@ AttachMenuBot <- R6::R6Class(
   )
 )
 
-
+#' @export
 AttachMenuBotIcon <- R6::R6Class(
   "AttachMenuBotIcon",
   inherit = TLObject,
@@ -447,7 +451,7 @@ AttachMenuBotIcon <- R6::R6Class(
   )
 )
 
-
+#' @export
 AttachMenuBotIconColor <- R6::R6Class(
   "AttachMenuBotIconColor",
   inherit = TLObject,
@@ -512,7 +516,7 @@ AttachMenuBotIconColor <- R6::R6Class(
   )
 )
 
-
+#' @export
 AttachMenuBots <- R6::R6Class(
   "AttachMenuBots",
   inherit = TLObject,
@@ -600,7 +604,7 @@ AttachMenuBots <- R6::R6Class(
   )
 )
 
-
+#' @export
 AttachMenuBotsBot <- R6::R6Class(
   "AttachMenuBotsBot",
   inherit = TLObject,
@@ -674,7 +678,7 @@ AttachMenuBotsBot <- R6::R6Class(
   )
 )
 
-
+#' @export
 AttachMenuBotsNotModified <- R6::R6Class(
   "AttachMenuBotsNotModified",
   inherit = TLObject,
@@ -726,7 +730,7 @@ AttachMenuBotsNotModified <- R6::R6Class(
   )
 )
 
-
+#' @export
 AttachMenuPeerTypeBotPM <- R6::R6Class(
   "AttachMenuPeerTypeBotPM",
   inherit = TLObject,
@@ -778,7 +782,7 @@ AttachMenuPeerTypeBotPM <- R6::R6Class(
   )
 )
 
-
+#' @export
 AttachMenuPeerTypeBroadcast <- R6::R6Class(
   "AttachMenuPeerTypeBroadcast",
   inherit = TLObject,
@@ -830,7 +834,7 @@ AttachMenuPeerTypeBroadcast <- R6::R6Class(
   )
 )
 
-
+#' @export
 AttachMenuPeerTypeChat <- R6::R6Class(
   "AttachMenuPeerTypeChat",
   inherit = TLObject,
@@ -882,7 +886,7 @@ AttachMenuPeerTypeChat <- R6::R6Class(
   )
 )
 
-
+#' @export
 AttachMenuPeerTypePM <- R6::R6Class(
   "AttachMenuPeerTypePM",
   inherit = TLObject,
@@ -934,7 +938,7 @@ AttachMenuPeerTypePM <- R6::R6Class(
   )
 )
 
-
+#' @export
 AttachMenuPeerTypeSameBotPM <- R6::R6Class(
   "AttachMenuPeerTypeSameBotPM",
   inherit = TLObject,
@@ -986,7 +990,7 @@ AttachMenuPeerTypeSameBotPM <- R6::R6Class(
   )
 )
 
-
+#' @export
 Authorization <- R6::R6Class(
   "Authorization",
   inherit = TLObject,
@@ -1174,7 +1178,7 @@ Authorization <- R6::R6Class(
   )
 )
 
-
+#' @export
 AutoDownloadSettings <- R6::R6Class(
   "AutoDownloadSettings",
   inherit = TLObject,
@@ -1313,7 +1317,7 @@ AutoDownloadSettings <- R6::R6Class(
   )
 )
 
-
+#' @export
 AutoSaveException <- R6::R6Class(
   "AutoSaveException",
   inherit = TLObject,
@@ -1378,7 +1382,7 @@ AutoSaveException <- R6::R6Class(
   )
 )
 
-
+#' @export
 AutoSaveSettings <- R6::R6Class(
   "AutoSaveSettings",
   inherit = TLObject,
@@ -1472,7 +1476,7 @@ AutoSaveSettings <- R6::R6Class(
   )
 )
 
-
+#' @export
 AvailableEffect <- R6::R6Class(
   "AvailableEffect",
   inherit = TLObject,
@@ -1601,7 +1605,7 @@ AvailableEffect <- R6::R6Class(
   )
 )
 
-
+#' @export
 AvailableReaction <- R6::R6Class(
   "AvailableReaction",
   inherit = TLObject,
@@ -1765,7 +1769,7 @@ AvailableReaction <- R6::R6Class(
   )
 )
 
-
+#' @export
 BadMsgNotification <- R6::R6Class(
   "BadMsgNotification",
   inherit = TLObject,
@@ -1840,7 +1844,7 @@ BadMsgNotification <- R6::R6Class(
   )
 )
 
-
+#' @export
 BadServerSalt <- R6::R6Class(
   "BadServerSalt",
   inherit = TLObject,
@@ -1922,7 +1926,7 @@ BadServerSalt <- R6::R6Class(
   )
 )
 
-
+#' @export
 BankCardOpenUrl <- R6::R6Class(
   "BankCardOpenUrl",
   inherit = TLObject,
@@ -1987,7 +1991,7 @@ BankCardOpenUrl <- R6::R6Class(
   )
 )
 
-
+#' @export
 BaseThemeArctic <- R6::R6Class(
   "BaseThemeArctic",
   inherit = TLObject,
@@ -2036,7 +2040,7 @@ BaseThemeArctic <- R6::R6Class(
   )
 )
 
-
+#' @export
 BaseThemeClassic <- R6::R6Class(
   "BaseThemeClassic",
   inherit = TLObject,
@@ -2085,7 +2089,7 @@ BaseThemeClassic <- R6::R6Class(
   )
 )
 
-
+#' @export
 BaseThemeDay <- R6::R6Class(
   "BaseThemeDay",
   inherit = TLObject,
@@ -2134,7 +2138,7 @@ BaseThemeDay <- R6::R6Class(
   )
 )
 
-
+#' @export
 BaseThemeNight <- R6::R6Class(
   "BaseThemeNight",
   inherit = TLObject,
@@ -2183,7 +2187,7 @@ BaseThemeNight <- R6::R6Class(
   )
 )
 
-
+#' @export
 BaseThemeTinted <- R6::R6Class(
   "BaseThemeTinted",
   inherit = TLObject,
@@ -2232,7 +2236,7 @@ BaseThemeTinted <- R6::R6Class(
   )
 )
 
-
+#' @export
 BindAuthKeyInner <- R6::R6Class(
   "BindAuthKeyInner",
   inherit = TLObject,
@@ -2321,7 +2325,7 @@ BindAuthKeyInner <- R6::R6Class(
   )
 )
 
-
+#' @export
 Birthday <- R6::R6Class(
   "Birthday",
   inherit = TLObject,
@@ -2402,7 +2406,7 @@ Birthday <- R6::R6Class(
   )
 )
 
-
+#' @export
 Boost <- R6::R6Class(
   "Boost",
   inherit = TLObject,
@@ -2591,7 +2595,7 @@ Boost <- R6::R6Class(
   )
 )
 
-
+#' @export
 BotApp <- R6::R6Class(
   "BotApp",
   inherit = TLObject,
@@ -2724,6 +2728,7 @@ BotApp <- R6::R6Class(
   )
 )
 
+#' @export
 BotAppNotModified <- R6::R6Class(
   "BotAppNotModified",
   inherit = TLObject,
@@ -2772,6 +2777,7 @@ BotAppNotModified <- R6::R6Class(
   )
 )
 
+#' @export
 BotAppSettings <- R6::R6Class(
   "BotAppSettings",
   inherit = TLObject,
@@ -2904,7 +2910,7 @@ BotAppSettings <- R6::R6Class(
   )
 )
 
-
+#' @export
 BotBusinessConnection <- R6::R6Class(
   "BotBusinessConnection",
   inherit = TLObject,
@@ -3029,6 +3035,7 @@ BotBusinessConnection <- R6::R6Class(
   )
 )
 
+#' @export
 BotCommand <- R6::R6Class(
   "BotCommand",
   inherit = TLObject,
@@ -3097,6 +3104,7 @@ BotCommand <- R6::R6Class(
   )
 )
 
+#' @export
 BotCommandScopeChatAdmins <- R6::R6Class(
   "BotCommandScopeChatAdmins",
   inherit = TLObject,
@@ -3145,6 +3153,7 @@ BotCommandScopeChatAdmins <- R6::R6Class(
   )
 )
 
+#' @export
 BotCommandScopeChats <- R6::R6Class(
   "BotCommandScopeChats",
   inherit = TLObject,
@@ -3193,6 +3202,7 @@ BotCommandScopeChats <- R6::R6Class(
   )
 )
 
+#' @export
 BotCommandScopeDefault <- R6::R6Class(
   "BotCommandScopeDefault",
   inherit = TLObject,
@@ -3241,6 +3251,7 @@ BotCommandScopeDefault <- R6::R6Class(
   )
 )
 
+#' @export
 BotCommandScopePeer <- R6::R6Class(
   "BotCommandScopePeer",
   inherit = TLObject,
@@ -3302,6 +3313,7 @@ BotCommandScopePeer <- R6::R6Class(
   )
 )
 
+#' @export
 BotCommandScopePeerAdmins <- R6::R6Class(
   "BotCommandScopePeerAdmins",
   inherit = TLObject,
@@ -3363,6 +3375,7 @@ BotCommandScopePeerAdmins <- R6::R6Class(
   )
 )
 
+#' @export
 BotCommandScopePeerUser <- R6::R6Class(
   "BotCommandScopePeerUser",
   inherit = TLObject,
@@ -3431,6 +3444,7 @@ BotCommandScopePeerUser <- R6::R6Class(
   )
 )
 
+#' @export
 BotCommandScopeUsers <- R6::R6Class(
   "BotCommandScopeUsers",
   inherit = TLObject,
@@ -3479,7 +3493,7 @@ BotCommandScopeUsers <- R6::R6Class(
   )
 )
 
-
+#' @export
 BotInfo <- R6::R6Class(
   "BotInfo",
   inherit = TLObject,
@@ -3709,7 +3723,7 @@ BotInfo <- R6::R6Class(
   )
 )
 
-
+#' @export
 BotInlineMediaResult <- R6::R6Class(
   "BotInlineMediaResult",
   inherit = TLObject,
@@ -3862,6 +3876,7 @@ BotInlineMediaResult <- R6::R6Class(
   )
 )
 
+#' @export
 BotInlineMessageMediaAuto <- R6::R6Class(
   "BotInlineMessageMediaAuto",
   inherit = TLObject,
@@ -3988,7 +4003,7 @@ BotInlineMessageMediaAuto <- R6::R6Class(
   )
 )
 
-
+#' @export
 BotInlineMessageMediaContact <- R6::R6Class(
   "BotInlineMessageMediaContact",
   inherit = TLObject,
@@ -4098,6 +4113,7 @@ BotInlineMessageMediaContact <- R6::R6Class(
   )
 )
 
+#' @export
 BotInlineMessageMediaGeo <- R6::R6Class(
   "BotInlineMessageMediaGeo",
   inherit = TLObject,
@@ -4234,7 +4250,7 @@ BotInlineMessageMediaGeo <- R6::R6Class(
   )
 )
 
-
+#' @export
 BotInlineMessageMediaInvoice <- R6::R6Class(
   "BotInlineMessageMediaInvoice",
   inherit = TLObject,
@@ -4392,6 +4408,7 @@ BotInlineMessageMediaInvoice <- R6::R6Class(
   )
 )
 
+#' @export
 BotInlineMessageMediaVenue <- R6::R6Class(
   "BotInlineMessageMediaVenue",
   inherit = TLObject,
@@ -4515,7 +4532,7 @@ BotInlineMessageMediaVenue <- R6::R6Class(
   )
 )
 
-
+#' @export
 BotInlineMessageMediaWebPage <- R6::R6Class(
   "BotInlineMessageMediaWebPage",
   inherit = TLObject,
@@ -4627,7 +4644,7 @@ BotInlineMessageMediaWebPage <- R6::R6Class(
   )
 )
 
-
+#' @export
 BotInlineMessageText <- R6::R6Class(
   "BotInlineMessageText",
   inherit = TLObject,
@@ -4717,7 +4734,7 @@ BotInlineMessageText <- R6::R6Class(
   )
 )
 
-
+#' @export
 BotInlineResult <- R6::R6Class(
   "BotInlineResult",
   inherit = TLObject,
@@ -4840,7 +4857,7 @@ BotInlineResult <- R6::R6Class(
   )
 )
 
-
+#' @export
 BotMenuButton <- R6::R6Class(
   "BotMenuButton",
   inherit = TLObject,
@@ -4881,6 +4898,7 @@ BotMenuButton <- R6::R6Class(
   )
 )
 
+#' @export
 BotMenuButtonCommands <- R6::R6Class(
   "BotMenuButtonCommands",
   inherit = TLObject,
@@ -4910,6 +4928,7 @@ BotMenuButtonCommands <- R6::R6Class(
   )
 )
 
+#' @export
 BotMenuButtonDefault <- R6::R6Class(
   "BotMenuButtonDefault",
   inherit = TLObject,
@@ -4939,7 +4958,7 @@ BotMenuButtonDefault <- R6::R6Class(
   )
 )
 
-
+#' @export
 BotPreviewMedia <- R6::R6Class(
   "BotPreviewMedia",
   inherit = TLObject,
@@ -4980,7 +4999,7 @@ BotPreviewMedia <- R6::R6Class(
   )
 )
 
-
+#' @export
 BotVerification <- R6::R6Class(
   "BotVerification",
   inherit = TLObject,
@@ -5026,6 +5045,7 @@ BotVerification <- R6::R6Class(
   )
 )
 
+#' @export
 BotVerifierSettings <- R6::R6Class(
   "BotVerifierSettings",
   inherit = TLObject,
@@ -5092,7 +5112,7 @@ BotVerifierSettings <- R6::R6Class(
   )
 )
 
-
+#' @export
 BusinessAwayMessage <- R6::R6Class(
   "BusinessAwayMessage",
   inherit = TLObject,
@@ -5148,6 +5168,7 @@ BusinessAwayMessage <- R6::R6Class(
   )
 )
 
+#' @export
 BusinessAwayMessageScheduleAlways <- R6::R6Class(
   "BusinessAwayMessageScheduleAlways",
   inherit = TLObject,
@@ -5177,6 +5198,7 @@ BusinessAwayMessageScheduleAlways <- R6::R6Class(
   )
 )
 
+#' @export
 BusinessAwayMessageScheduleCustom <- R6::R6Class(
   "BusinessAwayMessageScheduleCustom",
   inherit = TLObject,
@@ -5217,6 +5239,7 @@ BusinessAwayMessageScheduleCustom <- R6::R6Class(
   )
 )
 
+#' @export
 BusinessAwayMessageScheduleOutsideWorkHours <- R6::R6Class(
   "BusinessAwayMessageScheduleOutsideWorkHours",
   inherit = TLObject,
@@ -5246,7 +5269,7 @@ BusinessAwayMessageScheduleOutsideWorkHours <- R6::R6Class(
   )
 )
 
-
+#' @export
 BusinessBotRecipients <- R6::R6Class(
   "BusinessBotRecipients",
   inherit = TLObject,
@@ -5352,6 +5375,7 @@ BusinessBotRecipients <- R6::R6Class(
   )
 )
 
+#' @export
 BusinessBotRights <- R6::R6Class(
   "BusinessBotRights",
   inherit = TLObject,
@@ -5461,7 +5485,7 @@ BusinessBotRights <- R6::R6Class(
   )
 )
 
-
+#' @export
 BusinessChatLink <- R6::R6Class(
   "BusinessChatLink",
   inherit = TLObject,
@@ -5549,6 +5573,7 @@ BusinessChatLink <- R6::R6Class(
   )
 )
 
+#' @export
 BusinessGreetingMessage <- R6::R6Class(
   "BusinessGreetingMessage",
   inherit = TLObject,
@@ -5594,6 +5619,7 @@ BusinessGreetingMessage <- R6::R6Class(
   )
 )
 
+#' @export
 BusinessIntro <- R6::R6Class(
   "BusinessIntro",
   inherit = TLObject,
@@ -5653,6 +5679,7 @@ BusinessIntro <- R6::R6Class(
   )
 )
 
+#' @export
 BusinessLocation <- R6::R6Class(
   "BusinessLocation",
   inherit = TLObject,
@@ -5707,7 +5734,7 @@ BusinessLocation <- R6::R6Class(
   )
 )
 
-
+#' @export
 BusinessRecipients <- R6::R6Class(
   "BusinessRecipients",
   inherit = TLObject,
@@ -5793,6 +5820,7 @@ BusinessRecipients <- R6::R6Class(
   )
 )
 
+#' @export
 BusinessWeeklyOpen <- R6::R6Class(
   "BusinessWeeklyOpen",
   inherit = TLObject,
@@ -5833,6 +5861,7 @@ BusinessWeeklyOpen <- R6::R6Class(
   )
 )
 
+#' @export
 BusinessWorkHours <- R6::R6Class(
   "BusinessWorkHours",
   inherit = TLObject,
@@ -5888,7 +5917,7 @@ BusinessWorkHours <- R6::R6Class(
   )
 )
 
-
+#' @export
 CdnConfig <- R6::R6Class(
   "CdnConfig",
   inherit = TLObject,
@@ -5928,6 +5957,7 @@ CdnConfig <- R6::R6Class(
   )
 )
 
+#' @export
 CdnPublicKey <- R6::R6Class(
   "CdnPublicKey",
   inherit = TLObject,
@@ -5969,8 +5999,7 @@ CdnPublicKey <- R6::R6Class(
 )
 
 
-
-# Channel class
+#' @export
 Channel <- R6::R6Class("Channel",
   inherit = TLObject,
   public = list(
@@ -6153,7 +6182,7 @@ Channel <- R6::R6Class("Channel",
   class = TRUE
 )
 
-# ChannelAdminLogEvent class
+#' @export
 ChannelAdminLogEvent <- R6::R6Class("ChannelAdminLogEvent",
   inherit = TLObject,
   public = list(
@@ -6186,7 +6215,7 @@ ChannelAdminLogEvent <- R6::R6Class("ChannelAdminLogEvent",
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangeAbout
+#' @export
 ChannelAdminLogEventActionChangeAbout <- R6::R6Class("ChannelAdminLogEventActionChangeAbout",
   inherit = TLObject,
   public = list(
@@ -6213,7 +6242,7 @@ ChannelAdminLogEventActionChangeAbout <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangeAvailableReactions
+#' @export
 ChannelAdminLogEventActionChangeAvailableReactions <- R6::R6Class("ChannelAdminLogEventActionChangeAvailableReactions",
   inherit = TLObject,
   public = list(
@@ -6267,7 +6296,7 @@ ChannelAdminLogEventActionChangeEmojiStatus <- R6::R6Class("ChannelAdminLogEvent
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangeEmojiStickerSet
+#' @export
 ChannelAdminLogEventActionChangeEmojiStickerSet <- R6::R6Class("ChannelAdminLogEventActionChangeEmojiStickerSet",
   inherit = TLObject,
   public = list(
@@ -6294,7 +6323,7 @@ ChannelAdminLogEventActionChangeEmojiStickerSet <- R6::R6Class("ChannelAdminLogE
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangeHistoryTTL
+#' @export
 ChannelAdminLogEventActionChangeHistoryTTL <- R6::R6Class("ChannelAdminLogEventActionChangeHistoryTTL",
   inherit = TLObject,
   public = list(
@@ -6321,7 +6350,7 @@ ChannelAdminLogEventActionChangeHistoryTTL <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangeLinkedChat
+#' @export
 ChannelAdminLogEventActionChangeLinkedChat <- R6::R6Class("ChannelAdminLogEventActionChangeLinkedChat",
   inherit = TLObject,
   public = list(
@@ -6348,7 +6377,7 @@ ChannelAdminLogEventActionChangeLinkedChat <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangeLocation
+#' @export
 ChannelAdminLogEventActionChangeLocation <- R6::R6Class("ChannelAdminLogEventActionChangeLocation",
   inherit = TLObject,
   public = list(
@@ -6375,7 +6404,7 @@ ChannelAdminLogEventActionChangeLocation <- R6::R6Class("ChannelAdminLogEventAct
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangePeerColor
+#' @export
 ChannelAdminLogEventActionChangePeerColor <- R6::R6Class("ChannelAdminLogEventActionChangePeerColor",
   inherit = TLObject,
   public = list(
@@ -6402,7 +6431,7 @@ ChannelAdminLogEventActionChangePeerColor <- R6::R6Class("ChannelAdminLogEventAc
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangePhoto
+#' @export
 ChannelAdminLogEventActionChangePhoto <- R6::R6Class("ChannelAdminLogEventActionChangePhoto",
   inherit = TLObject,
   public = list(
@@ -6429,7 +6458,7 @@ ChannelAdminLogEventActionChangePhoto <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangeProfilePeerColor
+#' @export
 ChannelAdminLogEventActionChangeProfilePeerColor <- R6::R6Class("ChannelAdminLogEventActionChangeProfilePeerColor",
   inherit = TLObject,
   public = list(
@@ -6456,7 +6485,7 @@ ChannelAdminLogEventActionChangeProfilePeerColor <- R6::R6Class("ChannelAdminLog
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangeStickerSet
+#' @export
 ChannelAdminLogEventActionChangeStickerSet <- R6::R6Class("ChannelAdminLogEventActionChangeStickerSet",
   inherit = TLObject,
   public = list(
@@ -6483,7 +6512,7 @@ ChannelAdminLogEventActionChangeStickerSet <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangeTitle
+#' @export
 ChannelAdminLogEventActionChangeTitle <- R6::R6Class("ChannelAdminLogEventActionChangeTitle",
   inherit = TLObject,
   public = list(
@@ -6510,7 +6539,7 @@ ChannelAdminLogEventActionChangeTitle <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangeUsername
+#' @export
 ChannelAdminLogEventActionChangeUsername <- R6::R6Class("ChannelAdminLogEventActionChangeUsername",
   inherit = TLObject,
   public = list(
@@ -6537,7 +6566,7 @@ ChannelAdminLogEventActionChangeUsername <- R6::R6Class("ChannelAdminLogEventAct
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangeUsernames
+#' @export
 ChannelAdminLogEventActionChangeUsernames <- R6::R6Class("ChannelAdminLogEventActionChangeUsernames",
   inherit = TLObject,
   public = list(
@@ -6564,7 +6593,7 @@ ChannelAdminLogEventActionChangeUsernames <- R6::R6Class("ChannelAdminLogEventAc
   class = TRUE
 )
 
-# ChannelAdminLogEventActionChangeWallpaper
+#' @export
 ChannelAdminLogEventActionChangeWallpaper <- R6::R6Class("ChannelAdminLogEventActionChangeWallpaper",
   inherit = TLObject,
   public = list(
@@ -6591,7 +6620,7 @@ ChannelAdminLogEventActionChangeWallpaper <- R6::R6Class("ChannelAdminLogEventAc
   class = TRUE
 )
 
-# ChannelAdminLogEventActionCreateTopic
+#' @export
 ChannelAdminLogEventActionCreateTopic <- R6::R6Class("ChannelAdminLogEventActionCreateTopic",
   inherit = TLObject,
   public = list(
@@ -6615,7 +6644,7 @@ ChannelAdminLogEventActionCreateTopic <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
-# ChannelAdminLogEventActionDefaultBannedRights
+#' @export
 ChannelAdminLogEventActionDefaultBannedRights <- R6::R6Class("ChannelAdminLogEventActionDefaultBannedRights",
   inherit = TLObject,
   public = list(
@@ -6642,7 +6671,7 @@ ChannelAdminLogEventActionDefaultBannedRights <- R6::R6Class("ChannelAdminLogEve
   class = TRUE
 )
 
-# ChannelAdminLogEventActionDeleteMessage
+#' @export
 ChannelAdminLogEventActionDeleteMessage <- R6::R6Class("ChannelAdminLogEventActionDeleteMessage",
   inherit = TLObject,
   public = list(
@@ -6666,7 +6695,7 @@ ChannelAdminLogEventActionDeleteMessage <- R6::R6Class("ChannelAdminLogEventActi
   class = TRUE
 )
 
-# ChannelAdminLogEventActionDeleteTopic
+#' @export
 ChannelAdminLogEventActionDeleteTopic <- R6::R6Class("ChannelAdminLogEventActionDeleteTopic",
   inherit = TLObject,
   public = list(
@@ -6690,7 +6719,7 @@ ChannelAdminLogEventActionDeleteTopic <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
-# ChannelAdminLogEventActionDiscardGroupCall
+#' @export
 ChannelAdminLogEventActionDiscardGroupCall <- R6::R6Class("ChannelAdminLogEventActionDiscardGroupCall",
   inherit = TLObject,
   public = list(
@@ -6714,7 +6743,7 @@ ChannelAdminLogEventActionDiscardGroupCall <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
-# ChannelAdminLogEventActionEditMessage
+#' @export
 ChannelAdminLogEventActionEditMessage <- R6::R6Class("ChannelAdminLogEventActionEditMessage",
   inherit = TLObject,
   public = list(
@@ -6741,7 +6770,7 @@ ChannelAdminLogEventActionEditMessage <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
-# ChannelAdminLogEventActionEditTopic
+#' @export
 ChannelAdminLogEventActionEditTopic <- R6::R6Class("ChannelAdminLogEventActionEditTopic",
   inherit = TLObject,
   public = list(
@@ -6768,7 +6797,7 @@ ChannelAdminLogEventActionEditTopic <- R6::R6Class("ChannelAdminLogEventActionEd
   class = TRUE
 )
 
-# ChannelAdminLogEventActionExportedInviteDelete
+#' @export
 ChannelAdminLogEventActionExportedInviteDelete <- R6::R6Class("ChannelAdminLogEventActionExportedInviteDelete",
   inherit = TLObject,
   public = list(
@@ -6792,7 +6821,7 @@ ChannelAdminLogEventActionExportedInviteDelete <- R6::R6Class("ChannelAdminLogEv
   class = TRUE
 )
 
-# ChannelAdminLogEventActionExportedInviteEdit
+#' @export
 ChannelAdminLogEventActionExportedInviteEdit <- R6::R6Class("ChannelAdminLogEventActionExportedInviteEdit",
   inherit = TLObject,
   public = list(
@@ -6819,7 +6848,7 @@ ChannelAdminLogEventActionExportedInviteEdit <- R6::R6Class("ChannelAdminLogEven
   class = TRUE
 )
 
-# ChannelAdminLogEventActionExportedInviteRevoke
+#' @export
 ChannelAdminLogEventActionExportedInviteRevoke <- R6::R6Class("ChannelAdminLogEventActionExportedInviteRevoke",
   inherit = TLObject,
   public = list(
@@ -6843,7 +6872,7 @@ ChannelAdminLogEventActionExportedInviteRevoke <- R6::R6Class("ChannelAdminLogEv
   class = TRUE
 )
 
-# ChannelAdminLogEventActionParticipantInvite
+#' @export
 ChannelAdminLogEventActionParticipantInvite <- R6::R6Class("ChannelAdminLogEventActionParticipantInvite",
   inherit = TLObject,
   public = list(
@@ -6867,7 +6896,7 @@ ChannelAdminLogEventActionParticipantInvite <- R6::R6Class("ChannelAdminLogEvent
   class = TRUE
 )
 
-# ChannelAdminLogEventActionParticipantJoin
+#' @export
 ChannelAdminLogEventActionParticipantJoin <- R6::R6Class("ChannelAdminLogEventActionParticipantJoin",
   inherit = TLObject,
   public = list(
@@ -6887,7 +6916,7 @@ ChannelAdminLogEventActionParticipantJoin <- R6::R6Class("ChannelAdminLogEventAc
   class = TRUE
 )
 
-# ChannelAdminLogEventActionParticipantJoinByInvite
+#' @export
 ChannelAdminLogEventActionParticipantJoinByInvite <- R6::R6Class("ChannelAdminLogEventActionParticipantJoinByInvite",
   inherit = TLObject,
   public = list(
@@ -6914,7 +6943,7 @@ ChannelAdminLogEventActionParticipantJoinByInvite <- R6::R6Class("ChannelAdminLo
   class = TRUE
 )
 
-# ChannelAdminLogEventActionParticipantJoinByRequest
+#' @export
 ChannelAdminLogEventActionParticipantJoinByRequest <- R6::R6Class("ChannelAdminLogEventActionParticipantJoinByRequest",
   inherit = TLObject,
   public = list(
@@ -6941,7 +6970,7 @@ ChannelAdminLogEventActionParticipantJoinByRequest <- R6::R6Class("ChannelAdminL
   class = TRUE
 )
 
-# ChannelAdminLogEventActionParticipantLeave
+#' @export
 ChannelAdminLogEventActionParticipantLeave <- R6::R6Class("ChannelAdminLogEventActionParticipantLeave",
   inherit = TLObject,
   public = list(
@@ -6961,7 +6990,7 @@ ChannelAdminLogEventActionParticipantLeave <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
-# ChannelAdminLogEventActionParticipantMute
+#' @export
 ChannelAdminLogEventActionParticipantMute <- R6::R6Class("ChannelAdminLogEventActionParticipantMute",
   inherit = TLObject,
   public = list(
@@ -6985,7 +7014,7 @@ ChannelAdminLogEventActionParticipantMute <- R6::R6Class("ChannelAdminLogEventAc
   class = TRUE
 )
 
-# ChannelAdminLogEventActionParticipantSubExtend
+#' @export
 ChannelAdminLogEventActionParticipantSubExtend <- R6::R6Class("ChannelAdminLogEventActionParticipantSubExtend",
   inherit = TLObject,
   public = list(
@@ -7012,7 +7041,7 @@ ChannelAdminLogEventActionParticipantSubExtend <- R6::R6Class("ChannelAdminLogEv
   class = TRUE
 )
 
-# ChannelAdminLogEventActionParticipantToggleAdmin
+#' @export
 ChannelAdminLogEventActionParticipantToggleAdmin <- R6::R6Class("ChannelAdminLogEventActionParticipantToggleAdmin",
   inherit = TLObject,
   public = list(
@@ -7039,7 +7068,7 @@ ChannelAdminLogEventActionParticipantToggleAdmin <- R6::R6Class("ChannelAdminLog
   class = TRUE
 )
 
-# ChannelAdminLogEventActionParticipantToggleBan
+#' @export
 ChannelAdminLogEventActionParticipantToggleBan <- R6::R6Class("ChannelAdminLogEventActionParticipantToggleBan",
   inherit = TLObject,
   public = list(
@@ -7066,7 +7095,7 @@ ChannelAdminLogEventActionParticipantToggleBan <- R6::R6Class("ChannelAdminLogEv
   class = TRUE
 )
 
-# ChannelAdminLogEventActionParticipantUnmute
+#' @export
 ChannelAdminLogEventActionParticipantUnmute <- R6::R6Class("ChannelAdminLogEventActionParticipantUnmute",
   inherit = TLObject,
   public = list(
@@ -7090,7 +7119,7 @@ ChannelAdminLogEventActionParticipantUnmute <- R6::R6Class("ChannelAdminLogEvent
   class = TRUE
 )
 
-# ChannelAdminLogEventActionParticipantVolume
+#' @export
 ChannelAdminLogEventActionParticipantVolume <- R6::R6Class("ChannelAdminLogEventActionParticipantVolume",
   inherit = TLObject,
   public = list(
@@ -7114,7 +7143,7 @@ ChannelAdminLogEventActionParticipantVolume <- R6::R6Class("ChannelAdminLogEvent
   class = TRUE
 )
 
-# ChannelAdminLogEventActionPinTopic
+#' @export
 ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPinTopic",
   inherit = TLObject,
   public = list(
@@ -7141,7 +7170,7 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
   class = TRUE
 )
 
-# ChannelAdminLogEventActionSendMessage
+#' @export
 ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventActionSendMessage",
   inherit = TLObject,
   public = list(
@@ -7165,7 +7194,7 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
-# ChannelAdminLogEventActionStartGroupCall
+#' @export
 ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventActionStartGroupCall",
   inherit = TLObject,
   public = list(
@@ -7189,7 +7218,7 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
   class = TRUE
 )
 
-# ChannelAdminLogEventActionStopPoll
+#' @export
 ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionStopPoll",
   inherit = TLObject,
   public = list(
@@ -7213,7 +7242,7 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
   class = TRUE
 )
 
-# ChannelAdminLogEventActionToggleAntiSpam
+#' @export
 ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventActionToggleAntiSpam",
   inherit = TLObject,
   public = list(
@@ -7237,7 +7266,7 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
   class = TRUE
 )
 
-# ChannelAdminLogEventActionToggleAutotranslation
+#' @export
 ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogEventActionToggleAutotranslation",
   inherit = TLObject,
   public = list(
@@ -7261,7 +7290,7 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
   class = TRUE
 )
 
-# ChannelAdminLogEventActionToggleForum
+#' @export
 ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventActionToggleForum",
   inherit = TLObject,
   public = list(
@@ -7285,7 +7314,7 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
-# ChannelAdminLogEventActionToggleGroupCallSetting
+#' @export
 ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLogEventActionToggleGroupCallSetting",
   inherit = TLObject,
   public = list(
@@ -7309,7 +7338,7 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
   class = TRUE
 )
 
-# ChannelAdminLogEventActionToggleInvites
+#' @export
 ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActionToggleInvites",
   inherit = TLObject,
   public = list(
@@ -7333,7 +7362,7 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
   class = TRUE
 )
 
-# ChannelAdminLogEventActionToggleNoForwards
+#' @export
 ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventActionToggleNoForwards",
   inherit = TLObject,
   public = list(
@@ -7357,7 +7386,7 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
-# ChannelAdminLogEventActionTogglePreHistoryHidden
+#' @export
 ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLogEventActionTogglePreHistoryHidden",
   inherit = TLObject,
   public = list(
@@ -7381,7 +7410,7 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
   class = TRUE
 )
 
-# ChannelAdminLogEventActionToggleSignatureProfiles
+#' @export
 ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLogEventActionToggleSignatureProfiles",
   inherit = TLObject,
   public = list(
@@ -7405,7 +7434,7 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
   class = TRUE
 )
 
-# ChannelAdminLogEventActionToggleSignatures
+#' @export
 ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventActionToggleSignatures",
   inherit = TLObject,
   public = list(
@@ -7429,7 +7458,7 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
-# ChannelAdminLogEventActionToggleSlowMode
+#' @export
 ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventActionToggleSlowMode",
   inherit = TLObject,
   public = list(
@@ -7456,7 +7485,7 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
   class = TRUE
 )
 
-# ChannelAdminLogEventActionUpdatePinned
+#' @export
 ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActionUpdatePinned",
   inherit = TLObject,
   public = list(
@@ -7480,7 +7509,7 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
   class = TRUE
 )
 
-# ChannelAdminLogEventsFilter
+#' @export
 ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   inherit = TLObject,
   public = list(
@@ -7561,7 +7590,7 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   class = TRUE
 )
 
-# ChannelForbidden
+#' @export
 ChannelForbidden <- R6::R6Class("ChannelForbidden",
   inherit = TLObject,
   public = list(
@@ -7600,7 +7629,7 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
   class = TRUE
 )
 
-# ChannelFull
+#' @export
 ChannelFull <- R6::R6Class("ChannelFull",
   inherit = TLObject,
   public = list(
@@ -7832,7 +7861,7 @@ ChannelFull <- R6::R6Class("ChannelFull",
   class = TRUE
 )
 
-
+#' @export
 ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPinTopic",
   inherit = TLObject,
   public = list(
@@ -7876,7 +7905,7 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventActionSendMessage",
   inherit = TLObject,
   public = list(
@@ -7906,7 +7935,7 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventActionStartGroupCall",
   inherit = TLObject,
   public = list(
@@ -7936,7 +7965,7 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionStopPoll",
   inherit = TLObject,
   public = list(
@@ -7966,7 +7995,7 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventActionToggleAntiSpam",
   inherit = TLObject,
   public = list(
@@ -7996,7 +8025,7 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogEventActionToggleAutotranslation",
   inherit = TLObject,
   public = list(
@@ -8026,7 +8055,7 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventActionToggleForum",
   inherit = TLObject,
   public = list(
@@ -8056,7 +8085,7 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLogEventActionToggleGroupCallSetting",
   inherit = TLObject,
   public = list(
@@ -8087,7 +8116,7 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActionToggleInvites",
   inherit = TLObject,
   public = list(
@@ -8117,7 +8146,7 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventActionToggleNoForwards",
   inherit = TLObject,
   public = list(
@@ -8147,7 +8176,7 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLogEventActionTogglePreHistoryHidden",
   inherit = TLObject,
   public = list(
@@ -8177,7 +8206,7 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLogEventActionToggleSignatureProfiles",
   inherit = TLObject,
   public = list(
@@ -8207,7 +8236,7 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventActionToggleSignatures",
   inherit = TLObject,
   public = list(
@@ -8237,7 +8266,7 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventActionToggleSlowMode",
   inherit = TLObject,
   public = list(
@@ -8271,7 +8300,7 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
   )
 )
 
-
+#' @export
 ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActionUpdatePinned",
   inherit = TLObject,
   public = list(
@@ -8301,7 +8330,7 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
   )
 )
 
-
+#' @export
 ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   inherit = TLObject,
   public = list(
@@ -8386,7 +8415,7 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   )
 )
 
-
+#' @export
 ChannelForbidden <- R6::R6Class("ChannelForbidden",
   inherit = TLObject,
   public = list(
@@ -8440,6 +8469,7 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
   )
 )
 
+#' @export
 ChannelFull <- R6::R6Class(
   "ChannelFull",
   inherit = TLObject,
@@ -8667,7 +8697,7 @@ ChannelFull <- R6::R6Class(
   )
 )
 
-
+#' @export
 ChannelLocation <- R6::R6Class(
   "ChannelLocation",
   inherit = TLObject,
@@ -8704,8 +8734,7 @@ ChannelLocation <- R6::R6Class(
   )
 )
 
-
-# ChannelLocationEmpty
+#' @export
 ChannelLocationEmpty <- R6::R6Class("ChannelLocationEmpty",
   inherit = TLObject,
   public = list(
@@ -8731,7 +8760,7 @@ ChannelLocationEmpty <- R6::R6Class("ChannelLocationEmpty",
   class = TRUE
 )
 
-# ChannelMessagesFilter
+#' @export
 ChannelMessagesFilter <- R6::R6Class("ChannelMessagesFilter",
   inherit = TLObject,
   public = list(
@@ -8772,7 +8801,7 @@ ChannelMessagesFilter <- R6::R6Class("ChannelMessagesFilter",
   class = TRUE
 )
 
-# ChannelMessagesFilterEmpty
+#' @export
 ChannelMessagesFilterEmpty <- R6::R6Class("ChannelMessagesFilterEmpty",
   inherit = TLObject,
   public = list(
@@ -8797,7 +8826,7 @@ ChannelMessagesFilterEmpty <- R6::R6Class("ChannelMessagesFilterEmpty",
   class = TRUE
 )
 
-
+#' @export
 ChannelParticipant <- R6::R6Class(
   "ChannelParticipant",
   inherit = TLObject,
@@ -8841,6 +8870,7 @@ ChannelParticipant <- R6::R6Class(
   )
 )
 
+#' @export
 ChannelParticipantAdmin <- R6::R6Class(
   "ChannelParticipantAdmin",
   inherit = TLObject,
@@ -8919,6 +8949,7 @@ ChannelParticipantAdmin <- R6::R6Class(
   )
 )
 
+#' @export
 ChannelParticipantBanned <- R6::R6Class(
   "ChannelParticipantBanned",
   inherit = TLObject,
@@ -8972,7 +9003,7 @@ ChannelParticipantBanned <- R6::R6Class(
   )
 )
 
-
+#' @export
 ChannelParticipantCreator <- R6::R6Class(
   "ChannelParticipantCreator",
   inherit = TLObject,
@@ -9019,6 +9050,7 @@ ChannelParticipantCreator <- R6::R6Class(
   )
 )
 
+#' @export
 ChannelParticipantLeft <- R6::R6Class(
   "ChannelParticipantLeft",
   inherit = TLObject,
@@ -9050,6 +9082,7 @@ ChannelParticipantLeft <- R6::R6Class(
   )
 )
 
+#' @export
 ChannelParticipantSelf <- R6::R6Class(
   "ChannelParticipantSelf",
   inherit = TLObject,
@@ -9107,6 +9140,7 @@ ChannelParticipantSelf <- R6::R6Class(
   )
 )
 
+#' @export
 ChannelParticipantsAdmins <- R6::R6Class(
   "ChannelParticipantsAdmins",
   inherit = TLObject,
@@ -9127,6 +9161,7 @@ ChannelParticipantsAdmins <- R6::R6Class(
   )
 )
 
+#' @export
 ChannelParticipantsBanned <- R6::R6Class(
   "ChannelParticipantsBanned",
   inherit = TLObject,
@@ -9155,6 +9190,7 @@ ChannelParticipantsBanned <- R6::R6Class(
   )
 )
 
+#' @export
 ChannelParticipantsBots <- R6::R6Class(
   "ChannelParticipantsBots",
   inherit = TLObject,
@@ -9175,6 +9211,7 @@ ChannelParticipantsBots <- R6::R6Class(
   )
 )
 
+#' @export
 ChannelParticipantsContacts <- R6::R6Class(
   "ChannelParticipantsContacts",
   inherit = TLObject,
@@ -9203,6 +9240,7 @@ ChannelParticipantsContacts <- R6::R6Class(
   )
 )
 
+#' @export
 ChannelParticipantsKicked <- R6::R6Class(
   "ChannelParticipantsKicked",
   inherit = TLObject,
@@ -9231,6 +9269,7 @@ ChannelParticipantsKicked <- R6::R6Class(
   )
 )
 
+#' @export
 ChannelParticipantsMentions <- R6::R6Class(
   "ChannelParticipantsMentions",
   inherit = TLObject,
@@ -9272,6 +9311,7 @@ ChannelParticipantsMentions <- R6::R6Class(
   )
 )
 
+#' @export
 ChannelParticipantsRecent <- R6::R6Class(
   "ChannelParticipantsRecent",
   inherit = TLObject,
@@ -9292,6 +9332,7 @@ ChannelParticipantsRecent <- R6::R6Class(
   )
 )
 
+#' @export
 ChannelParticipantsSearch <- R6::R6Class(
   "ChannelParticipantsSearch",
   inherit = TLObject,
@@ -9320,7 +9361,7 @@ ChannelParticipantsSearch <- R6::R6Class(
   )
 )
 
-
+#' @export
 ChatAdminRights <- R6::R6Class(
   "ChatAdminRights",
   inherit = TLObject,
@@ -9455,7 +9496,7 @@ ChatAdminRights <- R6::R6Class(
   )
 )
 
-
+#' @export
 ChatAdminWithInvites <- R6::R6Class(
   "ChatAdminWithInvites",
   inherit = TLObject,
@@ -9497,7 +9538,7 @@ ChatAdminWithInvites <- R6::R6Class(
   )
 )
 
-
+#' @export
 ChatBannedRights <- R6::R6Class(
   "ChatBannedRights",
   inherit = TLObject,
@@ -9633,7 +9674,7 @@ ChatBannedRights <- R6::R6Class(
   )
 )
 
-
+#' @export
 ChatFull <- R6::R6Class(
   "ChatFull",
   inherit = TLObject,
@@ -9763,8 +9804,7 @@ ChatFull <- R6::R6Class(
   )
 )
 
-
-# ChatInvite
+#' @export
 ChatInvite <- R6::R6Class(
   "ChatInvite",
   inherit = TLObject,
@@ -9835,7 +9875,7 @@ ChatInvite <- R6::R6Class(
   )
 )
 
-# ChatInviteAlready
+#' @export
 ChatInviteAlready <- R6::R6Class(
   "ChatInviteAlready",
   inherit = TLObject,
@@ -9855,7 +9895,7 @@ ChatInviteAlready <- R6::R6Class(
   )
 )
 
-# ChatInviteExported
+#' @export
 ChatInviteExported <- R6::R6Class(
   "ChatInviteExported",
   inherit = TLObject,
@@ -9914,7 +9954,7 @@ ChatInviteExported <- R6::R6Class(
   )
 )
 
-# ChatInviteImporter
+#' @export
 ChatInviteImporter <- R6::R6Class(
   "ChatInviteImporter",
   inherit = TLObject,
@@ -9949,7 +9989,7 @@ ChatInviteImporter <- R6::R6Class(
   )
 )
 
-# ChatInvitePeek
+#' @export
 ChatInvitePeek <- R6::R6Class(
   "ChatInvitePeek",
   inherit = TLObject,
@@ -9972,7 +10012,7 @@ ChatInvitePeek <- R6::R6Class(
   )
 )
 
-# ChatInvitePublicJoinRequests
+#' @export
 ChatInvitePublicJoinRequests <- R6::R6Class(
   "ChatInvitePublicJoinRequests",
   inherit = TLObject,
@@ -9985,7 +10025,7 @@ ChatInvitePublicJoinRequests <- R6::R6Class(
   )
 )
 
-
+#' @export
 ChatOnlines <- R6::R6Class(
   "ChatOnlines",
   inherit = TLObject,
@@ -10017,7 +10057,7 @@ ChatOnlines <- R6::R6Class(
   )
 )
 
-
+#' @export
 ChatParticipant <- R6::R6Class(
   "ChatParticipant",
   inherit = TLObject,
@@ -10057,6 +10097,7 @@ ChatParticipant <- R6::R6Class(
   )
 )
 
+#' @export
 ChatParticipantAdmin <- R6::R6Class(
   "ChatParticipantAdmin",
   inherit = TLObject,
@@ -10096,6 +10137,7 @@ ChatParticipantAdmin <- R6::R6Class(
   )
 )
 
+#' @export
 ChatParticipantCreator <- R6::R6Class(
   "ChatParticipantCreator",
   inherit = TLObject,
@@ -10125,6 +10167,7 @@ ChatParticipantCreator <- R6::R6Class(
   )
 )
 
+#' @export
 ChatParticipants <- R6::R6Class(
   "ChatParticipants",
   inherit = TLObject,
@@ -10170,6 +10213,7 @@ ChatParticipants <- R6::R6Class(
   )
 )
 
+#' @export
 ChatParticipantsForbidden <- R6::R6Class(
   "ChatParticipantsForbidden",
   inherit = TLObject,
@@ -10209,7 +10253,7 @@ ChatParticipantsForbidden <- R6::R6Class(
 )
 
 
-
+#' @export
 ChatPhoto <- R6::R6Class(
   "ChatPhoto",
   inherit = TLObject,
@@ -10247,6 +10291,7 @@ ChatPhoto <- R6::R6Class(
   )
 )
 
+#' @export
 ChatPhotoEmpty <- R6::R6Class(
   "ChatPhotoEmpty",
   inherit = TLObject,
@@ -10262,6 +10307,7 @@ ChatPhotoEmpty <- R6::R6Class(
   )
 )
 
+#' @export
 ChatReactionsAll <- R6::R6Class(
   "ChatReactionsAll",
   inherit = TLObject,
@@ -10287,6 +10333,7 @@ ChatReactionsAll <- R6::R6Class(
   )
 )
 
+#' @export
 ChatReactionsNone <- R6::R6Class(
   "ChatReactionsNone",
   inherit = TLObject,
@@ -10302,6 +10349,7 @@ ChatReactionsNone <- R6::R6Class(
   )
 )
 
+#' @export
 ChatReactionsSome <- R6::R6Class(
   "ChatReactionsSome",
   inherit = TLObject,
@@ -10328,6 +10376,7 @@ ChatReactionsSome <- R6::R6Class(
   )
 )
 
+#' @export
 ChatTheme <- R6::R6Class(
   "ChatTheme",
   inherit = TLObject,
@@ -10353,6 +10402,7 @@ ChatTheme <- R6::R6Class(
   )
 )
 
+#' @export
 ChatThemeUniqueGift <- R6::R6Class(
   "ChatThemeUniqueGift",
   inherit = TLObject,
@@ -10383,7 +10433,7 @@ ChatThemeUniqueGift <- R6::R6Class(
   )
 )
 
-
+#' @export
 ClientDHInnerData <- R6::R6Class(
   "ClientDHInnerData",
   inherit = TLObject,
@@ -10421,6 +10471,7 @@ ClientDHInnerData <- R6::R6Class(
   )
 )
 
+#' @export
 CodeSettings <- R6::R6Class(
   "CodeSettings",
   inherit = TLObject,
@@ -10466,6 +10517,7 @@ CodeSettings <- R6::R6Class(
   )
 )
 
+#' @export
 Config <- R6::R6Class(
   "Config",
   inherit = TLObject,
@@ -10638,7 +10690,7 @@ Config <- R6::R6Class(
   )
 )
 
-
+#' @export
 ConnectedBot <- R6::R6Class(
   "ConnectedBot",
   inherit = TLObject,
@@ -10677,6 +10729,7 @@ ConnectedBot <- R6::R6Class(
   )
 )
 
+#' @export
 ConnectedBotStarRef <- R6::R6Class(
   "ConnectedBotStarRef",
   inherit = TLObject,
@@ -10735,6 +10788,7 @@ ConnectedBotStarRef <- R6::R6Class(
   )
 )
 
+#' @export
 Contact <- R6::R6Class(
   "Contact",
   inherit = TLObject,
@@ -10768,6 +10822,7 @@ Contact <- R6::R6Class(
   )
 )
 
+#' @export
 ContactBirthday <- R6::R6Class(
   "ContactBirthday",
   inherit = TLObject,
@@ -10801,6 +10856,7 @@ ContactBirthday <- R6::R6Class(
   )
 )
 
+#' @export
 ContactStatus <- R6::R6Class(
   "ContactStatus",
   inherit = TLObject,
@@ -10834,6 +10890,7 @@ ContactStatus <- R6::R6Class(
   )
 )
 
+#' @export
 DataJSON <- R6::R6Class(
   "DataJSON",
   inherit = TLObject,
@@ -10863,6 +10920,7 @@ DataJSON <- R6::R6Class(
   )
 )
 
+#' @export
 DcOption <- R6::R6Class(
   "DcOption",
   inherit = TLObject,
@@ -10929,6 +10987,7 @@ DcOption <- R6::R6Class(
   )
 )
 
+#' @export
 DefaultHistoryTTL <- R6::R6Class(
   "DefaultHistoryTTL",
   inherit = TLObject,
@@ -10958,7 +11017,7 @@ DefaultHistoryTTL <- R6::R6Class(
   )
 )
 
-
+#' @export
 DestroyAuthKeyFail <- R6::R6Class(
   "DestroyAuthKeyFail",
   inherit = TLObject,
@@ -10979,6 +11038,7 @@ DestroyAuthKeyFail <- R6::R6Class(
   )
 )
 
+#' @export
 DestroyAuthKeyNone <- R6::R6Class(
   "DestroyAuthKeyNone",
   inherit = TLObject,
@@ -10999,6 +11059,7 @@ DestroyAuthKeyNone <- R6::R6Class(
   )
 )
 
+#' @export
 DestroyAuthKeyOk <- R6::R6Class(
   "DestroyAuthKeyOk",
   inherit = TLObject,
@@ -11019,7 +11080,7 @@ DestroyAuthKeyOk <- R6::R6Class(
   )
 )
 
-
+#' @export
 DestroySessionNone <- R6::R6Class(
   "DestroySessionNone",
   inherit = TLObject,
@@ -11051,6 +11112,7 @@ DestroySessionNone <- R6::R6Class(
   )
 )
 
+#' @export
 DestroySessionOk <- R6::R6Class(
   "DestroySessionOk",
   inherit = TLObject,
@@ -11082,7 +11144,7 @@ DestroySessionOk <- R6::R6Class(
   )
 )
 
-
+#' @export
 DhGenFail <- R6::R6Class(
   "DhGenFail",
   inherit = TLObject,
@@ -11116,6 +11178,7 @@ DhGenFail <- R6::R6Class(
   )
 )
 
+#' @export
 DhGenOk <- R6::R6Class(
   "DhGenOk",
   inherit = TLObject,
@@ -11149,6 +11212,7 @@ DhGenOk <- R6::R6Class(
   )
 )
 
+#' @export
 DhGenRetry <- R6::R6Class(
   "DhGenRetry",
   inherit = TLObject,
@@ -11182,7 +11246,7 @@ DhGenRetry <- R6::R6Class(
   )
 )
 
-
+#' @export
 Dialog <- R6::R6Class(
   "Dialog",
   inherit = TLObject,
@@ -11242,6 +11306,7 @@ Dialog <- R6::R6Class(
   )
 )
 
+#' @export
 DialogFilter <- R6::R6Class(
   "DialogFilter",
   inherit = TLObject,
@@ -11304,7 +11369,7 @@ DialogFilter <- R6::R6Class(
   )
 )
 
-
+#' @export
 DialogFolder <- R6::R6Class(
   "DialogFolder",
   inherit = TLObject,
@@ -11356,7 +11421,7 @@ DialogFolder <- R6::R6Class(
   )
 )
 
-
+#' @export
 DialogFilterChatlist <- R6::R6Class(
   "DialogFilterChatlist",
   inherit = TLObject,
@@ -11395,6 +11460,7 @@ DialogFilterChatlist <- R6::R6Class(
   )
 )
 
+#' @export
 DialogFilterDefault <- R6::R6Class(
   "DialogFilterDefault",
   inherit = TLObject,
@@ -11405,6 +11471,7 @@ DialogFilterDefault <- R6::R6Class(
   )
 )
 
+#' @export
 DialogFilterSuggested <- R6::R6Class(
   "DialogFilterSuggested",
   inherit = TLObject,
@@ -11425,7 +11492,7 @@ DialogFilterSuggested <- R6::R6Class(
   )
 )
 
-
+#' @export
 DialogPeer <- R6::R6Class(
   "DialogPeer",
   inherit = TLObject,
@@ -11449,6 +11516,7 @@ DialogPeer <- R6::R6Class(
   )
 )
 
+#' @export
 DialogPeerFolder <- R6::R6Class(
   "DialogPeerFolder",
   inherit = TLObject,
@@ -11472,7 +11540,7 @@ DialogPeerFolder <- R6::R6Class(
   )
 )
 
-
+#' @export
 DisallowedGiftsSettings <- R6::R6Class(
   "DisallowedGiftsSettings",
   inherit = TLObject,
@@ -11523,7 +11591,7 @@ DisallowedGiftsSettings <- R6::R6Class(
   )
 )
 
-
+#' @export
 Document <- R6::R6Class(
   "Document",
   inherit = TLObject,
@@ -11618,7 +11686,7 @@ Document <- R6::R6Class(
   )
 )
 
-
+#' @export
 DocumentAttributeAnimated <- R6::R6Class(
   "DocumentAttributeAnimated",
   inherit = TLObject,
@@ -11639,7 +11707,7 @@ DocumentAttributeAnimated <- R6::R6Class(
   )
 )
 
-
+#' @export
 DocumentAttributeAudio <- R6::R6Class(
   "DocumentAttributeAudio",
   inherit = TLObject,
@@ -11679,6 +11747,7 @@ DocumentAttributeAudio <- R6::R6Class(
   )
 )
 
+#' @export
 DocumentAttributeCustomEmoji <- R6::R6Class(
   "DocumentAttributeCustomEmoji",
   inherit = TLObject,
@@ -11715,6 +11784,7 @@ DocumentAttributeCustomEmoji <- R6::R6Class(
   )
 )
 
+#' @export
 DocumentAttributeFilename <- R6::R6Class(
   "DocumentAttributeFilename",
   inherit = TLObject,
@@ -11742,6 +11812,7 @@ DocumentAttributeFilename <- R6::R6Class(
   )
 )
 
+#' @export
 DocumentAttributeHasStickers <- R6::R6Class(
   "DocumentAttributeHasStickers",
   inherit = TLObject,
@@ -11762,6 +11833,7 @@ DocumentAttributeHasStickers <- R6::R6Class(
   )
 )
 
+#' @export
 DocumentAttributeImageSize <- R6::R6Class(
   "DocumentAttributeImageSize",
   inherit = TLObject,
@@ -11792,6 +11864,7 @@ DocumentAttributeImageSize <- R6::R6Class(
   )
 )
 
+#' @export
 DocumentAttributeSticker <- R6::R6Class(
   "DocumentAttributeSticker",
   inherit = TLObject,
@@ -11828,6 +11901,7 @@ DocumentAttributeSticker <- R6::R6Class(
   )
 )
 
+#' @export
 DocumentAttributeVideo <- R6::R6Class(
   "DocumentAttributeVideo",
   inherit = TLObject,
@@ -11879,6 +11953,7 @@ DocumentAttributeVideo <- R6::R6Class(
   )
 )
 
+#' @export
 DocumentEmpty <- R6::R6Class(
   "DocumentEmpty",
   inherit = TLObject,
@@ -11906,6 +11981,7 @@ DocumentEmpty <- R6::R6Class(
   )
 )
 
+#' @export
 DraftMessage <- R6::R6Class(
   "DraftMessage",
   inherit = TLObject,
@@ -11957,6 +12033,7 @@ DraftMessage <- R6::R6Class(
   )
 )
 
+#' @export
 DraftMessageEmpty <- R6::R6Class(
   "DraftMessageEmpty",
   inherit = TLObject,
@@ -11984,6 +12061,7 @@ DraftMessageEmpty <- R6::R6Class(
   )
 )
 
+#' @export
 EmailVerificationApple <- R6::R6Class(
   "EmailVerificationApple",
   inherit = TLObject,
@@ -12011,6 +12089,7 @@ EmailVerificationApple <- R6::R6Class(
   )
 )
 
+#' @export
 EmailVerificationCode <- R6::R6Class(
   "EmailVerificationCode",
   inherit = TLObject,
@@ -12038,6 +12117,7 @@ EmailVerificationCode <- R6::R6Class(
   )
 )
 
+#' @export
 EmailVerificationGoogle <- R6::R6Class(
   "EmailVerificationGoogle",
   inherit = TLObject,
@@ -12065,6 +12145,7 @@ EmailVerificationGoogle <- R6::R6Class(
   )
 )
 
+#' @export
 EmailVerifyPurposeLoginChange <- R6::R6Class(
   "EmailVerifyPurposeLoginChange",
   inherit = TLObject,
@@ -12085,6 +12166,7 @@ EmailVerifyPurposeLoginChange <- R6::R6Class(
   )
 )
 
+#' @export
 EmailVerifyPurposeLoginSetup <- R6::R6Class(
   "EmailVerifyPurposeLoginSetup",
   inherit = TLObject,
@@ -12115,6 +12197,7 @@ EmailVerifyPurposeLoginSetup <- R6::R6Class(
   )
 )
 
+#' @export
 EmailVerifyPurposePassport <- R6::R6Class(
   "EmailVerifyPurposePassport",
   inherit = TLObject,
@@ -12135,7 +12218,7 @@ EmailVerifyPurposePassport <- R6::R6Class(
   )
 )
 
-
+#' @export
 EmojiGroup <- R6::R6Class(
   "EmojiGroup",
   inherit = TLObject,
@@ -12171,6 +12254,7 @@ EmojiGroup <- R6::R6Class(
   )
 )
 
+#' @export
 EmojiGroupGreeting <- R6::R6Class(
   "EmojiGroupGreeting",
   inherit = TLObject,
@@ -12206,7 +12290,7 @@ EmojiGroupGreeting <- R6::R6Class(
   )
 )
 
-
+#' @export
 EmojiGroupPremium <- R6::R6Class(
   "EmojiGroupPremium",
   inherit = TLObject,
@@ -12236,6 +12320,7 @@ EmojiGroupPremium <- R6::R6Class(
   )
 )
 
+#' @export
 EmojiKeyword <- R6::R6Class(
   "EmojiKeyword",
   inherit = TLObject,
@@ -12267,7 +12352,7 @@ EmojiKeyword <- R6::R6Class(
   )
 )
 
-
+#' @export
 EmojiKeywordDeleted <- R6::R6Class(
   "EmojiKeywordDeleted",
   inherit = TLObject,
@@ -12299,6 +12384,7 @@ EmojiKeywordDeleted <- R6::R6Class(
   )
 )
 
+#' @export
 EmojiKeywordsDifference <- R6::R6Class(
   "EmojiKeywordsDifference",
   inherit = TLObject,
@@ -12338,7 +12424,7 @@ EmojiKeywordsDifference <- R6::R6Class(
   )
 )
 
-
+#' @export
 EmojiLanguage <- R6::R6Class(
   "EmojiLanguage",
   inherit = TLObject,
@@ -12364,6 +12450,7 @@ EmojiLanguage <- R6::R6Class(
   )
 )
 
+#' @export
 EmojiList <- R6::R6Class(
   "EmojiList",
   inherit = TLObject,
@@ -12395,7 +12482,7 @@ EmojiList <- R6::R6Class(
   )
 )
 
-
+#' @export
 EmojiListNotModified <- R6::R6Class(
   "EmojiListNotModified",
   inherit = TLObject,
@@ -12409,6 +12496,7 @@ EmojiListNotModified <- R6::R6Class(
   )
 )
 
+#' @export
 EmojiStatus <- R6::R6Class(
   "EmojiStatus",
   inherit = TLObject,
@@ -12438,7 +12526,7 @@ EmojiStatus <- R6::R6Class(
   )
 )
 
-
+#' @export
 EmojiStatusCollectible <- R6::R6Class(
   "EmojiStatusCollectible",
   inherit = TLObject,
@@ -12499,7 +12587,7 @@ EmojiStatusCollectible <- R6::R6Class(
   )
 )
 
-
+#' @export
 EmojiStatusEmpty <- R6::R6Class(
   "EmojiStatusEmpty",
   inherit = TLObject,
@@ -12513,6 +12601,7 @@ EmojiStatusEmpty <- R6::R6Class(
   )
 )
 
+#' @export
 EmojiURL <- R6::R6Class(
   "EmojiURL",
   inherit = TLObject,
@@ -12532,7 +12621,7 @@ EmojiURL <- R6::R6Class(
 )
 
 
-
+#' @export
 EncryptedChat <- R6::R6Class(
   "EncryptedChat",
   inherit = TLObject,
@@ -12602,7 +12691,7 @@ EncryptedChat <- R6::R6Class(
   )
 )
 
-
+#' @export
 EncryptedChatDiscarded <- R6::R6Class(
   "EncryptedChatDiscarded",
   inherit = TLObject,
@@ -12640,7 +12729,7 @@ EncryptedChatDiscarded <- R6::R6Class(
   )
 )
 
-
+#' @export
 EncryptedChatEmpty <- R6::R6Class(
   "EncryptedChatEmpty",
   inherit = TLObject,
@@ -12672,7 +12761,7 @@ EncryptedChatEmpty <- R6::R6Class(
   )
 )
 
-
+#' @export
 EncryptedChatRequested <- R6::R6Class(
   "EncryptedChatRequested",
   inherit = TLObject,
@@ -12746,7 +12835,7 @@ EncryptedChatRequested <- R6::R6Class(
   )
 )
 
-
+#' @export
 EncryptedChatWaiting <- R6::R6Class(
   "EncryptedChatWaiting",
   inherit = TLObject,
@@ -12786,6 +12875,7 @@ EncryptedChatWaiting <- R6::R6Class(
   )
 )
 
+#' @export
 EncryptedFile <- R6::R6Class(
   "EncryptedFile",
   inherit = TLObject,
@@ -12826,7 +12916,7 @@ EncryptedFile <- R6::R6Class(
 )
 
 
-# EncryptedFileEmpty
+#' @export
 EncryptedFileEmpty <- R6::R6Class("EncryptedFileEmpty",
   public = list(
     to_list = function() {
@@ -12835,7 +12925,7 @@ EncryptedFileEmpty <- R6::R6Class("EncryptedFileEmpty",
   )
 )
 
-# EncryptedMessage
+#' @export
 EncryptedMessage <- R6::R6Class("EncryptedMessage",
   public = list(
     chat_id = NULL,
@@ -12863,7 +12953,7 @@ EncryptedMessage <- R6::R6Class("EncryptedMessage",
   )
 )
 
-# EncryptedMessageService
+#' @export
 EncryptedMessageService <- R6::R6Class("EncryptedMessageService",
   public = list(
     chat_id = NULL,
@@ -12888,7 +12978,7 @@ EncryptedMessageService <- R6::R6Class("EncryptedMessageService",
   )
 )
 
-# ExportedChatlistInvite
+#' @export
 ExportedChatlistInvite <- R6::R6Class("ExportedChatlistInvite",
   public = list(
     title = NULL,
@@ -12910,7 +13000,7 @@ ExportedChatlistInvite <- R6::R6Class("ExportedChatlistInvite",
   )
 )
 
-# ExportedContactToken
+#' @export
 ExportedContactToken <- R6::R6Class("ExportedContactToken",
   public = list(
     url = NULL,
@@ -12929,7 +13019,7 @@ ExportedContactToken <- R6::R6Class("ExportedContactToken",
   )
 )
 
-# ExportedMessageLink
+#' @export
 ExportedMessageLink <- R6::R6Class("ExportedMessageLink",
   public = list(
     link = NULL,
@@ -12948,7 +13038,7 @@ ExportedMessageLink <- R6::R6Class("ExportedMessageLink",
   )
 )
 
-# ExportedStoryLink
+#' @export
 ExportedStoryLink <- R6::R6Class("ExportedStoryLink",
   public = list(
     link = NULL,
@@ -12964,7 +13054,7 @@ ExportedStoryLink <- R6::R6Class("ExportedStoryLink",
   )
 )
 
-# FactCheck
+#' @export
 FactCheck <- R6::R6Class("FactCheck",
   public = list(
     hash = NULL,
@@ -12989,7 +13079,7 @@ FactCheck <- R6::R6Class("FactCheck",
   )
 )
 
-# FileHash
+#' @export
 FileHash <- R6::R6Class("FileHash",
   public = list(
     offset = NULL,
@@ -13011,7 +13101,7 @@ FileHash <- R6::R6Class("FileHash",
   )
 )
 
-# Folder
+#' @export
 Folder <- R6::R6Class("Folder",
   public = list(
     id = NULL,
@@ -13042,7 +13132,7 @@ Folder <- R6::R6Class("Folder",
   )
 )
 
-# FolderPeer
+#' @export
 FolderPeer <- R6::R6Class("FolderPeer",
   public = list(
     peer = NULL,
@@ -13061,7 +13151,7 @@ FolderPeer <- R6::R6Class("FolderPeer",
   )
 )
 
-# ForumTopic
+#' @export
 ForumTopic <- R6::R6Class("ForumTopic",
   public = list(
     id = NULL,
@@ -13131,7 +13221,7 @@ ForumTopic <- R6::R6Class("ForumTopic",
   )
 )
 
-# ForumTopicDeleted
+#' @export
 ForumTopicDeleted <- R6::R6Class("ForumTopicDeleted",
   public = list(
     id = NULL,
@@ -13147,7 +13237,7 @@ ForumTopicDeleted <- R6::R6Class("ForumTopicDeleted",
   )
 )
 
-# FoundStory
+#' @export
 FoundStory <- R6::R6Class("FoundStory",
   public = list(
     peer = NULL,
@@ -13166,7 +13256,7 @@ FoundStory <- R6::R6Class("FoundStory",
   )
 )
 
-# FutureSalt
+#' @export
 FutureSalt <- R6::R6Class("FutureSalt",
   public = list(
     valid_since = NULL,
@@ -13188,7 +13278,7 @@ FutureSalt <- R6::R6Class("FutureSalt",
   )
 )
 
-# FutureSalts
+#' @export
 FutureSalts <- R6::R6Class("FutureSalts",
   public = list(
     req_msg_id = NULL,
@@ -13210,7 +13300,7 @@ FutureSalts <- R6::R6Class("FutureSalts",
   )
 )
 
-# Game
+#' @export
 Game <- R6::R6Class("Game",
   public = list(
     id = NULL,
@@ -13244,7 +13334,7 @@ Game <- R6::R6Class("Game",
   )
 )
 
-# GeoPoint
+#' @export
 GeoPoint <- R6::R6Class("GeoPoint",
   public = list(
     long = NULL,
@@ -13269,7 +13359,7 @@ GeoPoint <- R6::R6Class("GeoPoint",
   )
 )
 
-# GeoPointAddress
+#' @export
 GeoPointAddress <- R6::R6Class("GeoPointAddress",
   public = list(
     country_iso2 = NULL,
@@ -13294,7 +13384,7 @@ GeoPointAddress <- R6::R6Class("GeoPointAddress",
   )
 )
 
-# GeoPointEmpty
+#' @export
 GeoPointEmpty <- R6::R6Class("GeoPointEmpty",
   public = list(
     to_list = function() {
@@ -13303,7 +13393,7 @@ GeoPointEmpty <- R6::R6Class("GeoPointEmpty",
   )
 )
 
-# GlobalPrivacySettings
+#' @export
 GlobalPrivacySettings <- R6::R6Class("GlobalPrivacySettings",
   public = list(
     archive_and_mute_new_noncontactpeers = NULL,
@@ -13340,7 +13430,7 @@ GlobalPrivacySettings <- R6::R6Class("GlobalPrivacySettings",
   )
 )
 
-
+#' @export
 GroupCall <- R6::R6Class(
   "GroupCall",
   inherit = TLObject,
@@ -13424,7 +13514,7 @@ GroupCall <- R6::R6Class(
   )
 )
 
-
+#' @export
 GroupCallDiscarded <- R6::R6Class(
   "GroupCallDiscarded",
   inherit = TLObject,
@@ -13466,7 +13556,7 @@ GroupCallDiscarded <- R6::R6Class(
   )
 )
 
-
+#' @export
 GroupCallParticipant <- R6::R6Class(
   "GroupCallParticipant",
   inherit = TLObject,
@@ -13578,7 +13668,7 @@ GroupCallParticipant <- R6::R6Class(
   )
 )
 
-
+#' @export
 GroupCallParticipantVideo <- R6::R6Class(
   "GroupCallParticipantVideo",
   inherit = TLObject,
@@ -13616,6 +13706,7 @@ GroupCallParticipantVideo <- R6::R6Class(
   )
 )
 
+#' @export
 GroupCallParticipantVideoSourceGroup <- R6::R6Class(
   "GroupCallParticipantVideoSourceGroup",
   inherit = TLObject,
@@ -13645,7 +13736,7 @@ GroupCallParticipantVideoSourceGroup <- R6::R6Class(
   )
 )
 
-
+#' @export
 GroupCallStreamChannel <- R6::R6Class(
   "GroupCallStreamChannel",
   public = list(
@@ -13676,6 +13767,7 @@ GroupCallStreamChannel <- R6::R6Class(
   )
 )
 
+#' @export
 HighScore <- R6::R6Class(
   "HighScore",
   public = list(
@@ -13706,7 +13798,7 @@ HighScore <- R6::R6Class(
   )
 )
 
-
+#' @export
 HttpWait <- R6::R6Class(
   "HttpWait",
   public = list(
@@ -13737,6 +13829,7 @@ HttpWait <- R6::R6Class(
   )
 )
 
+#' @export
 ImportedContact <- R6::R6Class(
   "ImportedContact",
   public = list(
@@ -13763,7 +13856,7 @@ ImportedContact <- R6::R6Class(
   )
 )
 
-
+#' @export
 InlineBotSwitchPM <- R6::R6Class(
   "InlineBotSwitchPM",
   public = list(
@@ -13794,6 +13887,7 @@ InlineBotSwitchPM <- R6::R6Class(
   )
 )
 
+#' @export
 InlineBotWebView <- R6::R6Class(
   "InlineBotWebView",
   public = list(
@@ -13824,7 +13918,7 @@ InlineBotWebView <- R6::R6Class(
   )
 )
 
-
+#' @export
 InlineQueryPeerTypeBotPM <- R6::R6Class(
   "InlineQueryPeerTypeBotPM",
   inherit = TLObject,
@@ -13840,6 +13934,7 @@ InlineQueryPeerTypeBotPM <- R6::R6Class(
   )
 )
 
+#' @export
 InlineQueryPeerTypeBroadcast <- R6::R6Class(
   "InlineQueryPeerTypeBroadcast",
   inherit = TLObject,
@@ -13855,6 +13950,7 @@ InlineQueryPeerTypeBroadcast <- R6::R6Class(
   )
 )
 
+#' @export
 InlineQueryPeerTypeChat <- R6::R6Class(
   "InlineQueryPeerTypeChat",
   inherit = TLObject,
@@ -13870,7 +13966,7 @@ InlineQueryPeerTypeChat <- R6::R6Class(
   )
 )
 
-
+#' @export
 InlineQueryPeerTypeMegagroup <- R6::R6Class(
   "InlineQueryPeerTypeMegagroup",
   inherit = TLObject,
@@ -13884,6 +13980,7 @@ InlineQueryPeerTypeMegagroup <- R6::R6Class(
   )
 )
 
+#' @export
 InlineQueryPeerTypePM <- R6::R6Class(
   "InlineQueryPeerTypePM",
   inherit = TLObject,
@@ -13897,6 +13994,7 @@ InlineQueryPeerTypePM <- R6::R6Class(
   )
 )
 
+#' @export
 InlineQueryPeerTypeSameBotPM <- R6::R6Class(
   "InlineQueryPeerTypeSameBotPM",
   inherit = TLObject,
@@ -13910,7 +14008,7 @@ InlineQueryPeerTypeSameBotPM <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputAppEvent <- R6::R6Class(
   "InputAppEvent",
   public = list(
@@ -13945,6 +14043,7 @@ InputAppEvent <- R6::R6Class(
   )
 )
 
+#' @export
 InputBotAppID <- R6::R6Class(
   "InputBotAppID",
   public = list(
@@ -13971,7 +14070,7 @@ InputBotAppID <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBotAppShortName <- R6::R6Class(
   "InputBotAppShortName",
   inherit = TLObject,
@@ -14006,6 +14105,7 @@ InputBotAppShortName <- R6::R6Class(
   )
 )
 
+#' @export
 InputBotInlineMessageGame <- R6::R6Class(
   "InputBotInlineMessageGame",
   inherit = TLObject,
@@ -14037,7 +14137,7 @@ InputBotInlineMessageGame <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBotInlineMessageID <- R6::R6Class(
   "InputBotInlineMessageID",
   inherit = TLObject,
@@ -14069,6 +14169,7 @@ InputBotInlineMessageID <- R6::R6Class(
   )
 )
 
+#' @export
 InputBotInlineMessageID64 <- R6::R6Class(
   "InputBotInlineMessageID64",
   inherit = TLObject,
@@ -14104,7 +14205,7 @@ InputBotInlineMessageID64 <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBotInlineMessageMediaAuto <- R6::R6Class(
   "InputBotInlineMessageMediaAuto",
   inherit = TLObject,
@@ -14171,7 +14272,7 @@ InputBotInlineMessageMediaAuto <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBotInlineMessageMediaContact <- R6::R6Class(
   "InputBotInlineMessageMediaContact",
   inherit = TLObject,
@@ -14223,7 +14324,7 @@ InputBotInlineMessageMediaContact <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBotInlineMessageMediaGeo <- R6::R6Class(
   "InputBotInlineMessageMediaGeo",
   inherit = TLObject,
@@ -14284,7 +14385,7 @@ InputBotInlineMessageMediaGeo <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBotInlineMessageMediaInvoice <- R6::R6Class(
   "InputBotInlineMessageMediaInvoice",
   inherit = TLObject,
@@ -14365,7 +14466,7 @@ InputBotInlineMessageMediaInvoice <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBotInlineMessageMediaVenue <- R6::R6Class(
   "InputBotInlineMessageMediaVenue",
   inherit = TLObject,
@@ -14437,7 +14538,7 @@ InputBotInlineMessageMediaVenue <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBotInlineMessageMediaWebPage <- R6::R6Class(
   "InputBotInlineMessageMediaWebPage",
   inherit = TLObject,
@@ -14538,7 +14639,7 @@ InputBotInlineMessageMediaWebPage <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBotInlineMessageText <- R6::R6Class(
   "InputBotInlineMessageText",
   inherit = TLObject,
@@ -14619,7 +14720,7 @@ InputBotInlineMessageText <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBotInlineResult <- R6::R6Class(
   "InputBotInlineResult",
   inherit = TLObject,
@@ -14696,7 +14797,7 @@ InputBotInlineResult <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBotInlineResultDocument <- R6::R6Class(
   "InputBotInlineResultDocument",
   inherit = TLObject,
@@ -14760,7 +14861,7 @@ InputBotInlineResultDocument <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBotInlineResultGame <- R6::R6Class(
   "InputBotInlineResultGame",
   inherit = TLObject,
@@ -14794,6 +14895,7 @@ InputBotInlineResultGame <- R6::R6Class(
   )
 )
 
+#' @export
 InputBotInlineResultPhoto <- R6::R6Class(
   "InputBotInlineResultPhoto",
   inherit = TLObject,
@@ -14831,7 +14933,7 @@ InputBotInlineResultPhoto <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBusinessAwayMessage <- R6::R6Class(
   "InputBusinessAwayMessage",
   public = list(
@@ -14866,6 +14968,7 @@ InputBusinessAwayMessage <- R6::R6Class(
   )
 )
 
+#' @export
 InputBusinessBotRecipients <- R6::R6Class(
   "InputBusinessBotRecipients",
   public = list(
@@ -14933,7 +15036,7 @@ InputBusinessBotRecipients <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBusinessChatLink <- R6::R6Class(
   "InputBusinessChatLink",
   inherit = TLObject,
@@ -14968,6 +15071,7 @@ InputBusinessChatLink <- R6::R6Class(
   )
 )
 
+#' @export
 InputBusinessGreetingMessage <- R6::R6Class(
   "InputBusinessGreetingMessage",
   inherit = TLObject,
@@ -15001,7 +15105,7 @@ InputBusinessGreetingMessage <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputBusinessIntro <- R6::R6Class(
   "InputBusinessIntro",
   inherit = TLObject,
@@ -15047,6 +15151,7 @@ InputBusinessIntro <- R6::R6Class(
   )
 )
 
+#' @export
 InputBusinessRecipients <- R6::R6Class(
   "InputBusinessRecipients",
   inherit = TLObject,
@@ -15130,7 +15235,7 @@ InputBusinessRecipients <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputChannel <- R6::R6Class(
   "InputChannel",
   inherit = TLObject,
@@ -15160,6 +15265,7 @@ InputChannel <- R6::R6Class(
   )
 )
 
+#' @export
 InputChannelEmpty <- R6::R6Class(
   "InputChannelEmpty",
   inherit = TLObject,
@@ -15175,7 +15281,7 @@ InputChannelEmpty <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputChannelFromMessage <- R6::R6Class(
   "InputChannelFromMessage",
   inherit = TLObject,
@@ -15209,6 +15315,7 @@ InputChannelFromMessage <- R6::R6Class(
   )
 )
 
+#' @export
 InputChatPhoto <- R6::R6Class(
   "InputChatPhoto",
   inherit = TLObject,
@@ -15234,7 +15341,7 @@ InputChatPhoto <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputChatPhotoEmpty <- R6::R6Class(
   "InputChatPhotoEmpty",
   inherit = TLObject,
@@ -15250,6 +15357,7 @@ InputChatPhotoEmpty <- R6::R6Class(
   )
 )
 
+#' @export
 InputChatTheme <- R6::R6Class(
   "InputChatTheme",
   inherit = TLObject,
@@ -15269,6 +15377,7 @@ InputChatTheme <- R6::R6Class(
   )
 )
 
+#' @export
 InputChatThemeEmpty <- R6::R6Class(
   "InputChatThemeEmpty",
   inherit = TLObject,
@@ -15284,7 +15393,7 @@ InputChatThemeEmpty <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputChatThemeUniqueGift <- R6::R6Class(
   "InputChatThemeUniqueGift",
   inherit = TLObject,
@@ -15316,6 +15425,7 @@ InputChatThemeUniqueGift <- R6::R6Class(
   )
 )
 
+#' @export
 InputChatUploadedPhoto <- R6::R6Class(
   "InputChatUploadedPhoto",
   inherit = TLObject,
@@ -15371,7 +15481,7 @@ InputChatUploadedPhoto <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputChatlistDialogFilter <- R6::R6Class(
   "InputChatlistDialogFilter",
   inherit = TLObject,
@@ -15397,6 +15507,7 @@ InputChatlistDialogFilter <- R6::R6Class(
   )
 )
 
+#' @export
 InputCheckPasswordEmpty <- R6::R6Class(
   "InputCheckPasswordEmpty",
   inherit = TLObject,
@@ -15412,6 +15523,7 @@ InputCheckPasswordEmpty <- R6::R6Class(
   )
 )
 
+#' @export
 InputCheckPasswordSRP <- R6::R6Class(
   "InputCheckPasswordSRP",
   inherit = TLObject,
@@ -15445,7 +15557,7 @@ InputCheckPasswordSRP <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputClientProxy <- R6::R6Class(
   "InputClientProxy",
   inherit = TLObject,
@@ -15475,6 +15587,7 @@ InputClientProxy <- R6::R6Class(
   )
 )
 
+#' @export
 InputCollectiblePhone <- R6::R6Class(
   "InputCollectiblePhone",
   inherit = TLObject,
@@ -15500,6 +15613,7 @@ InputCollectiblePhone <- R6::R6Class(
   )
 )
 
+#' @export
 InputCollectibleUsername <- R6::R6Class(
   "InputCollectibleUsername",
   inherit = TLObject,
@@ -15525,7 +15639,7 @@ InputCollectibleUsername <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputDialogPeer <- R6::R6Class(
   "InputDialogPeer",
   inherit = TLObject,
@@ -15551,6 +15665,7 @@ InputDialogPeer <- R6::R6Class(
   )
 )
 
+#' @export
 InputDialogPeerFolder <- R6::R6Class(
   "InputDialogPeerFolder",
   inherit = TLObject,
@@ -15576,7 +15691,7 @@ InputDialogPeerFolder <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputDocument <- R6::R6Class(
   "InputDocument",
   inherit = TLObject,
@@ -15618,6 +15733,7 @@ InputDocument <- R6::R6Class(
   )
 )
 
+#' @export
 InputDocumentEmpty <- R6::R6Class(
   "InputDocumentEmpty",
   inherit = TLObject,
@@ -15638,6 +15754,7 @@ InputDocumentEmpty <- R6::R6Class(
   )
 )
 
+#' @export
 InputDocumentFileLocation <- R6::R6Class(
   "InputDocumentFileLocation",
   inherit = TLObject,
@@ -15684,7 +15801,7 @@ InputDocumentFileLocation <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputEmojiStatusCollectible <- R6::R6Class(
   "InputEmojiStatusCollectible",
   inherit = TLObject,
@@ -15724,7 +15841,7 @@ InputEmojiStatusCollectible <- R6::R6Class(
 )
 
 
-
+#' @export
 InputEncryptedChat <- R6::R6Class(
   "InputEncryptedChat",
   inherit = TLObject,
@@ -15754,6 +15871,7 @@ InputEncryptedChat <- R6::R6Class(
   )
 )
 
+#' @export
 InputEncryptedFile <- R6::R6Class(
   "InputEncryptedFile",
   inherit = TLObject,
@@ -15783,7 +15901,7 @@ InputEncryptedFile <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputEncryptedFileBigUploaded <- R6::R6Class(
   "InputEncryptedFileBigUploaded",
   public = list(
@@ -15814,6 +15932,7 @@ InputEncryptedFileBigUploaded <- R6::R6Class(
   )
 )
 
+#' @export
 InputEncryptedFileEmpty <- R6::R6Class(
   "InputEncryptedFileEmpty",
   public = list(
@@ -15826,7 +15945,7 @@ InputEncryptedFileEmpty <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputEncryptedFileLocation <- R6::R6Class(
   "InputEncryptedFileLocation",
   public = list(
@@ -15853,6 +15972,7 @@ InputEncryptedFileLocation <- R6::R6Class(
   )
 )
 
+#' @export
 InputEncryptedFileUploaded <- R6::R6Class(
   "InputEncryptedFileUploaded",
   public = list(
@@ -15887,7 +16007,7 @@ InputEncryptedFileUploaded <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputFile <- R6::R6Class(
   "InputFile",
   public = list(
@@ -15922,6 +16042,7 @@ InputFile <- R6::R6Class(
   )
 )
 
+#' @export
 InputFileBig <- R6::R6Class(
   "InputFileBig",
   public = list(
@@ -15952,7 +16073,7 @@ InputFileBig <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputFileLocation <- R6::R6Class(
   "InputFileLocation",
   public = list(
@@ -15987,6 +16108,7 @@ InputFileLocation <- R6::R6Class(
   )
 )
 
+#' @export
 InputFileStoryDocument <- R6::R6Class(
   "InputFileStoryDocument",
   public = list(
@@ -16009,7 +16131,7 @@ InputFileStoryDocument <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputFolderPeer <- R6::R6Class(
   "InputFolderPeer",
   public = list(
@@ -16036,6 +16158,7 @@ InputFolderPeer <- R6::R6Class(
   )
 )
 
+#' @export
 InputGameID <- R6::R6Class(
   "InputGameID",
   public = list(
@@ -16062,6 +16185,7 @@ InputGameID <- R6::R6Class(
   )
 )
 
+#' @export
 InputGameShortName <- R6::R6Class(
   "InputGameShortName",
   public = list(
@@ -16088,7 +16212,7 @@ InputGameShortName <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputGeoPoint <- R6::R6Class(
   "InputGeoPoint",
   public = list(
@@ -16126,6 +16250,7 @@ InputGeoPoint <- R6::R6Class(
   )
 )
 
+#' @export
 InputGeoPointEmpty <- R6::R6Class(
   "InputGeoPointEmpty",
   public = list(
@@ -16168,7 +16293,7 @@ InputGroupCall <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputGroupCallInviteMessage <- R6::R6Class(
   "InputGroupCallInviteMessage",
   inherit = TLObject,
@@ -16194,6 +16319,7 @@ InputGroupCallInviteMessage <- R6::R6Class(
   )
 )
 
+#' @export
 InputGroupCallSlug <- R6::R6Class(
   "InputGroupCallSlug",
   inherit = TLObject,
@@ -16219,7 +16345,7 @@ InputGroupCallSlug <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputGroupCallStream <- R6::R6Class(
   "InputGroupCallStream",
   public = list(
@@ -16263,6 +16389,7 @@ InputGroupCallStream <- R6::R6Class(
   )
 )
 
+#' @export
 InputInvoiceBusinessBotTransferStars <- R6::R6Class(
   "InputInvoiceBusinessBotTransferStars",
   public = list(
@@ -16289,7 +16416,7 @@ InputInvoiceBusinessBotTransferStars <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputInvoiceChatInviteSubscription <- R6::R6Class(
   "InputInvoiceChatInviteSubscription",
   inherit = TLObject,
@@ -16315,6 +16442,7 @@ InputInvoiceChatInviteSubscription <- R6::R6Class(
   )
 )
 
+#' @export
 InputInvoiceMessage <- R6::R6Class(
   "InputInvoiceMessage",
   inherit = TLObject,
@@ -16344,6 +16472,7 @@ InputInvoiceMessage <- R6::R6Class(
   )
 )
 
+#' @export
 InputInvoicePremiumGiftCode <- R6::R6Class(
   "InputInvoicePremiumGiftCode",
   inherit = TLObject,
@@ -16373,7 +16502,7 @@ InputInvoicePremiumGiftCode <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputInvoicePremiumGiftStars <- R6::R6Class(
   "InputInvoicePremiumGiftStars",
   public = list(
@@ -16407,6 +16536,7 @@ InputInvoicePremiumGiftStars <- R6::R6Class(
   )
 )
 
+#' @export
 InputInvoiceSlug <- R6::R6Class(
   "InputInvoiceSlug",
   public = list(
@@ -16431,7 +16561,7 @@ InputInvoiceSlug <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputInvoiceStarGift <- R6::R6Class(
   "InputInvoiceStarGift",
   public = list(
@@ -16475,6 +16605,7 @@ InputInvoiceStarGift <- R6::R6Class(
   )
 )
 
+#' @export
 InputInvoiceStarGiftPrepaidUpgrade <- R6::R6Class(
   "InputInvoiceStarGiftPrepaidUpgrade",
   public = list(
@@ -16503,7 +16634,7 @@ InputInvoiceStarGiftPrepaidUpgrade <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputInvoiceStarGiftResale <- R6::R6Class(
   "InputInvoiceStarGiftResale",
   inherit = TLObject,
@@ -16537,6 +16668,7 @@ InputInvoiceStarGiftResale <- R6::R6Class(
   )
 )
 
+#' @export
 InputInvoiceStarGiftTransfer <- R6::R6Class(
   "InputInvoiceStarGiftTransfer",
   inherit = TLObject,
@@ -16566,7 +16698,7 @@ InputInvoiceStarGiftTransfer <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputInvoiceStarGiftUpgrade <- R6::R6Class(
   "InputInvoiceStarGiftUpgrade",
   inherit = TLObject,
@@ -16596,6 +16728,7 @@ InputInvoiceStarGiftUpgrade <- R6::R6Class(
   )
 )
 
+#' @export
 InputInvoiceStars <- R6::R6Class(
   "InputInvoiceStars",
   inherit = TLObject,
@@ -16621,6 +16754,7 @@ InputInvoiceStars <- R6::R6Class(
   )
 )
 
+#' @export
 InputKeyboardButtonRequestPeer <- R6::R6Class(
   "InputKeyboardButtonRequestPeer",
   inherit = TLObject,
@@ -16693,7 +16827,7 @@ InputKeyboardButtonRequestPeer <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputKeyboardButtonUrlAuth <- R6::R6Class(
   "InputKeyboardButtonUrlAuth",
   inherit = TLObject,
@@ -16729,6 +16863,7 @@ InputKeyboardButtonUrlAuth <- R6::R6Class(
   )
 )
 
+#' @export
 InputKeyboardButtonUserProfile <- R6::R6Class(
   "InputKeyboardButtonUserProfile",
   inherit = TLObject,
@@ -16755,7 +16890,7 @@ InputKeyboardButtonUserProfile <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaAreaChannelPost <- R6::R6Class(
   "InputMediaAreaChannelPost",
   inherit = TLObject,
@@ -16789,6 +16924,7 @@ InputMediaAreaChannelPost <- R6::R6Class(
   )
 )
 
+#' @export
 InputMediaAreaVenue <- R6::R6Class(
   "InputMediaAreaVenue",
   inherit = TLObject,
@@ -16822,7 +16958,7 @@ InputMediaAreaVenue <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaContact <- R6::R6Class(
   "InputMediaContact",
   inherit = TLObject,
@@ -16860,6 +16996,7 @@ InputMediaContact <- R6::R6Class(
   )
 )
 
+#' @export
 InputMediaDice <- R6::R6Class(
   "InputMediaDice",
   inherit = TLObject,
@@ -16885,7 +17022,7 @@ InputMediaDice <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaDocument <- R6::R6Class(
   "InputMediaDocument",
   inherit = TLObject,
@@ -16951,7 +17088,7 @@ InputMediaDocument <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaDocumentExternal <- R6::R6Class(
   "InputMediaDocumentExternal",
   inherit = TLObject,
@@ -16991,7 +17128,7 @@ InputMediaDocumentExternal <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaEmpty <- R6::R6Class(
   "InputMediaEmpty",
   inherit = TLObject,
@@ -17015,7 +17152,7 @@ InputMediaEmpty <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaGame <- R6::R6Class(
   "InputMediaGame",
   inherit = TLObject,
@@ -17040,7 +17177,7 @@ InputMediaGame <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaGeoLive <- R6::R6Class(
   "InputMediaGeoLive",
   inherit = TLObject,
@@ -17080,7 +17217,7 @@ InputMediaGeoLive <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaGeoPoint <- R6::R6Class(
   "InputMediaGeoPoint",
   inherit = TLObject,
@@ -17108,7 +17245,7 @@ InputMediaGeoPoint <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaInvoice <- R6::R6Class(
   "InputMediaInvoice",
   inherit = TLObject,
@@ -17160,7 +17297,7 @@ InputMediaInvoice <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaPaidMedia <- R6::R6Class(
   "InputMediaPaidMedia",
   inherit = TLObject,
@@ -17194,7 +17331,7 @@ InputMediaPaidMedia <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaPhoto <- R6::R6Class(
   "InputMediaPhoto",
   inherit = TLObject,
@@ -17228,7 +17365,7 @@ InputMediaPhoto <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaPhotoExternal <- R6::R6Class(
   "InputMediaPhotoExternal",
   inherit = TLObject,
@@ -17262,7 +17399,7 @@ InputMediaPhotoExternal <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaPoll <- R6::R6Class(
   "InputMediaPoll",
   inherit = TLObject,
@@ -17299,7 +17436,7 @@ InputMediaPoll <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputMediaStory <- R6::R6Class(
   "InputMediaStory",
   inherit = TLObject,
@@ -17331,7 +17468,7 @@ InputMediaStory <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 InputMediaTodo <- R6::R6Class(
   "InputMediaTodo",
   inherit = TLObject,
@@ -17360,7 +17497,7 @@ InputMediaTodo <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 InputMediaUploadedDocument <- R6::R6Class(
   "InputMediaUploadedDocument",
   inherit = TLObject,
@@ -17422,7 +17559,7 @@ InputMediaUploadedDocument <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 InputMediaUploadedPhoto <- R6::R6Class(
   "InputMediaUploadedPhoto",
   inherit = TLObject,
@@ -17461,7 +17598,7 @@ InputMediaUploadedPhoto <- R6::R6Class(
 )
 
 
-# InputMediaVenue
+#' @export
 InputMediaVenue <- R6::R6Class("InputMediaVenue",
   inherit = TLObject,
   public = list(
@@ -17504,7 +17641,7 @@ InputMediaVenue <- R6::R6Class("InputMediaVenue",
   class = TRUE
 )
 
-# InputMediaWebPage
+#' @export
 InputMediaWebPage <- R6::R6Class("InputMediaWebPage",
   inherit = TLObject,
   public = list(
@@ -17541,7 +17678,7 @@ InputMediaWebPage <- R6::R6Class("InputMediaWebPage",
   class = TRUE
 )
 
-# InputMessageCallbackQuery
+#' @export
 InputMessageCallbackQuery <- R6::R6Class("InputMessageCallbackQuery",
   inherit = TLObject,
   public = list(
@@ -17567,7 +17704,7 @@ InputMessageCallbackQuery <- R6::R6Class("InputMessageCallbackQuery",
   )
 )
 
-# InputMessageEntityMentionName
+#' @export
 InputMessageEntityMentionName <- R6::R6Class("InputMessageEntityMentionName",
   inherit = TLObject,
   public = list(
@@ -17600,7 +17737,7 @@ InputMessageEntityMentionName <- R6::R6Class("InputMessageEntityMentionName",
   )
 )
 
-# InputMessageID
+#' @export
 InputMessageID <- R6::R6Class("InputMessageID",
   inherit = TLObject,
   public = list(
@@ -17624,7 +17761,7 @@ InputMessageID <- R6::R6Class("InputMessageID",
   )
 )
 
-# InputMessagePinned
+#' @export
 InputMessagePinned <- R6::R6Class("InputMessagePinned",
   inherit = TLObject,
   public = list(
@@ -17647,7 +17784,7 @@ InputMessagePinned <- R6::R6Class("InputMessagePinned",
   )
 )
 
-# InputMessageReplyTo
+#' @export
 InputMessageReplyTo <- R6::R6Class("InputMessageReplyTo",
   inherit = TLObject,
   public = list(
@@ -17671,7 +17808,7 @@ InputMessageReplyTo <- R6::R6Class("InputMessageReplyTo",
   )
 )
 
-# InputMessagesFilterChatPhotos
+#' @export
 InputMessagesFilterChatPhotos <- R6::R6Class("InputMessagesFilterChatPhotos",
   inherit = TLObject,
   public = list(
@@ -17692,7 +17829,7 @@ InputMessagesFilterChatPhotos <- R6::R6Class("InputMessagesFilterChatPhotos",
   )
 )
 
-# InputMessagesFilterContacts
+#' @export
 InputMessagesFilterContacts <- R6::R6Class("InputMessagesFilterContacts",
   inherit = TLObject,
   public = list(
@@ -17713,7 +17850,7 @@ InputMessagesFilterContacts <- R6::R6Class("InputMessagesFilterContacts",
   )
 )
 
-# InputMessagesFilterDocument
+#' @export
 InputMessagesFilterDocument <- R6::R6Class("InputMessagesFilterDocument",
   inherit = TLObject,
   public = list(
@@ -17734,7 +17871,7 @@ InputMessagesFilterDocument <- R6::R6Class("InputMessagesFilterDocument",
   )
 )
 
-# InputMessagesFilterEmpty
+#' @export
 InputMessagesFilterEmpty <- R6::R6Class("InputMessagesFilterEmpty",
   inherit = TLObject,
   public = list(
@@ -17755,7 +17892,7 @@ InputMessagesFilterEmpty <- R6::R6Class("InputMessagesFilterEmpty",
   )
 )
 
-# InputMessagesFilterGeo
+#' @export
 InputMessagesFilterGeo <- R6::R6Class("InputMessagesFilterGeo",
   inherit = TLObject,
   public = list(
@@ -17776,7 +17913,7 @@ InputMessagesFilterGeo <- R6::R6Class("InputMessagesFilterGeo",
   )
 )
 
-# InputMessagesFilterGif
+#' @export
 InputMessagesFilterGif <- R6::R6Class("InputMessagesFilterGif",
   inherit = TLObject,
   public = list(
@@ -17797,7 +17934,7 @@ InputMessagesFilterGif <- R6::R6Class("InputMessagesFilterGif",
   )
 )
 
-# InputMessagesFilterMusic
+#' @export
 InputMessagesFilterMusic <- R6::R6Class("InputMessagesFilterMusic",
   inherit = TLObject,
   public = list(
@@ -17818,7 +17955,7 @@ InputMessagesFilterMusic <- R6::R6Class("InputMessagesFilterMusic",
   )
 )
 
-# InputMessagesFilterMyMentions
+#' @export
 InputMessagesFilterMyMentions <- R6::R6Class("InputMessagesFilterMyMentions",
   inherit = TLObject,
   public = list(
@@ -17839,7 +17976,7 @@ InputMessagesFilterMyMentions <- R6::R6Class("InputMessagesFilterMyMentions",
   )
 )
 
-
+#' @export
 InputMessagesFilterPhoneCalls <- R6::R6Class(
   "InputMessagesFilterPhoneCalls",
   inherit = TLObject,
@@ -17866,6 +18003,7 @@ InputMessagesFilterPhoneCalls <- R6::R6Class(
   )
 )
 
+#' @export
 InputMessagesFilterPhotoVideo <- R6::R6Class(
   "InputMessagesFilterPhotoVideo",
   inherit = TLObject,
@@ -17888,6 +18026,7 @@ InputMessagesFilterPhotoVideo <- R6::R6Class(
   )
 )
 
+#' @export
 InputMessagesFilterPhotos <- R6::R6Class(
   "InputMessagesFilterPhotos",
   inherit = TLObject,
@@ -17908,6 +18047,7 @@ InputMessagesFilterPhotos <- R6::R6Class(
   )
 )
 
+#' @export
 InputMessagesFilterPinned <- R6::R6Class(
   "InputMessagesFilterPinned",
   inherit = TLObject,
@@ -17928,6 +18068,7 @@ InputMessagesFilterPinned <- R6::R6Class(
   )
 )
 
+#' @export
 InputMessagesFilterRoundVideo <- R6::R6Class(
   "InputMessagesFilterRoundVideo",
   inherit = TLObject,
@@ -17948,6 +18089,7 @@ InputMessagesFilterRoundVideo <- R6::R6Class(
   )
 )
 
+#' @export
 InputMessagesFilterRoundVoice <- R6::R6Class(
   "InputMessagesFilterRoundVoice",
   inherit = TLObject,
@@ -17968,6 +18110,7 @@ InputMessagesFilterRoundVoice <- R6::R6Class(
   )
 )
 
+#' @export
 InputMessagesFilterUrl <- R6::R6Class(
   "InputMessagesFilterUrl",
   inherit = TLObject,
@@ -17988,6 +18131,7 @@ InputMessagesFilterUrl <- R6::R6Class(
   )
 )
 
+#' @export
 InputMessagesFilterVideo <- R6::R6Class(
   "InputMessagesFilterVideo",
   inherit = TLObject,
@@ -18008,6 +18152,7 @@ InputMessagesFilterVideo <- R6::R6Class(
   )
 )
 
+#' @export
 InputMessagesFilterVoice <- R6::R6Class(
   "InputMessagesFilterVoice",
   inherit = TLObject,
@@ -18028,6 +18173,7 @@ InputMessagesFilterVoice <- R6::R6Class(
   )
 )
 
+#' @export
 InputNotifyBroadcasts <- R6::R6Class(
   "InputNotifyBroadcasts",
   inherit = TLObject,
@@ -18048,6 +18194,7 @@ InputNotifyBroadcasts <- R6::R6Class(
   )
 )
 
+#' @export
 InputNotifyChats <- R6::R6Class(
   "InputNotifyChats",
   inherit = TLObject,
@@ -18068,6 +18215,7 @@ InputNotifyChats <- R6::R6Class(
   )
 )
 
+#' @export
 InputNotifyForumTopic <- R6::R6Class(
   "InputNotifyForumTopic",
   inherit = TLObject,
@@ -18100,6 +18248,7 @@ InputNotifyForumTopic <- R6::R6Class(
   )
 )
 
+#' @export
 InputNotifyPeer <- R6::R6Class(
   "InputNotifyPeer",
   inherit = TLObject,
@@ -18128,6 +18277,7 @@ InputNotifyPeer <- R6::R6Class(
   )
 )
 
+#' @export
 InputNotifyUsers <- R6::R6Class(
   "InputNotifyUsers",
   inherit = TLObject,
@@ -18148,6 +18298,7 @@ InputNotifyUsers <- R6::R6Class(
   )
 )
 
+#' @export
 InputPaymentCredentials <- R6::R6Class(
   "InputPaymentCredentials",
   inherit = TLObject,
@@ -18181,6 +18332,7 @@ InputPaymentCredentials <- R6::R6Class(
   )
 )
 
+#' @export
 InputPaymentCredentialsApplePay <- R6::R6Class(
   "InputPaymentCredentialsApplePay",
   inherit = TLObject,
@@ -18209,6 +18361,7 @@ InputPaymentCredentialsApplePay <- R6::R6Class(
   )
 )
 
+#' @export
 InputPaymentCredentialsGooglePay <- R6::R6Class(
   "InputPaymentCredentialsGooglePay",
   inherit = TLObject,
@@ -18237,6 +18390,7 @@ InputPaymentCredentialsGooglePay <- R6::R6Class(
   )
 )
 
+#' @export
 InputPaymentCredentialsSaved <- R6::R6Class(
   "InputPaymentCredentialsSaved",
   inherit = TLObject,
@@ -18269,6 +18423,7 @@ InputPaymentCredentialsSaved <- R6::R6Class(
   )
 )
 
+#' @export
 InputPeerChannel <- R6::R6Class(
   "InputPeerChannel",
   inherit = TLObject,
@@ -18315,6 +18470,7 @@ InputPeerChannel <- R6::R6Class(
   )
 )
 
+#' @export
 InputPeerChannelFromMessage <- R6::R6Class(
   "InputPeerChannelFromMessage",
   inherit = TLObject,
@@ -18351,6 +18507,7 @@ InputPeerChannelFromMessage <- R6::R6Class(
   )
 )
 
+#' @export
 InputPeerChat <- R6::R6Class(
   "InputPeerChat",
   inherit = TLObject,
@@ -18386,6 +18543,7 @@ InputPeerChat <- R6::R6Class(
   )
 )
 
+#' @export
 InputPeerEmpty <- R6::R6Class(
   "InputPeerEmpty",
   inherit = TLObject,
@@ -18406,6 +18564,7 @@ InputPeerEmpty <- R6::R6Class(
   )
 )
 
+#' @export
 InputPeerNotifySettings <- R6::R6Class(
   "InputPeerNotifySettings",
   inherit = TLObject,
@@ -18483,6 +18642,7 @@ InputPeerNotifySettings <- R6::R6Class(
   )
 )
 
+#' @export
 InputPeerPhotoFileLocation <- R6::R6Class(
   "InputPeerPhotoFileLocation",
   inherit = TLObject,
@@ -18527,6 +18687,7 @@ InputPeerPhotoFileLocation <- R6::R6Class(
   )
 )
 
+#' @export
 InputPeerSelf <- R6::R6Class(
   "InputPeerSelf",
   inherit = TLObject,
@@ -18547,6 +18708,7 @@ InputPeerSelf <- R6::R6Class(
   )
 )
 
+#' @export
 InputPeerUser <- R6::R6Class(
   "InputPeerUser",
   inherit = TLObject,
@@ -18593,7 +18755,7 @@ InputPeerUser <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputPeerUserFromMessage <- R6::R6Class(
   "InputPeerUserFromMessage",
   inherit = TLObject,
@@ -18626,6 +18788,7 @@ InputPeerUserFromMessage <- R6::R6Class(
   )
 )
 
+#' @export
 InputPhoneCall <- R6::R6Class(
   "InputPhoneCall",
   inherit = TLObject,
@@ -18655,6 +18818,7 @@ InputPhoneCall <- R6::R6Class(
   )
 )
 
+#' @export
 InputPhoneContact <- R6::R6Class(
   "InputPhoneContact",
   inherit = TLObject,
@@ -18690,6 +18854,7 @@ InputPhoneContact <- R6::R6Class(
   )
 )
 
+#' @export
 InputPhoto <- R6::R6Class(
   "InputPhoto",
   inherit = TLObject,
@@ -18722,6 +18887,7 @@ InputPhoto <- R6::R6Class(
   )
 )
 
+#' @export
 InputPhotoEmpty <- R6::R6Class(
   "InputPhotoEmpty",
   inherit = TLObject,
@@ -18742,6 +18908,7 @@ InputPhotoEmpty <- R6::R6Class(
   )
 )
 
+#' @export
 InputPhotoFileLocation <- R6::R6Class(
   "InputPhotoFileLocation",
   inherit = TLObject,
@@ -18777,6 +18944,7 @@ InputPhotoFileLocation <- R6::R6Class(
   )
 )
 
+#' @export
 InputPhotoLegacyFileLocation <- R6::R6Class(
   "InputPhotoLegacyFileLocation",
   inherit = TLObject,
@@ -18818,6 +18986,7 @@ InputPhotoLegacyFileLocation <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyKeyAbout <- R6::R6Class(
   "InputPrivacyKeyAbout",
   inherit = TLObject,
@@ -18838,6 +19007,7 @@ InputPrivacyKeyAbout <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyKeyAddedByPhone <- R6::R6Class(
   "InputPrivacyKeyAddedByPhone",
   inherit = TLObject,
@@ -18858,6 +19028,7 @@ InputPrivacyKeyAddedByPhone <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyKeyBirthday <- R6::R6Class(
   "InputPrivacyKeyBirthday",
   inherit = TLObject,
@@ -18878,6 +19049,7 @@ InputPrivacyKeyBirthday <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyKeyChatInvite <- R6::R6Class(
   "InputPrivacyKeyChatInvite",
   inherit = TLObject,
@@ -18898,6 +19070,7 @@ InputPrivacyKeyChatInvite <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyKeyForwards <- R6::R6Class(
   "InputPrivacyKeyForwards",
   inherit = TLObject,
@@ -18918,6 +19091,7 @@ InputPrivacyKeyForwards <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyKeyNoPaidMessages <- R6::R6Class(
   "InputPrivacyKeyNoPaidMessages",
   inherit = TLObject,
@@ -18938,6 +19112,7 @@ InputPrivacyKeyNoPaidMessages <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyKeyPhoneCall <- R6::R6Class(
   "InputPrivacyKeyPhoneCall",
   inherit = TLObject,
@@ -18958,6 +19133,7 @@ InputPrivacyKeyPhoneCall <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyKeyPhoneNumber <- R6::R6Class(
   "InputPrivacyKeyPhoneNumber",
   inherit = TLObject,
@@ -18978,6 +19154,7 @@ InputPrivacyKeyPhoneNumber <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyKeyPhoneP2P <- R6::R6Class(
   "InputPrivacyKeyPhoneP2P",
   inherit = TLObject,
@@ -18998,6 +19175,7 @@ InputPrivacyKeyPhoneP2P <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyKeyProfilePhoto <- R6::R6Class(
   "InputPrivacyKeyProfilePhoto",
   inherit = TLObject,
@@ -19018,6 +19196,7 @@ InputPrivacyKeyProfilePhoto <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyKeyStarGiftsAutoSave <- R6::R6Class(
   "InputPrivacyKeyStarGiftsAutoSave",
   inherit = TLObject,
@@ -19038,6 +19217,7 @@ InputPrivacyKeyStarGiftsAutoSave <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyKeyStatusTimestamp <- R6::R6Class(
   "InputPrivacyKeyStatusTimestamp",
   inherit = TLObject,
@@ -19058,6 +19238,7 @@ InputPrivacyKeyStatusTimestamp <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyKeyVoiceMessages <- R6::R6Class(
   "InputPrivacyKeyVoiceMessages",
   inherit = TLObject,
@@ -19078,6 +19259,7 @@ InputPrivacyKeyVoiceMessages <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyValueAllowAll <- R6::R6Class(
   "InputPrivacyValueAllowAll",
   inherit = TLObject,
@@ -19098,6 +19280,7 @@ InputPrivacyValueAllowAll <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyValueAllowBots <- R6::R6Class(
   "InputPrivacyValueAllowBots",
   inherit = TLObject,
@@ -19118,6 +19301,7 @@ InputPrivacyValueAllowBots <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyValueAllowChatParticipants <- R6::R6Class(
   "InputPrivacyValueAllowChatParticipants",
   inherit = TLObject,
@@ -19145,6 +19329,7 @@ InputPrivacyValueAllowChatParticipants <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyValueAllowCloseFriends <- R6::R6Class(
   "InputPrivacyValueAllowCloseFriends",
   inherit = TLObject,
@@ -19165,6 +19350,7 @@ InputPrivacyValueAllowCloseFriends <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyValueAllowContacts <- R6::R6Class(
   "InputPrivacyValueAllowContacts",
   inherit = TLObject,
@@ -19185,6 +19371,7 @@ InputPrivacyValueAllowContacts <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyValueAllowPremium <- R6::R6Class(
   "InputPrivacyValueAllowPremium",
   inherit = TLObject,
@@ -19205,6 +19392,7 @@ InputPrivacyValueAllowPremium <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyValueAllowUsers <- R6::R6Class(
   "InputPrivacyValueAllowUsers",
   inherit = TLObject,
@@ -19232,6 +19420,7 @@ InputPrivacyValueAllowUsers <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyValueDisallowAll <- R6::R6Class(
   "InputPrivacyValueDisallowAll",
   inherit = TLObject,
@@ -19252,6 +19441,7 @@ InputPrivacyValueDisallowAll <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyValueDisallowBots <- R6::R6Class(
   "InputPrivacyValueDisallowBots",
   inherit = TLObject,
@@ -19272,6 +19462,7 @@ InputPrivacyValueDisallowBots <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyValueDisallowChatParticipants <- R6::R6Class(
   "InputPrivacyValueDisallowChatParticipants",
   inherit = TLObject,
@@ -19299,6 +19490,7 @@ InputPrivacyValueDisallowChatParticipants <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyValueDisallowContacts <- R6::R6Class(
   "InputPrivacyValueDisallowContacts",
   inherit = TLObject,
@@ -19319,6 +19511,7 @@ InputPrivacyValueDisallowContacts <- R6::R6Class(
   )
 )
 
+#' @export
 InputPrivacyValueDisallowUsers <- R6::R6Class(
   "InputPrivacyValueDisallowUsers",
   inherit = TLObject,
@@ -19346,6 +19539,7 @@ InputPrivacyValueDisallowUsers <- R6::R6Class(
   )
 )
 
+#' @export
 InputQuickReplyShortcut <- R6::R6Class(
   "InputQuickReplyShortcut",
   inherit = TLObject,
@@ -19372,6 +19566,7 @@ InputQuickReplyShortcut <- R6::R6Class(
   )
 )
 
+#' @export
 InputQuickReplyShortcutId <- R6::R6Class(
   "InputQuickReplyShortcutId",
   inherit = TLObject,
@@ -19398,6 +19593,7 @@ InputQuickReplyShortcutId <- R6::R6Class(
   )
 )
 
+#' @export
 InputReplyToMessage <- R6::R6Class(
   "InputReplyToMessage",
   inherit = TLObject,
@@ -19459,6 +19655,7 @@ InputReplyToMessage <- R6::R6Class(
   )
 )
 
+#' @export
 InputReplyToMonoForum <- R6::R6Class(
   "InputReplyToMonoForum",
   inherit = TLObject,
@@ -19485,7 +19682,7 @@ InputReplyToMonoForum <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputReplyToStory <- R6::R6Class(
   "InputReplyToStory",
   inherit = TLObject,
@@ -19512,6 +19709,7 @@ InputReplyToStory <- R6::R6Class(
   )
 )
 
+#' @export
 InputReportReasonChildAbuse <- R6::R6Class(
   "InputReportReasonChildAbuse",
   inherit = TLObject,
@@ -19532,6 +19730,7 @@ InputReportReasonChildAbuse <- R6::R6Class(
   )
 )
 
+#' @export
 InputReportReasonCopyright <- R6::R6Class(
   "InputReportReasonCopyright",
   inherit = TLObject,
@@ -19552,6 +19751,7 @@ InputReportReasonCopyright <- R6::R6Class(
   )
 )
 
+#' @export
 InputReportReasonFake <- R6::R6Class(
   "InputReportReasonFake",
   inherit = TLObject,
@@ -19572,6 +19772,7 @@ InputReportReasonFake <- R6::R6Class(
   )
 )
 
+#' @export
 InputReportReasonGeoIrrelevant <- R6::R6Class(
   "InputReportReasonGeoIrrelevant",
   inherit = TLObject,
@@ -19592,6 +19793,7 @@ InputReportReasonGeoIrrelevant <- R6::R6Class(
   )
 )
 
+#' @export
 InputReportReasonIllegalDrugs <- R6::R6Class(
   "InputReportReasonIllegalDrugs",
   inherit = TLObject,
@@ -19612,6 +19814,7 @@ InputReportReasonIllegalDrugs <- R6::R6Class(
   )
 )
 
+#' @export
 InputReportReasonOther <- R6::R6Class(
   "InputReportReasonOther",
   inherit = TLObject,
@@ -19632,6 +19835,7 @@ InputReportReasonOther <- R6::R6Class(
   )
 )
 
+#' @export
 InputReportReasonPersonalDetails <- R6::R6Class(
   "InputReportReasonPersonalDetails",
   inherit = TLObject,
@@ -19652,6 +19856,7 @@ InputReportReasonPersonalDetails <- R6::R6Class(
   )
 )
 
+#' @export
 InputReportReasonPornography <- R6::R6Class(
   "InputReportReasonPornography",
   inherit = TLObject,
@@ -19672,6 +19877,7 @@ InputReportReasonPornography <- R6::R6Class(
   )
 )
 
+#' @export
 InputReportReasonSpam <- R6::R6Class(
   "InputReportReasonSpam",
   inherit = TLObject,
@@ -19692,6 +19898,7 @@ InputReportReasonSpam <- R6::R6Class(
   )
 )
 
+#' @export
 InputReportReasonViolence <- R6::R6Class(
   "InputReportReasonViolence",
   inherit = TLObject,
@@ -19712,6 +19919,7 @@ InputReportReasonViolence <- R6::R6Class(
   )
 )
 
+#' @export
 InputSavedStarGiftChat <- R6::R6Class(
   "InputSavedStarGiftChat",
   inherit = TLObject,
@@ -19738,6 +19946,7 @@ InputSavedStarGiftChat <- R6::R6Class(
   )
 )
 
+#' @export
 InputSavedStarGiftSlug <- R6::R6Class(
   "InputSavedStarGiftSlug",
   inherit = TLObject,
@@ -19762,6 +19971,7 @@ InputSavedStarGiftSlug <- R6::R6Class(
   )
 )
 
+#' @export
 InputSavedStarGiftUser <- R6::R6Class(
   "InputSavedStarGiftUser",
   inherit = TLObject,
@@ -19786,6 +19996,7 @@ InputSavedStarGiftUser <- R6::R6Class(
   )
 )
 
+#' @export
 InputSecureFile <- R6::R6Class(
   "InputSecureFile",
   inherit = TLObject,
@@ -19812,6 +20023,7 @@ InputSecureFile <- R6::R6Class(
   )
 )
 
+#' @export
 InputSecureFileLocation <- R6::R6Class(
   "InputSecureFileLocation",
   inherit = TLObject,
@@ -19838,6 +20050,7 @@ InputSecureFileLocation <- R6::R6Class(
   )
 )
 
+#' @export
 InputSecureFileUploaded <- R6::R6Class(
   "InputSecureFileUploaded",
   inherit = TLObject,
@@ -19870,6 +20083,7 @@ InputSecureFileUploaded <- R6::R6Class(
   )
 )
 
+#' @export
 InputSecureValue <- R6::R6Class(
   "InputSecureValue",
   inherit = TLObject,
@@ -19920,6 +20134,7 @@ InputSecureValue <- R6::R6Class(
   )
 )
 
+#' @export
 InputSingleMedia <- R6::R6Class(
   "InputSingleMedia",
   inherit = TLObject,
@@ -19957,6 +20172,7 @@ InputSingleMedia <- R6::R6Class(
   )
 )
 
+#' @export
 InputStarsTransaction <- R6::R6Class(
   "InputStarsTransaction",
   inherit = TLObject,
@@ -19985,6 +20201,7 @@ InputStarsTransaction <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetAnimatedEmoji <- R6::R6Class(
   "InputStickerSetAnimatedEmoji",
   inherit = TLObject,
@@ -20005,6 +20222,7 @@ InputStickerSetAnimatedEmoji <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetAnimatedEmojiAnimations <- R6::R6Class(
   "InputStickerSetAnimatedEmojiAnimations",
   inherit = TLObject,
@@ -20025,6 +20243,7 @@ InputStickerSetAnimatedEmojiAnimations <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetDice <- R6::R6Class(
   "InputStickerSetDice",
   inherit = TLObject,
@@ -20049,6 +20268,7 @@ InputStickerSetDice <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetEmojiChannelDefaultStatuses <- R6::R6Class(
   "InputStickerSetEmojiChannelDefaultStatuses",
   inherit = TLObject,
@@ -20069,6 +20289,7 @@ InputStickerSetEmojiChannelDefaultStatuses <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetEmojiDefaultStatuses <- R6::R6Class(
   "InputStickerSetEmojiDefaultStatuses",
   inherit = TLObject,
@@ -20089,6 +20310,7 @@ InputStickerSetEmojiDefaultStatuses <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetEmojiDefaultTopicIcons <- R6::R6Class(
   "InputStickerSetEmojiDefaultTopicIcons",
   inherit = TLObject,
@@ -20109,6 +20331,7 @@ InputStickerSetEmojiDefaultTopicIcons <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetEmojiGenericAnimations <- R6::R6Class(
   "InputStickerSetEmojiGenericAnimations",
   inherit = TLObject,
@@ -20129,6 +20352,7 @@ InputStickerSetEmojiGenericAnimations <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetEmpty <- R6::R6Class(
   "InputStickerSetEmpty",
   inherit = TLObject,
@@ -20149,6 +20373,7 @@ InputStickerSetEmpty <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetID <- R6::R6Class(
   "InputStickerSetID",
   inherit = TLObject,
@@ -20175,6 +20400,7 @@ InputStickerSetID <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetItem <- R6::R6Class(
   "InputStickerSetItem",
   inherit = TLObject,
@@ -20207,6 +20433,7 @@ InputStickerSetItem <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetPremiumGifts <- R6::R6Class(
   "InputStickerSetPremiumGifts",
   inherit = TLObject,
@@ -20227,6 +20454,7 @@ InputStickerSetPremiumGifts <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetShortName <- R6::R6Class(
   "InputStickerSetShortName",
   inherit = TLObject,
@@ -20251,6 +20479,7 @@ InputStickerSetShortName <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetThumb <- R6::R6Class(
   "InputStickerSetThumb",
   inherit = TLObject,
@@ -20277,6 +20506,7 @@ InputStickerSetThumb <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickerSetTonGifts <- R6::R6Class(
   "InputStickerSetTonGifts",
   inherit = TLObject,
@@ -20297,6 +20527,7 @@ InputStickerSetTonGifts <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickeredMediaDocument <- R6::R6Class(
   "InputStickeredMediaDocument",
   inherit = TLObject,
@@ -20321,6 +20552,7 @@ InputStickeredMediaDocument <- R6::R6Class(
   )
 )
 
+#' @export
 InputStickeredMediaPhoto <- R6::R6Class(
   "InputStickeredMediaPhoto",
   inherit = TLObject,
@@ -20345,6 +20577,7 @@ InputStickeredMediaPhoto <- R6::R6Class(
   )
 )
 
+#' @export
 InputStorePaymentAuthCode <- R6::R6Class(
   "InputStorePaymentAuthCode",
   inherit = TLObject,
@@ -20379,7 +20612,7 @@ InputStorePaymentAuthCode <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputStorePaymentGiftPremium <- R6::R6Class(
   "InputStorePaymentGiftPremium",
   inherit = TLObject,
@@ -20421,7 +20654,7 @@ InputStorePaymentGiftPremium <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputStorePaymentPremiumGiftCode <- R6::R6Class(
   "InputStorePaymentPremiumGiftCode",
   inherit = TLObject,
@@ -20451,6 +20684,7 @@ InputStorePaymentPremiumGiftCode <- R6::R6Class(
   )
 )
 
+#' @export
 InputStorePaymentPremiumGiveaway <- R6::R6Class(
   "InputStorePaymentPremiumGiveaway",
   inherit = TLObject,
@@ -20497,7 +20731,7 @@ InputStorePaymentPremiumGiveaway <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputStorePaymentPremiumSubscription <- R6::R6Class(
   "InputStorePaymentPremiumSubscription",
   inherit = TLObject,
@@ -20523,6 +20757,7 @@ InputStorePaymentPremiumSubscription <- R6::R6Class(
   )
 )
 
+#' @export
 InputStorePaymentStarsGift <- R6::R6Class(
   "InputStorePaymentStarsGift",
   inherit = TLObject,
@@ -20558,7 +20793,7 @@ InputStorePaymentStarsGift <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputStorePaymentStarsGiveaway <- R6::R6Class(
   "InputStorePaymentStarsGiveaway",
   inherit = TLObject,
@@ -20634,6 +20869,7 @@ InputStorePaymentStarsGiveaway <- R6::R6Class(
   )
 )
 
+#' @export
 InputStorePaymentStarsTopup <- R6::R6Class(
   "InputStorePaymentStarsTopup",
   inherit = TLObject,
@@ -20670,7 +20906,7 @@ InputStorePaymentStarsTopup <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputStorePaymentPremiumSubscription <- R6::R6Class(
   "InputStorePaymentPremiumSubscription",
   inherit = TLObject,
@@ -20704,7 +20940,7 @@ InputStorePaymentPremiumSubscription <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputStorePaymentGiftPremium <- R6::R6Class(
   "InputStorePaymentGiftPremium",
   inherit = TLObject,
@@ -20733,7 +20969,7 @@ InputStorePaymentGiftPremium <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputTakeoutFileLocation <- R6::R6Class(
   "InputTakeoutFileLocation",
   inherit = TLObject,
@@ -20754,7 +20990,7 @@ InputTakeoutFileLocation <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputTheme <- R6::R6Class(
   "InputTheme",
   public = list(
@@ -20774,6 +21010,7 @@ InputTheme <- R6::R6Class(
   )
 )
 
+#' @export
 InputThemeSettings <- R6::R6Class(
   "InputThemeSettings",
   public = list(
@@ -20810,7 +21047,7 @@ InputThemeSettings <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputThemeSlug <- R6::R6Class(
   "InputThemeSlug",
   inherit = TLObject,
@@ -20836,6 +21073,7 @@ InputThemeSlug <- R6::R6Class(
   )
 )
 
+#' @export
 InputUser <- R6::R6Class(
   "InputUser",
   inherit = TLObject,
@@ -20868,7 +21106,7 @@ InputUser <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputUserEmpty <- R6::R6Class(
   "InputUserEmpty",
   inherit = TLObject,
@@ -20889,6 +21127,7 @@ InputUserEmpty <- R6::R6Class(
   )
 )
 
+#' @export
 InputUserFromMessage <- R6::R6Class(
   "InputUserFromMessage",
   inherit = TLObject,
@@ -20930,6 +21169,7 @@ InputUserFromMessage <- R6::R6Class(
   )
 )
 
+#' @export
 InputUserSelf <- R6::R6Class(
   "InputUserSelf",
   inherit = TLObject,
@@ -20950,7 +21190,7 @@ InputUserSelf <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputWallPaper <- R6::R6Class(
   "InputWallPaper",
   inherit = TLObject,
@@ -20985,6 +21225,7 @@ InputWallPaper <- R6::R6Class(
   )
 )
 
+#' @export
 InputWallPaperNoFile <- R6::R6Class(
   "InputWallPaperNoFile",
   inherit = TLObject,
@@ -21014,6 +21255,7 @@ InputWallPaperNoFile <- R6::R6Class(
   )
 )
 
+#' @export
 InputWallPaperSlug <- R6::R6Class(
   "InputWallPaperSlug",
   inherit = TLObject,
@@ -21043,7 +21285,7 @@ InputWallPaperSlug <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputWebDocument <- R6::R6Class(
   "InputWebDocument",
   inherit = TLObject,
@@ -21086,6 +21328,7 @@ InputWebDocument <- R6::R6Class(
   )
 )
 
+#' @export
 InputWebFileAudioAlbumThumbLocation <- R6::R6Class(
   "InputWebFileAudioAlbumThumbLocation",
   inherit = TLObject,
@@ -21127,7 +21370,7 @@ InputWebFileAudioAlbumThumbLocation <- R6::R6Class(
   )
 )
 
-
+#' @export
 InputWebFileGeoPointLocation <- R6::R6Class(
   "InputWebFileGeoPointLocation",
   inherit = TLObject,
@@ -21184,6 +21427,7 @@ InputWebFileGeoPointLocation <- R6::R6Class(
   )
 )
 
+#' @export
 InputWebFileLocation <- R6::R6Class(
   "InputWebFileLocation",
   inherit = TLObject,
@@ -21220,7 +21464,7 @@ InputWebFileLocation <- R6::R6Class(
   )
 )
 
-
+#' @export
 Invoice <- R6::R6Class(
   "Invoice",
   inherit = TLObject,
@@ -21332,6 +21576,7 @@ Invoice <- R6::R6Class(
   )
 )
 
+#' @export
 IpPort <- R6::R6Class(
   "IpPort",
   inherit = TLObject,
@@ -21364,7 +21609,7 @@ IpPort <- R6::R6Class(
   )
 )
 
-
+#' @export
 IpPortSecret <- R6::R6Class(
   "IpPortSecret",
   inherit = TLObject,
@@ -21401,6 +21646,7 @@ IpPortSecret <- R6::R6Class(
   )
 )
 
+#' @export
 JsonArray <- R6::R6Class(
   "JsonArray",
   inherit = TLObject,
@@ -21440,7 +21686,7 @@ JsonArray <- R6::R6Class(
   )
 )
 
-
+#' @export
 JsonBool <- R6::R6Class(
   "JsonBool",
   inherit = TLObject,
@@ -21473,6 +21719,7 @@ JsonBool <- R6::R6Class(
   )
 )
 
+#' @export
 JsonNull <- R6::R6Class(
   "JsonNull",
   inherit = TLObject,
@@ -21493,6 +21740,7 @@ JsonNull <- R6::R6Class(
   )
 )
 
+#' @export
 JsonNumber <- R6::R6Class(
   "JsonNumber",
   inherit = TLObject,
@@ -21524,7 +21772,7 @@ JsonNumber <- R6::R6Class(
   )
 )
 
-
+#' @export
 JsonObject <- R6::R6Class(
   "JsonObject",
   inherit = TLObject,
@@ -21569,6 +21817,7 @@ JsonObject <- R6::R6Class(
   )
 )
 
+#' @export
 JsonObjectValue <- R6::R6Class(
   "JsonObjectValue",
   inherit = TLObject,
@@ -21606,7 +21855,7 @@ JsonObjectValue <- R6::R6Class(
   )
 )
 
-
+#' @export
 JsonString <- R6::R6Class(
   "JsonString",
   inherit = TLObject,
@@ -21635,6 +21884,7 @@ JsonString <- R6::R6Class(
   )
 )
 
+#' @export
 KeyboardButton <- R6::R6Class(
   "KeyboardButton",
   inherit = TLObject,
@@ -21663,7 +21913,7 @@ KeyboardButton <- R6::R6Class(
   )
 )
 
-
+#' @export
 KeyboardButtonBuy <- R6::R6Class(
   "KeyboardButtonBuy",
   inherit = TLObject,
@@ -21692,6 +21942,7 @@ KeyboardButtonBuy <- R6::R6Class(
   )
 )
 
+#' @export
 KeyboardButtonCallback <- R6::R6Class(
   "KeyboardButtonCallback",
   inherit = TLObject,
@@ -21729,7 +21980,7 @@ KeyboardButtonCallback <- R6::R6Class(
   )
 )
 
-
+#' @export
 KeyboardButtonCopy <- R6::R6Class("KeyboardButtonCopy",
   inherit = TLObject,
   public = list(
@@ -21756,6 +22007,7 @@ KeyboardButtonCopy <- R6::R6Class("KeyboardButtonCopy",
   )
 )
 
+#' @export
 KeyboardButtonGame <- R6::R6Class("KeyboardButtonGame",
   inherit = TLObject,
   public = list(
@@ -21780,6 +22032,7 @@ KeyboardButtonGame <- R6::R6Class("KeyboardButtonGame",
   )
 )
 
+#' @export
 KeyboardButtonRequestGeoLocation <- R6::R6Class("KeyboardButtonRequestGeoLocation",
   inherit = TLObject,
   public = list(
@@ -21804,6 +22057,7 @@ KeyboardButtonRequestGeoLocation <- R6::R6Class("KeyboardButtonRequestGeoLocatio
   )
 )
 
+#' @export
 KeyboardButtonRequestPeer <- R6::R6Class("KeyboardButtonRequestPeer",
   inherit = TLObject,
   public = list(
@@ -21834,6 +22088,7 @@ KeyboardButtonRequestPeer <- R6::R6Class("KeyboardButtonRequestPeer",
   )
 )
 
+#' @export
 KeyboardButtonRequestPhone <- R6::R6Class("KeyboardButtonRequestPhone",
   inherit = TLObject,
   public = list(
@@ -21858,6 +22113,7 @@ KeyboardButtonRequestPhone <- R6::R6Class("KeyboardButtonRequestPhone",
   )
 )
 
+#' @export
 KeyboardButtonRequestPoll <- R6::R6Class("KeyboardButtonRequestPoll",
   inherit = TLObject,
   public = list(
@@ -21890,6 +22146,7 @@ KeyboardButtonRequestPoll <- R6::R6Class("KeyboardButtonRequestPoll",
   )
 )
 
+#' @export
 KeyboardButtonRow <- R6::R6Class("KeyboardButtonRow",
   inherit = TLObject,
   public = list(
@@ -21919,6 +22176,7 @@ KeyboardButtonRow <- R6::R6Class("KeyboardButtonRow",
   )
 )
 
+#' @export
 KeyboardButtonSimpleWebView <- R6::R6Class("KeyboardButtonSimpleWebView",
   inherit = TLObject,
   public = list(
@@ -21945,6 +22203,7 @@ KeyboardButtonSimpleWebView <- R6::R6Class("KeyboardButtonSimpleWebView",
   )
 )
 
+#' @export
 KeyboardButtonSwitchInline <- R6::R6Class("KeyboardButtonSwitchInline",
   inherit = TLObject,
   public = list(
@@ -21987,6 +22246,7 @@ KeyboardButtonSwitchInline <- R6::R6Class("KeyboardButtonSwitchInline",
   )
 )
 
+#' @export
 KeyboardButtonUrl <- R6::R6Class("KeyboardButtonUrl",
   inherit = TLObject,
   public = list(
@@ -22013,6 +22273,7 @@ KeyboardButtonUrl <- R6::R6Class("KeyboardButtonUrl",
   )
 )
 
+#' @export
 KeyboardButtonUrlAuth <- R6::R6Class("KeyboardButtonUrlAuth",
   inherit = TLObject,
   public = list(
@@ -22049,6 +22310,7 @@ KeyboardButtonUrlAuth <- R6::R6Class("KeyboardButtonUrlAuth",
   )
 )
 
+#' @export
 KeyboardButtonUserProfile <- R6::R6Class("KeyboardButtonUserProfile",
   inherit = TLObject,
   public = list(
@@ -22075,6 +22337,7 @@ KeyboardButtonUserProfile <- R6::R6Class("KeyboardButtonUserProfile",
   )
 )
 
+#' @export
 KeyboardButtonWebView <- R6::R6Class("KeyboardButtonWebView",
   inherit = TLObject,
   public = list(
@@ -22101,6 +22364,7 @@ KeyboardButtonWebView <- R6::R6Class("KeyboardButtonWebView",
   )
 )
 
+#' @export
 KeyboardButton <- R6::R6Class("KeyboardButton",
   inherit = TLObject,
   public = list(
@@ -22125,6 +22389,7 @@ KeyboardButton <- R6::R6Class("KeyboardButton",
   )
 )
 
+#' @export
 KeyboardButtonBuy <- R6::R6Class("KeyboardButtonBuy",
   inherit = TLObject,
   public = list(
@@ -22149,6 +22414,7 @@ KeyboardButtonBuy <- R6::R6Class("KeyboardButtonBuy",
   )
 )
 
+#' @export
 KeyboardButtonCallback <- R6::R6Class("KeyboardButtonCallback",
   inherit = TLObject,
   public = list(
@@ -22179,7 +22445,7 @@ KeyboardButtonCallback <- R6::R6Class("KeyboardButtonCallback",
   )
 )
 
-
+#' @export
 KeyboardButtonCopy <- R6::R6Class(
   "KeyboardButtonCopy",
   inherit = TLObject,
@@ -22212,6 +22478,7 @@ KeyboardButtonCopy <- R6::R6Class(
   )
 )
 
+#' @export
 KeyboardButtonGame <- R6::R6Class(
   "KeyboardButtonGame",
   inherit = TLObject,
@@ -22240,6 +22507,7 @@ KeyboardButtonGame <- R6::R6Class(
   )
 )
 
+#' @export
 KeyboardButtonRequestGeoLocation <- R6::R6Class(
   "KeyboardButtonRequestGeoLocation",
   inherit = TLObject,
@@ -22268,6 +22536,7 @@ KeyboardButtonRequestGeoLocation <- R6::R6Class(
   )
 )
 
+#' @export
 KeyboardButtonRequestPeer <- R6::R6Class(
   "KeyboardButtonRequestPeer",
   inherit = TLObject,
@@ -22308,6 +22577,7 @@ KeyboardButtonRequestPeer <- R6::R6Class(
   )
 )
 
+#' @export
 KeyboardButtonRequestPhone <- R6::R6Class(
   "KeyboardButtonRequestPhone",
   inherit = TLObject,
@@ -22336,6 +22606,7 @@ KeyboardButtonRequestPhone <- R6::R6Class(
   )
 )
 
+#' @export
 KeyboardButtonRequestPoll <- R6::R6Class(
   "KeyboardButtonRequestPoll",
   inherit = TLObject,
@@ -22375,6 +22646,7 @@ KeyboardButtonRequestPoll <- R6::R6Class(
   )
 )
 
+#' @export
 KeyboardButtonRow <- R6::R6Class(
   "KeyboardButtonRow",
   inherit = TLObject,
@@ -22410,6 +22682,7 @@ KeyboardButtonRow <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 KeyboardButtonSimpleWebView <- R6::R6Class(
   "KeyboardButtonSimpleWebView",
   inherit = TLObject,
@@ -22442,6 +22715,7 @@ KeyboardButtonSimpleWebView <- R6::R6Class(
   )
 )
 
+#' @export
 KeyboardButtonSwitchInline <- R6::R6Class(
   "KeyboardButtonSwitchInline",
   inherit = TLObject,
@@ -22492,6 +22766,7 @@ KeyboardButtonSwitchInline <- R6::R6Class(
   )
 )
 
+#' @export
 KeyboardButtonUrl <- R6::R6Class(
   "KeyboardButtonUrl",
   inherit = TLObject,
@@ -22524,6 +22799,7 @@ KeyboardButtonUrl <- R6::R6Class(
   )
 )
 
+#' @export
 KeyboardButtonUrlAuth <- R6::R6Class(
   "KeyboardButtonUrlAuth",
   inherit = TLObject,
@@ -22571,6 +22847,7 @@ KeyboardButtonUrlAuth <- R6::R6Class(
   )
 )
 
+#' @export
 KeyboardButtonUserProfile <- R6::R6Class(
   "KeyboardButtonUserProfile",
   inherit = TLObject,
@@ -22603,6 +22880,7 @@ KeyboardButtonUserProfile <- R6::R6Class(
   )
 )
 
+#' @export
 KeyboardButtonWebView <- R6::R6Class(
   "KeyboardButtonWebView",
   inherit = TLObject,
@@ -22635,6 +22913,7 @@ KeyboardButtonWebView <- R6::R6Class(
   )
 )
 
+#' @export
 LabeledPrice <- R6::R6Class(
   "LabeledPrice",
   inherit = TLObject,
@@ -22667,7 +22946,7 @@ LabeledPrice <- R6::R6Class(
   )
 )
 
-
+#' @export
 LangPackDifference <- R6::R6Class(
   "LangPackDifference",
   inherit = TLObject,
@@ -22698,6 +22977,7 @@ LangPackDifference <- R6::R6Class(
   )
 )
 
+#' @export
 LangPackLanguage <- R6::R6Class(
   "LangPackLanguage",
   inherit = TLObject,
@@ -22742,6 +23022,7 @@ LangPackLanguage <- R6::R6Class(
   )
 )
 
+#' @export
 LangPackString <- R6::R6Class(
   "LangPackString",
   inherit = TLObject,
@@ -22768,6 +23049,7 @@ LangPackString <- R6::R6Class(
   )
 )
 
+#' @export
 LangPackStringDeleted <- R6::R6Class(
   "LangPackStringDeleted",
   inherit = TLObject,
@@ -22792,6 +23074,7 @@ LangPackStringDeleted <- R6::R6Class(
   )
 )
 
+#' @export
 LangPackStringPluralized <- R6::R6Class(
   "LangPackStringPluralized",
   inherit = TLObject,
@@ -22828,6 +23111,7 @@ LangPackStringPluralized <- R6::R6Class(
   )
 )
 
+#' @export
 MaskCoords <- R6::R6Class(
   "MaskCoords",
   inherit = TLObject,
@@ -22858,6 +23142,7 @@ MaskCoords <- R6::R6Class(
   )
 )
 
+#' @export
 MediaAreaChannelPost <- R6::R6Class(
   "MediaAreaChannelPost",
   inherit = TLObject,
@@ -22886,6 +23171,7 @@ MediaAreaChannelPost <- R6::R6Class(
   )
 )
 
+#' @export
 MediaAreaCoordinates <- R6::R6Class(
   "MediaAreaCoordinates",
   inherit = TLObject,
@@ -22920,7 +23206,7 @@ MediaAreaCoordinates <- R6::R6Class(
   )
 )
 
-
+#' @export
 MediaAreaGeoPoint <- R6::R6Class("MediaAreaGeoPoint",
   inherit = TLObject,
   public = list(
@@ -22959,6 +23245,7 @@ MediaAreaGeoPoint <- R6::R6Class("MediaAreaGeoPoint",
   class = TRUE
 )
 
+#' @export
 MediaAreaStarGift <- R6::R6Class("MediaAreaStarGift",
   inherit = TLObject,
   public = list(
@@ -22991,6 +23278,7 @@ MediaAreaStarGift <- R6::R6Class("MediaAreaStarGift",
   class = TRUE
 )
 
+#' @export
 MediaAreaSuggestedReaction <- R6::R6Class("MediaAreaSuggestedReaction",
   inherit = TLObject,
   public = list(
@@ -23032,6 +23320,7 @@ MediaAreaSuggestedReaction <- R6::R6Class("MediaAreaSuggestedReaction",
   class = TRUE
 )
 
+#' @export
 MediaAreaUrl <- R6::R6Class("MediaAreaUrl",
   inherit = TLObject,
   public = list(
@@ -23064,6 +23353,7 @@ MediaAreaUrl <- R6::R6Class("MediaAreaUrl",
   class = TRUE
 )
 
+#' @export
 MediaAreaVenue <- R6::R6Class("MediaAreaVenue",
   inherit = TLObject,
   public = list(
@@ -23119,6 +23409,7 @@ MediaAreaVenue <- R6::R6Class("MediaAreaVenue",
   class = TRUE
 )
 
+#' @export
 MediaAreaWeather <- R6::R6Class("MediaAreaWeather",
   inherit = TLObject,
   public = list(
@@ -23159,7 +23450,7 @@ MediaAreaWeather <- R6::R6Class("MediaAreaWeather",
   class = TRUE
 )
 
-
+#' @export
 Message <- R6::R6Class(
   "Message",
   inherit = TLObject,
@@ -23381,7 +23672,7 @@ Message <- R6::R6Class(
   )
 )
 
-
+#' @export
 MessageActionBoostApply <- R6::R6Class(
   "MessageActionBoostApply",
   inherit = TLObject,
@@ -23407,6 +23698,7 @@ MessageActionBoostApply <- R6::R6Class(
   )
 )
 
+#' @export
 MessageActionBotAllowed <- R6::R6Class(
   "MessageActionBotAllowed",
   inherit = TLObject,
@@ -23450,7 +23742,7 @@ MessageActionBotAllowed <- R6::R6Class(
   )
 )
 
-
+#' @export
 MessageActionChannelCreate <- R6::R6Class(
   "MessageActionChannelCreate",
   inherit = TLObject,
@@ -23479,6 +23771,7 @@ MessageActionChannelCreate <- R6::R6Class(
   )
 )
 
+#' @export
 MessageActionChannelMigrateFrom <- R6::R6Class(
   "MessageActionChannelMigrateFrom",
   inherit = TLObject,
@@ -23511,6 +23804,7 @@ MessageActionChannelMigrateFrom <- R6::R6Class(
   )
 )
 
+#' @export
 MessageActionChatAddUser <- R6::R6Class(
   "MessageActionChatAddUser",
   inherit = TLObject,
@@ -23544,7 +23838,7 @@ MessageActionChatAddUser <- R6::R6Class(
   )
 )
 
-
+#' @export
 MessageActionChatCreate <- R6::R6Class(
   "MessageActionChatCreate",
   inherit = TLObject,
@@ -23587,6 +23881,7 @@ MessageActionChatCreate <- R6::R6Class(
   )
 )
 
+#' @export
 MessageActionChatDeletePhoto <- R6::R6Class(
   "MessageActionChatDeletePhoto",
   inherit = TLObject,
@@ -23607,7 +23902,7 @@ MessageActionChatDeletePhoto <- R6::R6Class(
   )
 )
 
-
+#' @export
 MessageActionChatDeleteUser <- R6::R6Class(
   "MessageActionChatDeleteUser",
   inherit = TLObject,
@@ -23639,6 +23934,7 @@ MessageActionChatDeleteUser <- R6::R6Class(
   )
 )
 
+#' @export
 MessageActionChatEditPhoto <- R6::R6Class(
   "MessageActionChatEditPhoto",
   inherit = TLObject,
@@ -23670,6 +23966,7 @@ MessageActionChatEditPhoto <- R6::R6Class(
   )
 )
 
+#' @export
 MessageActionChatEditTitle <- R6::R6Class(
   "MessageActionChatEditTitle",
   inherit = TLObject,
@@ -23701,7 +23998,7 @@ MessageActionChatEditTitle <- R6::R6Class(
   )
 )
 
-
+#' @export
 MessageActionChatJoinedByLink <- R6::R6Class(
   "MessageActionChatJoinedByLink",
   inherit = TLObject,
@@ -23733,6 +24030,7 @@ MessageActionChatJoinedByLink <- R6::R6Class(
   )
 )
 
+#' @export
 MessageActionChatJoinedByRequest <- R6::R6Class(
   "MessageActionChatJoinedByRequest",
   inherit = TLObject,
@@ -23753,6 +24051,7 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   )
 )
 
+#' @export
 MessageActionChatMigrateTo <- R6::R6Class(
   "MessageActionChatMigrateTo",
   inherit = TLObject,
@@ -23784,7 +24083,7 @@ MessageActionChatMigrateTo <- R6::R6Class(
   )
 )
 
-# Selected MessageAction and Message-related classes (R6 translations)
+#' @export
 MessageActionConferenceCall <- R6::R6Class("MessageActionConferenceCall",
   inherit = TLObject,
   public = list(
@@ -23840,6 +24139,7 @@ MessageActionConferenceCall <- R6::R6Class("MessageActionConferenceCall",
   class = TRUE
 )
 
+#' @export
 MessageActionContactSignUp <- R6::R6Class("MessageActionContactSignUp",
   inherit = TLObject,
   public = list(
@@ -23855,6 +24155,7 @@ MessageActionContactSignUp <- R6::R6Class("MessageActionContactSignUp",
   class = TRUE
 )
 
+#' @export
 MessageActionCustomAction <- R6::R6Class("MessageActionCustomAction",
   inherit = TLObject,
   public = list(
@@ -23876,6 +24177,7 @@ MessageActionCustomAction <- R6::R6Class("MessageActionCustomAction",
   class = TRUE
 )
 
+#' @export
 MessageActionEmpty <- R6::R6Class("MessageActionEmpty",
   inherit = TLObject,
   public = list(
@@ -23891,6 +24193,7 @@ MessageActionEmpty <- R6::R6Class("MessageActionEmpty",
   class = TRUE
 )
 
+#' @export
 MessageActionChatEditTitle <- R6::R6Class("MessageActionChatEditTitle",
   inherit = TLObject,
   public = list(
@@ -23909,6 +24212,7 @@ MessageActionChatEditTitle <- R6::R6Class("MessageActionChatEditTitle",
   class = TRUE
 )
 
+#' @export
 MessageActionChatEditPhoto <- R6::R6Class("MessageActionChatEditPhoto",
   inherit = TLObject,
   public = list(
@@ -23927,6 +24231,7 @@ MessageActionChatEditPhoto <- R6::R6Class("MessageActionChatEditPhoto",
   class = TRUE
 )
 
+#' @export
 MessageActionChatCreate <- R6::R6Class("MessageActionChatCreate",
   inherit = TLObject,
   public = list(
@@ -23953,6 +24258,7 @@ MessageActionChatCreate <- R6::R6Class("MessageActionChatCreate",
   class = TRUE
 )
 
+#' @export
 MessageActionChatAddUser <- R6::R6Class("MessageActionChatAddUser",
   inherit = TLObject,
   public = list(
@@ -23976,6 +24282,7 @@ MessageActionChatAddUser <- R6::R6Class("MessageActionChatAddUser",
   class = TRUE
 )
 
+#' @export
 MessageActionChatDeleteUser <- R6::R6Class("MessageActionChatDeleteUser",
   inherit = TLObject,
   public = list(
@@ -23994,6 +24301,7 @@ MessageActionChatDeleteUser <- R6::R6Class("MessageActionChatDeleteUser",
   class = TRUE
 )
 
+#' @export
 MessageActionChatJoinedByLink <- R6::R6Class("MessageActionChatJoinedByLink",
   inherit = TLObject,
   public = list(
@@ -24012,6 +24320,7 @@ MessageActionChatJoinedByLink <- R6::R6Class("MessageActionChatJoinedByLink",
   class = TRUE
 )
 
+#' @export
 MessageActionChatJoinedByRequest <- R6::R6Class("MessageActionChatJoinedByRequest",
   inherit = TLObject,
   public = list(
@@ -24027,6 +24336,7 @@ MessageActionChatJoinedByRequest <- R6::R6Class("MessageActionChatJoinedByReques
   class = TRUE
 )
 
+#' @export
 MessageActionChatMigrateTo <- R6::R6Class("MessageActionChatMigrateTo",
   inherit = TLObject,
   public = list(
@@ -24045,6 +24355,7 @@ MessageActionChatMigrateTo <- R6::R6Class("MessageActionChatMigrateTo",
   class = TRUE
 )
 
+#' @export
 MessageActionChannelCreate <- R6::R6Class("MessageActionChannelCreate",
   inherit = TLObject,
   public = list(
@@ -24063,6 +24374,7 @@ MessageActionChannelCreate <- R6::R6Class("MessageActionChannelCreate",
   class = TRUE
 )
 
+#' @export
 MessageActionChannelMigrateFrom <- R6::R6Class("MessageActionChannelMigrateFrom",
   inherit = TLObject,
   public = list(
@@ -24083,6 +24395,7 @@ MessageActionChannelMigrateFrom <- R6::R6Class("MessageActionChannelMigrateFrom"
   class = TRUE
 )
 
+#' @export
 MessageActionChatDeletePhoto <- R6::R6Class("MessageActionChatDeletePhoto",
   inherit = TLObject,
   public = list(
@@ -24098,6 +24411,7 @@ MessageActionChatDeletePhoto <- R6::R6Class("MessageActionChatDeletePhoto",
   class = TRUE
 )
 
+#' @export
 MessageActionGameScore <- R6::R6Class("MessageActionGameScore",
   inherit = TLObject,
   public = list(
@@ -24118,6 +24432,7 @@ MessageActionGameScore <- R6::R6Class("MessageActionGameScore",
   class = TRUE
 )
 
+#' @export
 MessageActionGeoProximityReached <- R6::R6Class("MessageActionGeoProximityReached",
   inherit = TLObject,
   public = list(
@@ -24153,8 +24468,7 @@ MessageActionGeoProximityReached <- R6::R6Class("MessageActionGeoProximityReache
 )
 
 
-# MessageAction R6 translations
-
+#' @export
 MessageActionConferenceCall <- R6::R6Class(
   "MessageActionConferenceCall",
   inherit = TLObject,
@@ -24210,7 +24524,7 @@ MessageActionConferenceCall <- R6::R6Class(
 )
 
 
-
+#' @export
 MessageActionContactSignUp <- R6::R6Class(
   "MessageActionContactSignUp",
   inherit = TLObject,
@@ -24230,7 +24544,7 @@ MessageActionContactSignUp <- R6::R6Class(
 )
 
 
-
+#' @export
 MessageActionCustomAction <- R6::R6Class(
   "MessageActionCustomAction",
   inherit = TLObject,
@@ -24254,7 +24568,7 @@ MessageActionCustomAction <- R6::R6Class(
 )
 
 
-
+#' @export
 MessageActionEmpty <- R6::R6Class(
   "MessageActionEmpty",
   inherit = TLObject,
@@ -24274,7 +24588,7 @@ MessageActionEmpty <- R6::R6Class(
 )
 
 
-
+#' @export
 MessageActionGameScore <- R6::R6Class(
   "MessageActionGameScore",
   inherit = TLObject,
@@ -24301,7 +24615,7 @@ MessageActionGameScore <- R6::R6Class(
 )
 
 
-
+#' @export
 MessageActionGeoProximityReached <- R6::R6Class(
   "MessageActionGeoProximityReached",
   inherit = TLObject,
@@ -24338,7 +24652,7 @@ MessageActionGeoProximityReached <- R6::R6Class(
 )
 
 
-
+#' @export
 MessageActionChatEditTitle <- R6::R6Class(
   "MessageActionChatEditTitle",
   inherit = TLObject,
@@ -24362,7 +24676,7 @@ MessageActionChatEditTitle <- R6::R6Class(
 )
 
 
-
+#' @export
 MessageActionChatJoinedByLink <- R6::R6Class(
   "MessageActionChatJoinedByLink",
   inherit = TLObject,
@@ -24386,7 +24700,7 @@ MessageActionChatJoinedByLink <- R6::R6Class(
 )
 
 
-
+#' @export
 MessageActionChatJoinedByRequest <- R6::R6Class(
   "MessageActionChatJoinedByRequest",
   inherit = TLObject,
@@ -24405,9 +24719,7 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   class = TRUE
 )
 
-
-# -- R6 translations for selected MessageAction classes --
-
+#' @export
 MessageActionChatMigrateTo <- R6::R6Class(
   "MessageActionChatMigrateTo",
   inherit = TLObject,
@@ -24436,7 +24748,7 @@ MessageActionChatMigrateTo <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionConferenceCall <- R6::R6Class(
   "MessageActionConferenceCall",
   inherit = TLObject,
@@ -24495,7 +24807,7 @@ MessageActionConferenceCall <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionContactSignUp <- R6::R6Class(
   "MessageActionContactSignUp",
   inherit = TLObject,
@@ -24515,7 +24827,7 @@ MessageActionContactSignUp <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionCustomAction <- R6::R6Class(
   "MessageActionCustomAction",
   inherit = TLObject,
@@ -24538,7 +24850,7 @@ MessageActionCustomAction <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionEmpty <- R6::R6Class(
   "MessageActionEmpty",
   inherit = TLObject,
@@ -24557,7 +24869,7 @@ MessageActionEmpty <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionGameScore <- R6::R6Class(
   "MessageActionGameScore",
   inherit = TLObject,
@@ -24583,7 +24895,7 @@ MessageActionGameScore <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionGeoProximityReached <- R6::R6Class(
   "MessageActionGeoProximityReached",
   inherit = TLObject,
@@ -24619,7 +24931,7 @@ MessageActionGeoProximityReached <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionChatEditTitle <- R6::R6Class(
   "MessageActionChatEditTitle",
   inherit = TLObject,
@@ -24645,7 +24957,7 @@ MessageActionChatEditTitle <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionChatJoinedByLink <- R6::R6Class(
   "MessageActionChatJoinedByLink",
   inherit = TLObject,
@@ -24665,7 +24977,7 @@ MessageActionChatJoinedByLink <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionChatJoinedByRequest <- R6::R6Class(
   "MessageActionChatJoinedByRequest",
   inherit = TLObject,
@@ -24682,7 +24994,7 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionChatMigrateTo <- R6::R6Class(
   "MessageActionChatMigrateTo",
   inherit = TLObject,
@@ -24702,7 +25014,7 @@ MessageActionChatMigrateTo <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionConferenceCall <- R6::R6Class(
   "MessageActionConferenceCall",
   inherit = TLObject,
@@ -24761,7 +25073,7 @@ MessageActionConferenceCall <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionContactSignUp <- R6::R6Class(
   "MessageActionContactSignUp",
   inherit = TLObject,
@@ -24778,7 +25090,7 @@ MessageActionContactSignUp <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionCustomAction <- R6::R6Class(
   "MessageActionCustomAction",
   inherit = TLObject,
@@ -24803,7 +25115,7 @@ MessageActionCustomAction <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionEmpty <- R6::R6Class(
   "MessageActionEmpty",
   inherit = TLObject,
@@ -24820,7 +25132,7 @@ MessageActionEmpty <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionGameScore <- R6::R6Class(
   "MessageActionGameScore",
   inherit = TLObject,
@@ -24842,7 +25154,7 @@ MessageActionGameScore <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionGeoProximityReached <- R6::R6Class(
   "MessageActionGeoProximityReached",
   inherit = TLObject,
@@ -24875,7 +25187,7 @@ MessageActionGeoProximityReached <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionGiftCode <- R6::R6Class(
   "MessageActionGiftCode",
   inherit = TLObject,
@@ -24945,7 +25257,7 @@ MessageActionGiftCode <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionGiftPremium <- R6::R6Class(
   "MessageActionGiftPremium",
   inherit = TLObject,
@@ -24991,7 +25303,7 @@ MessageActionGiftPremium <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionGiftStars <- R6::R6Class(
   "MessageActionGiftStars",
   inherit = TLObject,
@@ -25037,7 +25349,7 @@ MessageActionGiftStars <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionGiftTon <- R6::R6Class(
   "MessageActionGiftTon",
   inherit = TLObject,
@@ -25080,7 +25392,7 @@ MessageActionGiftTon <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionGiveawayLaunch <- R6::R6Class(
   "MessageActionGiveawayLaunch",
   inherit = TLObject,
@@ -25104,7 +25416,7 @@ MessageActionGiveawayLaunch <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionGiveawayResults <- R6::R6Class(
   "MessageActionGiveawayResults",
   inherit = TLObject,
@@ -25134,7 +25446,7 @@ MessageActionGiveawayResults <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionGroupCall <- R6::R6Class(
   "MessageActionGroupCall",
   inherit = TLObject,
@@ -25161,7 +25473,7 @@ MessageActionGroupCall <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionGroupCallScheduled <- R6::R6Class(
   "MessageActionGroupCallScheduled",
   inherit = TLObject,
@@ -25183,7 +25495,7 @@ MessageActionGroupCallScheduled <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionHistoryClear <- R6::R6Class(
   "MessageActionHistoryClear",
   inherit = TLObject,
@@ -25200,7 +25512,7 @@ MessageActionHistoryClear <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionInviteToGroupCall <- R6::R6Class(
   "MessageActionInviteToGroupCall",
   inherit = TLObject,
@@ -25233,7 +25545,7 @@ MessageActionInviteToGroupCall <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionPaidMessagesPrice <- R6::R6Class(
   "MessageActionPaidMessagesPrice",
   inherit = TLObject,
@@ -25260,7 +25572,7 @@ MessageActionPaidMessagesPrice <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionPaidMessagesRefunded <- R6::R6Class(
   "MessageActionPaidMessagesRefunded",
   inherit = TLObject,
@@ -25282,7 +25594,7 @@ MessageActionPaidMessagesRefunded <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionPaymentRefunded <- R6::R6Class(
   "MessageActionPaymentRefunded",
   inherit = TLObject,
@@ -25327,7 +25639,7 @@ MessageActionPaymentRefunded <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionPaymentSent <- R6::R6Class(
   "MessageActionPaymentSent",
   inherit = TLObject,
@@ -25376,7 +25688,7 @@ MessageActionPaymentSent <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionPaymentSentMe <- R6::R6Class(
   "MessageActionPaymentSentMe",
   inherit = TLObject,
@@ -25433,7 +25745,7 @@ MessageActionPaymentSentMe <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionPhoneCall <- R6::R6Class(
   "MessageActionPhoneCall",
   inherit = TLObject,
@@ -25474,7 +25786,7 @@ MessageActionPhoneCall <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionPinMessage <- R6::R6Class(
   "MessageActionPinMessage",
   inherit = TLObject,
@@ -25491,7 +25803,7 @@ MessageActionPinMessage <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionPrizeStars <- R6::R6Class(
   "MessageActionPrizeStars",
   inherit = TLObject,
@@ -25526,7 +25838,7 @@ MessageActionPrizeStars <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionRequestedPeer <- R6::R6Class(
   "MessageActionRequestedPeer",
   inherit = TLObject,
@@ -25552,7 +25864,7 @@ MessageActionRequestedPeer <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionRequestedPeerSentMe <- R6::R6Class(
   "MessageActionRequestedPeerSentMe",
   inherit = TLObject,
@@ -25578,7 +25890,7 @@ MessageActionRequestedPeerSentMe <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionScreenshotTaken <- R6::R6Class(
   "MessageActionScreenshotTaken",
   inherit = TLObject,
@@ -25593,7 +25905,7 @@ MessageActionScreenshotTaken <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionSecureValuesSent <- R6::R6Class(
   "MessageActionSecureValuesSent",
   inherit = TLObject,
@@ -25616,7 +25928,7 @@ MessageActionSecureValuesSent <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionSecureValuesSentMe <- R6::R6Class(
   "MessageActionSecureValuesSentMe",
   inherit = TLObject,
@@ -25642,7 +25954,7 @@ MessageActionSecureValuesSentMe <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionSetChatTheme <- R6::R6Class(
   "MessageActionSetChatTheme",
   inherit = TLObject,
@@ -25665,7 +25977,7 @@ MessageActionSetChatTheme <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionSetChatWallPaper <- R6::R6Class(
   "MessageActionSetChatWallPaper",
   inherit = TLObject,
@@ -25694,7 +26006,7 @@ MessageActionSetChatWallPaper <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionSetMessagesTTL <- R6::R6Class(
   "MessageActionSetMessagesTTL",
   inherit = TLObject,
@@ -25720,7 +26032,7 @@ MessageActionSetMessagesTTL <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionStarGift <- R6::R6Class(
   "MessageActionStarGift",
   inherit = TLObject,
@@ -25794,7 +26106,7 @@ MessageActionStarGift <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionStarGiftUnique <- R6::R6Class(
   "MessageActionStarGiftUnique",
   inherit = TLObject,
@@ -25856,7 +26168,7 @@ MessageActionStarGiftUnique <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionSuggestProfilePhoto <- R6::R6Class(
   "MessageActionSuggestProfilePhoto",
   inherit = TLObject,
@@ -25879,7 +26191,7 @@ MessageActionSuggestProfilePhoto <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionSuggestedPostApproval <- R6::R6Class(
   "MessageActionSuggestedPostApproval",
   inherit = TLObject,
@@ -25914,7 +26226,7 @@ MessageActionSuggestedPostApproval <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionSuggestedPostRefund <- R6::R6Class(
   "MessageActionSuggestedPostRefund",
   inherit = TLObject,
@@ -25932,7 +26244,7 @@ MessageActionSuggestedPostRefund <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageActionSuggestedPostSuccess <- R6::R6Class(
   "MessageActionSuggestedPostSuccess",
   inherit = TLObject,
@@ -25950,8 +26262,7 @@ MessageActionSuggestedPostSuccess <- R6::R6Class(
   class = TRUE
 )
 
-# Translated selection to R6 (minimal methods / stubs for from_reader and bytes)
-
+#' @export
 MessageActionTodoAppendTasks <- R6::R6Class(
   "MessageActionTodoAppendTasks",
   inherit = TLObject,
@@ -25978,6 +26289,7 @@ MessageActionTodoAppendTasks <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageActionTodoCompletions <- R6::R6Class(
   "MessageActionTodoCompletions",
   inherit = TLObject,
@@ -26007,6 +26319,7 @@ MessageActionTodoCompletions <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageActionTopicCreate <- R6::R6Class(
   "MessageActionTopicCreate",
   inherit = TLObject,
@@ -26037,6 +26350,7 @@ MessageActionTopicCreate <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageActionTopicEdit <- R6::R6Class(
   "MessageActionTopicEdit",
   inherit = TLObject,
@@ -26069,6 +26383,7 @@ MessageActionTopicEdit <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageActionWebViewDataSent <- R6::R6Class(
   "MessageActionWebViewDataSent",
   inherit = TLObject,
@@ -26090,6 +26405,7 @@ MessageActionWebViewDataSent <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageActionWebViewDataSentMe <- R6::R6Class(
   "MessageActionWebViewDataSentMe",
   inherit = TLObject,
@@ -26113,6 +26429,7 @@ MessageActionWebViewDataSentMe <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEmpty <- R6::R6Class(
   "MessageEmpty",
   inherit = TLObject,
@@ -26136,7 +26453,7 @@ MessageEmpty <- R6::R6Class(
   class = TRUE
 )
 
-# MessageEntity classes (simple translations)
+#' @export
 MessageEntityBankCard <- R6::R6Class(
   "MessageEntityBankCard",
   inherit = TLObject,
@@ -26158,6 +26475,7 @@ MessageEntityBankCard <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityBlockquote <- R6::R6Class(
   "MessageEntityBlockquote",
   inherit = TLObject,
@@ -26179,6 +26497,7 @@ MessageEntityBlockquote <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityBold <- R6::R6Class(
   "MessageEntityBold",
   inherit = TLObject,
@@ -26199,6 +26518,7 @@ MessageEntityBold <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityBotCommand <- R6::R6Class(
   "MessageEntityBotCommand",
   inherit = TLObject,
@@ -26219,6 +26539,7 @@ MessageEntityBotCommand <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityCashtag <- R6::R6Class(
   "MessageEntityCashtag",
   inherit = TLObject,
@@ -26239,6 +26560,7 @@ MessageEntityCashtag <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityCode <- R6::R6Class(
   "MessageEntityCode",
   inherit = TLObject,
@@ -26259,6 +26581,7 @@ MessageEntityCode <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityCustomEmoji <- R6::R6Class(
   "MessageEntityCustomEmoji",
   inherit = TLObject,
@@ -26280,6 +26603,7 @@ MessageEntityCustomEmoji <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityEmail <- R6::R6Class(
   "MessageEntityEmail",
   inherit = TLObject,
@@ -26300,6 +26624,7 @@ MessageEntityEmail <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityHashtag <- R6::R6Class(
   "MessageEntityHashtag",
   inherit = TLObject,
@@ -26320,6 +26645,7 @@ MessageEntityHashtag <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityItalic <- R6::R6Class(
   "MessageEntityItalic",
   inherit = TLObject,
@@ -26340,6 +26666,7 @@ MessageEntityItalic <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityMention <- R6::R6Class(
   "MessageEntityMention",
   inherit = TLObject,
@@ -26360,6 +26687,7 @@ MessageEntityMention <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityMentionName <- R6::R6Class(
   "MessageEntityMentionName",
   inherit = TLObject,
@@ -26381,6 +26709,7 @@ MessageEntityMentionName <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityPhone <- R6::R6Class(
   "MessageEntityPhone",
   inherit = TLObject,
@@ -26401,6 +26730,7 @@ MessageEntityPhone <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityPre <- R6::R6Class(
   "MessageEntityPre",
   inherit = TLObject,
@@ -26422,6 +26752,7 @@ MessageEntityPre <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntitySpoiler <- R6::R6Class(
   "MessageEntitySpoiler",
   inherit = TLObject,
@@ -26442,6 +26773,7 @@ MessageEntitySpoiler <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 MessageEntityStrike <- R6::R6Class(
   "MessageEntityStrike",
   inherit = TLObject,
@@ -26462,7 +26794,7 @@ MessageEntityStrike <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageEntityTextUrl <- R6::R6Class(
   "MessageEntityTextUrl",
   inherit = TLObject,
@@ -26488,7 +26820,7 @@ MessageEntityTextUrl <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageEntityUnderline <- R6::R6Class(
   "MessageEntityUnderline",
   inherit = TLObject,
@@ -26512,7 +26844,7 @@ MessageEntityUnderline <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageEntityUnknown <- R6::R6Class(
   "MessageEntityUnknown",
   inherit = TLObject,
@@ -26536,7 +26868,7 @@ MessageEntityUnknown <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageEntityUrl <- R6::R6Class(
   "MessageEntityUrl",
   inherit = TLObject,
@@ -26560,7 +26892,7 @@ MessageEntityUrl <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageExtendedMedia <- R6::R6Class(
   "MessageExtendedMedia",
   inherit = TLObject,
@@ -26582,7 +26914,7 @@ MessageExtendedMedia <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageExtendedMediaPreview <- R6::R6Class(
   "MessageExtendedMediaPreview",
   inherit = TLObject,
@@ -26618,7 +26950,7 @@ MessageExtendedMediaPreview <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageFwdHeader <- R6::R6Class(
   "MessageFwdHeader",
   inherit = TLObject,
@@ -26683,7 +27015,7 @@ MessageFwdHeader <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaContact <- R6::R6Class(
   "MessageMediaContact",
   inherit = TLObject,
@@ -26722,7 +27054,7 @@ MessageMediaContact <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaDice <- R6::R6Class(
   "MessageMediaDice",
   inherit = TLObject,
@@ -26746,7 +27078,7 @@ MessageMediaDice <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaDocument <- R6::R6Class(
   "MessageMediaDocument",
   inherit = TLObject,
@@ -26802,7 +27134,7 @@ MessageMediaDocument <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaEmpty <- R6::R6Class(
   "MessageMediaEmpty",
   inherit = TLObject,
@@ -26821,7 +27153,7 @@ MessageMediaEmpty <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaGame <- R6::R6Class(
   "MessageMediaGame",
   inherit = TLObject,
@@ -26843,7 +27175,7 @@ MessageMediaGame <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaGeo <- R6::R6Class(
   "MessageMediaGeo",
   inherit = TLObject,
@@ -26865,7 +27197,7 @@ MessageMediaGeo <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaGeoLive <- R6::R6Class(
   "MessageMediaGeoLive",
   inherit = TLObject,
@@ -26901,7 +27233,7 @@ MessageMediaGeoLive <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaGiveaway <- R6::R6Class(
   "MessageMediaGiveaway",
   inherit = TLObject,
@@ -26952,7 +27284,7 @@ MessageMediaGiveaway <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaGiveawayResults <- R6::R6Class(
   "MessageMediaGiveawayResults",
   inherit = TLObject,
@@ -27012,7 +27344,7 @@ MessageMediaGiveawayResults <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaInvoice <- R6::R6Class(
   "MessageMediaInvoice",
   inherit = TLObject,
@@ -27066,7 +27398,7 @@ MessageMediaInvoice <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaPaidMedia <- R6::R6Class(
   "MessageMediaPaidMedia",
   inherit = TLObject,
@@ -27096,7 +27428,7 @@ MessageMediaPaidMedia <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaPhoto <- R6::R6Class(
   "MessageMediaPhoto",
   inherit = TLObject,
@@ -27129,7 +27461,7 @@ MessageMediaPhoto <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaPoll <- R6::R6Class(
   "MessageMediaPoll",
   inherit = TLObject,
@@ -27159,7 +27491,7 @@ MessageMediaPoll <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaStory <- R6::R6Class(
   "MessageMediaStory",
   inherit = TLObject,
@@ -27195,7 +27527,7 @@ MessageMediaStory <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaToDo <- R6::R6Class(
   "MessageMediaToDo",
   inherit = TLObject,
@@ -27225,7 +27557,7 @@ MessageMediaToDo <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaUnsupported <- R6::R6Class(
   "MessageMediaUnsupported",
   inherit = TLObject,
@@ -27244,7 +27576,7 @@ MessageMediaUnsupported <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaVenue <- R6::R6Class(
   "MessageMediaVenue",
   inherit = TLObject,
@@ -27286,7 +27618,7 @@ MessageMediaVenue <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageMediaWebPage <- R6::R6Class(
   "MessageMediaWebPage",
   inherit = TLObject,
@@ -27325,7 +27657,7 @@ MessageMediaWebPage <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessagePeerReaction <- R6::R6Class(
   "MessagePeerReaction",
   inherit = TLObject,
@@ -27367,7 +27699,7 @@ MessagePeerReaction <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessagePeerVote <- R6::R6Class(
   "MessagePeerVote",
   inherit = TLObject,
@@ -27403,7 +27735,7 @@ MessagePeerVote <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessagePeerVoteInputOption <- R6::R6Class(
   "MessagePeerVoteInputOption",
   inherit = TLObject,
@@ -27435,7 +27767,7 @@ MessagePeerVoteInputOption <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessagePeerVoteMultiple <- R6::R6Class(
   "MessagePeerVoteMultiple",
   inherit = TLObject,
@@ -27478,7 +27810,7 @@ MessagePeerVoteMultiple <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageRange <- R6::R6Class(
   "MessageRange",
   inherit = TLObject,
@@ -27504,7 +27836,7 @@ MessageRange <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageReactions <- R6::R6Class(
   "MessageReactions",
   inherit = TLObject,
@@ -27580,7 +27912,7 @@ MessageReactions <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageReactor <- R6::R6Class(
   "MessageReactor",
   inherit = TLObject,
@@ -27629,7 +27961,7 @@ MessageReactor <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageReplies <- R6::R6Class(
   "MessageReplies",
   inherit = TLObject,
@@ -27706,7 +28038,7 @@ MessageReplies <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageReplyHeader <- R6::R6Class(
   "MessageReplyHeader",
   inherit = TLObject,
@@ -27834,7 +28166,7 @@ MessageReplyHeader <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageReplyStoryHeader <- R6::R6Class(
   "MessageReplyStoryHeader",
   inherit = TLObject,
@@ -27866,7 +28198,7 @@ MessageReplyStoryHeader <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageReportOption <- R6::R6Class(
   "MessageReportOption",
   inherit = TLObject,
@@ -27892,7 +28224,7 @@ MessageReportOption <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 MessageService <- R6::R6Class("MessageService",
   inherit = TLObject,
   public = list(
@@ -27966,7 +28298,7 @@ MessageService <- R6::R6Class("MessageService",
   class = TRUE
 )
 
-
+#' @export
 MessageViews <- R6::R6Class("MessageViews",
   inherit = TLObject,
   public = list(
@@ -27996,7 +28328,7 @@ MessageViews <- R6::R6Class("MessageViews",
   class = TRUE
 )
 
-
+#' @export
 MissingInvitee <- R6::R6Class("MissingInvitee",
   inherit = TLObject,
   public = list(
@@ -28026,7 +28358,7 @@ MissingInvitee <- R6::R6Class("MissingInvitee",
   class = TRUE
 )
 
-
+#' @export
 MonoForumDialog <- R6::R6Class("MonoForumDialog",
   inherit = TLObject,
   public = list(
@@ -28075,7 +28407,7 @@ MonoForumDialog <- R6::R6Class("MonoForumDialog",
   class = TRUE
 )
 
-
+#' @export
 MsgDetailedInfo <- R6::R6Class("MsgDetailedInfo",
   inherit = TLObject,
   public = list(
@@ -28107,7 +28439,7 @@ MsgDetailedInfo <- R6::R6Class("MsgDetailedInfo",
   class = TRUE
 )
 
-
+#' @export
 MsgNewDetailedInfo <- R6::R6Class("MsgNewDetailedInfo",
   inherit = TLObject,
   public = list(
@@ -28137,7 +28469,7 @@ MsgNewDetailedInfo <- R6::R6Class("MsgNewDetailedInfo",
   class = TRUE
 )
 
-
+#' @export
 MsgResendReq <- R6::R6Class("MsgResendReq",
   inherit = TLObject,
   public = list(
@@ -28161,7 +28493,7 @@ MsgResendReq <- R6::R6Class("MsgResendReq",
   class = TRUE
 )
 
-
+#' @export
 MsgsAck <- R6::R6Class("MsgsAck",
   inherit = TLObject,
   public = list(
@@ -28180,7 +28512,7 @@ MsgsAck <- R6::R6Class("MsgsAck",
   class = TRUE
 )
 
-
+#' @export
 MsgsAllInfo <- R6::R6Class("MsgsAllInfo",
   inherit = TLObject,
   public = list(
@@ -28201,7 +28533,7 @@ MsgsAllInfo <- R6::R6Class("MsgsAllInfo",
   class = TRUE
 )
 
-
+#' @export
 MsgsStateInfo <- R6::R6Class("MsgsStateInfo",
   inherit = TLObject,
   public = list(
@@ -28222,7 +28554,7 @@ MsgsStateInfo <- R6::R6Class("MsgsStateInfo",
   class = TRUE
 )
 
-
+#' @export
 MsgsStateReq <- R6::R6Class("MsgsStateReq",
   inherit = TLObject,
   public = list(
@@ -28241,7 +28573,7 @@ MsgsStateReq <- R6::R6Class("MsgsStateReq",
   class = TRUE
 )
 
-
+#' @export
 MyBoost <- R6::R6Class("MyBoost",
   inherit = TLObject,
   public = list(
@@ -28277,7 +28609,7 @@ MyBoost <- R6::R6Class("MyBoost",
   class = TRUE
 )
 
-
+#' @export
 NearestDc <- R6::R6Class("NearestDc",
   inherit = TLObject,
   public = list(
@@ -28300,7 +28632,7 @@ NearestDc <- R6::R6Class("NearestDc",
   class = TRUE
 )
 
-
+#' @export
 NewSessionCreated <- R6::R6Class("NewSessionCreated",
   inherit = TLObject,
   public = list(
@@ -28323,7 +28655,7 @@ NewSessionCreated <- R6::R6Class("NewSessionCreated",
   class = TRUE
 )
 
-
+#' @export
 NotificationSoundDefault <- R6::R6Class("NotificationSoundDefault",
   inherit = TLObject,
   public = list(
@@ -28339,7 +28671,7 @@ NotificationSoundDefault <- R6::R6Class("NotificationSoundDefault",
   class = TRUE
 )
 
-
+#' @export
 NotificationSoundLocal <- R6::R6Class("NotificationSoundLocal",
   inherit = TLObject,
   public = list(
@@ -28360,7 +28692,7 @@ NotificationSoundLocal <- R6::R6Class("NotificationSoundLocal",
   class = TRUE
 )
 
-
+#' @export
 NotificationSoundNone <- R6::R6Class("NotificationSoundNone",
   inherit = TLObject,
   public = list(
@@ -28376,7 +28708,7 @@ NotificationSoundNone <- R6::R6Class("NotificationSoundNone",
   class = TRUE
 )
 
-
+#' @export
 NotificationSoundRingtone <- R6::R6Class("NotificationSoundRingtone",
   inherit = TLObject,
   public = list(
@@ -28395,7 +28727,7 @@ NotificationSoundRingtone <- R6::R6Class("NotificationSoundRingtone",
   class = TRUE
 )
 
-
+#' @export
 NotifyBroadcasts <- R6::R6Class("NotifyBroadcasts",
   inherit = TLObject,
   public = list(
@@ -28411,7 +28743,7 @@ NotifyBroadcasts <- R6::R6Class("NotifyBroadcasts",
   class = TRUE
 )
 
-
+#' @export
 NotifyChats <- R6::R6Class("NotifyChats",
   inherit = TLObject,
   public = list(
@@ -28427,7 +28759,7 @@ NotifyChats <- R6::R6Class("NotifyChats",
   class = TRUE
 )
 
-
+#' @export
 NotifyForumTopic <- R6::R6Class("NotifyForumTopic",
   inherit = TLObject,
   public = list(
@@ -28454,7 +28786,7 @@ NotifyForumTopic <- R6::R6Class("NotifyForumTopic",
   class = TRUE
 )
 
-
+#' @export
 NotifyPeer <- R6::R6Class("NotifyPeer",
   inherit = TLObject,
   public = list(
@@ -28473,7 +28805,7 @@ NotifyPeer <- R6::R6Class("NotifyPeer",
   class = TRUE
 )
 
-
+#' @export
 NotifyUsers <- R6::R6Class("NotifyUsers",
   inherit = TLObject,
   public = list(
@@ -28489,7 +28821,7 @@ NotifyUsers <- R6::R6Class("NotifyUsers",
   class = TRUE
 )
 
-
+#' @export
 OutboxReadDate <- R6::R6Class("OutboxReadDate",
   inherit = TLObject,
   public = list(
@@ -28588,7 +28920,7 @@ PQInnerData <- R6::R6Class("PQInnerData",
   class = TRUE
 )
 
-
+#' @export
 PQInnerDataDc <- R6::R6Class("PQInnerDataDc",
   inherit = TLObject,
   public = list(
@@ -28619,7 +28951,7 @@ PQInnerDataDc <- R6::R6Class("PQInnerDataDc",
   class = TRUE
 )
 
-
+#' @export
 PQInnerDataTemp <- R6::R6Class("PQInnerDataTemp",
   inherit = TLObject,
   public = list(
@@ -28650,7 +28982,7 @@ PQInnerDataTemp <- R6::R6Class("PQInnerDataTemp",
   class = TRUE
 )
 
-
+#' @export
 PQInnerDataTempDc <- R6::R6Class("PQInnerDataTempDc",
   inherit = TLObject,
   public = list(
@@ -28683,7 +29015,7 @@ PQInnerDataTempDc <- R6::R6Class("PQInnerDataTempDc",
   class = TRUE
 )
 
-
+#' @export
 PQInnerDataTempDc <- R6::R6Class(
   "PQInnerDataTempDc",
   inherit = TLObject,
@@ -28739,7 +29071,7 @@ PQInnerDataTempDc <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 Page <- R6::R6Class(
   "Page",
   inherit = TLObject,
@@ -28802,7 +29134,7 @@ Page <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 PageBlockAnchor <- R6::R6Class(
   "PageBlockAnchor",
   inherit = TLObject,
@@ -28835,7 +29167,7 @@ PageBlockAnchor <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 PageBlockAudio <- R6::R6Class(
   "PageBlockAudio",
   inherit = TLObject,
@@ -28861,6 +29193,7 @@ PageBlockAudio <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockAuthorDate <- R6::R6Class(
   "PageBlockAuthorDate",
   inherit = TLObject,
@@ -28886,6 +29219,7 @@ PageBlockAuthorDate <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockBlockquote <- R6::R6Class(
   "PageBlockBlockquote",
   inherit = TLObject,
@@ -28911,6 +29245,7 @@ PageBlockBlockquote <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockChannel <- R6::R6Class(
   "PageBlockChannel",
   inherit = TLObject,
@@ -28933,6 +29268,7 @@ PageBlockChannel <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockCollage <- R6::R6Class(
   "PageBlockCollage",
   inherit = TLObject,
@@ -28961,6 +29297,7 @@ PageBlockCollage <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockCover <- R6::R6Class(
   "PageBlockCover",
   inherit = TLObject,
@@ -28983,6 +29320,7 @@ PageBlockCover <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockDetails <- R6::R6Class(
   "PageBlockDetails",
   inherit = TLObject,
@@ -29015,6 +29353,7 @@ PageBlockDetails <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockDivider <- R6::R6Class(
   "PageBlockDivider",
   inherit = TLObject,
@@ -29033,6 +29372,7 @@ PageBlockDivider <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockEmbed <- R6::R6Class(
   "PageBlockEmbed",
   inherit = TLObject,
@@ -29077,6 +29417,7 @@ PageBlockEmbed <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockEmbedPost <- R6::R6Class(
   "PageBlockEmbedPost",
   inherit = TLObject,
@@ -29120,6 +29461,7 @@ PageBlockEmbedPost <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockFooter <- R6::R6Class(
   "PageBlockFooter",
   inherit = TLObject,
@@ -29142,6 +29484,7 @@ PageBlockFooter <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockHeader <- R6::R6Class(
   "PageBlockHeader",
   inherit = TLObject,
@@ -29164,6 +29507,7 @@ PageBlockHeader <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockKicker <- R6::R6Class(
   "PageBlockKicker",
   inherit = TLObject,
@@ -29186,6 +29530,7 @@ PageBlockKicker <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockList <- R6::R6Class(
   "PageBlockList",
   inherit = TLObject,
@@ -29211,6 +29556,7 @@ PageBlockList <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockMap <- R6::R6Class(
   "PageBlockMap",
   inherit = TLObject,
@@ -29245,6 +29591,7 @@ PageBlockMap <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockOrderedList <- R6::R6Class(
   "PageBlockOrderedList",
   inherit = TLObject,
@@ -29270,6 +29617,7 @@ PageBlockOrderedList <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockParagraph <- R6::R6Class(
   "PageBlockParagraph",
   inherit = TLObject,
@@ -29292,6 +29640,7 @@ PageBlockParagraph <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockPhoto <- R6::R6Class(
   "PageBlockPhoto",
   inherit = TLObject,
@@ -29324,6 +29673,7 @@ PageBlockPhoto <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockPreformatted <- R6::R6Class(
   "PageBlockPreformatted",
   inherit = TLObject,
@@ -29349,6 +29699,7 @@ PageBlockPreformatted <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockPullquote <- R6::R6Class(
   "PageBlockPullquote",
   inherit = TLObject,
@@ -29374,6 +29725,7 @@ PageBlockPullquote <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockRelatedArticles <- R6::R6Class(
   "PageBlockRelatedArticles",
   inherit = TLObject,
@@ -29402,6 +29754,7 @@ PageBlockRelatedArticles <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockSlideshow <- R6::R6Class(
   "PageBlockSlideshow",
   inherit = TLObject,
@@ -29430,6 +29783,7 @@ PageBlockSlideshow <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockSubheader <- R6::R6Class(
   "PageBlockSubheader",
   inherit = TLObject,
@@ -29452,6 +29806,7 @@ PageBlockSubheader <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockSubtitle <- R6::R6Class(
   "PageBlockSubtitle",
   inherit = TLObject,
@@ -29474,6 +29829,7 @@ PageBlockSubtitle <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockTable <- R6::R6Class(
   "PageBlockTable",
   inherit = TLObject,
@@ -29509,6 +29865,7 @@ PageBlockTable <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockTitle <- R6::R6Class(
   "PageBlockTitle",
   inherit = TLObject,
@@ -29531,6 +29888,7 @@ PageBlockTitle <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockUnsupported <- R6::R6Class(
   "PageBlockUnsupported",
   inherit = TLObject,
@@ -29549,6 +29907,7 @@ PageBlockUnsupported <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 PageBlockVideo <- R6::R6Class(
   "PageBlockVideo",
   inherit = TLObject,
@@ -29581,7 +29940,7 @@ PageBlockVideo <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 PageCaption <- R6::R6Class(
   "PageCaption",
   inherit = TLObject,
@@ -29619,7 +29978,7 @@ PageCaption <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 PageListItemBlocks <- R6::R6Class("PageListItemBlocks",
   inherit = TLObject,
   public = list(
@@ -29651,6 +30010,7 @@ PageListItemBlocks <- R6::R6Class("PageListItemBlocks",
   class = TRUE
 )
 
+#' @export
 PageListItemText <- R6::R6Class("PageListItemText",
   inherit = TLObject,
   public = list(
@@ -29677,6 +30037,7 @@ PageListItemText <- R6::R6Class("PageListItemText",
   class = TRUE
 )
 
+#' @export
 PageListOrderedItemBlocks <- R6::R6Class("PageListOrderedItemBlocks",
   inherit = TLObject,
   public = list(
@@ -29712,6 +30073,7 @@ PageListOrderedItemBlocks <- R6::R6Class("PageListOrderedItemBlocks",
   class = TRUE
 )
 
+#' @export
 PageListOrderedItemText <- R6::R6Class("PageListOrderedItemText",
   inherit = TLObject,
   public = list(
@@ -29742,6 +30104,7 @@ PageListOrderedItemText <- R6::R6Class("PageListOrderedItemText",
   class = TRUE
 )
 
+#' @export
 PageRelatedArticle <- R6::R6Class("PageRelatedArticle",
   inherit = TLObject,
   public = list(
@@ -29794,6 +30157,7 @@ PageRelatedArticle <- R6::R6Class("PageRelatedArticle",
   class = TRUE
 )
 
+#' @export
 PageTableCell <- R6::R6Class("PageTableCell",
   inherit = TLObject,
   public = list(
@@ -29845,6 +30209,7 @@ PageTableCell <- R6::R6Class("PageTableCell",
   class = TRUE
 )
 
+#' @export
 PageTableRow <- R6::R6Class("PageTableRow",
   inherit = TLObject,
   public = list(
@@ -29876,6 +30241,7 @@ PageTableRow <- R6::R6Class("PageTableRow",
   class = TRUE
 )
 
+#' @export
 PaidReactionPrivacyAnonymous <- R6::R6Class("PaidReactionPrivacyAnonymous",
   inherit = TLObject,
   public = list(
@@ -29893,6 +30259,7 @@ PaidReactionPrivacyAnonymous <- R6::R6Class("PaidReactionPrivacyAnonymous",
   class = TRUE
 )
 
+#' @export
 PaidReactionPrivacyDefault <- R6::R6Class("PaidReactionPrivacyDefault",
   inherit = TLObject,
   public = list(
@@ -29910,6 +30277,7 @@ PaidReactionPrivacyDefault <- R6::R6Class("PaidReactionPrivacyDefault",
   class = TRUE
 )
 
+#' @export
 PaidReactionPrivacyPeer <- R6::R6Class("PaidReactionPrivacyPeer",
   inherit = TLObject,
   public = list(
@@ -29936,6 +30304,7 @@ PaidReactionPrivacyPeer <- R6::R6Class("PaidReactionPrivacyPeer",
   class = TRUE
 )
 
+#' @export
 PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow <- R6::R6Class("PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow",
   inherit = TLObject,
   public = list(
@@ -29974,6 +30343,7 @@ PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow <- R6::R6Class
   class = TRUE
 )
 
+#' @export
 PasswordKdfAlgoUnknown <- R6::R6Class("PasswordKdfAlgoUnknown",
   inherit = TLObject,
   public = list(
@@ -29991,6 +30361,7 @@ PasswordKdfAlgoUnknown <- R6::R6Class("PasswordKdfAlgoUnknown",
   class = TRUE
 )
 
+#' @export
 PaymentCharge <- R6::R6Class("PaymentCharge",
   inherit = TLObject,
   public = list(
@@ -30021,6 +30392,7 @@ PaymentCharge <- R6::R6Class("PaymentCharge",
   class = TRUE
 )
 
+#' @export
 PaymentFormMethod <- R6::R6Class("PaymentFormMethod",
   inherit = TLObject,
   public = list(
@@ -30051,6 +30423,7 @@ PaymentFormMethod <- R6::R6Class("PaymentFormMethod",
   class = TRUE
 )
 
+#' @export
 PaymentRequestedInfo <- R6::R6Class("PaymentRequestedInfo",
   inherit = TLObject,
   public = list(
@@ -30091,6 +30464,7 @@ PaymentRequestedInfo <- R6::R6Class("PaymentRequestedInfo",
   class = TRUE
 )
 
+#' @export
 PaymentSavedCredentialsCard <- R6::R6Class("PaymentSavedCredentialsCard",
   inherit = TLObject,
   public = list(
@@ -30121,6 +30495,7 @@ PaymentSavedCredentialsCard <- R6::R6Class("PaymentSavedCredentialsCard",
   class = TRUE
 )
 
+#' @export
 PeerBlocked <- R6::R6Class("PeerBlocked",
   inherit = TLObject,
   public = list(
@@ -30151,6 +30526,7 @@ PeerBlocked <- R6::R6Class("PeerBlocked",
   class = TRUE
 )
 
+#' @export
 PeerChannel <- R6::R6Class("PeerChannel",
   inherit = TLObject,
   public = list(
@@ -30177,6 +30553,7 @@ PeerChannel <- R6::R6Class("PeerChannel",
   class = TRUE
 )
 
+#' @export
 PeerChat <- R6::R6Class("PeerChat",
   inherit = TLObject,
   public = list(
@@ -30203,6 +30580,7 @@ PeerChat <- R6::R6Class("PeerChat",
   class = TRUE
 )
 
+#' @export
 PeerColor <- R6::R6Class("PeerColor",
   inherit = TLObject,
   public = list(
@@ -30235,6 +30613,7 @@ PeerColor <- R6::R6Class("PeerColor",
   class = TRUE
 )
 
+#' @export
 PeerLocated <- R6::R6Class("PeerLocated",
   inherit = TLObject,
   public = list(
@@ -30269,7 +30648,7 @@ PeerLocated <- R6::R6Class("PeerLocated",
   class = TRUE
 )
 
-
+#' @export
 PeerNotifySettings <- R6::R6Class("PeerNotifySettings",
   inherit = TLObject,
   public = list(
@@ -30382,6 +30761,7 @@ PeerNotifySettings <- R6::R6Class("PeerNotifySettings",
   class = TRUE
 )
 
+#' @export
 PeerSelfLocated <- R6::R6Class("PeerSelfLocated",
   inherit = TLObject,
   public = list(
@@ -30408,6 +30788,7 @@ PeerSelfLocated <- R6::R6Class("PeerSelfLocated",
   class = TRUE
 )
 
+#' @export
 PeerSettings <- R6::R6Class("PeerSettings",
   inherit = TLObject,
   public = list(
@@ -30547,6 +30928,7 @@ PeerSettings <- R6::R6Class("PeerSettings",
   class = TRUE
 )
 
+#' @export
 PeerStories <- R6::R6Class("PeerStories",
   inherit = TLObject,
   public = list(
@@ -30591,6 +30973,7 @@ PeerStories <- R6::R6Class("PeerStories",
   class = TRUE
 )
 
+#' @export
 PeerUser <- R6::R6Class("PeerUser",
   inherit = TLObject,
   public = list(
@@ -30617,6 +31000,7 @@ PeerUser <- R6::R6Class("PeerUser",
   class = TRUE
 )
 
+#' @export
 PendingSuggestion <- R6::R6Class("PendingSuggestion",
   inherit = TLObject,
   public = list(
@@ -30655,6 +31039,7 @@ PendingSuggestion <- R6::R6Class("PendingSuggestion",
   class = TRUE
 )
 
+#' @export
 PhoneCall <- R6::R6Class("PhoneCall",
   inherit = TLObject,
   public = list(
@@ -30740,6 +31125,7 @@ PhoneCall <- R6::R6Class("PhoneCall",
   class = TRUE
 )
 
+#' @export
 PhoneCallAccepted <- R6::R6Class("PhoneCallAccepted",
   inherit = TLObject,
   public = list(
@@ -30795,6 +31181,7 @@ PhoneCallAccepted <- R6::R6Class("PhoneCallAccepted",
   class = TRUE
 )
 
+#' @export
 PhoneCallDiscardReasonBusy <- R6::R6Class("PhoneCallDiscardReasonBusy",
   inherit = TLObject,
   public = list(
@@ -30809,6 +31196,7 @@ PhoneCallDiscardReasonBusy <- R6::R6Class("PhoneCallDiscardReasonBusy",
   class = TRUE
 )
 
+#' @export
 PhoneCallDiscardReasonDisconnect <- R6::R6Class("PhoneCallDiscardReasonDisconnect",
   inherit = TLObject,
   public = list(
@@ -30823,6 +31211,7 @@ PhoneCallDiscardReasonDisconnect <- R6::R6Class("PhoneCallDiscardReasonDisconnec
   class = TRUE
 )
 
+#' @export
 PhoneCallDiscardReasonHangup <- R6::R6Class("PhoneCallDiscardReasonHangup",
   inherit = TLObject,
   public = list(
@@ -30837,6 +31226,7 @@ PhoneCallDiscardReasonHangup <- R6::R6Class("PhoneCallDiscardReasonHangup",
   class = TRUE
 )
 
+#' @export
 PhoneCallDiscardReasonMigrateConferenceCall <- R6::R6Class("PhoneCallDiscardReasonMigrateConferenceCall",
   inherit = TLObject,
   public = list(
@@ -30863,6 +31253,7 @@ PhoneCallDiscardReasonMigrateConferenceCall <- R6::R6Class("PhoneCallDiscardReas
   class = TRUE
 )
 
+#' @export
 PhoneCallDiscardReasonMissed <- R6::R6Class("PhoneCallDiscardReasonMissed",
   inherit = TLObject,
   public = list(
@@ -30877,6 +31268,7 @@ PhoneCallDiscardReasonMissed <- R6::R6Class("PhoneCallDiscardReasonMissed",
   class = TRUE
 )
 
+#' @export
 PhoneCallDiscarded <- R6::R6Class("PhoneCallDiscarded",
   inherit = TLObject,
   public = list(
@@ -30930,6 +31322,7 @@ PhoneCallDiscarded <- R6::R6Class("PhoneCallDiscarded",
   class = TRUE
 )
 
+#' @export
 PhoneCallEmpty <- R6::R6Class("PhoneCallEmpty",
   inherit = TLObject,
   public = list(
@@ -30956,6 +31349,7 @@ PhoneCallEmpty <- R6::R6Class("PhoneCallEmpty",
   class = TRUE
 )
 
+#' @export
 PhoneCallProtocol <- R6::R6Class("PhoneCallProtocol",
   inherit = TLObject,
   public = list(
@@ -31002,6 +31396,7 @@ PhoneCallProtocol <- R6::R6Class("PhoneCallProtocol",
   class = TRUE
 )
 
+#' @export
 PhoneCallRequested <- R6::R6Class("PhoneCallRequested",
   inherit = TLObject,
   public = list(
@@ -31057,6 +31452,7 @@ PhoneCallRequested <- R6::R6Class("PhoneCallRequested",
   class = TRUE
 )
 
+#' @export
 PhoneCallWaiting <- R6::R6Class("PhoneCallWaiting",
   inherit = TLObject,
   public = list(
@@ -31116,6 +31512,7 @@ PhoneCallWaiting <- R6::R6Class("PhoneCallWaiting",
   class = TRUE
 )
 
+#' @export
 PhoneConnection <- R6::R6Class("PhoneConnection",
   inherit = TLObject,
   public = list(
@@ -31163,6 +31560,7 @@ PhoneConnection <- R6::R6Class("PhoneConnection",
   class = TRUE
 )
 
+#' @export
 PhoneConnectionWebrtc <- R6::R6Class("PhoneConnectionWebrtc",
   inherit = TLObject,
   public = list(
@@ -31217,6 +31615,7 @@ PhoneConnectionWebrtc <- R6::R6Class("PhoneConnectionWebrtc",
   class = TRUE
 )
 
+#' @export
 Photo <- R6::R6Class("Photo",
   inherit = TLObject,
   public = list(
@@ -31284,6 +31683,7 @@ Photo <- R6::R6Class("Photo",
   class = TRUE
 )
 
+#' @export
 PhotoCachedSize <- R6::R6Class("PhotoCachedSize",
   inherit = TLObject,
   public = list(
@@ -31313,7 +31713,7 @@ PhotoCachedSize <- R6::R6Class("PhotoCachedSize",
   class = TRUE
 )
 
-
+#' @export
 PhotoEmpty <- R6::R6Class("PhotoEmpty",
   inherit = TLObject,
   public = list(
@@ -31336,6 +31736,7 @@ PhotoEmpty <- R6::R6Class("PhotoEmpty",
   class = TRUE
 )
 
+#' @export
 PhotoPathSize <- R6::R6Class("PhotoPathSize",
   inherit = TLObject,
   public = list(
@@ -31361,6 +31762,7 @@ PhotoPathSize <- R6::R6Class("PhotoPathSize",
   class = TRUE
 )
 
+#' @export
 PhotoSize <- R6::R6Class("PhotoSize",
   inherit = TLObject,
   public = list(
@@ -31392,6 +31794,7 @@ PhotoSize <- R6::R6Class("PhotoSize",
   class = TRUE
 )
 
+#' @export
 PhotoSizeEmpty <- R6::R6Class("PhotoSizeEmpty",
   inherit = TLObject,
   public = list(
@@ -31410,6 +31813,7 @@ PhotoSizeEmpty <- R6::R6Class("PhotoSizeEmpty",
   class = TRUE
 )
 
+#' @export
 PhotoSizeProgressive <- R6::R6Class("PhotoSizeProgressive",
   inherit = TLObject,
   public = list(
@@ -31451,6 +31855,7 @@ PhotoSizeProgressive <- R6::R6Class("PhotoSizeProgressive",
   class = TRUE
 )
 
+#' @export
 PhotoStrippedSize <- R6::R6Class("PhotoStrippedSize",
   inherit = TLObject,
   public = list(
@@ -31476,6 +31881,7 @@ PhotoStrippedSize <- R6::R6Class("PhotoStrippedSize",
   class = TRUE
 )
 
+#' @export
 Poll <- R6::R6Class("Poll",
   inherit = TLObject,
   public = list(
@@ -31536,6 +31942,7 @@ Poll <- R6::R6Class("Poll",
   class = TRUE
 )
 
+#' @export
 PollAnswer <- R6::R6Class("PollAnswer",
   inherit = TLObject,
   public = list(
@@ -31561,6 +31968,7 @@ PollAnswer <- R6::R6Class("PollAnswer",
   class = TRUE
 )
 
+#' @export
 PollAnswerVoters <- R6::R6Class("PollAnswerVoters",
   inherit = TLObject,
   public = list(
@@ -31599,6 +32007,7 @@ PollAnswerVoters <- R6::R6Class("PollAnswerVoters",
   class = TRUE
 )
 
+#' @export
 PollResults <- R6::R6Class("PollResults",
   inherit = TLObject,
   public = list(
@@ -31673,6 +32082,7 @@ PollResults <- R6::R6Class("PollResults",
   class = TRUE
 )
 
+#' @export
 Pong <- R6::R6Class("Pong",
   inherit = TLObject,
   public = list(
@@ -31698,6 +32108,7 @@ Pong <- R6::R6Class("Pong",
   class = TRUE
 )
 
+#' @export
 PopularContact <- R6::R6Class("PopularContact",
   inherit = TLObject,
   public = list(
@@ -31723,6 +32134,7 @@ PopularContact <- R6::R6Class("PopularContact",
   class = TRUE
 )
 
+#' @export
 PostAddress <- R6::R6Class("PostAddress",
   inherit = TLObject,
   public = list(
@@ -31760,6 +32172,7 @@ PostAddress <- R6::R6Class("PostAddress",
   class = TRUE
 )
 
+#' @export
 PostInteractionCountersMessage <- R6::R6Class("PostInteractionCountersMessage",
   inherit = TLObject,
   public = list(
@@ -31791,6 +32204,7 @@ PostInteractionCountersMessage <- R6::R6Class("PostInteractionCountersMessage",
   class = TRUE
 )
 
+#' @export
 PostInteractionCountersStory <- R6::R6Class("PostInteractionCountersStory",
   inherit = TLObject,
   public = list(
@@ -31822,6 +32236,7 @@ PostInteractionCountersStory <- R6::R6Class("PostInteractionCountersStory",
   class = TRUE
 )
 
+#' @export
 PremiumGiftCodeOption <- R6::R6Class("PremiumGiftCodeOption",
   inherit = TLObject,
   public = list(
@@ -31870,6 +32285,7 @@ PremiumGiftCodeOption <- R6::R6Class("PremiumGiftCodeOption",
   class = TRUE
 )
 
+#' @export
 PremiumSubscriptionOption <- R6::R6Class("PremiumSubscriptionOption",
   inherit = TLObject,
   public = list(
@@ -31924,6 +32340,7 @@ PremiumSubscriptionOption <- R6::R6Class("PremiumSubscriptionOption",
   class = TRUE
 )
 
+#' @export
 PrepaidGiveaway <- R6::R6Class("PrepaidGiveaway",
   inherit = TLObject,
   public = list(
@@ -31955,6 +32372,7 @@ PrepaidGiveaway <- R6::R6Class("PrepaidGiveaway",
   class = TRUE
 )
 
+#' @export
 PrepaidStarsGiveaway <- R6::R6Class("PrepaidStarsGiveaway",
   inherit = TLObject,
   public = list(
@@ -31989,6 +32407,7 @@ PrepaidStarsGiveaway <- R6::R6Class("PrepaidStarsGiveaway",
   class = TRUE
 )
 
+#' @export
 PrivacyKeyAbout <- R6::R6Class("PrivacyKeyAbout",
   inherit = TLObject,
   public = list(
@@ -32003,6 +32422,7 @@ PrivacyKeyAbout <- R6::R6Class("PrivacyKeyAbout",
   class = TRUE
 )
 
+#' @export
 PrivacyKeyAddedByPhone <- R6::R6Class("PrivacyKeyAddedByPhone",
   inherit = TLObject,
   public = list(
@@ -32017,6 +32437,7 @@ PrivacyKeyAddedByPhone <- R6::R6Class("PrivacyKeyAddedByPhone",
   class = TRUE
 )
 
+#' @export
 PrivacyKeyBirthday <- R6::R6Class("PrivacyKeyBirthday",
   inherit = TLObject,
   public = list(
@@ -32031,6 +32452,7 @@ PrivacyKeyBirthday <- R6::R6Class("PrivacyKeyBirthday",
   class = TRUE
 )
 
+#' @export
 PrivacyKeyChatInvite <- R6::R6Class("PrivacyKeyChatInvite",
   inherit = TLObject,
   public = list(
@@ -32045,6 +32467,7 @@ PrivacyKeyChatInvite <- R6::R6Class("PrivacyKeyChatInvite",
   class = TRUE
 )
 
+#' @export
 PrivacyKeyForwards <- R6::R6Class("PrivacyKeyForwards",
   inherit = TLObject,
   public = list(
@@ -32059,6 +32482,7 @@ PrivacyKeyForwards <- R6::R6Class("PrivacyKeyForwards",
   class = TRUE
 )
 
+#' @export
 PrivacyKeyNoPaidMessages <- R6::R6Class("PrivacyKeyNoPaidMessages",
   inherit = TLObject,
   public = list(
@@ -32073,6 +32497,7 @@ PrivacyKeyNoPaidMessages <- R6::R6Class("PrivacyKeyNoPaidMessages",
   class = TRUE
 )
 
+#' @export
 PrivacyKeyPhoneCall <- R6::R6Class("PrivacyKeyPhoneCall",
   inherit = TLObject,
   public = list(
@@ -32087,6 +32512,7 @@ PrivacyKeyPhoneCall <- R6::R6Class("PrivacyKeyPhoneCall",
   class = TRUE
 )
 
+#' @export
 PrivacyKeyPhoneNumber <- R6::R6Class("PrivacyKeyPhoneNumber",
   inherit = TLObject,
   public = list(
@@ -32101,6 +32527,7 @@ PrivacyKeyPhoneNumber <- R6::R6Class("PrivacyKeyPhoneNumber",
   class = TRUE
 )
 
+#' @export
 PrivacyKeyPhoneP2P <- R6::R6Class("PrivacyKeyPhoneP2P",
   inherit = TLObject,
   public = list(
@@ -32115,6 +32542,7 @@ PrivacyKeyPhoneP2P <- R6::R6Class("PrivacyKeyPhoneP2P",
   class = TRUE
 )
 
+#' @export
 PrivacyKeyProfilePhoto <- R6::R6Class("PrivacyKeyProfilePhoto",
   inherit = TLObject,
   public = list(
@@ -32129,6 +32557,7 @@ PrivacyKeyProfilePhoto <- R6::R6Class("PrivacyKeyProfilePhoto",
   class = TRUE
 )
 
+#' @export
 PrivacyKeyStarGiftsAutoSave <- R6::R6Class("PrivacyKeyStarGiftsAutoSave",
   inherit = TLObject,
   public = list(
@@ -32143,6 +32572,7 @@ PrivacyKeyStarGiftsAutoSave <- R6::R6Class("PrivacyKeyStarGiftsAutoSave",
   class = TRUE
 )
 
+#' @export
 PrivacyKeyStatusTimestamp <- R6::R6Class("PrivacyKeyStatusTimestamp",
   inherit = TLObject,
   public = list(
@@ -32157,6 +32587,7 @@ PrivacyKeyStatusTimestamp <- R6::R6Class("PrivacyKeyStatusTimestamp",
   class = TRUE
 )
 
+#' @export
 PrivacyKeyVoiceMessages <- R6::R6Class("PrivacyKeyVoiceMessages",
   inherit = TLObject,
   public = list(
@@ -32171,6 +32602,7 @@ PrivacyKeyVoiceMessages <- R6::R6Class("PrivacyKeyVoiceMessages",
   class = TRUE
 )
 
+#' @export
 PrivacyValueAllowAll <- R6::R6Class("PrivacyValueAllowAll",
   inherit = TLObject,
   public = list(
@@ -32185,6 +32617,7 @@ PrivacyValueAllowAll <- R6::R6Class("PrivacyValueAllowAll",
   class = TRUE
 )
 
+#' @export
 PrivacyValueAllowBots <- R6::R6Class("PrivacyValueAllowBots",
   inherit = TLObject,
   public = list(
@@ -32199,6 +32632,7 @@ PrivacyValueAllowBots <- R6::R6Class("PrivacyValueAllowBots",
   class = TRUE
 )
 
+#' @export
 PrivacyValueAllowChatParticipants <- R6::R6Class("PrivacyValueAllowChatParticipants",
   inherit = TLObject,
   public = list(
@@ -32228,6 +32662,7 @@ PrivacyValueAllowChatParticipants <- R6::R6Class("PrivacyValueAllowChatParticipa
   class = TRUE
 )
 
+#' @export
 PrivacyValueAllowCloseFriends <- R6::R6Class("PrivacyValueAllowCloseFriends",
   inherit = TLObject,
   public = list(
@@ -32242,6 +32677,7 @@ PrivacyValueAllowCloseFriends <- R6::R6Class("PrivacyValueAllowCloseFriends",
   class = TRUE
 )
 
+#' @export
 PrivacyValueAllowContacts <- R6::R6Class("PrivacyValueAllowContacts",
   inherit = TLObject,
   public = list(
@@ -32256,6 +32692,7 @@ PrivacyValueAllowContacts <- R6::R6Class("PrivacyValueAllowContacts",
   class = TRUE
 )
 
+#' @export
 PrivacyValueAllowPremium <- R6::R6Class("PrivacyValueAllowPremium",
   inherit = TLObject,
   public = list(
@@ -32270,6 +32707,7 @@ PrivacyValueAllowPremium <- R6::R6Class("PrivacyValueAllowPremium",
   class = TRUE
 )
 
+#' @export
 PrivacyValueAllowUsers <- R6::R6Class("PrivacyValueAllowUsers",
   inherit = TLObject,
   public = list(
@@ -32299,6 +32737,7 @@ PrivacyValueAllowUsers <- R6::R6Class("PrivacyValueAllowUsers",
   class = TRUE
 )
 
+#' @export
 PrivacyValueDisallowAll <- R6::R6Class("PrivacyValueDisallowAll",
   inherit = TLObject,
   public = list(
@@ -32313,7 +32752,7 @@ PrivacyValueDisallowAll <- R6::R6Class("PrivacyValueDisallowAll",
   class = TRUE
 )
 
-
+#' @export
 PrivacyValueDisallowBots <- R6::R6Class("PrivacyValueDisallowBots",
   inherit = TLObject,
   public = list(
@@ -32328,6 +32767,7 @@ PrivacyValueDisallowBots <- R6::R6Class("PrivacyValueDisallowBots",
   class = TRUE
 )
 
+#' @export
 PrivacyValueDisallowChatParticipants <- R6::R6Class("PrivacyValueDisallowChatParticipants",
   inherit = TLObject,
   public = list(
@@ -32363,6 +32803,7 @@ PrivacyValueDisallowChatParticipants <- R6::R6Class("PrivacyValueDisallowChatPar
   class = TRUE
 )
 
+#' @export
 PrivacyValueDisallowContacts <- R6::R6Class("PrivacyValueDisallowContacts",
   inherit = TLObject,
   public = list(
@@ -32377,6 +32818,7 @@ PrivacyValueDisallowContacts <- R6::R6Class("PrivacyValueDisallowContacts",
   class = TRUE
 )
 
+#' @export
 PrivacyValueDisallowUsers <- R6::R6Class("PrivacyValueDisallowUsers",
   inherit = TLObject,
   public = list(
@@ -32412,6 +32854,7 @@ PrivacyValueDisallowUsers <- R6::R6Class("PrivacyValueDisallowUsers",
   class = TRUE
 )
 
+#' @export
 ProfileTabFiles <- R6::R6Class("ProfileTabFiles",
   inherit = TLObject,
   public = list(
@@ -32426,6 +32869,7 @@ ProfileTabFiles <- R6::R6Class("ProfileTabFiles",
   class = TRUE
 )
 
+#' @export
 ProfileTabGifs <- R6::R6Class("ProfileTabGifs",
   inherit = TLObject,
   public = list(
@@ -32440,6 +32884,7 @@ ProfileTabGifs <- R6::R6Class("ProfileTabGifs",
   class = TRUE
 )
 
+#' @export
 ProfileTabGifts <- R6::R6Class("ProfileTabGifts",
   inherit = TLObject,
   public = list(
@@ -32454,6 +32899,7 @@ ProfileTabGifts <- R6::R6Class("ProfileTabGifts",
   class = TRUE
 )
 
+#' @export
 ProfileTabLinks <- R6::R6Class("ProfileTabLinks",
   inherit = TLObject,
   public = list(
@@ -32468,6 +32914,7 @@ ProfileTabLinks <- R6::R6Class("ProfileTabLinks",
   class = TRUE
 )
 
+#' @export
 ProfileTabMedia <- R6::R6Class("ProfileTabMedia",
   inherit = TLObject,
   public = list(
@@ -32482,6 +32929,7 @@ ProfileTabMedia <- R6::R6Class("ProfileTabMedia",
   class = TRUE
 )
 
+#' @export
 ProfileTabMusic <- R6::R6Class("ProfileTabMusic",
   inherit = TLObject,
   public = list(
@@ -32496,6 +32944,7 @@ ProfileTabMusic <- R6::R6Class("ProfileTabMusic",
   class = TRUE
 )
 
+#' @export
 ProfileTabPosts <- R6::R6Class("ProfileTabPosts",
   inherit = TLObject,
   public = list(
@@ -32510,6 +32959,7 @@ ProfileTabPosts <- R6::R6Class("ProfileTabPosts",
   class = TRUE
 )
 
+#' @export
 ProfileTabVoice <- R6::R6Class("ProfileTabVoice",
   inherit = TLObject,
   public = list(
@@ -32524,6 +32974,7 @@ ProfileTabVoice <- R6::R6Class("ProfileTabVoice",
   class = TRUE
 )
 
+#' @export
 PublicForwardMessage <- R6::R6Class("PublicForwardMessage",
   inherit = TLObject,
   public = list(
@@ -32549,6 +33000,7 @@ PublicForwardMessage <- R6::R6Class("PublicForwardMessage",
   class = TRUE
 )
 
+#' @export
 PublicForwardStory <- R6::R6Class("PublicForwardStory",
   inherit = TLObject,
   public = list(
@@ -32578,6 +33030,7 @@ PublicForwardStory <- R6::R6Class("PublicForwardStory",
   class = TRUE
 )
 
+#' @export
 QuickReply <- R6::R6Class("QuickReply",
   inherit = TLObject,
   public = list(
@@ -32615,6 +33068,7 @@ QuickReply <- R6::R6Class("QuickReply",
   class = TRUE
 )
 
+#' @export
 ReactionCount <- R6::R6Class("ReactionCount",
   inherit = TLObject,
   public = list(
@@ -32656,6 +33110,7 @@ ReactionCount <- R6::R6Class("ReactionCount",
   class = TRUE
 )
 
+#' @export
 ReactionCustomEmoji <- R6::R6Class("ReactionCustomEmoji",
   inherit = TLObject,
   public = list(
@@ -32681,6 +33136,7 @@ ReactionCustomEmoji <- R6::R6Class("ReactionCustomEmoji",
   class = TRUE
 )
 
+#' @export
 ReactionEmoji <- R6::R6Class("ReactionEmoji",
   inherit = TLObject,
   public = list(
@@ -32706,6 +33162,7 @@ ReactionEmoji <- R6::R6Class("ReactionEmoji",
   class = TRUE
 )
 
+#' @export
 ReactionEmpty <- R6::R6Class("ReactionEmpty",
   inherit = TLObject,
   public = list(
@@ -32720,6 +33177,7 @@ ReactionEmpty <- R6::R6Class("ReactionEmpty",
   class = TRUE
 )
 
+#' @export
 ReactionNotificationsFromAll <- R6::R6Class("ReactionNotificationsFromAll",
   inherit = TLObject,
   public = list(
@@ -32734,6 +33192,7 @@ ReactionNotificationsFromAll <- R6::R6Class("ReactionNotificationsFromAll",
   class = TRUE
 )
 
+#' @export
 ReactionNotificationsFromContacts <- R6::R6Class("ReactionNotificationsFromContacts",
   inherit = TLObject,
   public = list(
@@ -32748,6 +33207,7 @@ ReactionNotificationsFromContacts <- R6::R6Class("ReactionNotificationsFromConta
   class = TRUE
 )
 
+#' @export
 ReactionPaid <- R6::R6Class("ReactionPaid",
   inherit = TLObject,
   public = list(
@@ -32762,6 +33222,7 @@ ReactionPaid <- R6::R6Class("ReactionPaid",
   class = TRUE
 )
 
+#' @export
 ReactionsNotifySettings <- R6::R6Class("ReactionsNotifySettings",
   inherit = TLObject,
   public = list(
@@ -32812,6 +33273,7 @@ ReactionsNotifySettings <- R6::R6Class("ReactionsNotifySettings",
   class = TRUE
 )
 
+#' @export
 ReadParticipantDate <- R6::R6Class("ReadParticipantDate",
   inherit = TLObject,
   public = list(
@@ -32841,6 +33303,7 @@ ReadParticipantDate <- R6::R6Class("ReadParticipantDate",
   class = TRUE
 )
 
+#' @export
 ReceivedNotifyMessage <- R6::R6Class("ReceivedNotifyMessage",
   inherit = TLObject,
   public = list(
@@ -32870,6 +33333,7 @@ ReceivedNotifyMessage <- R6::R6Class("ReceivedNotifyMessage",
   class = TRUE
 )
 
+#' @export
 RecentMeUrlChat <- R6::R6Class("RecentMeUrlChat",
   inherit = TLObject,
   public = list(
@@ -32899,6 +33363,7 @@ RecentMeUrlChat <- R6::R6Class("RecentMeUrlChat",
   class = TRUE
 )
 
+#' @export
 RecentMeUrlChatInvite <- R6::R6Class("RecentMeUrlChatInvite",
   inherit = TLObject,
   public = list(
@@ -32928,6 +33393,7 @@ RecentMeUrlChatInvite <- R6::R6Class("RecentMeUrlChatInvite",
   class = TRUE
 )
 
+#' @export
 RecentMeUrlStickerSet <- R6::R6Class("RecentMeUrlStickerSet",
   inherit = TLObject,
   public = list(
@@ -32957,6 +33423,7 @@ RecentMeUrlStickerSet <- R6::R6Class("RecentMeUrlStickerSet",
   class = TRUE
 )
 
+#' @export
 RecentMeUrlUnknown <- R6::R6Class("RecentMeUrlUnknown",
   inherit = TLObject,
   public = list(
@@ -32982,6 +33449,7 @@ RecentMeUrlUnknown <- R6::R6Class("RecentMeUrlUnknown",
   class = TRUE
 )
 
+#' @export
 RecentMeUrlUser <- R6::R6Class("RecentMeUrlUser",
   inherit = TLObject,
   public = list(
@@ -33011,6 +33479,7 @@ RecentMeUrlUser <- R6::R6Class("RecentMeUrlUser",
   class = TRUE
 )
 
+#' @export
 ReplyInlineMarkup <- R6::R6Class("ReplyInlineMarkup",
   inherit = TLObject,
   public = list(
@@ -33045,6 +33514,7 @@ ReplyInlineMarkup <- R6::R6Class("ReplyInlineMarkup",
   class = TRUE
 )
 
+#' @export
 ReplyKeyboardForceReply <- R6::R6Class("ReplyKeyboardForceReply",
   inherit = TLObject,
   public = list(
@@ -33086,6 +33556,7 @@ ReplyKeyboardForceReply <- R6::R6Class("ReplyKeyboardForceReply",
   class = TRUE
 )
 
+#' @export
 ReplyKeyboardHide <- R6::R6Class("ReplyKeyboardHide",
   inherit = TLObject,
   public = list(
@@ -33114,6 +33585,7 @@ ReplyKeyboardHide <- R6::R6Class("ReplyKeyboardHide",
   class = TRUE
 )
 
+#' @export
 ReplyKeyboardMarkup <- R6::R6Class("ReplyKeyboardMarkup",
   inherit = TLObject,
   public = list(
@@ -33176,6 +33648,7 @@ ReplyKeyboardMarkup <- R6::R6Class("ReplyKeyboardMarkup",
   class = TRUE
 )
 
+#' @export
 ReportResultAddComment <- R6::R6Class("ReportResultAddComment",
   inherit = TLObject,
   public = list(
@@ -33208,6 +33681,7 @@ ReportResultAddComment <- R6::R6Class("ReportResultAddComment",
   class = TRUE
 )
 
+#' @export
 ReportResultChooseOption <- R6::R6Class("ReportResultChooseOption",
   inherit = TLObject,
   public = list(
@@ -33246,6 +33720,7 @@ ReportResultChooseOption <- R6::R6Class("ReportResultChooseOption",
   class = TRUE
 )
 
+#' @export
 ReportResultReported <- R6::R6Class("ReportResultReported",
   inherit = TLObject,
   public = list(
@@ -33260,6 +33735,7 @@ ReportResultReported <- R6::R6Class("ReportResultReported",
   class = TRUE
 )
 
+#' @export
 RequestPeerTypeBroadcast <- R6::R6Class("RequestPeerTypeBroadcast",
   inherit = TLObject,
   public = list(
@@ -33315,6 +33791,7 @@ RequestPeerTypeBroadcast <- R6::R6Class("RequestPeerTypeBroadcast",
   class = TRUE
 )
 
+#' @export
 RequestPeerTypeChat <- R6::R6Class("RequestPeerTypeChat",
   inherit = TLObject,
   public = list(
@@ -33383,6 +33860,7 @@ RequestPeerTypeChat <- R6::R6Class("RequestPeerTypeChat",
   class = TRUE
 )
 
+#' @export
 RequestPeerTypeUser <- R6::R6Class("RequestPeerTypeUser",
   inherit = TLObject,
   public = list(
@@ -33425,6 +33903,7 @@ RequestPeerTypeUser <- R6::R6Class("RequestPeerTypeUser",
   class = TRUE
 )
 
+#' @export
 RequestedPeerChannel <- R6::R6Class("RequestedPeerChannel",
   inherit = TLObject,
   public = list(
@@ -33480,6 +33959,7 @@ RequestedPeerChannel <- R6::R6Class("RequestedPeerChannel",
   class = TRUE
 )
 
+#' @export
 RequestedPeerChat <- R6::R6Class("RequestedPeerChat",
   inherit = TLObject,
   public = list(
@@ -33526,6 +34006,7 @@ RequestedPeerChat <- R6::R6Class("RequestedPeerChat",
   class = TRUE
 )
 
+#' @export
 RequestedPeerUser <- R6::R6Class("RequestedPeerUser",
   inherit = TLObject,
   public = list(
@@ -33590,7 +34071,7 @@ RequestedPeerUser <- R6::R6Class("RequestedPeerUser",
   class = TRUE
 )
 
-
+#' @export
 RequirementToContactEmpty <- R6::R6Class("RequirementToContactEmpty",
   inherit = TLObject,
   public = list(
@@ -33605,6 +34086,7 @@ RequirementToContactEmpty <- R6::R6Class("RequirementToContactEmpty",
   class = TRUE
 )
 
+#' @export
 RequirementToContactPaidMessages <- R6::R6Class("RequirementToContactPaidMessages",
   inherit = TLObject,
   public = list(
@@ -33626,6 +34108,7 @@ RequirementToContactPaidMessages <- R6::R6Class("RequirementToContactPaidMessage
   class = TRUE
 )
 
+#' @export
 RequirementToContactPremium <- R6::R6Class("RequirementToContactPremium",
   inherit = TLObject,
   public = list(
@@ -33640,6 +34123,7 @@ RequirementToContactPremium <- R6::R6Class("RequirementToContactPremium",
   class = TRUE
 )
 
+#' @export
 ResPQ <- R6::R6Class("ResPQ",
   inherit = TLObject,
   public = list(
@@ -33671,6 +34155,7 @@ ResPQ <- R6::R6Class("ResPQ",
   class = TRUE
 )
 
+#' @export
 RestrictionReason <- R6::R6Class("RestrictionReason",
   inherit = TLObject,
   public = list(
@@ -33698,6 +34183,7 @@ RestrictionReason <- R6::R6Class("RestrictionReason",
   class = TRUE
 )
 
+#' @export
 RpcAnswerDropped <- R6::R6Class("RpcAnswerDropped",
   inherit = TLObject,
   public = list(
@@ -33725,6 +34211,7 @@ RpcAnswerDropped <- R6::R6Class("RpcAnswerDropped",
   class = TRUE
 )
 
+#' @export
 RpcAnswerDroppedRunning <- R6::R6Class("RpcAnswerDroppedRunning",
   inherit = TLObject,
   public = list(
@@ -33739,6 +34226,7 @@ RpcAnswerDroppedRunning <- R6::R6Class("RpcAnswerDroppedRunning",
   class = TRUE
 )
 
+#' @export
 RpcAnswerUnknown <- R6::R6Class("RpcAnswerUnknown",
   inherit = TLObject,
   public = list(
@@ -33753,6 +34241,7 @@ RpcAnswerUnknown <- R6::R6Class("RpcAnswerUnknown",
   class = TRUE
 )
 
+#' @export
 RpcError <- R6::R6Class("RpcError",
   inherit = TLObject,
   public = list(
@@ -33777,6 +34266,7 @@ RpcError <- R6::R6Class("RpcError",
   class = TRUE
 )
 
+#' @export
 SavedDialog <- R6::R6Class("SavedDialog",
   inherit = TLObject,
   public = list(
@@ -33805,6 +34295,7 @@ SavedDialog <- R6::R6Class("SavedDialog",
   class = TRUE
 )
 
+#' @export
 SavedPhoneContact <- R6::R6Class("SavedPhoneContact",
   inherit = TLObject,
   public = list(
@@ -33835,6 +34326,7 @@ SavedPhoneContact <- R6::R6Class("SavedPhoneContact",
   class = TRUE
 )
 
+#' @export
 SavedReactionTag <- R6::R6Class("SavedReactionTag",
   inherit = TLObject,
   public = list(
@@ -33863,6 +34355,7 @@ SavedReactionTag <- R6::R6Class("SavedReactionTag",
   class = TRUE
 )
 
+#' @export
 SavedStarGift <- R6::R6Class("SavedStarGift",
   inherit = TLObject,
   public = list(
@@ -33968,6 +34461,7 @@ SavedStarGift <- R6::R6Class("SavedStarGift",
   class = TRUE
 )
 
+#' @export
 SearchPostsFlood <- R6::R6Class("SearchPostsFlood",
   inherit = TLObject,
   public = list(
@@ -34002,6 +34496,7 @@ SearchPostsFlood <- R6::R6Class("SearchPostsFlood",
   class = TRUE
 )
 
+#' @export
 SearchResultPosition <- R6::R6Class("SearchResultPosition",
   inherit = TLObject,
   public = list(
@@ -34029,6 +34524,7 @@ SearchResultPosition <- R6::R6Class("SearchResultPosition",
   class = TRUE
 )
 
+#' @export
 SearchResultsCalendarPeriod <- R6::R6Class("SearchResultsCalendarPeriod",
   inherit = TLObject,
   public = list(
@@ -34059,6 +34555,7 @@ SearchResultsCalendarPeriod <- R6::R6Class("SearchResultsCalendarPeriod",
   class = TRUE
 )
 
+#' @export
 SecureCredentialsEncrypted <- R6::R6Class("SecureCredentialsEncrypted",
   inherit = TLObject,
   public = list(
@@ -34086,6 +34583,7 @@ SecureCredentialsEncrypted <- R6::R6Class("SecureCredentialsEncrypted",
   class = TRUE
 )
 
+#' @export
 SecureData <- R6::R6Class("SecureData",
   inherit = TLObject,
   public = list(
@@ -34113,6 +34611,7 @@ SecureData <- R6::R6Class("SecureData",
   class = TRUE
 )
 
+#' @export
 SecureFile <- R6::R6Class("SecureFile",
   inherit = TLObject,
   public = list(
@@ -34152,6 +34651,7 @@ SecureFile <- R6::R6Class("SecureFile",
   class = TRUE
 )
 
+#' @export
 SecureFileEmpty <- R6::R6Class("SecureFileEmpty",
   inherit = TLObject,
   public = list(
@@ -34166,6 +34666,7 @@ SecureFileEmpty <- R6::R6Class("SecureFileEmpty",
   class = TRUE
 )
 
+#' @export
 SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000 <- R6::R6Class("SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000",
   inherit = TLObject,
   public = list(
@@ -34187,6 +34688,7 @@ SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000 <- R6::R6Class("SecurePasswordKd
   class = TRUE
 )
 
+#' @export
 SecurePasswordKdfAlgoSHA512 <- R6::R6Class("SecurePasswordKdfAlgoSHA512",
   inherit = TLObject,
   public = list(
@@ -34208,6 +34710,7 @@ SecurePasswordKdfAlgoSHA512 <- R6::R6Class("SecurePasswordKdfAlgoSHA512",
   class = TRUE
 )
 
+#' @export
 SecurePasswordKdfAlgoUnknown <- R6::R6Class("SecurePasswordKdfAlgoUnknown",
   inherit = TLObject,
   public = list(
@@ -34222,6 +34725,7 @@ SecurePasswordKdfAlgoUnknown <- R6::R6Class("SecurePasswordKdfAlgoUnknown",
   class = TRUE
 )
 
+#' @export
 SecurePlainEmail <- R6::R6Class("SecurePlainEmail",
   inherit = TLObject,
   public = list(
@@ -34243,6 +34747,7 @@ SecurePlainEmail <- R6::R6Class("SecurePlainEmail",
   class = TRUE
 )
 
+#' @export
 SecurePlainPhone <- R6::R6Class("SecurePlainPhone",
   inherit = TLObject,
   public = list(
@@ -34264,6 +34769,7 @@ SecurePlainPhone <- R6::R6Class("SecurePlainPhone",
   class = TRUE
 )
 
+#' @export
 SecureRequiredType <- R6::R6Class("SecureRequiredType",
   inherit = TLObject,
   public = list(
@@ -34295,6 +34801,7 @@ SecureRequiredType <- R6::R6Class("SecureRequiredType",
   class = TRUE
 )
 
+#' @export
 SecureRequiredTypeOneOf <- R6::R6Class("SecureRequiredTypeOneOf",
   inherit = TLObject,
   public = list(
@@ -34317,6 +34824,7 @@ SecureRequiredTypeOneOf <- R6::R6Class("SecureRequiredTypeOneOf",
   class = TRUE
 )
 
+#' @export
 SecureSecretSettings <- R6::R6Class("SecureSecretSettings",
   inherit = TLObject,
   public = list(
@@ -34344,6 +34852,7 @@ SecureSecretSettings <- R6::R6Class("SecureSecretSettings",
   class = TRUE
 )
 
+#' @export
 SecureValue <- R6::R6Class("SecureValue",
   inherit = TLObject,
   public = list(
@@ -34410,6 +34919,7 @@ SecureValue <- R6::R6Class("SecureValue",
   class = TRUE
 )
 
+#' @export
 SecureValueError <- R6::R6Class("SecureValueError",
   inherit = TLObject,
   public = list(
@@ -34437,6 +34947,7 @@ SecureValueError <- R6::R6Class("SecureValueError",
   class = TRUE
 )
 
+#' @export
 SecureValueErrorData <- R6::R6Class("SecureValueErrorData",
   inherit = TLObject,
   public = list(
@@ -34467,6 +34978,7 @@ SecureValueErrorData <- R6::R6Class("SecureValueErrorData",
   class = TRUE
 )
 
+#' @export
 SecureValueErrorFile <- R6::R6Class("SecureValueErrorFile",
   inherit = TLObject,
   public = list(
@@ -34500,6 +35012,7 @@ SecureValueErrorFile <- R6::R6Class("SecureValueErrorFile",
   class = TRUE
 )
 
+#' @export
 SecureValueErrorFiles <- R6::R6Class("SecureValueErrorFiles",
   inherit = TLObject,
   public = list(
@@ -34538,6 +35051,7 @@ SecureValueErrorFiles <- R6::R6Class("SecureValueErrorFiles",
   class = TRUE
 )
 
+#' @export
 SecureValueErrorFrontSide <- R6::R6Class("SecureValueErrorFrontSide",
   inherit = TLObject,
   public = list(
@@ -34571,6 +35085,7 @@ SecureValueErrorFrontSide <- R6::R6Class("SecureValueErrorFrontSide",
   class = TRUE
 )
 
+#' @export
 SecureValueErrorReverseSide <- R6::R6Class("SecureValueErrorReverseSide",
   inherit = TLObject,
   public = list(
@@ -34604,6 +35119,7 @@ SecureValueErrorReverseSide <- R6::R6Class("SecureValueErrorReverseSide",
   class = TRUE
 )
 
+#' @export
 SecureValueErrorSelfie <- R6::R6Class("SecureValueErrorSelfie",
   inherit = TLObject,
   public = list(
@@ -34637,6 +35153,7 @@ SecureValueErrorSelfie <- R6::R6Class("SecureValueErrorSelfie",
   class = TRUE
 )
 
+#' @export
 SecureValueErrorTranslationFile <- R6::R6Class("SecureValueErrorTranslationFile",
   inherit = TLObject,
   public = list(
@@ -34670,6 +35187,7 @@ SecureValueErrorTranslationFile <- R6::R6Class("SecureValueErrorTranslationFile"
   class = TRUE
 )
 
+#' @export
 SecureValueErrorTranslationFiles <- R6::R6Class("SecureValueErrorTranslationFiles",
   inherit = TLObject,
   public = list(
@@ -34708,6 +35226,7 @@ SecureValueErrorTranslationFiles <- R6::R6Class("SecureValueErrorTranslationFile
   class = TRUE
 )
 
+#' @export
 SecureValueHash <- R6::R6Class("SecureValueHash",
   inherit = TLObject,
   public = list(
@@ -34738,6 +35257,7 @@ SecureValueHash <- R6::R6Class("SecureValueHash",
   class = TRUE
 )
 
+#' @export
 SecureValueTypeAddress <- R6::R6Class("SecureValueTypeAddress",
   inherit = TLObject,
   public = list(
@@ -34758,6 +35278,7 @@ SecureValueTypeAddress <- R6::R6Class("SecureValueTypeAddress",
   class = TRUE
 )
 
+#' @export
 SecureValueTypeBankStatement <- R6::R6Class("SecureValueTypeBankStatement",
   inherit = TLObject,
   public = list(
@@ -34778,6 +35299,7 @@ SecureValueTypeBankStatement <- R6::R6Class("SecureValueTypeBankStatement",
   class = TRUE
 )
 
+#' @export
 SecureValueTypeDriverLicense <- R6::R6Class("SecureValueTypeDriverLicense",
   inherit = TLObject,
   public = list(
@@ -34798,6 +35320,7 @@ SecureValueTypeDriverLicense <- R6::R6Class("SecureValueTypeDriverLicense",
   class = TRUE
 )
 
+#' @export
 SecureValueTypeEmail <- R6::R6Class("SecureValueTypeEmail",
   inherit = TLObject,
   public = list(
@@ -34818,6 +35341,7 @@ SecureValueTypeEmail <- R6::R6Class("SecureValueTypeEmail",
   class = TRUE
 )
 
+#' @export
 SecureValueTypeIdentityCard <- R6::R6Class("SecureValueTypeIdentityCard",
   inherit = TLObject,
   public = list(
@@ -34838,6 +35362,7 @@ SecureValueTypeIdentityCard <- R6::R6Class("SecureValueTypeIdentityCard",
   class = TRUE
 )
 
+#' @export
 SecureValueTypeInternalPassport <- R6::R6Class("SecureValueTypeInternalPassport",
   inherit = TLObject,
   public = list(
@@ -34858,6 +35383,7 @@ SecureValueTypeInternalPassport <- R6::R6Class("SecureValueTypeInternalPassport"
   class = TRUE
 )
 
+#' @export
 SecureValueTypePassport <- R6::R6Class("SecureValueTypePassport",
   inherit = TLObject,
   public = list(
@@ -34878,6 +35404,7 @@ SecureValueTypePassport <- R6::R6Class("SecureValueTypePassport",
   class = TRUE
 )
 
+#' @export
 SecureValueTypePassportRegistration <- R6::R6Class("SecureValueTypePassportRegistration",
   inherit = TLObject,
   public = list(
@@ -34898,6 +35425,7 @@ SecureValueTypePassportRegistration <- R6::R6Class("SecureValueTypePassportRegis
   class = TRUE
 )
 
+#' @export
 SecureValueTypePersonalDetails <- R6::R6Class("SecureValueTypePersonalDetails",
   inherit = TLObject,
   public = list(
@@ -34918,6 +35446,7 @@ SecureValueTypePersonalDetails <- R6::R6Class("SecureValueTypePersonalDetails",
   class = TRUE
 )
 
+#' @export
 SecureValueTypePhone <- R6::R6Class("SecureValueTypePhone",
   inherit = TLObject,
   public = list(
@@ -34938,6 +35467,7 @@ SecureValueTypePhone <- R6::R6Class("SecureValueTypePhone",
   class = TRUE
 )
 
+#' @export
 SecureValueTypeRentalAgreement <- R6::R6Class("SecureValueTypeRentalAgreement",
   inherit = TLObject,
   public = list(
@@ -34958,6 +35488,7 @@ SecureValueTypeRentalAgreement <- R6::R6Class("SecureValueTypeRentalAgreement",
   class = TRUE
 )
 
+#' @export
 SecureValueTypeTemporaryRegistration <- R6::R6Class("SecureValueTypeTemporaryRegistration",
   inherit = TLObject,
   public = list(
@@ -34978,6 +35509,7 @@ SecureValueTypeTemporaryRegistration <- R6::R6Class("SecureValueTypeTemporaryReg
   class = TRUE
 )
 
+#' @export
 SecureValueTypeUtilityBill <- R6::R6Class("SecureValueTypeUtilityBill",
   inherit = TLObject,
   public = list(
@@ -34998,6 +35530,7 @@ SecureValueTypeUtilityBill <- R6::R6Class("SecureValueTypeUtilityBill",
   class = TRUE
 )
 
+#' @export
 SendAsPeer <- R6::R6Class("SendAsPeer",
   inherit = TLObject,
   public = list(
@@ -35029,6 +35562,7 @@ SendAsPeer <- R6::R6Class("SendAsPeer",
   class = TRUE
 )
 
+#' @export
 SendMessageCancelAction <- R6::R6Class("SendMessageCancelAction",
   inherit = TLObject,
   public = list(
@@ -35049,6 +35583,7 @@ SendMessageCancelAction <- R6::R6Class("SendMessageCancelAction",
   class = TRUE
 )
 
+#' @export
 SendMessageChooseContactAction <- R6::R6Class("SendMessageChooseContactAction",
   inherit = TLObject,
   public = list(
@@ -35069,6 +35604,7 @@ SendMessageChooseContactAction <- R6::R6Class("SendMessageChooseContactAction",
   class = TRUE
 )
 
+#' @export
 SendMessageChooseStickerAction <- R6::R6Class("SendMessageChooseStickerAction",
   inherit = TLObject,
   public = list(
@@ -35089,6 +35625,7 @@ SendMessageChooseStickerAction <- R6::R6Class("SendMessageChooseStickerAction",
   class = TRUE
 )
 
+#' @export
 SendMessageEmojiInteraction <- R6::R6Class("SendMessageEmojiInteraction",
   inherit = TLObject,
   public = list(
@@ -35122,6 +35659,7 @@ SendMessageEmojiInteraction <- R6::R6Class("SendMessageEmojiInteraction",
   class = TRUE
 )
 
+#' @export
 SendMessageEmojiInteractionSeen <- R6::R6Class("SendMessageEmojiInteractionSeen",
   inherit = TLObject,
   public = list(
@@ -35149,6 +35687,7 @@ SendMessageEmojiInteractionSeen <- R6::R6Class("SendMessageEmojiInteractionSeen"
   class = TRUE
 )
 
+#' @export
 SendMessageGamePlayAction <- R6::R6Class("SendMessageGamePlayAction",
   inherit = TLObject,
   public = list(
@@ -35169,6 +35708,7 @@ SendMessageGamePlayAction <- R6::R6Class("SendMessageGamePlayAction",
   class = TRUE
 )
 
+#' @export
 SendMessageGeoLocationAction <- R6::R6Class("SendMessageGeoLocationAction",
   inherit = TLObject,
   public = list(
@@ -35189,11 +35729,13 @@ SendMessageGeoLocationAction <- R6::R6Class("SendMessageGeoLocationAction",
   class = TRUE
 )
 
+#' @export
 SendMessageHistoryImportAction <- R6::R6Class("SendMessageHistoryImportAction",
   inherit = TLObject,
   public = list(
     CONSTRUCTOR_ID = 0xdbda9246,
     SUBCLASS_OF_ID = 0x20b2cc21,
+    progress = NULL,
     initialize = function(progress) {
       self$progress <- progress
     },
@@ -35216,6 +35758,7 @@ SendMessageHistoryImportAction <- R6::R6Class("SendMessageHistoryImportAction",
   class = TRUE
 )
 
+#' @export
 SendMessageRecordAudioAction <- R6::R6Class("SendMessageRecordAudioAction",
   inherit = TLObject,
   public = list(
@@ -35236,6 +35779,7 @@ SendMessageRecordAudioAction <- R6::R6Class("SendMessageRecordAudioAction",
   class = TRUE
 )
 
+#' @export
 SendMessageRecordRoundAction <- R6::R6Class("SendMessageRecordRoundAction",
   inherit = TLObject,
   public = list(
@@ -35256,6 +35800,7 @@ SendMessageRecordRoundAction <- R6::R6Class("SendMessageRecordRoundAction",
   class = TRUE
 )
 
+#' @export
 SendMessageRecordVideoAction <- R6::R6Class("SendMessageRecordVideoAction",
   inherit = TLObject,
   public = list(
@@ -35276,6 +35821,9 @@ SendMessageRecordVideoAction <- R6::R6Class("SendMessageRecordVideoAction",
   class = TRUE
 )
 
+#' Senders msg_id as int, but it should be long
+#'
+#' @export
 SendMessageTypingAction <- R6::R6Class("SendMessageTypingAction",
   inherit = TLObject,
   public = list(
@@ -35296,11 +35844,13 @@ SendMessageTypingAction <- R6::R6Class("SendMessageTypingAction",
   class = TRUE
 )
 
+#' @export
 SendMessageUploadAudioAction <- R6::R6Class("SendMessageUploadAudioAction",
   inherit = TLObject,
   public = list(
     CONSTRUCTOR_ID = 0xf351d7ab,
     SUBCLASS_OF_ID = 0x20b2cc21,
+    progress = NULL,
     initialize = function(progress) {
       self$progress <- progress
     },
@@ -35323,11 +35873,13 @@ SendMessageUploadAudioAction <- R6::R6Class("SendMessageUploadAudioAction",
   class = TRUE
 )
 
+#' @export
 SendMessageUploadDocumentAction <- R6::R6Class("SendMessageUploadDocumentAction",
   inherit = TLObject,
   public = list(
     CONSTRUCTOR_ID = 0xaa0cd9e4,
     SUBCLASS_OF_ID = 0x20b2cc21,
+    progress = NULL,
     initialize = function(progress) {
       self$progress <- progress
     },
@@ -35350,11 +35902,13 @@ SendMessageUploadDocumentAction <- R6::R6Class("SendMessageUploadDocumentAction"
   class = TRUE
 )
 
+#' @export
 SendMessageUploadPhotoAction <- R6::R6Class("SendMessageUploadPhotoAction",
   inherit = TLObject,
   public = list(
     CONSTRUCTOR_ID = 0xd1d34a26,
     SUBCLASS_OF_ID = 0x20b2cc21,
+    progress = NULL,
     initialize = function(progress) {
       self$progress <- progress
     },
@@ -35377,11 +35931,13 @@ SendMessageUploadPhotoAction <- R6::R6Class("SendMessageUploadPhotoAction",
   class = TRUE
 )
 
+#' @export
 SendMessageUploadRoundAction <- R6::R6Class("SendMessageUploadRoundAction",
   inherit = TLObject,
   public = list(
     CONSTRUCTOR_ID = 0x243e1c66,
     SUBCLASS_OF_ID = 0x20b2cc21,
+    progress = NULL,
     initialize = function(progress) {
       self$progress <- progress
     },
@@ -35404,11 +35960,13 @@ SendMessageUploadRoundAction <- R6::R6Class("SendMessageUploadRoundAction",
   class = TRUE
 )
 
+#' @export
 SendMessageUploadVideoAction <- R6::R6Class("SendMessageUploadVideoAction",
   inherit = TLObject,
   public = list(
     CONSTRUCTOR_ID = 0xe9763aec,
     SUBCLASS_OF_ID = 0x20b2cc21,
+    progress = NULL,
     initialize = function(progress) {
       self$progress <- progress
     },
@@ -35431,6 +35989,7 @@ SendMessageUploadVideoAction <- R6::R6Class("SendMessageUploadVideoAction",
   class = TRUE
 )
 
+#' @export
 ServerDHInnerData <- R6::R6Class("ServerDHInnerData",
   inherit = TLObject,
   public = list(
@@ -35473,7 +36032,7 @@ ServerDHInnerData <- R6::R6Class("ServerDHInnerData",
   class = TRUE
 )
 
-
+#' @export
 ServerDHParamsFail <- R6::R6Class(
   "ServerDHParamsFail",
   inherit = TLObject,
@@ -35512,6 +36071,7 @@ ServerDHParamsFail <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 ServerDHParamsOk <- R6::R6Class(
   "ServerDHParamsOk",
   inherit = TLObject,
@@ -35550,6 +36110,7 @@ ServerDHParamsOk <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 ShippingOption <- R6::R6Class(
   "ShippingOption",
   inherit = TLObject,
@@ -35593,6 +36154,7 @@ ShippingOption <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 SmsJob <- R6::R6Class(
   "SmsJob",
   inherit = TLObject,
@@ -35631,6 +36193,7 @@ SmsJob <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 SpeakingInGroupCallAction <- R6::R6Class(
   "SpeakingInGroupCallAction",
   inherit = TLObject,
@@ -35652,6 +36215,7 @@ SpeakingInGroupCallAction <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 SponsoredMessage <- R6::R6Class(
   "SponsoredMessage",
   inherit = TLObject,
@@ -35782,6 +36346,7 @@ SponsoredMessage <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 SponsoredMessageReportOption <- R6::R6Class(
   "SponsoredMessageReportOption",
   inherit = TLObject,
@@ -35816,6 +36381,7 @@ SponsoredMessageReportOption <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 SponsoredPeer <- R6::R6Class(
   "SponsoredPeer",
   inherit = TLObject,
@@ -35865,6 +36431,7 @@ SponsoredPeer <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarGift <- R6::R6Class(
   "StarGift",
   inherit = TLObject,
@@ -36037,6 +36604,7 @@ StarGift <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarGiftAttributeBackdrop <- R6::R6Class(
   "StarGiftAttributeBackdrop",
   inherit = TLObject,
@@ -36091,6 +36659,7 @@ StarGiftAttributeBackdrop <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarGiftAttributeCounter <- R6::R6Class(
   "StarGiftAttributeCounter",
   inherit = TLObject,
@@ -36125,6 +36694,7 @@ StarGiftAttributeCounter <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarGiftAttributeIdBackdrop <- R6::R6Class(
   "StarGiftAttributeIdBackdrop",
   inherit = TLObject,
@@ -36155,6 +36725,7 @@ StarGiftAttributeIdBackdrop <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarGiftAttributeIdModel <- R6::R6Class(
   "StarGiftAttributeIdModel",
   inherit = TLObject,
@@ -36185,6 +36756,7 @@ StarGiftAttributeIdModel <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarGiftAttributeIdPattern <- R6::R6Class(
   "StarGiftAttributeIdPattern",
   inherit = TLObject,
@@ -36215,6 +36787,7 @@ StarGiftAttributeIdPattern <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarGiftAttributeModel <- R6::R6Class(
   "StarGiftAttributeModel",
   inherit = TLObject,
@@ -36253,6 +36826,7 @@ StarGiftAttributeModel <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarGiftAttributeOriginalDetails <- R6::R6Class(
   "StarGiftAttributeOriginalDetails",
   inherit = TLObject,
@@ -36302,6 +36876,7 @@ StarGiftAttributeOriginalDetails <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarGiftAttributePattern <- R6::R6Class(
   "StarGiftAttributePattern",
   inherit = TLObject,
@@ -36340,6 +36915,7 @@ StarGiftAttributePattern <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarGiftCollection <- R6::R6Class(
   "StarGiftCollection",
   inherit = TLObject,
@@ -36393,6 +36969,7 @@ StarGiftCollection <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarGiftUnique <- R6::R6Class(
   "StarGiftUnique",
   inherit = TLObject,
@@ -36549,6 +37126,7 @@ StarGiftUnique <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarRefProgram <- R6::R6Class(
   "StarRefProgram",
   inherit = TLObject,
@@ -36606,6 +37184,7 @@ StarRefProgram <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarsAmount <- R6::R6Class(
   "StarsAmount",
   inherit = TLObject,
@@ -36640,6 +37219,7 @@ StarsAmount <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 StarsGiftOption <- R6::R6Class(
   "StarsGiftOption",
   inherit = TLObject,
@@ -36692,7 +37272,7 @@ StarsGiftOption <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 StarsGiveawayOption <- R6::R6Class("StarsGiveawayOption",
   inherit = TLObject,
   public = list(
@@ -36752,6 +37332,7 @@ StarsGiveawayOption <- R6::R6Class("StarsGiveawayOption",
   class = TRUE
 )
 
+#' @export
 StarsGiveawayWinnersOption <- R6::R6Class("StarsGiveawayWinnersOption",
   inherit = TLObject,
   public = list(
@@ -36791,6 +37372,7 @@ StarsGiveawayWinnersOption <- R6::R6Class("StarsGiveawayWinnersOption",
   class = TRUE
 )
 
+#' @export
 StarsRating <- R6::R6Class("StarsRating",
   inherit = TLObject,
   public = list(
@@ -36835,6 +37417,7 @@ StarsRating <- R6::R6Class("StarsRating",
   class = TRUE
 )
 
+#' @export
 StarsRevenueStatus <- R6::R6Class("StarsRevenueStatus",
   inherit = TLObject,
   public = list(
@@ -36882,6 +37465,7 @@ StarsRevenueStatus <- R6::R6Class("StarsRevenueStatus",
   class = TRUE
 )
 
+#' @export
 StarsSubscription <- R6::R6Class("StarsSubscription",
   inherit = TLObject,
   public = list(
@@ -36954,6 +37538,7 @@ StarsSubscription <- R6::R6Class("StarsSubscription",
   class = TRUE
 )
 
+#' @export
 StarsSubscriptionPricing <- R6::R6Class("StarsSubscriptionPricing",
   inherit = TLObject,
   public = list(
@@ -36988,6 +37573,7 @@ StarsSubscriptionPricing <- R6::R6Class("StarsSubscriptionPricing",
   class = TRUE
 )
 
+#' @export
 StarsTonAmount <- R6::R6Class("StarsTonAmount",
   inherit = TLObject,
   public = list(
@@ -37018,6 +37604,7 @@ StarsTonAmount <- R6::R6Class("StarsTonAmount",
   class = TRUE
 )
 
+#' @export
 StarsTopupOption <- R6::R6Class("StarsTopupOption",
   inherit = TLObject,
   public = list(
@@ -37065,6 +37652,7 @@ StarsTopupOption <- R6::R6Class("StarsTopupOption",
   class = TRUE
 )
 
+#' @export
 StarsTransaction <- R6::R6Class("StarsTransaction",
   inherit = TLObject,
   public = list(
@@ -37223,6 +37811,7 @@ StarsTransaction <- R6::R6Class("StarsTransaction",
   class = TRUE
 )
 
+#' @export
 StarsTransactionPeer <- R6::R6Class("StarsTransactionPeer",
   inherit = TLObject,
   public = list(
@@ -37253,6 +37842,7 @@ StarsTransactionPeer <- R6::R6Class("StarsTransactionPeer",
   class = TRUE
 )
 
+#' @export
 StarsTransactionPeerAPI <- R6::R6Class("StarsTransactionPeerAPI",
   inherit = TLObject,
   public = list(
@@ -37273,6 +37863,7 @@ StarsTransactionPeerAPI <- R6::R6Class("StarsTransactionPeerAPI",
   class = TRUE
 )
 
+#' @export
 StarsTransactionPeerAds <- R6::R6Class("StarsTransactionPeerAds",
   inherit = TLObject,
   public = list(
@@ -37293,6 +37884,7 @@ StarsTransactionPeerAds <- R6::R6Class("StarsTransactionPeerAds",
   class = TRUE
 )
 
+#' @export
 StarsTransactionPeerAppStore <- R6::R6Class("StarsTransactionPeerAppStore",
   inherit = TLObject,
   public = list(
@@ -37313,6 +37905,7 @@ StarsTransactionPeerAppStore <- R6::R6Class("StarsTransactionPeerAppStore",
   class = TRUE
 )
 
+#' @export
 StarsTransactionPeerFragment <- R6::R6Class("StarsTransactionPeerFragment",
   inherit = TLObject,
   public = list(
@@ -37333,6 +37926,7 @@ StarsTransactionPeerFragment <- R6::R6Class("StarsTransactionPeerFragment",
   class = TRUE
 )
 
+#' @export
 StarsTransactionPeerPlayMarket <- R6::R6Class("StarsTransactionPeerPlayMarket",
   inherit = TLObject,
   public = list(
@@ -37353,6 +37947,7 @@ StarsTransactionPeerPlayMarket <- R6::R6Class("StarsTransactionPeerPlayMarket",
   class = TRUE
 )
 
+#' @export
 StarsTransactionPeerPremiumBot <- R6::R6Class("StarsTransactionPeerPremiumBot",
   inherit = TLObject,
   public = list(
@@ -37373,6 +37968,7 @@ StarsTransactionPeerPremiumBot <- R6::R6Class("StarsTransactionPeerPremiumBot",
   class = TRUE
 )
 
+#' @export
 StarsTransactionPeerUnsupported <- R6::R6Class("StarsTransactionPeerUnsupported",
   inherit = TLObject,
   public = list(
@@ -37393,6 +37989,7 @@ StarsTransactionPeerUnsupported <- R6::R6Class("StarsTransactionPeerUnsupported"
   class = TRUE
 )
 
+#' @export
 StatsAbsValueAndPrev <- R6::R6Class("StatsAbsValueAndPrev",
   inherit = TLObject,
   public = list(
@@ -37427,7 +38024,7 @@ StatsAbsValueAndPrev <- R6::R6Class("StatsAbsValueAndPrev",
   class = TRUE
 )
 
-
+#' @export
 StatsDateRangeDays <- R6::R6Class("StatsDateRangeDays",
   inherit = TLObject,
   public = list(
@@ -37452,6 +38049,7 @@ StatsDateRangeDays <- R6::R6Class("StatsDateRangeDays",
   class = TRUE
 )
 
+#' @export
 StatsGraph <- R6::R6Class("StatsGraph",
   inherit = TLObject,
   public = list(
@@ -37477,6 +38075,7 @@ StatsGraph <- R6::R6Class("StatsGraph",
   class = TRUE
 )
 
+#' @export
 StatsGraphAsync <- R6::R6Class("StatsGraphAsync",
   inherit = TLObject,
   public = list(
@@ -37499,6 +38098,7 @@ StatsGraphAsync <- R6::R6Class("StatsGraphAsync",
   class = TRUE
 )
 
+#' @export
 StatsGraphError <- R6::R6Class("StatsGraphError",
   inherit = TLObject,
   public = list(
@@ -37521,6 +38121,7 @@ StatsGraphError <- R6::R6Class("StatsGraphError",
   class = TRUE
 )
 
+#' @export
 StatsGroupTopAdmin <- R6::R6Class("StatsGroupTopAdmin",
   inherit = TLObject,
   public = list(
@@ -37549,6 +38150,7 @@ StatsGroupTopAdmin <- R6::R6Class("StatsGroupTopAdmin",
   class = TRUE
 )
 
+#' @export
 StatsGroupTopInviter <- R6::R6Class("StatsGroupTopInviter",
   inherit = TLObject,
   public = list(
@@ -37573,6 +38175,7 @@ StatsGroupTopInviter <- R6::R6Class("StatsGroupTopInviter",
   class = TRUE
 )
 
+#' @export
 StatsGroupTopPoster <- R6::R6Class("StatsGroupTopPoster",
   inherit = TLObject,
   public = list(
@@ -37599,6 +38202,7 @@ StatsGroupTopPoster <- R6::R6Class("StatsGroupTopPoster",
   class = TRUE
 )
 
+#' @export
 StatsPercentValue <- R6::R6Class("StatsPercentValue",
   inherit = TLObject,
   public = list(
@@ -37623,6 +38227,7 @@ StatsPercentValue <- R6::R6Class("StatsPercentValue",
   class = TRUE
 )
 
+#' @export
 StatsURL <- R6::R6Class("StatsURL",
   inherit = TLObject,
   public = list(
@@ -37645,6 +38250,7 @@ StatsURL <- R6::R6Class("StatsURL",
   class = TRUE
 )
 
+#' @export
 StickerKeyword <- R6::R6Class("StickerKeyword",
   inherit = TLObject,
   public = list(
@@ -37674,6 +38280,7 @@ StickerKeyword <- R6::R6Class("StickerKeyword",
   class = TRUE
 )
 
+#' @export
 StickerPack <- R6::R6Class("StickerPack",
   inherit = TLObject,
   public = list(
@@ -37703,6 +38310,7 @@ StickerPack <- R6::R6Class("StickerPack",
   class = TRUE
 )
 
+#' @export
 StickerSet <- R6::R6Class("StickerSet",
   inherit = TLObject,
   public = list(
@@ -37770,6 +38378,7 @@ StickerSet <- R6::R6Class("StickerSet",
   class = TRUE
 )
 
+#' @export
 StickerSetCovered <- R6::R6Class("StickerSetCovered",
   inherit = TLObject,
   public = list(
@@ -37794,6 +38403,7 @@ StickerSetCovered <- R6::R6Class("StickerSetCovered",
   class = TRUE
 )
 
+#' @export
 StickerSetFullCovered <- R6::R6Class("StickerSetFullCovered",
   inherit = TLObject,
   public = list(
@@ -37834,6 +38444,7 @@ StickerSetFullCovered <- R6::R6Class("StickerSetFullCovered",
   class = TRUE
 )
 
+#' @export
 StickerSetMultiCovered <- R6::R6Class("StickerSetMultiCovered",
   inherit = TLObject,
   public = list(
@@ -37862,7 +38473,7 @@ StickerSetMultiCovered <- R6::R6Class("StickerSetMultiCovered",
   class = TRUE
 )
 
-
+#' @export
 StickerSetNoCovered <- R6::R6Class("StickerSetNoCovered",
   inherit = TLObject,
   public = list(
@@ -37874,6 +38485,7 @@ StickerSetNoCovered <- R6::R6Class("StickerSetNoCovered",
   class = TRUE
 )
 
+#' @export
 StoriesStealthMode <- R6::R6Class("StoriesStealthMode",
   inherit = TLObject,
   public = list(
@@ -37890,6 +38502,7 @@ StoriesStealthMode <- R6::R6Class("StoriesStealthMode",
   class = TRUE
 )
 
+#' @export
 StoryAlbum <- R6::R6Class("StoryAlbum",
   inherit = TLObject,
   public = list(
@@ -37908,6 +38521,7 @@ StoryAlbum <- R6::R6Class("StoryAlbum",
   class = TRUE
 )
 
+#' @export
 StoryFwdHeader <- R6::R6Class("StoryFwdHeader",
   inherit = TLObject,
   public = list(
@@ -37926,6 +38540,7 @@ StoryFwdHeader <- R6::R6Class("StoryFwdHeader",
   class = TRUE
 )
 
+#' @export
 StoryItem <- R6::R6Class("StoryItem",
   inherit = TLObject,
   public = list(
@@ -37998,6 +38613,7 @@ StoryItem <- R6::R6Class("StoryItem",
   class = TRUE
 )
 
+#' @export
 StoryItemDeleted <- R6::R6Class("StoryItemDeleted",
   inherit = TLObject,
   public = list(
@@ -38009,6 +38625,7 @@ StoryItemDeleted <- R6::R6Class("StoryItemDeleted",
   class = TRUE
 )
 
+#' @export
 StoryItemSkipped <- R6::R6Class("StoryItemSkipped",
   inherit = TLObject,
   public = list(
@@ -38027,6 +38644,7 @@ StoryItemSkipped <- R6::R6Class("StoryItemSkipped",
   class = TRUE
 )
 
+#' @export
 StoryReaction <- R6::R6Class("StoryReaction",
   inherit = TLObject,
   public = list(
@@ -38038,6 +38656,7 @@ StoryReaction <- R6::R6Class("StoryReaction",
   class = TRUE
 )
 
+#' @export
 StoryReactionPublicForward <- R6::R6Class("StoryReactionPublicForward",
   inherit = TLObject,
   public = list(
@@ -38049,6 +38668,7 @@ StoryReactionPublicForward <- R6::R6Class("StoryReactionPublicForward",
   class = TRUE
 )
 
+#' @export
 StoryReactionPublicRepost <- R6::R6Class("StoryReactionPublicRepost",
   inherit = TLObject,
   public = list(
@@ -38060,6 +38680,7 @@ StoryReactionPublicRepost <- R6::R6Class("StoryReactionPublicRepost",
   class = TRUE
 )
 
+#' @export
 StoryView <- R6::R6Class("StoryView",
   inherit = TLObject,
   public = list(
@@ -38079,6 +38700,7 @@ StoryView <- R6::R6Class("StoryView",
   class = TRUE
 )
 
+#' @export
 StoryViewPublicForward <- R6::R6Class("StoryViewPublicForward",
   inherit = TLObject,
   public = list(
@@ -38096,6 +38718,7 @@ StoryViewPublicForward <- R6::R6Class("StoryViewPublicForward",
   class = TRUE
 )
 
+#' @export
 StoryViewPublicRepost <- R6::R6Class("StoryViewPublicRepost",
   inherit = TLObject,
   public = list(
@@ -38114,6 +38737,7 @@ StoryViewPublicRepost <- R6::R6Class("StoryViewPublicRepost",
   class = TRUE
 )
 
+#' @export
 StoryViews <- R6::R6Class("StoryViews",
   inherit = TLObject,
   public = list(
@@ -38152,6 +38776,7 @@ StoryViews <- R6::R6Class("StoryViews",
   class = TRUE
 )
 
+#' @export
 SuggestedPost <- R6::R6Class("SuggestedPost",
   inherit = TLObject,
   public = list(
@@ -38170,6 +38795,7 @@ SuggestedPost <- R6::R6Class("SuggestedPost",
   class = TRUE
 )
 
+#' @export
 TextAnchor <- R6::R6Class("TextAnchor",
   inherit = TLObject,
   public = list(
@@ -38181,6 +38807,7 @@ TextAnchor <- R6::R6Class("TextAnchor",
   class = TRUE
 )
 
+#' @export
 TextBold <- R6::R6Class("TextBold",
   inherit = TLObject,
   public = list(
@@ -38192,6 +38819,7 @@ TextBold <- R6::R6Class("TextBold",
   class = TRUE
 )
 
+#' @export
 TextConcat <- R6::R6Class("TextConcat",
   inherit = TLObject,
   public = list(
@@ -38211,6 +38839,7 @@ TextConcat <- R6::R6Class("TextConcat",
   class = TRUE
 )
 
+#' @export
 TextEmail <- R6::R6Class("TextEmail",
   inherit = TLObject,
   public = list(
@@ -38222,6 +38851,7 @@ TextEmail <- R6::R6Class("TextEmail",
   class = TRUE
 )
 
+#' @export
 TextEmpty <- R6::R6Class("TextEmpty",
   inherit = TLObject,
   public = list(
@@ -38233,6 +38863,7 @@ TextEmpty <- R6::R6Class("TextEmpty",
   class = TRUE
 )
 
+#' @export
 TextFixed <- R6::R6Class("TextFixed",
   inherit = TLObject,
   public = list(
@@ -38244,7 +38875,7 @@ TextFixed <- R6::R6Class("TextFixed",
   class = TRUE
 )
 
-
+#' @export
 TlsBlockString <- R6::R6Class("TlsBlockString",
   inherit = TLObject,
   public = list(
@@ -38264,6 +38895,7 @@ TlsBlockString <- R6::R6Class("TlsBlockString",
   class = TRUE
 )
 
+#' @export
 TlsBlockZero <- R6::R6Class("TlsBlockZero",
   inherit = TLObject,
   public = list(
@@ -38283,6 +38915,7 @@ TlsBlockZero <- R6::R6Class("TlsBlockZero",
   class = TRUE
 )
 
+#' @export
 TextImage <- R6::R6Class("TextImage",
   inherit = TLObject,
   public = list(
@@ -38304,6 +38937,7 @@ TextImage <- R6::R6Class("TextImage",
   class = TRUE
 )
 
+#' @export
 TextItalic <- R6::R6Class("TextItalic",
   inherit = TLObject,
   public = list(
@@ -38323,6 +38957,7 @@ TextItalic <- R6::R6Class("TextItalic",
   class = TRUE
 )
 
+#' @export
 TextMarked <- R6::R6Class("TextMarked",
   inherit = TLObject,
   public = list(
@@ -38342,6 +38977,7 @@ TextMarked <- R6::R6Class("TextMarked",
   class = TRUE
 )
 
+#' @export
 TextPhone <- R6::R6Class("TextPhone",
   inherit = TLObject,
   public = list(
@@ -38362,6 +38998,7 @@ TextPhone <- R6::R6Class("TextPhone",
   class = TRUE
 )
 
+#' @export
 TextPlain <- R6::R6Class("TextPlain",
   inherit = TLObject,
   public = list(
@@ -38381,6 +39018,7 @@ TextPlain <- R6::R6Class("TextPlain",
   class = TRUE
 )
 
+#' @export
 TextStrike <- R6::R6Class("TextStrike",
   inherit = TLObject,
   public = list(
@@ -38400,6 +39038,7 @@ TextStrike <- R6::R6Class("TextStrike",
   class = TRUE
 )
 
+#' @export
 TextSubscript <- R6::R6Class("TextSubscript",
   inherit = TLObject,
   public = list(
@@ -38419,6 +39058,7 @@ TextSubscript <- R6::R6Class("TextSubscript",
   class = TRUE
 )
 
+#' @export
 TextSuperscript <- R6::R6Class("TextSuperscript",
   inherit = TLObject,
   public = list(
@@ -38438,6 +39078,7 @@ TextSuperscript <- R6::R6Class("TextSuperscript",
   class = TRUE
 )
 
+#' @export
 TextUnderline <- R6::R6Class("TextUnderline",
   inherit = TLObject,
   public = list(
@@ -38457,6 +39098,7 @@ TextUnderline <- R6::R6Class("TextUnderline",
   class = TRUE
 )
 
+#' @export
 TextUrl <- R6::R6Class("TextUrl",
   inherit = TLObject,
   public = list(
@@ -38478,6 +39120,7 @@ TextUrl <- R6::R6Class("TextUrl",
   class = TRUE
 )
 
+#' @export
 TextWithEntities <- R6::R6Class("TextWithEntities",
   inherit = TLObject,
   public = list(
@@ -38503,6 +39146,7 @@ TextWithEntities <- R6::R6Class("TextWithEntities",
   class = TRUE
 )
 
+#' @export
 Theme <- R6::R6Class("Theme",
   inherit = TLObject,
   public = list(
@@ -38554,6 +39198,7 @@ Theme <- R6::R6Class("Theme",
   class = TRUE
 )
 
+#' @export
 ThemeSettings <- R6::R6Class("ThemeSettings",
   inherit = TLObject,
   public = list(
@@ -38595,6 +39240,7 @@ ThemeSettings <- R6::R6Class("ThemeSettings",
   class = TRUE
 )
 
+#' @export
 Timezone <- R6::R6Class("Timezone",
   inherit = TLObject,
   public = list(
@@ -38616,6 +39262,7 @@ Timezone <- R6::R6Class("Timezone",
   class = TRUE
 )
 
+#' @export
 TlsBlockDomain <- R6::R6Class("TlsBlockDomain",
   inherit = TLObject,
   public = list(
@@ -38632,6 +39279,7 @@ TlsBlockDomain <- R6::R6Class("TlsBlockDomain",
   class = TRUE
 )
 
+#' @export
 TlsBlockGrease <- R6::R6Class("TlsBlockGrease",
   inherit = TLObject,
   public = list(
@@ -38651,6 +39299,7 @@ TlsBlockGrease <- R6::R6Class("TlsBlockGrease",
   class = TRUE
 )
 
+#' @export
 TlsBlockPublicKey <- R6::R6Class("TlsBlockPublicKey",
   inherit = TLObject,
   public = list(
@@ -38667,6 +39316,7 @@ TlsBlockPublicKey <- R6::R6Class("TlsBlockPublicKey",
   class = TRUE
 )
 
+#' @export
 TlsBlockRandom <- R6::R6Class("TlsBlockRandom",
   inherit = TLObject,
   public = list(
@@ -38686,6 +39336,7 @@ TlsBlockRandom <- R6::R6Class("TlsBlockRandom",
   class = TRUE
 )
 
+#' @export
 TlsBlockScope <- R6::R6Class("TlsBlockScope",
   inherit = TLObject,
   public = list(
@@ -38709,7 +39360,7 @@ TlsBlockScope <- R6::R6Class("TlsBlockScope",
   class = TRUE
 )
 
-
+#' @export
 TlsClientHello <- R6::R6Class(
   "TlsClientHello",
   inherit = TLObject,
@@ -38751,6 +39402,7 @@ TlsClientHello <- R6::R6Class(
   )
 )
 
+#' @export
 TodoCompletion <- R6::R6Class(
   "TodoCompletion",
   inherit = TLObject,
@@ -38792,6 +39444,7 @@ TodoCompletion <- R6::R6Class(
   )
 )
 
+#' @export
 TodoItem <- R6::R6Class(
   "TodoItem",
   inherit = TLObject,
@@ -38828,7 +39481,7 @@ TodoItem <- R6::R6Class(
   )
 )
 
-
+#' @export
 TodoList <- R6::R6Class(
   "TodoList",
   inherit = TLObject,
@@ -38879,6 +39532,7 @@ TodoList <- R6::R6Class(
   )
 )
 
+#' @export
 TopPeer <- R6::R6Class(
   "TopPeer",
   inherit = TLObject,
@@ -38915,7 +39569,7 @@ TopPeer <- R6::R6Class(
   )
 )
 
-
+#' @export
 TopPeerCategoryBotsApp <- R6::R6Class(
   "TopPeerCategoryBotsApp",
   inherit = TLObject,
@@ -38937,6 +39591,7 @@ TopPeerCategoryBotsApp <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 TopPeerCategoryBotsInline <- R6::R6Class(
   "TopPeerCategoryBotsInline",
   inherit = TLObject,
@@ -38958,6 +39613,7 @@ TopPeerCategoryBotsInline <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 TopPeerCategoryBotsPM <- R6::R6Class(
   "TopPeerCategoryBotsPM",
   inherit = TLObject,
@@ -38979,6 +39635,7 @@ TopPeerCategoryBotsPM <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 TopPeerCategoryChannels <- R6::R6Class(
   "TopPeerCategoryChannels",
   inherit = TLObject,
@@ -39000,7 +39657,7 @@ TopPeerCategoryChannels <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 TopPeerCategoryCorrespondents <- R6::R6Class(
   "TopPeerCategoryCorrespondents",
   inherit = TLObject,
@@ -39022,6 +39679,7 @@ TopPeerCategoryCorrespondents <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 TopPeerCategoryForwardChats <- R6::R6Class(
   "TopPeerCategoryForwardChats",
   inherit = TLObject,
@@ -39043,6 +39701,7 @@ TopPeerCategoryForwardChats <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 TopPeerCategoryForwardUsers <- R6::R6Class(
   "TopPeerCategoryForwardUsers",
   inherit = TLObject,
@@ -39064,7 +39723,7 @@ TopPeerCategoryForwardUsers <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 TopPeerCategoryGroups <- R6::R6Class(
   "TopPeerCategoryGroups",
   inherit = TLObject,
@@ -39086,6 +39745,7 @@ TopPeerCategoryGroups <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 TopPeerCategoryPeers <- R6::R6Class(
   "TopPeerCategoryPeers",
   inherit = TLObject,
@@ -39128,6 +39788,7 @@ TopPeerCategoryPeers <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 TopPeerCategoryPhoneCalls <- R6::R6Class(
   "TopPeerCategoryPhoneCalls",
   inherit = TLObject,
@@ -39149,7 +39810,7 @@ TopPeerCategoryPhoneCalls <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 UpdateAttachMenuBots <- R6::R6Class(
   "UpdateAttachMenuBots",
   inherit = TLObject,
@@ -39171,6 +39832,7 @@ UpdateAttachMenuBots <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 UpdateAutoSaveSettings <- R6::R6Class(
   "UpdateAutoSaveSettings",
   inherit = TLObject,
@@ -39192,6 +39854,7 @@ UpdateAutoSaveSettings <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 UpdateBotBusinessConnect <- R6::R6Class(
   "UpdateBotBusinessConnect",
   inherit = TLObject,
@@ -39227,7 +39890,7 @@ UpdateBotBusinessConnect <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 UpdateBotCallbackQuery <- R6::R6Class(
   "UpdateBotCallbackQuery",
   inherit = TLObject,
@@ -39283,6 +39946,7 @@ UpdateBotCallbackQuery <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 UpdateBotChatBoost <- R6::R6Class(
   "UpdateBotChatBoost",
   inherit = TLObject,
@@ -39320,7 +39984,7 @@ UpdateBotChatBoost <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 UpdateBotChatInviteRequester <- R6::R6Class(
   "UpdateBotChatInviteRequester",
   inherit = TLObject,
@@ -39372,6 +40036,7 @@ UpdateBotChatInviteRequester <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 UpdateBotCommands <- R6::R6Class(
   "UpdateBotCommands",
   inherit = TLObject,
@@ -39417,7 +40082,7 @@ UpdateBotCommands <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 UpdateBotDeleteBusinessMessage <- R6::R6Class(
   "UpdateBotDeleteBusinessMessage",
   inherit = TLObject,
@@ -39464,6 +40129,7 @@ UpdateBotDeleteBusinessMessage <- R6::R6Class(
   class = TRUE
 )
 
+#' @export
 UpdateBotEditBusinessMessage <- R6::R6Class(
   "UpdateBotEditBusinessMessage",
   inherit = TLObject,
@@ -39509,7 +40175,7 @@ UpdateBotEditBusinessMessage <- R6::R6Class(
   class = TRUE
 )
 
-
+#' @export
 UpdateBotInlineQuery <- R6::R6Class("UpdateBotInlineQuery",
   inherit = TLObject,
   public = list(
@@ -39562,6 +40228,7 @@ UpdateBotInlineQuery <- R6::R6Class("UpdateBotInlineQuery",
   class = TRUE
 )
 
+#' @export
 UpdateBotInlineSend <- R6::R6Class("UpdateBotInlineSend",
   inherit = TLObject,
   public = list(
@@ -39610,6 +40277,7 @@ UpdateBotInlineSend <- R6::R6Class("UpdateBotInlineSend",
   class = TRUE
 )
 
+#' @export
 UpdateBotMenuButton <- R6::R6Class("UpdateBotMenuButton",
   inherit = TLObject,
   public = list(
@@ -39644,6 +40312,7 @@ UpdateBotMenuButton <- R6::R6Class("UpdateBotMenuButton",
   class = TRUE
 )
 
+#' @export
 UpdateBotMessageReaction <- R6::R6Class("UpdateBotMessageReaction",
   inherit = TLObject,
   public = list(
@@ -39706,6 +40375,7 @@ UpdateBotMessageReaction <- R6::R6Class("UpdateBotMessageReaction",
   class = TRUE
 )
 
+#' @export
 UpdateBotMessageReactions <- R6::R6Class("UpdateBotMessageReactions",
   inherit = TLObject,
   public = list(
@@ -39756,6 +40426,7 @@ UpdateBotMessageReactions <- R6::R6Class("UpdateBotMessageReactions",
   class = TRUE
 )
 
+#' @export
 UpdateBotNewBusinessMessage <- R6::R6Class("UpdateBotNewBusinessMessage",
   inherit = TLObject,
   public = list(
@@ -39800,6 +40471,7 @@ UpdateBotNewBusinessMessage <- R6::R6Class("UpdateBotNewBusinessMessage",
   class = TRUE
 )
 
+#' @export
 UpdateBotPrecheckoutQuery <- R6::R6Class("UpdateBotPrecheckoutQuery",
   inherit = TLObject,
   public = list(
@@ -39856,6 +40528,7 @@ UpdateBotPrecheckoutQuery <- R6::R6Class("UpdateBotPrecheckoutQuery",
   class = TRUE
 )
 
+#' @export
 UpdateBotPurchasedPaidMedia <- R6::R6Class("UpdateBotPurchasedPaidMedia",
   inherit = TLObject,
   public = list(
@@ -39894,6 +40567,7 @@ UpdateBotPurchasedPaidMedia <- R6::R6Class("UpdateBotPurchasedPaidMedia",
   class = TRUE
 )
 
+#' @export
 UpdateBotShippingQuery <- R6::R6Class("UpdateBotShippingQuery",
   inherit = TLObject,
   public = list(
@@ -39936,6 +40610,7 @@ UpdateBotShippingQuery <- R6::R6Class("UpdateBotShippingQuery",
   class = TRUE
 )
 
+#' @export
 UpdateBotStopped <- R6::R6Class("UpdateBotStopped",
   inherit = TLObject,
   public = list(
@@ -39978,6 +40653,7 @@ UpdateBotStopped <- R6::R6Class("UpdateBotStopped",
   class = TRUE
 )
 
+#' @export
 UpdateBotWebhookJSON <- R6::R6Class("UpdateBotWebhookJSON",
   inherit = TLObject,
   public = list(
@@ -40008,6 +40684,7 @@ UpdateBotWebhookJSON <- R6::R6Class("UpdateBotWebhookJSON",
   class = TRUE
 )
 
+#' @export
 UpdateBotWebhookJSONQuery <- R6::R6Class("UpdateBotWebhookJSONQuery",
   inherit = TLObject,
   public = list(
@@ -40046,6 +40723,7 @@ UpdateBotWebhookJSONQuery <- R6::R6Class("UpdateBotWebhookJSONQuery",
   class = TRUE
 )
 
+#' @export
 UpdateBusinessBotCallbackQuery <- R6::R6Class("UpdateBusinessBotCallbackQuery",
   inherit = TLObject,
   public = list(
@@ -40102,6 +40780,7 @@ UpdateBusinessBotCallbackQuery <- R6::R6Class("UpdateBusinessBotCallbackQuery",
   class = TRUE
 )
 
+#' @export
 UpdateChannel <- R6::R6Class("UpdateChannel",
   inherit = TLObject,
   public = list(
@@ -40132,6 +40811,7 @@ UpdateChannel <- R6::R6Class("UpdateChannel",
   class = TRUE
 )
 
+#' @export
 UpdateChannelAvailableMessages <- R6::R6Class("UpdateChannelAvailableMessages",
   inherit = TLObject,
   public = list(
@@ -40166,6 +40846,7 @@ UpdateChannelAvailableMessages <- R6::R6Class("UpdateChannelAvailableMessages",
   class = TRUE
 )
 
+#' @export
 UpdateChannelMessageForwards <- R6::R6Class("UpdateChannelMessageForwards",
   inherit = TLObject,
   public = list(
@@ -40204,6 +40885,7 @@ UpdateChannelMessageForwards <- R6::R6Class("UpdateChannelMessageForwards",
   class = TRUE
 )
 
+#' @export
 UpdateChannelMessageViews <- R6::R6Class("UpdateChannelMessageViews",
   inherit = TLObject,
   public = list(
@@ -40242,6 +40924,7 @@ UpdateChannelMessageViews <- R6::R6Class("UpdateChannelMessageViews",
   class = TRUE
 )
 
+#' @export
 UpdateChannelParticipant <- R6::R6Class("UpdateChannelParticipant",
   inherit = TLObject,
   public = list(
@@ -40305,6 +40988,7 @@ UpdateChannelParticipant <- R6::R6Class("UpdateChannelParticipant",
   class = TRUE
 )
 
+#' @export
 UpdateChannelPinnedTopic <- R6::R6Class("UpdateChannelPinnedTopic",
   inherit = TLObject,
   public = list(
@@ -40344,6 +41028,7 @@ UpdateChannelPinnedTopic <- R6::R6Class("UpdateChannelPinnedTopic",
   class = TRUE
 )
 
+#' @export
 UpdateChannelPinnedTopics <- R6::R6Class("UpdateChannelPinnedTopics",
   inherit = TLObject,
   public = list(
@@ -40386,6 +41071,7 @@ UpdateChannelPinnedTopics <- R6::R6Class("UpdateChannelPinnedTopics",
   class = TRUE
 )
 
+#' @export
 UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesContents",
   inherit = TLObject,
   public = list(
@@ -40434,6 +41120,7 @@ UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesConte
   class = TRUE
 )
 
+#' @export
 UpdateChannelTooLong <- R6::R6Class("UpdateChannelTooLong",
   inherit = TLObject,
   public = list(
@@ -40468,6 +41155,7 @@ UpdateChannelTooLong <- R6::R6Class("UpdateChannelTooLong",
   class = TRUE
 )
 
+#' @export
 UpdateChannelUserTyping <- R6::R6Class("UpdateChannelUserTyping",
   inherit = TLObject,
   public = list(
@@ -40510,6 +41198,7 @@ UpdateChannelUserTyping <- R6::R6Class("UpdateChannelUserTyping",
   class = TRUE
 )
 
+#' @export
 UpdateChannelViewForumAsMessages <- R6::R6Class("UpdateChannelViewForumAsMessages",
   inherit = TLObject,
   public = list(
@@ -40544,6 +41233,7 @@ UpdateChannelViewForumAsMessages <- R6::R6Class("UpdateChannelViewForumAsMessage
   class = TRUE
 )
 
+#' @export
 UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
   inherit = TLObject,
   public = list(
@@ -40586,6 +41276,7 @@ UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
   class = TRUE
 )
 
+#' @export
 UpdateChat <- R6::R6Class("UpdateChat",
   inherit = TLObject,
   public = list(
@@ -40616,6 +41307,7 @@ UpdateChat <- R6::R6Class("UpdateChat",
   class = TRUE
 )
 
+#' @export
 UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
   inherit = TLObject,
   public = list(
@@ -40654,6 +41346,7 @@ UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
   class = TRUE
 )
 
+#' @export
 UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
   inherit = TLObject,
   public = list(
@@ -40712,6 +41405,7 @@ UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
   class = TRUE
 )
 
+#' @export
 UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
   inherit = TLObject,
   public = list(
@@ -40758,6 +41452,7 @@ UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
   class = TRUE
 )
 
+#' @export
 UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
   inherit = TLObject,
   public = list(
@@ -40800,7 +41495,7 @@ UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
   class = TRUE
 )
 
-
+#' @export
 UpdateBotInlineQuery <- R6::R6Class("UpdateBotInlineQuery",
   inherit = TLObject,
   public = list(
@@ -40812,6 +41507,7 @@ UpdateBotInlineQuery <- R6::R6Class("UpdateBotInlineQuery",
   class = TRUE
 )
 
+#' @export
 UpdateBotInlineSend <- R6::R6Class("UpdateBotInlineSend",
   inherit = TLObject,
   public = list(
@@ -40823,6 +41519,7 @@ UpdateBotInlineSend <- R6::R6Class("UpdateBotInlineSend",
   class = TRUE
 )
 
+#' @export
 UpdateBotMenuButton <- R6::R6Class("UpdateBotMenuButton",
   inherit = TLObject,
   public = list(
@@ -40834,6 +41531,7 @@ UpdateBotMenuButton <- R6::R6Class("UpdateBotMenuButton",
   class = TRUE
 )
 
+#' @export
 UpdateBotMessageReaction <- R6::R6Class("UpdateBotMessageReaction",
   inherit = TLObject,
   public = list(
@@ -40853,6 +41551,7 @@ UpdateBotMessageReaction <- R6::R6Class("UpdateBotMessageReaction",
   class = TRUE
 )
 
+#' @export
 UpdateBotMessageReactions <- R6::R6Class("UpdateBotMessageReactions",
   inherit = TLObject,
   public = list(
@@ -40869,6 +41568,7 @@ UpdateBotMessageReactions <- R6::R6Class("UpdateBotMessageReactions",
   class = TRUE
 )
 
+#' @export
 UpdateBotNewBusinessMessage <- R6::R6Class("UpdateBotNewBusinessMessage",
   inherit = TLObject,
   public = list(
@@ -40880,6 +41580,7 @@ UpdateBotNewBusinessMessage <- R6::R6Class("UpdateBotNewBusinessMessage",
   class = TRUE
 )
 
+#' @export
 UpdateBotPrecheckoutQuery <- R6::R6Class("UpdateBotPrecheckoutQuery",
   inherit = TLObject,
   public = list(
@@ -40891,6 +41592,7 @@ UpdateBotPrecheckoutQuery <- R6::R6Class("UpdateBotPrecheckoutQuery",
   class = TRUE
 )
 
+#' @export
 UpdateBotPurchasedPaidMedia <- R6::R6Class("UpdateBotPurchasedPaidMedia",
   inherit = TLObject,
   public = list(
@@ -40902,6 +41604,7 @@ UpdateBotPurchasedPaidMedia <- R6::R6Class("UpdateBotPurchasedPaidMedia",
   class = TRUE
 )
 
+#' @export
 UpdateBotShippingQuery <- R6::R6Class("UpdateBotShippingQuery",
   inherit = TLObject,
   public = list(
@@ -40913,6 +41616,7 @@ UpdateBotShippingQuery <- R6::R6Class("UpdateBotShippingQuery",
   class = TRUE
 )
 
+#' @export
 UpdateBotStopped <- R6::R6Class("UpdateBotStopped",
   inherit = TLObject,
   public = list(
@@ -40924,6 +41628,7 @@ UpdateBotStopped <- R6::R6Class("UpdateBotStopped",
   class = TRUE
 )
 
+#' @export
 UpdateBotWebhookJSON <- R6::R6Class("UpdateBotWebhookJSON",
   inherit = TLObject,
   public = list(
@@ -40935,6 +41640,7 @@ UpdateBotWebhookJSON <- R6::R6Class("UpdateBotWebhookJSON",
   class = TRUE
 )
 
+#' @export
 UpdateBotWebhookJSONQuery <- R6::R6Class("UpdateBotWebhookJSONQuery",
   inherit = TLObject,
   public = list(
@@ -40946,6 +41652,7 @@ UpdateBotWebhookJSONQuery <- R6::R6Class("UpdateBotWebhookJSONQuery",
   class = TRUE
 )
 
+#' @export
 UpdateBusinessBotCallbackQuery <- R6::R6Class("UpdateBusinessBotCallbackQuery",
   inherit = TLObject,
   public = list(
@@ -40957,6 +41664,7 @@ UpdateBusinessBotCallbackQuery <- R6::R6Class("UpdateBusinessBotCallbackQuery",
   class = TRUE
 )
 
+#' @export
 UpdateChannel <- R6::R6Class("UpdateChannel",
   inherit = TLObject,
   public = list(
@@ -40968,6 +41676,7 @@ UpdateChannel <- R6::R6Class("UpdateChannel",
   class = TRUE
 )
 
+#' @export
 UpdateChannelAvailableMessages <- R6::R6Class("UpdateChannelAvailableMessages",
   inherit = TLObject,
   public = list(
@@ -40979,6 +41688,7 @@ UpdateChannelAvailableMessages <- R6::R6Class("UpdateChannelAvailableMessages",
   class = TRUE
 )
 
+#' @export
 UpdateChannelMessageForwards <- R6::R6Class("UpdateChannelMessageForwards",
   inherit = TLObject,
   public = list(
@@ -40990,6 +41700,7 @@ UpdateChannelMessageForwards <- R6::R6Class("UpdateChannelMessageForwards",
   class = TRUE
 )
 
+#' @export
 UpdateChannelMessageViews <- R6::R6Class("UpdateChannelMessageViews",
   inherit = TLObject,
   public = list(
@@ -41001,6 +41712,7 @@ UpdateChannelMessageViews <- R6::R6Class("UpdateChannelMessageViews",
   class = TRUE
 )
 
+#' @export
 UpdateChannelParticipant <- R6::R6Class("UpdateChannelParticipant",
   inherit = TLObject,
   public = list(
@@ -41012,6 +41724,7 @@ UpdateChannelParticipant <- R6::R6Class("UpdateChannelParticipant",
   class = TRUE
 )
 
+#' @export
 UpdateChannelPinnedTopic <- R6::R6Class("UpdateChannelPinnedTopic",
   inherit = TLObject,
   public = list(
@@ -41023,6 +41736,7 @@ UpdateChannelPinnedTopic <- R6::R6Class("UpdateChannelPinnedTopic",
   class = TRUE
 )
 
+#' @export
 UpdateChannelPinnedTopics <- R6::R6Class("UpdateChannelPinnedTopics",
   inherit = TLObject,
   public = list(
@@ -41041,6 +41755,7 @@ UpdateChannelPinnedTopics <- R6::R6Class("UpdateChannelPinnedTopics",
   class = TRUE
 )
 
+#' @export
 UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesContents",
   inherit = TLObject,
   public = list(
@@ -41057,6 +41772,7 @@ UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesConte
   class = TRUE
 )
 
+#' @export
 UpdateChannelTooLong <- R6::R6Class("UpdateChannelTooLong",
   inherit = TLObject,
   public = list(
@@ -41068,6 +41784,7 @@ UpdateChannelTooLong <- R6::R6Class("UpdateChannelTooLong",
   class = TRUE
 )
 
+#' @export
 UpdateChannelUserTyping <- R6::R6Class("UpdateChannelUserTyping",
   inherit = TLObject,
   public = list(
@@ -41079,6 +41796,7 @@ UpdateChannelUserTyping <- R6::R6Class("UpdateChannelUserTyping",
   class = TRUE
 )
 
+#' @export
 UpdateChannelViewForumAsMessages <- R6::R6Class("UpdateChannelViewForumAsMessages",
   inherit = TLObject,
   public = list(
@@ -41090,6 +41808,7 @@ UpdateChannelViewForumAsMessages <- R6::R6Class("UpdateChannelViewForumAsMessage
   class = TRUE
 )
 
+#' @export
 UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
   inherit = TLObject,
   public = list(
@@ -41101,7 +41820,7 @@ UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
   class = TRUE
 )
 
-
+#' @export
 UpdateChat <- R6::R6Class("UpdateChat",
   inherit = TLObject,
   public = list(
@@ -41126,6 +41845,7 @@ UpdateChat <- R6::R6Class("UpdateChat",
   class = TRUE
 )
 
+#' @export
 UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
   inherit = TLObject,
   public = list(
@@ -41154,6 +41874,7 @@ UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
   class = TRUE
 )
 
+#' @export
 UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
   inherit = TLObject,
   public = list(
@@ -41194,6 +41915,7 @@ UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
   class = TRUE
 )
 
+#' @export
 UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
   inherit = TLObject,
   public = list(
@@ -41226,6 +41948,7 @@ UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
   class = TRUE
 )
 
+#' @export
 UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
   inherit = TLObject,
   public = list(
@@ -41256,6 +41979,7 @@ UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
   class = TRUE
 )
 
+#' @export
 UpdateChatParticipantDelete <- R6::R6Class("UpdateChatParticipantDelete",
   inherit = TLObject,
   public = list(
@@ -41284,7 +42008,7 @@ UpdateChatParticipantDelete <- R6::R6Class("UpdateChatParticipantDelete",
   class = TRUE
 )
 
-
+#' @export
 UpdateChatParticipants <- R6::R6Class("UpdateChatParticipants",
   inherit = TLObject,
   public = list(
@@ -41312,6 +42036,7 @@ UpdateChatParticipants <- R6::R6Class("UpdateChatParticipants",
   class = TRUE
 )
 
+#' @export
 UpdateChatUserTyping <- R6::R6Class("UpdateChatUserTyping",
   inherit = TLObject,
   public = list(
@@ -41345,6 +42070,7 @@ UpdateChatUserTyping <- R6::R6Class("UpdateChatUserTyping",
   class = TRUE
 )
 
+#' @export
 UpdateConfig <- R6::R6Class("UpdateConfig",
   inherit = TLObject,
   public = list(
@@ -41365,6 +42091,7 @@ UpdateConfig <- R6::R6Class("UpdateConfig",
   class = TRUE
 )
 
+#' @export
 UpdateContactsReset <- R6::R6Class("UpdateContactsReset",
   inherit = TLObject,
   public = list(
@@ -41385,6 +42112,7 @@ UpdateContactsReset <- R6::R6Class("UpdateContactsReset",
   class = TRUE
 )
 
+#' @export
 UpdateDcOptions <- R6::R6Class("UpdateDcOptions",
   inherit = TLObject,
   public = list(
@@ -41413,6 +42141,7 @@ UpdateDcOptions <- R6::R6Class("UpdateDcOptions",
   class = TRUE
 )
 
+#' @export
 UpdateDeleteChannelMessages <- R6::R6Class("UpdateDeleteChannelMessages",
   inherit = TLObject,
   public = list(
@@ -41450,6 +42179,7 @@ UpdateDeleteChannelMessages <- R6::R6Class("UpdateDeleteChannelMessages",
   class = TRUE
 )
 
+#' @export
 UpdateDeleteMessages <- R6::R6Class("UpdateDeleteMessages",
   inherit = TLObject,
   public = list(
@@ -41484,6 +42214,7 @@ UpdateDeleteMessages <- R6::R6Class("UpdateDeleteMessages",
   class = TRUE
 )
 
+#' @export
 UpdateDeleteQuickReply <- R6::R6Class("UpdateDeleteQuickReply",
   inherit = TLObject,
   public = list(
@@ -41511,6 +42242,7 @@ UpdateDeleteQuickReply <- R6::R6Class("UpdateDeleteQuickReply",
   class = TRUE
 )
 
+#' @export
 UpdateDeleteQuickReplyMessages <- R6::R6Class("UpdateDeleteQuickReplyMessages",
   inherit = TLObject,
   public = list(
@@ -41542,6 +42274,7 @@ UpdateDeleteQuickReplyMessages <- R6::R6Class("UpdateDeleteQuickReplyMessages",
   class = TRUE
 )
 
+#' @export
 UpdateDeleteScheduledMessages <- R6::R6Class("UpdateDeleteScheduledMessages",
   inherit = TLObject,
   public = list(
@@ -41583,6 +42316,7 @@ UpdateDeleteScheduledMessages <- R6::R6Class("UpdateDeleteScheduledMessages",
   class = TRUE
 )
 
+#' @export
 UpdateDialogFilter <- R6::R6Class("UpdateDialogFilter",
   inherit = TLObject,
   public = list(
@@ -41615,6 +42349,7 @@ UpdateDialogFilter <- R6::R6Class("UpdateDialogFilter",
   class = TRUE
 )
 
+#' @export
 UpdateDialogFilterOrder <- R6::R6Class("UpdateDialogFilterOrder",
   inherit = TLObject,
   public = list(
@@ -41643,6 +42378,7 @@ UpdateDialogFilterOrder <- R6::R6Class("UpdateDialogFilterOrder",
   class = TRUE
 )
 
+#' @export
 UpdateDialogFilters <- R6::R6Class("UpdateDialogFilters",
   inherit = TLObject,
   public = list(
@@ -41663,6 +42399,7 @@ UpdateDialogFilters <- R6::R6Class("UpdateDialogFilters",
   class = TRUE
 )
 
+#' @export
 UpdateDialogPinned <- R6::R6Class("UpdateDialogPinned",
   inherit = TLObject,
   public = list(
@@ -41698,6 +42435,7 @@ UpdateDialogPinned <- R6::R6Class("UpdateDialogPinned",
   class = TRUE
 )
 
+#' @export
 UpdateDialogUnreadMark <- R6::R6Class("UpdateDialogUnreadMark",
   inherit = TLObject,
   public = list(
@@ -41733,7 +42471,7 @@ UpdateDialogUnreadMark <- R6::R6Class("UpdateDialogUnreadMark",
   class = TRUE
 )
 
-
+#' @export
 UpdateDraftMessage <- R6::R6Class("UpdateDraftMessage",
   inherit = TLObject,
   public = list(
@@ -41765,6 +42503,7 @@ UpdateDraftMessage <- R6::R6Class("UpdateDraftMessage",
   class = TRUE
 )
 
+#' @export
 UpdateEditChannelMessage <- R6::R6Class("UpdateEditChannelMessage",
   inherit = TLObject,
   public = list(
@@ -41793,6 +42532,7 @@ UpdateEditChannelMessage <- R6::R6Class("UpdateEditChannelMessage",
   class = TRUE
 )
 
+#' @export
 UpdateEditMessage <- R6::R6Class("UpdateEditMessage",
   inherit = TLObject,
   public = list(
@@ -41821,6 +42561,7 @@ UpdateEditMessage <- R6::R6Class("UpdateEditMessage",
   class = TRUE
 )
 
+#' @export
 UpdateEncryptedChatTyping <- R6::R6Class("UpdateEncryptedChatTyping",
   inherit = TLObject,
   public = list(
@@ -41845,6 +42586,7 @@ UpdateEncryptedChatTyping <- R6::R6Class("UpdateEncryptedChatTyping",
   class = TRUE
 )
 
+#' @export
 UpdateEncryptedMessagesRead <- R6::R6Class("UpdateEncryptedMessagesRead",
   inherit = TLObject,
   public = list(
@@ -41873,6 +42615,7 @@ UpdateEncryptedMessagesRead <- R6::R6Class("UpdateEncryptedMessagesRead",
   class = TRUE
 )
 
+#' @export
 UpdateEncryption <- R6::R6Class("UpdateEncryption",
   inherit = TLObject,
   public = list(
@@ -41899,6 +42642,7 @@ UpdateEncryption <- R6::R6Class("UpdateEncryption",
   class = TRUE
 )
 
+#' @export
 UpdateFavedStickers <- R6::R6Class("UpdateFavedStickers",
   inherit = TLObject,
   public = list(
@@ -41917,6 +42661,7 @@ UpdateFavedStickers <- R6::R6Class("UpdateFavedStickers",
   class = TRUE
 )
 
+#' @export
 UpdateFolderPeers <- R6::R6Class("UpdateFolderPeers",
   inherit = TLObject,
   public = list(
@@ -41946,6 +42691,7 @@ UpdateFolderPeers <- R6::R6Class("UpdateFolderPeers",
   class = TRUE
 )
 
+#' @export
 UpdateGeoLiveViewed <- R6::R6Class("UpdateGeoLiveViewed",
   inherit = TLObject,
   public = list(
@@ -41972,6 +42718,7 @@ UpdateGeoLiveViewed <- R6::R6Class("UpdateGeoLiveViewed",
   class = TRUE
 )
 
+#' @export
 UpdateGroupCall <- R6::R6Class("UpdateGroupCall",
   inherit = TLObject,
   public = list(
@@ -41999,7 +42746,7 @@ UpdateGroupCall <- R6::R6Class("UpdateGroupCall",
   class = TRUE
 )
 
-
+#' @export
 UpdateGroupCallChainBlocks <- R6::R6Class("UpdateGroupCallChainBlocks",
   inherit = TLObject,
   public = list(
@@ -42048,6 +42795,7 @@ UpdateGroupCallChainBlocks <- R6::R6Class("UpdateGroupCallChainBlocks",
   class = TRUE
 )
 
+#' @export
 UpdateGroupCallConnection <- R6::R6Class("UpdateGroupCallConnection",
   inherit = TLObject,
   public = list(
@@ -42084,6 +42832,7 @@ UpdateGroupCallConnection <- R6::R6Class("UpdateGroupCallConnection",
   class = TRUE
 )
 
+#' @export
 UpdateGroupCallParticipants <- R6::R6Class("UpdateGroupCallParticipants",
   inherit = TLObject,
   public = list(
@@ -42128,6 +42877,7 @@ UpdateGroupCallParticipants <- R6::R6Class("UpdateGroupCallParticipants",
   class = TRUE
 )
 
+#' @export
 UpdateInlineBotCallbackQuery <- R6::R6Class("UpdateInlineBotCallbackQuery",
   inherit = TLObject,
   public = list(
@@ -42181,6 +42931,7 @@ UpdateInlineBotCallbackQuery <- R6::R6Class("UpdateInlineBotCallbackQuery",
   class = TRUE
 )
 
+#' @export
 UpdateLangPack <- R6::R6Class("UpdateLangPack",
   inherit = TLObject,
   public = list(
@@ -42212,6 +42963,7 @@ UpdateLangPack <- R6::R6Class("UpdateLangPack",
   class = TRUE
 )
 
+#' @export
 UpdateLangPackTooLong <- R6::R6Class("UpdateLangPackTooLong",
   inherit = TLObject,
   public = list(
@@ -42243,6 +42995,7 @@ UpdateLangPackTooLong <- R6::R6Class("UpdateLangPackTooLong",
   class = TRUE
 )
 
+#' @export
 UpdateLoginToken <- R6::R6Class("UpdateLoginToken",
   inherit = TLObject,
   public = list(
@@ -42263,6 +43016,7 @@ UpdateLoginToken <- R6::R6Class("UpdateLoginToken",
   class = TRUE
 )
 
+#' @export
 UpdateMessageExtendedMedia <- R6::R6Class("UpdateMessageExtendedMedia",
   inherit = TLObject,
   public = list(
@@ -42307,6 +43061,7 @@ UpdateMessageExtendedMedia <- R6::R6Class("UpdateMessageExtendedMedia",
   class = TRUE
 )
 
+#' @export
 UpdateMessageID <- R6::R6Class("UpdateMessageID",
   inherit = TLObject,
   public = list(
@@ -42342,6 +43097,7 @@ UpdateMessageID <- R6::R6Class("UpdateMessageID",
   class = TRUE
 )
 
+#' @export
 UpdateMessagePoll <- R6::R6Class("UpdateMessagePoll",
   inherit = TLObject,
   public = list(
@@ -42383,6 +43139,7 @@ UpdateMessagePoll <- R6::R6Class("UpdateMessagePoll",
   class = TRUE
 )
 
+#' @export
 UpdateMessagePollVote <- R6::R6Class("UpdateMessagePollVote",
   inherit = TLObject,
   public = list(
@@ -42431,6 +43188,7 @@ UpdateMessagePollVote <- R6::R6Class("UpdateMessagePollVote",
   class = TRUE
 )
 
+#' @export
 UpdateMessageReactions <- R6::R6Class("UpdateMessageReactions",
   inherit = TLObject,
   public = list(
@@ -42480,6 +43238,7 @@ UpdateMessageReactions <- R6::R6Class("UpdateMessageReactions",
   class = TRUE
 )
 
+#' @export
 UpdateMonoForumNoPaidException <- R6::R6Class("UpdateMonoForumNoPaidException",
   inherit = TLObject,
   public = list(
@@ -42520,6 +43279,7 @@ UpdateMonoForumNoPaidException <- R6::R6Class("UpdateMonoForumNoPaidException",
   class = TRUE
 )
 
+#' @export
 UpdateMoveStickerSetToTop <- R6::R6Class("UpdateMoveStickerSetToTop",
   inherit = TLObject,
   public = list(
@@ -42559,6 +43319,7 @@ UpdateMoveStickerSetToTop <- R6::R6Class("UpdateMoveStickerSetToTop",
   class = TRUE
 )
 
+#' @export
 UpdateNewAuthorization <- R6::R6Class("UpdateNewAuthorization",
   inherit = TLObject,
   public = list(
@@ -42608,6 +43369,7 @@ UpdateNewAuthorization <- R6::R6Class("UpdateNewAuthorization",
   class = TRUE
 )
 
+#' @export
 UpdateNewChannelMessage <- R6::R6Class("UpdateNewChannelMessage",
   inherit = TLObject,
   public = list(
@@ -42647,6 +43409,7 @@ UpdateNewChannelMessage <- R6::R6Class("UpdateNewChannelMessage",
   class = TRUE
 )
 
+#' @export
 UpdateNewEncryptedMessage <- R6::R6Class("UpdateNewEncryptedMessage",
   inherit = TLObject,
   public = list(
@@ -42682,6 +43445,7 @@ UpdateNewEncryptedMessage <- R6::R6Class("UpdateNewEncryptedMessage",
   class = TRUE
 )
 
+#' @export
 UpdateNewMessage <- R6::R6Class("UpdateNewMessage",
   inherit = TLObject,
   public = list(
@@ -42721,6 +43485,7 @@ UpdateNewMessage <- R6::R6Class("UpdateNewMessage",
   class = TRUE
 )
 
+#' @export
 UpdateNewQuickReply <- R6::R6Class("UpdateNewQuickReply",
   inherit = TLObject,
   public = list(
@@ -42752,7 +43517,7 @@ UpdateNewQuickReply <- R6::R6Class("UpdateNewQuickReply",
   class = TRUE
 )
 
-
+#' @export
 UpdateNewScheduledMessage <- R6::R6Class("UpdateNewScheduledMessage",
   inherit = TLObject,
   public = list(
@@ -42780,6 +43545,7 @@ UpdateNewScheduledMessage <- R6::R6Class("UpdateNewScheduledMessage",
   class = TRUE
 )
 
+#' @export
 UpdateNewStickerSet <- R6::R6Class("UpdateNewStickerSet",
   inherit = TLObject,
   public = list(
@@ -42807,6 +43573,7 @@ UpdateNewStickerSet <- R6::R6Class("UpdateNewStickerSet",
   class = TRUE
 )
 
+#' @export
 UpdateNewStoryReaction <- R6::R6Class("UpdateNewStoryReaction",
   inherit = TLObject,
   public = list(
@@ -42840,6 +43607,7 @@ UpdateNewStoryReaction <- R6::R6Class("UpdateNewStoryReaction",
   class = TRUE
 )
 
+#' @export
 UpdateNotifySettings <- R6::R6Class("UpdateNotifySettings",
   inherit = TLObject,
   public = list(
@@ -42870,6 +43638,7 @@ UpdateNotifySettings <- R6::R6Class("UpdateNotifySettings",
   class = TRUE
 )
 
+#' @export
 UpdatePaidReactionPrivacy <- R6::R6Class("UpdatePaidReactionPrivacy",
   inherit = TLObject,
   public = list(
@@ -42897,6 +43666,7 @@ UpdatePaidReactionPrivacy <- R6::R6Class("UpdatePaidReactionPrivacy",
   class = TRUE
 )
 
+#' @export
 UpdatePeerBlocked <- R6::R6Class("UpdatePeerBlocked",
   inherit = TLObject,
   public = list(
@@ -42932,6 +43702,7 @@ UpdatePeerBlocked <- R6::R6Class("UpdatePeerBlocked",
   class = TRUE
 )
 
+#' @export
 UpdatePeerHistoryTTL <- R6::R6Class("UpdatePeerHistoryTTL",
   inherit = TLObject,
   public = list(
@@ -42964,6 +43735,7 @@ UpdatePeerHistoryTTL <- R6::R6Class("UpdatePeerHistoryTTL",
   class = TRUE
 )
 
+#' @export
 UpdatePeerLocated <- R6::R6Class("UpdatePeerLocated",
   inherit = TLObject,
   public = list(
@@ -42992,6 +43764,7 @@ UpdatePeerLocated <- R6::R6Class("UpdatePeerLocated",
   class = TRUE
 )
 
+#' @export
 UpdatePeerSettings <- R6::R6Class("UpdatePeerSettings",
   inherit = TLObject,
   public = list(
@@ -43022,6 +43795,7 @@ UpdatePeerSettings <- R6::R6Class("UpdatePeerSettings",
   class = TRUE
 )
 
+#' @export
 UpdatePeerWallpaper <- R6::R6Class("UpdatePeerWallpaper",
   inherit = TLObject,
   public = list(
@@ -43057,6 +43831,7 @@ UpdatePeerWallpaper <- R6::R6Class("UpdatePeerWallpaper",
   class = TRUE
 )
 
+#' @export
 UpdatePendingJoinRequests <- R6::R6Class("UpdatePendingJoinRequests",
   inherit = TLObject,
   public = list(
@@ -43091,6 +43866,7 @@ UpdatePendingJoinRequests <- R6::R6Class("UpdatePendingJoinRequests",
   class = TRUE
 )
 
+#' @export
 UpdatePhoneCall <- R6::R6Class("UpdatePhoneCall",
   inherit = TLObject,
   public = list(
@@ -43118,6 +43894,7 @@ UpdatePhoneCall <- R6::R6Class("UpdatePhoneCall",
   class = TRUE
 )
 
+#' @export
 UpdatePhoneCallSignalingData <- R6::R6Class("UpdatePhoneCallSignalingData",
   inherit = TLObject,
   public = list(
@@ -43148,6 +43925,7 @@ UpdatePhoneCallSignalingData <- R6::R6Class("UpdatePhoneCallSignalingData",
   class = TRUE
 )
 
+#' @export
 UpdatePinnedChannelMessages <- R6::R6Class("UpdatePinnedChannelMessages",
   inherit = TLObject,
   public = list(
@@ -43190,6 +43968,7 @@ UpdatePinnedChannelMessages <- R6::R6Class("UpdatePinnedChannelMessages",
   class = TRUE
 )
 
+#' @export
 UpdatePinnedDialogs <- R6::R6Class("UpdatePinnedDialogs",
   inherit = TLObject,
   public = list(
@@ -43227,6 +44006,7 @@ UpdatePinnedDialogs <- R6::R6Class("UpdatePinnedDialogs",
   class = TRUE
 )
 
+#' @export
 UpdatePinnedMessages <- R6::R6Class("UpdatePinnedMessages",
   inherit = TLObject,
   public = list(
@@ -43269,6 +44049,7 @@ UpdatePinnedMessages <- R6::R6Class("UpdatePinnedMessages",
   class = TRUE
 )
 
+#' @export
 UpdatePinnedSavedDialogs <- R6::R6Class("UpdatePinnedSavedDialogs",
   inherit = TLObject,
   public = list(
@@ -43303,6 +44084,7 @@ UpdatePinnedSavedDialogs <- R6::R6Class("UpdatePinnedSavedDialogs",
   class = TRUE
 )
 
+#' @export
 UpdatePrivacy <- R6::R6Class("UpdatePrivacy",
   inherit = TLObject,
   public = list(
@@ -43334,6 +44116,7 @@ UpdatePrivacy <- R6::R6Class("UpdatePrivacy",
   class = TRUE
 )
 
+#' @export
 UpdatePtsChanged <- R6::R6Class("UpdatePtsChanged",
   inherit = TLObject,
   public = list(
@@ -43354,7 +44137,7 @@ UpdatePtsChanged <- R6::R6Class("UpdatePtsChanged",
   class = TRUE
 )
 
-
+#' @export
 UpdateQuickReplies <- R6::R6Class("UpdateQuickReplies",
   inherit = TLObject,
   public = list(
@@ -43392,6 +44175,7 @@ UpdateQuickReplies <- R6::R6Class("UpdateQuickReplies",
   class = TRUE
 )
 
+#' @export
 UpdateQuickReplyMessage <- R6::R6Class("UpdateQuickReplyMessage",
   inherit = TLObject,
   public = list(
@@ -43422,6 +44206,7 @@ UpdateQuickReplyMessage <- R6::R6Class("UpdateQuickReplyMessage",
   class = TRUE
 )
 
+#' @export
 UpdateReadChannelDiscussionInbox <- R6::R6Class("UpdateReadChannelDiscussionInbox",
   inherit = TLObject,
   public = list(
@@ -43471,6 +44256,7 @@ UpdateReadChannelDiscussionInbox <- R6::R6Class("UpdateReadChannelDiscussionInbo
   class = TRUE
 )
 
+#' @export
 UpdateReadChannelDiscussionOutbox <- R6::R6Class("UpdateReadChannelDiscussionOutbox",
   inherit = TLObject,
   public = list(
@@ -43509,6 +44295,7 @@ UpdateReadChannelDiscussionOutbox <- R6::R6Class("UpdateReadChannelDiscussionOut
   class = TRUE
 )
 
+#' @export
 UpdateReadChannelInbox <- R6::R6Class("UpdateReadChannelInbox",
   inherit = TLObject,
   public = list(
@@ -43558,6 +44345,7 @@ UpdateReadChannelInbox <- R6::R6Class("UpdateReadChannelInbox",
   class = TRUE
 )
 
+#' @export
 UpdateReadChannelOutbox <- R6::R6Class("UpdateReadChannelOutbox",
   inherit = TLObject,
   public = list(
@@ -43592,6 +44380,7 @@ UpdateReadChannelOutbox <- R6::R6Class("UpdateReadChannelOutbox",
   class = TRUE
 )
 
+#' @export
 UpdateReadFeaturedEmojiStickers <- R6::R6Class("UpdateReadFeaturedEmojiStickers",
   inherit = TLObject,
   public = list(
@@ -43612,6 +44401,7 @@ UpdateReadFeaturedEmojiStickers <- R6::R6Class("UpdateReadFeaturedEmojiStickers"
   class = TRUE
 )
 
+#' @export
 UpdateReadFeaturedStickers <- R6::R6Class("UpdateReadFeaturedStickers",
   inherit = TLObject,
   public = list(
@@ -43632,6 +44422,7 @@ UpdateReadFeaturedStickers <- R6::R6Class("UpdateReadFeaturedStickers",
   class = TRUE
 )
 
+#' @export
 UpdateReadHistoryInbox <- R6::R6Class("UpdateReadHistoryInbox",
   inherit = TLObject,
   public = list(
@@ -43685,6 +44476,7 @@ UpdateReadHistoryInbox <- R6::R6Class("UpdateReadHistoryInbox",
   class = TRUE
 )
 
+#' @export
 UpdateReadHistoryOutbox <- R6::R6Class("UpdateReadHistoryOutbox",
   inherit = TLObject,
   public = list(
@@ -43727,6 +44519,7 @@ UpdateReadHistoryOutbox <- R6::R6Class("UpdateReadHistoryOutbox",
   class = TRUE
 )
 
+#' @export
 UpdateReadMessagesContents <- R6::R6Class("UpdateReadMessagesContents",
   inherit = TLObject,
   public = list(
@@ -43779,6 +44572,7 @@ UpdateReadMessagesContents <- R6::R6Class("UpdateReadMessagesContents",
   class = TRUE
 )
 
+#' @export
 UpdateReadMonoForumInbox <- R6::R6Class("UpdateReadMonoForumInbox",
   inherit = TLObject,
   public = list(
@@ -43817,6 +44611,7 @@ UpdateReadMonoForumInbox <- R6::R6Class("UpdateReadMonoForumInbox",
   class = TRUE
 )
 
+#' @export
 UpdateReadMonoForumOutbox <- R6::R6Class("UpdateReadMonoForumOutbox",
   inherit = TLObject,
   public = list(
@@ -43855,6 +44650,7 @@ UpdateReadMonoForumOutbox <- R6::R6Class("UpdateReadMonoForumOutbox",
   class = TRUE
 )
 
+#' @export
 UpdateReadStories <- R6::R6Class("UpdateReadStories",
   inherit = TLObject,
   public = list(
@@ -43889,6 +44685,7 @@ UpdateReadStories <- R6::R6Class("UpdateReadStories",
   class = TRUE
 )
 
+#' @export
 UpdateRecentEmojiStatuses <- R6::R6Class("UpdateRecentEmojiStatuses",
   inherit = TLObject,
   public = list(
@@ -43909,6 +44706,7 @@ UpdateRecentEmojiStatuses <- R6::R6Class("UpdateRecentEmojiStatuses",
   class = TRUE
 )
 
+#' @export
 UpdateRecentReactions <- R6::R6Class("UpdateRecentReactions",
   inherit = TLObject,
   public = list(
@@ -43929,6 +44727,7 @@ UpdateRecentReactions <- R6::R6Class("UpdateRecentReactions",
   class = TRUE
 )
 
+#' @export
 UpdateRecentStickers <- R6::R6Class("UpdateRecentStickers",
   inherit = TLObject,
   public = list(
@@ -43949,6 +44748,7 @@ UpdateRecentStickers <- R6::R6Class("UpdateRecentStickers",
   class = TRUE
 )
 
+#' @export
 UpdateSavedDialogPinned <- R6::R6Class("UpdateSavedDialogPinned",
   inherit = TLObject,
   public = list(
@@ -43985,6 +44785,7 @@ UpdateSavedDialogPinned <- R6::R6Class("UpdateSavedDialogPinned",
   class = TRUE
 )
 
+#' @export
 UpdateSavedGifs <- R6::R6Class("UpdateSavedGifs",
   inherit = TLObject,
   public = list(
@@ -44005,6 +44806,7 @@ UpdateSavedGifs <- R6::R6Class("UpdateSavedGifs",
   class = TRUE
 )
 
+#' @export
 UpdateSavedReactionTags <- R6::R6Class("UpdateSavedReactionTags",
   inherit = TLObject,
   public = list(
@@ -44025,6 +44827,7 @@ UpdateSavedReactionTags <- R6::R6Class("UpdateSavedReactionTags",
   class = TRUE
 )
 
+#' @export
 UpdateSavedRingtones <- R6::R6Class("UpdateSavedRingtones",
   inherit = TLObject,
   public = list(
@@ -44045,6 +44848,7 @@ UpdateSavedRingtones <- R6::R6Class("UpdateSavedRingtones",
   class = TRUE
 )
 
+#' @export
 UpdateSentPhoneCode <- R6::R6Class("UpdateSentPhoneCode",
   inherit = TLObject,
   public = list(
@@ -44075,6 +44879,7 @@ UpdateSentPhoneCode <- R6::R6Class("UpdateSentPhoneCode",
   class = TRUE
 )
 
+#' @export
 UpdateSentStoryReaction <- R6::R6Class("UpdateSentStoryReaction",
   inherit = TLObject,
   public = list(
@@ -44113,6 +44918,7 @@ UpdateSentStoryReaction <- R6::R6Class("UpdateSentStoryReaction",
   class = TRUE
 )
 
+#' @export
 UpdateServiceNotification <- R6::R6Class("UpdateServiceNotification",
   inherit = TLObject,
   public = list(
@@ -44175,6 +44981,7 @@ UpdateServiceNotification <- R6::R6Class("UpdateServiceNotification",
   class = TRUE
 )
 
+#' @export
 UpdateShort <- R6::R6Class("UpdateShort",
   inherit = TLObject,
   public = list(
@@ -44209,6 +45016,7 @@ UpdateShort <- R6::R6Class("UpdateShort",
   class = TRUE
 )
 
+#' @export
 UpdateShortChatMessage <- R6::R6Class("UpdateShortChatMessage",
   inherit = TLObject,
   public = list(
@@ -44308,7 +45116,7 @@ UpdateShortChatMessage <- R6::R6Class("UpdateShortChatMessage",
   class = TRUE
 )
 
-
+#' @export
 UpdateShortMessage <- R6::R6Class("UpdateShortMessage",
   inherit = TLObject,
   public = list(
@@ -44398,6 +45206,7 @@ UpdateShortMessage <- R6::R6Class("UpdateShortMessage",
   class = TRUE
 )
 
+#' @export
 UpdateShortSentMessage <- R6::R6Class("UpdateShortSentMessage",
   inherit = TLObject,
   public = list(
@@ -44462,6 +45271,7 @@ UpdateShortSentMessage <- R6::R6Class("UpdateShortSentMessage",
   class = TRUE
 )
 
+#' @export
 UpdateSmsJob <- R6::R6Class("UpdateSmsJob",
   inherit = TLObject,
   public = list(
@@ -44492,6 +45302,7 @@ UpdateSmsJob <- R6::R6Class("UpdateSmsJob",
   class = TRUE
 )
 
+#' @export
 UpdateStarsBalance <- R6::R6Class("UpdateStarsBalance",
   inherit = TLObject,
   public = list(
@@ -44522,6 +45333,7 @@ UpdateStarsBalance <- R6::R6Class("UpdateStarsBalance",
   class = TRUE
 )
 
+#' @export
 UpdateStarsRevenueStatus <- R6::R6Class("UpdateStarsRevenueStatus",
   inherit = TLObject,
   public = list(
@@ -44556,6 +45368,7 @@ UpdateStarsRevenueStatus <- R6::R6Class("UpdateStarsRevenueStatus",
   class = TRUE
 )
 
+#' @export
 UpdateStickerSets <- R6::R6Class("UpdateStickerSets",
   inherit = TLObject,
   public = list(
@@ -44590,6 +45403,7 @@ UpdateStickerSets <- R6::R6Class("UpdateStickerSets",
   class = TRUE
 )
 
+#' @export
 UpdateStickerSetsOrder <- R6::R6Class("UpdateStickerSetsOrder",
   inherit = TLObject,
   public = list(
@@ -44629,6 +45443,7 @@ UpdateStickerSetsOrder <- R6::R6Class("UpdateStickerSetsOrder",
   class = TRUE
 )
 
+#' @export
 UpdateStoriesStealthMode <- R6::R6Class("UpdateStoriesStealthMode",
   inherit = TLObject,
   public = list(
@@ -44659,6 +45474,7 @@ UpdateStoriesStealthMode <- R6::R6Class("UpdateStoriesStealthMode",
   class = TRUE
 )
 
+#' @export
 UpdateStory <- R6::R6Class("UpdateStory",
   inherit = TLObject,
   public = list(
@@ -44693,6 +45509,7 @@ UpdateStory <- R6::R6Class("UpdateStory",
   class = TRUE
 )
 
+#' @export
 UpdateStoryID <- R6::R6Class("UpdateStoryID",
   inherit = TLObject,
   public = list(
@@ -44727,6 +45544,7 @@ UpdateStoryID <- R6::R6Class("UpdateStoryID",
   class = TRUE
 )
 
+#' @export
 UpdateTheme <- R6::R6Class("UpdateTheme",
   inherit = TLObject,
   public = list(
@@ -44757,6 +45575,7 @@ UpdateTheme <- R6::R6Class("UpdateTheme",
   class = TRUE
 )
 
+#' @export
 UpdateTranscribedAudio <- R6::R6Class("UpdateTranscribedAudio",
   inherit = TLObject,
   public = list(
@@ -44804,6 +45623,7 @@ UpdateTranscribedAudio <- R6::R6Class("UpdateTranscribedAudio",
   class = TRUE
 )
 
+#' @export
 UpdateUser <- R6::R6Class("UpdateUser",
   inherit = TLObject,
   public = list(
@@ -44834,6 +45654,7 @@ UpdateUser <- R6::R6Class("UpdateUser",
   class = TRUE
 )
 
+#' @export
 UpdateUserEmojiStatus <- R6::R6Class("UpdateUserEmojiStatus",
   inherit = TLObject,
   public = list(
@@ -44868,6 +45689,7 @@ UpdateUserEmojiStatus <- R6::R6Class("UpdateUserEmojiStatus",
   class = TRUE
 )
 
+#' @export
 UpdateUserName <- R6::R6Class("UpdateUserName",
   inherit = TLObject,
   public = list(
@@ -44911,6 +45733,7 @@ UpdateUserName <- R6::R6Class("UpdateUserName",
   class = TRUE
 )
 
+#' @export
 UpdateUserPhone <- R6::R6Class("UpdateUserPhone",
   inherit = TLObject,
   public = list(
@@ -44945,6 +45768,7 @@ UpdateUserPhone <- R6::R6Class("UpdateUserPhone",
   class = TRUE
 )
 
+#' @export
 UpdateUserStatus <- R6::R6Class("UpdateUserStatus",
   inherit = TLObject,
   public = list(
@@ -44979,7 +45803,7 @@ UpdateUserStatus <- R6::R6Class("UpdateUserStatus",
   class = TRUE
 )
 
-
+#' @export
 UpdateUserTyping <- R6::R6Class("UpdateUserTyping",
   inherit = TLObject,
   public = list(
@@ -45012,6 +45836,7 @@ UpdateUserTyping <- R6::R6Class("UpdateUserTyping",
   class = TRUE
 )
 
+#' @export
 UpdateWebPage <- R6::R6Class("UpdateWebPage",
   inherit = TLObject,
   public = list(
@@ -45047,6 +45872,7 @@ UpdateWebPage <- R6::R6Class("UpdateWebPage",
   class = TRUE
 )
 
+#' @export
 UpdateWebViewResultSent <- R6::R6Class("UpdateWebViewResultSent",
   inherit = TLObject,
   public = list(
@@ -45076,6 +45902,7 @@ UpdateWebViewResultSent <- R6::R6Class("UpdateWebViewResultSent",
   class = TRUE
 )
 
+#' @export
 Updates <- R6::R6Class("Updates",
   inherit = TLObject,
   public = list(
@@ -45125,6 +45952,7 @@ Updates <- R6::R6Class("Updates",
   class = TRUE
 )
 
+#' @export
 UpdatesCombined <- R6::R6Class("UpdatesCombined",
   inherit = TLObject,
   public = list(
@@ -45178,6 +46006,7 @@ UpdatesCombined <- R6::R6Class("UpdatesCombined",
   class = TRUE
 )
 
+#' @export
 UpdatesTooLong <- R6::R6Class("UpdatesTooLong",
   inherit = TLObject,
   public = list(
@@ -45198,6 +46027,7 @@ UpdatesTooLong <- R6::R6Class("UpdatesTooLong",
   class = TRUE
 )
 
+#' @export
 UrlAuthResultAccepted <- R6::R6Class("UrlAuthResultAccepted",
   inherit = TLObject,
   public = list(
@@ -45227,6 +46057,7 @@ UrlAuthResultAccepted <- R6::R6Class("UrlAuthResultAccepted",
   class = TRUE
 )
 
+#' @export
 UrlAuthResultDefault <- R6::R6Class("UrlAuthResultDefault",
   inherit = TLObject,
   public = list(
@@ -45247,6 +46078,7 @@ UrlAuthResultDefault <- R6::R6Class("UrlAuthResultDefault",
   class = TRUE
 )
 
+#' @export
 UrlAuthResultRequest <- R6::R6Class("UrlAuthResultRequest",
   inherit = TLObject,
   public = list(
@@ -45286,6 +46118,7 @@ UrlAuthResultRequest <- R6::R6Class("UrlAuthResultRequest",
   class = TRUE
 )
 
+#' @export
 User <- R6::R6Class("User",
   inherit = TLObject,
   public = list(
@@ -45483,6 +46316,7 @@ User <- R6::R6Class("User",
   class = TRUE
 )
 
+#' @export
 UserEmpty <- R6::R6Class("UserEmpty",
   inherit = TLObject,
   public = list(
@@ -45512,7 +46346,7 @@ UserEmpty <- R6::R6Class("UserEmpty",
   class = TRUE
 )
 
-
+#' @export
 UserFull <- R6::R6Class("UserFull",
   inherit = TLObject,
   public = list(
@@ -45740,6 +46574,7 @@ UserFull <- R6::R6Class("UserFull",
   class = TRUE
 )
 
+#' @export
 UserProfilePhoto <- R6::R6Class("UserProfilePhoto",
   inherit = TLObject,
   public = list(
@@ -45786,6 +46621,7 @@ UserProfilePhoto <- R6::R6Class("UserProfilePhoto",
   class = TRUE
 )
 
+#' @export
 UserProfilePhotoEmpty <- R6::R6Class("UserProfilePhotoEmpty",
   inherit = TLObject,
   public = list(
@@ -45806,6 +46642,7 @@ UserProfilePhotoEmpty <- R6::R6Class("UserProfilePhotoEmpty",
   class = TRUE
 )
 
+#' @export
 UserStatusEmpty <- R6::R6Class("UserStatusEmpty",
   inherit = TLObject,
   public = list(
@@ -45826,6 +46663,7 @@ UserStatusEmpty <- R6::R6Class("UserStatusEmpty",
   class = TRUE
 )
 
+#' @export
 UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
   inherit = TLObject,
   public = list(
@@ -45857,6 +46695,7 @@ UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
   class = TRUE
 )
 
+#' @export
 UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
   inherit = TLObject,
   public = list(
@@ -45888,6 +46727,7 @@ UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
   class = TRUE
 )
 
+#' @export
 UserStatusOffline <- R6::R6Class("UserStatusOffline",
   inherit = TLObject,
   public = list(
@@ -45918,6 +46758,7 @@ UserStatusOffline <- R6::R6Class("UserStatusOffline",
   class = TRUE
 )
 
+#' @export
 UserStatusOnline <- R6::R6Class("UserStatusOnline",
   inherit = TLObject,
   public = list(
@@ -45948,6 +46789,7 @@ UserStatusOnline <- R6::R6Class("UserStatusOnline",
   class = TRUE
 )
 
+#' @export
 UserStatusRecently <- R6::R6Class("UserStatusRecently",
   inherit = TLObject,
   public = list(
@@ -45979,7 +46821,7 @@ UserStatusRecently <- R6::R6Class("UserStatusRecently",
   class = TRUE
 )
 
-
+#' @export
 UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
   inherit = TLObject,
   public = list(
@@ -46005,6 +46847,7 @@ UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
   class = TRUE
 )
 
+#' @export
 UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
   inherit = TLObject,
   public = list(
@@ -46030,6 +46873,7 @@ UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
   class = TRUE
 )
 
+#' @export
 UserStatusOffline <- R6::R6Class("UserStatusOffline",
   inherit = TLObject,
   public = list(
@@ -46054,6 +46898,7 @@ UserStatusOffline <- R6::R6Class("UserStatusOffline",
   class = TRUE
 )
 
+#' @export
 UserStatusOnline <- R6::R6Class("UserStatusOnline",
   inherit = TLObject,
   public = list(
@@ -46078,6 +46923,7 @@ UserStatusOnline <- R6::R6Class("UserStatusOnline",
   class = TRUE
 )
 
+#' @export
 UserStatusRecently <- R6::R6Class("UserStatusRecently",
   inherit = TLObject,
   public = list(
@@ -46103,6 +46949,7 @@ UserStatusRecently <- R6::R6Class("UserStatusRecently",
   class = TRUE
 )
 
+#' @export
 Username <- R6::R6Class("Username",
   inherit = TLObject,
   public = list(
@@ -46132,6 +46979,7 @@ Username <- R6::R6Class("Username",
   class = TRUE
 )
 
+#' @export
 VideoSize <- R6::R6Class("VideoSize",
   inherit = TLObject,
   public = list(
@@ -46169,6 +47017,7 @@ VideoSize <- R6::R6Class("VideoSize",
   class = TRUE
 )
 
+#' @export
 VideoSizeEmojiMarkup <- R6::R6Class("VideoSizeEmojiMarkup",
   inherit = TLObject,
   public = list(
@@ -46196,6 +47045,7 @@ VideoSizeEmojiMarkup <- R6::R6Class("VideoSizeEmojiMarkup",
   class = TRUE
 )
 
+#' @export
 VideoSizeStickerMarkup <- R6::R6Class("VideoSizeStickerMarkup",
   inherit = TLObject,
   public = list(
@@ -46225,6 +47075,7 @@ VideoSizeStickerMarkup <- R6::R6Class("VideoSizeStickerMarkup",
   class = TRUE
 )
 
+#' @export
 WallPaper <- R6::R6Class("WallPaper",
   inherit = TLObject,
   public = list(
@@ -46270,6 +47121,7 @@ WallPaper <- R6::R6Class("WallPaper",
   class = TRUE
 )
 
+#' @export
 WallPaperNoFile <- R6::R6Class("WallPaperNoFile",
   inherit = TLObject,
   public = list(
@@ -46305,6 +47157,7 @@ WallPaperNoFile <- R6::R6Class("WallPaperNoFile",
   class = TRUE
 )
 
+#' @export
 WallPaperSettings <- R6::R6Class("WallPaperSettings",
   inherit = TLObject,
   public = list(
@@ -46374,7 +47227,7 @@ WallPaperSettings <- R6::R6Class("WallPaperSettings",
   class = TRUE
 )
 
-
+#' @export
 WebAuthorization <- R6::R6Class("WebAuthorization",
   inherit = TLObject,
   public = list(
@@ -46426,6 +47279,7 @@ WebAuthorization <- R6::R6Class("WebAuthorization",
   class = TRUE
 )
 
+#' @export
 WebDocument <- R6::R6Class("WebDocument",
   inherit = TLObject,
   public = list(
@@ -46466,6 +47320,7 @@ WebDocument <- R6::R6Class("WebDocument",
   class = TRUE
 )
 
+#' @export
 WebDocumentNoProxy <- R6::R6Class("WebDocumentNoProxy",
   inherit = TLObject,
   public = list(
@@ -46503,7 +47358,7 @@ WebDocumentNoProxy <- R6::R6Class("WebDocumentNoProxy",
   class = TRUE
 )
 
-
+#' @export
 WebPage <- R6::R6Class("WebPage",
   inherit = TLObject,
   public = list(
@@ -46667,6 +47522,7 @@ WebPage <- R6::R6Class("WebPage",
   class = TRUE
 )
 
+#' @export
 WebPageAttributeStarGiftCollection <- R6::R6Class("WebPageAttributeStarGiftCollection",
   inherit = TLObject,
   public = list(
@@ -46696,6 +47552,7 @@ WebPageAttributeStarGiftCollection <- R6::R6Class("WebPageAttributeStarGiftColle
   class = TRUE
 )
 
+#' @export
 WebPageAttributeStickerSet <- R6::R6Class("WebPageAttributeStickerSet",
   inherit = TLObject,
   public = list(
@@ -46733,7 +47590,7 @@ WebPageAttributeStickerSet <- R6::R6Class("WebPageAttributeStickerSet",
   class = TRUE
 )
 
-
+#' @export
 WebPageAttributeStory <- R6::R6Class("WebPageAttributeStory",
   inherit = TLObject,
   public = list(
@@ -46772,6 +47629,7 @@ WebPageAttributeStory <- R6::R6Class("WebPageAttributeStory",
   class = TRUE
 )
 
+#' @export
 WebPageAttributeTheme <- R6::R6Class("WebPageAttributeTheme",
   inherit = TLObject,
   public = list(
@@ -46816,6 +47674,7 @@ WebPageAttributeTheme <- R6::R6Class("WebPageAttributeTheme",
   class = TRUE
 )
 
+#' @export
 WebPageAttributeUniqueStarGift <- R6::R6Class("WebPageAttributeUniqueStarGift",
   inherit = TLObject,
   public = list(
@@ -46843,6 +47702,7 @@ WebPageAttributeUniqueStarGift <- R6::R6Class("WebPageAttributeUniqueStarGift",
   class = TRUE
 )
 
+#' @export
 WebPageEmpty <- R6::R6Class("WebPageEmpty",
   inherit = TLObject,
   public = list(
@@ -46877,6 +47737,7 @@ WebPageEmpty <- R6::R6Class("WebPageEmpty",
   class = TRUE
 )
 
+#' @export
 WebPageNotModified <- R6::R6Class("WebPageNotModified",
   inherit = TLObject,
   public = list(
@@ -46907,6 +47768,7 @@ WebPageNotModified <- R6::R6Class("WebPageNotModified",
   class = TRUE
 )
 
+#' @export
 WebPagePending <- R6::R6Class("WebPagePending",
   inherit = TLObject,
   public = list(
@@ -46949,6 +47811,7 @@ WebPagePending <- R6::R6Class("WebPagePending",
   class = TRUE
 )
 
+#' @export
 WebViewMessageSent <- R6::R6Class("WebViewMessageSent",
   inherit = TLObject,
   public = list(
@@ -46979,6 +47842,7 @@ WebViewMessageSent <- R6::R6Class("WebViewMessageSent",
   class = TRUE
 )
 
+#' @export
 WebViewResultUrl <- R6::R6Class("WebViewResultUrl",
   inherit = TLObject,
   public = list(
