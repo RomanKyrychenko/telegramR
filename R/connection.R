@@ -531,12 +531,60 @@ async_open_connection <- function(host = NULL, port = NULL, ssl = NULL, local_ad
 Reader <- R6Class(
   "Reader",
   public = list(
+    # Added: predeclare socket to avoid adding bindings to locked env
+    socket = NULL,
+
     #' @description
     #' Read a fixed number of bytes.
     #' @param n Number of bytes to read.
     #' @return A promise resolving with raw data.
     readexactly = function(n) {
-      promise_resolve(raw(n))
+      # Replaced placeholder with non-blocking, exact-length read
+      promise(function(resolve, reject) {
+        buf <- raw(0)
+        read_some <- function() {
+          # Validate socket
+          if (is.null(self$socket) || !isOpen(self$socket)) {
+            reject(structure(list(message = "IOError: socket closed"), class = "IOError"))
+            return()
+          }
+
+          to_read <- n - length(buf)
+          if (to_read <= 0) {
+            resolve(buf[seq_len(n)])
+            return()
+          }
+
+          chunk <- raw(0)
+          err <- NULL
+          tryCatch(
+            {
+              # readBin returns immediately; with non-blocking sockets it may be short
+              chunk <- readBin(self$socket, what = "raw", n = to_read)
+            },
+            error = function(e) {
+              err <<- e
+            }
+          )
+
+          if (!is.null(err)) {
+            reject(err)
+            return()
+          }
+
+          if (length(chunk) > 0) {
+            buf <<- c(buf, chunk)
+          }
+
+          if (length(buf) >= n) {
+            resolve(buf[seq_len(n)])
+          } else {
+            later::later(read_some, delay = 0.01)
+          }
+        }
+
+        read_some()
+      })
     }
   )
 )
@@ -549,19 +597,21 @@ Reader <- R6Class(
 Writer <- R6Class(
   "Writer",
   public = list(
+    # Added: predeclare socket to avoid adding bindings to locked env
+    socket = NULL,
+
     #' @description
     #' Write data.
     #' @param data Data to write.
     write = function(data) {
-      # Store the data in a buffer for writing
-      if (is.null(private$.buffer)) private$.buffer <- list()
-      private$.buffer <- c(private$.buffer, list(data))
+      # Ensure buffer is predeclared; push to buffer
+      private$.buffer[[length(private$.buffer) + 1]] <- data
 
       # If we have a socket connection, try to write immediately
       if (!is.null(self$socket) && isOpen(self$socket)) {
         tryCatch(
           {
-            self$.write_to_socket()
+            private$.write_to_socket()
           },
           error = function(e) {
             warning(sprintf("Error writing to socket: %s", e$message))
@@ -574,7 +624,20 @@ Writer <- R6Class(
     #' Drain the write buffer.
     #' @return A promise that resolves when drained.
     drain = function() {
-      promise_resolve(NULL)
+      promise(function(resolve) {
+        wait <- function() {
+          if ((length(private$.buffer) == 0) && !isTRUE(private$.writing)) {
+            resolve(NULL)
+          } else {
+            # Try to flush if possible
+            if (!is.null(self$socket) && isOpen(self$socket)) {
+              try(private$.write_to_socket(), silent = TRUE)
+            }
+            later::later(wait, delay = 0.01)
+          }
+        }
+        wait()
+      })
     },
 
     #' @description
@@ -583,6 +646,36 @@ Writer <- R6Class(
       if (!is.null(self$socket) && isOpen(self$socket)) {
         close(self$socket)
       }
+      invisible(NULL)
+    }
+  ),
+  private = list(
+    # Added: declare buffer and writing state to avoid locked-env binding errors
+    .buffer = list(),
+    writing = FALSE,
+
+    # Added: internal write-to-socket implementation
+    .write_to_socket = function() {
+      if (private$writing) return(invisible(NULL))
+      if (is.null(self$socket) || !isOpen(self$socket)) return(invisible(NULL))
+
+      private$writing <- TRUE
+      on.exit({ private$writing <- FALSE }, add = TRUE)
+
+      # Flush buffered chunks
+      while (length(private$.buffer) > 0 && !is.null(self$socket) && isOpen(self$socket)) {
+        chunk <- private$.buffer[[1]]
+        # Write raw vector to socket
+        writeBin(chunk, self$socket, useBytes = TRUE)
+        flush(self$socket)
+        # Pop the written chunk
+        if (length(private$.buffer) == 1) {
+          private$.buffer <- list()
+        } else {
+          private$.buffer <- private$.buffer[-1]
+        }
+      }
+
       invisible(NULL)
     }
   )

@@ -9,7 +9,7 @@ MTProtoPlainSender <- R6::R6Class("MTProtoPlainSender",
     #' @description Initializes the MTProto plain sender.
     #' @param connection the Connection to be used.
     initialize = function(connection) {
-      private$state <- MTProtoState$new(auth_key = NULL)
+      private$state <- MTProtoState$new(auth_key = NULL, loggers = NULL )
       private$connection <- connection
     },
 

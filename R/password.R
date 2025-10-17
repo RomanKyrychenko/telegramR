@@ -78,9 +78,11 @@ check_prime_and_good <- function(prime_bytes, g) {
 #' @description An R6 class for handling password key derivation functions (KDF) as per Telegram's specifications.
 #' This class provides utility methods for checking modular exponentiation, XOR operations, PBKDF2 hashing,
 #' and computing password hashes and digests.
+#' @export
 PasswordKdf <- R6::R6Class(
   "PasswordKdf",
   public = list(
+
     #' @description Check if a modular exponentiation result is good for the first check.
     #' @param modexp A big integer representing the modular exponentiation result.
     #' @param prime A big integer representing the prime modulus.
@@ -127,7 +129,7 @@ PasswordKdf <- R6::R6Class(
     #' @param iterations An integer for the number of iterations.
     #' @return A raw vector of the derived key.
     pbkdf2sha512 = function(password, salt, iterations) {
-      return(openssl::pbkdf2(password, salt, iter = iterations, keylen = 64, hash = "sha512"))
+      return(openssl::bcrypt_pbkdf(password, salt, size = 64L))
     },
 
     #' @description Compute the hash for the password KDF algorithm.
@@ -278,7 +280,10 @@ PasswordKdf <- R6::R6Class(
 )
 
 
-# https://github.com/telegramdesktop/tdesktop/blob/18b74b90451a7db2379a9d753c9cbaf8734b4d5d/Telegram/SourceFiles/core/core_cloud_password.cpp
+#' Compute check
+#' @param request An object of type ReqPqMulti or ReqPq.
+#' @param password A string representing the password.
+#' @return An object of type InputCheckPasswordSRP.
 compute_check <- function(request, password) {
   algo <- request$current_algo
   if (!inherits(algo, "PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow")) {

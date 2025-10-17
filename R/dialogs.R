@@ -34,6 +34,11 @@ dialog_message_key <- function(peer, message_id) {
 DialogsIter <- R6::R6Class("DialogsIter",
   inherit = RequestIter,
   public = list(
+    # Added fields to avoid adding bindings at runtime
+    request = NULL,
+    seen = NULL,
+    offset_date = NULL,
+    ignore_migrated = NULL,
 
     #' @description
     #' Constructor for the DialogsIter class.
@@ -52,13 +57,8 @@ DialogsIter <- R6::R6Class("DialogsIter",
                           ignore_migrated = FALSE, folder = NULL) {
       super$initialize(client, limit)
 
-      self$request <- NULL
-      self$seen <- NULL
-      self$offset_date <- NULL
-      self$ignore_migrated <- NULL
-
-      # Using this instead of Python's init async function
-      private$init_future %<-% {
+      # Using a Future (avoid %<-% to bypass global inspection issues)
+      private$init_future <- future({
         self$request <- GetDialogsRequest$new(
           offset_date = offset_date,
           offset_id = offset_id,
@@ -79,7 +79,7 @@ DialogsIter <- R6::R6Class("DialogsIter",
         self$seen <- set()
         self$offset_date <- offset_date
         self$ignore_migrated <- ignore_migrated
-      }
+      }, globals = FALSE)
     },
 
     #' @description
@@ -215,8 +215,8 @@ DraftsIter <- R6::R6Class("DraftsIter",
     initialize = function(client, limit, entities = NULL) {
       super$initialize(client, limit)
 
-      # Using this instead of Python's init async function
-      private$init_future %<-% {
+      # Using a Future (avoid %<-% to bypass global inspection issues)
+      private$init_future <- future({
         if (is.null(entities)) {
           r <- await(self$client(GetAllDraftsRequest$new()))
           items <- r$updates
@@ -244,7 +244,7 @@ DraftsIter <- R6::R6Class("DraftsIter",
           draft_obj <- custom$Draft(self$client, entity, d$draft)
           self$buffer <- c(self$buffer, list(draft_obj))
         }
-      }
+      }, globals = FALSE)
     },
 
     #' @description
@@ -517,7 +517,11 @@ DialogMethods <- R6::R6Class("DialogMethods",
   private = list(
     .self = NULL,
     .initialize = function(client) {
+      # make a binding so tests can override `private$self`
+      private$self <- client
+      # keep legacy `.self`
       private$.self <- client
     }
-  )
+  ),
+  lock_objects = FALSE
 )

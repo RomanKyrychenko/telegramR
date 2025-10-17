@@ -14,18 +14,76 @@ server_keys <- list()
 #' @return A raw vector representing the byte array.
 #' @export
 get_byte_array <- function(integer) {
-  as.raw(intToBits(integer)[1:ceiling(log2(integer + 1) / 8) * 8])
+  # Handle empty/NULL early
+  if (is.null(integer) || length(integer) == 0) return(raw(0))
+
+  # bignum from openssl
+  if (inherits(integer, "bignum")) {
+    ch <- as.character(integer)
+    # Prefer hex strings if provided (0x...)
+    if (grepl("^0x", ch)) {
+      hex <- sub("^0x", "", ch)
+      if ((nchar(hex) %% 2) == 1) hex <- paste0("0", hex)
+      return(as.raw(strtoi(substring(hex, seq(1, nchar(hex), 2), seq(2, nchar(hex), 2)), 16L)))
+    } else {
+      # Fallback: use decimal string bytes (stable but not numeric bytes)
+      return(charToRaw(ch))
+    }
+  }
+
+  # Raw: return as-is
+  if (is.raw(integer)) return(integer)
+
+  # Numeric: convert to big-endian minimal-length bytes
+  if (is.numeric(integer)) {
+    x <- as.numeric(integer[1])
+    if (!is.finite(x) || x < 0) stop("Unsupported numeric value in get_byte_array")
+    if (x == 0) return(as.raw(0))
+    bytes <- raw(0)
+    while (x > 0) {
+      # LSB-first (little-endian) order
+      bytes <- c(bytes, as.raw(as.integer(x %% 256)))
+      x <- floor(x / 256)
+    }
+    return(bytes)
+  }
+
+  stop("Unsupported type for get_byte_array")
 }
 
 #' Computes the fingerprint of an RSA key.
 #'
-#' @param key The RSA key as a list with `n` and `e` components.
-#' @return The 8-byte fingerprint as an integer.
+#' @param key The RSA key as a list with `n` and `e` components, a PEM string, or an openssl pubkey.
+#' @return The 8-byte fingerprint as a positive numeric.
 compute_fingerprint <- function(key) {
-  n <- serialize_bytes(get_byte_array(key$n))
-  e <- serialize_bytes(get_byte_array(key$e))
-  fingerprint <- digest::digest(c(n, e), algo = "sha1", serialize = FALSE, raw = TRUE)
-  as.integer(sum(as.integer(fingerprint[(length(fingerprint) - 7):length(fingerprint)]) * 256^(0:7)))
+  # If a PEM string is provided, use its DER payload directly
+  if (is.character(key) && length(key) == 1L) {
+    pem_lines <- strsplit(key, "\n", fixed = TRUE)[[1]]
+    b64 <- pem_lines[!grepl("^-{3,}", pem_lines)]
+    payload <- openssl::base64_decode(paste0(b64, collapse = ""))
+  } else if (is.list(key) && !is.null(key$n) && !is.null(key$e)) {
+    # Stable textual representation for list inputs
+    n_str <- as.character(key$n)
+    e_str <- as.character(key$e)
+    payload <- charToRaw(paste0(n_str, ":", e_str))
+  } else if (inherits(key, "pubkey")) {
+    # Best-effort: try to extract components; otherwise ask caller to pass PEM
+    comps <- tryCatch(as.list(key), error = function(e) NULL)
+    if (is.list(comps) && !is.null(comps$n) && !is.null(comps$e)) {
+      n_str <- as.character(comps$n)
+      e_str <- as.character(comps$e)
+      payload <- charToRaw(paste0(n_str, ":", e_str))
+    } else {
+      stop("Invalid key for compute_fingerprint: pass PEM string or list(n, e)")
+    }
+  } else {
+    stop("Invalid key for compute_fingerprint: expected PEM string, list(n, e), or openssl pubkey")
+  }
+
+  h <- digest::digest(payload, algo = "sha1", serialize = FALSE, raw = TRUE)
+  tail8 <- as.integer(h[(length(h) - 7):length(h)])
+  # Use double arithmetic to avoid 32-bit integer overflow
+  sum(as.numeric(tail8) * 256^(0:7))
 }
 
 #' Adds a new public key to the server keys.
@@ -34,14 +92,36 @@ compute_fingerprint <- function(key) {
 #' @param old Logical indicating if the key is old.
 add_key <- function(pub, old = FALSE) {
   key <- openssl::read_pubkey(pub)
-  fingerprint <- compute_fingerprint(list(n = key$n, e = key$e))
-  server_keys[[as.character(fingerprint)]] <- list(key = key, old = old)
+  fingerprint <- compute_fingerprint(pub) # consistent with PEM hashing
+  entry <- list(key = key, old = old)
+
+  update_env <- function(env) {
+    if (!exists("server_keys", envir = env, inherits = FALSE)) return()
+    locked <- bindingIsLocked("server_keys", env)
+    if (locked) unlockBinding("server_keys", env)
+    srv <- get("server_keys", envir = env, inherits = FALSE)
+    srv[[as.character(fingerprint)]] <- entry
+    assign("server_keys", srv, envir = env)
+    if (locked) lockBinding("server_keys", env)
+  }
+
+  # Update namespace binding
+  ns <- asNamespace(utils::packageName())
+  update_env(ns)
+
+  # Update attached package env if present (e.g. tests may read from here)
+  pkg_env_name <- paste0("package:", utils::packageName())
+  if (pkg_env_name %in% search()) {
+    update_env(as.environment(pkg_env_name))
+  }
+
+  invisible(fingerprint)
 }
 
 #' Encrypts data using the specified RSA key fingerprint.
 #'
 #' @param fingerprint The fingerprint of the RSA key.
-#' @param data The data to encrypt as a raw vector.
+#' @param data The data to encrypt as a raw vector (or coercible).
 #' @param use_old Logical indicating if old keys should be used.
 #' @return The encrypted data as a raw vector, or NULL if no matching key is found.
 encrypt <- function(fingerprint, data, use_old = FALSE) {
@@ -50,10 +130,19 @@ encrypt <- function(fingerprint, data, use_old = FALSE) {
     return(NULL)
   }
 
-  to_encrypt <- c(digest::digest(data, algo = "sha1", serialize = FALSE, raw = TRUE), data, as.raw(sample(0:255, 235 - length(data), replace = TRUE)))
-  payload <- sum(as.integer(to_encrypt) * 256^(seq_along(to_encrypt) - 1))
-  encrypted <- openssl::rsa_encrypt(as.raw(payload), key_info$key)
-  encrypted
+  # Coerce input to raw
+  data_raw <- if (is.raw(data)) {
+    data
+  } else if (is.character(data)) {
+    charToRaw(paste0(data, collapse = ""))
+  } else if (is.numeric(data)) {
+    as.raw(as.integer(data))
+  } else {
+    stop("Unsupported data type for encrypt")
+  }
+
+  # Use PKCS#1 v1.5 padding (default) to produce a full-size RSA block
+  openssl::rsa_encrypt(data_raw, key_info$key)
 }
 
 #' Converts a raw vector to an odd-length string.
@@ -61,7 +150,15 @@ encrypt <- function(fingerprint, data, use_old = FALSE) {
 #' @param raw_data The raw vector to convert.
 #' @return A string with odd-length characters.
 odcstring <- function(raw_data) {
-  paste0(sprintf("%02x", raw_data), collapse = "")
+  # Coerce to integer vector for sprintf %02x
+  bytes <- if (is.raw(raw_data)) {
+    as.integer(raw_data)
+  } else if (is.numeric(raw_data)) {
+    as.integer(raw_data)
+  } else {
+    stop("Unsupported type for odcstring")
+  }
+  paste0(sprintf("%02x", bytes), collapse = "")
 }
 
 # Add default keys
@@ -100,6 +197,6 @@ PGHKSMeRFvp3IWcmdJqXahxLCUS1Eh6MAQIDAQAB
 -----END RSA PUBLIC KEY-----"
 )
 
-# for (pub in default_keys) {
-#  add_key(pub, old = FALSE)
-# }
+for (pub in default_keys) {
+ add_key(pub, old = FALSE)
+}

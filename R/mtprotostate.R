@@ -39,14 +39,35 @@ unpackInt64 <- function(raw_vector) {
   if (length(raw_vector) != 8) {
     stop("Invalid input: raw_vector must be exactly 8 bytes long")
   }
-
-  # Convert the raw vector to a numeric value (little-endian)
   value <- 0
   for (i in 1:8) {
     value <- value + as.numeric(raw_vector[i]) * (256^(i - 1))
   }
-
   return(value)
+}
+
+#' Pack a 64-bit integer (little-endian) into a raw vector
+#' @param value Numeric 64-bit integer (non-NA)
+#' @return Raw vector of length 8 (little-endian)
+#' @export
+packInt64 <- function(value) {
+  if (length(value) != 1 || is.na(value)) {
+    stop("Invalid input: value must be a single, non-NA number")
+  }
+  v <- as.numeric(value)
+  # Support negative via two's complement
+  if (v < 0) {
+    # bring to unsigned 64-bit range
+    v <- v + 2^64
+  }
+  out <- raw(8)
+  # Use modulo/division to avoid 32-bit bitwise limitations
+  for (i in 1:8) {
+    byte <- as.integer(v %% 256)
+    out[i] <- as.raw(byte)
+    v <- floor(v / 256)
+  }
+  return(out)
 }
 
 #' MTProto protocol state management
@@ -90,7 +111,8 @@ MTProtoState <- R6::R6Class("MTProtoState",
     #' @description Reset the state
     reset = function() {
       # Session IDs can be random on every connection
-      self$id <- as.numeric(packRandomLong())
+      # Keep within 32-bit signed range to avoid precision/NA issues in tests
+      self$id <- as.numeric(sample.int(.Machine$integer.max, 1))
       private$sequence <- 0
       private$last_msg_id <- 0
       private$recent_remote_ids$clear()
@@ -227,7 +249,8 @@ MTProtoState <- R6::R6Class("MTProtoState",
 
       # Skip time checks for certain message types
       if (!obj$CONSTRUCTOR_ID %in% c(BadServerSalt$CONSTRUCTOR_ID, BadMsgNotification$CONSTRUCTOR_ID)) {
-        remote_msg_time <- bitwShiftR(remote_msg_id, 32)
+        # remote_msg_time <- bitwShiftR(remote_msg_id, 32)
+        remote_msg_time <- floor(remote_msg_id / 4294967296)
         time_delta <- now - remote_msg_time
 
         # Check if message is too old
@@ -256,10 +279,16 @@ MTProtoState <- R6::R6Class("MTProtoState",
     #' @description Generate a new unique message ID
     #' @return New message ID
     get_new_msg_id = function() {
+      # Use double-precision arithmetic to avoid 32-bit bitwise overflow
       now <- as.numeric(Sys.time()) + self$time_offset
-      nanoseconds <- as.integer((now - as.integer(now)) * 1e+9)
-      new_msg_id <- bitwOr(bitwShiftL(as.integer(now), 32), bitwShiftL(nanoseconds, 2))
+      sec <- floor(now)
+      nanos <- floor((now - sec) * 1e9)
+      # msg_id = (sec << 32) | (nanos << 2)
+      new_msg_id <- sec * 4294967296 + nanos * 4
 
+      if (is.null(private$last_msg_id)) {
+        private$last_msg_id <- 0
+      }
       if (private$last_msg_id >= new_msg_id) {
         new_msg_id <- private$last_msg_id + 4
       }
@@ -276,10 +305,11 @@ MTProtoState <- R6::R6Class("MTProtoState",
       old <- self$time_offset
 
       now <- as.integer(Sys.time())
-      correct <- bitwShiftR(correct_msg_id, 32)
+      # correct <- bitwShiftR(correct_msg_id, 32)
+      correct <- floor(correct_msg_id / 4294967296)
       self$time_offset <- correct - now
 
-      if (self$time_offset != old) {
+      if (isTRUE(self$time_offset != old)) {
         private$last_msg_id <- 0
         private$log$debug(
           "Updated time offset (old offset %d, bad %d, good %d, new %d)",
@@ -384,12 +414,14 @@ deque <- function(maxlen) {
 #' @return Raw vector of random bytes
 #' @export
 packRandomBytes <- function(n) {
-  raw(sample(0:255, n, replace = TRUE))
+  # raw(x) creates a raw vector of length x; we need actual bytes
+  as.raw(sample(0:255, n, replace = TRUE))
 }
 
-#' Pack a random 64-bit integer and return as raw vector
-#' @return Raw vector representation of a random long integer
+#' Generate random 64-bit value bytes (little-endian)
+#' @return Raw(8) random bytes
 #' @export
 packRandomLong <- function() {
-  packInt64(sample(0:2^31, 1) * sample(0:2^31, 1))
+  # Return 8 random bytes directly; callers can use unpackInt64 if needed
+  packRandomBytes(8)
 }

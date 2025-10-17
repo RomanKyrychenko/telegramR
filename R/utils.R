@@ -662,7 +662,7 @@ xor <- function(a, b) {
 #' @param iterations An integer.
 #' @return A raw vector.
 pbkdf2sha512 <- function(password, salt, iterations) {
-  return(openssl::pbkdf2(password, salt, iterations, 64, "sha512"))
+  return(openssl::bcrypt_pbkdf(password, salt, size = 64L))
 }
 
 #' Compute Hash

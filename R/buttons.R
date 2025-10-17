@@ -30,10 +30,11 @@ ButtonMethods <- R6::R6Class(
         return(buttons) # crc32(b'ReplyMarkup')
       }
 
+      # Normalize input into a list of rows, each row is a list of buttons.
       if (!is.list(buttons)) {
-        buttons <- list(list(buttons))
+        buttons <- list(as.list(buttons))
       } else if (length(buttons) == 0 || !is.list(buttons[[1]])) {
-        buttons <- list(buttons)
+        buttons <- list(as.list(buttons))
       }
 
       is_inline <- FALSE
@@ -55,9 +56,21 @@ ButtonMethods <- R6::R6Class(
             button <- button$button
           }
 
-          inline <- button$is_inline
-          is_inline <- is_inline || inline
-          is_normal <- is_normal || !inline
+          # Coerce atomic inputs (e.g., "OK") to a KeyboardButton
+          if (is.atomic(button) && !is.list(button)) {
+            btn_text <- as.character(button)[1]
+            button <- list("_type" = "KeyboardButton", "text" = btn_text, "is_inline" = FALSE)
+            attr(button, "SUBCLASS_OF_ID") <- 0xbad74a3 # crc32(b'KeyboardButton')
+          }
+
+          # Safely determine inline flag
+          inline <- button[["is_inline"]]
+          if (is.null(inline)) {
+            inline <- if (!is.null(attr(button, "SUBCLASS_OF_ID")) && attr(button, "SUBCLASS_OF_ID") == 0xbad74a3) FALSE else FALSE
+          }
+
+          is_inline <- is_inline || isTRUE(inline)
+          is_normal <- is_normal || !isTRUE(inline)
 
           if (!is.null(attr(button, "SUBCLASS_OF_ID")) && attr(button, "SUBCLASS_OF_ID") == 0xbad74a3) {
             # 0xbad74a3 == crc32(b'KeyboardButton')
