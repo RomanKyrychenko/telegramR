@@ -39,7 +39,7 @@ test_that("disconnects successfully", {
 })
 
 test_that("handles proxy configuration correctly", {
-  proxy <- list(proxy_type = "socks5", addr = ip, port = 1080)
+  proxy <- list(proxy_type = "socks5", addr = ip, port = 443)
   connection <- Connection$new(ip = ip, port = port, dc_id = 1, proxy = proxy)
 
   result <- value(connection$connect())

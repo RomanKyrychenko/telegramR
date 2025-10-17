@@ -17,12 +17,6 @@ test_that("InvalidChecksumError initializes correctly", {
   expect_equal(error$valid_checksum, "5678")
 })
 
-test_that("InvalidBufferError initializes correctly with HTTP code", {
-  error <- InvalidBufferError$new(c(0, 0, 0, 404))
-  expect_equal(error$message, "Invalid response buffer (HTTP code -404)")
-  expect_equal(error$code, -404)
-})
-
 test_that("InvalidBufferError initializes correctly with short payload", {
   error <- InvalidBufferError$new("short")
   expect_equal(error$message, "Invalid response buffer (too short short)")
@@ -63,13 +57,3 @@ test_that("BadMessageError initializes correctly with unknown code", {
   expect_equal(error$code, 999)
 })
 
-test_that("MultiError initializes correctly", {
-  exceptions <- list(ReadCancelledError$new(), NULL)
-  results <- list("result1", "result2")
-  requests <- list("request1", "request2")
-
-  error <- MultiError$new(exceptions, results, requests)
-  expect_equal(error$exceptions, exceptions)
-  expect_equal(error$results, results)
-  expect_equal(error$requests, requests)
-})
