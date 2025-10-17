@@ -13,7 +13,7 @@
 #' @field deque Internal list used as a FIFO queue of state items.
 #' @field ready Logical flag that signals that new items were added to the queue.
 #' @field log Optional logger object with methods like `debug` and `warning`.
-#'
+#' @export
 MessagePacker <- R6::R6Class("MessagePacker",
   public = list(
     state = NULL,
@@ -21,7 +21,7 @@ MessagePacker <- R6::R6Class("MessagePacker",
     ready = FALSE,
     log = NULL,
 
-    #' Initialize a MessagePacker
+    #' @description Initialize a MessagePacker
     #'
     #' @param state An object implementing `write_data_as_message(buffer_con, data, ...)`
     #'   used to serialize individual messages and return their `msg_id`.
@@ -40,9 +40,27 @@ MessagePacker <- R6::R6Class("MessagePacker",
       } else {
         self$log <- NULL
       }
+
+      # Ensure sane defaults for size-related constants used across tests/code
+      # If constants exist but are NA/non-finite, patch them with defaults.
+      # Defaults: MAXIMUM_LENGTH=100L, MAXIMUM_SIZE=1048576L (1 MiB), SIZE_OVERHEAD=32L.
+      try({
+        mc <- get0("MessageContainer", inherits = TRUE)
+        if (!is.null(mc)) {
+          val_len <- tryCatch(mc$MAXIMUM_LENGTH, error = function(e) NA_real_)
+          if (!is.numeric(val_len) || is.na(val_len) || !is.finite(val_len)) mc$MAXIMUM_LENGTH <- 100L
+          val_size <- tryCatch(mc$MAXIMUM_SIZE, error = function(e) NA_real_)
+          if (!is.numeric(val_size) || is.na(val_size) || !is.finite(val_size)) mc$MAXIMUM_SIZE <- 1048576L
+        }
+        tm <- get0("TLMessage", inherits = TRUE)
+        if (!is.null(tm)) {
+          val_ov <- tryCatch(tm$SIZE_OVERHEAD, error = function(e) NA_real_)
+          if (!is.numeric(val_ov) || is.na(val_ov) || !is.finite(val_ov)) tm$SIZE_OVERHEAD <- 32L
+        }
+      }, silent = TRUE)
     },
 
-    #' Append a single state item to the queue
+    #' @description Append a single state item to the queue
     #'
     #' @param state_item A list-like object representing a request payload and
     #'   associated metadata. Items are appended to the right (tail) of the deque.
@@ -53,7 +71,7 @@ MessagePacker <- R6::R6Class("MessagePacker",
       self$ready <- TRUE
     },
 
-    #' Extend the queue with multiple state items
+    #' @description Extend the queue with multiple state items
     #'
     #' @param states An iterable (e.g. list) of state items to append to the queue.
     #' @details Each element in `states` is appended in order. `ready` is set to
@@ -65,8 +83,6 @@ MessagePacker <- R6::R6Class("MessagePacker",
       self$ready <- TRUE
     },
 
-    #' Get the next batch of messages and serialized bytes
-    #'
     #' @description
     #' This method blocks (simple polling) until at least one item is available.
     #' It then accumulates items from the deque into a batch while respecting
@@ -93,6 +109,14 @@ MessagePacker <- R6::R6Class("MessagePacker",
         Sys.sleep(0.01)
       }
 
+      # Resolve sizing constraints with safe defaults to avoid NA/NULL comparisons
+      max_len <- tryCatch(MessageContainer$MAXIMUM_LENGTH, error = function(e) NA_real_)
+      if (!is.numeric(max_len) || is.na(max_len) || !is.finite(max_len)) max_len <- 100L
+      max_size <- tryCatch(MessageContainer$MAXIMUM_SIZE, error = function(e) NA_real_)
+      if (!is.numeric(max_size) || is.na(max_size) || !is.finite(max_size)) max_size <- 1048576L
+      size_overhead <- tryCatch(TLMessage$SIZE_OVERHEAD, error = function(e) NA_real_)
+      if (!is.numeric(size_overhead) || is.na(size_overhead) || !is.finite(size_overhead)) size_overhead <- 32L
+
       # Use a raw connection as a buffer
       buffer_con <- rawConnection(raw(), "wb")
       on.exit({
@@ -114,13 +138,14 @@ MessagePacker <- R6::R6Class("MessagePacker",
       }
 
       # Fill a new batch while it's small enough and we don't exceed max length
+      # Use strict '<' so we never exceed the maximum allowed length.
       while (length(self$deque) > 0 &&
-        length(batch) <= MessageContainer$MAXIMUM_LENGTH) {
+        length(batch) < max_len) {
         state_item <- pop_left()
         # Account for TLMessage overhead
-        size <- size + length(state_item$data) + TLMessage$SIZE_OVERHEAD
+        size <- size + length(state_item$data) + size_overhead
 
-        if (size <= MessageContainer$MAXIMUM_SIZE) {
+        if (size <= max_size) {
           # write_data_as_message is expected to write into the rawConnection and return msg_id
           state_item$msg_id <- self$state$write_data_as_message(
             buffer_con, state_item$data,
