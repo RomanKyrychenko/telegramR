@@ -2,13 +2,13 @@
 % Please edit documentation in R/mtprotostate.R
 \name{packRandomLong}
 \alias{packRandomLong}
-\title{Pack a random 64-bit integer and return as raw vector}
+\title{Generate random 64-bit value bytes (little-endian)}
 \usage{
 packRandomLong()
 }
 \value{
-Raw vector representation of a random long integer
+Raw(8) random bytes
 }
 \description{
-Pack a random 64-bit integer and return as raw vector
+Generate random 64-bit value bytes (little-endian)
 }

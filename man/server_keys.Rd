@@ -5,7 +5,7 @@
 \alias{server_keys}
 \title{RSA Utilities}
 \format{
-An object of class \code{list} of length 0.
+An object of class \code{list} of length 4.
 }
 \usage{
 server_keys

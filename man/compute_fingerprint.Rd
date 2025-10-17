@@ -7,10 +7,10 @@
 compute_fingerprint(key)
 }
 \arguments{
-\item{key}{The RSA key as a list with `n` and `e` components.}
+\item{key}{The RSA key as a list with `n` and `e` components, a PEM string, or an openssl pubkey.}
 }
 \value{
-The 8-byte fingerprint as an integer.
+The 8-byte fingerprint as a positive numeric.
 }
 \description{
 Computes the fingerprint of an RSA key.

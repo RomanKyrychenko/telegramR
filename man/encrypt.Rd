@@ -9,7 +9,7 @@ encrypt(fingerprint, data, use_old = FALSE)
 \arguments{
 \item{fingerprint}{The fingerprint of the RSA key.}
 
-\item{data}{The data to encrypt as a raw vector.}
+\item{data}{The data to encrypt as a raw vector (or coercible).}
 
 \item{use_old}{Logical indicating if old keys should be used.}
 }

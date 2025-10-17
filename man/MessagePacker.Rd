@@ -21,9 +21,7 @@ bytes and generate message ids via `write_data_as_message`.}
 
 \item{\code{ready}}{Logical flag that signals that new items were added to the queue.}
 
-\item{\code{log}}{Optional logger object with methods like `debug` and `warning`.
-
-Initialize a MessagePacker}
+\item{\code{log}}{Optional logger object with methods like `debug` and `warning`.}
 }
 \if{html}{\out{</div>}}
 }
@@ -41,6 +39,7 @@ Initialize a MessagePacker}
 \if{html}{\out{<a id="method-MessagePacker-new"></a>}}
 \if{latex}{\out{\hypertarget{method-MessagePacker-new}{}}}
 \subsection{Method \code{new()}}{
+Initialize a MessagePacker
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MessagePacker$new(state, loggers = list())}\if{html}{\out{</div>}}
 }
@@ -52,9 +51,8 @@ Initialize a MessagePacker}
 used to serialize individual messages and return their `msg_id`.}
 
 \item{\code{loggers}}{Optional list of logger instances. If a `"messagepacker"`
-  entry exists it will be used; otherwise the first logger in the list
-  will be used as a fallback.
-Append a single state item to the queue}
+entry exists it will be used; otherwise the first logger in the list
+will be used as a fallback.}
 }
 \if{html}{\out{</div>}}
 }
@@ -63,6 +61,7 @@ Append a single state item to the queue}
 \if{html}{\out{<a id="method-MessagePacker-append"></a>}}
 \if{latex}{\out{\hypertarget{method-MessagePacker-append}{}}}
 \subsection{Method \code{append()}}{
+Append a single state item to the queue
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MessagePacker$append(state_item)}\if{html}{\out{</div>}}
 }
@@ -78,7 +77,6 @@ associated metadata. Items are appended to the right (tail) of the deque.}
 \subsection{Details}{
 This method also sets `ready` to \code{TRUE} to notify any
   waiting `get` calls that new data is available.
-Extend the queue with multiple state items
 }
 
 }
@@ -86,6 +84,7 @@ Extend the queue with multiple state items
 \if{html}{\out{<a id="method-MessagePacker-extend"></a>}}
 \if{latex}{\out{\hypertarget{method-MessagePacker-extend}{}}}
 \subsection{Method \code{extend()}}{
+Extend the queue with multiple state items
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MessagePacker$extend(states)}\if{html}{\out{</div>}}
 }
@@ -100,7 +99,6 @@ Extend the queue with multiple state items
 \subsection{Details}{
 Each element in `states` is appended in order. `ready` is set to
   \code{TRUE} after extension.
-Get the next batch of messages and serialized bytes
 }
 
 }
