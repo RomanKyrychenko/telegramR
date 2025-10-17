@@ -51,20 +51,19 @@ TelegramClient <- R6::R6Class(
     #' @param ... Arguments passed to the parent class
     initialize = function(...) {
       super$initialize(...)
-
-      # Initialize each component (mixin-style composition)
-      self$account <- AccountMethods$new(client = self)
-      self$auth <- AuthMethods$new(client = self)
-      self$download <- DownloadMethods$new(client = self)
-      self$dialog <- DialogMethods$new(client = self)
-      self$chat <- ChatMethods$new(client = self)
-      self$bot <- BotMethods$new(client = self)
-      self$message <- MessageMethods$new(client = self)
-      self$upload <- UploadMethods$new(client = self)
-      self$button <- ButtonMethods$new(client = self)
-      self$update <- UpdateMethods$new(client = self)
-      self$parser <- MessageParseMethods$new(client = self)
-      self$user <- UserMethods$new(client = self)
+      # Initialize each component (composition)
+      self$account <- AccountMethods$new()
+      self$auth <- AuthMethods$new()
+      self$download <- DownloadMethods$new()
+      self$dialog <- DialogMethods$new()
+      self$chat <- ChatMethods$new()
+      self$bot <- BotMethods$new()
+      self$message <- MessageMethods$new()
+      self$upload <- UploadMethods$new()
+      self$button <- ButtonMethods$new()
+      self$update <- UpdateMethods$new()
+      self$parser <- MessageParseMethods$new()
+      self$user <- UserMethods$new()
     }
 
     # Optionally, wrapper methods can be added to delegate calls to these subcomponents
