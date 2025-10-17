@@ -46,25 +46,6 @@ FileStream <- R6::R6Class("FileStream",
 #' @description A class containing methods for uploading files to Telegram.
 UploadMethods <- R6Class("UploadMethods",
   public = list(
-    #' @field session The session object for the Telegram client.
-    session = NULL,
-
-    #' @field api_id The API ID for the Telegram client.
-    api_id = NULL,
-
-    #' @field api_hash The API hash for the Telegram client.
-    api_hash = NULL,
-
-    #' @description Initializes the UploadMethods object.
-    #' @param session The session object for the Telegram client.
-    #' @param api_id The API ID for the Telegram client.
-    #' @param api_hash The API hash for the Telegram client.
-    #' @return None.
-    initialize = function(session, api_id, api_hash) {
-      self$session <- session
-      self$api_id <- api_id
-      self$api_hash <- api_hash
-    },
 
     #' @description Sends a file to a specified entity.
     #' @param entity The entity to send the file to.

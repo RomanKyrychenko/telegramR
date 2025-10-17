@@ -21,18 +21,6 @@ is_typing <- FALSE
 #' @export
 UpdateMethods <- R6::R6Class("UpdateMethods",
   public = list(
-    # Region Public methods
-
-    #' @field client The Telegram client instance.
-    client = NULL,
-
-    #' @description
-    #' Initializes the UpdateMethods with the given client.
-    #' @param client The Telegram client instance.
-    #' @return None.
-    initialize = function(client) {
-      self$client <- client
-    },
 
     #' @description
     #' Runs the update loop until disconnected.

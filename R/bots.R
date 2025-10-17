@@ -15,16 +15,7 @@ BotMethods <- R6::R6Class(
   "BotMethods",
   public = list(
 
-    #' @field client The Telegram client instance.
-    client = NULL,
-
-    #' Initialize the BotMethods class with a Telegram client instance.
-    #' @param client The Telegram client instance.
-    initialize = function(client) {
-      self$client <- client
-    },
-
-    #' Makes an inline query to the specified bot (e.g., "@vote New Poll").
+    #' @description Makes an inline query to the specified bot (e.g., "@vote New Poll").
     #'
     #' @param bot The bot entity to which the inline query should be made.
     #' @param query The query string to send to the bot.
