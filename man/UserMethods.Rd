@@ -10,17 +10,9 @@ UserMethods class for handling user-related methods in Telethon.
 This class provides methods to interact with Telegram's API, including user authorization,
 getting user information, and handling input entities.
 }
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{client}}{The client object.}
-}
-\if{html}{\out{</div>}}
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-UserMethods-new}{\code{UserMethods$new()}}
 \item \href{#method-UserMethods-call}{\code{UserMethods$call()}}
 \item \href{#method-UserMethods-call_internal}{\code{UserMethods$call_internal()}}
 \item \href{#method-UserMethods-get_me}{\code{UserMethods$get_me()}}
@@ -35,26 +27,6 @@ getting user information, and handling input entities.
 \item \href{#method-UserMethods-get_input_dialog}{\code{UserMethods$get_input_dialog()}}
 \item \href{#method-UserMethods-get_input_notify}{\code{UserMethods$get_input_notify()}}
 \item \href{#method-UserMethods-clone}{\code{UserMethods$clone()}}
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserMethods-new"></a>}}
-\if{latex}{\out{\hypertarget{method-UserMethods-new}{}}}
-\subsection{Method \code{new()}}{
-Initialize the UserMethods class.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{UserMethods$new(client)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{client}}{The client object.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-None.
 }
 }
 \if{html}{\out{<hr>}}

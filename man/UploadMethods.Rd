@@ -6,21 +6,9 @@
 \description{
 A class containing methods for uploading files to Telegram.
 }
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{session}}{The session object for the Telegram client.}
-
-\item{\code{api_id}}{The API ID for the Telegram client.}
-
-\item{\code{api_hash}}{The API hash for the Telegram client.}
-}
-\if{html}{\out{</div>}}
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-UploadMethods-new}{\code{UploadMethods$new()}}
 \item \href{#method-UploadMethods-send_file}{\code{UploadMethods$send_file()}}
 \item \href{#method-UploadMethods-upload_file}{\code{UploadMethods$upload_file()}}
 \item \href{#method-UploadMethods-file_to_media}{\code{UploadMethods$file_to_media()}}
@@ -29,30 +17,6 @@ A class containing methods for uploading files to Telegram.
 \item \href{#method-UploadMethods-get_appropriated_part_size}{\code{UploadMethods$get_appropriated_part_size()}}
 \item \href{#method-UploadMethods-invoke}{\code{UploadMethods$invoke()}}
 \item \href{#method-UploadMethods-clone}{\code{UploadMethods$clone()}}
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UploadMethods-new"></a>}}
-\if{latex}{\out{\hypertarget{method-UploadMethods-new}{}}}
-\subsection{Method \code{new()}}{
-Initializes the UploadMethods object.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{UploadMethods$new(session, api_id, api_hash)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{session}}{The session object for the Telegram client.}
-
-\item{\code{api_id}}{The API ID for the Telegram client.}
-
-\item{\code{api_hash}}{The API hash for the Telegram client.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-None.
 }
 }
 \if{html}{\out{<hr>}}

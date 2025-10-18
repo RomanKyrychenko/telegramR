@@ -12,7 +12,7 @@ TelegramClient Class
 An R6 class that combines functionality from multiple method classes to interact with Telegram API
 }
 \section{Super class}{
-\code{base::NA} -> \code{TelegramClient}
+\code{\link[telegramR:TelegramBaseClient]{telegramR::TelegramBaseClient}} -> \code{TelegramClient}
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
@@ -50,6 +50,19 @@ An R6 class that combines functionality from multiple method classes to interact
 \item \href{#method-TelegramClient-clone}{\code{TelegramClient$clone()}}
 }
 }
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="connect"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-connect'><code>telegramR::TelegramBaseClient$connect()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="disconnect"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-disconnect'><code>telegramR::TelegramBaseClient$disconnect()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="get_flood_sleep_threshold"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-get_flood_sleep_threshold'><code>telegramR::TelegramBaseClient$get_flood_sleep_threshold()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="get_version"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-get_version'><code>telegramR::TelegramBaseClient$get_version()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="is_connected"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-is_connected'><code>telegramR::TelegramBaseClient$is_connected()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="set_flood_sleep_threshold"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-set_flood_sleep_threshold'><code>telegramR::TelegramBaseClient$set_flood_sleep_threshold()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="set_proxy"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-set_proxy'><code>telegramR::TelegramBaseClient$set_proxy()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-new"></a>}}
 \if{latex}{\out{\hypertarget{method-TelegramClient-new}{}}}

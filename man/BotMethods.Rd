@@ -15,18 +15,9 @@ It is designed to be used with the Telegram API and requires a valid Telegram cl
 bot_methods <- BotMethods$new(client)
 
 }
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{client}}{The Telegram client instance.
-Initialize the BotMethods class with a Telegram client instance.}
-}
-\if{html}{\out{</div>}}
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-BotMethods-new}{\code{BotMethods$new()}}
 \item \href{#method-BotMethods-inline_query}{\code{BotMethods$inline_query()}}
 \item \href{#method-BotMethods-get_input_entity}{\code{BotMethods$get_input_entity()}}
 \item \href{#method-BotMethods-invoke_function}{\code{BotMethods$invoke_function()}}
@@ -35,26 +26,10 @@ Initialize the BotMethods class with a Telegram client instance.}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BotMethods-new"></a>}}
-\if{latex}{\out{\hypertarget{method-BotMethods-new}{}}}
-\subsection{Method \code{new()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BotMethods$new(client)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{client}}{The Telegram client instance.
-Makes an inline query to the specified bot (e.g., "@vote New Poll").}
-}
-\if{html}{\out{</div>}}
-}
-}
-\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-BotMethods-inline_query"></a>}}
 \if{latex}{\out{\hypertarget{method-BotMethods-inline_query}{}}}
 \subsection{Method \code{inline_query()}}{
+Makes an inline query to the specified bot (e.g., "@vote New Poll").
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{BotMethods$inline_query(
   bot,

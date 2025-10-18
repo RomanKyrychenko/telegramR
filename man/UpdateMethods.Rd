@@ -6,17 +6,9 @@
 \description{
 Handles updates and events for the Telegram client.
 }
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{client}}{The Telegram client instance.}
-}
-\if{html}{\out{</div>}}
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-UpdateMethods-new}{\code{UpdateMethods$new()}}
 \item \href{#method-UpdateMethods-run_until_disconnected}{\code{UpdateMethods$run_until_disconnected()}}
 \item \href{#method-UpdateMethods-set_receive_updates}{\code{UpdateMethods$set_receive_updates()}}
 \item \href{#method-UpdateMethods-on}{\code{UpdateMethods$on()}}
@@ -30,26 +22,6 @@ Handles updates and events for the Telegram client.
 \item \href{#method-UpdateMethods-dispatch_update}{\code{UpdateMethods$dispatch_update()}}
 \item \href{#method-UpdateMethods-handle_auto_reconnect}{\code{UpdateMethods$handle_auto_reconnect()}}
 \item \href{#method-UpdateMethods-clone}{\code{UpdateMethods$clone()}}
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateMethods-new"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateMethods-new}{}}}
-\subsection{Method \code{new()}}{
-Initializes the UpdateMethods with the given client.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{UpdateMethods$new(client)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{client}}{The Telegram client instance.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-None.
 }
 }
 \if{html}{\out{<hr>}}

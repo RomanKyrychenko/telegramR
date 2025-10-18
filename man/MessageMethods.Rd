@@ -24,7 +24,6 @@ message_methods <- MessageMethods$new(client)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-MessageMethods-new}{\code{MessageMethods$new()}}
 \item \href{#method-MessageMethods-iter_messages}{\code{MessageMethods$iter_messages()}}
 \item \href{#method-MessageMethods-get_messages}{\code{MessageMethods$get_messages()}}
 \item \href{#method-MessageMethods-send_message}{\code{MessageMethods$send_message()}}
@@ -38,32 +37,15 @@ message_methods <- MessageMethods$new(client)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MessageMethods-new"></a>}}
-\if{latex}{\out{\hypertarget{method-MessageMethods-new}{}}}
-\subsection{Method \code{new()}}{
-Initialize with a Telegram client
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{MessageMethods$new(client)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{client}}{An object representing the Telegram client used to perform requests.
+\if{html}{\out{<a id="method-MessageMethods-iter_messages"></a>}}
+\if{latex}{\out{\hypertarget{method-MessageMethods-iter_messages}{}}}
+\subsection{Method \code{iter_messages()}}{
 Iterate over messages
 
 Iterator over the messages for the given chat. The default order is newest to oldest,
 set reverse = TRUE to iterate oldest to newest.
 
-If either search, filter or from_user are provided, server-side search will be used.}
-}
-\if{html}{\out{</div>}}
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MessageMethods-iter_messages"></a>}}
-\if{latex}{\out{\hypertarget{method-MessageMethods-iter_messages}{}}}
-\subsection{Method \code{iter_messages()}}{
+If either search, filter or from_user are provided, server-side search will be used.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MessageMethods$iter_messages(
   entity,

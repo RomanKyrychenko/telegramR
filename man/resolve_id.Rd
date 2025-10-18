@@ -10,7 +10,7 @@ resolve_id(marked_id)
 \item{marked_id}{An integer representing the marked ID.}
 }
 \value{
-A list containing the original ID and the Peer type (e.g., types$PeerUser, types$PeerChat, or types$PeerChannel).
+A list containing the original ID and the Peer type (e.g., PeerUser, PeerChat, or PeerChannel).
 }
 \description{
 Given a marked ID, returns the original ID and its Peer type.
