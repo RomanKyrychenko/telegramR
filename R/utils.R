@@ -235,21 +235,21 @@ get_input_peer <- function(entity, allow_self = TRUE, check_hash = TRUE) {
 
   if (inherits(entity, "User")) {
     if (entity$is_self && allow_self) {
-      return(types$InputPeerSelf())
+      return(InputPeerSelf$new())
     } else if ((!is.null(entity$access_hash) && !entity$min) || !check_hash) {
-      return(types$InputPeerUser(entity$id, entity$access_hash))
+      return(InputPeerUser$new(entity$id, entity$access_hash))
     } else {
       stop("User without access_hash or min info cannot be input")
     }
   }
 
   if (inherits(entity, c("Chat", "ChatEmpty", "ChatForbidden"))) {
-    return(types$InputPeerChat(entity$id))
+    return(InputPeerChat$new(entity$id))
   }
 
   if (inherits(entity, "Channel")) {
     if ((!is.null(entity$access_hash) && !entity$min) || !check_hash) {
-      return(types$InputPeerChannel(entity$id, entity$access_hash))
+      return(InputPeerChannel$new(entity$id, entity$access_hash))
     } else {
       stop("Channel without access_hash or min info cannot be input")
     }
@@ -258,31 +258,31 @@ get_input_peer <- function(entity, allow_self = TRUE, check_hash = TRUE) {
   if (inherits(entity, "ChannelForbidden")) {
     # "channelForbidden are never min", and since their hash is
     # also not optional, we assume that this truly is the case.
-    return(types$InputPeerChannel(entity$id, entity$access_hash))
+    return(InputPeerChannel$new(entity$id, entity$access_hash))
   }
 
   if (inherits(entity, "InputUser")) {
-    return(types$InputPeerUser(entity$user_id, entity$access_hash))
+    return(InputPeerUser$new(entity$user_id, entity$access_hash))
   }
 
   if (inherits(entity, "InputChannel")) {
-    return(types$InputPeerChannel(entity$channel_id, entity$access_hash))
+    return(InputPeerChannel$new(entity$channel_id, entity$access_hash))
   }
 
   if (inherits(entity, "InputUserSelf")) {
-    return(types$InputPeerSelf())
+    return(InputPeerSelf$new())
   }
 
   if (inherits(entity, "InputUserFromMessage")) {
-    return(types$InputPeerUserFromMessage(entity$peer, entity$msg_id, entity$user_id))
+    return(InputPeerUserFromMessage$new(entity$peer, entity$msg_id, entity$user_id))
   }
 
   if (inherits(entity, "InputChannelFromMessage")) {
-    return(types$InputPeerChannelFromMessage(entity$peer, entity$msg_id, entity$channel_id))
+    return(InputPeerChannelFromMessage$new(entity$peer, entity$msg_id, entity$channel_id))
   }
 
   if (inherits(entity, "UserEmpty")) {
-    return(types$InputPeerEmpty())
+    return(InputPeerEmpty$new())
   }
 
   if (inherits(entity, "UserFull")) {
@@ -290,11 +290,11 @@ get_input_peer <- function(entity, allow_self = TRUE, check_hash = TRUE) {
   }
 
   if (inherits(entity, "ChatFull")) {
-    return(types$InputPeerChat(entity$id))
+    return(InputPeerChat$new(entity$id))
   }
 
   if (inherits(entity, "PeerChat")) {
-    return(types$InputPeerChat(entity$chat_id))
+    return(InputPeerChat$new(entity$chat_id))
   }
 
   raise_cast_fail(entity, "InputPeer")
@@ -324,15 +324,15 @@ get_input_channel <- function(entity) {
   )
 
   if (inherits(entity, c("Channel", "ChannelForbidden"))) {
-    return(types$InputChannel(entity$id, entity$access_hash %||% 0))
+    return(InputChannel$new(entity$id, entity$access_hash %||% 0))
   }
 
   if (inherits(entity, "InputPeerChannel")) {
-    return(types$InputChannel(entity$channel_id, entity$access_hash))
+    return(InputChannel$new(entity$channel_id, entity$access_hash))
   }
 
   if (inherits(entity, "InputPeerChannelFromMessage")) {
-    return(types$InputChannelFromMessage(entity$peer, entity$msg_id, entity$channel_id))
+    return(InputChannelFromMessage$new(entity$peer, entity$msg_id, entity$channel_id))
   }
 
   raise_cast_fail(entity, "InputChannel")
@@ -364,18 +364,18 @@ get_input_user <- function(entity) {
 
   if (inherits(entity, "User")) {
     if (entity$is_self) {
-      return(types$InputUserSelf())
+      return(InputUserSelf$new())
     } else {
-      return(types$InputUser(entity$id, entity$access_hash %||% 0))
+      return(InputUser$new(entity$id, entity$access_hash %||% 0))
     }
   }
 
   if (inherits(entity, "InputPeerSelf")) {
-    return(types$InputUserSelf())
+    return(InputUserSelf$new())
   }
 
   if (inherits(entity, c("UserEmpty", "InputPeerEmpty"))) {
-    return(types$InputUserEmpty())
+    return(InputUserEmpty$new())
   }
 
   if (inherits(entity, "UserFull")) {
@@ -383,11 +383,11 @@ get_input_user <- function(entity) {
   }
 
   if (inherits(entity, "InputPeerUser")) {
-    return(types$InputUser(entity$user_id, entity$access_hash))
+    return(InputUser$new(entity$user_id, entity$access_hash))
   }
 
   if (inherits(entity, "InputPeerUserFromMessage")) {
-    return(types$InputUserFromMessage(entity$peer, entity$msg_id, entity$user_id))
+    return(InputUserFromMessage$new(entity$peer, entity$msg_id, entity$user_id))
   }
 
   raise_cast_fail(entity, "InputUser")
@@ -411,7 +411,7 @@ get_input_dialog <- function(dialog) {
         return(dialog)
       }
       if (dialog$SUBCLASS_OF_ID == 0xc91c90b6) { # crc32(b'InputPeer')
-        return(types$InputDialogPeer(dialog))
+        return(InputDialogPeer$new(dialog))
       }
     },
     error = function(e) {
@@ -421,7 +421,7 @@ get_input_dialog <- function(dialog) {
 
   tryCatch(
     {
-      return(types$InputDialogPeer(get_input_peer(dialog)))
+      return(InputDialogPeer$new(get_input_peer(dialog)))
     },
     error = function(e) {
       # Pass
@@ -455,7 +455,7 @@ get_input_document <- function(document) {
   )
 
   if (inherits(document, "Document")) {
-    return(types$InputDocument(
+    return(InputDocument$new(
       id = document$id,
       access_hash = document$access_hash,
       file_reference = document$file_reference
@@ -463,7 +463,7 @@ get_input_document <- function(document) {
   }
 
   if (inherits(document, "DocumentEmpty")) {
-    return(types$InputDocumentEmpty())
+    return(InputDocumentEmpty$new())
   }
 
   if (inherits(document, "MessageMediaDocument")) {
@@ -782,7 +782,7 @@ compute_check <- function(request, password) {
     K
   )
 
-  return(types$InputCheckPasswordSRP(
+  return(InputCheckPasswordSRP$new(
     request$srp_id, a_for_hash, M1
   ))
 }
@@ -813,9 +813,9 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
       if (media$SUBCLASS_OF_ID == 0xfaf846f4) { # crc32(b'InputMedia')
         return(media)
       } else if (media$SUBCLASS_OF_ID == 0x846363e0) { # crc32(b'InputPhoto')
-        return(types$InputMediaPhoto(media, ttl_seconds = ttl))
+        return(InputMediaPhoto$new(media, ttl_seconds = ttl))
       } else if (media$SUBCLASS_OF_ID == 0xf33fdb68) { # crc32(b'InputDocument')
-        return(types$InputMediaDocument(media, ttl_seconds = ttl))
+        return(InputMediaDocument$new(media, ttl_seconds = ttl))
       }
     },
     error = function(e) {
@@ -824,7 +824,7 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
   )
 
   if (inherits(media, "MessageMediaPhoto")) {
-    return(types$InputMediaPhoto(
+    return(InputMediaPhoto$new(
       id = get_input_photo(media$photo),
       spoiler = media$spoiler,
       ttl_seconds = ttl %||% media$ttl_seconds
@@ -832,14 +832,14 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
   }
 
   if (inherits(media, c("Photo", "photos.Photo", "PhotoEmpty"))) {
-    return(types$InputMediaPhoto(
+    return(InputMediaPhoto$new(
       id = get_input_photo(media),
       ttl_seconds = ttl
     ))
   }
 
   if (inherits(media, "MessageMediaDocument")) {
-    return(types$InputMediaDocument(
+    return(InputMediaDocument$new(
       id = get_input_document(media$document),
       spoiler = media$spoiler,
       ttl_seconds = ttl %||% media$ttl_seconds
@@ -847,7 +847,7 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
   }
 
   if (inherits(media, c("Document", "DocumentEmpty"))) {
-    return(types$InputMediaDocument(
+    return(InputMediaDocument$new(
       id = get_input_document(media),
       ttl_seconds = ttl
     ))
@@ -855,7 +855,7 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
 
   if (inherits(media, c("InputFile", "InputFileBig"))) {
     if (is_photo) {
-      return(types$InputMediaUploadedPhoto(file = media, ttl_seconds = ttl))
+      return(InputMediaUploadedPhoto$new(file = media, ttl_seconds = ttl))
     } else {
       attrs_mime <- get_attributes(
         media,
@@ -865,7 +865,7 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
         video_note = video_note,
         supports_streaming = supports_streaming
       )
-      return(types$InputMediaUploadedDocument(
+      return(InputMediaUploadedDocument$new(
         file = media, mime_type = attrs_mime[[2]], attributes = attrs_mime[[1]], force_file = force_document,
         ttl_seconds = ttl
       ))
@@ -873,14 +873,14 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
   }
 
   if (inherits(media, "MessageMediaGame")) {
-    return(types$InputMediaGame(id = types$InputGameID(
+    return(InputMediaGame$new(id = InputGameID$new(
       id = media$game$id,
       access_hash = media$game$access_hash
     )))
   }
 
   if (inherits(media, "MessageMediaContact")) {
-    return(types$InputMediaContact(
+    return(InputMediaContact$new(
       phone_number = media$phone_number,
       first_name = media$first_name,
       last_name = media$last_name,
@@ -889,11 +889,11 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
   }
 
   if (inherits(media, "MessageMediaGeo")) {
-    return(types$InputMediaGeoPoint(geo_point = get_input_geo(media$geo)))
+    return(InputMediaGeoPoint$new(geo_point = get_input_geo(media$geo)))
   }
 
   if (inherits(media, "MessageMediaGeoLive")) {
-    return(types$InputMediaGeoLive(
+    return(InputMediaGeoLive$new(
       geo_point = get_input_geo(media$geo),
       period = media$period,
       heading = media$heading,
@@ -902,7 +902,7 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
   }
 
   if (inherits(media, "MessageMediaVenue")) {
-    return(types$InputMediaVenue(
+    return(InputMediaVenue$new(
       geo_point = get_input_geo(media$geo),
       title = media$title,
       address = media$address,
@@ -913,7 +913,7 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
   }
 
   if (inherits(media, "MessageMediaDice")) {
-    return(types$InputMediaDice(media$emoticon))
+    return(InputMediaDice$new(media$emoticon))
   }
 
   if (inherits(media, c(
@@ -921,7 +921,7 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
     "ChatPhotoEmpty", "UserProfilePhotoEmpty",
     "ChatPhoto", "UserProfilePhoto"
   ))) {
-    return(types$InputMediaEmpty())
+    return(InputMediaEmpty$new())
   }
 
   if (inherits(media, "Message")) {
@@ -941,7 +941,7 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
       correct_answers <- NULL
     }
 
-    return(types$InputMediaPoll(
+    return(InputMediaPoll$new(
       poll = media$poll,
       correct_answers = correct_answers,
       solution = media$results$solution,
@@ -950,7 +950,7 @@ get_input_media <- function(media, is_photo = FALSE, attributes = NULL, force_do
   }
 
   if (inherits(media, "Poll")) {
-    return(types$InputMediaPoll(media))
+    return(InputMediaPoll$new(media))
   }
 
   raise_cast_fail(media, "InputMedia")
@@ -966,11 +966,11 @@ get_input_message <- function(message) {
   tryCatch(
     {
       if (is.integer(message)) { # This case is really common too
-        return(types$InputMessageID(message))
+        return(InputMessageID$new(message))
       } else if (message$SUBCLASS_OF_ID == 0x54b6bcc5) { # crc32(b'InputMessage')
         return(message)
       } else if (message$SUBCLASS_OF_ID == 0x790009e3) { # crc32(b'Message')
-        return(types$InputMessageID(message$id))
+        return(InputMessageID$new(message$id))
       }
     },
     error = function(e) {
@@ -994,7 +994,7 @@ get_input_group_call <- function(call) {
       if (call$SUBCLASS_OF_ID == 0x58611ab1) { # crc32(b'InputGroupCall')
         return(call)
       } else if (call$SUBCLASS_OF_ID == 0x20b4f320) { # crc32(b'GroupCall')
-        return(types$InputGroupCall(id = call$id, access_hash = call$access_hash))
+        return(InputGroupCall$new(id = call$id, access_hash = call$access_hash))
       }
     },
     error = function(e) {
@@ -1187,14 +1187,14 @@ get_attributes <- function(file, attributes = NULL, mime_type = NULL,
   attributes_list <- list()
 
   # Add filename attribute
-  attributes_list <- c(attributes_list, types$DocumentAttributeFilename(basename(name)))
+  attributes_list <- c(attributes_list, DocumentAttributeFilename$new(basename(name)))
 
   # Check for audio attributes
   if (is_audio(file)) {
     m <- get_metadata(file)
     if (!is.null(m)) {
       performer <- if (m$has("author")) m$get("author") else if (m$has("artist")) m$get("artist") else NULL
-      attributes_list <- c(attributes_list, types$DocumentAttributeAudio(
+      attributes_list <- c(attributes_list, DocumentAttributeAudio$new(
         voice = voice_note,
         title = if (m$has("title")) m$get("title") else NULL,
         performer = performer,
@@ -1207,7 +1207,7 @@ get_attributes <- function(file, attributes = NULL, mime_type = NULL,
   if (!force_document && is_video(file)) {
     m <- get_metadata(file)
     if (!is.null(m)) {
-      doc <- types$DocumentAttributeVideo(
+      doc <- DocumentAttributeVideo$new(
         round_message = video_note,
         w = if (m$has("width")) m$get("width") else 1L,
         h = if (m$has("height")) m$get("height") else 1L,
@@ -1220,12 +1220,12 @@ get_attributes <- function(file, attributes = NULL, mime_type = NULL,
       height <- 1L
       if (!is.null(t_m) && t_m$has("width")) width <- t_m$get("width")
       if (!is.null(t_m) && t_m$has("height")) height <- t_m$get("height")
-      doc <- types$DocumentAttributeVideo(
+      doc <- DocumentAttributeVideo$new(
         duration = 0L, w = width, h = height, round_message = video_note,
         supports_streaming = supports_streaming
       )
     } else {
-      doc <- types$DocumentAttributeVideo(
+      doc <- DocumentAttributeVideo$new(
         duration = 0L, w = 1L, h = 1L, round_message = video_note,
         supports_streaming = supports_streaming
       )
@@ -1239,7 +1239,7 @@ get_attributes <- function(file, attributes = NULL, mime_type = NULL,
     if (length(audio_attr_idx) > 0) {
       attributes_list[[audio_attr_idx]]$voice <- TRUE
     } else {
-      attributes_list <- c(attributes_list, types$DocumentAttributeAudio(duration = 0L, voice = TRUE))
+      attributes_list <- c(attributes_list, DocumentAttributeAudio$new(duration = 0L, voice = TRUE))
     }
   }
 
@@ -1376,7 +1376,7 @@ get_file_info <- function(location) {
   if (inherits(location, "Document")) {
     return(list(
       dc_id = location$dc_id,
-      location = types$InputDocumentFileLocation(
+      location = InputDocumentFileLocation$new(
         id = location$id,
         access_hash = location$access_hash,
         file_reference = location$file_reference,
@@ -1388,7 +1388,7 @@ get_file_info <- function(location) {
     last_size <- location$sizes[[length(location$sizes)]]
     return(list(
       dc_id = location$dc_id,
-      location = types$InputPhotoFileLocation(
+      location = InputPhotoFileLocation$new(
         id = location$id,
         access_hash = location$access_hash,
         file_reference = location$file_reference,
@@ -1641,25 +1641,25 @@ get_peer <- function(peer) {
       } else if (inherits(peer, c("ResolvedPeer", "InputNotifyPeer", "TopPeer", "Dialog", "DialogPeer"))) {
         return(peer$peer)
       } else if (inherits(peer, "ChannelFull")) {
-        return(types$PeerChannel(peer$id))
+        return(PeerChannel$new(peer$id))
       } else if (inherits(peer, "UserEmpty")) {
-        return(types$PeerUser(peer$id))
+        return(PeerUser$new(peer$id))
       } else if (inherits(peer, "ChatEmpty")) {
-        return(types$PeerChat(peer$id))
+        return(PeerChat$new(peer$id))
       }
 
       if (peer$SUBCLASS_OF_ID %in% c(0x7d7c6f86, 0xd9c7fc18)) {
         # ChatParticipant, ChannelParticipant
-        return(types$PeerUser(peer$user_id))
+        return(PeerUser$new(peer$user_id))
       }
 
       peer <- get_input_peer(peer, allow_self = FALSE, check_hash = FALSE)
       if (inherits(peer, c("InputPeerUser", "InputPeerUserFromMessage"))) {
-        return(types$PeerUser(peer$user_id))
+        return(PeerUser$new(peer$user_id))
       } else if (inherits(peer, "InputPeerChat")) {
-        return(types$PeerChat(peer$chat_id))
+        return(PeerChat$new(peer$chat_id))
       } else if (inherits(peer, c("InputPeerChannel", "InputPeerChannelFromMessage"))) {
-        return(types$PeerChannel(peer$channel_id))
+        return(PeerChannel$new(peer$channel_id))
       }
     },
     error = function(e) {
@@ -1740,18 +1740,18 @@ get_peer_id <- function(peer, add_mark = TRUE) {
 #' Given a marked ID, returns the original ID and its Peer type.
 #'
 #' @param marked_id An integer representing the marked ID.
-#' @return A list containing the original ID and the Peer type (e.g., types$PeerUser, types$PeerChat, or types$PeerChannel).
+#' @return A list containing the original ID and the Peer type (e.g., PeerUser, PeerChat, or PeerChannel).
 resolve_id <- function(marked_id) {
   if (marked_id >= 0) {
-    return(list(marked_id, types$PeerUser))
+    return(list(marked_id, PeerUser))
   }
 
   marked_id <- -marked_id
   if (marked_id > 1000000000000) {
     marked_id <- marked_id - 1000000000000
-    return(list(marked_id, types$PeerChannel))
+    return(list(marked_id, PeerChannel))
   } else {
-    return(list(marked_id, types$PeerChat))
+    return(list(marked_id, PeerChat))
   }
 }
 
@@ -1908,27 +1908,27 @@ resolve_bot_file_id <- function(file_id) {
 
     attributes <- list()
     if (file_type == 3 || file_type == 9) {
-      attributes <- c(attributes, types$DocumentAttributeAudio(
+      attributes <- c(attributes, DocumentAttributeAudio$new(
         duration = 0,
         voice = (file_type == 3)
       ))
     } else if (file_type == 4 || file_type == 13) {
-      attributes <- c(attributes, types$DocumentAttributeVideo(
+      attributes <- c(attributes, DocumentAttributeVideo$new(
         duration = 0,
         w = 0,
         h = 0,
         round_message = (file_type == 13)
       ))
     } else if (file_type == 8) {
-      attributes <- c(attributes, types$DocumentAttributeSticker(
+      attributes <- c(attributes, DocumentAttributeSticker$new(
         alt = "",
-        stickerset = types$InputStickerSetEmpty()
+        stickerset = InputStickerSetEmpty$new()
       ))
     } else if (file_type == 10) {
-      attributes <- c(attributes, types$DocumentAttributeAnimated())
+      attributes <- c(attributes, DocumentAttributeAnimated$new())
     }
 
-    return(types$Document(
+    return(Document$new(
       id = media_id,
       access_hash = access_hash,
       date = NULL,
@@ -1976,12 +1976,12 @@ resolve_bot_file_id <- function(file_id) {
 
     # Thumbnails (small) always have ID 0; otherwise size 'x'
     photo_size <- if (media_id == 0 && access_hash == 0) "s" else "x"
-    return(types$Photo(
+    return(Photo$new(
       id = media_id,
       access_hash = access_hash,
       file_reference = raw(0),
       date = NULL,
-      sizes = list(types$PhotoSize(
+      sizes = list(PhotoSize$new(
         type = photo_size,
         w = 0,
         h = 0,
@@ -2163,7 +2163,7 @@ resolve_inline_message_id <- function(inline_msg_id) {
       access_hash <- readBin(con, "integer", size = 8, endian = "little", signed = TRUE)
       close(con)
 
-      peer <- if (pid < 0) types$PeerChannel(-pid) else types$PeerUser(pid)
+      peer <- if (pid < 0) PeerChannel$new(-pid) else PeerUser$new(pid)
       return(list(message_id, peer, dc_id, access_hash))
     },
     error = function(e) {
@@ -2524,8 +2524,8 @@ stripped_photo_to_jpg <- function(stripped) {
 #' @return The byte count as an integer, or NULL if the type is unrecognized.
 #' @examples
 #' \dontrun{
-#' # Assuming types are defined elsewhere, e.g., types$PhotoSize
-#' size <- types$PhotoSize(size = 1024)
+#' # Assuming types are defined elsewhere, e.g., PhotoSize
+#' size <- PhotoSize(size = 1024)
 #' photo_size_byte_count(size) # Returns 1024
 #' }
 photo_size_byte_count <- function(size) {
