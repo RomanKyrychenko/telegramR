@@ -1,26 +1,629 @@
-test_that("creates Telegram client with all components", {
+# Provide a minimal base class so TelegramClient can be instantiated without full package context.
+if (!exists("TelegramBaseClient")) {
+  TelegramBaseClient <- R6::R6Class("TelegramBaseClient", public = list(
+    initialize = function(...) { }
+  ))
+}
 
-  telegram_client <- TelegramClient$new(api_id = 1, api_hash="ss", session="ssd")
-
-  expect_true(inherits(telegram_client$account, "AccountMethods"))
-  expect_true(inherits(telegram_client$auth, "AuthMethods"))
-  expect_true(inherits(telegram_client$download, "DownloadMethods"))
-  expect_true(inherits(telegram_client$dialog, "DialogMethods"))
-  expect_true(inherits(telegram_client$chat, "ChatMethods"))
-  expect_true(inherits(telegram_client$bot, "BotMethods"))
-  expect_true(inherits(telegram_client$message, "MessageMethods"))
-  expect_true(inherits(telegram_client$upload, "UploadMethods"))
-  expect_true(inherits(telegram_client$button, "ButtonMethods"))
-  expect_true(inherits(telegram_client$update, "UpdateMethods"))
-  expect_true(inherits(telegram_client$parser, "MessageParseMethods"))
-  expect_true(inherits(telegram_client$user, "UserMethods"))
+test_that("TelegramClient starts", {
+  cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+  cli$start("3282893893", "hjadhjsdjh")
 })
 
+test_that("TelegramClient initializes and exposes helper methods", {
+  cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
-test_that("creates Telegram client with minimal components", {
-
-  telegram_client <- TelegramClient$new(api_id = 1, api_hash="ss", session="ssd")
-
-  expect_true(inherits(telegram_client$auth, "AuthMethods"))
-  expect_true(inherits(telegram_client$message, "MessageMethods"))
+  expect_true(is.function(cli$build_reply_markup))
+  expect_true(is.function(cli$sanitize_parse_mode))
+  expect_true(is.function(cli$set_parse_mode))
+  expect_true(is.function(cli$get_parse_mode))
+  expect_true(is.function(cli$parse_message_text))
+  expect_true(is.function(cli$replace_with_mention))
+  expect_true(is.function(cli$get_response_message))
+  expect_true(is.function(cli$is_image))
+  expect_true(is.function(cli$get_appropriated_part_size))
+  expect_true(is.function(cli$get_proper_filename))
+  expect_true(is.function(cli$get_thumb))
 })
+
+test_that("build_reply_markup handles NULL, reply markup passthrough, keyboard and inline buttons", {
+  cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+  # NULL -> NULL
+  expect_null(cli$build_reply_markup(NULL))
+
+  # Already-a-reply-markup is returned unchanged
+  m <- list(dummy = TRUE); attr(m, "SUBCLASS_OF_ID") <- 0xe2e10ef2
+  expect_identical(cli$build_reply_markup(m), m)
+
+  # Single keyboard button -> ReplyKeyboardMarkup
+  kb <- list(is_inline = FALSE); attr(kb, "SUBCLASS_OF_ID") <- 0xbad74a3
+  res_kb <- cli$build_reply_markup(kb)
+  expect_equal(res_kb[["_type"]], "ReplyKeyboardMarkup")
+  expect_length(res_kb$rows, 1)
+  expect_equal(res_kb$rows[[1]]$buttons[[1]]$is_inline, FALSE)
+
+  # Single inline button -> ReplyInlineMarkup (no rows since no keyboard buttons)
+  inline <- list(is_inline = TRUE); attr(inline, "SUBCLASS_OF_ID") <- 123L
+  res_inline <- cli$build_reply_markup(inline)
+  expect_equal(res_inline[["_type"]], "ReplyInlineMarkup")
+  expect_length(res_inline$rows, 0)
+
+  # Mixing inline and normal errors
+  expect_error(
+    cli$build_reply_markup(list(list(kb), list(inline))),
+    "You cannot mix inline with normal buttons"
+  )
+
+  # inline_only with normal button errors
+  expect_error(
+    cli$build_reply_markup(kb, inline_only = TRUE),
+    "You cannot use non-inline buttons here"
+  )
+
+  # CustomButton extracts flags and inner button
+  inner <- list(is_inline = FALSE); attr(inner, "SUBCLASS_OF_ID") <- 0xbad74a3
+  custom <- structure(list(button = inner, resize = TRUE, single_use = FALSE, selective = TRUE), class = "CustomButton")
+  res_custom <- cli$build_reply_markup(list(custom))
+  expect_equal(res_custom[["_type"]], "ReplyKeyboardMarkup")
+  expect_true(res_custom$resize)
+  expect_false(res_custom$single_use)
+  expect_true(res_custom$selective)
+
+  # MessageButton unwraps to its inner button (inline path)
+  msgb <- structure(list(button = inline), class = "MessageButton")
+  res_msgb <- cli$build_reply_markup(list(msgb))
+  expect_equal(res_msgb[["_type"]], "ReplyInlineMarkup")
+})
+
+test_that("sanitize_parse_mode, set/get_parse_mode and parse_message_text behave", {
+  cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+  expect_null(cli$sanitize_parse_mode(NULL))
+  expect_equal(cli$sanitize_parse_mode("markdown"), "markdown")
+  expect_equal(cli$sanitize_parse_mode("md"), "md")
+  expect_equal(cli$sanitize_parse_mode("html"), "html")
+  expect_equal(cli$sanitize_parse_mode("htm"), "htm")
+  expect_error(cli$sanitize_parse_mode("plain"), "Invalid parse mode")
+
+  cli$set_parse_mode("md")
+  expect_equal(cli$get_parse_mode(), "md")
+  expect_error(cli$set_parse_mode("invalid"), "Invalid parse mode")
+
+  # parse_message_text returns raw message when parse_mode is NULL
+  cli$set_parse_mode(NULL)
+  res <- cli$parse_message_text("hello")
+  expect_equal(res$message, "hello")
+  expect_equal(length(res$entities), 0)
+
+  # parse with explicit parse_mode
+  res2 <- cli$parse_message_text("hello", parse_mode = "markdown")
+  expect_equal(res2$message, "hello")
+  expect_equal(length(res2$entities), 0)
+
+  # when parse_mode set and message empty -> error (per placeholder)
+  cli$set_parse_mode("md")
+  expect_error(cli$parse_message_text("", NULL), "Failed to parse message")
+})
+
+test_that("replace_with_mention returns TRUE on success and FALSE on invalid index", {
+  cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+  entities <- list(list(offset = 0L, length = 5L))
+  expect_true(cli$replace_with_mention(entities, 1, list(id = 42)))
+  expect_false(cli$replace_with_mention(list(), 1, list(id = 1)))
+})
+
+test_that("get_response_message maps random_id to message correctly", {
+  cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+  upd_map <- list(random_id = 123, id = 10); class(upd_map) <- "UpdateMessageID"
+  msg <- list(id = 10, text = "mapped message")
+  upd_msg <- list(message = msg); class(upd_msg) <- "UpdateNewMessage"
+
+  result_updates <- list(updates = list(upd_map, upd_msg), users = list(), chats = list())
+  class(result_updates) <- "Updates"
+
+  all_msgs <- cli$get_response_message(NULL, result_updates, NULL)
+  expect_true(is.list(all_msgs))
+  expect_equal(all_msgs[["10"]]$text, "mapped message")
+
+  res_msg <- cli$get_response_message(123, result_updates, NULL)
+  expect_equal(res_msg$text, "mapped message")
+
+  req_obj <- list(random_id = list(123))
+  res_list <- cli$get_response_message(req_obj, result_updates, NULL)
+  expect_type(res_list, "list")
+  expect_equal(res_list[[1]]$text, "mapped message")
+
+  short_result <- list(update = upd_msg); class(short_result) <- "UpdateShort"
+  short_msgs <- cli$get_response_message(NULL, short_result, NULL)
+  expect_equal(short_msgs[["10"]]$text, "mapped message")
+
+  bad_result <- list(foo = "bar"); class(bad_result) <- "SomethingElse"
+  expect_null(cli$get_response_message(NULL, bad_result, NULL))
+
+  req_no_rand <- list()
+  expect_warning(res_null <- cli$get_response_message(req_no_rand, result_updates, NULL),
+                 "No random_id in request to map to, returning NULL")
+  expect_null(res_null)
+})
+
+test_that("is_image detects file extensions correctly", {
+  cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+  img <- tempfile(fileext = ".jpg"); on.exit(unlink(img), add = TRUE); file.create(img)
+  expect_true(cli$is_image(img))
+
+  non_img <- tempfile(fileext = ".txt"); on.exit(unlink(non_img), add = TRUE); writeLines("hello", non_img)
+  expect_false(cli$is_image(non_img))
+})
+
+test_that("get_appropriated_part_size returns expected KB values", {
+  cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+  expect_equal(cli$get_appropriated_part_size(104857600), 64)        # 100MB
+  expect_equal(cli$get_appropriated_part_size(200 * 1024^2), 128)    # 200MB
+  expect_equal(cli$get_appropriated_part_size(1073741824), 256)      # 1GB
+})
+
+test_that("get_proper_filename builds names with extension and avoids collisions", {
+  cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+  dir <- tempdir()
+  # Use possible_names so it's deterministic
+  fn1 <- cli$get_proper_filename(NULL, kind = "photo", extension = ".jpg",
+                                 date = NULL, possible_names = list("test_name"))
+  expect_true(grepl("test_name\\.jpg$", fn1))
+
+  # Place in directory
+  fn2 <- cli$get_proper_filename(dir, kind = "document", extension = ".pdf",
+                                 date = NULL, possible_names = list("doc"))
+  expect_true(grepl("doc\\.pdf$", fn2))
+
+  # Create file to force collision and ensure suffix " (1)" is used
+  file.create(fn2)
+  fn3 <- cli$get_proper_filename(dir, kind = "document", extension = ".pdf",
+                                 date = NULL, possible_names = list("doc"))
+  expect_true(grepl("doc \\(1\\)\\.pdf$", fn3))
+})
+
+test_that("get_thumb selects appropriate thumbnail", {
+  cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+  ps1 <- list(type = "s", size = 10); class(ps1) <- "PhotoSize"
+  ps2 <- list(type = "m", size = 50); class(ps2) <- "PhotoSize"
+  cached <- list(bytes = as.raw(1:20)); class(cached) <- "PhotoCachedSize"
+  stripped <- list(bytes = as.raw(1:5)); class(stripped) <- "PhotoStrippedSize"
+  video <- list(type = "v", size = 100); class(video) <- "VideoSize"
+  pathsize <- list(type = "p", size = 999); class(pathsize) <- "PhotoPathSize"
+
+  thumbs <- list(ps1, ps2, cached, stripped, video, pathsize)
+
+  # Default (NULL) should pick the largest valid (VideoSize considered, but PhotoPathSize filtered)
+  sel <- cli$get_thumb(thumbs, NULL)
+  expect_true(inherits(sel, c("VideoSize", "PhotoSize", "PhotoCachedSize", "PhotoStrippedSize")))
+  # Numeric index
+  sel_num <- cli$get_thumb(thumbs, 2L)
+  expect_true(!is.null(sel_num))
+  # By type
+  sel_type <- cli$get_thumb(thumbs, "m")
+  expect_true(inherits(sel_type, "PhotoSize"))
+  expect_equal(sel_type$type, "m")
+})
+
+test_that("get_input_entity returns InputPeerSelf for 'me' string", {
+  # utils$get_input_peer should error to force the code path that checks known strings.
+  assign("utils", list(
+    get_input_peer = function(x) stop("not an input peer"),
+    get_peer_id = function(x, add_mark = FALSE) 1
+  ), envir = .GlobalEnv)
+
+  assign("types", list(
+    InputPeerSelf = function() structure(list(), class = "InputPeerSelf")
+  ), envir = .GlobalEnv)
+
+  client <- list(
+    mb_entity_cache = list(self_id = NULL, self_bot = NULL),
+    flood_waited_requests = list(),
+    no_updates = FALSE,
+    session = list()
+  )
+  um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+  res <- future::value(um$get_input_entity("me"))
+  expect_true(inherits(res, "InputPeerSelf"))
+})
+
+test_that("file_to_media returns nulls for NULL input and external media for URLs", {
+  um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+  res_null <- um$file_to_media(NULL)
+  expect_true(is.list(res_null))
+  expect_equal(res_null$file_handle, NULL)
+  expect_equal(res_null$media, NULL)
+  expect_equal(res_null$as_image, NULL)
+
+  url <- "http://example.com/somefile.pdf"
+  res_url <- um$file_to_media(url)
+  expect_equal(res_url$file_handle, NULL)
+  expect_true(is.list(res_url$media))
+  expect_equal(res_url$media$type, "InputMediaDocumentExternal")
+  expect_false(res_url$as_image)
+})
+
+test_that("get_appropriated_part_size returns expected KB values", {
+  um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+  expect_equal(um$get_appropriated_part_size(104857600), 64)       # 100MB
+  expect_equal(um$get_appropriated_part_size(200 * 1024^2), 128)  # 200MB
+  expect_equal(um$get_appropriated_part_size(1073741824), 256)     # 1GB
+})
+
+test_that("resize_photo_if_needed returns original when not an image", {
+  um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+  tmp <- tempfile(fileext = ".jpg")
+  on.exit(unlink(tmp), add = TRUE)
+  writeBin(as.raw(1:10), tmp)
+  res <- um$resize_photo_if_needed(tmp, is_image = FALSE)
+  expect_equal(res, tmp)
+
+  # raw input, not an image flag -> returns raw unchanged
+  raw_in <- as.raw(1:5)
+  res_raw <- um$resize_photo_if_needed(raw_in, is_image = FALSE)
+  expect_equal(res_raw, raw_in)
+})
+
+test_that("is_image detects file extensions correctly", {
+  um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+  img <- tempfile(fileext = ".jpg")
+  on.exit(unlink(img), add = TRUE)
+  file.create(img)
+  expect_true(um$is_image(img))
+
+  non_img <- tempfile(fileext = ".txt")
+  on.exit(unlink(non_img), add = TRUE)
+  writeLines("hello", non_img)
+  expect_false(um$is_image(non_img))
+})
+
+# Ensure futures run synchronously for tests
+old_plan <- future::plan()
+future::plan(sequential)
+withr::defer(future::plan(old_plan))
+
+# Mock global helpers used by the code under test
+events <- new.env()
+events$get_handlers <- function(callback) NULL
+events$Raw <- function() structure(list(), class = "RawEvent")
+
+utils <- new.env()
+utils$get_peer_id <- function(x) x$id
+
+types <- new.env()
+types$UpdatesTooLong <- function() "updates_too_long"
+
+functions <- new.env()
+functions$updates <- list(GetStateRequest = function() "get_state_req")
+
+# Begin tests
+test_that("get_running_loop returns POSIXct", {
+  expect_s3_class(get_running_loop(), "POSIXct")
+})
+
+test_that("EventBuilderDict builds, caches and sets client for EventCommon", {
+  # Define an R6 EventCommon to mimic behavior
+  EventCommonClass <- R6Class("EventCommon",
+                              public = list(
+                                client = NULL,
+                                original_update = NULL,
+                                entities = NULL,
+                                set_client = function(client) { self$client <- client }
+                              )
+  )
+
+  # Fake client with a self_id
+  fake_client <- new.env()
+  fake_client$self_id <- 123
+
+  ebd <- EventBuilderDict$new(fake_client, list(foo = "bar"), NULL)
+
+  # Builder that returns an EventCommon instance
+  builder_var <- list(
+    build = function(update, others, self_id) {
+      ev <- EventCommonClass$new()
+      ev$original_update <- NULL
+      ev$entities <- NULL
+      ev
+    }
+  )
+
+  # First get call should build and cache
+  ev1 <- ebd$get(builder_var)
+  expect_true(inherits(ev1, "EventCommon"))
+  # cached
+  ev2 <- ebd$get(builder_var)
+  expect_identical(ev1, ev2)
+
+  # Calling set_client should set client on the event
+  ev1$set_client(fake_client)
+  expect_identical(ev1$client, fake_client)
+})
+
+test_that("EventBuilderDict sets client for non-EventCommon objects and caches by name", {
+  fake_client <- new.env()
+  fake_client$self_id <- 999
+  ebd <- EventBuilderDict$new(fake_client, list(a = 1), NULL)
+
+  # Builder returning plain list (not EventCommon)
+  builder_plain <- list(
+    build = function(update, others, self_id) {
+      lst <- list(x = 1)
+      return(lst)
+    }
+  )
+
+  ev_plain <- ebd$get(builder_plain)
+  # For plain lists the code assigns client field if not NULL
+  expect_true(!is.null(ev_plain$client))
+  expect_identical(ev_plain$client, fake_client)
+
+  # Cache key should be based on the symbol name used (builder_plain)
+  expect_true("builder_plain" %in% names(ebd$cache))
+})
+
+test_that("preprocess_updates extends cache and populates entities in updates", {
+  client <- new.env()
+  # mb_entity_cache with extend method
+  client$mb_entity_cache <- new.env()
+  client$mb_entity_cache$extend_called <- FALSE
+  client$mb_entity_cache$extend <- function(users, chats) {
+    client$mb_entity_cache$extend_called <- TRUE
+  }
+  client$self_id <- 42
+
+  um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+  # prepare users and chats with id fields
+  users <- list(list(id = 1, name = "u1"), list(id = 2, name = "u2"))
+  chats <- list(list(id = 100, title = "c1"))
+
+  updates <- list(list(msg = "hello"))
+
+  processed <- um$preprocess_updates(updates, users, chats)
+
+  # mb_entity_cache extend should be called
+  expect_true(client$mb_entity_cache$extend_called)
+
+  # Entities mapping should be present in each update
+  expect_true(!is.null(processed[[1]]$entities))
+  expect_true(all(c("1", "2", "100") %in% names(processed[[1]]$entities)))
+  expect_identical(processed[[1]]$entities[["1"]]$name, "u1")
+})
+
+test_that("add_event_handler, on, remove_event_handler and list_event_handlers work", {
+  # Setup client environment expected by UpdateMethods methods
+  client <- new.env()
+  client$event_builders <- list()
+
+  um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+  # Ensure events$get_handlers returns NULL so add_event_handler uses event or Raw
+  events$get_handlers <- function(callback) NULL
+  events$Raw <- function() structure(list(type = "raw"), class = "RawEvent")
+
+  cb <- function(e) e
+
+  # Add handler via add_event_handler (event = NULL => Raw)
+  um$add_event_handler(cb, event = NULL)
+  expect_length(client$event_builders, 1)
+  expect_identical(client$event_builders[[1]][[2]], cb)
+
+  # Add handler via on decorator
+  decorator <- um$on(function() structure(list(type = "x"), class = "XEvent"))
+  cb2 <- function(e) e
+  decorator(cb2)
+  expect_length(client$event_builders, 2)
+
+  # List handlers
+  lst <- um$list_event_handlers()
+  expect_true(is.list(lst))
+  expect_identical(lst[[1]]$callback, cb)
+
+  # Remove a handler
+  removed <- um$remove_event_handler(cb)
+  expect_equal(removed, 1)
+  expect_length(client$event_builders, 1)
+})
+
+test_that("catch_up schedules UpdatesTooLong via updates_queue", {
+  client <- new.env()
+  client$updates_queue <- new.env()
+  client$updates_queue$put_called <- FALSE
+  client$updates_queue$put <- function(x) {
+    client$updates_queue$put_called <- TRUE
+    assign("last_put", x, envir = client$updates_queue)
+    invisible(NULL)
+  }
+
+  um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+  fut <- um$catch_up()
+  # Wait for future to complete (sequential plan ensures immediate)
+  future::value(fut)
+  expect_true(client$updates_queue$put_called)
+  expect_identical(client$updates_queue$last_put, types$UpdatesTooLong())
+})
+
+test_that("set_receive_updates sets no_updates when FALSE", {
+  client <- new.env()
+  client$no_updates <- NULL
+  um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+  fut <- um$set_receive_updates(FALSE)
+  future::value(fut)
+  expect_true(client$no_updates)
+})
+
+btns <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+test_that("NULL input returns NULL", {
+  expect_null(btns$build_reply_markup(NULL))
+})
+
+test_that("already-a-reply-markup is returned unchanged", {
+  m <- list(dummy = TRUE)
+  attr(m, "SUBCLASS_OF_ID") <- 0xe2e10ef2
+  expect_identical(btns$build_reply_markup(m), m)
+})
+
+test_that("single keyboard button becomes ReplyKeyboardMarkup", {
+  kb <- list(is_inline = FALSE)
+  attr(kb, "SUBCLASS_OF_ID") <- 0xbad74a3
+  res <- btns$build_reply_markup(kb)
+  expect_equal(res[["_type"]], "ReplyKeyboardMarkup")
+  expect_length(res$rows, 1)
+  expect_equal(res$rows[[1]]$buttons[[1]]$is_inline, FALSE)
+  expect_equal(attr(res$rows[[1]]$buttons[[1]], "SUBCLASS_OF_ID"), 0xbad74a3)
+})
+
+test_that("single inline button becomes ReplyInlineMarkup (empty rows if no keyboard buttons)", {
+  inline <- list(is_inline = TRUE)
+  attr(inline, "SUBCLASS_OF_ID") <- 123L
+  res <- btns$build_reply_markup(inline)
+  expect_equal(res[["_type"]], "ReplyInlineMarkup")
+  expect_length(res$rows, 0)
+})
+
+test_that("mixing inline and normal buttons errors", {
+  kb <- list(is_inline = FALSE); attr(kb, "SUBCLASS_OF_ID") <- 0xbad74a3
+  inline <- list(is_inline = TRUE); attr(inline, "SUBCLASS_OF_ID") <- 123L
+  expect_error(
+    btns$build_reply_markup(list(list(kb), list(inline))),
+    "You cannot mix inline with normal buttons"
+  )
+})
+
+test_that("inline_only with normal button errors", {
+  kb <- list(is_inline = FALSE); attr(kb, "SUBCLASS_OF_ID") <- 0xbad74a3
+  expect_error(
+    btns$build_reply_markup(kb, inline_only = TRUE),
+    "You cannot use non-inline buttons here"
+  )
+})
+
+test_that("CustomButton extracts flags and inner button", {
+  inner <- list(is_inline = FALSE)
+  attr(inner, "SUBCLASS_OF_ID") <- 0xbad74a3
+  custom <- structure(
+    list(button = inner, resize = TRUE, single_use = FALSE, selective = TRUE),
+    class = "CustomButton"
+  )
+  res <- btns$build_reply_markup(list(custom))
+  expect_equal(res[["_type"]], "ReplyKeyboardMarkup")
+  expect_true(res$resize)
+  expect_false(res$single_use)
+  expect_true(res$selective)
+  expect_equal(res$rows[[1]]$buttons[[1]]$is_inline, FALSE)
+})
+
+test_that("MessageButton unwraps to its inner button", {
+  inline <- list(is_inline = TRUE); attr(inline, "SUBCLASS_OF_ID") <- 999L
+  msgb <- structure(list(button = inline), class = "MessageButton")
+  res <- btns$build_reply_markup(list(msgb))
+  expect_equal(res[["_type"]], "ReplyInlineMarkup")
+})
+
+test_that("sanitize_parse_mode accepts valid modes and rejects invalid", {
+  obj <- MessageParseMethods$new()
+  expect_null(obj$sanitize_parse_mode(NULL))
+  expect_equal(obj$sanitize_parse_mode("markdown"), "markdown")
+  expect_equal(obj$sanitize_parse_mode("md"), "md")
+  expect_equal(obj$sanitize_parse_mode("html"), "html")
+  expect_equal(obj$sanitize_parse_mode("htm"), "htm")
+  expect_error(obj$sanitize_parse_mode("plain"), "Invalid parse mode")
+})
+
+test_that("set_parse_mode and get_parse_mode work and initialize stores mode", {
+  obj <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+  expect_equal(obj$get_parse_mode(), "md")
+
+  obj$set_parse_mode("html")
+  expect_equal(obj$get_parse_mode(), "html")
+
+  # setting invalid mode should error
+  expect_error(obj$set_parse_mode("invalid"), "Invalid parse mode")
+})
+
+test_that("parse_message_text returns raw message when parse_mode is NULL and parses when set", {
+  obj <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+  res <- obj$parse_message_text("hello")
+  expect_type(res, "list")
+  expect_equal(res$message, "hello")
+  expect_equal(length(res$entities), 0)
+
+  # when parse_mode is provided as argument
+  res2 <- obj$parse_message_text("hello", parse_mode = "markdown")
+  expect_equal(res2$message, "hello")
+  expect_equal(length(res2$entities), 0)
+
+  # when parse_mode set on object and message empty -> error
+  obj2 <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+  expect_error(obj2$parse_message_text("", NULL), "Failed to parse message")
+})
+
+test_that("replace_with_mention returns TRUE on success and FALSE on invalid index", {
+  obj <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+  entities <- list(list(offset = 0L, length = 5L))
+  # should return TRUE for valid replacement
+  expect_true(obj$replace_with_mention(entities, 1, list(id = 42)))
+
+  # invalid index should return FALSE (caught by tryCatch)
+  expect_false(obj$replace_with_mention(list(), 1, list(id = 1)))
+})
+
+test_that("get_response_message handles different result classes and mappings", {
+  obj <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+
+  # Create updates: one maps random_id -> message id, another provides the message
+  upd_map <- list(random_id = 123, id = 10)
+  class(upd_map) <- "UpdateMessageID"
+
+  msg <- list(id = 10, text = "mapped message")
+  upd_msg <- list(message = msg)
+  class(upd_msg) <- "UpdateNewMessage"
+
+  result_updates <- list(updates = list(upd_map, upd_msg), users = list(), chats = list())
+  class(result_updates) <- "Updates"
+
+  # When request is NULL, should return all id_to_message entries (message keyed by id)
+  all_msgs <- obj$get_response_message(NULL, result_updates, NULL)
+  expect_true(is.list(all_msgs))
+  # should contain the message under key "10"
+  expect_equal(all_msgs[["10"]]$text, "mapped message")
+
+  # When request provides a numeric random id, should return the corresponding message
+  res_msg <- obj$get_response_message(123, result_updates, NULL)
+  expect_equal(res_msg$text, "mapped message")
+
+  # When request provides a list of random ids, should return a list of messages
+  req_obj <- list(random_id = list(123))
+  res_list <- obj$get_response_message(req_obj, result_updates, NULL)
+  expect_type(res_list, "list")
+  expect_equal(res_list[[1]]$text, "mapped message")
+
+  # If result is UpdateShort wrapping a single update
+  short_result <- list(update = upd_msg)
+  class(short_result) <- "UpdateShort"
+  # request NULL should return id_to_message with the one message
+  short_msgs <- obj$get_response_message(NULL, short_result, NULL)
+  expect_equal(short_msgs[["10"]]$text, "mapped message")
+
+  # If result has unexpected class, should return NULL
+  bad_result <- list(foo = "bar")
+  class(bad_result) <- "SomethingElse"
+  expect_null(obj$get_response_message(NULL, bad_result, NULL))
+
+  # If request object has no random_id, a warning and NULL should occur
+  req_no_rand <- list()
+  expect_warning(res_null <- obj$get_response_message(req_no_rand, result_updates, NULL), "No random_id in request to map to, returning NULL")
+  expect_null(res_null)
+})
+
