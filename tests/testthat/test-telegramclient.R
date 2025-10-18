@@ -5,6 +5,15 @@ if (!exists("TelegramBaseClient")) {
   ))
 }
 
+test_that("Parse phone", {
+  cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
+  res1 <- cli$parse_phone("1234567890")
+  expect_equal(res1, "1234567890")
+
+  res2 <- cli$parse_phone("+380 (98) 7654321")
+  expect_equal(res2, phone = "+380987654321")
+})
+
 test_that("TelegramClient starts", {
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
   cli$start("3282893893", "hjadhjsdjh")
@@ -532,7 +541,7 @@ test_that("MessageButton unwraps to its inner button", {
 })
 
 test_that("sanitize_parse_mode accepts valid modes and rejects invalid", {
-  obj <- MessageParseMethods$new()
+  obj <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
   expect_null(obj$sanitize_parse_mode(NULL))
   expect_equal(obj$sanitize_parse_mode("markdown"), "markdown")
   expect_equal(obj$sanitize_parse_mode("md"), "md")
