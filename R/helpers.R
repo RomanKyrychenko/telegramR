@@ -80,6 +80,25 @@ del_surrogate <- function(text) {
   intToUtf8(utf8ToInt(text), multiple = TRUE)
 }
 
+#' Check if index is within a surrogate pair
+#' @param text The input text string.
+#' @param index The index to check (1-based).
+#' @param length Optional length of the text; if NULL, computed from text.
+#' @return Logical indicating if the index is within a surrogate pair.
+#' @examples
+#' text <- "\ud83d\udc00"  # Example surrogate pair (though R normalizes)
+#' within_surrogate(text, 2)
+#' @export
+within_surrogate <- function(text, index, length = NULL) {
+  chars <- strsplit(text, "")[[1]]
+  if (is.null(length)) length <- length(chars)
+  return(
+    1 < index && index < length &&
+    '\ud800' <= chars[index - 1] && chars[index - 1] <= '\udbff' &&
+    '\ud800' <= chars[index] && chars[index] <= '\udfff'
+  )
+}
+
 #' Strip text and adjust entities
 #' @param text The original text string.
 #' @param entities A list of entity objects, each with 'offset' and 'length
