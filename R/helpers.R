@@ -331,3 +331,22 @@ get_running_loop <- function() {
     makeCluster(detectCores())
   }
 }
+
+#' fmt_flood
+#'
+#' @description ftm_flood - Format flood wait message
+#' @param delay Delay time in seconds
+#' @param request The request object
+#' @param early Boolean indicating if the message is for an early flood wait
+#' @param td Function to convert delay to time difference
+#' @return Formatted flood wait message
+#' @export
+fmt_flood <- function(delay, request, early = FALSE, td = as.difftime) {
+  sprintf(
+    "Sleeping%s for %ds (%s) on %s flood wait",
+    if (early) " early" else "",
+    delay,
+    as.character(td(delay, units = "secs")),
+    class(request)[1]
+  )
+}
