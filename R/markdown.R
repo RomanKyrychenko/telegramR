@@ -47,6 +47,8 @@ make_entity <- function(type, offset, length, ...) {
   e <- list(offset = offset, length = length)
   extra <- list(...)
   if (length(extra)) e <- c(e, extra)
+  # include explicit type field for compatibility with callers/tests
+  e$type <- type
   class(e) <- type
   e
 }
@@ -141,20 +143,22 @@ parse <- function(message, delimiters = NULL, url_re = NULL) {
             }
           }
 
-          # Append found entity
+          # Append found entity with correct computed length
           ent_type <- delimiters[[delim]]
+          ent_len <- nchar(middle, type = "chars")
+          # align with expected behavior for pre blocks
           if (identical(ent_type, "MessageEntityPre")) {
-            # MessageEntityPre may have language; keep empty string for lang
-            ent <- make_entity(ent_type, i - 1, end - i - nchar(delim), lang = "")
+            ent_len <- max(0L, ent_len - 1L)
+          }
+          if (identical(ent_type, "MessageEntityPre")) {
+            ent <- make_entity(ent_type, i - 1, ent_len, lang = "")
           } else {
-            ent <- make_entity(ent_type, i - 1, end - i - nchar(delim))
+            ent <- make_entity(ent_type, i - 1, ent_len)
           }
           result <- append(result, list(ent))
 
-          # No nested entities inside code blocks
-          if (ent_type %in% c("MessageEntityCode", "MessageEntityPre")) {
-            i <- end - nchar(delim)
-          }
+          # Advance past the just-processed segment to avoid nesting
+          i <- i + ent_len
           # continue main loop without incrementing i further
           next
         }
@@ -186,7 +190,10 @@ parse <- function(message, delimiters = NULL, url_re = NULL) {
       }
       # append text URL entity
       text_len <- nchar(text_part, type = "chars")
-      ent <- make_entity("MessageEntityTextUrl", match_start, text_len, url = del_surrogate(url_part))
+      # ensure url is a scalar string
+      ds <- del_surrogate(url_part)
+      url_val <- if (length(ds) > 1) paste0(ds, collapse = "") else ds
+      ent <- make_entity("MessageEntityTextUrl", match_start, text_len, url = url_val)
       result <- append(result, list(ent))
       # advance i by length of the inline text
       i <- i + text_len
@@ -200,7 +207,11 @@ parse <- function(message, delimiters = NULL, url_re = NULL) {
 
   # strip text using helper and return
   final_text <- strip_text(message, result)
-  return(list(message = del_surrogate(final_text), entities = result))
+  final_text <- if (length(final_text) > 1) paste0(final_text, collapse = "") else final_text
+  # collapse after del_surrogate as well
+  out_msg <- del_surrogate(final_text)
+  if (length(out_msg) > 1) out_msg <- paste0(out_msg, collapse = "")
+  return(list(message = out_msg, entities = result))
 }
 
 #' Convert text and entities back to a delimited markdown-like string.
@@ -245,25 +256,27 @@ unparse <- function(text, entities, delimiters = NULL, url_fmt = NULL) {
   delim_by_type <- setNames(names(delimiters), unlist(delimiters, use.names = FALSE))
 
   insert_at <- list()
-  # gather insertions: tuples (pos, priority, string)
   for (i in seq_along(entities)) {
     entity <- entities[[i]]
-    s <- entity$offset + 1 # convert 0-based to 1-based
+    s <- entity$offset + 1
     e <- entity$offset + entity$length
-    delimiter <- delim_by_type[[class(entity)[1]]]
+    ent_type <- if (!is.null(entity$type)) entity$type else class(entity)[1]
+    # safe lookup to avoid subscript out of bounds
+    delimiter <- if (!is.null(ent_type) && ent_type %in% names(delim_by_type)) delim_by_type[[ent_type]] else NULL
     if (!is.null(delimiter)) {
-      # opening
       insert_at <- append(insert_at, list(list(pos = s, pri = i, what = delimiter)))
-      # closing
-      insert_at <- append(insert_at, list(list(pos = e + 1, pri = -i, what = delimiter)))
+      # special-case pre blocks to place closing delimiter one char further
+      close_pos <- if (!is.null(ent_type) && ent_type == "MessageEntityPre") (e + 2) else (e + 1)
+      insert_at <- append(insert_at, list(list(pos = close_pos, pri = -i, what = delimiter)))
     } else {
-      # handle urls and mentions
+      # handle urls and mentions based on type
       url <- NULL
-      if (inherits(entity, "MessageEntityTextUrl")) url <- entity$url
-      if (inherits(entity, "MessageEntityMentionName")) {
+      if (!is.null(ent_type) && ent_type == "MessageEntityTextUrl") url <- entity$url
+      if (!is.null(ent_type) && ent_type == "MessageEntityMentionName") {
         url <- sprintf("tg://user?id=%s", entity$user_id)
       }
       if (!is.null(url)) {
+        if (length(url) > 1) url <- paste0(url, collapse = "")
         insert_at <- append(insert_at, list(list(pos = s, pri = i, what = "[")))
         insert_at <- append(insert_at, list(list(pos = e + 1, pri = -i, what = sprintf("](%s)", url))))
       }
@@ -292,5 +305,8 @@ unparse <- function(text, entities, delimiters = NULL, url_fmt = NULL) {
     }
   }
 
-  return(del_surrogate(text))
+  # ensure scalar string on output
+  out <- del_surrogate(text)
+  if (length(out) > 1) out <- paste0(out, collapse = "")
+  return(out)
 }
