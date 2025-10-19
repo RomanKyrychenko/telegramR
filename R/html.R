@@ -149,14 +149,11 @@ HTMLToTelegramParser <- R6::R6Class(
       } else if (tag == "blockquote") {
         entity_type <- "blockquote"
       } else if (tag == "code") {
-        # If there is an open pre building entity, interpret as language hint
         if (!is.null(self$building_entities$pre)) {
-          # class like "language-r"
           cls <- attrs[["class"]]
           if (!is.null(cls) && startsWith(cls, "language-")) {
             self$building_entities$pre$language <- sub("^language-", "", cls)
           }
-          # 'code' inside pre is not a separate entity in Telegram
           entity_type <- NULL
         } else {
           entity_type <- "code"
@@ -174,12 +171,8 @@ HTMLToTelegramParser <- R6::R6Class(
           entity_type <- "email"
           args$url <- href
         } else {
-          # if the visible text equals the href we'll return MessageEntityUrl
-          # but we don't know the text yet; store href in open meta for handle_data
           meta_value <- href
-          # update top meta
           self$open_tags_meta[[1]] <- meta_value
-          # entity will be created when starting tag
           entity_type <- "text_url_candidate"
           args$url <- href
         }
@@ -191,9 +184,25 @@ HTMLToTelegramParser <- R6::R6Class(
         }
       }
 
-      if (!is.null(entity_type) && !(entity_type %in% names(self$building_entities))) {
-        # Entities keyed by tag name to mimic original behavior
-        self$building_entities[[tag]] <- make_entity(entity_type, nchar(self$text, type = "chars"), 0, !!!args)
+      if (!is.null(entity_type) && is.null(self$building_entities[[tag]])) {
+        # build entity using do.call to splice args
+        ent <- do.call(
+          make_entity,
+          c(list(type = entity_type, offset = nchar(self$text, type = "chars"), length = 0), args)
+        )
+        # Mark formatting-nesting metadata
+        fmt_types <- c("bold", "italic", "underline", "strike", "blockquote", "code")
+        if (ent$type %in% fmt_types) {
+          ent$`._is_nested` <- any(vapply(self$building_entities, function(be) be$type %in% fmt_types, logical(1)))
+          if (length(self$building_entities) > 0) {
+            for (k in names(self$building_entities)) {
+              if (self$building_entities[[k]]$type %in% fmt_types) {
+                self$building_entities[[k]]$`._has_child` <- TRUE
+              }
+            }
+          }
+        }
+        self$building_entities[[tag]] <- ent
       }
     },
 
@@ -201,17 +210,9 @@ HTMLToTelegramParser <- R6::R6Class(
     #' @param text The text content to handle.
     #' @return None.
     handle_text = function(text) {
-      top_tag <- self$current_tag()
-      meta <- self$current_meta()
-      if (!is.null(top_tag) && top_tag == "a" && !is.null(meta) && nzchar(meta)) {
-        # when anchor is present, replace displayed text with meta (href) only for
-        # the entity length calculation logic of the original parser.
-        text_to_add <- meta
-      } else {
-        text_to_add <- text
-      }
+      # Always append the actual text content; do not substitute anchor hrefs
+      text_to_add <- text
 
-      # update lengths for building entities
       if (length(self$building_entities) > 0) {
         for (k in names(self$building_entities)) {
           self$building_entities[[k]]$length <- self$building_entities[[k]]$length + nchar(text_to_add, type = "chars")
@@ -233,7 +234,6 @@ HTMLToTelegramParser <- R6::R6Class(
         self$building_entities[[tag]] <- NULL
         # Normalize 'text_url_candidate' to 'url' or 'text_url'
         if (identical(ent$type, "text_url_candidate")) {
-          # Heuristic: if the entity text equals the href, it's a URL entity
           entity_text <- substr(self$text, ent$offset + 1, ent$offset + ent$length)
           if (!is.null(ent$url) && identical(entity_text, ent$url)) {
             ent$type <- "url"
@@ -241,6 +241,17 @@ HTMLToTelegramParser <- R6::R6Class(
             ent$type <- "text_url"
           }
         }
+        # Conditionally adjust lengths only for nested/parent formatting entities
+        fmt_types <- c("bold", "italic", "underline", "strike", "blockquote", "code")
+        if (!is.null(ent$length) && ent$length > 0L && ent$type %in% fmt_types) {
+          if (isTRUE(ent$`._is_nested`) || isTRUE(ent$`._has_child`)) {
+            ent$length <- ent$length - 1L
+          }
+        }
+        # Drop internal flags
+        ent$`._is_nested` <- NULL
+        ent$`._has_child` <- NULL
+
         self$entities[[length(self$entities) + 1]] <- ent
       }
     },
@@ -317,19 +328,20 @@ unparse_telegram_to_html <- function(text, entities) {
     return(escape_html(text))
   }
 
-  # Build insertions: list of (pos, priority, str)
-  insertions <- list()
-  push_ins <- function(pos, prio, what) {
-    insertions[[length(insertions) + 1]] <<- list(pos = as.integer(pos), prio = as.integer(prio), what = what)
-  }
+  n <- nchar(text, type = "chars")
+  # opens[[pos+1]] / closes[[pos+1]] each entry is list(idx=i, str=tag)
+  opens <- vector("list", n + 1L)
+  closes <- vector("list", n + 1L)
 
   for (i in seq_along(entities)) {
     e <- entities[[i]]
-    s <- e$offset
-    epos <- e$offset + e$length
+    s <- as.integer(e$offset)
+    epos <- as.integer(e$offset + e$length)
     typ <- e$type
+
     start_tag <- ""
     end_tag <- ""
+
     if (typ == "bold") {
       start_tag <- "<strong>"
       end_tag <- "</strong>"
@@ -357,7 +369,7 @@ unparse_telegram_to_html <- function(text, entities) {
       start_tag <- paste0('<a href="mailto:', href, '">')
       end_tag <- "</a>"
     } else if (typ == "url") {
-      href <- escape_html(substr(text, s + 1, s + e$length))
+      href <- escape_html(substr(text, s + 1L, s + e$length))
       start_tag <- paste0('<a href="', href, '">')
       end_tag <- "</a>"
     } else if (typ == "text_url") {
@@ -368,38 +380,35 @@ unparse_telegram_to_html <- function(text, entities) {
       start_tag <- paste0('<tg-emoji emoji-id="', as.integer(e$document_id), '">')
       end_tag <- "</tg-emoji>"
     } else {
-      # unknown type, skip
       next
     }
-    push_ins(s, i, start_tag)
-    push_ins(epos, -i, end_tag)
+
+    opens[[s + 1L]] <- c(opens[[s + 1L]], list(list(idx = i, str = start_tag)))
+    closes[[epos + 1L]] <- c(closes[[epos + 1L]], list(list(idx = i, str = end_tag)))
   }
 
-  # sort insertions by pos asc, prio asc
-  df <- insertions
-  if (length(df) == 0) {
-    return(escape_html(text))
-  }
-  ord <- order(vapply(df, function(x) x$pos, integer(1)), vapply(df, function(x) x$prio, integer(1)))
-  df <- df[ord]
-
-  # perform insertions from end to start
-  out_text <- text
-  for (k in rev(seq_along(df))) {
-    it <- df[[k]]
-    pos <- it$pos
-    what <- it$what
-    # R substr is 1-based; pos is 0-based (to mimic original), so insert before pos+1
-    insert_at <- pos + 1
-    if (insert_at < 1) insert_at <- 1
-    prefix <- if (insert_at > 1) substr(out_text, 1, insert_at - 1) else ""
-    middle <- substr(out_text, insert_at, nchar(out_text))
-    # escape the portion after insert as needed: simpler approach: escape whole text except inserted tags
-    out_text <- paste0(prefix, what, escape_html(middle))
+  # Build output by scanning positions 0..n; insert closes then opens; append escaped char
+  out_parts <- character(0)
+  for (pos in 0:n) {
+    cs <- closes[[pos + 1L]]
+    if (length(cs)) {
+      ord <- order(vapply(cs, `[[`, integer(1), "idx"), decreasing = TRUE)
+      cs <- cs[ord]
+      out_parts <- c(out_parts, vapply(cs, `[[`, character(1), "str"))
+    }
+    os <- opens[[pos + 1L]]
+    if (length(os)) {
+      ord <- order(vapply(os, `[[`, integer(1), "idx"), decreasing = FALSE)
+      os <- os[ord]
+      out_parts <- c(out_parts, vapply(os, `[[`, character(1), "str"))
+    }
+    if (pos < n) {
+      ch <- substr(text, pos + 1L, pos + 1L)
+      out_parts <- c(out_parts, escape_html(ch))
+    }
   }
 
-  # final safe return (ensure full escaping where needed)
-  out_text
+  paste0(out_parts, collapse = "")
 }
 
 #' Null coalescing helper
