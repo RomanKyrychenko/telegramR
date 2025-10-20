@@ -128,6 +128,7 @@ get_display_name <- function(entity) {
 #' # Assuming media is a Document object
 #' ext <- get_extension(media)
 #' }
+#' @export
 get_extension <- function(media) {
   tryCatch(
     {
