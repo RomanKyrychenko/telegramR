@@ -14,7 +14,7 @@ EntityType <- list(
 #' @examples
 #' logg("This is a log message with a number: %d", 42)
 #' @export
-logg <- function(...) cat(sprintf(...), "\n")
+logg <- function(...) cat(sprintf(...), "\n", sep = "")
 
 #' Generate a random long integer (8 bytes), optionally signed
 #' @param signed Logical indicating if the integer should be signed (default TRUE)
@@ -56,16 +56,16 @@ ensure_parent_dir_exists <- function(file_path) {
 #' print(surrogate_text) # "Hello 😀 World"
 #' @export
 add_surrogate <- function(text) {
-  sapply(strsplit(text, NULL)[[1]], function(x) {
+  paste0(sapply(strsplit(text, NULL)[[1]], function(x) {
     code <- utf8ToInt(x)
     if (code >= 0x10000 && code <= 0x10FFFF) {
       high <- bitops::bitShiftR(code - 0x10000, 10) + 0xD800
-      low <- bitops::bitAnd(code - 0x10000, 0x3FF) + 0xDC00
+      low  <- bitops::bitAnd(code - 0x10000, 0x3FF) + 0xDC00
       return(intToUtf8(c(high, low)))
     } else {
       return(x)
     }
-  }) %>% paste0(collapse = "")
+  }, USE.NAMES = FALSE), collapse = "")
 }
 
 #' Remove surrogate pairs from text
@@ -83,17 +83,17 @@ del_surrogate <- function(text) {
 #' Check if index is within a surrogate pair
 #' @param text The input text string.
 #' @param index The index to check (1-based).
-#' @param length Optional length of the text; if NULL, computed from text.
+#' @param text_length Optional length of the text; if NULL, computed from text.
 #' @return Logical indicating if the index is within a surrogate pair.
 #' @examples
 #' text <- "\ud83d\udc00"  # Example surrogate pair (though R normalizes)
 #' within_surrogate(text, 2)
 #' @export
-within_surrogate <- function(text, index, length = NULL) {
+within_surrogate <- function(text, index, text_length = NULL) {
   chars <- strsplit(text, "")[[1]]
-  if (is.null(length)) length <- length(chars)
+  n <- if (is.null(text_length)) base::length(chars) else text_length
   return(
-    1 < index && index < length &&
+    1 < index && index < n &&
     '\ud800' <= chars[index - 1] && chars[index - 1] <= '\udbff' &&
     '\ud800' <= chars[index] && chars[index] <= '\udfff'
   )
@@ -112,7 +112,7 @@ within_surrogate <- function(text, index, length = NULL) {
 #' print(entities) # Adjusted entities
 #' @export
 strip_text <- function(text, entities) {
-  if (length(entities) == 0) {
+  if (base::length(entities) == 0) {
     return(trimws(text))
   }
 
@@ -263,15 +263,16 @@ FileStream <- R6::R6Class(
     #' @param file_size Optional size of the file in bytes (if known).
     #' @return A new FileStream instance.
     initialize = function(file, file_size = NULL) {
-      if (inherits(file, "character")) {
+      if (is.character(file)) {
         self$file <- normalizePath(file)
         self$name <- basename(self$file)
         self$file_size <- file.info(self$file)$size
-        self$stream <- file(self$file, "rb")
+        self$stream <- base::file(self$file, "rb")
         self$close_stream <- TRUE
-      } else if (inherits(file, "raw")) {
+      } else if (is.raw(file)) {
         self$file <- file
-        self$file_size <- length(file)
+        self$name <- NULL
+        self$file_size <- base::length(file)
         self$stream <- rawConnection(file, "rb")
         self$close_stream <- TRUE
       } else if (inherits(file, "connection")) {
@@ -285,17 +286,23 @@ FileStream <- R6::R6Class(
     },
 
     #' @description Reads data from the stream.
-    #' @param length Number of bytes to read; defaults to -1 (read all).
+    #' @param n Number of bytes to read; defaults to -1 (read all remaining).
     #' @return A raw vector containing the read data.
-    read = function(length = -1) {
-      readBin(self$stream, "raw", n = length)
+    read = function(n = -1) {
+      if (is.numeric(n) && n < 0) {
+        cur <- tryCatch(seek(self$stream, where = NA), error = function(e) NA_real_)
+        if (!is.na(cur) && !is.null(self$file_size)) {
+          n <- max(0, self$file_size - cur)
+        }
+      }
+      readBin(self$stream, "raw", n = n)
     },
 
     #' @description Closes the stream if it was opened by the class.
     #' @return None.
     close = function() {
       if (self$close_stream && !is.null(self$stream)) {
-        close(self$stream)
+        base::close(self$stream)
       }
     },
 
