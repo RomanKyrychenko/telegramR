@@ -168,6 +168,7 @@ get_extension <- function(media) {
 #' \dontrun{
 #' raise_cast_fail(some_entity, "InputPeer")
 #' }
+#' @export
 raise_cast_fail <- function(entity, target) {
   stop(sprintf("Cannot cast %s to any kind of %s.", class(entity)[1], target))
 }
