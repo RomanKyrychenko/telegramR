@@ -17,13 +17,14 @@ BinaryReader <- R6::R6Class(
     initialize = function(data) {
       private$stream <- rawConnection(data, "rb")
       private$.last <- NULL
+      private$.data <- data
     },
 
     #' @description
     #' Reads a single byte value.
     #' @return A single byte as an integer.
     read_byte = function() {
-      return(self$read(1)[1])
+      return(as.integer(self$read(1L)[1]))
     },
 
     #' @description
@@ -48,16 +49,22 @@ BinaryReader <- R6::R6Class(
     #' Reads a 4-byte floating-point value.
     #' @return A numeric value.
     read_float = function() {
-      bytes <- self$read(4)
-      return(readBin(bytes, "double", size = 4, endian = "little"))
+      bytes <- self$read(4L)
+      con <- rawConnection(bytes, "rb")
+      on.exit(close(con))
+      val <- readBin(con, what = "numeric", n = 1L, size = 4L, endian = "little")
+      return(val)
     },
 
     #' @description
     #' Reads an 8-byte floating-point value.
     #' @return A numeric value.
     read_double = function() {
-      bytes <- self$read(8)
-      return(readBin(bytes, "double", size = 8, endian = "little"))
+      bytes <- self$read(8L)
+      con <- rawConnection(bytes, "rb")
+      on.exit(close(con))
+      val <- readBin(con, what = "numeric", n = 1L, size = 8L, endian = "little")
+      return(val)
     },
 
     #' @description
@@ -80,8 +87,7 @@ BinaryReader <- R6::R6Class(
     #' Gets the byte array representing the current buffer as a whole.
     #' @return A raw vector of the entire buffer.
     get_bytes = function() {
-      seek(self$stream, 0)
-      return(readBin(private$stream, "raw", n = file.info(summary(private$stream)$description)$size))
+      return(private$.data)
     },
 
     #' @description
@@ -122,6 +128,7 @@ BinaryReader <- R6::R6Class(
   ),
   private = list(
     stream = NULL,
-    .last = NULL
+    .last = NULL,
+    .data = NULL
   )
 )
