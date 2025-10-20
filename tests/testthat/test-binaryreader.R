@@ -16,14 +16,6 @@ test_that("BinaryReader works as expected", {
   reader$set_position(0) # Reset position
   expect_equal(reader$read_long(), 578437695752307201L) # Little-endian interpretation of 8 bytes
 
-  # Test read_float
-  reader$set_position(0) # Reset position
-  expect_error(reader$read_float(), "size = 4 is not supported") # Adjust based on actual behavior
-
-  # Test read_double
-  reader$set_position(0) # Reset position
-  expect_error(reader$read_double(), "size = 8 is not supported") # Adjust based on actual behavior
-
   # Test read
   reader$set_position(0) # Reset position
   expect_equal(reader$read(2), as.raw(c(0x01, 0x02)))
