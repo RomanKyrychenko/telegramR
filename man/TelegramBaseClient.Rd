@@ -22,6 +22,7 @@ Abstract base class for telegram client implementation
 \item \href{#method-TelegramBaseClient-get_version}{\code{TelegramBaseClient$get_version()}}
 \item \href{#method-TelegramBaseClient-get_flood_sleep_threshold}{\code{TelegramBaseClient$get_flood_sleep_threshold()}}
 \item \href{#method-TelegramBaseClient-set_flood_sleep_threshold}{\code{TelegramBaseClient$set_flood_sleep_threshold()}}
+\item \href{#method-TelegramBaseClient-get_proxy}{\code{TelegramBaseClient$get_proxy()}}
 \item \href{#method-TelegramBaseClient-clone}{\code{TelegramBaseClient$clone()}}
 }
 }
@@ -215,6 +216,15 @@ Set the flood sleep threshold
 }
 \if{html}{\out{</div>}}
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramBaseClient-get_proxy"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramBaseClient-get_proxy}{}}}
+\subsection{Method \code{get_proxy()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramBaseClient$get_proxy()}\if{html}{\out{</div>}}
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramBaseClient-clone"></a>}}

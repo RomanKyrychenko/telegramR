@@ -4,14 +4,14 @@
 \alias{within_surrogate}
 \title{Check if index is within a surrogate pair}
 \usage{
-within_surrogate(text, index, length = NULL)
+within_surrogate(text, index, text_length = NULL)
 }
 \arguments{
 \item{text}{The input text string.}
 
 \item{index}{The index to check (1-based).}
 
-\item{length}{Optional length of the text; if NULL, computed from text.}
+\item{text_length}{Optional length of the text; if NULL, computed from text.}
 }
 \value{
 Logical indicating if the index is within a surrogate pair.

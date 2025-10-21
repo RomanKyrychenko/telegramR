@@ -285,6 +285,7 @@ Set the default parse mode.}
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="connect"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-connect'><code>telegramR::TelegramBaseClient$connect()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="disconnect"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-disconnect'><code>telegramR::TelegramBaseClient$disconnect()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="get_flood_sleep_threshold"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-get_flood_sleep_threshold'><code>telegramR::TelegramBaseClient$get_flood_sleep_threshold()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="get_proxy"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-get_proxy'><code>telegramR::TelegramBaseClient$get_proxy()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="get_version"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-get_version'><code>telegramR::TelegramBaseClient$get_version()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="is_connected"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-is_connected'><code>telegramR::TelegramBaseClient$is_connected()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="set_flood_sleep_threshold"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-set_flood_sleep_threshold'><code>telegramR::TelegramBaseClient$set_flood_sleep_threshold()</code></a></span></li>
@@ -362,8 +363,8 @@ A logical indicating whether the takeout session was finalized successfully.
 Starts the client (connects and logs in if necessary).
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TelegramClient$start(
-  phone = function() readline("Please enter your phone (or bot token): "),
-  password = function() getPass::getPass("Please enter your password: "),
+  phone = NULL,
+  password = NULL,
   bot_token = NULL,
   force_sms = FALSE,
   code_callback = NULL,
@@ -1085,7 +1086,7 @@ Gets an iterator over dialogs.
   limit = NULL,
   offset_date = NULL,
   offset_id = 0,
-  offset_peer = types$InputPeerEmpty(),
+  offset_peer = InputPeerEmpty$new(),
   ignore_pinned = FALSE,
   ignore_migrated = FALSE,
   folder = NULL,
@@ -1129,7 +1130,7 @@ Gets the dialogs (open conversations/subscribed channels).
   limit = NULL,
   offset_date = NULL,
   offset_id = 0,
-  offset_peer = types$InputPeerEmpty(),
+  offset_peer = InputPeerEmpty$new(),
   ignore_pinned = FALSE,
   ignore_migrated = FALSE,
   folder = NULL,
