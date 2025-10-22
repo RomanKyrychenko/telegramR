@@ -5,11 +5,13 @@ factorization <- Factorization$new()
 test_that("factorize method factors correctly", {
   # Test with a product of two primes
   result <- factorization$factorize(15) # 15 = 3 * 5
-  expect_equal(sort(result), c(3, 5))
+  expect_equal(as.integer(result$p), 3)
+  expect_equal(as.integer(result$q), 5)
 
   # Test with an even number
   result <- factorization$factorize(18) # 18 = 2 * 9
-  expect_equal(sort(result), c(2, 9))
+  expect_equal(as.integer(result$p), 2)
+  expect_equal(as.integer(result$q), 9)
 })
 
 # Test the gcd method
