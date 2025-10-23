@@ -36,16 +36,8 @@ RpcResult <- R6::R6Class(
     #' @param reader A `BinaryReader` object to read the binary data.
     #' @return An `RpcResult` object parsed from the binary data.
     from_reader = function(reader) {
-      msg_id <- reader$read_long()
-      inner_code <- reader$read_int(signed = FALSE)
-      if (inner_code == RpcError$CONSTRUCTOR_ID) {
-        return(RpcResult$new(req_msg_id = msg_id, body = NULL, error = RpcError$from_reader(reader)))
-      }
-      if (inner_code == GzipPacked$CONSTRUCTOR_ID) {
-        return(RpcResult$new(req_msg_id = msg_id, body = GzipPacked$from_reader(reader)$data, error = NULL))
-      }
-      reader$seek(-4)
-      return(RpcResult$new(req_msg_id = msg_id, body = reader$read(), error = NULL))
+      # Delegate to class-level method for parsing
+      RpcResult$from_reader(reader)
     },
 
     #' @description
@@ -63,3 +55,17 @@ RpcResult <- R6::R6Class(
     }
   )
 )
+
+# Add a class-level parser so RpcResult$from_reader(...) works
+RpcResult$from_reader <- function(reader) {
+  msg_id <- reader$read_long()
+  inner_code <- reader$read_int(signed = FALSE)
+  if (identical(inner_code, RpcError$CONSTRUCTOR_ID)) {
+    return(RpcResult$new(req_msg_id = msg_id, body = NULL, error = RpcError$from_reader(reader)))
+  }
+  if (identical(inner_code, GzipPacked$CONSTRUCTOR_ID)) {
+    return(RpcResult$new(req_msg_id = msg_id, body = GzipPacked$from_reader(reader)$data, error = NULL))
+  }
+  reader$seek(-4)
+  return(RpcResult$new(req_msg_id = msg_id, body = reader$read(), error = NULL))
+}
