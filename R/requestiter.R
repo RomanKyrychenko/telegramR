@@ -73,19 +73,23 @@ RequestIter <- R6::R6Class(
     collect = function() {
       result <- list()
       while (TRUE) {
-        tryCatch(
+        item <- tryCatch(
           {
-            result <- c(result, self$.next())
+            self$.next()
           },
           error = function(e) {
-            if (inherits(e, "StopIteration")) {
-              return(result)
-            } else {
-              stop(e)
+            if (inherits(e, "StopIteration") || identical(conditionMessage(e), "StopIteration")) {
+              return(NULL)
             }
+            stop(e)
           }
         )
+        if (is.null(item)) {
+          break
+        }
+        result <- c(result, item)
       }
+      return(result)
     },
 
     #' @description
@@ -102,7 +106,7 @@ RequestIter <- R6::R6Class(
       }
 
       if (self$left <= 0) {
-        stop("StopIteration")
+        stop(structure(list(message = "StopIteration"), class = c("StopIteration", "error", "condition")))
       }
 
       if (self$index == length(self$buffer)) {
@@ -121,7 +125,7 @@ RequestIter <- R6::R6Class(
       }
 
       if (length(self$buffer) == 0) {
-        stop("StopIteration")
+        stop(structure(list(message = "StopIteration"), class = c("StopIteration", "error", "condition")))
       }
 
       result <- self$buffer[[self$index + 1]]
