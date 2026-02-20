@@ -147,9 +147,12 @@ MessagePacker <- R6::R6Class("MessagePacker",
 
         if (size <= max_size) {
           # write_data_as_message is expected to write into the rawConnection and return msg_id
+          is_content_related <- inherits(state_item$request, "TLRequest") ||
+            isTRUE(grepl("Request$", class(state_item$request)[1]))
+
           state_item$msg_id <- self$state$write_data_as_message(
             buffer_con, state_item$data,
-            inherits(state_item$request, "TLRequest"),
+            is_content_related,
             after_id = if (!is.null(state_item$after)) state_item$after$msg_id else NULL
           )
           batch[[length(batch) + 1]] <- state_item
@@ -200,7 +203,7 @@ MessagePacker <- R6::R6Class("MessagePacker",
 
       # If no batch was formed, return NULLs
       if (length(batch) == 0) {
-        return(list(NULL, NULL))
+        return(list(batch = NULL, data = NULL))
       }
 
       # Get bytes written so far
@@ -241,11 +244,11 @@ MessagePacker <- R6::R6Class("MessagePacker",
         }
         final_bytes <- rawConnectionValue(final_buffer_con)
         close(final_buffer_con)
-        return(list(batch, final_bytes))
+        return(list(batch = batch, data = final_bytes))
       }
 
       # Single message: return the bytes already in buffer_bytes
-      return(list(batch, buffer_bytes))
+      return(list(batch = batch, data = buffer_bytes))
     }
   )
 )
