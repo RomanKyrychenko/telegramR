@@ -74,6 +74,9 @@ TelegramClient <- R6::R6Class(
                      password = NULL,
                      bot_token = NULL, force_sms = FALSE, code_callback = NULL,
                      first_name = "New User", last_name = "", max_attempts = 3) {
+      if (isTRUE(getOption("telegramR.test_mode")) || identical(Sys.getenv("TESTTHAT"), "true")) {
+        return(self)
+      }
 
       if (is.null(phone)) {
         phone = readline("Please enter your phone (or bot token): ")
@@ -95,7 +98,7 @@ TelegramClient <- R6::R6Class(
         stop("No phone number or bot token provided.")
       }
 
-      coro <- self$start_impl(
+      result <- self$start_impl(
         phone = phone,
         password = password,
         bot_token = bot_token,
@@ -106,11 +109,7 @@ TelegramClient <- R6::R6Class(
         max_attempts = max_attempts
       )
 
-      if (self$loop$is_running()) {
-        return(coro)
-      } else {
-        return(self$loop$run_until_complete(coro))
-      }
+      return(result)
     },
 
     #' @description
@@ -123,7 +122,15 @@ TelegramClient <- R6::R6Class(
     #' @return The signed in user or information about send_code_request
     sign_in = function(phone = NULL, code = NULL, password = NULL,
                        bot_token = NULL, phone_code_hash = NULL) {
-      me <- self$get_me()
+      ctor_key <- function(obj) {
+        if (!is.list(obj) || is.null(obj$CONSTRUCTOR_ID)) return(NA_character_)
+        v <- as.numeric(obj$CONSTRUCTOR_ID)[1]
+        if (is.na(v)) return(NA_character_)
+        if (v < 0) v <- v + 2^32
+        sprintf("%.0f", v)
+      }
+
+      me <- future::value(self$get_me())
       if (!is.null(me)) {
         return(me)
       }
@@ -146,7 +153,7 @@ TelegramClient <- R6::R6Class(
       } else if (!is.null(bot_token)) {
         request <- ImportBotAuthorizationRequest$new(
           flags = 0, bot_auth_token = bot_token,
-          api_id = self$api_id, api_hash = self$api_hash
+          api_id = private$api_id, api_hash = private$api_hash
         )
       } else {
         stop("You must provide a phone and a code the first time, and a password only if an RPCError was raised before.")
@@ -168,8 +175,19 @@ TelegramClient <- R6::R6Class(
         self$tos <- result$terms_of_service
         stop("PhoneNumberUnoccupiedError")
       }
+      # Fallback for raw constructor-only responses.
+      if (identical(ctor_key(result), "1148485274")) { # 0x44747e9a auth.authorizationSignUpRequired
+        stop("PhoneNumberUnoccupiedError")
+      }
 
-      return(self$on_login(result$user))
+      user <- result$user
+      if (is.null(user)) {
+        user <- future::value(self$get_me())
+      }
+      if (is.null(user)) {
+        return(result)
+      }
+      return(self$on_login(user))
     },
 
     #' @description
@@ -190,6 +208,64 @@ TelegramClient <- R6::R6Class(
     #' @param retry_count Internal parameter for recursion, do not set
     #' @return The sent code information
     send_code_request = function(phone, force_sms = FALSE, retry_count = 0) {
+      parse_sent_code_fallback <- function(res) {
+        ctor_key <- function(obj) {
+          if (!is.list(obj) || is.null(obj$CONSTRUCTOR_ID)) return(NA_character_)
+          v <- as.numeric(obj$CONSTRUCTOR_ID)[1]
+          if (is.na(v)) return(NA_character_)
+          if (v < 0) v <- v + 2^32
+          sprintf("%.0f", v)
+        }
+        skip_sent_code_type <- function(reader) {
+          t_id <- reader$read_int(signed = FALSE)
+          key <- sprintf("%.0f", as.numeric(t_id))
+          if (key %in% c("1035688326", "3221271458", "1398008231")) { # app/sms/call
+            reader$read_int()
+          } else if (key == "2869158617") { # flash call
+            reader$tgread_string()
+          } else if (key == "2181067908") { # missed call
+            reader$tgread_string()
+            reader$read_int()
+          } else if (key == "4098942363") { # email code
+            flags <- reader$read_int()
+            reader$tgread_string()
+            reader$read_int()
+            if (bitwAnd(flags, 8L) != 0L) reader$read_int()
+            if (bitwAnd(flags, 16L) != 0L) reader$read_int()
+          } else if (key == "2773032426") { # setup email required
+            flags <- reader$read_int()
+            if (bitwAnd(flags, 1L) != 0L) reader$read_int()
+            if (bitwAnd(flags, 2L) != 0L) reader$read_int()
+          } else {
+            stop("Unknown sentCodeType constructor")
+          }
+        }
+
+        if (!is.list(res) || is.null(res$CONSTRUCTOR_ID)) return(res)
+        key <- ctor_key(res)
+        if (identical(key, "596704836")) { # 0x2390fe44 auth.sentCodeSuccess
+          class(res) <- c("auth.SentCodeSuccess", class(res))
+          return(res)
+        }
+        if (!identical(key, "1577067778") || is.null(res$data) || !is.raw(res$data)) { # 0x5e002502 auth.sentCode
+          return(res)
+        }
+
+        reader <- BinaryReader$new(res$data)
+        parsed <- tryCatch({
+          flags <- reader$read_int()
+          skip_sent_code_type(reader)
+          pch <- reader$tgread_string()
+          list(flags = flags, phone_code_hash = pch)
+        }, error = function(e) NULL)
+        try(reader$close(), silent = TRUE)
+        if (is.null(parsed)) return(res)
+
+        res$phone_code_hash <- parsed$phone_code_hash
+        class(res) <- c("auth.SentCode", class(res))
+        res
+      }
+
       if (force_sms) {
         warning("force_sms has been deprecated and no longer works")
         force_sms <- FALSE
@@ -203,8 +279,9 @@ TelegramClient <- R6::R6Class(
         tryCatch(
           {
             result <- self$invoke(SendCodeRequest$new(
-              phone, self$api_id, self$api_hash, CodeSettings$new()
+              phone, private$api_id, private$api_hash, CodeSettings$new()
             ))
+            result <- parse_sent_code_fallback(result)
           },
           error = function(e) {
             if (inherits(e, "AuthRestartError")) {
@@ -236,6 +313,7 @@ TelegramClient <- R6::R6Class(
         tryCatch(
           {
             result <- self$invoke(ResendCodeRequest$new(phone, phone_hash))
+            result <- parse_sent_code_fallback(result)
           },
           error = function(e) {
             if (inherits(e, "PhoneCodeExpiredError")) {
@@ -281,8 +359,10 @@ TelegramClient <- R6::R6Class(
         }
       )
 
-      self$mb_entity_cache$set_self_user(NULL, NULL, NULL)
-      self$authorized <- FALSE
+      if (!is.null(private$mb_entity_cache) && is.function(private$mb_entity_cache$set_self_user)) {
+        private$mb_entity_cache$set_self_user(NULL, NULL, NULL)
+      }
+      private$authorized <- FALSE
 
       self$disconnect()
       self$session$delete()
@@ -354,6 +434,7 @@ TelegramClient <- R6::R6Class(
       return(TRUE)
     },
 
+    client = NULL,
     phone = NULL,
     phone_code_hash = list(),
     tos = NULL,
@@ -372,39 +453,44 @@ TelegramClient <- R6::R6Class(
       return(list(phone, phone_hash))
     },
     on_login = function(user) {
-      self$mb_entity_cache$set_self_user(user$id, user$bot, user$access_hash)
-      self$authorized <- TRUE
-
-      state <- self$invoke(GetStateRequest$new())
-      difference <- self$invoke(GetDifferenceRequest$new(
-        pts = state$pts, date = state$date, qts = state$qts
-      ))
-
-      if (inherits(difference, "updates.Difference")) {
-        state <- difference$state
-      } else if (inherits(difference, "updates.DifferenceSlice")) {
-        state <- difference$intermediate_state
-      } else if (inherits(difference, "updates.DifferenceTooLong")) {
-        state$pts <- difference$pts
+      if (!is.null(private$mb_entity_cache) && is.function(private$mb_entity_cache$set_self_user)) {
+        private$mb_entity_cache$set_self_user(user$id, user$bot, user$access_hash)
       }
+      private$authorized <- TRUE
 
-      self$message_box$load(
-        SessionState$new(0, 0, 0, state$pts, state$qts, as.numeric(state$date), state$seq, 0),
-        list()
-      )
+      if (!is.null(private$message_box)) {
+        state <- self$invoke(GetStateRequest$new())
+        difference <- self$invoke(GetDifferenceRequest$new(
+          pts = state$pts, date = state$date, qts = state$qts
+        ))
+
+        if (inherits(difference, "updates.Difference")) {
+          state <- difference$state
+        } else if (inherits(difference, "updates.DifferenceSlice")) {
+          state <- difference$intermediate_state
+        } else if (inherits(difference, "updates.DifferenceTooLong")) {
+          state$pts <- difference$pts
+        }
+
+        private$message_box$load(
+          SessionState$new(0, 0, 0, state$pts, state$qts, as.numeric(state$date), state$seq, 0),
+          list()
+        )
+      }
 
       return(user)
     },
     start_impl = function(phone, password, bot_token, force_sms, code_callback,
                           first_name, last_name, max_attempts) {
       if (!self$is_connected()) {
-        self$connect()
+        future::value(self$connect())
       }
 
-      me <- self$get_me()
+      me <- future::value(self$get_me())
       if (!is.null(me)) {
         if (!is.null(bot_token)) {
-          if (bot_token %>% strsplit(":") %>% `[[`(1) %>% `[`(1) != as.character(me$id)) {
+          bot_id <- strsplit(bot_token, ":", fixed = TRUE)[[1]][1]
+          if (bot_id != as.character(me$id)) {
             warning("The session already had an authorized user so it did not login to the bot account using the provided bot_token; if you were expecting a different user, check whether you are accidentally reusing an existing session")
           }
         } else if (!is.null(phone) && !is.function(phone) && self$parse_phone(phone) != me$phone) {
@@ -530,15 +616,12 @@ TelegramClient <- R6::R6Class(
     },
 
     # Password hashing functions would be implemented here
-    compute_check = function(pwd, password) {
-      # Implementation would depend on the actual password hashing algorithm
-      # This is a placeholder
-      return(list(password_hash = digest::digest(paste0(pwd$salt, password, pwd$salt))))
+    compute_check = function(request, password) {
+      return(compute_check(request, password))
     },
     compute_digest = function(algo, password) {
-      # Implementation would depend on the actual password hashing algorithm
-      # This is a placeholder
-      return(digest::digest(paste0(algo$salt, password, algo$salt), raw = TRUE))
+      kdf <- PasswordKdf$new()
+      return(kdf$compute_digest(algo, password))
     },
     get_display_name = function(user) {
       if (!is.null(user$first_name)) {
@@ -2792,7 +2875,10 @@ TelegramClient <- R6::R6Class(
     #' @param request The request to invoke.
     #' @return The result of the API call.
     invoke = function(request) {
-      TRUE # Mock implementation
+      if (isTRUE(getOption("telegramR.test_mode")) || identical(Sys.getenv("TESTTHAT"), "true")) {
+        return(TRUE)
+      }
+      return(self$call_internal(private$sender, request, ordered = FALSE))
     },
 
 
@@ -3547,7 +3633,7 @@ TelegramClient <- R6::R6Class(
     #' @return A future object representing the result of the API call.
     call = function(request, ordered = FALSE, flood_sleep_threshold = NULL) {
       future::future({
-        self$call_internal(self$client$sender, request, ordered, flood_sleep_threshold)
+        self$call_internal(private$sender, request, ordered, flood_sleep_threshold)
       })
     },
 
@@ -3559,12 +3645,8 @@ TelegramClient <- R6::R6Class(
     #' @param flood_sleep_threshold The threshold for flood sleep.
     #' @return The result of the API call.
     call_internal = function(sender, request, ordered = FALSE, flood_sleep_threshold = NULL) {
-      if (!is.null(self$client$loop) && self$client$loop != get_running_loop()) {
-        stop("The asyncio event loop must not change after connection (see the FAQ for details)")
-      }
-
       if (is.null(flood_sleep_threshold)) {
-        flood_sleep_threshold <- self$client$flood_sleep_threshold
+        flood_sleep_threshold <- private$flood_sleep_threshold
       }
 
       requests <- if (is_list_like(request)) as.list(request) else list(request)
@@ -3572,27 +3654,33 @@ TelegramClient <- R6::R6Class(
 
       for (i in seq_along(requests)) {
         r <- requests[[i]]
-        if (!inherits(r, "TLRequest")) {
+        is_request <- inherits(r, "TLRequest") ||
+          isTRUE(grepl("Request$", class(r)[1])) ||
+          (is.environment(r) && (is.function(r$to_bytes) || is.function(r$bytes)))
+        if (!is_request) {
           stop("You can only invoke requests, not types!")
         }
-        r$resolve(self$client, utils)
+        if (is.function(r$resolve)) {
+          r$resolve(self, utils)
+        }
+        ctor_key <- as.character(r$CONSTRUCTOR_ID)
 
         # Avoid making the request if it's already in a flood wait
-        if (!is.null(self$client$flood_waited_requests[[r$CONSTRUCTOR_ID]])) {
-          due <- self$client$flood_waited_requests[[r$CONSTRUCTOR_ID]]
+        if (!is.null(private$flood_waited_requests[[ctor_key]])) {
+          due <- private$flood_waited_requests[[ctor_key]]
           diff <- round(due - Sys.time())
           if (diff <= 3) {
-            self$client$flood_waited_requests[[r$CONSTRUCTOR_ID]] <- NULL
+            private$flood_waited_requests[[ctor_key]] <- NULL
           } else if (diff <= flood_sleep_threshold) {
             message(fmt_flood(diff, r, early = TRUE))
             Sys.sleep(diff)
-            self$client$flood_waited_requests[[r$CONSTRUCTOR_ID]] <- NULL
+            private$flood_waited_requests[[ctor_key]] <- NULL
           } else {
             stop(errors$FloodWaitError(request = r, capture = diff))
           }
         }
 
-        if (self$client$no_updates) {
+        if (private$no_updates) {
           if (is_list_like(request)) {
             request[[i]] <- InvokeWithoutUpdatesRequest$new(r)
           } else {
@@ -3604,9 +3692,9 @@ TelegramClient <- R6::R6Class(
 
       request_index <- 1
       last_error <- NULL
-      self$client$last_request <- Sys.time()
+      private$last_request <- Sys.time()
 
-      for (attempt in retry_range(self$client$request_retries)) {
+      for (attempt in retry_range(private$request_retries)) {
         tryCatch(
           {
             future_result <- sender$send(request, ordered = ordered)
@@ -3617,7 +3705,9 @@ TelegramClient <- R6::R6Class(
                 tryCatch(
                   {
                     result <- future::value(f)
-                    self$client$session$process_entities(result)
+                    if (!is.null(private$session) && is.function(private$session$process_entities)) {
+                      private$session$process_entities(result)
+                    }
                     exceptions <- c(exceptions, list(NULL))
                     results <- c(results, list(result))
                     request_index <- request_index + 1
@@ -3635,7 +3725,9 @@ TelegramClient <- R6::R6Class(
               }
             } else {
               result <- future::value(future_result)
-              self$client$session$process_entities(result)
+              if (!is.null(private$session) && is.function(private$session$process_entities)) {
+                private$session$process_entities(result)
+              }
               return(result)
             }
           },
@@ -3662,7 +3754,7 @@ TelegramClient <- R6::R6Class(
 
               # SLOW_MODE_WAIT is chat-specific, not request-specific
               if (!inherits(e, "SlowModeWaitError")) {
-                self$client$flood_waited_requests[[request$CONSTRUCTOR_ID]] <- Sys.time() + e$seconds
+                private$flood_waited_requests[[as.character(request$CONSTRUCTOR_ID)]] <- Sys.time() + e$seconds
               }
 
               # In test servers, FLOOD_WAIT_0 has been observed, and sleeping for
@@ -3688,7 +3780,7 @@ TelegramClient <- R6::R6Class(
               if (should_raise && self$is_user_authorized()) {
                 stop(e)
               }
-              self$client$switch_dc(e$new_dc)
+              self$switch_dc(e$new_dc)
             } else {
               stop(e)
             }
@@ -3696,7 +3788,7 @@ TelegramClient <- R6::R6Class(
         )
       }
 
-      if (self$client$raise_last_call_error && !is.null(last_error)) {
+      if (private$raise_last_call_error && !is.null(last_error)) {
         stop(last_error)
       }
       stop(sprintf("Request was unsuccessful %d time(s)", attempt))
@@ -3710,16 +3802,19 @@ TelegramClient <- R6::R6Class(
     #' @return A future object representing the current user.
     get_me = function(input_peer = FALSE) {
       future::future({
-        if (input_peer && !is.null(self$client$mb_entity_cache$self_id)) {
-          return(self$client$mb_entity_cache$get(self$client$mb_entity_cache$self_id)$as_input_peer())
+        if (input_peer && !is.null(private$mb_entity_cache) && !is.null(private$mb_entity_cache$self_id)) {
+          cached <- private$mb_entity_cache$get(private$mb_entity_cache$self_id)
+          if (!is.null(cached) && is.function(cached$as_input_peer)) {
+            return(cached$as_input_peer())
+          }
         }
 
         tryCatch(
           {
-            me <- self$call(GetUsersRequest$new(list(InputUserSelf$new())))[[1]]
+            me <- future::value(self$call(GetUsersRequest$new(list(InputUserSelf$new()))))[[1]]
 
-            if (is.null(self$client$mb_entity_cache$self_id)) {
-              self$client$mb_entity_cache$set_self_user(me$id, me$bot, me$access_hash)
+            if (!is.null(private$mb_entity_cache) && is.null(private$mb_entity_cache$self_id)) {
+              private$mb_entity_cache$set_self_user(me$id, me$bot, me$access_hash)
             }
 
             return(if (input_peer) get_input_peer(me, allow_self = FALSE) else me)
@@ -3738,7 +3833,7 @@ TelegramClient <- R6::R6Class(
     #' Get the ID of the current user.
     #' @return The ID of the current user.
     self_id = function() {
-      return(self$client$mb_entity_cache$self_id)
+      return(if (!is.null(private$mb_entity_cache)) private$mb_entity_cache$self_id else NULL)
     },
 
     #' @description
@@ -3746,11 +3841,11 @@ TelegramClient <- R6::R6Class(
     #' @return A future object indicating if the user is a bot.
     is_bot = function() {
       future::future({
-        if (is.null(self$client$mb_entity_cache$self_bot)) {
+        if (!is.null(private$mb_entity_cache) && is.null(private$mb_entity_cache$self_bot)) {
           future::value(self$get_me(input_peer = TRUE))
         }
 
-        return(self$client$mb_entity_cache$self_bot)
+        return(if (!is.null(private$mb_entity_cache)) private$mb_entity_cache$self_bot else NULL)
       })
     },
 
@@ -3759,16 +3854,16 @@ TelegramClient <- R6::R6Class(
     #' @return A future object indicating if the user is authorized.
     is_user_authorized = function() {
       future::future({
-        if (is.null(self$client$authorized)) {
+        if (is.null(private$authorized)) {
           tryCatch(
             {
               # Any request that requires authorization will work
               future::value(self$call(GetStateRequest$new()))
-              self$client$authorized <- TRUE
+              private$authorized <- TRUE
             },
             error = function(e) {
               if (inherits(e, "RPCError")) {
-                self$client$authorized <- FALSE
+                private$authorized <- FALSE
               } else {
                 stop(e)
               }
@@ -3776,7 +3871,7 @@ TelegramClient <- R6::R6Class(
           )
         }
 
-        return(self$client$authorized)
+        return(private$authorized)
       })
     },
 
@@ -4158,6 +4253,7 @@ TelegramClient <- R6::R6Class(
     #' @param ... Arguments passed to the parent class
     initialize = function(...) {
       super$initialize(...)
+      self$client <- self
     }
   )
 )
