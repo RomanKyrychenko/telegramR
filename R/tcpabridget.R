@@ -34,18 +34,21 @@ AbridgedPacketCodec <- R6Class(
     #' @return A promise that resolves to the decoded packet.
     read_packet = function(reader) {
       promise(function(resolve, reject) {
-        reader$readexactly(1) %...>% (function(first_byte) {
+        to_promise <- function(x) {
+          if (inherits(x, "promise")) x else promises::promise_resolve(x)
+        }
+        to_promise(reader$readexactly(1)) %...>% (function(first_byte) {
           len_val <- as.integer(first_byte[1])
           if (len_val >= 127) {
-            reader$readexactly(3) %...>% (function(extra_bytes) {
+            to_promise(reader$readexactly(3)) %...>% (function(extra_bytes) {
               full_bytes <- c(extra_bytes, as.raw(0x00))
               len_val_new <- sum(as.integer(full_bytes) * c(1, 256, 65536, 16777216))
-              reader$readexactly(bitwShiftL(len_val_new, 2)) %...>% resolve
-            })
+              to_promise(reader$readexactly(bitwShiftL(len_val_new, 2))) %...>% resolve %...!% reject
+            }) %...!% reject
           } else {
-            reader$readexactly(bitwShiftL(len_val, 2)) %...>% resolve
+            to_promise(reader$readexactly(bitwShiftL(len_val, 2))) %...>% resolve %...!% reject
           }
-        }) %...>% invisible
+        }) %...!% reject
       })
     }
   )
@@ -64,9 +67,7 @@ ConnectionTcpAbridged <- R6Class(
     #' @return None.
     initialize = function(...) {
       super$initialize(...)
+      self$packet_codec <- AbridgedPacketCodec
     }
-  ),
-  private = list(
-    packet_codec = AbridgedPacketCodec
   )
 )
