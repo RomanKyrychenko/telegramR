@@ -220,7 +220,8 @@ ConnectionTcpMTProxyAbridged <- R6::R6Class("ConnectionTcpMTProxyAbridged",
     initialize = function(ip, port, dc_id, loggers = NULL, proxy = NULL) {
       super$initialize(ip, port, dc_id, loggers, proxy)
       # Assume AbridgedPacketCodec is defined elsewhere.
-      self$packet_codec <- AbridgedPacketCodec$new()
+      # Store the codec class; Connection will instantiate it with this connection.
+      self$packet_codec <- AbridgedPacketCodec
     }
   )
 )
@@ -244,7 +245,8 @@ ConnectionTcpMTProxyIntermediate <- R6::R6Class("ConnectionTcpMTProxyIntermediat
     initialize = function(ip, port, dc_id, loggers = NULL, proxy = NULL) {
       super$initialize(ip, port, dc_id, loggers, proxy)
       # Assume IntermediatePacketCodec is defined elsewhere.
-      self$packet_codec <- IntermediatePacketCodec$new()
+      # Store the codec class; Connection will instantiate it with this connection.
+      self$packet_codec <- IntermediatePacketCodec
     }
   )
 )
@@ -268,7 +270,8 @@ ConnectionTcpMTProxyRandomizedIntermediate <- R6::R6Class("ConnectionTcpMTProxyR
     initialize = function(ip, port, dc_id, loggers = NULL, proxy = NULL) {
       super$initialize(ip, port, dc_id, loggers, proxy)
       # Assume RandomizedIntermediatePacketCodec is defined elsewhere.
-      self$packet_codec <- RandomizedIntermediatePacketCodec$new()
+      # Store the codec class; Connection will instantiate it with this connection.
+      self$packet_codec <- RandomizedIntermediatePacketCodec
     }
   )
 )
