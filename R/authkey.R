@@ -8,6 +8,10 @@
 AuthKey <- R6::R6Class(
   "AuthKey",
   public = list(
+    key_id = NULL,
+    key_id_raw = NULL,
+    aux_hash = NULL,
+    aux_hash_raw = NULL,
 
     #' @description
     #' Initializes a new authorization key.
@@ -15,7 +19,10 @@ AuthKey <- R6::R6Class(
     #' @param data A raw vector representing the authorization key data.
     #' @return None.
     initialize = function(data) {
-      private$.key <- data
+      if (inherits(data, "AuthKey")) {
+        data <- data$active_key
+      }
+      self$active_key <- data
     },
 
     #' @description
@@ -53,6 +60,14 @@ AuthKey <- R6::R6Class(
     }
   ),
   active = list(
+    #' @field key
+    #' Direct accessor used across sender/state code.
+    key = function(value) {
+      if (missing(value)) {
+        return(private$.key)
+      }
+      self$active_key <- value
+    },
 
     #' @field active_key
     #' Gets or sets the authorization key.
@@ -62,34 +77,49 @@ AuthKey <- R6::R6Class(
       }
       if (is.null(value)) {
         private$.key <- NULL
-        private$aux_hash <- NULL
-        private$key_id <- NULL
+        private$.aux_hash <- NULL
+        private$.key_id <- NULL
+        private$.aux_hash_raw <- NULL
+        private$.key_id_raw <- NULL
+        self$aux_hash <- NULL
+        self$key_id <- NULL
+        self$aux_hash_raw <- NULL
+        self$key_id_raw <- NULL
       } else {
         private$.key <- value
         hash <- sha1(private$.key)
+        # Keep exact 64-bit identifiers as raw bytes to avoid numeric precision loss.
+        private$.aux_hash_raw <- hash[1:8]
+        private$.key_id_raw <- hash[13:20]
         reader <- BinaryReader$new(hash)
-        private$aux_hash <- reader$read_long(signed = FALSE)
+        private$.aux_hash <- reader$read_long(signed = FALSE)
         reader$read(4)
-        private$key_id <- reader$read_long(signed = FALSE)
+        private$.key_id <- reader$read_long(signed = FALSE)
         reader$close()
+        self$aux_hash <- private$.aux_hash
+        self$key_id <- private$.key_id
+        self$aux_hash_raw <- private$.aux_hash_raw
+        self$key_id_raw <- private$.key_id_raw
       }
     },
 
     #' @field return_aux_hash
     #' Gets the auxiliary hash derived from the key.
     return_aux_hash = function() {
-      return(private$aux_hash)
+      return(private$.aux_hash)
     },
 
     #' @field return_key_id
     #' Gets the key identifier derived from the key.
     return_key_id = function() {
-      return(private$key_id)
+      return(private$.key_id)
     }
   ),
   private = list(
     .key = NULL,
-    aux_hash = NULL,
-    key_id = NULL
+    .aux_hash = NULL,
+    .key_id = NULL,
+    .aux_hash_raw = NULL,
+    .key_id_raw = NULL
   )
 )
