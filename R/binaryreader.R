@@ -123,7 +123,144 @@ BinaryReader <- R6::R6Class(
     #' @param signed A logical indicating whether the integer is signed.
     #' @return An integer value.
     bytes_to_int = function(bytes, signed = TRUE) {
-      return(sum(as.integer(bytes) * 256^(seq_along(bytes) - 1)) * ifelse(signed, 1, 1))
+      if (length(bytes) > 4) {
+        # Use big integer arithmetic internally, then return numeric
+        # for compatibility with the rest of the package API.
+        hex <- paste(sprintf("%02x", as.integer(rev(bytes))), collapse = "")
+        val <- gmp::as.bigz(paste0("0x", hex))
+        if (signed) {
+          # Handle sign for two's complement values.
+          max_val <- gmp::pow.bigz(2, 8 * length(bytes))
+          if (val >= max_val / 2) {
+            val <- val - max_val
+          }
+        }
+        return(as.numeric(val))
+      } else {
+        # 32-bit and smaller values.
+        value <- sum(as.numeric(bytes) * 256^(seq_along(bytes) - 1))
+        if (isTRUE(signed)) {
+          max_val <- 256^length(bytes)
+          if (value >= max_val / 2) {
+            value <- value - max_val
+          }
+          return(as.integer(value))
+        }
+        # Unsigned 32-bit can exceed R integer range, return numeric.
+        return(as.numeric(value))
+      }
+    },
+
+    #' @description
+    #' Reads a large integer (128, 256, etc bits).
+    #' @param bits Number of bits to read.
+    #' @return A bigz value.
+    read_large_int = function(bits) {
+      bytes <- self$read(bits / 8)
+      hex <- paste(sprintf("%02x", as.integer(rev(bytes))), collapse = "")
+      return(gmp::as.bigz(paste0("0x", hex)))
+    },
+
+    #' @description
+    #' Reads a Telegram-encoded byte array.
+    #' @return A raw vector.
+    tgread_bytes = function() {
+      first_byte <- as.integer(self$read(1))
+      if (first_byte == 254) {
+        length <- self$bytes_to_int(self$read(3), signed = FALSE)
+      } else {
+        length <- first_byte
+      }
+      data <- self$read(length)
+
+      # Padding
+      padding <- if (first_byte == 254) length %% 4 else (length + 1) %% 4
+      if (padding > 0) {
+        self$read(4 - padding)
+      }
+
+      return(data)
+    },
+
+    #' @description
+    #' Reads a Telegram-encoded string.
+    #' @return A character string.
+    tgread_string = function() {
+      return(rawToChar(self$tgread_bytes()))
+    },
+
+    #' @description
+    #' Reads a TL object.
+    #' @return A TL object or raw bytes if type unknown.
+    tgread_object = function() {
+      constructor_id <- self$read_int(signed = FALSE)
+      ctor_key <- .telegramR_norm_ctor_id(constructor_id)
+      ctor_map <- .telegramR_get_ctor_map()
+      cls <- ctor_map[[ctor_key]]
+
+      if (is.null(cls)) {
+        cur <- self$tell_position()
+        remaining <- length(private$.data) - cur
+        if (remaining <= 0) {
+          return(list(CONSTRUCTOR_ID = constructor_id, data = raw(0)))
+        }
+        return(list(CONSTRUCTOR_ID = constructor_id, data = self$read(remaining)))
+      }
+
+      # Most generated classes expose parser as private$from_reader.
+      # Try to instantiate; if the constructor requires args, create with
+      # a zero-arg tryCatch and fall back to using the class generator directly.
+      obj <- tryCatch(cls$new(), error = function(e) NULL)
+
+      # Try to get from_reader from private methods on the instance or generator
+      from_reader_fn <- NULL
+      if (!is.null(obj)) {
+        private_env <- obj$.__enclos_env__$private
+        if (is.environment(private_env) && is.function(private_env$from_reader)) {
+          from_reader_fn <- private_env$from_reader
+        }
+      }
+      if (is.null(from_reader_fn) && !is.null(cls$private_methods) && is.function(cls$private_methods$from_reader)) {
+        from_reader_fn <- cls$private_methods$from_reader
+      }
+
+      if (!is.null(from_reader_fn)) {
+        parsed <- tryCatch(from_reader_fn(self), error = function(e) {
+          # If from_reader fails, return raw data as fallback
+          cur <- self$tell_position()
+          remaining <- length(private$.data) - cur
+          if (remaining > 0) {
+            list(CONSTRUCTOR_ID = constructor_id, data = self$read(remaining))
+          } else {
+            list(CONSTRUCTOR_ID = constructor_id, data = raw(0))
+          }
+        })
+        if (inherits(parsed, class(cls$classname)[1]) || inherits(parsed, cls$classname)) {
+          return(parsed)
+        }
+        if (is.list(parsed) && !is.null(parsed$CONSTRUCTOR_ID) && is.null(parsed$data)) {
+          # It's a proper TL object returned from from_reader
+          return(parsed)
+        }
+        if (inherits(parsed, "R6")) {
+          return(parsed)
+        }
+        if (is.list(parsed)) {
+          result <- tryCatch(do.call(cls$new, parsed), error = function(e) parsed)
+          return(result)
+        }
+        if (!is.null(parsed)) return(parsed)
+      }
+
+      # Fallback: return blank object or raw data
+      if (!is.null(obj)) return(obj)
+      cur <- self$tell_position()
+      remaining <- length(private$.data) - cur
+      if (remaining > 0) {
+        list(CONSTRUCTOR_ID = constructor_id, data = self$read(remaining))
+      } else {
+        list(CONSTRUCTOR_ID = constructor_id, data = raw(0))
+      }
     }
   ),
   private = list(
@@ -132,3 +269,54 @@ BinaryReader <- R6::R6Class(
     .data = NULL
   )
 )
+
+.telegramR_norm_ctor_id <- function(x) {
+  v <- as.numeric(x)[1]
+  if (is.na(v)) return(NA_character_)
+  if (v < 0) v <- v + 2^32
+  sprintf("%.0f", v)
+}
+
+.telegramR_get_ctor_map <- function() {
+  cache <- getOption("telegramR.ctor_map")
+  if (is.list(cache) && length(cache) > 0) {
+    return(cache)
+  }
+
+  ns <- asNamespace(utils::packageName())
+  out <- list()
+  for (nm in ls(envir = ns, all.names = TRUE)) {
+    obj <- tryCatch(get(nm, envir = ns, inherits = FALSE), error = function(e) NULL)
+    if (!inherits(obj, "R6ClassGenerator")) next
+    cid <- NULL
+    pf <- obj$public_fields
+    if (!is.null(pf) && !is.null(pf$CONSTRUCTOR_ID)) {
+      cid <- tryCatch({
+        v <- pf$CONSTRUCTOR_ID
+        if (is.function(v)) v <- v()
+        v
+      }, error = function(e) NULL)
+    }
+    if (is.null(cid)) {
+      af <- obj$active
+      if (!is.null(af) && !is.null(af$CONSTRUCTOR_ID) && is.function(af$CONSTRUCTOR_ID)) {
+        # Call the active binding function directly to avoid needing to instantiate
+        cid <- tryCatch(af$CONSTRUCTOR_ID(), error = function(e) {
+          # Fallback: try instantiation with no args
+          tryCatch({
+            inst <- obj$new()
+            inst$CONSTRUCTOR_ID
+          }, error = function(e2) NULL)
+        })
+      }
+    }
+    if (is.null(cid)) next
+
+    key <- .telegramR_norm_ctor_id(cid)
+    if (is.na(key)) next
+    out[[key]] <- obj
+  }
+
+  options(telegramR.ctor_map = out)
+  out
+}
