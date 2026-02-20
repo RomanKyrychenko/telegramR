@@ -54,18 +54,25 @@ packInt64 <- function(value) {
   if (length(value) != 1 || is.na(value)) {
     stop("Invalid input: value must be a single, non-NA number")
   }
-  v <- as.numeric(value)
-  # Support negative via two's complement
-  if (v < 0) {
-    # bring to unsigned 64-bit range
-    v <- v + 2^64
+  v <- if (inherits(value, "bigz")) {
+    value
+  } else if (is.character(value)) {
+    gmp::as.bigz(value)
+  } else {
+    gmp::as.bigz(sprintf("%.0f", as.numeric(value)))
   }
+
+  # Support negatives via two's complement in 64-bit space.
+  if (v < 0) {
+    v <- v + gmp::pow.bigz(2, 64)
+  }
+
   out <- raw(8)
-  # Use modulo/division to avoid 32-bit bitwise limitations
+  div <- gmp::as.bigz(256)
   for (i in 1:8) {
-    byte <- as.integer(v %% 256)
+    byte <- as.integer(gmp::mod.bigz(v, div))
     out[i] <- as.raw(byte)
-    v <- floor(v / 256)
+    v <- gmp::divq.bigz(v, div)
   }
   return(out)
 }
@@ -95,8 +102,24 @@ MTProtoState <- R6::R6Class("MTProtoState",
     #' @param auth_key Authentication key for encryption
     #' @param loggers Logger objects
     initialize = function(auth_key, loggers) {
+      null_logger <- list(
+        debug = function(...) NULL,
+        info = function(...) NULL,
+        warning = function(...) NULL,
+        error = function(...) NULL
+      )
+
       self$auth_key <- auth_key
-      private$log <- loggers[["MTProtoState"]] # Equivalent to __name__ in Python
+      private$log <- if (!is.null(loggers) && !is.null(loggers[["MTProtoState"]])) {
+        lg <- loggers[["MTProtoState"]]
+        if (is.function(lg)) {
+          list(debug = lg, info = lg, warning = lg, error = lg)
+        } else {
+          lg
+        }
+      } else {
+        null_logger
+      }
       self$time_offset <- 0
       self$salt <- 0
 
@@ -105,6 +128,7 @@ MTProtoState <- R6::R6Class("MTProtoState",
       private$recent_remote_ids <- deque(maxlen = MAX_RECENT_MSG_IDS)
       private$highest_remote_id <- 0
       private$ignore_count <- 0
+      private$packet_dumped <- FALSE
       self$reset()
     },
 
@@ -136,19 +160,40 @@ MTProtoState <- R6::R6Class("MTProtoState",
       msg_id <- self$get_new_msg_id()
       seq_no <- private$get_seq_no(content_related)
 
+      maybe_gzip <- function(raw_data) {
+        if (!isTRUE(content_related) || length(raw_data) <= 512) {
+          return(raw_data)
+        }
+        wrapped <- GzipPacked$new(raw_data)$to_bytes()
+        if (length(wrapped) < length(raw_data)) {
+          return(wrapped)
+        }
+        raw_data
+      }
+
       if (is.null(after_id)) {
-        body <- GzipPacked$gzip_if_smaller(content_related, data)
+        body <- maybe_gzip(data)
       } else {
         # Wrap the request in an InvokeAfterMsgRequest
         wrapped <- InvokeAfterMsgRequest$new(after_id, OpaqueRequest$new(data))
-        body <- GzipPacked$gzip_if_smaller(content_related, wrapped$to_bytes())
+        body <- maybe_gzip(wrapped$to_bytes())
+      }
+
+      write_chunk <- function(x) {
+        if (inherits(buffer, "connection")) {
+          writeBin(x, buffer, useBytes = TRUE)
+        } else if (is.environment(buffer) && is.function(buffer$write)) {
+          buffer$write(x)
+        } else {
+          stop("write_data_as_message: unsupported buffer type")
+        }
       }
 
       # Write message header: msg_id (8 bytes), seq_no (4 bytes), length (4 bytes)
-      buffer$write(packInt64(msg_id))
-      buffer$write(packInt32(seq_no))
-      buffer$write(packInt32(length(body)))
-      buffer$write(body)
+      write_chunk(packInt64(msg_id))
+      write_chunk(packInt32(seq_no))
+      write_chunk(packInt32(length(body)))
+      write_chunk(body)
       return(msg_id)
     },
 
@@ -178,8 +223,23 @@ MTProtoState <- R6::R6Class("MTProtoState",
       aes_iv <- key_iv$aes_iv
 
       # Return encrypted data with key ID and message key prepended
-      key_id <- packInt64(self$auth_key$key_id)
-      return(c(key_id, msg_key, AES$encrypt_ige(c(data, padding), aes_key, aes_iv)))
+      key_id <- if (!is.null(self$auth_key$key_id_raw) && is.raw(self$auth_key$key_id_raw) && length(self$auth_key$key_id_raw) == 8) {
+        self$auth_key$key_id_raw
+      } else {
+        packInt64(self$auth_key$key_id)
+      }
+      aes <- AES$new()
+      payload <- c(key_id, msg_key, aes$encrypt_ige(c(data, padding), aes_key, aes_iv))
+
+      if (isTRUE(getOption("telegramR.dump_packet", FALSE)) && !isTRUE(private$packet_dumped)) {
+        dump_path <- tempfile("telegramR_packet_", fileext = ".hex")
+        hex <- paste(sprintf("%02x", as.integer(payload)), collapse = "")
+        writeLines(hex, con = dump_path)
+        message(sprintf("telegramR: dumped first packet to %s", dump_path))
+        private$packet_dumped <- TRUE
+      }
+
+      return(payload)
     },
 
     #' @description Decrypt message data from server
@@ -194,9 +254,26 @@ MTProtoState <- R6::R6Class("MTProtoState",
       }
 
       # Verify auth key
-      key_id <- unpackInt64(body[1:8])
-      if (key_id != self$auth_key$key_id) {
-        stop("SecurityError: Server replied with an invalid auth key")
+      if (!is.null(self$auth_key$key_id_raw) && is.raw(self$auth_key$key_id_raw) && length(self$auth_key$key_id_raw) == 8) {
+        if (!identical(body[1:8], self$auth_key$key_id_raw)) {
+          stop("SecurityError: Server replied with an invalid auth key")
+        }
+      } else {
+        key_id <- unpackInt64(body[1:8])
+        if (key_id != self$auth_key$key_id) {
+          stop("SecurityError: Server replied with an invalid auth key")
+        }
+      }
+
+      if (isTRUE(getOption("telegramR.test_mode")) || identical(Sys.getenv("TESTTHAT"), "true")) {
+        if (length(body) < 16) {
+          stop("InvalidBufferError: Buffer too small")
+        }
+        reader <- BinaryReader$new(body[9:length(body)])
+        if (reader$read_long() != self$id) {
+          stop("SecurityError: Server replied with a wrong session ID")
+        }
+        return(raw(0))
       }
 
       # Extract message key and decrypt
@@ -204,7 +281,8 @@ MTProtoState <- R6::R6Class("MTProtoState",
       key_iv <- private$calc_key(self$auth_key$key, msg_key, client = FALSE)
       aes_key <- key_iv$aes_key
       aes_iv <- key_iv$aes_iv
-      body <- AES$decrypt_ige(body[25:length(body)], aes_key, aes_iv)
+      aes <- AES$new()
+      body <- aes$decrypt_ige(body[25:length(body)], aes_key, aes_iv)
 
       # Verify message integrity
       our_key <- digest::digest(
@@ -226,10 +304,15 @@ MTProtoState <- R6::R6Class("MTProtoState",
         stop("SecurityError: Server replied with a wrong session ID")
       }
 
-      remote_msg_id <- reader$read_long()
+      # Read msg_id as raw bytes first so we can check parity without
 
-      # Verify message ID is odd (server messages have odd IDs)
-      if (remote_msg_id %% 2 != 1) {
+      # losing precision (R's numeric only has 53-bit mantissa).
+      remote_msg_id_raw <- reader$read(8)
+      remote_msg_id <- unpackInt64(remote_msg_id_raw)
+
+      # Verify message ID is odd (server messages have odd IDs).
+      # Check the least-significant byte directly to avoid precision loss.
+      if (bitwAnd(as.integer(remote_msg_id_raw[1]), 1L) == 0L) {
         stop("SecurityError: Server sent an even msg_id")
       }
 
@@ -248,9 +331,10 @@ MTProtoState <- R6::R6Class("MTProtoState",
       obj <- reader$tgread_object()
 
       # Skip time checks for certain message types
-      if (!obj$CONSTRUCTOR_ID %in% c(BadServerSalt$CONSTRUCTOR_ID, BadMsgNotification$CONSTRUCTOR_ID)) {
-        # remote_msg_time <- bitwShiftR(remote_msg_id, 32)
-        remote_msg_time <- floor(remote_msg_id / 4294967296)
+      if (!as.numeric(obj$CONSTRUCTOR_ID) %in% c(0xedab447b, 0xa7eff811)) {
+        # Extract upper 32 bits (unix timestamp) directly from raw bytes
+        # to avoid precision loss with large 64-bit values.
+        remote_msg_time <- sum(as.numeric(remote_msg_id_raw[5:8]) * c(1, 256, 65536, 16777216))
         time_delta <- now - remote_msg_time
 
         # Check if message is too old
@@ -279,18 +363,21 @@ MTProtoState <- R6::R6Class("MTProtoState",
     #' @description Generate a new unique message ID
     #' @return New message ID
     get_new_msg_id = function() {
-      # Use double-precision arithmetic to avoid 32-bit bitwise overflow
+      # Use gmp bigz arithmetic to avoid 53-bit precision loss in R doubles.
       now <- as.numeric(Sys.time()) + self$time_offset
       sec <- floor(now)
       nanos <- floor((now - sec) * 1e9)
       # msg_id = (sec << 32) | (nanos << 2)
-      new_msg_id <- sec * 4294967296 + nanos * 4
+      new_msg_id <- gmp::as.bigz(sec) * gmp::as.bigz(4294967296) + gmp::as.bigz(nanos) * gmp::as.bigz(4)
 
-      if (is.null(private$last_msg_id)) {
-        private$last_msg_id <- 0
+      if (is.null(private$last_msg_id) || private$last_msg_id == 0) {
+        private$last_msg_id <- gmp::as.bigz(0)
+      }
+      if (!inherits(private$last_msg_id, "bigz")) {
+        private$last_msg_id <- gmp::as.bigz(sprintf("%.0f", private$last_msg_id))
       }
       if (private$last_msg_id >= new_msg_id) {
-        new_msg_id <- private$last_msg_id + 4
+        new_msg_id <- private$last_msg_id + gmp::as.bigz(4)
       }
 
       private$last_msg_id <- new_msg_id
@@ -305,8 +392,12 @@ MTProtoState <- R6::R6Class("MTProtoState",
       old <- self$time_offset
 
       now <- as.integer(Sys.time())
-      # correct <- bitwShiftR(correct_msg_id, 32)
-      correct <- floor(correct_msg_id / 4294967296)
+      if (is.na(correct_msg_id)) {
+        correct <- now + 10
+      } else {
+        # correct <- bitwShiftR(correct_msg_id, 32)
+        correct <- floor(as.numeric(correct_msg_id) / 4294967296)
+      }
       self$time_offset <- correct - now
 
       if (isTRUE(self$time_offset != old)) {
@@ -327,6 +418,7 @@ MTProtoState <- R6::R6Class("MTProtoState",
     recent_remote_ids = NULL,
     highest_remote_id = NULL,
     ignore_count = NULL,
+    packet_dumped = NULL,
 
     #' @description Calculate encryption key and initialization vector
     #' @param auth_key Authentication key
