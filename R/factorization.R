@@ -21,48 +21,54 @@ Factorization <- R6::R6Class(
     #' factorizer <- Factorization$new()
     #' factorizer$factorize(15) # Returns c(3, 5)
     factorize = function(pq) {
+      pq <- gmp::as.bigz(pq)
       if (gmp::mod.bigz(pq, 2) == 0) {
-        return(list(p = 2, q = gmp::divq.bigz(pq, 2)))
+        return(list(p = gmp::as.bigz(2), q = gmp::divq.bigz(pq, 2)))
       }
 
-      y <- raster::sampleInt(as.numeric(pq - 1), 1)
-      c <- raster::sampleInt(as.numeric(pq - 1), 1)
-      m <- raster::sampleInt(as.numeric(pq - 1), 1)
-      g <- r <- q <- 1
-      x <- ys <- 0
+      y <- gmp::as.bigz(2)
+      c <- gmp::as.bigz(1)
+      m <- gmp::as.bigz(1)
+      g <- gmp::as.bigz(1)
+      r <- gmp::as.bigz(1)
+      q <- gmp::as.bigz(1)
+      x <- gmp::as.bigz(0)
+      ys <- gmp::as.bigz(0)
 
       while (g == 1) {
         x <- y
-        for (i in seq_len(r)) {
-          y <- gmp::mod.bigz((y^2 + c), pq)
+        for (i in 1:as.numeric(r)) {
+          y <- gmp::mod.bigz(y * y + c, pq)
         }
-
-        k <- 0
+        k <- gmp::as.bigz(0)
         while (k < r && g == 1) {
           ys <- y
-          for (i in seq_len(min(m, r - k))) {
-            y <- gmp::mod.bigz((y^2 + c), pq)
-            q <- gmp::mod.bigz((q * abs(x - y)), pq)
+          for (i in 1:min(as.numeric(m), as.numeric(r - k))) {
+            y <- gmp::mod.bigz(y * y + c, pq)
+            q <- gmp::mod.bigz(q * abs(x - y), pq)
           }
-          g <- self$gcd(q, pq)
+          g <- gmp::gcd.bigz(q, pq)
           k <- k + m
         }
         r <- r * 2
       }
 
       if (g == pq) {
-        repeat {
-          ys <- gmp::mod.bigz((ys^2 + c), pq)
-          g <- self$gcd(abs(x - ys), pq)
-          if (g > 1) {
-            break
-          }
+        while (TRUE) {
+          ys <- gmp::mod.bigz(ys * ys + c, pq)
+          g <- gmp::gcd.bigz(abs(x - ys), pq)
+          if (g > 1) break
         }
       }
 
       p <- g
-      q <- pq %/% g
-      return(if (p < q) list(p = p, q = q) else list(p = q, q = p))
+      q_val <- gmp::divq.bigz(pq, p)
+
+      if (p < q_val) {
+        list(p = p, q = q_val)
+      } else {
+        list(p = q_val, q = p)
+      }
     },
 
     #' @description
@@ -75,12 +81,7 @@ Factorization <- R6::R6Class(
     #' factorizer <- Factorization$new()
     #' factorizer$gcd(12, 8) # Returns 4
     gcd = function(a, b) {
-      while (b != 0) {
-        temp <- b
-        b <- a %% b
-        a <- temp
-      }
-      return(a)
+      return(gmp::gcd.bigz(gmp::as.bigz(a), gmp::as.bigz(b)))
     }
   )
 )
