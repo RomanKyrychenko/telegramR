@@ -7,6 +7,11 @@
 IntermediatePacketCodec <- R6::R6Class("IntermediatePacketCodec",
   inherit = PacketCodec,
   public = list(
+    #' @description Initialize codec with optional connection.
+    #' @param connection Optional connection object.
+    initialize = function(connection = NULL) {
+      super$initialize(connection)
+    },
 
     #' @field tag A raw vector representing the tag for the codec.
     tag = as.raw(c(0xee, 0xee, 0xee, 0xee)),
@@ -24,11 +29,17 @@ IntermediatePacketCodec <- R6::R6Class("IntermediatePacketCodec",
 
     #' @description Reads and decodes a packet from a reader.
     #' @param reader An object with a `readexactly` method.
-    #' @return A raw vector representing the packet data.
+    #' @return A promise resolving to packet data.
     read_packet = function(reader) {
-      length_bytes <- reader$readexactly(4)
-      packet_length <- readBin(length_bytes, integer(), n = 1, size = 4, endian = "little")
-      reader$readexactly(packet_length)
+      promise(function(resolve, reject) {
+        to_promise <- function(x) {
+          if (inherits(x, "promise")) x else promises::promise_resolve(x)
+        }
+        to_promise(reader$readexactly(4)) %...>% (function(length_bytes) {
+          packet_length <- readBin(length_bytes, integer(), n = 1, size = 4, endian = "little")
+          to_promise(reader$readexactly(packet_length)) %...>% resolve %...!% reject
+        }) %...!% reject
+      })
     }
   )
 )
@@ -61,15 +72,16 @@ RandomizedIntermediatePacketCodec <- R6::R6Class("RandomizedIntermediatePacketCo
 
     #' @description Reads a packet and removes any trailing random padding.
     #' @param reader An object with a `readexactly` method.
-    #' @return A raw vector representing the original packet data without padding.
+    #' @return A promise resolving to packet data without random padding.
     read_packet = function(reader) {
-      packet_with_padding <- super$read_packet(reader)
-      pad_size <- length(packet_with_padding) %% 4
-      if (pad_size > 0) {
-        packet_with_padding[1:(length(packet_with_padding) - pad_size)]
-      } else {
-        packet_with_padding
-      }
+      super$read_packet(reader) %...>% (function(packet_with_padding) {
+        pad_size <- length(packet_with_padding) %% 4
+        if (pad_size > 0) {
+          packet_with_padding[1:(length(packet_with_padding) - pad_size)]
+        } else {
+          packet_with_padding
+        }
+      })
     }
   )
 )
@@ -86,7 +98,8 @@ ConnectionTcpIntermediate <- R6::R6Class("ConnectionTcpIntermediate",
     #' @param ... Additional parameters passed to the parent constructor.
     initialize = function(...) {
       super$initialize(...)
-      self$packet_codec <- IntermediatePacketCodec$new()
+      # Store the codec class; Connection will instantiate it with this connection.
+      self$packet_codec <- IntermediatePacketCodec
     }
   )
 )
