@@ -11,7 +11,7 @@ DEFAULT_IPV6_IP <- "2001:67c:4e8:f002::a"
 DEFAULT_PORT <- 443
 
 # Global variables
-LAYER <- 143 # Layer version (imported from ..tl.alltlobjects in Python)
+LAYER <- 216 # Telegram API layer (aligned with recent Telethon layer)
 
 # Time in seconds before disconnecting exported senders
 DISCONNECT_EXPORTED_AFTER <- 60
@@ -157,13 +157,16 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
 
       # Handle session object
       if (is.character(session) || inherits(session, "Path")) {
-        # In R implementation we'd create a proper session object
-        # For now, we'll just store the path
-        private$session <- list(path = as.character(session))
-        # Initialize with default DC
-        private$session$server_address <- if (use_ipv6) DEFAULT_IPV6_IP else DEFAULT_IPV4_IP
-        private$session$port <- DEFAULT_PORT
-        private$session$dc_id <- DEFAULT_DC_ID
+        session_path <- as.character(session)
+        loaded_session <- NULL
+        if (file.exists(session_path)) {
+          loaded_session <- tryCatch(readRDS(session_path), error = function(e) NULL)
+        }
+        private$session <- loaded_session %||% list()
+        private$session$path <- session_path
+        private$session$server_address <- private$session$server_address %||% if (use_ipv6) DEFAULT_IPV6_IP else DEFAULT_IPV4_IP
+        private$session$port <- private$session$port %||% DEFAULT_PORT
+        private$session$dc_id <- private$session$dc_id %||% DEFAULT_DC_ID
       } else if (is.null(session)) {
         # Create in-memory session
         private$session <- list(memory = TRUE)
@@ -242,33 +245,38 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       private$catch_up <- catch_up
       private$updates_queue <- NULL # Would be a queue in a full implementation
       private$message_box <- NULL # Would be a MessageBox in a full implementation
-      private$mb_entity_cache <- list()
+      private$mb_entity_cache <- EntityCache$new()
       private$entity_cache_limit <- entity_cache_limit
 
-      # Create sender (honor provided connection/sender or factory)
-      if (!is.null(private$connection)) {
-        if (is.function(private$connection)) {
-          private$sender <- private$connection()
-        } else {
-          private$sender <- private$connection
+      # Ensure we always have a sender; connection is configured separately.
+      if (is.null(private$connection)) {
+        if (exists("ConnectionTcpAbridged", inherits = TRUE)) {
+          private$connection <- ConnectionTcpAbridged
+        } else if (exists("ConnectionTcpFull", inherits = TRUE)) {
+          private$connection <- ConnectionTcpFull
         }
-      } else {
-        private$sender <- MTProtoSender$new(
-          auth_key_callback = NULL,
-          retries = private$connection_retries,
-          delay = private$retry_delay,
-          auto_reconnect = private$auto_reconnect,
-          connect_timeout = private$timeout,
-          auto_reconnect_callback = NULL
-        )
+      }
+      private$sender <- MTProtoSender$new(
+        auth_key_callback = NULL,
+        retries = private$connection_retries,
+        delay = private$retry_delay,
+        auto_reconnect = private$auto_reconnect,
+        connect_timeout = private$timeout,
+        auto_reconnect_callback = NULL
+      )
+
+      # Restore auth key from persisted session when available.
+      # Use the active binding to set the key data on the existing AuthKey
+      # object so that the shared reference with MTProtoState is preserved.
+      if (!is.null(private$session$auth_key)) {
+        if (inherits(private$session$auth_key, "AuthKey")) {
+          private$sender$auth_key$key <- private$session$auth_key$key
+        } else {
+          private$sender$auth_key$key <- private$session$auth_key
+        }
       }
 
-      # Attempt to pre-connect so is_connected() reflects ready state after init
-      if (!is.null(private$sender) && is.function(private$sender$is_connected)) {
-        if (!isTRUE(private$sender$is_connected())) {
-          private$connect_sender()
-        }
-      }
+      # Do not auto-connect in constructor; connection is explicit via connect().
 
       # Version
       private$version <- "1.0.0" # Version of the R client
@@ -280,86 +288,96 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
     #'
     #' @return A future that resolves when connected
     connect = function() {
-      future({
-        if (is.null(private$session)) {
-          stop("TelegramClient instance cannot be reused after logging out")
-        }
+      if (is.null(private$session)) {
+        stop("TelegramClient instance cannot be reused after logging out")
+      }
 
-        if (is.null(private$loop)) {
-          private$loop <- "running" # Placeholder for the event loop
-        }
+      if (is.null(private$loop)) {
+        private$loop <- "running" # Placeholder for the event loop
+      }
 
-        logger::log_info("Connecting to Telegram...")
+      logger::log_info("Connecting to Telegram...")
 
-        # Configure the sender with session details
-        if (!is.null(private$sender) && is.function(private$sender$is_connected) && !private$sender$is_connected()) {
-          if (is.function(private$sender$set_auth_key_callback)) {
-            private$sender$set_auth_key_callback(function(auth_key) {
-              if (!is.null(private$session)) {
+      # Configure the sender with session details
+      if (!is.null(private$sender) && is.function(private$sender$is_connected) && !private$sender$is_connected()) {
+        if (is.function(private$sender$set_auth_key_callback)) {
+          private$sender$set_auth_key_callback(function(auth_key) {
+            if (!is.null(private$session)) {
+              # Store raw key bytes for reliable serialization via saveRDS
+              if (inherits(auth_key, "AuthKey")) {
+                private$session$auth_key <- auth_key$key
+              } else {
                 private$session$auth_key <- auth_key
-                private$save_session()
               }
-            })
-          }
-
-          if (is.function(private$sender$set_update_callback)) {
-            private$sender$set_update_callback(function(update) {
-              if (!private$no_updates) {
-                logger::log_debug("Received update: {class(update)[1]}")
-                if (!is.null(private$updates_queue) && is.function(private$updates_queue$put)) {
-                  private$updates_queue$put(update)
-                }
-              }
-            })
-          }
-
-          # Call sender$connect with only the arguments it supports
-          private$connect_sender()
-        }
-
-        private$save_session()
-
-        if (private$catch_up && !is.null(private$message_box)) {
-          logger::log_info("Catching up on missed updates...")
-        }
-
-        # Try to send init request if supported; otherwise fall back to a default config
-        config_result <- tryCatch(
-          {
-            if (!is.null(private$sender) && is.function(private$sender$send)) {
-              private$sender$send(
-                InitConnectionRequest$new(
-                  api_id = private$init_request$api_id,
-                  device_model = private$init_request$device_model,
-                  system_version = private$init_request$system_version,
-                  app_version = private$init_request$app_version,
-                  lang_code = private$init_request$lang_code,
-                  system_lang_code = private$init_request$system_lang_code,
-                  lang_pack = private$init_request$lang_pack,
-                  query = HelpGetConfigRequest$new()
-                )
-              )
-            } else {
-              list(dc_options = list())
+              private$save_session()
             }
-          },
-          error = function(e) {
-            logger::log_warn("Skipping init request: {e$message}")
+          })
+        }
+
+        if (is.function(private$sender$set_update_callback)) {
+          private$sender$set_update_callback(function(update) {
+            if (!private$no_updates) {
+              logger::log_debug("Received update: {class(update)[1]}")
+              if (!is.null(private$updates_queue) && is.function(private$updates_queue$put)) {
+                private$updates_queue$put(update)
+              }
+            }
+          })
+        }
+
+        private$connect_sender()
+      }
+
+      if (is.null(private$sender) || !is.function(private$sender$is_connected) || !isTRUE(private$sender$is_connected())) {
+        stop("ConnectionError: Sender is disconnected after connect attempt")
+      }
+
+      private$save_session()
+
+      if (private$catch_up && !is.null(private$message_box)) {
+        logger::log_info("Catching up on missed updates...")
+      }
+
+      # Try to send init request if supported; otherwise fall back to a default config
+      config_result <- tryCatch(
+        {
+          if (!is.null(private$sender) && is.function(private$sender$send)) {
+            init_query <- InitConnectionRequest$new(
+              api_id = private$init_request$api_id,
+              device_model = private$init_request$device_model,
+              system_version = private$init_request$system_version,
+              app_version = private$init_request$app_version,
+              lang_code = private$init_request$lang_code,
+              system_lang_code = private$init_request$system_lang_code,
+              lang_pack = private$init_request$lang_pack,
+              query = GetConfigRequest$new()
+            )
+            # Telegram expects the first query in a session to be wrapped into
+            # invokeWithLayer(initConnection(...)).
+            fut <- private$sender$send(
+              InvokeWithLayerRequest$new(layer = as.integer(LAYER), query = init_query)
+            )
+            future::value(fut)
+          } else {
             list(dc_options = list())
           }
-        )
-
-        private$config <- config_result
-
-        if (!private$no_updates) {
-          private$updates_queue <- Queue$new()
-          private$updates_handle <- "active"
-          private$keepalive_handle <- "active"
+        },
+        error = function(e) {
+          logger::log_warn("Skipping init request: {e$message}")
+          list(dc_options = list())
         }
+      )
 
-        logger::log_info("Connected to Telegram!")
-        return(TRUE)
-      })
+      private$config <- config_result
+
+      if (!private$no_updates) {
+        private$updates_queue <- Queue$new()
+        private$updates_handle <- "active"
+        private$keepalive_handle <- "active"
+      }
+
+      logger::log_info("Connected to Telegram!")
+      future::future(TRUE)
     },
 
     #' Check if client is connected
@@ -382,10 +400,8 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       if (is.null(private$session)) {
         stop("TelegramClient instance cannot be reused after logging out")
       }
-      future({
-        private$disconnect_internal()
-        return(TRUE)
-      })
+      private$disconnect_internal()
+      future::future(TRUE)
     },
 
     #' Set proxy for the connection
@@ -424,6 +440,25 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
     # Add missing accessor for proxy used in tests
     get_proxy = function() {
       return(private$proxy)
+    },
+
+    #' @description
+    #' Switch the client to a different data center.
+    #' @param new_dc The new DC ID.
+    switch_dc = function(new_dc) {
+      dc <- future::value(private$get_dc(new_dc))
+
+      private$session$dc_id <- dc$id
+      private$session$server_address <- dc$ip_address
+      private$session$port <- dc$port
+      private$session$auth_key <- NULL
+
+      if (!is.null(private$sender)) {
+        private$sender$auth_key <- AuthKey$new(NULL)
+        private$sender$disconnect()
+        private$connect_sender()
+      }
+      invisible(TRUE)
     }
   ),
   private = list(
@@ -565,9 +600,16 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       }
 
       # Save entity cache to session if supported
-      if (length(private$mb_entity_cache) > 0 && !is.null(private$session)) {
-        private$session$entities <- private$mb_entity_cache
-        logger::log_debug("Saved {length(private$mb_entity_cache)} entities to session")
+      if (!is.null(private$mb_entity_cache) && !is.null(private$session)) {
+        cache_len <- if (is.function(private$mb_entity_cache$size)) {
+          private$mb_entity_cache$size()
+        } else {
+          length(private$mb_entity_cache)
+        }
+        if (cache_len > 0) {
+          private$session$entities <- private$mb_entity_cache
+          logger::log_debug("Saved {cache_len} entities to session")
+        }
       }
     },
     get_dc = function(dc_id, cdn = FALSE) {
@@ -705,28 +747,87 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         return(invisible(FALSE))
       }
       conn_fun <- private$sender$connect
-      args <- list(
-        server_address = private$session$server_address,
-        port = private$session$port,
-        dc_id = private$session$dc_id,
-        auth_key = private$session$auth_key
-      )
-      fml <- tryCatch(names(formals(conn_fun)), error = function(e) NULL)
-      if (is.null(fml)) {
-        # Try simplest call first, then full argument call
-        ok <- tryCatch({ conn_fun(private$session$server_address); TRUE }, error = function(e) FALSE)
-        if (!ok) {
-          tryCatch({ do.call(conn_fun, args) }, error = function(e) {
-            logger::log_warn("connect() signature mismatch: {e$message}")
-          })
+
+      build_connection <- function() {
+        conn_class <- private$connection
+        if (is.null(conn_class)) {
+          if (exists("ConnectionTcpAbridged", inherits = TRUE)) {
+            conn_class <- ConnectionTcpAbridged
+          } else if (exists("ConnectionTcpFull", inherits = TRUE)) {
+            conn_class <- ConnectionTcpFull
+          }
         }
+        if (inherits(conn_class, "Connection")) {
+          return(conn_class)
+        }
+
+        args <- list(
+          ip = private$session$server_address,
+          port = private$session$port,
+          dc_id = private$session$dc_id,
+          proxy = private$proxy,
+          local_addr = private$local_addr,
+          loggers = private$log
+        )
+
+        if (inherits(conn_class, "R6ClassGenerator")) {
+          init_fun <- conn_class$public_methods$initialize
+          fml <- tryCatch(names(formals(init_fun)), error = function(e) NULL)
+          if (!is.null(fml) && !("..." %in% fml)) {
+            args <- args[intersect(names(args), fml)]
+          }
+          return(do.call(conn_class$new, args))
+        }
+
+        if (is.function(conn_class)) {
+          fml <- tryCatch(names(formals(conn_class)), error = function(e) NULL)
+          if (!is.null(fml) && !("..." %in% fml)) {
+            args <- args[intersect(names(args), fml)]
+          }
+          return(do.call(conn_class, args))
+        }
+
+        return(conn_class)
+      }
+
+      fml <- tryCatch(names(formals(conn_fun)), error = function(e) NULL)
+      res <- NULL
+      if (!is.null(fml) && ("connection" %in% fml || "..." %in% fml)) {
+        res <- tryCatch({ conn_fun(build_connection()) }, error = function(e) {
+          call_txt <- tryCatch(paste(deparse(conditionCall(e)), collapse = " "), error = function(...) "")
+          msg_txt <- tryCatch(conditionMessage(e), error = function(...) as.character(e))
+          logger::log_warn("connect() failed: {msg_txt} [{class(e)[1]}] {call_txt}")
+          stop(e)
+        })
       } else {
-        if (!("..." %in% fml)) {
+        # Legacy fallback for older connect signatures
+        args <- list(
+          server_address = private$session$server_address,
+          port = private$session$port,
+          dc_id = private$session$dc_id,
+          auth_key = private$session$auth_key
+        )
+        if (!is.null(fml) && !("..." %in% fml)) {
           args <- args[intersect(names(args), fml)]
         }
-        tryCatch({ do.call(conn_fun, args) }, error = function(e) {
-          logger::log_warn("connect() failed: {e$message}")
+        res <- tryCatch({ do.call(conn_fun, args) }, error = function(e) {
+          call_txt <- tryCatch(paste(deparse(conditionCall(e)), collapse = " "), error = function(...) "")
+          msg_txt <- tryCatch(conditionMessage(e), error = function(...) as.character(e))
+          logger::log_warn("connect() failed: {msg_txt} [{class(e)[1]}] {call_txt}")
+          stop(e)
         })
+      }
+      if (inherits(res, c("Future", "promise"))) {
+        res <- tryCatch(future::value(res), error = function(e) {
+          call_txt <- tryCatch(paste(deparse(conditionCall(e)), collapse = " "), error = function(...) "")
+          msg_txt <- tryCatch(conditionMessage(e), error = function(...) as.character(e))
+          logger::log_warn("connect() failed: {msg_txt} [{class(e)[1]}] {call_txt}")
+          stop(e)
+        })
+      }
+      if (is.null(private$sender) || !is.function(private$sender$is_connected) || !isTRUE(private$sender$is_connected())) {
+        logger::log_warn("Sender still disconnected after connect()")
+        return(invisible(FALSE))
       }
       invisible(TRUE)
     }
