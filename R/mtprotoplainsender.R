@@ -8,60 +8,110 @@ MTProtoPlainSender <- R6::R6Class("MTProtoPlainSender",
 
     #' @description Initializes the MTProto plain sender.
     #' @param connection the Connection to be used.
-    initialize = function(connection) {
+    #' @param loggers Optional loggers map.
+    initialize = function(connection, loggers = NULL) {
       private$state <- MTProtoState$new(auth_key = NULL, loggers = NULL )
       private$connection <- connection
+      private$loggers <- loggers
     },
 
     #' @description Sends and receives the result for the given request.
     #' @param request The request to send.
     #' @return The response object.
     send = function(request) {
-      promises::future_promise({
-        body <- as.raw(request)
-        msg_id <- private$state$get_new_msg_id()
+      promise(function(resolve, reject) {
+        tryCatch(
+          {
+            resolve_maybe <- function(x) {
+              if (inherits(x, "promise") || inherits(x, "Future")) {
+                return(future::value(x))
+              }
+              x
+            }
 
-        # Pack data: <qqi format in Python struct is 8 bytes + 8 bytes + 4 bytes
-        header <- packInt64(0) # auth_key_id (0 for plain messages)
-        header <- c(header, packInt64(msg_id))
-        header <- c(header, packInt32(length(body)))
+            serialize_request <- function(req) {
+              if (is.raw(req)) {
+                return(req)
+              }
+              if (is.character(req)) {
+                return(charToRaw(req))
+              }
+              if (is.list(req) && inherits(req, "ReqPqMultiRequest")) {
+                return(ReqPqMultiRequest$new(nonce = req$nonce)$to_bytes())
+              }
+              if (is.list(req) && inherits(req, "ReqDHParamsRequest")) {
+                return(ReqDHParamsRequest$new(
+                  nonce = req$nonce,
+                  server_nonce = req$server_nonce,
+                  p = req$p,
+                  q = req$q,
+                  public_key_fingerprint = req$public_key_fingerprint,
+                  encrypted_data = req$encrypted_data
+                )$to_bytes())
+              }
+              if (is.list(req) && inherits(req, "SetClientDHParamsRequest")) {
+                return(SetClientDHParamsRequest$new(
+                  nonce = req$nonce,
+                  server_nonce = req$server_nonce,
+                  encrypted_data = req$encrypted_data
+                )$to_bytes())
+              }
+              if (is.function(req$to_bytes)) {
+                return(req$to_bytes())
+              }
+              if (is.function(req$bytes)) {
+                return(req$bytes())
+              }
+              if (is.function(req$to_raw)) {
+                return(req$to_raw())
+              }
+              stop("Unsupported request type for MTProtoPlainSender")
+            }
 
-        private$connection$send(c(header, body))
+            body <- serialize_request(request)
+            msg_id <- private$state$get_new_msg_id()
 
-        body <- private$connection$recv()
-        if (length(body) < 8) {
-          stop("InvalidBufferError: Buffer too small")
-        }
+            # Pack data: <qqi format in Python struct is 8 bytes + 8 bytes + 4 bytes
+            header <- packInt64(0) # auth_key_id (0 for plain messages)
+            header <- c(header, packInt64(msg_id))
+            header <- c(header, packInt32(length(body)))
 
-        reader <- BinaryReader$new(body)
-        auth_key_id <- reader$read_long()
-        if (auth_key_id != 0) {
-          stop("Bad auth_key_id")
-        }
+            resolve_maybe(private$connection$send(c(header, body)))
 
-        msg_id <- reader$read_long()
-        if (msg_id == 0) {
-          stop("Bad msg_id")
-        }
-        # We should make sure that the read 'msg_id' is greater
-        # than our own 'msg_id'. However, under some circumstances
-        # (bad system clock/working behind proxies) this seems to not
-        # be the case, which would cause endless assertion errors.
+            body <- resolve_maybe(private$connection$recv())
+            if (length(body) < 8) {
+              stop("InvalidBufferError: Buffer too small")
+            }
 
-        length <- reader$read_int()
-        if (length <= 0) {
-          stop("Bad length")
-        }
-        # We could read length bytes and use those in a new reader to read
-        # the next TLObject without including the padding, but since the
-        # reader isn't used for anything else after this, it's unnecessary.
-        return(reader$tgread_object())
+            reader <- BinaryReader$new(body)
+            auth_key_id <- reader$read_long()
+            if (auth_key_id != 0) {
+              stop("Bad auth_key_id")
+            }
+
+            msg_id <- reader$read_long()
+            if (msg_id == 0) {
+              stop("Bad msg_id")
+            }
+
+            length <- reader$read_int()
+            if (length <= 0) {
+              stop("Bad length")
+            }
+            if ((reader$tell_position() + length) > length(body)) {
+              stop("Bad length")
+            }
+            resolve(reader$read(length))
+          },
+          error = function(e) reject(e)
+        )
       })
     }
   ),
   private = list(
     state = NULL,
-    connection = NULL
+    connection = NULL,
+    loggers = NULL
   )
 )
 
@@ -70,12 +120,12 @@ MTProtoPlainSender <- R6::R6Class("MTProtoPlainSender",
 #' @return A raw vector representation of the integer
 #' @export
 packInt64 <- function(value) {
-  # R doesn't have a direct equivalent to struct.pack, so we implement manually
-  result <- raw(8)
-  for (i in 1:8) {
-    result[i] <- as.raw(bigBits::bigAnd(bigBits::bigShiftR(value, 8 * (i - 1)), 0xFF))
+  if (is.raw(value)) {
+    if (length(value) == 8) return(value)
+    if (length(value) < 8) return(c(value, raw(8 - length(value))))
+    return(value[1:8])
   }
-  return(result)
+  int_to_bytes(value, length = 8, endian = "little")
 }
 
 #' Pack a 32-bit integer into a raw vector (little-endian)
@@ -83,9 +133,18 @@ packInt64 <- function(value) {
 #' @return A raw vector representation of the integer
 #' @export
 packInt32 <- function(value) {
+  if (length(value) != 1 || is.na(value)) {
+    stop("Invalid input: value must be a single, non-NA number")
+  }
+  v <- as.numeric(value)
+  if (v < 0) {
+    v <- v + 2^32
+  }
   result <- raw(4)
   for (i in 1:4) {
-    result[i] <- as.raw(bigBits::bigAnd(bigBits::bigShiftR(value, 8 * (i - 1)), 0xFF))
+    byte <- as.integer(v %% 256)
+    result[i] <- as.raw(byte)
+    v <- floor(v / 256)
   }
   return(result)
 }
