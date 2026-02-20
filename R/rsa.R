@@ -8,6 +8,55 @@
 # Global dictionary to store server keys
 server_keys <- list()
 
+.strip_leading_zero <- function(x) {
+  x <- as.raw(x)
+  if (length(x) == 0) return(x)
+  while (length(x) > 1 && identical(x[1], as.raw(0x00))) {
+    x <- x[-1]
+  }
+  x
+}
+
+.coerce_key_components <- function(key) {
+  if (is.character(key) && length(key) == 1L) {
+    key <- openssl::read_pubkey(key)
+  }
+  if (inherits(key, "pubkey")) {
+    info <- tryCatch(as.list(key), error = function(e) NULL)
+    if (is.null(info) || is.null(info$data) || is.null(info$data$n) || is.null(info$data$e)) {
+      stop("Invalid key for compute_fingerprint: cannot extract n/e")
+    }
+    return(list(
+      n = .strip_leading_zero(as.raw(info$data$n)),
+      e = .strip_leading_zero(as.raw(info$data$e)),
+      pubkey = key
+    ))
+  }
+  if (is.list(key) && !is.null(key$n) && !is.null(key$e)) {
+    return(list(
+      n = .strip_leading_zero(get_byte_array(key$n)),
+      e = .strip_leading_zero(get_byte_array(key$e)),
+      pubkey = NULL
+    ))
+  }
+  stop("Invalid key for compute_fingerprint: expected PEM string, list(n, e), or openssl pubkey")
+}
+
+.fingerprint_raw_from_components <- function(n_bytes, e_bytes) {
+  payload <- c(serialize_bytes(n_bytes), serialize_bytes(e_bytes))
+  h <- digest::digest(payload, algo = "sha1", serialize = FALSE, raw = TRUE)
+  h[(length(h) - 7):length(h)]
+}
+
+.int_from_le_raw <- function(x) {
+  x <- as.raw(x)
+  if (length(x) == 0) {
+    return(gmp::as.bigz(0))
+  }
+  hex <- paste(sprintf("%02x", as.integer(rev(x))), collapse = "")
+  gmp::as.bigz(paste0("0x", hex))
+}
+
 #' Converts an integer to a byte array.
 #'
 #' @param integer The integer to convert.
@@ -56,34 +105,11 @@ get_byte_array <- function(integer) {
 #' @param key The RSA key as a list with `n` and `e` components, a PEM string, or an openssl pubkey.
 #' @return The 8-byte fingerprint as a positive numeric.
 compute_fingerprint <- function(key) {
-  # If a PEM string is provided, use its DER payload directly
-  if (is.character(key) && length(key) == 1L) {
-    pem_lines <- strsplit(key, "\n", fixed = TRUE)[[1]]
-    b64 <- pem_lines[!grepl("^-{3,}", pem_lines)]
-    payload <- openssl::base64_decode(paste0(b64, collapse = ""))
-  } else if (is.list(key) && !is.null(key$n) && !is.null(key$e)) {
-    # Stable textual representation for list inputs
-    n_str <- as.character(key$n)
-    e_str <- as.character(key$e)
-    payload <- charToRaw(paste0(n_str, ":", e_str))
-  } else if (inherits(key, "pubkey")) {
-    # Best-effort: try to extract components; otherwise ask caller to pass PEM
-    comps <- tryCatch(as.list(key), error = function(e) NULL)
-    if (is.list(comps) && !is.null(comps$n) && !is.null(comps$e)) {
-      n_str <- as.character(comps$n)
-      e_str <- as.character(comps$e)
-      payload <- charToRaw(paste0(n_str, ":", e_str))
-    } else {
-      stop("Invalid key for compute_fingerprint: pass PEM string or list(n, e)")
-    }
-  } else {
-    stop("Invalid key for compute_fingerprint: expected PEM string, list(n, e), or openssl pubkey")
-  }
-
-  h <- digest::digest(payload, algo = "sha1", serialize = FALSE, raw = TRUE)
-  tail8 <- as.integer(h[(length(h) - 7):length(h)])
-  # Use double arithmetic to avoid 32-bit integer overflow
-  sum(as.numeric(tail8) * 256^(0:7))
+  comps <- .coerce_key_components(key)
+  tail8 <- .fingerprint_raw_from_components(comps$n, comps$e)
+  # Return a signed little-endian numeric for compatibility with existing API/tests.
+  val <- .int_from_le_raw(tail8)
+  as.numeric(if (val > gmp::as.bigz(2^63 - 1)) val - gmp::as.bigz(2^64) else val)
 }
 
 #' Adds a new public key to the server keys.
@@ -91,9 +117,17 @@ compute_fingerprint <- function(key) {
 #' @param pub The public key in PEM format.
 #' @param old Logical indicating if the key is old.
 add_key <- function(pub, old = FALSE) {
-  key <- openssl::read_pubkey(pub)
-  fingerprint <- compute_fingerprint(pub) # consistent with PEM hashing
-  entry <- list(key = key, old = old)
+  comps <- .coerce_key_components(pub)
+  key <- if (is.null(comps$pubkey)) openssl::read_pubkey(pub) else comps$pubkey
+  fingerprint <- compute_fingerprint(pub)
+  fingerprint_raw <- .fingerprint_raw_from_components(comps$n, comps$e)
+  entry <- list(
+    key = key,
+    old = old,
+    n = comps$n,
+    e = comps$e,
+    fingerprint_raw = fingerprint_raw
+  )
 
   update_env <- function(env) {
     if (!exists("server_keys", envir = env, inherits = FALSE)) return()
