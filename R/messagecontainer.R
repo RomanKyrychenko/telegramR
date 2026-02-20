@@ -53,6 +53,17 @@ MessageContainer <- R6::R6Class(
     #' # Assuming `reader` is a binary reader object:
     #' container <- MessageContainer$new()
     #' container$from_reader(reader)
+    from_reader_public = function(reader) {
+      private$from_reader(reader)
+    }
+  ),
+  active = list(
+    #' @field CONSTRUCTOR_ID The constructor ID for MessageContainer (0x73f1f8dc).
+    CONSTRUCTOR_ID = function() 0x73f1f8dc,
+    #' @field SUBCLASS_OF_ID The subclass ID for MessageContainer.
+    SUBCLASS_OF_ID = function() 0x73f1f8dc
+  ),
+  private = list(
     from_reader = function(reader) {
       messages <- list()
       count <- reader$read_int()
@@ -70,3 +81,7 @@ MessageContainer <- R6::R6Class(
     }
   )
 )
+
+# Class-level constants for message packing limits.
+MessageContainer$MAXIMUM_LENGTH <- 100L
+MessageContainer$MAXIMUM_SIZE <- 1048576L
