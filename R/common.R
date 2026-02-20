@@ -354,3 +354,25 @@ MultiError <- R6::R6Class(
     }
   )
 )
+
+#' Convert an RPC error to an R condition
+#' @param rpc_error A list or R6 object with error_code and error_message fields
+#' @param request The request that caused the error
+#' @return A condition object
+#' @keywords internal
+rpc_message_to_error <- function(rpc_error, request) {
+  code <- rpc_error$error_code
+  msg <- rpc_error$error_message
+  if (is.null(msg)) msg <- "Unknown RPC error"
+  if (is.null(code)) code <- 0L
+  err <- structure(
+    class = c("RPCError", "error", "condition"),
+    list(
+      message = sprintf("RPCError %d: %s", code, msg),
+      error_code = code,
+      error_message = msg,
+      request = request
+    )
+  )
+  err
+}
