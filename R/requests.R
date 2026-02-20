@@ -37,6 +37,33 @@ DestroyAuthKeyRequest_from_reader <- function(reader) {
 
 #' DestroySessionRequest
 #'
+# Helper functions for little-endian integer packing.
+packInt64_le <- function(value) {
+  if (is.raw(value)) {
+    if (length(value) == 8) {
+      return(value)
+    }
+    if (length(value) < 8) {
+      return(c(value, raw(8 - length(value))))
+    }
+    return(value[1:8])
+  }
+  writeBin(as.integer64(value), raw(), size = 8, endian = "little")
+}
+
+packInt128_le <- function(value) {
+  if (is.raw(value)) {
+    if (length(value) == 16) {
+      return(value)
+    }
+    if (length(value) < 16) {
+      return(c(value, raw(16 - length(value))))
+    }
+    return(value[1:16])
+  }
+  int_to_bytes(value, length = 16, endian = "little")
+}
+
 #' R6 class representing a request to destroy a session.
 #' Contains methods for serialization to list and bytes.
 DestroySessionRequest <- R6::R6Class(
@@ -72,7 +99,7 @@ DestroySessionRequest <- R6::R6Class(
     to_bytes = function() {
       c(
         as.raw(c(0x26, 0x21, 0x51, 0xe7)),
-        writeBin(bit64::as.integer64(self$session_id), raw(), size = 8, endian = "little")
+        packInt64_le(self$session_id)
       )
     }
   ),
@@ -367,7 +394,7 @@ InvokeAfterMsgRequest <- R6::R6Class(
     to_bytes = function() {
       c(
         as.raw(c(0x2d, 0x37, 0x9f, 0xcb)),
-        writeBin(bit64::as.integer64(self$msg_id), raw(), size = 8, endian = "little"),
+        packInt64_le(self$msg_id),
         self$query$to_bytes()
       )
     }
@@ -447,7 +474,7 @@ InvokeAfterMsgsRequest <- R6::R6Class(
         as.raw(c(0xf0, 0xb4, 0xc4, 0x3d)),
         as.raw(c(0x1c, 0xb5, 0xc4, 0x15)),
         writeBin(as.integer(length(self$msg_ids)), raw(), size = 4, endian = "little"),
-        as.raw(unlist(lapply(self$msg_ids, function(x) writeBin(bit64::as.integer64(x), raw(), size = 8, endian = "little")))),
+        as.raw(unlist(lapply(self$msg_ids, packInt64_le))),
         self$query$to_bytes()
       )
       as.raw(unlist(raw_vec))
@@ -1016,7 +1043,7 @@ InvokeWithTakeoutRequest <- R6::R6Class(
     to_bytes = function() {
       c(
         as.raw(c(0x2e, 0xfd, 0xa9, 0xac)),
-        writeBin(bit64::as.integer64(self$takeout_id), raw(), size = 8, endian = "little"),
+        packInt64_le(self$takeout_id),
         self$query$to_bytes()
       )
     }
@@ -1155,7 +1182,7 @@ PingRequest <- R6::R6Class(
     to_bytes = function() {
       c(
         as.raw(c(0xec, 0x77, 0xbe, 0x7a)),
-        writeBin(bit64::as.integer64(self$ping_id), raw(), size = 8, endian = "little")
+        packInt64_le(self$ping_id)
       )
     }
   ),
@@ -1225,7 +1252,7 @@ PingDelayDisconnectRequest <- R6::R6Class(
     to_bytes = function() {
       c(
         as.raw(c(0x8c, 0x7b, 0x42, 0xf3)),
-        writeBin(bit64::as.integer64(self$ping_id), raw(), size = 8, endian = "little"),
+        packInt64_le(self$ping_id),
         writeBin(as.integer(self$disconnect_delay), raw(), size = 4, endian = "little")
       )
     }
@@ -1322,11 +1349,11 @@ ReqDHParamsRequest <- R6::R6Class(
     to_bytes = function() {
       c(
         as.raw(c(0xbe, 0xe4, 0x12, 0xd7)),
-        writeBin(bit64::as.integer64(self$nonce), raw(), size = 16, endian = "little"),
-        writeBin(bit64::as.integer64(self$server_nonce), raw(), size = 16, endian = "little"),
+        packInt128_le(self$nonce),
+        packInt128_le(self$server_nonce),
         serialize_bytes(self$p),
         serialize_bytes(self$q),
-        writeBin(bit64::as.integer64(self$public_key_fingerprint), raw(), size = 8, endian = "little"),
+        packInt64_le(self$public_key_fingerprint),
         serialize_bytes(self$encrypted_data)
       )
     }
@@ -1406,7 +1433,7 @@ ReqPqRequest <- R6::R6Class(
     to_bytes = function() {
       c(
         as.raw(c(0x78, 0x97, 0x46, 0x60)),
-        writeBin(bit64::as.integer64(self$nonce), raw(), size = 16, endian = "little")
+        packInt128_le(self$nonce)
       )
     }
   ),
@@ -1472,7 +1499,7 @@ ReqPqMultiRequest <- R6::R6Class(
     to_bytes = function() {
       c(
         as.raw(c(0xf1, 0x8e, 0x7e, 0xbe)),
-        writeBin(bit64::as.integer64(self$nonce), raw(), size = 16, endian = "little")
+        packInt128_le(self$nonce)
       )
     }
   ),
@@ -1533,7 +1560,7 @@ RpcDropAnswerRequest <- R6::R6Class(
     to_bytes = function() {
       c(
         as.raw(c(0x40, 0xa7, 0xe4, 0x58)),
-        writeBin(bit64::as.integer64(self$req_msg_id), raw(), size = 8, endian = "little")
+        packInt64_le(self$req_msg_id)
       )
     }
   ),
@@ -1614,8 +1641,8 @@ SetClientDHParamsRequest <- R6::R6Class(
     to_bytes = function() {
       c(
         as.raw(c(0x1f, 0x5f, 0x04, 0xf5)),
-        writeBin(bit64::as.integer64(self$nonce), raw(), size = 16, endian = "little"),
-        writeBin(bit64::as.integer64(self$server_nonce), raw(), size = 16, endian = "little"),
+        packInt128_le(self$nonce),
+        packInt128_le(self$server_nonce),
         serialize_bytes(self$encrypted_data)
       )
     }
