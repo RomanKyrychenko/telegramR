@@ -8,6 +8,17 @@ SSL_PORT <- 443
 HttpPacketCodec <- R6::R6Class("HttpPacketCodec",
   inherit = PacketCodec,
   public = list(
+    ._conn = NULL,
+
+    #' @description Initialize the codec with an optional connection.
+    #' @param connection Optional connection-like list with ip/port fields.
+    initialize = function(connection = NULL) {
+      if (is.null(connection)) {
+        connection <- list(ip = "0.0.0.0", port = 0)
+      }
+      self$._conn <- connection
+    },
+
 
     #' @field tag A raw vector representing the tag for the codec.
     tag = NULL,
@@ -64,6 +75,7 @@ HttpPacketCodec <- R6::R6Class("HttpPacketCodec",
 ConnectionHttp <- R6::R6Class("ConnectionHttp",
   inherit = Connection,
   public = list(
+    packet_codec = HttpPacketCodec,
 
     #' @description This method connects to the server using SSL if the port equals \code{SSL_PORT}.
     #' @param timeout Optional timeout for the connection.
@@ -73,8 +85,5 @@ ConnectionHttp <- R6::R6Class("ConnectionHttp",
       ssl_flag <- self$port == SSL_PORT
       super$connect(timeout = timeout, ssl = ssl_flag)
     }
-  ),
-  private = list(
-    packet_codec = HttpPacketCodec
   )
 )
