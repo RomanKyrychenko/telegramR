@@ -25,19 +25,10 @@ RpcResult <- R6::R6Class(
     #' @param body \code{ANY} The body of the RPC result.
     #' @param error \code{ANY} The error object, if any.
     #' @return A new `RpcResult` object.
-    initialize = function(req_msg_id, body, error) {
+    initialize = function(req_msg_id = NULL, body = NULL, error = NULL) {
       self$req_msg_id <- req_msg_id
       self$body <- body
       self$error <- error
-    },
-
-    #' @description
-    #' Reads and parses an `RpcResult` object from a binary reader.
-    #' @param reader A `BinaryReader` object to read the binary data.
-    #' @return An `RpcResult` object parsed from the binary data.
-    from_reader = function(reader) {
-      # Delegate to class-level method for parsing
-      RpcResult$from_reader(reader)
     },
 
     #' @description
@@ -53,19 +44,33 @@ RpcResult <- R6::R6Class(
         )
       )
     }
+  ),
+  active = list(
+    #' @field CONSTRUCTOR_ID The constructor ID for RpcResult (0xf35c6d01).
+    CONSTRUCTOR_ID = function() 0xf35c6d01,
+    #' @field SUBCLASS_OF_ID The subclass ID for RpcResult.
+    SUBCLASS_OF_ID = function() 0xf35c6d01
+  ),
+  private = list(
+    from_reader = function(reader) {
+      msg_id <- reader$read_long()
+      inner_code <- reader$read_int(signed = FALSE)
+      rpc_error_ctor <- tryCatch(RpcError$new()$CONSTRUCTOR_ID, error = function(e) 0x2144ca19)
+      gzip_ctor <- 0x3072cfa1
+      if (identical(as.numeric(inner_code), as.numeric(rpc_error_ctor))) {
+        error_code <- reader$read_int()
+        error_message <- reader$tgread_string()
+        return(RpcResult$new(
+          req_msg_id = msg_id, body = NULL,
+          error = list(error_code = error_code, error_message = error_message)
+        ))
+      }
+      if (identical(as.numeric(inner_code), as.numeric(gzip_ctor))) {
+        decompressed <- memDecompress(reader$tgread_bytes(), type = "gzip")
+        return(RpcResult$new(req_msg_id = msg_id, body = decompressed, error = NULL))
+      }
+      reader$seek(-4)
+      return(RpcResult$new(req_msg_id = msg_id, body = reader$read(), error = NULL))
+    }
   )
 )
-
-# Add a class-level parser so RpcResult$from_reader(...) works
-RpcResult$from_reader <- function(reader) {
-  msg_id <- reader$read_long()
-  inner_code <- reader$read_int(signed = FALSE)
-  if (identical(inner_code, RpcError$CONSTRUCTOR_ID)) {
-    return(RpcResult$new(req_msg_id = msg_id, body = NULL, error = RpcError$from_reader(reader)))
-  }
-  if (identical(inner_code, GzipPacked$CONSTRUCTOR_ID)) {
-    return(RpcResult$new(req_msg_id = msg_id, body = GzipPacked$from_reader(reader)$data, error = NULL))
-  }
-  reader$seek(-4)
-  return(RpcResult$new(req_msg_id = msg_id, body = reader$read(), error = NULL))
-}
