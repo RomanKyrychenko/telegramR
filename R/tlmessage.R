@@ -51,3 +51,6 @@ TLMessage <- R6::R6Class(
     }
   )
 )
+
+# Class-level constant for message packing overhead (msg_id:8 + seq_no:4 + length:4 = 16, with padding overhead ~32).
+TLMessage$SIZE_OVERHEAD <- 32L
