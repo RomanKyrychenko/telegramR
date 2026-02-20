@@ -15,6 +15,9 @@ RequestState <- R6::R6Class("RequestState",
     #' @param request The request object.
     #' @param after Optional additional parameter. Defaults to NULL.
     initialize = function(request, after = NULL) {
+      if (is.null(request)) {
+        stop("argument \"request\" is missing, with no default")
+      }
       self$container_id <- NULL
       self$msg_id <- NULL
       self$request <- request
@@ -23,14 +26,86 @@ RequestState <- R6::R6Class("RequestState",
       } else if (is.raw(request)) {
         self$data <- request
       } else {
-        # Serialize non-character/non-raw objects to a raw vector.
-        self$data <- serialize(request, NULL)
+        # Serialize TL objects using available binary methods, tolerating
+        # partially generated classes where one method exists but fails.
+        serializers <- list(
+          function(x) if (is.function(x$to_raw)) x$to_raw() else NULL,
+          function(x) if (is.function(x$to_bytes)) x$to_bytes() else NULL,
+          function(x) if (is.function(x$bytes)) x$bytes() else NULL
+        )
+
+        raw_out <- NULL
+        for (fn in serializers) {
+          candidate <- tryCatch(fn(request), error = function(e) NULL)
+          if (is.raw(candidate) && length(candidate) > 0) {
+            raw_out <- candidate
+            break
+          }
+        }
+
+        if (is.null(raw_out)) {
+          # Keep backward compatibility for arbitrary objects stored as requests.
+          raw_out <- serialize(request, NULL)
+        }
+        self$data <- raw_out
       }
-      # Create a placeholder future that can be resolved later.
-      self$future <- future::future({
+      # Create a future-like holder that MTProto sender can complete later via
+      # set_result / set_exception.
+      f <- future::future({
         NULL
       })
+      f$.__req_done__ <- FALSE
+      f$.__req_value__ <- NULL
+      f$.__req_error__ <- NULL
+      f$set_result <- function(value) {
+        f$.__req_value__ <<- value
+        f$.__req_error__ <<- NULL
+        f$.__req_done__ <<- TRUE
+        promises::promise_resolve(TRUE)
+      }
+      f$set_exception <- function(error) {
+        f$.__req_error__ <<- error
+        f$.__req_done__ <<- TRUE
+        promises::promise_resolve(TRUE)
+      }
+      f$cancel <- function() {
+        f$.__req_error__ <<- simpleError("Cancelled")
+        f$.__req_done__ <<- TRUE
+        promises::promise_resolve(TRUE)
+      }
+      class(f) <- c("RequestFuture", class(f))
+      self$future <- f
       self$after <- after
     }
   )
 )
+
+# S3 adapter: make future::value() block on RequestFuture completion.
+value.RequestFuture <- function(x, ...) {
+  done <- isTRUE(x$.__req_done__)
+  started_at <- proc.time()[["elapsed"]]
+  timeout_sec <- as.numeric(getOption("telegramR.promise_timeout", 30))
+
+  while (!done) {
+    elapsed <- proc.time()[["elapsed"]] - started_at
+    if (is.finite(timeout_sec) && timeout_sec > 0 && elapsed > timeout_sec) {
+      stop(sprintf("PromiseTimeoutError: timed out after %.1f seconds", timeout_sec))
+    }
+    if (requireNamespace("later", quietly = TRUE)) {
+      later::run_now(timeout = 0.05)
+    } else {
+      Sys.sleep(0.05)
+    }
+    done <- isTRUE(x$.__req_done__)
+  }
+
+  if (!is.null(x$.__req_error__)) {
+    stop(x$.__req_error__)
+  }
+  x$.__req_value__
+}
+
+# S3 adapter: make future::resolved() work with RequestFuture completion state.
+resolved.RequestFuture <- function(x, ...) {
+  isTRUE(x$.__req_done__)
+}
