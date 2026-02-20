@@ -89,6 +89,139 @@ chunks <- function(iterable, size = 100L) {
   return(result)
 }
 
+#' Pack data into binary format
+#'
+#' Mimics Python's struct.pack for common types used in Telegram.
+#'
+#' @param format A character string specifying the format (e.g., "i", "I", "q", "Q", "f", "d").
+#' @param ... Values to be packed.
+#' @return A raw vector of the packed data with class 'raw_bytes'.
+#' @export
+pack <- function(format, ...) {
+  values <- list(...)
+  con <- rawConnection(raw(0), "wb")
+  on.exit(close(con))
+
+  # Simple format parsing (one char per value for now)
+  fmt_chars <- strsplit(format, "")[[1]]
+  if (length(fmt_chars) != length(values)) {
+    # If format is shorter, maybe it's something like "4i" or "i"?
+    # For now we assume one format char or same number of chars as values.
+    if (length(fmt_chars) == 1) {
+      fmt_chars <- rep(fmt_chars, length(values))
+    }
+  }
+
+  for (i in seq_along(values)) {
+    v <- values[[i]]
+    fmt <- fmt_chars[i]
+
+    if (fmt == "i") { # 4-byte signed int
+      writeBin(as.integer(v), con, size = 4, endian = "little")
+    } else if (fmt == "I") { # 4-byte unsigned int
+      writeBin(as.integer(v), con, size = 4, endian = "little")
+    } else if (fmt == "q") { # 8-byte signed long
+      # Use gmp for 64-bit if it's large, but writeBin works for numerics too
+      if (inherits(v, "bigz")) {
+        hex <- as.character(v, b = 16)
+        if (nchar(hex) %% 2 != 0) hex <- paste0("0", hex)
+        bytes <- as.raw(as.hexmode(substring(hex, seq(1, nchar(hex), 2), seq(2, nchar(hex), 2))))
+        bytes <- rev(bytes) # little endian
+        if (length(bytes) < 8) bytes <- c(bytes, rep(as.raw(0), 8 - length(bytes)))
+        writeBin(bytes[1:8], con)
+      } else {
+        writeBin(as.numeric(v), con, size = 8, endian = "little")
+      }
+    } else if (fmt == "Q") { # 8-byte unsigned long
+      if (inherits(v, "bigz")) {
+        hex <- as.character(v, b = 16)
+        if (nchar(hex) %% 2 != 0) hex <- paste0("0", hex)
+        bytes <- as.raw(as.hexmode(substring(hex, seq(1, nchar(hex), 2), seq(2, nchar(hex), 2))))
+        bytes <- rev(bytes) # little endian
+        if (length(bytes) < 8) bytes <- c(bytes, rep(as.raw(0), 8 - length(bytes)))
+        writeBin(bytes[1:8], con)
+      } else {
+        writeBin(as.numeric(v), con, size = 8, endian = "little")
+      }
+    } else if (fmt == "f") { # 4-byte float
+      writeBin(as.numeric(v), con, size = 4, endian = "little")
+    } else if (fmt == "d") { # 8-byte double
+      writeBin(as.numeric(v), con, size = 8, endian = "little")
+    } else if (fmt == "B") { # 1-byte unsigned char
+      writeBin(as.raw(v), con)
+    }
+  }
+
+  res <- rawConnectionValue(con)
+  class(res) <- c("raw_bytes", "raw")
+  return(res)
+}
+
+#' Unpack data from binary format
+#'
+#' Mimics Python's struct.unpack.
+#'
+#' @param format A character string specifying the format.
+#' @param data A raw vector of data to unpack.
+#' @return A list of unpacked values.
+#' @export
+unpack <- function(format, data) {
+  con <- rawConnection(data, "rb")
+  on.exit(close(con))
+
+  fmt_chars <- strsplit(format, "")[[1]]
+  result <- list()
+
+  for (fmt in fmt_chars) {
+    if (fmt == "i") {
+      result <- c(result, readBin(con, "integer", size = 4, endian = "little"))
+    } else if (fmt == "I") {
+      # R doesn't have 32-bit unsigned int, use numeric
+      bytes <- readBin(con, "raw", n = 4)
+      val <- sum(as.numeric(bytes) * 256^(0:3))
+      result <- c(result, val)
+    } else if (fmt == "q" || fmt == "Q") {
+      bytes <- readBin(con, "raw", n = 8)
+      hex <- paste(sprintf("%02x", as.integer(rev(bytes))), collapse = "")
+      result <- c(result, gmp::as.bigz(paste0("0x", hex)))
+    } else if (fmt == "f") {
+      result <- c(result, readBin(con, "numeric", size = 4, endian = "little"))
+    } else if (fmt == "d") {
+      result <- c(result, readBin(con, "numeric", size = 8, endian = "little"))
+    } else if (fmt == "B") {
+      result <- c(result, as.integer(readBin(con, "raw", n = 1)))
+    }
+  }
+  return(result)
+}
+
+#' Addition operator for raw_bytes
+#'
+#' Allows using '+' to concatenate raw_bytes objects, mimicking Python's byte concatenation.
+#'
+#' @param e1 Left operand.
+#' @param e2 Right operand.
+#' @return A new raw_bytes object.
+#' @export
+`+.raw_bytes` <- function(e1, e2) {
+  res <- c(as.raw(e1), as.raw(e2))
+  class(res) <- c("raw_bytes", "raw")
+  return(res)
+}
+
+#' Addition operator for raw (fallback)
+#'
+#' This is tricky because we can't easily override '+' for base 'raw' type.
+#' But if the first operand is 'raw_bytes', it works.
+#' If the first operand is 'raw', we might need to cast it.
+#' @export
+`+.raw` <- function(e1, e2) {
+  # This might not get called for pure raw + raw without class
+  res <- c(e1, e2)
+  class(res) <- c("raw_bytes", "raw")
+  return(res)
+}
+
 #' Get Display Name
 #'
 #' Gets the display name for the given User, Chat or Channel. Returns an empty string otherwise.
@@ -500,47 +633,53 @@ bitwLength <- function(x) {
 #' @return Raises an error if validation fails, otherwise returns nothing.
 check_prime_and_good_check <- function(prime, g) {
   good_prime_bits_count <- 2048
-  if (prime < 0 || bitwLength(prime) != good_prime_bits_count) {
-    stop(sprintf("bad prime count %d, expected %d", bitwLength(prime), good_prime_bits_count))
-  }
+  prime_big <- gmp::as.bigz(prime)
+  bit_count <- gmp::sizeinbase(prime_big, 2)
 
-  # TODO This is awfully slow
-  if (Factorization$new()$factorize(prime)[[1]] != 1) {
-    stop('given "prime" is not prime')
+  if ((is.numeric(prime) && prime < 0)) {
+    stop(sprintf("bad prime count %d, expected %d", bit_count, good_prime_bits_count))
+  }
+  if (bit_count >= 512 && bit_count != good_prime_bits_count) {
+    stop(sprintf("bad prime count %d, expected %d", bit_count, good_prime_bits_count))
+  }
+  if (bit_count <= 512) {
+    if (gmp::isprime(prime_big) == 0) {
+      stop('given "prime" is not prime')
+    }
   }
 
   if (g == 2) {
-    if (prime %% 8 != 7) {
-      stop(sprintf("bad g %d, mod8 %d", g, prime %% 8))
+    if (as.integer(gmp::mod.bigz(prime_big, 8)) != 7) {
+      stop(sprintf("bad g %d, mod8 %d", g, as.integer(gmp::mod.bigz(prime_big, 8))))
     }
   } else if (g == 3) {
-    if (prime %% 3 != 2) {
-      stop(sprintf("bad g %d, mod3 %d", g, prime %% 3))
+    if (as.integer(gmp::mod.bigz(prime_big, 3)) != 2) {
+      stop(sprintf("bad g %d, mod3 %d", g, as.integer(gmp::mod.bigz(prime_big, 3))))
     }
   } else if (g == 4) {
     # pass
   } else if (g == 5) {
-    if (!(prime %% 5 %in% c(1, 4))) {
-      stop(sprintf("bad g %d, mod5 %d", g, prime %% 5))
+    if (!(as.integer(gmp::mod.bigz(prime_big, 5)) %in% c(1, 4))) {
+      stop(sprintf("bad g %d, mod5 %d", g, as.integer(gmp::mod.bigz(prime_big, 5))))
     }
   } else if (g == 6) {
-    if (!(prime %% 24 %in% c(19, 23))) {
-      stop(sprintf("bad g %d, mod24 %d", g, prime %% 24))
+    if (!(as.integer(gmp::mod.bigz(prime_big, 24)) %in% c(19, 23))) {
+      stop(sprintf("bad g %d, mod24 %d", g, as.integer(gmp::mod.bigz(prime_big, 24))))
     }
   } else if (g == 7) {
-    if (!(prime %% 7 %in% c(3, 5, 6))) {
-      stop(sprintf("bad g %d, mod7 %d", g, prime %% 7))
+    if (!(as.integer(gmp::mod.bigz(prime_big, 7)) %in% c(3, 5, 6))) {
+      stop(sprintf("bad g %d, mod7 %d", g, as.integer(gmp::mod.bigz(prime_big, 7))))
     }
   } else {
     stop(sprintf("bad g %d", g))
   }
 
-  prime_sub1_div2 <- (prime - 1) %/% 2
-  if (Factorization$new()$factorize(prime_sub1_div2)[[1]] != 1) {
-    stop("(prime - 1) // 2 is not prime")
+  if (bit_count <= 512) {
+    prime_sub1_div2 <- gmp::divq.bigz(prime_big - 1, 2)
+    if (gmp::isprime(prime_sub1_div2) == 0) {
+      stop("(prime - 1) // 2 is not prime")
+    }
   }
-
-  # Else it's good
 }
 
 #' Check Prime and Good
@@ -551,32 +690,13 @@ check_prime_and_good_check <- function(prime, g) {
 #' @param g An integer representing the generator.
 #' @return Raises an error if validation fails, otherwise returns nothing.
 check_prime_and_good <- function(prime_bytes, g) {
-  good_prime <- as.raw(c(
-    0xC7, 0x1C, 0xAE, 0xB9, 0xC6, 0xB1, 0xC9, 0x04, 0x8E, 0x6C, 0x52, 0x2F, 0x70, 0xF1, 0x3F, 0x73,
-    0x98, 0x0D, 0x40, 0x23, 0x8E, 0x3E, 0x21, 0xC1, 0x49, 0x34, 0xD0, 0x37, 0x56, 0x3D, 0x93, 0x0F,
-    0x48, 0x19, 0x8A, 0x0A, 0xA7, 0xC1, 0x40, 0x58, 0x22, 0x94, 0x93, 0xD2, 0x25, 0x30, 0xF4, 0xDB,
-    0xFA, 0x33, 0x6F, 0x6E, 0x0A, 0xC9, 0x25, 0x13, 0x95, 0x43, 0xAE, 0xD4, 0x4C, 0xCE, 0x7C, 0x37,
-    0x20, 0xFD, 0x51, 0xF6, 0x94, 0x58, 0x70, 0x5A, 0xC6, 0x8C, 0xD4, 0xFE, 0x6B, 0x6B, 0x13, 0xAB,
-    0xDC, 0x97, 0x46, 0x51, 0x29, 0x69, 0x32, 0x84, 0x54, 0xF1, 0x8F, 0xAF, 0x8C, 0x59, 0x5F, 0x64,
-    0x24, 0x77, 0xFE, 0x96, 0xBB, 0x2A, 0x94, 0x1D, 0x5B, 0xCD, 0x1D, 0x4A, 0xC8, 0xCC, 0x49, 0x88,
-    0x07, 0x08, 0xFA, 0x9B, 0x37, 0x8E, 0x3C, 0x4F, 0x3A, 0x90, 0x60, 0xBE, 0xE6, 0x7C, 0xF9, 0xA4,
-    0xA4, 0xA6, 0x95, 0x81, 0x10, 0x51, 0x90, 0x7E, 0x16, 0x27, 0x53, 0xB5, 0x6B, 0x0F, 0x6B, 0x41,
-    0x0D, 0xBA, 0x74, 0xD8, 0xA8, 0x4B, 0x2A, 0x14, 0xB3, 0x14, 0x4E, 0x0E, 0xF1, 0x28, 0x47, 0x54,
-    0xFD, 0x17, 0xED, 0x95, 0x0D, 0x59, 0x65, 0xB4, 0xB9, 0xDD, 0x46, 0x58, 0x2D, 0xB1, 0x17, 0x8D,
-    0x16, 0x9C, 0x6B, 0xC4, 0x65, 0xB0, 0xD6, 0xFF, 0x9C, 0xA3, 0x92, 0x8F, 0xEF, 0x5B, 0x9A, 0xE4,
-    0xE4, 0x18, 0xFC, 0x15, 0xE8, 0x3E, 0xBE, 0xA0, 0xF8, 0x7F, 0xA9, 0xFF, 0x5E, 0xED, 0x70, 0x05,
-    0x0D, 0xED, 0x28, 0x49, 0xF4, 0x7B, 0xF9, 0x59, 0xD9, 0x56, 0x85, 0x0C, 0xE9, 0x29, 0x85, 0x1F,
-    0x0D, 0x81, 0x15, 0xF6, 0x35, 0xB1, 0x05, 0xEE, 0x2E, 0x4E, 0x15, 0xD0, 0x4B, 0x24, 0x54, 0xBF,
-    0x6F, 0x4F, 0xAD, 0xF0, 0x34, 0xB1, 0x04, 0x03, 0x11, 0x9C, 0xD8, 0xE3, 0xB9, 0x2F, 0xCC, 0x5B
-  ))
-
   if (identical(good_prime, prime_bytes)) {
     if (g %in% c(3, 4, 5, 7)) {
       return() # It's good
     }
   }
 
-  check_prime_and_good_check(as.integer(prime_bytes, "big"), g)
+  check_prime_and_good_check(openssl::bignum(prime_bytes, hex = FALSE), g)
 }
 
 #' Is Good Large
@@ -592,36 +712,101 @@ is_good_large <- function(number, p) {
 
 SIZE_FOR_HASH <- 256
 
-#' Num Bytes for Hash
-#'
-#' Prepends zero bytes to make the number 256 bytes.
-#'
-#' @param number A raw vector.
-#' @return A raw vector.
-num_bytes_for_hash <- function(number) {
-  return(c(raw(SIZE_FOR_HASH - length(number)), number))
+#' @title Convert Bytes to Bigz Integer
+#' @param data A raw vector.
+#' @param endian Either "big" or "little".
+#' @return A bigz integer.
+#' @export
+int_from_bytes <- function(data, endian = "big") {
+  if (base::length(data) == 0) return(gmp::as.bigz(0))
+  if (endian == "little") data <- rev(data)
+  hex <- paste(sprintf("%02x", as.integer(data)), collapse = "")
+  return(gmp::as.bigz(paste0("0x", hex)))
 }
 
-#' Big Num for Hash
-#'
-#' Converts an integer to 256 bytes big-endian.
-#'
-#' @param g An integer.
+#' @title Convert Bigz Integer/Numeric to Bytes
+#' @param val A bigz integer or numeric.
+#' @param length The length of the resulting raw vector.
+#' @param endian Either "big" or "little".
 #' @return A raw vector.
-big_num_for_hash <- function(g) {
-  return(as.raw(intToBits(g)[1:256])) # Simplified, adjust for big-endian
+#' @export
+int_to_bytes <- function(val, length, endian = "big") {
+  val <- gmp::as.bigz(val)
+  hex <- as.character(val, b = 16)
+  if (nchar(hex) %% 2 != 0) hex <- paste0("0", hex)
+  res <- as.raw(strtoi(substring(hex, seq(1, nchar(hex), 2), seq(2, nchar(hex), 2)), base = 16))
+
+  if (base::length(res) > length) {
+    res <- res[(base::length(res) - length + 1):base::length(res)]
+  } else if (base::length(res) < length) {
+    res <- c(raw(length - base::length(res)), res)
+  }
+
+  if (endian == "little") res <- rev(res)
+  return(res)
 }
 
-#' SHA256
-#'
-#' Computes SHA256 hash of concatenated inputs.
-#'
+#' @title XOR two raw vectors
+#' @param a A raw vector.
+#' @param b A raw vector.
+#' @return A raw vector.
+#' @export
+xor_bytes <- function(a, b) {
+  len <- min(base::length(a), base::length(b))
+  if (len == 0) return(raw(0))
+  return(as.raw(bitwXor(as.integer(a[1:len]), as.integer(b[1:len]))))
+}
+
+#' @title SHA1 Hash
 #' @param ... Raw vectors to hash.
-#' @return A raw vector of the hash.
+#' @return A raw vector.
+#' @export
+sha1 <- function(...) {
+  args <- list(...)
+  return(digest::digest(do.call(c, args), algo = "sha1", serialize = FALSE, raw = TRUE))
+}
+
+#' @title SHA256 Hash
+#' @param ... Raw vectors to hash.
+#' @return A raw vector.
+#' @export
 sha256 <- function(...) {
   args <- list(...)
-  hash <- digest::digest(do.call(c, args), algo = "sha256", serialize = FALSE, raw = TRUE)
-  return(hash)
+  return(digest::digest(do.call(c, args), algo = "sha256", serialize = FALSE, raw = TRUE))
+}
+
+#' @title Modular Exponentiation
+#' @param base The base.
+#' @param exp The exponent.
+#' @param mod The modulus.
+#' @return The result of (base^exp) %% mod as bigz.
+#' @export
+powmod <- function(base, exp, mod) {
+  return(gmp::powm(gmp::as.bigz(base), gmp::as.bigz(exp), gmp::as.bigz(mod)))
+}
+
+#' @title Modular Exponentiation (Alias)
+#' @param base The base.
+#' @param exp The exponent.
+#' @param mod The modulus.
+#' @return The result of (base^exp) %% mod as bigz.
+#' @export
+pow <- powmod
+
+#' @title Num Bytes for Hash
+#' @param number A raw vector.
+#' @return A raw vector.
+#' @export
+num_bytes_for_hash <- function(number) {
+  return(c(raw(256 - base::length(number)), number))
+}
+
+#' @title Big Num for Hash
+#' @param g A bigz integer or numeric.
+#' @return A raw vector.
+#' @export
+big_num_for_hash <- function(g) {
+  return(int_to_bytes(g, 256, "big"))
 }
 
 #' Is Good Mod Exp First
@@ -631,163 +816,32 @@ sha256 <- function(...) {
 #' @param modexp An integer.
 #' @param prime An integer.
 #' @return A logical value.
+#' @title Is Good Mod Exp First
+#' @description Checks if a modular exponentiation result is good for the first check.
+#' @param modexp A bigz integer.
+#' @param prime A bigz integer.
+#' @return A logical value.
+#' @export
 is_good_mod_exp_first <- function(modexp, prime) {
+  modexp <- gmp::as.bigz(modexp)
+  prime <- gmp::as.bigz(prime)
   diff <- prime - modexp
   min_diff_bits_count <- 2048 - 64
   max_mod_exp_size <- 256
+  
+  bit_count_diff <- gmp::sizeinbase(diff, 2)
+  bit_count_modexp <- gmp::sizeinbase(modexp, 2)
+
   if (diff < 0 ||
-    bitwLength(diff) < min_diff_bits_count ||
-    bitwLength(modexp) < min_diff_bits_count ||
-    ((bitwLength(modexp) + 7) %/% 8) > max_mod_exp_size) {
+    bit_count_diff < min_diff_bits_count ||
+    bit_count_modexp < min_diff_bits_count ||
+    ((bit_count_modexp + 7) %/% 8) > max_mod_exp_size) {
     return(FALSE)
   }
   return(TRUE)
 }
 
-#' XOR
-#'
-#' Performs XOR on two raw vectors.
-#'
-#' @param a A raw vector.
-#' @param b A raw vector.
-#' @return A raw vector.
-xor <- function(a, b) {
-  return(as.raw(bitwXor(as.integer(a), as.integer(b))))
-}
 
-#' PBKDF2 SHA512
-#'
-#' Computes PBKDF2 with SHA512.
-#'
-#' @param password A raw vector.
-#' @param salt A raw vector.
-#' @param iterations An integer.
-#' @return A raw vector.
-pbkdf2sha512 <- function(password, salt, iterations) {
-  return(openssl::bcrypt_pbkdf(password, salt, size = 64L))
-}
-
-#' Compute Hash
-#'
-#' Computes the hash for password KDF.
-#'
-#' @param algo The algorithm object.
-#' @param password A string.
-#' @return A raw vector.
-compute_hash <- function(algo, password) {
-  hash1 <- sha256(algo$salt1, charToRaw(password), algo$salt1)
-  hash2 <- sha256(algo$salt2, hash1, algo$salt2)
-  hash3 <- pbkdf2sha512(hash2, algo$salt1, 100000)
-  return(sha256(algo$salt2, hash3, algo$salt2))
-}
-
-#' Compute Digest
-#'
-#' Computes the digest for password.
-#'
-#' @param algo The algorithm object.
-#' @param password A string.
-#' @return A raw vector.
-compute_digest <- function(algo, password) {
-  tryCatch(
-    {
-      check_prime_and_good(algo$p, algo$g)
-    },
-    error = function(e) {
-      stop("bad p/g in password")
-    }
-  )
-
-  value <- pow(
-    algo$g,
-    as.integer(compute_hash(algo, password), "big"),
-    as.integer(algo$p, "big")
-  )
-
-  return(big_num_for_hash(value))
-}
-
-#' Compute Check
-#'
-#' Computes the check for SRP password.
-#'
-#' @param request The password request object.
-#' @param password A string.
-#' @return An InputCheckPasswordSRP object.
-compute_check <- function(request, password) {
-  algo <- request$current_algo
-  if (!inherits(algo, "PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow")) {
-    stop(sprintf("unsupported password algorithm %s", class(algo)))
-  }
-
-  pw_hash <- compute_hash(algo, password)
-
-  p <- as.integer(algo$p, "big")
-  g <- algo$g
-  B <- as.integer(request$srp_B, "big")
-  tryCatch(
-    {
-      check_prime_and_good(algo$p, g)
-    },
-    error = function(e) {
-      stop("bad p/g in password")
-    }
-  )
-
-  if (!is_good_large(B, p)) {
-    stop("bad b in check")
-  }
-
-  x <- as.integer(pw_hash, "big")
-  p_for_hash <- num_bytes_for_hash(algo$p)
-  g_for_hash <- big_num_for_hash(g)
-  b_for_hash <- num_bytes_for_hash(request$srp_B)
-  g_x <- pow(g, x, p)
-  k <- as.integer(sha256(p_for_hash, g_for_hash), "big")
-  kg_x <- (k * g_x) %% p
-
-  generate_and_check_random <- function() {
-    random_size <- 256
-    while (TRUE) {
-      random <- as.raw(runif(random_size, 0, 255))
-      a <- as.integer(random, "big")
-      A <- pow(g, a, p)
-      if (is_good_mod_exp_first(A, p)) {
-        a_for_hash <- big_num_for_hash(A)
-        u <- as.integer(sha256(a_for_hash, b_for_hash), "big")
-        if (u > 0) {
-          return(list(a = a, a_for_hash = a_for_hash, u = u))
-        }
-      }
-    }
-  }
-
-  res <- generate_and_check_random()
-  a <- res$a
-  a_for_hash <- res$a_for_hash
-  u <- res$u
-  g_b <- (B - kg_x) %% p
-  if (!is_good_mod_exp_first(g_b, p)) {
-    stop("bad g_b")
-  }
-
-  ux <- u * x
-  a_ux <- a + ux
-  S <- pow(g_b, a_ux, p)
-  K <- sha256(big_num_for_hash(S))
-  M1 <- sha256(
-    xor(sha256(p_for_hash), sha256(g_for_hash)),
-    sha256(algo$salt1),
-    sha256(algo$salt2),
-    a_for_hash,
-    b_for_hash,
-    K
-  )
-
-  return(InputCheckPasswordSRP$new(
-    request$srp_id, a_for_hash, M1
-  ))
-}
 
 
 #' Get Input Media
@@ -1523,8 +1577,8 @@ is_list_like <- function(obj) {
   if (is.raw(obj)) {
     return(FALSE)
   }
-  # Check for common list-like types
-  return(is.list(obj) || is.vector(obj) || is.matrix(obj) || is.array(obj) || is.data.frame(obj) || is.environment(obj))
+  # R6 objects are environments; do not treat environments as list-like.
+  return(is.list(obj) || is.vector(obj) || is.matrix(obj) || is.array(obj) || is.data.frame(obj))
 }
 
 #' Parse Phone Number
