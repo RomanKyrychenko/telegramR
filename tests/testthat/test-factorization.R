@@ -16,6 +16,6 @@ test_that("factorize method factors correctly", {
 
 # Test the gcd method
 test_that("gcd method calculates correctly", {
-  expect_equal(factorization$gcd(48, 18), 6) # GCD of 48 and 18 is 6
-  expect_equal(factorization$gcd(101, 103), 1) # GCD of two primes is 1
+  expect_equal(as.integer(factorization$gcd(48, 18)), 6) # GCD of 48 and 18 is 6
+  expect_equal(as.integer(factorization$gcd(101, 103)), 1) # GCD of two primes is 1
 })
