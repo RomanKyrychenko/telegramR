@@ -33,7 +33,7 @@ AcceptLoginTokenRequest <- R6::R6Class(
     to_bytes = function() {
       # constructor id (little-endian): 0xe894ad4d -> 0x4D 0xAD 0x94 0xE8
       constructor_bytes <- as.raw(c(0x4D, 0xAD, 0x94, 0xE8))
-      token_raw <- self$serialize_bytes(self$token)
+      token_raw <- serialize_bytes(self$token)
       c(constructor_bytes, token_raw)
     },
 
@@ -109,7 +109,7 @@ BindTempAuthKeyRequest <- R6::R6Class(
       perm_raw <- pack_int64_le(self$perm_auth_key_id)
       nonce_raw <- pack_int64_le(self$nonce)
       expires_raw <- self$serialize_datetime(self$expires_at)
-      enc_msg_raw <- self$serialize_bytes(self$encrypted_message)
+      enc_msg_raw <- serialize_bytes(self$encrypted_message)
 
       c(constructor_bytes, perm_raw, nonce_raw, expires_raw, enc_msg_raw)
     },
@@ -174,8 +174,8 @@ CancelCodeRequest <- R6::R6Class(
     to_bytes = function() {
       # constructor id bytes (little-endian): 0x1f040578 -> 0x78 0x05 0x04 0x1f
       constructor_bytes <- as.raw(c(0x78, 0x05, 0x04, 0x1f))
-      phone_raw <- self$serialize_bytes(self$phone_number)
-      hash_raw <- self$serialize_bytes(self$phone_code_hash)
+      phone_raw <- serialize_bytes(self$phone_number)
+      hash_raw <- serialize_bytes(self$phone_code_hash)
       c(constructor_bytes, phone_raw, hash_raw)
     },
 
@@ -292,7 +292,7 @@ CheckRecoveryPasswordRequest <- R6::R6Class(
     to_bytes = function() {
       # constructor id bytes (little-endian): 0x0d36bf79 -> 0x79 0xBF 0x36 0x0D
       constructor_bytes <- as.raw(c(0x79, 0xBF, 0x36, 0x0D))
-      code_raw <- self$serialize_bytes(self$code)
+      code_raw <- serialize_bytes(self$code)
       c(constructor_bytes, code_raw)
     },
 
@@ -514,7 +514,7 @@ ExportLoginTokenRequest <- R6::R6Class(
 
       constructor_bytes <- as.raw(c(0xFE, 0x85, 0xE0, 0xB7))
       api_id_raw <- pack_int32_le(self$api_id)
-      api_hash_raw <- self$serialize_bytes(self$api_hash)
+      api_hash_raw <- serialize_bytes(self$api_hash)
 
       # serialize vector of 64-bit except_ids
       vector_constructor <- as.raw(c(0x15, 0xC4, 0xB5, 0x1C))
@@ -605,7 +605,7 @@ ImportAuthorizationRequest <- R6::R6Class(
       # constructor id bytes as in Python b'\xad}z\xa5'
       constructor_bytes <- as.raw(c(0xAD, 0x7D, 0x7A, 0xA5))
       id_raw <- pack_int64_le(self$id)
-      bytes_raw <- self$serialize_bytes(self$bytes)
+      bytes_raw <- serialize_bytes(self$bytes)
 
       c(constructor_bytes, id_raw, bytes_raw)
     },
@@ -685,8 +685,8 @@ ImportBotAuthorizationRequest <- R6::R6Class(
       constructor_bytes <- as.raw(c(0x2C, 0xFF, 0xA3, 0x67))
       flags_raw <- pack_int32_le(self$flags)
       api_id_raw <- pack_int32_le(self$api_id)
-      api_hash_raw <- self$serialize_bytes(self$api_hash)
-      bot_token_raw <- self$serialize_bytes(self$bot_auth_token)
+      api_hash_raw <- serialize_bytes(self$api_hash)
+      bot_token_raw <- serialize_bytes(self$bot_auth_token)
 
       c(constructor_bytes, flags_raw, api_id_raw, api_hash_raw, bot_token_raw)
     },
@@ -746,7 +746,7 @@ ImportLoginTokenRequest <- R6::R6Class(
     to_bytes = function() {
       # constructor id (little-endian): 0x95ac5ce4 -> 0xE4 0x5C 0xAC 0x95
       constructor_bytes <- as.raw(c(0xE4, 0x5C, 0xAC, 0x95))
-      token_raw <- self$serialize_bytes(self$token)
+      token_raw <- serialize_bytes(self$token)
       c(constructor_bytes, token_raw)
     },
 
@@ -814,8 +814,8 @@ ImportWebTokenAuthorizationRequest <- R6::R6Class(
       # constructor id (little-endian): 0x2db873a9 -> 0xA9 0x73 0xB8 0x2D
       constructor_bytes <- as.raw(c(0xA9, 0x73, 0xB8, 0x2D))
       api_id_raw <- pack_uint32_le(self$api_id)
-      api_hash_raw <- self$serialize_bytes(self$api_hash)
-      web_auth_raw <- self$serialize_bytes(self$web_auth_token)
+      api_hash_raw <- serialize_bytes(self$api_hash)
+      web_auth_raw <- serialize_bytes(self$web_auth_token)
 
       c(constructor_bytes, api_id_raw, api_hash_raw, web_auth_raw)
     },
@@ -931,7 +931,7 @@ RecoverPasswordRequest <- R6::R6Class(
       # constructor id bytes (little-endian): 0x37096c70 -> 0x70 0x6c 0x09 0x37
       constructor_bytes <- as.raw(c(0x70, 0x6c, 0x09, 0x37))
       flags_raw <- pack_uint32_le(flags)
-      code_raw <- self$serialize_bytes(self$code)
+      code_raw <- serialize_bytes(self$code)
 
       new_settings_raw <- raw()
       if (bitwAnd(flags, 1L) != 0L) {
@@ -1014,9 +1014,9 @@ ReportMissingCodeRequest <- R6::R6Class(
     to_bytes = function() {
       # constructor id bytes (same order as Python b'\xf6\xef\x9d\xcb')
       constructor_bytes <- as.raw(c(0xF6, 0xEF, 0x9D, 0xCB))
-      phone_raw <- self$serialize_bytes(self$phone_number)
-      hash_raw <- self$serialize_bytes(self$phone_code_hash)
-      mnc_raw <- self$serialize_bytes(self$mnc)
+      phone_raw <- serialize_bytes(self$phone_number)
+      hash_raw <- serialize_bytes(self$phone_code_hash)
+      mnc_raw <- serialize_bytes(self$mnc)
 
       c(constructor_bytes, phone_raw, hash_raw, mnc_raw)
     },
@@ -1109,12 +1109,12 @@ RequestFirebaseSmsRequest <- R6::R6Class(
 
       constructor_bytes <- as.raw(c(0x1E, 0x26, 0x39, 0x8E)) # b'\x1e&9\x8e'
       flags_raw <- pack_uint32_le(flags)
-      phone_raw <- self$serialize_bytes(self$phone_number)
-      hash_raw <- self$serialize_bytes(self$phone_code_hash)
+      phone_raw <- serialize_bytes(self$phone_number)
+      hash_raw <- serialize_bytes(self$phone_code_hash)
 
-      safety_net_raw <- if (bitwAnd(flags, 1L) != 0L) self$serialize_bytes(self$safety_net_token) else raw()
-      play_integrity_raw <- if (bitwAnd(flags, 4L) != 0L) self$serialize_bytes(self$play_integrity_token) else raw()
-      ios_push_raw <- if (bitwAnd(flags, 2L) != 0L) self$serialize_bytes(self$ios_push_secret) else raw()
+      safety_net_raw <- if (bitwAnd(flags, 1L) != 0L) serialize_bytes(self$safety_net_token) else raw()
+      play_integrity_raw <- if (bitwAnd(flags, 4L) != 0L) serialize_bytes(self$play_integrity_token) else raw()
+      ios_push_raw <- if (bitwAnd(flags, 2L) != 0L) serialize_bytes(self$ios_push_secret) else raw()
 
       c(constructor_bytes, flags_raw, phone_raw, hash_raw, safety_net_raw, play_integrity_raw, ios_push_raw)
     },
@@ -1257,9 +1257,9 @@ ResendCodeRequest <- R6::R6Class(
       # constructor id bytes as in Python b'#u\xe4\xca' -> 0x23 0x75 0xE4 0xCA
       constructor_bytes <- as.raw(c(0x23, 0x75, 0xE4, 0xCA))
 
-      phone_raw <- self$serialize_bytes(self$phone_number)
-      hash_raw <- self$serialize_bytes(self$phone_code_hash)
-      reason_raw <- if (is.null(self$reason) || identical(self$reason, FALSE)) raw() else self$serialize_bytes(self$reason)
+      phone_raw <- serialize_bytes(self$phone_number)
+      hash_raw <- serialize_bytes(self$phone_code_hash)
+      reason_raw <- if (is.null(self$reason) || identical(self$reason, FALSE)) raw() else serialize_bytes(self$reason)
 
       c(
         constructor_bytes,
@@ -1379,8 +1379,8 @@ ResetLoginEmailRequest <- R6::R6Class(
     to_bytes = function() {
       # constructor id in little-endian byte order: b'\x93\x01\x96~'
       constructor_bytes <- as.raw(c(0x93, 0x01, 0x96, 0x7e))
-      phone_raw <- self$serialize_bytes(self$phone_number)
-      hash_raw <- self$serialize_bytes(self$phone_code_hash)
+      phone_raw <- serialize_bytes(self$phone_number)
+      hash_raw <- serialize_bytes(self$phone_code_hash)
 
       c(constructor_bytes, phone_raw, hash_raw)
     },
@@ -1455,25 +1455,30 @@ SendCodeRequest <- R6::R6Class(
         writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
+      serialize_tl_obj <- function(obj) {
+        if (is.null(obj)) return(raw())
+        if (is.raw(obj)) return(obj)
+        if (is.function(obj$to_bytes)) return(obj$to_bytes())
+        if (is.function(obj$to_raw)) return(obj$to_raw())
+        if (is.function(obj$bytes)) return(obj$bytes())
+
+        # Fallback for partially generated CodeSettings class with no bytes methods.
+        if (inherits(obj, "CodeSettings")) {
+          # codeSettings#ad253d78 with flags only; default instance has all flags unset.
+          ctor <- as.raw(c(0x78, 0x3d, 0x25, 0xad))
+          flags <- pack_uint32_le(0L)
+          return(c(ctor, flags))
+        }
+        stop("TL object does not provide to_bytes()/to_raw()/bytes()")
+      }
 
       constructor_bytes <- as.raw(c(0x4f, 0x24, 0x77, 0xa6))
 
-      phone_raw <- self$serialize_bytes(self$phone_number)
+      phone_raw <- serialize_bytes(self$phone_number)
       api_id_raw <- pack_uint32_le(self$api_id)
-      api_hash_raw <- self$serialize_bytes(self$api_hash)
+      api_hash_raw <- serialize_bytes(self$api_hash)
 
-      settings_bytes <- if (is.null(self$settings)) {
-        raw()
-      } else {
-        # call nested TL object's _bytes if available
-        if (inherits(self$settings, "R6") && !is.null(self$settings$`_bytes`)) {
-          self$settings$`_bytes`()
-        } else if (inherits(self$settings, "R6") && !is.null(self$settings$to_bytes)) {
-          self$settings$to_bytes()
-        } else {
-          stop("settings object does not provide _bytes() or to_bytes()")
-        }
-      }
+      settings_bytes <- serialize_tl_obj(self$settings)
 
       c(
         constructor_bytes,
@@ -1575,9 +1580,9 @@ SignInRequest <- R6::R6Class(
       constructor_bytes <- as.raw(c(0x51, 0xA9, 0x52, 0x8D))
 
       flags_raw <- pack_uint32_le(flags)
-      phone_raw <- self$serialize_bytes(self$phone_number)
-      hash_raw <- self$serialize_bytes(self$phone_code_hash)
-      phone_code_raw <- if (is.null(self$phone_code) || identical(self$phone_code, FALSE)) raw() else self$serialize_bytes(self$phone_code)
+      phone_raw <- serialize_bytes(self$phone_number)
+      hash_raw <- serialize_bytes(self$phone_code_hash)
+      phone_code_raw <- if (is.null(self$phone_code) || identical(self$phone_code, FALSE)) raw() else serialize_bytes(self$phone_code)
 
       email_ver_bytes <- if (is.null(self$email_verification) || identical(self$email_verification, FALSE)) {
         raw()
@@ -1702,10 +1707,10 @@ SignUpRequest <- R6::R6Class(
       # The class expects a helper serialize_bytes(string) to exist (provided by TL base).
       # If not present in the environment, the following will error; that mirrors the
       # pattern used across other request classes.
-      phone_raw <- self$serialize_bytes(self$phone_number)
-      hash_raw <- self$serialize_bytes(self$phone_code_hash)
-      first_raw <- self$serialize_bytes(self$first_name)
-      last_raw <- self$serialize_bytes(self$last_name)
+      phone_raw <- serialize_bytes(self$phone_number)
+      hash_raw <- serialize_bytes(self$phone_code_hash)
+      first_raw <- serialize_bytes(self$first_name)
+      last_raw <- serialize_bytes(self$last_name)
 
       c(
         constructor_bytes,
