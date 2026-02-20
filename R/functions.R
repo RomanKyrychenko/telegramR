@@ -313,53 +313,53 @@ InitConnectionRequest <- R6::R6Class(
 
       writeBin(as.integer(self$api_id), conn, size = 4, endian = "little")
 
-      # Simple string serialization: write raw bytes of string. Replace with TL string encoder if needed.
-      writeBin(charToRaw(self$device_model), conn)
-      writeBin(charToRaw(self$system_version), conn)
-      writeBin(charToRaw(self$app_version), conn)
-      writeBin(charToRaw(self$system_lang_code), conn)
-      writeBin(charToRaw(self$lang_pack), conn)
-      writeBin(charToRaw(self$lang_code), conn)
+      # TL strings must use Telegram's bytes/string encoding with padding.
+      writeBin(serialize_bytes(self$device_model), conn)
+      writeBin(serialize_bytes(self$system_version), conn)
+      writeBin(serialize_bytes(self$app_version), conn)
+      writeBin(serialize_bytes(self$system_lang_code), conn)
+      writeBin(serialize_bytes(self$lang_pack), conn)
+      writeBin(serialize_bytes(self$lang_code), conn)
+
+      write_tl_object <- function(obj, field_name) {
+        if (is.raw(obj)) {
+          if (length(obj) > 0) writeBin(obj, conn)
+          return(invisible(NULL))
+        }
+        if (!is.null(obj) && is.function(obj$to_bytes)) {
+          nested <- obj$to_bytes()
+          if (is.raw(nested) && length(nested) > 0) writeBin(nested, conn)
+          return(invisible(NULL))
+        }
+        if (!is.null(obj) && is.function(obj$to_raw)) {
+          nested <- obj$to_raw()
+          if (is.raw(nested) && length(nested) > 0) writeBin(nested, conn)
+          return(invisible(NULL))
+        }
+        if (!is.null(obj) && is.function(obj$bytes)) {
+          nested <- obj$bytes()
+          if (is.raw(nested) && length(nested) > 0) writeBin(nested, conn)
+          return(invisible(NULL))
+        }
+        if (is.character(obj)) {
+          writeBin(serialize_bytes(obj), conn)
+          return(invisible(NULL))
+        }
+        stop(sprintf("%s must be TL object with to_bytes()/to_raw()/bytes(), raw, or character", field_name))
+      }
 
       # optional proxy
       if (!is.null(self$proxy) && !identical(self$proxy, FALSE)) {
-        if (is.raw(self$proxy)) {
-          if (length(self$proxy) > 0) writeBin(self$proxy, conn)
-        } else if (is.function(self$proxy$to_raw)) {
-          nested_proxy <- self$proxy$to_raw()
-          if (is.raw(nested_proxy) && length(nested_proxy) > 0) writeBin(nested_proxy, conn)
-        } else if (is.character(self$proxy)) {
-          writeBin(charToRaw(self$proxy), conn)
-        } else {
-          stop("proxy must be an object with to_raw(), a raw vector, or a character")
-        }
+        write_tl_object(self$proxy, "proxy")
       }
 
       # optional params
       if (!is.null(self$params) && !identical(self$params, FALSE)) {
-        if (is.raw(self$params)) {
-          if (length(self$params) > 0) writeBin(self$params, conn)
-        } else if (is.function(self$params$to_raw)) {
-          nested_params <- self$params$to_raw()
-          if (is.raw(nested_params) && length(nested_params) > 0) writeBin(nested_params, conn)
-        } else if (is.character(self$params)) {
-          writeBin(charToRaw(self$params), conn)
-        } else {
-          stop("params must be an object with to_raw(), a raw vector, or a character")
-        }
+        write_tl_object(self$params, "params")
       }
 
       # nested query (required)
-      if (is.raw(self$query)) {
-        if (length(self$query) > 0) writeBin(self$query, conn)
-      } else if (!is.null(self$query) && is.function(self$query$to_raw)) {
-        nested_query <- self$query$to_raw()
-        if (is.raw(nested_query) && length(nested_query) > 0) writeBin(nested_query, conn)
-      } else if (is.character(self$query)) {
-        writeBin(charToRaw(self$query), conn)
-      } else {
-        stop("query must be an object with to_raw(), a raw vector, or a character")
-      }
+      write_tl_object(self$query, "query")
 
       rawConnectionValue(conn)
     }
@@ -1025,18 +1025,22 @@ InvokeWithLayerRequest <- R6::R6Class(
       writeBin(constructor_bytes, conn)
       # write 4-byte integer for layer
       writeBin(as.integer(self$layer), conn, size = 4, endian = "little")
-      # write nested query bytes: prefer query$to_raw(), else if raw, write directly
+      # write nested query bytes
       if (is.raw(self$query)) {
         if (length(self$query) > 0) writeBin(self$query, conn)
+      } else if (!is.null(self$query) && is.function(self$query$to_bytes)) {
+        nested <- self$query$to_bytes()
+        if (is.raw(nested) && length(nested) > 0) writeBin(nested, conn)
       } else if (!is.null(self$query) && is.function(self$query$to_raw)) {
         nested <- self$query$to_raw()
         if (is.raw(nested) && length(nested) > 0) writeBin(nested, conn)
+      } else if (!is.null(self$query) && is.function(self$query$bytes)) {
+        nested <- self$query$bytes()
+        if (is.raw(nested) && length(nested) > 0) writeBin(nested, conn)
+      } else if (is.character(self$query)) {
+        writeBin(serialize_bytes(self$query), conn)
       } else {
-        if (is.character(self$query)) {
-          writeBin(charToRaw(self$query), conn)
-        } else {
-          stop("query must be an object with to_raw(), a raw vector, or a character")
-        }
+        stop("query must be TL object with to_bytes()/to_raw()/bytes(), raw, or character")
       }
       rawConnectionValue(conn)
     }
@@ -1420,19 +1424,22 @@ InvokeWithoutUpdatesRequest <- R6::R6Class(
       conn <- rawConnection(raw(), "wb")
       on.exit(close(conn))
       writeBin(constructor_bytes, conn)
-      # write nested query bytes: prefer query$to_raw(), else if raw, write directly
+      # write nested query bytes
       if (is.raw(self$query)) {
         if (length(self$query) > 0) writeBin(self$query, conn)
-      } else if (is.function(self$query$to_raw)) {
+      } else if (!is.null(self$query) && is.function(self$query$to_bytes)) {
+        nested <- self$query$to_bytes()
+        if (is.raw(nested) && length(nested) > 0) writeBin(nested, conn)
+      } else if (!is.null(self$query) && is.function(self$query$to_raw)) {
         nested <- self$query$to_raw()
         if (is.raw(nested) && length(nested) > 0) writeBin(nested, conn)
+      } else if (!is.null(self$query) && is.function(self$query$bytes)) {
+        nested <- self$query$bytes()
+        if (is.raw(nested) && length(nested) > 0) writeBin(nested, conn)
+      } else if (is.character(self$query)) {
+        writeBin(serialize_bytes(self$query), conn)
       } else {
-        # fallback: try to coerce to raw via charToRaw on character
-        if (is.character(self$query)) {
-          writeBin(charToRaw(self$query), conn)
-        } else {
-          stop("query must be an object with to_raw(), a raw vector, or a character")
-        }
+        stop("query must be TL object with to_bytes()/to_raw()/bytes(), raw, or character")
       }
       rawConnectionValue(conn)
     }
