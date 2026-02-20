@@ -3,6 +3,21 @@
 #' @details The `AccountMethods` class provides methods for managing account-related operations, including takeout sessions.
 #' The `TakeoutClient` class is used to handle the takeout session and its associated requests.
 #' @export
+AccountMethods <- R6::R6Class(
+  "AccountMethods",
+  public = list(
+    #' @field client The client instance backing these methods.
+    client = NULL,
+
+    #' @description Initialize a new AccountMethods wrapper.
+    #' @param client The TelegramClient instance.
+    initialize = function(client) {
+      self$client <- client
+    }
+  )
+)
+
+#' @export
 TakeoutClient <- R6::R6Class(
   "TakeoutClient",
   public = list(
