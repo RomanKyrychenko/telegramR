@@ -90,12 +90,22 @@ del_surrogate <- function(text) {
 #' within_surrogate(text, 2)
 #' @export
 within_surrogate <- function(text, index, text_length = NULL) {
+  if (is.na(index)) {
+    return(FALSE)
+  }
   chars <- strsplit(text, "")[[1]]
   n <- if (is.null(text_length)) base::length(chars) else text_length
+  if (index <= 1 || index >= n) {
+    return(FALSE)
+  }
+  prev <- chars[index - 1]
+  curr <- chars[index]
+  if (is.na(prev) || is.na(curr)) {
+    return(FALSE)
+  }
   return(
-    1 < index && index < n &&
-    '\ud800' <= chars[index - 1] && chars[index - 1] <= '\udbff' &&
-    '\ud800' <= chars[index] && chars[index] <= '\udfff'
+    '\ud800' <= prev && prev <= '\udbff' &&
+    '\ud800' <= curr && curr <= '\udfff'
   )
 }
 
@@ -266,13 +276,13 @@ FileStream <- R6::R6Class(
       if (is.character(file)) {
         self$file <- normalizePath(file)
         self$name <- basename(self$file)
-        self$file_size <- file.info(self$file)$size
+        self$file_size <- if (is.null(file_size)) file.info(self$file)$size else file_size
         self$stream <- base::file(self$file, "rb")
         self$close_stream <- TRUE
       } else if (is.raw(file)) {
         self$file <- file
-        self$name <- NULL
-        self$file_size <- base::length(file)
+        self$name <- "unnamed"
+        self$file_size <- if (is.null(file_size)) base::length(file) else file_size
         self$stream <- rawConnection(file, "rb")
         self$close_stream <- TRUE
       } else if (inherits(file, "connection")) {
@@ -315,6 +325,9 @@ FileStream <- R6::R6Class(
     #' @description Gets the name of the file.
     #' @return The name of the file.
     get_name = function() {
+      if (is.raw(self$file)) {
+        return(NULL)
+      }
       self$name
     }
   )
