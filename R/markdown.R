@@ -295,7 +295,7 @@ unparse <- function(text, entities, delimiters = NULL, url_fmt = NULL) {
     it <- insert_at[[k]]
     at <- it$pos
     # nudge position if inside surrogate
-    while (within_surrogate(text, at)) at <- at + 1
+    while (isTRUE(within_surrogate(text, at))) at <- at + 1
     if (at <= 1) {
       text <- paste0(it$what, text)
     } else if (at > nchar(text)) {
