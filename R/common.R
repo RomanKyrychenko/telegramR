@@ -1,3 +1,18 @@
+# Compatibility helper used across generated TL types.
+as.integer64 <- function(x) {
+  as.numeric(x)
+}
+
+# CRC-32 helper for packet codecs.
+crc32 <- function(x) {
+  hex <- digest::digest(x, algo = "crc32", serialize = FALSE)
+  unsigned <- as.numeric(gmp::as.bigz(paste0("0x", hex)))
+  if (unsigned > (2^31 - 1)) {
+    unsigned <- unsigned - 2^32
+  }
+  as.integer(unsigned)
+}
+
 #' @title Exception Classes
 #' @description
 #' This file contains various exception classes used in the Telegram API client.
