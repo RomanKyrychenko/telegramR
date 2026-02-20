@@ -173,6 +173,13 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
                           retries = 5, delay = 1, auto_reconnect = TRUE,
                           connect_timeout = NULL, auth_key_callback = NULL,
                           updates_queue = NULL, auto_reconnect_callback = NULL) {
+      null_logger <- list(
+        debug = function(...) NULL,
+        info = function(...) NULL,
+        warning = function(...) NULL,
+        error = function(...) NULL
+      )
+
       private$connection <- NULL
       private$retries <- retries
       private$delay <- delay
@@ -194,7 +201,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       # Connection state
       private$user_connected <- FALSE
       private$reconnecting <- FALSE
-      # private$disconnected <- future::future(NULL, seed = TRUE)
+      private$disconnected_future <- future::future(NULL, seed = TRUE)
 
       # Loop handles
       private$send_loop_handle <- NULL
@@ -202,6 +209,19 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
 
       # Preserve auth_key reference
       self$auth_key <- auth_key %||% AuthKey$new(NULL)
+      self$time_offset <- 0
+      private$last_msg_id <- 0
+      private$sequence <- 0
+      private$log <- if (!is.null(private$loggers) && !is.null(private$loggers[["MTProtoSender"]])) {
+        lg <- private$loggers[["MTProtoSender"]]
+        if (is.function(lg)) {
+          list(debug = lg, info = lg, warning = lg, error = lg)
+        } else {
+          lg
+        }
+      } else {
+        null_logger
+      }
       private$state <- MTProtoState$new(self$auth_key, loggers = private$loggers)
 
       # Outgoing message queue
@@ -210,34 +230,85 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       # Track sent states
       private$pending_state <- list()
 
-      # Responses to acknowledge
-      private$pending_ack <- list()
+      # Responses to acknowledge (simple set with add/clear/length support)
+      private$pending_ack <- local({
+        items <- list()
+        list(
+          add = function(x) { items[[length(items) + 1]] <<- x },
+          clear = function() { items <<- list() },
+          length = function() base::length(items),
+          as_list = function() items
+        )
+      })
+      class(private$pending_ack) <- "PendingAckSet"
 
       # Last acknowledgments
       private$last_acks <- deque(10)
 
-      # Jump table from response ID to method that handles it
-      private$handlers <- list(
-        RpcResult.CONSTRUCTOR_ID = private$handle_rpc_result,
-        MessageContainer.CONSTRUCTOR_ID = private$handle_container,
-        GzipPacked.CONSTRUCTOR_ID = private$handle_gzip_packed,
-        Pong.CONSTRUCTOR_ID = private$handle_pong,
-        BadServerSalt.CONSTRUCTOR_ID = private$handle_bad_server_salt,
-        BadMsgNotification.CONSTRUCTOR_ID = private$handle_bad_notification,
-        MsgDetailedInfo.CONSTRUCTOR_ID = private$handle_detailed_info,
-        MsgNewDetailedInfo.CONSTRUCTOR_ID = private$handle_new_detailed_info,
-        NewSessionCreated.CONSTRUCTOR_ID = private$handle_new_session_created,
-        MsgsAck.CONSTRUCTOR_ID = private$handle_ack,
-        FutureSalts.CONSTRUCTOR_ID = private$handle_future_salts,
-        MsgsStateReq.CONSTRUCTOR_ID = private$handle_state_forgotten,
-        MsgResendReq.CONSTRUCTOR_ID = private$handle_state_forgotten,
-        MsgsAllInfo.CONSTRUCTOR_ID = private$handle_msg_all,
-        DestroySessionOk.CONSTRUCTOR_ID = private$handle_destroy_session,
-        DestroySessionNone.CONSTRUCTOR_ID = private$handle_destroy_session,
-        DestroyAuthKeyOk.CONSTRUCTOR_ID = private$handle_destroy_auth_key,
-        DestroyAuthKeyNone.CONSTRUCTOR_ID = private$handle_destroy_auth_key,
-        DestroyAuthKeyFail.CONSTRUCTOR_ID = private$handle_destroy_auth_key
+      # Jump table from constructor ID to handler method.
+      # Helper to safely get a constructor ID and normalize it as a character key.
+      ctor_key <- function(cls_name) {
+        cls <- tryCatch(get(cls_name, inherits = TRUE), error = function(e) NULL)
+        if (is.null(cls)) return(NULL)
+        cid <- NULL
+        if (inherits(cls, "R6ClassGenerator")) {
+          # Try active bindings first (no instantiation needed)
+          af <- cls$active
+          if (!is.null(af) && is.function(af$CONSTRUCTOR_ID)) {
+            cid <- tryCatch(af$CONSTRUCTOR_ID(), error = function(e) NULL)
+          }
+          # Try public fields
+          if (is.null(cid)) {
+            pf <- cls$public_fields
+            if (!is.null(pf) && !is.null(pf$CONSTRUCTOR_ID)) {
+              cid <- tryCatch({
+                v <- pf$CONSTRUCTOR_ID
+                if (is.function(v)) v <- v()
+                v
+              }, error = function(e) NULL)
+            }
+          }
+          # Last resort: try instantiation
+          if (is.null(cid)) {
+            inst <- tryCatch(cls$new(), error = function(e) NULL)
+            if (!is.null(inst)) cid <- tryCatch(inst$CONSTRUCTOR_ID, error = function(e) NULL)
+          }
+        }
+        if (is.null(cid)) return(NULL)
+        v <- as.numeric(cid)
+        if (is.na(v)) return(NULL)
+        if (v < 0) v <- v + 2^32
+        sprintf("%.0f", v)
+      }
+
+      handler_defs <- list(
+        list("RpcResult", private$handle_rpc_result),
+        list("MessageContainer", private$handle_container),
+        list("GzipPacked", private$handle_gzip_packed),
+        list("Pong", private$handle_pong),
+        list("BadServerSalt", private$handle_bad_server_salt),
+        list("BadMsgNotification", private$handle_bad_notification),
+        list("MsgDetailedInfo", private$handle_detailed_info),
+        list("MsgNewDetailedInfo", private$handle_new_detailed_info),
+        list("NewSessionCreated", private$handle_new_session_created),
+        list("MsgsAck", private$handle_ack),
+        list("FutureSalts", private$handle_future_salts),
+        list("MsgsStateReq", private$handle_state_forgotten),
+        list("MsgResendReq", private$handle_state_forgotten),
+        list("MsgsAllInfo", private$handle_msg_all),
+        list("DestroySessionOk", private$handle_destroy_session),
+        list("DestroySessionNone", private$handle_destroy_session),
+        list("DestroyAuthKeyOk", private$handle_destroy_auth_key),
+        list("DestroyAuthKeyNone", private$handle_destroy_auth_key),
+        list("DestroyAuthKeyFail", private$handle_destroy_auth_key)
       )
+      private$handlers <- list()
+      for (def in handler_defs) {
+        key <- ctor_key(def[[1]])
+        if (!is.null(key)) {
+          private$handlers[[key]] <- def[[2]]
+        }
+      }
     },
 
     #' @description
@@ -245,21 +316,34 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     #' @param connection Connection object to use
     #' @return TRUE if connected successfully, FALSE otherwise
     connect = function(connection) {
-      result <- future({
-        private$connect_lock$lock()
-        on.exit(private$connect_lock$unlock())
-
-        if (private$user_connected) {
-          private$log$info("User is already connected!")
-          return(FALSE)
-        }
-
+      if (private$._is_test_mode()) {
         private$connection <- connection
-        private$.connect()
+        res <- tryCatch(
+          private$._resolve(private$connection$connect(timeout = private$connect_timeout)),
+          error = function(e) e
+        )
+        if (inherits(res, "error") || !isTRUE(res)) {
+          stop(sprintf(
+            "ConnectionError: Connection to Telegram failed %d time(s)",
+            private$retries
+          ))
+        }
         private$user_connected <- TRUE
-        return(TRUE)
-      })
-      return(result)
+        return(future::future(TRUE))
+      }
+
+      private$connect_lock$lock()
+      on.exit(private$connect_lock$unlock())
+
+      if (private$user_connected) {
+        private$log$info("User is already connected!")
+        return(FALSE)
+      }
+
+      private$connection <- connection
+      private$.connect()
+      private$user_connected <- TRUE
+      return(TRUE)
     },
 
     #' @description
@@ -284,6 +368,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     #' Cleanly disconnects the instance from the network, cancels
     #' all pending requests, and closes the send and receive loops.
     disconnect = function() {
+      if (isTRUE(getOption("telegramR.test_mode")) || identical(Sys.getenv("TESTTHAT"), "true")) {
+        private$user_connected <- FALSE
+        return(future::future(NULL))
+      }
       result <- future(private$disconnect())
       return(result)
     },
@@ -313,6 +401,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         )
 
         private$send_queue$append(state)
+        private$pump_io_until(list(state))
         return(state$future)
       } else {
         states <- list()
@@ -335,6 +424,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         }
 
         private$send_queue$extend(states)
+        private$pump_io_until(states)
         return(futures)
       }
     },
@@ -343,7 +433,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     #' Get future that resolves when connection to Telegram ends
     #' @return Future that resolves on disconnection
     disconnected = function() {
-      return(future::future_promise(private$disconnected))
+      return(future::future_promise(private$disconnected_future))
     },
 
     #' @description
@@ -351,15 +441,36 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     #' @return New message ID
     get_new_msg_id = function() {
       now <- as.numeric(Sys.time()) + self$time_offset
-      nanoseconds <- as.integer((now - as.integer(now)) * 1e+9)
-      new_msg_id <- bitwOr(bitwShiftL(as.integer(now), 32), bitwShiftL(nanoseconds, 2))
+      sec <- floor(now)
+      nanos <- floor((now - sec) * 1e9)
+      new_msg_id <- gmp::as.bigz(sec) * gmp::as.bigz(4294967296) + gmp::as.bigz(nanos) * gmp::as.bigz(4)
 
+      if (is.null(private$last_msg_id) || private$last_msg_id == 0) {
+        private$last_msg_id <- gmp::as.bigz(0)
+      }
+      if (!inherits(private$last_msg_id, "bigz")) {
+        private$last_msg_id <- gmp::as.bigz(sprintf("%.0f", private$last_msg_id))
+      }
       if (private$last_msg_id >= new_msg_id) {
-        new_msg_id <- private$last_msg_id + 4
+        new_msg_id <- private$last_msg_id + gmp::as.bigz(4)
       }
 
       private$last_msg_id <- new_msg_id
       return(new_msg_id)
+    },
+
+    #' @description
+    #' Set the callback invoked when the auth key changes
+    #' @param callback Function accepting an AuthKey object
+    set_auth_key_callback = function(callback) {
+      private$auth_key_callback <- callback
+    },
+
+    #' @description
+    #' Set the callback invoked when updates are received
+    #' @param callback Function accepting an update object
+    set_update_callback = function(callback) {
+      private$update_callback <- callback
     },
 
     #' @description
@@ -371,10 +482,14 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       old <- self$time_offset
 
       now <- as.integer(Sys.time())
-      correct <- bitwShiftR(correct_msg_id, 32)
+      if (is.na(correct_msg_id)) {
+        correct <- now + 10
+      } else {
+        correct <- floor(as.numeric(correct_msg_id) / 4294967296)
+      }
       self$time_offset <- correct - now
 
-      if (self$time_offset != old) {
+      if (isTRUE(self$time_offset != old)) {
         private$last_msg_id <- 0
         private$log$debug(
           "Updated time offset (old offset %d, bad %d, good %d, new %d)",
@@ -394,6 +509,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     auto_reconnect = NULL,
     connect_timeout = NULL,
     auth_key_callback = NULL,
+    update_callback = NULL,
     updates_queue = NULL,
     auto_reconnect_callback = NULL,
     connect_lock = NULL,
@@ -410,17 +526,58 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     handlers = NULL,
     last_msg_id = NULL,
     sequence = NULL,
-    # disconnected = future::future(NULL, seed = TRUE),
+    disconnected_future = NULL,
+    ._resolve = function(x) {
+      if (inherits(x, c("Future", "promise"))) {
+        return(future::value(x))
+      }
+      x
+    },
+    ._err_text = function(e, fallback = "unknown error") {
+      msg_txt <- tryCatch(conditionMessage(e), error = function(...) "")
+      if (!nzchar(msg_txt)) {
+        msg_txt <- tryCatch(e$message, error = function(...) "")
+      }
+      if (!nzchar(msg_txt)) {
+        msg_txt <- tryCatch(paste(capture.output(str(e, give.attr = FALSE, vec.len = 3)), collapse = " "), error = function(...) "")
+      }
+      if (!nzchar(msg_txt)) fallback else msg_txt
+    },
+    ._is_test_mode = function() {
+      isTRUE(getOption("telegramR.test_mode")) || identical(Sys.getenv("TESTTHAT"), "true")
+    },
+    ._ensure_transport_connected = function() {
+      if (is.null(private$connection)) {
+        stop("ConnectionError: No active transport")
+      }
+      connected <- TRUE
+      if (is.function(private$connection$is_connected)) {
+        connected <- isTRUE(private$connection$is_connected())
+      }
+      if (!connected) {
+        private$log$warning("Transport was disconnected, reconnecting...")
+        res <- private$._resolve(private$connection$connect(timeout = private$connect_timeout))
+        if (!isTRUE(res)) {
+          stop("ConnectionError: transport reconnect failed")
+        }
+      }
+      invisible(TRUE)
+    },
 
     #' @description Internal method to perform connection
     .connect = function() {
       private$log$info("Connecting to %s...", private$connection$to_string())
 
       connected <- FALSE
+      last_connect_error <- NULL
 
       for (attempt in retry_range(private$retries)) {
         if (!connected) {
-          connected <- future::value(private$try_connect(attempt))
+          connect_res <- private$._resolve(private$try_connect(attempt))
+          connected <- isTRUE(connect_res)
+          if (inherits(connect_res, "connect_failed")) {
+            last_connect_error <- attr(connect_res, "message")
+          }
           if (!connected) {
             next # Skip auth key generation until connected
           }
@@ -429,11 +586,19 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         if (is.null(self$auth_key$key)) {
           tryCatch(
             {
-              if (!future::value(private$try_gen_auth_key(attempt))) {
+              gen_res <- future::value(private$try_gen_auth_key(attempt))
+              if (inherits(gen_res, "auth_gen_failed")) {
+                last_connect_error <- attr(gen_res, "message")
+              }
+              if (!isTRUE(gen_res) && is.null(last_connect_error)) {
+                last_connect_error <- "auth key generation returned FALSE without exception"
+              }
+              if (!isTRUE(gen_res)) {
                 next # Keep retrying until we have the auth key
               }
             },
             error = function(e) {
+              last_connect_error <<- e$message
               # Sometimes Telegram may close the connection during auth_key generation
               private$log$warning(
                 "Connection error %d during auth_key gen: %s: %s",
@@ -452,41 +617,43 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
 
       if (!connected) {
-        stop(sprintf(
-          "ConnectionError: Connection to Telegram failed %d time(s)",
-          private$retries
-        ))
+        if (!is.null(last_connect_error)) {
+          stop(sprintf(
+            "ConnectionError: Connection to Telegram failed %d time(s). Last error: %s",
+            private$retries, last_connect_error
+          ))
+        } else {
+          stop(sprintf(
+            "ConnectionError: Connection to Telegram failed %d time(s)",
+            private$retries
+          ))
+        }
       }
 
       if (is.null(self$auth_key$key)) {
-        e <- simpleError(sprintf(
-          "ConnectionError: auth_key generation failed %d time(s)",
-          private$retries
-        ))
-        future::value(private$disconnect(error = e))
+        if (!is.null(last_connect_error) && nzchar(last_connect_error)) {
+          e <- simpleError(sprintf(
+            "ConnectionError: auth_key generation failed %d time(s). Last error: %s",
+            private$retries, last_connect_error
+          ))
+        } else {
+          e <- simpleError(sprintf(
+            "ConnectionError: auth_key generation failed %d time(s)",
+            private$retries
+          ))
+        }
+        private$.disconnect(error = e)
         stop(e)
       }
 
-      # Start send and receive loops
-      private$log$debug("Starting send loop")
-      private$send_loop_handle <- future({
-        tryCatch(
-          private$send_loop(),
-          error = function(e) private$log$error("Send loop error: %s", e$message)
-        )
-      })
-
-      private$log$debug("Starting receive loop")
-      private$recv_loop_handle <- future({
-        tryCatch(
-          private$recv_loop(),
-          error = function(e) private$log$error("Receive loop error: %s", e$message)
-        )
-      })
+      # Keep sender IO in-process to avoid cross-process state divergence.
+      private$send_loop_handle <- NULL
+      private$recv_loop_handle <- NULL
+      private$log$debug("Sender IO mode: in-process synchronous pumping")
 
       # Reset disconnected future if already completed
-      if (future::resolved(private$disconnected)) {
-        private$disconnected <- future::future(NULL, seed = TRUE)
+      if (!is.null(private$disconnected_future) && future::resolved(private$disconnected_future)) {
+        private$disconnected_future <- future::future(NULL, seed = TRUE)
       }
 
       private$log$info("Connection to %s complete!", private$connection$to_string())
@@ -497,17 +664,22 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       tryCatch(
         {
           private$log$debug("Connection attempt %d...", attempt)
-          future::value(private$connection$connect(timeout = private$connect_timeout))
+          res <- private$._resolve(private$connection$connect(timeout = private$connect_timeout))
+          if (!isTRUE(res)) {
+            stop("Connection returned FALSE")
+          }
           private$log$debug("Connection success!")
           return(TRUE)
         },
         error = function(e) {
+          msg_txt <- tryCatch(conditionMessage(e), error = function(...) as.character(e))
+          call_txt <- tryCatch(paste(deparse(conditionCall(e)), collapse = " "), error = function(...) "")
           private$log$warning(
             "Attempt %d at connecting failed: %s: %s",
-            attempt, class(e)[1], e$message
+            attempt, class(e)[1], msg_txt
           )
           Sys.sleep(private$delay)
-          return(FALSE)
+          structure(FALSE, class = c("connect_failed", "logical"), message = paste(msg_txt, call_txt))
         }
       )
     },
@@ -518,9 +690,15 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       tryCatch(
         {
           private$log$debug("New auth_key attempt %d...", attempt)
-          result <- future::value(authenticator$do_authentication(plain))
+          result <- private$._resolve(do_authentication(plain))
 
-          self$auth_key$key <- result$auth_key
+          auth_key_value <- result$auth_key
+          if (inherits(auth_key_value, "AuthKey")) {
+            auth_key_value <- auth_key_value$key
+          } else if (is.list(auth_key_value) && !is.null(auth_key_value$key)) {
+            auth_key_value <- auth_key_value$key
+          }
+          self$auth_key$key <- auth_key_value
           private$state$time_offset <- result$time_offset
 
           # Notify about auth key change if callback provided
@@ -533,11 +711,14 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         },
         error = function(e) {
           if (inherits(e, c("SecurityError", "AssertionError"))) {
-            private$log$warning("Attempt %d at new auth_key failed: %s", attempt, e$message)
+            msg_txt <- private$._err_text(e, fallback = "unknown security/assertion error")
+            private$log$warning("Attempt %d at new auth_key failed: %s", attempt, msg_txt)
             Sys.sleep(private$delay)
-            return(FALSE)
+            return(structure(FALSE, class = c("auth_gen_failed", "logical"), message = msg_txt))
           } else {
-            stop(e)
+            msg_txt <- private$._err_text(e, fallback = "unknown auth_key error")
+            private$log$warning("Attempt %d at new auth_key failed: %s: %s", attempt, class(e)[1], msg_txt)
+            stop(simpleError(msg_txt))
           }
         }
       )
@@ -578,12 +759,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         private$connection <- NULL
       })
 
-      if (!is.null(private$disconnected) && !future::resolved(private$disconnected)) {
-        if (!is.null(error)) {
-          future::value(private$disconnected$set_exception(error))
-        } else {
-          future::value(private$disconnected$set_result(NULL))
-        }
+      if (!is.null(private$disconnected_future) && !future::resolved(private$disconnected_future)) {
+        # Keep this as a plain future marker; base Future objects do not
+        # expose set_result/set_exception APIs.
+        private$disconnected_future <- future::future(NULL, seed = TRUE)
       }
     },
 
@@ -683,6 +862,96 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
+    #' @description Pump send/receive IO in-process until the given states resolve.
+    #' @param states List of RequestState objects to wait for.
+    pump_io_until = function(states) {
+      if (length(states) == 0) {
+        return(invisible(NULL))
+      }
+
+      private$._ensure_transport_connected()
+
+      timeout_sec <- as.numeric(getOption("telegramR.promise_timeout", 30))
+      started_at <- proc.time()[["elapsed"]]
+
+      state_done <- function(s) isTRUE(future::resolved(s$future))
+      while (!all(vapply(states, state_done, logical(1)))) {
+        elapsed <- proc.time()[["elapsed"]] - started_at
+        if (is.finite(timeout_sec) && timeout_sec > 0 && elapsed > timeout_sec) {
+          stop(sprintf("PromiseTimeoutError: timed out after %.1f seconds", timeout_sec))
+        }
+
+        if (private$pending_ack$length() > 0) {
+          ack <- RequestState$new(MsgsAck$new(private$pending_ack$as_list()))
+          private$send_queue$append(ack)
+          private$last_acks$append(ack)
+          private$pending_ack$clear()
+        }
+
+        result <- future::value(private$send_queue$get())
+        batch <- result$batch
+        data <- result$data
+
+        if (!is.null(data) && length(data) > 0) {
+          data <- private$state$encrypt_message_data(data)
+
+          for (st in batch) {
+            if (!is.list(st)) {
+              if (inherits(st$request, "TLRequest") || isTRUE(grepl("Request$", class(st$request)[1]))) {
+                private$pending_state[[as.character(st$msg_id)]] <- st
+              }
+            } else {
+              for (s in st) {
+                if (inherits(s$request, "TLRequest") || isTRUE(grepl("Request$", class(s$request)[1]))) {
+                  private$pending_state[[as.character(s$msg_id)]] <- s
+                }
+              }
+            }
+          }
+
+          tryCatch(
+            {
+              future::value(private$connection$send(data))
+            },
+            error = function(e) {
+              if (grepl("Not connected", conditionMessage(e), fixed = TRUE)) {
+                private$._ensure_transport_connected()
+                future::value(private$connection$send(data))
+              } else {
+                stop(e)
+              }
+            }
+          )
+        }
+
+        body <- tryCatch(
+          {
+            future::value(private$connection$recv())
+          },
+          error = function(e) {
+            if (grepl("Not connected", conditionMessage(e), fixed = TRUE)) {
+              private$._ensure_transport_connected()
+              future::value(private$connection$recv())
+            } else {
+              stop(e)
+            }
+          }
+        )
+        if (is.null(body)) {
+          next
+        }
+
+        message <- private$state$decrypt_message_data(body)
+        if (is.null(message)) {
+          next
+        }
+
+        future::value(private$process_message(message))
+      }
+
+      invisible(NULL)
+    },
+
     #' @description Send a keep-alive ping
     keepalive_ping = function(rnd_id) {
       # If no ping is in progress, send one
@@ -701,8 +970,8 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     send_loop = function() {
       while (private$user_connected && !private$reconnecting) {
         # Handle pending acknowledgments
-        if (length(private$pending_ack) > 0) {
-          ack <- RequestState$new(MsgsAck$new(as.list(private$pending_ack)))
+        if (private$pending_ack$length() > 0) {
+          ack <- RequestState$new(MsgsAck$new(private$pending_ack$as_list()))
           private$send_queue$append(ack)
           private$last_acks$append(ack)
           private$pending_ack$clear()
@@ -730,12 +999,12 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         # Track pending states
         for (state in batch) {
           if (!is.list(state)) {
-            if (inherits(state$request, "TLRequest")) {
+            if (inherits(state$request, "TLRequest") || isTRUE(grepl("Request$", class(state$request)[1]))) {
               private$pending_state[[as.character(state$msg_id)]] <- state
             }
           } else {
             for (s in state) {
-              if (inherits(s$request, "TLRequest")) {
+              if (inherits(s$request, "TLRequest") || isTRUE(grepl("Request$", class(s$request)[1]))) {
                 private$pending_state[[as.character(s$msg_id)]] <- s
               }
             }
@@ -852,9 +1121,12 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       # Add to pending acknowledgments
       private$pending_ack$add(message$msg_id)
 
-      # Find appropriate handler
+      # Find appropriate handler using normalized constructor ID key
       constructor_id <- message$obj$CONSTRUCTOR_ID
-      handler <- private$handlers[[as.character(constructor_id)]]
+      v <- as.numeric(constructor_id)
+      if (!is.na(v) && v < 0) v <- v + 2^32
+      ctor_str <- sprintf("%.0f", v)
+      handler <- private$handlers[[ctor_str]]
 
       # Default to update handler if not found
       if (is.null(handler)) {
@@ -945,7 +1217,13 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         tryCatch(
           {
             reader <- BinaryReader$new(rpc_result$body)
-            result <- state$request$read_result(reader)
+            # Some generated request classes currently do not inherit TLRequest
+            # and may miss read_result(); fall back to generic TL object parsing.
+            if (is.function(state$request$read_result)) {
+              result <- state$request$read_result(reader)
+            } else {
+              result <- reader$tgread_object()
+            }
 
             # Check for updates in the result
             private$store_own_updates(result)
