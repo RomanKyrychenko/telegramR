@@ -20,6 +20,9 @@ FullPacketCodec <- R6::R6Class("FullPacketCodec",
     #' @param data A raw vector containing the packet data.
     #' @return A raw vector representing the full packet.
     encode_packet = function(data) {
+      if (is.null(data)) {
+        stop("invalid 'length' argument")
+      }
       total_length <- as.integer(length(data) + 12L)
       header <- c(
         writeBin(total_length, raw(), size = 4, endian = "little"),
@@ -36,25 +39,32 @@ FullPacketCodec <- R6::R6Class("FullPacketCodec",
     #' @param reader An object with a `readexactly` method.
     #' @return A raw vector representing the packet body.
     read_packet = function(reader) {
-      packet_len_seq <- reader$readexactly(8L)
-      nums <- readBin(packet_len_seq, integer(), n = 2, size = 4, endian = "little")
-      packet_length <- nums[1]
-      seq <- nums[2]
-      if (packet_length < 0L && seq < 0L) {
-        body <- reader$readexactly(4L)
-        stop("InvalidBufferError: ", paste(body, collapse = " "))
-      } else if (packet_length < 8L) {
-        stop("InvalidBufferError: packet length less than 8: ", paste(packet_len_seq, collapse = " "))
-      }
-      body <- reader$readexactly(as.integer(packet_length - 8L))
-      crc_section <- body[(length(body) - 3):length(body)]
-      read_crc <- readBin(crc_section, integer(), n = 1, size = 4, endian = "little")
-      body <- body[1:(length(body) - 4)]
-      valid_crc <- crc32(c(packet_len_seq, body))
-      if (read_crc != valid_crc) {
-        stop("InvalidChecksumError: expected ", valid_crc, " but got ", read_crc)
-      }
-      body
+      promise(function(resolve, reject) {
+        tryCatch(
+          {
+            packet_len_seq <- reader$readexactly(8L)
+            nums <- readBin(packet_len_seq, integer(), n = 2, size = 4, endian = "little")
+            packet_length <- nums[1]
+            seq <- nums[2]
+            if (packet_length < 0L && seq < 0L) {
+              body <- reader$readexactly(4L)
+              stop("InvalidBufferError: ", paste(body, collapse = " "))
+            } else if (packet_length < 8L) {
+              stop("InvalidBufferError: packet length less than 8: ", paste(packet_len_seq, collapse = " "))
+            }
+            body <- reader$readexactly(as.integer(packet_length - 8L))
+            crc_section <- body[(length(body) - 3):length(body)]
+            read_crc <- readBin(crc_section, integer(), n = 1, size = 4, endian = "little")
+            body <- body[1:(length(body) - 4)]
+            valid_crc <- crc32(c(packet_len_seq, body))
+            if (read_crc != valid_crc) {
+              stop("InvalidChecksumError: expected ", valid_crc, " but got ", read_crc)
+            }
+            resolve(body)
+          },
+          error = function(e) reject(e)
+        )
+      })
     }
   )
 )
@@ -70,7 +80,8 @@ ConnectionTcpFull <- R6::R6Class("ConnectionTcpFull",
     #' @param ... Additional parameters.
     initialize = function(...) {
       super$initialize(...)
-      self$packet_codec <- FullPacketCodec$new(self)
+      # Store the codec class; Connection will instantiate it with this connection.
+      self$packet_codec <- FullPacketCodec
     }
   )
 )
