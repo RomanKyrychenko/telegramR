@@ -11033,7 +11033,7 @@ DestroyAuthKeyFail <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      DestroyAuthKeyFail$new()
     }
   )
 )
@@ -11054,7 +11054,7 @@ DestroyAuthKeyNone <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      DestroyAuthKeyNone$new()
     }
   )
 )
@@ -11075,7 +11075,7 @@ DestroyAuthKeyOk <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      DestroyAuthKeyOk$new()
     }
   )
 )
@@ -11107,7 +11107,7 @@ DestroySessionNone <- R6::R6Class(
   private = list(
     from_reader = function(reader) {
       session_id <- reader$read_long()
-      self$new(session_id = session_id)
+      DestroySessionNone$new(session_id = session_id)
     }
   )
 )
@@ -11139,7 +11139,7 @@ DestroySessionOk <- R6::R6Class(
   private = list(
     from_reader = function(reader) {
       session_id <- reader$read_long()
-      self$new(session_id = session_id)
+      DestroySessionOk$new(session_id = session_id)
     }
   )
 )
@@ -13258,11 +13258,12 @@ FoundStory <- R6::R6Class("FoundStory",
 
 #' @export
 FutureSalt <- R6::R6Class("FutureSalt",
+  inherit = TLObject,
   public = list(
     valid_since = NULL,
     valid_until = NULL,
     salt = NULL,
-    initialize = function(valid_since = NULL, valid_until = NULL, salt) {
+    initialize = function(valid_since = NULL, valid_until = NULL, salt = NULL) {
       self$valid_since <- valid_since
       self$valid_until <- valid_until
       self$salt <- salt
@@ -13275,16 +13276,29 @@ FutureSalt <- R6::R6Class("FutureSalt",
         salt = self$salt
       )
     }
+  ),
+  active = list(
+    CONSTRUCTOR_ID = function() 0x0949d9dc,
+    SUBCLASS_OF_ID = function() 0x0949d9dc
+  ),
+  private = list(
+    from_reader = function(reader) {
+      valid_since <- reader$read_int()
+      valid_until <- reader$read_int()
+      salt <- reader$read_long()
+      FutureSalt$new(valid_since = valid_since, valid_until = valid_until, salt = salt)
+    }
   )
 )
 
 #' @export
 FutureSalts <- R6::R6Class("FutureSalts",
+  inherit = TLObject,
   public = list(
     req_msg_id = NULL,
     now = NULL,
     salts = NULL,
-    initialize = function(req_msg_id, now, salts) {
+    initialize = function(req_msg_id = NULL, now = NULL, salts = NULL) {
       self$req_msg_id <- req_msg_id
       self$now <- now
       self$salts <- salts
@@ -13296,6 +13310,25 @@ FutureSalts <- R6::R6Class("FutureSalts",
         now = self$now,
         salts = if (is.null(self$salts)) list() else lapply(self$salts, function(x) if (inherits(x, "R6")) x$to_list() else x)
       )
+    }
+  ),
+  active = list(
+    CONSTRUCTOR_ID = function() 0xae500895,
+    SUBCLASS_OF_ID = function() 0xae500895
+  ),
+  private = list(
+    from_reader = function(reader) {
+      req_msg_id <- reader$read_long()
+      now <- reader$read_int()
+      count <- reader$read_int()
+      salts <- list()
+      for (i in seq_len(count)) {
+        valid_since <- reader$read_int()
+        valid_until <- reader$read_int()
+        salt <- reader$read_long()
+        salts[[i]] <- FutureSalt$new(valid_since = valid_since, valid_until = valid_until, salt = salt)
+      }
+      FutureSalts$new(req_msg_id = req_msg_id, now = now, salts = salts)
     }
   )
 )
@@ -28434,7 +28467,11 @@ MsgDetailedInfo <- R6::R6Class("MsgDetailedInfo",
     }
   ),
   private = list(from_reader = function(reader) {
-    self$new(0, 0, 0, 0)
+    msg_id <- reader$read_long()
+    answer_msg_id <- reader$read_long()
+    byte_data <- reader$read_int()
+    status <- reader$read_int()
+    MsgDetailedInfo$new(msg_id, answer_msg_id, byte_data, status)
   }),
   class = TRUE
 )
@@ -28464,7 +28501,10 @@ MsgNewDetailedInfo <- R6::R6Class("MsgNewDetailedInfo",
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new(0, 0, 0)
+    answer_msg_id <- reader$read_long()
+    byte_data <- reader$read_int()
+    status <- reader$read_int()
+    MsgNewDetailedInfo$new(answer_msg_id, byte_data, status)
   }),
   class = TRUE
 )
@@ -28488,7 +28528,13 @@ MsgResendReq <- R6::R6Class("MsgResendReq",
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new(list())
+    reader$read_int(signed = FALSE)  # vector constructor id 0x1cb5c415
+    count <- reader$read_int()
+    msg_ids <- list()
+    for (i in seq_len(count)) {
+      msg_ids[[i]] <- reader$read_long()
+    }
+    MsgResendReq$new(msg_ids)
   }),
   class = TRUE
 )
@@ -28500,14 +28546,27 @@ MsgsAck <- R6::R6Class("MsgsAck",
     CONSTRUCTOR_ID = 0x62d6b459,
     SUBCLASS_OF_ID = 0x827677c4,
     msg_ids = NULL,
-    initialize = function(msg_ids) {
+    initialize = function(msg_ids = NULL) {
       self$msg_ids <- msg_ids
     },
     to_dict = function() list(`_` = "MsgsAck", msg_ids = if (is.null(self$msg_ids)) NULL else self$msg_ids),
-    bytes = function() raw(0)
+    bytes = function() {
+      c(
+        as.raw(c(0x59, 0xb4, 0xd6, 0x62)),
+        packInt32(0x1cb5c415),
+        packInt32(length(self$msg_ids)),
+        do.call(c, lapply(self$msg_ids, function(id) packInt64(id)))
+      )
+    }
   ),
   private = list(from_reader = function(reader) {
-    self$new(list())
+    vector_id <- reader$read_int(signed = FALSE)
+    count <- reader$read_int()
+    msg_ids <- list()
+    for (i in seq_len(count)) {
+      msg_ids[[i]] <- reader$read_long()
+    }
+    MsgsAck$new(msg_ids)
   }),
   class = TRUE
 )
@@ -28528,7 +28587,14 @@ MsgsAllInfo <- R6::R6Class("MsgsAllInfo",
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new(list(), "")
+    reader$read_int(signed = FALSE)  # vector constructor id 0x1cb5c415
+    count <- reader$read_int()
+    msg_ids <- list()
+    for (i in seq_len(count)) {
+      msg_ids[[i]] <- reader$read_long()
+    }
+    info <- reader$tgread_string()
+    MsgsAllInfo$new(msg_ids, info)
   }),
   class = TRUE
 )
@@ -28549,7 +28615,9 @@ MsgsStateInfo <- R6::R6Class("MsgsStateInfo",
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new(0, "")
+    req_msg_id <- reader$read_long()
+    info <- reader$tgread_string()
+    MsgsStateInfo$new(req_msg_id, info)
   }),
   class = TRUE
 )
@@ -28568,7 +28636,13 @@ MsgsStateReq <- R6::R6Class("MsgsStateReq",
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new(list())
+    reader$read_int(signed = FALSE)  # vector constructor id 0x1cb5c415
+    count <- reader$read_int()
+    msg_ids <- list()
+    for (i in seq_len(count)) {
+      msg_ids[[i]] <- reader$read_long()
+    }
+    MsgsStateReq$new(msg_ids)
   }),
   class = TRUE
 )
@@ -28641,7 +28715,7 @@ NewSessionCreated <- R6::R6Class("NewSessionCreated",
     first_msg_id = NULL,
     unique_id = NULL,
     server_salt = NULL,
-    initialize = function(first_msg_id, unique_id, server_salt) {
+    initialize = function(first_msg_id = NULL, unique_id = NULL, server_salt = NULL) {
       self$first_msg_id <- first_msg_id
       self$unique_id <- unique_id
       self$server_salt <- server_salt
@@ -28650,7 +28724,10 @@ NewSessionCreated <- R6::R6Class("NewSessionCreated",
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new(0, 0, 0)
+    first_msg_id <- reader$read_long()
+    unique_id <- reader$read_long()
+    server_salt <- reader$read_long()
+    NewSessionCreated$new(first_msg_id, unique_id, server_salt)
   }),
   class = TRUE
 )
@@ -34260,7 +34337,7 @@ RpcError <- R6::R6Class("RpcError",
     from_reader = function(reader) {
       error_code <- reader$read_int()
       error_message <- reader$tgread_string()
-      self$new(error_code = error_code, error_message = error_message)
+      RpcError$new(error_code = error_code, error_message = error_message)
     }
   ),
   class = TRUE
