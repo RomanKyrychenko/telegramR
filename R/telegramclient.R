@@ -130,8 +130,8 @@ TelegramClient <- R6::R6Class(
         sprintf("%.0f", v)
       }
 
-      me <- future::value(self$get_me())
-      if (!is.null(me)) {
+      me <- tryCatch(future::value(self$get_me()), error = function(e) NULL)
+      if (!is.null(me) && !inherits(me, "Future")) {
         return(me)
       }
 
@@ -180,9 +180,30 @@ TelegramClient <- R6::R6Class(
         stop("PhoneNumberUnoccupiedError")
       }
 
+      # Fallback parser for auth.Authorization (0x2EA2C0D4 = 782418132)
+      # when ctor_map doesn't have the class and tgread_object returned raw data
+      if (is.list(result) && !is.null(result$data) && is.raw(result$data) &&
+          identical(ctor_key(result), "782418132")) {
+        tryCatch({
+          reader <- BinaryReader$new(result$data)
+          flags <- reader$read_int()
+          # flags.1: otherwise_relogin_days (int32)
+          if (bitwAnd(flags, 2L) != 0L) reader$read_int()
+          # flags.0: tmp_sessions (int32)
+          if (bitwAnd(flags, 1L) != 0L) reader$read_int()
+          # flags.2: future_auth_token (bytes)
+          if (bitwAnd(flags, 4L) != 0L) reader$tgread_bytes()
+          # user: User object
+          result$user <- reader$tgread_object()
+        }, error = function(e) {
+          message(sprintf("[sign_in] Failed to parse auth.Authorization fallback: %s", e$message))
+        })
+      }
+
       user <- result$user
       if (is.null(user)) {
-        user <- future::value(self$get_me())
+        user <- tryCatch(future::value(self$get_me()), error = function(e) NULL)
+        if (inherits(user, "Future")) user <- NULL
       }
       if (is.null(user)) {
         return(result)
