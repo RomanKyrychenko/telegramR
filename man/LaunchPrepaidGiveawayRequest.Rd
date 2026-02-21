@@ -5,6 +5,8 @@
 \title{LaunchPrepaidGiveawayRequest}
 \description{
 Represents a request to launch a prepaid giveaway. Inherits from TLRequest.
+
+Telegram API type LaunchPrepaidGiveawayRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{LaunchPrepaidGiveawayRequest}

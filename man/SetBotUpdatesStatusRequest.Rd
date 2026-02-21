@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{SetBotUpdatesStatusRequest}
 \alias{SetBotUpdatesStatusRequest}
-\title{SetBotUpdatesStatusRequest R6 class}
+\title{SetBotUpdatesStatusRequest}
 \description{
-SetBotUpdatesStatusRequest R6 class
-
-SetBotUpdatesStatusRequest R6 class
+Telegram API type SetBotUpdatesStatusRequest
 }
 \details{
+SetBotUpdatesStatusRequest R6 class
+
 Notify server of bot updates status.
 }
 \section{Public fields}{

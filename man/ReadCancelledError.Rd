@@ -5,6 +5,11 @@
 \title{ReadCancelledError}
 \description{
 Occurs when a read operation is cancelled.
+
+Telegram API type ReadCancelledError
+}
+\details{
+ReadCancelledError
 }
 \section{Super class}{
 \code{\link[telegramR:Exception]{telegramR::Exception}} -> \code{ReadCancelledError}

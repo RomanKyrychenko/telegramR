@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_upload.R
 \name{GetWebFileRequest}
 \alias{GetWebFileRequest}
-\title{GetWebFileRequest R6 class}
+\title{GetWebFileRequest}
 \description{
-GetWebFileRequest R6 class
-
-GetWebFileRequest R6 class
+Telegram API type GetWebFileRequest
 }
 \details{
+GetWebFileRequest R6 class
+
 Represents the TL request upload.GetWebFileRequest.
 }
 \section{Public fields}{

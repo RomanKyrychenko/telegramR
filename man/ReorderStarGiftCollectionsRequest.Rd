@@ -5,6 +5,8 @@
 \title{ReorderStarGiftCollectionsRequest}
 \description{
 Represents a request to reorder star gift collections. Inherits from TLRequest.
+
+Telegram API type ReorderStarGiftCollectionsRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ReorderStarGiftCollectionsRequest}

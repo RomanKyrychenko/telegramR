@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{AcceptCallRequest}
 \alias{AcceptCallRequest}
-\title{AcceptCallRequest R6 class}
+\title{AcceptCallRequest}
 \description{
-AcceptCallRequest R6 class
-
-AcceptCallRequest R6 class
+Telegram API type AcceptCallRequest
 }
 \details{
+AcceptCallRequest R6 class
+
 Represents AcceptCallRequest TLRequest.
 }
 \section{Public fields}{

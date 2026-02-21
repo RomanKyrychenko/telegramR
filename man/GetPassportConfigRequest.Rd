@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetPassportConfigRequest}
 \alias{GetPassportConfigRequest}
-\title{GetPassportConfigRequest R6 class}
+\title{GetPassportConfigRequest}
 \description{
-GetPassportConfigRequest R6 class
-
-GetPassportConfigRequest R6 class
+Telegram API type GetPassportConfigRequest
 }
 \details{
+GetPassportConfigRequest R6 class
+
 Request to get passport configuration (possibly not modified).
 }
 \section{Public fields}{

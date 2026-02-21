@@ -5,6 +5,8 @@
 \title{SendPaymentFormRequest}
 \description{
 Represents a request to send a payment form. Inherits from TLRequest.
+
+Telegram API type SendPaymentFormRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SendPaymentFormRequest}

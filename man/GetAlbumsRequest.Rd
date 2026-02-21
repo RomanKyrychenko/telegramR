@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stories.R
 \name{GetAlbumsRequest}
 \alias{GetAlbumsRequest}
-\title{GetAlbumsRequest R6 class}
+\title{GetAlbumsRequest}
 \description{
-GetAlbumsRequest R6 class
-
-GetAlbumsRequest R6 class
+Telegram API type GetAlbumsRequest
 }
 \details{
+GetAlbumsRequest R6 class
+
 Request to get albums for a peer. Returns stories.Albums (or AlbumsNotModified).
 }
 \section{Super classes}{

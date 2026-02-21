@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{ResetAuthorizationsRequest}
 \alias{ResetAuthorizationsRequest}
-\title{ResetAuthorizationsRequest R6 class}
+\title{ResetAuthorizationsRequest}
 \description{
-ResetAuthorizationsRequest R6 class
-
-ResetAuthorizationsRequest R6 class
+Telegram API type ResetAuthorizationsRequest
 }
 \details{
+ResetAuthorizationsRequest R6 class
+
 Represents the TLRequest auth.ResetAuthorizationsRequest.
 }
 \section{Public fields}{

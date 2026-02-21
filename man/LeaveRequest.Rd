@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_smsjobs.R
 \name{LeaveRequest}
 \alias{LeaveRequest}
-\title{LeaveRequest R6 class}
+\title{LeaveRequest}
 \description{
-LeaveRequest R6 class
-
-LeaveRequest R6 class
+Telegram API type LeaveRequest
 }
 \details{
+LeaveRequest R6 class
+
 Representation of the LeaveRequest TLRequest.
 }
 \section{Methods}{

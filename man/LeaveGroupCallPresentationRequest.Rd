@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{LeaveGroupCallPresentationRequest}
 \alias{LeaveGroupCallPresentationRequest}
-\title{LeaveGroupCallPresentationRequest R6 class}
+\title{LeaveGroupCallPresentationRequest}
 \description{
-LeaveGroupCallPresentationRequest R6 class
-
-LeaveGroupCallPresentationRequest R6 class
+Telegram API type LeaveGroupCallPresentationRequest
 }
 \details{
+LeaveGroupCallPresentationRequest R6 class
+
 Represents LeaveGroupCallPresentationRequest TLRequest.
 }
 \section{Public fields}{

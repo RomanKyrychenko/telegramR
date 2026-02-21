@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_langpack.R
 \name{GetLanguagesRequest}
 \alias{GetLanguagesRequest}
-\title{GetLanguagesRequest R6 class}
+\title{GetLanguagesRequest}
 \description{
-GetLanguagesRequest R6 class
-
-GetLanguagesRequest R6 class
+Telegram API type GetLanguagesRequest
 }
 \details{
+GetLanguagesRequest R6 class
+
 TLRequest: GetLanguagesRequest
 }
 \examples{

@@ -12,8 +12,12 @@ ReportRequest$new(peer, id, option, message)
 }
 \description{
 Represents a request to report messages. This class inherits from TLRequest.
+
+Telegram API type ReportRequest
 }
 \details{
+ReportRequest R6 class
+
 Represents a TL request to report stories.
 }
 \section{Super classes}{

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_chatlists.R
 \name{CheckChatlistInviteRequest}
 \alias{CheckChatlistInviteRequest}
-\title{CheckChatlistInviteRequest R6 class}
+\title{CheckChatlistInviteRequest}
 \description{
-CheckChatlistInviteRequest R6 class
-
-CheckChatlistInviteRequest R6 class
+Telegram API type CheckChatlistInviteRequest
 }
 \details{
+CheckChatlistInviteRequest R6 class
+
 Request to check a chatlist invite by slug.
 
 Serializes constructor id followed by TL-string encoded slug.

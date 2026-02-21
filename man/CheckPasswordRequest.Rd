@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{CheckPasswordRequest}
 \alias{CheckPasswordRequest}
-\title{CheckPasswordRequest R6 class}
+\title{CheckPasswordRequest}
 \description{
-CheckPasswordRequest R6 class
-
-CheckPasswordRequest R6 class
+Telegram API type CheckPasswordRequest
 }
 \details{
+CheckPasswordRequest R6 class
+
 Represents the TLRequest auth.CheckPasswordRequest.
 }
 \section{Public fields}{

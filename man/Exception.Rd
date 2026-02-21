@@ -7,6 +7,8 @@
 This file contains various exception classes used in the Telegram API client.
 These exceptions are used to handle errors and specific conditions that may arise
 during the operation of the client.
+
+Telegram API type Exception
 }
 \details{
 The classes defined in this file include:

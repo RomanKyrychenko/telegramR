@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{GetBotRecommendationsRequest}
 \alias{GetBotRecommendationsRequest}
-\title{GetBotRecommendationsRequest R6 class}
+\title{GetBotRecommendationsRequest}
 \description{
 Methods:
 - initialize(bot)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type GetBotRecommendationsRequest
 }
 \details{
+GetBotRecommendationsRequest R6 class
+
 Represents the GetBotRecommendationsRequest TL request.
 }
 \examples{

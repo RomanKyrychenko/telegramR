@@ -2,18 +2,18 @@
 % Please edit documentation in R/functions_langpack.R, R/functions_updates.R
 \name{GetDifferenceRequest}
 \alias{GetDifferenceRequest}
-\title{GetDifferenceRequest R6 class}
+\title{GetDifferenceRequest}
 \description{
-GetDifferenceRequest R6 class
+Telegram API type GetDifferenceRequest
 
-GetDifferenceRequest R6 class
-
-GetDifferenceRequest R6 class
-
-GetDifferenceRequest R6 class
+Telegram API type GetDifferenceRequest
 }
 \details{
+GetDifferenceRequest R6 class
+
 TLRequest: GetDifferenceRequest
+
+GetDifferenceRequest R6 class
 
 Representation of updates.GetDifference request.
 }

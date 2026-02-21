@@ -4,11 +4,11 @@
 \alias{GetMessagePublicForwardsRequest}
 \title{GetMessagePublicForwardsRequest}
 \description{
-GetMessagePublicForwardsRequest
-
-GetMessagePublicForwardsRequest
+Telegram API type GetMessagePublicForwardsRequest
 }
 \details{
+GetMessagePublicForwardsRequest
+
 R6 class representing a GetMessagePublicForwardsRequest TLRequest.
 }
 \section{Super classes}{

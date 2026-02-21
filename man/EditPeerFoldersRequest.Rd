@@ -2,16 +2,16 @@
 % Please edit documentation in R/functions_folders.R
 \name{EditPeerFoldersRequest}
 \alias{EditPeerFoldersRequest}
-\title{EditPeerFoldersRequest R6 class}
+\title{EditPeerFoldersRequest}
 \value{
 An R6 object of class EditPeerFoldersRequest
 }
 \description{
-EditPeerFoldersRequest R6 class
-
-EditPeerFoldersRequest R6 class
+Telegram API type EditPeerFoldersRequest
 }
 \details{
+EditPeerFoldersRequest R6 class
+
 Represents the TL request EditPeerFoldersRequest.
 }
 \examples{

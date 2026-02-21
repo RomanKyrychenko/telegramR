@@ -2,7 +2,7 @@
 % Please edit documentation in R/messagepacker.R
 \name{MessagePacker}
 \alias{MessagePacker}
-\title{MessagePacker R6 class}
+\title{MessagePacker}
 \description{
 MessagePacker collects state items (requests and associated metadata),
 assigns message ids, and packs one or more TL messages into a single byte
@@ -10,6 +10,24 @@ payload. When multiple messages are present they are wrapped in a
 MessageContainer. The class exposes a simple FIFO deque interface and a
 blocking `get` method that returns the next batch of messages and the
 corresponding serialized bytes ready to be sent.
+
+Telegram API type MessagePacker
+}
+\details{
+MessagePacker R6 class
+
+This method also sets `ready` to \code{TRUE} to notify any
+  waiting `get` calls that new data is available.
+
+Each element in `states` is appended in order. `ready` is set to
+  \code{TRUE} after extension.
+
+
+- If an individual message exceeds the maximum allowed size it will be
+  skipped and, if present, `state_item$future$set_exception` will be
+  called with a simple error. A warning is logged when a payload is too large.
+- Logging calls are guarded so that failures in logger methods do not
+  interrupt packing.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
@@ -74,11 +92,6 @@ associated metadata. Items are appended to the right (tail) of the deque.}
 }
 \if{html}{\out{</div>}}
 }
-\subsection{Details}{
-This method also sets `ready` to \code{TRUE} to notify any
-  waiting `get` calls that new data is available.
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-MessagePacker-extend"></a>}}
@@ -96,11 +109,6 @@ Extend the queue with multiple state items
 }
 \if{html}{\out{</div>}}
 }
-\subsection{Details}{
-Each element in `states` is appended in order. `ready` is set to
-  \code{TRUE} after extension.
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-MessagePacker-get"></a>}}
@@ -116,14 +124,6 @@ container and a single container message is produced; otherwise the single
 message bytes are returned.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MessagePacker$get()}\if{html}{\out{</div>}}
-}
-
-\subsection{Details}{
-- If an individual message exceeds the maximum allowed size it will be
-  skipped and, if present, `state_item$future$set_exception` will be
-  called with a simple error. A warning is logged when a payload is too large.
-- Logging calls are guarded so that failures in logger methods do not
-  interrupt packing.
 }
 
 \subsection{Returns}{

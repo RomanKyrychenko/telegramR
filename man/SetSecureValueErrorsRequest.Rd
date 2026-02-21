@@ -5,6 +5,8 @@
 \title{SetSecureValueErrorsRequest R6 Class}
 \description{
 Represents a request to set secure value errors for a Telegram user. This class is typically used internally to serialize and deserialize requests and responses when interacting with the Telegram API.
+
+Telegram API type SetSecureValueErrorsRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SetSecureValueErrorsRequest}

@@ -5,6 +5,11 @@
 \title{InvalidBufferError}
 \description{
 Occurs when the buffer is invalid, and may contain an HTTP error code.
+
+Telegram API type InvalidBufferError
+}
+\details{
+InvalidBufferError
 }
 \section{Super class}{
 \code{\link[telegramR:Exception]{telegramR::Exception}} -> \code{InvalidBufferError}

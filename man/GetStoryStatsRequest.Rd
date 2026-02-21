@@ -4,11 +4,11 @@
 \alias{GetStoryStatsRequest}
 \title{GetStoryStatsRequest}
 \description{
-GetStoryStatsRequest
-
-GetStoryStatsRequest
+Telegram API type GetStoryStatsRequest
 }
 \details{
+GetStoryStatsRequest
+
 R6 class representing a GetStoryStatsRequest TLRequest.
 }
 \section{Super classes}{

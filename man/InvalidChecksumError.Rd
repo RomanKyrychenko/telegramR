@@ -6,6 +6,11 @@
 \description{
 Occurs when using the TCP full mode and the checksum of a received packet
 doesn't match the expected checksum.
+
+Telegram API type InvalidChecksumError
+}
+\details{
+InvalidChecksumError
 }
 \section{Super class}{
 \code{\link[telegramR:Exception]{telegramR::Exception}} -> \code{InvalidChecksumError}

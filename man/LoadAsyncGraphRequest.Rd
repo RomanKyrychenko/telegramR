@@ -4,11 +4,11 @@
 \alias{LoadAsyncGraphRequest}
 \title{LoadAsyncGraphRequest}
 \description{
-LoadAsyncGraphRequest
-
-LoadAsyncGraphRequest
+Telegram API type LoadAsyncGraphRequest
 }
 \details{
+LoadAsyncGraphRequest
+
 R6 class representing a LoadAsyncGraphRequest TLRequest.
 }
 \section{Super classes}{

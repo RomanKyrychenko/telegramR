@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetRecentMeUrlsRequest}
 \alias{GetRecentMeUrlsRequest}
-\title{GetRecentMeUrlsRequest R6 class}
+\title{GetRecentMeUrlsRequest}
 \description{
-GetRecentMeUrlsRequest R6 class
-
-GetRecentMeUrlsRequest R6 class
+Telegram API type GetRecentMeUrlsRequest
 }
 \details{
+GetRecentMeUrlsRequest R6 class
+
 Request to get recent "me" URLs with a referer string.
 }
 \section{Public fields}{

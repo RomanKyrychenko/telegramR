@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stickers.R
 \name{SetStickerSetThumbRequest}
 \alias{SetStickerSetThumbRequest}
-\title{SetStickerSetThumbRequest R6 class}
+\title{SetStickerSetThumbRequest}
 \description{
-SetStickerSetThumbRequest R6 class
-
-SetStickerSetThumbRequest R6 class
+Telegram API type SetStickerSetThumbRequest
 }
 \details{
+SetStickerSetThumbRequest R6 class
+
 Represents a request to set a thumbnail for a sticker set.
 }
 \section{Methods}{

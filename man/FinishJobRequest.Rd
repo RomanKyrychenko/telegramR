@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_smsjobs.R
 \name{FinishJobRequest}
 \alias{FinishJobRequest}
-\title{FinishJobRequest R6 class}
+\title{FinishJobRequest}
 \description{
-FinishJobRequest R6 class
-
-FinishJobRequest R6 class
+Telegram API type FinishJobRequest
 }
 \details{
+FinishJobRequest R6 class
+
 Representation of the FinishJobRequest TLRequest.
 
 Encodes constructor id, flags (bit 0 for error), job_id and optional error.

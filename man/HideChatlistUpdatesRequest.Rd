@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_chatlists.R
 \name{HideChatlistUpdatesRequest}
 \alias{HideChatlistUpdatesRequest}
-\title{HideChatlistUpdatesRequest R6 class}
+\title{HideChatlistUpdatesRequest}
 \description{
-HideChatlistUpdatesRequest R6 class
-
-HideChatlistUpdatesRequest R6 class
+Telegram API type HideChatlistUpdatesRequest
 }
 \details{
+HideChatlistUpdatesRequest R6 class
+
 Request to hide updates for a chatlist.
 
 Serializes the constructor id followed by chatlist bytes.

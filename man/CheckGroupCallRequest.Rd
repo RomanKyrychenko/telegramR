@@ -2,9 +2,14 @@
 % Please edit documentation in R/functions_phone.R
 \name{CheckGroupCallRequest}
 \alias{CheckGroupCallRequest}
-\title{CheckGroupCallRequest R6 class}
+\title{CheckGroupCallRequest}
 \description{
 Represents CheckGroupCallRequest TLRequest.
+
+Telegram API type CheckGroupCallRequest
+}
+\details{
+CheckGroupCallRequest R6 class
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}

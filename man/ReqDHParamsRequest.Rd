@@ -2,14 +2,18 @@
 % Please edit documentation in R/tlobject.R, R/functions.R, R/requests.R
 \name{ReqDHParamsRequest}
 \alias{ReqDHParamsRequest}
-\title{ReqDHParamsRequest Class}
+\title{ReqDHParamsRequest}
 \description{
 A class representing the `ReqDHParamsRequest` object. This class is used to handle
 the serialization and deserialization of the `ReqDHParamsRequest` object.
 
+Telegram API type ReqDHParamsRequest
+
 Represents the TL request `ReqDHParamsRequest`.
 }
 \details{
+ReqDHParamsRequest Class
+
 Fields:
 - nonce: numeric/integer 128-bit nonce (placeholder representation)
 - server_nonce: numeric/integer 128-bit server nonce (placeholder)

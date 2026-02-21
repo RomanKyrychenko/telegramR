@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{RecoverPasswordRequest}
 \alias{RecoverPasswordRequest}
-\title{RecoverPasswordRequest R6 class}
+\title{RecoverPasswordRequest}
 \description{
-RecoverPasswordRequest R6 class
-
-RecoverPasswordRequest R6 class
+Telegram API type RecoverPasswordRequest
 }
 \details{
+RecoverPasswordRequest R6 class
+
 Represents the TLRequest auth.RecoverPasswordRequest.
 }
 \section{Public fields}{

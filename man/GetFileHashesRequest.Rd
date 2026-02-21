@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_upload.R
 \name{GetFileHashesRequest}
 \alias{GetFileHashesRequest}
-\title{GetFileHashesRequest R6 class}
+\title{GetFileHashesRequest}
 \description{
-GetFileHashesRequest R6 class
-
-GetFileHashesRequest R6 class
+Telegram API type GetFileHashesRequest
 }
 \details{
+GetFileHashesRequest R6 class
+
 Represents the TL request upload.GetFileHashesRequest.
 }
 \section{Public fields}{

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_smsjobs.R
 \name{GetSmsJobRequest}
 \alias{GetSmsJobRequest}
-\title{GetSmsJobRequest R6 class}
+\title{GetSmsJobRequest}
 \description{
-GetSmsJobRequest R6 class
-
-GetSmsJobRequest R6 class
+Telegram API type GetSmsJobRequest
 }
 \details{
+GetSmsJobRequest R6 class
+
 Representation of the GetSmsJobRequest TLRequest.
 
 This calls a helper serialize_bytes() to encode the job_id.

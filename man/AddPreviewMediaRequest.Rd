@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{AddPreviewMediaRequest}
 \alias{AddPreviewMediaRequest}
-\title{AddPreviewMediaRequest R6 class}
+\title{AddPreviewMediaRequest}
 \description{
 Methods:
 - initialize(bot, lang_code, media)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type AddPreviewMediaRequest
 }
 \details{
+AddPreviewMediaRequest R6 class
+
 Represents the AddPreviewMediaRequest TL request.
 }
 \examples{

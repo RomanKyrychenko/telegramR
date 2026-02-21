@@ -2,15 +2,19 @@
 % Please edit documentation in R/functions_bots.R
 \name{UpdateStarRefProgramRequest}
 \alias{UpdateStarRefProgramRequest}
-\title{UpdateStarRefProgramRequest R6 class}
+\title{UpdateStarRefProgramRequest}
 \description{
 Methods:
 - initialize(bot, commission_permille, duration_months = NULL)
 - resolve(client, utils)
 - to_list() -> list representation
 - to_bytes() -> raw vector bytes
+
+Telegram API type UpdateStarRefProgramRequest
 }
 \details{
+UpdateStarRefProgramRequest R6 class
+
 Represents the UpdateStarRefProgramRequest TL request.
 }
 \examples{

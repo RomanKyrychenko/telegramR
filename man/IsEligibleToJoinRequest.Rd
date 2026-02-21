@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_smsjobs.R
 \name{IsEligibleToJoinRequest}
 \alias{IsEligibleToJoinRequest}
-\title{IsEligibleToJoinRequest R6 class}
+\title{IsEligibleToJoinRequest}
 \description{
-IsEligibleToJoinRequest R6 class
-
-IsEligibleToJoinRequest R6 class
+Telegram API type IsEligibleToJoinRequest
 }
 \details{
+IsEligibleToJoinRequest R6 class
+
 Representation of the IsEligibleToJoinRequest TLRequest.
 }
 \section{Methods}{

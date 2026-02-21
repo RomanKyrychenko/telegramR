@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stickers.R
 \name{DeleteStickerSetRequest}
 \alias{DeleteStickerSetRequest}
-\title{DeleteStickerSetRequest R6 class}
+\title{DeleteStickerSetRequest}
 \description{
-DeleteStickerSetRequest R6 class
-
-DeleteStickerSetRequest R6 class
+Telegram API type DeleteStickerSetRequest
 }
 \details{
+DeleteStickerSetRequest R6 class
+
 Represents a request to delete a sticker set.
 }
 \section{Methods}{

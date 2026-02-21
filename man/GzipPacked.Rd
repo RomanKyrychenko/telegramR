@@ -2,11 +2,16 @@
 % Please edit documentation in R/gzippacked.R
 \name{GzipPacked}
 \alias{GzipPacked}
-\title{R6 Class Representing GzipPacked}
+\title{GzipPacked}
 \description{
 Represents a Telegram API object that handles gzipped data.
+
+Telegram API type GzipPacked
 }
 \details{
+R6 Class Representing GzipPacked
+
+
 This class provides methods to initialize, compress, decompress, serialize, and convert gzipped data to various formats.
 }
 \section{Super class}{

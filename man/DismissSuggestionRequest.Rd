@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{DismissSuggestionRequest}
 \alias{DismissSuggestionRequest}
-\title{DismissSuggestionRequest R6 class}
+\title{DismissSuggestionRequest}
 \description{
-DismissSuggestionRequest R6 class
-
-DismissSuggestionRequest R6 class
+Telegram API type DismissSuggestionRequest
 }
 \details{
+DismissSuggestionRequest R6 class
+
 Dismiss a suggestion for a peer with an associated suggestion string.
 }
 \section{Public fields}{

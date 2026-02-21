@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetTimezonesListRequest}
 \alias{GetTimezonesListRequest}
-\title{GetTimezonesListRequest R6 class}
+\title{GetTimezonesListRequest}
 \description{
-GetTimezonesListRequest R6 class
-
-GetTimezonesListRequest R6 class
+Telegram API type GetTimezonesListRequest
 }
 \details{
+GetTimezonesListRequest R6 class
+
 Request to get timezones list (possibly not modified).
 }
 \section{Public fields}{

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_upload.R
 \name{SaveFilePartRequest}
 \alias{SaveFilePartRequest}
-\title{SaveFilePartRequest R6 class}
+\title{SaveFilePartRequest}
 \description{
-SaveFilePartRequest R6 class
-
-SaveFilePartRequest R6 class
+Telegram API type SaveFilePartRequest
 }
 \details{
+SaveFilePartRequest R6 class
+
 R6 representation of the Telegram TL request upload.SaveFilePartRequest.
 }
 \section{Public fields}{

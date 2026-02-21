@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_chatlists.R
 \name{LeaveChatlistRequest}
 \alias{LeaveChatlistRequest}
-\title{LeaveChatlistRequest R6 class}
+\title{LeaveChatlistRequest}
 \description{
-LeaveChatlistRequest R6 class
-
-LeaveChatlistRequest R6 class
+Telegram API type LeaveChatlistRequest
 }
 \details{
+LeaveChatlistRequest R6 class
+
 Request to leave a chatlist for specific peers.
 }
 \section{Public fields}{

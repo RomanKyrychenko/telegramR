@@ -2,11 +2,16 @@
 % Please edit documentation in R/abstract.R
 \name{Session}
 \alias{Session}
-\title{R6 Class Representing a Session}
+\title{Session}
 \description{
 Represents an abstract base class for managing session-related data.
+
+Telegram API type Session
 }
 \details{
+R6 Class Representing a Session
+
+
 This class defines the interface for session management, including
 methods for handling data center information, authentication keys,
 update states, and file caching.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{SetBotInfoRequest}
 \alias{SetBotInfoRequest}
-\title{SetBotInfoRequest R6 class}
+\title{SetBotInfoRequest}
 \description{
 Methods:
 - initialize(lang_code, bot = NULL, name = NULL, about = NULL, description = NULL)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type SetBotInfoRequest
 }
 \details{
+SetBotInfoRequest R6 class
+
 Represents the SetBotInfoRequest TL request.
 }
 \examples{

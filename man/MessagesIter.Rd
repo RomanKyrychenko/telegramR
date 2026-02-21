@@ -2,17 +2,62 @@
 % Please edit documentation in R/messages.R
 \name{MessagesIter}
 \alias{MessagesIter}
-\title{MessagesIter R6 class}
+\title{MessagesIter}
 \description{
-MessagesIter R6 class
-
-MessagesIter R6 class
+Telegram API type MessagesIter
 }
 \details{
+MessagesIter R6 class
+
 Iterator over messages with support for search, filters, reply threads,
 scheduled history, ranges (min_id/max_id), and reverse iteration.
 This is a translation of the original async RequestIter-based logic into R6.
 It delegates fetching to the provided client via iter_messages().
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{client}}{Client used to perform requests}
+
+\item{\code{entity_input}}{Input entity (resolved via client get_input_entity if available)}
+
+\item{\code{is_global}}{Whether this is a global search (entity is NULL)}
+
+\item{\code{reverse}}{Whether to iterate in reverse}
+
+\item{\code{limit}}{Hard limit of messages to retrieve}
+
+\item{\code{left}}{Remaining messages to retrieve}
+
+\item{\code{wait_time}}{Optional per-request wait time (seconds)}
+
+\item{\code{add_offset}}{Add offset used by server requests}
+
+\item{\code{max_id}}{Upper bound for message id (exclusive)}
+
+\item{\code{min_id}}{Lower bound for message id (exclusive)}
+
+\item{\code{last_id}}{Last seen message id (used to avoid duplicates/order issues)}
+
+\item{\code{total}}{Total messages reported by the server (when available)}
+
+\item{\code{request}}{Request parameters tracked between chunks}
+
+\item{\code{buffer}}{Internal buffer of fetched messages}
+
+\item{\code{exhausted}}{Exhausted flag}
+
+\item{\code{from_id}}{From-user peer id for local filtering when needed}
+
+\item{\code{search}}{Optional search query}
+
+\item{\code{filter}}{Optional filter object}
+
+\item{\code{reply_to}}{Optional reply thread id}
+
+\item{\code{offset_date}}{Optional offset date}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

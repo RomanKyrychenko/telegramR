@@ -5,6 +5,8 @@
 \title{ChangeStarsSubscriptionRequest}
 \description{
 Represents a request to change a stars subscription. Inherits from TLRequest.
+
+Telegram API type ChangeStarsSubscriptionRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ChangeStarsSubscriptionRequest}

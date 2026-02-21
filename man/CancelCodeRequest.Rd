@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{CancelCodeRequest}
 \alias{CancelCodeRequest}
-\title{CancelCodeRequest R6 class}
+\title{CancelCodeRequest}
 \description{
-CancelCodeRequest R6 class
-
-CancelCodeRequest R6 class
+Telegram API type CancelCodeRequest
 }
 \details{
+CancelCodeRequest R6 class
+
 Represents the TLRequest auth.CancelCodeRequest.
 }
 \section{Public fields}{

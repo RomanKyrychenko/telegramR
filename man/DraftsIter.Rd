@@ -2,9 +2,14 @@
 % Please edit documentation in R/dialogs.R
 \name{DraftsIter}
 \alias{DraftsIter}
-\title{DraftsIter class}
+\title{DraftsIter}
 \description{
 An iterator for Telegram drafts.
+
+Telegram API type DraftsIter
+}
+\details{
+DraftsIter class
 }
 \section{Super class}{
 \code{\link[telegramR:RequestIter]{telegramR::RequestIter}} -> \code{DraftsIter}

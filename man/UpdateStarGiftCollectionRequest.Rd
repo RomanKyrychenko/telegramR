@@ -5,6 +5,8 @@
 \title{UpdateStarGiftCollectionRequest}
 \description{
 Represents a request to update a star gift collection. Inherits from TLRequest.
+
+Telegram API type UpdateStarGiftCollectionRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{UpdateStarGiftCollectionRequest}

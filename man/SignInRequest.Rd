@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{SignInRequest}
 \alias{SignInRequest}
-\title{SignInRequest R6 class}
+\title{SignInRequest}
 \description{
-SignInRequest R6 class
-
-SignInRequest R6 class
+Telegram API type SignInRequest
 }
 \details{
+SignInRequest R6 class
+
 Represents the TLRequest auth.SignInRequest.
 }
 \section{Public fields}{

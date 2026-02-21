@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{SetBotGroupDefaultAdminRightsRequest}
 \alias{SetBotGroupDefaultAdminRightsRequest}
-\title{SetBotGroupDefaultAdminRightsRequest R6 class}
+\title{SetBotGroupDefaultAdminRightsRequest}
 \description{
 Methods:
 - initialize(admin_rights)
@@ -10,8 +10,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type SetBotGroupDefaultAdminRightsRequest
 }
 \details{
+SetBotGroupDefaultAdminRightsRequest R6 class
+
 Represents the SetBotGroupDefaultAdminRightsRequest TL request.
 }
 \examples{

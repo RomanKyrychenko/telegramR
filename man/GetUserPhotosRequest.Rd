@@ -9,8 +9,12 @@ A R6 object inheriting from TLRequest.
 \description{
 Request to get user photos. Fields correspond to the TL schema: user_id (input user),
 offset (int), max_id (long), limit (int).
+
+Telegram API type GetUserPhotosRequest
 }
 \details{
+GetUserPhotosRequest
+
 R6 translation of the TLRequest GetUserPhotosRequest.
 }
 \section{Methods}{

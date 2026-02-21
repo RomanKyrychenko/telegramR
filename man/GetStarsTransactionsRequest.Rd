@@ -5,6 +5,8 @@
 \title{GetStarsTransactionsRequest}
 \description{
 Represents a request to get stars transactions. Inherits from TLRequest.
+
+Telegram API type GetStarsTransactionsRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetStarsTransactionsRequest}

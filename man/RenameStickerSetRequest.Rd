@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stickers.R
 \name{RenameStickerSetRequest}
 \alias{RenameStickerSetRequest}
-\title{RenameStickerSetRequest R6 class}
+\title{RenameStickerSetRequest}
 \description{
-RenameStickerSetRequest R6 class
-
-RenameStickerSetRequest R6 class
+Telegram API type RenameStickerSetRequest
 }
 \details{
+RenameStickerSetRequest R6 class
+
 Represents a request to rename a sticker set.
 }
 \section{Methods}{

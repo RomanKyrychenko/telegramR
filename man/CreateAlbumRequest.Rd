@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stories.R
 \name{CreateAlbumRequest}
 \alias{CreateAlbumRequest}
-\title{CreateAlbumRequest R6 class}
+\title{CreateAlbumRequest}
 \description{
-CreateAlbumRequest R6 class
-
-CreateAlbumRequest R6 class
+Telegram API type CreateAlbumRequest
 }
 \details{
+CreateAlbumRequest R6 class
+
 Request to create a story album for a given peer with a title and list of story ids.
 Returns StoryAlbum.
 }

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{SaveAppLogRequest}
 \alias{SaveAppLogRequest}
-\title{SaveAppLogRequest R6 class}
+\title{SaveAppLogRequest}
 \description{
-SaveAppLogRequest R6 class
-
-SaveAppLogRequest R6 class
+Telegram API type SaveAppLogRequest
 }
 \details{
+SaveAppLogRequest R6 class
+
 Request to save application log events.
 }
 \section{Public fields}{

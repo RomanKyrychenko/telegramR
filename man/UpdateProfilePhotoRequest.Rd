@@ -9,8 +9,12 @@ A R6 object inheriting from TLRequest.
 \description{
 Represents a request to update a profile photo. Fields correspond to the TL
 schema: id (input photo), fallback (optional logical), bot (optional input user).
+
+Telegram API type UpdateProfilePhotoRequest
 }
 \details{
+UpdateProfilePhotoRequest
+
 R6 translation of the TLRequest UpdateProfilePhotoRequest.
 }
 \section{Methods}{

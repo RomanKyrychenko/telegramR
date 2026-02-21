@@ -2,10 +2,15 @@
 % Please edit documentation in R/tlobject.R
 \name{TLRequest}
 \alias{TLRequest}
-\title{TLRequest Class}
+\title{TLRequest}
 \description{
 A class representing a Telegram Layer (TL) request. This class extends the `TLObject` class
 and provides methods for reading results and resolving requests.
+
+Telegram API type TLRequest
+}
+\details{
+TLRequest Class
 }
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{TLRequest}

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stickers.R
 \name{ChangeStickerRequest}
 \alias{ChangeStickerRequest}
-\title{ChangeStickerRequest R6 class}
+\title{ChangeStickerRequest}
 \description{
-ChangeStickerRequest R6 class
-
-ChangeStickerRequest R6 class
+Telegram API type ChangeStickerRequest
 }
 \details{
+ChangeStickerRequest R6 class
+
 Represents a request to change sticker attributes (emoji, mask coordinates, keywords).
 }
 \section{Methods}{

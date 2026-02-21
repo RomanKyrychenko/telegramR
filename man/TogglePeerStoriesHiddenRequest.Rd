@@ -3,7 +3,7 @@
 \docType{class}
 \name{TogglePeerStoriesHiddenRequest}
 \alias{TogglePeerStoriesHiddenRequest}
-\title{TogglePeerStoriesHiddenRequest R6 class}
+\title{TogglePeerStoriesHiddenRequest}
 \format{
 An R6 object inheriting from TLRequest (if available)
 }
@@ -11,11 +11,11 @@ An R6 object inheriting from TLRequest (if available)
 TogglePeerStoriesHiddenRequest$new(peer, hidden)
 }
 \description{
-TogglePeerStoriesHiddenRequest R6 class
-
-TogglePeerStoriesHiddenRequest R6 class
+Telegram API type TogglePeerStoriesHiddenRequest
 }
 \details{
+TogglePeerStoriesHiddenRequest R6 class
+
 Represents a TL request to toggle hidden state for stories of a particular peer.
 }
 \section{Super classes}{

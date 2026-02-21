@@ -13,10 +13,14 @@ Methods:
 - to_list() -> list representation
 - to_bytes() -> raw vector bytes
 
+Telegram API type ToggleUsernameRequest
+
 Represents a request to toggle the active status of a username in a channel.
 }
 \details{
 This class handles toggling the active status of a username.
+
+ToggleUsernameRequest R6 class
 
 Represents the ToggleUsernameRequest TL request.
 }

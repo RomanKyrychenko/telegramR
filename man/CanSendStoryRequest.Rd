@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stories.R
 \name{CanSendStoryRequest}
 \alias{CanSendStoryRequest}
-\title{CanSendStoryRequest R6 class}
+\title{CanSendStoryRequest}
 \description{
-CanSendStoryRequest R6 class
-
-CanSendStoryRequest R6 class
+Telegram API type CanSendStoryRequest
 }
 \details{
+CanSendStoryRequest R6 class
+
 Request to check whether a story can be sent to a given peer.
 Returns stories.CanSendStoryCount.
 }

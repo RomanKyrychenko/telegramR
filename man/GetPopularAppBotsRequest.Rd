@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{GetPopularAppBotsRequest}
 \alias{GetPopularAppBotsRequest}
-\title{GetPopularAppBotsRequest R6 class}
+\title{GetPopularAppBotsRequest}
 \description{
 Methods:
 - initialize(offset, limit)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type GetPopularAppBotsRequest
 }
 \details{
+GetPopularAppBotsRequest R6 class
+
 Represents the GetPopularAppBotsRequest TL request.
 }
 \examples{

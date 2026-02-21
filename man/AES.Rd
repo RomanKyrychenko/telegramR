@@ -2,11 +2,16 @@
 % Please edit documentation in R/aes.R
 \name{AES}
 \alias{AES}
-\title{R6 Class Representing AES Encryption and Decryption}
+\title{AES}
 \description{
 Provides an interface to encrypt and decrypt text using the AES IGE mode.
+
+Telegram API type AES
 }
 \details{
+R6 Class Representing AES Encryption and Decryption
+
+
 A pure R implementation of AES IGE mode encryption and decryption.
 }
 \examples{

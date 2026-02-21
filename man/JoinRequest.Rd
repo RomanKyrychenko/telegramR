@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_smsjobs.R
 \name{JoinRequest}
 \alias{JoinRequest}
-\title{JoinRequest R6 class}
+\title{JoinRequest}
 \description{
-JoinRequest R6 class
-
-JoinRequest R6 class
+Telegram API type JoinRequest
 }
 \details{
+JoinRequest R6 class
+
 Representation of the JoinRequest TLRequest.
 }
 \section{Methods}{

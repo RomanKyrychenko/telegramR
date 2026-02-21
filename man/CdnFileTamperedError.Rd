@@ -6,6 +6,11 @@
 \description{
 Occurs when there's a hash mismatch between the decrypted CDN file
 and its expected hash.
+
+Telegram API type CdnFileTamperedError
+}
+\details{
+CdnFileTamperedError
 }
 \section{Super classes}{
 \code{\link[telegramR:Exception]{telegramR::Exception}} -> \code{\link[telegramR:SecurityError]{telegramR::SecurityError}} -> \code{CdnFileTamperedError}

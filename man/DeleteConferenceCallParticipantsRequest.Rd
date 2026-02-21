@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{DeleteConferenceCallParticipantsRequest}
 \alias{DeleteConferenceCallParticipantsRequest}
-\title{DeleteConferenceCallParticipantsRequest R6 class}
+\title{DeleteConferenceCallParticipantsRequest}
 \description{
-DeleteConferenceCallParticipantsRequest R6 class
-
-DeleteConferenceCallParticipantsRequest R6 class
+Telegram API type DeleteConferenceCallParticipantsRequest
 }
 \details{
+DeleteConferenceCallParticipantsRequest R6 class
+
 Represents DeleteConferenceCallParticipantsRequest TLRequest.
 }
 \section{Public fields}{

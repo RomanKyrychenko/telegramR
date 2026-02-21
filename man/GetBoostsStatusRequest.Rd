@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_premium.R
 \name{GetBoostsStatusRequest}
 \alias{GetBoostsStatusRequest}
-\title{GetBoostsStatusRequest R6 class}
+\title{GetBoostsStatusRequest}
 \description{
-GetBoostsStatusRequest R6 class
-
-GetBoostsStatusRequest R6 class
+Telegram API type GetBoostsStatusRequest
 }
 \details{
+GetBoostsStatusRequest R6 class
+
 Representation of the TL request "GetBoostsStatusRequest".
 }
 \section{Public fields}{

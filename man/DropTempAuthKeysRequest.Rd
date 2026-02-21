@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{DropTempAuthKeysRequest}
 \alias{DropTempAuthKeysRequest}
-\title{DropTempAuthKeysRequest R6 class}
+\title{DropTempAuthKeysRequest}
 \description{
-DropTempAuthKeysRequest R6 class
-
-DropTempAuthKeysRequest R6 class
+Telegram API type DropTempAuthKeysRequest
 }
 \details{
+DropTempAuthKeysRequest R6 class
+
 Represents the TLRequest auth.DropTempAuthKeysRequest.
 }
 \section{Public fields}{

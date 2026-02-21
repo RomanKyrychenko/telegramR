@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_chatlists.R
 \name{GetLeaveChatlistSuggestionsRequest}
 \alias{GetLeaveChatlistSuggestionsRequest}
-\title{GetLeaveChatlistSuggestionsRequest R6 class}
+\title{GetLeaveChatlistSuggestionsRequest}
 \description{
-GetLeaveChatlistSuggestionsRequest R6 class
-
-GetLeaveChatlistSuggestionsRequest R6 class
+Telegram API type GetLeaveChatlistSuggestionsRequest
 }
 \details{
+GetLeaveChatlistSuggestionsRequest R6 class
+
 Request to get suggestions of peers to leave from a chatlist.
 
 Serializes the constructor id followed by chatlist bytes.

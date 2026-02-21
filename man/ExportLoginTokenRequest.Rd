@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{ExportLoginTokenRequest}
 \alias{ExportLoginTokenRequest}
-\title{ExportLoginTokenRequest R6 class}
+\title{ExportLoginTokenRequest}
 \description{
-ExportLoginTokenRequest R6 class
-
-ExportLoginTokenRequest R6 class
+Telegram API type ExportLoginTokenRequest
 }
 \details{
+ExportLoginTokenRequest R6 class
+
 Represents the TLRequest auth.ExportLoginTokenRequest.
 }
 \section{Public fields}{

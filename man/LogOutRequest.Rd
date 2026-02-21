@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{LogOutRequest}
 \alias{LogOutRequest}
-\title{LogOutRequest R6 class}
+\title{LogOutRequest}
 \description{
-LogOutRequest R6 class
-
-LogOutRequest R6 class
+Telegram API type LogOutRequest
 }
 \details{
+LogOutRequest R6 class
+
 Represents the TLRequest auth.LogOutRequest.
 }
 \section{Public fields}{

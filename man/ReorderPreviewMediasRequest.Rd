@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{ReorderPreviewMediasRequest}
 \alias{ReorderPreviewMediasRequest}
-\title{ReorderPreviewMediasRequest R6 class}
+\title{ReorderPreviewMediasRequest}
 \description{
 Methods:
 - initialize(bot, lang_code, order)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type ReorderPreviewMediasRequest
 }
 \details{
+ReorderPreviewMediasRequest R6 class
+
 Represents the ReorderPreviewMediasRequest TL request.
 }
 \examples{

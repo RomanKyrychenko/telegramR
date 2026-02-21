@@ -5,6 +5,8 @@
 \title{AssignPlayMarketTransactionRequest}
 \description{
 Represents a request to assign a Play Market transaction. Inherits from TLRequest.
+
+Telegram API type AssignPlayMarketTransactionRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{AssignPlayMarketTransactionRequest}

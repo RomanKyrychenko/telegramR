@@ -9,10 +9,14 @@ R6 class representing a ReorderUsernamesRequest.
 
 Represents the ReorderUsernamesRequest TL request.
 
+Telegram API type ReorderUsernamesRequest
+
 Represents a request to reorder usernames in a channel.
 }
 \details{
 This class handles reordering usernames.
+
+ReorderUsernamesRequest R6 class
 }
 \examples{
 # o <- ReorderUsernamesRequest$new(bot, list("u1", "u2"))

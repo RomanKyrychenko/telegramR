@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stories.R
 \name{GetAllStoriesRequest}
 \alias{GetAllStoriesRequest}
-\title{GetAllStoriesRequest R6 class}
+\title{GetAllStoriesRequest}
 \description{
-GetAllStoriesRequest R6 class
-
-GetAllStoriesRequest R6 class
+Telegram API type GetAllStoriesRequest
 }
 \details{
+GetAllStoriesRequest R6 class
+
 Request to get all stories with optional pagination/visibility/state.
 Returns stories.AllStories (or AllStoriesNotModified).
 }

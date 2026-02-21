@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetAppUpdateRequest}
 \alias{GetAppUpdateRequest}
-\title{GetAppUpdateRequest R6 class}
+\title{GetAppUpdateRequest}
 \description{
-GetAppUpdateRequest R6 class
-
-GetAppUpdateRequest R6 class
+Telegram API type GetAppUpdateRequest
 }
 \details{
+GetAppUpdateRequest R6 class
+
 Request to get app update info.
 }
 \section{Public fields}{

@@ -5,6 +5,8 @@
 \title{GetResaleStarGiftsRequest}
 \description{
 Represents a request to get resale star gifts. Inherits from TLRequest.
+
+Telegram API type GetResaleStarGiftsRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetResaleStarGiftsRequest}

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stories.R
 \name{GetPeerMaxIDsRequest}
 \alias{GetPeerMaxIDsRequest}
-\title{GetPeerMaxIDsRequest R6 class}
+\title{GetPeerMaxIDsRequest}
 \description{
-GetPeerMaxIDsRequest R6 class
-
-GetPeerMaxIDsRequest R6 class
+Telegram API type GetPeerMaxIDsRequest
 }
 \details{
+GetPeerMaxIDsRequest R6 class
+
 Request to get maximum IDs for a vector of input peers. Returns Vector<int>.
 }
 \section{Super classes}{

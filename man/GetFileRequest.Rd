@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_upload.R
 \name{GetFileRequest}
 \alias{GetFileRequest}
-\title{GetFileRequest R6 class}
+\title{GetFileRequest}
 \description{
-GetFileRequest R6 class
-
-GetFileRequest R6 class
+Telegram API type GetFileRequest
 }
 \details{
+GetFileRequest R6 class
+
 Represents the TL request upload.GetFileRequest.
 }
 \section{Public fields}{

@@ -12,8 +12,12 @@ SendReactionRequest$new(peer, story_id, reaction, add_to_recent = NULL)
 }
 \description{
 Represents a request to send a reaction. This class inherits from TLRequest.
+
+Telegram API type SendReactionRequest
 }
 \details{
+SendReactionRequest R6 class
+
 Represents a TL request to send a reaction to a story.
 }
 \section{Super classes}{

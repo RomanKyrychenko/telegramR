@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{StartScheduledGroupCallRequest}
 \alias{StartScheduledGroupCallRequest}
-\title{StartScheduledGroupCallRequest R6 class}
+\title{StartScheduledGroupCallRequest}
 \description{
-StartScheduledGroupCallRequest R6 class
-
-StartScheduledGroupCallRequest R6 class
+Telegram API type StartScheduledGroupCallRequest
 }
 \details{
+StartScheduledGroupCallRequest R6 class
+
 Represents StartScheduledGroupCallRequest TLRequest.
 }
 \section{Public fields}{

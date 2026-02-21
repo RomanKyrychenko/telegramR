@@ -2,11 +2,9 @@
 % Please edit documentation in R/aesctr.R
 \name{AESModeCTR}
 \alias{AESModeCTR}
-\title{AES CTR Mode R6 Class}
+\title{AESModeCTR}
 \description{
 A wrapper around AES CTR mode with custom IV using the `digest` library.
-}
-\details{
 This class provides methods to encrypt and decrypt data using AES CTR mode.
 It initializes with a key and a 16-byte initialization vector (IV).
 }

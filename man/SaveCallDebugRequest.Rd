@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{SaveCallDebugRequest}
 \alias{SaveCallDebugRequest}
-\title{SaveCallDebugRequest R6 class}
+\title{SaveCallDebugRequest}
 \description{
-SaveCallDebugRequest R6 class
-
-SaveCallDebugRequest R6 class
+Telegram API type SaveCallDebugRequest
 }
 \details{
+SaveCallDebugRequest R6 class
+
 Represents SaveCallDebugRequest TLRequest.
 }
 \section{Public fields}{

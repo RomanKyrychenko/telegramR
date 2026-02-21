@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{DeletePreviewMediaRequest}
 \alias{DeletePreviewMediaRequest}
-\title{DeletePreviewMediaRequest R6 class}
+\title{DeletePreviewMediaRequest}
 \description{
 Methods:
 - initialize(bot, lang_code, media)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type DeletePreviewMediaRequest
 }
 \details{
+DeletePreviewMediaRequest R6 class
+
 Represents the DeletePreviewMediaRequest TL request.
 }
 \examples{

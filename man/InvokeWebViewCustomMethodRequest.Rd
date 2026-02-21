@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{InvokeWebViewCustomMethodRequest}
 \alias{InvokeWebViewCustomMethodRequest}
-\title{InvokeWebViewCustomMethodRequest R6 class}
+\title{InvokeWebViewCustomMethodRequest}
 \description{
 Methods:
 - initialize(bot, custom_method, params)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type InvokeWebViewCustomMethodRequest
 }
 \details{
+InvokeWebViewCustomMethodRequest R6 class
+
 Represents the InvokeWebViewCustomMethodRequest TL request.
 }
 \examples{

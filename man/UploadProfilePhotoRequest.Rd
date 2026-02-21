@@ -10,8 +10,12 @@ A R6 object inheriting from TLRequest.
 Represents a request to upload a profile photo. Fields correspond to
 the TL schema: fallback, bot, file, video, video_start_ts,
 video_emoji_markup.
+
+Telegram API type UploadProfilePhotoRequest
 }
 \details{
+UploadProfilePhotoRequest
+
 R6 translation of the TLRequest UploadProfilePhotoRequest.
 }
 \section{Methods}{

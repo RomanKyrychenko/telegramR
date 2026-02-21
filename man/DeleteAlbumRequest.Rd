@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stories.R
 \name{DeleteAlbumRequest}
 \alias{DeleteAlbumRequest}
-\title{DeleteAlbumRequest R6 class}
+\title{DeleteAlbumRequest}
 \description{
-DeleteAlbumRequest R6 class
-
-DeleteAlbumRequest R6 class
+Telegram API type DeleteAlbumRequest
 }
 \details{
+DeleteAlbumRequest R6 class
+
 Request to delete an album for a given peer. Returns Bool.
 }
 \section{Super classes}{

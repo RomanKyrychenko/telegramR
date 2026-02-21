@@ -2,10 +2,19 @@
 % Please edit documentation in R/tlobject.R, R/types.R
 \name{PQInnerData}
 \alias{PQInnerData}
-\title{PQInnerData Class}
+\title{PQInnerData}
 \description{
 A class representing the `PQInnerData` object. This class is used to handle
 the serialization and deserialization of the `PQInnerData` object.
+
+Telegram API type PQInnerData
+
+Telegram API type PQInnerData
+}
+\details{
+PQInnerData Class
+
+PQInnerData
 
 This class has 4 constructors:
 - \code{\link{PQInnerData}()}

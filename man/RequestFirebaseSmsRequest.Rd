@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{RequestFirebaseSmsRequest}
 \alias{RequestFirebaseSmsRequest}
-\title{RequestFirebaseSmsRequest R6 class}
+\title{RequestFirebaseSmsRequest}
 \description{
-RequestFirebaseSmsRequest R6 class
-
-RequestFirebaseSmsRequest R6 class
+Telegram API type RequestFirebaseSmsRequest
 }
 \details{
+RequestFirebaseSmsRequest R6 class
+
 Represents the TLRequest auth.RequestFirebaseSmsRequest.
 
 Fields:

@@ -2,16 +2,16 @@
 % Please edit documentation in R/functions_fragment.R
 \name{GetCollectibleInfoRequest}
 \alias{GetCollectibleInfoRequest}
-\title{GetCollectibleInfoRequest R6 class}
+\title{GetCollectibleInfoRequest}
 \value{
 R6 object of class GetCollectibleInfoRequest
 }
 \description{
-GetCollectibleInfoRequest R6 class
-
-GetCollectibleInfoRequest R6 class
+Telegram API type GetCollectibleInfoRequest
 }
 \details{
+GetCollectibleInfoRequest R6 class
+
 Request to retrieve collectible information (fragment.CollectibleInfo).
 }
 \section{Super classes}{

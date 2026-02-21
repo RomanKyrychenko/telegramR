@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{SaveDefaultGroupCallJoinAsRequest}
 \alias{SaveDefaultGroupCallJoinAsRequest}
-\title{SaveDefaultGroupCallJoinAsRequest R6 class}
+\title{SaveDefaultGroupCallJoinAsRequest}
 \description{
-SaveDefaultGroupCallJoinAsRequest R6 class
-
-SaveDefaultGroupCallJoinAsRequest R6 class
+Telegram API type SaveDefaultGroupCallJoinAsRequest
 }
 \details{
+SaveDefaultGroupCallJoinAsRequest R6 class
+
 Represents SaveDefaultGroupCallJoinAsRequest TLRequest.
 }
 \section{Public fields}{

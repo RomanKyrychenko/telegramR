@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_upload.R
 \name{GetCdnFileRequest}
 \alias{GetCdnFileRequest}
-\title{GetCdnFileRequest R6 class}
+\title{GetCdnFileRequest}
 \description{
-GetCdnFileRequest R6 class
-
-GetCdnFileRequest R6 class
+Telegram API type GetCdnFileRequest
 }
 \details{
+GetCdnFileRequest R6 class
+
 Represents the TL request upload.GetCdnFileRequest.
 }
 \section{Public fields}{

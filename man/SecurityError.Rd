@@ -5,6 +5,11 @@
 \title{SecurityError}
 \description{
 Generic security error, mostly used when generating a new AuthKey.
+
+Telegram API type SecurityError
+}
+\details{
+SecurityError
 }
 \section{Super class}{
 \code{\link[telegramR:Exception]{telegramR::Exception}} -> \code{SecurityError}

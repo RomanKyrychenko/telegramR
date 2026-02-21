@@ -5,6 +5,8 @@
 \title{GetGiveawayInfoRequest}
 \description{
 Represents a request to get giveaway info. Inherits from TLRequest.
+
+Telegram API type GetGiveawayInfoRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetGiveawayInfoRequest}

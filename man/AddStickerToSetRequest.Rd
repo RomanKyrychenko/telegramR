@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stickers.R
 \name{AddStickerToSetRequest}
 \alias{AddStickerToSetRequest}
-\title{AddStickerToSetRequest R6 class}
+\title{AddStickerToSetRequest}
 \description{
-AddStickerToSetRequest R6 class
-
-AddStickerToSetRequest R6 class
+Telegram API type AddStickerToSetRequest
 }
 \details{
+AddStickerToSetRequest R6 class
+
 Represents a request to add a sticker to a sticker set.
 }
 \section{Methods}{

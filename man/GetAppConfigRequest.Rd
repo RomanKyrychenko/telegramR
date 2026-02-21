@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetAppConfigRequest}
 \alias{GetAppConfigRequest}
-\title{GetAppConfigRequest R6 class}
+\title{GetAppConfigRequest}
 \description{
-GetAppConfigRequest R6 class
-
-GetAppConfigRequest R6 class
+Telegram API type GetAppConfigRequest
 }
 \details{
+GetAppConfigRequest R6 class
+
 Request to get app configuration (possibly not modified).
 }
 \section{Public fields}{

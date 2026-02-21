@@ -2,9 +2,14 @@
 % Please edit documentation in R/updates.R
 \name{EventBuilderDict}
 \alias{EventBuilderDict}
-\title{EventBuilderDict class}
+\title{EventBuilderDict}
 \description{
 Handles the building of events from updates and other data.
+
+Telegram API type EventBuilderDict
+}
+\details{
+EventBuilderDict class
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}

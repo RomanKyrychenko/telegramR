@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{AcceptTermsOfServiceRequest}
 \alias{AcceptTermsOfServiceRequest}
-\title{AcceptTermsOfServiceRequest R6 class}
+\title{AcceptTermsOfServiceRequest}
 \description{
-AcceptTermsOfServiceRequest R6 class
-
-AcceptTermsOfServiceRequest R6 class
+Telegram API type AcceptTermsOfServiceRequest
 }
 \details{
+AcceptTermsOfServiceRequest R6 class
+
 Accept terms of service (help.TermsOfService). Serializes a DataJSON id.
 }
 \section{Public fields}{

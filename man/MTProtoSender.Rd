@@ -2,13 +2,13 @@
 % Please edit documentation in R/mtprotosender.R
 \name{MTProtoSender}
 \alias{MTProtoSender}
-\title{MTProto Mobile Protocol sender}
+\title{MTProtoSender}
 \description{
-MTProto Mobile Protocol sender
-
-MTProto Mobile Protocol sender
+Telegram API type MTProtoSender
 }
 \details{
+MTProto Mobile Protocol sender
+
 This class is responsible for wrapping requests into TLMessage objects,
 sending them over the network and receiving them in a safe manner.
 Automatic reconnection due to temporary network issues is handled by this class,

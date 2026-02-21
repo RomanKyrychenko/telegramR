@@ -5,6 +5,8 @@
 \title{EditConnectedStarRefBotRequest}
 \description{
 Represents a request to edit a connected star ref bot. Inherits from TLRequest.
+
+Telegram API type EditConnectedStarRefBotRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{EditConnectedStarRefBotRequest}

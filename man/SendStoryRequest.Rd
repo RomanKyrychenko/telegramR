@@ -3,7 +3,7 @@
 \docType{class}
 \name{SendStoryRequest}
 \alias{SendStoryRequest}
-\title{SendStoryRequest R6 class}
+\title{SendStoryRequest}
 \format{
 An R6 object inheriting from TLRequest
 }
@@ -14,11 +14,11 @@ SendStoryRequest$new(peer, media, privacy_rules, pinned = NULL, noforwards = NUL
                             fwd_from_id = NULL, fwd_from_story = NULL, albums = NULL)
 }
 \description{
-SendStoryRequest R6 class
-
-SendStoryRequest R6 class
+Telegram API type SendStoryRequest
 }
 \details{
+SendStoryRequest R6 class
+
 Represents a TL request to send a story.
 }
 \section{Super classes}{

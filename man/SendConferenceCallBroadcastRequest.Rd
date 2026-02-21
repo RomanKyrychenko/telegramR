@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{SendConferenceCallBroadcastRequest}
 \alias{SendConferenceCallBroadcastRequest}
-\title{SendConferenceCallBroadcastRequest R6 class}
+\title{SendConferenceCallBroadcastRequest}
 \description{
-SendConferenceCallBroadcastRequest R6 class
-
-SendConferenceCallBroadcastRequest R6 class
+Telegram API type SendConferenceCallBroadcastRequest
 }
 \details{
+SendConferenceCallBroadcastRequest R6 class
+
 Represents SendConferenceCallBroadcastRequest TLRequest.
 }
 \section{Public fields}{

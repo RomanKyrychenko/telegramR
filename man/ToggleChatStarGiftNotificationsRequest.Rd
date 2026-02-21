@@ -5,6 +5,8 @@
 \title{ToggleChatStarGiftNotificationsRequest}
 \description{
 Represents a request to toggle chat star gift notifications. Inherits from TLRequest.
+
+Telegram API type ToggleChatStarGiftNotificationsRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ToggleChatStarGiftNotificationsRequest}

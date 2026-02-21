@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{SendSignalingDataRequest}
 \alias{SendSignalingDataRequest}
-\title{SendSignalingDataRequest R6 class}
+\title{SendSignalingDataRequest}
 \description{
-SendSignalingDataRequest R6 class
-
-SendSignalingDataRequest R6 class
+Telegram API type SendSignalingDataRequest
 }
 \details{
+SendSignalingDataRequest R6 class
+
 Represents SendSignalingDataRequest TLRequest.
 }
 \section{Public fields}{

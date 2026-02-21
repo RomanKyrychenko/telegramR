@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_upload.R
 \name{SaveBigFilePartRequest}
 \alias{SaveBigFilePartRequest}
-\title{SaveBigFilePartRequest R6 class}
+\title{SaveBigFilePartRequest}
 \description{
-SaveBigFilePartRequest R6 class
-
-SaveBigFilePartRequest R6 class
+Telegram API type SaveBigFilePartRequest
 }
 \details{
+SaveBigFilePartRequest R6 class
+
 Represents the TL request upload.SaveBigFilePartRequest.
 }
 \section{Public fields}{

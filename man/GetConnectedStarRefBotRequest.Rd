@@ -5,6 +5,8 @@
 \title{GetConnectedStarRefBotRequest}
 \description{
 Represents a request to get a connected star ref bot. Inherits from TLRequest.
+
+Telegram API type GetConnectedStarRefBotRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetConnectedStarRefBotRequest}

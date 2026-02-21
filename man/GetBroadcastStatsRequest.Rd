@@ -4,11 +4,11 @@
 \alias{GetBroadcastStatsRequest}
 \title{GetBroadcastStatsRequest}
 \description{
-GetBroadcastStatsRequest
-
-GetBroadcastStatsRequest
+Telegram API type GetBroadcastStatsRequest
 }
 \details{
+GetBroadcastStatsRequest
+
 R6 class representing a GetBroadcastStatsRequest TLRequest.
 }
 \section{Super classes}{

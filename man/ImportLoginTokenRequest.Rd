@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{ImportLoginTokenRequest}
 \alias{ImportLoginTokenRequest}
-\title{ImportLoginTokenRequest R6 class}
+\title{ImportLoginTokenRequest}
 \description{
-ImportLoginTokenRequest R6 class
-
-ImportLoginTokenRequest R6 class
+Telegram API type ImportLoginTokenRequest
 }
 \details{
+ImportLoginTokenRequest R6 class
+
 Represents the TLRequest auth.ImportLoginTokenRequest.
 }
 \section{Public fields}{

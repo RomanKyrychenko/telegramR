@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_langpack.R
 \name{GetStringsRequest}
 \alias{GetStringsRequest}
-\title{GetStringsRequest R6 class}
+\title{GetStringsRequest}
 \description{
-GetStringsRequest R6 class
-
-GetStringsRequest R6 class
+Telegram API type GetStringsRequest
 }
 \details{
+GetStringsRequest R6 class
+
 TLRequest: GetStringsRequest
 }
 \examples{

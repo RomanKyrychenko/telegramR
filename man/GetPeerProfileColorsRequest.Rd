@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetPeerProfileColorsRequest}
 \alias{GetPeerProfileColorsRequest}
-\title{GetPeerProfileColorsRequest R6 class}
+\title{GetPeerProfileColorsRequest}
 \description{
-GetPeerProfileColorsRequest R6 class
-
-GetPeerProfileColorsRequest R6 class
+Telegram API type GetPeerProfileColorsRequest
 }
 \details{
+GetPeerProfileColorsRequest R6 class
+
 Request to get peer profile colors (possibly not modified).
 }
 \section{Public fields}{

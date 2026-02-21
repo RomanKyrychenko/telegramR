@@ -5,6 +5,11 @@
 \title{BadMessageError}
 \description{
 Occurs when handling a bad_message_notification.
+
+Telegram API type BadMessageError
+}
+\details{
+BadMessageError
 }
 \section{Super class}{
 \code{\link[telegramR:Exception]{telegramR::Exception}} -> \code{BadMessageError}

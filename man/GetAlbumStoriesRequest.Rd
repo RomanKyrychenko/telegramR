@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stories.R
 \name{GetAlbumStoriesRequest}
 \alias{GetAlbumStoriesRequest}
-\title{GetAlbumStoriesRequest R6 class}
+\title{GetAlbumStoriesRequest}
 \description{
-GetAlbumStoriesRequest R6 class
-
-GetAlbumStoriesRequest R6 class
+Telegram API type GetAlbumStoriesRequest
 }
 \details{
+GetAlbumStoriesRequest R6 class
+
 Request to get stories from an album for a given peer with paging (offset, limit).
 Returns stories.Stories.
 }

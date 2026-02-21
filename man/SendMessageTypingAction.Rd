@@ -2,10 +2,11 @@
 % Please edit documentation in R/types.R
 \name{SendMessageTypingAction}
 \alias{SendMessageTypingAction}
-\title{Senders msg_id as int, but it should be long}
+\title{SendMessageTypingAction}
 \description{
-Senders msg_id as int, but it should be long
-
+Telegram API type SendMessageTypingAction
+}
+\details{
 Senders msg_id as int, but it should be long
 }
 \section{Super class}{

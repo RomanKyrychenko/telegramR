@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_chatlists.R
 \name{ExportChatlistInviteRequest}
 \alias{ExportChatlistInviteRequest}
-\title{ExportChatlistInviteRequest R6 class}
+\title{ExportChatlistInviteRequest}
 \description{
-ExportChatlistInviteRequest R6 class
-
-ExportChatlistInviteRequest R6 class
+Telegram API type ExportChatlistInviteRequest
 }
 \details{
+ExportChatlistInviteRequest R6 class
+
 Request to export an invite for a chatlist with a title and list of peers.
 
 Serializes constructor id, chatlist bytes, title (TL-string), then peers vector.

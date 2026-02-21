@@ -4,11 +4,11 @@
 \alias{GetMegagroupStatsRequest}
 \title{GetMegagroupStatsRequest}
 \description{
-GetMegagroupStatsRequest
-
-GetMegagroupStatsRequest
+Telegram API type GetMegagroupStatsRequest
 }
 \details{
+GetMegagroupStatsRequest
+
 R6 class representing a GetMegagroupStatsRequest TLRequest.
 }
 \section{Super classes}{

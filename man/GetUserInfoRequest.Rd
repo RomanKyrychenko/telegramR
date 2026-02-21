@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetUserInfoRequest}
 \alias{GetUserInfoRequest}
-\title{GetUserInfoRequest R6 class}
+\title{GetUserInfoRequest}
 \description{
-GetUserInfoRequest R6 class
-
-GetUserInfoRequest R6 class
+Telegram API type GetUserInfoRequest
 }
 \details{
+GetUserInfoRequest R6 class
+
 Request to get user info (help.UserInfo).
 }
 \section{Public fields}{

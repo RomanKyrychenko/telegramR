@@ -6,6 +6,11 @@
 \description{
 Occurs when a type is not found, for example, when trying to read a TLObject
 with an invalid constructor code.
+
+Telegram API type TypeNotFoundError
+}
+\details{
+TypeNotFoundError
 }
 \section{Super class}{
 \code{\link[telegramR:Exception]{telegramR::Exception}} -> \code{TypeNotFoundError}

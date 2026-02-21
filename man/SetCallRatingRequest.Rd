@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{SetCallRatingRequest}
 \alias{SetCallRatingRequest}
-\title{SetCallRatingRequest R6 class}
+\title{SetCallRatingRequest}
 \description{
-SetCallRatingRequest R6 class
-
-SetCallRatingRequest R6 class
+Telegram API type SetCallRatingRequest
 }
 \details{
+SetCallRatingRequest R6 class
+
 Represents SetCallRatingRequest TLRequest.
 }
 \section{Public fields}{

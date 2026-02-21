@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetDeepLinkInfoRequest}
 \alias{GetDeepLinkInfoRequest}
-\title{GetDeepLinkInfoRequest R6 class}
+\title{GetDeepLinkInfoRequest}
 \description{
-GetDeepLinkInfoRequest R6 class
-
-GetDeepLinkInfoRequest R6 class
+Telegram API type GetDeepLinkInfoRequest
 }
 \details{
+GetDeepLinkInfoRequest R6 class
+
 Request to get deep link info.
 }
 \section{Public fields}{

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetSupportRequest}
 \alias{GetSupportRequest}
-\title{GetSupportRequest R6 class}
+\title{GetSupportRequest}
 \description{
-GetSupportRequest R6 class
-
-GetSupportRequest R6 class
+Telegram API type GetSupportRequest
 }
 \details{
+GetSupportRequest R6 class
+
 Request to get support information.
 }
 \section{Public fields}{

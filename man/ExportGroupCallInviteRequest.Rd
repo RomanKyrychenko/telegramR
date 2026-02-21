@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{ExportGroupCallInviteRequest}
 \alias{ExportGroupCallInviteRequest}
-\title{ExportGroupCallInviteRequest R6 class}
+\title{ExportGroupCallInviteRequest}
 \description{
-ExportGroupCallInviteRequest R6 class
-
-ExportGroupCallInviteRequest R6 class
+Telegram API type ExportGroupCallInviteRequest
 }
 \details{
+ExportGroupCallInviteRequest R6 class
+
 Represents ExportGroupCallInviteRequest TLRequest.
 }
 \section{Public fields}{

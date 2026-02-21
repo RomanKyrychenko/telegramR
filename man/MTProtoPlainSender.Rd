@@ -2,10 +2,15 @@
 % Please edit documentation in R/mtprotoplainsender.R
 \name{MTProtoPlainSender}
 \alias{MTProtoPlainSender}
-\title{This module contains the class used to communicate with Telegram's servers
-in plain text, when no authorization key has been created yet.}
+\title{MTProtoPlainSender}
 \description{
 MTProto Mobile Protocol plain sender  - (https://core.telegram.org/mtproto/description#unencrypted-messages)
+
+Telegram API type MTProtoPlainSender
+}
+\details{
+This module contains the class used to communicate with Telegram's servers
+in plain text, when no authorization key has been created yet.
 }
 \section{Methods}{
 \subsection{Public methods}{

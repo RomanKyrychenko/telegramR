@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{EditUserInfoRequest}
 \alias{EditUserInfoRequest}
-\title{EditUserInfoRequest R6 class}
+\title{EditUserInfoRequest}
 \description{
-EditUserInfoRequest R6 class
-
-EditUserInfoRequest R6 class
+Telegram API type EditUserInfoRequest
 }
 \details{
+EditUserInfoRequest R6 class
+
 Edit user info (help.UserInfo). Serializes an input user, a message and a list
 of message entities.
 }

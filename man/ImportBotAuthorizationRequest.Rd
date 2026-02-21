@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{ImportBotAuthorizationRequest}
 \alias{ImportBotAuthorizationRequest}
-\title{ImportBotAuthorizationRequest R6 class}
+\title{ImportBotAuthorizationRequest}
 \description{
-ImportBotAuthorizationRequest R6 class
-
-ImportBotAuthorizationRequest R6 class
+Telegram API type ImportBotAuthorizationRequest
 }
 \details{
+ImportBotAuthorizationRequest R6 class
+
 Represents the TLRequest auth.ImportBotAuthorizationRequest.
 }
 \section{Public fields}{

@@ -5,6 +5,11 @@
 \title{MultiError}
 \description{
 Exception container for multiple `TLRequest`s.
+
+Telegram API type MultiError
+}
+\details{
+MultiError
 }
 \section{Super class}{
 \code{\link[telegramR:Exception]{telegramR::Exception}} -> \code{MultiError}

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{DeclineConferenceCallInviteRequest}
 \alias{DeclineConferenceCallInviteRequest}
-\title{DeclineConferenceCallInviteRequest R6 class}
+\title{DeclineConferenceCallInviteRequest}
 \description{
-DeclineConferenceCallInviteRequest R6 class
-
-DeclineConferenceCallInviteRequest R6 class
+Telegram API type DeclineConferenceCallInviteRequest
 }
 \details{
+DeclineConferenceCallInviteRequest R6 class
+
 Represents DeclineConferenceCallInviteRequest TLRequest.
 }
 \section{Public fields}{

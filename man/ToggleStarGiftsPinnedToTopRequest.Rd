@@ -5,6 +5,8 @@
 \title{ToggleStarGiftsPinnedToTopRequest}
 \description{
 Represents a request to toggle star gifts pinned to top. Inherits from TLRequest.
+
+Telegram API type ToggleStarGiftsPinnedToTopRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ToggleStarGiftsPinnedToTopRequest}

@@ -2,13 +2,13 @@
 % Please edit documentation in R/mtprotostate.R
 \name{OpaqueRequest}
 \alias{OpaqueRequest}
-\title{Opaque Request Class}
+\title{OpaqueRequest}
 \description{
-Opaque Request Class
-
-Opaque Request Class
+Telegram API type OpaqueRequest
 }
 \details{
+Opaque Request Class
+
 Wraps a serialized request into a type that can be serialized again.
 }
 \section{Public fields}{

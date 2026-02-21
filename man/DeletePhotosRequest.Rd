@@ -8,8 +8,12 @@ A R6 object inheriting from TLRequest.
 }
 \description{
 Request to delete photos. Fields correspond to the TL schema: id (vector of input photos).
+
+Telegram API type DeletePhotosRequest
 }
 \details{
+DeletePhotosRequest
+
 R6 translation of the TLRequest DeletePhotosRequest.
 }
 \section{Methods}{

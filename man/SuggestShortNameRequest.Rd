@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stickers.R
 \name{SuggestShortNameRequest}
 \alias{SuggestShortNameRequest}
-\title{SuggestShortNameRequest R6 class}
+\title{SuggestShortNameRequest}
 \description{
-SuggestShortNameRequest R6 class
-
-SuggestShortNameRequest R6 class
+Telegram API type SuggestShortNameRequest
 }
 \details{
+SuggestShortNameRequest R6 class
+
 Represents a request to suggest a short name for a sticker set.
 }
 \section{Methods}{

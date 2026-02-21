@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetCountriesListRequest}
 \alias{GetCountriesListRequest}
-\title{GetCountriesListRequest R6 class}
+\title{GetCountriesListRequest}
 \description{
-GetCountriesListRequest R6 class
-
-GetCountriesListRequest R6 class
+Telegram API type GetCountriesListRequest
 }
 \details{
+GetCountriesListRequest R6 class
+
 Request to get the list of countries (possibly not modified).
 }
 \section{Public fields}{

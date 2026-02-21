@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_smsjobs.R
 \name{UpdateSettingsRequest}
 \alias{UpdateSettingsRequest}
-\title{UpdateSettingsRequest R6 class}
+\title{UpdateSettingsRequest}
 \description{
-UpdateSettingsRequest R6 class
-
-UpdateSettingsRequest R6 class
+Telegram API type UpdateSettingsRequest
 }
 \details{
+UpdateSettingsRequest R6 class
+
 Representation of the UpdateSettingsRequest TLRequest.
 }
 \section{Public fields}{

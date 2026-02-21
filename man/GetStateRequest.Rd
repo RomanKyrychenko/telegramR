@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_updates.R
 \name{GetStateRequest}
 \alias{GetStateRequest}
-\title{GetStateRequest R6 class}
+\title{GetStateRequest}
 \description{
-GetStateRequest R6 class
-
-GetStateRequest R6 class
+Telegram API type GetStateRequest
 }
 \details{
+GetStateRequest R6 class
+
 Representation of updates.GetState request.
 }
 \examples{

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetTermsOfServiceUpdateRequest}
 \alias{GetTermsOfServiceUpdateRequest}
-\title{GetTermsOfServiceUpdateRequest R6 class}
+\title{GetTermsOfServiceUpdateRequest}
 \description{
-GetTermsOfServiceUpdateRequest R6 class
-
-GetTermsOfServiceUpdateRequest R6 class
+Telegram API type GetTermsOfServiceUpdateRequest
 }
 \details{
+GetTermsOfServiceUpdateRequest R6 class
+
 Request to get terms of service update.
 }
 \section{Public fields}{

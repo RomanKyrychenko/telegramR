@@ -2,13 +2,15 @@
 % Please edit documentation in R/tlobject.R, R/functions.R, R/requests.R
 \name{SetClientDHParamsRequest}
 \alias{SetClientDHParamsRequest}
-\title{SetClientDHParamsRequest Class}
+\title{SetClientDHParamsRequest}
 \value{
 An R6 object of class \code{SetClientDHParamsRequest}.
 }
 \description{
 A class representing the `SetClientDHParamsRequest` object. This class is used to handle
 the serialization and deserialization of the `SetClientDHParamsRequest` object.
+
+Telegram API type SetClientDHParamsRequest
 
 Methods:
 - new(nonce, server_nonce, encrypted_data): create new instance.
@@ -28,6 +30,8 @@ Contains the client's \code{nonce}, the server's \code{server_nonce}, and
 the \code{encrypted_data} payload sent to the server for verification.
 }
 \details{
+SetClientDHParamsRequest Class
+
 Represents the TL request `SetClientDHParamsRequest`.
 }
 \examples{

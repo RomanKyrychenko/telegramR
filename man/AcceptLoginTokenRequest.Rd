@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{AcceptLoginTokenRequest}
 \alias{AcceptLoginTokenRequest}
-\title{AcceptLoginTokenRequest R6 class}
+\title{AcceptLoginTokenRequest}
 \description{
-AcceptLoginTokenRequest R6 class
-
-AcceptLoginTokenRequest R6 class
+Telegram API type AcceptLoginTokenRequest
 }
 \details{
+AcceptLoginTokenRequest R6 class
+
 Represents the TLRequest auth.AcceptLoginTokenRequest.
 }
 \section{Public fields}{

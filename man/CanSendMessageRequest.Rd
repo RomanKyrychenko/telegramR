@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{CanSendMessageRequest}
 \alias{CanSendMessageRequest}
-\title{CanSendMessageRequest R6 class}
+\title{CanSendMessageRequest}
 \description{
 Methods:
 - initialize(bot)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type CanSendMessageRequest
 }
 \details{
+CanSendMessageRequest R6 class
+
 Represents the CanSendMessageRequest TL request.
 }
 \examples{

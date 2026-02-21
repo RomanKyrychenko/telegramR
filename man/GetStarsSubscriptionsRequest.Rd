@@ -5,6 +5,8 @@
 \title{GetStarsSubscriptionsRequest}
 \description{
 Represents a request to get stars subscriptions. Inherits from TLRequest.
+
+Telegram API type GetStarsSubscriptionsRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetStarsSubscriptionsRequest}

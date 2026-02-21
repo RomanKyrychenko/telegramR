@@ -2,15 +2,19 @@
 % Please edit documentation in R/functions_bots.R
 \name{SetCustomVerificationRequest}
 \alias{SetCustomVerificationRequest}
-\title{SetCustomVerificationRequest R6 class}
+\title{SetCustomVerificationRequest}
 \description{
 Methods:
 - initialize(peer, enabled = NULL, bot = NULL, custom_description = NULL)
 - resolve(client, utils)
 - to_list() -> list representation
 - to_bytes() -> raw vector bytes
+
+Telegram API type SetCustomVerificationRequest
 }
 \details{
+SetCustomVerificationRequest R6 class
+
 Represents the SetCustomVerificationRequest TL request.
 }
 \examples{

@@ -2,13 +2,13 @@
 % Please edit documentation in R/messages.R
 \name{IDsIter}
 \alias{IDsIter}
-\title{IDsIter R6 class}
+\title{IDsIter}
 \description{
-IDsIter R6 class
-
-IDsIter R6 class
+Telegram API type IDsIter
 }
 \details{
+IDsIter R6 class
+
 Iterator over explicit message IDs, fetching results in chunks.
 It optionally validates that returned messages belong to a given entity.
 }
@@ -17,6 +17,31 @@ It optionally validates that returned messages belong to a given entity.
 it <- IDsIter$new(client, entity = NULL, ids, reverse = FALSE, wait_time = NULL, limit = Inf)
 }
 
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{client}}{Client used to perform requests}
+
+\item{\code{entity_input}}{Input entity (resolved via client get_input_entity if available)}
+
+\item{\code{entity_type}}{Entity type as reported by the client (e.g., CHANNEL)}
+
+\item{\code{ids}}{Vector of IDs to fetch (possibly reversed)}
+
+\item{\code{offset}}{Current offset over ids}
+
+\item{\code{reverse}}{Whether to iterate in reverse order}
+
+\item{\code{wait_time}}{Optional per-request wait time in seconds}
+
+\item{\code{limit}}{Hard limit on how many items to consider}
+
+\item{\code{total}}{Total number of requested ids}
+
+\item{\code{buffer}}{Internal buffer of fetched items aligned with requested ids}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

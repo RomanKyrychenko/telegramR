@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{BindTempAuthKeyRequest}
 \alias{BindTempAuthKeyRequest}
-\title{BindTempAuthKeyRequest R6 class}
+\title{BindTempAuthKeyRequest}
 \description{
-BindTempAuthKeyRequest R6 class
-
-BindTempAuthKeyRequest R6 class
+Telegram API type BindTempAuthKeyRequest
 }
 \details{
+BindTempAuthKeyRequest R6 class
+
 Represents the TLRequest auth.BindTempAuthKeyRequest.
 }
 \section{Public fields}{

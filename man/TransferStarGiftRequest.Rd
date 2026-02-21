@@ -5,6 +5,8 @@
 \title{TransferStarGiftRequest}
 \description{
 Represents a request to transfer a star gift. Inherits from TLRequest.
+
+Telegram API type TransferStarGiftRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{TransferStarGiftRequest}

@@ -2,10 +2,15 @@
 % Please edit documentation in R/authkey.R
 \name{AuthKey}
 \alias{AuthKey}
-\title{AuthKey Class}
+\title{AuthKey}
 \description{
 Represents an authorization key, used to encrypt and decrypt
 messages sent to Telegram's data centers.
+
+Telegram API type AuthKey
+}
+\details{
+AuthKey Class
 }
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}

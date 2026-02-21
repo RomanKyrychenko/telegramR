@@ -3,7 +3,7 @@
 \docType{class}
 \name{ReorderAlbumsRequest}
 \alias{ReorderAlbumsRequest}
-\title{ReorderAlbumsRequest R6 class}
+\title{ReorderAlbumsRequest}
 \format{
 An R6 object inheriting from TLRequest
 }
@@ -11,11 +11,11 @@ An R6 object inheriting from TLRequest
 ReorderAlbumsRequest$new(peer, order)
 }
 \description{
-ReorderAlbumsRequest R6 class
-
-ReorderAlbumsRequest R6 class
+Telegram API type ReorderAlbumsRequest
 }
 \details{
+ReorderAlbumsRequest R6 class
+
 Represents a TL request to reorder albums for a peer; returns Bool.
 }
 \section{Super classes}{

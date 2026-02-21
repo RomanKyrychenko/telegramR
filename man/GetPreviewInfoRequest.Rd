@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{GetPreviewInfoRequest}
 \alias{GetPreviewInfoRequest}
-\title{GetPreviewInfoRequest R6 class}
+\title{GetPreviewInfoRequest}
 \description{
 Methods:
 - initialize(bot, lang_code)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type GetPreviewInfoRequest
 }
 \details{
+GetPreviewInfoRequest R6 class
+
 Represents the GetPreviewInfoRequest TL request.
 }
 \examples{

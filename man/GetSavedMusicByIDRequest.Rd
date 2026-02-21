@@ -4,11 +4,11 @@
 \alias{GetSavedMusicByIDRequest}
 \title{GetSavedMusicByIDRequest}
 \description{
-GetSavedMusicByIDRequest
-
-GetSavedMusicByIDRequest
+Telegram API type GetSavedMusicByIDRequest
 }
 \details{
+GetSavedMusicByIDRequest
+
 Request to get saved music by document IDs for a user.
 }
 \section{Super classes}{

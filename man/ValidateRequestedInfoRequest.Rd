@@ -5,6 +5,8 @@
 \title{ValidateRequestedInfoRequest}
 \description{
 Represents a request to validate requested payment info. Inherits from TLRequest.
+
+Telegram API type ValidateRequestedInfoRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ValidateRequestedInfoRequest}

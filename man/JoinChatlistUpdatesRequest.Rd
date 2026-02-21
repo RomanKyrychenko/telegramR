@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_chatlists.R
 \name{JoinChatlistUpdatesRequest}
 \alias{JoinChatlistUpdatesRequest}
-\title{JoinChatlistUpdatesRequest R6 class}
+\title{JoinChatlistUpdatesRequest}
 \description{
-JoinChatlistUpdatesRequest R6 class
-
-JoinChatlistUpdatesRequest R6 class
+Telegram API type JoinChatlistUpdatesRequest
 }
 \details{
+JoinChatlistUpdatesRequest R6 class
+
 Request to join a chatlist with specific peers.
 }
 \section{Public fields}{

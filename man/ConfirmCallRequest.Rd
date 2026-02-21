@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{ConfirmCallRequest}
 \alias{ConfirmCallRequest}
-\title{ConfirmCallRequest R6 class}
+\title{ConfirmCallRequest}
 \description{
-ConfirmCallRequest R6 class
-
-ConfirmCallRequest R6 class
+Telegram API type ConfirmCallRequest
 }
 \details{
+ConfirmCallRequest R6 class
+
 Represents ConfirmCallRequest TLRequest.
 }
 \section{Public fields}{

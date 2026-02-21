@@ -5,6 +5,8 @@
 \title{ClearSavedInfoRequest}
 \description{
 Represents a request to clear saved payment info. Inherits from TLRequest.
+
+Telegram API type ClearSavedInfoRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ClearSavedInfoRequest}

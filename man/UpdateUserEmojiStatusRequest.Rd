@@ -2,15 +2,19 @@
 % Please edit documentation in R/functions_bots.R
 \name{UpdateUserEmojiStatusRequest}
 \alias{UpdateUserEmojiStatusRequest}
-\title{UpdateUserEmojiStatusRequest R6 class}
+\title{UpdateUserEmojiStatusRequest}
 \description{
 Methods:
 - initialize(user_id, emoji_status)
 - resolve(client, utils)
 - to_list() -> list representation
 - to_bytes() -> raw vector bytes
+
+Telegram API type UpdateUserEmojiStatusRequest
 }
 \details{
+UpdateUserEmojiStatusRequest R6 class
+
 Represents the UpdateUserEmojiStatusRequest TL request.
 }
 \examples{

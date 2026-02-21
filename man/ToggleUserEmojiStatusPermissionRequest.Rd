@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{ToggleUserEmojiStatusPermissionRequest}
 \alias{ToggleUserEmojiStatusPermissionRequest}
-\title{ToggleUserEmojiStatusPermissionRequest R6 class}
+\title{ToggleUserEmojiStatusPermissionRequest}
 \description{
 Methods:
 - initialize(bot, enabled)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type ToggleUserEmojiStatusPermissionRequest
 }
 \details{
+ToggleUserEmojiStatusPermissionRequest R6 class
+
 Represents the ToggleUserEmojiStatusPermissionRequest TL request.
 }
 \examples{

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{GetGroupCallStreamChannelsRequest}
 \alias{GetGroupCallStreamChannelsRequest}
-\title{GetGroupCallStreamChannelsRequest R6 class}
+\title{GetGroupCallStreamChannelsRequest}
 \description{
-GetGroupCallStreamChannelsRequest R6 class
-
-GetGroupCallStreamChannelsRequest R6 class
+Telegram API type GetGroupCallStreamChannelsRequest
 }
 \details{
+GetGroupCallStreamChannelsRequest R6 class
+
 Represents GetGroupCallStreamChannelsRequest TLRequest.
 }
 \section{Public fields}{

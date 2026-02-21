@@ -3,7 +3,7 @@
 \docType{class}
 \name{TogglePinnedRequest}
 \alias{TogglePinnedRequest}
-\title{TogglePinnedRequest R6 class}
+\title{TogglePinnedRequest}
 \format{
 An R6 object inheriting from TLRequest (if available)
 }
@@ -11,11 +11,11 @@ An R6 object inheriting from TLRequest (if available)
 TogglePinnedRequest$new(peer, id, pinned)
 }
 \description{
-TogglePinnedRequest R6 class
-
-TogglePinnedRequest R6 class
+Telegram API type TogglePinnedRequest
 }
 \details{
+TogglePinnedRequest R6 class
+
 Represents a TL request to toggle pinned state for stories.
 }
 \section{Super classes}{

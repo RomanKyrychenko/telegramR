@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{EditGroupCallTitleRequest}
 \alias{EditGroupCallTitleRequest}
-\title{EditGroupCallTitleRequest R6 class}
+\title{EditGroupCallTitleRequest}
 \description{
-EditGroupCallTitleRequest R6 class
-
-EditGroupCallTitleRequest R6 class
+Telegram API type EditGroupCallTitleRequest
 }
 \details{
+EditGroupCallTitleRequest R6 class
+
 Represents EditGroupCallTitleRequest TLRequest.
 }
 \section{Public fields}{

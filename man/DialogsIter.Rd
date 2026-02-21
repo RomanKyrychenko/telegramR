@@ -2,11 +2,16 @@
 % Please edit documentation in R/dialogs.R
 \name{DialogsIter}
 \alias{DialogsIter}
-\title{DialogsIter class}
+\title{DialogsIter}
 \description{
 An iterator for Telegram dialogs.
+
+Telegram API type DialogsIter
 }
 \details{
+DialogsIter class
+
+
 This class is used to iterate over Telegram dialogs (open conversations/subscribed channels).
 The order is the same as the one seen in official applications (first pinned, then from those with the most recent message to those with the oldest message).
 }

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{CreateConferenceCallRequest}
 \alias{CreateConferenceCallRequest}
-\title{CreateConferenceCallRequest R6 class}
+\title{CreateConferenceCallRequest}
 \description{
-CreateConferenceCallRequest R6 class
-
-CreateConferenceCallRequest R6 class
+Telegram API type CreateConferenceCallRequest
 }
 \details{
+CreateConferenceCallRequest R6 class
+
 Represents CreateConferenceCallRequest TLRequest.
 }
 \section{Public fields}{

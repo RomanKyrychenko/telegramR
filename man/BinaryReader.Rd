@@ -2,11 +2,16 @@
 % Please edit documentation in R/binaryreader.R
 \name{BinaryReader}
 \alias{BinaryReader}
-\title{BinaryReader Class}
+\title{BinaryReader}
 \description{
 A utility class to read binary data, inspired by Python's BinaryReader.
+
+Telegram API type BinaryReader
 }
 \details{
+BinaryReader Class
+
+
 Provides methods to read various data types and handle stream positions.
 }
 \section{Methods}{

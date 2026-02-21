@@ -2,10 +2,15 @@
 % Please edit documentation in R/mtprotostate.R
 \name{MTProtoState}
 \alias{MTProtoState}
-\title{MTProto protocol state management}
+\title{MTProtoState}
 \description{
 Manages the state needed for MTProto encryption, including message IDs,
 sequence numbers, and server salt.
+
+Telegram API type MTProtoState
+}
+\details{
+MTProto protocol state management
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}

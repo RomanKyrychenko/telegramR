@@ -12,8 +12,12 @@ SearchPostsRequest$new(offset, limit, hashtag = NULL, area = NULL, peer = NULL)
 }
 \description{
 Represents a request to search for posts with specified parameters.
+
+Telegram API type SearchPostsRequest
 }
 \details{
+SearchPostsRequest R6 class
+
 Represents a TL request to search posts/stories (by hashtag/area/peer).
 }
 \section{Super classes}{

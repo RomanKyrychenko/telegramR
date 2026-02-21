@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_upload.R
 \name{GetCdnFileHashesRequest}
 \alias{GetCdnFileHashesRequest}
-\title{GetCdnFileHashesRequest R6 class}
+\title{GetCdnFileHashesRequest}
 \description{
-GetCdnFileHashesRequest R6 class
-
-GetCdnFileHashesRequest R6 class
+Telegram API type GetCdnFileHashesRequest
 }
 \details{
+GetCdnFileHashesRequest R6 class
+
 Represents the TL request upload.GetCdnFileHashesRequest.
 }
 \section{Public fields}{

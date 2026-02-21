@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{ResendCodeRequest}
 \alias{ResendCodeRequest}
-\title{ResendCodeRequest R6 class}
+\title{ResendCodeRequest}
 \description{
-ResendCodeRequest R6 class
-
-ResendCodeRequest R6 class
+Telegram API type ResendCodeRequest
 }
 \details{
+ResendCodeRequest R6 class
+
 Represents the TLRequest auth.ResendCodeRequest.
 }
 \section{Public fields}{

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stories.R
 \name{ExportStoryLinkRequest}
 \alias{ExportStoryLinkRequest}
-\title{ExportStoryLinkRequest R6 class}
+\title{ExportStoryLinkRequest}
 \description{
-ExportStoryLinkRequest R6 class
-
-ExportStoryLinkRequest R6 class
+Telegram API type ExportStoryLinkRequest
 }
 \details{
+ExportStoryLinkRequest R6 class
+
 Request to export a story link for a given peer and story id.
 Returns stories.ExportedStoryLink.
 }

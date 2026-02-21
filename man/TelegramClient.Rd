@@ -2,13 +2,13 @@
 % Please edit documentation in R/telegramclient.R
 \name{TelegramClient}
 \alias{TelegramClient}
-\title{TelegramClient Class}
+\title{TelegramClient}
 \description{
-TelegramClient Class
-
-TelegramClient Class
+Telegram API type TelegramClient
 }
 \details{
+TelegramClient Class
+
 An R6 class that combines functionality from multiple method classes to interact with Telegram API
 }
 \examples{

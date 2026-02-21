@@ -5,6 +5,8 @@
 \title{BotCancelStarsSubscriptionRequest}
 \description{
 Represents a request to cancel a stars subscription for a bot. Inherits from TLRequest.
+
+Telegram API type BotCancelStarsSubscriptionRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{BotCancelStarsSubscriptionRequest}

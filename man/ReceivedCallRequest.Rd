@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{ReceivedCallRequest}
 \alias{ReceivedCallRequest}
-\title{ReceivedCallRequest R6 class}
+\title{ReceivedCallRequest}
 \description{
-ReceivedCallRequest R6 class
-
-ReceivedCallRequest R6 class
+Telegram API type ReceivedCallRequest
 }
 \details{
+ReceivedCallRequest R6 class
+
 Represents ReceivedCallRequest TLRequest.
 }
 \section{Public fields}{

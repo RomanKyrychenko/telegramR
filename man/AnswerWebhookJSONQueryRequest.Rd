@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{AnswerWebhookJSONQueryRequest}
 \alias{AnswerWebhookJSONQueryRequest}
-\title{AnswerWebhookJSONQueryRequest R6 class}
+\title{AnswerWebhookJSONQueryRequest}
 \description{
 Methods:
 - initialize(query_id, data)
@@ -10,8 +10,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type AnswerWebhookJSONQueryRequest
 }
 \details{
+AnswerWebhookJSONQueryRequest R6 class
+
 Represents the AnswerWebhookJSONQueryRequest TL request.
 }
 \examples{

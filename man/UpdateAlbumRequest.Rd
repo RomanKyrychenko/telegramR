@@ -3,7 +3,7 @@
 \docType{class}
 \name{UpdateAlbumRequest}
 \alias{UpdateAlbumRequest}
-\title{UpdateAlbumRequest R6 class}
+\title{UpdateAlbumRequest}
 \format{
 An R6 object inheriting from TLRequest (if available)
 }
@@ -11,11 +11,11 @@ An R6 object inheriting from TLRequest (if available)
 UpdateAlbumRequest$new(peer, album_id, title = NULL, delete_stories = NULL, add_stories = NULL, order = NULL)
 }
 \description{
-UpdateAlbumRequest R6 class
-
-UpdateAlbumRequest R6 class
+Telegram API type UpdateAlbumRequest
 }
 \details{
+UpdateAlbumRequest R6 class
+
 Represents a TL request to update a story album.
 }
 \section{Super classes}{

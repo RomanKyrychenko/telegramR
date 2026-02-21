@@ -2,11 +2,16 @@
 % Please edit documentation in R/rpcresult.R
 \name{RpcResult}
 \alias{RpcResult}
-\title{RpcResult Class}
+\title{RpcResult}
 \description{
 Represents the result of a Remote Procedure Call (RPC) in the Telegram API.
+
+Telegram API type RpcResult
 }
 \details{
+RpcResult Class
+
+
 The `RpcResult` class encapsulates the response of an RPC call, including the request message ID, the body of the response, and any error that occurred.
 }
 \section{Super class}{

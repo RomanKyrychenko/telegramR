@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stories.R
 \name{ActivateStealthModeRequest}
 \alias{ActivateStealthModeRequest}
-\title{ActivateStealthModeRequest R6 class}
+\title{ActivateStealthModeRequest}
 \description{
-ActivateStealthModeRequest R6 class
-
-ActivateStealthModeRequest R6 class
+Telegram API type ActivateStealthModeRequest
 }
 \details{
+ActivateStealthModeRequest R6 class
+
 Request to activate stealth mode with optional past/future flags.
 Returns Updates.
 }

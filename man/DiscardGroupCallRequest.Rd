@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{DiscardGroupCallRequest}
 \alias{DiscardGroupCallRequest}
-\title{DiscardGroupCallRequest R6 class}
+\title{DiscardGroupCallRequest}
 \description{
-DiscardGroupCallRequest R6 class
-
-DiscardGroupCallRequest R6 class
+Telegram API type DiscardGroupCallRequest
 }
 \details{
+DiscardGroupCallRequest R6 class
+
 Represents DiscardGroupCallRequest TLRequest.
 }
 \section{Public fields}{

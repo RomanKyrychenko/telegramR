@@ -5,6 +5,8 @@
 \title{GetStarGiftWithdrawalUrlRequest}
 \description{
 Represents a request to get the star gift withdrawal URL. Inherits from TLRequest.
+
+Telegram API type GetStarGiftWithdrawalUrlRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetStarGiftWithdrawalUrlRequest}

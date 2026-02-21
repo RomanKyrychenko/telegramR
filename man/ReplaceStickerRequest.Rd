@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stickers.R
 \name{ReplaceStickerRequest}
 \alias{ReplaceStickerRequest}
-\title{ReplaceStickerRequest R6 class}
+\title{ReplaceStickerRequest}
 \description{
-ReplaceStickerRequest R6 class
-
-ReplaceStickerRequest R6 class
+Telegram API type ReplaceStickerRequest
 }
 \details{
+ReplaceStickerRequest R6 class
+
 Represents a request to replace a sticker with a new sticker item.
 }
 \section{Methods}{

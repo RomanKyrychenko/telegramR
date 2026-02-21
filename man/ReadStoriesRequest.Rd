@@ -3,7 +3,7 @@
 \docType{class}
 \name{ReadStoriesRequest}
 \alias{ReadStoriesRequest}
-\title{ReadStoriesRequest R6 class}
+\title{ReadStoriesRequest}
 \format{
 An R6 object inheriting from TLRequest
 }
@@ -11,11 +11,11 @@ An R6 object inheriting from TLRequest
 ReadStoriesRequest$new(peer, max_id)
 }
 \description{
-ReadStoriesRequest R6 class
-
-ReadStoriesRequest R6 class
+Telegram API type ReadStoriesRequest
 }
 \details{
+ReadStoriesRequest R6 class
+
 Represents a TL request that reads stories up to a given max_id and
 returns a Vector<int> result.
 }

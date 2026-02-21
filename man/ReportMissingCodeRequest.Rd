@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{ReportMissingCodeRequest}
 \alias{ReportMissingCodeRequest}
-\title{ReportMissingCodeRequest R6 class}
+\title{ReportMissingCodeRequest}
 \description{
-ReportMissingCodeRequest R6 class
-
-ReportMissingCodeRequest R6 class
+Telegram API type ReportMissingCodeRequest
 }
 \details{
+ReportMissingCodeRequest R6 class
+
 Represents the TLRequest auth.ReportMissingCodeRequest.
 }
 \section{Public fields}{

@@ -2,9 +2,14 @@
 % Please edit documentation in R/http.R
 \name{ConnectionHttp}
 \alias{ConnectionHttp}
-\title{HTTP Connection Class}
+\title{ConnectionHttp}
 \description{
 This class implements an HTTP connection using the HTTP packet codec.
+
+Telegram API type ConnectionHttp
+}
+\details{
+HTTP Connection Class
 }
 \section{Super class}{
 \code{\link[telegramR:Connection]{telegramR::Connection}} -> \code{ConnectionHttp}

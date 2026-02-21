@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetInviteTextRequest}
 \alias{GetInviteTextRequest}
-\title{GetInviteTextRequest R6 class}
+\title{GetInviteTextRequest}
 \description{
-GetInviteTextRequest R6 class
-
-GetInviteTextRequest R6 class
+Telegram API type GetInviteTextRequest
 }
 \details{
+GetInviteTextRequest R6 class
+
 Request to get invite text.
 }
 \section{Public fields}{

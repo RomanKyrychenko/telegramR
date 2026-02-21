@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_upload.R
 \name{ReuploadCdnFileRequest}
 \alias{ReuploadCdnFileRequest}
-\title{ReuploadCdnFileRequest R6 class}
+\title{ReuploadCdnFileRequest}
 \description{
-ReuploadCdnFileRequest R6 class
-
-ReuploadCdnFileRequest R6 class
+Telegram API type ReuploadCdnFileRequest
 }
 \details{
+ReuploadCdnFileRequest R6 class
+
 Represents the TL request upload.ReuploadCdnFileRequest.
 }
 \section{Public fields}{

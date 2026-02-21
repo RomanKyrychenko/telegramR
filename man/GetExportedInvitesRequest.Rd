@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_chatlists.R
 \name{GetExportedInvitesRequest}
 \alias{GetExportedInvitesRequest}
-\title{GetExportedInvitesRequest R6 class}
+\title{GetExportedInvitesRequest}
 \description{
-GetExportedInvitesRequest R6 class
-
-GetExportedInvitesRequest R6 class
+Telegram API type GetExportedInvitesRequest
 }
 \details{
+GetExportedInvitesRequest R6 class
+
 Request to get exported invites for a chatlist.
 
 Serializes the constructor id followed by chatlist bytes.

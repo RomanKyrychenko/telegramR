@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{SendCustomRequestRequest}
 \alias{SendCustomRequestRequest}
-\title{SendCustomRequestRequest R6 class}
+\title{SendCustomRequestRequest}
 \description{
 Methods:
 - initialize(custom_method, params)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type SendCustomRequestRequest
 }
 \details{
+SendCustomRequestRequest R6 class
+
 Represents the SendCustomRequestRequest TL request.
 }
 \examples{

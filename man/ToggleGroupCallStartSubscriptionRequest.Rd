@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_phone.R
 \name{ToggleGroupCallStartSubscriptionRequest}
 \alias{ToggleGroupCallStartSubscriptionRequest}
-\title{ToggleGroupCallStartSubscriptionRequest R6 class}
+\title{ToggleGroupCallStartSubscriptionRequest}
 \description{
-ToggleGroupCallStartSubscriptionRequest R6 class
-
-ToggleGroupCallStartSubscriptionRequest R6 class
+Telegram API type ToggleGroupCallStartSubscriptionRequest
 }
 \details{
+ToggleGroupCallStartSubscriptionRequest R6 class
+
 Represents ToggleGroupCallStartSubscriptionRequest TLRequest.
 }
 \section{Public fields}{

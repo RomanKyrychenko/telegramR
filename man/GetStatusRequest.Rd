@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_smsjobs.R
 \name{GetStatusRequest}
 \alias{GetStatusRequest}
-\title{GetStatusRequest R6 class}
+\title{GetStatusRequest}
 \description{
-GetStatusRequest R6 class
-
-GetStatusRequest R6 class
+Telegram API type GetStatusRequest
 }
 \details{
+GetStatusRequest R6 class
+
 Representation of the GetStatusRequest TLRequest.
 }
 \section{Methods}{

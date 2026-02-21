@@ -5,6 +5,8 @@
 \title{RefundStarsChargeRequest}
 \description{
 Represents a request to refund a stars charge. Inherits from TLRequest.
+
+Telegram API type RefundStarsChargeRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{RefundStarsChargeRequest}

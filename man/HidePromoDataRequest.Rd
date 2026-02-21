@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{HidePromoDataRequest}
 \alias{HidePromoDataRequest}
-\title{HidePromoDataRequest R6 class}
+\title{HidePromoDataRequest}
 \description{
-HidePromoDataRequest R6 class
-
-HidePromoDataRequest R6 class
+Telegram API type HidePromoDataRequest
 }
 \details{
+HidePromoDataRequest R6 class
+
 Request to hide promo data for a peer.
 }
 \section{Public fields}{

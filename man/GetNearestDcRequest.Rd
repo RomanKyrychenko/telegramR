@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetNearestDcRequest}
 \alias{GetNearestDcRequest}
-\title{GetNearestDcRequest R6 class}
+\title{GetNearestDcRequest}
 \description{
-GetNearestDcRequest R6 class
-
-GetNearestDcRequest R6 class
+Telegram API type GetNearestDcRequest
 }
 \details{
+GetNearestDcRequest R6 class
+
 Request to get the nearest data-center info.
 }
 \section{Public fields}{

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stories.R
 \name{EditStoryRequest}
 \alias{EditStoryRequest}
-\title{EditStoryRequest R6 class}
+\title{EditStoryRequest}
 \description{
-EditStoryRequest R6 class
-
-EditStoryRequest R6 class
+Telegram API type EditStoryRequest
 }
 \details{
+EditStoryRequest R6 class
+
 Request to edit an existing story. Depending on flags this may include media,
 media areas, caption+entities (both must be provided together) and privacy rules.
 Returns Updates.

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_chatlists.R
 \name{EditExportedInviteRequest}
 \alias{EditExportedInviteRequest}
-\title{EditExportedInviteRequest R6 class}
+\title{EditExportedInviteRequest}
 \description{
-EditExportedInviteRequest R6 class
-
-EditExportedInviteRequest R6 class
+Telegram API type EditExportedInviteRequest
 }
 \details{
+EditExportedInviteRequest R6 class
+
 Request to edit an exported invite for a chatlist (optional title and peers).
 }
 \section{Public fields}{

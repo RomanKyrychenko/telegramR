@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{SetBotCommandsRequest}
 \alias{SetBotCommandsRequest}
-\title{SetBotCommandsRequest R6 class}
+\title{SetBotCommandsRequest}
 \description{
 Methods:
 - initialize(scope, lang_code, commands)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type SetBotCommandsRequest
 }
 \details{
+SetBotCommandsRequest R6 class
+
 Represents the SetBotCommandsRequest TL request.
 }
 \examples{

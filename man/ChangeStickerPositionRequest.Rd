@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stickers.R
 \name{ChangeStickerPositionRequest}
 \alias{ChangeStickerPositionRequest}
-\title{ChangeStickerPositionRequest R6 class}
+\title{ChangeStickerPositionRequest}
 \description{
-ChangeStickerPositionRequest R6 class
-
-ChangeStickerPositionRequest R6 class
+Telegram API type ChangeStickerPositionRequest
 }
 \details{
+ChangeStickerPositionRequest R6 class
+
 Represents a request to change a sticker's position within a sticker set.
 }
 \section{Methods}{

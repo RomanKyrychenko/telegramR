@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_chatlists.R
 \name{JoinChatlistInviteRequest}
 \alias{JoinChatlistInviteRequest}
-\title{JoinChatlistInviteRequest R6 class}
+\title{JoinChatlistInviteRequest}
 \description{
-JoinChatlistInviteRequest R6 class
-
-JoinChatlistInviteRequest R6 class
+Telegram API type JoinChatlistInviteRequest
 }
 \details{
+JoinChatlistInviteRequest R6 class
+
 Request to join a chatlist invite (by slug) with specific peers.
 
 Serializes constructor id, slug (TL-string encoding), then peers vector.

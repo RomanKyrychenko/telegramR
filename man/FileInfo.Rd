@@ -2,13 +2,13 @@
 % Please edit documentation in R/utils.R
 \name{FileInfo}
 \alias{FileInfo}
-\title{FileInfo Class}
+\title{FileInfo}
 \description{
-FileInfo Class
-
-FileInfo Class
+Telegram API type FileInfo
 }
 \details{
+FileInfo Class
+
 An R6 class representing file information with dc_id, location, and size.
 }
 \section{Public fields}{

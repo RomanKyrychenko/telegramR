@@ -2,10 +2,15 @@
 % Please edit documentation in R/tlobject.R
 \name{TLObject}
 \alias{TLObject}
-\title{TLObject Class}
+\title{TLObject}
 \description{
 A base class for all Telegram Layer (TL) objects. This class provides common methods
 for serialization, deserialization, and representation of TL objects.
+
+Telegram API type TLObject
+}
+\details{
+TLObject Class
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}

@@ -4,11 +4,11 @@
 \alias{GetFullUserRequest}
 \title{GetFullUserRequest}
 \description{
-GetFullUserRequest
-
-GetFullUserRequest
+Telegram API type GetFullUserRequest
 }
 \details{
+GetFullUserRequest
+
 An R6 class representing a request to get full information about a user.
 This class inherits from TLRequest and is used to construct and serialize
 Telegram API requests for retrieving detailed user data.

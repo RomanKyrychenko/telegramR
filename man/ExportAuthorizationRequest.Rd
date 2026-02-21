@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{ExportAuthorizationRequest}
 \alias{ExportAuthorizationRequest}
-\title{ExportAuthorizationRequest R6 class}
+\title{ExportAuthorizationRequest}
 \description{
-ExportAuthorizationRequest R6 class
-
-ExportAuthorizationRequest R6 class
+Telegram API type ExportAuthorizationRequest
 }
 \details{
+ExportAuthorizationRequest R6 class
+
 Represents the TLRequest auth.ExportAuthorizationRequest.
 }
 \section{Public fields}{

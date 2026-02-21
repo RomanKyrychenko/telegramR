@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_chatlists.R
 \name{DeleteExportedInviteRequest}
 \alias{DeleteExportedInviteRequest}
-\title{DeleteExportedInviteRequest R6 class}
+\title{DeleteExportedInviteRequest}
 \description{
-DeleteExportedInviteRequest R6 class
-
-DeleteExportedInviteRequest R6 class
+Telegram API type DeleteExportedInviteRequest
 }
 \details{
+DeleteExportedInviteRequest R6 class
+
 Request to delete an exported invite for a chatlist.
 
 Serializes constructor id, chatlist bytes, then TL-string encoded slug.

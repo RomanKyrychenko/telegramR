@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{CheckDownloadFileParamsRequest}
 \alias{CheckDownloadFileParamsRequest}
-\title{CheckDownloadFileParamsRequest R6 class}
+\title{CheckDownloadFileParamsRequest}
 \description{
 Methods:
 - initialize(bot, file_name, url)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type CheckDownloadFileParamsRequest
 }
 \details{
+CheckDownloadFileParamsRequest R6 class
+
 Represents the CheckDownloadFileParamsRequest TL request.
 }
 \examples{

@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_auth.R
 \name{ResetLoginEmailRequest}
 \alias{ResetLoginEmailRequest}
-\title{ResetLoginEmailRequest R6 class}
+\title{ResetLoginEmailRequest}
 \description{
-ResetLoginEmailRequest R6 class
-
-ResetLoginEmailRequest R6 class
+Telegram API type ResetLoginEmailRequest
 }
 \details{
+ResetLoginEmailRequest R6 class
+
 Represents the TLRequest auth.ResetLoginEmailRequest.
 }
 \section{Public fields}{

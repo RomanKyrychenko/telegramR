@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_chatlists.R
 \name{GetChatlistUpdatesRequest}
 \alias{GetChatlistUpdatesRequest}
-\title{GetChatlistUpdatesRequest R6 class}
+\title{GetChatlistUpdatesRequest}
 \description{
-GetChatlistUpdatesRequest R6 class
-
-GetChatlistUpdatesRequest R6 class
+Telegram API type GetChatlistUpdatesRequest
 }
 \details{
+GetChatlistUpdatesRequest R6 class
+
 Request to get updates for a chatlist.
 
 Serializes the constructor id followed by chatlist bytes.

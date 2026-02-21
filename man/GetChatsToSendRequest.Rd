@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stories.R
 \name{GetChatsToSendRequest}
 \alias{GetChatsToSendRequest}
-\title{GetChatsToSendRequest R6 class}
+\title{GetChatsToSendRequest}
 \description{
-GetChatsToSendRequest R6 class
-
-GetChatsToSendRequest R6 class
+Telegram API type GetChatsToSendRequest
 }
 \details{
+GetChatsToSendRequest R6 class
+
 Request without parameters; returns chats to send.
 }
 \section{Super classes}{

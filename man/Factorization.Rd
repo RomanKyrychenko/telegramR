@@ -5,6 +5,8 @@
 \title{R6 Class Representing Factorization}
 \description{
 Provides methods to factorize large integers quickly using Pollard's Rho algorithm.
+
+Telegram API type Factorization
 }
 \details{
 This class implements the Pollard's Rho-Brent Integer Factorization algorithm

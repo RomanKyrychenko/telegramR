@@ -5,6 +5,8 @@
 \title{TLMessage Class}
 \description{
 A class representing a Telegram Layer (TL) message.
+
+Telegram API type TLMessage
 }
 \details{
 This class extends the `TLObject` class and provides functionality to store and manipulate TL message data.

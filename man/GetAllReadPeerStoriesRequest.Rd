@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stories.R
 \name{GetAllReadPeerStoriesRequest}
 \alias{GetAllReadPeerStoriesRequest}
-\title{GetAllReadPeerStoriesRequest R6 class}
+\title{GetAllReadPeerStoriesRequest}
 \description{
-GetAllReadPeerStoriesRequest R6 class
-
-GetAllReadPeerStoriesRequest R6 class
+Telegram API type GetAllReadPeerStoriesRequest
 }
 \details{
+GetAllReadPeerStoriesRequest R6 class
+
 Request without parameters; returns all read peer stories.
 }
 \section{Super classes}{

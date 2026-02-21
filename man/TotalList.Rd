@@ -2,11 +2,16 @@
 % Please edit documentation in R/helpers.R
 \name{TotalList}
 \alias{TotalList}
-\title{TotalList R6 class}
+\title{TotalList}
 \description{
 A simple R6 container that stores a list of items and maintains a numeric total.
+
+Telegram API type TotalList
 }
 \details{
+TotalList R6 class
+
+
 The class keeps arbitrary R objects in the `items` field and a scalar numeric `total`
 initialized to 0. It provides methods to construct an instance and to obtain
 two textual representations: a human-readable form and a dput()-based reproducible form.

@@ -5,6 +5,11 @@
 \title{AlreadyInConversationError}
 \description{
 Occurs when another exclusive conversation is opened in the same chat.
+
+Telegram API type AlreadyInConversationError
+}
+\details{
+AlreadyInConversationError
 }
 \section{Super class}{
 \code{\link[telegramR:Exception]{telegramR::Exception}} -> \code{AlreadyInConversationError}

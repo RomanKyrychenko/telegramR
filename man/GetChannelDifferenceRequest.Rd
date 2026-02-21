@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_updates.R
 \name{GetChannelDifferenceRequest}
 \alias{GetChannelDifferenceRequest}
-\title{GetChannelDifferenceRequest R6 class}
+\title{GetChannelDifferenceRequest}
 \description{
-GetChannelDifferenceRequest R6 class
-
-GetChannelDifferenceRequest R6 class
+Telegram API type GetChannelDifferenceRequest
 }
 \details{
+GetChannelDifferenceRequest R6 class
+
 Representation of updates.GetChannelDifference request.
 }
 \examples{

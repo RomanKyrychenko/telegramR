@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stories.R
 \name{DeleteStoriesRequest}
 \alias{DeleteStoriesRequest}
-\title{DeleteStoriesRequest R6 class}
+\title{DeleteStoriesRequest}
 \description{
-DeleteStoriesRequest R6 class
-
-DeleteStoriesRequest R6 class
+Telegram API type DeleteStoriesRequest
 }
 \details{
+DeleteStoriesRequest R6 class
+
 Request to delete one or more stories for a given peer. Returns Vector<int>.
 }
 \section{Super classes}{

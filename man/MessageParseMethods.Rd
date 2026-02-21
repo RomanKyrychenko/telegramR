@@ -2,13 +2,13 @@
 % Please edit documentation in R/messageparse.R
 \name{MessageParseMethods}
 \alias{MessageParseMethods}
-\title{MessageParseMethods R6 class}
+\title{MessageParseMethods}
 \description{
-MessageParseMethods R6 class
-
-MessageParseMethods R6 class
+Telegram API type MessageParseMethods
 }
 \details{
+MessageParseMethods R6 class
+
 Lightweight helpers for parsing messages and handling response mapping.
 }
 \section{Methods}{

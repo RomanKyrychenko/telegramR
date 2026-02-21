@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_stickers.R
 \name{CheckShortNameRequest}
 \alias{CheckShortNameRequest}
-\title{CheckShortNameRequest R6 class}
+\title{CheckShortNameRequest}
 \description{
-CheckShortNameRequest R6 class
-
-CheckShortNameRequest R6 class
+Telegram API type CheckShortNameRequest
 }
 \details{
+CheckShortNameRequest R6 class
+
 Represents a request to check whether a short name is available/valid.
 }
 \section{Methods}{

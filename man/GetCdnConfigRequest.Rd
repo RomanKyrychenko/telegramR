@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetCdnConfigRequest}
 \alias{GetCdnConfigRequest}
-\title{GetCdnConfigRequest R6 class}
+\title{GetCdnConfigRequest}
 \description{
-GetCdnConfigRequest R6 class
-
-GetCdnConfigRequest R6 class
+Telegram API type GetCdnConfigRequest
 }
 \details{
+GetCdnConfigRequest R6 class
+
 Request to get CDN configuration.
 }
 \section{Public fields}{

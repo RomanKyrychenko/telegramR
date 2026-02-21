@@ -4,11 +4,11 @@
 \alias{GetSavedMusicRequest}
 \title{GetSavedMusicRequest}
 \description{
-GetSavedMusicRequest
-
-GetSavedMusicRequest
+Telegram API type GetSavedMusicRequest
 }
 \details{
+GetSavedMusicRequest
+
 Request to get saved music for a user.
 }
 \section{Super classes}{

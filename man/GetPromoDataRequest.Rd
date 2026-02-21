@@ -2,13 +2,13 @@
 % Please edit documentation in R/functions_help.R
 \name{GetPromoDataRequest}
 \alias{GetPromoDataRequest}
-\title{GetPromoDataRequest R6 class}
+\title{GetPromoDataRequest}
 \description{
-GetPromoDataRequest R6 class
-
-GetPromoDataRequest R6 class
+Telegram API type GetPromoDataRequest
 }
 \details{
+GetPromoDataRequest R6 class
+
 Request to get promo data.
 }
 \section{Public fields}{

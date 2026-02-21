@@ -5,6 +5,8 @@
 \title{GetUsersRequest}
 \description{
 Request to get a vector of users by input user references.
+
+Telegram API type GetUsersRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetUsersRequest}

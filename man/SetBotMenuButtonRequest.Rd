@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions_bots.R
 \name{SetBotMenuButtonRequest}
 \alias{SetBotMenuButtonRequest}
-\title{SetBotMenuButtonRequest R6 class}
+\title{SetBotMenuButtonRequest}
 \description{
 Methods:
 - initialize(user_id, button)
@@ -11,8 +11,12 @@ Methods:
 - to_bytes() -> raw vector bytes
 
 Each method is documented inline below.
+
+Telegram API type SetBotMenuButtonRequest
 }
 \details{
+SetBotMenuButtonRequest R6 class
+
 Represents the SetBotMenuButtonRequest TL request.
 }
 \examples{
