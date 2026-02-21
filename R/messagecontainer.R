@@ -12,6 +12,10 @@ MessageContainer <- R6::R6Class(
   "MessageContainer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID The constructor ID for MessageContainer (0x73f1f8dc).
+    CONSTRUCTOR_ID = 0x73f1f8dc,
+    #' @field SUBCLASS_OF_ID The subclass ID for MessageContainer.
+    SUBCLASS_OF_ID = 0x73f1f8dc,
 
     #' @field messages A list of messages contained in the container.
     messages = NULL,
@@ -53,17 +57,10 @@ MessageContainer <- R6::R6Class(
     #' # Assuming `reader` is a binary reader object:
     #' container <- MessageContainer$new()
     #' container$from_reader(reader)
-    from_reader_public = function(reader) {
-      private$from_reader(reader)
-    }
-  ),
-  active = list(
-    #' @field CONSTRUCTOR_ID The constructor ID for MessageContainer (0x73f1f8dc).
-    CONSTRUCTOR_ID = function() 0x73f1f8dc,
-    #' @field SUBCLASS_OF_ID The subclass ID for MessageContainer.
-    SUBCLASS_OF_ID = function() 0x73f1f8dc
-  ),
-  private = list(
+    #' @description
+    #' Read and parse a `MessageContainer` object from a binary reader.
+    #' @param reader A binary reader object to read the messages from.
+    #' @return The updated `MessageContainer` object with the parsed messages.
     from_reader = function(reader) {
       messages <- list()
       count <- reader$read_int()
