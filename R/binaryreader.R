@@ -124,8 +124,8 @@ BinaryReader <- R6::R6Class(
     #' @return An integer value.
     bytes_to_int = function(bytes, signed = TRUE) {
       if (length(bytes) > 4) {
-        # Use big integer arithmetic internally, then return numeric
-        # for compatibility with the rest of the package API.
+        # Use big integer arithmetic and return bigz to preserve
+        # full 64-bit precision (R doubles only have 53-bit mantissa).
         hex <- paste(sprintf("%02x", as.integer(rev(bytes))), collapse = "")
         val <- gmp::as.bigz(paste0("0x", hex))
         if (signed) {
@@ -135,7 +135,7 @@ BinaryReader <- R6::R6Class(
             val <- val - max_val
           }
         }
-        return(as.numeric(val))
+        return(val)
       } else {
         # 32-bit and smaller values.
         value <- sum(as.numeric(bytes) * 256^(seq_along(bytes) - 1))
@@ -183,10 +183,26 @@ BinaryReader <- R6::R6Class(
     },
 
     #' @description
+    #' Alias for tgread_bytes (some generated code uses this name).
+    #' @return A raw vector.
+    tgreadbytes = function() {
+      self$tgread_bytes()
+    },
+
+    #' @description
     #' Reads a Telegram-encoded string.
     #' @return A character string.
     tgread_string = function() {
       return(rawToChar(self$tgread_bytes()))
+    },
+
+    #' @description
+    #' Reads a 32-bit Unix timestamp and returns it as a POSIXct datetime.
+    #' @return A POSIXct datetime or NULL if the timestamp is 0.
+    tgread_date = function() {
+      value <- self$read_int(signed = FALSE)
+      if (is.null(value) || value == 0) return(NULL)
+      as.POSIXct(as.numeric(value), origin = "1970-01-01", tz = "UTC")
     },
 
     #' @description
@@ -207,6 +223,10 @@ BinaryReader <- R6::R6Class(
         return(list(CONSTRUCTOR_ID = constructor_id, data = self$read(remaining)))
       }
 
+      # Save position right after reading constructor_id so we can rewind
+      # on from_reader failure (it may have consumed bytes before failing).
+      pos_after_ctor <- self$tell_position()
+
       # Most generated classes expose parser as private$from_reader.
       # Try to instantiate; if the constructor requires args, create with
       # a zero-arg tryCatch and fall back to using the class generator directly.
@@ -222,11 +242,26 @@ BinaryReader <- R6::R6Class(
       }
       if (is.null(from_reader_fn) && !is.null(cls$private_methods) && is.function(cls$private_methods$from_reader)) {
         from_reader_fn <- cls$private_methods$from_reader
+        # Fix the function's environment so it can find the class it needs
+        # to construct (e.g. BadServerSalt$new inside from_reader).
+        # The extracted function's enclosing env may not have the class in scope.
+        fn_env <- new.env(parent = environment(from_reader_fn))
+        fn_env[[cls$classname]] <- cls
+        # Provide a `self` proxy so from_reader methods that call
+        # self$initialize(...) or self$new(...) work correctly outside R6 context.
+        # The proxy delegates these calls to cls$new(...).
+        self_proxy <- new.env(parent = emptyenv())
+        self_proxy$initialize <- function(...) cls$new(...)
+        self_proxy$new <- function(...) cls$new(...)
+        fn_env$self <- self_proxy
+        environment(from_reader_fn) <- fn_env
       }
 
       if (!is.null(from_reader_fn)) {
         parsed <- tryCatch(from_reader_fn(self), error = function(e) {
-          # If from_reader fails, return raw data as fallback
+          # Rewind reader to position right after constructor_id so the
+          # fallback data contains ALL the object bytes.
+          tryCatch(self$set_position(pos_after_ctor), error = function(e2) NULL)
           cur <- self$tell_position()
           remaining <- length(private$.data) - cur
           if (remaining > 0) {
@@ -235,14 +270,14 @@ BinaryReader <- R6::R6Class(
             list(CONSTRUCTOR_ID = constructor_id, data = raw(0))
           }
         })
+        if (inherits(parsed, "R6")) {
+          return(parsed)
+        }
         if (inherits(parsed, class(cls$classname)[1]) || inherits(parsed, cls$classname)) {
           return(parsed)
         }
         if (is.list(parsed) && !is.null(parsed$CONSTRUCTOR_ID) && is.null(parsed$data)) {
           # It's a proper TL object returned from from_reader
-          return(parsed)
-        }
-        if (inherits(parsed, "R6")) {
           return(parsed)
         }
         if (is.list(parsed)) {
@@ -254,6 +289,7 @@ BinaryReader <- R6::R6Class(
 
       # Fallback: return blank object or raw data
       if (!is.null(obj)) return(obj)
+      tryCatch(self$set_position(pos_after_ctor), error = function(e2) NULL)
       cur <- self$tell_position()
       remaining <- length(private$.data) - cur
       if (remaining > 0) {
@@ -283,40 +319,62 @@ BinaryReader <- R6::R6Class(
     return(cache)
   }
 
-  ns <- asNamespace(utils::packageName())
-  out <- list()
-  for (nm in ls(envir = ns, all.names = TRUE)) {
-    obj <- tryCatch(get(nm, envir = ns, inherits = FALSE), error = function(e) NULL)
-    if (!inherits(obj, "R6ClassGenerator")) next
-    cid <- NULL
-    pf <- obj$public_fields
-    if (!is.null(pf) && !is.null(pf$CONSTRUCTOR_ID)) {
-      cid <- tryCatch({
-        v <- pf$CONSTRUCTOR_ID
-        if (is.function(v)) v <- v()
-        v
-      }, error = function(e) NULL)
+  # Search multiple environments to handle both installed package and
+  # devtools::load_all() / source() workflows.
+  envs_to_search <- list()
+  tryCatch({
+    pkg_name <- utils::packageName()
+    if (!is.null(pkg_name) && nzchar(pkg_name)) {
+      envs_to_search <- c(envs_to_search, list(asNamespace(pkg_name)))
     }
-    if (is.null(cid)) {
-      af <- obj$active
-      if (!is.null(af) && !is.null(af$CONSTRUCTOR_ID) && is.function(af$CONSTRUCTOR_ID)) {
-        # Call the active binding function directly to avoid needing to instantiate
-        cid <- tryCatch(af$CONSTRUCTOR_ID(), error = function(e) {
-          # Fallback: try instantiation with no args
-          tryCatch({
-            inst <- obj$new()
-            inst$CONSTRUCTOR_ID
-          }, error = function(e2) NULL)
-        })
-      }
-    }
-    if (is.null(cid)) next
+  }, error = function(e) NULL)
+  tryCatch({
+    ns <- asNamespace("telegramR")
+    if (!any(vapply(envs_to_search, identical, logical(1), ns)))
+      envs_to_search <- c(envs_to_search, list(ns))
+  }, error = function(e) NULL)
+  # Also search the global environment (for source()'d code)
+  envs_to_search <- c(envs_to_search, list(.GlobalEnv))
 
-    key <- .telegramR_norm_ctor_id(cid)
-    if (is.na(key)) next
-    out[[key]] <- obj
+  out <- list()
+  seen_names <- character(0)
+  for (env in envs_to_search) {
+    for (nm in ls(envir = env, all.names = TRUE)) {
+      if (nm %in% seen_names) next
+      seen_names <- c(seen_names, nm)
+      obj <- tryCatch(get(nm, envir = env, inherits = FALSE), error = function(e) NULL)
+      if (!inherits(obj, "R6ClassGenerator")) next
+      cid <- NULL
+      pf <- obj$public_fields
+      if (!is.null(pf) && !is.null(pf$CONSTRUCTOR_ID)) {
+        cid <- tryCatch({
+          v <- pf$CONSTRUCTOR_ID
+          if (is.function(v)) v <- v()
+          v
+        }, error = function(e) NULL)
+      }
+      if (is.null(cid)) {
+        af <- obj$active
+        if (!is.null(af) && !is.null(af$CONSTRUCTOR_ID) && is.function(af$CONSTRUCTOR_ID)) {
+          cid <- tryCatch(af$CONSTRUCTOR_ID(), error = function(e) {
+            tryCatch({
+              inst <- obj$new()
+              inst$CONSTRUCTOR_ID
+            }, error = function(e2) NULL)
+          })
+        }
+      }
+      if (is.null(cid)) next
+
+      key <- .telegramR_norm_ctor_id(cid)
+      if (is.na(key)) next
+      out[[key]] <- obj
+    }
   }
 
-  options(telegramR.ctor_map = out)
+  # Only cache if we found at least some classes; otherwise retry next time
+  if (length(out) > 0) {
+    options(telegramR.ctor_map = out)
+  }
   out
 }
