@@ -31,7 +31,7 @@ Imports:
     gmp,
     magick,
     xml2
-Suggests: 
+Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 RoxygenNote: 7.3.3
@@ -50,6 +50,7 @@ Collate:
     'connection.R'
     'dialogs.R'
     'downloads.R'
+    'entitycache.R'
     'factorization.R'
     'functions.R'
     'functions_account.R'
@@ -82,6 +83,7 @@ Collate:
     'markdown.R'
     'messagecontainer.R'
     'messagepacker.R'
+    'messageparse.R'
     'messages.R'
     'mtprotoplainsender.R'
     'mtprotosender.R'
@@ -101,5 +103,4 @@ Collate:
     'telegramclient.R'
     'tlmessage.R'
     'updates.R'
-    'uploads.R'
     'utils.R'
