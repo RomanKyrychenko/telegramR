@@ -10,7 +10,7 @@ test_that("encodes packet with length greater than or equal to 127 correctly", {
   codec <- AbridgedPacketCodec$new(connection = NULL)
   data <- raw(512)
   result <- codec$encode_packet(data)
-  expected <- c(as.raw(0x7f), as.raw(0x00), as.raw(0x02), as.raw(0x00), data)
+  expected <- c(as.raw(0x7f), as.raw(0x80), as.raw(0x00), as.raw(0x00), data)
   expect_equal(result, expected)
 })
 

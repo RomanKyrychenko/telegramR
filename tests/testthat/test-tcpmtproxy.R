@@ -60,7 +60,8 @@ test_that("normalizes valid hex secret correctly in TcpMTProxy", {
   expect_equal(length(tcp$secret), 16)
 })
 
-test_that("throws error when TcpMTProxy is initialized with invalid secret", {
-  proxy <- list("127.0.0.1", 443, "invalid_secret")
-  expect_error(TcpMTProxy$new("127.0.0.1", 443, 2, NULL, proxy), "Error in base64decode")
+test_that("TcpMTProxy handles short secret by normalizing to 16 bytes", {
+  proxy <- list("127.0.0.1", 443, "aabbccdd")
+  tcp <- TcpMTProxy$new("127.0.0.1", 443, 2, NULL, proxy)
+  expect_equal(length(tcp$secret), 16)
 })

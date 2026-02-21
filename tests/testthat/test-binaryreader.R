@@ -14,7 +14,7 @@ test_that("BinaryReader works as expected", {
 
   # Test read_long
   reader$set_position(0) # Reset position
-  expect_equal(reader$read_long(), 578437695752307201L) # Little-endian interpretation of 8 bytes
+  expect_equal(reader$read_long(), gmp::as.bigz("578437695752307201")) # Little-endian interpretation of 8 bytes
 
   # Test read
   reader$set_position(0) # Reset position

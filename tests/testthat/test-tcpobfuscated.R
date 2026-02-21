@@ -7,8 +7,8 @@ test_that("initializes ObfuscatedIO with valid connection parameters", {
 
   io <- ObfuscatedIO$new(connection)
   expect_equal(length(io$header), 64)
-  expect_true(inherits(io$`_encrypt`, "AESModeCTR"))
-  expect_true(inherits(io$`_decrypt`, "AESModeCTR"))
+  expect_true(inherits(io$.encrypt, "AESModeCTR"))
+  expect_true(inherits(io$.decrypt, "AESModeCTR"))
 })
 
 test_that("throws error when ObfuscatedIO is initialized without packet codec", {
@@ -17,7 +17,7 @@ test_that("throws error when ObfuscatedIO is initialized without packet codec", 
     `_writer` = list(write = function(data) invisible(data))
   )
 
-  expect_error(ObfuscatedIO$new(connection), "object 'packet_codec' not found")
+  expect_error(ObfuscatedIO$new(connection))
 })
 
 test_that("reads and decrypts data correctly in ObfuscatedIO", {

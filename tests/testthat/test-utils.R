@@ -50,8 +50,12 @@ test_that("is_list_like identifies list-like objects", {
 test_that("resolve_id resolves marked IDs", {
   # Assuming types$PeerUser and types$PeerChat are defined
   # For simplicity, mock or assume
-  expect_equal(resolve_id(123), list(123, "PeerUser"))  # Placeholder
-  expect_equal(resolve_id(-456), list(456, "PeerChat"))  # Placeholder
+  result_pos <- resolve_id(123)
+  expect_equal(result_pos[[1]], 123)
+  expect_true(identical(result_pos[[2]], PeerUser))
+  result_neg <- resolve_id(-456)
+  expect_equal(result_neg[[1]], 456)
+  expect_true(identical(result_neg[[2]], PeerChat))
 })
 
 # Test for rle_decode and rle_encode
@@ -85,7 +89,7 @@ test_that("photo_size_byte_count calculates byte counts", {
 
   size <- list(bytes = as.raw(c(0x01, 0x02, 0x03)))
   class(size) <- "PhotoStrippedSize"
-  expect_equal(photo_size_byte_count(size), 3)
+  expect_equal(photo_size_byte_count(size), 625)  # 3 bytes + 622 JPEG overhead when first byte is 0x01
 
   size <- list()
   class(size) <- "PhotoSizeEmpty"
