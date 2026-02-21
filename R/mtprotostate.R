@@ -202,7 +202,9 @@ MTProtoState <- R6::R6Class("MTProtoState",
     #' @return Encrypted message data
     encrypt_message_data = function(data) {
       # Combine salt, session ID and data
-      data <- c(packInt64(self$salt), packInt64(self$id), data)
+      salt_val <- if (is.null(self$salt) || length(self$salt) == 0) 0 else self$salt
+      id_val <- if (is.null(self$id) || length(self$id) == 0) 0 else self$id
+      data <- c(packInt64(salt_val), packInt64(id_val), data)
       padding_length <- -(length(data) + 12) %% 16 + 12
       padding <- packRandomBytes(padding_length)
 
