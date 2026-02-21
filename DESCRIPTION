@@ -26,13 +26,16 @@ Imports:
     promises,
     stringr,
     later,
-    mockery,
     bitops,
     gmp,
     magick,
-    xml2
+    xml2,
+    mime
 Suggests:
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    withr,
+    exiftoolr,
+    fs
 Config/testthat/edition: 3
 RoxygenNote: 7.3.3
 Collate: 
