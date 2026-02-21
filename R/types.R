@@ -4590,7 +4590,7 @@ BotInlineMessageMediaWebPage <- R6::R6Class(
       flags <- Reduce(bitwOr, as.integer(flag_values), init = 0L)
 
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$serializebytes(self$message)
       )
@@ -4687,7 +4687,7 @@ BotInlineMessageText <- R6::R6Class(
       flags <- Reduce(bitwOr, as.integer(flag_values), init = 0L)
 
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$serializebytes(self$message)
       )
@@ -4787,7 +4787,7 @@ BotInlineResult <- R6::R6Class(
       flags <- Reduce(bitwOr, as.integer(flag_values), init = 0L)
 
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$serializebytes(self$id),
         self$serializebytes(self$type)
@@ -4882,7 +4882,7 @@ BotMenuButton <- R6::R6Class(
   active = list(
     serialize = function() {
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         self$serializebytes(self$text),
         self$serializebytes(self$url)
       )
@@ -4917,7 +4917,7 @@ BotMenuButtonCommands <- R6::R6Class(
   ),
   active = list(
     serialize = function() {
-      result <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      result <- packInt32(self$CONSTRUCTOR_ID)
       result
     }
   ),
@@ -4947,7 +4947,7 @@ BotMenuButtonDefault <- R6::R6Class(
   ),
   active = list(
     serialize = function() {
-      result <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      result <- packInt32(self$CONSTRUCTOR_ID)
       result
     }
   ),
@@ -4983,7 +4983,7 @@ BotPreviewMedia <- R6::R6Class(
   active = list(
     serialize = function() {
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         self$serialize_datetime(self$date),
         self$media$serialize()
       )
@@ -5027,7 +5027,7 @@ BotVerification <- R6::R6Class(
   active = list(
     serialize = function() {
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(self$bot_id, raw(), size = 8, endian = "little"),
         writeBin(self$icon, raw(), size = 8, endian = "little"),
         self$serializebytes(self$description)
@@ -5081,7 +5081,7 @@ BotVerifierSettings <- R6::R6Class(
       )
 
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(flags, raw(), size = 4, endian = "little"),
         writeBin(self$icon, raw(), size = 8, endian = "little"),
         self$serializebytes(self$company)
@@ -5145,7 +5145,7 @@ BusinessAwayMessage <- R6::R6Class(
       flags <- if (is.null(self$offline_only) || !self$offline_only) 0 else 1
 
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(flags, raw(), size = 4, endian = "little"),
         writeBin(self$shortcut_id, raw(), size = 4, endian = "little"),
         self$schedule$serialize(),
@@ -5187,7 +5187,7 @@ BusinessAwayMessageScheduleAlways <- R6::R6Class(
   ),
   active = list(
     serialize = function() {
-      result <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      result <- packInt32(self$CONSTRUCTOR_ID)
       result
     }
   ),
@@ -5223,7 +5223,7 @@ BusinessAwayMessageScheduleCustom <- R6::R6Class(
   active = list(
     serialize = function() {
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         self$serialize_datetime(self$start_date),
         self$serialize_datetime(self$end_date)
       )
@@ -5258,7 +5258,7 @@ BusinessAwayMessageScheduleOutsideWorkHours <- R6::R6Class(
   ),
   active = list(
     serialize = function() {
-      result <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      result <- packInt32(self$CONSTRUCTOR_ID)
       result
     }
   ),
@@ -5321,7 +5321,7 @@ BusinessBotRecipients <- R6::R6Class(
       flags <- Reduce(bitwOr, as.integer(flag_values), init = 0L)
 
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(flags, raw(), size = 4, endian = "little")
       )
 
@@ -5455,7 +5455,7 @@ BusinessBotRights <- R6::R6Class(
       flags <- Reduce(bitwOr, as.integer(flag_values), init = 0L)
 
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(flags, raw(), size = 4, endian = "little")
       )
       result
@@ -5524,7 +5524,7 @@ BusinessChatLink <- R6::R6Class(
       )
 
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$serializebytes(self$link),
         self$serializebytes(self$message)
@@ -5601,7 +5601,7 @@ BusinessGreetingMessage <- R6::R6Class(
   active = list(
     serialize = function() {
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(self$shortcut_id, raw(), size = 4, endian = "little"),
         self$recipients$serialize(),
         writeBin(self$no_activity_days, raw(), size = 4, endian = "little")
@@ -5649,7 +5649,7 @@ BusinessIntro <- R6::R6Class(
       flags <- if (is.null(self$sticker)) 0 else 1
 
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$serializebytes(self$title),
         self$serializebytes(self$description)
@@ -5706,7 +5706,7 @@ BusinessLocation <- R6::R6Class(
       flags <- if (is.null(self$geo_point)) 0 else 1
 
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(flags, raw(), size = 4, endian = "little")
       )
 
@@ -5782,7 +5782,7 @@ BusinessRecipients <- R6::R6Class(
       flags <- Reduce(bitwOr, as.integer(flag_values), init = 0L)
 
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(flags, raw(), size = 4, endian = "little")
       )
 
@@ -5845,7 +5845,7 @@ BusinessWeeklyOpen <- R6::R6Class(
   active = list(
     serialize = function() {
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(self$start_minute, raw(), size = 4, endian = "little"),
         writeBin(self$end_minute, raw(), size = 4, endian = "little")
       )
@@ -5891,7 +5891,7 @@ BusinessWorkHours <- R6::R6Class(
       flags <- if (is.null(self$open_now) || !self$open_now) 0 else 1
 
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(flags, raw(), size = 4, endian = "little"),
         self$serializebytes(self$timezone_id),
         writeBin(as.integer(0x15c4b51c), raw(), size = 4, endian = "little"),
@@ -5939,7 +5939,7 @@ CdnConfig <- R6::R6Class(
   active = list(
     serialize = function() {
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(as.integer(0x15c4b51c), raw(), size = 4, endian = "little"),
         writeBin(length(self$public_keys), raw(), size = 4, endian = "little"),
         unlist(lapply(self$public_keys, function(x) x$serialize()))
@@ -5982,7 +5982,7 @@ CdnPublicKey <- R6::R6Class(
   active = list(
     serialize = function() {
       result <- c(
-        writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little"),
+        packInt32(self$CONSTRUCTOR_ID),
         writeBin(self$dc_id, raw(), size = 4, endian = "little"),
         self$serializebytes(self$public_key)
       )
@@ -46690,7 +46690,7 @@ UserProfilePhoto <- R6::R6Class("UserProfilePhoto",
       has_video <- bitwAnd(flags, 1) != 0
       personal <- bitwAnd(flags, 4) != 0
       photo_id <- reader$read_long()
-      stripped_thumb <- if (bitwAnd(flags, 2)) reader$tgreadbytes() else NULL
+      stripped_thumb <- if (bitwAnd(flags, 2) != 0) reader$tgread_bytes() else NULL
       dc_id <- reader$read_int()
       self$initialize(photo_id = photo_id, dc_id = dc_id, has_video = has_video, personal = personal, stripped_thumb = stripped_thumb)
     }
