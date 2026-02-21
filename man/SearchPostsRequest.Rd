@@ -22,6 +22,10 @@ Represents a TL request to search posts/stories (by hashtag/area/peer).
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+
+\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request.}
+
 \item{\code{offset_rate}}{The offset rate for pagination.}
 
 \item{\code{offset_peer}}{The offset peer for pagination.}
@@ -41,10 +45,6 @@ Represents a TL request to search posts/stories (by hashtag/area/peer).
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request.}
-
 \item{\code{offset_rate}}{The offset rate for pagination.}
 
 \item{\code{offset_peer}}{The offset peer for pagination.}

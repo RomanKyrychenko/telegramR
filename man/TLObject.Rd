@@ -19,7 +19,6 @@ for serialization, deserialization, and representation of TL objects.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-TLObject-new}{\code{TLObject$new()}}
 \item \href{#method-TLObject-pretty_format}{\code{TLObject$pretty_format()}}
 \item \href{#method-TLObject-serialize_bytes}{\code{TLObject$serialize_bytes()}}
 \item \href{#method-TLObject-serialize_datetime}{\code{TLObject$serialize_datetime()}}
@@ -32,19 +31,6 @@ for serialization, deserialization, and representation of TL objects.
 \item \href{#method-TLObject-.str}{\code{TLObject$.str()}}
 \item \href{#method-TLObject-stringify}{\code{TLObject$stringify()}}
 \item \href{#method-TLObject-clone}{\code{TLObject$clone()}}
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TLObject-new"></a>}}
-\if{latex}{\out{\hypertarget{method-TLObject-new}{}}}
-\subsection{Method \code{new()}}{
-Initialize a new TLObject.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{TLObject$new()}\if{html}{\out{</div>}}
-}
-
-\subsection{Returns}{
-A new TLObject instance.
 }
 }
 \if{html}{\out{<hr>}}

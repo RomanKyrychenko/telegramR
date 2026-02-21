@@ -19,8 +19,8 @@ Represents a TL request to send a reaction to a story.
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SendReactionRequest}
 }
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xd30d78d4).}
 

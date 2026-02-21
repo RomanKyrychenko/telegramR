@@ -151,8 +151,6 @@ and a serialize_bytes(self, string) method on the TLRequest base or in scope.
 
 \subsection{Returns}{
 raw
-Class-level constructor id (read-only)
-Subclass id (read-only)
 }
 }
 \if{html}{\out{<hr>}}

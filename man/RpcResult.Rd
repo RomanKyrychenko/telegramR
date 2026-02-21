@@ -20,12 +20,7 @@ The `RpcResult` class encapsulates the response of an RPC call, including the re
 \item{\code{body}}{\code{ANY} The body of the RPC result.}
 
 \item{\code{error}}{\code{ANY} The error object, if any.}
-}
-\if{html}{\out{</div>}}
-}
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
+
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID for RpcResult (0xf35c6d01).}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID for RpcResult.}
