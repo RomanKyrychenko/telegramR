@@ -2,11 +2,9 @@
 % Please edit documentation in R/functions_users.R
 \name{SetSecureValueErrorsRequest}
 \alias{SetSecureValueErrorsRequest}
-\title{SetSecureValueErrorsRequest R6 Class}
+\title{SetSecureValueErrorsRequest}
 \description{
-Represents a request to set secure value errors for a Telegram user. This class is typically used internally to serialize and deserialize requests and responses when interacting with the Telegram API.
-
-Telegram API type SetSecureValueErrorsRequest
+Represents a request to set secure value errors for a Telegram user.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SetSecureValueErrorsRequest}

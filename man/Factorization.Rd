@@ -18,15 +18,19 @@ to efficiently factorize large integers into their prime components.
 ## Method `Factorization$factorize`
 ## ------------------------------------------------
 
+\dontrun{
 factorizer <- Factorization$new()
 factorizer$factorize(15) # Returns c(3, 5)
+}
 
 ## ------------------------------------------------
 ## Method `Factorization$gcd`
 ## ------------------------------------------------
 
+\dontrun{
 factorizer <- Factorization$new()
 factorizer$gcd(12, 8) # Returns 4
+}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -61,8 +65,10 @@ A numeric vector containing the two factors `p` and `q`.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{factorizer <- Factorization$new()
+\preformatted{\dontrun{
+factorizer <- Factorization$new()
 factorizer$factorize(15) # Returns c(3, 5)
+}
 }
 \if{html}{\out{</div>}}
 
@@ -92,8 +98,10 @@ The GCD of `a` and `b`.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{factorizer <- Factorization$new()
+\preformatted{\dontrun{
+factorizer <- Factorization$new()
 factorizer$gcd(12, 8) # Returns 4
+}
 }
 \if{html}{\out{</div>}}
 

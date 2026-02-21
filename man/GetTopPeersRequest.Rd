@@ -14,7 +14,9 @@ Methods:
 R6 representation of the TL request: GetTopPeersRequest
 }
 \examples{
+\dontrun{
 GetTopPeersRequest$new(0, 10, 0)$to_list()
+}
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetTopPeersRequest}

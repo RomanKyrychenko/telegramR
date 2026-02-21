@@ -18,8 +18,10 @@ if it consists only of digits. Returns `NULL` if invalid.
 }
 \examples{
 \dontrun{
+\dontrun{
 parse_phone(1234567890) # "1234567890"
 parse_phone("+1 (234) 567-890") # "1234567890"
 parse_phone("invalid") # NULL
+}
 }
 }

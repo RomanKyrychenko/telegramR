@@ -2,25 +2,21 @@
 % Please edit documentation in R/tlmessage.R
 \name{TLMessage}
 \alias{TLMessage}
-\title{TLMessage Class}
+\title{TLMessage}
 \description{
 A class representing a Telegram Layer (TL) message.
-
-Telegram API type TLMessage
-}
-\details{
-This class extends the `TLObject` class and provides functionality to store and manipulate TL message data.
+This class extends the TLObject class and provides functionality to store and manipulate TL message data.
 }
 \examples{
-msg <- TLMessage(msg_id = 12345, seq_no = 1, obj = "Hello")
-print(msg$to_dict())
 
 ## ------------------------------------------------
 ## Method `TLMessage$to_dict`
 ## ------------------------------------------------
 
+\dontrun{
 msg <- TLMessage(msg_id = 12345, seq_no = 1, obj = "Hello")
 msg$to_dict()
+}
 }
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{TLMessage}
@@ -98,8 +94,10 @@ A list containing the fields of the `TLMessage` object in dictionary format.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{msg <- TLMessage(msg_id = 12345, seq_no = 1, obj = "Hello")
+\preformatted{\dontrun{
+msg <- TLMessage(msg_id = 12345, seq_no = 1, obj = "Hello")
 msg$to_dict()
+}
 }
 \if{html}{\out{</div>}}
 

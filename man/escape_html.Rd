@@ -25,9 +25,11 @@ Note: This implementation aims for clarity and reasonable fidelity rather
 than byte-for-byte exact behavior of the original Python helpers.
 }
 \examples{
+\dontrun{
 html <- "<b>bold</b> and <a href='mailto:me@example.com'>me</a>"
 parsed <- parse_html_to_telegram(html)
 unparse_telegram_to_html(parsed$text, parsed$entities)
+}
 Escape HTML special characters.
 
 Replaces ampersands, angle brackets, and double quotes with their corresponding HTML entities.

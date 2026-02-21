@@ -17,7 +17,9 @@ Similar to \code{get_input_peer}, but for documents.
 }
 \examples{
 \dontrun{
+\dontrun{
 # Assuming document is a Document object
 input_doc <- get_input_document(document)
+}
 }
 }

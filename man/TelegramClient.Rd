@@ -17,6 +17,7 @@ An R6 class that combines functionality from multiple method classes to interact
 ## Method `TelegramClient$iter_participants`
 ## ------------------------------------------------
 
+\dontrun{
 # Show all user IDs in a chat
 iter <- client$iter_participants(chat)
 for (user in iter) {
@@ -35,11 +36,13 @@ iter <- client$iter_participants(chat, filter = filter)
 for (user in iter) {
   print(user$first_name)
 }
+}
 
 ## ------------------------------------------------
 ## Method `TelegramClient$get_participants`
 ## ------------------------------------------------
 
+\dontrun{
 users <- client$get_participants(chat)
 print(users[[1]]$first_name)
 
@@ -48,48 +51,58 @@ for (user in users) {
     print(user$username)
   }
 }
+}
 
 ## ------------------------------------------------
 ## Method `TelegramClient$iter_admin_log`
 ## ------------------------------------------------
 
+\dontrun{
 iter <- client$iter_admin_log(channel)
 for (event in iter) {
   if (event$changed_title) {
     print(paste('The title changed from', event$old, 'to', event$new))
   }
 }
+}
 
 ## ------------------------------------------------
 ## Method `TelegramClient$get_admin_log`
 ## ------------------------------------------------
 
+\dontrun{
 # Get a list of deleted message events which said "heck"
 events <- client$get_admin_log(channel, search = 'heck', delete = TRUE)
 print(events[[1]]$old)
+}
 
 ## ------------------------------------------------
 ## Method `TelegramClient$iter_profile_photos`
 ## ------------------------------------------------
 
+\dontrun{
 # Download all the profile photos of some user
 iter <- client$iter_profile_photos(user)
 for (photo in iter) {
   client$download_media(photo)
+}
 }
 
 ## ------------------------------------------------
 ## Method `TelegramClient$get_profile_photos`
 ## ------------------------------------------------
 
+\dontrun{
 # Get the photos of a channel
 photos <- client$get_profile_photos(channel)
 client$download_media(photos[[length(photos)]])
+}
 
 ## ------------------------------------------------
 ## Method `TelegramClient$action`
 ## ------------------------------------------------
 
+\dontrun{
 # Type for 2 seconds, then send a message
 action <- client$action(chat, 'typing')
 Sys.sleep(2)
@@ -101,43 +114,51 @@ client$action(chat, 'cancel')
 # Upload a document, showing its progress
 action <- client$action(chat, 'document')
 client$send_file(chat, zip_file, progress_callback = action$progress)
+}
 
 ## ------------------------------------------------
 ## Method `TelegramClient$edit_admin`
 ## ------------------------------------------------
 
+\dontrun{
 # Allowing user to pin messages in chat
 client$edit_admin(chat, user, pin_messages = TRUE)
 
 # Granting all permissions except for add_admins
 client$edit_admin(chat, user, is_admin = TRUE, add_admins = FALSE)
+}
 
 ## ------------------------------------------------
 ## Method `TelegramClient$edit_permissions`
 ## ------------------------------------------------
 
+\dontrun{
 # Banning user from chat forever
 client$edit_permissions(chat, user, view_messages = FALSE)
 
 # Kicking someone (ban + un-ban)
 client$edit_permissions(chat, user, view_messages = FALSE)
 client$edit_permissions(chat, user)
+}
 
 ## ------------------------------------------------
 ## Method `TelegramClient$kick_participant`
 ## ------------------------------------------------
 
+\dontrun{
 # Kick some user from some chat, and deleting the service message
 msg <- client$kick_participant(chat, user)
 msg$delete()
 
 # Leaving chat
 client$kick_participant(chat, 'me')
+}
 
 ## ------------------------------------------------
 ## Method `TelegramClient$get_permissions`
 ## ------------------------------------------------
 
+\dontrun{
 permissions <- client$get_permissions(chat, user)
 if (permissions$is_admin) {
   # do something
@@ -145,15 +166,18 @@ if (permissions$is_admin) {
 
 # Get Banned Permissions of Chat
 client$get_permissions(chat)
+}
 
 ## ------------------------------------------------
 ## Method `TelegramClient$get_stats`
 ## ------------------------------------------------
 
+\dontrun{
 channel <- -100123
 stats <- client$get_stats(channel)
 print(paste('Stats from', stats$period$min_date, 'to', stats$period$max_date, ':'))
 print(stats$stringify())
+}
 }
 \keyword{Internal}
 \keyword{helper}
@@ -1333,7 +1357,8 @@ A _ParticipantsIter object.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{# Show all user IDs in a chat
+\preformatted{\dontrun{
+# Show all user IDs in a chat
 iter <- client$iter_participants(chat)
 for (user in iter) {
   print(user$id)
@@ -1350,6 +1375,7 @@ filter <- ChannelParticipantsAdmins()
 iter <- client$iter_participants(chat, filter = filter)
 for (user in iter) {
   print(user$first_name)
+}
 }
 }
 \if{html}{\out{</div>}}
@@ -1378,13 +1404,15 @@ A TotalList of participants.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{users <- client$get_participants(chat)
+\preformatted{\dontrun{
+users <- client$get_participants(chat)
 print(users[[1]]$first_name)
 
 for (user in users) {
   if (!is.null(user$username)) {
     print(user$username)
   }
+}
 }
 }
 \if{html}{\out{</div>}}
@@ -1477,11 +1505,13 @@ An _AdminLogIter object.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{iter <- client$iter_admin_log(channel)
+\preformatted{\dontrun{
+iter <- client$iter_admin_log(channel)
 for (event in iter) {
   if (event$changed_title) {
     print(paste('The title changed from', event$old, 'to', event$new))
   }
+}
 }
 }
 \if{html}{\out{</div>}}
@@ -1510,9 +1540,11 @@ A list of admin log events.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{# Get a list of deleted message events which said "heck"
+\preformatted{\dontrun{
+# Get a list of deleted message events which said "heck"
 events <- client$get_admin_log(channel, search = 'heck', delete = TRUE)
 print(events[[1]]$old)
+}
 }
 \if{html}{\out{</div>}}
 
@@ -1553,10 +1585,12 @@ A _ProfilePhotoIter object.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{# Download all the profile photos of some user
+\preformatted{\dontrun{
+# Download all the profile photos of some user
 iter <- client$iter_profile_photos(user)
 for (photo in iter) {
   client$download_media(photo)
+}
 }
 }
 \if{html}{\out{</div>}}
@@ -1585,9 +1619,11 @@ A TotalList of photos.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{# Get the photos of a channel
+\preformatted{\dontrun{
+# Get the photos of a channel
 photos <- client$get_profile_photos(channel)
 client$download_media(photos[[length(photos)]])
+}
 }
 \if{html}{\out{</div>}}
 
@@ -1623,7 +1659,8 @@ A _ChatAction object or a coroutine.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{# Type for 2 seconds, then send a message
+\preformatted{\dontrun{
+# Type for 2 seconds, then send a message
 action <- client$action(chat, 'typing')
 Sys.sleep(2)
 client$send_message(chat, 'Hello world! I type slow ^^')
@@ -1634,6 +1671,7 @@ client$action(chat, 'cancel')
 # Upload a document, showing its progress
 action <- client$action(chat, 'document')
 client$send_file(chat, zip_file, progress_callback = action$progress)
+}
 }
 \if{html}{\out{</div>}}
 
@@ -1702,11 +1740,13 @@ The resulting Updates object.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{# Allowing user to pin messages in chat
+\preformatted{\dontrun{
+# Allowing user to pin messages in chat
 client$edit_admin(chat, user, pin_messages = TRUE)
 
 # Granting all permissions except for add_admins
 client$edit_admin(chat, user, is_admin = TRUE, add_admins = FALSE)
+}
 }
 \if{html}{\out{</div>}}
 
@@ -1778,12 +1818,14 @@ The resulting Updates object.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{# Banning user from chat forever
+\preformatted{\dontrun{
+# Banning user from chat forever
 client$edit_permissions(chat, user, view_messages = FALSE)
 
 # Kicking someone (ban + un-ban)
 client$edit_permissions(chat, user, view_messages = FALSE)
 client$edit_permissions(chat, user)
+}
 }
 \if{html}{\out{</div>}}
 
@@ -1813,12 +1855,14 @@ The service message produced about a user being kicked, if any.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{# Kick some user from some chat, and deleting the service message
+\preformatted{\dontrun{
+# Kick some user from some chat, and deleting the service message
 msg <- client$kick_participant(chat, user)
 msg$delete()
 
 # Leaving chat
 client$kick_participant(chat, 'me')
+}
 }
 \if{html}{\out{</div>}}
 
@@ -1848,13 +1892,15 @@ A ParticipantPermissions instance or NULL.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{permissions <- client$get_permissions(chat, user)
+\preformatted{\dontrun{
+permissions <- client$get_permissions(chat, user)
 if (permissions$is_admin) {
   # do something
 }
 
 # Get Banned Permissions of Chat
 client$get_permissions(chat)
+}
 }
 \if{html}{\out{</div>}}
 
@@ -1884,10 +1930,12 @@ BroadcastStats, MegagroupStats, or MessageStats.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{channel <- -100123
+\preformatted{\dontrun{
+channel <- -100123
 stats <- client$get_stats(channel)
 print(paste('Stats from', stats$period$min_date, 'to', stats$period$max_date, ':'))
 print(stats$stringify())
+}
 }
 \if{html}{\out{</div>}}
 

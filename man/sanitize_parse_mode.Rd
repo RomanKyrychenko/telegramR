@@ -19,8 +19,10 @@ Converts the given parse mode into an object with
 }
 \examples{
 \dontrun{
+\dontrun{
 # Assuming markdown and html are defined elsewhere
 mode <- sanitize_parse_mode("markdown")
 parsed <- mode$parse("**bold**")
+}
 }
 }

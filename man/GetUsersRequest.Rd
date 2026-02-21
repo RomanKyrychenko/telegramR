@@ -5,8 +5,6 @@
 \title{GetUsersRequest}
 \description{
 Request to get a vector of users by input user references.
-
-Telegram API type GetUsersRequest
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetUsersRequest}
@@ -14,9 +12,9 @@ Telegram API type GetUsersRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the GetSavedMusicByIDRequest class.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the GetUsersRequest class.}
 
-\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the GetSavedMusicByIDRequest class.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the GetUsersRequest class.}
 
 \item{\code{id}}{TLInputUser or a representation accepted by get_input_user}
 }

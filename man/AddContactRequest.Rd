@@ -15,7 +15,9 @@ Methods:
 R6 representation of the TL request: AddContactRequest
 }
 \examples{
+\dontrun{
 AddContactRequest$new(inputUser, "John", "Doe", "+123", TRUE)$to_list()
+}
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{AddContactRequest}

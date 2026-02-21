@@ -17,8 +17,10 @@ This function serializes a datetime object to a byte array. It handles various d
 including POSIXct, Date, numeric, and difftime.
 }
 \examples{
+\dontrun{
 serialize_datetime(as.POSIXct("2023-01-01 12:00:00", tz = "UTC"))
 serialize_datetime(as.Date("2023-01-01"))
 serialize_datetime(as.numeric(1234567890))
 serialize_datetime(as.difftime(3600, units = "secs"))
+}
 }

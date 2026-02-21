@@ -32,7 +32,9 @@ This is key to getting entities by explicitly passing `hash = 0`.
 }
 \examples{
 \dontrun{
+\dontrun{
 # Assuming entity is a User object
 input_peer <- get_input_peer(entity)
+}
 }
 }

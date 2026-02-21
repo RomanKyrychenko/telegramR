@@ -20,8 +20,10 @@ Returns `list(NULL, FALSE)` if the username or link is not valid.
 }
 \examples{
 \dontrun{
+\dontrun{
 parse_username("@username") # list("username", FALSE)
 parse_username("https://t.me/joinchat/abc123") # list("abc123", TRUE)
 parse_username("invalid") # list(NULL, FALSE)
+}
 }
 }

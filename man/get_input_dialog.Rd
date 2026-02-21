@@ -17,7 +17,9 @@ Similar to \code{get_input_peer}, but for dialogs.
 }
 \examples{
 \dontrun{
+\dontrun{
 # Assuming dialog is a dialog object
 input_dialog <- get_input_dialog(dialog)
+}
 }
 }

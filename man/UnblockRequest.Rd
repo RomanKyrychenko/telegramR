@@ -15,7 +15,9 @@ Methods:
 R6 representation of the TL request: UnblockRequest
 }
 \examples{
+\dontrun{
 UnblockRequest$new(id = somePeer, my_stories_from = TRUE)$to_list()
+}
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{UnblockRequest}

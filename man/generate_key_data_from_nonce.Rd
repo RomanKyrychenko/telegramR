@@ -18,8 +18,10 @@ A list containing 'key' and 'iv' as raw vectors.
 Generate key data from nonce
 }
 \examples{
+\dontrun{
 server_nonce <- as.raw(sample(0:255, 16, replace = TRUE))
 new_nonce <- as.raw(sample(0:255, 32, replace = TRUE))
 key_data <- generate_key_data_from_nonce(server_nonce, new_nonce)
 str(key_data)
+}
 }

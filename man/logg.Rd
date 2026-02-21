@@ -18,5 +18,7 @@ Logging setup
 A simple logging function that prints formatted messages to the console.
 }
 \examples{
+\dontrun{
 logg("This is a log message with a number: \%d", 42)
+}
 }

@@ -14,12 +14,14 @@ This class inherits from TLRequest and is used to construct and serialize
 Telegram API requests for retrieving detailed user data.
 }
 \examples{
+\dontrun{
 # Example usage (assuming client and utils are set up)
 request <- GetFullUserRequest$new(id = some_user_id)
 request$resolve(client, utils)
 dict <- request$to_dict()
 bytes <- request$.bytes()
 
+}
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetFullUserRequest}

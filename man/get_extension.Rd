@@ -17,7 +17,9 @@ Gets the corresponding extension for any Telegram media.
 }
 \examples{
 \dontrun{
+\dontrun{
 # Assuming media is a Document object
 ext <- get_extension(media)
+}
 }
 }

@@ -22,10 +22,12 @@ metadata extraction where possible.
 }
 \examples{
 \dontrun{
+\dontrun{
 # Assuming exiftoolr is installed and file exists
 metadata <- get_metadata("example.mp3")
 if (!is.null(metadata)) {
   print(metadata)
+}
 }
 }
 }

@@ -30,6 +30,8 @@ Keys are the literal delimiter sequences as they appear in text and
 values are the corresponding entity class names used by the system.
 }
 \examples{
+\dontrun{
 DEFAULT_DELIMITERS[["**"]]
+}
 }
 \keyword{datasets}

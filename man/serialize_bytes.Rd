@@ -16,6 +16,8 @@ A raw vector representing the serialized data.
 This function serializes data to a byte array. It handles both raw data and character strings.
 }
 \examples{
+\dontrun{
 serialize_bytes(charToRaw("test"))
 serialize_bytes("test")
+}
 }

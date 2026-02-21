@@ -40,12 +40,14 @@ breaking entity formatting.
 }
 \examples{
 \dontrun{
+\dontrun{
 # Assuming entities are lists like list(offset = 0, length = 5, ...)
 text <- "This is a very long message that needs to be split."
 entities <- list(list(offset = 0, length = 4)) # Example entity
 splits <- split_text(text, entities, limit = 20)
 for (split in splits) {
   # Send split[[1]] (text) with split[[2]] (entities)
+}
 }
 }
 }

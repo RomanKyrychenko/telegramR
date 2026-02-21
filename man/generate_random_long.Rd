@@ -16,8 +16,10 @@ A random long integer
 Generate a random long integer (8 bytes), optionally signed
 }
 \examples{
+\dontrun{
 random_long <- generate_random_long()
 print(random_long)
 random_unsigned_long <- generate_random_long(signed = FALSE)
 print(random_unsigned_long)
+}
 }

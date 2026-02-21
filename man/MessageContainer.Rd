@@ -17,16 +17,20 @@ and read messages from a binary reader.
 ## Method `MessageContainer$to_dict`
 ## ------------------------------------------------
 
+\dontrun{
 container <- MessageContainer$new(messages = list())
 container$to_dict()
+}
 
 ## ------------------------------------------------
 ## Method `MessageContainer$from_reader`
 ## ------------------------------------------------
 
+\dontrun{
 # Assuming `reader` is a binary reader object:
 container <- MessageContainer$new()
 container$from_reader(reader)
+}
 }
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageContainer}
@@ -100,8 +104,10 @@ A list containing the fields of the `MessageContainer` object in dictionary form
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{container <- MessageContainer$new(messages = list())
+\preformatted{\dontrun{
+container <- MessageContainer$new(messages = list())
 container$to_dict()
+}
 }
 \if{html}{\out{</div>}}
 
@@ -134,9 +140,11 @@ The updated `MessageContainer` object with the parsed messages.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{# Assuming `reader` is a binary reader object:
+\preformatted{\dontrun{
+# Assuming `reader` is a binary reader object:
 container <- MessageContainer$new()
 container$from_reader(reader)
+}
 }
 \if{html}{\out{</div>}}
 

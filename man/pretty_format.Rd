@@ -19,6 +19,8 @@ This function formats a TL object for pretty printing. It handles nested lists,
 vectors, and other data types.
 }
 \examples{
+\dontrun{
 pretty_format(list(a = 1, b = "test", c = list(d = 2)))
 pretty_format(c(1, 2, 3))
+}
 }

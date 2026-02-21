@@ -5,6 +5,7 @@
 \title{InvokeWithTakeoutRequest R6 class}
 \value{
 An R6 object of class \code{InvokeWithTakeoutRequest}.
+Initialize a new InvokeWithTakeoutRequest
 }
 \description{
 Represents the TL request `InvokeWithTakeoutRequest`.
@@ -28,12 +29,6 @@ Methods:
 to_raw() writes takeout_id as an 8-byte little-endian value using writeBin(as.numeric(...), size=8).
 For exact two's-complement 64-bit preservation, replace with a dedicated 64-bit serializer.
 Initialize an InvokeWithTakeoutRequest
-}
-\examples{
-# q <- SomeQueryObject$new(...)
-# req <- InvokeWithTakeoutRequest$new(takeout_id = 1234567890123456789, query = q)
-Initialize a new InvokeWithTakeoutRequest
-
 }
 \section{Methods}{
 \subsection{Public methods}{

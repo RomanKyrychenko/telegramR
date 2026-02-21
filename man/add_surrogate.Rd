@@ -16,7 +16,9 @@ The text string with surrogate pairs added.
 Add surrogate pairs to text
 }
 \examples{
+\dontrun{
 text <- "Hello \U0001F600 World" # Contains a surrogate pair
 surrogate_text <- add_surrogate(text)
 print(surrogate_text) # "Hello 😀 World"
+}
 }

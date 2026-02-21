@@ -20,21 +20,25 @@ A pure R implementation of AES IGE mode encryption and decryption.
 ## Method `AES$decrypt_ige`
 ## ------------------------------------------------
 
+\dontrun{
 aes <- AES$new()
 cipher_text <- as.raw(c(0x00, 0x01, 0x02, 0x03))
 key <- as.raw(rep(0x01, 32))
 iv <- as.raw(rep(0x02, 32))
 aes$decrypt_ige(cipher_text, key, iv)
+}
 
 ## ------------------------------------------------
 ## Method `AES$encrypt_ige`
 ## ------------------------------------------------
 
+\dontrun{
 aes <- AES$new()
 plain_text <- as.raw(c(0x00, 0x01, 0x02, 0x03))
 key <- as.raw(rep(0x01, 32))
 iv <- as.raw(rep(0x02, 32))
 aes$encrypt_ige(plain_text, key, iv)
+}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -69,11 +73,13 @@ A raw vector representing the decrypted text.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{aes <- AES$new()
+\preformatted{\dontrun{
+aes <- AES$new()
 cipher_text <- as.raw(c(0x00, 0x01, 0x02, 0x03))
 key <- as.raw(rep(0x01, 32))
 iv <- as.raw(rep(0x02, 32))
 aes$decrypt_ige(cipher_text, key, iv)
+}
 }
 \if{html}{\out{</div>}}
 
@@ -105,11 +111,13 @@ A raw vector representing the encrypted text.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{aes <- AES$new()
+\preformatted{\dontrun{
+aes <- AES$new()
 plain_text <- as.raw(c(0x00, 0x01, 0x02, 0x03))
 key <- as.raw(rep(0x01, 32))
 iv <- as.raw(rep(0x02, 32))
 aes$encrypt_ige(plain_text, key, iv)
+}
 }
 \if{html}{\out{</div>}}
 

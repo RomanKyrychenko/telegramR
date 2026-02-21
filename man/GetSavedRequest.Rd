@@ -13,7 +13,9 @@ Methods:
 R6 representation of the TL request: GetSavedRequest
 }
 \examples{
+\dontrun{
 GetSavedRequest$new()$to_list()
+}
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetSavedRequest}

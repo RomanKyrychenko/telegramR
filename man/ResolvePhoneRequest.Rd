@@ -13,7 +13,9 @@ Methods:
 R6 representation of the TL request: ResolvePhoneRequest
 }
 \examples{
+\dontrun{
 ResolvePhoneRequest$new("123456")$to_list()
+}
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ResolvePhoneRequest}

@@ -20,6 +20,8 @@ Logical indicating if the index is within a surrogate pair.
 Check if index is within a surrogate pair
 }
 \examples{
+\dontrun{
 text <- "\ud83d\udc00"  # Example surrogate pair (though R normalizes)
 within_surrogate(text, 2)
+}
 }

@@ -20,6 +20,7 @@ operations need to be handled in a synchronous manner.
 }
 \examples{
 \dontrun{
+\dontrun{
 # Assuming 'future' package is used for async operations
 library(future)
 f <- future({
@@ -27,5 +28,6 @@ f <- future({
   42
 })
 result <- maybe_async(f) # Will warn and resolve to 42
+}
 }
 }

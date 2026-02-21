@@ -17,7 +17,9 @@ This function is used to serialize various data types to JSON format.
 It handles raw data, POSIXt objects, and other types.
 }
 \examples{
+\dontrun{
 json_default(charToRaw("test"))
 json_default(as.POSIXct("2023-01-01 12:00:00", tz = "UTC"))
 json_default(123)
+}
 }

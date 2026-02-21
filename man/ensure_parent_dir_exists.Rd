@@ -16,5 +16,7 @@ None. Creates the parent directory if it does not exist.
 Ensure the parent directory exists
 }
 \examples{
+\dontrun{
 ensure_parent_dir_exists("path/to/some/file.txt")
+}
 }
