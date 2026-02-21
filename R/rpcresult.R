@@ -15,6 +15,11 @@ RpcResult <- R6::R6Class(
   "RpcResult",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID The constructor ID for RpcResult (0xf35c6d01).
+    CONSTRUCTOR_ID = 0xf35c6d01,
+    #' @field SUBCLASS_OF_ID The subclass ID for RpcResult.
+    SUBCLASS_OF_ID = 0xf35c6d01,
+
     req_msg_id = NULL,
     body = NULL,
     error = NULL,
@@ -44,12 +49,6 @@ RpcResult <- R6::R6Class(
         )
       )
     }
-  ),
-  active = list(
-    #' @field CONSTRUCTOR_ID The constructor ID for RpcResult (0xf35c6d01).
-    CONSTRUCTOR_ID = function() 0xf35c6d01,
-    #' @field SUBCLASS_OF_ID The subclass ID for RpcResult.
-    SUBCLASS_OF_ID = function() 0xf35c6d01
   ),
   private = list(
     from_reader = function(reader) {
