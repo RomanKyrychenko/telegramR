@@ -1119,7 +1119,7 @@ TelegramClient <- R6::R6Class(
         return(sorted_thumbs[[thumb]])
       } else if (is.character(thumb)) {
         for (t in sorted_thumbs) {
-          if (t$type == thumb) {
+          if (!is.null(t$type) && t$type == thumb) {
             return(t)
           }
         }
@@ -2925,10 +2925,26 @@ TelegramClient <- R6::R6Class(
       }
 
       # Normalize input into a list of rows, each row is a list of buttons.
+      # A single button (list with attrs or S3 object) should become [[button]]
+      # A row of buttons [btn1, btn2] should become [[btn1, btn2]]
+      # Already [[btn1], [btn2]] stays as-is
+      is_button <- function(x) {
+        inherits(x, "CustomButton") || inherits(x, "MessageButton") ||
+          !is.null(attr(x, "SUBCLASS_OF_ID")) || (is.atomic(x) && !is.list(x)) ||
+          (!is.null(x[["is_inline"]])) || (!is.null(x[["_type"]]))
+      }
       if (!is.list(buttons)) {
-        buttons <- list(as.list(buttons))
-      } else if (length(buttons) == 0 || !is.list(buttons[[1]])) {
-        buttons <- list(as.list(buttons))
+        # Single atomic button
+        buttons <- list(list(buttons))
+      } else if (is_button(buttons)) {
+        # Single button object (a named list)
+        buttons <- list(list(buttons))
+      } else if (length(buttons) > 0 && !is.list(buttons[[1]])) {
+        # A flat list of atomic buttons
+        buttons <- list(buttons)
+      } else if (length(buttons) > 0 && is_button(buttons[[1]])) {
+        # A flat list of button objects -> single row
+        buttons <- list(buttons)
       }
 
       is_inline <- FALSE
@@ -4275,6 +4291,7 @@ TelegramClient <- R6::R6Class(
     initialize = function(...) {
       super$initialize(...)
       self$client <- self
+      self$parse_mode <- "markdown"
     }
   )
 )

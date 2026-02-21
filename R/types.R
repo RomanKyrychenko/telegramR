@@ -6,6 +6,9 @@ AccessPointRule <- R6::R6Class(
   "AccessPointRule",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x4679b65f,
+    SUBCLASS_OF_ID = 0xb1aca0fd,
+
 
     #' @field phone_prefix_rules A string representing phone prefix rules.
     phone_prefix_rules = NULL,
@@ -52,18 +55,7 @@ AccessPointRule <- R6::R6Class(
       )))
     }
   ),
-  active = list(
 
-    #' @field CONSTRUCTOR_ID The constructor ID for AccessPointRule.
-    CONSTRUCTOR_ID = function() {
-      return(0x4679b65f)
-    },
-
-    #' @field SUBCLASS_OF_ID The subclass ID for AccessPointRule.
-    SUBCLASS_OF_ID = function() {
-      return(0xb1aca0fd)
-    }
-  ),
   private = list(
 
     #' @description
@@ -126,6 +118,9 @@ AccountDaysTTL <- R6::R6Class(
   "AccountDaysTTL",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xb8d0afdf,
+    SUBCLASS_OF_ID = 0xbaa39d88,
+
 
     #' @field days An integer representing the number of days.
     days = NULL,
@@ -157,18 +152,7 @@ AccountDaysTTL <- R6::R6Class(
       )))
     }
   ),
-  active = list(
 
-    #' @field CONSTRUCTOR_ID The constructor ID for AccountDaysTTL.
-    CONSTRUCTOR_ID = function() {
-      return(0xb8d0afdf)
-    },
-
-    #' @field SUBCLASS_OF_ID The subclass ID for AccountDaysTTL.
-    SUBCLASS_OF_ID = function() {
-      return(0xbaa39d88)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AccountDaysTTL object from a BinaryReader.
@@ -186,6 +170,9 @@ AttachMenuBot <- R6::R6Class(
   "AttachMenuBot",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xd90d8dfe,
+    SUBCLASS_OF_ID = 0x9f087446,
+
     bot_id = NULL,
     short_name = NULL,
     icons = NULL,
@@ -289,20 +276,7 @@ AttachMenuBot <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
 
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AttachMenuBot.
-    CONSTRUCTOR_ID = function() {
-      return(0xd90d8dfe)
-    },
-
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AttachMenuBot.
-    SUBCLASS_OF_ID = function() {
-      return(0x9f087446)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AttachMenuBot object from a BinaryReader.
@@ -361,6 +335,9 @@ AttachMenuBotIcon <- R6::R6Class(
   "AttachMenuBotIcon",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xb2a7386b,
+    SUBCLASS_OF_ID = 0x80484555,
+
     name = NULL,
     icon = NULL,
     colors = NULL,
@@ -412,19 +389,7 @@ AttachMenuBotIcon <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AttachMenuBotIcon.
-    CONSTRUCTOR_ID = function() {
-      return(0xb2a7386b)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AttachMenuBotIcon.
-    SUBCLASS_OF_ID = function() {
-      return(0x80484555)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AttachMenuBotIcon object from a BinaryReader.
@@ -456,6 +421,9 @@ AttachMenuBotIconColor <- R6::R6Class(
   "AttachMenuBotIconColor",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x4576f3f0,
+    SUBCLASS_OF_ID = 0xbea4cb6a,
+
     name = NULL,
     color = NULL,
 
@@ -490,19 +458,7 @@ AttachMenuBotIconColor <- R6::R6Class(
       )))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AttachMenuBotIconColor.
-    CONSTRUCTOR_ID = function() {
-      return(0x4576f3f0)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AttachMenuBotIconColor.
-    SUBCLASS_OF_ID = function() {
-      return(0xbea4cb6a)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AttachMenuBotIconColor object from a BinaryReader.
@@ -521,6 +477,9 @@ AttachMenuBots <- R6::R6Class(
   "AttachMenuBots",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x3c4301c0,
+    SUBCLASS_OF_ID = 0x842e23da,
+
     hash = NULL,
     bots = NULL,
     users = NULL,
@@ -564,19 +523,7 @@ AttachMenuBots <- R6::R6Class(
       )))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AttachMenuBots.
-    CONSTRUCTOR_ID = function() {
-      return(0x3c4301c0)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AttachMenuBots.
-    SUBCLASS_OF_ID = function() {
-      return(0x842e23da)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AttachMenuBots object from a BinaryReader.
@@ -609,6 +556,9 @@ AttachMenuBotsBot <- R6::R6Class(
   "AttachMenuBotsBot",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x93bf667f,
+    SUBCLASS_OF_ID = 0xdb33883d,
+
     bot = NULL,
     users = NULL,
 
@@ -645,19 +595,7 @@ AttachMenuBotsBot <- R6::R6Class(
       )))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AttachMenuBotsBot.
-    CONSTRUCTOR_ID = function() {
-      return(0x93bf667f)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AttachMenuBotsBot.
-    SUBCLASS_OF_ID = function() {
-      return(0xdb33883d)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AttachMenuBotsBot object from a BinaryReader.
@@ -683,6 +621,9 @@ AttachMenuBotsNotModified <- R6::R6Class(
   "AttachMenuBotsNotModified",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xf1d88a5c,
+    SUBCLASS_OF_ID = 0x842e23da,
+
 
     #' @description
     #' Initializes the AttachMenuBotsNotModified object.
@@ -706,19 +647,7 @@ AttachMenuBotsNotModified <- R6::R6Class(
       return(as.raw(c(0x5c, 0x8a, 0xd8, 0xf1)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AttachMenuBotsNotModified.
-    CONSTRUCTOR_ID = function() {
-      return(0xf1d88a5c)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AttachMenuBotsNotModified.
-    SUBCLASS_OF_ID = function() {
-      return(0x842e23da)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AttachMenuBotsNotModified object from a BinaryReader.
@@ -735,6 +664,9 @@ AttachMenuPeerTypeBotPM <- R6::R6Class(
   "AttachMenuPeerTypeBotPM",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xc32bfa1a,
+    SUBCLASS_OF_ID = 0xd1d886d0,
+
 
     #' @description
     #' Initializes the AttachMenuPeerTypeBotPM object.
@@ -758,19 +690,7 @@ AttachMenuPeerTypeBotPM <- R6::R6Class(
       return(as.raw(c(0x1a, 0xfa, 0x2b, 0xc3)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AttachMenuPeerTypeBotPM.
-    CONSTRUCTOR_ID = function() {
-      return(0xc32bfa1a)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AttachMenuPeerTypeBotPM.
-    SUBCLASS_OF_ID = function() {
-      return(0xd1d886d0)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AttachMenuPeerTypeBotPM object from a BinaryReader.
@@ -787,6 +707,9 @@ AttachMenuPeerTypeBroadcast <- R6::R6Class(
   "AttachMenuPeerTypeBroadcast",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x7bfbdefc,
+    SUBCLASS_OF_ID = 0xd1d886d0,
+
 
     #' @description
     #' Initializes the AttachMenuPeerTypeBroadcast object.
@@ -810,19 +733,7 @@ AttachMenuPeerTypeBroadcast <- R6::R6Class(
       return(as.raw(c(0xfc, 0xde, 0xfb, 0x7b)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AttachMenuPeerTypeBroadcast.
-    CONSTRUCTOR_ID = function() {
-      return(0x7bfbdefc)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AttachMenuPeerTypeBroadcast.
-    SUBCLASS_OF_ID = function() {
-      return(0xd1d886d0)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AttachMenuPeerTypeBroadcast object from a BinaryReader.
@@ -839,6 +750,9 @@ AttachMenuPeerTypeChat <- R6::R6Class(
   "AttachMenuPeerTypeChat",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x0509113f,
+    SUBCLASS_OF_ID = 0xd1d886d0,
+
 
     #' @description
     #' Initializes the AttachMenuPeerTypeChat object.
@@ -862,19 +776,7 @@ AttachMenuPeerTypeChat <- R6::R6Class(
       return(as.raw(c(0x3f, 0x11, 0x09, 0x05)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AttachMenuPeerTypeChat.
-    CONSTRUCTOR_ID = function() {
-      return(0x0509113f)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AttachMenuPeerTypeChat.
-    SUBCLASS_OF_ID = function() {
-      return(0xd1d886d0)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AttachMenuPeerTypeChat object from a BinaryReader.
@@ -891,6 +793,9 @@ AttachMenuPeerTypePM <- R6::R6Class(
   "AttachMenuPeerTypePM",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xf146d31f,
+    SUBCLASS_OF_ID = 0xd1d886d0,
+
 
     #' @description
     #' Initializes the AttachMenuPeerTypePM object.
@@ -914,19 +819,7 @@ AttachMenuPeerTypePM <- R6::R6Class(
       return(as.raw(c(0x1f, 0xd3, 0x46, 0xf1)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AttachMenuPeerTypePM.
-    CONSTRUCTOR_ID = function() {
-      return(0xf146d31f)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AttachMenuPeerTypePM.
-    SUBCLASS_OF_ID = function() {
-      return(0xd1d886d0)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AttachMenuPeerTypePM object from a BinaryReader.
@@ -943,6 +836,9 @@ AttachMenuPeerTypeSameBotPM <- R6::R6Class(
   "AttachMenuPeerTypeSameBotPM",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x7d6be90e,
+    SUBCLASS_OF_ID = 0xd1d886d0,
+
 
     #' @description
     #' Initializes the AttachMenuPeerTypeSameBotPM object.
@@ -966,19 +862,7 @@ AttachMenuPeerTypeSameBotPM <- R6::R6Class(
       return(as.raw(c(0x0e, 0xe9, 0x6b, 0x7d)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AttachMenuPeerTypeSameBotPM.
-    CONSTRUCTOR_ID = function() {
-      return(0x7d6be90e)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AttachMenuPeerTypeSameBotPM.
-    SUBCLASS_OF_ID = function() {
-      return(0xd1d886d0)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AttachMenuPeerTypeSameBotPM object from a BinaryReader.
@@ -995,6 +879,9 @@ Authorization <- R6::R6Class(
   "Authorization",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xad01d61d,
+    SUBCLASS_OF_ID = 0xc913c01a,
+
     hash = NULL,
     device_model = NULL,
     platform = NULL,
@@ -1113,19 +1000,7 @@ Authorization <- R6::R6Class(
       )))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for Authorization.
-    CONSTRUCTOR_ID = function() {
-      return(0xad01d61d)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for Authorization.
-    SUBCLASS_OF_ID = function() {
-      return(0xc913c01a)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an Authorization object from a BinaryReader.
@@ -1183,6 +1058,9 @@ AutoDownloadSettings <- R6::R6Class(
   "AutoDownloadSettings",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xbaa57628,
+    SUBCLASS_OF_ID = 0x512819c7,
+
     photo_size_max = NULL,
     video_size_max = NULL,
     file_size_max = NULL,
@@ -1266,19 +1144,7 @@ AutoDownloadSettings <- R6::R6Class(
       )))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AutoDownloadSettings.
-    CONSTRUCTOR_ID = function() {
-      return(0xbaa57628)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AutoDownloadSettings.
-    SUBCLASS_OF_ID = function() {
-      return(0x512819c7)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AutoDownloadSettings object from a BinaryReader.
@@ -1322,6 +1188,9 @@ AutoSaveException <- R6::R6Class(
   "AutoSaveException",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x81602d47,
+    SUBCLASS_OF_ID = 0xdd868129,
+
     peer = NULL,
     settings = NULL,
 
@@ -1356,19 +1225,7 @@ AutoSaveException <- R6::R6Class(
       )))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AutoSaveException.
-    CONSTRUCTOR_ID = function() {
-      return(0x81602d47)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AutoSaveException.
-    SUBCLASS_OF_ID = function() {
-      return(0xdd868129)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AutoSaveException object from a BinaryReader.
@@ -1387,6 +1244,9 @@ AutoSaveSettings <- R6::R6Class(
   "AutoSaveSettings",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xc84834ce,
+    SUBCLASS_OF_ID = 0xcd3b96e6,
+
     photos = NULL,
     videos = NULL,
     video_max_size = NULL,
@@ -1438,19 +1298,7 @@ AutoSaveSettings <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AutoSaveSettings.
-    CONSTRUCTOR_ID = function() {
-      return(0xc84834ce)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AutoSaveSettings.
-    SUBCLASS_OF_ID = function() {
-      return(0xcd3b96e6)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AutoSaveSettings object from a BinaryReader.
@@ -1481,6 +1329,9 @@ AvailableEffect <- R6::R6Class(
   "AvailableEffect",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x93c3e27e,
+    SUBCLASS_OF_ID = 0x985a2f81,
+
     id = NULL,
     emoticon = NULL,
     effect_sticker_id = NULL,
@@ -1556,19 +1407,7 @@ AvailableEffect <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AvailableEffect.
-    CONSTRUCTOR_ID = function() {
-      return(0x93c3e27e)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AvailableEffect.
-    SUBCLASS_OF_ID = function() {
-      return(0x985a2f81)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AvailableEffect object from a BinaryReader.
@@ -1610,6 +1449,9 @@ AvailableReaction <- R6::R6Class(
   "AvailableReaction",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xc077ec01,
+    SUBCLASS_OF_ID = 0x8c1c9d73,
+
     reaction = NULL,
     title = NULL,
     static_icon = NULL,
@@ -1711,19 +1553,7 @@ AvailableReaction <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for AvailableReaction.
-    CONSTRUCTOR_ID = function() {
-      return(0xc077ec01)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for AvailableReaction.
-    SUBCLASS_OF_ID = function() {
-      return(0x8c1c9d73)
-    }
-  ),
   private = list(
     #' @description
     #' Reads an AvailableReaction object from a BinaryReader.
@@ -1774,6 +1604,9 @@ BadMsgNotification <- R6::R6Class(
   "BadMsgNotification",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xa7eff811,
+    SUBCLASS_OF_ID = 0xcebaa157,
+
     bad_msg_id = NULL,
     bad_msg_seqno = NULL,
     error_code = NULL,
@@ -1813,19 +1646,7 @@ BadMsgNotification <- R6::R6Class(
       )))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BadMsgNotification.
-    CONSTRUCTOR_ID = function() {
-      return(0xa7eff811)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BadMsgNotification.
-    SUBCLASS_OF_ID = function() {
-      return(0xcebaa157)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BadMsgNotification object from a BinaryReader.
@@ -1849,6 +1670,9 @@ BadServerSalt <- R6::R6Class(
   "BadServerSalt",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xedab447b,
+    SUBCLASS_OF_ID = 0xcebaa157,
+
     bad_msg_id = NULL,
     bad_msg_seqno = NULL,
     error_code = NULL,
@@ -1893,19 +1717,7 @@ BadServerSalt <- R6::R6Class(
       )))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BadServerSalt.
-    CONSTRUCTOR_ID = function() {
-      return(0xedab447b)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BadServerSalt.
-    SUBCLASS_OF_ID = function() {
-      return(0xcebaa157)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BadServerSalt object from a BinaryReader.
@@ -1931,6 +1743,9 @@ BankCardOpenUrl <- R6::R6Class(
   "BankCardOpenUrl",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xf568028a,
+    SUBCLASS_OF_ID = 0xf2e2460e,
+
     url = NULL,
     name = NULL,
 
@@ -1965,19 +1780,7 @@ BankCardOpenUrl <- R6::R6Class(
       )))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BankCardOpenUrl.
-    CONSTRUCTOR_ID = function() {
-      return(0xf568028a)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BankCardOpenUrl.
-    SUBCLASS_OF_ID = function() {
-      return(0xf2e2460e)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BankCardOpenUrl object from a BinaryReader.
@@ -1996,6 +1799,9 @@ BaseThemeArctic <- R6::R6Class(
   "BaseThemeArctic",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x5b11125a,
+    SUBCLASS_OF_ID = 0x1f03f444,
+
     #' @description
     #' Initializes the BaseThemeArctic with no parameters.
     initialize = function() {
@@ -2016,19 +1822,7 @@ BaseThemeArctic <- R6::R6Class(
       return(as.raw(c(0x5a, 0x12, 0x11, 0x5b)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BaseThemeArctic.
-    CONSTRUCTOR_ID = function() {
-      return(0x5b11125a)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BaseThemeArctic.
-    SUBCLASS_OF_ID = function() {
-      return(0x1f03f444)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BaseThemeArctic object from a BinaryReader.
@@ -2045,6 +1839,9 @@ BaseThemeClassic <- R6::R6Class(
   "BaseThemeClassic",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xc3a12462,
+    SUBCLASS_OF_ID = 0x1f03f444,
+
     #' @description
     #' Initializes the BaseThemeClassic with no parameters.
     initialize = function() {
@@ -2065,19 +1862,7 @@ BaseThemeClassic <- R6::R6Class(
       return(as.raw(c(0x62, 0x24, 0xa1, 0xc3)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BaseThemeClassic.
-    CONSTRUCTOR_ID = function() {
-      return(0xc3a12462)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BaseThemeClassic.
-    SUBCLASS_OF_ID = function() {
-      return(0x1f03f444)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BaseThemeClassic object from a BinaryReader.
@@ -2094,6 +1879,9 @@ BaseThemeDay <- R6::R6Class(
   "BaseThemeDay",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xfbd81688,
+    SUBCLASS_OF_ID = 0x1f03f444,
+
     #' @description
     #' Initializes the BaseThemeDay with no parameters.
     initialize = function() {
@@ -2114,19 +1902,7 @@ BaseThemeDay <- R6::R6Class(
       return(as.raw(c(0x88, 0x16, 0xd8, 0xfb)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BaseThemeDay.
-    CONSTRUCTOR_ID = function() {
-      return(0xfbd81688)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BaseThemeDay.
-    SUBCLASS_OF_ID = function() {
-      return(0x1f03f444)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BaseThemeDay object from a BinaryReader.
@@ -2143,6 +1919,9 @@ BaseThemeNight <- R6::R6Class(
   "BaseThemeNight",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xb7b31ea8,
+    SUBCLASS_OF_ID = 0x1f03f444,
+
     #' @description
     #' Initializes the BaseThemeNight with no parameters.
     initialize = function() {
@@ -2163,19 +1942,7 @@ BaseThemeNight <- R6::R6Class(
       return(as.raw(c(0xa8, 0x1e, 0xb3, 0xb7)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BaseThemeNight.
-    CONSTRUCTOR_ID = function() {
-      return(0xb7b31ea8)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BaseThemeNight.
-    SUBCLASS_OF_ID = function() {
-      return(0x1f03f444)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BaseThemeNight object from a BinaryReader.
@@ -2192,6 +1959,9 @@ BaseThemeTinted <- R6::R6Class(
   "BaseThemeTinted",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x6d5f77ee,
+    SUBCLASS_OF_ID = 0x1f03f444,
+
     #' @description
     #' Initializes the BaseThemeTinted with no parameters.
     initialize = function() {
@@ -2212,19 +1982,7 @@ BaseThemeTinted <- R6::R6Class(
       return(as.raw(c(0xee, 0x77, 0x5f, 0x6d)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BaseThemeTinted.
-    CONSTRUCTOR_ID = function() {
-      return(0x6d5f77ee)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BaseThemeTinted.
-    SUBCLASS_OF_ID = function() {
-      return(0x1f03f444)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BaseThemeTinted object from a BinaryReader.
@@ -2241,6 +1999,9 @@ BindAuthKeyInner <- R6::R6Class(
   "BindAuthKeyInner",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x75a3f765,
+    SUBCLASS_OF_ID = 0x2f099171,
+
     nonce = NULL,
     temp_auth_key_id = NULL,
     perm_auth_key_id = NULL,
@@ -2290,19 +2051,7 @@ BindAuthKeyInner <- R6::R6Class(
       )))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BindAuthKeyInner.
-    CONSTRUCTOR_ID = function() {
-      return(0x75a3f765)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BindAuthKeyInner.
-    SUBCLASS_OF_ID = function() {
-      return(0x2f099171)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BindAuthKeyInner object from a BinaryReader.
@@ -2330,6 +2079,9 @@ Birthday <- R6::R6Class(
   "Birthday",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x6c8e1e06,
+    SUBCLASS_OF_ID = 0xbe7fd664,
+
     day = NULL,
     month = NULL,
     year = NULL,
@@ -2373,19 +2125,7 @@ Birthday <- R6::R6Class(
       )))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for Birthday.
-    CONSTRUCTOR_ID = function() {
-      return(0x6c8e1e06)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for Birthday.
-    SUBCLASS_OF_ID = function() {
-      return(0xbe7fd664)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a Birthday object from a BinaryReader.
@@ -2411,6 +2151,9 @@ Boost <- R6::R6Class(
   "Boost",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x4b3e14d6,
+    SUBCLASS_OF_ID = 0x97a5086c,
+
     id = NULL,
     date = NULL,
     expires = NULL,
@@ -2523,19 +2266,7 @@ Boost <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for Boost.
-    CONSTRUCTOR_ID = function() {
-      return(0x4b3e14d6)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for Boost.
-    SUBCLASS_OF_ID = function() {
-      return(0x97a5086c)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a Boost object from a BinaryReader.
@@ -2600,6 +2331,9 @@ BotApp <- R6::R6Class(
   "BotApp",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x95fcd1d6,
+    SUBCLASS_OF_ID = 0x20f32ae,
+
     id = NULL,
     access_hash = NULL,
     short_name = NULL,
@@ -2679,19 +2413,7 @@ BotApp <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotApp.
-    CONSTRUCTOR_ID = function() {
-      return(0x95fcd1d6)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotApp.
-    SUBCLASS_OF_ID = function() {
-      return(0x20f32ae)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotApp object from a BinaryReader.
@@ -2733,6 +2455,9 @@ BotAppNotModified <- R6::R6Class(
   "BotAppNotModified",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x5da674b7,
+    SUBCLASS_OF_ID = 0x20f32ae,
+
     #' @description
     #' Initializes the BotAppNotModified with no parameters.
     initialize = function() {
@@ -2753,19 +2478,7 @@ BotAppNotModified <- R6::R6Class(
       return(as.raw(c(0xb7, 0x74, 0xa6, 0x5d)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotAppNotModified.
-    CONSTRUCTOR_ID = function() {
-      return(0x5da674b7)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotAppNotModified.
-    SUBCLASS_OF_ID = function() {
-      return(0x20f32ae)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotAppNotModified object from a BinaryReader.
@@ -2782,6 +2495,9 @@ BotAppSettings <- R6::R6Class(
   "BotAppSettings",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xc99b1950,
+    SUBCLASS_OF_ID = 0x179e62e3,
+
     placeholder_path = NULL,
     background_color = NULL,
     background_dark_color = NULL,
@@ -2853,19 +2569,7 @@ BotAppSettings <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotAppSettings.
-    CONSTRUCTOR_ID = function() {
-      return(0xc99b1950)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotAppSettings.
-    SUBCLASS_OF_ID = function() {
-      return(0x179e62e3)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotAppSettings object from a BinaryReader.
@@ -2915,6 +2619,9 @@ BotBusinessConnection <- R6::R6Class(
   "BotBusinessConnection",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x8f34b2f5,
+    SUBCLASS_OF_ID = 0x9b130546,
+
     connection_id = NULL,
     user_id = NULL,
     dc_id = NULL,
@@ -2987,19 +2694,7 @@ BotBusinessConnection <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotBusinessConnection.
-    CONSTRUCTOR_ID = function() {
-      return(0x8f34b2f5)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotBusinessConnection.
-    SUBCLASS_OF_ID = function() {
-      return(0x9b130546)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotBusinessConnection object from a BinaryReader.
@@ -3040,6 +2735,9 @@ BotCommand <- R6::R6Class(
   "BotCommand",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xc27ac8c7,
+    SUBCLASS_OF_ID = 0xe1e62c2,
+
     command = NULL,
     description = NULL,
 
@@ -3074,19 +2772,7 @@ BotCommand <- R6::R6Class(
       ))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotCommand.
-    CONSTRUCTOR_ID = function() {
-      return(0xc27ac8c7)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotCommand.
-    SUBCLASS_OF_ID = function() {
-      return(0xe1e62c2)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotCommand object from a BinaryReader.
@@ -3109,6 +2795,9 @@ BotCommandScopeChatAdmins <- R6::R6Class(
   "BotCommandScopeChatAdmins",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xb9aa606a,
+    SUBCLASS_OF_ID = 0x4baf5d10,
+
     #' @description
     #' Initializes the BotCommandScopeChatAdmins with no parameters.
     initialize = function() {
@@ -3129,19 +2818,7 @@ BotCommandScopeChatAdmins <- R6::R6Class(
       return(as.raw(c(0x6a, 0x60, 0xaa, 0xb9)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotCommandScopeChatAdmins.
-    CONSTRUCTOR_ID = function() {
-      return(0xb9aa606a)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotCommandScopeChatAdmins.
-    SUBCLASS_OF_ID = function() {
-      return(0x4baf5d10)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotCommandScopeChatAdmins object from a BinaryReader.
@@ -3158,6 +2835,9 @@ BotCommandScopeChats <- R6::R6Class(
   "BotCommandScopeChats",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x6fe1a881,
+    SUBCLASS_OF_ID = 0x4baf5d10,
+
     #' @description
     #' Initializes the BotCommandScopeChats with no parameters.
     initialize = function() {
@@ -3178,19 +2858,7 @@ BotCommandScopeChats <- R6::R6Class(
       return(as.raw(c(0x81, 0xa8, 0xe1, 0x6f)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotCommandScopeChats.
-    CONSTRUCTOR_ID = function() {
-      return(0x6fe1a881)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotCommandScopeChats.
-    SUBCLASS_OF_ID = function() {
-      return(0x4baf5d10)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotCommandScopeChats object from a BinaryReader.
@@ -3207,6 +2875,9 @@ BotCommandScopeDefault <- R6::R6Class(
   "BotCommandScopeDefault",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x2f6cb2ab,
+    SUBCLASS_OF_ID = 0x4baf5d10,
+
     #' @description
     #' Initializes the BotCommandScopeDefault with no parameters.
     initialize = function() {
@@ -3227,19 +2898,7 @@ BotCommandScopeDefault <- R6::R6Class(
       return(as.raw(c(0xab, 0xb2, 0x6c, 0x2f)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotCommandScopeDefault.
-    CONSTRUCTOR_ID = function() {
-      return(0x2f6cb2ab)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotCommandScopeDefault.
-    SUBCLASS_OF_ID = function() {
-      return(0x4baf5d10)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotCommandScopeDefault object from a BinaryReader.
@@ -3256,6 +2915,9 @@ BotCommandScopePeer <- R6::R6Class(
   "BotCommandScopePeer",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xdb9d897d,
+    SUBCLASS_OF_ID = 0x4baf5d10,
+
     peer = NULL,
 
     #' @description
@@ -3285,19 +2947,7 @@ BotCommandScopePeer <- R6::R6Class(
       ))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotCommandScopePeer.
-    CONSTRUCTOR_ID = function() {
-      return(0xdb9d897d)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotCommandScopePeer.
-    SUBCLASS_OF_ID = function() {
-      return(0x4baf5d10)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotCommandScopePeer object from a BinaryReader.
@@ -3318,6 +2968,9 @@ BotCommandScopePeerAdmins <- R6::R6Class(
   "BotCommandScopePeerAdmins",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x3fd863d1,
+    SUBCLASS_OF_ID = 0x4baf5d10,
+
     peer = NULL,
 
     #' @description
@@ -3347,19 +3000,7 @@ BotCommandScopePeerAdmins <- R6::R6Class(
       ))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotCommandScopePeerAdmins.
-    CONSTRUCTOR_ID = function() {
-      return(0x3fd863d1)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotCommandScopePeerAdmins.
-    SUBCLASS_OF_ID = function() {
-      return(0x4baf5d10)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotCommandScopePeerAdmins object from a BinaryReader.
@@ -3380,6 +3021,9 @@ BotCommandScopePeerUser <- R6::R6Class(
   "BotCommandScopePeerUser",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xa1321f3,
+    SUBCLASS_OF_ID = 0x4baf5d10,
+
     peer = NULL,
     user_id = NULL,
 
@@ -3414,19 +3058,7 @@ BotCommandScopePeerUser <- R6::R6Class(
       ))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotCommandScopePeerUser.
-    CONSTRUCTOR_ID = function() {
-      return(0xa1321f3)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotCommandScopePeerUser.
-    SUBCLASS_OF_ID = function() {
-      return(0x4baf5d10)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotCommandScopePeerUser object from a BinaryReader.
@@ -3449,6 +3081,9 @@ BotCommandScopeUsers <- R6::R6Class(
   "BotCommandScopeUsers",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x3c4f04d8,
+    SUBCLASS_OF_ID = 0x4baf5d10,
+
     #' @description
     #' Initializes the BotCommandScopeUsers with no parameters.
     initialize = function() {
@@ -3469,19 +3104,7 @@ BotCommandScopeUsers <- R6::R6Class(
       return(as.raw(c(0xd8, 0x04, 0x4f, 0x3c)))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotCommandScopeUsers.
-    CONSTRUCTOR_ID = function() {
-      return(0x3c4f04d8)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotCommandScopeUsers.
-    SUBCLASS_OF_ID = function() {
-      return(0x4baf5d10)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotCommandScopeUsers object from a BinaryReader.
@@ -3498,6 +3121,9 @@ BotInfo <- R6::R6Class(
   "BotInfo",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x4d8a0299,
+    SUBCLASS_OF_ID = 0xf1f701db,
+
     has_preview_medias = NULL,
     user_id = NULL,
     description = NULL,
@@ -3632,19 +3258,7 @@ BotInfo <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotInfo.
-    CONSTRUCTOR_ID = function() {
-      return(0x4d8a0299)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotInfo.
-    SUBCLASS_OF_ID = function() {
-      return(0xf1f701db)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotInfo object from a BinaryReader.
@@ -3728,6 +3342,9 @@ BotInlineMediaResult <- R6::R6Class(
   "BotInlineMediaResult",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x17db940b,
+    SUBCLASS_OF_ID = 0x3832b3d5,
+
     id = NULL,
     type = NULL,
     send_message = NULL,
@@ -3817,19 +3434,7 @@ BotInlineMediaResult <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotInlineMediaResult.
-    CONSTRUCTOR_ID = function() {
-      return(0x17db940b)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotInlineMediaResult.
-    SUBCLASS_OF_ID = function() {
-      return(0x3832b3d5)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotInlineMediaResult object from a BinaryReader.
@@ -3881,6 +3486,9 @@ BotInlineMessageMediaAuto <- R6::R6Class(
   "BotInlineMessageMediaAuto",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x764cf810,
+    SUBCLASS_OF_ID = 0xc4910f88,
+
     message = NULL,
     invert_media = NULL,
     entities = NULL,
@@ -3951,19 +3559,7 @@ BotInlineMessageMediaAuto <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotInlineMessageMediaAuto.
-    CONSTRUCTOR_ID = function() {
-      return(0x764cf810)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotInlineMessageMediaAuto.
-    SUBCLASS_OF_ID = function() {
-      return(0xc4910f88)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotInlineMessageMediaAuto object from a BinaryReader.
@@ -4008,6 +3604,9 @@ BotInlineMessageMediaContact <- R6::R6Class(
   "BotInlineMessageMediaContact",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x18d1cdc2,
+    SUBCLASS_OF_ID = 0xc4910f88,
+
     phone_number = NULL,
     first_name = NULL,
     last_name = NULL,
@@ -4071,19 +3670,7 @@ BotInlineMessageMediaContact <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotInlineMessageMediaContact.
-    CONSTRUCTOR_ID = function() {
-      return(0x18d1cdc2)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotInlineMessageMediaContact.
-    SUBCLASS_OF_ID = function() {
-      return(0xc4910f88)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotInlineMessageMediaContact object from a BinaryReader.
@@ -4118,6 +3705,9 @@ BotInlineMessageMediaGeo <- R6::R6Class(
   "BotInlineMessageMediaGeo",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x51846fd,
+    SUBCLASS_OF_ID = 0xc4910f88,
+
     geo = NULL,
     heading = NULL,
     period = NULL,
@@ -4196,19 +3786,7 @@ BotInlineMessageMediaGeo <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotInlineMessageMediaGeo.
-    CONSTRUCTOR_ID = function() {
-      return(0x51846fd)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotInlineMessageMediaGeo.
-    SUBCLASS_OF_ID = function() {
-      return(0xc4910f88)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotInlineMessageMediaGeo object from a BinaryReader.
@@ -4255,6 +3833,9 @@ BotInlineMessageMediaInvoice <- R6::R6Class(
   "BotInlineMessageMediaInvoice",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x354a9b09,
+    SUBCLASS_OF_ID = 0xc4910f88,
+
     title = NULL,
     description = NULL,
     currency = NULL,
@@ -4347,19 +3928,7 @@ BotInlineMessageMediaInvoice <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotInlineMessageMediaInvoice.
-    CONSTRUCTOR_ID = function() {
-      return(0x354a9b09)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotInlineMessageMediaInvoice.
-    SUBCLASS_OF_ID = function() {
-      return(0xc4910f88)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotInlineMessageMediaInvoice object from a BinaryReader.
@@ -4413,6 +3982,9 @@ BotInlineMessageMediaVenue <- R6::R6Class(
   "BotInlineMessageMediaVenue",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x8a86659c,
+    SUBCLASS_OF_ID = 0xc4910f88,
+
     geo = NULL,
     title = NULL,
     address = NULL,
@@ -4486,19 +4058,7 @@ BotInlineMessageMediaVenue <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-  active = list(
-    #' @field CONSTRUCTOR_ID
-    #' The constructor ID for BotInlineMessageMediaVenue.
-    CONSTRUCTOR_ID = function() {
-      return(0x8a86659c)
-    },
 
-    #' @field SUBCLASS_OF_ID
-    #' The subclass ID for BotInlineMessageMediaVenue.
-    SUBCLASS_OF_ID = function() {
-      return(0xc4910f88)
-    }
-  ),
   private = list(
     #' @description
     #' Reads a BotInlineMessageMediaVenue object from a BinaryReader.
@@ -13260,6 +12820,9 @@ FoundStory <- R6::R6Class("FoundStory",
 FutureSalt <- R6::R6Class("FutureSalt",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0x0949d9dc,
+    SUBCLASS_OF_ID = 0x0949d9dc,
+
     valid_since = NULL,
     valid_until = NULL,
     salt = NULL,
@@ -13277,10 +12840,7 @@ FutureSalt <- R6::R6Class("FutureSalt",
       )
     }
   ),
-  active = list(
-    CONSTRUCTOR_ID = function() 0x0949d9dc,
-    SUBCLASS_OF_ID = function() 0x0949d9dc
-  ),
+
   private = list(
     from_reader = function(reader) {
       valid_since <- reader$read_int()
@@ -13295,6 +12855,9 @@ FutureSalt <- R6::R6Class("FutureSalt",
 FutureSalts <- R6::R6Class("FutureSalts",
   inherit = TLObject,
   public = list(
+    CONSTRUCTOR_ID = 0xae500895,
+    SUBCLASS_OF_ID = 0xae500895,
+
     req_msg_id = NULL,
     now = NULL,
     salts = NULL,
@@ -13312,10 +12875,7 @@ FutureSalts <- R6::R6Class("FutureSalts",
       )
     }
   ),
-  active = list(
-    CONSTRUCTOR_ID = function() 0xae500895,
-    SUBCLASS_OF_ID = function() 0xae500895
-  ),
+
   private = list(
     from_reader = function(reader) {
       req_msg_id <- reader$read_long()

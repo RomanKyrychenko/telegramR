@@ -1598,7 +1598,7 @@ parse_phone <- function(phone) {
   if (is.integer(phone)) {
     return(as.character(phone))
   } else {
-    phone <- gsub("[+()\\s-]", "", as.character(phone))
+    phone <- gsub("[+()\\s-]", "", as.character(phone), perl = TRUE)
     if (grepl("^\\d+$", phone)) {
       return(phone)
     }
@@ -1635,7 +1635,7 @@ parse_username <- function(username) {
     match_length <- attr(m, "match.length")
     username_part <- substr(username, match_start + match_length, nchar(username))
     group1 <- substr(username, match_start, match_start + match_length - 1)
-    is_invite <- grepl("@|\\+|joinchat", group1)
+    is_invite <- grepl("\\+|joinchat", group1)
     if (is_invite) {
       return(list(username_part, TRUE))
     } else {

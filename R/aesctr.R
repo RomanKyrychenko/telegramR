@@ -29,7 +29,7 @@ AESModeCTR <- R6::R6Class(
       stopifnot(is.raw(key))
       stopifnot(is.raw(iv))
       stopifnot(length(iv) == 16)
-      stopifnot(length(key) == 16)
+      stopifnot(length(key) %in% c(16, 24, 32))
       self$key <- key
       self$iv <- iv
     },

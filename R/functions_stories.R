@@ -9,6 +9,9 @@ ActivateStealthModeRequest <- R6::R6Class(
   "ActivateStealthModeRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x57bbd166,
+    SUBCLASS_OF_ID = 0x8af52aac,
+
     past = NULL,
     future = NULL,
 
@@ -53,11 +56,6 @@ ActivateStealthModeRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x57bbd166,
-    SUBCLASS_OF_ID = function() 0x8af52aac
-  ),
-
   class = list(
     #' @description Read an ActivateStealthModeRequest instance from a reader
     #'
@@ -88,6 +86,9 @@ CanSendStoryRequest <- R6::R6Class(
   "CanSendStoryRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x30eb63f0,
+    SUBCLASS_OF_ID = 0xcb53a298,
+
     peer = NULL,
 
     #' @description Initialize CanSendStoryRequest
@@ -143,11 +144,6 @@ CanSendStoryRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x30eb63f0,
-    SUBCLASS_OF_ID = function() 0xcb53a298
-  ),
-
   class = list(
     #' @description Read a CanSendStoryRequest instance from a reader
     #'
@@ -174,6 +170,9 @@ CreateAlbumRequest <- R6::R6Class(
   "CreateAlbumRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0xa36396e5,
+    SUBCLASS_OF_ID = 0x7c8c5ea2,
+
     peer = NULL,
     title = NULL,
     stories = NULL,
@@ -257,11 +256,6 @@ CreateAlbumRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0xa36396e5,
-    SUBCLASS_OF_ID = function() 0x7c8c5ea2
-  ),
-
   class = list(
     #' @description Read a CreateAlbumRequest instance from a reader
     #'
@@ -297,6 +291,9 @@ DeleteAlbumRequest <- R6::R6Class(
   "DeleteAlbumRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x8d3456d0,
+    SUBCLASS_OF_ID = 0xf5b399ac,
+
     peer = NULL,
     album_id = NULL,
 
@@ -358,11 +355,6 @@ DeleteAlbumRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x8d3456d0,
-    SUBCLASS_OF_ID = function() 0xf5b399ac
-  ),
-
   class = list(
 
     #' @description Read a DeleteAlbumRequest instance from a reader
@@ -389,6 +381,9 @@ DeleteStoriesRequest <- R6::R6Class(
   "DeleteStoriesRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0xae59db5f,
+    SUBCLASS_OF_ID = 0x5026710f,
+
     peer = NULL,
     id = NULL,
 
@@ -457,11 +452,6 @@ DeleteStoriesRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0xae59db5f,
-    SUBCLASS_OF_ID = function() 0x5026710f
-  ),
-
   class = list(
     #' @description Read a DeleteStoriesRequest instance from a reader
     #'
@@ -517,6 +507,9 @@ EditStoryRequest <- R6::R6Class(
   "EditStoryRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0xb583ba46,
+    SUBCLASS_OF_ID = 0x8af52aac,
+
     peer = NULL,
     id = NULL,
     media = NULL,
@@ -675,11 +668,6 @@ EditStoryRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0xb583ba46,
-    SUBCLASS_OF_ID = function() 0x8af52aac
-  ),
-
   class = list(
 
     #' @description Read an EditStoryRequest instance from a reader
@@ -763,6 +751,9 @@ ExportStoryLinkRequest <- R6::R6Class(
   "ExportStoryLinkRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x7b8def20,
+    SUBCLASS_OF_ID = 0x0fc541a6,
+
     peer = NULL,
     id = NULL,
 
@@ -823,11 +814,6 @@ ExportStoryLinkRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x7b8def20,
-    SUBCLASS_OF_ID = function() 0x0fc541a6
-  ),
-
   class = list(
 
     #' @description Read an ExportStoryLinkRequest instance from a reader
@@ -857,6 +843,9 @@ GetAlbumStoriesRequest <- R6::R6Class(
   "GetAlbumStoriesRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0xac806d61,
+    SUBCLASS_OF_ID = 0x251c0c2c,
+
     peer = NULL,
     album_id = NULL,
     offset = NULL,
@@ -927,11 +916,6 @@ GetAlbumStoriesRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0xac806d61,
-    SUBCLASS_OF_ID = function() 0x251c0c2c
-  ),
-
   class = list(
     #' @description Read a GetAlbumStoriesRequest instance from a reader
     #'
@@ -959,6 +943,9 @@ GetAlbumsRequest <- R6::R6Class(
   "GetAlbumsRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x25b3eac7,
+    SUBCLASS_OF_ID = 0x05a73d39,
+
     peer = NULL,
     hash = NULL,
 
@@ -1019,11 +1006,6 @@ GetAlbumsRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x25b3eac7,
-    SUBCLASS_OF_ID = function() 0x05a73d39
-  ),
-
   class = list(
 
     #' @description Read a GetAlbumsRequest instance from a reader
@@ -1048,6 +1030,9 @@ GetAllReadPeerStoriesRequest <- R6::R6Class(
   "GetAllReadPeerStoriesRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x9b5ae7f9,
+    SUBCLASS_OF_ID = 0x8af52aac,
+
 
     #' @description Convert to list
     #'
@@ -1063,11 +1048,6 @@ GetAllReadPeerStoriesRequest <- R6::R6Class(
       # constructor bytes little-endian for 0x9b5ae7f9 -> f9 e7 5a 9b
       as.raw(c(0xf9, 0xe7, 0x5a, 0x9b))
     }
-  ),
-
-  active = list(
-    CONSTRUCTOR_ID = function() 0x9b5ae7f9,
-    SUBCLASS_OF_ID = function() 0x8af52aac
   ),
 
   class = list(
@@ -1096,6 +1076,9 @@ GetAllStoriesRequest <- R6::R6Class(
   "GetAllStoriesRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0xeeb0d625,
+    SUBCLASS_OF_ID = 0x7e60d0cd,
+
     .next = NULL,
     hidden = NULL,
     state = NULL,
@@ -1157,11 +1140,6 @@ GetAllStoriesRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0xeeb0d625,
-    SUBCLASS_OF_ID = function() 0x7e60d0cd
-  ),
-
   class = list(
 
     #' @description Read a GetAllStoriesRequest instance from a reader
@@ -1191,6 +1169,9 @@ GetChatsToSendRequest <- R6::R6Class(
   "GetChatsToSendRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0xa56a8b60,
+    SUBCLASS_OF_ID = 0x99d5cb14,
+
 
     #' @description Convert to list
     #'
@@ -1206,11 +1187,6 @@ GetChatsToSendRequest <- R6::R6Class(
       # constructor bytes little-endian for 0xa56a8b60 -> 0x60 0x8b 0x6a 0xa5
       as.raw(c(0x60, 0x8b, 0x6a, 0xa5))
     }
-  ),
-
-  active = list(
-    CONSTRUCTOR_ID = function() 0xa56a8b60,
-    SUBCLASS_OF_ID = function() 0x99d5cb14
   ),
 
   class = list(
@@ -1236,6 +1212,9 @@ GetPeerMaxIDsRequest <- R6::R6Class(
   "GetPeerMaxIDsRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x535983c3,
+    SUBCLASS_OF_ID = 0x5026710f,
+
     id = NULL,
 
     #' @description Initialize GetPeerMaxIDsRequest
@@ -1304,11 +1283,6 @@ GetPeerMaxIDsRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x535983c3,
-    SUBCLASS_OF_ID = function() 0x5026710f
-  ),
-
   class = list(
     #' @description Read a GetPeerMaxIDsRequest instance from a reader
     #'
@@ -1352,6 +1326,9 @@ GetPeerStoriesRequest <- R6::R6Class(
   "GetPeerStoriesRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x2c4ada50,
+    SUBCLASS_OF_ID = 0x9d56cfd0,
+
     peer = NULL,
 
     #' @description Initialize GetPeerStoriesRequest
@@ -1406,11 +1383,6 @@ GetPeerStoriesRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x2c4ada50,
-    SUBCLASS_OF_ID = function() 0x9d56cfd0
-  ),
-
   class = list(
 
     #' @description Read a GetPeerStoriesRequest instance from a reader
@@ -1434,6 +1406,9 @@ GetPinnedStoriesRequest <- R6::R6Class(
   "GetPinnedStoriesRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x5821a5dc,
+    SUBCLASS_OF_ID = 0x251c0c2c,
+
     peer = NULL,
     offset_id = NULL,
     limit = NULL,
@@ -1501,11 +1476,6 @@ GetPinnedStoriesRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x5821a5dc,
-    SUBCLASS_OF_ID = function() 0x251c0c2c
-  ),
-
   class = list(
 
     #' @description Read a GetPinnedStoriesRequest instance from a reader
@@ -1531,6 +1501,9 @@ GetStoriesArchiveRequest <- R6::R6Class(
   "GetStoriesArchiveRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0xb4352016,
+    SUBCLASS_OF_ID = 0x251c0c2c,
+
     peer = NULL,
     offset_id = NULL,
     limit = NULL,
@@ -1598,11 +1571,6 @@ GetStoriesArchiveRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0xb4352016,
-    SUBCLASS_OF_ID = function() 0x251c0c2c
-  ),
-
   class = list(
 
     #' @description Read a GetStoriesArchiveRequest instance from a reader
@@ -1628,6 +1596,9 @@ GetStoriesByIDRequest <- R6::R6Class(
   "GetStoriesByIDRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x5774ca74,
+    SUBCLASS_OF_ID = 0x251c0c2c,
+
     peer = NULL,
     id = NULL,
 
@@ -1694,11 +1665,6 @@ GetStoriesByIDRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x5774ca74,
-    SUBCLASS_OF_ID = function() 0x251c0c2c
-  ),
-
   class = list(
 
     #' @description Read a GetStoriesByIDRequest instance from a reader
@@ -1733,6 +1699,9 @@ GetStoriesViewsRequest <- R6::R6Class(
   "GetStoriesViewsRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x28e16cc8,
+    SUBCLASS_OF_ID = 0x4b3fc4ba,
+
     peer = NULL,
     id = NULL,
 
@@ -1796,11 +1765,6 @@ GetStoriesViewsRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x28e16cc8,
-    SUBCLASS_OF_ID = function() 0x4b3fc4ba
-  ),
-
   class = list(
 
     #' @description Read a GetStoriesViewsRequest instance from a reader
@@ -1835,6 +1799,9 @@ GetStoryReactionsListRequest <- R6::R6Class(
   "GetStoryReactionsListRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0xb9b2881f,
+    SUBCLASS_OF_ID = 0x046f91e3,
+
     peer = NULL,
     id = NULL,
     limit = NULL,
@@ -1943,11 +1910,6 @@ GetStoryReactionsListRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0xb9b2881f,
-    SUBCLASS_OF_ID = function() 0x046f91e3
-  ),
-
   class = list(
 
     #' @description Read a GetStoryReactionsListRequest instance from a reader
@@ -1988,6 +1950,9 @@ GetStoryViewsListRequest <- R6::R6Class(
   "GetStoryViewsListRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x7ed23c57,
+    SUBCLASS_OF_ID = 0xb9437560,
+
     peer = NULL,
     id = NULL,
     offset = NULL,
@@ -2100,11 +2065,6 @@ GetStoryViewsListRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x7ed23c57,
-    SUBCLASS_OF_ID = function() 0xb9437560
-  ),
-
   class = list(
 
     #' @description Read a GetStoryViewsListRequest instance from a reader
@@ -2148,6 +2108,9 @@ IncrementStoryViewsRequest <- R6::R6Class(
   "IncrementStoryViewsRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0xb2028afb,
+    SUBCLASS_OF_ID = 0xf5b399ac,
+
     peer = NULL,
     id = NULL,
 
@@ -2210,11 +2173,6 @@ IncrementStoryViewsRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0xb2028afb,
-    SUBCLASS_OF_ID = function() 0xf5b399ac
-  ),
-
   class = list(
 
     #' @description Read an IncrementStoryViewsRequest instance from a reader
@@ -2257,6 +2215,9 @@ ReadStoriesRequest <- R6::R6Class(
   "ReadStoriesRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0xa556dac8,
+    SUBCLASS_OF_ID = 0x5026710f,
+
     peer = NULL,
     max_id = NULL,
 
@@ -2315,11 +2276,6 @@ ReadStoriesRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0xa556dac8,
-    SUBCLASS_OF_ID = function() 0x5026710f
-  ),
-
   class = list(
 
     #' @description Read a ReadStoriesRequest instance from a reader
@@ -2365,6 +2321,9 @@ ReorderAlbumsRequest <- R6::R6Class(
   "ReorderAlbumsRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x8535fbd9,
+    SUBCLASS_OF_ID = 0xf5b399ac,
+
     peer = NULL,
     order = NULL,
 
@@ -2428,11 +2387,6 @@ ReorderAlbumsRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x8535fbd9,
-    SUBCLASS_OF_ID = function() 0xf5b399ac
-  ),
-
   class = list(
     #' @description Read a ReorderAlbumsRequest instance from a reader
     #'
@@ -2475,6 +2429,9 @@ ReportRequest <- R6::R6Class(
   "ReportRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x19d8eb45,
+    SUBCLASS_OF_ID = 0xacd3f438,
+
     peer = NULL,
     id = NULL,
     option = NULL,
@@ -2570,11 +2527,6 @@ ReportRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x19d8eb45,
-    SUBCLASS_OF_ID = function() 0xacd3f438
-  ),
-
   class = list(
 
     #' @description Read a ReportRequest instance from reader
@@ -2620,6 +2572,9 @@ SearchPostsRequest <- R6::R6Class(
   "SearchPostsRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0xd1810907,
+    SUBCLASS_OF_ID = 0x17790b35,
+
     offset = NULL,
     limit = NULL,
     hashtag = NULL,
@@ -2723,11 +2678,6 @@ SearchPostsRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0xd1810907,
-    SUBCLASS_OF_ID = function() 0x17790b35
-  ),
-
   class = list(
     #' @description Read a SearchPostsRequest instance from reader
     #'
@@ -2766,6 +2716,9 @@ SendReactionRequest <- R6::R6Class(
   "SendReactionRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x7fd736b2,
+    SUBCLASS_OF_ID = 0x8af52aac,
+
     peer = NULL,
     story_id = NULL,
     reaction = NULL,
@@ -2852,11 +2805,6 @@ SendReactionRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x7fd736b2,
-    SUBCLASS_OF_ID = function() 0x8af52aac
-  ),
-
   class = list(
 
     #' @description Read a SendReactionRequest instance from a reader
@@ -2913,6 +2861,9 @@ SendStoryRequest <- R6::R6Class(
   "SendStoryRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x737fc2ec,
+    SUBCLASS_OF_ID = 0x8af52aac,
+
     peer = NULL,
     media = NULL,
     privacy_rules = NULL,
@@ -3142,11 +3093,6 @@ SendStoryRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x737fc2ec,
-    SUBCLASS_OF_ID = function() 0x8af52aac
-  ),
-
   class = list(
 
     #' @description Read a SendStoryRequest instance from a reader
@@ -3249,6 +3195,9 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
   "ToggleAllStoriesHiddenRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x7c2557c4,
+    SUBCLASS_OF_ID = 0xf5b399ac,
+
     hidden = NULL,
 
     #' @description Initialize ToggleAllStoriesHiddenRequest
@@ -3285,11 +3234,6 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x7c2557c4,
-    SUBCLASS_OF_ID = function() 0xf5b399ac
-  ),
-
   class = list(
 
     #' @description Read a ToggleAllStoriesHiddenRequest instance from a reader
@@ -3320,6 +3264,9 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
   "TogglePeerStoriesHiddenRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0xbd0415c4,
+    SUBCLASS_OF_ID = 0xf5b399ac,
+
     peer = NULL,
     hidden = NULL,
 
@@ -3384,11 +3331,6 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0xbd0415c4,
-    SUBCLASS_OF_ID = function() 0xf5b399ac
-  ),
-
   class = list(
 
     #' @description Read a TogglePeerStoriesHiddenRequest instance from a reader
@@ -3421,6 +3363,9 @@ TogglePinnedRequest <- R6::R6Class(
   "TogglePinnedRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x9a75a1ef,
+    SUBCLASS_OF_ID = 0x5026710f,
+
     peer = NULL,
     id = NULL,
     pinned = NULL,
@@ -3498,11 +3443,6 @@ TogglePinnedRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x9a75a1ef,
-    SUBCLASS_OF_ID = function() 0x5026710f
-  ),
-
   class = list(
     #' @description Read a TogglePinnedRequest instance from a reader
     #'
@@ -3557,6 +3497,9 @@ TogglePinnedToTopRequest <- R6::R6Class(
   "TogglePinnedToTopRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x0b297e9b,
+    SUBCLASS_OF_ID = 0xf5b399ac,
+
     peer = NULL,
     id = NULL,
 
@@ -3625,11 +3568,6 @@ TogglePinnedToTopRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    CONSTRUCTOR_ID = function() 0x0b297e9b,
-    SUBCLASS_OF_ID = function() 0xf5b399ac
-  ),
-
   class = list(
     #' @description Read a TogglePinnedToTopRequest instance from a reader
     #'
@@ -3672,6 +3610,8 @@ UpdateAlbumRequest <- R6::R6Class(
   "UpdateAlbumRequest",
   inherit = TLRequest,
   public = list(
+    CONSTRUCTOR_ID = 0x5e5259b6,
+    SUBCLASS_OF_ID = 0x7c8c5ea2,
     peer = NULL,
     album_id = NULL,
     title = NULL,
@@ -3797,12 +3737,6 @@ UpdateAlbumRequest <- R6::R6Class(
     }
   ),
 
-  active = list(
-    #' Class-level constructor id (read-only)
-    CONSTRUCTOR_ID = function() 0x5e5259b6,
-    #' Subclass id (read-only)
-    SUBCLASS_OF_ID = function() 0x7c8c5ea2
-  ),
 
   # class method implemented as public so it can be called like UpdateAlbumRequest$from_reader(reader)
   class = list(

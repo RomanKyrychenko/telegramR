@@ -232,14 +232,6 @@ TLObject <- R6::R6Class(
     SUBCLASS_OF_ID = NULL,
 
     #' @description
-    #' Initialize a new TLObject.
-    #' @return A new TLObject instance.
-    initialize = function() {
-      self$CONSTRUCTOR_ID <- NULL
-      self$SUBCLASS_OF_ID <- NULL
-    },
-
-    #' @description
     #' Pretty format the object for display.
     #' @param obj The object to be formatted.
     #' @param indent The current indentation level (used for recursive calls).

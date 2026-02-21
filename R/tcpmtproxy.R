@@ -86,11 +86,9 @@ MTProxyIO <- R6::R6Class("MTProxyIO",
 
       # Prepare reversed random for decryption keys.
       random_reversed <- rev(random[8:55])
-      encrypt_key <- digest::sha256(c(random[9:40], secret), serialize = FALSE)
-      encrypt_key <- as.raw(as.integer(charToRaw(encrypt_key))[1:32])
+      encrypt_key <- openssl::sha256(c(random[9:40], secret))
       encrypt_iv <- random[41:56]
-      decrypt_key <- digest::sha256(c(random_reversed[1:32], secret), serialize = FALSE)
-      decrypt_key <- as.raw(as.integer(charToRaw(decrypt_key))[1:32])
+      decrypt_key <- openssl::sha256(c(random_reversed[1:32], secret))
       decrypt_iv <- random_reversed[33:48]
 
       encryptor <- AESModeCTR$new(encrypt_key, encrypt_iv)
