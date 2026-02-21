@@ -9,8 +9,8 @@
 AcceptTermsOfServiceRequest <- R6::R6Class(
   "AcceptTermsOfServiceRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xee72f79a),
-    SUBCLASS_OF_ID = as.integer(0xf5b399ac),
+    CONSTRUCTOR_ID = as.numeric(0xee72f79a),
+    SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
     id = NULL,
 
     #' @description Initialize AcceptTermsOfServiceRequest
@@ -36,7 +36,7 @@ AcceptTermsOfServiceRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       if (is.raw(self$id)) {
         parts[[2]] <- self$id
       } else if (is.environment(self$id) && !is.null(self$id$to_bytes)) {
@@ -73,8 +73,8 @@ AcceptTermsOfServiceRequest$from_reader <- function(reader) {
 DismissSuggestionRequest <- R6::R6Class(
   "DismissSuggestionRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xf50dbaa1),
-    SUBCLASS_OF_ID = as.integer(0xf5b399ac),
+    CONSTRUCTOR_ID = as.numeric(0xf50dbaa1),
+    SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
     peer = NULL,
     suggestion = "",
 
@@ -112,7 +112,7 @@ DismissSuggestionRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       # peer must provide to_bytes() or already be a raw vector
       if (is.raw(self$peer)) {
         parts[[2]] <- self$peer
@@ -168,8 +168,8 @@ DismissSuggestionRequest$from_reader <- function(reader) {
 EditUserInfoRequest <- R6::R6Class(
   "EditUserInfoRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x66b91b70),
-    SUBCLASS_OF_ID = as.integer(0x5c53d7d8),
+    CONSTRUCTOR_ID = as.numeric(0x66b91b70),
+    SUBCLASS_OF_ID = as.numeric(0x5c53d7d8),
     userId = NULL,
     message = "",
     entities = list(),
@@ -221,7 +221,7 @@ EditUserInfoRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       # userId must provide to_bytes() or already be a raw vector
       if (is.raw(self$userId)) {
         parts[[2]] <- self$userId
@@ -299,8 +299,8 @@ EditUserInfoRequest$from_reader <- function(reader) {
 GetAppConfigRequest <- R6::R6Class(
   "GetAppConfigRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x61e3f854),
-    SUBCLASS_OF_ID = as.integer(0x14381c9a),
+    CONSTRUCTOR_ID = as.numeric(0x61e3f854),
+    SUBCLASS_OF_ID = as.numeric(0x14381c9a),
     hash = 0L,
 
     #' @description Initialize GetAppConfigRequest
@@ -322,7 +322,7 @@ GetAppConfigRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       parts[[2]] <- writeBin(as.integer(self$hash), raw(), size = 4, endian = "little")
       do.call(c, parts)
     }
@@ -352,8 +352,8 @@ GetAppConfigRequest$from_reader <- function(reader) {
 GetAppUpdateRequest <- R6::R6Class(
   "GetAppUpdateRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x522d5a7d),
-    SUBCLASS_OF_ID = as.integer(0x5897069e),
+    CONSTRUCTOR_ID = as.numeric(0x522d5a7d),
+    SUBCLASS_OF_ID = as.numeric(0x5897069e),
     source = "",
 
     #' @description Initialize GetAppUpdateRequest
@@ -375,7 +375,7 @@ GetAppUpdateRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       # serialize source string using Telegram string scheme
       strRaw <- charToRaw(self$source)
       strLen <- length(strRaw)
@@ -418,8 +418,8 @@ GetAppUpdateRequest$from_reader <- function(reader) {
 GetCdnConfigRequest <- R6::R6Class(
   "GetCdnConfigRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x52029342),
-    SUBCLASS_OF_ID = as.integer(0xecda397c),
+    CONSTRUCTOR_ID = as.numeric(0x52029342),
+    SUBCLASS_OF_ID = as.numeric(0xecda397c),
 
     #' @description Initialize GetCdnConfigRequest
     #' @return invisible NULL
@@ -438,7 +438,7 @@ GetCdnConfigRequest <- R6::R6Class(
     #' Serialize to bytes (raw vector)
     #' @return raw vector
     to_bytes = function() {
-      writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      packInt32(self$CONSTRUCTOR_ID)
     }
   ),
   private = list()
@@ -464,8 +464,8 @@ GetCdnConfigRequest$from_reader <- function(reader) {
 GetConfigRequest <- R6::R6Class(
   "GetConfigRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xc4f9186b),
-    SUBCLASS_OF_ID = as.integer(0xd3262a4a),
+    CONSTRUCTOR_ID = as.numeric(0xc4f9186b),
+    SUBCLASS_OF_ID = as.numeric(0xd3262a4a),
 
     #' @description Initialize GetConfigRequest
     #' @return invisible NULL
@@ -485,7 +485,7 @@ GetConfigRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       # constructor id (little-endian 4 bytes)
-      writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      packInt32(self$CONSTRUCTOR_ID)
     }
   ),
   private = list()
@@ -513,8 +513,8 @@ GetConfigRequest$from_reader <- function(reader) {
 GetCountriesListRequest <- R6::R6Class(
   "GetCountriesListRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x735787a8),
-    SUBCLASS_OF_ID = as.integer(0xea31fe88),
+    CONSTRUCTOR_ID = as.numeric(0x735787a8),
+    SUBCLASS_OF_ID = as.numeric(0xea31fe88),
     langCode = "",
     hash = 0L,
 
@@ -540,7 +540,7 @@ GetCountriesListRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       # serialize langCode string using Telegram string scheme
       strRaw <- charToRaw(self$langCode)
       strLen <- length(strRaw)
@@ -587,8 +587,8 @@ GetCountriesListRequest$from_reader <- function(reader) {
 GetDeepLinkInfoRequest <- R6::R6Class(
   "GetDeepLinkInfoRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x3fedc75f),
-    SUBCLASS_OF_ID = as.integer(0x984aac38),
+    CONSTRUCTOR_ID = as.numeric(0x3fedc75f),
+    SUBCLASS_OF_ID = as.numeric(0x984aac38),
     path = "",
 
     #' @description Initialize GetDeepLinkInfoRequest
@@ -610,7 +610,7 @@ GetDeepLinkInfoRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       # serialize path string using Telegram string scheme
       strRaw <- charToRaw(self$path)
       strLen <- length(strRaw)
@@ -653,8 +653,8 @@ GetDeepLinkInfoRequest$from_reader <- function(reader) {
 GetInviteTextRequest <- R6::R6Class(
   "GetInviteTextRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x4d392343),
-    SUBCLASS_OF_ID = as.integer(0xcf70aa35),
+    CONSTRUCTOR_ID = as.numeric(0x4d392343),
+    SUBCLASS_OF_ID = as.numeric(0xcf70aa35),
 
     #' @description Initialize GetInviteTextRequest
     #' @return invisible NULL
@@ -673,7 +673,7 @@ GetInviteTextRequest <- R6::R6Class(
     #' Serialize to bytes (raw vector)
     #' @return raw vector
     to_bytes = function() {
-      writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      packInt32(self$CONSTRUCTOR_ID)
     }
   ),
   private = list()
@@ -699,8 +699,8 @@ GetInviteTextRequest$from_reader <- function(reader) {
 GetNearestDcRequest <- R6::R6Class(
   "GetNearestDcRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x1fb33026),
-    SUBCLASS_OF_ID = as.integer(0x3877045f),
+    CONSTRUCTOR_ID = as.numeric(0x1fb33026),
+    SUBCLASS_OF_ID = as.numeric(0x3877045f),
 
     #' @description Initialize GetNearestDcRequest
     #' @return invisible NULL
@@ -719,7 +719,7 @@ GetNearestDcRequest <- R6::R6Class(
     #' Serialize to bytes (raw vector)
     #' @return raw vector
     to_bytes = function() {
-      writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      packInt32(self$CONSTRUCTOR_ID)
     }
   ),
   private = list()
@@ -745,8 +745,8 @@ GetNearestDcRequest$from_reader <- function(reader) {
 GetPassportConfigRequest <- R6::R6Class(
   "GetPassportConfigRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xc661ad08),
-    SUBCLASS_OF_ID = as.integer(0xc666c0ad),
+    CONSTRUCTOR_ID = as.numeric(0xc661ad08),
+    SUBCLASS_OF_ID = as.numeric(0xc666c0ad),
     hash = 0L,
 
     #' @description Initialize GetPassportConfigRequest
@@ -768,7 +768,7 @@ GetPassportConfigRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       parts[[2]] <- writeBin(as.integer(self$hash), raw(), size = 4, endian = "little")
       do.call(c, parts)
     }
@@ -798,8 +798,8 @@ GetPassportConfigRequest$from_reader <- function(reader) {
 GetPeerColorsRequest <- R6::R6Class(
   "GetPeerColorsRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xda80f42f),
-    SUBCLASS_OF_ID = as.integer(0x0e3f6733),
+    CONSTRUCTOR_ID = as.numeric(0xda80f42f),
+    SUBCLASS_OF_ID = as.numeric(0x0e3f6733),
     hash = 0L,
 
     #' @description Initialize GetPeerColorsRequest
@@ -821,7 +821,7 @@ GetPeerColorsRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       parts[[2]] <- writeBin(as.integer(self$hash), raw(), size = 4, endian = "little")
       do.call(c, parts)
     }
@@ -850,8 +850,8 @@ GetPeerColorsRequest$from_reader <- function(reader) {
 GetPeerProfileColorsRequest <- R6::R6Class(
   "GetPeerProfileColorsRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xabcfa9fd),
-    SUBCLASS_OF_ID = as.integer(0x0e3f6733),
+    CONSTRUCTOR_ID = as.numeric(0xabcfa9fd),
+    SUBCLASS_OF_ID = as.numeric(0x0e3f6733),
     hash = 0L,
 
     #' @description Initialize GetPeerProfileColorsRequest
@@ -873,7 +873,7 @@ GetPeerProfileColorsRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       parts[[2]] <- writeBin(as.integer(self$hash), raw(), size = 4, endian = "little")
       do.call(c, parts)
     }
@@ -901,8 +901,8 @@ GetPeerProfileColorsRequest$from_reader <- function(reader) {
 GetPremiumPromoRequest <- R6::R6Class(
   "GetPremiumPromoRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xb81b93d4),
-    SUBCLASS_OF_ID = as.integer(0xc987a338),
+    CONSTRUCTOR_ID = as.numeric(0xb81b93d4),
+    SUBCLASS_OF_ID = as.numeric(0xc987a338),
 
     #' @description Initialize GetPremiumPromoRequest
     #' @return invisible NULL
@@ -921,7 +921,7 @@ GetPremiumPromoRequest <- R6::R6Class(
     #' Serialize to bytes (raw vector)
     #' @return raw vector
     to_bytes = function() {
-      writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      packInt32(self$CONSTRUCTOR_ID)
     }
   ),
   private = list()
@@ -947,8 +947,8 @@ GetPremiumPromoRequest$from_reader <- function(reader) {
 GetPromoDataRequest <- R6::R6Class(
   "GetPromoDataRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xc0977421),
-    SUBCLASS_OF_ID = as.integer(0x9d595542),
+    CONSTRUCTOR_ID = as.numeric(0xc0977421),
+    SUBCLASS_OF_ID = as.numeric(0x9d595542),
 
     #' @description Initialize GetPromoDataRequest
     #' @return invisible NULL
@@ -967,7 +967,7 @@ GetPromoDataRequest <- R6::R6Class(
     #' Serialize to bytes (raw vector)
     #' @return raw vector
     to_bytes = function() {
-      writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      packInt32(self$CONSTRUCTOR_ID)
     }
   ),
   private = list()
@@ -994,8 +994,8 @@ GetPromoDataRequest$from_reader <- function(reader) {
 GetRecentMeUrlsRequest <- R6::R6Class(
   "GetRecentMeUrlsRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x3dc0f114),
-    SUBCLASS_OF_ID = as.integer(0xf269c477),
+    CONSTRUCTOR_ID = as.numeric(0x3dc0f114),
+    SUBCLASS_OF_ID = as.numeric(0xf269c477),
     referer = "",
 
     #' @description Initialize GetRecentMeUrlsRequest
@@ -1017,7 +1017,7 @@ GetRecentMeUrlsRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       # serialize referer string using Telegram string scheme
       strRaw <- charToRaw(self$referer)
       strLen <- length(strRaw)
@@ -1060,8 +1060,8 @@ GetRecentMeUrlsRequest$from_reader <- function(reader) {
 GetSupportRequest <- R6::R6Class(
   "GetSupportRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x9cdf08cd),
-    SUBCLASS_OF_ID = as.integer(0x7159bceb),
+    CONSTRUCTOR_ID = as.numeric(0x9cdf08cd),
+    SUBCLASS_OF_ID = as.numeric(0x7159bceb),
 
     #' @description Initialize GetSupportRequest
     #' @return invisible NULL
@@ -1080,7 +1080,7 @@ GetSupportRequest <- R6::R6Class(
     #' Serialize to bytes (raw vector)
     #' @return raw vector
     to_bytes = function() {
-      writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      packInt32(self$CONSTRUCTOR_ID)
     }
   ),
   private = list()
@@ -1106,8 +1106,8 @@ GetSupportRequest$from_reader <- function(reader) {
 GetSupportNameRequest <- R6::R6Class(
   "GetSupportNameRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xd360e72c),
-    SUBCLASS_OF_ID = as.integer(0x7f50b7c2),
+    CONSTRUCTOR_ID = as.numeric(0xd360e72c),
+    SUBCLASS_OF_ID = as.numeric(0x7f50b7c2),
 
     #' @description Initialize GetSupportNameRequest
     #' @return invisible NULL
@@ -1127,7 +1127,7 @@ GetSupportNameRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       # constructor id (little-endian 4 bytes)
-      writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      packInt32(self$CONSTRUCTOR_ID)
     }
   ),
   private = list()
@@ -1153,8 +1153,8 @@ GetSupportNameRequest$from_reader <- function(reader) {
 GetTermsOfServiceUpdateRequest <- R6::R6Class(
   "GetTermsOfServiceUpdateRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x2ca51fd1),
-    SUBCLASS_OF_ID = as.integer(0x293c2977),
+    CONSTRUCTOR_ID = as.numeric(0x2ca51fd1),
+    SUBCLASS_OF_ID = as.numeric(0x293c2977),
 
     #' @description Initialize GetTermsOfServiceUpdateRequest
     #' @return invisible NULL
@@ -1173,7 +1173,7 @@ GetTermsOfServiceUpdateRequest <- R6::R6Class(
     #' Serialize to bytes (raw vector)
     #' @return raw vector
     to_bytes = function() {
-      writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      packInt32(self$CONSTRUCTOR_ID)
     }
   ),
   private = list()
@@ -1200,8 +1200,8 @@ GetTermsOfServiceUpdateRequest$from_reader <- function(reader) {
 GetTimezonesListRequest <- R6::R6Class(
   "GetTimezonesListRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x49b30240),
-    SUBCLASS_OF_ID = as.integer(0xca76e475),
+    CONSTRUCTOR_ID = as.numeric(0x49b30240),
+    SUBCLASS_OF_ID = as.numeric(0xca76e475),
     hash = 0L,
 
     #' @description Initialize GetTimezonesListRequest
@@ -1223,7 +1223,7 @@ GetTimezonesListRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       parts[[2]] <- writeBin(as.integer(self$hash), raw(), size = 4, endian = "little")
       do.call(c, parts)
     }
@@ -1253,8 +1253,8 @@ GetTimezonesListRequest$from_reader <- function(reader) {
 GetUserInfoRequest <- R6::R6Class(
   "GetUserInfoRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x038a08d3),
-    SUBCLASS_OF_ID = as.integer(0x5c53d7d8),
+    CONSTRUCTOR_ID = as.numeric(0x038a08d3),
+    SUBCLASS_OF_ID = as.numeric(0x5c53d7d8),
     userId = NULL,
 
     #' @description Initialize GetUserInfoRequest
@@ -1289,7 +1289,7 @@ GetUserInfoRequest <- R6::R6Class(
     to_bytes = function() {
       parts <- list()
       # constructor id (little-endian 4 bytes)
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       # userId must provide to_bytes() or already be a raw vector
       if (is.raw(self$userId)) {
         parts[[2]] <- self$userId
@@ -1326,8 +1326,8 @@ GetUserInfoRequest$from_reader <- function(reader) {
 HidePromoDataRequest <- R6::R6Class(
   "HidePromoDataRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x1e251c95),
-    SUBCLASS_OF_ID = as.integer(0xf5b399ac),
+    CONSTRUCTOR_ID = as.numeric(0x1e251c95),
+    SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
     peer = NULL,
 
     #' @description Initialize HidePromoDataRequest
@@ -1360,7 +1360,7 @@ HidePromoDataRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       if (is.raw(self$peer)) {
         parts[[2]] <- self$peer
       } else if (is.environment(self$peer) && !is.null(self$peer$to_bytes)) {
@@ -1396,8 +1396,8 @@ HidePromoDataRequest$from_reader <- function(reader) {
 SaveAppLogRequest <- R6::R6Class(
   "SaveAppLogRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x6f02f748),
-    SUBCLASS_OF_ID = as.integer(0xf5b399ac),
+    CONSTRUCTOR_ID = as.numeric(0x6f02f748),
+    SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
     events = NULL,
 
     #' @description Initialize SaveAppLogRequest
@@ -1426,7 +1426,7 @@ SaveAppLogRequest <- R6::R6Class(
     to_bytes = function() {
       parts <- list()
       # constructor id (little-endian 4 bytes)
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       # vector constructor for lists: 0x1cb5c415 encoded as bytes \x15\xc4\xb5\x1c
       parts[[2]] <- as.raw(c(0x15, 0xC4, 0xB5, 0x1C))
       # length of events
@@ -1478,8 +1478,8 @@ SaveAppLogRequest$from_reader <- function(reader) {
 SetBotUpdatesStatusRequest <- R6::R6Class(
   "SetBotUpdatesStatusRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xec22cfcd),
-    SUBCLASS_OF_ID = as.integer(0xf5b399ac),
+    CONSTRUCTOR_ID = as.numeric(0xec22cfcd),
+    SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
     pendingUpdatesCount = 0L,
     message = "",
 
@@ -1505,7 +1505,7 @@ SetBotUpdatesStatusRequest <- R6::R6Class(
     #' @return raw vector
     to_bytes = function() {
       parts <- list()
-      parts[[1]] <- writeBin(as.integer(self$CONSTRUCTOR_ID), raw(), size = 4, endian = "little")
+      parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
       parts[[2]] <- writeBin(as.integer(self$pendingUpdatesCount), raw(), size = 4, endian = "little")
       # simple Telegram-style string serialization:
       strRaw <- charToRaw(self$message)
