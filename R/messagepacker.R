@@ -147,8 +147,12 @@ MessagePacker <- R6::R6Class("MessagePacker",
 
         if (size <= max_size) {
           # write_data_as_message is expected to write into the rawConnection and return msg_id
-          is_content_related <- inherits(state_item$request, "TLRequest") ||
-            isTRUE(grepl("Request$", class(state_item$request)[1]))
+          # Default to content-related=TRUE for all requests; only acks and
+          # a few MTProto service types are NOT content-related.
+          req_cls <- class(state_item$request)[1]
+          is_content_related <- !isTRUE(req_cls %in% c("MsgsAck", "Pong", "MsgsStateInfo",
+                                                        "MsgsAllInfo", "MsgResendReq",
+                                                        "MsgsStateReq"))
 
           state_item$msg_id <- self$state$write_data_as_message(
             buffer_con, state_item$data,
@@ -220,7 +224,10 @@ MessagePacker <- R6::R6Class("MessagePacker",
       # If multiple messages, pack into container
       if (length(batch) > 1) {
         # Write container constructor id and vector length (both little-endian 4-byte ints)
-        writeBin(as.integer(MessageContainer$CONSTRUCTOR_ID), buffer_con, size = 4, endian = "little")
+        # MessageContainer constructor ID = 0x73f1f8dc
+        mc_ctor <- tryCatch(MessageContainer$CONSTRUCTOR_ID_VALUE, error = function(e) NULL)
+        if (is.null(mc_ctor)) mc_ctor <- 0x73f1f8dc
+        writeBin(packInt32(mc_ctor), buffer_con)
         writeBin(as.integer(length(batch)), buffer_con, size = 4, endian = "little")
         # Append previously written messages
         writeBin(buffer_bytes, buffer_con)
