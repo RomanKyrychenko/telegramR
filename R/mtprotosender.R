@@ -59,6 +59,67 @@ retry_range <- function(n, force_retry = FALSE) {
   return(seq_len(max(1, n)))
 }
 
+#' Normalize a message ID to a consistent string key.
+#'
+#' Handles bigz, numeric (double), and character inputs to always produce
+#' the same decimal string representation for the same underlying value.
+#'
+#' @param msg_id Message ID (bigz, numeric, or character)
+#' @return Character string key
+#' @keywords internal
+msg_id_key <- function(msg_id) {
+  # Always normalize to sprintf("%.0f", numeric) so that both bigz (from
+
+  # get_new_msg_id) and double (from read_long / bytes_to_int) produce the
+  # same key.  Both suffer the same double-precision rounding, making the
+  # keys consistent.
+  if (is.null(msg_id) || length(msg_id) == 0) return("0")
+  sprintf("%.0f", as.numeric(msg_id))
+}
+
+#' Synchronously resolve a promise by pumping the later event loop.
+#'
+#' R promises schedule their callbacks via `later::later()`.  When running
+#' inside a tight synchronous loop (no Shiny / httpuv reactor) those callbacks
+#' never fire unless we explicitly call `later::run_now()`.  This helper does
+#' exactly that: it installs fulfillment/rejection handlers and then pumps
+#' `later::run_now()` in a busy-wait until the promise settles.
+#'
+#' If the input is NOT a promise it is returned as-is, so this is safe to call
+#' on any value.
+#'
+#' @param p A promise (or plain value).
+#' @param timeout Maximum seconds to wait before raising an error.
+#' @return The fulfilled value, or stops with the rejection reason.
+#' @keywords internal
+await_promise <- function(p, timeout = 30) {
+  if (!inherits(p, "promise")) return(p)
+
+  result <- NULL
+  error <- NULL
+  resolved <- FALSE
+
+  promises::then(p,
+    onFulfilled = function(value) { result <<- value; resolved <<- TRUE },
+    onRejected  = function(err)   { error  <<- err;   resolved <<- TRUE }
+  )
+
+  started <- proc.time()[["elapsed"]]
+  while (!resolved) {
+    later::run_now(timeoutSecs = 0.05)
+    elapsed <- proc.time()[["elapsed"]] - started
+    if (elapsed > timeout) {
+      stop(sprintf("ReadTimeoutError: timed out after %.1f seconds waiting for promise", timeout))
+    }
+  }
+
+  if (!is.null(error)) {
+    if (inherits(error, "error")) stop(error)
+    stop(simpleError(as.character(error)))
+  }
+  result
+}
+
 #' Cancel futures if they are not resolved
 #'
 #' @param log Logger object for logging messages
@@ -74,7 +135,7 @@ cancel_futures <- function(log, ...) {
       tryCatch(
         {
           log$debug("Cancelling future: %s", name)
-          future::value(future$cancel())
+          future$cancel()
         },
         error = function(e) {
           log$warning("Error cancelling future %s: %s", name, e$message)
@@ -173,6 +234,9 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
                           retries = 5, delay = 1, auto_reconnect = TRUE,
                           connect_timeout = NULL, auth_key_callback = NULL,
                           updates_queue = NULL, auto_reconnect_callback = NULL) {
+      # Invalidate cached ctor_map so it rebuilds with current environment
+      options(telegramR.ctor_map = NULL)
+
       null_logger <- list(
         debug = function(...) NULL,
         info = function(...) NULL,
@@ -528,7 +592,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     sequence = NULL,
     disconnected_future = NULL,
     ._resolve = function(x) {
-      if (inherits(x, c("Future", "promise"))) {
+      if (inherits(x, "promise")) {
+        return(await_promise(x))
+      }
+      if (inherits(x, "Future")) {
         return(future::value(x))
       }
       x
@@ -545,6 +612,128 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     },
     ._is_test_mode = function() {
       isTRUE(getOption("telegramR.test_mode")) || identical(Sys.getenv("TESTTHAT"), "true")
+    },
+    # Convert a fallback list (with CONSTRUCTOR_ID + raw data) into a proper
+    # R6 object for critical MTProto types that handlers depend on.
+    ._parse_fallback_obj = function(obj) {
+      ctor <- as.numeric(obj$CONSTRUCTOR_ID)
+      if (is.na(ctor)) return(obj)
+      if (ctor < 0) ctor <- ctor + 2^32
+      data <- obj$data
+      if (is.null(data) || length(data) == 0) return(obj)
+
+      reader <- tryCatch(BinaryReader$new(data), error = function(e) NULL)
+      if (is.null(reader)) return(obj)
+
+      message(sprintf("[parse_fallback] ctor=%.0f, class=%s, data_len=%d",
+                      ctor, class(ctor), length(data)))
+
+      # Use plain lists with the correct field names to avoid R6 inheritance
+      # conflicts (TLObject defines CONSTRUCTOR_ID as a public field, but some
+      # subclasses like BadServerSalt override it with an active binding).
+      parsed <- tryCatch({
+        # BadServerSalt  0xedab447b = 3987424379
+        if (isTRUE(abs(ctor - 3987424379) < 1)) {
+          bad_msg_id <- reader$read_long(signed = FALSE)
+          bad_msg_seqno <- reader$read_int()
+          error_code <- reader$read_int()
+          new_server_salt <- reader$read_long(signed = FALSE)
+          message(sprintf("[parse_fallback] BadServerSalt: bad_msg_id=%s, error=%s, new_salt=%s",
+                          as.character(bad_msg_id), as.character(error_code),
+                          as.character(new_server_salt)))
+          list(CONSTRUCTOR_ID = ctor, bad_msg_id = bad_msg_id,
+               bad_msg_seqno = bad_msg_seqno, error_code = error_code,
+               new_server_salt = new_server_salt)
+
+        # RpcResult  0xf35c6d01 = 4082920705
+        } else if (isTRUE(abs(ctor - 4082920705) < 1)) {
+          msg_id <- reader$read_long()
+          inner_code <- reader$read_int(signed = FALSE)
+          rpc_error_ctor <- as.numeric(0x2144ca19)
+          gzip_ctor <- as.numeric(0x3072cfa1)
+          if (isTRUE(abs(as.numeric(inner_code) - rpc_error_ctor) < 1)) {
+            error_code <- reader$read_int()
+            error_message <- reader$tgread_string()
+            message(sprintf("[parse_fallback] RpcResult error: %d %s", error_code, error_message))
+            list(CONSTRUCTOR_ID = ctor, req_msg_id = msg_id, body = NULL,
+                 error = list(error_code = error_code, error_message = error_message))
+          } else if (isTRUE(abs(as.numeric(inner_code) - gzip_ctor) < 1)) {
+            decompressed <- memDecompress(reader$tgread_bytes(), type = "gzip")
+            list(CONSTRUCTOR_ID = ctor, req_msg_id = msg_id, body = decompressed, error = NULL)
+          } else {
+            # Seek back 4 bytes to include inner constructor ID in body
+            cur_pos <- reader$tell_position()
+            remaining <- length(data) - cur_pos + 4  # +4 for the inner_code we already read
+            reader$set_position(cur_pos - 4)
+            body_bytes <- reader$read(remaining)
+            list(CONSTRUCTOR_ID = ctor, req_msg_id = msg_id, body = body_bytes, error = NULL)
+          }
+
+        # NewSessionCreated  0x9ec20908 = 2663516424
+        } else if (isTRUE(abs(ctor - 2663516424) < 1)) {
+          first_msg_id <- reader$read_long()
+          unique_id <- reader$read_long()
+          server_salt <- reader$read_long(signed = FALSE)
+          message(sprintf("[parse_fallback] NewSessionCreated: salt=%s", as.character(server_salt)))
+          list(CONSTRUCTOR_ID = ctor, first_msg_id = first_msg_id,
+               unique_id = unique_id, server_salt = server_salt)
+
+        # GzipPacked  0x3072cfa1 = 812830625
+        } else if (isTRUE(abs(ctor - 812830625) < 1)) {
+          list(CONSTRUCTOR_ID = ctor,
+               data = memDecompress(reader$tgread_bytes(), type = "gzip"))
+
+        # MessageContainer  0x73f1f8dc = 1945237724
+        } else if (isTRUE(abs(ctor - 1945237724) < 1)) {
+          count <- reader$read_int()
+          messages <- list()
+          for (i in seq_len(count)) {
+            msg_id <- reader$read_long()
+            seq_no <- reader$read_int()
+            len <- reader$read_int()
+            before <- reader$tell_position()
+            inner_obj <- reader$tgread_object()
+            reader$set_position(before + len)
+            # Use plain list instead of TLMessage$new() to avoid R6 inheritance conflict
+            messages[[i]] <- list(msg_id = msg_id, seq_no = seq_no, obj = inner_obj)
+          }
+          # Return plain list with messages field (handle_container accesses $messages)
+          list(CONSTRUCTOR_ID = ctor, messages = messages)
+
+        # BadMsgNotification  0xa7eff811 = 2817521681
+        } else if (isTRUE(abs(ctor - 2817521681) < 1)) {
+          bad_msg_id <- reader$read_long()
+          bad_msg_seqno <- reader$read_int()
+          error_code <- reader$read_int()
+          list(CONSTRUCTOR_ID = ctor, bad_msg_id = bad_msg_id,
+               bad_msg_seqno = bad_msg_seqno, error_code = error_code)
+
+        # Pong  0x347773c5 = 880243653
+        } else if (isTRUE(abs(ctor - 880243653) < 1)) {
+          msg_id <- reader$read_long()
+          ping_id <- reader$read_long()
+          list(CONSTRUCTOR_ID = ctor, msg_id = msg_id, ping_id = ping_id)
+
+        # MsgsAck  0x62d6b459 = 1658238041
+        } else if (isTRUE(abs(ctor - 1658238041) < 1)) {
+          vec_ctor <- reader$read_int(signed = FALSE)  # vector constructor
+          count <- reader$read_int()
+          msg_ids <- list()
+          for (i in seq_len(count)) {
+            msg_ids[[i]] <- reader$read_long()
+          }
+          list(CONSTRUCTOR_ID = ctor, msg_ids = msg_ids)
+
+        } else {
+          obj
+        }
+      }, error = function(e) {
+        message(sprintf("[parse_fallback] ERROR parsing ctor %.0f: %s", ctor, conditionMessage(e)))
+        obj
+      })
+
+      tryCatch(reader$close(), error = function(e) NULL)
+      parsed
     },
     ._ensure_transport_connected = function() {
       if (is.null(private$connection)) {
@@ -606,7 +795,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
               )
 
               # Disconnect for clean reconnection
-              future::value(private$connection$disconnect())
+              await_promise(private$connection$disconnect())
               connected <- FALSE
               Sys.sleep(private$delay)
             }
@@ -736,15 +925,15 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
 
       tryCatch({
         private$log$debug("Closing current connection...")
-        future::value(private$connection$disconnect())
+        await_promise(private$connection$disconnect())
       }, finally = {
         private$log$debug("Cancelling %d pending message(s)...", length(private$pending_state))
 
         for (state in private$pending_state) {
           if (!is.null(error) && !future::resolved(state$future)) {
-            future::value(state$future$set_exception(error))
+            state$future$set_exception(error)
           } else {
-            future::value(state$future$cancel())
+            state$future$cancel()
           }
         }
 
@@ -769,7 +958,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     #' @description Reconnect to server
     .reconnect = function(last_error) {
       private$log$info("Closing current connection to begin reconnect...")
-      future::value(private$connection$disconnect())
+      await_promise(private$connection$disconnect())
 
       cancel_futures(
         private$log,
@@ -869,18 +1058,17 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         return(invisible(NULL))
       }
 
+      dbg <- isTRUE(getOption("telegramR.debug_pump", FALSE))
+
       private$._ensure_transport_connected()
 
       timeout_sec <- as.numeric(getOption("telegramR.promise_timeout", 30))
       started_at <- proc.time()[["elapsed"]]
 
       state_done <- function(s) isTRUE(future::resolved(s$future))
-      while (!all(vapply(states, state_done, logical(1)))) {
-        elapsed <- proc.time()[["elapsed"]] - started_at
-        if (is.finite(timeout_sec) && timeout_sec > 0 && elapsed > timeout_sec) {
-          stop(sprintf("PromiseTimeoutError: timed out after %.1f seconds", timeout_sec))
-        }
 
+      # First, flush the send queue: send all pending items
+      while (length(private$send_queue$deque) > 0) {
         if (private$pending_ack$length() > 0) {
           ack <- RequestState$new(MsgsAck$new(private$pending_ack$as_list()))
           private$send_queue$append(ack)
@@ -888,7 +1076,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           private$pending_ack$clear()
         }
 
-        result <- future::value(private$send_queue$get())
+        result <- private$send_queue$get()
         batch <- result$batch
         data <- result$data
 
@@ -897,41 +1085,95 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
 
           for (st in batch) {
             if (!is.list(st)) {
-              if (inherits(st$request, "TLRequest") || isTRUE(grepl("Request$", class(st$request)[1]))) {
-                private$pending_state[[as.character(st$msg_id)]] <- st
-              }
+              key <- msg_id_key(st$msg_id)
+              message(sprintf("[pump] batch item: class=%s, msg_id_key=%s",
+                              paste(class(st$request), collapse=","), key))
+              private$pending_state[[key]] <- st
             } else {
               for (s in st) {
-                if (inherits(s$request, "TLRequest") || isTRUE(grepl("Request$", class(s$request)[1]))) {
-                  private$pending_state[[as.character(s$msg_id)]] <- s
-                }
+                private$pending_state[[msg_id_key(s$msg_id)]] <- s
               }
             }
           }
 
+          message(sprintf("[pump] Sending %d encrypted bytes, pending_keys=%s",
+                          length(data), paste(names(private$pending_state), collapse=",")))
           tryCatch(
             {
-              future::value(private$connection$send(data))
+              await_promise(private$connection$send(data), timeout = timeout_sec)
+              message("[pump] Send completed OK")
             },
             error = function(e) {
+              message(sprintf("[pump] Send error: %s", conditionMessage(e)))
               if (grepl("Not connected", conditionMessage(e), fixed = TRUE)) {
                 private$._ensure_transport_connected()
-                future::value(private$connection$send(data))
+                await_promise(private$connection$send(data), timeout = timeout_sec)
               } else {
                 stop(e)
               }
             }
           )
         }
+      }
+
+      # Now receive responses until all states are resolved
+      message(sprintf("[pump] Entering recv loop, %d state(s) to resolve, pending_state keys: %s",
+                      length(states), paste(names(private$pending_state), collapse=",")))
+      while (!all(vapply(states, state_done, logical(1)))) {
+        elapsed <- proc.time()[["elapsed"]] - started_at
+        remaining <- timeout_sec - elapsed
+        if (is.finite(timeout_sec) && timeout_sec > 0 && remaining <= 0) {
+          stop(sprintf("PromiseTimeoutError: timed out after %.1f seconds", timeout_sec))
+        }
+
+        # Send any pending acks
+        if (private$pending_ack$length() > 0) {
+          ack <- RequestState$new(MsgsAck$new(private$pending_ack$as_list()))
+          private$send_queue$append(ack)
+          private$last_acks$append(ack)
+          private$pending_ack$clear()
+        }
+
+        # Flush any items in the send queue (re-queued requests, acks, etc.)
+        while (length(private$send_queue$deque) > 0) {
+          result <- private$send_queue$get()
+          batch <- result$batch
+          data <- result$data
+          if (!is.null(data) && length(data) > 0) {
+            data <- private$state$encrypt_message_data(data)
+            for (st in batch) {
+              if (!is.list(st)) {
+                key <- msg_id_key(st$msg_id)
+                message(sprintf("[pump] re-queue batch item: class=%s, msg_id_key=%s",
+                                paste(class(st$request), collapse=","), key))
+                private$pending_state[[key]] <- st
+              } else {
+                for (s in st) {
+                  private$pending_state[[msg_id_key(s$msg_id)]] <- s
+                }
+              }
+            }
+            message(sprintf("[pump] Re-sending %d encrypted bytes (%d items), pending_keys=%s",
+                            length(data), length(batch),
+                            paste(names(private$pending_state), collapse=",")))
+            tryCatch(
+              await_promise(private$connection$send(data), timeout = remaining),
+              error = function(e) {
+                message(sprintf("[pump] Re-send error: %s", conditionMessage(e)))
+              }
+            )
+          }
+        }
 
         body <- tryCatch(
           {
-            future::value(private$connection$recv())
+            await_promise(private$connection$recv(), timeout = remaining)
           },
           error = function(e) {
+            message(sprintf("[pump] recv error: %s", conditionMessage(e)))
             if (grepl("Not connected", conditionMessage(e), fixed = TRUE)) {
               private$._ensure_transport_connected()
-              future::value(private$connection$recv())
+              await_promise(private$connection$recv(), timeout = remaining)
             } else {
               stop(e)
             }
@@ -940,13 +1182,24 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         if (is.null(body)) {
           next
         }
+        message(sprintf("[pump] Received %d bytes", length(body)))
 
-        message <- private$state$decrypt_message_data(body)
-        if (is.null(message)) {
-          next
-        }
-
-        future::value(private$process_message(message))
+        tryCatch(
+          {
+            message <- private$state$decrypt_message_data(body)
+            if (!is.null(message)) {
+              message(sprintf("[pump] Decrypted OK, obj class: %s, CTOR: %s",
+                              paste(class(message$obj), collapse=","),
+                              as.character(message$obj$CONSTRUCTOR_ID)))
+              private$process_message(message)
+            } else {
+              message("[pump] decrypt returned NULL")
+            }
+          },
+          error = function(e) {
+            message(sprintf("[pump] Decrypt/process error: %s", conditionMessage(e)))
+          }
+        )
       }
 
       invisible(NULL)
@@ -999,14 +1252,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         # Track pending states
         for (state in batch) {
           if (!is.list(state)) {
-            if (inherits(state$request, "TLRequest") || isTRUE(grepl("Request$", class(state$request)[1]))) {
-              private$pending_state[[as.character(state$msg_id)]] <- state
-            }
+            private$pending_state[[msg_id_key(state$msg_id)]] <- state
           } else {
             for (s in state) {
-              if (inherits(s$request, "TLRequest") || isTRUE(grepl("Request$", class(s$request)[1]))) {
-                private$pending_state[[as.character(s$msg_id)]] <- s
-              }
+              private$pending_state[[msg_id_key(s$msg_id)]] <- s
             }
           }
         }
@@ -1104,7 +1353,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         # Process the message
         tryCatch(
           {
-            future::value(private$process_message(message))
+            private$process_message(message)
           },
           error = function(e) {
             private$log$error("Unhandled error while processing message: %s", e$message)
@@ -1121,6 +1370,19 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       # Add to pending acknowledgments
       private$pending_ack$add(message$msg_id)
 
+      is_fallback <- is.list(message$obj) && !inherits(message$obj, "R6") &&
+          !is.null(message$obj$CONSTRUCTOR_ID) && !is.null(message$obj$data) &&
+          length(names(message$obj)) == 2  # raw fallback has exactly CONSTRUCTOR_ID + data
+
+      # If obj is a fallback list (from tgread_object failing to find the class),
+      # try to convert it to a proper R6 object for critical MTProto types.
+      if (is_fallback) {
+        message(sprintf("[process] Got fallback list, CTOR=%.0f, data_len=%d, attempting parse",
+                        as.numeric(message$obj$CONSTRUCTOR_ID), length(message$obj$data)))
+        message$obj <- private$._parse_fallback_obj(message$obj)
+        message(sprintf("[process] After parse: obj_class=%s", paste(class(message$obj), collapse=",")))
+      }
+
       # Find appropriate handler using normalized constructor ID key
       constructor_id <- message$obj$CONSTRUCTOR_ID
       v <- as.numeric(constructor_id)
@@ -1128,19 +1390,28 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       ctor_str <- sprintf("%.0f", v)
       handler <- private$handlers[[ctor_str]]
 
+      message(sprintf("[process] ctor_id=%s, handler_found=%s, obj_class=%s",
+                      ctor_str, !is.null(handler),
+                      paste(class(message$obj), collapse=",")))
+
       # Default to update handler if not found
       if (is.null(handler)) {
         handler <- private$handle_update
       }
 
       # Execute the handler
-      return(handler(message))
+      tryCatch(
+        handler(message),
+        error = function(e) {
+          message(sprintf("[process] Handler error: %s", conditionMessage(e)))
+        }
+      )
     },
 
     #' @description Find states matching a message ID
     pop_states = function(msg_id) {
       # Look for exact match
-      msg_id_str <- as.character(msg_id)
+      msg_id_str <- msg_id_key(msg_id)
       state <- private$pending_state[[msg_id_str]]
       if (!is.null(state)) {
         private$pending_state[[msg_id_str]] <- NULL
@@ -1150,7 +1421,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       # Look for container ID match
       to_pop <- character(0)
       for (id in names(private$pending_state)) {
-        if (private$pending_state[[id]]$container_id == msg_id) {
+        if (identical(msg_id_key(private$pending_state[[id]]$container_id), msg_id_key(msg_id))) {
           to_pop <- c(to_pop, id)
         }
       }
@@ -1166,7 +1437,8 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
 
       # Check last acknowledgments
       for (ack in private$last_acks$items) {
-        if (ack$msg_id == msg_id) {
+        if (!is.null(ack$msg_id) && length(ack$msg_id) > 0 &&
+            identical(msg_id_key(ack$msg_id), msg_id_str)) {
           return(list(ack))
         }
       }
@@ -1177,10 +1449,13 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     #' @description Handle RPC results
     handle_rpc_result = function(message) {
       rpc_result <- message$obj
-      state <- private$pending_state[[as.character(rpc_result$req_msg_id)]]
-      private$pending_state[[as.character(rpc_result$req_msg_id)]] <- NULL
-
-      private$log$debug("Handling RPC result for message %d", rpc_result$req_msg_id)
+      req_key <- msg_id_key(rpc_result$req_msg_id)
+      message(sprintf("[handle_rpc_result] req_msg_id=%s, key=%s, pending_keys=%s, has_error=%s",
+                      as.character(rpc_result$req_msg_id), req_key,
+                      paste(names(private$pending_state), collapse=","),
+                      !is.null(rpc_result$error)))
+      state <- private$pending_state[[req_key]]
+      private$pending_state[[req_key]] <- NULL
 
       if (is.null(state)) {
         # Handle response without parent request
@@ -1245,7 +1520,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     handle_container = function(message) {
       private$log$debug("Handling container")
       for (inner_message in message$obj$messages) {
-        future::value(private$process_message(inner_message))
+        private$process_message(inner_message)
       }
     },
 
@@ -1254,7 +1529,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$log$debug("Handling gzipped data")
       reader <- BinaryReader$new(message$obj$data)
       message$obj <- reader$tgread_object()
-      future::value(private$process_message(message))
+      private$process_message(message)
     },
 
     #' @description Handle updates
@@ -1282,52 +1557,29 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     #' @description Store updates originating from our own requests
     #' @param obj Object to check for updates
     store_own_updates = function(obj) {
-      update_ids <- c(
-        UpdateShortMessage$CONSTRUCTOR_ID,
-        UpdateShortChatMessage$CONSTRUCTOR_ID,
-        UpdateShort$CONSTRUCTOR_ID,
-        UpdatesCombined$CONSTRUCTOR_ID,
-        Updates$CONSTRUCTOR_ID,
-        UpdateShortSentMessage$CONSTRUCTOR_ID
-      )
+      # Guard entire method: many Update* and messages.* classes may not exist yet.
+      tryCatch({
+        ctor <- obj$CONSTRUCTOR_ID
+        if (is.null(ctor)) return(invisible(NULL))
 
-      update_like_ids <- c(
-        messages.AffectedHistory$CONSTRUCTOR_ID,
-        messages.AffectedMessages$CONSTRUCTOR_ID,
-        messages.AffectedFoundMessages$CONSTRUCTOR_ID
-      )
+        update_ids <- tryCatch(c(
+          UpdateShortMessage$CONSTRUCTOR_ID,
+          UpdateShortChatMessage$CONSTRUCTOR_ID,
+          UpdateShort$CONSTRUCTOR_ID,
+          UpdatesCombined$CONSTRUCTOR_ID,
+          Updates$CONSTRUCTOR_ID,
+          UpdateShortSentMessage$CONSTRUCTOR_ID
+        ), error = function(e) numeric(0))
 
-      tryCatch(
-        {
-          if (obj$CONSTRUCTOR_ID %in% update_ids) {
-            obj$.self_outgoing <- TRUE # flag to only process, but not dispatch these
-            private$updates_queue$put_nowait(obj)
-          } else if (obj$CONSTRUCTOR_ID %in% update_like_ids) {
-            # Ugly "hack" (?) - otherwise bots reliably detect gaps when deleting messages.
-            #
-            # Note: the `date` being `NULL` is used to check for `updatesTooLong`, so epoch
-            # is used instead. It is still not read, because `updateShort` has no `seq`.
-            #
-            # Some requests, such as `readHistory`, also return these types. But the `pts_count`
-            # seems to be zero, so while this will produce some bogus `updateDeleteMessages`,
-            # it's still one of the "cleaner" approaches to handling the new `pts`.
-            # `updateDeleteMessages` is probably the "least-invasive" update that can be used.
-            epoch_time <- as.POSIXct("1970-01-01 00:00:00", tz = "UTC")
-            upd <- UpdateShort$new(
-              UpdateDeleteMessages$new(list(), obj$pts, obj$pts_count),
-              epoch_time
-            )
-            upd$.self_outgoing <- TRUE
-            private$updates_queue$put_nowait(upd)
-          } else if (obj$CONSTRUCTOR_ID == messages.InvitedUsers$CONSTRUCTOR_ID) {
-            obj$updates$.self_outgoing <- TRUE
-            private$updates_queue$put_nowait(obj$updates)
-          }
-        },
-        error = function(e) {
-          # Ignore attribute errors
+        if (as.numeric(ctor) %in% as.numeric(update_ids)) {
+          obj$.self_outgoing <- TRUE
+          private$updates_queue$put_nowait(obj)
+          return(invisible(NULL))
         }
-      )
+      }, error = function(e) {
+        # Ignore — update classes not available
+      })
+      invisible(NULL)
     },
 
     #' @description Handle pong results
@@ -1339,11 +1591,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         private$ping <- NULL
       }
 
-      state <- private$pending_state[[as.character(pong$msg_id)]]
-      private$pending_state[[as.character(pong$msg_id)]] <- NULL
+      state <- private$pending_state[[msg_id_key(pong$msg_id)]]
+      private$pending_state[[msg_id_key(pong$msg_id)]] <- NULL
 
       if (!is.null(state)) {
-        future::value(state$future$set_result(pong))
+        state$future$set_result(pong)
       }
     },
 
@@ -1351,21 +1603,25 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     #' @param message Message containing bad salt notification
     handle_bad_server_salt = function(message) {
       bad_salt <- message$obj
-      private$log$debug("Handling bad salt for message %d", bad_salt$bad_msg_id)
+      message(sprintf("[handle_bad_salt] bad_msg_id=%s, new_salt=%s, pending_keys=%s",
+                      as.character(bad_salt$bad_msg_id),
+                      as.character(bad_salt$new_server_salt),
+                      paste(names(private$pending_state), collapse=",")))
       private$state$salt <- bad_salt$new_server_salt
       states <- private$pop_states(bad_salt$bad_msg_id)
+      message(sprintf("[handle_bad_salt] popped %d state(s)", length(states)))
       private$send_queue$extend(states)
-
-      private$log$debug("%d message(s) will be resent", length(states))
     },
 
     #' @description Handle bad message notifications
     #' @param message Message containing bad message notification
     handle_bad_notification = function(message) {
       bad_msg <- message$obj
+      message(sprintf("[handle_bad_notification] bad_msg_id=%s, error_code=%s, pending_keys=%s",
+                      as.character(bad_msg$bad_msg_id),
+                      as.character(bad_msg$error_code),
+                      paste(names(private$pending_state), collapse=",")))
       states <- private$pop_states(bad_msg$bad_msg_id)
-
-      private$log$debug("Handling bad msg %s", bad_msg)
       if (bad_msg$error_code %in% c(16, 17)) {
         # Sent msg_id too low or too high (respectively).
         # Use the current msg_id to determine the right time offset.
@@ -1380,9 +1636,9 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         private$state$sequence <- private$state$sequence - 16
       } else {
         for (state in states) {
-          future::value(state$future$set_exception(
+          state$future$set_exception(
             BadMessageError$new(state$request, bad_msg$error_code)
-          ))
+          )
         }
         return(NULL)
       }
@@ -1411,8 +1667,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     #' @description Handle new session created
     #' @param message Message containing new session info
     handle_new_session_created = function(message) {
-      private$log$debug("Handling new session created")
-      private$state$salt <- message$obj$server_salt
+      message(sprintf("[handle_new_session] server_salt=%s", as.character(message$obj$server_salt)))
+      new_salt <- message$obj$server_salt
+      if (!is.null(new_salt) && length(new_salt) >= 1) {
+        private$state$salt <- new_salt
+      }
     },
 
     #' @description Handle server acknowledgments
@@ -1421,11 +1680,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       ack <- message$obj
       private$log$debug("Handling acknowledge for %s", paste(ack$msg_ids, collapse = ", "))
       for (msg_id in ack$msg_ids) {
-        state <- private$pending_state[[as.character(msg_id)]]
+        state <- private$pending_state[[msg_id_key(msg_id)]]
         if (!is.null(state) && inherits(state$request, "LogOutRequest")) {
-          private$pending_state[[as.character(msg_id)]] <- NULL
+          private$pending_state[[msg_id_key(msg_id)]] <- NULL
           if (!future::resolved(state$future)) {
-            future::value(state$future$set_result(TRUE))
+            state$future$set_result(TRUE)
           }
         }
       }
@@ -1437,10 +1696,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       # TODO save these salts and automatically adjust to the
       # correct one whenever the salt in use expires.
       private$log$debug("Handling future salts for message %d", message$msg_id)
-      state <- private$pending_state[[as.character(message$msg_id)]]
-      private$pending_state[[as.character(message$msg_id)]] <- NULL
+      state <- private$pending_state[[msg_id_key(message$msg_id)]]
+      private$pending_state[[msg_id_key(message$msg_id)]] <- NULL
       if (!is.null(state)) {
-        future::value(state$future$set_result(message$obj))
+        state$future$set_result(message$obj)
       }
     },
 
@@ -1485,7 +1744,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
 
       private$pending_state[[msg_id]] <- NULL
       if (!future::resolved(state$future)) {
-        future::value(state$future$set_result(message$obj))
+        state$future$set_result(message$obj)
       }
     },
 
@@ -1506,7 +1765,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         state <- private$pending_state[[id]]
         private$pending_state[[id]] <- NULL
         if (!future::resolved(state$future)) {
-          future::value(state$future$set_result(message$obj))
+          state$future$set_result(message$obj)
         }
       }
 
