@@ -13,6 +13,11 @@ GzipPacked <- R6::R6Class(
   "GzipPacked",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID The constructor ID for GzipPacked (0x3072cfa1).
+    CONSTRUCTOR_ID = 0x3072cfa1,
+    #' @field SUBCLASS_OF_ID The subclass ID for GzipPacked.
+    SUBCLASS_OF_ID = 0x3072cfa1,
+
     data = NULL,
 
     #' @description
@@ -68,15 +73,12 @@ GzipPacked <- R6::R6Class(
     to_dict = function() {
       # Convert the object to a dictionary
       return(list("_" = "GzipPacked", "data" = self$data))
-    }
-  ),
-  active = list(
-    #' @field CONSTRUCTOR_ID The constructor ID for GzipPacked (0x3072cfa1).
-    CONSTRUCTOR_ID = function() 0x3072cfa1,
-    #' @field SUBCLASS_OF_ID The subclass ID for GzipPacked.
-    SUBCLASS_OF_ID = function() 0x3072cfa1
-  ),
-  private = list(
+    },
+
+    #' @description
+    #' Create a GzipPacked object from a binary reader.
+    #' @param reader A binary reader object.
+    #' @return A new GzipPacked object.
     from_reader = function(reader) {
       return(GzipPacked$new(data = memDecompress(reader$tgread_bytes(), type = "gzip")))
     }
