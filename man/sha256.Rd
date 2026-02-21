@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{sha256}
 \alias{sha256}
-\title{SHA256}
+\title{SHA256 Hash}
 \usage{
 sha256(...)
 }
@@ -10,8 +10,8 @@ sha256(...)
 \item{...}{Raw vectors to hash.}
 }
 \value{
-A raw vector of the hash.
+A raw vector.
 }
 \description{
-Computes SHA256 hash of concatenated inputs.
+SHA256 Hash
 }

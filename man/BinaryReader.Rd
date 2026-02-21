@@ -25,6 +25,12 @@ Provides methods to read various data types and handle stream positions.
 \item \href{#method-BinaryReader-set_position}{\code{BinaryReader$set_position()}}
 \item \href{#method-BinaryReader-seek}{\code{BinaryReader$seek()}}
 \item \href{#method-BinaryReader-bytes_to_int}{\code{BinaryReader$bytes_to_int()}}
+\item \href{#method-BinaryReader-read_large_int}{\code{BinaryReader$read_large_int()}}
+\item \href{#method-BinaryReader-tgread_bytes}{\code{BinaryReader$tgread_bytes()}}
+\item \href{#method-BinaryReader-tgreadbytes}{\code{BinaryReader$tgreadbytes()}}
+\item \href{#method-BinaryReader-tgread_string}{\code{BinaryReader$tgread_string()}}
+\item \href{#method-BinaryReader-tgread_date}{\code{BinaryReader$tgread_date()}}
+\item \href{#method-BinaryReader-tgread_object}{\code{BinaryReader$tgread_object()}}
 \item \href{#method-BinaryReader-clone}{\code{BinaryReader$clone()}}
 }
 }
@@ -234,6 +240,91 @@ Converts a byte vector to an integer.
 }
 \subsection{Returns}{
 An integer value.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-BinaryReader-read_large_int"></a>}}
+\if{latex}{\out{\hypertarget{method-BinaryReader-read_large_int}{}}}
+\subsection{Method \code{read_large_int()}}{
+Reads a large integer (128, 256, etc bits).
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{BinaryReader$read_large_int(bits)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{bits}}{Number of bits to read.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A bigz value.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-BinaryReader-tgread_bytes"></a>}}
+\if{latex}{\out{\hypertarget{method-BinaryReader-tgread_bytes}{}}}
+\subsection{Method \code{tgread_bytes()}}{
+Reads a Telegram-encoded byte array.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{BinaryReader$tgread_bytes()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+A raw vector.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-BinaryReader-tgreadbytes"></a>}}
+\if{latex}{\out{\hypertarget{method-BinaryReader-tgreadbytes}{}}}
+\subsection{Method \code{tgreadbytes()}}{
+Alias for tgread_bytes (some generated code uses this name).
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{BinaryReader$tgreadbytes()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+A raw vector.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-BinaryReader-tgread_string"></a>}}
+\if{latex}{\out{\hypertarget{method-BinaryReader-tgread_string}{}}}
+\subsection{Method \code{tgread_string()}}{
+Reads a Telegram-encoded string.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{BinaryReader$tgread_string()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+A character string.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-BinaryReader-tgread_date"></a>}}
+\if{latex}{\out{\hypertarget{method-BinaryReader-tgread_date}{}}}
+\subsection{Method \code{tgread_date()}}{
+Reads a 32-bit Unix timestamp and returns it as a POSIXct datetime.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{BinaryReader$tgread_date()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+A POSIXct datetime or NULL if the timestamp is 0.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-BinaryReader-tgread_object"></a>}}
+\if{latex}{\out{\hypertarget{method-BinaryReader-tgread_object}{}}}
+\subsection{Method \code{tgread_object()}}{
+Reads a TL object.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{BinaryReader$tgread_object()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+A TL object or raw bytes if type unknown.
 }
 }
 \if{html}{\out{<hr>}}

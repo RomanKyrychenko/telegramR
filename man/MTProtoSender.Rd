@@ -35,6 +35,8 @@ A new authorization key will be generated on connection if no other key exists y
 \item \href{#method-MTProtoSender-send}{\code{MTProtoSender$send()}}
 \item \href{#method-MTProtoSender-disconnected}{\code{MTProtoSender$disconnected()}}
 \item \href{#method-MTProtoSender-get_new_msg_id}{\code{MTProtoSender$get_new_msg_id()}}
+\item \href{#method-MTProtoSender-set_auth_key_callback}{\code{MTProtoSender$set_auth_key_callback()}}
+\item \href{#method-MTProtoSender-set_update_callback}{\code{MTProtoSender$set_update_callback()}}
 \item \href{#method-MTProtoSender-update_time_offset}{\code{MTProtoSender$update_time_offset()}}
 \item \href{#method-MTProtoSender-clone}{\code{MTProtoSender$clone()}}
 }
@@ -184,6 +186,40 @@ Generate a new unique message ID
 
 \subsection{Returns}{
 New message ID
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-MTProtoSender-set_auth_key_callback"></a>}}
+\if{latex}{\out{\hypertarget{method-MTProtoSender-set_auth_key_callback}{}}}
+\subsection{Method \code{set_auth_key_callback()}}{
+Set the callback invoked when the auth key changes
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{MTProtoSender$set_auth_key_callback(callback)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{callback}}{Function accepting an AuthKey object}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-MTProtoSender-set_update_callback"></a>}}
+\if{latex}{\out{\hypertarget{method-MTProtoSender-set_update_callback}{}}}
+\subsection{Method \code{set_update_callback()}}{
+Set the callback invoked when updates are received
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{MTProtoSender$set_update_callback(callback)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{callback}}{Function accepting an update object}
+}
+\if{html}{\out{</div>}}
 }
 }
 \if{html}{\out{<hr>}}

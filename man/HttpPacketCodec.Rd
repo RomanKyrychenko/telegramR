@@ -21,18 +21,29 @@ This class implements the HTTP packet codec for encoding and decoding packets.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
+\item \href{#method-HttpPacketCodec-new}{\code{HttpPacketCodec$new()}}
 \item \href{#method-HttpPacketCodec-encode_packet}{\code{HttpPacketCodec$encode_packet()}}
 \item \href{#method-HttpPacketCodec-read_packet}{\code{HttpPacketCodec$read_packet()}}
 \item \href{#method-HttpPacketCodec-clone}{\code{HttpPacketCodec$clone()}}
 }
 }
-\if{html}{\out{
-<details open><summary>Inherited methods</summary>
-<ul>
-<li><span class="pkg-link" data-pkg="telegramR" data-topic="PacketCodec" data-id="initialize"><a href='../../telegramR/html/PacketCodec.html#method-PacketCodec-initialize'><code>telegramR::PacketCodec$initialize()</code></a></span></li>
-</ul>
-</details>
-}}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-HttpPacketCodec-new"></a>}}
+\if{latex}{\out{\hypertarget{method-HttpPacketCodec-new}{}}}
+\subsection{Method \code{new()}}{
+Initialize the codec with an optional connection.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{HttpPacketCodec$new(connection = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{connection}}{Optional connection-like list with ip/port fields.}
+}
+\if{html}{\out{</div>}}
+}
+}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-HttpPacketCodec-encode_packet"></a>}}
 \if{latex}{\out{\hypertarget{method-HttpPacketCodec-encode_packet}{}}}

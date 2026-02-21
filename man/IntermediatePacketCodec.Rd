@@ -27,18 +27,29 @@ Encodes packets by prepending a 4-byte little-endian length prefix.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
+\item \href{#method-IntermediatePacketCodec-new}{\code{IntermediatePacketCodec$new()}}
 \item \href{#method-IntermediatePacketCodec-encode_packet}{\code{IntermediatePacketCodec$encode_packet()}}
 \item \href{#method-IntermediatePacketCodec-read_packet}{\code{IntermediatePacketCodec$read_packet()}}
 \item \href{#method-IntermediatePacketCodec-clone}{\code{IntermediatePacketCodec$clone()}}
 }
 }
-\if{html}{\out{
-<details open><summary>Inherited methods</summary>
-<ul>
-<li><span class="pkg-link" data-pkg="telegramR" data-topic="PacketCodec" data-id="initialize"><a href='../../telegramR/html/PacketCodec.html#method-PacketCodec-initialize'><code>telegramR::PacketCodec$initialize()</code></a></span></li>
-</ul>
-</details>
-}}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-IntermediatePacketCodec-new"></a>}}
+\if{latex}{\out{\hypertarget{method-IntermediatePacketCodec-new}{}}}
+\subsection{Method \code{new()}}{
+Initialize codec with optional connection.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{IntermediatePacketCodec$new(connection = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{connection}}{Optional connection object.}
+}
+\if{html}{\out{</div>}}
+}
+}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-IntermediatePacketCodec-encode_packet"></a>}}
 \if{latex}{\out{\hypertarget{method-IntermediatePacketCodec-encode_packet}{}}}
@@ -76,7 +87,7 @@ Reads and decodes a packet from a reader.
 \if{html}{\out{</div>}}
 }
 \subsection{Returns}{
-A raw vector representing the packet data.
+A promise resolving to packet data.
 }
 }
 \if{html}{\out{<hr>}}

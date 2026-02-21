@@ -21,13 +21,15 @@ MTProto Mobile Protocol plain sender  - (https://core.telegram.org/mtproto/descr
 \subsection{Method \code{new()}}{
 Initializes the MTProto plain sender.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{MTProtoPlainSender$new(connection)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{MTProtoPlainSender$new(connection, loggers = NULL)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{connection}}{the Connection to be used.}
+
+\item{\code{loggers}}{Optional loggers map.}
 }
 \if{html}{\out{</div>}}
 }

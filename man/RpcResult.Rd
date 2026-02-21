@@ -23,11 +23,19 @@ The `RpcResult` class encapsulates the response of an RPC call, including the re
 }
 \if{html}{\out{</div>}}
 }
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{The constructor ID for RpcResult (0xf35c6d01).}
+
+\item{\code{SUBCLASS_OF_ID}}{The subclass ID for RpcResult.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-RpcResult-new}{\code{RpcResult$new()}}
-\item \href{#method-RpcResult-from_reader}{\code{RpcResult$from_reader()}}
 \item \href{#method-RpcResult-to_dict}{\code{RpcResult$to_dict()}}
 \item \href{#method-RpcResult-clone}{\code{RpcResult$clone()}}
 }
@@ -39,6 +47,7 @@ The `RpcResult` class encapsulates the response of an RPC call, including the re
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".eq"><a href='../../telegramR/html/TLObject.html#method-TLObject-.eq'><code>telegramR::TLObject$.eq()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".ne"><a href='../../telegramR/html/TLObject.html#method-TLObject-.ne'><code>telegramR::TLObject$.ne()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".str"><a href='../../telegramR/html/TLObject.html#method-TLObject-.str'><code>telegramR::TLObject$.str()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id="from_reader"><a href='../../telegramR/html/TLObject.html#method-TLObject-from_reader'><code>telegramR::TLObject$from_reader()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id="pretty_format"><a href='../../telegramR/html/TLObject.html#method-TLObject-pretty_format'><code>telegramR::TLObject$pretty_format()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id="serialize_bytes"><a href='../../telegramR/html/TLObject.html#method-TLObject-serialize_bytes'><code>telegramR::TLObject$serialize_bytes()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id="serialize_datetime"><a href='../../telegramR/html/TLObject.html#method-TLObject-serialize_datetime'><code>telegramR::TLObject$serialize_datetime()</code></a></span></li>
@@ -53,7 +62,7 @@ The `RpcResult` class encapsulates the response of an RPC call, including the re
 \subsection{Method \code{new()}}{
 Initializes the `RpcResult` object with the given request message ID, body, and error.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{RpcResult$new(req_msg_id, body, error)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{RpcResult$new(req_msg_id = NULL, body = NULL, error = NULL)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -69,26 +78,6 @@ Initializes the `RpcResult` object with the given request message ID, body, and 
 }
 \subsection{Returns}{
 A new `RpcResult` object.
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RpcResult-from_reader"></a>}}
-\if{latex}{\out{\hypertarget{method-RpcResult-from_reader}{}}}
-\subsection{Method \code{from_reader()}}{
-Reads and parses an `RpcResult` object from a binary reader.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{RpcResult$from_reader(reader)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{reader}}{A `BinaryReader` object to read the binary data.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-An `RpcResult` object parsed from the binary data.
 }
 }
 \if{html}{\out{<hr>}}

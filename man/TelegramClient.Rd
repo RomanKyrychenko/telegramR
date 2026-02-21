@@ -290,6 +290,7 @@ Set the default parse mode.}
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="is_connected"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-is_connected'><code>telegramR::TelegramBaseClient$is_connected()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="set_flood_sleep_threshold"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-set_flood_sleep_threshold'><code>telegramR::TelegramBaseClient$set_flood_sleep_threshold()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="set_proxy"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-set_proxy'><code>telegramR::TelegramBaseClient$set_proxy()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TelegramBaseClient" data-id="switch_dc"><a href='../../telegramR/html/TelegramBaseClient.html#method-TelegramBaseClient-switch_dc'><code>telegramR::TelegramBaseClient$switch_dc()</code></a></span></li>
 </ul>
 </details>
 }}
@@ -605,7 +606,7 @@ TRUE if successful, FALSE otherwise
 \if{latex}{\out{\hypertarget{method-TelegramClient-compute_check}{}}}
 \subsection{Method \code{compute_check()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$compute_check(pwd, password)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$compute_check(request, password)}\if{html}{\out{</div>}}
 }
 
 }

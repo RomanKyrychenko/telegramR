@@ -29,10 +29,12 @@ object-oriented programming.
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-Connection-new}{\code{Connection$new()}}
+\item \href{#method-Connection-to_string}{\code{Connection$to_string()}}
 \item \href{#method-Connection-connect}{\code{Connection$connect()}}
 \item \href{#method-Connection-disconnect}{\code{Connection$disconnect()}}
 \item \href{#method-Connection-send}{\code{Connection$send()}}
 \item \href{#method-Connection-recv}{\code{Connection$recv()}}
+\item \href{#method-Connection-is_connected}{\code{Connection$is_connected()}}
 \item \href{#method-Connection-clone}{\code{Connection$clone()}}
 }
 }
@@ -42,7 +44,14 @@ object-oriented programming.
 \subsection{Method \code{new()}}{
 Initialize a new Connection instance.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Connection$new(ip, port, dc_id, proxy = NULL, local_addr = NULL)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Connection$new(
+  ip,
+  port,
+  dc_id,
+  proxy = NULL,
+  local_addr = NULL,
+  loggers = NULL
+)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -61,6 +70,19 @@ Initialize a new Connection instance.
 \item{\code{loggers}}{A list of logger objects.}
 }
 \if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Connection-to_string"></a>}}
+\if{latex}{\out{\hypertarget{method-Connection-to_string}{}}}
+\subsection{Method \code{to_string()}}{
+Human-readable connection descriptor.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Connection$to_string()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+Character string with endpoint and DC id.
 }
 }
 \if{html}{\out{<hr>}}
@@ -129,6 +151,19 @@ Receive data from the connection.
 
 \subsection{Returns}{
 A promise resolving with the received data.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Connection-is_connected"></a>}}
+\if{latex}{\out{\hypertarget{method-Connection-is_connected}{}}}
+\subsection{Method \code{is_connected()}}{
+Return transport connectivity state.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Connection$is_connected()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+TRUE if underlying transport is marked connected.
 }
 }
 \if{html}{\out{<hr>}}

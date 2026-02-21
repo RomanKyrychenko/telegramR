@@ -13,5 +13,5 @@ num_bytes_for_hash(number)
 A raw vector.
 }
 \description{
-Prepends zero bytes to make the number 256 bytes.
+Num Bytes for Hash
 }

@@ -35,7 +35,7 @@ Encodes packets by prepending a 4-byte little-endian length prefix.
 \if{html}{\out{
 <details open><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="telegramR" data-topic="PacketCodec" data-id="initialize"><a href='../../telegramR/html/PacketCodec.html#method-PacketCodec-initialize'><code>telegramR::PacketCodec$initialize()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="IntermediatePacketCodec" data-id="initialize"><a href='../../telegramR/html/IntermediatePacketCodec.html#method-IntermediatePacketCodec-initialize'><code>telegramR::IntermediatePacketCodec$initialize()</code></a></span></li>
 </ul>
 </details>
 }}
@@ -76,7 +76,7 @@ Reads a packet and removes any trailing random padding.
 \if{html}{\out{</div>}}
 }
 \subsection{Returns}{
-A raw vector representing the original packet data without padding.
+A promise resolving to packet data without random padding.
 }
 }
 \if{html}{\out{<hr>}}

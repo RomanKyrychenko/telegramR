@@ -20,12 +20,14 @@ Always sends 4 extra bytes for the packet length.
 }
 }
 \if{html}{\out{
-<details open><summary>Inherited methods</summary>
+<details><summary>Inherited methods</summary>
 <ul>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="Connection" data-id="connect"><a href='../../telegramR/html/Connection.html#method-Connection-connect'><code>telegramR::Connection$connect()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="Connection" data-id="disconnect"><a href='../../telegramR/html/Connection.html#method-Connection-disconnect'><code>telegramR::Connection$disconnect()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="Connection" data-id="is_connected"><a href='../../telegramR/html/Connection.html#method-Connection-is_connected'><code>telegramR::Connection$is_connected()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="Connection" data-id="recv"><a href='../../telegramR/html/Connection.html#method-Connection-recv'><code>telegramR::Connection$recv()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="Connection" data-id="send"><a href='../../telegramR/html/Connection.html#method-Connection-send'><code>telegramR::Connection$send()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="Connection" data-id="to_string"><a href='../../telegramR/html/Connection.html#method-Connection-to_string'><code>telegramR::Connection$to_string()</code></a></span></li>
 </ul>
 </details>
 }}

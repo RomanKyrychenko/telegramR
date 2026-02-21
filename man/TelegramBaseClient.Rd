@@ -23,6 +23,7 @@ Abstract base class for telegram client implementation
 \item \href{#method-TelegramBaseClient-get_flood_sleep_threshold}{\code{TelegramBaseClient$get_flood_sleep_threshold()}}
 \item \href{#method-TelegramBaseClient-set_flood_sleep_threshold}{\code{TelegramBaseClient$set_flood_sleep_threshold()}}
 \item \href{#method-TelegramBaseClient-get_proxy}{\code{TelegramBaseClient$get_proxy()}}
+\item \href{#method-TelegramBaseClient-switch_dc}{\code{TelegramBaseClient$switch_dc()}}
 \item \href{#method-TelegramBaseClient-clone}{\code{TelegramBaseClient$clone()}}
 }
 }
@@ -225,6 +226,23 @@ Set the flood sleep threshold
 \if{html}{\out{<div class="r">}}\preformatted{TelegramBaseClient$get_proxy()}\if{html}{\out{</div>}}
 }
 
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramBaseClient-switch_dc"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramBaseClient-switch_dc}{}}}
+\subsection{Method \code{switch_dc()}}{
+Switch the client to a different data center.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramBaseClient$switch_dc(new_dc)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{new_dc}}{The new DC ID.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramBaseClient-clone"></a>}}

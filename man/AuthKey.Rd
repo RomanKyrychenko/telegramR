@@ -10,6 +10,8 @@ messages sent to Telegram's data centers.
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
+\item{\code{key}}{Direct accessor used across sender/state code.}
+
 \item{\code{active_key}}{Gets or sets the authorization key.}
 
 \item{\code{return_aux_hash}}{Gets the auxiliary hash derived from the key.}

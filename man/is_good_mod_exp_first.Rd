@@ -7,13 +7,20 @@
 is_good_mod_exp_first(modexp, prime)
 }
 \arguments{
-\item{modexp}{An integer.}
+\item{modexp}{A bigz integer.}
 
-\item{prime}{An integer.}
+\item{prime}{A bigz integer.}
 }
 \value{
 A logical value.
+
+A logical value.
 }
 \description{
+Checks if a modular exponentiation result is good for the first check.
+}
+\details{
+Is Good Mod Exp First
+
 Checks if modexp is good for modular exponentiation.
 }

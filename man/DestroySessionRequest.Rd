@@ -5,9 +5,6 @@
 \title{DestroySessionRequest R6 class}
 \description{
 Represents the TL request `DestroySessionRequest`.
-
-R6 class representing a request to destroy a session.
-Contains methods for serialization to list and bytes.
 }
 \details{
 Fields:
