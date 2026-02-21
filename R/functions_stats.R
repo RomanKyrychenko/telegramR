@@ -7,6 +7,8 @@
 #' @field channel input channel object
 #' @field dark logical; optional dark flag
 #'
+#' @title GetBroadcastStatsRequest
+#' @description Telegram API type GetBroadcastStatsRequest
 #' @export
 GetBroadcastStatsRequest <- R6::R6Class(
   "GetBroadcastStatsRequest",
@@ -77,6 +79,8 @@ GetBroadcastStatsRequest <- R6::R6Class(
 #' @field channel input channel object
 #' @field dark logical; optional dark flag
 #'
+#' @title GetMegagroupStatsRequest
+#' @description Telegram API type GetMegagroupStatsRequest
 #' @export
 GetMegagroupStatsRequest <- R6::R6Class(
   "GetMegagroupStatsRequest",
@@ -149,6 +153,8 @@ GetMegagroupStatsRequest <- R6::R6Class(
 #' @field offset character offset string
 #' @field limit integer limit
 #'
+#' @title GetMessagePublicForwardsRequest
+#' @description Telegram API type GetMessagePublicForwardsRequest
 #' @export
 GetMessagePublicForwardsRequest <- R6::R6Class(
   "GetMessagePublicForwardsRequest",
@@ -237,6 +243,8 @@ GetMessagePublicForwardsRequest <- R6::R6Class(
 #' @field msg_id integer message id
 #' @field dark logical; optional dark flag
 #'
+#' @title GetMessageStatsRequest
+#' @description Telegram API type GetMessageStatsRequest
 #' @export
 GetMessageStatsRequest <- R6::R6Class(
   "GetMessageStatsRequest",
@@ -314,6 +322,8 @@ GetMessageStatsRequest <- R6::R6Class(
 #' @field offset character offset string
 #' @field limit integer limit
 #'
+#' @title GetStoryPublicForwardsRequest
+#' @description Telegram API type GetStoryPublicForwardsRequest
 #' @export
 GetStoryPublicForwardsRequest <- R6::R6Class(
   "GetStoryPublicForwardsRequest",
@@ -402,6 +412,8 @@ GetStoryPublicForwardsRequest <- R6::R6Class(
 #' @field id integer story id
 #' @field dark logical; optional dark flag
 #'
+#' @title GetStoryStatsRequest
+#' @description Telegram API type GetStoryStatsRequest
 #' @export
 GetStoryStatsRequest <- R6::R6Class(
   "GetStoryStatsRequest",
@@ -477,6 +489,8 @@ GetStoryStatsRequest <- R6::R6Class(
 #' @field token character token
 #' @field x integer64 or numeric; optional x
 #'
+#' @title LoadAsyncGraphRequest
+#' @description Telegram API type LoadAsyncGraphRequest
 #' @export
 LoadAsyncGraphRequest <- R6::R6Class(
   "LoadAsyncGraphRequest",

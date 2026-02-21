@@ -850,7 +850,8 @@ if (!exists("Queue", inherits = FALSE)) {
   )
 }
 
-#' Helper function for NULL handling (similar to %||% in R)
+#' Null coalescing operator
+#' @name null-coalesce
 #' @param x The first value
 #' @param y The second value
 #' @return The first value if not NULL, otherwise the second value

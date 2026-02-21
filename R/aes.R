@@ -5,6 +5,8 @@
 #'
 #' @details
 #' A pure R implementation of AES IGE mode encryption and decryption.
+#' @title AES
+#' @description Telegram API type AES
 #' @export
 AES <- R6::R6Class(
   "AES",

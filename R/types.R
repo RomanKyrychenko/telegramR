@@ -1,6 +1,8 @@
 #' @include tlobject.R
 NULL
 
+#' @title AccessPointRule
+#' @description Telegram API type AccessPointRule
 #' @export
 AccessPointRule <- R6::R6Class(
   "AccessPointRule",
@@ -74,6 +76,8 @@ AccessPointRule <- R6::R6Class(
   )
 )
 
+#' @title AccountDaysTTL
+#' @description Telegram API type AccountDaysTTL
 #' @export
 AccountDaysTTL <- R6::R6Class(
   "AccountDaysTTL",
@@ -113,6 +117,8 @@ AccountDaysTTL <- R6::R6Class(
 )
 
 
+#' @title AccountDaysTTL
+#' @description Telegram API type AccountDaysTTL
 #' @export
 AccountDaysTTL <- R6::R6Class(
   "AccountDaysTTL",
@@ -165,6 +171,8 @@ AccountDaysTTL <- R6::R6Class(
   )
 )
 
+#' @title AttachMenuBot
+#' @description Telegram API type AttachMenuBot
 #' @export
 AttachMenuBot <- R6::R6Class(
   "AttachMenuBot",
@@ -330,6 +338,8 @@ AttachMenuBot <- R6::R6Class(
   )
 )
 
+#' @title AttachMenuBotIcon
+#' @description Telegram API type AttachMenuBotIcon
 #' @export
 AttachMenuBotIcon <- R6::R6Class(
   "AttachMenuBotIcon",
@@ -416,6 +426,8 @@ AttachMenuBotIcon <- R6::R6Class(
   )
 )
 
+#' @title AttachMenuBotIconColor
+#' @description Telegram API type AttachMenuBotIconColor
 #' @export
 AttachMenuBotIconColor <- R6::R6Class(
   "AttachMenuBotIconColor",
@@ -472,6 +484,8 @@ AttachMenuBotIconColor <- R6::R6Class(
   )
 )
 
+#' @title AttachMenuBots
+#' @description Telegram API type AttachMenuBots
 #' @export
 AttachMenuBots <- R6::R6Class(
   "AttachMenuBots",
@@ -551,6 +565,8 @@ AttachMenuBots <- R6::R6Class(
   )
 )
 
+#' @title AttachMenuBotsBot
+#' @description Telegram API type AttachMenuBotsBot
 #' @export
 AttachMenuBotsBot <- R6::R6Class(
   "AttachMenuBotsBot",
@@ -616,6 +632,8 @@ AttachMenuBotsBot <- R6::R6Class(
   )
 )
 
+#' @title AttachMenuBotsNotModified
+#' @description Telegram API type AttachMenuBotsNotModified
 #' @export
 AttachMenuBotsNotModified <- R6::R6Class(
   "AttachMenuBotsNotModified",
@@ -659,6 +677,8 @@ AttachMenuBotsNotModified <- R6::R6Class(
   )
 )
 
+#' @title AttachMenuPeerTypeBotPM
+#' @description Telegram API type AttachMenuPeerTypeBotPM
 #' @export
 AttachMenuPeerTypeBotPM <- R6::R6Class(
   "AttachMenuPeerTypeBotPM",
@@ -702,6 +722,8 @@ AttachMenuPeerTypeBotPM <- R6::R6Class(
   )
 )
 
+#' @title AttachMenuPeerTypeBroadcast
+#' @description Telegram API type AttachMenuPeerTypeBroadcast
 #' @export
 AttachMenuPeerTypeBroadcast <- R6::R6Class(
   "AttachMenuPeerTypeBroadcast",
@@ -745,6 +767,8 @@ AttachMenuPeerTypeBroadcast <- R6::R6Class(
   )
 )
 
+#' @title AttachMenuPeerTypeChat
+#' @description Telegram API type AttachMenuPeerTypeChat
 #' @export
 AttachMenuPeerTypeChat <- R6::R6Class(
   "AttachMenuPeerTypeChat",
@@ -788,6 +812,8 @@ AttachMenuPeerTypeChat <- R6::R6Class(
   )
 )
 
+#' @title AttachMenuPeerTypePM
+#' @description Telegram API type AttachMenuPeerTypePM
 #' @export
 AttachMenuPeerTypePM <- R6::R6Class(
   "AttachMenuPeerTypePM",
@@ -831,6 +857,8 @@ AttachMenuPeerTypePM <- R6::R6Class(
   )
 )
 
+#' @title AttachMenuPeerTypeSameBotPM
+#' @description Telegram API type AttachMenuPeerTypeSameBotPM
 #' @export
 AttachMenuPeerTypeSameBotPM <- R6::R6Class(
   "AttachMenuPeerTypeSameBotPM",
@@ -874,6 +902,8 @@ AttachMenuPeerTypeSameBotPM <- R6::R6Class(
   )
 )
 
+#' @title Authorization
+#' @description Telegram API type Authorization
 #' @export
 Authorization <- R6::R6Class(
   "Authorization",
@@ -1053,6 +1083,8 @@ Authorization <- R6::R6Class(
   )
 )
 
+#' @title AutoDownloadSettings
+#' @description Telegram API type AutoDownloadSettings
 #' @export
 AutoDownloadSettings <- R6::R6Class(
   "AutoDownloadSettings",
@@ -1183,6 +1215,8 @@ AutoDownloadSettings <- R6::R6Class(
   )
 )
 
+#' @title AutoSaveException
+#' @description Telegram API type AutoSaveException
 #' @export
 AutoSaveException <- R6::R6Class(
   "AutoSaveException",
@@ -1239,6 +1273,8 @@ AutoSaveException <- R6::R6Class(
   )
 )
 
+#' @title AutoSaveSettings
+#' @description Telegram API type AutoSaveSettings
 #' @export
 AutoSaveSettings <- R6::R6Class(
   "AutoSaveSettings",
@@ -1324,6 +1360,8 @@ AutoSaveSettings <- R6::R6Class(
   )
 )
 
+#' @title AvailableEffect
+#' @description Telegram API type AvailableEffect
 #' @export
 AvailableEffect <- R6::R6Class(
   "AvailableEffect",
@@ -1444,6 +1482,8 @@ AvailableEffect <- R6::R6Class(
   )
 )
 
+#' @title AvailableReaction
+#' @description Telegram API type AvailableReaction
 #' @export
 AvailableReaction <- R6::R6Class(
   "AvailableReaction",
@@ -1599,6 +1639,8 @@ AvailableReaction <- R6::R6Class(
   )
 )
 
+#' @title BadMsgNotification
+#' @description Telegram API type BadMsgNotification
 #' @export
 BadMsgNotification <- R6::R6Class(
   "BadMsgNotification",
@@ -1665,6 +1707,8 @@ BadMsgNotification <- R6::R6Class(
   )
 )
 
+#' @title BadServerSalt
+#' @description Telegram API type BadServerSalt
 #' @export
 BadServerSalt <- R6::R6Class(
   "BadServerSalt",
@@ -1738,6 +1782,8 @@ BadServerSalt <- R6::R6Class(
   )
 )
 
+#' @title BankCardOpenUrl
+#' @description Telegram API type BankCardOpenUrl
 #' @export
 BankCardOpenUrl <- R6::R6Class(
   "BankCardOpenUrl",
@@ -1794,6 +1840,8 @@ BankCardOpenUrl <- R6::R6Class(
   )
 )
 
+#' @title BaseThemeArctic
+#' @description Telegram API type BaseThemeArctic
 #' @export
 BaseThemeArctic <- R6::R6Class(
   "BaseThemeArctic",
@@ -1834,6 +1882,8 @@ BaseThemeArctic <- R6::R6Class(
   )
 )
 
+#' @title BaseThemeClassic
+#' @description Telegram API type BaseThemeClassic
 #' @export
 BaseThemeClassic <- R6::R6Class(
   "BaseThemeClassic",
@@ -1874,6 +1924,8 @@ BaseThemeClassic <- R6::R6Class(
   )
 )
 
+#' @title BaseThemeDay
+#' @description Telegram API type BaseThemeDay
 #' @export
 BaseThemeDay <- R6::R6Class(
   "BaseThemeDay",
@@ -1914,6 +1966,8 @@ BaseThemeDay <- R6::R6Class(
   )
 )
 
+#' @title BaseThemeNight
+#' @description Telegram API type BaseThemeNight
 #' @export
 BaseThemeNight <- R6::R6Class(
   "BaseThemeNight",
@@ -1954,6 +2008,8 @@ BaseThemeNight <- R6::R6Class(
   )
 )
 
+#' @title BaseThemeTinted
+#' @description Telegram API type BaseThemeTinted
 #' @export
 BaseThemeTinted <- R6::R6Class(
   "BaseThemeTinted",
@@ -1994,6 +2050,8 @@ BaseThemeTinted <- R6::R6Class(
   )
 )
 
+#' @title BindAuthKeyInner
+#' @description Telegram API type BindAuthKeyInner
 #' @export
 BindAuthKeyInner <- R6::R6Class(
   "BindAuthKeyInner",
@@ -2074,6 +2132,8 @@ BindAuthKeyInner <- R6::R6Class(
   )
 )
 
+#' @title Birthday
+#' @description Telegram API type Birthday
 #' @export
 Birthday <- R6::R6Class(
   "Birthday",
@@ -2146,6 +2206,8 @@ Birthday <- R6::R6Class(
   )
 )
 
+#' @title Boost
+#' @description Telegram API type Boost
 #' @export
 Boost <- R6::R6Class(
   "Boost",
@@ -2326,6 +2388,8 @@ Boost <- R6::R6Class(
   )
 )
 
+#' @title BotApp
+#' @description Telegram API type BotApp
 #' @export
 BotApp <- R6::R6Class(
   "BotApp",
@@ -2450,6 +2514,8 @@ BotApp <- R6::R6Class(
   )
 )
 
+#' @title BotAppNotModified
+#' @description Telegram API type BotAppNotModified
 #' @export
 BotAppNotModified <- R6::R6Class(
   "BotAppNotModified",
@@ -2490,6 +2556,8 @@ BotAppNotModified <- R6::R6Class(
   )
 )
 
+#' @title BotAppSettings
+#' @description Telegram API type BotAppSettings
 #' @export
 BotAppSettings <- R6::R6Class(
   "BotAppSettings",
@@ -2614,6 +2682,8 @@ BotAppSettings <- R6::R6Class(
   )
 )
 
+#' @title BotBusinessConnection
+#' @description Telegram API type BotBusinessConnection
 #' @export
 BotBusinessConnection <- R6::R6Class(
   "BotBusinessConnection",
@@ -2730,6 +2800,8 @@ BotBusinessConnection <- R6::R6Class(
   )
 )
 
+#' @title BotCommand
+#' @description Telegram API type BotCommand
 #' @export
 BotCommand <- R6::R6Class(
   "BotCommand",
@@ -2790,6 +2862,8 @@ BotCommand <- R6::R6Class(
   )
 )
 
+#' @title BotCommandScopeChatAdmins
+#' @description Telegram API type BotCommandScopeChatAdmins
 #' @export
 BotCommandScopeChatAdmins <- R6::R6Class(
   "BotCommandScopeChatAdmins",
@@ -2830,6 +2904,8 @@ BotCommandScopeChatAdmins <- R6::R6Class(
   )
 )
 
+#' @title BotCommandScopeChats
+#' @description Telegram API type BotCommandScopeChats
 #' @export
 BotCommandScopeChats <- R6::R6Class(
   "BotCommandScopeChats",
@@ -2870,6 +2946,8 @@ BotCommandScopeChats <- R6::R6Class(
   )
 )
 
+#' @title BotCommandScopeDefault
+#' @description Telegram API type BotCommandScopeDefault
 #' @export
 BotCommandScopeDefault <- R6::R6Class(
   "BotCommandScopeDefault",
@@ -2910,6 +2988,8 @@ BotCommandScopeDefault <- R6::R6Class(
   )
 )
 
+#' @title BotCommandScopePeer
+#' @description Telegram API type BotCommandScopePeer
 #' @export
 BotCommandScopePeer <- R6::R6Class(
   "BotCommandScopePeer",
@@ -2963,6 +3043,8 @@ BotCommandScopePeer <- R6::R6Class(
   )
 )
 
+#' @title BotCommandScopePeerAdmins
+#' @description Telegram API type BotCommandScopePeerAdmins
 #' @export
 BotCommandScopePeerAdmins <- R6::R6Class(
   "BotCommandScopePeerAdmins",
@@ -3016,6 +3098,8 @@ BotCommandScopePeerAdmins <- R6::R6Class(
   )
 )
 
+#' @title BotCommandScopePeerUser
+#' @description Telegram API type BotCommandScopePeerUser
 #' @export
 BotCommandScopePeerUser <- R6::R6Class(
   "BotCommandScopePeerUser",
@@ -3076,6 +3160,8 @@ BotCommandScopePeerUser <- R6::R6Class(
   )
 )
 
+#' @title BotCommandScopeUsers
+#' @description Telegram API type BotCommandScopeUsers
 #' @export
 BotCommandScopeUsers <- R6::R6Class(
   "BotCommandScopeUsers",
@@ -3116,6 +3202,8 @@ BotCommandScopeUsers <- R6::R6Class(
   )
 )
 
+#' @title BotInfo
+#' @description Telegram API type BotInfo
 #' @export
 BotInfo <- R6::R6Class(
   "BotInfo",
@@ -3337,6 +3425,8 @@ BotInfo <- R6::R6Class(
   )
 )
 
+#' @title BotInlineMediaResult
+#' @description Telegram API type BotInlineMediaResult
 #' @export
 BotInlineMediaResult <- R6::R6Class(
   "BotInlineMediaResult",
@@ -3481,6 +3571,8 @@ BotInlineMediaResult <- R6::R6Class(
   )
 )
 
+#' @title BotInlineMessageMediaAuto
+#' @description Telegram API type BotInlineMessageMediaAuto
 #' @export
 BotInlineMessageMediaAuto <- R6::R6Class(
   "BotInlineMessageMediaAuto",
@@ -3599,6 +3691,8 @@ BotInlineMessageMediaAuto <- R6::R6Class(
   )
 )
 
+#' @title BotInlineMessageMediaContact
+#' @description Telegram API type BotInlineMessageMediaContact
 #' @export
 BotInlineMessageMediaContact <- R6::R6Class(
   "BotInlineMessageMediaContact",
@@ -3700,6 +3794,8 @@ BotInlineMessageMediaContact <- R6::R6Class(
   )
 )
 
+#' @title BotInlineMessageMediaGeo
+#' @description Telegram API type BotInlineMessageMediaGeo
 #' @export
 BotInlineMessageMediaGeo <- R6::R6Class(
   "BotInlineMessageMediaGeo",
@@ -3828,6 +3924,8 @@ BotInlineMessageMediaGeo <- R6::R6Class(
   )
 )
 
+#' @title BotInlineMessageMediaInvoice
+#' @description Telegram API type BotInlineMessageMediaInvoice
 #' @export
 BotInlineMessageMediaInvoice <- R6::R6Class(
   "BotInlineMessageMediaInvoice",
@@ -3977,6 +4075,8 @@ BotInlineMessageMediaInvoice <- R6::R6Class(
   )
 )
 
+#' @title BotInlineMessageMediaVenue
+#' @description Telegram API type BotInlineMessageMediaVenue
 #' @export
 BotInlineMessageMediaVenue <- R6::R6Class(
   "BotInlineMessageMediaVenue",
@@ -4092,6 +4192,8 @@ BotInlineMessageMediaVenue <- R6::R6Class(
   )
 )
 
+#' @title BotInlineMessageMediaWebPage
+#' @description Telegram API type BotInlineMessageMediaWebPage
 #' @export
 BotInlineMessageMediaWebPage <- R6::R6Class(
   "BotInlineMessageMediaWebPage",
@@ -4204,6 +4306,8 @@ BotInlineMessageMediaWebPage <- R6::R6Class(
   )
 )
 
+#' @title BotInlineMessageText
+#' @description Telegram API type BotInlineMessageText
 #' @export
 BotInlineMessageText <- R6::R6Class(
   "BotInlineMessageText",
@@ -4294,6 +4398,8 @@ BotInlineMessageText <- R6::R6Class(
   )
 )
 
+#' @title BotInlineResult
+#' @description Telegram API type BotInlineResult
 #' @export
 BotInlineResult <- R6::R6Class(
   "BotInlineResult",
@@ -4417,6 +4523,8 @@ BotInlineResult <- R6::R6Class(
   )
 )
 
+#' @title BotMenuButton
+#' @description Telegram API type BotMenuButton
 #' @export
 BotMenuButton <- R6::R6Class(
   "BotMenuButton",
@@ -4458,6 +4566,8 @@ BotMenuButton <- R6::R6Class(
   )
 )
 
+#' @title BotMenuButtonCommands
+#' @description Telegram API type BotMenuButtonCommands
 #' @export
 BotMenuButtonCommands <- R6::R6Class(
   "BotMenuButtonCommands",
@@ -4488,6 +4598,8 @@ BotMenuButtonCommands <- R6::R6Class(
   )
 )
 
+#' @title BotMenuButtonDefault
+#' @description Telegram API type BotMenuButtonDefault
 #' @export
 BotMenuButtonDefault <- R6::R6Class(
   "BotMenuButtonDefault",
@@ -4518,6 +4630,8 @@ BotMenuButtonDefault <- R6::R6Class(
   )
 )
 
+#' @title BotPreviewMedia
+#' @description Telegram API type BotPreviewMedia
 #' @export
 BotPreviewMedia <- R6::R6Class(
   "BotPreviewMedia",
@@ -4559,6 +4673,8 @@ BotPreviewMedia <- R6::R6Class(
   )
 )
 
+#' @title BotVerification
+#' @description Telegram API type BotVerification
 #' @export
 BotVerification <- R6::R6Class(
   "BotVerification",
@@ -4605,6 +4721,8 @@ BotVerification <- R6::R6Class(
   )
 )
 
+#' @title BotVerifierSettings
+#' @description Telegram API type BotVerifierSettings
 #' @export
 BotVerifierSettings <- R6::R6Class(
   "BotVerifierSettings",
@@ -4672,6 +4790,8 @@ BotVerifierSettings <- R6::R6Class(
   )
 )
 
+#' @title BusinessAwayMessage
+#' @description Telegram API type BusinessAwayMessage
 #' @export
 BusinessAwayMessage <- R6::R6Class(
   "BusinessAwayMessage",
@@ -4728,6 +4848,8 @@ BusinessAwayMessage <- R6::R6Class(
   )
 )
 
+#' @title BusinessAwayMessageScheduleAlways
+#' @description Telegram API type BusinessAwayMessageScheduleAlways
 #' @export
 BusinessAwayMessageScheduleAlways <- R6::R6Class(
   "BusinessAwayMessageScheduleAlways",
@@ -4758,6 +4880,8 @@ BusinessAwayMessageScheduleAlways <- R6::R6Class(
   )
 )
 
+#' @title BusinessAwayMessageScheduleCustom
+#' @description Telegram API type BusinessAwayMessageScheduleCustom
 #' @export
 BusinessAwayMessageScheduleCustom <- R6::R6Class(
   "BusinessAwayMessageScheduleCustom",
@@ -4799,6 +4923,8 @@ BusinessAwayMessageScheduleCustom <- R6::R6Class(
   )
 )
 
+#' @title BusinessAwayMessageScheduleOutsideWorkHours
+#' @description Telegram API type BusinessAwayMessageScheduleOutsideWorkHours
 #' @export
 BusinessAwayMessageScheduleOutsideWorkHours <- R6::R6Class(
   "BusinessAwayMessageScheduleOutsideWorkHours",
@@ -4829,6 +4955,8 @@ BusinessAwayMessageScheduleOutsideWorkHours <- R6::R6Class(
   )
 )
 
+#' @title BusinessBotRecipients
+#' @description Telegram API type BusinessBotRecipients
 #' @export
 BusinessBotRecipients <- R6::R6Class(
   "BusinessBotRecipients",
@@ -4935,6 +5063,8 @@ BusinessBotRecipients <- R6::R6Class(
   )
 )
 
+#' @title BusinessBotRights
+#' @description Telegram API type BusinessBotRights
 #' @export
 BusinessBotRights <- R6::R6Class(
   "BusinessBotRights",
@@ -5045,6 +5175,8 @@ BusinessBotRights <- R6::R6Class(
   )
 )
 
+#' @title BusinessChatLink
+#' @description Telegram API type BusinessChatLink
 #' @export
 BusinessChatLink <- R6::R6Class(
   "BusinessChatLink",
@@ -5133,6 +5265,8 @@ BusinessChatLink <- R6::R6Class(
   )
 )
 
+#' @title BusinessGreetingMessage
+#' @description Telegram API type BusinessGreetingMessage
 #' @export
 BusinessGreetingMessage <- R6::R6Class(
   "BusinessGreetingMessage",
@@ -5179,6 +5313,8 @@ BusinessGreetingMessage <- R6::R6Class(
   )
 )
 
+#' @title BusinessIntro
+#' @description Telegram API type BusinessIntro
 #' @export
 BusinessIntro <- R6::R6Class(
   "BusinessIntro",
@@ -5239,6 +5375,8 @@ BusinessIntro <- R6::R6Class(
   )
 )
 
+#' @title BusinessLocation
+#' @description Telegram API type BusinessLocation
 #' @export
 BusinessLocation <- R6::R6Class(
   "BusinessLocation",
@@ -5294,6 +5432,8 @@ BusinessLocation <- R6::R6Class(
   )
 )
 
+#' @title BusinessRecipients
+#' @description Telegram API type BusinessRecipients
 #' @export
 BusinessRecipients <- R6::R6Class(
   "BusinessRecipients",
@@ -5380,6 +5520,8 @@ BusinessRecipients <- R6::R6Class(
   )
 )
 
+#' @title BusinessWeeklyOpen
+#' @description Telegram API type BusinessWeeklyOpen
 #' @export
 BusinessWeeklyOpen <- R6::R6Class(
   "BusinessWeeklyOpen",
@@ -5421,6 +5563,8 @@ BusinessWeeklyOpen <- R6::R6Class(
   )
 )
 
+#' @title BusinessWorkHours
+#' @description Telegram API type BusinessWorkHours
 #' @export
 BusinessWorkHours <- R6::R6Class(
   "BusinessWorkHours",
@@ -5477,6 +5621,8 @@ BusinessWorkHours <- R6::R6Class(
   )
 )
 
+#' @title CdnConfig
+#' @description Telegram API type CdnConfig
 #' @export
 CdnConfig <- R6::R6Class(
   "CdnConfig",
@@ -5517,6 +5663,8 @@ CdnConfig <- R6::R6Class(
   )
 )
 
+#' @title CdnPublicKey
+#' @description Telegram API type CdnPublicKey
 #' @export
 CdnPublicKey <- R6::R6Class(
   "CdnPublicKey",
@@ -5559,6 +5707,8 @@ CdnPublicKey <- R6::R6Class(
 )
 
 
+#' @title Channel
+#' @description Telegram API type Channel
 #' @export
 Channel <- R6::R6Class("Channel",
   inherit = TLObject,
@@ -5742,6 +5892,8 @@ Channel <- R6::R6Class("Channel",
   class = TRUE
 )
 
+#' @title ChannelAdminLogEvent
+#' @description Telegram API type ChannelAdminLogEvent
 #' @export
 ChannelAdminLogEvent <- R6::R6Class("ChannelAdminLogEvent",
   inherit = TLObject,
@@ -5775,6 +5927,8 @@ ChannelAdminLogEvent <- R6::R6Class("ChannelAdminLogEvent",
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangeAbout
+#' @description Telegram API type ChannelAdminLogEventActionChangeAbout
 #' @export
 ChannelAdminLogEventActionChangeAbout <- R6::R6Class("ChannelAdminLogEventActionChangeAbout",
   inherit = TLObject,
@@ -5802,6 +5956,8 @@ ChannelAdminLogEventActionChangeAbout <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangeAvailableReactions
+#' @description Telegram API type ChannelAdminLogEventActionChangeAvailableReactions
 #' @export
 ChannelAdminLogEventActionChangeAvailableReactions <- R6::R6Class("ChannelAdminLogEventActionChangeAvailableReactions",
   inherit = TLObject,
@@ -5856,6 +6012,8 @@ ChannelAdminLogEventActionChangeEmojiStatus <- R6::R6Class("ChannelAdminLogEvent
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangeEmojiStickerSet
+#' @description Telegram API type ChannelAdminLogEventActionChangeEmojiStickerSet
 #' @export
 ChannelAdminLogEventActionChangeEmojiStickerSet <- R6::R6Class("ChannelAdminLogEventActionChangeEmojiStickerSet",
   inherit = TLObject,
@@ -5883,6 +6041,8 @@ ChannelAdminLogEventActionChangeEmojiStickerSet <- R6::R6Class("ChannelAdminLogE
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangeHistoryTTL
+#' @description Telegram API type ChannelAdminLogEventActionChangeHistoryTTL
 #' @export
 ChannelAdminLogEventActionChangeHistoryTTL <- R6::R6Class("ChannelAdminLogEventActionChangeHistoryTTL",
   inherit = TLObject,
@@ -5910,6 +6070,8 @@ ChannelAdminLogEventActionChangeHistoryTTL <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangeLinkedChat
+#' @description Telegram API type ChannelAdminLogEventActionChangeLinkedChat
 #' @export
 ChannelAdminLogEventActionChangeLinkedChat <- R6::R6Class("ChannelAdminLogEventActionChangeLinkedChat",
   inherit = TLObject,
@@ -5937,6 +6099,8 @@ ChannelAdminLogEventActionChangeLinkedChat <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangeLocation
+#' @description Telegram API type ChannelAdminLogEventActionChangeLocation
 #' @export
 ChannelAdminLogEventActionChangeLocation <- R6::R6Class("ChannelAdminLogEventActionChangeLocation",
   inherit = TLObject,
@@ -5964,6 +6128,8 @@ ChannelAdminLogEventActionChangeLocation <- R6::R6Class("ChannelAdminLogEventAct
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangePeerColor
+#' @description Telegram API type ChannelAdminLogEventActionChangePeerColor
 #' @export
 ChannelAdminLogEventActionChangePeerColor <- R6::R6Class("ChannelAdminLogEventActionChangePeerColor",
   inherit = TLObject,
@@ -5991,6 +6157,8 @@ ChannelAdminLogEventActionChangePeerColor <- R6::R6Class("ChannelAdminLogEventAc
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangePhoto
+#' @description Telegram API type ChannelAdminLogEventActionChangePhoto
 #' @export
 ChannelAdminLogEventActionChangePhoto <- R6::R6Class("ChannelAdminLogEventActionChangePhoto",
   inherit = TLObject,
@@ -6018,6 +6186,8 @@ ChannelAdminLogEventActionChangePhoto <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangeProfilePeerColor
+#' @description Telegram API type ChannelAdminLogEventActionChangeProfilePeerColor
 #' @export
 ChannelAdminLogEventActionChangeProfilePeerColor <- R6::R6Class("ChannelAdminLogEventActionChangeProfilePeerColor",
   inherit = TLObject,
@@ -6045,6 +6215,8 @@ ChannelAdminLogEventActionChangeProfilePeerColor <- R6::R6Class("ChannelAdminLog
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangeStickerSet
+#' @description Telegram API type ChannelAdminLogEventActionChangeStickerSet
 #' @export
 ChannelAdminLogEventActionChangeStickerSet <- R6::R6Class("ChannelAdminLogEventActionChangeStickerSet",
   inherit = TLObject,
@@ -6072,6 +6244,8 @@ ChannelAdminLogEventActionChangeStickerSet <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangeTitle
+#' @description Telegram API type ChannelAdminLogEventActionChangeTitle
 #' @export
 ChannelAdminLogEventActionChangeTitle <- R6::R6Class("ChannelAdminLogEventActionChangeTitle",
   inherit = TLObject,
@@ -6099,6 +6273,8 @@ ChannelAdminLogEventActionChangeTitle <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangeUsername
+#' @description Telegram API type ChannelAdminLogEventActionChangeUsername
 #' @export
 ChannelAdminLogEventActionChangeUsername <- R6::R6Class("ChannelAdminLogEventActionChangeUsername",
   inherit = TLObject,
@@ -6126,6 +6302,8 @@ ChannelAdminLogEventActionChangeUsername <- R6::R6Class("ChannelAdminLogEventAct
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangeUsernames
+#' @description Telegram API type ChannelAdminLogEventActionChangeUsernames
 #' @export
 ChannelAdminLogEventActionChangeUsernames <- R6::R6Class("ChannelAdminLogEventActionChangeUsernames",
   inherit = TLObject,
@@ -6153,6 +6331,8 @@ ChannelAdminLogEventActionChangeUsernames <- R6::R6Class("ChannelAdminLogEventAc
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionChangeWallpaper
+#' @description Telegram API type ChannelAdminLogEventActionChangeWallpaper
 #' @export
 ChannelAdminLogEventActionChangeWallpaper <- R6::R6Class("ChannelAdminLogEventActionChangeWallpaper",
   inherit = TLObject,
@@ -6180,6 +6360,8 @@ ChannelAdminLogEventActionChangeWallpaper <- R6::R6Class("ChannelAdminLogEventAc
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionCreateTopic
+#' @description Telegram API type ChannelAdminLogEventActionCreateTopic
 #' @export
 ChannelAdminLogEventActionCreateTopic <- R6::R6Class("ChannelAdminLogEventActionCreateTopic",
   inherit = TLObject,
@@ -6204,6 +6386,8 @@ ChannelAdminLogEventActionCreateTopic <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionDefaultBannedRights
+#' @description Telegram API type ChannelAdminLogEventActionDefaultBannedRights
 #' @export
 ChannelAdminLogEventActionDefaultBannedRights <- R6::R6Class("ChannelAdminLogEventActionDefaultBannedRights",
   inherit = TLObject,
@@ -6231,6 +6415,8 @@ ChannelAdminLogEventActionDefaultBannedRights <- R6::R6Class("ChannelAdminLogEve
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionDeleteMessage
+#' @description Telegram API type ChannelAdminLogEventActionDeleteMessage
 #' @export
 ChannelAdminLogEventActionDeleteMessage <- R6::R6Class("ChannelAdminLogEventActionDeleteMessage",
   inherit = TLObject,
@@ -6255,6 +6441,8 @@ ChannelAdminLogEventActionDeleteMessage <- R6::R6Class("ChannelAdminLogEventActi
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionDeleteTopic
+#' @description Telegram API type ChannelAdminLogEventActionDeleteTopic
 #' @export
 ChannelAdminLogEventActionDeleteTopic <- R6::R6Class("ChannelAdminLogEventActionDeleteTopic",
   inherit = TLObject,
@@ -6279,6 +6467,8 @@ ChannelAdminLogEventActionDeleteTopic <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionDiscardGroupCall
+#' @description Telegram API type ChannelAdminLogEventActionDiscardGroupCall
 #' @export
 ChannelAdminLogEventActionDiscardGroupCall <- R6::R6Class("ChannelAdminLogEventActionDiscardGroupCall",
   inherit = TLObject,
@@ -6303,6 +6493,8 @@ ChannelAdminLogEventActionDiscardGroupCall <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionEditMessage
+#' @description Telegram API type ChannelAdminLogEventActionEditMessage
 #' @export
 ChannelAdminLogEventActionEditMessage <- R6::R6Class("ChannelAdminLogEventActionEditMessage",
   inherit = TLObject,
@@ -6330,6 +6522,8 @@ ChannelAdminLogEventActionEditMessage <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionEditTopic
+#' @description Telegram API type ChannelAdminLogEventActionEditTopic
 #' @export
 ChannelAdminLogEventActionEditTopic <- R6::R6Class("ChannelAdminLogEventActionEditTopic",
   inherit = TLObject,
@@ -6357,6 +6551,8 @@ ChannelAdminLogEventActionEditTopic <- R6::R6Class("ChannelAdminLogEventActionEd
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionExportedInviteDelete
+#' @description Telegram API type ChannelAdminLogEventActionExportedInviteDelete
 #' @export
 ChannelAdminLogEventActionExportedInviteDelete <- R6::R6Class("ChannelAdminLogEventActionExportedInviteDelete",
   inherit = TLObject,
@@ -6381,6 +6577,8 @@ ChannelAdminLogEventActionExportedInviteDelete <- R6::R6Class("ChannelAdminLogEv
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionExportedInviteEdit
+#' @description Telegram API type ChannelAdminLogEventActionExportedInviteEdit
 #' @export
 ChannelAdminLogEventActionExportedInviteEdit <- R6::R6Class("ChannelAdminLogEventActionExportedInviteEdit",
   inherit = TLObject,
@@ -6408,6 +6606,8 @@ ChannelAdminLogEventActionExportedInviteEdit <- R6::R6Class("ChannelAdminLogEven
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionExportedInviteRevoke
+#' @description Telegram API type ChannelAdminLogEventActionExportedInviteRevoke
 #' @export
 ChannelAdminLogEventActionExportedInviteRevoke <- R6::R6Class("ChannelAdminLogEventActionExportedInviteRevoke",
   inherit = TLObject,
@@ -6432,6 +6632,8 @@ ChannelAdminLogEventActionExportedInviteRevoke <- R6::R6Class("ChannelAdminLogEv
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionParticipantInvite
+#' @description Telegram API type ChannelAdminLogEventActionParticipantInvite
 #' @export
 ChannelAdminLogEventActionParticipantInvite <- R6::R6Class("ChannelAdminLogEventActionParticipantInvite",
   inherit = TLObject,
@@ -6456,6 +6658,8 @@ ChannelAdminLogEventActionParticipantInvite <- R6::R6Class("ChannelAdminLogEvent
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionParticipantJoin
+#' @description Telegram API type ChannelAdminLogEventActionParticipantJoin
 #' @export
 ChannelAdminLogEventActionParticipantJoin <- R6::R6Class("ChannelAdminLogEventActionParticipantJoin",
   inherit = TLObject,
@@ -6476,6 +6680,8 @@ ChannelAdminLogEventActionParticipantJoin <- R6::R6Class("ChannelAdminLogEventAc
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionParticipantJoinByInvite
+#' @description Telegram API type ChannelAdminLogEventActionParticipantJoinByInvite
 #' @export
 ChannelAdminLogEventActionParticipantJoinByInvite <- R6::R6Class("ChannelAdminLogEventActionParticipantJoinByInvite",
   inherit = TLObject,
@@ -6503,6 +6709,8 @@ ChannelAdminLogEventActionParticipantJoinByInvite <- R6::R6Class("ChannelAdminLo
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionParticipantJoinByRequest
+#' @description Telegram API type ChannelAdminLogEventActionParticipantJoinByRequest
 #' @export
 ChannelAdminLogEventActionParticipantJoinByRequest <- R6::R6Class("ChannelAdminLogEventActionParticipantJoinByRequest",
   inherit = TLObject,
@@ -6530,6 +6738,8 @@ ChannelAdminLogEventActionParticipantJoinByRequest <- R6::R6Class("ChannelAdminL
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionParticipantLeave
+#' @description Telegram API type ChannelAdminLogEventActionParticipantLeave
 #' @export
 ChannelAdminLogEventActionParticipantLeave <- R6::R6Class("ChannelAdminLogEventActionParticipantLeave",
   inherit = TLObject,
@@ -6550,6 +6760,8 @@ ChannelAdminLogEventActionParticipantLeave <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionParticipantMute
+#' @description Telegram API type ChannelAdminLogEventActionParticipantMute
 #' @export
 ChannelAdminLogEventActionParticipantMute <- R6::R6Class("ChannelAdminLogEventActionParticipantMute",
   inherit = TLObject,
@@ -6574,6 +6786,8 @@ ChannelAdminLogEventActionParticipantMute <- R6::R6Class("ChannelAdminLogEventAc
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionParticipantSubExtend
+#' @description Telegram API type ChannelAdminLogEventActionParticipantSubExtend
 #' @export
 ChannelAdminLogEventActionParticipantSubExtend <- R6::R6Class("ChannelAdminLogEventActionParticipantSubExtend",
   inherit = TLObject,
@@ -6601,6 +6815,8 @@ ChannelAdminLogEventActionParticipantSubExtend <- R6::R6Class("ChannelAdminLogEv
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionParticipantToggleAdmin
+#' @description Telegram API type ChannelAdminLogEventActionParticipantToggleAdmin
 #' @export
 ChannelAdminLogEventActionParticipantToggleAdmin <- R6::R6Class("ChannelAdminLogEventActionParticipantToggleAdmin",
   inherit = TLObject,
@@ -6628,6 +6844,8 @@ ChannelAdminLogEventActionParticipantToggleAdmin <- R6::R6Class("ChannelAdminLog
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionParticipantToggleBan
+#' @description Telegram API type ChannelAdminLogEventActionParticipantToggleBan
 #' @export
 ChannelAdminLogEventActionParticipantToggleBan <- R6::R6Class("ChannelAdminLogEventActionParticipantToggleBan",
   inherit = TLObject,
@@ -6655,6 +6873,8 @@ ChannelAdminLogEventActionParticipantToggleBan <- R6::R6Class("ChannelAdminLogEv
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionParticipantUnmute
+#' @description Telegram API type ChannelAdminLogEventActionParticipantUnmute
 #' @export
 ChannelAdminLogEventActionParticipantUnmute <- R6::R6Class("ChannelAdminLogEventActionParticipantUnmute",
   inherit = TLObject,
@@ -6679,6 +6899,8 @@ ChannelAdminLogEventActionParticipantUnmute <- R6::R6Class("ChannelAdminLogEvent
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionParticipantVolume
+#' @description Telegram API type ChannelAdminLogEventActionParticipantVolume
 #' @export
 ChannelAdminLogEventActionParticipantVolume <- R6::R6Class("ChannelAdminLogEventActionParticipantVolume",
   inherit = TLObject,
@@ -6703,6 +6925,8 @@ ChannelAdminLogEventActionParticipantVolume <- R6::R6Class("ChannelAdminLogEvent
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionPinTopic
+#' @description Telegram API type ChannelAdminLogEventActionPinTopic
 #' @export
 ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPinTopic",
   inherit = TLObject,
@@ -6730,6 +6954,8 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionSendMessage
+#' @description Telegram API type ChannelAdminLogEventActionSendMessage
 #' @export
 ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventActionSendMessage",
   inherit = TLObject,
@@ -6754,6 +6980,8 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionStartGroupCall
+#' @description Telegram API type ChannelAdminLogEventActionStartGroupCall
 #' @export
 ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventActionStartGroupCall",
   inherit = TLObject,
@@ -6778,6 +7006,8 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionStopPoll
+#' @description Telegram API type ChannelAdminLogEventActionStopPoll
 #' @export
 ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionStopPoll",
   inherit = TLObject,
@@ -6802,6 +7032,8 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionToggleAntiSpam
+#' @description Telegram API type ChannelAdminLogEventActionToggleAntiSpam
 #' @export
 ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventActionToggleAntiSpam",
   inherit = TLObject,
@@ -6826,6 +7058,8 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionToggleAutotranslation
+#' @description Telegram API type ChannelAdminLogEventActionToggleAutotranslation
 #' @export
 ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogEventActionToggleAutotranslation",
   inherit = TLObject,
@@ -6850,6 +7084,8 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionToggleForum
+#' @description Telegram API type ChannelAdminLogEventActionToggleForum
 #' @export
 ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventActionToggleForum",
   inherit = TLObject,
@@ -6874,6 +7110,8 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionToggleGroupCallSetting
+#' @description Telegram API type ChannelAdminLogEventActionToggleGroupCallSetting
 #' @export
 ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLogEventActionToggleGroupCallSetting",
   inherit = TLObject,
@@ -6898,6 +7136,8 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionToggleInvites
+#' @description Telegram API type ChannelAdminLogEventActionToggleInvites
 #' @export
 ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActionToggleInvites",
   inherit = TLObject,
@@ -6922,6 +7162,8 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionToggleNoForwards
+#' @description Telegram API type ChannelAdminLogEventActionToggleNoForwards
 #' @export
 ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventActionToggleNoForwards",
   inherit = TLObject,
@@ -6946,6 +7188,8 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionTogglePreHistoryHidden
+#' @description Telegram API type ChannelAdminLogEventActionTogglePreHistoryHidden
 #' @export
 ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLogEventActionTogglePreHistoryHidden",
   inherit = TLObject,
@@ -6970,6 +7214,8 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionToggleSignatureProfiles
+#' @description Telegram API type ChannelAdminLogEventActionToggleSignatureProfiles
 #' @export
 ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLogEventActionToggleSignatureProfiles",
   inherit = TLObject,
@@ -6994,6 +7240,8 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionToggleSignatures
+#' @description Telegram API type ChannelAdminLogEventActionToggleSignatures
 #' @export
 ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventActionToggleSignatures",
   inherit = TLObject,
@@ -7018,6 +7266,8 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionToggleSlowMode
+#' @description Telegram API type ChannelAdminLogEventActionToggleSlowMode
 #' @export
 ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventActionToggleSlowMode",
   inherit = TLObject,
@@ -7045,6 +7295,8 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionUpdatePinned
+#' @description Telegram API type ChannelAdminLogEventActionUpdatePinned
 #' @export
 ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActionUpdatePinned",
   inherit = TLObject,
@@ -7069,6 +7321,8 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventsFilter
+#' @description Telegram API type ChannelAdminLogEventsFilter
 #' @export
 ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   inherit = TLObject,
@@ -7150,6 +7404,8 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   class = TRUE
 )
 
+#' @title ChannelForbidden
+#' @description Telegram API type ChannelForbidden
 #' @export
 ChannelForbidden <- R6::R6Class("ChannelForbidden",
   inherit = TLObject,
@@ -7189,6 +7445,8 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
   class = TRUE
 )
 
+#' @title ChannelFull
+#' @description Telegram API type ChannelFull
 #' @export
 ChannelFull <- R6::R6Class("ChannelFull",
   inherit = TLObject,
@@ -7421,6 +7679,8 @@ ChannelFull <- R6::R6Class("ChannelFull",
   class = TRUE
 )
 
+#' @title ChannelAdminLogEventActionPinTopic
+#' @description Telegram API type ChannelAdminLogEventActionPinTopic
 #' @export
 ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPinTopic",
   inherit = TLObject,
@@ -7465,6 +7725,8 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
   )
 )
 
+#' @title ChannelAdminLogEventActionSendMessage
+#' @description Telegram API type ChannelAdminLogEventActionSendMessage
 #' @export
 ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventActionSendMessage",
   inherit = TLObject,
@@ -7495,6 +7757,8 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
   )
 )
 
+#' @title ChannelAdminLogEventActionStartGroupCall
+#' @description Telegram API type ChannelAdminLogEventActionStartGroupCall
 #' @export
 ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventActionStartGroupCall",
   inherit = TLObject,
@@ -7525,6 +7789,8 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
   )
 )
 
+#' @title ChannelAdminLogEventActionStopPoll
+#' @description Telegram API type ChannelAdminLogEventActionStopPoll
 #' @export
 ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionStopPoll",
   inherit = TLObject,
@@ -7555,6 +7821,8 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
   )
 )
 
+#' @title ChannelAdminLogEventActionToggleAntiSpam
+#' @description Telegram API type ChannelAdminLogEventActionToggleAntiSpam
 #' @export
 ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventActionToggleAntiSpam",
   inherit = TLObject,
@@ -7585,6 +7853,8 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
   )
 )
 
+#' @title ChannelAdminLogEventActionToggleAutotranslation
+#' @description Telegram API type ChannelAdminLogEventActionToggleAutotranslation
 #' @export
 ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogEventActionToggleAutotranslation",
   inherit = TLObject,
@@ -7615,6 +7885,8 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
   )
 )
 
+#' @title ChannelAdminLogEventActionToggleForum
+#' @description Telegram API type ChannelAdminLogEventActionToggleForum
 #' @export
 ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventActionToggleForum",
   inherit = TLObject,
@@ -7645,6 +7917,8 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
   )
 )
 
+#' @title ChannelAdminLogEventActionToggleGroupCallSetting
+#' @description Telegram API type ChannelAdminLogEventActionToggleGroupCallSetting
 #' @export
 ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLogEventActionToggleGroupCallSetting",
   inherit = TLObject,
@@ -7676,6 +7950,8 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
   )
 )
 
+#' @title ChannelAdminLogEventActionToggleInvites
+#' @description Telegram API type ChannelAdminLogEventActionToggleInvites
 #' @export
 ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActionToggleInvites",
   inherit = TLObject,
@@ -7706,6 +7982,8 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
   )
 )
 
+#' @title ChannelAdminLogEventActionToggleNoForwards
+#' @description Telegram API type ChannelAdminLogEventActionToggleNoForwards
 #' @export
 ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventActionToggleNoForwards",
   inherit = TLObject,
@@ -7736,6 +8014,8 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
   )
 )
 
+#' @title ChannelAdminLogEventActionTogglePreHistoryHidden
+#' @description Telegram API type ChannelAdminLogEventActionTogglePreHistoryHidden
 #' @export
 ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLogEventActionTogglePreHistoryHidden",
   inherit = TLObject,
@@ -7766,6 +8046,8 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
   )
 )
 
+#' @title ChannelAdminLogEventActionToggleSignatureProfiles
+#' @description Telegram API type ChannelAdminLogEventActionToggleSignatureProfiles
 #' @export
 ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLogEventActionToggleSignatureProfiles",
   inherit = TLObject,
@@ -7796,6 +8078,8 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
   )
 )
 
+#' @title ChannelAdminLogEventActionToggleSignatures
+#' @description Telegram API type ChannelAdminLogEventActionToggleSignatures
 #' @export
 ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventActionToggleSignatures",
   inherit = TLObject,
@@ -7826,6 +8110,8 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
   )
 )
 
+#' @title ChannelAdminLogEventActionToggleSlowMode
+#' @description Telegram API type ChannelAdminLogEventActionToggleSlowMode
 #' @export
 ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventActionToggleSlowMode",
   inherit = TLObject,
@@ -7860,6 +8146,8 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
   )
 )
 
+#' @title ChannelAdminLogEventActionUpdatePinned
+#' @description Telegram API type ChannelAdminLogEventActionUpdatePinned
 #' @export
 ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActionUpdatePinned",
   inherit = TLObject,
@@ -7890,6 +8178,8 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
   )
 )
 
+#' @title ChannelAdminLogEventsFilter
+#' @description Telegram API type ChannelAdminLogEventsFilter
 #' @export
 ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   inherit = TLObject,
@@ -7975,6 +8265,8 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   )
 )
 
+#' @title ChannelForbidden
+#' @description Telegram API type ChannelForbidden
 #' @export
 ChannelForbidden <- R6::R6Class("ChannelForbidden",
   inherit = TLObject,
@@ -8029,6 +8321,8 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
   )
 )
 
+#' @title ChannelFull
+#' @description Telegram API type ChannelFull
 #' @export
 ChannelFull <- R6::R6Class(
   "ChannelFull",
@@ -8257,6 +8551,8 @@ ChannelFull <- R6::R6Class(
   )
 )
 
+#' @title ChannelLocation
+#' @description Telegram API type ChannelLocation
 #' @export
 ChannelLocation <- R6::R6Class(
   "ChannelLocation",
@@ -8294,6 +8590,8 @@ ChannelLocation <- R6::R6Class(
   )
 )
 
+#' @title ChannelLocationEmpty
+#' @description Telegram API type ChannelLocationEmpty
 #' @export
 ChannelLocationEmpty <- R6::R6Class("ChannelLocationEmpty",
   inherit = TLObject,
@@ -8320,6 +8618,8 @@ ChannelLocationEmpty <- R6::R6Class("ChannelLocationEmpty",
   class = TRUE
 )
 
+#' @title ChannelMessagesFilter
+#' @description Telegram API type ChannelMessagesFilter
 #' @export
 ChannelMessagesFilter <- R6::R6Class("ChannelMessagesFilter",
   inherit = TLObject,
@@ -8361,6 +8661,8 @@ ChannelMessagesFilter <- R6::R6Class("ChannelMessagesFilter",
   class = TRUE
 )
 
+#' @title ChannelMessagesFilterEmpty
+#' @description Telegram API type ChannelMessagesFilterEmpty
 #' @export
 ChannelMessagesFilterEmpty <- R6::R6Class("ChannelMessagesFilterEmpty",
   inherit = TLObject,
@@ -8386,6 +8688,8 @@ ChannelMessagesFilterEmpty <- R6::R6Class("ChannelMessagesFilterEmpty",
   class = TRUE
 )
 
+#' @title ChannelParticipant
+#' @description Telegram API type ChannelParticipant
 #' @export
 ChannelParticipant <- R6::R6Class(
   "ChannelParticipant",
@@ -8430,6 +8734,8 @@ ChannelParticipant <- R6::R6Class(
   )
 )
 
+#' @title ChannelParticipantAdmin
+#' @description Telegram API type ChannelParticipantAdmin
 #' @export
 ChannelParticipantAdmin <- R6::R6Class(
   "ChannelParticipantAdmin",
@@ -8509,6 +8815,8 @@ ChannelParticipantAdmin <- R6::R6Class(
   )
 )
 
+#' @title ChannelParticipantBanned
+#' @description Telegram API type ChannelParticipantBanned
 #' @export
 ChannelParticipantBanned <- R6::R6Class(
   "ChannelParticipantBanned",
@@ -8563,6 +8871,8 @@ ChannelParticipantBanned <- R6::R6Class(
   )
 )
 
+#' @title ChannelParticipantCreator
+#' @description Telegram API type ChannelParticipantCreator
 #' @export
 ChannelParticipantCreator <- R6::R6Class(
   "ChannelParticipantCreator",
@@ -8610,6 +8920,8 @@ ChannelParticipantCreator <- R6::R6Class(
   )
 )
 
+#' @title ChannelParticipantLeft
+#' @description Telegram API type ChannelParticipantLeft
 #' @export
 ChannelParticipantLeft <- R6::R6Class(
   "ChannelParticipantLeft",
@@ -8642,6 +8954,8 @@ ChannelParticipantLeft <- R6::R6Class(
   )
 )
 
+#' @title ChannelParticipantSelf
+#' @description Telegram API type ChannelParticipantSelf
 #' @export
 ChannelParticipantSelf <- R6::R6Class(
   "ChannelParticipantSelf",
@@ -8700,6 +9014,8 @@ ChannelParticipantSelf <- R6::R6Class(
   )
 )
 
+#' @title ChannelParticipantsAdmins
+#' @description Telegram API type ChannelParticipantsAdmins
 #' @export
 ChannelParticipantsAdmins <- R6::R6Class(
   "ChannelParticipantsAdmins",
@@ -8721,6 +9037,8 @@ ChannelParticipantsAdmins <- R6::R6Class(
   )
 )
 
+#' @title ChannelParticipantsBanned
+#' @description Telegram API type ChannelParticipantsBanned
 #' @export
 ChannelParticipantsBanned <- R6::R6Class(
   "ChannelParticipantsBanned",
@@ -8750,6 +9068,8 @@ ChannelParticipantsBanned <- R6::R6Class(
   )
 )
 
+#' @title ChannelParticipantsBots
+#' @description Telegram API type ChannelParticipantsBots
 #' @export
 ChannelParticipantsBots <- R6::R6Class(
   "ChannelParticipantsBots",
@@ -8771,6 +9091,8 @@ ChannelParticipantsBots <- R6::R6Class(
   )
 )
 
+#' @title ChannelParticipantsContacts
+#' @description Telegram API type ChannelParticipantsContacts
 #' @export
 ChannelParticipantsContacts <- R6::R6Class(
   "ChannelParticipantsContacts",
@@ -8800,6 +9122,8 @@ ChannelParticipantsContacts <- R6::R6Class(
   )
 )
 
+#' @title ChannelParticipantsKicked
+#' @description Telegram API type ChannelParticipantsKicked
 #' @export
 ChannelParticipantsKicked <- R6::R6Class(
   "ChannelParticipantsKicked",
@@ -8829,6 +9153,8 @@ ChannelParticipantsKicked <- R6::R6Class(
   )
 )
 
+#' @title ChannelParticipantsMentions
+#' @description Telegram API type ChannelParticipantsMentions
 #' @export
 ChannelParticipantsMentions <- R6::R6Class(
   "ChannelParticipantsMentions",
@@ -8871,6 +9197,8 @@ ChannelParticipantsMentions <- R6::R6Class(
   )
 )
 
+#' @title ChannelParticipantsRecent
+#' @description Telegram API type ChannelParticipantsRecent
 #' @export
 ChannelParticipantsRecent <- R6::R6Class(
   "ChannelParticipantsRecent",
@@ -8892,6 +9220,8 @@ ChannelParticipantsRecent <- R6::R6Class(
   )
 )
 
+#' @title ChannelParticipantsSearch
+#' @description Telegram API type ChannelParticipantsSearch
 #' @export
 ChannelParticipantsSearch <- R6::R6Class(
   "ChannelParticipantsSearch",
@@ -8921,6 +9251,8 @@ ChannelParticipantsSearch <- R6::R6Class(
   )
 )
 
+#' @title ChatAdminRights
+#' @description Telegram API type ChatAdminRights
 #' @export
 ChatAdminRights <- R6::R6Class(
   "ChatAdminRights",
@@ -9056,6 +9388,8 @@ ChatAdminRights <- R6::R6Class(
   )
 )
 
+#' @title ChatAdminWithInvites
+#' @description Telegram API type ChatAdminWithInvites
 #' @export
 ChatAdminWithInvites <- R6::R6Class(
   "ChatAdminWithInvites",
@@ -9098,6 +9432,8 @@ ChatAdminWithInvites <- R6::R6Class(
   )
 )
 
+#' @title ChatBannedRights
+#' @description Telegram API type ChatBannedRights
 #' @export
 ChatBannedRights <- R6::R6Class(
   "ChatBannedRights",
@@ -9234,6 +9570,8 @@ ChatBannedRights <- R6::R6Class(
   )
 )
 
+#' @title ChatFull
+#' @description Telegram API type ChatFull
 #' @export
 ChatFull <- R6::R6Class(
   "ChatFull",
@@ -9364,6 +9702,8 @@ ChatFull <- R6::R6Class(
   )
 )
 
+#' @title ChatInvite
+#' @description Telegram API type ChatInvite
 #' @export
 ChatInvite <- R6::R6Class(
   "ChatInvite",
@@ -9435,6 +9775,8 @@ ChatInvite <- R6::R6Class(
   )
 )
 
+#' @title ChatInviteAlready
+#' @description Telegram API type ChatInviteAlready
 #' @export
 ChatInviteAlready <- R6::R6Class(
   "ChatInviteAlready",
@@ -9455,6 +9797,8 @@ ChatInviteAlready <- R6::R6Class(
   )
 )
 
+#' @title ChatInviteExported
+#' @description Telegram API type ChatInviteExported
 #' @export
 ChatInviteExported <- R6::R6Class(
   "ChatInviteExported",
@@ -9514,6 +9858,8 @@ ChatInviteExported <- R6::R6Class(
   )
 )
 
+#' @title ChatInviteImporter
+#' @description Telegram API type ChatInviteImporter
 #' @export
 ChatInviteImporter <- R6::R6Class(
   "ChatInviteImporter",
@@ -9549,6 +9895,8 @@ ChatInviteImporter <- R6::R6Class(
   )
 )
 
+#' @title ChatInvitePeek
+#' @description Telegram API type ChatInvitePeek
 #' @export
 ChatInvitePeek <- R6::R6Class(
   "ChatInvitePeek",
@@ -9572,6 +9920,8 @@ ChatInvitePeek <- R6::R6Class(
   )
 )
 
+#' @title ChatInvitePublicJoinRequests
+#' @description Telegram API type ChatInvitePublicJoinRequests
 #' @export
 ChatInvitePublicJoinRequests <- R6::R6Class(
   "ChatInvitePublicJoinRequests",
@@ -9585,6 +9935,8 @@ ChatInvitePublicJoinRequests <- R6::R6Class(
   )
 )
 
+#' @title ChatOnlines
+#' @description Telegram API type ChatOnlines
 #' @export
 ChatOnlines <- R6::R6Class(
   "ChatOnlines",
@@ -9617,6 +9969,8 @@ ChatOnlines <- R6::R6Class(
   )
 )
 
+#' @title ChatParticipant
+#' @description Telegram API type ChatParticipant
 #' @export
 ChatParticipant <- R6::R6Class(
   "ChatParticipant",
@@ -9657,6 +10011,8 @@ ChatParticipant <- R6::R6Class(
   )
 )
 
+#' @title ChatParticipantAdmin
+#' @description Telegram API type ChatParticipantAdmin
 #' @export
 ChatParticipantAdmin <- R6::R6Class(
   "ChatParticipantAdmin",
@@ -9697,6 +10053,8 @@ ChatParticipantAdmin <- R6::R6Class(
   )
 )
 
+#' @title ChatParticipantCreator
+#' @description Telegram API type ChatParticipantCreator
 #' @export
 ChatParticipantCreator <- R6::R6Class(
   "ChatParticipantCreator",
@@ -9727,6 +10085,8 @@ ChatParticipantCreator <- R6::R6Class(
   )
 )
 
+#' @title ChatParticipants
+#' @description Telegram API type ChatParticipants
 #' @export
 ChatParticipants <- R6::R6Class(
   "ChatParticipants",
@@ -9773,6 +10133,8 @@ ChatParticipants <- R6::R6Class(
   )
 )
 
+#' @title ChatParticipantsForbidden
+#' @description Telegram API type ChatParticipantsForbidden
 #' @export
 ChatParticipantsForbidden <- R6::R6Class(
   "ChatParticipantsForbidden",
@@ -9813,6 +10175,8 @@ ChatParticipantsForbidden <- R6::R6Class(
 )
 
 
+#' @title ChatPhoto
+#' @description Telegram API type ChatPhoto
 #' @export
 ChatPhoto <- R6::R6Class(
   "ChatPhoto",
@@ -9851,6 +10215,8 @@ ChatPhoto <- R6::R6Class(
   )
 )
 
+#' @title ChatPhotoEmpty
+#' @description Telegram API type ChatPhotoEmpty
 #' @export
 ChatPhotoEmpty <- R6::R6Class(
   "ChatPhotoEmpty",
@@ -9867,6 +10233,8 @@ ChatPhotoEmpty <- R6::R6Class(
   )
 )
 
+#' @title ChatReactionsAll
+#' @description Telegram API type ChatReactionsAll
 #' @export
 ChatReactionsAll <- R6::R6Class(
   "ChatReactionsAll",
@@ -9893,6 +10261,8 @@ ChatReactionsAll <- R6::R6Class(
   )
 )
 
+#' @title ChatReactionsNone
+#' @description Telegram API type ChatReactionsNone
 #' @export
 ChatReactionsNone <- R6::R6Class(
   "ChatReactionsNone",
@@ -9909,6 +10279,8 @@ ChatReactionsNone <- R6::R6Class(
   )
 )
 
+#' @title ChatReactionsSome
+#' @description Telegram API type ChatReactionsSome
 #' @export
 ChatReactionsSome <- R6::R6Class(
   "ChatReactionsSome",
@@ -9936,6 +10308,8 @@ ChatReactionsSome <- R6::R6Class(
   )
 )
 
+#' @title ChatTheme
+#' @description Telegram API type ChatTheme
 #' @export
 ChatTheme <- R6::R6Class(
   "ChatTheme",
@@ -9962,6 +10336,8 @@ ChatTheme <- R6::R6Class(
   )
 )
 
+#' @title ChatThemeUniqueGift
+#' @description Telegram API type ChatThemeUniqueGift
 #' @export
 ChatThemeUniqueGift <- R6::R6Class(
   "ChatThemeUniqueGift",
@@ -9993,6 +10369,8 @@ ChatThemeUniqueGift <- R6::R6Class(
   )
 )
 
+#' @title ClientDHInnerData
+#' @description Telegram API type ClientDHInnerData
 #' @export
 ClientDHInnerData <- R6::R6Class(
   "ClientDHInnerData",
@@ -10031,6 +10409,8 @@ ClientDHInnerData <- R6::R6Class(
   )
 )
 
+#' @title CodeSettings
+#' @description Telegram API type CodeSettings
 #' @export
 CodeSettings <- R6::R6Class(
   "CodeSettings",
@@ -10077,6 +10457,8 @@ CodeSettings <- R6::R6Class(
   )
 )
 
+#' @title Config
+#' @description Telegram API type Config
 #' @export
 Config <- R6::R6Class(
   "Config",
@@ -10250,6 +10632,8 @@ Config <- R6::R6Class(
   )
 )
 
+#' @title ConnectedBot
+#' @description Telegram API type ConnectedBot
 #' @export
 ConnectedBot <- R6::R6Class(
   "ConnectedBot",
@@ -10289,6 +10673,8 @@ ConnectedBot <- R6::R6Class(
   )
 )
 
+#' @title ConnectedBotStarRef
+#' @description Telegram API type ConnectedBotStarRef
 #' @export
 ConnectedBotStarRef <- R6::R6Class(
   "ConnectedBotStarRef",
@@ -10348,6 +10734,8 @@ ConnectedBotStarRef <- R6::R6Class(
   )
 )
 
+#' @title Contact
+#' @description Telegram API type Contact
 #' @export
 Contact <- R6::R6Class(
   "Contact",
@@ -10382,6 +10770,8 @@ Contact <- R6::R6Class(
   )
 )
 
+#' @title ContactBirthday
+#' @description Telegram API type ContactBirthday
 #' @export
 ContactBirthday <- R6::R6Class(
   "ContactBirthday",
@@ -10416,6 +10806,8 @@ ContactBirthday <- R6::R6Class(
   )
 )
 
+#' @title ContactStatus
+#' @description Telegram API type ContactStatus
 #' @export
 ContactStatus <- R6::R6Class(
   "ContactStatus",
@@ -10450,6 +10842,8 @@ ContactStatus <- R6::R6Class(
   )
 )
 
+#' @title DataJSON
+#' @description Telegram API type DataJSON
 #' @export
 DataJSON <- R6::R6Class(
   "DataJSON",
@@ -10480,6 +10874,8 @@ DataJSON <- R6::R6Class(
   )
 )
 
+#' @title DcOption
+#' @description Telegram API type DcOption
 #' @export
 DcOption <- R6::R6Class(
   "DcOption",
@@ -10547,6 +10943,8 @@ DcOption <- R6::R6Class(
   )
 )
 
+#' @title DefaultHistoryTTL
+#' @description Telegram API type DefaultHistoryTTL
 #' @export
 DefaultHistoryTTL <- R6::R6Class(
   "DefaultHistoryTTL",
@@ -10577,6 +10975,8 @@ DefaultHistoryTTL <- R6::R6Class(
   )
 )
 
+#' @title DestroyAuthKeyFail
+#' @description Telegram API type DestroyAuthKeyFail
 #' @export
 DestroyAuthKeyFail <- R6::R6Class(
   "DestroyAuthKeyFail",
@@ -10598,6 +10998,8 @@ DestroyAuthKeyFail <- R6::R6Class(
   )
 )
 
+#' @title DestroyAuthKeyNone
+#' @description Telegram API type DestroyAuthKeyNone
 #' @export
 DestroyAuthKeyNone <- R6::R6Class(
   "DestroyAuthKeyNone",
@@ -10619,6 +11021,8 @@ DestroyAuthKeyNone <- R6::R6Class(
   )
 )
 
+#' @title DestroyAuthKeyOk
+#' @description Telegram API type DestroyAuthKeyOk
 #' @export
 DestroyAuthKeyOk <- R6::R6Class(
   "DestroyAuthKeyOk",
@@ -10640,6 +11044,8 @@ DestroyAuthKeyOk <- R6::R6Class(
   )
 )
 
+#' @title DestroySessionNone
+#' @description Telegram API type DestroySessionNone
 #' @export
 DestroySessionNone <- R6::R6Class(
   "DestroySessionNone",
@@ -10672,6 +11078,8 @@ DestroySessionNone <- R6::R6Class(
   )
 )
 
+#' @title DestroySessionOk
+#' @description Telegram API type DestroySessionOk
 #' @export
 DestroySessionOk <- R6::R6Class(
   "DestroySessionOk",
@@ -10704,6 +11112,8 @@ DestroySessionOk <- R6::R6Class(
   )
 )
 
+#' @title DhGenFail
+#' @description Telegram API type DhGenFail
 #' @export
 DhGenFail <- R6::R6Class(
   "DhGenFail",
@@ -10738,6 +11148,8 @@ DhGenFail <- R6::R6Class(
   )
 )
 
+#' @title DhGenOk
+#' @description Telegram API type DhGenOk
 #' @export
 DhGenOk <- R6::R6Class(
   "DhGenOk",
@@ -10772,6 +11184,8 @@ DhGenOk <- R6::R6Class(
   )
 )
 
+#' @title DhGenRetry
+#' @description Telegram API type DhGenRetry
 #' @export
 DhGenRetry <- R6::R6Class(
   "DhGenRetry",
@@ -10806,6 +11220,8 @@ DhGenRetry <- R6::R6Class(
   )
 )
 
+#' @title Dialog
+#' @description Telegram API type Dialog
 #' @export
 Dialog <- R6::R6Class(
   "Dialog",
@@ -10866,6 +11282,8 @@ Dialog <- R6::R6Class(
   )
 )
 
+#' @title DialogFilter
+#' @description Telegram API type DialogFilter
 #' @export
 DialogFilter <- R6::R6Class(
   "DialogFilter",
@@ -10929,6 +11347,8 @@ DialogFilter <- R6::R6Class(
   )
 )
 
+#' @title DialogFolder
+#' @description Telegram API type DialogFolder
 #' @export
 DialogFolder <- R6::R6Class(
   "DialogFolder",
@@ -10981,6 +11401,8 @@ DialogFolder <- R6::R6Class(
   )
 )
 
+#' @title DialogFilterChatlist
+#' @description Telegram API type DialogFilterChatlist
 #' @export
 DialogFilterChatlist <- R6::R6Class(
   "DialogFilterChatlist",
@@ -11020,6 +11442,8 @@ DialogFilterChatlist <- R6::R6Class(
   )
 )
 
+#' @title DialogFilterDefault
+#' @description Telegram API type DialogFilterDefault
 #' @export
 DialogFilterDefault <- R6::R6Class(
   "DialogFilterDefault",
@@ -11031,6 +11455,8 @@ DialogFilterDefault <- R6::R6Class(
   )
 )
 
+#' @title DialogFilterSuggested
+#' @description Telegram API type DialogFilterSuggested
 #' @export
 DialogFilterSuggested <- R6::R6Class(
   "DialogFilterSuggested",
@@ -11052,6 +11478,8 @@ DialogFilterSuggested <- R6::R6Class(
   )
 )
 
+#' @title DialogPeer
+#' @description Telegram API type DialogPeer
 #' @export
 DialogPeer <- R6::R6Class(
   "DialogPeer",
@@ -11076,6 +11504,8 @@ DialogPeer <- R6::R6Class(
   )
 )
 
+#' @title DialogPeerFolder
+#' @description Telegram API type DialogPeerFolder
 #' @export
 DialogPeerFolder <- R6::R6Class(
   "DialogPeerFolder",
@@ -11100,6 +11530,8 @@ DialogPeerFolder <- R6::R6Class(
   )
 )
 
+#' @title DisallowedGiftsSettings
+#' @description Telegram API type DisallowedGiftsSettings
 #' @export
 DisallowedGiftsSettings <- R6::R6Class(
   "DisallowedGiftsSettings",
@@ -11151,6 +11583,8 @@ DisallowedGiftsSettings <- R6::R6Class(
   )
 )
 
+#' @title Document
+#' @description Telegram API type Document
 #' @export
 Document <- R6::R6Class(
   "Document",
@@ -11246,6 +11680,8 @@ Document <- R6::R6Class(
   )
 )
 
+#' @title DocumentAttributeAnimated
+#' @description Telegram API type DocumentAttributeAnimated
 #' @export
 DocumentAttributeAnimated <- R6::R6Class(
   "DocumentAttributeAnimated",
@@ -11267,6 +11703,8 @@ DocumentAttributeAnimated <- R6::R6Class(
   )
 )
 
+#' @title DocumentAttributeAudio
+#' @description Telegram API type DocumentAttributeAudio
 #' @export
 DocumentAttributeAudio <- R6::R6Class(
   "DocumentAttributeAudio",
@@ -11307,6 +11745,8 @@ DocumentAttributeAudio <- R6::R6Class(
   )
 )
 
+#' @title DocumentAttributeCustomEmoji
+#' @description Telegram API type DocumentAttributeCustomEmoji
 #' @export
 DocumentAttributeCustomEmoji <- R6::R6Class(
   "DocumentAttributeCustomEmoji",
@@ -11344,6 +11784,8 @@ DocumentAttributeCustomEmoji <- R6::R6Class(
   )
 )
 
+#' @title DocumentAttributeFilename
+#' @description Telegram API type DocumentAttributeFilename
 #' @export
 DocumentAttributeFilename <- R6::R6Class(
   "DocumentAttributeFilename",
@@ -11372,6 +11814,8 @@ DocumentAttributeFilename <- R6::R6Class(
   )
 )
 
+#' @title DocumentAttributeHasStickers
+#' @description Telegram API type DocumentAttributeHasStickers
 #' @export
 DocumentAttributeHasStickers <- R6::R6Class(
   "DocumentAttributeHasStickers",
@@ -11393,6 +11837,8 @@ DocumentAttributeHasStickers <- R6::R6Class(
   )
 )
 
+#' @title DocumentAttributeImageSize
+#' @description Telegram API type DocumentAttributeImageSize
 #' @export
 DocumentAttributeImageSize <- R6::R6Class(
   "DocumentAttributeImageSize",
@@ -11424,6 +11870,8 @@ DocumentAttributeImageSize <- R6::R6Class(
   )
 )
 
+#' @title DocumentAttributeSticker
+#' @description Telegram API type DocumentAttributeSticker
 #' @export
 DocumentAttributeSticker <- R6::R6Class(
   "DocumentAttributeSticker",
@@ -11461,6 +11909,8 @@ DocumentAttributeSticker <- R6::R6Class(
   )
 )
 
+#' @title DocumentAttributeVideo
+#' @description Telegram API type DocumentAttributeVideo
 #' @export
 DocumentAttributeVideo <- R6::R6Class(
   "DocumentAttributeVideo",
@@ -11513,6 +11963,8 @@ DocumentAttributeVideo <- R6::R6Class(
   )
 )
 
+#' @title DocumentEmpty
+#' @description Telegram API type DocumentEmpty
 #' @export
 DocumentEmpty <- R6::R6Class(
   "DocumentEmpty",
@@ -11541,6 +11993,8 @@ DocumentEmpty <- R6::R6Class(
   )
 )
 
+#' @title DraftMessage
+#' @description Telegram API type DraftMessage
 #' @export
 DraftMessage <- R6::R6Class(
   "DraftMessage",
@@ -11593,6 +12047,8 @@ DraftMessage <- R6::R6Class(
   )
 )
 
+#' @title DraftMessageEmpty
+#' @description Telegram API type DraftMessageEmpty
 #' @export
 DraftMessageEmpty <- R6::R6Class(
   "DraftMessageEmpty",
@@ -11621,6 +12077,8 @@ DraftMessageEmpty <- R6::R6Class(
   )
 )
 
+#' @title EmailVerificationApple
+#' @description Telegram API type EmailVerificationApple
 #' @export
 EmailVerificationApple <- R6::R6Class(
   "EmailVerificationApple",
@@ -11649,6 +12107,8 @@ EmailVerificationApple <- R6::R6Class(
   )
 )
 
+#' @title EmailVerificationCode
+#' @description Telegram API type EmailVerificationCode
 #' @export
 EmailVerificationCode <- R6::R6Class(
   "EmailVerificationCode",
@@ -11677,6 +12137,8 @@ EmailVerificationCode <- R6::R6Class(
   )
 )
 
+#' @title EmailVerificationGoogle
+#' @description Telegram API type EmailVerificationGoogle
 #' @export
 EmailVerificationGoogle <- R6::R6Class(
   "EmailVerificationGoogle",
@@ -11705,6 +12167,8 @@ EmailVerificationGoogle <- R6::R6Class(
   )
 )
 
+#' @title EmailVerifyPurposeLoginChange
+#' @description Telegram API type EmailVerifyPurposeLoginChange
 #' @export
 EmailVerifyPurposeLoginChange <- R6::R6Class(
   "EmailVerifyPurposeLoginChange",
@@ -11726,6 +12190,8 @@ EmailVerifyPurposeLoginChange <- R6::R6Class(
   )
 )
 
+#' @title EmailVerifyPurposeLoginSetup
+#' @description Telegram API type EmailVerifyPurposeLoginSetup
 #' @export
 EmailVerifyPurposeLoginSetup <- R6::R6Class(
   "EmailVerifyPurposeLoginSetup",
@@ -11757,6 +12223,8 @@ EmailVerifyPurposeLoginSetup <- R6::R6Class(
   )
 )
 
+#' @title EmailVerifyPurposePassport
+#' @description Telegram API type EmailVerifyPurposePassport
 #' @export
 EmailVerifyPurposePassport <- R6::R6Class(
   "EmailVerifyPurposePassport",
@@ -11778,6 +12246,8 @@ EmailVerifyPurposePassport <- R6::R6Class(
   )
 )
 
+#' @title EmojiGroup
+#' @description Telegram API type EmojiGroup
 #' @export
 EmojiGroup <- R6::R6Class(
   "EmojiGroup",
@@ -11814,6 +12284,8 @@ EmojiGroup <- R6::R6Class(
   )
 )
 
+#' @title EmojiGroupGreeting
+#' @description Telegram API type EmojiGroupGreeting
 #' @export
 EmojiGroupGreeting <- R6::R6Class(
   "EmojiGroupGreeting",
@@ -11850,6 +12322,8 @@ EmojiGroupGreeting <- R6::R6Class(
   )
 )
 
+#' @title EmojiGroupPremium
+#' @description Telegram API type EmojiGroupPremium
 #' @export
 EmojiGroupPremium <- R6::R6Class(
   "EmojiGroupPremium",
@@ -11880,6 +12354,8 @@ EmojiGroupPremium <- R6::R6Class(
   )
 )
 
+#' @title EmojiKeyword
+#' @description Telegram API type EmojiKeyword
 #' @export
 EmojiKeyword <- R6::R6Class(
   "EmojiKeyword",
@@ -11912,6 +12388,8 @@ EmojiKeyword <- R6::R6Class(
   )
 )
 
+#' @title EmojiKeywordDeleted
+#' @description Telegram API type EmojiKeywordDeleted
 #' @export
 EmojiKeywordDeleted <- R6::R6Class(
   "EmojiKeywordDeleted",
@@ -11944,6 +12422,8 @@ EmojiKeywordDeleted <- R6::R6Class(
   )
 )
 
+#' @title EmojiKeywordsDifference
+#' @description Telegram API type EmojiKeywordsDifference
 #' @export
 EmojiKeywordsDifference <- R6::R6Class(
   "EmojiKeywordsDifference",
@@ -11984,6 +12464,8 @@ EmojiKeywordsDifference <- R6::R6Class(
   )
 )
 
+#' @title EmojiLanguage
+#' @description Telegram API type EmojiLanguage
 #' @export
 EmojiLanguage <- R6::R6Class(
   "EmojiLanguage",
@@ -12010,6 +12492,8 @@ EmojiLanguage <- R6::R6Class(
   )
 )
 
+#' @title EmojiList
+#' @description Telegram API type EmojiList
 #' @export
 EmojiList <- R6::R6Class(
   "EmojiList",
@@ -12042,6 +12526,8 @@ EmojiList <- R6::R6Class(
   )
 )
 
+#' @title EmojiListNotModified
+#' @description Telegram API type EmojiListNotModified
 #' @export
 EmojiListNotModified <- R6::R6Class(
   "EmojiListNotModified",
@@ -12056,6 +12542,8 @@ EmojiListNotModified <- R6::R6Class(
   )
 )
 
+#' @title EmojiStatus
+#' @description Telegram API type EmojiStatus
 #' @export
 EmojiStatus <- R6::R6Class(
   "EmojiStatus",
@@ -12086,6 +12574,8 @@ EmojiStatus <- R6::R6Class(
   )
 )
 
+#' @title EmojiStatusCollectible
+#' @description Telegram API type EmojiStatusCollectible
 #' @export
 EmojiStatusCollectible <- R6::R6Class(
   "EmojiStatusCollectible",
@@ -12147,6 +12637,8 @@ EmojiStatusCollectible <- R6::R6Class(
   )
 )
 
+#' @title EmojiStatusEmpty
+#' @description Telegram API type EmojiStatusEmpty
 #' @export
 EmojiStatusEmpty <- R6::R6Class(
   "EmojiStatusEmpty",
@@ -12161,6 +12653,8 @@ EmojiStatusEmpty <- R6::R6Class(
   )
 )
 
+#' @title EmojiURL
+#' @description Telegram API type EmojiURL
 #' @export
 EmojiURL <- R6::R6Class(
   "EmojiURL",
@@ -12181,6 +12675,8 @@ EmojiURL <- R6::R6Class(
 )
 
 
+#' @title EncryptedChat
+#' @description Telegram API type EncryptedChat
 #' @export
 EncryptedChat <- R6::R6Class(
   "EncryptedChat",
@@ -12251,6 +12747,8 @@ EncryptedChat <- R6::R6Class(
   )
 )
 
+#' @title EncryptedChatDiscarded
+#' @description Telegram API type EncryptedChatDiscarded
 #' @export
 EncryptedChatDiscarded <- R6::R6Class(
   "EncryptedChatDiscarded",
@@ -12289,6 +12787,8 @@ EncryptedChatDiscarded <- R6::R6Class(
   )
 )
 
+#' @title EncryptedChatEmpty
+#' @description Telegram API type EncryptedChatEmpty
 #' @export
 EncryptedChatEmpty <- R6::R6Class(
   "EncryptedChatEmpty",
@@ -12321,6 +12821,8 @@ EncryptedChatEmpty <- R6::R6Class(
   )
 )
 
+#' @title EncryptedChatRequested
+#' @description Telegram API type EncryptedChatRequested
 #' @export
 EncryptedChatRequested <- R6::R6Class(
   "EncryptedChatRequested",
@@ -12395,6 +12897,8 @@ EncryptedChatRequested <- R6::R6Class(
   )
 )
 
+#' @title EncryptedChatWaiting
+#' @description Telegram API type EncryptedChatWaiting
 #' @export
 EncryptedChatWaiting <- R6::R6Class(
   "EncryptedChatWaiting",
@@ -12435,6 +12939,8 @@ EncryptedChatWaiting <- R6::R6Class(
   )
 )
 
+#' @title EncryptedFile
+#' @description Telegram API type EncryptedFile
 #' @export
 EncryptedFile <- R6::R6Class(
   "EncryptedFile",
@@ -12476,6 +12982,8 @@ EncryptedFile <- R6::R6Class(
 )
 
 
+#' @title EncryptedFileEmpty
+#' @description Telegram API type EncryptedFileEmpty
 #' @export
 EncryptedFileEmpty <- R6::R6Class("EncryptedFileEmpty",
   public = list(
@@ -12485,6 +12993,8 @@ EncryptedFileEmpty <- R6::R6Class("EncryptedFileEmpty",
   )
 )
 
+#' @title EncryptedMessage
+#' @description Telegram API type EncryptedMessage
 #' @export
 EncryptedMessage <- R6::R6Class("EncryptedMessage",
   public = list(
@@ -12513,6 +13023,8 @@ EncryptedMessage <- R6::R6Class("EncryptedMessage",
   )
 )
 
+#' @title EncryptedMessageService
+#' @description Telegram API type EncryptedMessageService
 #' @export
 EncryptedMessageService <- R6::R6Class("EncryptedMessageService",
   public = list(
@@ -12538,6 +13050,8 @@ EncryptedMessageService <- R6::R6Class("EncryptedMessageService",
   )
 )
 
+#' @title ExportedChatlistInvite
+#' @description Telegram API type ExportedChatlistInvite
 #' @export
 ExportedChatlistInvite <- R6::R6Class("ExportedChatlistInvite",
   public = list(
@@ -12560,6 +13074,8 @@ ExportedChatlistInvite <- R6::R6Class("ExportedChatlistInvite",
   )
 )
 
+#' @title ExportedContactToken
+#' @description Telegram API type ExportedContactToken
 #' @export
 ExportedContactToken <- R6::R6Class("ExportedContactToken",
   public = list(
@@ -12579,6 +13095,8 @@ ExportedContactToken <- R6::R6Class("ExportedContactToken",
   )
 )
 
+#' @title ExportedMessageLink
+#' @description Telegram API type ExportedMessageLink
 #' @export
 ExportedMessageLink <- R6::R6Class("ExportedMessageLink",
   public = list(
@@ -12598,6 +13116,8 @@ ExportedMessageLink <- R6::R6Class("ExportedMessageLink",
   )
 )
 
+#' @title ExportedStoryLink
+#' @description Telegram API type ExportedStoryLink
 #' @export
 ExportedStoryLink <- R6::R6Class("ExportedStoryLink",
   public = list(
@@ -12614,6 +13134,8 @@ ExportedStoryLink <- R6::R6Class("ExportedStoryLink",
   )
 )
 
+#' @title FactCheck
+#' @description Telegram API type FactCheck
 #' @export
 FactCheck <- R6::R6Class("FactCheck",
   public = list(
@@ -12639,6 +13161,8 @@ FactCheck <- R6::R6Class("FactCheck",
   )
 )
 
+#' @title FileHash
+#' @description Telegram API type FileHash
 #' @export
 FileHash <- R6::R6Class("FileHash",
   public = list(
@@ -12661,6 +13185,8 @@ FileHash <- R6::R6Class("FileHash",
   )
 )
 
+#' @title Folder
+#' @description Telegram API type Folder
 #' @export
 Folder <- R6::R6Class("Folder",
   public = list(
@@ -12692,6 +13218,8 @@ Folder <- R6::R6Class("Folder",
   )
 )
 
+#' @title FolderPeer
+#' @description Telegram API type FolderPeer
 #' @export
 FolderPeer <- R6::R6Class("FolderPeer",
   public = list(
@@ -12711,6 +13239,8 @@ FolderPeer <- R6::R6Class("FolderPeer",
   )
 )
 
+#' @title ForumTopic
+#' @description Telegram API type ForumTopic
 #' @export
 ForumTopic <- R6::R6Class("ForumTopic",
   public = list(
@@ -12781,6 +13311,8 @@ ForumTopic <- R6::R6Class("ForumTopic",
   )
 )
 
+#' @title ForumTopicDeleted
+#' @description Telegram API type ForumTopicDeleted
 #' @export
 ForumTopicDeleted <- R6::R6Class("ForumTopicDeleted",
   public = list(
@@ -12797,6 +13329,8 @@ ForumTopicDeleted <- R6::R6Class("ForumTopicDeleted",
   )
 )
 
+#' @title FoundStory
+#' @description Telegram API type FoundStory
 #' @export
 FoundStory <- R6::R6Class("FoundStory",
   public = list(
@@ -12816,6 +13350,8 @@ FoundStory <- R6::R6Class("FoundStory",
   )
 )
 
+#' @title FutureSalt
+#' @description Telegram API type FutureSalt
 #' @export
 FutureSalt <- R6::R6Class("FutureSalt",
   inherit = TLObject,
@@ -12851,6 +13387,8 @@ FutureSalt <- R6::R6Class("FutureSalt",
   )
 )
 
+#' @title FutureSalts
+#' @description Telegram API type FutureSalts
 #' @export
 FutureSalts <- R6::R6Class("FutureSalts",
   inherit = TLObject,
@@ -12893,6 +13431,8 @@ FutureSalts <- R6::R6Class("FutureSalts",
   )
 )
 
+#' @title Game
+#' @description Telegram API type Game
 #' @export
 Game <- R6::R6Class("Game",
   public = list(
@@ -12927,6 +13467,8 @@ Game <- R6::R6Class("Game",
   )
 )
 
+#' @title GeoPoint
+#' @description Telegram API type GeoPoint
 #' @export
 GeoPoint <- R6::R6Class("GeoPoint",
   public = list(
@@ -12952,6 +13494,8 @@ GeoPoint <- R6::R6Class("GeoPoint",
   )
 )
 
+#' @title GeoPointAddress
+#' @description Telegram API type GeoPointAddress
 #' @export
 GeoPointAddress <- R6::R6Class("GeoPointAddress",
   public = list(
@@ -12977,6 +13521,8 @@ GeoPointAddress <- R6::R6Class("GeoPointAddress",
   )
 )
 
+#' @title GeoPointEmpty
+#' @description Telegram API type GeoPointEmpty
 #' @export
 GeoPointEmpty <- R6::R6Class("GeoPointEmpty",
   public = list(
@@ -12986,6 +13532,8 @@ GeoPointEmpty <- R6::R6Class("GeoPointEmpty",
   )
 )
 
+#' @title GlobalPrivacySettings
+#' @description Telegram API type GlobalPrivacySettings
 #' @export
 GlobalPrivacySettings <- R6::R6Class("GlobalPrivacySettings",
   public = list(
@@ -13023,6 +13571,8 @@ GlobalPrivacySettings <- R6::R6Class("GlobalPrivacySettings",
   )
 )
 
+#' @title GroupCall
+#' @description Telegram API type GroupCall
 #' @export
 GroupCall <- R6::R6Class(
   "GroupCall",
@@ -13107,6 +13657,8 @@ GroupCall <- R6::R6Class(
   )
 )
 
+#' @title GroupCallDiscarded
+#' @description Telegram API type GroupCallDiscarded
 #' @export
 GroupCallDiscarded <- R6::R6Class(
   "GroupCallDiscarded",
@@ -13149,6 +13701,8 @@ GroupCallDiscarded <- R6::R6Class(
   )
 )
 
+#' @title GroupCallParticipant
+#' @description Telegram API type GroupCallParticipant
 #' @export
 GroupCallParticipant <- R6::R6Class(
   "GroupCallParticipant",
@@ -13261,6 +13815,8 @@ GroupCallParticipant <- R6::R6Class(
   )
 )
 
+#' @title GroupCallParticipantVideo
+#' @description Telegram API type GroupCallParticipantVideo
 #' @export
 GroupCallParticipantVideo <- R6::R6Class(
   "GroupCallParticipantVideo",
@@ -13299,6 +13855,8 @@ GroupCallParticipantVideo <- R6::R6Class(
   )
 )
 
+#' @title GroupCallParticipantVideoSourceGroup
+#' @description Telegram API type GroupCallParticipantVideoSourceGroup
 #' @export
 GroupCallParticipantVideoSourceGroup <- R6::R6Class(
   "GroupCallParticipantVideoSourceGroup",
@@ -13329,6 +13887,8 @@ GroupCallParticipantVideoSourceGroup <- R6::R6Class(
   )
 )
 
+#' @title GroupCallStreamChannel
+#' @description Telegram API type GroupCallStreamChannel
 #' @export
 GroupCallStreamChannel <- R6::R6Class(
   "GroupCallStreamChannel",
@@ -13360,6 +13920,8 @@ GroupCallStreamChannel <- R6::R6Class(
   )
 )
 
+#' @title HighScore
+#' @description Telegram API type HighScore
 #' @export
 HighScore <- R6::R6Class(
   "HighScore",
@@ -13391,6 +13953,8 @@ HighScore <- R6::R6Class(
   )
 )
 
+#' @title HttpWait
+#' @description Telegram API type HttpWait
 #' @export
 HttpWait <- R6::R6Class(
   "HttpWait",
@@ -13422,6 +13986,8 @@ HttpWait <- R6::R6Class(
   )
 )
 
+#' @title ImportedContact
+#' @description Telegram API type ImportedContact
 #' @export
 ImportedContact <- R6::R6Class(
   "ImportedContact",
@@ -13449,6 +14015,8 @@ ImportedContact <- R6::R6Class(
   )
 )
 
+#' @title InlineBotSwitchPM
+#' @description Telegram API type InlineBotSwitchPM
 #' @export
 InlineBotSwitchPM <- R6::R6Class(
   "InlineBotSwitchPM",
@@ -13480,6 +14048,8 @@ InlineBotSwitchPM <- R6::R6Class(
   )
 )
 
+#' @title InlineBotWebView
+#' @description Telegram API type InlineBotWebView
 #' @export
 InlineBotWebView <- R6::R6Class(
   "InlineBotWebView",
@@ -13511,6 +14081,8 @@ InlineBotWebView <- R6::R6Class(
   )
 )
 
+#' @title InlineQueryPeerTypeBotPM
+#' @description Telegram API type InlineQueryPeerTypeBotPM
 #' @export
 InlineQueryPeerTypeBotPM <- R6::R6Class(
   "InlineQueryPeerTypeBotPM",
@@ -13527,6 +14099,8 @@ InlineQueryPeerTypeBotPM <- R6::R6Class(
   )
 )
 
+#' @title InlineQueryPeerTypeBroadcast
+#' @description Telegram API type InlineQueryPeerTypeBroadcast
 #' @export
 InlineQueryPeerTypeBroadcast <- R6::R6Class(
   "InlineQueryPeerTypeBroadcast",
@@ -13543,6 +14117,8 @@ InlineQueryPeerTypeBroadcast <- R6::R6Class(
   )
 )
 
+#' @title InlineQueryPeerTypeChat
+#' @description Telegram API type InlineQueryPeerTypeChat
 #' @export
 InlineQueryPeerTypeChat <- R6::R6Class(
   "InlineQueryPeerTypeChat",
@@ -13559,6 +14135,8 @@ InlineQueryPeerTypeChat <- R6::R6Class(
   )
 )
 
+#' @title InlineQueryPeerTypeMegagroup
+#' @description Telegram API type InlineQueryPeerTypeMegagroup
 #' @export
 InlineQueryPeerTypeMegagroup <- R6::R6Class(
   "InlineQueryPeerTypeMegagroup",
@@ -13573,6 +14151,8 @@ InlineQueryPeerTypeMegagroup <- R6::R6Class(
   )
 )
 
+#' @title InlineQueryPeerTypePM
+#' @description Telegram API type InlineQueryPeerTypePM
 #' @export
 InlineQueryPeerTypePM <- R6::R6Class(
   "InlineQueryPeerTypePM",
@@ -13587,6 +14167,8 @@ InlineQueryPeerTypePM <- R6::R6Class(
   )
 )
 
+#' @title InlineQueryPeerTypeSameBotPM
+#' @description Telegram API type InlineQueryPeerTypeSameBotPM
 #' @export
 InlineQueryPeerTypeSameBotPM <- R6::R6Class(
   "InlineQueryPeerTypeSameBotPM",
@@ -13601,6 +14183,8 @@ InlineQueryPeerTypeSameBotPM <- R6::R6Class(
   )
 )
 
+#' @title InputAppEvent
+#' @description Telegram API type InputAppEvent
 #' @export
 InputAppEvent <- R6::R6Class(
   "InputAppEvent",
@@ -13636,6 +14220,8 @@ InputAppEvent <- R6::R6Class(
   )
 )
 
+#' @title InputBotAppID
+#' @description Telegram API type InputBotAppID
 #' @export
 InputBotAppID <- R6::R6Class(
   "InputBotAppID",
@@ -13663,6 +14249,8 @@ InputBotAppID <- R6::R6Class(
   )
 )
 
+#' @title InputBotAppShortName
+#' @description Telegram API type InputBotAppShortName
 #' @export
 InputBotAppShortName <- R6::R6Class(
   "InputBotAppShortName",
@@ -13698,6 +14286,8 @@ InputBotAppShortName <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineMessageGame
+#' @description Telegram API type InputBotInlineMessageGame
 #' @export
 InputBotInlineMessageGame <- R6::R6Class(
   "InputBotInlineMessageGame",
@@ -13730,6 +14320,8 @@ InputBotInlineMessageGame <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineMessageID
+#' @description Telegram API type InputBotInlineMessageID
 #' @export
 InputBotInlineMessageID <- R6::R6Class(
   "InputBotInlineMessageID",
@@ -13762,6 +14354,8 @@ InputBotInlineMessageID <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineMessageID64
+#' @description Telegram API type InputBotInlineMessageID64
 #' @export
 InputBotInlineMessageID64 <- R6::R6Class(
   "InputBotInlineMessageID64",
@@ -13798,6 +14392,8 @@ InputBotInlineMessageID64 <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineMessageMediaAuto
+#' @description Telegram API type InputBotInlineMessageMediaAuto
 #' @export
 InputBotInlineMessageMediaAuto <- R6::R6Class(
   "InputBotInlineMessageMediaAuto",
@@ -13865,6 +14461,8 @@ InputBotInlineMessageMediaAuto <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineMessageMediaContact
+#' @description Telegram API type InputBotInlineMessageMediaContact
 #' @export
 InputBotInlineMessageMediaContact <- R6::R6Class(
   "InputBotInlineMessageMediaContact",
@@ -13917,6 +14515,8 @@ InputBotInlineMessageMediaContact <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineMessageMediaGeo
+#' @description Telegram API type InputBotInlineMessageMediaGeo
 #' @export
 InputBotInlineMessageMediaGeo <- R6::R6Class(
   "InputBotInlineMessageMediaGeo",
@@ -13978,6 +14578,8 @@ InputBotInlineMessageMediaGeo <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineMessageMediaInvoice
+#' @description Telegram API type InputBotInlineMessageMediaInvoice
 #' @export
 InputBotInlineMessageMediaInvoice <- R6::R6Class(
   "InputBotInlineMessageMediaInvoice",
@@ -14059,6 +14661,8 @@ InputBotInlineMessageMediaInvoice <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineMessageMediaVenue
+#' @description Telegram API type InputBotInlineMessageMediaVenue
 #' @export
 InputBotInlineMessageMediaVenue <- R6::R6Class(
   "InputBotInlineMessageMediaVenue",
@@ -14131,6 +14735,8 @@ InputBotInlineMessageMediaVenue <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineMessageMediaWebPage
+#' @description Telegram API type InputBotInlineMessageMediaWebPage
 #' @export
 InputBotInlineMessageMediaWebPage <- R6::R6Class(
   "InputBotInlineMessageMediaWebPage",
@@ -14232,6 +14838,8 @@ InputBotInlineMessageMediaWebPage <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineMessageText
+#' @description Telegram API type InputBotInlineMessageText
 #' @export
 InputBotInlineMessageText <- R6::R6Class(
   "InputBotInlineMessageText",
@@ -14313,6 +14921,8 @@ InputBotInlineMessageText <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineResult
+#' @description Telegram API type InputBotInlineResult
 #' @export
 InputBotInlineResult <- R6::R6Class(
   "InputBotInlineResult",
@@ -14390,6 +15000,8 @@ InputBotInlineResult <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineResultDocument
+#' @description Telegram API type InputBotInlineResultDocument
 #' @export
 InputBotInlineResultDocument <- R6::R6Class(
   "InputBotInlineResultDocument",
@@ -14454,6 +15066,8 @@ InputBotInlineResultDocument <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineResultGame
+#' @description Telegram API type InputBotInlineResultGame
 #' @export
 InputBotInlineResultGame <- R6::R6Class(
   "InputBotInlineResultGame",
@@ -14488,6 +15102,8 @@ InputBotInlineResultGame <- R6::R6Class(
   )
 )
 
+#' @title InputBotInlineResultPhoto
+#' @description Telegram API type InputBotInlineResultPhoto
 #' @export
 InputBotInlineResultPhoto <- R6::R6Class(
   "InputBotInlineResultPhoto",
@@ -14526,6 +15142,8 @@ InputBotInlineResultPhoto <- R6::R6Class(
   )
 )
 
+#' @title InputBusinessAwayMessage
+#' @description Telegram API type InputBusinessAwayMessage
 #' @export
 InputBusinessAwayMessage <- R6::R6Class(
   "InputBusinessAwayMessage",
@@ -14561,6 +15179,8 @@ InputBusinessAwayMessage <- R6::R6Class(
   )
 )
 
+#' @title InputBusinessBotRecipients
+#' @description Telegram API type InputBusinessBotRecipients
 #' @export
 InputBusinessBotRecipients <- R6::R6Class(
   "InputBusinessBotRecipients",
@@ -14629,6 +15249,8 @@ InputBusinessBotRecipients <- R6::R6Class(
   )
 )
 
+#' @title InputBusinessChatLink
+#' @description Telegram API type InputBusinessChatLink
 #' @export
 InputBusinessChatLink <- R6::R6Class(
   "InputBusinessChatLink",
@@ -14664,6 +15286,8 @@ InputBusinessChatLink <- R6::R6Class(
   )
 )
 
+#' @title InputBusinessGreetingMessage
+#' @description Telegram API type InputBusinessGreetingMessage
 #' @export
 InputBusinessGreetingMessage <- R6::R6Class(
   "InputBusinessGreetingMessage",
@@ -14698,6 +15322,8 @@ InputBusinessGreetingMessage <- R6::R6Class(
   )
 )
 
+#' @title InputBusinessIntro
+#' @description Telegram API type InputBusinessIntro
 #' @export
 InputBusinessIntro <- R6::R6Class(
   "InputBusinessIntro",
@@ -14744,6 +15370,8 @@ InputBusinessIntro <- R6::R6Class(
   )
 )
 
+#' @title InputBusinessRecipients
+#' @description Telegram API type InputBusinessRecipients
 #' @export
 InputBusinessRecipients <- R6::R6Class(
   "InputBusinessRecipients",
@@ -14828,6 +15456,8 @@ InputBusinessRecipients <- R6::R6Class(
   )
 )
 
+#' @title InputChannel
+#' @description Telegram API type InputChannel
 #' @export
 InputChannel <- R6::R6Class(
   "InputChannel",
@@ -14858,6 +15488,8 @@ InputChannel <- R6::R6Class(
   )
 )
 
+#' @title InputChannelEmpty
+#' @description Telegram API type InputChannelEmpty
 #' @export
 InputChannelEmpty <- R6::R6Class(
   "InputChannelEmpty",
@@ -14874,6 +15506,8 @@ InputChannelEmpty <- R6::R6Class(
   )
 )
 
+#' @title InputChannelFromMessage
+#' @description Telegram API type InputChannelFromMessage
 #' @export
 InputChannelFromMessage <- R6::R6Class(
   "InputChannelFromMessage",
@@ -14908,6 +15542,8 @@ InputChannelFromMessage <- R6::R6Class(
   )
 )
 
+#' @title InputChatPhoto
+#' @description Telegram API type InputChatPhoto
 #' @export
 InputChatPhoto <- R6::R6Class(
   "InputChatPhoto",
@@ -14934,6 +15570,8 @@ InputChatPhoto <- R6::R6Class(
   )
 )
 
+#' @title InputChatPhotoEmpty
+#' @description Telegram API type InputChatPhotoEmpty
 #' @export
 InputChatPhotoEmpty <- R6::R6Class(
   "InputChatPhotoEmpty",
@@ -14950,6 +15588,8 @@ InputChatPhotoEmpty <- R6::R6Class(
   )
 )
 
+#' @title InputChatTheme
+#' @description Telegram API type InputChatTheme
 #' @export
 InputChatTheme <- R6::R6Class(
   "InputChatTheme",
@@ -14970,6 +15610,8 @@ InputChatTheme <- R6::R6Class(
   )
 )
 
+#' @title InputChatThemeEmpty
+#' @description Telegram API type InputChatThemeEmpty
 #' @export
 InputChatThemeEmpty <- R6::R6Class(
   "InputChatThemeEmpty",
@@ -14986,6 +15628,8 @@ InputChatThemeEmpty <- R6::R6Class(
   )
 )
 
+#' @title InputChatThemeUniqueGift
+#' @description Telegram API type InputChatThemeUniqueGift
 #' @export
 InputChatThemeUniqueGift <- R6::R6Class(
   "InputChatThemeUniqueGift",
@@ -15018,6 +15662,8 @@ InputChatThemeUniqueGift <- R6::R6Class(
   )
 )
 
+#' @title InputChatUploadedPhoto
+#' @description Telegram API type InputChatUploadedPhoto
 #' @export
 InputChatUploadedPhoto <- R6::R6Class(
   "InputChatUploadedPhoto",
@@ -15074,6 +15720,8 @@ InputChatUploadedPhoto <- R6::R6Class(
   )
 )
 
+#' @title InputChatlistDialogFilter
+#' @description Telegram API type InputChatlistDialogFilter
 #' @export
 InputChatlistDialogFilter <- R6::R6Class(
   "InputChatlistDialogFilter",
@@ -15100,6 +15748,8 @@ InputChatlistDialogFilter <- R6::R6Class(
   )
 )
 
+#' @title InputCheckPasswordEmpty
+#' @description Telegram API type InputCheckPasswordEmpty
 #' @export
 InputCheckPasswordEmpty <- R6::R6Class(
   "InputCheckPasswordEmpty",
@@ -15116,6 +15766,8 @@ InputCheckPasswordEmpty <- R6::R6Class(
   )
 )
 
+#' @title InputCheckPasswordSRP
+#' @description Telegram API type InputCheckPasswordSRP
 #' @export
 InputCheckPasswordSRP <- R6::R6Class(
   "InputCheckPasswordSRP",
@@ -15150,6 +15802,8 @@ InputCheckPasswordSRP <- R6::R6Class(
   )
 )
 
+#' @title InputClientProxy
+#' @description Telegram API type InputClientProxy
 #' @export
 InputClientProxy <- R6::R6Class(
   "InputClientProxy",
@@ -15180,6 +15834,8 @@ InputClientProxy <- R6::R6Class(
   )
 )
 
+#' @title InputCollectiblePhone
+#' @description Telegram API type InputCollectiblePhone
 #' @export
 InputCollectiblePhone <- R6::R6Class(
   "InputCollectiblePhone",
@@ -15206,6 +15862,8 @@ InputCollectiblePhone <- R6::R6Class(
   )
 )
 
+#' @title InputCollectibleUsername
+#' @description Telegram API type InputCollectibleUsername
 #' @export
 InputCollectibleUsername <- R6::R6Class(
   "InputCollectibleUsername",
@@ -15232,6 +15890,8 @@ InputCollectibleUsername <- R6::R6Class(
   )
 )
 
+#' @title InputDialogPeer
+#' @description Telegram API type InputDialogPeer
 #' @export
 InputDialogPeer <- R6::R6Class(
   "InputDialogPeer",
@@ -15258,6 +15918,8 @@ InputDialogPeer <- R6::R6Class(
   )
 )
 
+#' @title InputDialogPeerFolder
+#' @description Telegram API type InputDialogPeerFolder
 #' @export
 InputDialogPeerFolder <- R6::R6Class(
   "InputDialogPeerFolder",
@@ -15284,6 +15946,8 @@ InputDialogPeerFolder <- R6::R6Class(
   )
 )
 
+#' @title InputDocument
+#' @description Telegram API type InputDocument
 #' @export
 InputDocument <- R6::R6Class(
   "InputDocument",
@@ -15326,6 +15990,8 @@ InputDocument <- R6::R6Class(
   )
 )
 
+#' @title InputDocumentEmpty
+#' @description Telegram API type InputDocumentEmpty
 #' @export
 InputDocumentEmpty <- R6::R6Class(
   "InputDocumentEmpty",
@@ -15347,6 +16013,8 @@ InputDocumentEmpty <- R6::R6Class(
   )
 )
 
+#' @title InputDocumentFileLocation
+#' @description Telegram API type InputDocumentFileLocation
 #' @export
 InputDocumentFileLocation <- R6::R6Class(
   "InputDocumentFileLocation",
@@ -15394,6 +16062,8 @@ InputDocumentFileLocation <- R6::R6Class(
   )
 )
 
+#' @title InputEmojiStatusCollectible
+#' @description Telegram API type InputEmojiStatusCollectible
 #' @export
 InputEmojiStatusCollectible <- R6::R6Class(
   "InputEmojiStatusCollectible",
@@ -15434,6 +16104,8 @@ InputEmojiStatusCollectible <- R6::R6Class(
 )
 
 
+#' @title InputEncryptedChat
+#' @description Telegram API type InputEncryptedChat
 #' @export
 InputEncryptedChat <- R6::R6Class(
   "InputEncryptedChat",
@@ -15464,6 +16136,8 @@ InputEncryptedChat <- R6::R6Class(
   )
 )
 
+#' @title InputEncryptedFile
+#' @description Telegram API type InputEncryptedFile
 #' @export
 InputEncryptedFile <- R6::R6Class(
   "InputEncryptedFile",
@@ -15494,6 +16168,8 @@ InputEncryptedFile <- R6::R6Class(
   )
 )
 
+#' @title InputEncryptedFileBigUploaded
+#' @description Telegram API type InputEncryptedFileBigUploaded
 #' @export
 InputEncryptedFileBigUploaded <- R6::R6Class(
   "InputEncryptedFileBigUploaded",
@@ -15525,6 +16201,8 @@ InputEncryptedFileBigUploaded <- R6::R6Class(
   )
 )
 
+#' @title InputEncryptedFileEmpty
+#' @description Telegram API type InputEncryptedFileEmpty
 #' @export
 InputEncryptedFileEmpty <- R6::R6Class(
   "InputEncryptedFileEmpty",
@@ -15538,6 +16216,8 @@ InputEncryptedFileEmpty <- R6::R6Class(
   )
 )
 
+#' @title InputEncryptedFileLocation
+#' @description Telegram API type InputEncryptedFileLocation
 #' @export
 InputEncryptedFileLocation <- R6::R6Class(
   "InputEncryptedFileLocation",
@@ -15565,6 +16245,8 @@ InputEncryptedFileLocation <- R6::R6Class(
   )
 )
 
+#' @title InputEncryptedFileUploaded
+#' @description Telegram API type InputEncryptedFileUploaded
 #' @export
 InputEncryptedFileUploaded <- R6::R6Class(
   "InputEncryptedFileUploaded",
@@ -15600,6 +16282,8 @@ InputEncryptedFileUploaded <- R6::R6Class(
   )
 )
 
+#' @title InputFile
+#' @description Telegram API type InputFile
 #' @export
 InputFile <- R6::R6Class(
   "InputFile",
@@ -15635,6 +16319,8 @@ InputFile <- R6::R6Class(
   )
 )
 
+#' @title InputFileBig
+#' @description Telegram API type InputFileBig
 #' @export
 InputFileBig <- R6::R6Class(
   "InputFileBig",
@@ -15666,6 +16352,8 @@ InputFileBig <- R6::R6Class(
   )
 )
 
+#' @title InputFileLocation
+#' @description Telegram API type InputFileLocation
 #' @export
 InputFileLocation <- R6::R6Class(
   "InputFileLocation",
@@ -15701,6 +16389,8 @@ InputFileLocation <- R6::R6Class(
   )
 )
 
+#' @title InputFileStoryDocument
+#' @description Telegram API type InputFileStoryDocument
 #' @export
 InputFileStoryDocument <- R6::R6Class(
   "InputFileStoryDocument",
@@ -15724,6 +16414,8 @@ InputFileStoryDocument <- R6::R6Class(
   )
 )
 
+#' @title InputFolderPeer
+#' @description Telegram API type InputFolderPeer
 #' @export
 InputFolderPeer <- R6::R6Class(
   "InputFolderPeer",
@@ -15751,6 +16443,8 @@ InputFolderPeer <- R6::R6Class(
   )
 )
 
+#' @title InputGameID
+#' @description Telegram API type InputGameID
 #' @export
 InputGameID <- R6::R6Class(
   "InputGameID",
@@ -15778,6 +16472,8 @@ InputGameID <- R6::R6Class(
   )
 )
 
+#' @title InputGameShortName
+#' @description Telegram API type InputGameShortName
 #' @export
 InputGameShortName <- R6::R6Class(
   "InputGameShortName",
@@ -15805,6 +16501,8 @@ InputGameShortName <- R6::R6Class(
   )
 )
 
+#' @title InputGeoPoint
+#' @description Telegram API type InputGeoPoint
 #' @export
 InputGeoPoint <- R6::R6Class(
   "InputGeoPoint",
@@ -15843,6 +16541,8 @@ InputGeoPoint <- R6::R6Class(
   )
 )
 
+#' @title InputGeoPointEmpty
+#' @description Telegram API type InputGeoPointEmpty
 #' @export
 InputGeoPointEmpty <- R6::R6Class(
   "InputGeoPointEmpty",
@@ -15886,6 +16586,8 @@ InputGroupCall <- R6::R6Class(
   )
 )
 
+#' @title InputGroupCallInviteMessage
+#' @description Telegram API type InputGroupCallInviteMessage
 #' @export
 InputGroupCallInviteMessage <- R6::R6Class(
   "InputGroupCallInviteMessage",
@@ -15912,6 +16614,8 @@ InputGroupCallInviteMessage <- R6::R6Class(
   )
 )
 
+#' @title InputGroupCallSlug
+#' @description Telegram API type InputGroupCallSlug
 #' @export
 InputGroupCallSlug <- R6::R6Class(
   "InputGroupCallSlug",
@@ -15938,6 +16642,8 @@ InputGroupCallSlug <- R6::R6Class(
   )
 )
 
+#' @title InputGroupCallStream
+#' @description Telegram API type InputGroupCallStream
 #' @export
 InputGroupCallStream <- R6::R6Class(
   "InputGroupCallStream",
@@ -15982,6 +16688,8 @@ InputGroupCallStream <- R6::R6Class(
   )
 )
 
+#' @title InputInvoiceBusinessBotTransferStars
+#' @description Telegram API type InputInvoiceBusinessBotTransferStars
 #' @export
 InputInvoiceBusinessBotTransferStars <- R6::R6Class(
   "InputInvoiceBusinessBotTransferStars",
@@ -16009,6 +16717,8 @@ InputInvoiceBusinessBotTransferStars <- R6::R6Class(
   )
 )
 
+#' @title InputInvoiceChatInviteSubscription
+#' @description Telegram API type InputInvoiceChatInviteSubscription
 #' @export
 InputInvoiceChatInviteSubscription <- R6::R6Class(
   "InputInvoiceChatInviteSubscription",
@@ -16035,6 +16745,8 @@ InputInvoiceChatInviteSubscription <- R6::R6Class(
   )
 )
 
+#' @title InputInvoiceMessage
+#' @description Telegram API type InputInvoiceMessage
 #' @export
 InputInvoiceMessage <- R6::R6Class(
   "InputInvoiceMessage",
@@ -16065,6 +16777,8 @@ InputInvoiceMessage <- R6::R6Class(
   )
 )
 
+#' @title InputInvoicePremiumGiftCode
+#' @description Telegram API type InputInvoicePremiumGiftCode
 #' @export
 InputInvoicePremiumGiftCode <- R6::R6Class(
   "InputInvoicePremiumGiftCode",
@@ -16095,6 +16809,8 @@ InputInvoicePremiumGiftCode <- R6::R6Class(
   )
 )
 
+#' @title InputInvoicePremiumGiftStars
+#' @description Telegram API type InputInvoicePremiumGiftStars
 #' @export
 InputInvoicePremiumGiftStars <- R6::R6Class(
   "InputInvoicePremiumGiftStars",
@@ -16129,6 +16845,8 @@ InputInvoicePremiumGiftStars <- R6::R6Class(
   )
 )
 
+#' @title InputInvoiceSlug
+#' @description Telegram API type InputInvoiceSlug
 #' @export
 InputInvoiceSlug <- R6::R6Class(
   "InputInvoiceSlug",
@@ -16154,6 +16872,8 @@ InputInvoiceSlug <- R6::R6Class(
   )
 )
 
+#' @title InputInvoiceStarGift
+#' @description Telegram API type InputInvoiceStarGift
 #' @export
 InputInvoiceStarGift <- R6::R6Class(
   "InputInvoiceStarGift",
@@ -16198,6 +16918,8 @@ InputInvoiceStarGift <- R6::R6Class(
   )
 )
 
+#' @title InputInvoiceStarGiftPrepaidUpgrade
+#' @description Telegram API type InputInvoiceStarGiftPrepaidUpgrade
 #' @export
 InputInvoiceStarGiftPrepaidUpgrade <- R6::R6Class(
   "InputInvoiceStarGiftPrepaidUpgrade",
@@ -16227,6 +16949,8 @@ InputInvoiceStarGiftPrepaidUpgrade <- R6::R6Class(
   )
 )
 
+#' @title InputInvoiceStarGiftResale
+#' @description Telegram API type InputInvoiceStarGiftResale
 #' @export
 InputInvoiceStarGiftResale <- R6::R6Class(
   "InputInvoiceStarGiftResale",
@@ -16261,6 +16985,8 @@ InputInvoiceStarGiftResale <- R6::R6Class(
   )
 )
 
+#' @title InputInvoiceStarGiftTransfer
+#' @description Telegram API type InputInvoiceStarGiftTransfer
 #' @export
 InputInvoiceStarGiftTransfer <- R6::R6Class(
   "InputInvoiceStarGiftTransfer",
@@ -16291,6 +17017,8 @@ InputInvoiceStarGiftTransfer <- R6::R6Class(
   )
 )
 
+#' @title InputInvoiceStarGiftUpgrade
+#' @description Telegram API type InputInvoiceStarGiftUpgrade
 #' @export
 InputInvoiceStarGiftUpgrade <- R6::R6Class(
   "InputInvoiceStarGiftUpgrade",
@@ -16321,6 +17049,8 @@ InputInvoiceStarGiftUpgrade <- R6::R6Class(
   )
 )
 
+#' @title InputInvoiceStars
+#' @description Telegram API type InputInvoiceStars
 #' @export
 InputInvoiceStars <- R6::R6Class(
   "InputInvoiceStars",
@@ -16347,6 +17077,8 @@ InputInvoiceStars <- R6::R6Class(
   )
 )
 
+#' @title InputKeyboardButtonRequestPeer
+#' @description Telegram API type InputKeyboardButtonRequestPeer
 #' @export
 InputKeyboardButtonRequestPeer <- R6::R6Class(
   "InputKeyboardButtonRequestPeer",
@@ -16420,6 +17152,8 @@ InputKeyboardButtonRequestPeer <- R6::R6Class(
   )
 )
 
+#' @title InputKeyboardButtonUrlAuth
+#' @description Telegram API type InputKeyboardButtonUrlAuth
 #' @export
 InputKeyboardButtonUrlAuth <- R6::R6Class(
   "InputKeyboardButtonUrlAuth",
@@ -16456,6 +17190,8 @@ InputKeyboardButtonUrlAuth <- R6::R6Class(
   )
 )
 
+#' @title InputKeyboardButtonUserProfile
+#' @description Telegram API type InputKeyboardButtonUserProfile
 #' @export
 InputKeyboardButtonUserProfile <- R6::R6Class(
   "InputKeyboardButtonUserProfile",
@@ -16483,6 +17219,8 @@ InputKeyboardButtonUserProfile <- R6::R6Class(
   )
 )
 
+#' @title InputMediaAreaChannelPost
+#' @description Telegram API type InputMediaAreaChannelPost
 #' @export
 InputMediaAreaChannelPost <- R6::R6Class(
   "InputMediaAreaChannelPost",
@@ -16517,6 +17255,8 @@ InputMediaAreaChannelPost <- R6::R6Class(
   )
 )
 
+#' @title InputMediaAreaVenue
+#' @description Telegram API type InputMediaAreaVenue
 #' @export
 InputMediaAreaVenue <- R6::R6Class(
   "InputMediaAreaVenue",
@@ -16551,6 +17291,8 @@ InputMediaAreaVenue <- R6::R6Class(
   )
 )
 
+#' @title InputMediaContact
+#' @description Telegram API type InputMediaContact
 #' @export
 InputMediaContact <- R6::R6Class(
   "InputMediaContact",
@@ -16589,6 +17331,8 @@ InputMediaContact <- R6::R6Class(
   )
 )
 
+#' @title InputMediaDice
+#' @description Telegram API type InputMediaDice
 #' @export
 InputMediaDice <- R6::R6Class(
   "InputMediaDice",
@@ -16615,6 +17359,8 @@ InputMediaDice <- R6::R6Class(
   )
 )
 
+#' @title InputMediaDocument
+#' @description Telegram API type InputMediaDocument
 #' @export
 InputMediaDocument <- R6::R6Class(
   "InputMediaDocument",
@@ -16681,6 +17427,8 @@ InputMediaDocument <- R6::R6Class(
   )
 )
 
+#' @title InputMediaDocumentExternal
+#' @description Telegram API type InputMediaDocumentExternal
 #' @export
 InputMediaDocumentExternal <- R6::R6Class(
   "InputMediaDocumentExternal",
@@ -16721,6 +17469,8 @@ InputMediaDocumentExternal <- R6::R6Class(
   )
 )
 
+#' @title InputMediaEmpty
+#' @description Telegram API type InputMediaEmpty
 #' @export
 InputMediaEmpty <- R6::R6Class(
   "InputMediaEmpty",
@@ -16745,6 +17495,8 @@ InputMediaEmpty <- R6::R6Class(
   )
 )
 
+#' @title InputMediaGame
+#' @description Telegram API type InputMediaGame
 #' @export
 InputMediaGame <- R6::R6Class(
   "InputMediaGame",
@@ -16770,6 +17522,8 @@ InputMediaGame <- R6::R6Class(
   )
 )
 
+#' @title InputMediaGeoLive
+#' @description Telegram API type InputMediaGeoLive
 #' @export
 InputMediaGeoLive <- R6::R6Class(
   "InputMediaGeoLive",
@@ -16810,6 +17564,8 @@ InputMediaGeoLive <- R6::R6Class(
   )
 )
 
+#' @title InputMediaGeoPoint
+#' @description Telegram API type InputMediaGeoPoint
 #' @export
 InputMediaGeoPoint <- R6::R6Class(
   "InputMediaGeoPoint",
@@ -16838,6 +17594,8 @@ InputMediaGeoPoint <- R6::R6Class(
   )
 )
 
+#' @title InputMediaInvoice
+#' @description Telegram API type InputMediaInvoice
 #' @export
 InputMediaInvoice <- R6::R6Class(
   "InputMediaInvoice",
@@ -16890,6 +17648,8 @@ InputMediaInvoice <- R6::R6Class(
   )
 )
 
+#' @title InputMediaPaidMedia
+#' @description Telegram API type InputMediaPaidMedia
 #' @export
 InputMediaPaidMedia <- R6::R6Class(
   "InputMediaPaidMedia",
@@ -16924,6 +17684,8 @@ InputMediaPaidMedia <- R6::R6Class(
   )
 )
 
+#' @title InputMediaPhoto
+#' @description Telegram API type InputMediaPhoto
 #' @export
 InputMediaPhoto <- R6::R6Class(
   "InputMediaPhoto",
@@ -16958,6 +17720,8 @@ InputMediaPhoto <- R6::R6Class(
   )
 )
 
+#' @title InputMediaPhotoExternal
+#' @description Telegram API type InputMediaPhotoExternal
 #' @export
 InputMediaPhotoExternal <- R6::R6Class(
   "InputMediaPhotoExternal",
@@ -16992,6 +17756,8 @@ InputMediaPhotoExternal <- R6::R6Class(
   )
 )
 
+#' @title InputMediaPoll
+#' @description Telegram API type InputMediaPoll
 #' @export
 InputMediaPoll <- R6::R6Class(
   "InputMediaPoll",
@@ -17029,6 +17795,8 @@ InputMediaPoll <- R6::R6Class(
   )
 )
 
+#' @title InputMediaStory
+#' @description Telegram API type InputMediaStory
 #' @export
 InputMediaStory <- R6::R6Class(
   "InputMediaStory",
@@ -17061,6 +17829,8 @@ InputMediaStory <- R6::R6Class(
   class = TRUE
 )
 
+#' @title InputMediaTodo
+#' @description Telegram API type InputMediaTodo
 #' @export
 InputMediaTodo <- R6::R6Class(
   "InputMediaTodo",
@@ -17090,6 +17860,8 @@ InputMediaTodo <- R6::R6Class(
   class = TRUE
 )
 
+#' @title InputMediaUploadedDocument
+#' @description Telegram API type InputMediaUploadedDocument
 #' @export
 InputMediaUploadedDocument <- R6::R6Class(
   "InputMediaUploadedDocument",
@@ -17152,6 +17924,8 @@ InputMediaUploadedDocument <- R6::R6Class(
   class = TRUE
 )
 
+#' @title InputMediaUploadedPhoto
+#' @description Telegram API type InputMediaUploadedPhoto
 #' @export
 InputMediaUploadedPhoto <- R6::R6Class(
   "InputMediaUploadedPhoto",
@@ -17191,6 +17965,8 @@ InputMediaUploadedPhoto <- R6::R6Class(
 )
 
 
+#' @title InputMediaVenue
+#' @description Telegram API type InputMediaVenue
 #' @export
 InputMediaVenue <- R6::R6Class("InputMediaVenue",
   inherit = TLObject,
@@ -17234,6 +18010,8 @@ InputMediaVenue <- R6::R6Class("InputMediaVenue",
   class = TRUE
 )
 
+#' @title InputMediaWebPage
+#' @description Telegram API type InputMediaWebPage
 #' @export
 InputMediaWebPage <- R6::R6Class("InputMediaWebPage",
   inherit = TLObject,
@@ -17271,6 +18049,8 @@ InputMediaWebPage <- R6::R6Class("InputMediaWebPage",
   class = TRUE
 )
 
+#' @title InputMessageCallbackQuery
+#' @description Telegram API type InputMessageCallbackQuery
 #' @export
 InputMessageCallbackQuery <- R6::R6Class("InputMessageCallbackQuery",
   inherit = TLObject,
@@ -17297,6 +18077,8 @@ InputMessageCallbackQuery <- R6::R6Class("InputMessageCallbackQuery",
   )
 )
 
+#' @title InputMessageEntityMentionName
+#' @description Telegram API type InputMessageEntityMentionName
 #' @export
 InputMessageEntityMentionName <- R6::R6Class("InputMessageEntityMentionName",
   inherit = TLObject,
@@ -17330,6 +18112,8 @@ InputMessageEntityMentionName <- R6::R6Class("InputMessageEntityMentionName",
   )
 )
 
+#' @title InputMessageID
+#' @description Telegram API type InputMessageID
 #' @export
 InputMessageID <- R6::R6Class("InputMessageID",
   inherit = TLObject,
@@ -17354,6 +18138,8 @@ InputMessageID <- R6::R6Class("InputMessageID",
   )
 )
 
+#' @title InputMessagePinned
+#' @description Telegram API type InputMessagePinned
 #' @export
 InputMessagePinned <- R6::R6Class("InputMessagePinned",
   inherit = TLObject,
@@ -17377,6 +18163,8 @@ InputMessagePinned <- R6::R6Class("InputMessagePinned",
   )
 )
 
+#' @title InputMessageReplyTo
+#' @description Telegram API type InputMessageReplyTo
 #' @export
 InputMessageReplyTo <- R6::R6Class("InputMessageReplyTo",
   inherit = TLObject,
@@ -17401,6 +18189,8 @@ InputMessageReplyTo <- R6::R6Class("InputMessageReplyTo",
   )
 )
 
+#' @title InputMessagesFilterChatPhotos
+#' @description Telegram API type InputMessagesFilterChatPhotos
 #' @export
 InputMessagesFilterChatPhotos <- R6::R6Class("InputMessagesFilterChatPhotos",
   inherit = TLObject,
@@ -17422,6 +18212,8 @@ InputMessagesFilterChatPhotos <- R6::R6Class("InputMessagesFilterChatPhotos",
   )
 )
 
+#' @title InputMessagesFilterContacts
+#' @description Telegram API type InputMessagesFilterContacts
 #' @export
 InputMessagesFilterContacts <- R6::R6Class("InputMessagesFilterContacts",
   inherit = TLObject,
@@ -17443,6 +18235,8 @@ InputMessagesFilterContacts <- R6::R6Class("InputMessagesFilterContacts",
   )
 )
 
+#' @title InputMessagesFilterDocument
+#' @description Telegram API type InputMessagesFilterDocument
 #' @export
 InputMessagesFilterDocument <- R6::R6Class("InputMessagesFilterDocument",
   inherit = TLObject,
@@ -17464,6 +18258,8 @@ InputMessagesFilterDocument <- R6::R6Class("InputMessagesFilterDocument",
   )
 )
 
+#' @title InputMessagesFilterEmpty
+#' @description Telegram API type InputMessagesFilterEmpty
 #' @export
 InputMessagesFilterEmpty <- R6::R6Class("InputMessagesFilterEmpty",
   inherit = TLObject,
@@ -17485,6 +18281,8 @@ InputMessagesFilterEmpty <- R6::R6Class("InputMessagesFilterEmpty",
   )
 )
 
+#' @title InputMessagesFilterGeo
+#' @description Telegram API type InputMessagesFilterGeo
 #' @export
 InputMessagesFilterGeo <- R6::R6Class("InputMessagesFilterGeo",
   inherit = TLObject,
@@ -17506,6 +18304,8 @@ InputMessagesFilterGeo <- R6::R6Class("InputMessagesFilterGeo",
   )
 )
 
+#' @title InputMessagesFilterGif
+#' @description Telegram API type InputMessagesFilterGif
 #' @export
 InputMessagesFilterGif <- R6::R6Class("InputMessagesFilterGif",
   inherit = TLObject,
@@ -17527,6 +18327,8 @@ InputMessagesFilterGif <- R6::R6Class("InputMessagesFilterGif",
   )
 )
 
+#' @title InputMessagesFilterMusic
+#' @description Telegram API type InputMessagesFilterMusic
 #' @export
 InputMessagesFilterMusic <- R6::R6Class("InputMessagesFilterMusic",
   inherit = TLObject,
@@ -17548,6 +18350,8 @@ InputMessagesFilterMusic <- R6::R6Class("InputMessagesFilterMusic",
   )
 )
 
+#' @title InputMessagesFilterMyMentions
+#' @description Telegram API type InputMessagesFilterMyMentions
 #' @export
 InputMessagesFilterMyMentions <- R6::R6Class("InputMessagesFilterMyMentions",
   inherit = TLObject,
@@ -17569,6 +18373,8 @@ InputMessagesFilterMyMentions <- R6::R6Class("InputMessagesFilterMyMentions",
   )
 )
 
+#' @title InputMessagesFilterPhoneCalls
+#' @description Telegram API type InputMessagesFilterPhoneCalls
 #' @export
 InputMessagesFilterPhoneCalls <- R6::R6Class(
   "InputMessagesFilterPhoneCalls",
@@ -17596,6 +18402,8 @@ InputMessagesFilterPhoneCalls <- R6::R6Class(
   )
 )
 
+#' @title InputMessagesFilterPhotoVideo
+#' @description Telegram API type InputMessagesFilterPhotoVideo
 #' @export
 InputMessagesFilterPhotoVideo <- R6::R6Class(
   "InputMessagesFilterPhotoVideo",
@@ -17619,6 +18427,8 @@ InputMessagesFilterPhotoVideo <- R6::R6Class(
   )
 )
 
+#' @title InputMessagesFilterPhotos
+#' @description Telegram API type InputMessagesFilterPhotos
 #' @export
 InputMessagesFilterPhotos <- R6::R6Class(
   "InputMessagesFilterPhotos",
@@ -17640,6 +18450,8 @@ InputMessagesFilterPhotos <- R6::R6Class(
   )
 )
 
+#' @title InputMessagesFilterPinned
+#' @description Telegram API type InputMessagesFilterPinned
 #' @export
 InputMessagesFilterPinned <- R6::R6Class(
   "InputMessagesFilterPinned",
@@ -17661,6 +18473,8 @@ InputMessagesFilterPinned <- R6::R6Class(
   )
 )
 
+#' @title InputMessagesFilterRoundVideo
+#' @description Telegram API type InputMessagesFilterRoundVideo
 #' @export
 InputMessagesFilterRoundVideo <- R6::R6Class(
   "InputMessagesFilterRoundVideo",
@@ -17682,6 +18496,8 @@ InputMessagesFilterRoundVideo <- R6::R6Class(
   )
 )
 
+#' @title InputMessagesFilterRoundVoice
+#' @description Telegram API type InputMessagesFilterRoundVoice
 #' @export
 InputMessagesFilterRoundVoice <- R6::R6Class(
   "InputMessagesFilterRoundVoice",
@@ -17703,6 +18519,8 @@ InputMessagesFilterRoundVoice <- R6::R6Class(
   )
 )
 
+#' @title InputMessagesFilterUrl
+#' @description Telegram API type InputMessagesFilterUrl
 #' @export
 InputMessagesFilterUrl <- R6::R6Class(
   "InputMessagesFilterUrl",
@@ -17724,6 +18542,8 @@ InputMessagesFilterUrl <- R6::R6Class(
   )
 )
 
+#' @title InputMessagesFilterVideo
+#' @description Telegram API type InputMessagesFilterVideo
 #' @export
 InputMessagesFilterVideo <- R6::R6Class(
   "InputMessagesFilterVideo",
@@ -17745,6 +18565,8 @@ InputMessagesFilterVideo <- R6::R6Class(
   )
 )
 
+#' @title InputMessagesFilterVoice
+#' @description Telegram API type InputMessagesFilterVoice
 #' @export
 InputMessagesFilterVoice <- R6::R6Class(
   "InputMessagesFilterVoice",
@@ -17766,6 +18588,8 @@ InputMessagesFilterVoice <- R6::R6Class(
   )
 )
 
+#' @title InputNotifyBroadcasts
+#' @description Telegram API type InputNotifyBroadcasts
 #' @export
 InputNotifyBroadcasts <- R6::R6Class(
   "InputNotifyBroadcasts",
@@ -17787,6 +18611,8 @@ InputNotifyBroadcasts <- R6::R6Class(
   )
 )
 
+#' @title InputNotifyChats
+#' @description Telegram API type InputNotifyChats
 #' @export
 InputNotifyChats <- R6::R6Class(
   "InputNotifyChats",
@@ -17808,6 +18634,8 @@ InputNotifyChats <- R6::R6Class(
   )
 )
 
+#' @title InputNotifyForumTopic
+#' @description Telegram API type InputNotifyForumTopic
 #' @export
 InputNotifyForumTopic <- R6::R6Class(
   "InputNotifyForumTopic",
@@ -17841,6 +18669,8 @@ InputNotifyForumTopic <- R6::R6Class(
   )
 )
 
+#' @title InputNotifyPeer
+#' @description Telegram API type InputNotifyPeer
 #' @export
 InputNotifyPeer <- R6::R6Class(
   "InputNotifyPeer",
@@ -17870,6 +18700,8 @@ InputNotifyPeer <- R6::R6Class(
   )
 )
 
+#' @title InputNotifyUsers
+#' @description Telegram API type InputNotifyUsers
 #' @export
 InputNotifyUsers <- R6::R6Class(
   "InputNotifyUsers",
@@ -17891,6 +18723,8 @@ InputNotifyUsers <- R6::R6Class(
   )
 )
 
+#' @title InputPaymentCredentials
+#' @description Telegram API type InputPaymentCredentials
 #' @export
 InputPaymentCredentials <- R6::R6Class(
   "InputPaymentCredentials",
@@ -17925,6 +18759,8 @@ InputPaymentCredentials <- R6::R6Class(
   )
 )
 
+#' @title InputPaymentCredentialsApplePay
+#' @description Telegram API type InputPaymentCredentialsApplePay
 #' @export
 InputPaymentCredentialsApplePay <- R6::R6Class(
   "InputPaymentCredentialsApplePay",
@@ -17954,6 +18790,8 @@ InputPaymentCredentialsApplePay <- R6::R6Class(
   )
 )
 
+#' @title InputPaymentCredentialsGooglePay
+#' @description Telegram API type InputPaymentCredentialsGooglePay
 #' @export
 InputPaymentCredentialsGooglePay <- R6::R6Class(
   "InputPaymentCredentialsGooglePay",
@@ -17983,6 +18821,8 @@ InputPaymentCredentialsGooglePay <- R6::R6Class(
   )
 )
 
+#' @title InputPaymentCredentialsSaved
+#' @description Telegram API type InputPaymentCredentialsSaved
 #' @export
 InputPaymentCredentialsSaved <- R6::R6Class(
   "InputPaymentCredentialsSaved",
@@ -18016,6 +18856,8 @@ InputPaymentCredentialsSaved <- R6::R6Class(
   )
 )
 
+#' @title InputPeerChannel
+#' @description Telegram API type InputPeerChannel
 #' @export
 InputPeerChannel <- R6::R6Class(
   "InputPeerChannel",
@@ -18063,6 +18905,8 @@ InputPeerChannel <- R6::R6Class(
   )
 )
 
+#' @title InputPeerChannelFromMessage
+#' @description Telegram API type InputPeerChannelFromMessage
 #' @export
 InputPeerChannelFromMessage <- R6::R6Class(
   "InputPeerChannelFromMessage",
@@ -18100,6 +18944,8 @@ InputPeerChannelFromMessage <- R6::R6Class(
   )
 )
 
+#' @title InputPeerChat
+#' @description Telegram API type InputPeerChat
 #' @export
 InputPeerChat <- R6::R6Class(
   "InputPeerChat",
@@ -18136,6 +18982,8 @@ InputPeerChat <- R6::R6Class(
   )
 )
 
+#' @title InputPeerEmpty
+#' @description Telegram API type InputPeerEmpty
 #' @export
 InputPeerEmpty <- R6::R6Class(
   "InputPeerEmpty",
@@ -18157,6 +19005,8 @@ InputPeerEmpty <- R6::R6Class(
   )
 )
 
+#' @title InputPeerNotifySettings
+#' @description Telegram API type InputPeerNotifySettings
 #' @export
 InputPeerNotifySettings <- R6::R6Class(
   "InputPeerNotifySettings",
@@ -18235,6 +19085,8 @@ InputPeerNotifySettings <- R6::R6Class(
   )
 )
 
+#' @title InputPeerPhotoFileLocation
+#' @description Telegram API type InputPeerPhotoFileLocation
 #' @export
 InputPeerPhotoFileLocation <- R6::R6Class(
   "InputPeerPhotoFileLocation",
@@ -18280,6 +19132,8 @@ InputPeerPhotoFileLocation <- R6::R6Class(
   )
 )
 
+#' @title InputPeerSelf
+#' @description Telegram API type InputPeerSelf
 #' @export
 InputPeerSelf <- R6::R6Class(
   "InputPeerSelf",
@@ -18301,6 +19155,8 @@ InputPeerSelf <- R6::R6Class(
   )
 )
 
+#' @title InputPeerUser
+#' @description Telegram API type InputPeerUser
 #' @export
 InputPeerUser <- R6::R6Class(
   "InputPeerUser",
@@ -18348,6 +19204,8 @@ InputPeerUser <- R6::R6Class(
   )
 )
 
+#' @title InputPeerUserFromMessage
+#' @description Telegram API type InputPeerUserFromMessage
 #' @export
 InputPeerUserFromMessage <- R6::R6Class(
   "InputPeerUserFromMessage",
@@ -18381,6 +19239,8 @@ InputPeerUserFromMessage <- R6::R6Class(
   )
 )
 
+#' @title InputPhoneCall
+#' @description Telegram API type InputPhoneCall
 #' @export
 InputPhoneCall <- R6::R6Class(
   "InputPhoneCall",
@@ -18411,6 +19271,8 @@ InputPhoneCall <- R6::R6Class(
   )
 )
 
+#' @title InputPhoneContact
+#' @description Telegram API type InputPhoneContact
 #' @export
 InputPhoneContact <- R6::R6Class(
   "InputPhoneContact",
@@ -18447,6 +19309,8 @@ InputPhoneContact <- R6::R6Class(
   )
 )
 
+#' @title InputPhoto
+#' @description Telegram API type InputPhoto
 #' @export
 InputPhoto <- R6::R6Class(
   "InputPhoto",
@@ -18480,6 +19344,8 @@ InputPhoto <- R6::R6Class(
   )
 )
 
+#' @title InputPhotoEmpty
+#' @description Telegram API type InputPhotoEmpty
 #' @export
 InputPhotoEmpty <- R6::R6Class(
   "InputPhotoEmpty",
@@ -18501,6 +19367,8 @@ InputPhotoEmpty <- R6::R6Class(
   )
 )
 
+#' @title InputPhotoFileLocation
+#' @description Telegram API type InputPhotoFileLocation
 #' @export
 InputPhotoFileLocation <- R6::R6Class(
   "InputPhotoFileLocation",
@@ -18537,6 +19405,8 @@ InputPhotoFileLocation <- R6::R6Class(
   )
 )
 
+#' @title InputPhotoLegacyFileLocation
+#' @description Telegram API type InputPhotoLegacyFileLocation
 #' @export
 InputPhotoLegacyFileLocation <- R6::R6Class(
   "InputPhotoLegacyFileLocation",
@@ -18579,6 +19449,8 @@ InputPhotoLegacyFileLocation <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyKeyAbout
+#' @description Telegram API type InputPrivacyKeyAbout
 #' @export
 InputPrivacyKeyAbout <- R6::R6Class(
   "InputPrivacyKeyAbout",
@@ -18600,6 +19472,8 @@ InputPrivacyKeyAbout <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyKeyAddedByPhone
+#' @description Telegram API type InputPrivacyKeyAddedByPhone
 #' @export
 InputPrivacyKeyAddedByPhone <- R6::R6Class(
   "InputPrivacyKeyAddedByPhone",
@@ -18621,6 +19495,8 @@ InputPrivacyKeyAddedByPhone <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyKeyBirthday
+#' @description Telegram API type InputPrivacyKeyBirthday
 #' @export
 InputPrivacyKeyBirthday <- R6::R6Class(
   "InputPrivacyKeyBirthday",
@@ -18642,6 +19518,8 @@ InputPrivacyKeyBirthday <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyKeyChatInvite
+#' @description Telegram API type InputPrivacyKeyChatInvite
 #' @export
 InputPrivacyKeyChatInvite <- R6::R6Class(
   "InputPrivacyKeyChatInvite",
@@ -18663,6 +19541,8 @@ InputPrivacyKeyChatInvite <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyKeyForwards
+#' @description Telegram API type InputPrivacyKeyForwards
 #' @export
 InputPrivacyKeyForwards <- R6::R6Class(
   "InputPrivacyKeyForwards",
@@ -18684,6 +19564,8 @@ InputPrivacyKeyForwards <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyKeyNoPaidMessages
+#' @description Telegram API type InputPrivacyKeyNoPaidMessages
 #' @export
 InputPrivacyKeyNoPaidMessages <- R6::R6Class(
   "InputPrivacyKeyNoPaidMessages",
@@ -18705,6 +19587,8 @@ InputPrivacyKeyNoPaidMessages <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyKeyPhoneCall
+#' @description Telegram API type InputPrivacyKeyPhoneCall
 #' @export
 InputPrivacyKeyPhoneCall <- R6::R6Class(
   "InputPrivacyKeyPhoneCall",
@@ -18726,6 +19610,8 @@ InputPrivacyKeyPhoneCall <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyKeyPhoneNumber
+#' @description Telegram API type InputPrivacyKeyPhoneNumber
 #' @export
 InputPrivacyKeyPhoneNumber <- R6::R6Class(
   "InputPrivacyKeyPhoneNumber",
@@ -18747,6 +19633,8 @@ InputPrivacyKeyPhoneNumber <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyKeyPhoneP2P
+#' @description Telegram API type InputPrivacyKeyPhoneP2P
 #' @export
 InputPrivacyKeyPhoneP2P <- R6::R6Class(
   "InputPrivacyKeyPhoneP2P",
@@ -18768,6 +19656,8 @@ InputPrivacyKeyPhoneP2P <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyKeyProfilePhoto
+#' @description Telegram API type InputPrivacyKeyProfilePhoto
 #' @export
 InputPrivacyKeyProfilePhoto <- R6::R6Class(
   "InputPrivacyKeyProfilePhoto",
@@ -18789,6 +19679,8 @@ InputPrivacyKeyProfilePhoto <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyKeyStarGiftsAutoSave
+#' @description Telegram API type InputPrivacyKeyStarGiftsAutoSave
 #' @export
 InputPrivacyKeyStarGiftsAutoSave <- R6::R6Class(
   "InputPrivacyKeyStarGiftsAutoSave",
@@ -18810,6 +19702,8 @@ InputPrivacyKeyStarGiftsAutoSave <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyKeyStatusTimestamp
+#' @description Telegram API type InputPrivacyKeyStatusTimestamp
 #' @export
 InputPrivacyKeyStatusTimestamp <- R6::R6Class(
   "InputPrivacyKeyStatusTimestamp",
@@ -18831,6 +19725,8 @@ InputPrivacyKeyStatusTimestamp <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyKeyVoiceMessages
+#' @description Telegram API type InputPrivacyKeyVoiceMessages
 #' @export
 InputPrivacyKeyVoiceMessages <- R6::R6Class(
   "InputPrivacyKeyVoiceMessages",
@@ -18852,6 +19748,8 @@ InputPrivacyKeyVoiceMessages <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyValueAllowAll
+#' @description Telegram API type InputPrivacyValueAllowAll
 #' @export
 InputPrivacyValueAllowAll <- R6::R6Class(
   "InputPrivacyValueAllowAll",
@@ -18873,6 +19771,8 @@ InputPrivacyValueAllowAll <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyValueAllowBots
+#' @description Telegram API type InputPrivacyValueAllowBots
 #' @export
 InputPrivacyValueAllowBots <- R6::R6Class(
   "InputPrivacyValueAllowBots",
@@ -18894,6 +19794,8 @@ InputPrivacyValueAllowBots <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyValueAllowChatParticipants
+#' @description Telegram API type InputPrivacyValueAllowChatParticipants
 #' @export
 InputPrivacyValueAllowChatParticipants <- R6::R6Class(
   "InputPrivacyValueAllowChatParticipants",
@@ -18922,6 +19824,8 @@ InputPrivacyValueAllowChatParticipants <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyValueAllowCloseFriends
+#' @description Telegram API type InputPrivacyValueAllowCloseFriends
 #' @export
 InputPrivacyValueAllowCloseFriends <- R6::R6Class(
   "InputPrivacyValueAllowCloseFriends",
@@ -18943,6 +19847,8 @@ InputPrivacyValueAllowCloseFriends <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyValueAllowContacts
+#' @description Telegram API type InputPrivacyValueAllowContacts
 #' @export
 InputPrivacyValueAllowContacts <- R6::R6Class(
   "InputPrivacyValueAllowContacts",
@@ -18964,6 +19870,8 @@ InputPrivacyValueAllowContacts <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyValueAllowPremium
+#' @description Telegram API type InputPrivacyValueAllowPremium
 #' @export
 InputPrivacyValueAllowPremium <- R6::R6Class(
   "InputPrivacyValueAllowPremium",
@@ -18985,6 +19893,8 @@ InputPrivacyValueAllowPremium <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyValueAllowUsers
+#' @description Telegram API type InputPrivacyValueAllowUsers
 #' @export
 InputPrivacyValueAllowUsers <- R6::R6Class(
   "InputPrivacyValueAllowUsers",
@@ -19013,6 +19923,8 @@ InputPrivacyValueAllowUsers <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyValueDisallowAll
+#' @description Telegram API type InputPrivacyValueDisallowAll
 #' @export
 InputPrivacyValueDisallowAll <- R6::R6Class(
   "InputPrivacyValueDisallowAll",
@@ -19034,6 +19946,8 @@ InputPrivacyValueDisallowAll <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyValueDisallowBots
+#' @description Telegram API type InputPrivacyValueDisallowBots
 #' @export
 InputPrivacyValueDisallowBots <- R6::R6Class(
   "InputPrivacyValueDisallowBots",
@@ -19055,6 +19969,8 @@ InputPrivacyValueDisallowBots <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyValueDisallowChatParticipants
+#' @description Telegram API type InputPrivacyValueDisallowChatParticipants
 #' @export
 InputPrivacyValueDisallowChatParticipants <- R6::R6Class(
   "InputPrivacyValueDisallowChatParticipants",
@@ -19083,6 +19999,8 @@ InputPrivacyValueDisallowChatParticipants <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyValueDisallowContacts
+#' @description Telegram API type InputPrivacyValueDisallowContacts
 #' @export
 InputPrivacyValueDisallowContacts <- R6::R6Class(
   "InputPrivacyValueDisallowContacts",
@@ -19104,6 +20022,8 @@ InputPrivacyValueDisallowContacts <- R6::R6Class(
   )
 )
 
+#' @title InputPrivacyValueDisallowUsers
+#' @description Telegram API type InputPrivacyValueDisallowUsers
 #' @export
 InputPrivacyValueDisallowUsers <- R6::R6Class(
   "InputPrivacyValueDisallowUsers",
@@ -19132,6 +20052,8 @@ InputPrivacyValueDisallowUsers <- R6::R6Class(
   )
 )
 
+#' @title InputQuickReplyShortcut
+#' @description Telegram API type InputQuickReplyShortcut
 #' @export
 InputQuickReplyShortcut <- R6::R6Class(
   "InputQuickReplyShortcut",
@@ -19159,6 +20081,8 @@ InputQuickReplyShortcut <- R6::R6Class(
   )
 )
 
+#' @title InputQuickReplyShortcutId
+#' @description Telegram API type InputQuickReplyShortcutId
 #' @export
 InputQuickReplyShortcutId <- R6::R6Class(
   "InputQuickReplyShortcutId",
@@ -19186,6 +20110,8 @@ InputQuickReplyShortcutId <- R6::R6Class(
   )
 )
 
+#' @title InputReplyToMessage
+#' @description Telegram API type InputReplyToMessage
 #' @export
 InputReplyToMessage <- R6::R6Class(
   "InputReplyToMessage",
@@ -19248,6 +20174,8 @@ InputReplyToMessage <- R6::R6Class(
   )
 )
 
+#' @title InputReplyToMonoForum
+#' @description Telegram API type InputReplyToMonoForum
 #' @export
 InputReplyToMonoForum <- R6::R6Class(
   "InputReplyToMonoForum",
@@ -19275,6 +20203,8 @@ InputReplyToMonoForum <- R6::R6Class(
   )
 )
 
+#' @title InputReplyToStory
+#' @description Telegram API type InputReplyToStory
 #' @export
 InputReplyToStory <- R6::R6Class(
   "InputReplyToStory",
@@ -19302,6 +20232,8 @@ InputReplyToStory <- R6::R6Class(
   )
 )
 
+#' @title InputReportReasonChildAbuse
+#' @description Telegram API type InputReportReasonChildAbuse
 #' @export
 InputReportReasonChildAbuse <- R6::R6Class(
   "InputReportReasonChildAbuse",
@@ -19323,6 +20255,8 @@ InputReportReasonChildAbuse <- R6::R6Class(
   )
 )
 
+#' @title InputReportReasonCopyright
+#' @description Telegram API type InputReportReasonCopyright
 #' @export
 InputReportReasonCopyright <- R6::R6Class(
   "InputReportReasonCopyright",
@@ -19344,6 +20278,8 @@ InputReportReasonCopyright <- R6::R6Class(
   )
 )
 
+#' @title InputReportReasonFake
+#' @description Telegram API type InputReportReasonFake
 #' @export
 InputReportReasonFake <- R6::R6Class(
   "InputReportReasonFake",
@@ -19365,6 +20301,8 @@ InputReportReasonFake <- R6::R6Class(
   )
 )
 
+#' @title InputReportReasonGeoIrrelevant
+#' @description Telegram API type InputReportReasonGeoIrrelevant
 #' @export
 InputReportReasonGeoIrrelevant <- R6::R6Class(
   "InputReportReasonGeoIrrelevant",
@@ -19386,6 +20324,8 @@ InputReportReasonGeoIrrelevant <- R6::R6Class(
   )
 )
 
+#' @title InputReportReasonIllegalDrugs
+#' @description Telegram API type InputReportReasonIllegalDrugs
 #' @export
 InputReportReasonIllegalDrugs <- R6::R6Class(
   "InputReportReasonIllegalDrugs",
@@ -19407,6 +20347,8 @@ InputReportReasonIllegalDrugs <- R6::R6Class(
   )
 )
 
+#' @title InputReportReasonOther
+#' @description Telegram API type InputReportReasonOther
 #' @export
 InputReportReasonOther <- R6::R6Class(
   "InputReportReasonOther",
@@ -19428,6 +20370,8 @@ InputReportReasonOther <- R6::R6Class(
   )
 )
 
+#' @title InputReportReasonPersonalDetails
+#' @description Telegram API type InputReportReasonPersonalDetails
 #' @export
 InputReportReasonPersonalDetails <- R6::R6Class(
   "InputReportReasonPersonalDetails",
@@ -19449,6 +20393,8 @@ InputReportReasonPersonalDetails <- R6::R6Class(
   )
 )
 
+#' @title InputReportReasonPornography
+#' @description Telegram API type InputReportReasonPornography
 #' @export
 InputReportReasonPornography <- R6::R6Class(
   "InputReportReasonPornography",
@@ -19470,6 +20416,8 @@ InputReportReasonPornography <- R6::R6Class(
   )
 )
 
+#' @title InputReportReasonSpam
+#' @description Telegram API type InputReportReasonSpam
 #' @export
 InputReportReasonSpam <- R6::R6Class(
   "InputReportReasonSpam",
@@ -19491,6 +20439,8 @@ InputReportReasonSpam <- R6::R6Class(
   )
 )
 
+#' @title InputReportReasonViolence
+#' @description Telegram API type InputReportReasonViolence
 #' @export
 InputReportReasonViolence <- R6::R6Class(
   "InputReportReasonViolence",
@@ -19512,6 +20462,8 @@ InputReportReasonViolence <- R6::R6Class(
   )
 )
 
+#' @title InputSavedStarGiftChat
+#' @description Telegram API type InputSavedStarGiftChat
 #' @export
 InputSavedStarGiftChat <- R6::R6Class(
   "InputSavedStarGiftChat",
@@ -19539,6 +20491,8 @@ InputSavedStarGiftChat <- R6::R6Class(
   )
 )
 
+#' @title InputSavedStarGiftSlug
+#' @description Telegram API type InputSavedStarGiftSlug
 #' @export
 InputSavedStarGiftSlug <- R6::R6Class(
   "InputSavedStarGiftSlug",
@@ -19564,6 +20518,8 @@ InputSavedStarGiftSlug <- R6::R6Class(
   )
 )
 
+#' @title InputSavedStarGiftUser
+#' @description Telegram API type InputSavedStarGiftUser
 #' @export
 InputSavedStarGiftUser <- R6::R6Class(
   "InputSavedStarGiftUser",
@@ -19589,6 +20545,8 @@ InputSavedStarGiftUser <- R6::R6Class(
   )
 )
 
+#' @title InputSecureFile
+#' @description Telegram API type InputSecureFile
 #' @export
 InputSecureFile <- R6::R6Class(
   "InputSecureFile",
@@ -19616,6 +20574,8 @@ InputSecureFile <- R6::R6Class(
   )
 )
 
+#' @title InputSecureFileLocation
+#' @description Telegram API type InputSecureFileLocation
 #' @export
 InputSecureFileLocation <- R6::R6Class(
   "InputSecureFileLocation",
@@ -19643,6 +20603,8 @@ InputSecureFileLocation <- R6::R6Class(
   )
 )
 
+#' @title InputSecureFileUploaded
+#' @description Telegram API type InputSecureFileUploaded
 #' @export
 InputSecureFileUploaded <- R6::R6Class(
   "InputSecureFileUploaded",
@@ -19676,6 +20638,8 @@ InputSecureFileUploaded <- R6::R6Class(
   )
 )
 
+#' @title InputSecureValue
+#' @description Telegram API type InputSecureValue
 #' @export
 InputSecureValue <- R6::R6Class(
   "InputSecureValue",
@@ -19727,6 +20691,8 @@ InputSecureValue <- R6::R6Class(
   )
 )
 
+#' @title InputSingleMedia
+#' @description Telegram API type InputSingleMedia
 #' @export
 InputSingleMedia <- R6::R6Class(
   "InputSingleMedia",
@@ -19765,6 +20731,8 @@ InputSingleMedia <- R6::R6Class(
   )
 )
 
+#' @title InputStarsTransaction
+#' @description Telegram API type InputStarsTransaction
 #' @export
 InputStarsTransaction <- R6::R6Class(
   "InputStarsTransaction",
@@ -19794,6 +20762,8 @@ InputStarsTransaction <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetAnimatedEmoji
+#' @description Telegram API type InputStickerSetAnimatedEmoji
 #' @export
 InputStickerSetAnimatedEmoji <- R6::R6Class(
   "InputStickerSetAnimatedEmoji",
@@ -19815,6 +20785,8 @@ InputStickerSetAnimatedEmoji <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetAnimatedEmojiAnimations
+#' @description Telegram API type InputStickerSetAnimatedEmojiAnimations
 #' @export
 InputStickerSetAnimatedEmojiAnimations <- R6::R6Class(
   "InputStickerSetAnimatedEmojiAnimations",
@@ -19836,6 +20808,8 @@ InputStickerSetAnimatedEmojiAnimations <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetDice
+#' @description Telegram API type InputStickerSetDice
 #' @export
 InputStickerSetDice <- R6::R6Class(
   "InputStickerSetDice",
@@ -19861,6 +20835,8 @@ InputStickerSetDice <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetEmojiChannelDefaultStatuses
+#' @description Telegram API type InputStickerSetEmojiChannelDefaultStatuses
 #' @export
 InputStickerSetEmojiChannelDefaultStatuses <- R6::R6Class(
   "InputStickerSetEmojiChannelDefaultStatuses",
@@ -19882,6 +20858,8 @@ InputStickerSetEmojiChannelDefaultStatuses <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetEmojiDefaultStatuses
+#' @description Telegram API type InputStickerSetEmojiDefaultStatuses
 #' @export
 InputStickerSetEmojiDefaultStatuses <- R6::R6Class(
   "InputStickerSetEmojiDefaultStatuses",
@@ -19903,6 +20881,8 @@ InputStickerSetEmojiDefaultStatuses <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetEmojiDefaultTopicIcons
+#' @description Telegram API type InputStickerSetEmojiDefaultTopicIcons
 #' @export
 InputStickerSetEmojiDefaultTopicIcons <- R6::R6Class(
   "InputStickerSetEmojiDefaultTopicIcons",
@@ -19924,6 +20904,8 @@ InputStickerSetEmojiDefaultTopicIcons <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetEmojiGenericAnimations
+#' @description Telegram API type InputStickerSetEmojiGenericAnimations
 #' @export
 InputStickerSetEmojiGenericAnimations <- R6::R6Class(
   "InputStickerSetEmojiGenericAnimations",
@@ -19945,6 +20927,8 @@ InputStickerSetEmojiGenericAnimations <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetEmpty
+#' @description Telegram API type InputStickerSetEmpty
 #' @export
 InputStickerSetEmpty <- R6::R6Class(
   "InputStickerSetEmpty",
@@ -19966,6 +20950,8 @@ InputStickerSetEmpty <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetID
+#' @description Telegram API type InputStickerSetID
 #' @export
 InputStickerSetID <- R6::R6Class(
   "InputStickerSetID",
@@ -19993,6 +20979,8 @@ InputStickerSetID <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetItem
+#' @description Telegram API type InputStickerSetItem
 #' @export
 InputStickerSetItem <- R6::R6Class(
   "InputStickerSetItem",
@@ -20026,6 +21014,8 @@ InputStickerSetItem <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetPremiumGifts
+#' @description Telegram API type InputStickerSetPremiumGifts
 #' @export
 InputStickerSetPremiumGifts <- R6::R6Class(
   "InputStickerSetPremiumGifts",
@@ -20047,6 +21037,8 @@ InputStickerSetPremiumGifts <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetShortName
+#' @description Telegram API type InputStickerSetShortName
 #' @export
 InputStickerSetShortName <- R6::R6Class(
   "InputStickerSetShortName",
@@ -20072,6 +21064,8 @@ InputStickerSetShortName <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetThumb
+#' @description Telegram API type InputStickerSetThumb
 #' @export
 InputStickerSetThumb <- R6::R6Class(
   "InputStickerSetThumb",
@@ -20099,6 +21093,8 @@ InputStickerSetThumb <- R6::R6Class(
   )
 )
 
+#' @title InputStickerSetTonGifts
+#' @description Telegram API type InputStickerSetTonGifts
 #' @export
 InputStickerSetTonGifts <- R6::R6Class(
   "InputStickerSetTonGifts",
@@ -20120,6 +21116,8 @@ InputStickerSetTonGifts <- R6::R6Class(
   )
 )
 
+#' @title InputStickeredMediaDocument
+#' @description Telegram API type InputStickeredMediaDocument
 #' @export
 InputStickeredMediaDocument <- R6::R6Class(
   "InputStickeredMediaDocument",
@@ -20145,6 +21143,8 @@ InputStickeredMediaDocument <- R6::R6Class(
   )
 )
 
+#' @title InputStickeredMediaPhoto
+#' @description Telegram API type InputStickeredMediaPhoto
 #' @export
 InputStickeredMediaPhoto <- R6::R6Class(
   "InputStickeredMediaPhoto",
@@ -20170,6 +21170,8 @@ InputStickeredMediaPhoto <- R6::R6Class(
   )
 )
 
+#' @title InputStorePaymentAuthCode
+#' @description Telegram API type InputStorePaymentAuthCode
 #' @export
 InputStorePaymentAuthCode <- R6::R6Class(
   "InputStorePaymentAuthCode",
@@ -20205,6 +21207,8 @@ InputStorePaymentAuthCode <- R6::R6Class(
   )
 )
 
+#' @title InputStorePaymentGiftPremium
+#' @description Telegram API type InputStorePaymentGiftPremium
 #' @export
 InputStorePaymentGiftPremium <- R6::R6Class(
   "InputStorePaymentGiftPremium",
@@ -20247,6 +21251,8 @@ InputStorePaymentGiftPremium <- R6::R6Class(
   )
 )
 
+#' @title InputStorePaymentPremiumGiftCode
+#' @description Telegram API type InputStorePaymentPremiumGiftCode
 #' @export
 InputStorePaymentPremiumGiftCode <- R6::R6Class(
   "InputStorePaymentPremiumGiftCode",
@@ -20277,6 +21283,8 @@ InputStorePaymentPremiumGiftCode <- R6::R6Class(
   )
 )
 
+#' @title InputStorePaymentPremiumGiveaway
+#' @description Telegram API type InputStorePaymentPremiumGiveaway
 #' @export
 InputStorePaymentPremiumGiveaway <- R6::R6Class(
   "InputStorePaymentPremiumGiveaway",
@@ -20324,6 +21332,8 @@ InputStorePaymentPremiumGiveaway <- R6::R6Class(
   )
 )
 
+#' @title InputStorePaymentPremiumSubscription
+#' @description Telegram API type InputStorePaymentPremiumSubscription
 #' @export
 InputStorePaymentPremiumSubscription <- R6::R6Class(
   "InputStorePaymentPremiumSubscription",
@@ -20350,6 +21360,8 @@ InputStorePaymentPremiumSubscription <- R6::R6Class(
   )
 )
 
+#' @title InputStorePaymentStarsGift
+#' @description Telegram API type InputStorePaymentStarsGift
 #' @export
 InputStorePaymentStarsGift <- R6::R6Class(
   "InputStorePaymentStarsGift",
@@ -20386,6 +21398,8 @@ InputStorePaymentStarsGift <- R6::R6Class(
   )
 )
 
+#' @title InputStorePaymentStarsGiveaway
+#' @description Telegram API type InputStorePaymentStarsGiveaway
 #' @export
 InputStorePaymentStarsGiveaway <- R6::R6Class(
   "InputStorePaymentStarsGiveaway",
@@ -20462,6 +21476,8 @@ InputStorePaymentStarsGiveaway <- R6::R6Class(
   )
 )
 
+#' @title InputStorePaymentStarsTopup
+#' @description Telegram API type InputStorePaymentStarsTopup
 #' @export
 InputStorePaymentStarsTopup <- R6::R6Class(
   "InputStorePaymentStarsTopup",
@@ -20499,6 +21515,8 @@ InputStorePaymentStarsTopup <- R6::R6Class(
   )
 )
 
+#' @title InputStorePaymentPremiumSubscription
+#' @description Telegram API type InputStorePaymentPremiumSubscription
 #' @export
 InputStorePaymentPremiumSubscription <- R6::R6Class(
   "InputStorePaymentPremiumSubscription",
@@ -20533,6 +21551,8 @@ InputStorePaymentPremiumSubscription <- R6::R6Class(
   )
 )
 
+#' @title InputStorePaymentGiftPremium
+#' @description Telegram API type InputStorePaymentGiftPremium
 #' @export
 InputStorePaymentGiftPremium <- R6::R6Class(
   "InputStorePaymentGiftPremium",
@@ -20562,6 +21582,8 @@ InputStorePaymentGiftPremium <- R6::R6Class(
   )
 )
 
+#' @title InputTakeoutFileLocation
+#' @description Telegram API type InputTakeoutFileLocation
 #' @export
 InputTakeoutFileLocation <- R6::R6Class(
   "InputTakeoutFileLocation",
@@ -20583,6 +21605,8 @@ InputTakeoutFileLocation <- R6::R6Class(
   )
 )
 
+#' @title InputTheme
+#' @description Telegram API type InputTheme
 #' @export
 InputTheme <- R6::R6Class(
   "InputTheme",
@@ -20603,6 +21627,8 @@ InputTheme <- R6::R6Class(
   )
 )
 
+#' @title InputThemeSettings
+#' @description Telegram API type InputThemeSettings
 #' @export
 InputThemeSettings <- R6::R6Class(
   "InputThemeSettings",
@@ -20640,6 +21666,8 @@ InputThemeSettings <- R6::R6Class(
   )
 )
 
+#' @title InputThemeSlug
+#' @description Telegram API type InputThemeSlug
 #' @export
 InputThemeSlug <- R6::R6Class(
   "InputThemeSlug",
@@ -20666,6 +21694,8 @@ InputThemeSlug <- R6::R6Class(
   )
 )
 
+#' @title InputUser
+#' @description Telegram API type InputUser
 #' @export
 InputUser <- R6::R6Class(
   "InputUser",
@@ -20699,6 +21729,8 @@ InputUser <- R6::R6Class(
   )
 )
 
+#' @title InputUserEmpty
+#' @description Telegram API type InputUserEmpty
 #' @export
 InputUserEmpty <- R6::R6Class(
   "InputUserEmpty",
@@ -20720,6 +21752,8 @@ InputUserEmpty <- R6::R6Class(
   )
 )
 
+#' @title InputUserFromMessage
+#' @description Telegram API type InputUserFromMessage
 #' @export
 InputUserFromMessage <- R6::R6Class(
   "InputUserFromMessage",
@@ -20762,6 +21796,8 @@ InputUserFromMessage <- R6::R6Class(
   )
 )
 
+#' @title InputUserSelf
+#' @description Telegram API type InputUserSelf
 #' @export
 InputUserSelf <- R6::R6Class(
   "InputUserSelf",
@@ -20783,6 +21819,8 @@ InputUserSelf <- R6::R6Class(
   )
 )
 
+#' @title InputWallPaper
+#' @description Telegram API type InputWallPaper
 #' @export
 InputWallPaper <- R6::R6Class(
   "InputWallPaper",
@@ -20818,6 +21856,8 @@ InputWallPaper <- R6::R6Class(
   )
 )
 
+#' @title InputWallPaperNoFile
+#' @description Telegram API type InputWallPaperNoFile
 #' @export
 InputWallPaperNoFile <- R6::R6Class(
   "InputWallPaperNoFile",
@@ -20848,6 +21888,8 @@ InputWallPaperNoFile <- R6::R6Class(
   )
 )
 
+#' @title InputWallPaperSlug
+#' @description Telegram API type InputWallPaperSlug
 #' @export
 InputWallPaperSlug <- R6::R6Class(
   "InputWallPaperSlug",
@@ -20878,6 +21920,8 @@ InputWallPaperSlug <- R6::R6Class(
   )
 )
 
+#' @title InputWebDocument
+#' @description Telegram API type InputWebDocument
 #' @export
 InputWebDocument <- R6::R6Class(
   "InputWebDocument",
@@ -20921,6 +21965,8 @@ InputWebDocument <- R6::R6Class(
   )
 )
 
+#' @title InputWebFileAudioAlbumThumbLocation
+#' @description Telegram API type InputWebFileAudioAlbumThumbLocation
 #' @export
 InputWebFileAudioAlbumThumbLocation <- R6::R6Class(
   "InputWebFileAudioAlbumThumbLocation",
@@ -20963,6 +22009,8 @@ InputWebFileAudioAlbumThumbLocation <- R6::R6Class(
   )
 )
 
+#' @title InputWebFileGeoPointLocation
+#' @description Telegram API type InputWebFileGeoPointLocation
 #' @export
 InputWebFileGeoPointLocation <- R6::R6Class(
   "InputWebFileGeoPointLocation",
@@ -21020,6 +22068,8 @@ InputWebFileGeoPointLocation <- R6::R6Class(
   )
 )
 
+#' @title InputWebFileLocation
+#' @description Telegram API type InputWebFileLocation
 #' @export
 InputWebFileLocation <- R6::R6Class(
   "InputWebFileLocation",
@@ -21057,6 +22107,8 @@ InputWebFileLocation <- R6::R6Class(
   )
 )
 
+#' @title Invoice
+#' @description Telegram API type Invoice
 #' @export
 Invoice <- R6::R6Class(
   "Invoice",
@@ -21169,6 +22221,8 @@ Invoice <- R6::R6Class(
   )
 )
 
+#' @title IpPort
+#' @description Telegram API type IpPort
 #' @export
 IpPort <- R6::R6Class(
   "IpPort",
@@ -21202,6 +22256,8 @@ IpPort <- R6::R6Class(
   )
 )
 
+#' @title IpPortSecret
+#' @description Telegram API type IpPortSecret
 #' @export
 IpPortSecret <- R6::R6Class(
   "IpPortSecret",
@@ -21239,6 +22295,8 @@ IpPortSecret <- R6::R6Class(
   )
 )
 
+#' @title JsonArray
+#' @description Telegram API type JsonArray
 #' @export
 JsonArray <- R6::R6Class(
   "JsonArray",
@@ -21279,6 +22337,8 @@ JsonArray <- R6::R6Class(
   )
 )
 
+#' @title JsonBool
+#' @description Telegram API type JsonBool
 #' @export
 JsonBool <- R6::R6Class(
   "JsonBool",
@@ -21312,6 +22372,8 @@ JsonBool <- R6::R6Class(
   )
 )
 
+#' @title JsonNull
+#' @description Telegram API type JsonNull
 #' @export
 JsonNull <- R6::R6Class(
   "JsonNull",
@@ -21333,6 +22395,8 @@ JsonNull <- R6::R6Class(
   )
 )
 
+#' @title JsonNumber
+#' @description Telegram API type JsonNumber
 #' @export
 JsonNumber <- R6::R6Class(
   "JsonNumber",
@@ -21365,6 +22429,8 @@ JsonNumber <- R6::R6Class(
   )
 )
 
+#' @title JsonObject
+#' @description Telegram API type JsonObject
 #' @export
 JsonObject <- R6::R6Class(
   "JsonObject",
@@ -21410,6 +22476,8 @@ JsonObject <- R6::R6Class(
   )
 )
 
+#' @title JsonObjectValue
+#' @description Telegram API type JsonObjectValue
 #' @export
 JsonObjectValue <- R6::R6Class(
   "JsonObjectValue",
@@ -21448,6 +22516,8 @@ JsonObjectValue <- R6::R6Class(
   )
 )
 
+#' @title JsonString
+#' @description Telegram API type JsonString
 #' @export
 JsonString <- R6::R6Class(
   "JsonString",
@@ -21477,6 +22547,8 @@ JsonString <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButton
+#' @description Telegram API type KeyboardButton
 #' @export
 KeyboardButton <- R6::R6Class(
   "KeyboardButton",
@@ -21506,6 +22578,8 @@ KeyboardButton <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonBuy
+#' @description Telegram API type KeyboardButtonBuy
 #' @export
 KeyboardButtonBuy <- R6::R6Class(
   "KeyboardButtonBuy",
@@ -21535,6 +22609,8 @@ KeyboardButtonBuy <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonCallback
+#' @description Telegram API type KeyboardButtonCallback
 #' @export
 KeyboardButtonCallback <- R6::R6Class(
   "KeyboardButtonCallback",
@@ -21573,6 +22649,8 @@ KeyboardButtonCallback <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonCopy
+#' @description Telegram API type KeyboardButtonCopy
 #' @export
 KeyboardButtonCopy <- R6::R6Class("KeyboardButtonCopy",
   inherit = TLObject,
@@ -21600,6 +22678,8 @@ KeyboardButtonCopy <- R6::R6Class("KeyboardButtonCopy",
   )
 )
 
+#' @title KeyboardButtonGame
+#' @description Telegram API type KeyboardButtonGame
 #' @export
 KeyboardButtonGame <- R6::R6Class("KeyboardButtonGame",
   inherit = TLObject,
@@ -21625,6 +22705,8 @@ KeyboardButtonGame <- R6::R6Class("KeyboardButtonGame",
   )
 )
 
+#' @title KeyboardButtonRequestGeoLocation
+#' @description Telegram API type KeyboardButtonRequestGeoLocation
 #' @export
 KeyboardButtonRequestGeoLocation <- R6::R6Class("KeyboardButtonRequestGeoLocation",
   inherit = TLObject,
@@ -21650,6 +22732,8 @@ KeyboardButtonRequestGeoLocation <- R6::R6Class("KeyboardButtonRequestGeoLocatio
   )
 )
 
+#' @title KeyboardButtonRequestPeer
+#' @description Telegram API type KeyboardButtonRequestPeer
 #' @export
 KeyboardButtonRequestPeer <- R6::R6Class("KeyboardButtonRequestPeer",
   inherit = TLObject,
@@ -21681,6 +22765,8 @@ KeyboardButtonRequestPeer <- R6::R6Class("KeyboardButtonRequestPeer",
   )
 )
 
+#' @title KeyboardButtonRequestPhone
+#' @description Telegram API type KeyboardButtonRequestPhone
 #' @export
 KeyboardButtonRequestPhone <- R6::R6Class("KeyboardButtonRequestPhone",
   inherit = TLObject,
@@ -21706,6 +22792,8 @@ KeyboardButtonRequestPhone <- R6::R6Class("KeyboardButtonRequestPhone",
   )
 )
 
+#' @title KeyboardButtonRequestPoll
+#' @description Telegram API type KeyboardButtonRequestPoll
 #' @export
 KeyboardButtonRequestPoll <- R6::R6Class("KeyboardButtonRequestPoll",
   inherit = TLObject,
@@ -21739,6 +22827,8 @@ KeyboardButtonRequestPoll <- R6::R6Class("KeyboardButtonRequestPoll",
   )
 )
 
+#' @title KeyboardButtonRow
+#' @description Telegram API type KeyboardButtonRow
 #' @export
 KeyboardButtonRow <- R6::R6Class("KeyboardButtonRow",
   inherit = TLObject,
@@ -21769,6 +22859,8 @@ KeyboardButtonRow <- R6::R6Class("KeyboardButtonRow",
   )
 )
 
+#' @title KeyboardButtonSimpleWebView
+#' @description Telegram API type KeyboardButtonSimpleWebView
 #' @export
 KeyboardButtonSimpleWebView <- R6::R6Class("KeyboardButtonSimpleWebView",
   inherit = TLObject,
@@ -21796,6 +22888,8 @@ KeyboardButtonSimpleWebView <- R6::R6Class("KeyboardButtonSimpleWebView",
   )
 )
 
+#' @title KeyboardButtonSwitchInline
+#' @description Telegram API type KeyboardButtonSwitchInline
 #' @export
 KeyboardButtonSwitchInline <- R6::R6Class("KeyboardButtonSwitchInline",
   inherit = TLObject,
@@ -21839,6 +22933,8 @@ KeyboardButtonSwitchInline <- R6::R6Class("KeyboardButtonSwitchInline",
   )
 )
 
+#' @title KeyboardButtonUrl
+#' @description Telegram API type KeyboardButtonUrl
 #' @export
 KeyboardButtonUrl <- R6::R6Class("KeyboardButtonUrl",
   inherit = TLObject,
@@ -21866,6 +22962,8 @@ KeyboardButtonUrl <- R6::R6Class("KeyboardButtonUrl",
   )
 )
 
+#' @title KeyboardButtonUrlAuth
+#' @description Telegram API type KeyboardButtonUrlAuth
 #' @export
 KeyboardButtonUrlAuth <- R6::R6Class("KeyboardButtonUrlAuth",
   inherit = TLObject,
@@ -21903,6 +23001,8 @@ KeyboardButtonUrlAuth <- R6::R6Class("KeyboardButtonUrlAuth",
   )
 )
 
+#' @title KeyboardButtonUserProfile
+#' @description Telegram API type KeyboardButtonUserProfile
 #' @export
 KeyboardButtonUserProfile <- R6::R6Class("KeyboardButtonUserProfile",
   inherit = TLObject,
@@ -21930,6 +23030,8 @@ KeyboardButtonUserProfile <- R6::R6Class("KeyboardButtonUserProfile",
   )
 )
 
+#' @title KeyboardButtonWebView
+#' @description Telegram API type KeyboardButtonWebView
 #' @export
 KeyboardButtonWebView <- R6::R6Class("KeyboardButtonWebView",
   inherit = TLObject,
@@ -21957,6 +23059,8 @@ KeyboardButtonWebView <- R6::R6Class("KeyboardButtonWebView",
   )
 )
 
+#' @title KeyboardButton
+#' @description Telegram API type KeyboardButton
 #' @export
 KeyboardButton <- R6::R6Class("KeyboardButton",
   inherit = TLObject,
@@ -21982,6 +23086,8 @@ KeyboardButton <- R6::R6Class("KeyboardButton",
   )
 )
 
+#' @title KeyboardButtonBuy
+#' @description Telegram API type KeyboardButtonBuy
 #' @export
 KeyboardButtonBuy <- R6::R6Class("KeyboardButtonBuy",
   inherit = TLObject,
@@ -22007,6 +23113,8 @@ KeyboardButtonBuy <- R6::R6Class("KeyboardButtonBuy",
   )
 )
 
+#' @title KeyboardButtonCallback
+#' @description Telegram API type KeyboardButtonCallback
 #' @export
 KeyboardButtonCallback <- R6::R6Class("KeyboardButtonCallback",
   inherit = TLObject,
@@ -22038,6 +23146,8 @@ KeyboardButtonCallback <- R6::R6Class("KeyboardButtonCallback",
   )
 )
 
+#' @title KeyboardButtonCopy
+#' @description Telegram API type KeyboardButtonCopy
 #' @export
 KeyboardButtonCopy <- R6::R6Class(
   "KeyboardButtonCopy",
@@ -22071,6 +23181,8 @@ KeyboardButtonCopy <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonGame
+#' @description Telegram API type KeyboardButtonGame
 #' @export
 KeyboardButtonGame <- R6::R6Class(
   "KeyboardButtonGame",
@@ -22100,6 +23212,8 @@ KeyboardButtonGame <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonRequestGeoLocation
+#' @description Telegram API type KeyboardButtonRequestGeoLocation
 #' @export
 KeyboardButtonRequestGeoLocation <- R6::R6Class(
   "KeyboardButtonRequestGeoLocation",
@@ -22129,6 +23243,8 @@ KeyboardButtonRequestGeoLocation <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonRequestPeer
+#' @description Telegram API type KeyboardButtonRequestPeer
 #' @export
 KeyboardButtonRequestPeer <- R6::R6Class(
   "KeyboardButtonRequestPeer",
@@ -22170,6 +23286,8 @@ KeyboardButtonRequestPeer <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonRequestPhone
+#' @description Telegram API type KeyboardButtonRequestPhone
 #' @export
 KeyboardButtonRequestPhone <- R6::R6Class(
   "KeyboardButtonRequestPhone",
@@ -22199,6 +23317,8 @@ KeyboardButtonRequestPhone <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonRequestPoll
+#' @description Telegram API type KeyboardButtonRequestPoll
 #' @export
 KeyboardButtonRequestPoll <- R6::R6Class(
   "KeyboardButtonRequestPoll",
@@ -22239,6 +23359,8 @@ KeyboardButtonRequestPoll <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonRow
+#' @description Telegram API type KeyboardButtonRow
 #' @export
 KeyboardButtonRow <- R6::R6Class(
   "KeyboardButtonRow",
@@ -22275,6 +23397,8 @@ KeyboardButtonRow <- R6::R6Class(
   class = TRUE
 )
 
+#' @title KeyboardButtonSimpleWebView
+#' @description Telegram API type KeyboardButtonSimpleWebView
 #' @export
 KeyboardButtonSimpleWebView <- R6::R6Class(
   "KeyboardButtonSimpleWebView",
@@ -22308,6 +23432,8 @@ KeyboardButtonSimpleWebView <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonSwitchInline
+#' @description Telegram API type KeyboardButtonSwitchInline
 #' @export
 KeyboardButtonSwitchInline <- R6::R6Class(
   "KeyboardButtonSwitchInline",
@@ -22359,6 +23485,8 @@ KeyboardButtonSwitchInline <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonUrl
+#' @description Telegram API type KeyboardButtonUrl
 #' @export
 KeyboardButtonUrl <- R6::R6Class(
   "KeyboardButtonUrl",
@@ -22392,6 +23520,8 @@ KeyboardButtonUrl <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonUrlAuth
+#' @description Telegram API type KeyboardButtonUrlAuth
 #' @export
 KeyboardButtonUrlAuth <- R6::R6Class(
   "KeyboardButtonUrlAuth",
@@ -22440,6 +23570,8 @@ KeyboardButtonUrlAuth <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonUserProfile
+#' @description Telegram API type KeyboardButtonUserProfile
 #' @export
 KeyboardButtonUserProfile <- R6::R6Class(
   "KeyboardButtonUserProfile",
@@ -22473,6 +23605,8 @@ KeyboardButtonUserProfile <- R6::R6Class(
   )
 )
 
+#' @title KeyboardButtonWebView
+#' @description Telegram API type KeyboardButtonWebView
 #' @export
 KeyboardButtonWebView <- R6::R6Class(
   "KeyboardButtonWebView",
@@ -22506,6 +23640,8 @@ KeyboardButtonWebView <- R6::R6Class(
   )
 )
 
+#' @title LabeledPrice
+#' @description Telegram API type LabeledPrice
 #' @export
 LabeledPrice <- R6::R6Class(
   "LabeledPrice",
@@ -22539,6 +23675,8 @@ LabeledPrice <- R6::R6Class(
   )
 )
 
+#' @title LangPackDifference
+#' @description Telegram API type LangPackDifference
 #' @export
 LangPackDifference <- R6::R6Class(
   "LangPackDifference",
@@ -22570,6 +23708,8 @@ LangPackDifference <- R6::R6Class(
   )
 )
 
+#' @title LangPackLanguage
+#' @description Telegram API type LangPackLanguage
 #' @export
 LangPackLanguage <- R6::R6Class(
   "LangPackLanguage",
@@ -22615,6 +23755,8 @@ LangPackLanguage <- R6::R6Class(
   )
 )
 
+#' @title LangPackString
+#' @description Telegram API type LangPackString
 #' @export
 LangPackString <- R6::R6Class(
   "LangPackString",
@@ -22642,6 +23784,8 @@ LangPackString <- R6::R6Class(
   )
 )
 
+#' @title LangPackStringDeleted
+#' @description Telegram API type LangPackStringDeleted
 #' @export
 LangPackStringDeleted <- R6::R6Class(
   "LangPackStringDeleted",
@@ -22667,6 +23811,8 @@ LangPackStringDeleted <- R6::R6Class(
   )
 )
 
+#' @title LangPackStringPluralized
+#' @description Telegram API type LangPackStringPluralized
 #' @export
 LangPackStringPluralized <- R6::R6Class(
   "LangPackStringPluralized",
@@ -22704,6 +23850,8 @@ LangPackStringPluralized <- R6::R6Class(
   )
 )
 
+#' @title MaskCoords
+#' @description Telegram API type MaskCoords
 #' @export
 MaskCoords <- R6::R6Class(
   "MaskCoords",
@@ -22735,6 +23883,8 @@ MaskCoords <- R6::R6Class(
   )
 )
 
+#' @title MediaAreaChannelPost
+#' @description Telegram API type MediaAreaChannelPost
 #' @export
 MediaAreaChannelPost <- R6::R6Class(
   "MediaAreaChannelPost",
@@ -22764,6 +23914,8 @@ MediaAreaChannelPost <- R6::R6Class(
   )
 )
 
+#' @title MediaAreaCoordinates
+#' @description Telegram API type MediaAreaCoordinates
 #' @export
 MediaAreaCoordinates <- R6::R6Class(
   "MediaAreaCoordinates",
@@ -22799,6 +23951,8 @@ MediaAreaCoordinates <- R6::R6Class(
   )
 )
 
+#' @title MediaAreaGeoPoint
+#' @description Telegram API type MediaAreaGeoPoint
 #' @export
 MediaAreaGeoPoint <- R6::R6Class("MediaAreaGeoPoint",
   inherit = TLObject,
@@ -22838,6 +23992,8 @@ MediaAreaGeoPoint <- R6::R6Class("MediaAreaGeoPoint",
   class = TRUE
 )
 
+#' @title MediaAreaStarGift
+#' @description Telegram API type MediaAreaStarGift
 #' @export
 MediaAreaStarGift <- R6::R6Class("MediaAreaStarGift",
   inherit = TLObject,
@@ -22871,6 +24027,8 @@ MediaAreaStarGift <- R6::R6Class("MediaAreaStarGift",
   class = TRUE
 )
 
+#' @title MediaAreaSuggestedReaction
+#' @description Telegram API type MediaAreaSuggestedReaction
 #' @export
 MediaAreaSuggestedReaction <- R6::R6Class("MediaAreaSuggestedReaction",
   inherit = TLObject,
@@ -22913,6 +24071,8 @@ MediaAreaSuggestedReaction <- R6::R6Class("MediaAreaSuggestedReaction",
   class = TRUE
 )
 
+#' @title MediaAreaUrl
+#' @description Telegram API type MediaAreaUrl
 #' @export
 MediaAreaUrl <- R6::R6Class("MediaAreaUrl",
   inherit = TLObject,
@@ -22946,6 +24106,8 @@ MediaAreaUrl <- R6::R6Class("MediaAreaUrl",
   class = TRUE
 )
 
+#' @title MediaAreaVenue
+#' @description Telegram API type MediaAreaVenue
 #' @export
 MediaAreaVenue <- R6::R6Class("MediaAreaVenue",
   inherit = TLObject,
@@ -23002,6 +24164,8 @@ MediaAreaVenue <- R6::R6Class("MediaAreaVenue",
   class = TRUE
 )
 
+#' @title MediaAreaWeather
+#' @description Telegram API type MediaAreaWeather
 #' @export
 MediaAreaWeather <- R6::R6Class("MediaAreaWeather",
   inherit = TLObject,
@@ -23043,6 +24207,8 @@ MediaAreaWeather <- R6::R6Class("MediaAreaWeather",
   class = TRUE
 )
 
+#' @title Message
+#' @description Telegram API type Message
 #' @export
 Message <- R6::R6Class(
   "Message",
@@ -23265,6 +24431,8 @@ Message <- R6::R6Class(
   )
 )
 
+#' @title MessageActionBoostApply
+#' @description Telegram API type MessageActionBoostApply
 #' @export
 MessageActionBoostApply <- R6::R6Class(
   "MessageActionBoostApply",
@@ -23291,6 +24459,8 @@ MessageActionBoostApply <- R6::R6Class(
   )
 )
 
+#' @title MessageActionBotAllowed
+#' @description Telegram API type MessageActionBotAllowed
 #' @export
 MessageActionBotAllowed <- R6::R6Class(
   "MessageActionBotAllowed",
@@ -23335,6 +24505,8 @@ MessageActionBotAllowed <- R6::R6Class(
   )
 )
 
+#' @title MessageActionChannelCreate
+#' @description Telegram API type MessageActionChannelCreate
 #' @export
 MessageActionChannelCreate <- R6::R6Class(
   "MessageActionChannelCreate",
@@ -23364,6 +24536,8 @@ MessageActionChannelCreate <- R6::R6Class(
   )
 )
 
+#' @title MessageActionChannelMigrateFrom
+#' @description Telegram API type MessageActionChannelMigrateFrom
 #' @export
 MessageActionChannelMigrateFrom <- R6::R6Class(
   "MessageActionChannelMigrateFrom",
@@ -23397,6 +24571,8 @@ MessageActionChannelMigrateFrom <- R6::R6Class(
   )
 )
 
+#' @title MessageActionChatAddUser
+#' @description Telegram API type MessageActionChatAddUser
 #' @export
 MessageActionChatAddUser <- R6::R6Class(
   "MessageActionChatAddUser",
@@ -23431,6 +24607,8 @@ MessageActionChatAddUser <- R6::R6Class(
   )
 )
 
+#' @title MessageActionChatCreate
+#' @description Telegram API type MessageActionChatCreate
 #' @export
 MessageActionChatCreate <- R6::R6Class(
   "MessageActionChatCreate",
@@ -23474,6 +24652,8 @@ MessageActionChatCreate <- R6::R6Class(
   )
 )
 
+#' @title MessageActionChatDeletePhoto
+#' @description Telegram API type MessageActionChatDeletePhoto
 #' @export
 MessageActionChatDeletePhoto <- R6::R6Class(
   "MessageActionChatDeletePhoto",
@@ -23495,6 +24675,8 @@ MessageActionChatDeletePhoto <- R6::R6Class(
   )
 )
 
+#' @title MessageActionChatDeleteUser
+#' @description Telegram API type MessageActionChatDeleteUser
 #' @export
 MessageActionChatDeleteUser <- R6::R6Class(
   "MessageActionChatDeleteUser",
@@ -23527,6 +24709,8 @@ MessageActionChatDeleteUser <- R6::R6Class(
   )
 )
 
+#' @title MessageActionChatEditPhoto
+#' @description Telegram API type MessageActionChatEditPhoto
 #' @export
 MessageActionChatEditPhoto <- R6::R6Class(
   "MessageActionChatEditPhoto",
@@ -23559,6 +24743,8 @@ MessageActionChatEditPhoto <- R6::R6Class(
   )
 )
 
+#' @title MessageActionChatEditTitle
+#' @description Telegram API type MessageActionChatEditTitle
 #' @export
 MessageActionChatEditTitle <- R6::R6Class(
   "MessageActionChatEditTitle",
@@ -23591,6 +24777,8 @@ MessageActionChatEditTitle <- R6::R6Class(
   )
 )
 
+#' @title MessageActionChatJoinedByLink
+#' @description Telegram API type MessageActionChatJoinedByLink
 #' @export
 MessageActionChatJoinedByLink <- R6::R6Class(
   "MessageActionChatJoinedByLink",
@@ -23623,6 +24811,8 @@ MessageActionChatJoinedByLink <- R6::R6Class(
   )
 )
 
+#' @title MessageActionChatJoinedByRequest
+#' @description Telegram API type MessageActionChatJoinedByRequest
 #' @export
 MessageActionChatJoinedByRequest <- R6::R6Class(
   "MessageActionChatJoinedByRequest",
@@ -23644,6 +24834,8 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   )
 )
 
+#' @title MessageActionChatMigrateTo
+#' @description Telegram API type MessageActionChatMigrateTo
 #' @export
 MessageActionChatMigrateTo <- R6::R6Class(
   "MessageActionChatMigrateTo",
@@ -23676,6 +24868,8 @@ MessageActionChatMigrateTo <- R6::R6Class(
   )
 )
 
+#' @title MessageActionConferenceCall
+#' @description Telegram API type MessageActionConferenceCall
 #' @export
 MessageActionConferenceCall <- R6::R6Class("MessageActionConferenceCall",
   inherit = TLObject,
@@ -23732,6 +24926,8 @@ MessageActionConferenceCall <- R6::R6Class("MessageActionConferenceCall",
   class = TRUE
 )
 
+#' @title MessageActionContactSignUp
+#' @description Telegram API type MessageActionContactSignUp
 #' @export
 MessageActionContactSignUp <- R6::R6Class("MessageActionContactSignUp",
   inherit = TLObject,
@@ -23748,6 +24944,8 @@ MessageActionContactSignUp <- R6::R6Class("MessageActionContactSignUp",
   class = TRUE
 )
 
+#' @title MessageActionCustomAction
+#' @description Telegram API type MessageActionCustomAction
 #' @export
 MessageActionCustomAction <- R6::R6Class("MessageActionCustomAction",
   inherit = TLObject,
@@ -23770,6 +24968,8 @@ MessageActionCustomAction <- R6::R6Class("MessageActionCustomAction",
   class = TRUE
 )
 
+#' @title MessageActionEmpty
+#' @description Telegram API type MessageActionEmpty
 #' @export
 MessageActionEmpty <- R6::R6Class("MessageActionEmpty",
   inherit = TLObject,
@@ -23786,6 +24986,8 @@ MessageActionEmpty <- R6::R6Class("MessageActionEmpty",
   class = TRUE
 )
 
+#' @title MessageActionChatEditTitle
+#' @description Telegram API type MessageActionChatEditTitle
 #' @export
 MessageActionChatEditTitle <- R6::R6Class("MessageActionChatEditTitle",
   inherit = TLObject,
@@ -23805,6 +25007,8 @@ MessageActionChatEditTitle <- R6::R6Class("MessageActionChatEditTitle",
   class = TRUE
 )
 
+#' @title MessageActionChatEditPhoto
+#' @description Telegram API type MessageActionChatEditPhoto
 #' @export
 MessageActionChatEditPhoto <- R6::R6Class("MessageActionChatEditPhoto",
   inherit = TLObject,
@@ -23824,6 +25028,8 @@ MessageActionChatEditPhoto <- R6::R6Class("MessageActionChatEditPhoto",
   class = TRUE
 )
 
+#' @title MessageActionChatCreate
+#' @description Telegram API type MessageActionChatCreate
 #' @export
 MessageActionChatCreate <- R6::R6Class("MessageActionChatCreate",
   inherit = TLObject,
@@ -23851,6 +25057,8 @@ MessageActionChatCreate <- R6::R6Class("MessageActionChatCreate",
   class = TRUE
 )
 
+#' @title MessageActionChatAddUser
+#' @description Telegram API type MessageActionChatAddUser
 #' @export
 MessageActionChatAddUser <- R6::R6Class("MessageActionChatAddUser",
   inherit = TLObject,
@@ -23875,6 +25083,8 @@ MessageActionChatAddUser <- R6::R6Class("MessageActionChatAddUser",
   class = TRUE
 )
 
+#' @title MessageActionChatDeleteUser
+#' @description Telegram API type MessageActionChatDeleteUser
 #' @export
 MessageActionChatDeleteUser <- R6::R6Class("MessageActionChatDeleteUser",
   inherit = TLObject,
@@ -23894,6 +25104,8 @@ MessageActionChatDeleteUser <- R6::R6Class("MessageActionChatDeleteUser",
   class = TRUE
 )
 
+#' @title MessageActionChatJoinedByLink
+#' @description Telegram API type MessageActionChatJoinedByLink
 #' @export
 MessageActionChatJoinedByLink <- R6::R6Class("MessageActionChatJoinedByLink",
   inherit = TLObject,
@@ -23913,6 +25125,8 @@ MessageActionChatJoinedByLink <- R6::R6Class("MessageActionChatJoinedByLink",
   class = TRUE
 )
 
+#' @title MessageActionChatJoinedByRequest
+#' @description Telegram API type MessageActionChatJoinedByRequest
 #' @export
 MessageActionChatJoinedByRequest <- R6::R6Class("MessageActionChatJoinedByRequest",
   inherit = TLObject,
@@ -23929,6 +25143,8 @@ MessageActionChatJoinedByRequest <- R6::R6Class("MessageActionChatJoinedByReques
   class = TRUE
 )
 
+#' @title MessageActionChatMigrateTo
+#' @description Telegram API type MessageActionChatMigrateTo
 #' @export
 MessageActionChatMigrateTo <- R6::R6Class("MessageActionChatMigrateTo",
   inherit = TLObject,
@@ -23948,6 +25164,8 @@ MessageActionChatMigrateTo <- R6::R6Class("MessageActionChatMigrateTo",
   class = TRUE
 )
 
+#' @title MessageActionChannelCreate
+#' @description Telegram API type MessageActionChannelCreate
 #' @export
 MessageActionChannelCreate <- R6::R6Class("MessageActionChannelCreate",
   inherit = TLObject,
@@ -23967,6 +25185,8 @@ MessageActionChannelCreate <- R6::R6Class("MessageActionChannelCreate",
   class = TRUE
 )
 
+#' @title MessageActionChannelMigrateFrom
+#' @description Telegram API type MessageActionChannelMigrateFrom
 #' @export
 MessageActionChannelMigrateFrom <- R6::R6Class("MessageActionChannelMigrateFrom",
   inherit = TLObject,
@@ -23988,6 +25208,8 @@ MessageActionChannelMigrateFrom <- R6::R6Class("MessageActionChannelMigrateFrom"
   class = TRUE
 )
 
+#' @title MessageActionChatDeletePhoto
+#' @description Telegram API type MessageActionChatDeletePhoto
 #' @export
 MessageActionChatDeletePhoto <- R6::R6Class("MessageActionChatDeletePhoto",
   inherit = TLObject,
@@ -24004,6 +25226,8 @@ MessageActionChatDeletePhoto <- R6::R6Class("MessageActionChatDeletePhoto",
   class = TRUE
 )
 
+#' @title MessageActionGameScore
+#' @description Telegram API type MessageActionGameScore
 #' @export
 MessageActionGameScore <- R6::R6Class("MessageActionGameScore",
   inherit = TLObject,
@@ -24025,6 +25249,8 @@ MessageActionGameScore <- R6::R6Class("MessageActionGameScore",
   class = TRUE
 )
 
+#' @title MessageActionGeoProximityReached
+#' @description Telegram API type MessageActionGeoProximityReached
 #' @export
 MessageActionGeoProximityReached <- R6::R6Class("MessageActionGeoProximityReached",
   inherit = TLObject,
@@ -24061,6 +25287,8 @@ MessageActionGeoProximityReached <- R6::R6Class("MessageActionGeoProximityReache
 )
 
 
+#' @title MessageActionConferenceCall
+#' @description Telegram API type MessageActionConferenceCall
 #' @export
 MessageActionConferenceCall <- R6::R6Class(
   "MessageActionConferenceCall",
@@ -24117,6 +25345,8 @@ MessageActionConferenceCall <- R6::R6Class(
 )
 
 
+#' @title MessageActionContactSignUp
+#' @description Telegram API type MessageActionContactSignUp
 #' @export
 MessageActionContactSignUp <- R6::R6Class(
   "MessageActionContactSignUp",
@@ -24137,6 +25367,8 @@ MessageActionContactSignUp <- R6::R6Class(
 )
 
 
+#' @title MessageActionCustomAction
+#' @description Telegram API type MessageActionCustomAction
 #' @export
 MessageActionCustomAction <- R6::R6Class(
   "MessageActionCustomAction",
@@ -24161,6 +25393,8 @@ MessageActionCustomAction <- R6::R6Class(
 )
 
 
+#' @title MessageActionEmpty
+#' @description Telegram API type MessageActionEmpty
 #' @export
 MessageActionEmpty <- R6::R6Class(
   "MessageActionEmpty",
@@ -24181,6 +25415,8 @@ MessageActionEmpty <- R6::R6Class(
 )
 
 
+#' @title MessageActionGameScore
+#' @description Telegram API type MessageActionGameScore
 #' @export
 MessageActionGameScore <- R6::R6Class(
   "MessageActionGameScore",
@@ -24208,6 +25444,8 @@ MessageActionGameScore <- R6::R6Class(
 )
 
 
+#' @title MessageActionGeoProximityReached
+#' @description Telegram API type MessageActionGeoProximityReached
 #' @export
 MessageActionGeoProximityReached <- R6::R6Class(
   "MessageActionGeoProximityReached",
@@ -24245,6 +25483,8 @@ MessageActionGeoProximityReached <- R6::R6Class(
 )
 
 
+#' @title MessageActionChatEditTitle
+#' @description Telegram API type MessageActionChatEditTitle
 #' @export
 MessageActionChatEditTitle <- R6::R6Class(
   "MessageActionChatEditTitle",
@@ -24269,6 +25509,8 @@ MessageActionChatEditTitle <- R6::R6Class(
 )
 
 
+#' @title MessageActionChatJoinedByLink
+#' @description Telegram API type MessageActionChatJoinedByLink
 #' @export
 MessageActionChatJoinedByLink <- R6::R6Class(
   "MessageActionChatJoinedByLink",
@@ -24293,6 +25535,8 @@ MessageActionChatJoinedByLink <- R6::R6Class(
 )
 
 
+#' @title MessageActionChatJoinedByRequest
+#' @description Telegram API type MessageActionChatJoinedByRequest
 #' @export
 MessageActionChatJoinedByRequest <- R6::R6Class(
   "MessageActionChatJoinedByRequest",
@@ -24312,6 +25556,8 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionChatMigrateTo
+#' @description Telegram API type MessageActionChatMigrateTo
 #' @export
 MessageActionChatMigrateTo <- R6::R6Class(
   "MessageActionChatMigrateTo",
@@ -24341,6 +25587,8 @@ MessageActionChatMigrateTo <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionConferenceCall
+#' @description Telegram API type MessageActionConferenceCall
 #' @export
 MessageActionConferenceCall <- R6::R6Class(
   "MessageActionConferenceCall",
@@ -24400,6 +25648,8 @@ MessageActionConferenceCall <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionContactSignUp
+#' @description Telegram API type MessageActionContactSignUp
 #' @export
 MessageActionContactSignUp <- R6::R6Class(
   "MessageActionContactSignUp",
@@ -24420,6 +25670,8 @@ MessageActionContactSignUp <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionCustomAction
+#' @description Telegram API type MessageActionCustomAction
 #' @export
 MessageActionCustomAction <- R6::R6Class(
   "MessageActionCustomAction",
@@ -24443,6 +25695,8 @@ MessageActionCustomAction <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionEmpty
+#' @description Telegram API type MessageActionEmpty
 #' @export
 MessageActionEmpty <- R6::R6Class(
   "MessageActionEmpty",
@@ -24462,6 +25716,8 @@ MessageActionEmpty <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionGameScore
+#' @description Telegram API type MessageActionGameScore
 #' @export
 MessageActionGameScore <- R6::R6Class(
   "MessageActionGameScore",
@@ -24488,6 +25744,8 @@ MessageActionGameScore <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionGeoProximityReached
+#' @description Telegram API type MessageActionGeoProximityReached
 #' @export
 MessageActionGeoProximityReached <- R6::R6Class(
   "MessageActionGeoProximityReached",
@@ -24524,6 +25782,8 @@ MessageActionGeoProximityReached <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionChatEditTitle
+#' @description Telegram API type MessageActionChatEditTitle
 #' @export
 MessageActionChatEditTitle <- R6::R6Class(
   "MessageActionChatEditTitle",
@@ -24550,6 +25810,8 @@ MessageActionChatEditTitle <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionChatJoinedByLink
+#' @description Telegram API type MessageActionChatJoinedByLink
 #' @export
 MessageActionChatJoinedByLink <- R6::R6Class(
   "MessageActionChatJoinedByLink",
@@ -24570,6 +25832,8 @@ MessageActionChatJoinedByLink <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionChatJoinedByRequest
+#' @description Telegram API type MessageActionChatJoinedByRequest
 #' @export
 MessageActionChatJoinedByRequest <- R6::R6Class(
   "MessageActionChatJoinedByRequest",
@@ -24587,6 +25851,8 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionChatMigrateTo
+#' @description Telegram API type MessageActionChatMigrateTo
 #' @export
 MessageActionChatMigrateTo <- R6::R6Class(
   "MessageActionChatMigrateTo",
@@ -24607,6 +25873,8 @@ MessageActionChatMigrateTo <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionConferenceCall
+#' @description Telegram API type MessageActionConferenceCall
 #' @export
 MessageActionConferenceCall <- R6::R6Class(
   "MessageActionConferenceCall",
@@ -24666,6 +25934,8 @@ MessageActionConferenceCall <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionContactSignUp
+#' @description Telegram API type MessageActionContactSignUp
 #' @export
 MessageActionContactSignUp <- R6::R6Class(
   "MessageActionContactSignUp",
@@ -24683,6 +25953,8 @@ MessageActionContactSignUp <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionCustomAction
+#' @description Telegram API type MessageActionCustomAction
 #' @export
 MessageActionCustomAction <- R6::R6Class(
   "MessageActionCustomAction",
@@ -24708,6 +25980,8 @@ MessageActionCustomAction <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionEmpty
+#' @description Telegram API type MessageActionEmpty
 #' @export
 MessageActionEmpty <- R6::R6Class(
   "MessageActionEmpty",
@@ -24725,6 +25999,8 @@ MessageActionEmpty <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionGameScore
+#' @description Telegram API type MessageActionGameScore
 #' @export
 MessageActionGameScore <- R6::R6Class(
   "MessageActionGameScore",
@@ -24747,6 +26023,8 @@ MessageActionGameScore <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionGeoProximityReached
+#' @description Telegram API type MessageActionGeoProximityReached
 #' @export
 MessageActionGeoProximityReached <- R6::R6Class(
   "MessageActionGeoProximityReached",
@@ -24780,6 +26058,8 @@ MessageActionGeoProximityReached <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionGiftCode
+#' @description Telegram API type MessageActionGiftCode
 #' @export
 MessageActionGiftCode <- R6::R6Class(
   "MessageActionGiftCode",
@@ -24850,6 +26130,8 @@ MessageActionGiftCode <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionGiftPremium
+#' @description Telegram API type MessageActionGiftPremium
 #' @export
 MessageActionGiftPremium <- R6::R6Class(
   "MessageActionGiftPremium",
@@ -24896,6 +26178,8 @@ MessageActionGiftPremium <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionGiftStars
+#' @description Telegram API type MessageActionGiftStars
 #' @export
 MessageActionGiftStars <- R6::R6Class(
   "MessageActionGiftStars",
@@ -24942,6 +26226,8 @@ MessageActionGiftStars <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionGiftTon
+#' @description Telegram API type MessageActionGiftTon
 #' @export
 MessageActionGiftTon <- R6::R6Class(
   "MessageActionGiftTon",
@@ -24985,6 +26271,8 @@ MessageActionGiftTon <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionGiveawayLaunch
+#' @description Telegram API type MessageActionGiveawayLaunch
 #' @export
 MessageActionGiveawayLaunch <- R6::R6Class(
   "MessageActionGiveawayLaunch",
@@ -25009,6 +26297,8 @@ MessageActionGiveawayLaunch <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionGiveawayResults
+#' @description Telegram API type MessageActionGiveawayResults
 #' @export
 MessageActionGiveawayResults <- R6::R6Class(
   "MessageActionGiveawayResults",
@@ -25039,6 +26329,8 @@ MessageActionGiveawayResults <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionGroupCall
+#' @description Telegram API type MessageActionGroupCall
 #' @export
 MessageActionGroupCall <- R6::R6Class(
   "MessageActionGroupCall",
@@ -25066,6 +26358,8 @@ MessageActionGroupCall <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionGroupCallScheduled
+#' @description Telegram API type MessageActionGroupCallScheduled
 #' @export
 MessageActionGroupCallScheduled <- R6::R6Class(
   "MessageActionGroupCallScheduled",
@@ -25088,6 +26382,8 @@ MessageActionGroupCallScheduled <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionHistoryClear
+#' @description Telegram API type MessageActionHistoryClear
 #' @export
 MessageActionHistoryClear <- R6::R6Class(
   "MessageActionHistoryClear",
@@ -25105,6 +26401,8 @@ MessageActionHistoryClear <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionInviteToGroupCall
+#' @description Telegram API type MessageActionInviteToGroupCall
 #' @export
 MessageActionInviteToGroupCall <- R6::R6Class(
   "MessageActionInviteToGroupCall",
@@ -25138,6 +26436,8 @@ MessageActionInviteToGroupCall <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionPaidMessagesPrice
+#' @description Telegram API type MessageActionPaidMessagesPrice
 #' @export
 MessageActionPaidMessagesPrice <- R6::R6Class(
   "MessageActionPaidMessagesPrice",
@@ -25165,6 +26465,8 @@ MessageActionPaidMessagesPrice <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionPaidMessagesRefunded
+#' @description Telegram API type MessageActionPaidMessagesRefunded
 #' @export
 MessageActionPaidMessagesRefunded <- R6::R6Class(
   "MessageActionPaidMessagesRefunded",
@@ -25187,6 +26489,8 @@ MessageActionPaidMessagesRefunded <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionPaymentRefunded
+#' @description Telegram API type MessageActionPaymentRefunded
 #' @export
 MessageActionPaymentRefunded <- R6::R6Class(
   "MessageActionPaymentRefunded",
@@ -25232,6 +26536,8 @@ MessageActionPaymentRefunded <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionPaymentSent
+#' @description Telegram API type MessageActionPaymentSent
 #' @export
 MessageActionPaymentSent <- R6::R6Class(
   "MessageActionPaymentSent",
@@ -25281,6 +26587,8 @@ MessageActionPaymentSent <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionPaymentSentMe
+#' @description Telegram API type MessageActionPaymentSentMe
 #' @export
 MessageActionPaymentSentMe <- R6::R6Class(
   "MessageActionPaymentSentMe",
@@ -25338,6 +26646,8 @@ MessageActionPaymentSentMe <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionPhoneCall
+#' @description Telegram API type MessageActionPhoneCall
 #' @export
 MessageActionPhoneCall <- R6::R6Class(
   "MessageActionPhoneCall",
@@ -25379,6 +26689,8 @@ MessageActionPhoneCall <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionPinMessage
+#' @description Telegram API type MessageActionPinMessage
 #' @export
 MessageActionPinMessage <- R6::R6Class(
   "MessageActionPinMessage",
@@ -25396,6 +26708,8 @@ MessageActionPinMessage <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionPrizeStars
+#' @description Telegram API type MessageActionPrizeStars
 #' @export
 MessageActionPrizeStars <- R6::R6Class(
   "MessageActionPrizeStars",
@@ -25431,6 +26745,8 @@ MessageActionPrizeStars <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionRequestedPeer
+#' @description Telegram API type MessageActionRequestedPeer
 #' @export
 MessageActionRequestedPeer <- R6::R6Class(
   "MessageActionRequestedPeer",
@@ -25457,6 +26773,8 @@ MessageActionRequestedPeer <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionRequestedPeerSentMe
+#' @description Telegram API type MessageActionRequestedPeerSentMe
 #' @export
 MessageActionRequestedPeerSentMe <- R6::R6Class(
   "MessageActionRequestedPeerSentMe",
@@ -25483,6 +26801,8 @@ MessageActionRequestedPeerSentMe <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionScreenshotTaken
+#' @description Telegram API type MessageActionScreenshotTaken
 #' @export
 MessageActionScreenshotTaken <- R6::R6Class(
   "MessageActionScreenshotTaken",
@@ -25498,6 +26818,8 @@ MessageActionScreenshotTaken <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionSecureValuesSent
+#' @description Telegram API type MessageActionSecureValuesSent
 #' @export
 MessageActionSecureValuesSent <- R6::R6Class(
   "MessageActionSecureValuesSent",
@@ -25521,6 +26843,8 @@ MessageActionSecureValuesSent <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionSecureValuesSentMe
+#' @description Telegram API type MessageActionSecureValuesSentMe
 #' @export
 MessageActionSecureValuesSentMe <- R6::R6Class(
   "MessageActionSecureValuesSentMe",
@@ -25547,6 +26871,8 @@ MessageActionSecureValuesSentMe <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionSetChatTheme
+#' @description Telegram API type MessageActionSetChatTheme
 #' @export
 MessageActionSetChatTheme <- R6::R6Class(
   "MessageActionSetChatTheme",
@@ -25570,6 +26896,8 @@ MessageActionSetChatTheme <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionSetChatWallPaper
+#' @description Telegram API type MessageActionSetChatWallPaper
 #' @export
 MessageActionSetChatWallPaper <- R6::R6Class(
   "MessageActionSetChatWallPaper",
@@ -25599,6 +26927,8 @@ MessageActionSetChatWallPaper <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionSetMessagesTTL
+#' @description Telegram API type MessageActionSetMessagesTTL
 #' @export
 MessageActionSetMessagesTTL <- R6::R6Class(
   "MessageActionSetMessagesTTL",
@@ -25625,6 +26955,8 @@ MessageActionSetMessagesTTL <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionStarGift
+#' @description Telegram API type MessageActionStarGift
 #' @export
 MessageActionStarGift <- R6::R6Class(
   "MessageActionStarGift",
@@ -25699,6 +27031,8 @@ MessageActionStarGift <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionStarGiftUnique
+#' @description Telegram API type MessageActionStarGiftUnique
 #' @export
 MessageActionStarGiftUnique <- R6::R6Class(
   "MessageActionStarGiftUnique",
@@ -25761,6 +27095,8 @@ MessageActionStarGiftUnique <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionSuggestProfilePhoto
+#' @description Telegram API type MessageActionSuggestProfilePhoto
 #' @export
 MessageActionSuggestProfilePhoto <- R6::R6Class(
   "MessageActionSuggestProfilePhoto",
@@ -25784,6 +27120,8 @@ MessageActionSuggestProfilePhoto <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionSuggestedPostApproval
+#' @description Telegram API type MessageActionSuggestedPostApproval
 #' @export
 MessageActionSuggestedPostApproval <- R6::R6Class(
   "MessageActionSuggestedPostApproval",
@@ -25819,6 +27157,8 @@ MessageActionSuggestedPostApproval <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionSuggestedPostRefund
+#' @description Telegram API type MessageActionSuggestedPostRefund
 #' @export
 MessageActionSuggestedPostRefund <- R6::R6Class(
   "MessageActionSuggestedPostRefund",
@@ -25837,6 +27177,8 @@ MessageActionSuggestedPostRefund <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionSuggestedPostSuccess
+#' @description Telegram API type MessageActionSuggestedPostSuccess
 #' @export
 MessageActionSuggestedPostSuccess <- R6::R6Class(
   "MessageActionSuggestedPostSuccess",
@@ -25855,6 +27197,8 @@ MessageActionSuggestedPostSuccess <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionTodoAppendTasks
+#' @description Telegram API type MessageActionTodoAppendTasks
 #' @export
 MessageActionTodoAppendTasks <- R6::R6Class(
   "MessageActionTodoAppendTasks",
@@ -25882,6 +27226,8 @@ MessageActionTodoAppendTasks <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionTodoCompletions
+#' @description Telegram API type MessageActionTodoCompletions
 #' @export
 MessageActionTodoCompletions <- R6::R6Class(
   "MessageActionTodoCompletions",
@@ -25912,6 +27258,8 @@ MessageActionTodoCompletions <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionTopicCreate
+#' @description Telegram API type MessageActionTopicCreate
 #' @export
 MessageActionTopicCreate <- R6::R6Class(
   "MessageActionTopicCreate",
@@ -25943,6 +27291,8 @@ MessageActionTopicCreate <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionTopicEdit
+#' @description Telegram API type MessageActionTopicEdit
 #' @export
 MessageActionTopicEdit <- R6::R6Class(
   "MessageActionTopicEdit",
@@ -25976,6 +27326,8 @@ MessageActionTopicEdit <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionWebViewDataSent
+#' @description Telegram API type MessageActionWebViewDataSent
 #' @export
 MessageActionWebViewDataSent <- R6::R6Class(
   "MessageActionWebViewDataSent",
@@ -25998,6 +27350,8 @@ MessageActionWebViewDataSent <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageActionWebViewDataSentMe
+#' @description Telegram API type MessageActionWebViewDataSentMe
 #' @export
 MessageActionWebViewDataSentMe <- R6::R6Class(
   "MessageActionWebViewDataSentMe",
@@ -26022,6 +27376,8 @@ MessageActionWebViewDataSentMe <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEmpty
+#' @description Telegram API type MessageEmpty
 #' @export
 MessageEmpty <- R6::R6Class(
   "MessageEmpty",
@@ -26046,6 +27402,8 @@ MessageEmpty <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityBankCard
+#' @description Telegram API type MessageEntityBankCard
 #' @export
 MessageEntityBankCard <- R6::R6Class(
   "MessageEntityBankCard",
@@ -26068,6 +27426,8 @@ MessageEntityBankCard <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityBlockquote
+#' @description Telegram API type MessageEntityBlockquote
 #' @export
 MessageEntityBlockquote <- R6::R6Class(
   "MessageEntityBlockquote",
@@ -26090,6 +27450,8 @@ MessageEntityBlockquote <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityBold
+#' @description Telegram API type MessageEntityBold
 #' @export
 MessageEntityBold <- R6::R6Class(
   "MessageEntityBold",
@@ -26111,6 +27473,8 @@ MessageEntityBold <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityBotCommand
+#' @description Telegram API type MessageEntityBotCommand
 #' @export
 MessageEntityBotCommand <- R6::R6Class(
   "MessageEntityBotCommand",
@@ -26132,6 +27496,8 @@ MessageEntityBotCommand <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityCashtag
+#' @description Telegram API type MessageEntityCashtag
 #' @export
 MessageEntityCashtag <- R6::R6Class(
   "MessageEntityCashtag",
@@ -26153,6 +27519,8 @@ MessageEntityCashtag <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityCode
+#' @description Telegram API type MessageEntityCode
 #' @export
 MessageEntityCode <- R6::R6Class(
   "MessageEntityCode",
@@ -26174,6 +27542,8 @@ MessageEntityCode <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityCustomEmoji
+#' @description Telegram API type MessageEntityCustomEmoji
 #' @export
 MessageEntityCustomEmoji <- R6::R6Class(
   "MessageEntityCustomEmoji",
@@ -26196,6 +27566,8 @@ MessageEntityCustomEmoji <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityEmail
+#' @description Telegram API type MessageEntityEmail
 #' @export
 MessageEntityEmail <- R6::R6Class(
   "MessageEntityEmail",
@@ -26217,6 +27589,8 @@ MessageEntityEmail <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityHashtag
+#' @description Telegram API type MessageEntityHashtag
 #' @export
 MessageEntityHashtag <- R6::R6Class(
   "MessageEntityHashtag",
@@ -26238,6 +27612,8 @@ MessageEntityHashtag <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityItalic
+#' @description Telegram API type MessageEntityItalic
 #' @export
 MessageEntityItalic <- R6::R6Class(
   "MessageEntityItalic",
@@ -26259,6 +27635,8 @@ MessageEntityItalic <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityMention
+#' @description Telegram API type MessageEntityMention
 #' @export
 MessageEntityMention <- R6::R6Class(
   "MessageEntityMention",
@@ -26280,6 +27658,8 @@ MessageEntityMention <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityMentionName
+#' @description Telegram API type MessageEntityMentionName
 #' @export
 MessageEntityMentionName <- R6::R6Class(
   "MessageEntityMentionName",
@@ -26302,6 +27682,8 @@ MessageEntityMentionName <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityPhone
+#' @description Telegram API type MessageEntityPhone
 #' @export
 MessageEntityPhone <- R6::R6Class(
   "MessageEntityPhone",
@@ -26323,6 +27705,8 @@ MessageEntityPhone <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityPre
+#' @description Telegram API type MessageEntityPre
 #' @export
 MessageEntityPre <- R6::R6Class(
   "MessageEntityPre",
@@ -26345,6 +27729,8 @@ MessageEntityPre <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntitySpoiler
+#' @description Telegram API type MessageEntitySpoiler
 #' @export
 MessageEntitySpoiler <- R6::R6Class(
   "MessageEntitySpoiler",
@@ -26366,6 +27752,8 @@ MessageEntitySpoiler <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityStrike
+#' @description Telegram API type MessageEntityStrike
 #' @export
 MessageEntityStrike <- R6::R6Class(
   "MessageEntityStrike",
@@ -26387,6 +27775,8 @@ MessageEntityStrike <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityTextUrl
+#' @description Telegram API type MessageEntityTextUrl
 #' @export
 MessageEntityTextUrl <- R6::R6Class(
   "MessageEntityTextUrl",
@@ -26413,6 +27803,8 @@ MessageEntityTextUrl <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityUnderline
+#' @description Telegram API type MessageEntityUnderline
 #' @export
 MessageEntityUnderline <- R6::R6Class(
   "MessageEntityUnderline",
@@ -26437,6 +27829,8 @@ MessageEntityUnderline <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityUnknown
+#' @description Telegram API type MessageEntityUnknown
 #' @export
 MessageEntityUnknown <- R6::R6Class(
   "MessageEntityUnknown",
@@ -26461,6 +27855,8 @@ MessageEntityUnknown <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageEntityUrl
+#' @description Telegram API type MessageEntityUrl
 #' @export
 MessageEntityUrl <- R6::R6Class(
   "MessageEntityUrl",
@@ -26485,6 +27881,8 @@ MessageEntityUrl <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageExtendedMedia
+#' @description Telegram API type MessageExtendedMedia
 #' @export
 MessageExtendedMedia <- R6::R6Class(
   "MessageExtendedMedia",
@@ -26507,6 +27905,8 @@ MessageExtendedMedia <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageExtendedMediaPreview
+#' @description Telegram API type MessageExtendedMediaPreview
 #' @export
 MessageExtendedMediaPreview <- R6::R6Class(
   "MessageExtendedMediaPreview",
@@ -26543,6 +27943,8 @@ MessageExtendedMediaPreview <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageFwdHeader
+#' @description Telegram API type MessageFwdHeader
 #' @export
 MessageFwdHeader <- R6::R6Class(
   "MessageFwdHeader",
@@ -26608,6 +28010,8 @@ MessageFwdHeader <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaContact
+#' @description Telegram API type MessageMediaContact
 #' @export
 MessageMediaContact <- R6::R6Class(
   "MessageMediaContact",
@@ -26647,6 +28051,8 @@ MessageMediaContact <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaDice
+#' @description Telegram API type MessageMediaDice
 #' @export
 MessageMediaDice <- R6::R6Class(
   "MessageMediaDice",
@@ -26671,6 +28077,8 @@ MessageMediaDice <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaDocument
+#' @description Telegram API type MessageMediaDocument
 #' @export
 MessageMediaDocument <- R6::R6Class(
   "MessageMediaDocument",
@@ -26727,6 +28135,8 @@ MessageMediaDocument <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaEmpty
+#' @description Telegram API type MessageMediaEmpty
 #' @export
 MessageMediaEmpty <- R6::R6Class(
   "MessageMediaEmpty",
@@ -26746,6 +28156,8 @@ MessageMediaEmpty <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaGame
+#' @description Telegram API type MessageMediaGame
 #' @export
 MessageMediaGame <- R6::R6Class(
   "MessageMediaGame",
@@ -26768,6 +28180,8 @@ MessageMediaGame <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaGeo
+#' @description Telegram API type MessageMediaGeo
 #' @export
 MessageMediaGeo <- R6::R6Class(
   "MessageMediaGeo",
@@ -26790,6 +28204,8 @@ MessageMediaGeo <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaGeoLive
+#' @description Telegram API type MessageMediaGeoLive
 #' @export
 MessageMediaGeoLive <- R6::R6Class(
   "MessageMediaGeoLive",
@@ -26826,6 +28242,8 @@ MessageMediaGeoLive <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaGiveaway
+#' @description Telegram API type MessageMediaGiveaway
 #' @export
 MessageMediaGiveaway <- R6::R6Class(
   "MessageMediaGiveaway",
@@ -26877,6 +28295,8 @@ MessageMediaGiveaway <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaGiveawayResults
+#' @description Telegram API type MessageMediaGiveawayResults
 #' @export
 MessageMediaGiveawayResults <- R6::R6Class(
   "MessageMediaGiveawayResults",
@@ -26937,6 +28357,8 @@ MessageMediaGiveawayResults <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaInvoice
+#' @description Telegram API type MessageMediaInvoice
 #' @export
 MessageMediaInvoice <- R6::R6Class(
   "MessageMediaInvoice",
@@ -26991,6 +28413,8 @@ MessageMediaInvoice <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaPaidMedia
+#' @description Telegram API type MessageMediaPaidMedia
 #' @export
 MessageMediaPaidMedia <- R6::R6Class(
   "MessageMediaPaidMedia",
@@ -27021,6 +28445,8 @@ MessageMediaPaidMedia <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaPhoto
+#' @description Telegram API type MessageMediaPhoto
 #' @export
 MessageMediaPhoto <- R6::R6Class(
   "MessageMediaPhoto",
@@ -27054,6 +28480,8 @@ MessageMediaPhoto <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaPoll
+#' @description Telegram API type MessageMediaPoll
 #' @export
 MessageMediaPoll <- R6::R6Class(
   "MessageMediaPoll",
@@ -27084,6 +28512,8 @@ MessageMediaPoll <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaStory
+#' @description Telegram API type MessageMediaStory
 #' @export
 MessageMediaStory <- R6::R6Class(
   "MessageMediaStory",
@@ -27120,6 +28550,8 @@ MessageMediaStory <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaToDo
+#' @description Telegram API type MessageMediaToDo
 #' @export
 MessageMediaToDo <- R6::R6Class(
   "MessageMediaToDo",
@@ -27150,6 +28582,8 @@ MessageMediaToDo <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaUnsupported
+#' @description Telegram API type MessageMediaUnsupported
 #' @export
 MessageMediaUnsupported <- R6::R6Class(
   "MessageMediaUnsupported",
@@ -27169,6 +28603,8 @@ MessageMediaUnsupported <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaVenue
+#' @description Telegram API type MessageMediaVenue
 #' @export
 MessageMediaVenue <- R6::R6Class(
   "MessageMediaVenue",
@@ -27211,6 +28647,8 @@ MessageMediaVenue <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageMediaWebPage
+#' @description Telegram API type MessageMediaWebPage
 #' @export
 MessageMediaWebPage <- R6::R6Class(
   "MessageMediaWebPage",
@@ -27250,6 +28688,8 @@ MessageMediaWebPage <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessagePeerReaction
+#' @description Telegram API type MessagePeerReaction
 #' @export
 MessagePeerReaction <- R6::R6Class(
   "MessagePeerReaction",
@@ -27292,6 +28732,8 @@ MessagePeerReaction <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessagePeerVote
+#' @description Telegram API type MessagePeerVote
 #' @export
 MessagePeerVote <- R6::R6Class(
   "MessagePeerVote",
@@ -27328,6 +28770,8 @@ MessagePeerVote <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessagePeerVoteInputOption
+#' @description Telegram API type MessagePeerVoteInputOption
 #' @export
 MessagePeerVoteInputOption <- R6::R6Class(
   "MessagePeerVoteInputOption",
@@ -27360,6 +28804,8 @@ MessagePeerVoteInputOption <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessagePeerVoteMultiple
+#' @description Telegram API type MessagePeerVoteMultiple
 #' @export
 MessagePeerVoteMultiple <- R6::R6Class(
   "MessagePeerVoteMultiple",
@@ -27403,6 +28849,8 @@ MessagePeerVoteMultiple <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageRange
+#' @description Telegram API type MessageRange
 #' @export
 MessageRange <- R6::R6Class(
   "MessageRange",
@@ -27429,6 +28877,8 @@ MessageRange <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageReactions
+#' @description Telegram API type MessageReactions
 #' @export
 MessageReactions <- R6::R6Class(
   "MessageReactions",
@@ -27505,6 +28955,8 @@ MessageReactions <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageReactor
+#' @description Telegram API type MessageReactor
 #' @export
 MessageReactor <- R6::R6Class(
   "MessageReactor",
@@ -27554,6 +29006,8 @@ MessageReactor <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageReplies
+#' @description Telegram API type MessageReplies
 #' @export
 MessageReplies <- R6::R6Class(
   "MessageReplies",
@@ -27631,6 +29085,8 @@ MessageReplies <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageReplyHeader
+#' @description Telegram API type MessageReplyHeader
 #' @export
 MessageReplyHeader <- R6::R6Class(
   "MessageReplyHeader",
@@ -27759,6 +29215,8 @@ MessageReplyHeader <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageReplyStoryHeader
+#' @description Telegram API type MessageReplyStoryHeader
 #' @export
 MessageReplyStoryHeader <- R6::R6Class(
   "MessageReplyStoryHeader",
@@ -27791,6 +29249,8 @@ MessageReplyStoryHeader <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageReportOption
+#' @description Telegram API type MessageReportOption
 #' @export
 MessageReportOption <- R6::R6Class(
   "MessageReportOption",
@@ -27817,6 +29277,8 @@ MessageReportOption <- R6::R6Class(
   class = TRUE
 )
 
+#' @title MessageService
+#' @description Telegram API type MessageService
 #' @export
 MessageService <- R6::R6Class("MessageService",
   inherit = TLObject,
@@ -27891,6 +29353,8 @@ MessageService <- R6::R6Class("MessageService",
   class = TRUE
 )
 
+#' @title MessageViews
+#' @description Telegram API type MessageViews
 #' @export
 MessageViews <- R6::R6Class("MessageViews",
   inherit = TLObject,
@@ -27921,6 +29385,8 @@ MessageViews <- R6::R6Class("MessageViews",
   class = TRUE
 )
 
+#' @title MissingInvitee
+#' @description Telegram API type MissingInvitee
 #' @export
 MissingInvitee <- R6::R6Class("MissingInvitee",
   inherit = TLObject,
@@ -27951,6 +29417,8 @@ MissingInvitee <- R6::R6Class("MissingInvitee",
   class = TRUE
 )
 
+#' @title MonoForumDialog
+#' @description Telegram API type MonoForumDialog
 #' @export
 MonoForumDialog <- R6::R6Class("MonoForumDialog",
   inherit = TLObject,
@@ -28000,6 +29468,8 @@ MonoForumDialog <- R6::R6Class("MonoForumDialog",
   class = TRUE
 )
 
+#' @title MsgDetailedInfo
+#' @description Telegram API type MsgDetailedInfo
 #' @export
 MsgDetailedInfo <- R6::R6Class("MsgDetailedInfo",
   inherit = TLObject,
@@ -28036,6 +29506,8 @@ MsgDetailedInfo <- R6::R6Class("MsgDetailedInfo",
   class = TRUE
 )
 
+#' @title MsgNewDetailedInfo
+#' @description Telegram API type MsgNewDetailedInfo
 #' @export
 MsgNewDetailedInfo <- R6::R6Class("MsgNewDetailedInfo",
   inherit = TLObject,
@@ -28069,6 +29541,8 @@ MsgNewDetailedInfo <- R6::R6Class("MsgNewDetailedInfo",
   class = TRUE
 )
 
+#' @title MsgResendReq
+#' @description Telegram API type MsgResendReq
 #' @export
 MsgResendReq <- R6::R6Class("MsgResendReq",
   inherit = TLObject,
@@ -28099,6 +29573,8 @@ MsgResendReq <- R6::R6Class("MsgResendReq",
   class = TRUE
 )
 
+#' @title MsgsAck
+#' @description Telegram API type MsgsAck
 #' @export
 MsgsAck <- R6::R6Class("MsgsAck",
   inherit = TLObject,
@@ -28131,6 +29607,8 @@ MsgsAck <- R6::R6Class("MsgsAck",
   class = TRUE
 )
 
+#' @title MsgsAllInfo
+#' @description Telegram API type MsgsAllInfo
 #' @export
 MsgsAllInfo <- R6::R6Class("MsgsAllInfo",
   inherit = TLObject,
@@ -28159,6 +29637,8 @@ MsgsAllInfo <- R6::R6Class("MsgsAllInfo",
   class = TRUE
 )
 
+#' @title MsgsStateInfo
+#' @description Telegram API type MsgsStateInfo
 #' @export
 MsgsStateInfo <- R6::R6Class("MsgsStateInfo",
   inherit = TLObject,
@@ -28182,6 +29662,8 @@ MsgsStateInfo <- R6::R6Class("MsgsStateInfo",
   class = TRUE
 )
 
+#' @title MsgsStateReq
+#' @description Telegram API type MsgsStateReq
 #' @export
 MsgsStateReq <- R6::R6Class("MsgsStateReq",
   inherit = TLObject,
@@ -28207,6 +29689,8 @@ MsgsStateReq <- R6::R6Class("MsgsStateReq",
   class = TRUE
 )
 
+#' @title MyBoost
+#' @description Telegram API type MyBoost
 #' @export
 MyBoost <- R6::R6Class("MyBoost",
   inherit = TLObject,
@@ -28243,6 +29727,8 @@ MyBoost <- R6::R6Class("MyBoost",
   class = TRUE
 )
 
+#' @title NearestDc
+#' @description Telegram API type NearestDc
 #' @export
 NearestDc <- R6::R6Class("NearestDc",
   inherit = TLObject,
@@ -28266,6 +29752,8 @@ NearestDc <- R6::R6Class("NearestDc",
   class = TRUE
 )
 
+#' @title NewSessionCreated
+#' @description Telegram API type NewSessionCreated
 #' @export
 NewSessionCreated <- R6::R6Class("NewSessionCreated",
   inherit = TLObject,
@@ -28292,6 +29780,8 @@ NewSessionCreated <- R6::R6Class("NewSessionCreated",
   class = TRUE
 )
 
+#' @title NotificationSoundDefault
+#' @description Telegram API type NotificationSoundDefault
 #' @export
 NotificationSoundDefault <- R6::R6Class("NotificationSoundDefault",
   inherit = TLObject,
@@ -28308,6 +29798,8 @@ NotificationSoundDefault <- R6::R6Class("NotificationSoundDefault",
   class = TRUE
 )
 
+#' @title NotificationSoundLocal
+#' @description Telegram API type NotificationSoundLocal
 #' @export
 NotificationSoundLocal <- R6::R6Class("NotificationSoundLocal",
   inherit = TLObject,
@@ -28329,6 +29821,8 @@ NotificationSoundLocal <- R6::R6Class("NotificationSoundLocal",
   class = TRUE
 )
 
+#' @title NotificationSoundNone
+#' @description Telegram API type NotificationSoundNone
 #' @export
 NotificationSoundNone <- R6::R6Class("NotificationSoundNone",
   inherit = TLObject,
@@ -28345,6 +29839,8 @@ NotificationSoundNone <- R6::R6Class("NotificationSoundNone",
   class = TRUE
 )
 
+#' @title NotificationSoundRingtone
+#' @description Telegram API type NotificationSoundRingtone
 #' @export
 NotificationSoundRingtone <- R6::R6Class("NotificationSoundRingtone",
   inherit = TLObject,
@@ -28364,6 +29860,8 @@ NotificationSoundRingtone <- R6::R6Class("NotificationSoundRingtone",
   class = TRUE
 )
 
+#' @title NotifyBroadcasts
+#' @description Telegram API type NotifyBroadcasts
 #' @export
 NotifyBroadcasts <- R6::R6Class("NotifyBroadcasts",
   inherit = TLObject,
@@ -28380,6 +29878,8 @@ NotifyBroadcasts <- R6::R6Class("NotifyBroadcasts",
   class = TRUE
 )
 
+#' @title NotifyChats
+#' @description Telegram API type NotifyChats
 #' @export
 NotifyChats <- R6::R6Class("NotifyChats",
   inherit = TLObject,
@@ -28396,6 +29896,8 @@ NotifyChats <- R6::R6Class("NotifyChats",
   class = TRUE
 )
 
+#' @title NotifyForumTopic
+#' @description Telegram API type NotifyForumTopic
 #' @export
 NotifyForumTopic <- R6::R6Class("NotifyForumTopic",
   inherit = TLObject,
@@ -28423,6 +29925,8 @@ NotifyForumTopic <- R6::R6Class("NotifyForumTopic",
   class = TRUE
 )
 
+#' @title NotifyPeer
+#' @description Telegram API type NotifyPeer
 #' @export
 NotifyPeer <- R6::R6Class("NotifyPeer",
   inherit = TLObject,
@@ -28442,6 +29946,8 @@ NotifyPeer <- R6::R6Class("NotifyPeer",
   class = TRUE
 )
 
+#' @title NotifyUsers
+#' @description Telegram API type NotifyUsers
 #' @export
 NotifyUsers <- R6::R6Class("NotifyUsers",
   inherit = TLObject,
@@ -28458,6 +29964,8 @@ NotifyUsers <- R6::R6Class("NotifyUsers",
   class = TRUE
 )
 
+#' @title OutboxReadDate
+#' @description Telegram API type OutboxReadDate
 #' @export
 OutboxReadDate <- R6::R6Class("OutboxReadDate",
   inherit = TLObject,
@@ -28511,6 +30019,8 @@ OutboxReadDate <- R6::R6Class("OutboxReadDate",
 #'  peer
 #'  @field cooldown_until_date integer \cr
 #'  cooldown_until_date
+#' @title PQInnerData
+#' @description Telegram API type PQInnerData
 #' @export
 PQInnerData <- R6::R6Class("PQInnerData",
   inherit = TLObject,
@@ -28557,6 +30067,8 @@ PQInnerData <- R6::R6Class("PQInnerData",
   class = TRUE
 )
 
+#' @title PQInnerDataDc
+#' @description Telegram API type PQInnerDataDc
 #' @export
 PQInnerDataDc <- R6::R6Class("PQInnerDataDc",
   inherit = TLObject,
@@ -28588,6 +30100,8 @@ PQInnerDataDc <- R6::R6Class("PQInnerDataDc",
   class = TRUE
 )
 
+#' @title PQInnerDataTemp
+#' @description Telegram API type PQInnerDataTemp
 #' @export
 PQInnerDataTemp <- R6::R6Class("PQInnerDataTemp",
   inherit = TLObject,
@@ -28619,6 +30133,8 @@ PQInnerDataTemp <- R6::R6Class("PQInnerDataTemp",
   class = TRUE
 )
 
+#' @title PQInnerDataTempDc
+#' @description Telegram API type PQInnerDataTempDc
 #' @export
 PQInnerDataTempDc <- R6::R6Class("PQInnerDataTempDc",
   inherit = TLObject,
@@ -28652,6 +30168,8 @@ PQInnerDataTempDc <- R6::R6Class("PQInnerDataTempDc",
   class = TRUE
 )
 
+#' @title PQInnerDataTempDc
+#' @description Telegram API type PQInnerDataTempDc
 #' @export
 PQInnerDataTempDc <- R6::R6Class(
   "PQInnerDataTempDc",
@@ -28708,6 +30226,8 @@ PQInnerDataTempDc <- R6::R6Class(
   class = TRUE
 )
 
+#' @title Page
+#' @description Telegram API type Page
 #' @export
 Page <- R6::R6Class(
   "Page",
@@ -28771,6 +30291,8 @@ Page <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockAnchor
+#' @description Telegram API type PageBlockAnchor
 #' @export
 PageBlockAnchor <- R6::R6Class(
   "PageBlockAnchor",
@@ -28804,6 +30326,8 @@ PageBlockAnchor <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockAudio
+#' @description Telegram API type PageBlockAudio
 #' @export
 PageBlockAudio <- R6::R6Class(
   "PageBlockAudio",
@@ -28830,6 +30354,8 @@ PageBlockAudio <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockAuthorDate
+#' @description Telegram API type PageBlockAuthorDate
 #' @export
 PageBlockAuthorDate <- R6::R6Class(
   "PageBlockAuthorDate",
@@ -28856,6 +30382,8 @@ PageBlockAuthorDate <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockBlockquote
+#' @description Telegram API type PageBlockBlockquote
 #' @export
 PageBlockBlockquote <- R6::R6Class(
   "PageBlockBlockquote",
@@ -28882,6 +30410,8 @@ PageBlockBlockquote <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockChannel
+#' @description Telegram API type PageBlockChannel
 #' @export
 PageBlockChannel <- R6::R6Class(
   "PageBlockChannel",
@@ -28905,6 +30435,8 @@ PageBlockChannel <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockCollage
+#' @description Telegram API type PageBlockCollage
 #' @export
 PageBlockCollage <- R6::R6Class(
   "PageBlockCollage",
@@ -28934,6 +30466,8 @@ PageBlockCollage <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockCover
+#' @description Telegram API type PageBlockCover
 #' @export
 PageBlockCover <- R6::R6Class(
   "PageBlockCover",
@@ -28957,6 +30491,8 @@ PageBlockCover <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockDetails
+#' @description Telegram API type PageBlockDetails
 #' @export
 PageBlockDetails <- R6::R6Class(
   "PageBlockDetails",
@@ -28990,6 +30526,8 @@ PageBlockDetails <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockDivider
+#' @description Telegram API type PageBlockDivider
 #' @export
 PageBlockDivider <- R6::R6Class(
   "PageBlockDivider",
@@ -29009,6 +30547,8 @@ PageBlockDivider <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockEmbed
+#' @description Telegram API type PageBlockEmbed
 #' @export
 PageBlockEmbed <- R6::R6Class(
   "PageBlockEmbed",
@@ -29054,6 +30594,8 @@ PageBlockEmbed <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockEmbedPost
+#' @description Telegram API type PageBlockEmbedPost
 #' @export
 PageBlockEmbedPost <- R6::R6Class(
   "PageBlockEmbedPost",
@@ -29098,6 +30640,8 @@ PageBlockEmbedPost <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockFooter
+#' @description Telegram API type PageBlockFooter
 #' @export
 PageBlockFooter <- R6::R6Class(
   "PageBlockFooter",
@@ -29121,6 +30665,8 @@ PageBlockFooter <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockHeader
+#' @description Telegram API type PageBlockHeader
 #' @export
 PageBlockHeader <- R6::R6Class(
   "PageBlockHeader",
@@ -29144,6 +30690,8 @@ PageBlockHeader <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockKicker
+#' @description Telegram API type PageBlockKicker
 #' @export
 PageBlockKicker <- R6::R6Class(
   "PageBlockKicker",
@@ -29167,6 +30715,8 @@ PageBlockKicker <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockList
+#' @description Telegram API type PageBlockList
 #' @export
 PageBlockList <- R6::R6Class(
   "PageBlockList",
@@ -29193,6 +30743,8 @@ PageBlockList <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockMap
+#' @description Telegram API type PageBlockMap
 #' @export
 PageBlockMap <- R6::R6Class(
   "PageBlockMap",
@@ -29228,6 +30780,8 @@ PageBlockMap <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockOrderedList
+#' @description Telegram API type PageBlockOrderedList
 #' @export
 PageBlockOrderedList <- R6::R6Class(
   "PageBlockOrderedList",
@@ -29254,6 +30808,8 @@ PageBlockOrderedList <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockParagraph
+#' @description Telegram API type PageBlockParagraph
 #' @export
 PageBlockParagraph <- R6::R6Class(
   "PageBlockParagraph",
@@ -29277,6 +30833,8 @@ PageBlockParagraph <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockPhoto
+#' @description Telegram API type PageBlockPhoto
 #' @export
 PageBlockPhoto <- R6::R6Class(
   "PageBlockPhoto",
@@ -29310,6 +30868,8 @@ PageBlockPhoto <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockPreformatted
+#' @description Telegram API type PageBlockPreformatted
 #' @export
 PageBlockPreformatted <- R6::R6Class(
   "PageBlockPreformatted",
@@ -29336,6 +30896,8 @@ PageBlockPreformatted <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockPullquote
+#' @description Telegram API type PageBlockPullquote
 #' @export
 PageBlockPullquote <- R6::R6Class(
   "PageBlockPullquote",
@@ -29362,6 +30924,8 @@ PageBlockPullquote <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockRelatedArticles
+#' @description Telegram API type PageBlockRelatedArticles
 #' @export
 PageBlockRelatedArticles <- R6::R6Class(
   "PageBlockRelatedArticles",
@@ -29391,6 +30955,8 @@ PageBlockRelatedArticles <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockSlideshow
+#' @description Telegram API type PageBlockSlideshow
 #' @export
 PageBlockSlideshow <- R6::R6Class(
   "PageBlockSlideshow",
@@ -29420,6 +30986,8 @@ PageBlockSlideshow <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockSubheader
+#' @description Telegram API type PageBlockSubheader
 #' @export
 PageBlockSubheader <- R6::R6Class(
   "PageBlockSubheader",
@@ -29443,6 +31011,8 @@ PageBlockSubheader <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockSubtitle
+#' @description Telegram API type PageBlockSubtitle
 #' @export
 PageBlockSubtitle <- R6::R6Class(
   "PageBlockSubtitle",
@@ -29466,6 +31036,8 @@ PageBlockSubtitle <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockTable
+#' @description Telegram API type PageBlockTable
 #' @export
 PageBlockTable <- R6::R6Class(
   "PageBlockTable",
@@ -29502,6 +31074,8 @@ PageBlockTable <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockTitle
+#' @description Telegram API type PageBlockTitle
 #' @export
 PageBlockTitle <- R6::R6Class(
   "PageBlockTitle",
@@ -29525,6 +31099,8 @@ PageBlockTitle <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockUnsupported
+#' @description Telegram API type PageBlockUnsupported
 #' @export
 PageBlockUnsupported <- R6::R6Class(
   "PageBlockUnsupported",
@@ -29544,6 +31120,8 @@ PageBlockUnsupported <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageBlockVideo
+#' @description Telegram API type PageBlockVideo
 #' @export
 PageBlockVideo <- R6::R6Class(
   "PageBlockVideo",
@@ -29577,6 +31155,8 @@ PageBlockVideo <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageCaption
+#' @description Telegram API type PageCaption
 #' @export
 PageCaption <- R6::R6Class(
   "PageCaption",
@@ -29615,6 +31195,8 @@ PageCaption <- R6::R6Class(
   class = TRUE
 )
 
+#' @title PageListItemBlocks
+#' @description Telegram API type PageListItemBlocks
 #' @export
 PageListItemBlocks <- R6::R6Class("PageListItemBlocks",
   inherit = TLObject,
@@ -29647,6 +31229,8 @@ PageListItemBlocks <- R6::R6Class("PageListItemBlocks",
   class = TRUE
 )
 
+#' @title PageListItemText
+#' @description Telegram API type PageListItemText
 #' @export
 PageListItemText <- R6::R6Class("PageListItemText",
   inherit = TLObject,
@@ -29674,6 +31258,8 @@ PageListItemText <- R6::R6Class("PageListItemText",
   class = TRUE
 )
 
+#' @title PageListOrderedItemBlocks
+#' @description Telegram API type PageListOrderedItemBlocks
 #' @export
 PageListOrderedItemBlocks <- R6::R6Class("PageListOrderedItemBlocks",
   inherit = TLObject,
@@ -29710,6 +31296,8 @@ PageListOrderedItemBlocks <- R6::R6Class("PageListOrderedItemBlocks",
   class = TRUE
 )
 
+#' @title PageListOrderedItemText
+#' @description Telegram API type PageListOrderedItemText
 #' @export
 PageListOrderedItemText <- R6::R6Class("PageListOrderedItemText",
   inherit = TLObject,
@@ -29741,6 +31329,8 @@ PageListOrderedItemText <- R6::R6Class("PageListOrderedItemText",
   class = TRUE
 )
 
+#' @title PageRelatedArticle
+#' @description Telegram API type PageRelatedArticle
 #' @export
 PageRelatedArticle <- R6::R6Class("PageRelatedArticle",
   inherit = TLObject,
@@ -29794,6 +31384,8 @@ PageRelatedArticle <- R6::R6Class("PageRelatedArticle",
   class = TRUE
 )
 
+#' @title PageTableCell
+#' @description Telegram API type PageTableCell
 #' @export
 PageTableCell <- R6::R6Class("PageTableCell",
   inherit = TLObject,
@@ -29846,6 +31438,8 @@ PageTableCell <- R6::R6Class("PageTableCell",
   class = TRUE
 )
 
+#' @title PageTableRow
+#' @description Telegram API type PageTableRow
 #' @export
 PageTableRow <- R6::R6Class("PageTableRow",
   inherit = TLObject,
@@ -29878,6 +31472,8 @@ PageTableRow <- R6::R6Class("PageTableRow",
   class = TRUE
 )
 
+#' @title PaidReactionPrivacyAnonymous
+#' @description Telegram API type PaidReactionPrivacyAnonymous
 #' @export
 PaidReactionPrivacyAnonymous <- R6::R6Class("PaidReactionPrivacyAnonymous",
   inherit = TLObject,
@@ -29896,6 +31492,8 @@ PaidReactionPrivacyAnonymous <- R6::R6Class("PaidReactionPrivacyAnonymous",
   class = TRUE
 )
 
+#' @title PaidReactionPrivacyDefault
+#' @description Telegram API type PaidReactionPrivacyDefault
 #' @export
 PaidReactionPrivacyDefault <- R6::R6Class("PaidReactionPrivacyDefault",
   inherit = TLObject,
@@ -29914,6 +31512,8 @@ PaidReactionPrivacyDefault <- R6::R6Class("PaidReactionPrivacyDefault",
   class = TRUE
 )
 
+#' @title PaidReactionPrivacyPeer
+#' @description Telegram API type PaidReactionPrivacyPeer
 #' @export
 PaidReactionPrivacyPeer <- R6::R6Class("PaidReactionPrivacyPeer",
   inherit = TLObject,
@@ -29941,6 +31541,8 @@ PaidReactionPrivacyPeer <- R6::R6Class("PaidReactionPrivacyPeer",
   class = TRUE
 )
 
+#' @title PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
+#' @description Telegram API type PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
 #' @export
 PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow <- R6::R6Class("PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow",
   inherit = TLObject,
@@ -29980,6 +31582,8 @@ PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow <- R6::R6Class
   class = TRUE
 )
 
+#' @title PasswordKdfAlgoUnknown
+#' @description Telegram API type PasswordKdfAlgoUnknown
 #' @export
 PasswordKdfAlgoUnknown <- R6::R6Class("PasswordKdfAlgoUnknown",
   inherit = TLObject,
@@ -29998,6 +31602,8 @@ PasswordKdfAlgoUnknown <- R6::R6Class("PasswordKdfAlgoUnknown",
   class = TRUE
 )
 
+#' @title PaymentCharge
+#' @description Telegram API type PaymentCharge
 #' @export
 PaymentCharge <- R6::R6Class("PaymentCharge",
   inherit = TLObject,
@@ -30029,6 +31635,8 @@ PaymentCharge <- R6::R6Class("PaymentCharge",
   class = TRUE
 )
 
+#' @title PaymentFormMethod
+#' @description Telegram API type PaymentFormMethod
 #' @export
 PaymentFormMethod <- R6::R6Class("PaymentFormMethod",
   inherit = TLObject,
@@ -30060,6 +31668,8 @@ PaymentFormMethod <- R6::R6Class("PaymentFormMethod",
   class = TRUE
 )
 
+#' @title PaymentRequestedInfo
+#' @description Telegram API type PaymentRequestedInfo
 #' @export
 PaymentRequestedInfo <- R6::R6Class("PaymentRequestedInfo",
   inherit = TLObject,
@@ -30101,6 +31711,8 @@ PaymentRequestedInfo <- R6::R6Class("PaymentRequestedInfo",
   class = TRUE
 )
 
+#' @title PaymentSavedCredentialsCard
+#' @description Telegram API type PaymentSavedCredentialsCard
 #' @export
 PaymentSavedCredentialsCard <- R6::R6Class("PaymentSavedCredentialsCard",
   inherit = TLObject,
@@ -30132,6 +31744,8 @@ PaymentSavedCredentialsCard <- R6::R6Class("PaymentSavedCredentialsCard",
   class = TRUE
 )
 
+#' @title PeerBlocked
+#' @description Telegram API type PeerBlocked
 #' @export
 PeerBlocked <- R6::R6Class("PeerBlocked",
   inherit = TLObject,
@@ -30163,6 +31777,8 @@ PeerBlocked <- R6::R6Class("PeerBlocked",
   class = TRUE
 )
 
+#' @title PeerChannel
+#' @description Telegram API type PeerChannel
 #' @export
 PeerChannel <- R6::R6Class("PeerChannel",
   inherit = TLObject,
@@ -30190,6 +31806,8 @@ PeerChannel <- R6::R6Class("PeerChannel",
   class = TRUE
 )
 
+#' @title PeerChat
+#' @description Telegram API type PeerChat
 #' @export
 PeerChat <- R6::R6Class("PeerChat",
   inherit = TLObject,
@@ -30217,6 +31835,8 @@ PeerChat <- R6::R6Class("PeerChat",
   class = TRUE
 )
 
+#' @title PeerColor
+#' @description Telegram API type PeerColor
 #' @export
 PeerColor <- R6::R6Class("PeerColor",
   inherit = TLObject,
@@ -30250,6 +31870,8 @@ PeerColor <- R6::R6Class("PeerColor",
   class = TRUE
 )
 
+#' @title PeerLocated
+#' @description Telegram API type PeerLocated
 #' @export
 PeerLocated <- R6::R6Class("PeerLocated",
   inherit = TLObject,
@@ -30285,6 +31907,8 @@ PeerLocated <- R6::R6Class("PeerLocated",
   class = TRUE
 )
 
+#' @title PeerNotifySettings
+#' @description Telegram API type PeerNotifySettings
 #' @export
 PeerNotifySettings <- R6::R6Class("PeerNotifySettings",
   inherit = TLObject,
@@ -30398,6 +32022,8 @@ PeerNotifySettings <- R6::R6Class("PeerNotifySettings",
   class = TRUE
 )
 
+#' @title PeerSelfLocated
+#' @description Telegram API type PeerSelfLocated
 #' @export
 PeerSelfLocated <- R6::R6Class("PeerSelfLocated",
   inherit = TLObject,
@@ -30425,6 +32051,8 @@ PeerSelfLocated <- R6::R6Class("PeerSelfLocated",
   class = TRUE
 )
 
+#' @title PeerSettings
+#' @description Telegram API type PeerSettings
 #' @export
 PeerSettings <- R6::R6Class("PeerSettings",
   inherit = TLObject,
@@ -30565,6 +32193,8 @@ PeerSettings <- R6::R6Class("PeerSettings",
   class = TRUE
 )
 
+#' @title PeerStories
+#' @description Telegram API type PeerStories
 #' @export
 PeerStories <- R6::R6Class("PeerStories",
   inherit = TLObject,
@@ -30610,6 +32240,8 @@ PeerStories <- R6::R6Class("PeerStories",
   class = TRUE
 )
 
+#' @title PeerUser
+#' @description Telegram API type PeerUser
 #' @export
 PeerUser <- R6::R6Class("PeerUser",
   inherit = TLObject,
@@ -30637,6 +32269,8 @@ PeerUser <- R6::R6Class("PeerUser",
   class = TRUE
 )
 
+#' @title PendingSuggestion
+#' @description Telegram API type PendingSuggestion
 #' @export
 PendingSuggestion <- R6::R6Class("PendingSuggestion",
   inherit = TLObject,
@@ -30676,6 +32310,8 @@ PendingSuggestion <- R6::R6Class("PendingSuggestion",
   class = TRUE
 )
 
+#' @title PhoneCall
+#' @description Telegram API type PhoneCall
 #' @export
 PhoneCall <- R6::R6Class("PhoneCall",
   inherit = TLObject,
@@ -30762,6 +32398,8 @@ PhoneCall <- R6::R6Class("PhoneCall",
   class = TRUE
 )
 
+#' @title PhoneCallAccepted
+#' @description Telegram API type PhoneCallAccepted
 #' @export
 PhoneCallAccepted <- R6::R6Class("PhoneCallAccepted",
   inherit = TLObject,
@@ -30818,6 +32456,8 @@ PhoneCallAccepted <- R6::R6Class("PhoneCallAccepted",
   class = TRUE
 )
 
+#' @title PhoneCallDiscardReasonBusy
+#' @description Telegram API type PhoneCallDiscardReasonBusy
 #' @export
 PhoneCallDiscardReasonBusy <- R6::R6Class("PhoneCallDiscardReasonBusy",
   inherit = TLObject,
@@ -30833,6 +32473,8 @@ PhoneCallDiscardReasonBusy <- R6::R6Class("PhoneCallDiscardReasonBusy",
   class = TRUE
 )
 
+#' @title PhoneCallDiscardReasonDisconnect
+#' @description Telegram API type PhoneCallDiscardReasonDisconnect
 #' @export
 PhoneCallDiscardReasonDisconnect <- R6::R6Class("PhoneCallDiscardReasonDisconnect",
   inherit = TLObject,
@@ -30848,6 +32490,8 @@ PhoneCallDiscardReasonDisconnect <- R6::R6Class("PhoneCallDiscardReasonDisconnec
   class = TRUE
 )
 
+#' @title PhoneCallDiscardReasonHangup
+#' @description Telegram API type PhoneCallDiscardReasonHangup
 #' @export
 PhoneCallDiscardReasonHangup <- R6::R6Class("PhoneCallDiscardReasonHangup",
   inherit = TLObject,
@@ -30863,6 +32507,8 @@ PhoneCallDiscardReasonHangup <- R6::R6Class("PhoneCallDiscardReasonHangup",
   class = TRUE
 )
 
+#' @title PhoneCallDiscardReasonMigrateConferenceCall
+#' @description Telegram API type PhoneCallDiscardReasonMigrateConferenceCall
 #' @export
 PhoneCallDiscardReasonMigrateConferenceCall <- R6::R6Class("PhoneCallDiscardReasonMigrateConferenceCall",
   inherit = TLObject,
@@ -30890,6 +32536,8 @@ PhoneCallDiscardReasonMigrateConferenceCall <- R6::R6Class("PhoneCallDiscardReas
   class = TRUE
 )
 
+#' @title PhoneCallDiscardReasonMissed
+#' @description Telegram API type PhoneCallDiscardReasonMissed
 #' @export
 PhoneCallDiscardReasonMissed <- R6::R6Class("PhoneCallDiscardReasonMissed",
   inherit = TLObject,
@@ -30905,6 +32553,8 @@ PhoneCallDiscardReasonMissed <- R6::R6Class("PhoneCallDiscardReasonMissed",
   class = TRUE
 )
 
+#' @title PhoneCallDiscarded
+#' @description Telegram API type PhoneCallDiscarded
 #' @export
 PhoneCallDiscarded <- R6::R6Class("PhoneCallDiscarded",
   inherit = TLObject,
@@ -30959,6 +32609,8 @@ PhoneCallDiscarded <- R6::R6Class("PhoneCallDiscarded",
   class = TRUE
 )
 
+#' @title PhoneCallEmpty
+#' @description Telegram API type PhoneCallEmpty
 #' @export
 PhoneCallEmpty <- R6::R6Class("PhoneCallEmpty",
   inherit = TLObject,
@@ -30986,6 +32638,8 @@ PhoneCallEmpty <- R6::R6Class("PhoneCallEmpty",
   class = TRUE
 )
 
+#' @title PhoneCallProtocol
+#' @description Telegram API type PhoneCallProtocol
 #' @export
 PhoneCallProtocol <- R6::R6Class("PhoneCallProtocol",
   inherit = TLObject,
@@ -31033,6 +32687,8 @@ PhoneCallProtocol <- R6::R6Class("PhoneCallProtocol",
   class = TRUE
 )
 
+#' @title PhoneCallRequested
+#' @description Telegram API type PhoneCallRequested
 #' @export
 PhoneCallRequested <- R6::R6Class("PhoneCallRequested",
   inherit = TLObject,
@@ -31089,6 +32745,8 @@ PhoneCallRequested <- R6::R6Class("PhoneCallRequested",
   class = TRUE
 )
 
+#' @title PhoneCallWaiting
+#' @description Telegram API type PhoneCallWaiting
 #' @export
 PhoneCallWaiting <- R6::R6Class("PhoneCallWaiting",
   inherit = TLObject,
@@ -31149,6 +32807,8 @@ PhoneCallWaiting <- R6::R6Class("PhoneCallWaiting",
   class = TRUE
 )
 
+#' @title PhoneConnection
+#' @description Telegram API type PhoneConnection
 #' @export
 PhoneConnection <- R6::R6Class("PhoneConnection",
   inherit = TLObject,
@@ -31197,6 +32857,8 @@ PhoneConnection <- R6::R6Class("PhoneConnection",
   class = TRUE
 )
 
+#' @title PhoneConnectionWebrtc
+#' @description Telegram API type PhoneConnectionWebrtc
 #' @export
 PhoneConnectionWebrtc <- R6::R6Class("PhoneConnectionWebrtc",
   inherit = TLObject,
@@ -31252,6 +32914,8 @@ PhoneConnectionWebrtc <- R6::R6Class("PhoneConnectionWebrtc",
   class = TRUE
 )
 
+#' @title Photo
+#' @description Telegram API type Photo
 #' @export
 Photo <- R6::R6Class("Photo",
   inherit = TLObject,
@@ -31320,6 +32984,8 @@ Photo <- R6::R6Class("Photo",
   class = TRUE
 )
 
+#' @title PhotoCachedSize
+#' @description Telegram API type PhotoCachedSize
 #' @export
 PhotoCachedSize <- R6::R6Class("PhotoCachedSize",
   inherit = TLObject,
@@ -31350,6 +33016,8 @@ PhotoCachedSize <- R6::R6Class("PhotoCachedSize",
   class = TRUE
 )
 
+#' @title PhotoEmpty
+#' @description Telegram API type PhotoEmpty
 #' @export
 PhotoEmpty <- R6::R6Class("PhotoEmpty",
   inherit = TLObject,
@@ -31373,6 +33041,8 @@ PhotoEmpty <- R6::R6Class("PhotoEmpty",
   class = TRUE
 )
 
+#' @title PhotoPathSize
+#' @description Telegram API type PhotoPathSize
 #' @export
 PhotoPathSize <- R6::R6Class("PhotoPathSize",
   inherit = TLObject,
@@ -31399,6 +33069,8 @@ PhotoPathSize <- R6::R6Class("PhotoPathSize",
   class = TRUE
 )
 
+#' @title PhotoSize
+#' @description Telegram API type PhotoSize
 #' @export
 PhotoSize <- R6::R6Class("PhotoSize",
   inherit = TLObject,
@@ -31431,6 +33103,8 @@ PhotoSize <- R6::R6Class("PhotoSize",
   class = TRUE
 )
 
+#' @title PhotoSizeEmpty
+#' @description Telegram API type PhotoSizeEmpty
 #' @export
 PhotoSizeEmpty <- R6::R6Class("PhotoSizeEmpty",
   inherit = TLObject,
@@ -31450,6 +33124,8 @@ PhotoSizeEmpty <- R6::R6Class("PhotoSizeEmpty",
   class = TRUE
 )
 
+#' @title PhotoSizeProgressive
+#' @description Telegram API type PhotoSizeProgressive
 #' @export
 PhotoSizeProgressive <- R6::R6Class("PhotoSizeProgressive",
   inherit = TLObject,
@@ -31492,6 +33168,8 @@ PhotoSizeProgressive <- R6::R6Class("PhotoSizeProgressive",
   class = TRUE
 )
 
+#' @title PhotoStrippedSize
+#' @description Telegram API type PhotoStrippedSize
 #' @export
 PhotoStrippedSize <- R6::R6Class("PhotoStrippedSize",
   inherit = TLObject,
@@ -31518,6 +33196,8 @@ PhotoStrippedSize <- R6::R6Class("PhotoStrippedSize",
   class = TRUE
 )
 
+#' @title Poll
+#' @description Telegram API type Poll
 #' @export
 Poll <- R6::R6Class("Poll",
   inherit = TLObject,
@@ -31579,6 +33259,8 @@ Poll <- R6::R6Class("Poll",
   class = TRUE
 )
 
+#' @title PollAnswer
+#' @description Telegram API type PollAnswer
 #' @export
 PollAnswer <- R6::R6Class("PollAnswer",
   inherit = TLObject,
@@ -31605,6 +33287,8 @@ PollAnswer <- R6::R6Class("PollAnswer",
   class = TRUE
 )
 
+#' @title PollAnswerVoters
+#' @description Telegram API type PollAnswerVoters
 #' @export
 PollAnswerVoters <- R6::R6Class("PollAnswerVoters",
   inherit = TLObject,
@@ -31644,6 +33328,8 @@ PollAnswerVoters <- R6::R6Class("PollAnswerVoters",
   class = TRUE
 )
 
+#' @title PollResults
+#' @description Telegram API type PollResults
 #' @export
 PollResults <- R6::R6Class("PollResults",
   inherit = TLObject,
@@ -31719,6 +33405,8 @@ PollResults <- R6::R6Class("PollResults",
   class = TRUE
 )
 
+#' @title Pong
+#' @description Telegram API type Pong
 #' @export
 Pong <- R6::R6Class("Pong",
   inherit = TLObject,
@@ -31745,6 +33433,8 @@ Pong <- R6::R6Class("Pong",
   class = TRUE
 )
 
+#' @title PopularContact
+#' @description Telegram API type PopularContact
 #' @export
 PopularContact <- R6::R6Class("PopularContact",
   inherit = TLObject,
@@ -31771,6 +33461,8 @@ PopularContact <- R6::R6Class("PopularContact",
   class = TRUE
 )
 
+#' @title PostAddress
+#' @description Telegram API type PostAddress
 #' @export
 PostAddress <- R6::R6Class("PostAddress",
   inherit = TLObject,
@@ -31809,6 +33501,8 @@ PostAddress <- R6::R6Class("PostAddress",
   class = TRUE
 )
 
+#' @title PostInteractionCountersMessage
+#' @description Telegram API type PostInteractionCountersMessage
 #' @export
 PostInteractionCountersMessage <- R6::R6Class("PostInteractionCountersMessage",
   inherit = TLObject,
@@ -31841,6 +33535,8 @@ PostInteractionCountersMessage <- R6::R6Class("PostInteractionCountersMessage",
   class = TRUE
 )
 
+#' @title PostInteractionCountersStory
+#' @description Telegram API type PostInteractionCountersStory
 #' @export
 PostInteractionCountersStory <- R6::R6Class("PostInteractionCountersStory",
   inherit = TLObject,
@@ -31873,6 +33569,8 @@ PostInteractionCountersStory <- R6::R6Class("PostInteractionCountersStory",
   class = TRUE
 )
 
+#' @title PremiumGiftCodeOption
+#' @description Telegram API type PremiumGiftCodeOption
 #' @export
 PremiumGiftCodeOption <- R6::R6Class("PremiumGiftCodeOption",
   inherit = TLObject,
@@ -31922,6 +33620,8 @@ PremiumGiftCodeOption <- R6::R6Class("PremiumGiftCodeOption",
   class = TRUE
 )
 
+#' @title PremiumSubscriptionOption
+#' @description Telegram API type PremiumSubscriptionOption
 #' @export
 PremiumSubscriptionOption <- R6::R6Class("PremiumSubscriptionOption",
   inherit = TLObject,
@@ -31977,6 +33677,8 @@ PremiumSubscriptionOption <- R6::R6Class("PremiumSubscriptionOption",
   class = TRUE
 )
 
+#' @title PrepaidGiveaway
+#' @description Telegram API type PrepaidGiveaway
 #' @export
 PrepaidGiveaway <- R6::R6Class("PrepaidGiveaway",
   inherit = TLObject,
@@ -32009,6 +33711,8 @@ PrepaidGiveaway <- R6::R6Class("PrepaidGiveaway",
   class = TRUE
 )
 
+#' @title PrepaidStarsGiveaway
+#' @description Telegram API type PrepaidStarsGiveaway
 #' @export
 PrepaidStarsGiveaway <- R6::R6Class("PrepaidStarsGiveaway",
   inherit = TLObject,
@@ -32044,6 +33748,8 @@ PrepaidStarsGiveaway <- R6::R6Class("PrepaidStarsGiveaway",
   class = TRUE
 )
 
+#' @title PrivacyKeyAbout
+#' @description Telegram API type PrivacyKeyAbout
 #' @export
 PrivacyKeyAbout <- R6::R6Class("PrivacyKeyAbout",
   inherit = TLObject,
@@ -32059,6 +33765,8 @@ PrivacyKeyAbout <- R6::R6Class("PrivacyKeyAbout",
   class = TRUE
 )
 
+#' @title PrivacyKeyAddedByPhone
+#' @description Telegram API type PrivacyKeyAddedByPhone
 #' @export
 PrivacyKeyAddedByPhone <- R6::R6Class("PrivacyKeyAddedByPhone",
   inherit = TLObject,
@@ -32074,6 +33782,8 @@ PrivacyKeyAddedByPhone <- R6::R6Class("PrivacyKeyAddedByPhone",
   class = TRUE
 )
 
+#' @title PrivacyKeyBirthday
+#' @description Telegram API type PrivacyKeyBirthday
 #' @export
 PrivacyKeyBirthday <- R6::R6Class("PrivacyKeyBirthday",
   inherit = TLObject,
@@ -32089,6 +33799,8 @@ PrivacyKeyBirthday <- R6::R6Class("PrivacyKeyBirthday",
   class = TRUE
 )
 
+#' @title PrivacyKeyChatInvite
+#' @description Telegram API type PrivacyKeyChatInvite
 #' @export
 PrivacyKeyChatInvite <- R6::R6Class("PrivacyKeyChatInvite",
   inherit = TLObject,
@@ -32104,6 +33816,8 @@ PrivacyKeyChatInvite <- R6::R6Class("PrivacyKeyChatInvite",
   class = TRUE
 )
 
+#' @title PrivacyKeyForwards
+#' @description Telegram API type PrivacyKeyForwards
 #' @export
 PrivacyKeyForwards <- R6::R6Class("PrivacyKeyForwards",
   inherit = TLObject,
@@ -32119,6 +33833,8 @@ PrivacyKeyForwards <- R6::R6Class("PrivacyKeyForwards",
   class = TRUE
 )
 
+#' @title PrivacyKeyNoPaidMessages
+#' @description Telegram API type PrivacyKeyNoPaidMessages
 #' @export
 PrivacyKeyNoPaidMessages <- R6::R6Class("PrivacyKeyNoPaidMessages",
   inherit = TLObject,
@@ -32134,6 +33850,8 @@ PrivacyKeyNoPaidMessages <- R6::R6Class("PrivacyKeyNoPaidMessages",
   class = TRUE
 )
 
+#' @title PrivacyKeyPhoneCall
+#' @description Telegram API type PrivacyKeyPhoneCall
 #' @export
 PrivacyKeyPhoneCall <- R6::R6Class("PrivacyKeyPhoneCall",
   inherit = TLObject,
@@ -32149,6 +33867,8 @@ PrivacyKeyPhoneCall <- R6::R6Class("PrivacyKeyPhoneCall",
   class = TRUE
 )
 
+#' @title PrivacyKeyPhoneNumber
+#' @description Telegram API type PrivacyKeyPhoneNumber
 #' @export
 PrivacyKeyPhoneNumber <- R6::R6Class("PrivacyKeyPhoneNumber",
   inherit = TLObject,
@@ -32164,6 +33884,8 @@ PrivacyKeyPhoneNumber <- R6::R6Class("PrivacyKeyPhoneNumber",
   class = TRUE
 )
 
+#' @title PrivacyKeyPhoneP2P
+#' @description Telegram API type PrivacyKeyPhoneP2P
 #' @export
 PrivacyKeyPhoneP2P <- R6::R6Class("PrivacyKeyPhoneP2P",
   inherit = TLObject,
@@ -32179,6 +33901,8 @@ PrivacyKeyPhoneP2P <- R6::R6Class("PrivacyKeyPhoneP2P",
   class = TRUE
 )
 
+#' @title PrivacyKeyProfilePhoto
+#' @description Telegram API type PrivacyKeyProfilePhoto
 #' @export
 PrivacyKeyProfilePhoto <- R6::R6Class("PrivacyKeyProfilePhoto",
   inherit = TLObject,
@@ -32194,6 +33918,8 @@ PrivacyKeyProfilePhoto <- R6::R6Class("PrivacyKeyProfilePhoto",
   class = TRUE
 )
 
+#' @title PrivacyKeyStarGiftsAutoSave
+#' @description Telegram API type PrivacyKeyStarGiftsAutoSave
 #' @export
 PrivacyKeyStarGiftsAutoSave <- R6::R6Class("PrivacyKeyStarGiftsAutoSave",
   inherit = TLObject,
@@ -32209,6 +33935,8 @@ PrivacyKeyStarGiftsAutoSave <- R6::R6Class("PrivacyKeyStarGiftsAutoSave",
   class = TRUE
 )
 
+#' @title PrivacyKeyStatusTimestamp
+#' @description Telegram API type PrivacyKeyStatusTimestamp
 #' @export
 PrivacyKeyStatusTimestamp <- R6::R6Class("PrivacyKeyStatusTimestamp",
   inherit = TLObject,
@@ -32224,6 +33952,8 @@ PrivacyKeyStatusTimestamp <- R6::R6Class("PrivacyKeyStatusTimestamp",
   class = TRUE
 )
 
+#' @title PrivacyKeyVoiceMessages
+#' @description Telegram API type PrivacyKeyVoiceMessages
 #' @export
 PrivacyKeyVoiceMessages <- R6::R6Class("PrivacyKeyVoiceMessages",
   inherit = TLObject,
@@ -32239,6 +33969,8 @@ PrivacyKeyVoiceMessages <- R6::R6Class("PrivacyKeyVoiceMessages",
   class = TRUE
 )
 
+#' @title PrivacyValueAllowAll
+#' @description Telegram API type PrivacyValueAllowAll
 #' @export
 PrivacyValueAllowAll <- R6::R6Class("PrivacyValueAllowAll",
   inherit = TLObject,
@@ -32254,6 +33986,8 @@ PrivacyValueAllowAll <- R6::R6Class("PrivacyValueAllowAll",
   class = TRUE
 )
 
+#' @title PrivacyValueAllowBots
+#' @description Telegram API type PrivacyValueAllowBots
 #' @export
 PrivacyValueAllowBots <- R6::R6Class("PrivacyValueAllowBots",
   inherit = TLObject,
@@ -32269,6 +34003,8 @@ PrivacyValueAllowBots <- R6::R6Class("PrivacyValueAllowBots",
   class = TRUE
 )
 
+#' @title PrivacyValueAllowChatParticipants
+#' @description Telegram API type PrivacyValueAllowChatParticipants
 #' @export
 PrivacyValueAllowChatParticipants <- R6::R6Class("PrivacyValueAllowChatParticipants",
   inherit = TLObject,
@@ -32299,6 +34035,8 @@ PrivacyValueAllowChatParticipants <- R6::R6Class("PrivacyValueAllowChatParticipa
   class = TRUE
 )
 
+#' @title PrivacyValueAllowCloseFriends
+#' @description Telegram API type PrivacyValueAllowCloseFriends
 #' @export
 PrivacyValueAllowCloseFriends <- R6::R6Class("PrivacyValueAllowCloseFriends",
   inherit = TLObject,
@@ -32314,6 +34052,8 @@ PrivacyValueAllowCloseFriends <- R6::R6Class("PrivacyValueAllowCloseFriends",
   class = TRUE
 )
 
+#' @title PrivacyValueAllowContacts
+#' @description Telegram API type PrivacyValueAllowContacts
 #' @export
 PrivacyValueAllowContacts <- R6::R6Class("PrivacyValueAllowContacts",
   inherit = TLObject,
@@ -32329,6 +34069,8 @@ PrivacyValueAllowContacts <- R6::R6Class("PrivacyValueAllowContacts",
   class = TRUE
 )
 
+#' @title PrivacyValueAllowPremium
+#' @description Telegram API type PrivacyValueAllowPremium
 #' @export
 PrivacyValueAllowPremium <- R6::R6Class("PrivacyValueAllowPremium",
   inherit = TLObject,
@@ -32344,6 +34086,8 @@ PrivacyValueAllowPremium <- R6::R6Class("PrivacyValueAllowPremium",
   class = TRUE
 )
 
+#' @title PrivacyValueAllowUsers
+#' @description Telegram API type PrivacyValueAllowUsers
 #' @export
 PrivacyValueAllowUsers <- R6::R6Class("PrivacyValueAllowUsers",
   inherit = TLObject,
@@ -32374,6 +34118,8 @@ PrivacyValueAllowUsers <- R6::R6Class("PrivacyValueAllowUsers",
   class = TRUE
 )
 
+#' @title PrivacyValueDisallowAll
+#' @description Telegram API type PrivacyValueDisallowAll
 #' @export
 PrivacyValueDisallowAll <- R6::R6Class("PrivacyValueDisallowAll",
   inherit = TLObject,
@@ -32389,6 +34135,8 @@ PrivacyValueDisallowAll <- R6::R6Class("PrivacyValueDisallowAll",
   class = TRUE
 )
 
+#' @title PrivacyValueDisallowBots
+#' @description Telegram API type PrivacyValueDisallowBots
 #' @export
 PrivacyValueDisallowBots <- R6::R6Class("PrivacyValueDisallowBots",
   inherit = TLObject,
@@ -32404,6 +34152,8 @@ PrivacyValueDisallowBots <- R6::R6Class("PrivacyValueDisallowBots",
   class = TRUE
 )
 
+#' @title PrivacyValueDisallowChatParticipants
+#' @description Telegram API type PrivacyValueDisallowChatParticipants
 #' @export
 PrivacyValueDisallowChatParticipants <- R6::R6Class("PrivacyValueDisallowChatParticipants",
   inherit = TLObject,
@@ -32440,6 +34190,8 @@ PrivacyValueDisallowChatParticipants <- R6::R6Class("PrivacyValueDisallowChatPar
   class = TRUE
 )
 
+#' @title PrivacyValueDisallowContacts
+#' @description Telegram API type PrivacyValueDisallowContacts
 #' @export
 PrivacyValueDisallowContacts <- R6::R6Class("PrivacyValueDisallowContacts",
   inherit = TLObject,
@@ -32455,6 +34207,8 @@ PrivacyValueDisallowContacts <- R6::R6Class("PrivacyValueDisallowContacts",
   class = TRUE
 )
 
+#' @title PrivacyValueDisallowUsers
+#' @description Telegram API type PrivacyValueDisallowUsers
 #' @export
 PrivacyValueDisallowUsers <- R6::R6Class("PrivacyValueDisallowUsers",
   inherit = TLObject,
@@ -32491,6 +34245,8 @@ PrivacyValueDisallowUsers <- R6::R6Class("PrivacyValueDisallowUsers",
   class = TRUE
 )
 
+#' @title ProfileTabFiles
+#' @description Telegram API type ProfileTabFiles
 #' @export
 ProfileTabFiles <- R6::R6Class("ProfileTabFiles",
   inherit = TLObject,
@@ -32506,6 +34262,8 @@ ProfileTabFiles <- R6::R6Class("ProfileTabFiles",
   class = TRUE
 )
 
+#' @title ProfileTabGifs
+#' @description Telegram API type ProfileTabGifs
 #' @export
 ProfileTabGifs <- R6::R6Class("ProfileTabGifs",
   inherit = TLObject,
@@ -32521,6 +34279,8 @@ ProfileTabGifs <- R6::R6Class("ProfileTabGifs",
   class = TRUE
 )
 
+#' @title ProfileTabGifts
+#' @description Telegram API type ProfileTabGifts
 #' @export
 ProfileTabGifts <- R6::R6Class("ProfileTabGifts",
   inherit = TLObject,
@@ -32536,6 +34296,8 @@ ProfileTabGifts <- R6::R6Class("ProfileTabGifts",
   class = TRUE
 )
 
+#' @title ProfileTabLinks
+#' @description Telegram API type ProfileTabLinks
 #' @export
 ProfileTabLinks <- R6::R6Class("ProfileTabLinks",
   inherit = TLObject,
@@ -32551,6 +34313,8 @@ ProfileTabLinks <- R6::R6Class("ProfileTabLinks",
   class = TRUE
 )
 
+#' @title ProfileTabMedia
+#' @description Telegram API type ProfileTabMedia
 #' @export
 ProfileTabMedia <- R6::R6Class("ProfileTabMedia",
   inherit = TLObject,
@@ -32566,6 +34330,8 @@ ProfileTabMedia <- R6::R6Class("ProfileTabMedia",
   class = TRUE
 )
 
+#' @title ProfileTabMusic
+#' @description Telegram API type ProfileTabMusic
 #' @export
 ProfileTabMusic <- R6::R6Class("ProfileTabMusic",
   inherit = TLObject,
@@ -32581,6 +34347,8 @@ ProfileTabMusic <- R6::R6Class("ProfileTabMusic",
   class = TRUE
 )
 
+#' @title ProfileTabPosts
+#' @description Telegram API type ProfileTabPosts
 #' @export
 ProfileTabPosts <- R6::R6Class("ProfileTabPosts",
   inherit = TLObject,
@@ -32596,6 +34364,8 @@ ProfileTabPosts <- R6::R6Class("ProfileTabPosts",
   class = TRUE
 )
 
+#' @title ProfileTabVoice
+#' @description Telegram API type ProfileTabVoice
 #' @export
 ProfileTabVoice <- R6::R6Class("ProfileTabVoice",
   inherit = TLObject,
@@ -32611,6 +34381,8 @@ ProfileTabVoice <- R6::R6Class("ProfileTabVoice",
   class = TRUE
 )
 
+#' @title PublicForwardMessage
+#' @description Telegram API type PublicForwardMessage
 #' @export
 PublicForwardMessage <- R6::R6Class("PublicForwardMessage",
   inherit = TLObject,
@@ -32637,6 +34409,8 @@ PublicForwardMessage <- R6::R6Class("PublicForwardMessage",
   class = TRUE
 )
 
+#' @title PublicForwardStory
+#' @description Telegram API type PublicForwardStory
 #' @export
 PublicForwardStory <- R6::R6Class("PublicForwardStory",
   inherit = TLObject,
@@ -32667,6 +34441,8 @@ PublicForwardStory <- R6::R6Class("PublicForwardStory",
   class = TRUE
 )
 
+#' @title QuickReply
+#' @description Telegram API type QuickReply
 #' @export
 QuickReply <- R6::R6Class("QuickReply",
   inherit = TLObject,
@@ -32705,6 +34481,8 @@ QuickReply <- R6::R6Class("QuickReply",
   class = TRUE
 )
 
+#' @title ReactionCount
+#' @description Telegram API type ReactionCount
 #' @export
 ReactionCount <- R6::R6Class("ReactionCount",
   inherit = TLObject,
@@ -32747,6 +34525,8 @@ ReactionCount <- R6::R6Class("ReactionCount",
   class = TRUE
 )
 
+#' @title ReactionCustomEmoji
+#' @description Telegram API type ReactionCustomEmoji
 #' @export
 ReactionCustomEmoji <- R6::R6Class("ReactionCustomEmoji",
   inherit = TLObject,
@@ -32773,6 +34553,8 @@ ReactionCustomEmoji <- R6::R6Class("ReactionCustomEmoji",
   class = TRUE
 )
 
+#' @title ReactionEmoji
+#' @description Telegram API type ReactionEmoji
 #' @export
 ReactionEmoji <- R6::R6Class("ReactionEmoji",
   inherit = TLObject,
@@ -32799,6 +34581,8 @@ ReactionEmoji <- R6::R6Class("ReactionEmoji",
   class = TRUE
 )
 
+#' @title ReactionEmpty
+#' @description Telegram API type ReactionEmpty
 #' @export
 ReactionEmpty <- R6::R6Class("ReactionEmpty",
   inherit = TLObject,
@@ -32814,6 +34598,8 @@ ReactionEmpty <- R6::R6Class("ReactionEmpty",
   class = TRUE
 )
 
+#' @title ReactionNotificationsFromAll
+#' @description Telegram API type ReactionNotificationsFromAll
 #' @export
 ReactionNotificationsFromAll <- R6::R6Class("ReactionNotificationsFromAll",
   inherit = TLObject,
@@ -32829,6 +34615,8 @@ ReactionNotificationsFromAll <- R6::R6Class("ReactionNotificationsFromAll",
   class = TRUE
 )
 
+#' @title ReactionNotificationsFromContacts
+#' @description Telegram API type ReactionNotificationsFromContacts
 #' @export
 ReactionNotificationsFromContacts <- R6::R6Class("ReactionNotificationsFromContacts",
   inherit = TLObject,
@@ -32844,6 +34632,8 @@ ReactionNotificationsFromContacts <- R6::R6Class("ReactionNotificationsFromConta
   class = TRUE
 )
 
+#' @title ReactionPaid
+#' @description Telegram API type ReactionPaid
 #' @export
 ReactionPaid <- R6::R6Class("ReactionPaid",
   inherit = TLObject,
@@ -32859,6 +34649,8 @@ ReactionPaid <- R6::R6Class("ReactionPaid",
   class = TRUE
 )
 
+#' @title ReactionsNotifySettings
+#' @description Telegram API type ReactionsNotifySettings
 #' @export
 ReactionsNotifySettings <- R6::R6Class("ReactionsNotifySettings",
   inherit = TLObject,
@@ -32910,6 +34702,8 @@ ReactionsNotifySettings <- R6::R6Class("ReactionsNotifySettings",
   class = TRUE
 )
 
+#' @title ReadParticipantDate
+#' @description Telegram API type ReadParticipantDate
 #' @export
 ReadParticipantDate <- R6::R6Class("ReadParticipantDate",
   inherit = TLObject,
@@ -32940,6 +34734,8 @@ ReadParticipantDate <- R6::R6Class("ReadParticipantDate",
   class = TRUE
 )
 
+#' @title ReceivedNotifyMessage
+#' @description Telegram API type ReceivedNotifyMessage
 #' @export
 ReceivedNotifyMessage <- R6::R6Class("ReceivedNotifyMessage",
   inherit = TLObject,
@@ -32970,6 +34766,8 @@ ReceivedNotifyMessage <- R6::R6Class("ReceivedNotifyMessage",
   class = TRUE
 )
 
+#' @title RecentMeUrlChat
+#' @description Telegram API type RecentMeUrlChat
 #' @export
 RecentMeUrlChat <- R6::R6Class("RecentMeUrlChat",
   inherit = TLObject,
@@ -33000,6 +34798,8 @@ RecentMeUrlChat <- R6::R6Class("RecentMeUrlChat",
   class = TRUE
 )
 
+#' @title RecentMeUrlChatInvite
+#' @description Telegram API type RecentMeUrlChatInvite
 #' @export
 RecentMeUrlChatInvite <- R6::R6Class("RecentMeUrlChatInvite",
   inherit = TLObject,
@@ -33030,6 +34830,8 @@ RecentMeUrlChatInvite <- R6::R6Class("RecentMeUrlChatInvite",
   class = TRUE
 )
 
+#' @title RecentMeUrlStickerSet
+#' @description Telegram API type RecentMeUrlStickerSet
 #' @export
 RecentMeUrlStickerSet <- R6::R6Class("RecentMeUrlStickerSet",
   inherit = TLObject,
@@ -33060,6 +34862,8 @@ RecentMeUrlStickerSet <- R6::R6Class("RecentMeUrlStickerSet",
   class = TRUE
 )
 
+#' @title RecentMeUrlUnknown
+#' @description Telegram API type RecentMeUrlUnknown
 #' @export
 RecentMeUrlUnknown <- R6::R6Class("RecentMeUrlUnknown",
   inherit = TLObject,
@@ -33086,6 +34890,8 @@ RecentMeUrlUnknown <- R6::R6Class("RecentMeUrlUnknown",
   class = TRUE
 )
 
+#' @title RecentMeUrlUser
+#' @description Telegram API type RecentMeUrlUser
 #' @export
 RecentMeUrlUser <- R6::R6Class("RecentMeUrlUser",
   inherit = TLObject,
@@ -33116,6 +34922,8 @@ RecentMeUrlUser <- R6::R6Class("RecentMeUrlUser",
   class = TRUE
 )
 
+#' @title ReplyInlineMarkup
+#' @description Telegram API type ReplyInlineMarkup
 #' @export
 ReplyInlineMarkup <- R6::R6Class("ReplyInlineMarkup",
   inherit = TLObject,
@@ -33151,6 +34959,8 @@ ReplyInlineMarkup <- R6::R6Class("ReplyInlineMarkup",
   class = TRUE
 )
 
+#' @title ReplyKeyboardForceReply
+#' @description Telegram API type ReplyKeyboardForceReply
 #' @export
 ReplyKeyboardForceReply <- R6::R6Class("ReplyKeyboardForceReply",
   inherit = TLObject,
@@ -33193,6 +35003,8 @@ ReplyKeyboardForceReply <- R6::R6Class("ReplyKeyboardForceReply",
   class = TRUE
 )
 
+#' @title ReplyKeyboardHide
+#' @description Telegram API type ReplyKeyboardHide
 #' @export
 ReplyKeyboardHide <- R6::R6Class("ReplyKeyboardHide",
   inherit = TLObject,
@@ -33222,6 +35034,8 @@ ReplyKeyboardHide <- R6::R6Class("ReplyKeyboardHide",
   class = TRUE
 )
 
+#' @title ReplyKeyboardMarkup
+#' @description Telegram API type ReplyKeyboardMarkup
 #' @export
 ReplyKeyboardMarkup <- R6::R6Class("ReplyKeyboardMarkup",
   inherit = TLObject,
@@ -33285,6 +35099,8 @@ ReplyKeyboardMarkup <- R6::R6Class("ReplyKeyboardMarkup",
   class = TRUE
 )
 
+#' @title ReportResultAddComment
+#' @description Telegram API type ReportResultAddComment
 #' @export
 ReportResultAddComment <- R6::R6Class("ReportResultAddComment",
   inherit = TLObject,
@@ -33318,6 +35134,8 @@ ReportResultAddComment <- R6::R6Class("ReportResultAddComment",
   class = TRUE
 )
 
+#' @title ReportResultChooseOption
+#' @description Telegram API type ReportResultChooseOption
 #' @export
 ReportResultChooseOption <- R6::R6Class("ReportResultChooseOption",
   inherit = TLObject,
@@ -33357,6 +35175,8 @@ ReportResultChooseOption <- R6::R6Class("ReportResultChooseOption",
   class = TRUE
 )
 
+#' @title ReportResultReported
+#' @description Telegram API type ReportResultReported
 #' @export
 ReportResultReported <- R6::R6Class("ReportResultReported",
   inherit = TLObject,
@@ -33372,6 +35192,8 @@ ReportResultReported <- R6::R6Class("ReportResultReported",
   class = TRUE
 )
 
+#' @title RequestPeerTypeBroadcast
+#' @description Telegram API type RequestPeerTypeBroadcast
 #' @export
 RequestPeerTypeBroadcast <- R6::R6Class("RequestPeerTypeBroadcast",
   inherit = TLObject,
@@ -33428,6 +35250,8 @@ RequestPeerTypeBroadcast <- R6::R6Class("RequestPeerTypeBroadcast",
   class = TRUE
 )
 
+#' @title RequestPeerTypeChat
+#' @description Telegram API type RequestPeerTypeChat
 #' @export
 RequestPeerTypeChat <- R6::R6Class("RequestPeerTypeChat",
   inherit = TLObject,
@@ -33497,6 +35321,8 @@ RequestPeerTypeChat <- R6::R6Class("RequestPeerTypeChat",
   class = TRUE
 )
 
+#' @title RequestPeerTypeUser
+#' @description Telegram API type RequestPeerTypeUser
 #' @export
 RequestPeerTypeUser <- R6::R6Class("RequestPeerTypeUser",
   inherit = TLObject,
@@ -33540,6 +35366,8 @@ RequestPeerTypeUser <- R6::R6Class("RequestPeerTypeUser",
   class = TRUE
 )
 
+#' @title RequestedPeerChannel
+#' @description Telegram API type RequestedPeerChannel
 #' @export
 RequestedPeerChannel <- R6::R6Class("RequestedPeerChannel",
   inherit = TLObject,
@@ -33596,6 +35424,8 @@ RequestedPeerChannel <- R6::R6Class("RequestedPeerChannel",
   class = TRUE
 )
 
+#' @title RequestedPeerChat
+#' @description Telegram API type RequestedPeerChat
 #' @export
 RequestedPeerChat <- R6::R6Class("RequestedPeerChat",
   inherit = TLObject,
@@ -33643,6 +35473,8 @@ RequestedPeerChat <- R6::R6Class("RequestedPeerChat",
   class = TRUE
 )
 
+#' @title RequestedPeerUser
+#' @description Telegram API type RequestedPeerUser
 #' @export
 RequestedPeerUser <- R6::R6Class("RequestedPeerUser",
   inherit = TLObject,
@@ -33708,6 +35540,8 @@ RequestedPeerUser <- R6::R6Class("RequestedPeerUser",
   class = TRUE
 )
 
+#' @title RequirementToContactEmpty
+#' @description Telegram API type RequirementToContactEmpty
 #' @export
 RequirementToContactEmpty <- R6::R6Class("RequirementToContactEmpty",
   inherit = TLObject,
@@ -33723,6 +35557,8 @@ RequirementToContactEmpty <- R6::R6Class("RequirementToContactEmpty",
   class = TRUE
 )
 
+#' @title RequirementToContactPaidMessages
+#' @description Telegram API type RequirementToContactPaidMessages
 #' @export
 RequirementToContactPaidMessages <- R6::R6Class("RequirementToContactPaidMessages",
   inherit = TLObject,
@@ -33745,6 +35581,8 @@ RequirementToContactPaidMessages <- R6::R6Class("RequirementToContactPaidMessage
   class = TRUE
 )
 
+#' @title RequirementToContactPremium
+#' @description Telegram API type RequirementToContactPremium
 #' @export
 RequirementToContactPremium <- R6::R6Class("RequirementToContactPremium",
   inherit = TLObject,
@@ -33760,6 +35598,8 @@ RequirementToContactPremium <- R6::R6Class("RequirementToContactPremium",
   class = TRUE
 )
 
+#' @title ResPQ
+#' @description Telegram API type ResPQ
 #' @export
 ResPQ <- R6::R6Class("ResPQ",
   inherit = TLObject,
@@ -33792,6 +35632,8 @@ ResPQ <- R6::R6Class("ResPQ",
   class = TRUE
 )
 
+#' @title RestrictionReason
+#' @description Telegram API type RestrictionReason
 #' @export
 RestrictionReason <- R6::R6Class("RestrictionReason",
   inherit = TLObject,
@@ -33820,6 +35662,8 @@ RestrictionReason <- R6::R6Class("RestrictionReason",
   class = TRUE
 )
 
+#' @title RpcAnswerDropped
+#' @description Telegram API type RpcAnswerDropped
 #' @export
 RpcAnswerDropped <- R6::R6Class("RpcAnswerDropped",
   inherit = TLObject,
@@ -33848,6 +35692,8 @@ RpcAnswerDropped <- R6::R6Class("RpcAnswerDropped",
   class = TRUE
 )
 
+#' @title RpcAnswerDroppedRunning
+#' @description Telegram API type RpcAnswerDroppedRunning
 #' @export
 RpcAnswerDroppedRunning <- R6::R6Class("RpcAnswerDroppedRunning",
   inherit = TLObject,
@@ -33863,6 +35709,8 @@ RpcAnswerDroppedRunning <- R6::R6Class("RpcAnswerDroppedRunning",
   class = TRUE
 )
 
+#' @title RpcAnswerUnknown
+#' @description Telegram API type RpcAnswerUnknown
 #' @export
 RpcAnswerUnknown <- R6::R6Class("RpcAnswerUnknown",
   inherit = TLObject,
@@ -33878,6 +35726,8 @@ RpcAnswerUnknown <- R6::R6Class("RpcAnswerUnknown",
   class = TRUE
 )
 
+#' @title RpcError
+#' @description Telegram API type RpcError
 #' @export
 RpcError <- R6::R6Class("RpcError",
   inherit = TLObject,
@@ -33903,6 +35753,8 @@ RpcError <- R6::R6Class("RpcError",
   class = TRUE
 )
 
+#' @title SavedDialog
+#' @description Telegram API type SavedDialog
 #' @export
 SavedDialog <- R6::R6Class("SavedDialog",
   inherit = TLObject,
@@ -33932,6 +35784,8 @@ SavedDialog <- R6::R6Class("SavedDialog",
   class = TRUE
 )
 
+#' @title SavedPhoneContact
+#' @description Telegram API type SavedPhoneContact
 #' @export
 SavedPhoneContact <- R6::R6Class("SavedPhoneContact",
   inherit = TLObject,
@@ -33963,6 +35817,8 @@ SavedPhoneContact <- R6::R6Class("SavedPhoneContact",
   class = TRUE
 )
 
+#' @title SavedReactionTag
+#' @description Telegram API type SavedReactionTag
 #' @export
 SavedReactionTag <- R6::R6Class("SavedReactionTag",
   inherit = TLObject,
@@ -33992,6 +35848,8 @@ SavedReactionTag <- R6::R6Class("SavedReactionTag",
   class = TRUE
 )
 
+#' @title SavedStarGift
+#' @description Telegram API type SavedStarGift
 #' @export
 SavedStarGift <- R6::R6Class("SavedStarGift",
   inherit = TLObject,
@@ -34098,6 +35956,8 @@ SavedStarGift <- R6::R6Class("SavedStarGift",
   class = TRUE
 )
 
+#' @title SearchPostsFlood
+#' @description Telegram API type SearchPostsFlood
 #' @export
 SearchPostsFlood <- R6::R6Class("SearchPostsFlood",
   inherit = TLObject,
@@ -34133,6 +35993,8 @@ SearchPostsFlood <- R6::R6Class("SearchPostsFlood",
   class = TRUE
 )
 
+#' @title SearchResultPosition
+#' @description Telegram API type SearchResultPosition
 #' @export
 SearchResultPosition <- R6::R6Class("SearchResultPosition",
   inherit = TLObject,
@@ -34161,6 +36023,8 @@ SearchResultPosition <- R6::R6Class("SearchResultPosition",
   class = TRUE
 )
 
+#' @title SearchResultsCalendarPeriod
+#' @description Telegram API type SearchResultsCalendarPeriod
 #' @export
 SearchResultsCalendarPeriod <- R6::R6Class("SearchResultsCalendarPeriod",
   inherit = TLObject,
@@ -34192,6 +36056,8 @@ SearchResultsCalendarPeriod <- R6::R6Class("SearchResultsCalendarPeriod",
   class = TRUE
 )
 
+#' @title SecureCredentialsEncrypted
+#' @description Telegram API type SecureCredentialsEncrypted
 #' @export
 SecureCredentialsEncrypted <- R6::R6Class("SecureCredentialsEncrypted",
   inherit = TLObject,
@@ -34220,6 +36086,8 @@ SecureCredentialsEncrypted <- R6::R6Class("SecureCredentialsEncrypted",
   class = TRUE
 )
 
+#' @title SecureData
+#' @description Telegram API type SecureData
 #' @export
 SecureData <- R6::R6Class("SecureData",
   inherit = TLObject,
@@ -34248,6 +36116,8 @@ SecureData <- R6::R6Class("SecureData",
   class = TRUE
 )
 
+#' @title SecureFile
+#' @description Telegram API type SecureFile
 #' @export
 SecureFile <- R6::R6Class("SecureFile",
   inherit = TLObject,
@@ -34288,6 +36158,8 @@ SecureFile <- R6::R6Class("SecureFile",
   class = TRUE
 )
 
+#' @title SecureFileEmpty
+#' @description Telegram API type SecureFileEmpty
 #' @export
 SecureFileEmpty <- R6::R6Class("SecureFileEmpty",
   inherit = TLObject,
@@ -34303,6 +36175,8 @@ SecureFileEmpty <- R6::R6Class("SecureFileEmpty",
   class = TRUE
 )
 
+#' @title SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000
+#' @description Telegram API type SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000
 #' @export
 SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000 <- R6::R6Class("SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000",
   inherit = TLObject,
@@ -34325,6 +36199,8 @@ SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000 <- R6::R6Class("SecurePasswordKd
   class = TRUE
 )
 
+#' @title SecurePasswordKdfAlgoSHA512
+#' @description Telegram API type SecurePasswordKdfAlgoSHA512
 #' @export
 SecurePasswordKdfAlgoSHA512 <- R6::R6Class("SecurePasswordKdfAlgoSHA512",
   inherit = TLObject,
@@ -34347,6 +36223,8 @@ SecurePasswordKdfAlgoSHA512 <- R6::R6Class("SecurePasswordKdfAlgoSHA512",
   class = TRUE
 )
 
+#' @title SecurePasswordKdfAlgoUnknown
+#' @description Telegram API type SecurePasswordKdfAlgoUnknown
 #' @export
 SecurePasswordKdfAlgoUnknown <- R6::R6Class("SecurePasswordKdfAlgoUnknown",
   inherit = TLObject,
@@ -34362,6 +36240,8 @@ SecurePasswordKdfAlgoUnknown <- R6::R6Class("SecurePasswordKdfAlgoUnknown",
   class = TRUE
 )
 
+#' @title SecurePlainEmail
+#' @description Telegram API type SecurePlainEmail
 #' @export
 SecurePlainEmail <- R6::R6Class("SecurePlainEmail",
   inherit = TLObject,
@@ -34384,6 +36264,8 @@ SecurePlainEmail <- R6::R6Class("SecurePlainEmail",
   class = TRUE
 )
 
+#' @title SecurePlainPhone
+#' @description Telegram API type SecurePlainPhone
 #' @export
 SecurePlainPhone <- R6::R6Class("SecurePlainPhone",
   inherit = TLObject,
@@ -34406,6 +36288,8 @@ SecurePlainPhone <- R6::R6Class("SecurePlainPhone",
   class = TRUE
 )
 
+#' @title SecureRequiredType
+#' @description Telegram API type SecureRequiredType
 #' @export
 SecureRequiredType <- R6::R6Class("SecureRequiredType",
   inherit = TLObject,
@@ -34438,6 +36322,8 @@ SecureRequiredType <- R6::R6Class("SecureRequiredType",
   class = TRUE
 )
 
+#' @title SecureRequiredTypeOneOf
+#' @description Telegram API type SecureRequiredTypeOneOf
 #' @export
 SecureRequiredTypeOneOf <- R6::R6Class("SecureRequiredTypeOneOf",
   inherit = TLObject,
@@ -34461,6 +36347,8 @@ SecureRequiredTypeOneOf <- R6::R6Class("SecureRequiredTypeOneOf",
   class = TRUE
 )
 
+#' @title SecureSecretSettings
+#' @description Telegram API type SecureSecretSettings
 #' @export
 SecureSecretSettings <- R6::R6Class("SecureSecretSettings",
   inherit = TLObject,
@@ -34489,6 +36377,8 @@ SecureSecretSettings <- R6::R6Class("SecureSecretSettings",
   class = TRUE
 )
 
+#' @title SecureValue
+#' @description Telegram API type SecureValue
 #' @export
 SecureValue <- R6::R6Class("SecureValue",
   inherit = TLObject,
@@ -34556,6 +36446,8 @@ SecureValue <- R6::R6Class("SecureValue",
   class = TRUE
 )
 
+#' @title SecureValueError
+#' @description Telegram API type SecureValueError
 #' @export
 SecureValueError <- R6::R6Class("SecureValueError",
   inherit = TLObject,
@@ -34584,6 +36476,8 @@ SecureValueError <- R6::R6Class("SecureValueError",
   class = TRUE
 )
 
+#' @title SecureValueErrorData
+#' @description Telegram API type SecureValueErrorData
 #' @export
 SecureValueErrorData <- R6::R6Class("SecureValueErrorData",
   inherit = TLObject,
@@ -34615,6 +36509,8 @@ SecureValueErrorData <- R6::R6Class("SecureValueErrorData",
   class = TRUE
 )
 
+#' @title SecureValueErrorFile
+#' @description Telegram API type SecureValueErrorFile
 #' @export
 SecureValueErrorFile <- R6::R6Class("SecureValueErrorFile",
   inherit = TLObject,
@@ -34649,6 +36545,8 @@ SecureValueErrorFile <- R6::R6Class("SecureValueErrorFile",
   class = TRUE
 )
 
+#' @title SecureValueErrorFiles
+#' @description Telegram API type SecureValueErrorFiles
 #' @export
 SecureValueErrorFiles <- R6::R6Class("SecureValueErrorFiles",
   inherit = TLObject,
@@ -34688,6 +36586,8 @@ SecureValueErrorFiles <- R6::R6Class("SecureValueErrorFiles",
   class = TRUE
 )
 
+#' @title SecureValueErrorFrontSide
+#' @description Telegram API type SecureValueErrorFrontSide
 #' @export
 SecureValueErrorFrontSide <- R6::R6Class("SecureValueErrorFrontSide",
   inherit = TLObject,
@@ -34722,6 +36622,8 @@ SecureValueErrorFrontSide <- R6::R6Class("SecureValueErrorFrontSide",
   class = TRUE
 )
 
+#' @title SecureValueErrorReverseSide
+#' @description Telegram API type SecureValueErrorReverseSide
 #' @export
 SecureValueErrorReverseSide <- R6::R6Class("SecureValueErrorReverseSide",
   inherit = TLObject,
@@ -34756,6 +36658,8 @@ SecureValueErrorReverseSide <- R6::R6Class("SecureValueErrorReverseSide",
   class = TRUE
 )
 
+#' @title SecureValueErrorSelfie
+#' @description Telegram API type SecureValueErrorSelfie
 #' @export
 SecureValueErrorSelfie <- R6::R6Class("SecureValueErrorSelfie",
   inherit = TLObject,
@@ -34790,6 +36694,8 @@ SecureValueErrorSelfie <- R6::R6Class("SecureValueErrorSelfie",
   class = TRUE
 )
 
+#' @title SecureValueErrorTranslationFile
+#' @description Telegram API type SecureValueErrorTranslationFile
 #' @export
 SecureValueErrorTranslationFile <- R6::R6Class("SecureValueErrorTranslationFile",
   inherit = TLObject,
@@ -34824,6 +36730,8 @@ SecureValueErrorTranslationFile <- R6::R6Class("SecureValueErrorTranslationFile"
   class = TRUE
 )
 
+#' @title SecureValueErrorTranslationFiles
+#' @description Telegram API type SecureValueErrorTranslationFiles
 #' @export
 SecureValueErrorTranslationFiles <- R6::R6Class("SecureValueErrorTranslationFiles",
   inherit = TLObject,
@@ -34863,6 +36771,8 @@ SecureValueErrorTranslationFiles <- R6::R6Class("SecureValueErrorTranslationFile
   class = TRUE
 )
 
+#' @title SecureValueHash
+#' @description Telegram API type SecureValueHash
 #' @export
 SecureValueHash <- R6::R6Class("SecureValueHash",
   inherit = TLObject,
@@ -34894,6 +36804,8 @@ SecureValueHash <- R6::R6Class("SecureValueHash",
   class = TRUE
 )
 
+#' @title SecureValueTypeAddress
+#' @description Telegram API type SecureValueTypeAddress
 #' @export
 SecureValueTypeAddress <- R6::R6Class("SecureValueTypeAddress",
   inherit = TLObject,
@@ -34915,6 +36827,8 @@ SecureValueTypeAddress <- R6::R6Class("SecureValueTypeAddress",
   class = TRUE
 )
 
+#' @title SecureValueTypeBankStatement
+#' @description Telegram API type SecureValueTypeBankStatement
 #' @export
 SecureValueTypeBankStatement <- R6::R6Class("SecureValueTypeBankStatement",
   inherit = TLObject,
@@ -34936,6 +36850,8 @@ SecureValueTypeBankStatement <- R6::R6Class("SecureValueTypeBankStatement",
   class = TRUE
 )
 
+#' @title SecureValueTypeDriverLicense
+#' @description Telegram API type SecureValueTypeDriverLicense
 #' @export
 SecureValueTypeDriverLicense <- R6::R6Class("SecureValueTypeDriverLicense",
   inherit = TLObject,
@@ -34957,6 +36873,8 @@ SecureValueTypeDriverLicense <- R6::R6Class("SecureValueTypeDriverLicense",
   class = TRUE
 )
 
+#' @title SecureValueTypeEmail
+#' @description Telegram API type SecureValueTypeEmail
 #' @export
 SecureValueTypeEmail <- R6::R6Class("SecureValueTypeEmail",
   inherit = TLObject,
@@ -34978,6 +36896,8 @@ SecureValueTypeEmail <- R6::R6Class("SecureValueTypeEmail",
   class = TRUE
 )
 
+#' @title SecureValueTypeIdentityCard
+#' @description Telegram API type SecureValueTypeIdentityCard
 #' @export
 SecureValueTypeIdentityCard <- R6::R6Class("SecureValueTypeIdentityCard",
   inherit = TLObject,
@@ -34999,6 +36919,8 @@ SecureValueTypeIdentityCard <- R6::R6Class("SecureValueTypeIdentityCard",
   class = TRUE
 )
 
+#' @title SecureValueTypeInternalPassport
+#' @description Telegram API type SecureValueTypeInternalPassport
 #' @export
 SecureValueTypeInternalPassport <- R6::R6Class("SecureValueTypeInternalPassport",
   inherit = TLObject,
@@ -35020,6 +36942,8 @@ SecureValueTypeInternalPassport <- R6::R6Class("SecureValueTypeInternalPassport"
   class = TRUE
 )
 
+#' @title SecureValueTypePassport
+#' @description Telegram API type SecureValueTypePassport
 #' @export
 SecureValueTypePassport <- R6::R6Class("SecureValueTypePassport",
   inherit = TLObject,
@@ -35041,6 +36965,8 @@ SecureValueTypePassport <- R6::R6Class("SecureValueTypePassport",
   class = TRUE
 )
 
+#' @title SecureValueTypePassportRegistration
+#' @description Telegram API type SecureValueTypePassportRegistration
 #' @export
 SecureValueTypePassportRegistration <- R6::R6Class("SecureValueTypePassportRegistration",
   inherit = TLObject,
@@ -35062,6 +36988,8 @@ SecureValueTypePassportRegistration <- R6::R6Class("SecureValueTypePassportRegis
   class = TRUE
 )
 
+#' @title SecureValueTypePersonalDetails
+#' @description Telegram API type SecureValueTypePersonalDetails
 #' @export
 SecureValueTypePersonalDetails <- R6::R6Class("SecureValueTypePersonalDetails",
   inherit = TLObject,
@@ -35083,6 +37011,8 @@ SecureValueTypePersonalDetails <- R6::R6Class("SecureValueTypePersonalDetails",
   class = TRUE
 )
 
+#' @title SecureValueTypePhone
+#' @description Telegram API type SecureValueTypePhone
 #' @export
 SecureValueTypePhone <- R6::R6Class("SecureValueTypePhone",
   inherit = TLObject,
@@ -35104,6 +37034,8 @@ SecureValueTypePhone <- R6::R6Class("SecureValueTypePhone",
   class = TRUE
 )
 
+#' @title SecureValueTypeRentalAgreement
+#' @description Telegram API type SecureValueTypeRentalAgreement
 #' @export
 SecureValueTypeRentalAgreement <- R6::R6Class("SecureValueTypeRentalAgreement",
   inherit = TLObject,
@@ -35125,6 +37057,8 @@ SecureValueTypeRentalAgreement <- R6::R6Class("SecureValueTypeRentalAgreement",
   class = TRUE
 )
 
+#' @title SecureValueTypeTemporaryRegistration
+#' @description Telegram API type SecureValueTypeTemporaryRegistration
 #' @export
 SecureValueTypeTemporaryRegistration <- R6::R6Class("SecureValueTypeTemporaryRegistration",
   inherit = TLObject,
@@ -35146,6 +37080,8 @@ SecureValueTypeTemporaryRegistration <- R6::R6Class("SecureValueTypeTemporaryReg
   class = TRUE
 )
 
+#' @title SecureValueTypeUtilityBill
+#' @description Telegram API type SecureValueTypeUtilityBill
 #' @export
 SecureValueTypeUtilityBill <- R6::R6Class("SecureValueTypeUtilityBill",
   inherit = TLObject,
@@ -35167,6 +37103,8 @@ SecureValueTypeUtilityBill <- R6::R6Class("SecureValueTypeUtilityBill",
   class = TRUE
 )
 
+#' @title SendAsPeer
+#' @description Telegram API type SendAsPeer
 #' @export
 SendAsPeer <- R6::R6Class("SendAsPeer",
   inherit = TLObject,
@@ -35199,6 +37137,8 @@ SendAsPeer <- R6::R6Class("SendAsPeer",
   class = TRUE
 )
 
+#' @title SendMessageCancelAction
+#' @description Telegram API type SendMessageCancelAction
 #' @export
 SendMessageCancelAction <- R6::R6Class("SendMessageCancelAction",
   inherit = TLObject,
@@ -35220,6 +37160,8 @@ SendMessageCancelAction <- R6::R6Class("SendMessageCancelAction",
   class = TRUE
 )
 
+#' @title SendMessageChooseContactAction
+#' @description Telegram API type SendMessageChooseContactAction
 #' @export
 SendMessageChooseContactAction <- R6::R6Class("SendMessageChooseContactAction",
   inherit = TLObject,
@@ -35241,6 +37183,8 @@ SendMessageChooseContactAction <- R6::R6Class("SendMessageChooseContactAction",
   class = TRUE
 )
 
+#' @title SendMessageChooseStickerAction
+#' @description Telegram API type SendMessageChooseStickerAction
 #' @export
 SendMessageChooseStickerAction <- R6::R6Class("SendMessageChooseStickerAction",
   inherit = TLObject,
@@ -35262,6 +37206,8 @@ SendMessageChooseStickerAction <- R6::R6Class("SendMessageChooseStickerAction",
   class = TRUE
 )
 
+#' @title SendMessageEmojiInteraction
+#' @description Telegram API type SendMessageEmojiInteraction
 #' @export
 SendMessageEmojiInteraction <- R6::R6Class("SendMessageEmojiInteraction",
   inherit = TLObject,
@@ -35296,6 +37242,8 @@ SendMessageEmojiInteraction <- R6::R6Class("SendMessageEmojiInteraction",
   class = TRUE
 )
 
+#' @title SendMessageEmojiInteractionSeen
+#' @description Telegram API type SendMessageEmojiInteractionSeen
 #' @export
 SendMessageEmojiInteractionSeen <- R6::R6Class("SendMessageEmojiInteractionSeen",
   inherit = TLObject,
@@ -35324,6 +37272,8 @@ SendMessageEmojiInteractionSeen <- R6::R6Class("SendMessageEmojiInteractionSeen"
   class = TRUE
 )
 
+#' @title SendMessageGamePlayAction
+#' @description Telegram API type SendMessageGamePlayAction
 #' @export
 SendMessageGamePlayAction <- R6::R6Class("SendMessageGamePlayAction",
   inherit = TLObject,
@@ -35345,6 +37295,8 @@ SendMessageGamePlayAction <- R6::R6Class("SendMessageGamePlayAction",
   class = TRUE
 )
 
+#' @title SendMessageGeoLocationAction
+#' @description Telegram API type SendMessageGeoLocationAction
 #' @export
 SendMessageGeoLocationAction <- R6::R6Class("SendMessageGeoLocationAction",
   inherit = TLObject,
@@ -35366,6 +37318,8 @@ SendMessageGeoLocationAction <- R6::R6Class("SendMessageGeoLocationAction",
   class = TRUE
 )
 
+#' @title SendMessageHistoryImportAction
+#' @description Telegram API type SendMessageHistoryImportAction
 #' @export
 SendMessageHistoryImportAction <- R6::R6Class("SendMessageHistoryImportAction",
   inherit = TLObject,
@@ -35395,6 +37349,8 @@ SendMessageHistoryImportAction <- R6::R6Class("SendMessageHistoryImportAction",
   class = TRUE
 )
 
+#' @title SendMessageRecordAudioAction
+#' @description Telegram API type SendMessageRecordAudioAction
 #' @export
 SendMessageRecordAudioAction <- R6::R6Class("SendMessageRecordAudioAction",
   inherit = TLObject,
@@ -35416,6 +37372,8 @@ SendMessageRecordAudioAction <- R6::R6Class("SendMessageRecordAudioAction",
   class = TRUE
 )
 
+#' @title SendMessageRecordRoundAction
+#' @description Telegram API type SendMessageRecordRoundAction
 #' @export
 SendMessageRecordRoundAction <- R6::R6Class("SendMessageRecordRoundAction",
   inherit = TLObject,
@@ -35437,6 +37395,8 @@ SendMessageRecordRoundAction <- R6::R6Class("SendMessageRecordRoundAction",
   class = TRUE
 )
 
+#' @title SendMessageRecordVideoAction
+#' @description Telegram API type SendMessageRecordVideoAction
 #' @export
 SendMessageRecordVideoAction <- R6::R6Class("SendMessageRecordVideoAction",
   inherit = TLObject,
@@ -35460,6 +37420,8 @@ SendMessageRecordVideoAction <- R6::R6Class("SendMessageRecordVideoAction",
 
 #' Senders msg_id as int, but it should be long
 #'
+#' @title SendMessageTypingAction
+#' @description Telegram API type SendMessageTypingAction
 #' @export
 SendMessageTypingAction <- R6::R6Class("SendMessageTypingAction",
   inherit = TLObject,
@@ -35481,6 +37443,8 @@ SendMessageTypingAction <- R6::R6Class("SendMessageTypingAction",
   class = TRUE
 )
 
+#' @title SendMessageUploadAudioAction
+#' @description Telegram API type SendMessageUploadAudioAction
 #' @export
 SendMessageUploadAudioAction <- R6::R6Class("SendMessageUploadAudioAction",
   inherit = TLObject,
@@ -35510,6 +37474,8 @@ SendMessageUploadAudioAction <- R6::R6Class("SendMessageUploadAudioAction",
   class = TRUE
 )
 
+#' @title SendMessageUploadDocumentAction
+#' @description Telegram API type SendMessageUploadDocumentAction
 #' @export
 SendMessageUploadDocumentAction <- R6::R6Class("SendMessageUploadDocumentAction",
   inherit = TLObject,
@@ -35539,6 +37505,8 @@ SendMessageUploadDocumentAction <- R6::R6Class("SendMessageUploadDocumentAction"
   class = TRUE
 )
 
+#' @title SendMessageUploadPhotoAction
+#' @description Telegram API type SendMessageUploadPhotoAction
 #' @export
 SendMessageUploadPhotoAction <- R6::R6Class("SendMessageUploadPhotoAction",
   inherit = TLObject,
@@ -35568,6 +37536,8 @@ SendMessageUploadPhotoAction <- R6::R6Class("SendMessageUploadPhotoAction",
   class = TRUE
 )
 
+#' @title SendMessageUploadRoundAction
+#' @description Telegram API type SendMessageUploadRoundAction
 #' @export
 SendMessageUploadRoundAction <- R6::R6Class("SendMessageUploadRoundAction",
   inherit = TLObject,
@@ -35597,6 +37567,8 @@ SendMessageUploadRoundAction <- R6::R6Class("SendMessageUploadRoundAction",
   class = TRUE
 )
 
+#' @title SendMessageUploadVideoAction
+#' @description Telegram API type SendMessageUploadVideoAction
 #' @export
 SendMessageUploadVideoAction <- R6::R6Class("SendMessageUploadVideoAction",
   inherit = TLObject,
@@ -35626,6 +37598,8 @@ SendMessageUploadVideoAction <- R6::R6Class("SendMessageUploadVideoAction",
   class = TRUE
 )
 
+#' @title ServerDHInnerData
+#' @description Telegram API type ServerDHInnerData
 #' @export
 ServerDHInnerData <- R6::R6Class("ServerDHInnerData",
   inherit = TLObject,
@@ -35669,6 +37643,8 @@ ServerDHInnerData <- R6::R6Class("ServerDHInnerData",
   class = TRUE
 )
 
+#' @title ServerDHParamsFail
+#' @description Telegram API type ServerDHParamsFail
 #' @export
 ServerDHParamsFail <- R6::R6Class(
   "ServerDHParamsFail",
@@ -35708,6 +37684,8 @@ ServerDHParamsFail <- R6::R6Class(
   class = TRUE
 )
 
+#' @title ServerDHParamsOk
+#' @description Telegram API type ServerDHParamsOk
 #' @export
 ServerDHParamsOk <- R6::R6Class(
   "ServerDHParamsOk",
@@ -35747,6 +37725,8 @@ ServerDHParamsOk <- R6::R6Class(
   class = TRUE
 )
 
+#' @title ShippingOption
+#' @description Telegram API type ShippingOption
 #' @export
 ShippingOption <- R6::R6Class(
   "ShippingOption",
@@ -35791,6 +37771,8 @@ ShippingOption <- R6::R6Class(
   class = TRUE
 )
 
+#' @title SmsJob
+#' @description Telegram API type SmsJob
 #' @export
 SmsJob <- R6::R6Class(
   "SmsJob",
@@ -35830,6 +37812,8 @@ SmsJob <- R6::R6Class(
   class = TRUE
 )
 
+#' @title SpeakingInGroupCallAction
+#' @description Telegram API type SpeakingInGroupCallAction
 #' @export
 SpeakingInGroupCallAction <- R6::R6Class(
   "SpeakingInGroupCallAction",
@@ -35852,6 +37836,8 @@ SpeakingInGroupCallAction <- R6::R6Class(
   class = TRUE
 )
 
+#' @title SponsoredMessage
+#' @description Telegram API type SponsoredMessage
 #' @export
 SponsoredMessage <- R6::R6Class(
   "SponsoredMessage",
@@ -35983,6 +37969,8 @@ SponsoredMessage <- R6::R6Class(
   class = TRUE
 )
 
+#' @title SponsoredMessageReportOption
+#' @description Telegram API type SponsoredMessageReportOption
 #' @export
 SponsoredMessageReportOption <- R6::R6Class(
   "SponsoredMessageReportOption",
@@ -36018,6 +38006,8 @@ SponsoredMessageReportOption <- R6::R6Class(
   class = TRUE
 )
 
+#' @title SponsoredPeer
+#' @description Telegram API type SponsoredPeer
 #' @export
 SponsoredPeer <- R6::R6Class(
   "SponsoredPeer",
@@ -36068,6 +38058,8 @@ SponsoredPeer <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarGift
+#' @description Telegram API type StarGift
 #' @export
 StarGift <- R6::R6Class(
   "StarGift",
@@ -36241,6 +38233,8 @@ StarGift <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarGiftAttributeBackdrop
+#' @description Telegram API type StarGiftAttributeBackdrop
 #' @export
 StarGiftAttributeBackdrop <- R6::R6Class(
   "StarGiftAttributeBackdrop",
@@ -36296,6 +38290,8 @@ StarGiftAttributeBackdrop <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarGiftAttributeCounter
+#' @description Telegram API type StarGiftAttributeCounter
 #' @export
 StarGiftAttributeCounter <- R6::R6Class(
   "StarGiftAttributeCounter",
@@ -36331,6 +38327,8 @@ StarGiftAttributeCounter <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarGiftAttributeIdBackdrop
+#' @description Telegram API type StarGiftAttributeIdBackdrop
 #' @export
 StarGiftAttributeIdBackdrop <- R6::R6Class(
   "StarGiftAttributeIdBackdrop",
@@ -36362,6 +38360,8 @@ StarGiftAttributeIdBackdrop <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarGiftAttributeIdModel
+#' @description Telegram API type StarGiftAttributeIdModel
 #' @export
 StarGiftAttributeIdModel <- R6::R6Class(
   "StarGiftAttributeIdModel",
@@ -36393,6 +38393,8 @@ StarGiftAttributeIdModel <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarGiftAttributeIdPattern
+#' @description Telegram API type StarGiftAttributeIdPattern
 #' @export
 StarGiftAttributeIdPattern <- R6::R6Class(
   "StarGiftAttributeIdPattern",
@@ -36424,6 +38426,8 @@ StarGiftAttributeIdPattern <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarGiftAttributeModel
+#' @description Telegram API type StarGiftAttributeModel
 #' @export
 StarGiftAttributeModel <- R6::R6Class(
   "StarGiftAttributeModel",
@@ -36463,6 +38467,8 @@ StarGiftAttributeModel <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarGiftAttributeOriginalDetails
+#' @description Telegram API type StarGiftAttributeOriginalDetails
 #' @export
 StarGiftAttributeOriginalDetails <- R6::R6Class(
   "StarGiftAttributeOriginalDetails",
@@ -36513,6 +38519,8 @@ StarGiftAttributeOriginalDetails <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarGiftAttributePattern
+#' @description Telegram API type StarGiftAttributePattern
 #' @export
 StarGiftAttributePattern <- R6::R6Class(
   "StarGiftAttributePattern",
@@ -36552,6 +38560,8 @@ StarGiftAttributePattern <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarGiftCollection
+#' @description Telegram API type StarGiftCollection
 #' @export
 StarGiftCollection <- R6::R6Class(
   "StarGiftCollection",
@@ -36606,6 +38616,8 @@ StarGiftCollection <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarGiftUnique
+#' @description Telegram API type StarGiftUnique
 #' @export
 StarGiftUnique <- R6::R6Class(
   "StarGiftUnique",
@@ -36763,6 +38775,8 @@ StarGiftUnique <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarRefProgram
+#' @description Telegram API type StarRefProgram
 #' @export
 StarRefProgram <- R6::R6Class(
   "StarRefProgram",
@@ -36821,6 +38835,8 @@ StarRefProgram <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarsAmount
+#' @description Telegram API type StarsAmount
 #' @export
 StarsAmount <- R6::R6Class(
   "StarsAmount",
@@ -36856,6 +38872,8 @@ StarsAmount <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarsGiftOption
+#' @description Telegram API type StarsGiftOption
 #' @export
 StarsGiftOption <- R6::R6Class(
   "StarsGiftOption",
@@ -36909,6 +38927,8 @@ StarsGiftOption <- R6::R6Class(
   class = TRUE
 )
 
+#' @title StarsGiveawayOption
+#' @description Telegram API type StarsGiveawayOption
 #' @export
 StarsGiveawayOption <- R6::R6Class("StarsGiveawayOption",
   inherit = TLObject,
@@ -36969,6 +38989,8 @@ StarsGiveawayOption <- R6::R6Class("StarsGiveawayOption",
   class = TRUE
 )
 
+#' @title StarsGiveawayWinnersOption
+#' @description Telegram API type StarsGiveawayWinnersOption
 #' @export
 StarsGiveawayWinnersOption <- R6::R6Class("StarsGiveawayWinnersOption",
   inherit = TLObject,
@@ -37009,6 +39031,8 @@ StarsGiveawayWinnersOption <- R6::R6Class("StarsGiveawayWinnersOption",
   class = TRUE
 )
 
+#' @title StarsRating
+#' @description Telegram API type StarsRating
 #' @export
 StarsRating <- R6::R6Class("StarsRating",
   inherit = TLObject,
@@ -37054,6 +39078,8 @@ StarsRating <- R6::R6Class("StarsRating",
   class = TRUE
 )
 
+#' @title StarsRevenueStatus
+#' @description Telegram API type StarsRevenueStatus
 #' @export
 StarsRevenueStatus <- R6::R6Class("StarsRevenueStatus",
   inherit = TLObject,
@@ -37102,6 +39128,8 @@ StarsRevenueStatus <- R6::R6Class("StarsRevenueStatus",
   class = TRUE
 )
 
+#' @title StarsSubscription
+#' @description Telegram API type StarsSubscription
 #' @export
 StarsSubscription <- R6::R6Class("StarsSubscription",
   inherit = TLObject,
@@ -37175,6 +39203,8 @@ StarsSubscription <- R6::R6Class("StarsSubscription",
   class = TRUE
 )
 
+#' @title StarsSubscriptionPricing
+#' @description Telegram API type StarsSubscriptionPricing
 #' @export
 StarsSubscriptionPricing <- R6::R6Class("StarsSubscriptionPricing",
   inherit = TLObject,
@@ -37210,6 +39240,8 @@ StarsSubscriptionPricing <- R6::R6Class("StarsSubscriptionPricing",
   class = TRUE
 )
 
+#' @title StarsTonAmount
+#' @description Telegram API type StarsTonAmount
 #' @export
 StarsTonAmount <- R6::R6Class("StarsTonAmount",
   inherit = TLObject,
@@ -37241,6 +39273,8 @@ StarsTonAmount <- R6::R6Class("StarsTonAmount",
   class = TRUE
 )
 
+#' @title StarsTopupOption
+#' @description Telegram API type StarsTopupOption
 #' @export
 StarsTopupOption <- R6::R6Class("StarsTopupOption",
   inherit = TLObject,
@@ -37289,6 +39323,8 @@ StarsTopupOption <- R6::R6Class("StarsTopupOption",
   class = TRUE
 )
 
+#' @title StarsTransaction
+#' @description Telegram API type StarsTransaction
 #' @export
 StarsTransaction <- R6::R6Class("StarsTransaction",
   inherit = TLObject,
@@ -37448,6 +39484,8 @@ StarsTransaction <- R6::R6Class("StarsTransaction",
   class = TRUE
 )
 
+#' @title StarsTransactionPeer
+#' @description Telegram API type StarsTransactionPeer
 #' @export
 StarsTransactionPeer <- R6::R6Class("StarsTransactionPeer",
   inherit = TLObject,
@@ -37479,6 +39517,8 @@ StarsTransactionPeer <- R6::R6Class("StarsTransactionPeer",
   class = TRUE
 )
 
+#' @title StarsTransactionPeerAPI
+#' @description Telegram API type StarsTransactionPeerAPI
 #' @export
 StarsTransactionPeerAPI <- R6::R6Class("StarsTransactionPeerAPI",
   inherit = TLObject,
@@ -37500,6 +39540,8 @@ StarsTransactionPeerAPI <- R6::R6Class("StarsTransactionPeerAPI",
   class = TRUE
 )
 
+#' @title StarsTransactionPeerAds
+#' @description Telegram API type StarsTransactionPeerAds
 #' @export
 StarsTransactionPeerAds <- R6::R6Class("StarsTransactionPeerAds",
   inherit = TLObject,
@@ -37521,6 +39563,8 @@ StarsTransactionPeerAds <- R6::R6Class("StarsTransactionPeerAds",
   class = TRUE
 )
 
+#' @title StarsTransactionPeerAppStore
+#' @description Telegram API type StarsTransactionPeerAppStore
 #' @export
 StarsTransactionPeerAppStore <- R6::R6Class("StarsTransactionPeerAppStore",
   inherit = TLObject,
@@ -37542,6 +39586,8 @@ StarsTransactionPeerAppStore <- R6::R6Class("StarsTransactionPeerAppStore",
   class = TRUE
 )
 
+#' @title StarsTransactionPeerFragment
+#' @description Telegram API type StarsTransactionPeerFragment
 #' @export
 StarsTransactionPeerFragment <- R6::R6Class("StarsTransactionPeerFragment",
   inherit = TLObject,
@@ -37563,6 +39609,8 @@ StarsTransactionPeerFragment <- R6::R6Class("StarsTransactionPeerFragment",
   class = TRUE
 )
 
+#' @title StarsTransactionPeerPlayMarket
+#' @description Telegram API type StarsTransactionPeerPlayMarket
 #' @export
 StarsTransactionPeerPlayMarket <- R6::R6Class("StarsTransactionPeerPlayMarket",
   inherit = TLObject,
@@ -37584,6 +39632,8 @@ StarsTransactionPeerPlayMarket <- R6::R6Class("StarsTransactionPeerPlayMarket",
   class = TRUE
 )
 
+#' @title StarsTransactionPeerPremiumBot
+#' @description Telegram API type StarsTransactionPeerPremiumBot
 #' @export
 StarsTransactionPeerPremiumBot <- R6::R6Class("StarsTransactionPeerPremiumBot",
   inherit = TLObject,
@@ -37605,6 +39655,8 @@ StarsTransactionPeerPremiumBot <- R6::R6Class("StarsTransactionPeerPremiumBot",
   class = TRUE
 )
 
+#' @title StarsTransactionPeerUnsupported
+#' @description Telegram API type StarsTransactionPeerUnsupported
 #' @export
 StarsTransactionPeerUnsupported <- R6::R6Class("StarsTransactionPeerUnsupported",
   inherit = TLObject,
@@ -37626,6 +39678,8 @@ StarsTransactionPeerUnsupported <- R6::R6Class("StarsTransactionPeerUnsupported"
   class = TRUE
 )
 
+#' @title StatsAbsValueAndPrev
+#' @description Telegram API type StatsAbsValueAndPrev
 #' @export
 StatsAbsValueAndPrev <- R6::R6Class("StatsAbsValueAndPrev",
   inherit = TLObject,
@@ -37661,6 +39715,8 @@ StatsAbsValueAndPrev <- R6::R6Class("StatsAbsValueAndPrev",
   class = TRUE
 )
 
+#' @title StatsDateRangeDays
+#' @description Telegram API type StatsDateRangeDays
 #' @export
 StatsDateRangeDays <- R6::R6Class("StatsDateRangeDays",
   inherit = TLObject,
@@ -37686,6 +39742,8 @@ StatsDateRangeDays <- R6::R6Class("StatsDateRangeDays",
   class = TRUE
 )
 
+#' @title StatsGraph
+#' @description Telegram API type StatsGraph
 #' @export
 StatsGraph <- R6::R6Class("StatsGraph",
   inherit = TLObject,
@@ -37712,6 +39770,8 @@ StatsGraph <- R6::R6Class("StatsGraph",
   class = TRUE
 )
 
+#' @title StatsGraphAsync
+#' @description Telegram API type StatsGraphAsync
 #' @export
 StatsGraphAsync <- R6::R6Class("StatsGraphAsync",
   inherit = TLObject,
@@ -37735,6 +39795,8 @@ StatsGraphAsync <- R6::R6Class("StatsGraphAsync",
   class = TRUE
 )
 
+#' @title StatsGraphError
+#' @description Telegram API type StatsGraphError
 #' @export
 StatsGraphError <- R6::R6Class("StatsGraphError",
   inherit = TLObject,
@@ -37758,6 +39820,8 @@ StatsGraphError <- R6::R6Class("StatsGraphError",
   class = TRUE
 )
 
+#' @title StatsGroupTopAdmin
+#' @description Telegram API type StatsGroupTopAdmin
 #' @export
 StatsGroupTopAdmin <- R6::R6Class("StatsGroupTopAdmin",
   inherit = TLObject,
@@ -37787,6 +39851,8 @@ StatsGroupTopAdmin <- R6::R6Class("StatsGroupTopAdmin",
   class = TRUE
 )
 
+#' @title StatsGroupTopInviter
+#' @description Telegram API type StatsGroupTopInviter
 #' @export
 StatsGroupTopInviter <- R6::R6Class("StatsGroupTopInviter",
   inherit = TLObject,
@@ -37812,6 +39878,8 @@ StatsGroupTopInviter <- R6::R6Class("StatsGroupTopInviter",
   class = TRUE
 )
 
+#' @title StatsGroupTopPoster
+#' @description Telegram API type StatsGroupTopPoster
 #' @export
 StatsGroupTopPoster <- R6::R6Class("StatsGroupTopPoster",
   inherit = TLObject,
@@ -37839,6 +39907,8 @@ StatsGroupTopPoster <- R6::R6Class("StatsGroupTopPoster",
   class = TRUE
 )
 
+#' @title StatsPercentValue
+#' @description Telegram API type StatsPercentValue
 #' @export
 StatsPercentValue <- R6::R6Class("StatsPercentValue",
   inherit = TLObject,
@@ -37864,6 +39934,8 @@ StatsPercentValue <- R6::R6Class("StatsPercentValue",
   class = TRUE
 )
 
+#' @title StatsURL
+#' @description Telegram API type StatsURL
 #' @export
 StatsURL <- R6::R6Class("StatsURL",
   inherit = TLObject,
@@ -37887,6 +39959,8 @@ StatsURL <- R6::R6Class("StatsURL",
   class = TRUE
 )
 
+#' @title StickerKeyword
+#' @description Telegram API type StickerKeyword
 #' @export
 StickerKeyword <- R6::R6Class("StickerKeyword",
   inherit = TLObject,
@@ -37917,6 +39991,8 @@ StickerKeyword <- R6::R6Class("StickerKeyword",
   class = TRUE
 )
 
+#' @title StickerPack
+#' @description Telegram API type StickerPack
 #' @export
 StickerPack <- R6::R6Class("StickerPack",
   inherit = TLObject,
@@ -37947,6 +40023,8 @@ StickerPack <- R6::R6Class("StickerPack",
   class = TRUE
 )
 
+#' @title StickerSet
+#' @description Telegram API type StickerSet
 #' @export
 StickerSet <- R6::R6Class("StickerSet",
   inherit = TLObject,
@@ -38015,6 +40093,8 @@ StickerSet <- R6::R6Class("StickerSet",
   class = TRUE
 )
 
+#' @title StickerSetCovered
+#' @description Telegram API type StickerSetCovered
 #' @export
 StickerSetCovered <- R6::R6Class("StickerSetCovered",
   inherit = TLObject,
@@ -38040,6 +40120,8 @@ StickerSetCovered <- R6::R6Class("StickerSetCovered",
   class = TRUE
 )
 
+#' @title StickerSetFullCovered
+#' @description Telegram API type StickerSetFullCovered
 #' @export
 StickerSetFullCovered <- R6::R6Class("StickerSetFullCovered",
   inherit = TLObject,
@@ -38081,6 +40163,8 @@ StickerSetFullCovered <- R6::R6Class("StickerSetFullCovered",
   class = TRUE
 )
 
+#' @title StickerSetMultiCovered
+#' @description Telegram API type StickerSetMultiCovered
 #' @export
 StickerSetMultiCovered <- R6::R6Class("StickerSetMultiCovered",
   inherit = TLObject,
@@ -38110,6 +40194,8 @@ StickerSetMultiCovered <- R6::R6Class("StickerSetMultiCovered",
   class = TRUE
 )
 
+#' @title StickerSetNoCovered
+#' @description Telegram API type StickerSetNoCovered
 #' @export
 StickerSetNoCovered <- R6::R6Class("StickerSetNoCovered",
   inherit = TLObject,
@@ -38122,6 +40208,8 @@ StickerSetNoCovered <- R6::R6Class("StickerSetNoCovered",
   class = TRUE
 )
 
+#' @title StoriesStealthMode
+#' @description Telegram API type StoriesStealthMode
 #' @export
 StoriesStealthMode <- R6::R6Class("StoriesStealthMode",
   inherit = TLObject,
@@ -38139,6 +40227,8 @@ StoriesStealthMode <- R6::R6Class("StoriesStealthMode",
   class = TRUE
 )
 
+#' @title StoryAlbum
+#' @description Telegram API type StoryAlbum
 #' @export
 StoryAlbum <- R6::R6Class("StoryAlbum",
   inherit = TLObject,
@@ -38158,6 +40248,8 @@ StoryAlbum <- R6::R6Class("StoryAlbum",
   class = TRUE
 )
 
+#' @title StoryFwdHeader
+#' @description Telegram API type StoryFwdHeader
 #' @export
 StoryFwdHeader <- R6::R6Class("StoryFwdHeader",
   inherit = TLObject,
@@ -38177,6 +40269,8 @@ StoryFwdHeader <- R6::R6Class("StoryFwdHeader",
   class = TRUE
 )
 
+#' @title StoryItem
+#' @description Telegram API type StoryItem
 #' @export
 StoryItem <- R6::R6Class("StoryItem",
   inherit = TLObject,
@@ -38250,6 +40344,8 @@ StoryItem <- R6::R6Class("StoryItem",
   class = TRUE
 )
 
+#' @title StoryItemDeleted
+#' @description Telegram API type StoryItemDeleted
 #' @export
 StoryItemDeleted <- R6::R6Class("StoryItemDeleted",
   inherit = TLObject,
@@ -38262,6 +40358,8 @@ StoryItemDeleted <- R6::R6Class("StoryItemDeleted",
   class = TRUE
 )
 
+#' @title StoryItemSkipped
+#' @description Telegram API type StoryItemSkipped
 #' @export
 StoryItemSkipped <- R6::R6Class("StoryItemSkipped",
   inherit = TLObject,
@@ -38281,6 +40379,8 @@ StoryItemSkipped <- R6::R6Class("StoryItemSkipped",
   class = TRUE
 )
 
+#' @title StoryReaction
+#' @description Telegram API type StoryReaction
 #' @export
 StoryReaction <- R6::R6Class("StoryReaction",
   inherit = TLObject,
@@ -38293,6 +40393,8 @@ StoryReaction <- R6::R6Class("StoryReaction",
   class = TRUE
 )
 
+#' @title StoryReactionPublicForward
+#' @description Telegram API type StoryReactionPublicForward
 #' @export
 StoryReactionPublicForward <- R6::R6Class("StoryReactionPublicForward",
   inherit = TLObject,
@@ -38305,6 +40407,8 @@ StoryReactionPublicForward <- R6::R6Class("StoryReactionPublicForward",
   class = TRUE
 )
 
+#' @title StoryReactionPublicRepost
+#' @description Telegram API type StoryReactionPublicRepost
 #' @export
 StoryReactionPublicRepost <- R6::R6Class("StoryReactionPublicRepost",
   inherit = TLObject,
@@ -38317,6 +40421,8 @@ StoryReactionPublicRepost <- R6::R6Class("StoryReactionPublicRepost",
   class = TRUE
 )
 
+#' @title StoryView
+#' @description Telegram API type StoryView
 #' @export
 StoryView <- R6::R6Class("StoryView",
   inherit = TLObject,
@@ -38337,6 +40443,8 @@ StoryView <- R6::R6Class("StoryView",
   class = TRUE
 )
 
+#' @title StoryViewPublicForward
+#' @description Telegram API type StoryViewPublicForward
 #' @export
 StoryViewPublicForward <- R6::R6Class("StoryViewPublicForward",
   inherit = TLObject,
@@ -38355,6 +40463,8 @@ StoryViewPublicForward <- R6::R6Class("StoryViewPublicForward",
   class = TRUE
 )
 
+#' @title StoryViewPublicRepost
+#' @description Telegram API type StoryViewPublicRepost
 #' @export
 StoryViewPublicRepost <- R6::R6Class("StoryViewPublicRepost",
   inherit = TLObject,
@@ -38374,6 +40484,8 @@ StoryViewPublicRepost <- R6::R6Class("StoryViewPublicRepost",
   class = TRUE
 )
 
+#' @title StoryViews
+#' @description Telegram API type StoryViews
 #' @export
 StoryViews <- R6::R6Class("StoryViews",
   inherit = TLObject,
@@ -38413,6 +40525,8 @@ StoryViews <- R6::R6Class("StoryViews",
   class = TRUE
 )
 
+#' @title SuggestedPost
+#' @description Telegram API type SuggestedPost
 #' @export
 SuggestedPost <- R6::R6Class("SuggestedPost",
   inherit = TLObject,
@@ -38432,6 +40546,8 @@ SuggestedPost <- R6::R6Class("SuggestedPost",
   class = TRUE
 )
 
+#' @title TextAnchor
+#' @description Telegram API type TextAnchor
 #' @export
 TextAnchor <- R6::R6Class("TextAnchor",
   inherit = TLObject,
@@ -38444,6 +40560,8 @@ TextAnchor <- R6::R6Class("TextAnchor",
   class = TRUE
 )
 
+#' @title TextBold
+#' @description Telegram API type TextBold
 #' @export
 TextBold <- R6::R6Class("TextBold",
   inherit = TLObject,
@@ -38456,6 +40574,8 @@ TextBold <- R6::R6Class("TextBold",
   class = TRUE
 )
 
+#' @title TextConcat
+#' @description Telegram API type TextConcat
 #' @export
 TextConcat <- R6::R6Class("TextConcat",
   inherit = TLObject,
@@ -38476,6 +40596,8 @@ TextConcat <- R6::R6Class("TextConcat",
   class = TRUE
 )
 
+#' @title TextEmail
+#' @description Telegram API type TextEmail
 #' @export
 TextEmail <- R6::R6Class("TextEmail",
   inherit = TLObject,
@@ -38488,6 +40610,8 @@ TextEmail <- R6::R6Class("TextEmail",
   class = TRUE
 )
 
+#' @title TextEmpty
+#' @description Telegram API type TextEmpty
 #' @export
 TextEmpty <- R6::R6Class("TextEmpty",
   inherit = TLObject,
@@ -38500,6 +40624,8 @@ TextEmpty <- R6::R6Class("TextEmpty",
   class = TRUE
 )
 
+#' @title TextFixed
+#' @description Telegram API type TextFixed
 #' @export
 TextFixed <- R6::R6Class("TextFixed",
   inherit = TLObject,
@@ -38512,6 +40638,8 @@ TextFixed <- R6::R6Class("TextFixed",
   class = TRUE
 )
 
+#' @title TlsBlockString
+#' @description Telegram API type TlsBlockString
 #' @export
 TlsBlockString <- R6::R6Class("TlsBlockString",
   inherit = TLObject,
@@ -38532,6 +40660,8 @@ TlsBlockString <- R6::R6Class("TlsBlockString",
   class = TRUE
 )
 
+#' @title TlsBlockZero
+#' @description Telegram API type TlsBlockZero
 #' @export
 TlsBlockZero <- R6::R6Class("TlsBlockZero",
   inherit = TLObject,
@@ -38552,6 +40682,8 @@ TlsBlockZero <- R6::R6Class("TlsBlockZero",
   class = TRUE
 )
 
+#' @title TextImage
+#' @description Telegram API type TextImage
 #' @export
 TextImage <- R6::R6Class("TextImage",
   inherit = TLObject,
@@ -38574,6 +40706,8 @@ TextImage <- R6::R6Class("TextImage",
   class = TRUE
 )
 
+#' @title TextItalic
+#' @description Telegram API type TextItalic
 #' @export
 TextItalic <- R6::R6Class("TextItalic",
   inherit = TLObject,
@@ -38594,6 +40728,8 @@ TextItalic <- R6::R6Class("TextItalic",
   class = TRUE
 )
 
+#' @title TextMarked
+#' @description Telegram API type TextMarked
 #' @export
 TextMarked <- R6::R6Class("TextMarked",
   inherit = TLObject,
@@ -38614,6 +40750,8 @@ TextMarked <- R6::R6Class("TextMarked",
   class = TRUE
 )
 
+#' @title TextPhone
+#' @description Telegram API type TextPhone
 #' @export
 TextPhone <- R6::R6Class("TextPhone",
   inherit = TLObject,
@@ -38635,6 +40773,8 @@ TextPhone <- R6::R6Class("TextPhone",
   class = TRUE
 )
 
+#' @title TextPlain
+#' @description Telegram API type TextPlain
 #' @export
 TextPlain <- R6::R6Class("TextPlain",
   inherit = TLObject,
@@ -38655,6 +40795,8 @@ TextPlain <- R6::R6Class("TextPlain",
   class = TRUE
 )
 
+#' @title TextStrike
+#' @description Telegram API type TextStrike
 #' @export
 TextStrike <- R6::R6Class("TextStrike",
   inherit = TLObject,
@@ -38675,6 +40817,8 @@ TextStrike <- R6::R6Class("TextStrike",
   class = TRUE
 )
 
+#' @title TextSubscript
+#' @description Telegram API type TextSubscript
 #' @export
 TextSubscript <- R6::R6Class("TextSubscript",
   inherit = TLObject,
@@ -38695,6 +40839,8 @@ TextSubscript <- R6::R6Class("TextSubscript",
   class = TRUE
 )
 
+#' @title TextSuperscript
+#' @description Telegram API type TextSuperscript
 #' @export
 TextSuperscript <- R6::R6Class("TextSuperscript",
   inherit = TLObject,
@@ -38715,6 +40861,8 @@ TextSuperscript <- R6::R6Class("TextSuperscript",
   class = TRUE
 )
 
+#' @title TextUnderline
+#' @description Telegram API type TextUnderline
 #' @export
 TextUnderline <- R6::R6Class("TextUnderline",
   inherit = TLObject,
@@ -38735,6 +40883,8 @@ TextUnderline <- R6::R6Class("TextUnderline",
   class = TRUE
 )
 
+#' @title TextUrl
+#' @description Telegram API type TextUrl
 #' @export
 TextUrl <- R6::R6Class("TextUrl",
   inherit = TLObject,
@@ -38757,6 +40907,8 @@ TextUrl <- R6::R6Class("TextUrl",
   class = TRUE
 )
 
+#' @title TextWithEntities
+#' @description Telegram API type TextWithEntities
 #' @export
 TextWithEntities <- R6::R6Class("TextWithEntities",
   inherit = TLObject,
@@ -38783,6 +40935,8 @@ TextWithEntities <- R6::R6Class("TextWithEntities",
   class = TRUE
 )
 
+#' @title Theme
+#' @description Telegram API type Theme
 #' @export
 Theme <- R6::R6Class("Theme",
   inherit = TLObject,
@@ -38835,6 +40989,8 @@ Theme <- R6::R6Class("Theme",
   class = TRUE
 )
 
+#' @title ThemeSettings
+#' @description Telegram API type ThemeSettings
 #' @export
 ThemeSettings <- R6::R6Class("ThemeSettings",
   inherit = TLObject,
@@ -38877,6 +41033,8 @@ ThemeSettings <- R6::R6Class("ThemeSettings",
   class = TRUE
 )
 
+#' @title Timezone
+#' @description Telegram API type Timezone
 #' @export
 Timezone <- R6::R6Class("Timezone",
   inherit = TLObject,
@@ -38899,6 +41057,8 @@ Timezone <- R6::R6Class("Timezone",
   class = TRUE
 )
 
+#' @title TlsBlockDomain
+#' @description Telegram API type TlsBlockDomain
 #' @export
 TlsBlockDomain <- R6::R6Class("TlsBlockDomain",
   inherit = TLObject,
@@ -38916,6 +41076,8 @@ TlsBlockDomain <- R6::R6Class("TlsBlockDomain",
   class = TRUE
 )
 
+#' @title TlsBlockGrease
+#' @description Telegram API type TlsBlockGrease
 #' @export
 TlsBlockGrease <- R6::R6Class("TlsBlockGrease",
   inherit = TLObject,
@@ -38936,6 +41098,8 @@ TlsBlockGrease <- R6::R6Class("TlsBlockGrease",
   class = TRUE
 )
 
+#' @title TlsBlockPublicKey
+#' @description Telegram API type TlsBlockPublicKey
 #' @export
 TlsBlockPublicKey <- R6::R6Class("TlsBlockPublicKey",
   inherit = TLObject,
@@ -38953,6 +41117,8 @@ TlsBlockPublicKey <- R6::R6Class("TlsBlockPublicKey",
   class = TRUE
 )
 
+#' @title TlsBlockRandom
+#' @description Telegram API type TlsBlockRandom
 #' @export
 TlsBlockRandom <- R6::R6Class("TlsBlockRandom",
   inherit = TLObject,
@@ -38973,6 +41139,8 @@ TlsBlockRandom <- R6::R6Class("TlsBlockRandom",
   class = TRUE
 )
 
+#' @title TlsBlockScope
+#' @description Telegram API type TlsBlockScope
 #' @export
 TlsBlockScope <- R6::R6Class("TlsBlockScope",
   inherit = TLObject,
@@ -38997,6 +41165,8 @@ TlsBlockScope <- R6::R6Class("TlsBlockScope",
   class = TRUE
 )
 
+#' @title TlsClientHello
+#' @description Telegram API type TlsClientHello
 #' @export
 TlsClientHello <- R6::R6Class(
   "TlsClientHello",
@@ -39039,6 +41209,8 @@ TlsClientHello <- R6::R6Class(
   )
 )
 
+#' @title TodoCompletion
+#' @description Telegram API type TodoCompletion
 #' @export
 TodoCompletion <- R6::R6Class(
   "TodoCompletion",
@@ -39081,6 +41253,8 @@ TodoCompletion <- R6::R6Class(
   )
 )
 
+#' @title TodoItem
+#' @description Telegram API type TodoItem
 #' @export
 TodoItem <- R6::R6Class(
   "TodoItem",
@@ -39118,6 +41292,8 @@ TodoItem <- R6::R6Class(
   )
 )
 
+#' @title TodoList
+#' @description Telegram API type TodoList
 #' @export
 TodoList <- R6::R6Class(
   "TodoList",
@@ -39169,6 +41345,8 @@ TodoList <- R6::R6Class(
   )
 )
 
+#' @title TopPeer
+#' @description Telegram API type TopPeer
 #' @export
 TopPeer <- R6::R6Class(
   "TopPeer",
@@ -39206,6 +41384,8 @@ TopPeer <- R6::R6Class(
   )
 )
 
+#' @title TopPeerCategoryBotsApp
+#' @description Telegram API type TopPeerCategoryBotsApp
 #' @export
 TopPeerCategoryBotsApp <- R6::R6Class(
   "TopPeerCategoryBotsApp",
@@ -39228,6 +41408,8 @@ TopPeerCategoryBotsApp <- R6::R6Class(
   class = TRUE
 )
 
+#' @title TopPeerCategoryBotsInline
+#' @description Telegram API type TopPeerCategoryBotsInline
 #' @export
 TopPeerCategoryBotsInline <- R6::R6Class(
   "TopPeerCategoryBotsInline",
@@ -39250,6 +41432,8 @@ TopPeerCategoryBotsInline <- R6::R6Class(
   class = TRUE
 )
 
+#' @title TopPeerCategoryBotsPM
+#' @description Telegram API type TopPeerCategoryBotsPM
 #' @export
 TopPeerCategoryBotsPM <- R6::R6Class(
   "TopPeerCategoryBotsPM",
@@ -39272,6 +41456,8 @@ TopPeerCategoryBotsPM <- R6::R6Class(
   class = TRUE
 )
 
+#' @title TopPeerCategoryChannels
+#' @description Telegram API type TopPeerCategoryChannels
 #' @export
 TopPeerCategoryChannels <- R6::R6Class(
   "TopPeerCategoryChannels",
@@ -39294,6 +41480,8 @@ TopPeerCategoryChannels <- R6::R6Class(
   class = TRUE
 )
 
+#' @title TopPeerCategoryCorrespondents
+#' @description Telegram API type TopPeerCategoryCorrespondents
 #' @export
 TopPeerCategoryCorrespondents <- R6::R6Class(
   "TopPeerCategoryCorrespondents",
@@ -39316,6 +41504,8 @@ TopPeerCategoryCorrespondents <- R6::R6Class(
   class = TRUE
 )
 
+#' @title TopPeerCategoryForwardChats
+#' @description Telegram API type TopPeerCategoryForwardChats
 #' @export
 TopPeerCategoryForwardChats <- R6::R6Class(
   "TopPeerCategoryForwardChats",
@@ -39338,6 +41528,8 @@ TopPeerCategoryForwardChats <- R6::R6Class(
   class = TRUE
 )
 
+#' @title TopPeerCategoryForwardUsers
+#' @description Telegram API type TopPeerCategoryForwardUsers
 #' @export
 TopPeerCategoryForwardUsers <- R6::R6Class(
   "TopPeerCategoryForwardUsers",
@@ -39360,6 +41552,8 @@ TopPeerCategoryForwardUsers <- R6::R6Class(
   class = TRUE
 )
 
+#' @title TopPeerCategoryGroups
+#' @description Telegram API type TopPeerCategoryGroups
 #' @export
 TopPeerCategoryGroups <- R6::R6Class(
   "TopPeerCategoryGroups",
@@ -39382,6 +41576,8 @@ TopPeerCategoryGroups <- R6::R6Class(
   class = TRUE
 )
 
+#' @title TopPeerCategoryPeers
+#' @description Telegram API type TopPeerCategoryPeers
 #' @export
 TopPeerCategoryPeers <- R6::R6Class(
   "TopPeerCategoryPeers",
@@ -39425,6 +41621,8 @@ TopPeerCategoryPeers <- R6::R6Class(
   class = TRUE
 )
 
+#' @title TopPeerCategoryPhoneCalls
+#' @description Telegram API type TopPeerCategoryPhoneCalls
 #' @export
 TopPeerCategoryPhoneCalls <- R6::R6Class(
   "TopPeerCategoryPhoneCalls",
@@ -39447,6 +41645,8 @@ TopPeerCategoryPhoneCalls <- R6::R6Class(
   class = TRUE
 )
 
+#' @title UpdateAttachMenuBots
+#' @description Telegram API type UpdateAttachMenuBots
 #' @export
 UpdateAttachMenuBots <- R6::R6Class(
   "UpdateAttachMenuBots",
@@ -39469,6 +41669,8 @@ UpdateAttachMenuBots <- R6::R6Class(
   class = TRUE
 )
 
+#' @title UpdateAutoSaveSettings
+#' @description Telegram API type UpdateAutoSaveSettings
 #' @export
 UpdateAutoSaveSettings <- R6::R6Class(
   "UpdateAutoSaveSettings",
@@ -39491,6 +41693,8 @@ UpdateAutoSaveSettings <- R6::R6Class(
   class = TRUE
 )
 
+#' @title UpdateBotBusinessConnect
+#' @description Telegram API type UpdateBotBusinessConnect
 #' @export
 UpdateBotBusinessConnect <- R6::R6Class(
   "UpdateBotBusinessConnect",
@@ -39527,6 +41731,8 @@ UpdateBotBusinessConnect <- R6::R6Class(
   class = TRUE
 )
 
+#' @title UpdateBotCallbackQuery
+#' @description Telegram API type UpdateBotCallbackQuery
 #' @export
 UpdateBotCallbackQuery <- R6::R6Class(
   "UpdateBotCallbackQuery",
@@ -39583,6 +41789,8 @@ UpdateBotCallbackQuery <- R6::R6Class(
   class = TRUE
 )
 
+#' @title UpdateBotChatBoost
+#' @description Telegram API type UpdateBotChatBoost
 #' @export
 UpdateBotChatBoost <- R6::R6Class(
   "UpdateBotChatBoost",
@@ -39621,6 +41829,8 @@ UpdateBotChatBoost <- R6::R6Class(
   class = TRUE
 )
 
+#' @title UpdateBotChatInviteRequester
+#' @description Telegram API type UpdateBotChatInviteRequester
 #' @export
 UpdateBotChatInviteRequester <- R6::R6Class(
   "UpdateBotChatInviteRequester",
@@ -39673,6 +41883,8 @@ UpdateBotChatInviteRequester <- R6::R6Class(
   class = TRUE
 )
 
+#' @title UpdateBotCommands
+#' @description Telegram API type UpdateBotCommands
 #' @export
 UpdateBotCommands <- R6::R6Class(
   "UpdateBotCommands",
@@ -39719,6 +41931,8 @@ UpdateBotCommands <- R6::R6Class(
   class = TRUE
 )
 
+#' @title UpdateBotDeleteBusinessMessage
+#' @description Telegram API type UpdateBotDeleteBusinessMessage
 #' @export
 UpdateBotDeleteBusinessMessage <- R6::R6Class(
   "UpdateBotDeleteBusinessMessage",
@@ -39766,6 +41980,8 @@ UpdateBotDeleteBusinessMessage <- R6::R6Class(
   class = TRUE
 )
 
+#' @title UpdateBotEditBusinessMessage
+#' @description Telegram API type UpdateBotEditBusinessMessage
 #' @export
 UpdateBotEditBusinessMessage <- R6::R6Class(
   "UpdateBotEditBusinessMessage",
@@ -39812,6 +42028,8 @@ UpdateBotEditBusinessMessage <- R6::R6Class(
   class = TRUE
 )
 
+#' @title UpdateBotInlineQuery
+#' @description Telegram API type UpdateBotInlineQuery
 #' @export
 UpdateBotInlineQuery <- R6::R6Class("UpdateBotInlineQuery",
   inherit = TLObject,
@@ -39865,6 +42083,8 @@ UpdateBotInlineQuery <- R6::R6Class("UpdateBotInlineQuery",
   class = TRUE
 )
 
+#' @title UpdateBotInlineSend
+#' @description Telegram API type UpdateBotInlineSend
 #' @export
 UpdateBotInlineSend <- R6::R6Class("UpdateBotInlineSend",
   inherit = TLObject,
@@ -39914,6 +42134,8 @@ UpdateBotInlineSend <- R6::R6Class("UpdateBotInlineSend",
   class = TRUE
 )
 
+#' @title UpdateBotMenuButton
+#' @description Telegram API type UpdateBotMenuButton
 #' @export
 UpdateBotMenuButton <- R6::R6Class("UpdateBotMenuButton",
   inherit = TLObject,
@@ -39949,6 +42171,8 @@ UpdateBotMenuButton <- R6::R6Class("UpdateBotMenuButton",
   class = TRUE
 )
 
+#' @title UpdateBotMessageReaction
+#' @description Telegram API type UpdateBotMessageReaction
 #' @export
 UpdateBotMessageReaction <- R6::R6Class("UpdateBotMessageReaction",
   inherit = TLObject,
@@ -40012,6 +42236,8 @@ UpdateBotMessageReaction <- R6::R6Class("UpdateBotMessageReaction",
   class = TRUE
 )
 
+#' @title UpdateBotMessageReactions
+#' @description Telegram API type UpdateBotMessageReactions
 #' @export
 UpdateBotMessageReactions <- R6::R6Class("UpdateBotMessageReactions",
   inherit = TLObject,
@@ -40063,6 +42289,8 @@ UpdateBotMessageReactions <- R6::R6Class("UpdateBotMessageReactions",
   class = TRUE
 )
 
+#' @title UpdateBotNewBusinessMessage
+#' @description Telegram API type UpdateBotNewBusinessMessage
 #' @export
 UpdateBotNewBusinessMessage <- R6::R6Class("UpdateBotNewBusinessMessage",
   inherit = TLObject,
@@ -40108,6 +42336,8 @@ UpdateBotNewBusinessMessage <- R6::R6Class("UpdateBotNewBusinessMessage",
   class = TRUE
 )
 
+#' @title UpdateBotPrecheckoutQuery
+#' @description Telegram API type UpdateBotPrecheckoutQuery
 #' @export
 UpdateBotPrecheckoutQuery <- R6::R6Class("UpdateBotPrecheckoutQuery",
   inherit = TLObject,
@@ -40165,6 +42395,8 @@ UpdateBotPrecheckoutQuery <- R6::R6Class("UpdateBotPrecheckoutQuery",
   class = TRUE
 )
 
+#' @title UpdateBotPurchasedPaidMedia
+#' @description Telegram API type UpdateBotPurchasedPaidMedia
 #' @export
 UpdateBotPurchasedPaidMedia <- R6::R6Class("UpdateBotPurchasedPaidMedia",
   inherit = TLObject,
@@ -40204,6 +42436,8 @@ UpdateBotPurchasedPaidMedia <- R6::R6Class("UpdateBotPurchasedPaidMedia",
   class = TRUE
 )
 
+#' @title UpdateBotShippingQuery
+#' @description Telegram API type UpdateBotShippingQuery
 #' @export
 UpdateBotShippingQuery <- R6::R6Class("UpdateBotShippingQuery",
   inherit = TLObject,
@@ -40247,6 +42481,8 @@ UpdateBotShippingQuery <- R6::R6Class("UpdateBotShippingQuery",
   class = TRUE
 )
 
+#' @title UpdateBotStopped
+#' @description Telegram API type UpdateBotStopped
 #' @export
 UpdateBotStopped <- R6::R6Class("UpdateBotStopped",
   inherit = TLObject,
@@ -40290,6 +42526,8 @@ UpdateBotStopped <- R6::R6Class("UpdateBotStopped",
   class = TRUE
 )
 
+#' @title UpdateBotWebhookJSON
+#' @description Telegram API type UpdateBotWebhookJSON
 #' @export
 UpdateBotWebhookJSON <- R6::R6Class("UpdateBotWebhookJSON",
   inherit = TLObject,
@@ -40321,6 +42559,8 @@ UpdateBotWebhookJSON <- R6::R6Class("UpdateBotWebhookJSON",
   class = TRUE
 )
 
+#' @title UpdateBotWebhookJSONQuery
+#' @description Telegram API type UpdateBotWebhookJSONQuery
 #' @export
 UpdateBotWebhookJSONQuery <- R6::R6Class("UpdateBotWebhookJSONQuery",
   inherit = TLObject,
@@ -40360,6 +42600,8 @@ UpdateBotWebhookJSONQuery <- R6::R6Class("UpdateBotWebhookJSONQuery",
   class = TRUE
 )
 
+#' @title UpdateBusinessBotCallbackQuery
+#' @description Telegram API type UpdateBusinessBotCallbackQuery
 #' @export
 UpdateBusinessBotCallbackQuery <- R6::R6Class("UpdateBusinessBotCallbackQuery",
   inherit = TLObject,
@@ -40417,6 +42659,8 @@ UpdateBusinessBotCallbackQuery <- R6::R6Class("UpdateBusinessBotCallbackQuery",
   class = TRUE
 )
 
+#' @title UpdateChannel
+#' @description Telegram API type UpdateChannel
 #' @export
 UpdateChannel <- R6::R6Class("UpdateChannel",
   inherit = TLObject,
@@ -40448,6 +42692,8 @@ UpdateChannel <- R6::R6Class("UpdateChannel",
   class = TRUE
 )
 
+#' @title UpdateChannelAvailableMessages
+#' @description Telegram API type UpdateChannelAvailableMessages
 #' @export
 UpdateChannelAvailableMessages <- R6::R6Class("UpdateChannelAvailableMessages",
   inherit = TLObject,
@@ -40483,6 +42729,8 @@ UpdateChannelAvailableMessages <- R6::R6Class("UpdateChannelAvailableMessages",
   class = TRUE
 )
 
+#' @title UpdateChannelMessageForwards
+#' @description Telegram API type UpdateChannelMessageForwards
 #' @export
 UpdateChannelMessageForwards <- R6::R6Class("UpdateChannelMessageForwards",
   inherit = TLObject,
@@ -40522,6 +42770,8 @@ UpdateChannelMessageForwards <- R6::R6Class("UpdateChannelMessageForwards",
   class = TRUE
 )
 
+#' @title UpdateChannelMessageViews
+#' @description Telegram API type UpdateChannelMessageViews
 #' @export
 UpdateChannelMessageViews <- R6::R6Class("UpdateChannelMessageViews",
   inherit = TLObject,
@@ -40561,6 +42811,8 @@ UpdateChannelMessageViews <- R6::R6Class("UpdateChannelMessageViews",
   class = TRUE
 )
 
+#' @title UpdateChannelParticipant
+#' @description Telegram API type UpdateChannelParticipant
 #' @export
 UpdateChannelParticipant <- R6::R6Class("UpdateChannelParticipant",
   inherit = TLObject,
@@ -40625,6 +42877,8 @@ UpdateChannelParticipant <- R6::R6Class("UpdateChannelParticipant",
   class = TRUE
 )
 
+#' @title UpdateChannelPinnedTopic
+#' @description Telegram API type UpdateChannelPinnedTopic
 #' @export
 UpdateChannelPinnedTopic <- R6::R6Class("UpdateChannelPinnedTopic",
   inherit = TLObject,
@@ -40665,6 +42919,8 @@ UpdateChannelPinnedTopic <- R6::R6Class("UpdateChannelPinnedTopic",
   class = TRUE
 )
 
+#' @title UpdateChannelPinnedTopics
+#' @description Telegram API type UpdateChannelPinnedTopics
 #' @export
 UpdateChannelPinnedTopics <- R6::R6Class("UpdateChannelPinnedTopics",
   inherit = TLObject,
@@ -40708,6 +42964,8 @@ UpdateChannelPinnedTopics <- R6::R6Class("UpdateChannelPinnedTopics",
   class = TRUE
 )
 
+#' @title UpdateChannelReadMessagesContents
+#' @description Telegram API type UpdateChannelReadMessagesContents
 #' @export
 UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesContents",
   inherit = TLObject,
@@ -40757,6 +43015,8 @@ UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesConte
   class = TRUE
 )
 
+#' @title UpdateChannelTooLong
+#' @description Telegram API type UpdateChannelTooLong
 #' @export
 UpdateChannelTooLong <- R6::R6Class("UpdateChannelTooLong",
   inherit = TLObject,
@@ -40792,6 +43052,8 @@ UpdateChannelTooLong <- R6::R6Class("UpdateChannelTooLong",
   class = TRUE
 )
 
+#' @title UpdateChannelUserTyping
+#' @description Telegram API type UpdateChannelUserTyping
 #' @export
 UpdateChannelUserTyping <- R6::R6Class("UpdateChannelUserTyping",
   inherit = TLObject,
@@ -40835,6 +43097,8 @@ UpdateChannelUserTyping <- R6::R6Class("UpdateChannelUserTyping",
   class = TRUE
 )
 
+#' @title UpdateChannelViewForumAsMessages
+#' @description Telegram API type UpdateChannelViewForumAsMessages
 #' @export
 UpdateChannelViewForumAsMessages <- R6::R6Class("UpdateChannelViewForumAsMessages",
   inherit = TLObject,
@@ -40870,6 +43134,8 @@ UpdateChannelViewForumAsMessages <- R6::R6Class("UpdateChannelViewForumAsMessage
   class = TRUE
 )
 
+#' @title UpdateChannelWebPage
+#' @description Telegram API type UpdateChannelWebPage
 #' @export
 UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
   inherit = TLObject,
@@ -40913,6 +43179,8 @@ UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
   class = TRUE
 )
 
+#' @title UpdateChat
+#' @description Telegram API type UpdateChat
 #' @export
 UpdateChat <- R6::R6Class("UpdateChat",
   inherit = TLObject,
@@ -40944,6 +43212,8 @@ UpdateChat <- R6::R6Class("UpdateChat",
   class = TRUE
 )
 
+#' @title UpdateChatDefaultBannedRights
+#' @description Telegram API type UpdateChatDefaultBannedRights
 #' @export
 UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
   inherit = TLObject,
@@ -40983,6 +43253,8 @@ UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
   class = TRUE
 )
 
+#' @title UpdateChatParticipant
+#' @description Telegram API type UpdateChatParticipant
 #' @export
 UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
   inherit = TLObject,
@@ -41042,6 +43314,8 @@ UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
   class = TRUE
 )
 
+#' @title UpdateChatParticipantAdd
+#' @description Telegram API type UpdateChatParticipantAdd
 #' @export
 UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
   inherit = TLObject,
@@ -41089,6 +43363,8 @@ UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
   class = TRUE
 )
 
+#' @title UpdateChatParticipantAdmin
+#' @description Telegram API type UpdateChatParticipantAdmin
 #' @export
 UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
   inherit = TLObject,
@@ -41132,6 +43408,8 @@ UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
   class = TRUE
 )
 
+#' @title UpdateBotInlineQuery
+#' @description Telegram API type UpdateBotInlineQuery
 #' @export
 UpdateBotInlineQuery <- R6::R6Class("UpdateBotInlineQuery",
   inherit = TLObject,
@@ -41144,6 +43422,8 @@ UpdateBotInlineQuery <- R6::R6Class("UpdateBotInlineQuery",
   class = TRUE
 )
 
+#' @title UpdateBotInlineSend
+#' @description Telegram API type UpdateBotInlineSend
 #' @export
 UpdateBotInlineSend <- R6::R6Class("UpdateBotInlineSend",
   inherit = TLObject,
@@ -41156,6 +43436,8 @@ UpdateBotInlineSend <- R6::R6Class("UpdateBotInlineSend",
   class = TRUE
 )
 
+#' @title UpdateBotMenuButton
+#' @description Telegram API type UpdateBotMenuButton
 #' @export
 UpdateBotMenuButton <- R6::R6Class("UpdateBotMenuButton",
   inherit = TLObject,
@@ -41168,6 +43450,8 @@ UpdateBotMenuButton <- R6::R6Class("UpdateBotMenuButton",
   class = TRUE
 )
 
+#' @title UpdateBotMessageReaction
+#' @description Telegram API type UpdateBotMessageReaction
 #' @export
 UpdateBotMessageReaction <- R6::R6Class("UpdateBotMessageReaction",
   inherit = TLObject,
@@ -41188,6 +43472,8 @@ UpdateBotMessageReaction <- R6::R6Class("UpdateBotMessageReaction",
   class = TRUE
 )
 
+#' @title UpdateBotMessageReactions
+#' @description Telegram API type UpdateBotMessageReactions
 #' @export
 UpdateBotMessageReactions <- R6::R6Class("UpdateBotMessageReactions",
   inherit = TLObject,
@@ -41205,6 +43491,8 @@ UpdateBotMessageReactions <- R6::R6Class("UpdateBotMessageReactions",
   class = TRUE
 )
 
+#' @title UpdateBotNewBusinessMessage
+#' @description Telegram API type UpdateBotNewBusinessMessage
 #' @export
 UpdateBotNewBusinessMessage <- R6::R6Class("UpdateBotNewBusinessMessage",
   inherit = TLObject,
@@ -41217,6 +43505,8 @@ UpdateBotNewBusinessMessage <- R6::R6Class("UpdateBotNewBusinessMessage",
   class = TRUE
 )
 
+#' @title UpdateBotPrecheckoutQuery
+#' @description Telegram API type UpdateBotPrecheckoutQuery
 #' @export
 UpdateBotPrecheckoutQuery <- R6::R6Class("UpdateBotPrecheckoutQuery",
   inherit = TLObject,
@@ -41229,6 +43519,8 @@ UpdateBotPrecheckoutQuery <- R6::R6Class("UpdateBotPrecheckoutQuery",
   class = TRUE
 )
 
+#' @title UpdateBotPurchasedPaidMedia
+#' @description Telegram API type UpdateBotPurchasedPaidMedia
 #' @export
 UpdateBotPurchasedPaidMedia <- R6::R6Class("UpdateBotPurchasedPaidMedia",
   inherit = TLObject,
@@ -41241,6 +43533,8 @@ UpdateBotPurchasedPaidMedia <- R6::R6Class("UpdateBotPurchasedPaidMedia",
   class = TRUE
 )
 
+#' @title UpdateBotShippingQuery
+#' @description Telegram API type UpdateBotShippingQuery
 #' @export
 UpdateBotShippingQuery <- R6::R6Class("UpdateBotShippingQuery",
   inherit = TLObject,
@@ -41253,6 +43547,8 @@ UpdateBotShippingQuery <- R6::R6Class("UpdateBotShippingQuery",
   class = TRUE
 )
 
+#' @title UpdateBotStopped
+#' @description Telegram API type UpdateBotStopped
 #' @export
 UpdateBotStopped <- R6::R6Class("UpdateBotStopped",
   inherit = TLObject,
@@ -41265,6 +43561,8 @@ UpdateBotStopped <- R6::R6Class("UpdateBotStopped",
   class = TRUE
 )
 
+#' @title UpdateBotWebhookJSON
+#' @description Telegram API type UpdateBotWebhookJSON
 #' @export
 UpdateBotWebhookJSON <- R6::R6Class("UpdateBotWebhookJSON",
   inherit = TLObject,
@@ -41277,6 +43575,8 @@ UpdateBotWebhookJSON <- R6::R6Class("UpdateBotWebhookJSON",
   class = TRUE
 )
 
+#' @title UpdateBotWebhookJSONQuery
+#' @description Telegram API type UpdateBotWebhookJSONQuery
 #' @export
 UpdateBotWebhookJSONQuery <- R6::R6Class("UpdateBotWebhookJSONQuery",
   inherit = TLObject,
@@ -41289,6 +43589,8 @@ UpdateBotWebhookJSONQuery <- R6::R6Class("UpdateBotWebhookJSONQuery",
   class = TRUE
 )
 
+#' @title UpdateBusinessBotCallbackQuery
+#' @description Telegram API type UpdateBusinessBotCallbackQuery
 #' @export
 UpdateBusinessBotCallbackQuery <- R6::R6Class("UpdateBusinessBotCallbackQuery",
   inherit = TLObject,
@@ -41301,6 +43603,8 @@ UpdateBusinessBotCallbackQuery <- R6::R6Class("UpdateBusinessBotCallbackQuery",
   class = TRUE
 )
 
+#' @title UpdateChannel
+#' @description Telegram API type UpdateChannel
 #' @export
 UpdateChannel <- R6::R6Class("UpdateChannel",
   inherit = TLObject,
@@ -41313,6 +43617,8 @@ UpdateChannel <- R6::R6Class("UpdateChannel",
   class = TRUE
 )
 
+#' @title UpdateChannelAvailableMessages
+#' @description Telegram API type UpdateChannelAvailableMessages
 #' @export
 UpdateChannelAvailableMessages <- R6::R6Class("UpdateChannelAvailableMessages",
   inherit = TLObject,
@@ -41325,6 +43631,8 @@ UpdateChannelAvailableMessages <- R6::R6Class("UpdateChannelAvailableMessages",
   class = TRUE
 )
 
+#' @title UpdateChannelMessageForwards
+#' @description Telegram API type UpdateChannelMessageForwards
 #' @export
 UpdateChannelMessageForwards <- R6::R6Class("UpdateChannelMessageForwards",
   inherit = TLObject,
@@ -41337,6 +43645,8 @@ UpdateChannelMessageForwards <- R6::R6Class("UpdateChannelMessageForwards",
   class = TRUE
 )
 
+#' @title UpdateChannelMessageViews
+#' @description Telegram API type UpdateChannelMessageViews
 #' @export
 UpdateChannelMessageViews <- R6::R6Class("UpdateChannelMessageViews",
   inherit = TLObject,
@@ -41349,6 +43659,8 @@ UpdateChannelMessageViews <- R6::R6Class("UpdateChannelMessageViews",
   class = TRUE
 )
 
+#' @title UpdateChannelParticipant
+#' @description Telegram API type UpdateChannelParticipant
 #' @export
 UpdateChannelParticipant <- R6::R6Class("UpdateChannelParticipant",
   inherit = TLObject,
@@ -41361,6 +43673,8 @@ UpdateChannelParticipant <- R6::R6Class("UpdateChannelParticipant",
   class = TRUE
 )
 
+#' @title UpdateChannelPinnedTopic
+#' @description Telegram API type UpdateChannelPinnedTopic
 #' @export
 UpdateChannelPinnedTopic <- R6::R6Class("UpdateChannelPinnedTopic",
   inherit = TLObject,
@@ -41373,6 +43687,8 @@ UpdateChannelPinnedTopic <- R6::R6Class("UpdateChannelPinnedTopic",
   class = TRUE
 )
 
+#' @title UpdateChannelPinnedTopics
+#' @description Telegram API type UpdateChannelPinnedTopics
 #' @export
 UpdateChannelPinnedTopics <- R6::R6Class("UpdateChannelPinnedTopics",
   inherit = TLObject,
@@ -41392,6 +43708,8 @@ UpdateChannelPinnedTopics <- R6::R6Class("UpdateChannelPinnedTopics",
   class = TRUE
 )
 
+#' @title UpdateChannelReadMessagesContents
+#' @description Telegram API type UpdateChannelReadMessagesContents
 #' @export
 UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesContents",
   inherit = TLObject,
@@ -41409,6 +43727,8 @@ UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesConte
   class = TRUE
 )
 
+#' @title UpdateChannelTooLong
+#' @description Telegram API type UpdateChannelTooLong
 #' @export
 UpdateChannelTooLong <- R6::R6Class("UpdateChannelTooLong",
   inherit = TLObject,
@@ -41421,6 +43741,8 @@ UpdateChannelTooLong <- R6::R6Class("UpdateChannelTooLong",
   class = TRUE
 )
 
+#' @title UpdateChannelUserTyping
+#' @description Telegram API type UpdateChannelUserTyping
 #' @export
 UpdateChannelUserTyping <- R6::R6Class("UpdateChannelUserTyping",
   inherit = TLObject,
@@ -41433,6 +43755,8 @@ UpdateChannelUserTyping <- R6::R6Class("UpdateChannelUserTyping",
   class = TRUE
 )
 
+#' @title UpdateChannelViewForumAsMessages
+#' @description Telegram API type UpdateChannelViewForumAsMessages
 #' @export
 UpdateChannelViewForumAsMessages <- R6::R6Class("UpdateChannelViewForumAsMessages",
   inherit = TLObject,
@@ -41445,6 +43769,8 @@ UpdateChannelViewForumAsMessages <- R6::R6Class("UpdateChannelViewForumAsMessage
   class = TRUE
 )
 
+#' @title UpdateChannelWebPage
+#' @description Telegram API type UpdateChannelWebPage
 #' @export
 UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
   inherit = TLObject,
@@ -41457,6 +43783,8 @@ UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
   class = TRUE
 )
 
+#' @title UpdateChat
+#' @description Telegram API type UpdateChat
 #' @export
 UpdateChat <- R6::R6Class("UpdateChat",
   inherit = TLObject,
@@ -41482,6 +43810,8 @@ UpdateChat <- R6::R6Class("UpdateChat",
   class = TRUE
 )
 
+#' @title UpdateChatDefaultBannedRights
+#' @description Telegram API type UpdateChatDefaultBannedRights
 #' @export
 UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
   inherit = TLObject,
@@ -41511,6 +43841,8 @@ UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
   class = TRUE
 )
 
+#' @title UpdateChatParticipant
+#' @description Telegram API type UpdateChatParticipant
 #' @export
 UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
   inherit = TLObject,
@@ -41552,6 +43884,8 @@ UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
   class = TRUE
 )
 
+#' @title UpdateChatParticipantAdd
+#' @description Telegram API type UpdateChatParticipantAdd
 #' @export
 UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
   inherit = TLObject,
@@ -41585,6 +43919,8 @@ UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
   class = TRUE
 )
 
+#' @title UpdateChatParticipantAdmin
+#' @description Telegram API type UpdateChatParticipantAdmin
 #' @export
 UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
   inherit = TLObject,
@@ -41616,6 +43952,8 @@ UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
   class = TRUE
 )
 
+#' @title UpdateChatParticipantDelete
+#' @description Telegram API type UpdateChatParticipantDelete
 #' @export
 UpdateChatParticipantDelete <- R6::R6Class("UpdateChatParticipantDelete",
   inherit = TLObject,
@@ -41645,6 +43983,8 @@ UpdateChatParticipantDelete <- R6::R6Class("UpdateChatParticipantDelete",
   class = TRUE
 )
 
+#' @title UpdateChatParticipants
+#' @description Telegram API type UpdateChatParticipants
 #' @export
 UpdateChatParticipants <- R6::R6Class("UpdateChatParticipants",
   inherit = TLObject,
@@ -41673,6 +44013,8 @@ UpdateChatParticipants <- R6::R6Class("UpdateChatParticipants",
   class = TRUE
 )
 
+#' @title UpdateChatUserTyping
+#' @description Telegram API type UpdateChatUserTyping
 #' @export
 UpdateChatUserTyping <- R6::R6Class("UpdateChatUserTyping",
   inherit = TLObject,
@@ -41707,6 +44049,8 @@ UpdateChatUserTyping <- R6::R6Class("UpdateChatUserTyping",
   class = TRUE
 )
 
+#' @title UpdateConfig
+#' @description Telegram API type UpdateConfig
 #' @export
 UpdateConfig <- R6::R6Class("UpdateConfig",
   inherit = TLObject,
@@ -41728,6 +44072,8 @@ UpdateConfig <- R6::R6Class("UpdateConfig",
   class = TRUE
 )
 
+#' @title UpdateContactsReset
+#' @description Telegram API type UpdateContactsReset
 #' @export
 UpdateContactsReset <- R6::R6Class("UpdateContactsReset",
   inherit = TLObject,
@@ -41749,6 +44095,8 @@ UpdateContactsReset <- R6::R6Class("UpdateContactsReset",
   class = TRUE
 )
 
+#' @title UpdateDcOptions
+#' @description Telegram API type UpdateDcOptions
 #' @export
 UpdateDcOptions <- R6::R6Class("UpdateDcOptions",
   inherit = TLObject,
@@ -41778,6 +44126,8 @@ UpdateDcOptions <- R6::R6Class("UpdateDcOptions",
   class = TRUE
 )
 
+#' @title UpdateDeleteChannelMessages
+#' @description Telegram API type UpdateDeleteChannelMessages
 #' @export
 UpdateDeleteChannelMessages <- R6::R6Class("UpdateDeleteChannelMessages",
   inherit = TLObject,
@@ -41816,6 +44166,8 @@ UpdateDeleteChannelMessages <- R6::R6Class("UpdateDeleteChannelMessages",
   class = TRUE
 )
 
+#' @title UpdateDeleteMessages
+#' @description Telegram API type UpdateDeleteMessages
 #' @export
 UpdateDeleteMessages <- R6::R6Class("UpdateDeleteMessages",
   inherit = TLObject,
@@ -41851,6 +44203,8 @@ UpdateDeleteMessages <- R6::R6Class("UpdateDeleteMessages",
   class = TRUE
 )
 
+#' @title UpdateDeleteQuickReply
+#' @description Telegram API type UpdateDeleteQuickReply
 #' @export
 UpdateDeleteQuickReply <- R6::R6Class("UpdateDeleteQuickReply",
   inherit = TLObject,
@@ -41879,6 +44233,8 @@ UpdateDeleteQuickReply <- R6::R6Class("UpdateDeleteQuickReply",
   class = TRUE
 )
 
+#' @title UpdateDeleteQuickReplyMessages
+#' @description Telegram API type UpdateDeleteQuickReplyMessages
 #' @export
 UpdateDeleteQuickReplyMessages <- R6::R6Class("UpdateDeleteQuickReplyMessages",
   inherit = TLObject,
@@ -41911,6 +44267,8 @@ UpdateDeleteQuickReplyMessages <- R6::R6Class("UpdateDeleteQuickReplyMessages",
   class = TRUE
 )
 
+#' @title UpdateDeleteScheduledMessages
+#' @description Telegram API type UpdateDeleteScheduledMessages
 #' @export
 UpdateDeleteScheduledMessages <- R6::R6Class("UpdateDeleteScheduledMessages",
   inherit = TLObject,
@@ -41953,6 +44311,8 @@ UpdateDeleteScheduledMessages <- R6::R6Class("UpdateDeleteScheduledMessages",
   class = TRUE
 )
 
+#' @title UpdateDialogFilter
+#' @description Telegram API type UpdateDialogFilter
 #' @export
 UpdateDialogFilter <- R6::R6Class("UpdateDialogFilter",
   inherit = TLObject,
@@ -41986,6 +44346,8 @@ UpdateDialogFilter <- R6::R6Class("UpdateDialogFilter",
   class = TRUE
 )
 
+#' @title UpdateDialogFilterOrder
+#' @description Telegram API type UpdateDialogFilterOrder
 #' @export
 UpdateDialogFilterOrder <- R6::R6Class("UpdateDialogFilterOrder",
   inherit = TLObject,
@@ -42015,6 +44377,8 @@ UpdateDialogFilterOrder <- R6::R6Class("UpdateDialogFilterOrder",
   class = TRUE
 )
 
+#' @title UpdateDialogFilters
+#' @description Telegram API type UpdateDialogFilters
 #' @export
 UpdateDialogFilters <- R6::R6Class("UpdateDialogFilters",
   inherit = TLObject,
@@ -42036,6 +44400,8 @@ UpdateDialogFilters <- R6::R6Class("UpdateDialogFilters",
   class = TRUE
 )
 
+#' @title UpdateDialogPinned
+#' @description Telegram API type UpdateDialogPinned
 #' @export
 UpdateDialogPinned <- R6::R6Class("UpdateDialogPinned",
   inherit = TLObject,
@@ -42072,6 +44438,8 @@ UpdateDialogPinned <- R6::R6Class("UpdateDialogPinned",
   class = TRUE
 )
 
+#' @title UpdateDialogUnreadMark
+#' @description Telegram API type UpdateDialogUnreadMark
 #' @export
 UpdateDialogUnreadMark <- R6::R6Class("UpdateDialogUnreadMark",
   inherit = TLObject,
@@ -42108,6 +44476,8 @@ UpdateDialogUnreadMark <- R6::R6Class("UpdateDialogUnreadMark",
   class = TRUE
 )
 
+#' @title UpdateDraftMessage
+#' @description Telegram API type UpdateDraftMessage
 #' @export
 UpdateDraftMessage <- R6::R6Class("UpdateDraftMessage",
   inherit = TLObject,
@@ -42140,6 +44510,8 @@ UpdateDraftMessage <- R6::R6Class("UpdateDraftMessage",
   class = TRUE
 )
 
+#' @title UpdateEditChannelMessage
+#' @description Telegram API type UpdateEditChannelMessage
 #' @export
 UpdateEditChannelMessage <- R6::R6Class("UpdateEditChannelMessage",
   inherit = TLObject,
@@ -42169,6 +44541,8 @@ UpdateEditChannelMessage <- R6::R6Class("UpdateEditChannelMessage",
   class = TRUE
 )
 
+#' @title UpdateEditMessage
+#' @description Telegram API type UpdateEditMessage
 #' @export
 UpdateEditMessage <- R6::R6Class("UpdateEditMessage",
   inherit = TLObject,
@@ -42198,6 +44572,8 @@ UpdateEditMessage <- R6::R6Class("UpdateEditMessage",
   class = TRUE
 )
 
+#' @title UpdateEncryptedChatTyping
+#' @description Telegram API type UpdateEncryptedChatTyping
 #' @export
 UpdateEncryptedChatTyping <- R6::R6Class("UpdateEncryptedChatTyping",
   inherit = TLObject,
@@ -42223,6 +44599,8 @@ UpdateEncryptedChatTyping <- R6::R6Class("UpdateEncryptedChatTyping",
   class = TRUE
 )
 
+#' @title UpdateEncryptedMessagesRead
+#' @description Telegram API type UpdateEncryptedMessagesRead
 #' @export
 UpdateEncryptedMessagesRead <- R6::R6Class("UpdateEncryptedMessagesRead",
   inherit = TLObject,
@@ -42252,6 +44630,8 @@ UpdateEncryptedMessagesRead <- R6::R6Class("UpdateEncryptedMessagesRead",
   class = TRUE
 )
 
+#' @title UpdateEncryption
+#' @description Telegram API type UpdateEncryption
 #' @export
 UpdateEncryption <- R6::R6Class("UpdateEncryption",
   inherit = TLObject,
@@ -42279,6 +44659,8 @@ UpdateEncryption <- R6::R6Class("UpdateEncryption",
   class = TRUE
 )
 
+#' @title UpdateFavedStickers
+#' @description Telegram API type UpdateFavedStickers
 #' @export
 UpdateFavedStickers <- R6::R6Class("UpdateFavedStickers",
   inherit = TLObject,
@@ -42298,6 +44680,8 @@ UpdateFavedStickers <- R6::R6Class("UpdateFavedStickers",
   class = TRUE
 )
 
+#' @title UpdateFolderPeers
+#' @description Telegram API type UpdateFolderPeers
 #' @export
 UpdateFolderPeers <- R6::R6Class("UpdateFolderPeers",
   inherit = TLObject,
@@ -42328,6 +44712,8 @@ UpdateFolderPeers <- R6::R6Class("UpdateFolderPeers",
   class = TRUE
 )
 
+#' @title UpdateGeoLiveViewed
+#' @description Telegram API type UpdateGeoLiveViewed
 #' @export
 UpdateGeoLiveViewed <- R6::R6Class("UpdateGeoLiveViewed",
   inherit = TLObject,
@@ -42355,6 +44741,8 @@ UpdateGeoLiveViewed <- R6::R6Class("UpdateGeoLiveViewed",
   class = TRUE
 )
 
+#' @title UpdateGroupCall
+#' @description Telegram API type UpdateGroupCall
 #' @export
 UpdateGroupCall <- R6::R6Class("UpdateGroupCall",
   inherit = TLObject,
@@ -42383,6 +44771,8 @@ UpdateGroupCall <- R6::R6Class("UpdateGroupCall",
   class = TRUE
 )
 
+#' @title UpdateGroupCallChainBlocks
+#' @description Telegram API type UpdateGroupCallChainBlocks
 #' @export
 UpdateGroupCallChainBlocks <- R6::R6Class("UpdateGroupCallChainBlocks",
   inherit = TLObject,
@@ -42432,6 +44822,8 @@ UpdateGroupCallChainBlocks <- R6::R6Class("UpdateGroupCallChainBlocks",
   class = TRUE
 )
 
+#' @title UpdateGroupCallConnection
+#' @description Telegram API type UpdateGroupCallConnection
 #' @export
 UpdateGroupCallConnection <- R6::R6Class("UpdateGroupCallConnection",
   inherit = TLObject,
@@ -42469,6 +44861,8 @@ UpdateGroupCallConnection <- R6::R6Class("UpdateGroupCallConnection",
   class = TRUE
 )
 
+#' @title UpdateGroupCallParticipants
+#' @description Telegram API type UpdateGroupCallParticipants
 #' @export
 UpdateGroupCallParticipants <- R6::R6Class("UpdateGroupCallParticipants",
   inherit = TLObject,
@@ -42514,6 +44908,8 @@ UpdateGroupCallParticipants <- R6::R6Class("UpdateGroupCallParticipants",
   class = TRUE
 )
 
+#' @title UpdateInlineBotCallbackQuery
+#' @description Telegram API type UpdateInlineBotCallbackQuery
 #' @export
 UpdateInlineBotCallbackQuery <- R6::R6Class("UpdateInlineBotCallbackQuery",
   inherit = TLObject,
@@ -42568,6 +44964,8 @@ UpdateInlineBotCallbackQuery <- R6::R6Class("UpdateInlineBotCallbackQuery",
   class = TRUE
 )
 
+#' @title UpdateLangPack
+#' @description Telegram API type UpdateLangPack
 #' @export
 UpdateLangPack <- R6::R6Class("UpdateLangPack",
   inherit = TLObject,
@@ -42600,6 +44998,8 @@ UpdateLangPack <- R6::R6Class("UpdateLangPack",
   class = TRUE
 )
 
+#' @title UpdateLangPackTooLong
+#' @description Telegram API type UpdateLangPackTooLong
 #' @export
 UpdateLangPackTooLong <- R6::R6Class("UpdateLangPackTooLong",
   inherit = TLObject,
@@ -42632,6 +45032,8 @@ UpdateLangPackTooLong <- R6::R6Class("UpdateLangPackTooLong",
   class = TRUE
 )
 
+#' @title UpdateLoginToken
+#' @description Telegram API type UpdateLoginToken
 #' @export
 UpdateLoginToken <- R6::R6Class("UpdateLoginToken",
   inherit = TLObject,
@@ -42653,6 +45055,8 @@ UpdateLoginToken <- R6::R6Class("UpdateLoginToken",
   class = TRUE
 )
 
+#' @title UpdateMessageExtendedMedia
+#' @description Telegram API type UpdateMessageExtendedMedia
 #' @export
 UpdateMessageExtendedMedia <- R6::R6Class("UpdateMessageExtendedMedia",
   inherit = TLObject,
@@ -42698,6 +45102,8 @@ UpdateMessageExtendedMedia <- R6::R6Class("UpdateMessageExtendedMedia",
   class = TRUE
 )
 
+#' @title UpdateMessageID
+#' @description Telegram API type UpdateMessageID
 #' @export
 UpdateMessageID <- R6::R6Class("UpdateMessageID",
   inherit = TLObject,
@@ -42734,6 +45140,8 @@ UpdateMessageID <- R6::R6Class("UpdateMessageID",
   class = TRUE
 )
 
+#' @title UpdateMessagePoll
+#' @description Telegram API type UpdateMessagePoll
 #' @export
 UpdateMessagePoll <- R6::R6Class("UpdateMessagePoll",
   inherit = TLObject,
@@ -42776,6 +45184,8 @@ UpdateMessagePoll <- R6::R6Class("UpdateMessagePoll",
   class = TRUE
 )
 
+#' @title UpdateMessagePollVote
+#' @description Telegram API type UpdateMessagePollVote
 #' @export
 UpdateMessagePollVote <- R6::R6Class("UpdateMessagePollVote",
   inherit = TLObject,
@@ -42825,6 +45235,8 @@ UpdateMessagePollVote <- R6::R6Class("UpdateMessagePollVote",
   class = TRUE
 )
 
+#' @title UpdateMessageReactions
+#' @description Telegram API type UpdateMessageReactions
 #' @export
 UpdateMessageReactions <- R6::R6Class("UpdateMessageReactions",
   inherit = TLObject,
@@ -42875,6 +45287,8 @@ UpdateMessageReactions <- R6::R6Class("UpdateMessageReactions",
   class = TRUE
 )
 
+#' @title UpdateMonoForumNoPaidException
+#' @description Telegram API type UpdateMonoForumNoPaidException
 #' @export
 UpdateMonoForumNoPaidException <- R6::R6Class("UpdateMonoForumNoPaidException",
   inherit = TLObject,
@@ -42916,6 +45330,8 @@ UpdateMonoForumNoPaidException <- R6::R6Class("UpdateMonoForumNoPaidException",
   class = TRUE
 )
 
+#' @title UpdateMoveStickerSetToTop
+#' @description Telegram API type UpdateMoveStickerSetToTop
 #' @export
 UpdateMoveStickerSetToTop <- R6::R6Class("UpdateMoveStickerSetToTop",
   inherit = TLObject,
@@ -42956,6 +45372,8 @@ UpdateMoveStickerSetToTop <- R6::R6Class("UpdateMoveStickerSetToTop",
   class = TRUE
 )
 
+#' @title UpdateNewAuthorization
+#' @description Telegram API type UpdateNewAuthorization
 #' @export
 UpdateNewAuthorization <- R6::R6Class("UpdateNewAuthorization",
   inherit = TLObject,
@@ -43006,6 +45424,8 @@ UpdateNewAuthorization <- R6::R6Class("UpdateNewAuthorization",
   class = TRUE
 )
 
+#' @title UpdateNewChannelMessage
+#' @description Telegram API type UpdateNewChannelMessage
 #' @export
 UpdateNewChannelMessage <- R6::R6Class("UpdateNewChannelMessage",
   inherit = TLObject,
@@ -43046,6 +45466,8 @@ UpdateNewChannelMessage <- R6::R6Class("UpdateNewChannelMessage",
   class = TRUE
 )
 
+#' @title UpdateNewEncryptedMessage
+#' @description Telegram API type UpdateNewEncryptedMessage
 #' @export
 UpdateNewEncryptedMessage <- R6::R6Class("UpdateNewEncryptedMessage",
   inherit = TLObject,
@@ -43082,6 +45504,8 @@ UpdateNewEncryptedMessage <- R6::R6Class("UpdateNewEncryptedMessage",
   class = TRUE
 )
 
+#' @title UpdateNewMessage
+#' @description Telegram API type UpdateNewMessage
 #' @export
 UpdateNewMessage <- R6::R6Class("UpdateNewMessage",
   inherit = TLObject,
@@ -43122,6 +45546,8 @@ UpdateNewMessage <- R6::R6Class("UpdateNewMessage",
   class = TRUE
 )
 
+#' @title UpdateNewQuickReply
+#' @description Telegram API type UpdateNewQuickReply
 #' @export
 UpdateNewQuickReply <- R6::R6Class("UpdateNewQuickReply",
   inherit = TLObject,
@@ -43154,6 +45580,8 @@ UpdateNewQuickReply <- R6::R6Class("UpdateNewQuickReply",
   class = TRUE
 )
 
+#' @title UpdateNewScheduledMessage
+#' @description Telegram API type UpdateNewScheduledMessage
 #' @export
 UpdateNewScheduledMessage <- R6::R6Class("UpdateNewScheduledMessage",
   inherit = TLObject,
@@ -43182,6 +45610,8 @@ UpdateNewScheduledMessage <- R6::R6Class("UpdateNewScheduledMessage",
   class = TRUE
 )
 
+#' @title UpdateNewStickerSet
+#' @description Telegram API type UpdateNewStickerSet
 #' @export
 UpdateNewStickerSet <- R6::R6Class("UpdateNewStickerSet",
   inherit = TLObject,
@@ -43210,6 +45640,8 @@ UpdateNewStickerSet <- R6::R6Class("UpdateNewStickerSet",
   class = TRUE
 )
 
+#' @title UpdateNewStoryReaction
+#' @description Telegram API type UpdateNewStoryReaction
 #' @export
 UpdateNewStoryReaction <- R6::R6Class("UpdateNewStoryReaction",
   inherit = TLObject,
@@ -43244,6 +45676,8 @@ UpdateNewStoryReaction <- R6::R6Class("UpdateNewStoryReaction",
   class = TRUE
 )
 
+#' @title UpdateNotifySettings
+#' @description Telegram API type UpdateNotifySettings
 #' @export
 UpdateNotifySettings <- R6::R6Class("UpdateNotifySettings",
   inherit = TLObject,
@@ -43275,6 +45709,8 @@ UpdateNotifySettings <- R6::R6Class("UpdateNotifySettings",
   class = TRUE
 )
 
+#' @title UpdatePaidReactionPrivacy
+#' @description Telegram API type UpdatePaidReactionPrivacy
 #' @export
 UpdatePaidReactionPrivacy <- R6::R6Class("UpdatePaidReactionPrivacy",
   inherit = TLObject,
@@ -43303,6 +45739,8 @@ UpdatePaidReactionPrivacy <- R6::R6Class("UpdatePaidReactionPrivacy",
   class = TRUE
 )
 
+#' @title UpdatePeerBlocked
+#' @description Telegram API type UpdatePeerBlocked
 #' @export
 UpdatePeerBlocked <- R6::R6Class("UpdatePeerBlocked",
   inherit = TLObject,
@@ -43339,6 +45777,8 @@ UpdatePeerBlocked <- R6::R6Class("UpdatePeerBlocked",
   class = TRUE
 )
 
+#' @title UpdatePeerHistoryTTL
+#' @description Telegram API type UpdatePeerHistoryTTL
 #' @export
 UpdatePeerHistoryTTL <- R6::R6Class("UpdatePeerHistoryTTL",
   inherit = TLObject,
@@ -43372,6 +45812,8 @@ UpdatePeerHistoryTTL <- R6::R6Class("UpdatePeerHistoryTTL",
   class = TRUE
 )
 
+#' @title UpdatePeerLocated
+#' @description Telegram API type UpdatePeerLocated
 #' @export
 UpdatePeerLocated <- R6::R6Class("UpdatePeerLocated",
   inherit = TLObject,
@@ -43401,6 +45843,8 @@ UpdatePeerLocated <- R6::R6Class("UpdatePeerLocated",
   class = TRUE
 )
 
+#' @title UpdatePeerSettings
+#' @description Telegram API type UpdatePeerSettings
 #' @export
 UpdatePeerSettings <- R6::R6Class("UpdatePeerSettings",
   inherit = TLObject,
@@ -43432,6 +45876,8 @@ UpdatePeerSettings <- R6::R6Class("UpdatePeerSettings",
   class = TRUE
 )
 
+#' @title UpdatePeerWallpaper
+#' @description Telegram API type UpdatePeerWallpaper
 #' @export
 UpdatePeerWallpaper <- R6::R6Class("UpdatePeerWallpaper",
   inherit = TLObject,
@@ -43468,6 +45914,8 @@ UpdatePeerWallpaper <- R6::R6Class("UpdatePeerWallpaper",
   class = TRUE
 )
 
+#' @title UpdatePendingJoinRequests
+#' @description Telegram API type UpdatePendingJoinRequests
 #' @export
 UpdatePendingJoinRequests <- R6::R6Class("UpdatePendingJoinRequests",
   inherit = TLObject,
@@ -43503,6 +45951,8 @@ UpdatePendingJoinRequests <- R6::R6Class("UpdatePendingJoinRequests",
   class = TRUE
 )
 
+#' @title UpdatePhoneCall
+#' @description Telegram API type UpdatePhoneCall
 #' @export
 UpdatePhoneCall <- R6::R6Class("UpdatePhoneCall",
   inherit = TLObject,
@@ -43531,6 +45981,8 @@ UpdatePhoneCall <- R6::R6Class("UpdatePhoneCall",
   class = TRUE
 )
 
+#' @title UpdatePhoneCallSignalingData
+#' @description Telegram API type UpdatePhoneCallSignalingData
 #' @export
 UpdatePhoneCallSignalingData <- R6::R6Class("UpdatePhoneCallSignalingData",
   inherit = TLObject,
@@ -43562,6 +46014,8 @@ UpdatePhoneCallSignalingData <- R6::R6Class("UpdatePhoneCallSignalingData",
   class = TRUE
 )
 
+#' @title UpdatePinnedChannelMessages
+#' @description Telegram API type UpdatePinnedChannelMessages
 #' @export
 UpdatePinnedChannelMessages <- R6::R6Class("UpdatePinnedChannelMessages",
   inherit = TLObject,
@@ -43605,6 +46059,8 @@ UpdatePinnedChannelMessages <- R6::R6Class("UpdatePinnedChannelMessages",
   class = TRUE
 )
 
+#' @title UpdatePinnedDialogs
+#' @description Telegram API type UpdatePinnedDialogs
 #' @export
 UpdatePinnedDialogs <- R6::R6Class("UpdatePinnedDialogs",
   inherit = TLObject,
@@ -43643,6 +46099,8 @@ UpdatePinnedDialogs <- R6::R6Class("UpdatePinnedDialogs",
   class = TRUE
 )
 
+#' @title UpdatePinnedMessages
+#' @description Telegram API type UpdatePinnedMessages
 #' @export
 UpdatePinnedMessages <- R6::R6Class("UpdatePinnedMessages",
   inherit = TLObject,
@@ -43686,6 +46144,8 @@ UpdatePinnedMessages <- R6::R6Class("UpdatePinnedMessages",
   class = TRUE
 )
 
+#' @title UpdatePinnedSavedDialogs
+#' @description Telegram API type UpdatePinnedSavedDialogs
 #' @export
 UpdatePinnedSavedDialogs <- R6::R6Class("UpdatePinnedSavedDialogs",
   inherit = TLObject,
@@ -43721,6 +46181,8 @@ UpdatePinnedSavedDialogs <- R6::R6Class("UpdatePinnedSavedDialogs",
   class = TRUE
 )
 
+#' @title UpdatePrivacy
+#' @description Telegram API type UpdatePrivacy
 #' @export
 UpdatePrivacy <- R6::R6Class("UpdatePrivacy",
   inherit = TLObject,
@@ -43753,6 +46215,8 @@ UpdatePrivacy <- R6::R6Class("UpdatePrivacy",
   class = TRUE
 )
 
+#' @title UpdatePtsChanged
+#' @description Telegram API type UpdatePtsChanged
 #' @export
 UpdatePtsChanged <- R6::R6Class("UpdatePtsChanged",
   inherit = TLObject,
@@ -43774,6 +46238,8 @@ UpdatePtsChanged <- R6::R6Class("UpdatePtsChanged",
   class = TRUE
 )
 
+#' @title UpdateQuickReplies
+#' @description Telegram API type UpdateQuickReplies
 #' @export
 UpdateQuickReplies <- R6::R6Class("UpdateQuickReplies",
   inherit = TLObject,
@@ -43812,6 +46278,8 @@ UpdateQuickReplies <- R6::R6Class("UpdateQuickReplies",
   class = TRUE
 )
 
+#' @title UpdateQuickReplyMessage
+#' @description Telegram API type UpdateQuickReplyMessage
 #' @export
 UpdateQuickReplyMessage <- R6::R6Class("UpdateQuickReplyMessage",
   inherit = TLObject,
@@ -43843,6 +46311,8 @@ UpdateQuickReplyMessage <- R6::R6Class("UpdateQuickReplyMessage",
   class = TRUE
 )
 
+#' @title UpdateReadChannelDiscussionInbox
+#' @description Telegram API type UpdateReadChannelDiscussionInbox
 #' @export
 UpdateReadChannelDiscussionInbox <- R6::R6Class("UpdateReadChannelDiscussionInbox",
   inherit = TLObject,
@@ -43893,6 +46363,8 @@ UpdateReadChannelDiscussionInbox <- R6::R6Class("UpdateReadChannelDiscussionInbo
   class = TRUE
 )
 
+#' @title UpdateReadChannelDiscussionOutbox
+#' @description Telegram API type UpdateReadChannelDiscussionOutbox
 #' @export
 UpdateReadChannelDiscussionOutbox <- R6::R6Class("UpdateReadChannelDiscussionOutbox",
   inherit = TLObject,
@@ -43932,6 +46404,8 @@ UpdateReadChannelDiscussionOutbox <- R6::R6Class("UpdateReadChannelDiscussionOut
   class = TRUE
 )
 
+#' @title UpdateReadChannelInbox
+#' @description Telegram API type UpdateReadChannelInbox
 #' @export
 UpdateReadChannelInbox <- R6::R6Class("UpdateReadChannelInbox",
   inherit = TLObject,
@@ -43982,6 +46456,8 @@ UpdateReadChannelInbox <- R6::R6Class("UpdateReadChannelInbox",
   class = TRUE
 )
 
+#' @title UpdateReadChannelOutbox
+#' @description Telegram API type UpdateReadChannelOutbox
 #' @export
 UpdateReadChannelOutbox <- R6::R6Class("UpdateReadChannelOutbox",
   inherit = TLObject,
@@ -44017,6 +46493,8 @@ UpdateReadChannelOutbox <- R6::R6Class("UpdateReadChannelOutbox",
   class = TRUE
 )
 
+#' @title UpdateReadFeaturedEmojiStickers
+#' @description Telegram API type UpdateReadFeaturedEmojiStickers
 #' @export
 UpdateReadFeaturedEmojiStickers <- R6::R6Class("UpdateReadFeaturedEmojiStickers",
   inherit = TLObject,
@@ -44038,6 +46516,8 @@ UpdateReadFeaturedEmojiStickers <- R6::R6Class("UpdateReadFeaturedEmojiStickers"
   class = TRUE
 )
 
+#' @title UpdateReadFeaturedStickers
+#' @description Telegram API type UpdateReadFeaturedStickers
 #' @export
 UpdateReadFeaturedStickers <- R6::R6Class("UpdateReadFeaturedStickers",
   inherit = TLObject,
@@ -44059,6 +46539,8 @@ UpdateReadFeaturedStickers <- R6::R6Class("UpdateReadFeaturedStickers",
   class = TRUE
 )
 
+#' @title UpdateReadHistoryInbox
+#' @description Telegram API type UpdateReadHistoryInbox
 #' @export
 UpdateReadHistoryInbox <- R6::R6Class("UpdateReadHistoryInbox",
   inherit = TLObject,
@@ -44113,6 +46595,8 @@ UpdateReadHistoryInbox <- R6::R6Class("UpdateReadHistoryInbox",
   class = TRUE
 )
 
+#' @title UpdateReadHistoryOutbox
+#' @description Telegram API type UpdateReadHistoryOutbox
 #' @export
 UpdateReadHistoryOutbox <- R6::R6Class("UpdateReadHistoryOutbox",
   inherit = TLObject,
@@ -44156,6 +46640,8 @@ UpdateReadHistoryOutbox <- R6::R6Class("UpdateReadHistoryOutbox",
   class = TRUE
 )
 
+#' @title UpdateReadMessagesContents
+#' @description Telegram API type UpdateReadMessagesContents
 #' @export
 UpdateReadMessagesContents <- R6::R6Class("UpdateReadMessagesContents",
   inherit = TLObject,
@@ -44209,6 +46695,8 @@ UpdateReadMessagesContents <- R6::R6Class("UpdateReadMessagesContents",
   class = TRUE
 )
 
+#' @title UpdateReadMonoForumInbox
+#' @description Telegram API type UpdateReadMonoForumInbox
 #' @export
 UpdateReadMonoForumInbox <- R6::R6Class("UpdateReadMonoForumInbox",
   inherit = TLObject,
@@ -44248,6 +46736,8 @@ UpdateReadMonoForumInbox <- R6::R6Class("UpdateReadMonoForumInbox",
   class = TRUE
 )
 
+#' @title UpdateReadMonoForumOutbox
+#' @description Telegram API type UpdateReadMonoForumOutbox
 #' @export
 UpdateReadMonoForumOutbox <- R6::R6Class("UpdateReadMonoForumOutbox",
   inherit = TLObject,
@@ -44287,6 +46777,8 @@ UpdateReadMonoForumOutbox <- R6::R6Class("UpdateReadMonoForumOutbox",
   class = TRUE
 )
 
+#' @title UpdateReadStories
+#' @description Telegram API type UpdateReadStories
 #' @export
 UpdateReadStories <- R6::R6Class("UpdateReadStories",
   inherit = TLObject,
@@ -44322,6 +46814,8 @@ UpdateReadStories <- R6::R6Class("UpdateReadStories",
   class = TRUE
 )
 
+#' @title UpdateRecentEmojiStatuses
+#' @description Telegram API type UpdateRecentEmojiStatuses
 #' @export
 UpdateRecentEmojiStatuses <- R6::R6Class("UpdateRecentEmojiStatuses",
   inherit = TLObject,
@@ -44343,6 +46837,8 @@ UpdateRecentEmojiStatuses <- R6::R6Class("UpdateRecentEmojiStatuses",
   class = TRUE
 )
 
+#' @title UpdateRecentReactions
+#' @description Telegram API type UpdateRecentReactions
 #' @export
 UpdateRecentReactions <- R6::R6Class("UpdateRecentReactions",
   inherit = TLObject,
@@ -44364,6 +46860,8 @@ UpdateRecentReactions <- R6::R6Class("UpdateRecentReactions",
   class = TRUE
 )
 
+#' @title UpdateRecentStickers
+#' @description Telegram API type UpdateRecentStickers
 #' @export
 UpdateRecentStickers <- R6::R6Class("UpdateRecentStickers",
   inherit = TLObject,
@@ -44385,6 +46883,8 @@ UpdateRecentStickers <- R6::R6Class("UpdateRecentStickers",
   class = TRUE
 )
 
+#' @title UpdateSavedDialogPinned
+#' @description Telegram API type UpdateSavedDialogPinned
 #' @export
 UpdateSavedDialogPinned <- R6::R6Class("UpdateSavedDialogPinned",
   inherit = TLObject,
@@ -44422,6 +46922,8 @@ UpdateSavedDialogPinned <- R6::R6Class("UpdateSavedDialogPinned",
   class = TRUE
 )
 
+#' @title UpdateSavedGifs
+#' @description Telegram API type UpdateSavedGifs
 #' @export
 UpdateSavedGifs <- R6::R6Class("UpdateSavedGifs",
   inherit = TLObject,
@@ -44443,6 +46945,8 @@ UpdateSavedGifs <- R6::R6Class("UpdateSavedGifs",
   class = TRUE
 )
 
+#' @title UpdateSavedReactionTags
+#' @description Telegram API type UpdateSavedReactionTags
 #' @export
 UpdateSavedReactionTags <- R6::R6Class("UpdateSavedReactionTags",
   inherit = TLObject,
@@ -44464,6 +46968,8 @@ UpdateSavedReactionTags <- R6::R6Class("UpdateSavedReactionTags",
   class = TRUE
 )
 
+#' @title UpdateSavedRingtones
+#' @description Telegram API type UpdateSavedRingtones
 #' @export
 UpdateSavedRingtones <- R6::R6Class("UpdateSavedRingtones",
   inherit = TLObject,
@@ -44485,6 +46991,8 @@ UpdateSavedRingtones <- R6::R6Class("UpdateSavedRingtones",
   class = TRUE
 )
 
+#' @title UpdateSentPhoneCode
+#' @description Telegram API type UpdateSentPhoneCode
 #' @export
 UpdateSentPhoneCode <- R6::R6Class("UpdateSentPhoneCode",
   inherit = TLObject,
@@ -44516,6 +47024,8 @@ UpdateSentPhoneCode <- R6::R6Class("UpdateSentPhoneCode",
   class = TRUE
 )
 
+#' @title UpdateSentStoryReaction
+#' @description Telegram API type UpdateSentStoryReaction
 #' @export
 UpdateSentStoryReaction <- R6::R6Class("UpdateSentStoryReaction",
   inherit = TLObject,
@@ -44555,6 +47065,8 @@ UpdateSentStoryReaction <- R6::R6Class("UpdateSentStoryReaction",
   class = TRUE
 )
 
+#' @title UpdateServiceNotification
+#' @description Telegram API type UpdateServiceNotification
 #' @export
 UpdateServiceNotification <- R6::R6Class("UpdateServiceNotification",
   inherit = TLObject,
@@ -44618,6 +47130,8 @@ UpdateServiceNotification <- R6::R6Class("UpdateServiceNotification",
   class = TRUE
 )
 
+#' @title UpdateShort
+#' @description Telegram API type UpdateShort
 #' @export
 UpdateShort <- R6::R6Class("UpdateShort",
   inherit = TLObject,
@@ -44653,6 +47167,8 @@ UpdateShort <- R6::R6Class("UpdateShort",
   class = TRUE
 )
 
+#' @title UpdateShortChatMessage
+#' @description Telegram API type UpdateShortChatMessage
 #' @export
 UpdateShortChatMessage <- R6::R6Class("UpdateShortChatMessage",
   inherit = TLObject,
@@ -44753,6 +47269,8 @@ UpdateShortChatMessage <- R6::R6Class("UpdateShortChatMessage",
   class = TRUE
 )
 
+#' @title UpdateShortMessage
+#' @description Telegram API type UpdateShortMessage
 #' @export
 UpdateShortMessage <- R6::R6Class("UpdateShortMessage",
   inherit = TLObject,
@@ -44843,6 +47361,8 @@ UpdateShortMessage <- R6::R6Class("UpdateShortMessage",
   class = TRUE
 )
 
+#' @title UpdateShortSentMessage
+#' @description Telegram API type UpdateShortSentMessage
 #' @export
 UpdateShortSentMessage <- R6::R6Class("UpdateShortSentMessage",
   inherit = TLObject,
@@ -44908,6 +47428,8 @@ UpdateShortSentMessage <- R6::R6Class("UpdateShortSentMessage",
   class = TRUE
 )
 
+#' @title UpdateSmsJob
+#' @description Telegram API type UpdateSmsJob
 #' @export
 UpdateSmsJob <- R6::R6Class("UpdateSmsJob",
   inherit = TLObject,
@@ -44939,6 +47461,8 @@ UpdateSmsJob <- R6::R6Class("UpdateSmsJob",
   class = TRUE
 )
 
+#' @title UpdateStarsBalance
+#' @description Telegram API type UpdateStarsBalance
 #' @export
 UpdateStarsBalance <- R6::R6Class("UpdateStarsBalance",
   inherit = TLObject,
@@ -44970,6 +47494,8 @@ UpdateStarsBalance <- R6::R6Class("UpdateStarsBalance",
   class = TRUE
 )
 
+#' @title UpdateStarsRevenueStatus
+#' @description Telegram API type UpdateStarsRevenueStatus
 #' @export
 UpdateStarsRevenueStatus <- R6::R6Class("UpdateStarsRevenueStatus",
   inherit = TLObject,
@@ -45005,6 +47531,8 @@ UpdateStarsRevenueStatus <- R6::R6Class("UpdateStarsRevenueStatus",
   class = TRUE
 )
 
+#' @title UpdateStickerSets
+#' @description Telegram API type UpdateStickerSets
 #' @export
 UpdateStickerSets <- R6::R6Class("UpdateStickerSets",
   inherit = TLObject,
@@ -45040,6 +47568,8 @@ UpdateStickerSets <- R6::R6Class("UpdateStickerSets",
   class = TRUE
 )
 
+#' @title UpdateStickerSetsOrder
+#' @description Telegram API type UpdateStickerSetsOrder
 #' @export
 UpdateStickerSetsOrder <- R6::R6Class("UpdateStickerSetsOrder",
   inherit = TLObject,
@@ -45080,6 +47610,8 @@ UpdateStickerSetsOrder <- R6::R6Class("UpdateStickerSetsOrder",
   class = TRUE
 )
 
+#' @title UpdateStoriesStealthMode
+#' @description Telegram API type UpdateStoriesStealthMode
 #' @export
 UpdateStoriesStealthMode <- R6::R6Class("UpdateStoriesStealthMode",
   inherit = TLObject,
@@ -45111,6 +47643,8 @@ UpdateStoriesStealthMode <- R6::R6Class("UpdateStoriesStealthMode",
   class = TRUE
 )
 
+#' @title UpdateStory
+#' @description Telegram API type UpdateStory
 #' @export
 UpdateStory <- R6::R6Class("UpdateStory",
   inherit = TLObject,
@@ -45146,6 +47680,8 @@ UpdateStory <- R6::R6Class("UpdateStory",
   class = TRUE
 )
 
+#' @title UpdateStoryID
+#' @description Telegram API type UpdateStoryID
 #' @export
 UpdateStoryID <- R6::R6Class("UpdateStoryID",
   inherit = TLObject,
@@ -45181,6 +47717,8 @@ UpdateStoryID <- R6::R6Class("UpdateStoryID",
   class = TRUE
 )
 
+#' @title UpdateTheme
+#' @description Telegram API type UpdateTheme
 #' @export
 UpdateTheme <- R6::R6Class("UpdateTheme",
   inherit = TLObject,
@@ -45212,6 +47750,8 @@ UpdateTheme <- R6::R6Class("UpdateTheme",
   class = TRUE
 )
 
+#' @title UpdateTranscribedAudio
+#' @description Telegram API type UpdateTranscribedAudio
 #' @export
 UpdateTranscribedAudio <- R6::R6Class("UpdateTranscribedAudio",
   inherit = TLObject,
@@ -45260,6 +47800,8 @@ UpdateTranscribedAudio <- R6::R6Class("UpdateTranscribedAudio",
   class = TRUE
 )
 
+#' @title UpdateUser
+#' @description Telegram API type UpdateUser
 #' @export
 UpdateUser <- R6::R6Class("UpdateUser",
   inherit = TLObject,
@@ -45291,6 +47833,8 @@ UpdateUser <- R6::R6Class("UpdateUser",
   class = TRUE
 )
 
+#' @title UpdateUserEmojiStatus
+#' @description Telegram API type UpdateUserEmojiStatus
 #' @export
 UpdateUserEmojiStatus <- R6::R6Class("UpdateUserEmojiStatus",
   inherit = TLObject,
@@ -45326,6 +47870,8 @@ UpdateUserEmojiStatus <- R6::R6Class("UpdateUserEmojiStatus",
   class = TRUE
 )
 
+#' @title UpdateUserName
+#' @description Telegram API type UpdateUserName
 #' @export
 UpdateUserName <- R6::R6Class("UpdateUserName",
   inherit = TLObject,
@@ -45370,6 +47916,8 @@ UpdateUserName <- R6::R6Class("UpdateUserName",
   class = TRUE
 )
 
+#' @title UpdateUserPhone
+#' @description Telegram API type UpdateUserPhone
 #' @export
 UpdateUserPhone <- R6::R6Class("UpdateUserPhone",
   inherit = TLObject,
@@ -45405,6 +47953,8 @@ UpdateUserPhone <- R6::R6Class("UpdateUserPhone",
   class = TRUE
 )
 
+#' @title UpdateUserStatus
+#' @description Telegram API type UpdateUserStatus
 #' @export
 UpdateUserStatus <- R6::R6Class("UpdateUserStatus",
   inherit = TLObject,
@@ -45440,6 +47990,8 @@ UpdateUserStatus <- R6::R6Class("UpdateUserStatus",
   class = TRUE
 )
 
+#' @title UpdateUserTyping
+#' @description Telegram API type UpdateUserTyping
 #' @export
 UpdateUserTyping <- R6::R6Class("UpdateUserTyping",
   inherit = TLObject,
@@ -45473,6 +48025,8 @@ UpdateUserTyping <- R6::R6Class("UpdateUserTyping",
   class = TRUE
 )
 
+#' @title UpdateWebPage
+#' @description Telegram API type UpdateWebPage
 #' @export
 UpdateWebPage <- R6::R6Class("UpdateWebPage",
   inherit = TLObject,
@@ -45509,6 +48063,8 @@ UpdateWebPage <- R6::R6Class("UpdateWebPage",
   class = TRUE
 )
 
+#' @title UpdateWebViewResultSent
+#' @description Telegram API type UpdateWebViewResultSent
 #' @export
 UpdateWebViewResultSent <- R6::R6Class("UpdateWebViewResultSent",
   inherit = TLObject,
@@ -45539,6 +48095,8 @@ UpdateWebViewResultSent <- R6::R6Class("UpdateWebViewResultSent",
   class = TRUE
 )
 
+#' @title Updates
+#' @description Telegram API type Updates
 #' @export
 Updates <- R6::R6Class("Updates",
   inherit = TLObject,
@@ -45589,6 +48147,8 @@ Updates <- R6::R6Class("Updates",
   class = TRUE
 )
 
+#' @title UpdatesCombined
+#' @description Telegram API type UpdatesCombined
 #' @export
 UpdatesCombined <- R6::R6Class("UpdatesCombined",
   inherit = TLObject,
@@ -45643,6 +48203,8 @@ UpdatesCombined <- R6::R6Class("UpdatesCombined",
   class = TRUE
 )
 
+#' @title UpdatesTooLong
+#' @description Telegram API type UpdatesTooLong
 #' @export
 UpdatesTooLong <- R6::R6Class("UpdatesTooLong",
   inherit = TLObject,
@@ -45664,6 +48226,8 @@ UpdatesTooLong <- R6::R6Class("UpdatesTooLong",
   class = TRUE
 )
 
+#' @title UrlAuthResultAccepted
+#' @description Telegram API type UrlAuthResultAccepted
 #' @export
 UrlAuthResultAccepted <- R6::R6Class("UrlAuthResultAccepted",
   inherit = TLObject,
@@ -45694,6 +48258,8 @@ UrlAuthResultAccepted <- R6::R6Class("UrlAuthResultAccepted",
   class = TRUE
 )
 
+#' @title UrlAuthResultDefault
+#' @description Telegram API type UrlAuthResultDefault
 #' @export
 UrlAuthResultDefault <- R6::R6Class("UrlAuthResultDefault",
   inherit = TLObject,
@@ -45715,6 +48281,8 @@ UrlAuthResultDefault <- R6::R6Class("UrlAuthResultDefault",
   class = TRUE
 )
 
+#' @title UrlAuthResultRequest
+#' @description Telegram API type UrlAuthResultRequest
 #' @export
 UrlAuthResultRequest <- R6::R6Class("UrlAuthResultRequest",
   inherit = TLObject,
@@ -45755,6 +48323,8 @@ UrlAuthResultRequest <- R6::R6Class("UrlAuthResultRequest",
   class = TRUE
 )
 
+#' @title User
+#' @description Telegram API type User
 #' @export
 User <- R6::R6Class("User",
   inherit = TLObject,
@@ -45953,6 +48523,8 @@ User <- R6::R6Class("User",
   class = TRUE
 )
 
+#' @title UserEmpty
+#' @description Telegram API type UserEmpty
 #' @export
 UserEmpty <- R6::R6Class("UserEmpty",
   inherit = TLObject,
@@ -45983,6 +48555,8 @@ UserEmpty <- R6::R6Class("UserEmpty",
   class = TRUE
 )
 
+#' @title UserFull
+#' @description Telegram API type UserFull
 #' @export
 UserFull <- R6::R6Class("UserFull",
   inherit = TLObject,
@@ -46211,6 +48785,8 @@ UserFull <- R6::R6Class("UserFull",
   class = TRUE
 )
 
+#' @title UserProfilePhoto
+#' @description Telegram API type UserProfilePhoto
 #' @export
 UserProfilePhoto <- R6::R6Class("UserProfilePhoto",
   inherit = TLObject,
@@ -46258,6 +48834,8 @@ UserProfilePhoto <- R6::R6Class("UserProfilePhoto",
   class = TRUE
 )
 
+#' @title UserProfilePhotoEmpty
+#' @description Telegram API type UserProfilePhotoEmpty
 #' @export
 UserProfilePhotoEmpty <- R6::R6Class("UserProfilePhotoEmpty",
   inherit = TLObject,
@@ -46279,6 +48857,8 @@ UserProfilePhotoEmpty <- R6::R6Class("UserProfilePhotoEmpty",
   class = TRUE
 )
 
+#' @title UserStatusEmpty
+#' @description Telegram API type UserStatusEmpty
 #' @export
 UserStatusEmpty <- R6::R6Class("UserStatusEmpty",
   inherit = TLObject,
@@ -46300,6 +48880,8 @@ UserStatusEmpty <- R6::R6Class("UserStatusEmpty",
   class = TRUE
 )
 
+#' @title UserStatusLastMonth
+#' @description Telegram API type UserStatusLastMonth
 #' @export
 UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
   inherit = TLObject,
@@ -46332,6 +48914,8 @@ UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
   class = TRUE
 )
 
+#' @title UserStatusLastWeek
+#' @description Telegram API type UserStatusLastWeek
 #' @export
 UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
   inherit = TLObject,
@@ -46364,6 +48948,8 @@ UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
   class = TRUE
 )
 
+#' @title UserStatusOffline
+#' @description Telegram API type UserStatusOffline
 #' @export
 UserStatusOffline <- R6::R6Class("UserStatusOffline",
   inherit = TLObject,
@@ -46395,6 +48981,8 @@ UserStatusOffline <- R6::R6Class("UserStatusOffline",
   class = TRUE
 )
 
+#' @title UserStatusOnline
+#' @description Telegram API type UserStatusOnline
 #' @export
 UserStatusOnline <- R6::R6Class("UserStatusOnline",
   inherit = TLObject,
@@ -46426,6 +49014,8 @@ UserStatusOnline <- R6::R6Class("UserStatusOnline",
   class = TRUE
 )
 
+#' @title UserStatusRecently
+#' @description Telegram API type UserStatusRecently
 #' @export
 UserStatusRecently <- R6::R6Class("UserStatusRecently",
   inherit = TLObject,
@@ -46458,6 +49048,8 @@ UserStatusRecently <- R6::R6Class("UserStatusRecently",
   class = TRUE
 )
 
+#' @title UserStatusLastMonth
+#' @description Telegram API type UserStatusLastMonth
 #' @export
 UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
   inherit = TLObject,
@@ -46484,6 +49076,8 @@ UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
   class = TRUE
 )
 
+#' @title UserStatusLastWeek
+#' @description Telegram API type UserStatusLastWeek
 #' @export
 UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
   inherit = TLObject,
@@ -46510,6 +49104,8 @@ UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
   class = TRUE
 )
 
+#' @title UserStatusOffline
+#' @description Telegram API type UserStatusOffline
 #' @export
 UserStatusOffline <- R6::R6Class("UserStatusOffline",
   inherit = TLObject,
@@ -46535,6 +49131,8 @@ UserStatusOffline <- R6::R6Class("UserStatusOffline",
   class = TRUE
 )
 
+#' @title UserStatusOnline
+#' @description Telegram API type UserStatusOnline
 #' @export
 UserStatusOnline <- R6::R6Class("UserStatusOnline",
   inherit = TLObject,
@@ -46560,6 +49158,8 @@ UserStatusOnline <- R6::R6Class("UserStatusOnline",
   class = TRUE
 )
 
+#' @title UserStatusRecently
+#' @description Telegram API type UserStatusRecently
 #' @export
 UserStatusRecently <- R6::R6Class("UserStatusRecently",
   inherit = TLObject,
@@ -46586,6 +49186,8 @@ UserStatusRecently <- R6::R6Class("UserStatusRecently",
   class = TRUE
 )
 
+#' @title Username
+#' @description Telegram API type Username
 #' @export
 Username <- R6::R6Class("Username",
   inherit = TLObject,
@@ -46616,6 +49218,8 @@ Username <- R6::R6Class("Username",
   class = TRUE
 )
 
+#' @title VideoSize
+#' @description Telegram API type VideoSize
 #' @export
 VideoSize <- R6::R6Class("VideoSize",
   inherit = TLObject,
@@ -46654,6 +49258,8 @@ VideoSize <- R6::R6Class("VideoSize",
   class = TRUE
 )
 
+#' @title VideoSizeEmojiMarkup
+#' @description Telegram API type VideoSizeEmojiMarkup
 #' @export
 VideoSizeEmojiMarkup <- R6::R6Class("VideoSizeEmojiMarkup",
   inherit = TLObject,
@@ -46682,6 +49288,8 @@ VideoSizeEmojiMarkup <- R6::R6Class("VideoSizeEmojiMarkup",
   class = TRUE
 )
 
+#' @title VideoSizeStickerMarkup
+#' @description Telegram API type VideoSizeStickerMarkup
 #' @export
 VideoSizeStickerMarkup <- R6::R6Class("VideoSizeStickerMarkup",
   inherit = TLObject,
@@ -46712,6 +49320,8 @@ VideoSizeStickerMarkup <- R6::R6Class("VideoSizeStickerMarkup",
   class = TRUE
 )
 
+#' @title WallPaper
+#' @description Telegram API type WallPaper
 #' @export
 WallPaper <- R6::R6Class("WallPaper",
   inherit = TLObject,
@@ -46758,6 +49368,8 @@ WallPaper <- R6::R6Class("WallPaper",
   class = TRUE
 )
 
+#' @title WallPaperNoFile
+#' @description Telegram API type WallPaperNoFile
 #' @export
 WallPaperNoFile <- R6::R6Class("WallPaperNoFile",
   inherit = TLObject,
@@ -46794,6 +49406,8 @@ WallPaperNoFile <- R6::R6Class("WallPaperNoFile",
   class = TRUE
 )
 
+#' @title WallPaperSettings
+#' @description Telegram API type WallPaperSettings
 #' @export
 WallPaperSettings <- R6::R6Class("WallPaperSettings",
   inherit = TLObject,
@@ -46864,6 +49478,8 @@ WallPaperSettings <- R6::R6Class("WallPaperSettings",
   class = TRUE
 )
 
+#' @title WebAuthorization
+#' @description Telegram API type WebAuthorization
 #' @export
 WebAuthorization <- R6::R6Class("WebAuthorization",
   inherit = TLObject,
@@ -46916,6 +49532,8 @@ WebAuthorization <- R6::R6Class("WebAuthorization",
   class = TRUE
 )
 
+#' @title WebDocument
+#' @description Telegram API type WebDocument
 #' @export
 WebDocument <- R6::R6Class("WebDocument",
   inherit = TLObject,
@@ -46957,6 +49575,8 @@ WebDocument <- R6::R6Class("WebDocument",
   class = TRUE
 )
 
+#' @title WebDocumentNoProxy
+#' @description Telegram API type WebDocumentNoProxy
 #' @export
 WebDocumentNoProxy <- R6::R6Class("WebDocumentNoProxy",
   inherit = TLObject,
@@ -46995,6 +49615,8 @@ WebDocumentNoProxy <- R6::R6Class("WebDocumentNoProxy",
   class = TRUE
 )
 
+#' @title WebPage
+#' @description Telegram API type WebPage
 #' @export
 WebPage <- R6::R6Class("WebPage",
   inherit = TLObject,
@@ -47159,6 +49781,8 @@ WebPage <- R6::R6Class("WebPage",
   class = TRUE
 )
 
+#' @title WebPageAttributeStarGiftCollection
+#' @description Telegram API type WebPageAttributeStarGiftCollection
 #' @export
 WebPageAttributeStarGiftCollection <- R6::R6Class("WebPageAttributeStarGiftCollection",
   inherit = TLObject,
@@ -47189,6 +49813,8 @@ WebPageAttributeStarGiftCollection <- R6::R6Class("WebPageAttributeStarGiftColle
   class = TRUE
 )
 
+#' @title WebPageAttributeStickerSet
+#' @description Telegram API type WebPageAttributeStickerSet
 #' @export
 WebPageAttributeStickerSet <- R6::R6Class("WebPageAttributeStickerSet",
   inherit = TLObject,
@@ -47227,6 +49853,8 @@ WebPageAttributeStickerSet <- R6::R6Class("WebPageAttributeStickerSet",
   class = TRUE
 )
 
+#' @title WebPageAttributeStory
+#' @description Telegram API type WebPageAttributeStory
 #' @export
 WebPageAttributeStory <- R6::R6Class("WebPageAttributeStory",
   inherit = TLObject,
@@ -47266,6 +49894,8 @@ WebPageAttributeStory <- R6::R6Class("WebPageAttributeStory",
   class = TRUE
 )
 
+#' @title WebPageAttributeTheme
+#' @description Telegram API type WebPageAttributeTheme
 #' @export
 WebPageAttributeTheme <- R6::R6Class("WebPageAttributeTheme",
   inherit = TLObject,
@@ -47311,6 +49941,8 @@ WebPageAttributeTheme <- R6::R6Class("WebPageAttributeTheme",
   class = TRUE
 )
 
+#' @title WebPageAttributeUniqueStarGift
+#' @description Telegram API type WebPageAttributeUniqueStarGift
 #' @export
 WebPageAttributeUniqueStarGift <- R6::R6Class("WebPageAttributeUniqueStarGift",
   inherit = TLObject,
@@ -47339,6 +49971,8 @@ WebPageAttributeUniqueStarGift <- R6::R6Class("WebPageAttributeUniqueStarGift",
   class = TRUE
 )
 
+#' @title WebPageEmpty
+#' @description Telegram API type WebPageEmpty
 #' @export
 WebPageEmpty <- R6::R6Class("WebPageEmpty",
   inherit = TLObject,
@@ -47374,6 +50008,8 @@ WebPageEmpty <- R6::R6Class("WebPageEmpty",
   class = TRUE
 )
 
+#' @title WebPageNotModified
+#' @description Telegram API type WebPageNotModified
 #' @export
 WebPageNotModified <- R6::R6Class("WebPageNotModified",
   inherit = TLObject,
@@ -47405,6 +50041,8 @@ WebPageNotModified <- R6::R6Class("WebPageNotModified",
   class = TRUE
 )
 
+#' @title WebPagePending
+#' @description Telegram API type WebPagePending
 #' @export
 WebPagePending <- R6::R6Class("WebPagePending",
   inherit = TLObject,
@@ -47448,6 +50086,8 @@ WebPagePending <- R6::R6Class("WebPagePending",
   class = TRUE
 )
 
+#' @title WebViewMessageSent
+#' @description Telegram API type WebViewMessageSent
 #' @export
 WebViewMessageSent <- R6::R6Class("WebViewMessageSent",
   inherit = TLObject,
@@ -47479,6 +50119,8 @@ WebViewMessageSent <- R6::R6Class("WebViewMessageSent",
   class = TRUE
 )
 
+#' @title WebViewResultUrl
+#' @description Telegram API type WebViewResultUrl
 #' @export
 WebViewResultUrl <- R6::R6Class("WebViewResultUrl",
   inherit = TLObject,

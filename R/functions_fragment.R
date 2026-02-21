@@ -6,6 +6,8 @@
 #' @field SUBCLASS_OF_ID Integer subclass id
 #' @field collectible TLObject-like R6 object (must provide to_list/to_bytes or bytes)
 #' @return R6 object of class GetCollectibleInfoRequest
+#' @title GetCollectibleInfoRequest
+#' @description Telegram API type GetCollectibleInfoRequest
 #' @export
 GetCollectibleInfoRequest <- R6::R6Class(
   "GetCollectibleInfoRequest",

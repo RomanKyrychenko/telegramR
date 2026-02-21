@@ -80,7 +80,7 @@ RequestState <- R6::R6Class("RequestState",
   )
 )
 
-# S3 adapter: make future::value() block on RequestFuture completion.
+#' @exportS3Method future::value
 value.RequestFuture <- function(x, ...) {
   done <- isTRUE(x$.__req_done__)
   started_at <- proc.time()[["elapsed"]]
@@ -105,7 +105,7 @@ value.RequestFuture <- function(x, ...) {
   x$.__req_value__
 }
 
-# S3 adapter: make future::resolved() work with RequestFuture completion state.
+#' @exportS3Method future::resolved
 resolved.RequestFuture <- function(x, ...) {
   isTRUE(x$.__req_done__)
 }

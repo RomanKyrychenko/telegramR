@@ -6,6 +6,8 @@
 #' @examples
 #' msg <- TLMessage(msg_id = 12345, seq_no = 1, obj = "Hello")
 #' print(msg$to_dict())
+#' @title TLMessage
+#' @description Telegram API type TLMessage
 #' @export
 TLMessage <- R6::R6Class(
   "TLMessage",

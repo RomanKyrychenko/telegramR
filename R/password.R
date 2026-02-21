@@ -271,7 +271,7 @@ compute_check <- function(request, password) {
     stop("unsupported password algorithm ", class(algo)[1])
   }
 
-  pw_hash <- compute_hash(algo, password)
+  pw_hash <- PasswordHelper$new()$compute_hash(algo, password)
 
   p <- int_from_bytes(algo$p, "big")
   g <- algo$g

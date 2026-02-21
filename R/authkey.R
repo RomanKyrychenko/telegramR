@@ -4,6 +4,8 @@
 #' Represents an authorization key, used to encrypt and decrypt
 #' messages sent to Telegram's data centers.
 #'
+#' @title AuthKey
+#' @description Telegram API type AuthKey
 #' @export
 AuthKey <- R6::R6Class(
   "AuthKey",

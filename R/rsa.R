@@ -2,8 +2,8 @@
 #'
 #' This module holds several utilities regarding RSA and server fingerprints.
 #'
-#' @import digest
-#' @import openssl
+#' @importFrom digest digest
+#' @importFrom openssl read_pubkey
 
 # Global dictionary to store server keys
 server_keys <- list()

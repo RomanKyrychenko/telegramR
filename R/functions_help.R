@@ -5,6 +5,8 @@
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field id TLObject-like TypeDataJSON (environment with to_bytes()/to_list() or raw)
+#' @title AcceptTermsOfServiceRequest
+#' @description Telegram API type AcceptTermsOfServiceRequest
 #' @export
 AcceptTermsOfServiceRequest <- R6::R6Class(
   "AcceptTermsOfServiceRequest",
@@ -69,6 +71,8 @@ AcceptTermsOfServiceRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field peer TLObject-like input peer (environment with to_bytes()/to_list() or raw)
 #' @field suggestion character Suggestion string
+#' @title DismissSuggestionRequest
+#' @description Telegram API type DismissSuggestionRequest
 #' @export
 DismissSuggestionRequest <- R6::R6Class(
   "DismissSuggestionRequest",
@@ -164,6 +168,8 @@ DismissSuggestionRequest$from_reader <- function(reader) {
 #' @field userId TLObject-like input user (environment with to_bytes()/to_list() or raw)
 #' @field message character Message text
 #' @field entities list List of TLObject-like message entities
+#' @title EditUserInfoRequest
+#' @description Telegram API type EditUserInfoRequest
 #' @export
 EditUserInfoRequest <- R6::R6Class(
   "EditUserInfoRequest",
@@ -295,6 +301,8 @@ EditUserInfoRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field hash integer Hash to check for modifications.
+#' @title GetAppConfigRequest
+#' @description Telegram API type GetAppConfigRequest
 #' @export
 GetAppConfigRequest <- R6::R6Class(
   "GetAppConfigRequest",
@@ -348,6 +356,8 @@ GetAppConfigRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field source character Source string.
+#' @title GetAppUpdateRequest
+#' @description Telegram API type GetAppUpdateRequest
 #' @export
 GetAppUpdateRequest <- R6::R6Class(
   "GetAppUpdateRequest",
@@ -414,6 +424,8 @@ GetAppUpdateRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
+#' @title GetCdnConfigRequest
+#' @description Telegram API type GetCdnConfigRequest
 #' @export
 GetCdnConfigRequest <- R6::R6Class(
   "GetCdnConfigRequest",
@@ -460,6 +472,8 @@ GetCdnConfigRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
+#' @title GetConfigRequest
+#' @description Telegram API type GetConfigRequest
 #' @export
 GetConfigRequest <- R6::R6Class(
   "GetConfigRequest",
@@ -509,6 +523,8 @@ GetConfigRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field langCode character Language code.
 #' @field hash integer Hash to check for modifications.
+#' @title GetCountriesListRequest
+#' @description Telegram API type GetCountriesListRequest
 #' @export
 GetCountriesListRequest <- R6::R6Class(
   "GetCountriesListRequest",
@@ -583,6 +599,8 @@ GetCountriesListRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field path character Deep link path.
+#' @title GetDeepLinkInfoRequest
+#' @description Telegram API type GetDeepLinkInfoRequest
 #' @export
 GetDeepLinkInfoRequest <- R6::R6Class(
   "GetDeepLinkInfoRequest",
@@ -649,6 +667,8 @@ GetDeepLinkInfoRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
+#' @title GetInviteTextRequest
+#' @description Telegram API type GetInviteTextRequest
 #' @export
 GetInviteTextRequest <- R6::R6Class(
   "GetInviteTextRequest",
@@ -695,6 +715,8 @@ GetInviteTextRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
+#' @title GetNearestDcRequest
+#' @description Telegram API type GetNearestDcRequest
 #' @export
 GetNearestDcRequest <- R6::R6Class(
   "GetNearestDcRequest",
@@ -741,6 +763,8 @@ GetNearestDcRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field hash integer Hash to check for modifications.
+#' @title GetPassportConfigRequest
+#' @description Telegram API type GetPassportConfigRequest
 #' @export
 GetPassportConfigRequest <- R6::R6Class(
   "GetPassportConfigRequest",
@@ -794,6 +818,8 @@ GetPassportConfigRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field hash integer Hash to check for modifications.
+#' @title GetPeerColorsRequest
+#' @description Telegram API type GetPeerColorsRequest
 #' @export
 GetPeerColorsRequest <- R6::R6Class(
   "GetPeerColorsRequest",
@@ -846,6 +872,8 @@ GetPeerColorsRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field hash integer Hash to check for modifications.
+#' @title GetPeerProfileColorsRequest
+#' @description Telegram API type GetPeerProfileColorsRequest
 #' @export
 GetPeerProfileColorsRequest <- R6::R6Class(
   "GetPeerProfileColorsRequest",
@@ -897,6 +925,8 @@ GetPeerProfileColorsRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
+#' @title GetPremiumPromoRequest
+#' @description Telegram API type GetPremiumPromoRequest
 #' @export
 GetPremiumPromoRequest <- R6::R6Class(
   "GetPremiumPromoRequest",
@@ -943,6 +973,8 @@ GetPremiumPromoRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
+#' @title GetPromoDataRequest
+#' @description Telegram API type GetPromoDataRequest
 #' @export
 GetPromoDataRequest <- R6::R6Class(
   "GetPromoDataRequest",
@@ -990,6 +1022,8 @@ GetPromoDataRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field referer character Referer string
+#' @title GetRecentMeUrlsRequest
+#' @description Telegram API type GetRecentMeUrlsRequest
 #' @export
 GetRecentMeUrlsRequest <- R6::R6Class(
   "GetRecentMeUrlsRequest",
@@ -1056,6 +1090,8 @@ GetRecentMeUrlsRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
+#' @title GetSupportRequest
+#' @description Telegram API type GetSupportRequest
 #' @export
 GetSupportRequest <- R6::R6Class(
   "GetSupportRequest",
@@ -1102,6 +1138,8 @@ GetSupportRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
+#' @title GetSupportNameRequest
+#' @description Telegram API type GetSupportNameRequest
 #' @export
 GetSupportNameRequest <- R6::R6Class(
   "GetSupportNameRequest",
@@ -1149,6 +1187,8 @@ GetSupportNameRequest$from_reader <- function(reader) {
 #'
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
+#' @title GetTermsOfServiceUpdateRequest
+#' @description Telegram API type GetTermsOfServiceUpdateRequest
 #' @export
 GetTermsOfServiceUpdateRequest <- R6::R6Class(
   "GetTermsOfServiceUpdateRequest",
@@ -1196,6 +1236,8 @@ GetTermsOfServiceUpdateRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field hash integer Hash to check for modifications.
+#' @title GetTimezonesListRequest
+#' @description Telegram API type GetTimezonesListRequest
 #' @export
 GetTimezonesListRequest <- R6::R6Class(
   "GetTimezonesListRequest",
@@ -1249,6 +1291,8 @@ GetTimezonesListRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field userId TLObject-like input user (environment with to_bytes()/to_list() or raw)
+#' @title GetUserInfoRequest
+#' @description Telegram API type GetUserInfoRequest
 #' @export
 GetUserInfoRequest <- R6::R6Class(
   "GetUserInfoRequest",
@@ -1322,6 +1366,8 @@ GetUserInfoRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field peer TLObject-like input peer (environment with to_bytes()/to_list() or raw)
+#' @title HidePromoDataRequest
+#' @description Telegram API type HidePromoDataRequest
 #' @export
 HidePromoDataRequest <- R6::R6Class(
   "HidePromoDataRequest",
@@ -1392,6 +1438,8 @@ HidePromoDataRequest$from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID integer Constructor id (hex).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field events list List of input app events (TLObject-like).
+#' @title SaveAppLogRequest
+#' @description Telegram API type SaveAppLogRequest
 #' @export
 SaveAppLogRequest <- R6::R6Class(
   "SaveAppLogRequest",
@@ -1474,6 +1522,8 @@ SaveAppLogRequest$from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @field pendingUpdatesCount integer Count of pending updates.
 #' @field message character Additional message.
+#' @title SetBotUpdatesStatusRequest
+#' @description Telegram API type SetBotUpdatesStatusRequest
 #' @export
 SetBotUpdatesStatusRequest <- R6::R6Class(
   "SetBotUpdatesStatusRequest",

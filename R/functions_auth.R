@@ -4,6 +4,8 @@
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xe894ad4d).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xc913c01a).
 #' @field token raw|character Token bytes.
+#' @title AcceptLoginTokenRequest
+#' @description Telegram API type AcceptLoginTokenRequest
 #' @export
 AcceptLoginTokenRequest <- R6::R6Class(
   "AcceptLoginTokenRequest",
@@ -57,6 +59,8 @@ AcceptLoginTokenRequest <- R6::R6Class(
 #' @field nonce numeric 64-bit nonce.
 #' @field expires_at POSIXct|Date Optional expiration datetime.
 #' @field encrypted_message raw|character Encrypted message bytes.
+#' @title BindTempAuthKeyRequest
+#' @description Telegram API type BindTempAuthKeyRequest
 #' @export
 BindTempAuthKeyRequest <- R6::R6Class(
   "BindTempAuthKeyRequest",
@@ -141,6 +145,8 @@ BindTempAuthKeyRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xf5b399ac).
 #' @field phone_number character Phone number.
 #' @field phone_code_hash character Phone code hash.
+#' @title CancelCodeRequest
+#' @description Telegram API type CancelCodeRequest
 #' @export
 CancelCodeRequest <- R6::R6Class(
   "CancelCodeRequest",
@@ -200,6 +206,8 @@ CancelCodeRequest <- R6::R6Class(
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xd18b4d16).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xb9e04e39).
 #' @field password TL object TypeInputCheckPasswordSRP.
+#' @title CheckPasswordRequest
+#' @description Telegram API type CheckPasswordRequest
 #' @export
 CheckPasswordRequest <- R6::R6Class(
   "CheckPasswordRequest",
@@ -263,6 +271,8 @@ CheckPasswordRequest <- R6::R6Class(
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x0d36bf79).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xf5b399ac).
 #' @field code character Recovery code.
+#' @title CheckRecoveryPasswordRequest
+#' @description Telegram API type CheckRecoveryPasswordRequest
 #' @export
 CheckRecoveryPasswordRequest <- R6::R6Class(
   "CheckRecoveryPasswordRequest",
@@ -313,6 +323,8 @@ CheckRecoveryPasswordRequest <- R6::R6Class(
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x8e48a188).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xf5b399ac).
 #' @field except_auth_keys numeric vector 64-bit ids to drop (except list).
+#' @title DropTempAuthKeysRequest
+#' @description Telegram API type DropTempAuthKeysRequest
 #' @export
 DropTempAuthKeysRequest <- R6::R6Class(
   "DropTempAuthKeysRequest",
@@ -399,6 +411,8 @@ DropTempAuthKeysRequest <- R6::R6Class(
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xe5bfffcd).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0x5fd1ec51).
 #' @field dc_id integer Destination DC id.
+#' @title ExportAuthorizationRequest
+#' @description Telegram API type ExportAuthorizationRequest
 #' @export
 ExportAuthorizationRequest <- R6::R6Class(
   "ExportAuthorizationRequest",
@@ -459,6 +473,8 @@ ExportAuthorizationRequest <- R6::R6Class(
 #' @field api_id integer API id.
 #' @field api_hash character API hash.
 #' @field except_ids numeric vector 64-bit ids to exclude.
+#' @title ExportLoginTokenRequest
+#' @description Telegram API type ExportLoginTokenRequest
 #' @export
 ExportLoginTokenRequest <- R6::R6Class(
   "ExportLoginTokenRequest",
@@ -562,6 +578,8 @@ ExportLoginTokenRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xb9e04e39).
 #' @field id numeric 64-bit id.
 #' @field bytes raw|character Token bytes.
+#' @title ImportAuthorizationRequest
+#' @description Telegram API type ImportAuthorizationRequest
 #' @export
 ImportAuthorizationRequest <- R6::R6Class(
   "ImportAuthorizationRequest",
@@ -635,6 +653,8 @@ ImportAuthorizationRequest <- R6::R6Class(
 #' @field api_id integer API id.
 #' @field api_hash character API hash.
 #' @field bot_auth_token character Bot auth token.
+#' @title ImportBotAuthorizationRequest
+#' @description Telegram API type ImportBotAuthorizationRequest
 #' @export
 ImportBotAuthorizationRequest <- R6::R6Class(
   "ImportBotAuthorizationRequest",
@@ -717,6 +737,8 @@ ImportBotAuthorizationRequest <- R6::R6Class(
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x95ac5ce4).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0x6b55f636).
 #' @field token raw|character Token bytes.
+#' @title ImportLoginTokenRequest
+#' @description Telegram API type ImportLoginTokenRequest
 #' @export
 ImportLoginTokenRequest <- R6::R6Class(
   "ImportLoginTokenRequest",
@@ -769,6 +791,8 @@ ImportLoginTokenRequest <- R6::R6Class(
 #' @field api_id integer API id.
 #' @field api_hash character API hash.
 #' @field web_auth_token character Web auth token.
+#' @title ImportWebTokenAuthorizationRequest
+#' @description Telegram API type ImportWebTokenAuthorizationRequest
 #' @export
 ImportWebTokenAuthorizationRequest <- R6::R6Class(
   "ImportWebTokenAuthorizationRequest",
@@ -842,6 +866,8 @@ ImportWebTokenAuthorizationRequest <- R6::R6Class(
 #' Represents the TLRequest auth.LogOutRequest.
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x3e72ba19).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0x0a804315).
+#' @title LogOutRequest
+#' @description Telegram API type LogOutRequest
 #' @export
 LogOutRequest <- R6::R6Class(
   "LogOutRequest",
@@ -888,6 +914,8 @@ LogOutRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xb9e04e39).
 #' @field code character Recovery code.
 #' @field new_settings TL object Optional new password settings (TypePasswordInputSettings).
+#' @title RecoverPasswordRequest
+#' @description Telegram API type RecoverPasswordRequest
 #' @export
 RecoverPasswordRequest <- R6::R6Class(
   "RecoverPasswordRequest",
@@ -977,6 +1005,8 @@ RecoverPasswordRequest <- R6::R6Class(
 #' @field phone_number character Phone number.
 #' @field phone_code_hash character Phone code hash.
 #' @field mnc character Mobile network code.
+#' @title ReportMissingCodeRequest
+#' @description Telegram API type ReportMissingCodeRequest
 #' @export
 ReportMissingCodeRequest <- R6::R6Class(
   "ReportMissingCodeRequest",
@@ -1051,6 +1081,8 @@ ReportMissingCodeRequest <- R6::R6Class(
 #' @field safety_net_token character Optional safety net token.
 #' @field play_integrity_token character Optional play integrity token.
 #' @field ios_push_secret character Optional iOS push secret.
+#' @title RequestFirebaseSmsRequest
+#' @description Telegram API type RequestFirebaseSmsRequest
 #' @export
 RequestFirebaseSmsRequest <- R6::R6Class(
   "RequestFirebaseSmsRequest",
@@ -1163,6 +1195,8 @@ RequestFirebaseSmsRequest <- R6::R6Class(
 #' Represents the TLRequest auth.RequestPasswordRecoveryRequest.
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0xd897bc66).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xfa72d43a).
+#' @title RequestPasswordRecoveryRequest
+#' @description Telegram API type RequestPasswordRecoveryRequest
 #' @export
 RequestPasswordRecoveryRequest <- R6::R6Class(
   "RequestPasswordRecoveryRequest",
@@ -1210,6 +1244,8 @@ RequestPasswordRecoveryRequest <- R6::R6Class(
 #' @field phone_number character Phone number.
 #' @field phone_code_hash character Phone code hash.
 #' @field reason character Optional reason.
+#' @title ResendCodeRequest
+#' @description Telegram API type ResendCodeRequest
 #' @export
 ResendCodeRequest <- R6::R6Class(
   "ResendCodeRequest",
@@ -1300,6 +1336,8 @@ ResendCodeRequest <- R6::R6Class(
 #' Represents the TLRequest auth.ResetAuthorizationsRequest.
 #' @field CONSTRUCTOR_ID integer Constructor id (hex 0x9fab0d1a).
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0xf5b399ac).
+#' @title ResetAuthorizationsRequest
+#' @description Telegram API type ResetAuthorizationsRequest
 #' @export
 ResetAuthorizationsRequest <- R6::R6Class(
   "ResetAuthorizationsRequest",
@@ -1346,6 +1384,8 @@ ResetAuthorizationsRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID integer Subclass id (hex 0x6ce87081).
 #' @field phone_number character Phone number.
 #' @field phone_code_hash character Phone code hash.
+#' @title ResetLoginEmailRequest
+#' @description Telegram API type ResetLoginEmailRequest
 #' @export
 ResetLoginEmailRequest <- R6::R6Class(
   "ResetLoginEmailRequest",
@@ -1410,6 +1450,8 @@ ResetLoginEmailRequest <- R6::R6Class(
 #' @field api_id integer API id.
 #' @field api_hash character API hash.
 #' @field settings TL object TypeCodeSettings.
+#' @title SendCodeRequest
+#' @description Telegram API type SendCodeRequest
 #' @export
 SendCodeRequest <- R6::R6Class(
   "SendCodeRequest",
@@ -1528,6 +1570,8 @@ SendCodeRequest <- R6::R6Class(
 #' @field phone_code_hash character Phone code hash.
 #' @field phone_code character Optional phone code.
 #' @field email_verification TL object Optional email verification object.
+#' @title SignInRequest
+#' @description Telegram API type SignInRequest
 #' @export
 SignInRequest <- R6::R6Class(
   "SignInRequest",
@@ -1648,6 +1692,8 @@ SignInRequest <- R6::R6Class(
 #' @field first_name character First name.
 #' @field last_name character Last name.
 #' @field no_joined_notifications logical Optional flag.
+#' @title SignUpRequest
+#' @description Telegram API type SignUpRequest
 #' @export
 SignUpRequest <- R6::R6Class(
   "SignUpRequest",

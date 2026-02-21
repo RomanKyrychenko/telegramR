@@ -16,6 +16,8 @@
 #' dict <- request$to_dict()
 #' bytes <- request$.bytes()
 #'
+#' @title GetFullUserRequest
+#' @description Telegram API type GetFullUserRequest
 #' @export
 GetFullUserRequest <- R6::R6Class(
   "GetFullUserRequest",
@@ -182,6 +184,8 @@ GetRequirementsToContactRequest <- R6::R6Class(
 #' @field offset Integer offset for pagination.
 #' @field limit Integer limit for the number of items to retrieve.
 #' @field hash Integer64 hash for caching purposes (may be represented as numeric in R
+#' @title GetSavedMusicRequest
+#' @description Telegram API type GetSavedMusicRequest
 #' @export
 GetSavedMusicRequest <- R6::R6Class(
   "GetSavedMusicRequest",
@@ -278,6 +282,8 @@ GetSavedMusicRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID Subclass ID for the GetSavedMusicByIDRequest class.
 #' @field id TLInputUser or a representation accepted by get_input_user
 #' @field documents List of TLInputDocument or representations accepted by get_input_document
+#' @title GetSavedMusicByIDRequest
+#' @description Telegram API type GetSavedMusicByIDRequest
 #' @export
 GetSavedMusicByIDRequest <- R6::R6Class(
   "GetSavedMusicByIDRequest",
@@ -387,6 +393,8 @@ GetSavedMusicByIDRequest <- R6::R6Class(
 #' @field CONSTRUCTOR_ID Constructor ID for the GetSavedMusicByIDRequest class.
 #' @field SUBCLASS_OF_ID Subclass ID for the GetSavedMusicByIDRequest class.
 #' @field id TLInputUser or a representation accepted by get_input_user
+#' @title GetUsersRequest
+#' @description Telegram API type GetUsersRequest
 #' @export
 GetUsersRequest <- R6::R6Class(
   "GetUsersRequest",
@@ -484,6 +492,8 @@ GetUsersRequest <- R6::R6Class(
 #' @field id Object or NULL. The user identifier, expected to be a TLObject or compatible input.
 #' @field errors List or NULL. List of error objects (typically TLObjects) to be set for the user.
 #'
+#' @title SetSecureValueErrorsRequest
+#' @description Telegram API type SetSecureValueErrorsRequest
 #' @export
 SetSecureValueErrorsRequest <- R6::R6Class(
   "SetSecureValueErrorsRequest",

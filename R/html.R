@@ -54,10 +54,11 @@ make_entity <- function(type, offset, length = 0, ...) {
 #'   as language hints in `<pre><code>` blocks and anchored URLs.
 #' @note Wraps the provided fragment in a `<div>` before parsing to satisfy
 #'   `xml2::read_html`, and automatically finalizes open entities as tags close.
-#' HTMLToTelegramParser R6 class
-#'
-#' Walks an HTML fragment and builds a plain text string and a list of
+#' @title HTMLToTelegramParser
+#' @description Walks an HTML fragment and builds a plain text string and a list of
 #' telegram-style message entities.
+#' @importFrom xml2 read_html xml_find_first xml_contents xml_type xml_text xml_name xml_attrs
+#' @export
 HTMLToTelegramParser <- R6::R6Class(
   "HTMLToTelegramParser",
   public = list(
@@ -411,17 +412,4 @@ unparse_telegram_to_html <- function(text, entities) {
   paste0(out_parts, collapse = "")
 }
 
-#' Null coalescing helper
-#'
-#' Returns the first argument if it is not `NULL`; otherwise, it returns the
-#' provided fallback value.
-#'
-#' @param a The primary value to be inspected for `NULL`.
-#' @param b The fallback value to use if `a` is `NULL`.
-#'
-#' @return The first non-`NULL` argument among `a` and `b`.
-#' @examples
-#' 1 %||% 2
-#' NULL %||% 2
-# Helper: null-coalesce
-`%||%` <- function(a, b) if (!is.null(a)) a else b
+# null-coalesce helper defined in telegrambaseclient.R

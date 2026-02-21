@@ -8,49 +8,51 @@
 #' This is a translation of the original async RequestIter-based logic into R6.
 #' It delegates fetching to the provided client via iter_messages().
 #'
+#' @title MessagesIter
+#' @description Telegram API type MessagesIter
 #' @export
 MessagesIter <- R6::R6Class(
   "MessagesIter",
   public = list(
-    #' Client used to perform requests
+    #' @field client Client used to perform requests
     client = NULL,
-    #' Input entity (resolved via client$get_input_entity if available)
+    #' @field entity_input Input entity (resolved via client get_input_entity if available)
     entity_input = NULL,
-    #' Whether this is a global search (entity is NULL)
+    #' @field is_global Whether this is a global search (entity is NULL)
     is_global = FALSE,
-    #' Whether to iterate in reverse
+    #' @field reverse Whether to iterate in reverse
     reverse = FALSE,
-    #' Hard limit of messages to retrieve
+    #' @field limit Hard limit of messages to retrieve
     limit = Inf,
-    #' Remaining messages to retrieve
+    #' @field left Remaining messages to retrieve
     left = Inf,
-    #' Optional per-request wait time (seconds)
+    #' @field wait_time Optional per-request wait time (seconds)
     wait_time = NULL,
-    #' Add offset used by server requests
+    #' @field add_offset Add offset used by server requests
     add_offset = 0L,
-    #' Upper bound for message id (exclusive)
+    #' @field max_id Upper bound for message id (exclusive)
     max_id = Inf,
-    #' Lower bound for message id (exclusive)
+    #' @field min_id Lower bound for message id (exclusive)
     min_id = 0L,
-    #' Last seen message id (used to avoid duplicates/order issues)
+    #' @field last_id Last seen message id (used to avoid duplicates/order issues)
     last_id = Inf,
-    #' Total messages reported by the server (when available)
+    #' @field total Total messages reported by the server (when available)
     total = 0L,
-    #' Request parameters tracked between chunks
+    #' @field request Request parameters tracked between chunks
     request = NULL,
-    #' Internal buffer of fetched messages
+    #' @field buffer Internal buffer of fetched messages
     buffer = list(),
-    #' Exhausted flag
+    #' @field exhausted Exhausted flag
     exhausted = FALSE,
-    #' From-user peer id for local filtering when needed
+    #' @field from_id From-user peer id for local filtering when needed
     from_id = NULL,
-    #' Optional search query
+    #' @field search Optional search query
     search = NULL,
-    #' Optional filter object
+    #' @field filter Optional filter object
     filter = NULL,
-    #' Optional reply thread id
+    #' @field reply_to Optional reply thread id
     reply_to = NULL,
-    #' Optional offset date
+    #' @field offset_date Optional offset date
     offset_date = NULL,
 
     #' @description Initialize the iterator with query parameters.
@@ -415,29 +417,31 @@ MessagesIter <- R6::R6Class(
 #' @section Initialization:
 #' it <- IDsIter$new(client, entity = NULL, ids, reverse = FALSE, wait_time = NULL, limit = Inf)
 #'
+#' @title IDsIter
+#' @description Telegram API type IDsIter
 #' @export
 IDsIter <- R6::R6Class(
   "IDsIter",
   public = list(
-    #' Client used to perform requests
+    #' @field client Client used to perform requests
     client = NULL,
-    #' Input entity (resolved via client$get_input_entity if available)
+    #' @field entity_input Input entity (resolved via client get_input_entity if available)
     entity_input = NULL,
-    #' Entity type as reported by the client (e.g., "CHANNEL")
+    #' @field entity_type Entity type as reported by the client (e.g., CHANNEL)
     entity_type = NULL,
-    #' Vector of IDs to fetch (possibly reversed)
+    #' @field ids Vector of IDs to fetch (possibly reversed)
     ids = NULL,
-    #' Current offset over ids
+    #' @field offset Current offset over ids
     offset = 0L,
-    #' Whether to iterate in reverse order
+    #' @field reverse Whether to iterate in reverse order
     reverse = FALSE,
-    #' Optional per-request wait time in seconds
+    #' @field wait_time Optional per-request wait time in seconds
     wait_time = NULL,
-    #' Hard limit on how many items to consider
+    #' @field limit Hard limit on how many items to consider
     limit = Inf,
-    #' Total number of requested ids
+    #' @field total Total number of requested ids
     total = 0L,
-    #' Internal buffer of fetched items aligned with requested ids
+    #' @field buffer Internal buffer of fetched items aligned with requested ids
     buffer = list(),
 
     #' @description Initialize the iterator

@@ -19,6 +19,8 @@
 #'   Class method: read fields from a reader and construct an instance.
 #'
 #' @name DeletePhotosRequest
+#' @title DeletePhotosRequest
+#' @description Telegram API type DeletePhotosRequest
 #' @export
 DeletePhotosRequest <- R6::R6Class(
   "DeletePhotosRequest",
@@ -164,6 +166,8 @@ DeletePhotosRequest$read_result <- function(reader) {
 #'   Class method: read fields from a reader and construct an instance.
 #'
 #' @name GetUserPhotosRequest
+#' @title GetUserPhotosRequest
+#' @description Telegram API type GetUserPhotosRequest
 #' @export
 GetUserPhotosRequest <- R6::R6Class(
   "GetUserPhotosRequest",
@@ -304,6 +308,8 @@ GetUserPhotosRequest$from_reader <- function(reader) {
 #'   Class method: read fields from a reader and construct an instance.
 #'
 #' @name UpdateProfilePhotoRequest
+#' @title UpdateProfilePhotoRequest
+#' @description Telegram API type UpdateProfilePhotoRequest
 #' @export
 UpdateProfilePhotoRequest <- R6::R6Class(
   "UpdateProfilePhotoRequest",
@@ -463,6 +469,8 @@ UpdateProfilePhotoRequest$from_reader <- function(reader) {
 #'   Class method: read fields from a reader and construct an instance.
 #'
 #' @name UploadContactProfilePhotoRequest
+#' @title UploadContactProfilePhotoRequest
+#' @description Telegram API type UploadContactProfilePhotoRequest
 #' @export
 UploadContactProfilePhotoRequest <- R6::R6Class(
   "UploadContactProfilePhotoRequest",
@@ -666,6 +674,8 @@ UploadContactProfilePhotoRequest$from_reader <- function(reader) {
 #'   Class method: read fields from a reader and construct an instance.
 #'
 #' @name UploadProfilePhotoRequest
+#' @title UploadProfilePhotoRequest
+#' @description Telegram API type UploadProfilePhotoRequest
 #' @export
 UploadProfilePhotoRequest <- R6::R6Class(
   "UploadProfilePhotoRequest",

@@ -1,6 +1,8 @@
 #' ApplyBoostRequest R6 class
 #'
 #' Representation of the TL request "ApplyBoostRequest".
+#' @title ApplyBoostRequest
+#' @description Telegram API type ApplyBoostRequest
 #' @export
 ApplyBoostRequest <- R6::R6Class(
   "ApplyBoostRequest",
@@ -102,6 +104,8 @@ ApplyBoostRequest <- R6::R6Class(
 #' GetBoostsListRequest R6 class
 #'
 #' Representation of the TL request "GetBoostsListRequest"
+#' @title GetBoostsListRequest
+#' @description Telegram API type GetBoostsListRequest
 #' @export
 GetBoostsListRequest <- R6::R6Class(
   "GetBoostsListRequest",
@@ -192,6 +196,8 @@ GetBoostsListRequest <- R6::R6Class(
 #' GetBoostsStatusRequest R6 class
 #'
 #' Representation of the TL request "GetBoostsStatusRequest".
+#' @title GetBoostsStatusRequest
+#' @description Telegram API type GetBoostsStatusRequest
 #' @export
 GetBoostsStatusRequest <- R6::R6Class(
   "GetBoostsStatusRequest",
@@ -255,6 +261,8 @@ GetBoostsStatusRequest <- R6::R6Class(
 #' GetMyBoostsRequest R6 class
 #'
 #' Representation of the TL request "GetMyBoostsRequest".
+#' @title GetMyBoostsRequest
+#' @description Telegram API type GetMyBoostsRequest
 #' @export
 GetMyBoostsRequest <- R6::R6Class(
   "GetMyBoostsRequest",
@@ -299,6 +307,8 @@ GetMyBoostsRequest <- R6::R6Class(
 #' GetUserBoostsRequest R6 class
 #'
 #' Representation of the TL request "GetUserBoostsRequest".
+#' @title GetUserBoostsRequest
+#' @description Telegram API type GetUserBoostsRequest
 #' @export
 GetUserBoostsRequest <- R6::R6Class(
   "GetUserBoostsRequest",

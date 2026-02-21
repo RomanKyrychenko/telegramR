@@ -12,6 +12,8 @@ MAX_CONSECUTIVE_IGNORED <- 10
 #' Wraps a serialized request into a type that can be serialized again.
 #'
 #' @param data Raw vector containing the serialized request
+#' @title OpaqueRequest
+#' @description Telegram API type OpaqueRequest
 #' @export
 OpaqueRequest <- R6::R6Class("OpaqueRequest",
   public = list(
@@ -82,6 +84,8 @@ packInt64 <- function(value) {
 #' @description
 #' Manages the state needed for MTProto encryption, including message IDs,
 #' sequence numbers, and server salt.
+#' @title MTProtoState
+#' @description Telegram API type MTProtoState
 #' @export
 MTProtoState <- R6::R6Class("MTProtoState",
   public = list(

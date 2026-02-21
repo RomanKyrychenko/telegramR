@@ -16,6 +16,8 @@
 #'
 #' All methods are exported as part of the R6 object.
 #'
+#' @title AddStickerToSetRequest
+#' @description Telegram API type AddStickerToSetRequest
 #' @export
 AddStickerToSetRequest <- R6::R6Class(
   "AddStickerToSetRequest",
@@ -128,6 +130,8 @@ AddStickerToSetRequest$set("public", "from_reader", function(reader) {
 #'
 #' All methods are exported as part of the R6 object.
 #'
+#' @title ChangeStickerRequest
+#' @description Telegram API type ChangeStickerRequest
 #' @export
 ChangeStickerRequest <- R6::R6Class(
   "ChangeStickerRequest",
@@ -277,6 +281,8 @@ ChangeStickerRequest$set("public", "from_reader", function(reader) {
 #'
 #' All methods are exported as part of the R6 object.
 #'
+#' @title ChangeStickerPositionRequest
+#' @description Telegram API type ChangeStickerPositionRequest
 #' @export
 ChangeStickerPositionRequest <- R6::R6Class(
   "ChangeStickerPositionRequest",
@@ -385,6 +391,8 @@ ChangeStickerPositionRequest$set("public", "from_reader", function(reader) {
 #' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
 #' - from_reader(reader): reads a request from a reader object and returns a new instance.
 #'
+#' @title CheckShortNameRequest
+#' @description Telegram API type CheckShortNameRequest
 #' @export
 CheckShortNameRequest <- R6::R6Class(
   "CheckShortNameRequest",
@@ -478,6 +486,8 @@ CheckShortNameRequest$set("public", "from_reader", function(reader) {
 #'
 #' All methods are exported as part of the R6 object.
 #'
+#' @title CreateStickerSetRequest
+#' @description Telegram API type CreateStickerSetRequest
 #' @export
 CreateStickerSetRequest <- R6::R6Class(
   "CreateStickerSetRequest",
@@ -696,6 +706,8 @@ CreateStickerSetRequest$set("public", "from_reader", function(reader) {
 #' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
 #' - from_reader(reader): reads a request from a reader object and returns a new instance.
 #'
+#' @title DeleteStickerSetRequest
+#' @description Telegram API type DeleteStickerSetRequest
 #' @export
 DeleteStickerSetRequest <- R6::R6Class(
   "DeleteStickerSetRequest",
@@ -775,6 +787,8 @@ DeleteStickerSetRequest$set("public", "from_reader", function(reader) {
 #' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
 #' - from_reader(reader): reads a request from a reader object and returns a new instance.
 #'
+#' @title RemoveStickerFromSetRequest
+#' @description Telegram API type RemoveStickerFromSetRequest
 #' @export
 RemoveStickerFromSetRequest <- R6::R6Class(
   "RemoveStickerFromSetRequest",
@@ -864,6 +878,8 @@ RemoveStickerFromSetRequest$set("public", "from_reader", function(reader) {
 #' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
 #' - from_reader(reader): reads a request from a reader object and returns a new instance.
 #'
+#' @title RenameStickerSetRequest
+#' @description Telegram API type RenameStickerSetRequest
 #' @export
 RenameStickerSetRequest <- R6::R6Class(
   "RenameStickerSetRequest",
@@ -967,6 +983,8 @@ RenameStickerSetRequest$set("public", "from_reader", function(reader) {
 #' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
 #' - from_reader(reader): reads a request from a reader object and returns a new instance.
 #'
+#' @title ReplaceStickerRequest
+#' @description Telegram API type ReplaceStickerRequest
 #' @export
 ReplaceStickerRequest <- R6::R6Class(
   "ReplaceStickerRequest",
@@ -1072,6 +1090,8 @@ ReplaceStickerRequest$set("public", "from_reader", function(reader) {
 #' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
 #' - from_reader(reader): reads a request from a reader object and returns a new instance.
 #'
+#' @title SetStickerSetThumbRequest
+#' @description Telegram API type SetStickerSetThumbRequest
 #' @export
 SetStickerSetThumbRequest <- R6::R6Class(
   "SetStickerSetThumbRequest",
@@ -1215,6 +1235,8 @@ SetStickerSetThumbRequest$set("public", "from_reader", function(reader) {
 #' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
 #' - from_reader(reader): reads a request from a reader object and returns a new instance.
 #'
+#' @title SuggestShortNameRequest
+#' @description Telegram API type SuggestShortNameRequest
 #' @export
 SuggestShortNameRequest <- R6::R6Class(
   "SuggestShortNameRequest",

@@ -1,3 +1,10 @@
+# Suppress R CMD check notes for R6 self references and other globals
+utils::globalVariables(c("self", "private", "super", "PasswordHelper"))
+
+#' @importFrom stats setNames
+#' @importFrom mime mimemap
+#' @importFrom magick image_read
+
 #' Register some of the most common mime-types to avoid any issues.
 mimetypes <- mime::mimemap
 
@@ -41,6 +48,8 @@ VALID_USERNAME_RE <- "^[a-z](?:(?!__)\\w){1,30}[a-z\\d]$"
 #' FileInfo Class
 #'
 #' An R6 class representing file information with dc_id, location, and size.
+#' @title FileInfo
+#' @description Telegram API type FileInfo
 #' @export
 FileInfo <- R6::R6Class(
   "FileInfo",
@@ -248,6 +257,85 @@ get_display_name <- function(entity) {
     return(entity$title)
   }
   return("")
+}
+
+#' Get Input Photo
+#'
+#' Converts a photo-like object to an InputPhoto for API calls.
+#'
+#' @param photo The photo object to convert.
+#' @return An InputPhoto object.
+#' @keywords internal
+get_input_photo <- function(photo) {
+  if (inherits(photo, "InputPhoto")) {
+    return(photo)
+  }
+  if (inherits(photo, "Photo")) {
+    return(InputPhoto$new(
+      id = photo$id,
+      access_hash = photo$access_hash,
+      file_reference = photo$file_reference
+    ))
+  }
+  if (inherits(photo, "PhotoEmpty")) {
+    return(InputPhotoEmpty$new())
+  }
+  if (inherits(photo, "Message")) {
+    return(get_input_photo(photo$media))
+  }
+  if (inherits(photo, "MessageMediaPhoto")) {
+    return(get_input_photo(photo$photo))
+  }
+  stop("Cannot convert ", class(photo)[1], " to InputPhoto")
+}
+
+#' Get Input Geo
+#'
+#' Converts a geo-like object to an InputGeoPoint for API calls.
+#'
+#' @param geo The geo object to convert.
+#' @return An InputGeoPoint object.
+#' @keywords internal
+get_input_geo <- function(geo) {
+  if (inherits(geo, "InputGeoPoint")) {
+    return(geo)
+  }
+  if (inherits(geo, "GeoPoint")) {
+    return(InputGeoPoint$new(
+      lat = geo$lat,
+      long = geo$long
+    ))
+  }
+  if (inherits(geo, "GeoPointEmpty")) {
+    return(InputGeoPointEmpty$new())
+  }
+  if (inherits(geo, "MessageMediaGeo")) {
+    return(get_input_geo(geo$geo))
+  }
+  if (inherits(geo, "Message")) {
+    return(get_input_geo(geo$media))
+  }
+  stop("Cannot convert ", class(geo)[1], " to InputGeoPoint")
+}
+
+#' Guess Extension
+#'
+#' Guesses a file extension from a MIME type.
+#'
+#' @param mime_type Character string of the MIME type.
+#' @return A character string with the file extension (including dot), or NULL.
+#' @keywords internal
+guess_extension <- function(mime_type) {
+  idx <- which(names(mimetypes) == mime_type)
+  if (length(idx) > 0) {
+    return(mimetypes[[idx[1]]])
+  }
+  # Reverse lookup: mimetypes maps mime -> ext
+  idx2 <- which(mimetypes == mime_type)
+  if (length(idx2) > 0) {
+    return(mimetypes[[idx2[1]]])
+  }
+  NULL
 }
 
 #' Get Extension
@@ -1350,9 +1438,11 @@ sanitize_parse_mode <- function(mode) {
   } else if (is.character(mode)) {
     mode_lower <- tolower(mode)
     if (mode_lower %in% c("md", "markdown")) {
-      return(markdown)
+      md_mode <- list(parse = parse, unparse = unparse)
+      return(md_mode)
     } else if (mode_lower %in% c("htm", "html")) {
-      return(html)
+      html_mode <- list(parse = parse_html_to_telegram, unparse = unparse_telegram_to_html)
+      return(html_mode)
     } else {
       stop(sprintf("Unknown parse mode %s", mode))
     }

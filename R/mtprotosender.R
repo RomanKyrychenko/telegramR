@@ -208,6 +208,8 @@ clone_error <- function(error) {
 #' A new authorization key will be generated on connection if no other key exists yet.
 #' @importFrom R6 R6Class
 #' @importFrom future plan multisession resolved value
+#' @title MTProtoSender
+#' @description Telegram API type MTProtoSender
 #' @export
 MTProtoSender <- R6::R6Class("MTProtoSender",
   public = list(

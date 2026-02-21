@@ -19,6 +19,8 @@ is_typing <- FALSE
 #' EventBuilderDict class
 #' @description
 #' Handles the building of events from updates and other data.
+#' @title EventBuilderDict
+#' @description Telegram API type EventBuilderDict
 #' @export
 EventBuilderDict <- R6::R6Class("EventBuilderDict",
   public = list(

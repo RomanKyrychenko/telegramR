@@ -8,6 +8,8 @@
 #' @return An R6 object of class EditPeerFoldersRequest
 #' @examples
 #' # EditPeerFoldersRequest$new(list_of_folder_peers)
+#' @title EditPeerFoldersRequest
+#' @description Telegram API type EditPeerFoldersRequest
 #' @export
 EditPeerFoldersRequest <- R6::R6Class(
   "EditPeerFoldersRequest",

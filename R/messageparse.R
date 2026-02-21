@@ -1,6 +1,8 @@
 #' MessageParseMethods R6 class
 #'
 #' Lightweight helpers for parsing messages and handling response mapping.
+#' @title MessageParseMethods
+#' @description Telegram API type MessageParseMethods
 #' @export
 MessageParseMethods <- R6::R6Class(
   "MessageParseMethods",

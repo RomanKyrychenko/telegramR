@@ -6,6 +6,8 @@
 #' @details
 #' Provides methods to read various data types and handle stream positions.
 #'
+#' @title BinaryReader
+#' @description Telegram API type BinaryReader
 #' @export
 BinaryReader <- R6::R6Class(
   "BinaryReader",

@@ -10,6 +10,8 @@
 #' @field body \code{ANY} The body of the RPC result.
 #' @field error \code{ANY} The error object, if any.
 #'
+#' @title RpcResult
+#' @description Telegram API type RpcResult
 #' @export
 RpcResult <- R6::R6Class(
   "RpcResult",

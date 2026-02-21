@@ -33,6 +33,8 @@ crc32 <- function(x) {
 #' - `BadMessageError`: Raised when handling a bad message notification.
 #' - `MultiError`: A container for multiple exceptions.
 #'
+#' @title Exception
+#' @description Telegram API type Exception
 #' @export
 Exception <- R6::R6Class(
   "Exception",
@@ -55,6 +57,8 @@ Exception <- R6::R6Class(
 #'
 #' @description
 #' Occurs when a read operation is cancelled.
+#' @title ReadCancelledError
+#' @description Telegram API type ReadCancelledError
 #' @export
 ReadCancelledError <- R6::R6Class(
   "ReadCancelledError",
@@ -76,6 +80,8 @@ ReadCancelledError <- R6::R6Class(
 #' @description
 #' Occurs when a type is not found, for example, when trying to read a TLObject
 #' with an invalid constructor code.
+#' @title TypeNotFoundError
+#' @description Telegram API type TypeNotFoundError
 #' @export
 TypeNotFoundError <- R6::R6Class(
   "TypeNotFoundError",
@@ -111,6 +117,8 @@ TypeNotFoundError <- R6::R6Class(
 #' @description
 #' Occurs when using the TCP full mode and the checksum of a received packet
 #' doesn't match the expected checksum.
+#' @title InvalidChecksumError
+#' @description Telegram API type InvalidChecksumError
 #' @export
 InvalidChecksumError <- R6::R6Class(
   "InvalidChecksumError",
@@ -145,6 +153,8 @@ InvalidChecksumError <- R6::R6Class(
 #'
 #' @description
 #' Occurs when the buffer is invalid, and may contain an HTTP error code.
+#' @title InvalidBufferError
+#' @description Telegram API type InvalidBufferError
 #' @export
 InvalidBufferError <- R6::R6Class(
   "InvalidBufferError",
@@ -181,6 +191,8 @@ InvalidBufferError <- R6::R6Class(
 #' currently being used. This might be because it either has never seen this
 #' authorization key, or it used to know about the authorization key but has
 #' forgotten it, either temporarily or permanently (possibly due to server errors).
+#' @title AuthKeyNotFound
+#' @description Telegram API type AuthKeyNotFound
 #' @export
 AuthKeyNotFound <- R6::R6Class(
   "AuthKeyNotFound",
@@ -203,6 +215,8 @@ AuthKeyNotFound <- R6::R6Class(
 #'
 #' @description
 #' Generic security error, mostly used when generating a new AuthKey.
+#' @title SecurityError
+#' @description Telegram API type SecurityError
 #' @export
 SecurityError <- R6::R6Class(
   "SecurityError",
@@ -224,6 +238,8 @@ SecurityError <- R6::R6Class(
 #' @description
 #' Occurs when there's a hash mismatch between the decrypted CDN file
 #' and its expected hash.
+#' @title CdnFileTamperedError
+#' @description Telegram API type CdnFileTamperedError
 #' @export
 CdnFileTamperedError <- R6::R6Class(
   "CdnFileTamperedError",
@@ -242,6 +258,8 @@ CdnFileTamperedError <- R6::R6Class(
 #'
 #' @description
 #' Occurs when another exclusive conversation is opened in the same chat.
+#' @title AlreadyInConversationError
+#' @description Telegram API type AlreadyInConversationError
 #' @export
 AlreadyInConversationError <- R6::R6Class(
   "AlreadyInConversationError",
@@ -264,6 +282,8 @@ AlreadyInConversationError <- R6::R6Class(
 #'
 #' @description
 #' Occurs when handling a bad_message_notification.
+#' @title BadMessageError
+#' @description Telegram API type BadMessageError
 #' @export
 BadMessageError <- R6::R6Class(
   "BadMessageError",
@@ -313,6 +333,8 @@ BadMessageError <- R6::R6Class(
 #'
 #' @description
 #' Exception container for multiple `TLRequest`s.
+#' @title MultiError
+#' @description Telegram API type MultiError
 #' @export
 MultiError <- R6::R6Class(
   "MultiError",

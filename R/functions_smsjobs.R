@@ -3,6 +3,8 @@
 #' Representation of the FinishJobRequest TLRequest.
 #' @field job_id character
 #' @field error character or NULL
+#' @title FinishJobRequest
+#' @description Telegram API type FinishJobRequest
 #' @export
 FinishJobRequest <- R6::R6Class(
   "FinishJobRequest",
@@ -72,6 +74,8 @@ FinishJobRequest$set("public", "from_reader", function(reader) {
 #'
 #' Representation of the GetSmsJobRequest TLRequest.
 #' @field job_id character
+#' @title GetSmsJobRequest
+#' @description Telegram API type GetSmsJobRequest
 #' @export
 GetSmsJobRequest <- R6::R6Class(
   "GetSmsJobRequest",
@@ -121,6 +125,8 @@ GetSmsJobRequest$set("public", "from_reader", function(reader) {
 #' GetStatusRequest R6 class
 #'
 #' Representation of the GetStatusRequest TLRequest.
+#' @title GetStatusRequest
+#' @description Telegram API type GetStatusRequest
 #' @export
 GetStatusRequest <- R6::R6Class(
   "GetStatusRequest",
@@ -157,6 +163,8 @@ GetStatusRequest$set("public", "from_reader", function(reader) {
 #' IsEligibleToJoinRequest R6 class
 #'
 #' Representation of the IsEligibleToJoinRequest TLRequest.
+#' @title IsEligibleToJoinRequest
+#' @description Telegram API type IsEligibleToJoinRequest
 #' @export
 IsEligibleToJoinRequest <- R6::R6Class(
   "IsEligibleToJoinRequest",
@@ -201,6 +209,8 @@ write_uint32_le <- function(x) {
 #' JoinRequest R6 class
 #'
 #' Representation of the JoinRequest TLRequest.
+#' @title JoinRequest
+#' @description Telegram API type JoinRequest
 #' @export
 JoinRequest <- R6::R6Class(
   "JoinRequest",
@@ -237,6 +247,8 @@ JoinRequest$set("public", "from_reader", function(reader) {
 #' LeaveRequest R6 class
 #'
 #' Representation of the LeaveRequest TLRequest.
+#' @title LeaveRequest
+#' @description Telegram API type LeaveRequest
 #' @export
 LeaveRequest <- R6::R6Class(
   "LeaveRequest",
@@ -273,6 +285,8 @@ LeaveRequest$set("public", "from_reader", function(reader) {
 #'
 #' Representation of the UpdateSettingsRequest TLRequest.
 #' @field allow_international logical or NULL
+#' @title UpdateSettingsRequest
+#' @description Telegram API type UpdateSettingsRequest
 #' @export
 UpdateSettingsRequest <- R6::R6Class(
   "UpdateSettingsRequest",

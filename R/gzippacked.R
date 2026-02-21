@@ -8,6 +8,8 @@
 #'
 #' @field data \code{raw} The raw gzipped data.
 #'
+#' @title GzipPacked
+#' @description Telegram API type GzipPacked
 #' @export
 GzipPacked <- R6::R6Class(
   "GzipPacked",

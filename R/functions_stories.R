@@ -4,6 +4,8 @@
 #' Returns Updates.
 #' @param past logical or NULL
 #' @param future logical or NULL
+#' @title ActivateStealthModeRequest
+#' @description Telegram API type ActivateStealthModeRequest
 #' @export
 ActivateStealthModeRequest <- R6::R6Class(
   "ActivateStealthModeRequest",
@@ -81,6 +83,8 @@ ActivateStealthModeRequest <- R6::R6Class(
 #' Request to check whether a story can be sent to a given peer.
 #' Returns stories.CanSendStoryCount.
 #' @param peer TypeInputPeer
+#' @title CanSendStoryRequest
+#' @description Telegram API type CanSendStoryRequest
 #' @export
 CanSendStoryRequest <- R6::R6Class(
   "CanSendStoryRequest",
@@ -165,6 +169,8 @@ CanSendStoryRequest <- R6::R6Class(
 #' @param peer TypeInputPeer
 #' @param title character album title
 #' @param stories integer vector of story ids
+#' @title CreateAlbumRequest
+#' @description Telegram API type CreateAlbumRequest
 #' @export
 CreateAlbumRequest <- R6::R6Class(
   "CreateAlbumRequest",
@@ -286,6 +292,8 @@ CreateAlbumRequest <- R6::R6Class(
 #' Request to delete an album for a given peer. Returns Bool.
 #' @param peer TypeInputPeer
 #' @param album_id integer album id
+#' @title DeleteAlbumRequest
+#' @description Telegram API type DeleteAlbumRequest
 #' @export
 DeleteAlbumRequest <- R6::R6Class(
   "DeleteAlbumRequest",
@@ -376,6 +384,8 @@ DeleteAlbumRequest <- R6::R6Class(
 #' Request to delete one or more stories for a given peer. Returns Vector<int>.
 #' @param peer TypeInputPeer
 #' @param id integer vector of story ids
+#' @title DeleteStoriesRequest
+#' @description Telegram API type DeleteStoriesRequest
 #' @export
 DeleteStoriesRequest <- R6::R6Class(
   "DeleteStoriesRequest",
@@ -502,6 +512,8 @@ DeleteStoriesRequest <- R6::R6Class(
 #' @param caption character or NULL (must be provided together with entities)
 #' @param entities list of TypeMessageEntity or NULL (must be provided together with caption)
 #' @param privacy_rules list of TypeInputPrivacyRule or NULL
+#' @title EditStoryRequest
+#' @description Telegram API type EditStoryRequest
 #' @export
 EditStoryRequest <- R6::R6Class(
   "EditStoryRequest",
@@ -746,6 +758,8 @@ EditStoryRequest <- R6::R6Class(
 #' Returns stories.ExportedStoryLink.
 #' @param peer TypeInputPeer
 #' @param id integer story id
+#' @title ExportStoryLinkRequest
+#' @description Telegram API type ExportStoryLinkRequest
 #' @export
 ExportStoryLinkRequest <- R6::R6Class(
   "ExportStoryLinkRequest",
@@ -838,6 +852,8 @@ ExportStoryLinkRequest <- R6::R6Class(
 #' @param album_id integer album id
 #' @param offset integer offset id
 #' @param limit integer limit
+#' @title GetAlbumStoriesRequest
+#' @description Telegram API type GetAlbumStoriesRequest
 #' @export
 GetAlbumStoriesRequest <- R6::R6Class(
   "GetAlbumStoriesRequest",
@@ -938,6 +954,8 @@ GetAlbumStoriesRequest <- R6::R6Class(
 #' Request to get albums for a peer. Returns stories.Albums (or AlbumsNotModified).
 #' @param peer TypeInputPeer
 #' @param hash numeric/int64 hash value
+#' @title GetAlbumsRequest
+#' @description Telegram API type GetAlbumsRequest
 #' @export
 GetAlbumsRequest <- R6::R6Class(
   "GetAlbumsRequest",
@@ -1025,6 +1043,8 @@ GetAlbumsRequest <- R6::R6Class(
 #' GetAllReadPeerStoriesRequest R6 class
 #'
 #' Request without parameters; returns all read peer stories.
+#' @title GetAllReadPeerStoriesRequest
+#' @description Telegram API type GetAllReadPeerStoriesRequest
 #' @export
 GetAllReadPeerStoriesRequest <- R6::R6Class(
   "GetAllReadPeerStoriesRequest",
@@ -1071,6 +1091,8 @@ GetAllReadPeerStoriesRequest <- R6::R6Class(
 #' @param next logical or NULL (controls paging)
 #' @param hidden logical or NULL (include hidden)
 #' @param state character or NULL state cursor
+#' @title GetAllStoriesRequest
+#' @description Telegram API type GetAllStoriesRequest
 #' @export
 GetAllStoriesRequest <- R6::R6Class(
   "GetAllStoriesRequest",
@@ -1164,6 +1186,8 @@ GetAllStoriesRequest <- R6::R6Class(
 #' GetChatsToSendRequest R6 class
 #'
 #' Request without parameters; returns chats to send.
+#' @title GetChatsToSendRequest
+#' @description Telegram API type GetChatsToSendRequest
 #' @export
 GetChatsToSendRequest <- R6::R6Class(
   "GetChatsToSendRequest",
@@ -1207,6 +1231,8 @@ GetChatsToSendRequest <- R6::R6Class(
 #'
 #' Request to get maximum IDs for a vector of input peers. Returns Vector<int>.
 #' @param id list of TypeInputPeer
+#' @title GetPeerMaxIDsRequest
+#' @description Telegram API type GetPeerMaxIDsRequest
 #' @export
 GetPeerMaxIDsRequest <- R6::R6Class(
   "GetPeerMaxIDsRequest",
@@ -2210,6 +2236,8 @@ IncrementStoryViewsRequest <- R6::R6Class(
 #' @format An R6 object inheriting from TLRequest
 #' @field peer TypeInputPeer input peer
 #' @field max_id integer max story id
+#' @title ReadStoriesRequest
+#' @description Telegram API type ReadStoriesRequest
 #' @export
 ReadStoriesRequest <- R6::R6Class(
   "ReadStoriesRequest",
@@ -2316,6 +2344,8 @@ ReadStoriesRequest <- R6::R6Class(
 #' @format An R6 object inheriting from TLRequest
 #' @field peer TypeInputPeer input peer
 #' @field order integer vector new order of album ids
+#' @title ReorderAlbumsRequest
+#' @description Telegram API type ReorderAlbumsRequest
 #' @export
 ReorderAlbumsRequest <- R6::R6Class(
   "ReorderAlbumsRequest",
@@ -2424,6 +2454,8 @@ ReorderAlbumsRequest <- R6::R6Class(
 #' @field id integer vector of story ids
 #' @field option raw bytes option
 #' @field message character comment/message
+#' @title ReportRequest
+#' @description Telegram API type ReportRequest
 #' @export
 ReportRequest <- R6::R6Class(
   "ReportRequest",
@@ -2567,6 +2599,8 @@ ReportRequest <- R6::R6Class(
 #' @field hashtag character or NULL
 #' @field area TypeMediaArea or NULL
 #' @field peer TypeInputPeer or NULL
+#' @title SearchPostsRequest
+#' @description Telegram API type SearchPostsRequest
 #' @export
 SearchPostsRequest <- R6::R6Class(
   "SearchPostsRequest",
@@ -2711,6 +2745,8 @@ SearchPostsRequest <- R6::R6Class(
 #' @field story_id integer story id
 #' @field reaction TypeReaction
 #' @field add_to_recent logical or NULL
+#' @title SendReactionRequest
+#' @description Telegram API type SendReactionRequest
 #' @export
 SendReactionRequest <- R6::R6Class(
   "SendReactionRequest",
@@ -2856,6 +2892,8 @@ SendReactionRequest <- R6::R6Class(
 #' @field fwd_from_id TypeInputPeer
 #' @field fwd_from_story integer
 #' @field albums integer vector
+#' @title SendStoryRequest
+#' @description Telegram API type SendStoryRequest
 #' @export
 SendStoryRequest <- R6::R6Class(
   "SendStoryRequest",
@@ -3190,6 +3228,8 @@ SendStoryRequest <- R6::R6Class(
 #' @usage ToggleAllStoriesHiddenRequest$new(hidden)
 #' @format An R6 object inheriting from TLRequest (if available)
 #' @field hidden logical desired hidden state
+#' @title ToggleAllStoriesHiddenRequest
+#' @description Telegram API type ToggleAllStoriesHiddenRequest
 #' @export
 ToggleAllStoriesHiddenRequest <- R6::R6Class(
   "ToggleAllStoriesHiddenRequest",
@@ -3259,6 +3299,8 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
 #' @format An R6 object inheriting from TLRequest (if available)
 #' @field peer TypeInputPeer input peer
 #' @field hidden logical desired hidden state
+#' @title TogglePeerStoriesHiddenRequest
+#' @description Telegram API type TogglePeerStoriesHiddenRequest
 #' @export
 TogglePeerStoriesHiddenRequest <- R6::R6Class(
   "TogglePeerStoriesHiddenRequest",
@@ -3358,6 +3400,8 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
 #' @field peer TypeInputPeer input peer
 #' @field id integer vector story ids
 #' @field pinned logical desired pinned state
+#' @title TogglePinnedRequest
+#' @description Telegram API type TogglePinnedRequest
 #' @export
 TogglePinnedRequest <- R6::R6Class(
   "TogglePinnedRequest",
@@ -3492,6 +3536,8 @@ TogglePinnedRequest <- R6::R6Class(
 #' @format An R6 object inheriting from TLRequest (if available)
 #' @field peer TypeInputPeer input peer
 #' @field id integer vector story ids
+#' @title TogglePinnedToTopRequest
+#' @description Telegram API type TogglePinnedToTopRequest
 #' @export
 TogglePinnedToTopRequest <- R6::R6Class(
   "TogglePinnedToTopRequest",
@@ -3605,6 +3651,8 @@ TogglePinnedToTopRequest <- R6::R6Class(
 #' @field delete_stories integer vector or NULL stories to delete
 #' @field add_stories integer vector or NULL stories to add
 #' @field order integer vector or NULL new order of stories
+#' @title UpdateAlbumRequest
+#' @description Telegram API type UpdateAlbumRequest
 #' @export
 UpdateAlbumRequest <- R6::R6Class(
   "UpdateAlbumRequest",

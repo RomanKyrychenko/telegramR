@@ -54,6 +54,8 @@ ApplyGiftCodeRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field receipt The receipt bytes.
 #' @field purpose The input store payment purpose (TypeInputStorePaymentPurpose).
+#' @title AssignAppStoreTransactionRequest
+#' @description Telegram API type AssignAppStoreTransactionRequest
 #' @export
 AssignAppStoreTransactionRequest <- R6::R6Class(
   "AssignAppStoreTransactionRequest",
@@ -111,6 +113,8 @@ AssignAppStoreTransactionRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field receipt The receipt data JSON (TypeDataJSON).
 #' @field purpose The input store payment purpose (TypeInputStorePaymentPurpose).
+#' @title AssignPlayMarketTransactionRequest
+#' @description Telegram API type AssignPlayMarketTransactionRequest
 #' @export
 AssignPlayMarketTransactionRequest <- R6::R6Class(
   "AssignPlayMarketTransactionRequest",
@@ -170,6 +174,8 @@ AssignPlayMarketTransactionRequest <- R6::R6Class(
 #' @field user_id The input user (TypeInputUser).
 #' @field charge_id The charge ID (string).
 #' @field restore Optional flag to restore the subscription.
+#' @title BotCancelStarsSubscriptionRequest
+#' @description Telegram API type BotCancelStarsSubscriptionRequest
 #' @export
 BotCancelStarsSubscriptionRequest <- R6::R6Class(
   "BotCancelStarsSubscriptionRequest",
@@ -293,6 +299,8 @@ CanPurchaseStoreRequest <- R6::R6Class(
 #' @field peer The input peer (TypeInputPeer).
 #' @field subscription_id The subscription ID (string).
 #' @field canceled Optional flag indicating if canceled.
+#' @title ChangeStarsSubscriptionRequest
+#' @description Telegram API type ChangeStarsSubscriptionRequest
 #' @export
 ChangeStarsSubscriptionRequest <- R6::R6Class(
   "ChangeStarsSubscriptionRequest",
@@ -468,6 +476,8 @@ CheckGiftCodeRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field credentials Optional flag to clear credentials.
 #' @field info Optional flag to clear info.
+#' @title ClearSavedInfoRequest
+#' @description Telegram API type ClearSavedInfoRequest
 #' @export
 ClearSavedInfoRequest <- R6::R6Class(
   "ClearSavedInfoRequest",
@@ -526,6 +536,8 @@ ClearSavedInfoRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field peer The input peer (TypeInputPeer).
 #' @field bot The input user (TypeInputUser).
+#' @title ConnectStarRefBotRequest
+#' @description Telegram API type ConnectStarRefBotRequest
 #' @export
 ConnectStarRefBotRequest <- R6::R6Class(
   "ConnectStarRefBotRequest",
@@ -642,6 +654,8 @@ ConvertStarGiftRequest <- R6::R6Class(
 #' @field peer The input peer (TypeInputPeer).
 #' @field title The title string.
 #' @field stargift List of input saved star gifts (list of TypeInputSavedStarGift).
+#' @title CreateStarGiftCollectionRequest
+#' @description Telegram API type CreateStarGiftCollectionRequest
 #' @export
 CreateStarGiftCollectionRequest <- R6::R6Class(
   "CreateStarGiftCollectionRequest",
@@ -714,6 +728,8 @@ CreateStarGiftCollectionRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field peer The input peer (TypeInputPeer).
 #' @field collection_id The collection ID (integer).
+#' @title DeleteStarGiftCollectionRequest
+#' @description Telegram API type DeleteStarGiftCollectionRequest
 #' @export
 DeleteStarGiftCollectionRequest <- R6::R6Class(
   "DeleteStarGiftCollectionRequest",
@@ -779,6 +795,8 @@ DeleteStarGiftCollectionRequest <- R6::R6Class(
 #' @field peer The input peer (TypeInputPeer).
 #' @field link The link string.
 #' @field revoked Optional flag indicating if revoked.
+#' @title EditConnectedStarRefBotRequest
+#' @description Telegram API type EditConnectedStarRefBotRequest
 #' @export
 EditConnectedStarRefBotRequest <- R6::R6Class(
   "EditConnectedStarRefBotRequest",
@@ -908,6 +926,8 @@ ExportInvoiceRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field peer The input peer (TypeInputPeer).
 #' @field subscription_id The subscription ID (string).
+#' @title FulfillStarsSubscriptionRequest
+#' @description Telegram API type FulfillStarsSubscriptionRequest
 #' @export
 FulfillStarsSubscriptionRequest <- R6::R6Class(
   "FulfillStarsSubscriptionRequest",
@@ -1023,6 +1043,8 @@ GetBankCardDataRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field peer The input peer (TypeInputPeer).
 #' @field bot The input user (TypeInputUser).
+#' @title GetConnectedStarRefBotRequest
+#' @description Telegram API type GetConnectedStarRefBotRequest
 #' @export
 GetConnectedStarRefBotRequest <- R6::R6Class(
   "GetConnectedStarRefBotRequest",
@@ -1090,6 +1112,8 @@ GetConnectedStarRefBotRequest <- R6::R6Class(
 #' @field limit The limit integer.
 #' @field offset_date Optional offset date (datetime).
 #' @field offset_link Optional offset link (string).
+#' @title GetConnectedStarRefBotsRequest
+#' @description Telegram API type GetConnectedStarRefBotsRequest
 #' @export
 GetConnectedStarRefBotsRequest <- R6::R6Class(
   "GetConnectedStarRefBotsRequest",
@@ -1170,6 +1194,8 @@ GetConnectedStarRefBotsRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field peer The input peer (TypeInputPeer).
 #' @field msg_id The message ID (integer).
+#' @title GetGiveawayInfoRequest
+#' @description Telegram API type GetGiveawayInfoRequest
 #' @export
 GetGiveawayInfoRequest <- R6::R6Class(
   "GetGiveawayInfoRequest",
@@ -1234,6 +1260,8 @@ GetGiveawayInfoRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field invoice The input invoice (TypeInputInvoice).
 #' @field theme_params Optional theme parameters (TypeDataJSON).
+#' @title GetPaymentFormRequest
+#' @description Telegram API type GetPaymentFormRequest
 #' @export
 GetPaymentFormRequest <- R6::R6Class(
   "GetPaymentFormRequest",
@@ -1294,6 +1322,8 @@ GetPaymentFormRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field peer The input peer (TypeInputPeer).
 #' @field msg_id The message ID (integer).
+#' @title GetPaymentReceiptRequest
+#' @description Telegram API type GetPaymentReceiptRequest
 #' @export
 GetPaymentReceiptRequest <- R6::R6Class(
   "GetPaymentReceiptRequest",
@@ -1425,6 +1455,8 @@ GetPremiumGiftCodeOptionsRequest <- R6::R6Class(
 #' @field sort_by_num Optional flag to sort by number.
 #' @field attributes_hash Optional attributes hash (integer).
 #' @field attributes Optional list of star gift attribute IDs.
+#' @title GetResaleStarGiftsRequest
+#' @description Telegram API type GetResaleStarGiftsRequest
 #' @export
 GetResaleStarGiftsRequest <- R6::R6Class(
   "GetResaleStarGiftsRequest",
@@ -1630,6 +1662,8 @@ GetSavedStarGiftRequest <- R6::R6Class(
 #' @field exclude_upgradable Optional flag to exclude upgradable gifts.
 #' @field exclude_unupgradable Optional flag to exclude unupgradable gifts.
 #' @field collection_id Optional collection ID.
+#' @title GetSavedStarGiftsRequest
+#' @description Telegram API type GetSavedStarGiftsRequest
 #' @export
 GetSavedStarGiftsRequest <- R6::R6Class(
   "GetSavedStarGiftsRequest",
@@ -1751,6 +1785,8 @@ GetSavedStarGiftsRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field peer The input peer (TypeInputPeer).
 #' @field hash The hash value (integer).
+#' @title GetStarGiftCollectionsRequest
+#' @description Telegram API type GetStarGiftCollectionsRequest
 #' @export
 GetStarGiftCollectionsRequest <- R6::R6Class(
   "GetStarGiftCollectionsRequest",
@@ -1869,6 +1905,8 @@ GetStarGiftUpgradePreviewRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field stargift The input saved star gift (TypeInputSavedStarGift).
 #' @field password The input check password SRP (TypeInputCheckPasswordSRP).
+#' @title GetStarGiftWithdrawalUrlRequest
+#' @description Telegram API type GetStarGiftWithdrawalUrlRequest
 #' @export
 GetStarGiftWithdrawalUrlRequest <- R6::R6Class(
   "GetStarGiftWithdrawalUrlRequest",
@@ -2133,6 +2171,8 @@ GetStarsRevenueAdsAccountUrlRequest <- R6::R6Class(
 #' @field peer The input peer.
 #' @field dark Optional flag for dark mode.
 #' @field ton Optional flag for TON.
+#' @title GetStarsRevenueStatsRequest
+#' @description Telegram API type GetStarsRevenueStatsRequest
 #' @export
 GetStarsRevenueStatsRequest <- R6::R6Class(
   "GetStarsRevenueStatsRequest",
@@ -2205,6 +2245,8 @@ GetStarsRevenueStatsRequest <- R6::R6Class(
 #' @field password The input check password SRP.
 #' @field ton Optional flag for TON.
 #' @field amount Optional amount.
+#' @title GetStarsRevenueWithdrawalUrlRequest
+#' @description Telegram API type GetStarsRevenueWithdrawalUrlRequest
 #' @export
 GetStarsRevenueWithdrawalUrlRequest <- R6::R6Class(
   "GetStarsRevenueWithdrawalUrlRequest",
@@ -2283,6 +2325,8 @@ GetStarsRevenueWithdrawalUrlRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field peer The input peer.
 #' @field ton Optional flag for TON.
+#' @title GetStarsStatusRequest
+#' @description Telegram API type GetStarsStatusRequest
 #' @export
 GetStarsStatusRequest <- R6::R6Class(
   "GetStarsStatusRequest",
@@ -2349,6 +2393,8 @@ GetStarsStatusRequest <- R6::R6Class(
 #' @field peer The input peer.
 #' @field offset The offset string.
 #' @field missing_balance Optional flag for missing balance.
+#' @title GetStarsSubscriptionsRequest
+#' @description Telegram API type GetStarsSubscriptionsRequest
 #' @export
 GetStarsSubscriptionsRequest <- R6::R6Class(
   "GetStarsSubscriptionsRequest",
@@ -2463,6 +2509,8 @@ GetStarsTopupOptionsRequest <- R6::R6Class(
 #' @field ascending Optional flag for ascending order.
 #' @field ton Optional flag for TON.
 #' @field subscription_id Optional subscription ID.
+#' @title GetStarsTransactionsRequest
+#' @description Telegram API type GetStarsTransactionsRequest
 #' @export
 GetStarsTransactionsRequest <- R6::R6Class(
   "GetStarsTransactionsRequest",
@@ -2568,6 +2616,8 @@ GetStarsTransactionsRequest <- R6::R6Class(
 #' @field peer The input peer.
 #' @field id List of input stars transactions.
 #' @field ton Optional flag for TON.
+#' @title GetStarsTransactionsByIDRequest
+#' @description Telegram API type GetStarsTransactionsByIDRequest
 #' @export
 GetStarsTransactionsByIDRequest <- R6::R6Class(
   "GetStarsTransactionsByIDRequest",
@@ -2643,6 +2693,8 @@ GetStarsTransactionsByIDRequest <- R6::R6Class(
 #' @field limit The limit integer.
 #' @field order_by_revenue Optional flag to order by revenue.
 #' @field order_by_date Optional flag to order by date.
+#' @title GetSuggestedStarRefBotsRequest
+#' @description Telegram API type GetSuggestedStarRefBotsRequest
 #' @export
 GetSuggestedStarRefBotsRequest <- R6::R6Class(
   "GetSuggestedStarRefBotsRequest",
@@ -2827,6 +2879,8 @@ GetUniqueStarGiftValueInfoRequest <- R6::R6Class(
 #' @field peer The input peer.
 #' @field giveaway_id The giveaway ID.
 #' @field purpose The input store payment purpose.
+#' @title LaunchPrepaidGiveawayRequest
+#' @description Telegram API type LaunchPrepaidGiveawayRequest
 #' @export
 LaunchPrepaidGiveawayRequest <- R6::R6Class(
   "LaunchPrepaidGiveawayRequest",
@@ -2898,6 +2952,8 @@ LaunchPrepaidGiveawayRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field user_id The input user.
 #' @field charge_id The charge ID.
+#' @title RefundStarsChargeRequest
+#' @description Telegram API type RefundStarsChargeRequest
 #' @export
 RefundStarsChargeRequest <- R6::R6Class(
   "RefundStarsChargeRequest",
@@ -2962,6 +3018,8 @@ RefundStarsChargeRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field peer The input peer.
 #' @field order The order list of integers.
+#' @title ReorderStarGiftCollectionsRequest
+#' @description Telegram API type ReorderStarGiftCollectionsRequest
 #' @export
 ReorderStarGiftCollectionsRequest <- R6::R6Class(
   "ReorderStarGiftCollectionsRequest",
@@ -3027,6 +3085,8 @@ ReorderStarGiftCollectionsRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field stargift The input saved star gift.
 #' @field unsave Optional flag to unsave.
+#' @title SaveStarGiftRequest
+#' @description Telegram API type SaveStarGiftRequest
 #' @export
 SaveStarGiftRequest <- R6::R6Class(
   "SaveStarGiftRequest",
@@ -3090,6 +3150,8 @@ SaveStarGiftRequest <- R6::R6Class(
 #' @field requested_info_id Optional requested info ID.
 #' @field shipping_option_id Optional shipping option ID.
 #' @field tip_amount Optional tip amount.
+#' @title SendPaymentFormRequest
+#' @description Telegram API type SendPaymentFormRequest
 #' @export
 SendPaymentFormRequest <- R6::R6Class(
   "SendPaymentFormRequest",
@@ -3176,6 +3238,8 @@ SendPaymentFormRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field form_id The form ID.
 #' @field invoice The input invoice.
+#' @title SendStarsFormRequest
+#' @description Telegram API type SendStarsFormRequest
 #' @export
 SendStarsFormRequest <- R6::R6Class(
   "SendStarsFormRequest",
@@ -3234,6 +3298,8 @@ SendStarsFormRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field peer The input peer.
 #' @field enabled Optional flag to enable or disable notifications.
+#' @title ToggleChatStarGiftNotificationsRequest
+#' @description Telegram API type ToggleChatStarGiftNotificationsRequest
 #' @export
 ToggleChatStarGiftNotificationsRequest <- R6::R6Class(
   "ToggleChatStarGiftNotificationsRequest",
@@ -3299,6 +3365,8 @@ ToggleChatStarGiftNotificationsRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field peer The input peer.
 #' @field stargift List of input saved star gifts.
+#' @title ToggleStarGiftsPinnedToTopRequest
+#' @description Telegram API type ToggleStarGiftsPinnedToTopRequest
 #' @export
 ToggleStarGiftsPinnedToTopRequest <- R6::R6Class(
   "ToggleStarGiftsPinnedToTopRequest",
@@ -3364,6 +3432,8 @@ ToggleStarGiftsPinnedToTopRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field stargift The input saved star gift.
 #' @field to_id The input peer to transfer to.
+#' @title TransferStarGiftRequest
+#' @description Telegram API type TransferStarGiftRequest
 #' @export
 TransferStarGiftRequest <- R6::R6Class(
   "TransferStarGiftRequest",
@@ -3433,6 +3503,8 @@ TransferStarGiftRequest <- R6::R6Class(
 #' @field delete_stargift Optional list of star gifts to delete.
 #' @field add_stargift Optional list of star gifts to add.
 #' @field order Optional order of star gifts.
+#' @title UpdateStarGiftCollectionRequest
+#' @description Telegram API type UpdateStarGiftCollectionRequest
 #' @export
 UpdateStarGiftCollectionRequest <- R6::R6Class(
   "UpdateStarGiftCollectionRequest",
@@ -3542,6 +3614,8 @@ UpdateStarGiftCollectionRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field stargift The input saved star gift.
 #' @field resell_amount The resell amount (TypeStarsAmount).
+#' @title UpdateStarGiftPriceRequest
+#' @description Telegram API type UpdateStarGiftPriceRequest
 #' @export
 UpdateStarGiftPriceRequest <- R6::R6Class(
   "UpdateStarGiftPriceRequest",
@@ -3600,6 +3674,8 @@ UpdateStarGiftPriceRequest <- R6::R6Class(
 #' @field SUBCLASS_OF_ID The subclass ID.
 #' @field stargift The input saved star gift.
 #' @field keep_original_details Optional flag to keep original details.
+#' @title UpgradeStarGiftRequest
+#' @description Telegram API type UpgradeStarGiftRequest
 #' @export
 UpgradeStarGiftRequest <- R6::R6Class(
   "UpgradeStarGiftRequest",
@@ -3661,6 +3737,8 @@ UpgradeStarGiftRequest <- R6::R6Class(
 #' @field invoice The input invoice.
 #' @field info The payment requested info.
 #' @field save Optional flag to save the info.
+#' @title ValidateRequestedInfoRequest
+#' @description Telegram API type ValidateRequestedInfoRequest
 #' @export
 ValidateRequestedInfoRequest <- R6::R6Class(
   "ValidateRequestedInfoRequest",

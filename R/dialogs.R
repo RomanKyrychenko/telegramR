@@ -30,6 +30,8 @@ dialog_message_key <- function(peer, message_id) {
 #' This class is used to iterate over Telegram dialogs (open conversations/subscribed channels).
 #' The order is the same as the one seen in official applications (first pinned, then from those with the most recent message to those with the oldest message).
 #'
+#' @title DialogsIter
+#' @description Telegram API type DialogsIter
 #' @export
 DialogsIter <- R6::R6Class("DialogsIter",
   inherit = RequestIter,
@@ -201,6 +203,8 @@ DialogsIter <- R6::R6Class("DialogsIter",
 #' DraftsIter class
 #' @description
 #' An iterator for Telegram drafts.
+#' @title DraftsIter
+#' @description Telegram API type DraftsIter
 #' @export
 DraftsIter <- R6::R6Class("DraftsIter",
   inherit = RequestIter,

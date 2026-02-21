@@ -5,6 +5,8 @@
 #'
 #' An R6 class that combines functionality from multiple method classes to interact with Telegram API
 #'
+#' @title TelegramClient
+#' @description Telegram API type TelegramClient
 #' @export
 TelegramClient <- R6::R6Class(
   "TelegramClient",

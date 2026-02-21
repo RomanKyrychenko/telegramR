@@ -6,6 +6,8 @@
 #' @field g_b Raw bytes.
 #' @field protocol Protocol object (expected to implement bytes()).
 #'
+#' @title AcceptCallRequest
+#' @description Telegram API type AcceptCallRequest
 #' @export
 AcceptCallRequest <- R6::R6Class(
   "AcceptCallRequest",
@@ -100,6 +102,8 @@ AcceptCallRequest$set("public", "from_reader", function(reader) {
 #' @field call The input group call object (expected to implement bytes()).
 #' @field sources List of integers.
 #'
+#' @title CheckGroupCallRequest
+#' @description Telegram API type CheckGroupCallRequest
 #' @export
 CheckGroupCallRequest <- R6::R6Class(
   "CheckGroupCallRequest",
@@ -201,6 +205,8 @@ CheckGroupCallRequest$set("public", "from_reader", function(reader) {
 #' @field key_fingerprint Integer key fingerprint.
 #' @field protocol Protocol object (expected to implement bytes()).
 #'
+#' @title ConfirmCallRequest
+#' @description Telegram API type ConfirmCallRequest
 #' @export
 ConfirmCallRequest <- R6::R6Class(
   "ConfirmCallRequest",
@@ -307,6 +313,8 @@ ConfirmCallRequest$set("public", "from_reader", function(reader) {
 #' @field block Raw bytes or NULL.
 #' @field params DataJSON-like object or NULL.
 #'
+#' @title CreateConferenceCallRequest
+#' @description Telegram API type CreateConferenceCallRequest
 #' @export
 CreateConferenceCallRequest <- R6::R6Class(
   "CreateConferenceCallRequest",
@@ -466,6 +474,8 @@ CreateConferenceCallRequest$set("public", "from_reader", function(reader) {
 #' @field title String or NULL.
 #' @field schedule_date Datetime or NULL.
 #'
+#' @title CreateGroupCallRequest
+#' @description Telegram API type CreateGroupCallRequest
 #' @export
 CreateGroupCallRequest <- R6::R6Class(
   "CreateGroupCallRequest",
@@ -598,6 +608,8 @@ CreateGroupCallRequest$set("public", "from_reader", function(reader) {
 #'
 #' @field msg_id Integer message id.
 #'
+#' @title DeclineConferenceCallInviteRequest
+#' @description Telegram API type DeclineConferenceCallInviteRequest
 #' @export
 DeclineConferenceCallInviteRequest <- R6::R6Class(
   "DeclineConferenceCallInviteRequest",
@@ -658,6 +670,8 @@ DeclineConferenceCallInviteRequest$set("public", "from_reader", function(reader)
 #' @field only_left Logical or NULL. If TRUE, only left.
 #' @field kick Logical or NULL. If TRUE, kick.
 #'
+#' @title DeleteConferenceCallParticipantsRequest
+#' @description Telegram API type DeleteConferenceCallParticipantsRequest
 #' @export
 DeleteConferenceCallParticipantsRequest <- R6::R6Class(
   "DeleteConferenceCallParticipantsRequest",
@@ -794,6 +808,8 @@ DeleteConferenceCallParticipantsRequest$set("public", "from_reader", function(re
 #' @field connection_id Integer connection id.
 #' @field video Logical or NULL. If TRUE, video.
 #'
+#' @title DiscardCallRequest
+#' @description Telegram API type DiscardCallRequest
 #' @export
 DiscardCallRequest <- R6::R6Class(
   "DiscardCallRequest",
@@ -893,6 +909,8 @@ DiscardCallRequest$set("public", "from_reader", function(reader) {
 #'
 #' @field call The input group call object (expected to implement bytes()).
 #'
+#' @title DiscardGroupCallRequest
+#' @description Telegram API type DiscardGroupCallRequest
 #' @export
 DiscardGroupCallRequest <- R6::R6Class(
   "DiscardGroupCallRequest",
@@ -976,6 +994,8 @@ DiscardGroupCallRequest$set("public", "from_reader", function(reader) {
 #' @field video_paused Logical or NULL. If TRUE, video paused.
 #' @field presentation_paused Logical or NULL. If TRUE, presentation paused.
 #'
+#' @title EditGroupCallParticipantRequest
+#' @description Telegram API type EditGroupCallParticipantRequest
 #' @export
 EditGroupCallParticipantRequest <- R6::R6Class(
   "EditGroupCallParticipantRequest",
@@ -1135,6 +1155,8 @@ EditGroupCallParticipantRequest$set("public", "from_reader", function(reader) {
 #' @field call The input group call object (expected to implement bytes()).
 #' @field title String title.
 #'
+#' @title EditGroupCallTitleRequest
+#' @description Telegram API type EditGroupCallTitleRequest
 #' @export
 EditGroupCallTitleRequest <- R6::R6Class(
   "EditGroupCallTitleRequest",
@@ -1222,6 +1244,8 @@ EditGroupCallTitleRequest$set("public", "from_reader", function(reader) {
 #' @field call The input group call object (expected to implement bytes()).
 #' @field can_self_unmute Logical or NULL. If TRUE, can self unmute.
 #'
+#' @title ExportGroupCallInviteRequest
+#' @description Telegram API type ExportGroupCallInviteRequest
 #' @export
 ExportGroupCallInviteRequest <- R6::R6Class(
   "ExportGroupCallInviteRequest",
@@ -1344,6 +1368,8 @@ GetCallConfigRequest$set("public", "from_reader", function(reader) {
 #' @field call The input group call object (expected to implement bytes()).
 #' @field limit Integer limit.
 #'
+#' @title GetGroupCallRequest
+#' @description Telegram API type GetGroupCallRequest
 #' @export
 GetGroupCallRequest <- R6::R6Class(
   "GetGroupCallRequest",
@@ -1429,6 +1455,8 @@ GetGroupCallRequest$set("public", "from_reader", function(reader) {
 #' @field offset Integer offset.
 #' @field limit Integer limit.
 #'
+#' @title GetGroupCallChainBlocksRequest
+#' @description Telegram API type GetGroupCallChainBlocksRequest
 #' @export
 GetGroupCallChainBlocksRequest <- R6::R6Class(
   "GetGroupCallChainBlocksRequest",
@@ -1523,6 +1551,8 @@ GetGroupCallChainBlocksRequest$set("public", "from_reader", function(reader) {
 #'
 #' @field peer The input peer object (expected to implement bytes()).
 #'
+#' @title GetGroupCallJoinAsRequest
+#' @description Telegram API type GetGroupCallJoinAsRequest
 #' @export
 GetGroupCallJoinAsRequest <- R6::R6Class(
   "GetGroupCallJoinAsRequest",
@@ -1598,6 +1628,8 @@ GetGroupCallJoinAsRequest$set("public", "from_reader", function(reader) {
 #'
 #' @field call The input group call object (expected to implement bytes()).
 #'
+#' @title GetGroupCallStreamChannelsRequest
+#' @description Telegram API type GetGroupCallStreamChannelsRequest
 #' @export
 GetGroupCallStreamChannelsRequest <- R6::R6Class(
   "GetGroupCallStreamChannelsRequest",
@@ -1674,6 +1706,8 @@ GetGroupCallStreamChannelsRequest$set("public", "from_reader", function(reader) 
 #' @field peer The input peer object (expected to implement bytes()).
 #' @field revoke Logical indicating revoke state.
 #'
+#' @title GetGroupCallStreamRtmpUrlRequest
+#' @description Telegram API type GetGroupCallStreamRtmpUrlRequest
 #' @export
 GetGroupCallStreamRtmpUrlRequest <- R6::R6Class(
   "GetGroupCallStreamRtmpUrlRequest",
@@ -1760,6 +1794,8 @@ GetGroupCallStreamRtmpUrlRequest$set("public", "from_reader", function(reader) {
 #' @field offset String offset.
 #' @field limit Integer limit.
 #'
+#' @title GetGroupParticipantsRequest
+#' @description Telegram API type GetGroupParticipantsRequest
 #' @export
 GetGroupParticipantsRequest <- R6::R6Class(
   "GetGroupParticipantsRequest",
@@ -1911,6 +1947,8 @@ GetGroupParticipantsRequest$set("public", "from_reader", function(reader) {
 #' @field user_id The input user object (expected to implement bytes()).
 #' @field video Logical or NULL. If TRUE, invite with video.
 #'
+#' @title InviteConferenceCallParticipantRequest
+#' @description Telegram API type InviteConferenceCallParticipantRequest
 #' @export
 InviteConferenceCallParticipantRequest <- R6::R6Class(
   "InviteConferenceCallParticipantRequest",
@@ -2010,6 +2048,8 @@ InviteConferenceCallParticipantRequest$set("public", "from_reader", function(rea
 #' @field call The input group call object (expected to implement bytes()).
 #' @field users List of input user objects (expected to implement bytes()).
 #'
+#' @title InviteToGroupCallRequest
+#' @description Telegram API type InviteToGroupCallRequest
 #' @export
 InviteToGroupCallRequest <- R6::R6Class(
   "InviteToGroupCallRequest",
@@ -2127,6 +2167,8 @@ InviteToGroupCallRequest$set("public", "from_reader", function(reader) {
 #' @field public_key Optional integer (256-bit) or NULL.
 #' @field block Optional raw vector or NULL.
 #'
+#' @title JoinGroupCallRequest
+#' @description Telegram API type JoinGroupCallRequest
 #' @export
 JoinGroupCallRequest <- R6::R6Class(
   "JoinGroupCallRequest",
@@ -2330,6 +2372,8 @@ JoinGroupCallRequest$set("public", "from_reader", function(reader) {
 #' @field call The input group call object (expected to implement bytes()).
 #' @field params DataJSON-like object (expected to implement bytes()).
 #'
+#' @title JoinGroupCallPresentationRequest
+#' @description Telegram API type JoinGroupCallPresentationRequest
 #' @export
 JoinGroupCallPresentationRequest <- R6::R6Class(
   "JoinGroupCallPresentationRequest",
@@ -2418,6 +2462,8 @@ JoinGroupCallPresentationRequest$set("public", "from_reader", function(reader) {
 #' @field call The input group call object (expected to implement bytes()).
 #' @field source Integer source identifier.
 #'
+#' @title LeaveGroupCallRequest
+#' @description Telegram API type LeaveGroupCallRequest
 #' @export
 LeaveGroupCallRequest <- R6::R6Class(
   "LeaveGroupCallRequest",
@@ -2500,6 +2546,8 @@ LeaveGroupCallRequest$set("public", "from_reader", function(reader) {
 #'
 #' @field call The input group call object (expected to implement bytes()).
 #'
+#' @title LeaveGroupCallPresentationRequest
+#' @description Telegram API type LeaveGroupCallPresentationRequest
 #' @export
 LeaveGroupCallPresentationRequest <- R6::R6Class(
   "LeaveGroupCallPresentationRequest",
@@ -2575,6 +2623,8 @@ LeaveGroupCallPresentationRequest$set("public", "from_reader", function(reader) 
 #'
 #' @field peer Input phone call object (must provide bytes()).
 #'
+#' @title ReceivedCallRequest
+#' @description Telegram API type ReceivedCallRequest
 #' @export
 ReceivedCallRequest <- R6::R6Class(
   "ReceivedCallRequest",
@@ -2654,6 +2704,8 @@ ReceivedCallRequest$set("public", "from_reader", function(reader) {
 #' @field video Logical or NULL. If TRUE indicates video.
 #' @field random_id Integer random id (32-bit signed).
 #'
+#' @title RequestCallRequest
+#' @description Telegram API type RequestCallRequest
 #' @export
 RequestCallRequest <- R6::R6Class(
   "RequestCallRequest",
@@ -2785,6 +2837,8 @@ RequestCallRequest$set("public", "from_reader", function(reader) {
 #' @field peer Input phone call object (must provide bytes()).
 #' @field debug DataJSON-like object (must provide bytes()).
 #'
+#' @title SaveCallDebugRequest
+#' @description Telegram API type SaveCallDebugRequest
 #' @export
 SaveCallDebugRequest <- R6::R6Class(
   "SaveCallDebugRequest",
@@ -2873,6 +2927,8 @@ SaveCallDebugRequest$set("public", "from_reader", function(reader) {
 #' @field peer Input phone call object (must provide bytes()).
 #' @field file Input file object (must provide bytes()).
 #'
+#' @title SaveCallLogRequest
+#' @description Telegram API type SaveCallLogRequest
 #' @export
 SaveCallLogRequest <- R6::R6Class(
   "SaveCallLogRequest",
@@ -2961,6 +3017,8 @@ SaveCallLogRequest$set("public", "from_reader", function(reader) {
 #' @field peer Input peer object (must provide bytes()).
 #' @field join_as Input peer to join as (must provide bytes()).
 #'
+#' @title SaveDefaultGroupCallJoinAsRequest
+#' @description Telegram API type SaveDefaultGroupCallJoinAsRequest
 #' @export
 SaveDefaultGroupCallJoinAsRequest <- R6::R6Class(
   "SaveDefaultGroupCallJoinAsRequest",
@@ -3053,6 +3111,8 @@ SaveDefaultGroupCallJoinAsRequest$set("public", "from_reader", function(reader) 
 #' @field call Input group call object (must provide bytes()).
 #' @field block Raw bytes payload to send.
 #'
+#' @title SendConferenceCallBroadcastRequest
+#' @description Telegram API type SendConferenceCallBroadcastRequest
 #' @export
 SendConferenceCallBroadcastRequest <- R6::R6Class(
   "SendConferenceCallBroadcastRequest",
@@ -3148,6 +3208,8 @@ SendConferenceCallBroadcastRequest$set("public", "from_reader", function(reader)
 #' @field peer The input phone call object (expected to implement bytes()).
 #' @field data Raw bytes payload to send.
 #'
+#' @title SendSignalingDataRequest
+#' @description Telegram API type SendSignalingDataRequest
 #' @export
 SendSignalingDataRequest <- R6::R6Class(
   "SendSignalingDataRequest",
@@ -3232,6 +3294,8 @@ SendSignalingDataRequest$set("public", "from_reader", function(reader) {
 #' @field comment String comment.
 #' @field user_initiative Logical or NULL. If TRUE indicates user-initiated rating.
 #'
+#' @title SetCallRatingRequest
+#' @description Telegram API type SetCallRatingRequest
 #' @export
 SetCallRatingRequest <- R6::R6Class(
   "SetCallRatingRequest",
@@ -3334,6 +3398,8 @@ SetCallRatingRequest$set("public", "from_reader", function(reader) {
 #'
 #' @field call The input group call object (expected to implement bytes()).
 #'
+#' @title StartScheduledGroupCallRequest
+#' @description Telegram API type StartScheduledGroupCallRequest
 #' @export
 StartScheduledGroupCallRequest <- R6::R6Class(
   "StartScheduledGroupCallRequest",
@@ -3412,6 +3478,8 @@ StartScheduledGroupCallRequest$set("public", "from_reader", function(reader) {
 #' @field title Optional title string or NULL.
 #' @field video_portrait Logical or NULL. If provided indicates portrait video recording preference.
 #'
+#' @title ToggleGroupCallRecordRequest
+#' @description Telegram API type ToggleGroupCallRecordRequest
 #' @export
 ToggleGroupCallRecordRequest <- R6::R6Class(
   "ToggleGroupCallRecordRequest",
@@ -3559,6 +3627,8 @@ bool_false_token <- as.raw(c(0x37L, 0x97L, 0x79L, 0xbcL))
 #' @field reset_invite_hash Logical or NULL. If TRUE resets invite hash.
 #' @field join_muted Logical or NULL. If TRUE join muted, if FALSE join unmuted, if NULL absent.
 #'
+#' @title ToggleGroupCallSettingsRequest
+#' @description Telegram API type ToggleGroupCallSettingsRequest
 #' @export
 ToggleGroupCallSettingsRequest <- R6::R6Class(
   "ToggleGroupCallSettingsRequest",
@@ -3661,6 +3731,8 @@ ToggleGroupCallSettingsRequest$set("public", "from_reader", function(reader) {
 #' @field call The input group call object (expected to implement bytes()).
 #' @field subscribed Logical indicating subscription state.
 #'
+#' @title ToggleGroupCallStartSubscriptionRequest
+#' @description Telegram API type ToggleGroupCallStartSubscriptionRequest
 #' @export
 ToggleGroupCallStartSubscriptionRequest <- R6::R6Class(
   "ToggleGroupCallStartSubscriptionRequest",

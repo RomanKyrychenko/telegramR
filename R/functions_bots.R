@@ -17,6 +17,8 @@
 #'
 #' @examples
 #' # o <- AddPreviewMediaRequest$new(botObj, "en", mediaObj)
+#' @title AddPreviewMediaRequest
+#' @description Telegram API type AddPreviewMediaRequest
 #' @export
 AddPreviewMediaRequest <- R6::R6Class(
   "AddPreviewMediaRequest",
@@ -156,6 +158,8 @@ AddPreviewMediaRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- AllowSendMessageRequest$new(botObj)
+#' @title AllowSendMessageRequest
+#' @description Telegram API type AllowSendMessageRequest
 #' @export
 AllowSendMessageRequest <- R6::R6Class(
   "AllowSendMessageRequest",
@@ -261,6 +265,8 @@ AllowSendMessageRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- AnswerWebhookJSONQueryRequest$new(12345678901234, dataObj)
+#' @title AnswerWebhookJSONQueryRequest
+#' @description Telegram API type AnswerWebhookJSONQueryRequest
 #' @export
 AnswerWebhookJSONQueryRequest <- R6::R6Class(
   "AnswerWebhookJSONQueryRequest",
@@ -367,6 +373,8 @@ AnswerWebhookJSONQueryRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- CanSendMessageRequest$new(botObj)
+#' @title CanSendMessageRequest
+#' @description Telegram API type CanSendMessageRequest
 #' @export
 CanSendMessageRequest <- R6::R6Class(
   "CanSendMessageRequest",
@@ -474,6 +482,8 @@ CanSendMessageRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- CheckDownloadFileParamsRequest$new(botObj, "file.png", "https://...")
+#' @title CheckDownloadFileParamsRequest
+#' @description Telegram API type CheckDownloadFileParamsRequest
 #' @export
 CheckDownloadFileParamsRequest <- R6::R6Class(
   "CheckDownloadFileParamsRequest",
@@ -594,6 +604,8 @@ CheckDownloadFileParamsRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- DeletePreviewMediaRequest$new(botObj, "en", list(media1, media2))
+#' @title DeletePreviewMediaRequest
+#' @description Telegram API type DeletePreviewMediaRequest
 #' @export
 DeletePreviewMediaRequest <- R6::R6Class(
   "DeletePreviewMediaRequest",
@@ -761,6 +773,8 @@ DeletePreviewMediaRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- EditPreviewMediaRequest$new(botObj, "en", mediaObj, newMediaObj)
+#' @title EditPreviewMediaRequest
+#' @description Telegram API type EditPreviewMediaRequest
 #' @export
 EditPreviewMediaRequest <- R6::R6Class(
   "EditPreviewMediaRequest",
@@ -961,6 +975,8 @@ GetAdminedBotsRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- GetBotCommandsRequest$new(scopeObj, "en")
+#' @title GetBotCommandsRequest
+#' @description Telegram API type GetBotCommandsRequest
 #' @export
 GetBotCommandsRequest <- R6::R6Class(
   "GetBotCommandsRequest",
@@ -1061,6 +1077,8 @@ GetBotCommandsRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- GetBotInfoRequest$new("en", bot = someBot)
+#' @title GetBotInfoRequest
+#' @description Telegram API type GetBotInfoRequest
 #' @export
 GetBotInfoRequest <- R6::R6Class(
   "GetBotInfoRequest",
@@ -1183,6 +1201,8 @@ GetBotInfoRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- GetBotMenuButtonRequest$new(someUser)
+#' @title GetBotMenuButtonRequest
+#' @description Telegram API type GetBotMenuButtonRequest
 #' @export
 GetBotMenuButtonRequest <- R6::R6Class(
   "GetBotMenuButtonRequest",
@@ -1289,6 +1309,8 @@ GetBotMenuButtonRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- GetBotRecommendationsRequest$new(someBot)
+#' @title GetBotRecommendationsRequest
+#' @description Telegram API type GetBotRecommendationsRequest
 #' @export
 GetBotRecommendationsRequest <- R6::R6Class(
   "GetBotRecommendationsRequest",
@@ -1395,6 +1417,8 @@ GetBotRecommendationsRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- GetPopularAppBotsRequest$new("0", 50)
+#' @title GetPopularAppBotsRequest
+#' @description Telegram API type GetPopularAppBotsRequest
 #' @export
 GetPopularAppBotsRequest <- R6::R6Class(
   "GetPopularAppBotsRequest",
@@ -1487,6 +1511,8 @@ GetPopularAppBotsRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- GetPreviewInfoRequest$new(bot, "en")
+#' @title GetPreviewInfoRequest
+#' @description Telegram API type GetPreviewInfoRequest
 #' @export
 GetPreviewInfoRequest <- R6::R6Class(
   "GetPreviewInfoRequest",
@@ -1600,6 +1626,8 @@ GetPreviewInfoRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- GetPreviewMediasRequest$new(bot)
+#' @title GetPreviewMediasRequest
+#' @description Telegram API type GetPreviewMediasRequest
 #' @export
 GetPreviewMediasRequest <- R6::R6Class(
   "GetPreviewMediasRequest",
@@ -1707,6 +1735,8 @@ GetPreviewMediasRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- InvokeWebViewCustomMethodRequest$new(bot, "methodName", paramsObj)
+#' @title InvokeWebViewCustomMethodRequest
+#' @description Telegram API type InvokeWebViewCustomMethodRequest
 #' @export
 InvokeWebViewCustomMethodRequest <- R6::R6Class(
   "InvokeWebViewCustomMethodRequest",
@@ -1844,6 +1874,8 @@ InvokeWebViewCustomMethodRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- ReorderPreviewMediasRequest$new(bot, "en", list(media1, media2))
+#' @title ReorderPreviewMediasRequest
+#' @description Telegram API type ReorderPreviewMediasRequest
 #' @export
 ReorderPreviewMediasRequest <- R6::R6Class(
   "ReorderPreviewMediasRequest",
@@ -1998,6 +2030,8 @@ ReorderPreviewMediasRequest$from_reader <- function(reader) {
 #' @field order list of character usernames
 #' @examples
 #' # o <- ReorderUsernamesRequest$new(bot, list("u1", "u2"))
+#' @title ReorderUsernamesRequest
+#' @description Telegram API type ReorderUsernamesRequest
 #' @export
 ReorderUsernamesRequest <- R6::R6Class(
   "ReorderUsernamesRequest",
@@ -2127,6 +2161,8 @@ ReorderUsernamesRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- ResetBotCommandsRequest$new(scope, "en")
+#' @title ResetBotCommandsRequest
+#' @description Telegram API type ResetBotCommandsRequest
 #' @export
 ResetBotCommandsRequest <- R6::R6Class(
   "ResetBotCommandsRequest",
@@ -2240,6 +2276,8 @@ ResetBotCommandsRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- SendCustomRequestRequest$new("methodName", paramsObj)
+#' @title SendCustomRequestRequest
+#' @description Telegram API type SendCustomRequestRequest
 #' @export
 SendCustomRequestRequest <- R6::R6Class(
   "SendCustomRequestRequest",
@@ -2349,6 +2387,8 @@ SendCustomRequestRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- SetBotBroadcastDefaultAdminRightsRequest$new(admin_rights)
+#' @title SetBotBroadcastDefaultAdminRightsRequest
+#' @description Telegram API type SetBotBroadcastDefaultAdminRightsRequest
 #' @export
 SetBotBroadcastDefaultAdminRightsRequest <- R6::R6Class(
   "SetBotBroadcastDefaultAdminRightsRequest",
@@ -2437,6 +2477,8 @@ SetBotBroadcastDefaultAdminRightsRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- SetBotCommandsRequest$new(scope, "en", list(cmd1, cmd2))
+#' @title SetBotCommandsRequest
+#' @description Telegram API type SetBotCommandsRequest
 #' @export
 SetBotCommandsRequest <- R6::R6Class(
   "SetBotCommandsRequest",
@@ -2590,6 +2632,8 @@ SetBotCommandsRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- SetBotGroupDefaultAdminRightsRequest$new(admin_rights)
+#' @title SetBotGroupDefaultAdminRightsRequest
+#' @description Telegram API type SetBotGroupDefaultAdminRightsRequest
 #' @export
 SetBotGroupDefaultAdminRightsRequest <- R6::R6Class(
   "SetBotGroupDefaultAdminRightsRequest",
@@ -2680,6 +2724,8 @@ SetBotGroupDefaultAdminRightsRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- SetBotInfoRequest$new("en", bot = someBot, name = "Name")
+#' @title SetBotInfoRequest
+#' @description Telegram API type SetBotInfoRequest
 #' @export
 SetBotInfoRequest <- R6::R6Class(
   "SetBotInfoRequest",
@@ -2818,6 +2864,8 @@ SetBotInfoRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- SetBotMenuButtonRequest$new(user_id, button)
+#' @title SetBotMenuButtonRequest
+#' @description Telegram API type SetBotMenuButtonRequest
 #' @export
 SetBotMenuButtonRequest <- R6::R6Class(
   "SetBotMenuButtonRequest",
@@ -2946,6 +2994,8 @@ SetBotMenuButtonRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- SetCustomVerificationRequest$new(peer, TRUE, bot = someBot, custom_description = "desc")
+#' @title SetCustomVerificationRequest
+#' @description Telegram API type SetCustomVerificationRequest
 #' @export
 SetCustomVerificationRequest <- R6::R6Class(
   "SetCustomVerificationRequest",
@@ -3099,6 +3149,8 @@ SetCustomVerificationRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- ToggleUserEmojiStatusPermissionRequest$new(bot, TRUE)
+#' @title ToggleUserEmojiStatusPermissionRequest
+#' @description Telegram API type ToggleUserEmojiStatusPermissionRequest
 #' @export
 ToggleUserEmojiStatusPermissionRequest <- R6::R6Class(
   "ToggleUserEmojiStatusPermissionRequest",
@@ -3214,6 +3266,8 @@ ToggleUserEmojiStatusPermissionRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- ToggleUsernameRequest$new(bot, "myusername", TRUE)
+#' @title ToggleUsernameRequest
+#' @description Telegram API type ToggleUsernameRequest
 #' @export
 ToggleUsernameRequest <- R6::R6Class(
   "ToggleUsernameRequest",
@@ -3335,6 +3389,8 @@ ToggleUsernameRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- UpdateStarRefProgramRequest$new(bot, 100, 12)
+#' @title UpdateStarRefProgramRequest
+#' @description Telegram API type UpdateStarRefProgramRequest
 #' @export
 UpdateStarRefProgramRequest <- R6::R6Class(
   "UpdateStarRefProgramRequest",
@@ -3458,6 +3514,8 @@ UpdateStarRefProgramRequest$from_reader <- function(reader) {
 #'
 #' @examples
 #' # o <- UpdateUserEmojiStatusRequest$new(user_id, emoji_status)
+#' @title UpdateUserEmojiStatusRequest
+#' @description Telegram API type UpdateUserEmojiStatusRequest
 #' @export
 UpdateUserEmojiStatusRequest <- R6::R6Class(
   "UpdateUserEmojiStatusRequest",

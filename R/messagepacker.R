@@ -13,6 +13,8 @@
 #' @field deque Internal list used as a FIFO queue of state items.
 #' @field ready Logical flag that signals that new items were added to the queue.
 #' @field log Optional logger object with methods like `debug` and `warning`.
+#' @title MessagePacker
+#' @description Telegram API type MessagePacker
 #' @export
 MessagePacker <- R6::R6Class("MessagePacker",
   public = list(

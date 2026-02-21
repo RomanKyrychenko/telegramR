@@ -17,6 +17,8 @@ AccountMethods <- R6::R6Class(
   )
 )
 
+#' @title TakeoutClient
+#' @description Telegram API type TakeoutClient
 #' @export
 TakeoutClient <- R6::R6Class(
   "TakeoutClient",

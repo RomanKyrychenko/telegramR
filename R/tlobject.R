@@ -220,6 +220,8 @@ serialize_datetime <- function(dt) {
 #' A base class for all Telegram Layer (TL) objects. This class provides common methods
 #' for serialization, deserialization, and representation of TL objects.
 #'
+#' @title TLObject
+#' @description Telegram API type TLObject
 #' @export
 TLObject <- R6::R6Class(
   "TLObject",
@@ -440,6 +442,8 @@ TLObject <- R6::R6Class(
 #' A class representing a Telegram Layer (TL) request. This class extends the `TLObject` class
 #' and provides methods for reading results and resolving requests.
 #'
+#' @title TLRequest
+#' @description Telegram API type TLRequest
 #' @export
 TLRequest <- R6::R6Class(
   "TLRequest",
@@ -471,6 +475,8 @@ TLRequest <- R6::R6Class(
 #' A class representing the `PQInnerData` object. This class is used to handle
 #' the serialization and deserialization of the `PQInnerData` object.
 #'
+#' @title PQInnerData
+#' @description Telegram API type PQInnerData
 #' @export
 PQInnerData <- R6::R6Class(
   "PQInnerData",
@@ -573,6 +579,8 @@ PQInnerData <- R6::R6Class(
 #' A class representing the `ClientDHInnerData` object. This class is used to handle
 #' the serialization and deserialization of the `ClientDHInnerData` object.
 #'
+#' @title ClientDHInnerData
+#' @description Telegram API type ClientDHInnerData
 #' @export
 ClientDHInnerData <- R6::R6Class(
   "ClientDHInnerData",
@@ -659,6 +667,8 @@ ClientDHInnerData <- R6::R6Class(
 #' A class representing the `SetClientDHParamsRequest` object. This class is used to handle
 #' the serialization and deserialization of the `SetClientDHParamsRequest` object.
 #'
+#' @title SetClientDHParamsRequest
+#' @description Telegram API type SetClientDHParamsRequest
 #' @export
 SetClientDHParamsRequest <- R6::R6Class(
   "SetClientDHParamsRequest",
@@ -738,6 +748,8 @@ SetClientDHParamsRequest <- R6::R6Class(
 #' A class representing the `ReqPqMultiRequest` object. This class is used to handle
 #' the serialization and deserialization of the `ReqPqMultiRequest` object.
 #'
+#' @title ReqPqMultiRequest
+#' @description Telegram API type ReqPqMultiRequest
 #' @export
 ReqPqMultiRequest <- R6::R6Class(
   "ReqPqMultiRequest",
@@ -801,6 +813,8 @@ ReqPqMultiRequest <- R6::R6Class(
 #' A class representing the `ReqDHParamsRequest` object. This class is used to handle
 #' the serialization and deserialization of the `ReqDHParamsRequest` object.
 #'
+#' @title ReqDHParamsRequest
+#' @description Telegram API type ReqDHParamsRequest
 #' @export
 ReqDHParamsRequest <- R6::R6Class(
   "ReqDHParamsRequest",
@@ -911,6 +925,8 @@ ReqDHParamsRequest <- R6::R6Class(
 #' A class representing the `InputPeerEmpty` object. This class is used to handle
 #' the serialization and deserialization of the `InputPeerEmpty` object.
 #'
+#' @title InputPeerEmpty
+#' @description Telegram API type InputPeerEmpty
 #' @export
 InputPeerEmpty <- R6::R6Class(
   "InputPeerEmpty",

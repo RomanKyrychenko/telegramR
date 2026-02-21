@@ -9,6 +9,8 @@
 #' @field force logical|NULL Optional force flag
 #' @examples
 #' # req <- GetChannelDifferenceRequest$new(channel = some_channel, filter = some_filter, pts = 0, limit = 100)
+#' @title GetChannelDifferenceRequest
+#' @description Telegram API type GetChannelDifferenceRequest
 #' @export
 GetChannelDifferenceRequest <- R6::R6Class(
   "GetChannelDifferenceRequest",
@@ -127,6 +129,8 @@ GetChannelDifferenceRequest$set("public", "from_reader", function(reader) {
 #' @field qts_limit integer|NULL Optional qts_limit
 #' @examples
 #' # req <- GetDifferenceRequest$new(pts = 0, date = Sys.time(), qts = 0)
+#' @title GetDifferenceRequest
+#' @description Telegram API type GetDifferenceRequest
 #' @export
 GetDifferenceRequest <- R6::R6Class(
   "GetDifferenceRequest",
@@ -234,6 +238,8 @@ GetDifferenceRequest$set("public", "from_reader", function(reader) {
 #'
 #' @examples
 #' # req <- GetStateRequest$new()
+#' @title GetStateRequest
+#' @description Telegram API type GetStateRequest
 #' @export
 GetStateRequest <- R6::R6Class(
   "GetStateRequest",

@@ -203,6 +203,8 @@ generate_key_data_from_nonce <- function(server_nonce, new_nonce) {
 #' # tl$to_string()
 #' # tl$to_repr()
 #'
+#' @title TotalList
+#' @description Telegram API type TotalList
 #' @export
 TotalList <- R6::R6Class(
   "TotalList",
@@ -248,6 +250,8 @@ TotalList <- R6::R6Class(
 #' # fs <- FileStream$new("path/to/file.txt")
 #' # data <- fs$read(100)
 #' # fs$close()
+#' @title FileStream
+#' @description Telegram API type FileStream
 #' @export
 FileStream <- R6::R6Class(
   "FileStream",
