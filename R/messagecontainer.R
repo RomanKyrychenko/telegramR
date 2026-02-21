@@ -85,3 +85,4 @@ MessageContainer <- R6::R6Class(
 # Class-level constants for message packing limits.
 MessageContainer$MAXIMUM_LENGTH <- 100L
 MessageContainer$MAXIMUM_SIZE <- 1048576L
+MessageContainer$CONSTRUCTOR_ID_VALUE <- 0x73f1f8dc
