@@ -32,8 +32,8 @@ test_that("check_prime_and_good_check works with valid inputs", {
 })
 
 test_that("check_prime_and_good_check validates g conditions", {
-  prime <- 23  # Small prime for test
-  expect_error(check_prime_and_good_check(prime, 2), "mod8")  # 23 %% 8 != 7
+  prime <- 17  # 17 %% 8 == 1, not 7
+  expect_error(check_prime_and_good_check(prime, 2), "mod8")
   # For g=3, need prime %% 3 == 2, etc.
   # Adjust prime accordingly
   prime_for_g3 <- 5  # 5 %% 3 == 2
