@@ -18,12 +18,6 @@ AES <- R6::R6Class(
     #' @param key A raw vector representing the encryption key.
     #' @param iv A raw vector representing the 32-byte initialization vector.
     #' @return A raw vector representing the decrypted text.
-    #' @examples
-    #' aes <- AES$new()
-    #' cipher_text <- as.raw(c(0x00, 0x01, 0x02, 0x03))
-    #' key <- as.raw(rep(0x01, 32))
-    #' iv <- as.raw(rep(0x02, 32))
-    #' aes$decrypt_ige(cipher_text, key, iv)
     decrypt_ige = function(cipher_text, key, iv) {
       if (length(cipher_text) %% 16 != 0) {
         stop("Invalid input length: must be a multiple of 16 bytes.")
@@ -56,12 +50,6 @@ AES <- R6::R6Class(
     #' @param key A raw vector representing the encryption key.
     #' @param iv A raw vector representing the 32-byte initialization vector.
     #' @return A raw vector representing the encrypted text.
-    #' @examples
-    #' aes <- AES$new()
-    #' plain_text <- as.raw(c(0x00, 0x01, 0x02, 0x03))
-    #' key <- as.raw(rep(0x01, 32))
-    #' iv <- as.raw(rep(0x02, 32))
-    #' aes$encrypt_ige(plain_text, key, iv)
     encrypt_ige = function(plain_text, key, iv) {
       padding <- length(plain_text) %% 16
       if (padding > 0) {

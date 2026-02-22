@@ -51,10 +51,8 @@ check_prime_and_good_check <- function(prime, g) {
   # Else it's good
 }
 
-#' @title Check Prime and Generator
-#' @description Checks if the prime bytes match a known good prime and validates the generator, or performs detailed checks if not matching.
-#' @param prime_bytes A raw vector representing the prime in bytes.
-#' @param g An integer representing the generator.
+#' Known good prime constant for Telegram cryptographic operations
+#' @keywords internal
 good_prime <- as.raw(c(
     0xC7, 0x1C, 0xAE, 0xB9, 0xC6, 0xB1, 0xC9, 0x04, 0x8E, 0x6C, 0x52, 0x2F, 0x70, 0xF1, 0x3F, 0x73,
     0x98, 0x0D, 0x40, 0x23, 0x8E, 0x3E, 0x21, 0xC1, 0x49, 0x34, 0xD0, 0x37, 0x56, 0x3D, 0x93, 0x0F,

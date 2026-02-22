@@ -1,20 +1,3 @@
-#' HTML <-> Telegram entities parser / unparser (R6)
-#'
-#' This file provides a simple HTML to Telegram message-entity parser and the
-#' reverse operation. It is a pragmatic translation of a Python implementation
-#' using an R6 parser that uses xml2 to walk the DOM.
-#'
-#' The entity structures returned are simple lists with fields:
-#'   offset, length, type, and optional url, language, user_id, document_id.
-#'
-#' Note: This implementation aims for clarity and reasonable fidelity rather
-#' than byte-for-byte exact behavior of the original Python helpers.
-#'
-#' @examples
-#' html <- "<b>bold</b> and <a href='mailto:me@example.com'>me</a>"
-#' parsed <- parse_html_to_telegram(html)
-#' unparse_telegram_to_html(parsed$text, parsed$entities)
-
 #' Escape HTML special characters.
 #'
 #' Replaces ampersands, angle brackets, and double quotes with their corresponding HTML entities.

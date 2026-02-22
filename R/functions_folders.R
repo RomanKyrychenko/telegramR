@@ -6,8 +6,6 @@
 #' @field SUBCLASS_OF_ID integer Subclass id (0x8af52aac)
 #' @field folder_peers list List of InputFolderPeer objects (each should provide to_list() and to_raw())
 #' @return An R6 object of class EditPeerFoldersRequest
-#' @examples
-#' # EditPeerFoldersRequest$new(list_of_folder_peers)
 #' @title EditPeerFoldersRequest
 #' @description Telegram API type EditPeerFoldersRequest
 #' @export

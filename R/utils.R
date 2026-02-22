@@ -3,7 +3,7 @@ utils::globalVariables(c("self", "private", "super", "PasswordHelper"))
 
 #' @importFrom stats setNames
 #' @importFrom mime mimemap
-#' @importFrom magick image_read
+NULL
 
 #' Register some of the most common mime-types to avoid any issues.
 mimetypes <- mime::mimemap
@@ -223,6 +223,9 @@ unpack <- function(format, data) {
 #' This is tricky because we can't easily override '+' for base 'raw' type.
 #' But if the first operand is 'raw_bytes', it works.
 #' If the first operand is 'raw', we might need to cast it.
+#' @param e1 Left operand (raw vector).
+#' @param e2 Right operand (raw vector).
+#' @return A new raw_bytes object.
 #' @export
 `+.raw` <- function(e1, e2) {
   # This might not get called for pure raw + raw without class
@@ -1237,7 +1240,6 @@ get_message_id <- function(message) {
 #' if (!is.null(metadata)) {
 #'   print(metadata)
 #' }
-#' }
 get_metadata <- function(file) {
   # Check if required package is available (equivalent to checking hachoir in Python)
   if (!requireNamespace("exiftoolr", quietly = TRUE)) {
@@ -1277,7 +1279,7 @@ get_metadata <- function(file) {
 
     # Extract metadata using exiftoolr (approximating hachoir functionality)
     # Note: exiftoolr returns a data.frame or list; adjust as needed
-    metadata <- exiftoolr::exiftool(stream, args = c("-j", "-b"))
+    metadata <- exiftoolr::exif_read(stream)
 
     # Convert to list if it's a data.frame
     if (is.data.frame(metadata)) {
@@ -1645,31 +1647,6 @@ is_video <- function(file) {
 
 #' Check if Object is List-Like
 #'
-#' Returns `TRUE` if the given object looks like a list.
-#' This function checks for common list-like objects in R, such as lists, vectors,
-#' matrices, arrays, data frames, and environments, while excluding strings and raw vectors
-#' to avoid false positives (similar to Python's check ignoring str/bytes).
-#'
-#' @param obj The object to check.
-#' @return A logical value indicating whether the object is list-like.
-#' @examples
-#' \dontrun{
-#' is_list_like(list(1, 2, 3)) # TRUE
-#' is_list_like(1:10) # TRUE
-#' is_list_like("string") # FALSE
-#' is_list_like(as.raw(c(1, 2))) # FALSE
-#' }
-is_list_like <- function(obj) {
-  # Exclude strings and raw vectors to match Python's behavior
-  if (is.character(obj) && length(obj) == 1) {
-    return(FALSE)
-  }
-  if (is.raw(obj)) {
-    return(FALSE)
-  }
-  # R6 objects are environments; do not treat environments as list-like.
-  return(is.list(obj) || is.vector(obj) || is.matrix(obj) || is.array(obj) || is.data.frame(obj))
-}
 
 #' Parse Phone Number
 #'
@@ -2466,7 +2443,6 @@ decode_waveform <- function(waveform) {
 #' for (split in splits) {
 #'   # Send split[[1]] (text) with split[[2]] (entities)
 #' }
-#' }
 split_text <- function(text, entities, limit = 4096L, max_entities = 100L, split_at = c("\\n", "\\s", ".")) {
   # Helper function to update an entity with new values
   update_entity <- function(ent, ...) {
@@ -2717,7 +2693,7 @@ photo_size_byte_count <- function(size) {
 #' }
 maybe_async <- function(coro) {
   result <- coro
-  if (future::is.future(result)) {
+  if (inherits(result, "Future")) {
     warning("Using async sessions support is an experimental feature")
     result <- future::value(result)
   }

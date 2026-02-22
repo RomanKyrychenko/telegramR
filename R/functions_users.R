@@ -9,13 +9,6 @@
 #' @field id The user identifier, which can be a TLInputUser object or a
 #'   representation accepted by get_input_user. This field is resolved
 #'   during the request preparation.
-#' @examples
-#' # Example usage (assuming client and utils are set up)
-#' request <- GetFullUserRequest$new(id = some_user_id)
-#' request$resolve(client, utils)
-#' dict <- request$to_dict()
-#' bytes <- request$.bytes()
-#'
 #' @title GetFullUserRequest
 #' @description Telegram API type GetFullUserRequest
 #' @export
@@ -387,14 +380,10 @@ GetSavedMusicByIDRequest <- R6::R6Class(
 
 
 #' @title GetUsersRequest
-#'
 #' @description Request to get a vector of users by input user references.
-#'
-#' @field CONSTRUCTOR_ID Constructor ID for the GetSavedMusicByIDRequest class.
-#' @field SUBCLASS_OF_ID Subclass ID for the GetSavedMusicByIDRequest class.
+#' @field CONSTRUCTOR_ID Constructor ID for the GetUsersRequest class.
+#' @field SUBCLASS_OF_ID Subclass ID for the GetUsersRequest class.
 #' @field id TLInputUser or a representation accepted by get_input_user
-#' @title GetUsersRequest
-#' @description Telegram API type GetUsersRequest
 #' @export
 GetUsersRequest <- R6::R6Class(
   "GetUsersRequest",
@@ -482,18 +471,12 @@ GetUsersRequest <- R6::R6Class(
 )
 
 
-#' @title SetSecureValueErrorsRequest R6 Class
-#'
-#' @description
-#' Represents a request to set secure value errors for a Telegram user. This class is typically used internally to serialize and deserialize requests and responses when interacting with the Telegram API.
-#'
+#' @title SetSecureValueErrorsRequest
+#' @description Represents a request to set secure value errors for a Telegram user.
 #' @field CONSTRUCTOR_ID Integer. Unique constructor ID for this request type.
 #' @field SUBCLASS_OF_ID Integer. Unique subclass ID.
 #' @field id Object or NULL. The user identifier, expected to be a TLObject or compatible input.
 #' @field errors List or NULL. List of error objects (typically TLObjects) to be set for the user.
-#'
-#' @title SetSecureValueErrorsRequest
-#' @description Telegram API type SetSecureValueErrorsRequest
 #' @export
 SetSecureValueErrorsRequest <- R6::R6Class(
   "SetSecureValueErrorsRequest",

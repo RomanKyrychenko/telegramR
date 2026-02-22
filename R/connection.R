@@ -39,7 +39,6 @@ cancel <- function(future) {
 #' It relies on the future package for asynchronous operations and R6 for
 #' object-oriented programming.
 #' @import R6
-#' @import future
 #' @import promises
 #' @import stringr
 #' @import later

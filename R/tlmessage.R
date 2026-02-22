@@ -1,13 +1,6 @@
-#' @title TLMessage Class
-#' @description
-#' A class representing a Telegram Layer (TL) message.
-#' @details
-#' This class extends the `TLObject` class and provides functionality to store and manipulate TL message data.
-#' @examples
-#' msg <- TLMessage(msg_id = 12345, seq_no = 1, obj = "Hello")
-#' print(msg$to_dict())
 #' @title TLMessage
-#' @description Telegram API type TLMessage
+#' @description A class representing a Telegram Layer (TL) message.
+#' This class extends the TLObject class and provides functionality to store and manipulate TL message data.
 #' @export
 TLMessage <- R6::R6Class(
   "TLMessage",
@@ -38,9 +31,6 @@ TLMessage <- R6::R6Class(
     #' @description
     #' Convert the `TLMessage` object to a dictionary representation.
     #' @return A list containing the fields of the `TLMessage` object in dictionary format.
-    #' @examples
-    #' msg <- TLMessage(msg_id = 12345, seq_no = 1, obj = "Hello")
-    #' msg$to_dict()
     to_dict = function() {
       return(
         list(

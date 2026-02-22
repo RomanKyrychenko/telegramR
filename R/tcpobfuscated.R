@@ -1,4 +1,4 @@
-#' @import openssl
+#' @importFrom openssl rand_bytes
 #' @title ObfuscatedIO
 #' @description Handles obfuscated I/O operations for Telegram obfuscation.
 #' @export

@@ -1,4 +1,3 @@
-#' @import future
 #' @import logger
 #' @import jsonlite
 #' @import httr

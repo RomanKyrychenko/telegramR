@@ -5,8 +5,6 @@
 #' @field lang_pack character Language pack identifier
 #' @field lang_code character Language code
 #' @field from_version integer Version to get difference from
-#' @examples
-#' # req <- GetDifferenceRequest$new("default", "en", 123)
 #' @title GetDifferenceRequest
 #' @description Telegram API type GetDifferenceRequest
 #' @export
@@ -71,8 +69,6 @@ GetDifferenceRequest <- R6::R6Class(
 #'
 #' @field lang_pack character Language pack identifier
 #' @field lang_code character Language code
-#' @examples
-#' # req <- GetLangPackRequest$new("default", "en")
 #' @title GetLangPackRequest
 #' @description Telegram API type GetLangPackRequest
 #' @export
@@ -124,8 +120,6 @@ GetLangPackRequest <- R6::R6Class(
 #'
 #' @field lang_pack character Language pack identifier
 #' @field lang_code character Language code
-#' @examples
-#' # req <- GetLanguageRequest$new("default", "en")
 #' @title GetLanguageRequest
 #' @description Telegram API type GetLanguageRequest
 #' @export
@@ -178,8 +172,6 @@ GetLanguageRequest <- R6::R6Class(
 #' TLRequest: GetLanguagesRequest
 #'
 #' @field lang_pack character Language pack identifier
-#' @examples
-#' # req <- GetLanguagesRequest$new("default")
 #' @title GetLanguagesRequest
 #' @description Telegram API type GetLanguagesRequest
 #' @export
@@ -228,8 +220,6 @@ GetLanguagesRequest <- R6::R6Class(
 #' @field lang_pack character Language pack identifier
 #' @field lang_code character Language code
 #' @field keys character Vector of keys to request
-#' @examples
-#' # req <- GetStringsRequest$new("default", "en", c("hello", "bye"))
 #' @title GetStringsRequest
 #' @description Telegram API type GetStringsRequest
 #' @export

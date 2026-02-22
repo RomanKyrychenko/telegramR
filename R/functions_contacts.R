@@ -14,8 +14,6 @@
 #' - to_bytes(): return raw vector of bytes for the TL request
 #' - from_reader(reader): read from reader and return new instance
 #'
-#' @examples
-#' AcceptContactRequest$new(inputUserObj)$to_list()
 AcceptContactRequest <- R6::R6Class(
   "AcceptContactRequest",
   inherit = TLRequest,
@@ -100,8 +98,6 @@ AcceptContactRequest$from_reader <- function(reader) {
 #' - to_bytes(): return raw vector of bytes for the TL request
 #' - from_reader(reader): read from reader and return new instance
 #'
-#' @examples
-#' AddContactRequest$new(inputUser, "John", "Doe", "+123", TRUE)$to_list()
 AddContactRequest <- R6::R6Class(
   "AddContactRequest",
   inherit = TLRequest,
@@ -257,8 +253,6 @@ AddContactRequest$from_reader <- function(reader) {
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
 #'
-#' @examples
-#' BlockRequest$new(peerObj, TRUE)$to_list()
 BlockRequest <- R6::R6Class(
   "BlockRequest",
   inherit = TLRequest,
@@ -369,8 +363,6 @@ BlockRequest$from_reader <- function(reader) {
 #' - to_list(): return a list representation
 #' - to_bytes(): return raw vector of bytes for the TL request
 #'
-#' @examples
-#' BlockFromRepliesRequest$new(123, TRUE, FALSE, TRUE)$to_list()
 BlockFromRepliesRequest <- R6::R6Class(
   "BlockFromRepliesRequest",
   inherit = TLRequest,
@@ -928,8 +920,6 @@ GetBirthdaysRequest$from_reader <- function(reader) {
 #' - to_list(): return list representation
 #' - to_bytes(): serialize to raw TL bytes
 #'
-#' @examples
-#' GetBlockedRequest$new(0, 100, TRUE)$to_list()
 GetBlockedRequest <- R6::R6Class(
   "GetBlockedRequest",
   inherit = TLRequest,
@@ -1024,8 +1014,6 @@ GetBlockedRequest$from_reader <- function(reader) {
 #' - to_bytes(): serialize to raw TL bytes (constructor + int64 hash)
 #' - read_result(reader): static helper to read the result vector of ints from reader
 #'
-#' @examples
-#' GetContactIDsRequest$new(0)$to_list()
 GetContactIDsRequest <- R6::R6Class(
   "GetContactIDsRequest",
   inherit = TLRequest,
@@ -1122,8 +1110,6 @@ GetContactIDsRequest$read_result <- function(reader) {
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
 #'
-#' @examples
-#' GetContactsRequest$new(0)$to_list()
 GetContactsRequest <- R6::R6Class(
   "GetContactsRequest",
   inherit = TLRequest,
@@ -1202,8 +1188,6 @@ GetContactsRequest$from_reader <- function(reader) {
 #' - to_bytes(): return raw vector of bytes for the TL request
 #' - from_reader(reader): read from reader and return a new instance
 #'
-#' @examples
-#' GetLocatedRequest$new(geoPointObj, TRUE, 60)$to_list()
 GetLocatedRequest <- R6::R6Class(
   "GetLocatedRequest",
   inherit = TLRequest,
@@ -1295,8 +1279,6 @@ GetLocatedRequest$from_reader <- function(reader) {
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
 #'
-#' @examples
-#' GetSavedRequest$new()$to_list()
 GetSavedRequest <- R6::R6Class(
   "GetSavedRequest",
   inherit = TLRequest,
@@ -1348,8 +1330,6 @@ GetSavedRequest$from_reader <- function(reader) {
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
 #'
-#' @examples
-#' GetSponsoredPeersRequest$new("query")$to_list()
 GetSponsoredPeersRequest <- R6::R6Class(
   "GetSponsoredPeersRequest",
   inherit = TLRequest,
@@ -1433,8 +1413,6 @@ GetSponsoredPeersRequest$from_reader <- function(reader) {
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
 #'
-#' @examples
-#' GetStatusesRequest$new()$to_list()
 GetStatusesRequest <- R6::R6Class(
   "GetStatusesRequest",
   inherit = TLRequest,
@@ -1498,8 +1476,6 @@ GetStatusesRequest$from_reader <- function(reader) {
 #' - to_bytes(): return raw vector of bytes for the TL request
 #' - from_reader(reader): read from reader and return a new instance
 #'
-#' @examples
-#' GetTopPeersRequest$new(0, 10, 0)$to_list()
 GetTopPeersRequest <- R6::R6Class(
   "GetTopPeersRequest",
   inherit = TLRequest,
@@ -1677,8 +1653,6 @@ GetTopPeersRequest$from_reader <- function(reader) {
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
 #'
-#' @examples
-#' ImportContactTokenRequest$new("tok")$to_list()
 ImportContactTokenRequest <- R6::R6Class(
   "ImportContactTokenRequest",
   inherit = TLRequest,
@@ -1775,8 +1749,6 @@ ImportContactTokenRequest$from_reader <- function(reader) {
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
 #'
-#' @examples
-#' ImportContactsRequest$new(list(contact1, contact2))$to_list()
 ImportContactsRequest <- R6::R6Class(
   "ImportContactsRequest",
   inherit = TLRequest,
@@ -1882,8 +1854,6 @@ ImportContactsRequest$from_reader <- function(reader) {
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
 #'
-#' @examples
-#' ResetSavedRequest$new()$to_list()
 ResetSavedRequest <- R6::R6Class(
   "ResetSavedRequest",
   inherit = TLRequest,
@@ -1941,8 +1911,6 @@ ResetSavedRequest$from_reader <- function(reader) {
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
 #'
-#' @examples
-#' ResetTopPeerRatingRequest$new(categoryObj, peerObj)$to_list()
 ResetTopPeerRatingRequest <- R6::R6Class(
   "ResetTopPeerRatingRequest",
   inherit = TLRequest,
@@ -2042,8 +2010,6 @@ ResetTopPeerRatingRequest$from_reader <- function(reader) {
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
 #'
-#' @examples
-#' ResolvePhoneRequest$new("123456")$to_list()
 ResolvePhoneRequest <- R6::R6Class(
   "ResolvePhoneRequest",
   inherit = TLRequest,
@@ -2141,8 +2107,6 @@ ResolvePhoneRequest$from_reader <- function(reader) {
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
 #'
-#' @examples
-#' ResolveUsernameRequest$new("bob", "ref")$to_list()
 ResolveUsernameRequest <- R6::R6Class(
   "ResolveUsernameRequest",
   inherit = TLRequest,
@@ -2252,8 +2216,6 @@ ResolveUsernameRequest$from_reader <- function(reader) {
 #' - to_bytes(): return raw vector of bytes for the TL request
 #' - from_reader(reader): class method to read from a reader and return a new instance
 #'
-#' @examples
-#' SetBlockedRequest$new(list(peer1, peer2), 10, TRUE)$to_list()
 SetBlockedRequest <- R6::R6Class(
   "SetBlockedRequest",
   inherit = TLRequest,
@@ -2402,8 +2364,6 @@ SetBlockedRequest$from_reader <- function(reader) {
 #' - to_bytes(): return raw vector of bytes for the TL request
 #' - from_reader(reader): class method to read from a reader and return a new instance
 #'
-#' @examples
-#' ToggleTopPeersRequest$new(TRUE)$to_list()
 ToggleTopPeersRequest <- R6::R6Class(
   "ToggleTopPeersRequest",
   inherit = TLRequest,
@@ -2468,8 +2428,6 @@ ToggleTopPeersRequest$from_reader <- function(reader) {
 #' - to_bytes(): return raw vector of bytes for the TL request (little-endian integer packing used)
 #' - from_reader(reader): class method to read from a reader and return a new instance
 #'
-#' @examples
-#' UnblockRequest$new(id = somePeer, my_stories_from = TRUE)$to_list()
 UnblockRequest <- R6::R6Class(
   "UnblockRequest",
   inherit = TLRequest,

@@ -35,9 +35,10 @@ DestroyAuthKeyRequest_from_reader <- function(reader) {
   DestroyAuthKeyRequest$new()
 }
 
-#' DestroySessionRequest
+#' Pack a 64-bit integer as little-endian raw bytes
 #'
-# Helper functions for little-endian integer packing.
+#' @param value Integer, numeric, bigz, or raw value to pack
+#' @keywords internal
 packInt64_le <- function(value) {
   if (is.raw(value)) {
     if (length(value) == 8) {
@@ -314,8 +315,10 @@ InitConnectionRequest <- R6::R6Class(
 #' @return An instance of `InitConnectionRequest` populated with values read
 #'         from the `reader`.
 #' @examples
+#' \dontrun{
 #' # reader <- Reader$new(source)
 #' # req <- InitConnectionRequest_from_reader(reader)
+#' }
 InitConnectionRequest_from_reader <- function(reader) {
   flags <- reader$read_int()
   api_id <- reader$read_int()
@@ -585,8 +588,10 @@ InvokeWithApnsSecretRequest <- R6::R6Class(
 #'   - `tgread_object()` to read nested Telegram objects.
 #' @return Instance of `InvokeWithApnsSecretRequest`.
 #' @examples
+#' \dontrun{
 #' # reader <- Reader$new(source)
 #' # req <- InvokeWithApnsSecretRequest_from_reader(reader)
+#' }
 InvokeWithApnsSecretRequest_from_reader <- function(reader) {
   nonce <- reader$tgread_string()
   secret <- reader$tgread_string()
@@ -998,9 +1003,6 @@ InvokeWithReCaptchaRequest_from_reader <- function(reader) {
 #' @field query Nested query object implementing `to_list` and `to_bytes`.
 #'
 #' @return An R6 object of class \code{InvokeWithTakeoutRequest}.
-#' @examples
-#' # q <- SomeQueryObject$new(...)
-#' # req <- InvokeWithTakeoutRequest$new(takeout_id = 1234567890123456789, query = q)
 InvokeWithTakeoutRequest <- R6::R6Class(
   "InvokeWithTakeoutRequest",
   public = list(
@@ -1061,8 +1063,10 @@ InvokeWithTakeoutRequest <- R6::R6Class(
 #'   - `tgread_object()` to read nested Telegram objects.
 #' @return Instance of \code{InvokeWithTakeoutRequest}.
 #' @examples
+#' \dontrun{
 #' # reader <- Reader$new(source)
 #' # req <- InvokeWithTakeoutRequest_from_reader(reader)
+#' }
 InvokeWithTakeoutRequest_from_reader <- function(reader) {
   takeout_id <- reader$read_long()
   query <- reader$tgread_object()
@@ -1461,9 +1465,6 @@ ReqPqRequest_from_reader <- function(reader) {
 #' @field CONSTRUCTOR_ID Integer constructor identifier.
 #' @field SUBCLASS_OF_ID Integer subclass identifier.
 #' @field nonce 128-bit nonce (large int or raw).
-#' @examples
-#' # req <- ReqPqMultiRequest$new(nonce = some_large_int)
-#' # bytes <- req$to_bytes()
 ReqPqMultiRequest <- R6::R6Class(
   "ReqPqMultiRequest",
   public = list(
@@ -1530,8 +1531,6 @@ ReqPqMultiRequest_from_reader <- function(reader) {
 #' @field SUBCLASS_OF_ID Integer subclass identifier.
 #' @field req_msg_id Integer64 request message identifier whose answer should be dropped.
 #' @return An R6 object of class \code{RpcDropAnswerRequest}.
-#' @examples
-#' # req <- RpcDropAnswerRequest$new(req_msg_id = 1234567890123456789)
 RpcDropAnswerRequest <- R6::R6Class(
   "RpcDropAnswerRequest",
   public = list(
@@ -1592,8 +1591,6 @@ RpcDropAnswerRequest_from_reader <- function(reader) {
 #' @field server_nonce 128-bit server nonce (large integer or raw).
 #' @field encrypted_data Raw or character vector containing encrypted payload bytes.
 #' @return An R6 object of class \code{SetClientDHParamsRequest}.
-#' @examples
-#' # req <- SetClientDHParamsRequest$new(nonce = some_large_int, server_nonce = other_large_int, encrypted_data = raw())
 SetClientDHParamsRequest <- R6::R6Class(
   "SetClientDHParamsRequest",
   public = list(

@@ -1,5 +1,4 @@
 #' Import required packages
-#' @import future
 NULL
 
 #' Constants

@@ -1,5 +1,3 @@
-#' @import future
-#' @import promises
 NULL
 #' Constants for file operations
 MIN_CHUNK_SIZE <- 4096

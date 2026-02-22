@@ -123,6 +123,7 @@ await_promise <- function(p, timeout = 30) {
 #' Cancel futures if they are not resolved
 #'
 #' @param log Logger object for logging messages
+#' @param ... Named future objects to cancel
 #' @export
 cancel_futures <- function(log, ...) {
   # Get named arguments

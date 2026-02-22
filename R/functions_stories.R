@@ -2232,13 +2232,6 @@ IncrementStoryViewsRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name ReadStoriesRequest
-#' @usage ReadStoriesRequest$new(peer, max_id)
-#' @format An R6 object inheriting from TLRequest
-#' @field peer TypeInputPeer input peer
-#' @field max_id integer max story id
-#' @title ReadStoriesRequest
-#' @description Telegram API type ReadStoriesRequest
-#' @export
 ReadStoriesRequest <- R6::R6Class(
   "ReadStoriesRequest",
   inherit = TLRequest,
@@ -2340,13 +2333,6 @@ ReadStoriesRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name ReorderAlbumsRequest
-#' @usage ReorderAlbumsRequest$new(peer, order)
-#' @format An R6 object inheriting from TLRequest
-#' @field peer TypeInputPeer input peer
-#' @field order integer vector new order of album ids
-#' @title ReorderAlbumsRequest
-#' @description Telegram API type ReorderAlbumsRequest
-#' @export
 ReorderAlbumsRequest <- R6::R6Class(
   "ReorderAlbumsRequest",
   inherit = TLRequest,
@@ -2448,15 +2434,6 @@ ReorderAlbumsRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name ReportRequest
-#' @usage ReportRequest$new(peer, id, option, message)
-#' @format An R6 object inheriting from TLRequest
-#' @field peer TypeInputPeer input peer
-#' @field id integer vector of story ids
-#' @field option raw bytes option
-#' @field message character comment/message
-#' @title ReportRequest
-#' @description Telegram API type ReportRequest
-#' @export
 ReportRequest <- R6::R6Class(
   "ReportRequest",
   inherit = TLRequest,
@@ -2592,16 +2569,6 @@ ReportRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name SearchPostsRequest
-#' @usage SearchPostsRequest$new(offset, limit, hashtag = NULL, area = NULL, peer = NULL)
-#' @format An R6 object inheriting from TLRequest
-#' @field offset character offset cursor
-#' @field limit integer limit
-#' @field hashtag character or NULL
-#' @field area TypeMediaArea or NULL
-#' @field peer TypeInputPeer or NULL
-#' @title SearchPostsRequest
-#' @description Telegram API type SearchPostsRequest
-#' @export
 SearchPostsRequest <- R6::R6Class(
   "SearchPostsRequest",
   inherit = TLRequest,
@@ -2739,15 +2706,6 @@ SearchPostsRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name SendReactionRequest
-#' @usage SendReactionRequest$new(peer, story_id, reaction, add_to_recent = NULL)
-#' @format An R6 object inheriting from TLRequest
-#' @field peer TypeInputPeer
-#' @field story_id integer story id
-#' @field reaction TypeReaction
-#' @field add_to_recent logical or NULL
-#' @title SendReactionRequest
-#' @description Telegram API type SendReactionRequest
-#' @export
 SendReactionRequest <- R6::R6Class(
   "SendReactionRequest",
   inherit = TLRequest,
@@ -2873,28 +2831,6 @@ SendReactionRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name SendStoryRequest
-#' @usage SendStoryRequest$new(peer, media, privacy_rules, pinned = NULL, noforwards = NULL,
-#'                             fwd_modified = NULL, media_areas = NULL, caption = NULL,
-#'                             entities = NULL, random_id = NULL, period = NULL,
-#'                             fwd_from_id = NULL, fwd_from_story = NULL, albums = NULL)
-#' @format An R6 object inheriting from TLRequest
-#' @field peer TypeInputPeer
-#' @field media TypeInputMedia
-#' @field privacy_rules list of TypeInputPrivacyRule
-#' @field pinned logical
-#' @field noforwards logical
-#' @field fwd_modified logical
-#' @field media_areas list of TypeMediaArea
-#' @field caption character
-#' @field entities list of TypeMessageEntity
-#' @field random_id integer64-like random id (stored as numeric/int)
-#' @field period integer
-#' @field fwd_from_id TypeInputPeer
-#' @field fwd_from_story integer
-#' @field albums integer vector
-#' @title SendStoryRequest
-#' @description Telegram API type SendStoryRequest
-#' @export
 SendStoryRequest <- R6::R6Class(
   "SendStoryRequest",
   inherit = TLRequest,
@@ -3225,12 +3161,6 @@ SendStoryRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name ToggleAllStoriesHiddenRequest
-#' @usage ToggleAllStoriesHiddenRequest$new(hidden)
-#' @format An R6 object inheriting from TLRequest (if available)
-#' @field hidden logical desired hidden state
-#' @title ToggleAllStoriesHiddenRequest
-#' @description Telegram API type ToggleAllStoriesHiddenRequest
-#' @export
 ToggleAllStoriesHiddenRequest <- R6::R6Class(
   "ToggleAllStoriesHiddenRequest",
   inherit = TLRequest,
@@ -3295,13 +3225,6 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name TogglePeerStoriesHiddenRequest
-#' @usage TogglePeerStoriesHiddenRequest$new(peer, hidden)
-#' @format An R6 object inheriting from TLRequest (if available)
-#' @field peer TypeInputPeer input peer
-#' @field hidden logical desired hidden state
-#' @title TogglePeerStoriesHiddenRequest
-#' @description Telegram API type TogglePeerStoriesHiddenRequest
-#' @export
 TogglePeerStoriesHiddenRequest <- R6::R6Class(
   "TogglePeerStoriesHiddenRequest",
   inherit = TLRequest,
@@ -3395,14 +3318,6 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name TogglePinnedRequest
-#' @usage TogglePinnedRequest$new(peer, id, pinned)
-#' @format An R6 object inheriting from TLRequest (if available)
-#' @field peer TypeInputPeer input peer
-#' @field id integer vector story ids
-#' @field pinned logical desired pinned state
-#' @title TogglePinnedRequest
-#' @description Telegram API type TogglePinnedRequest
-#' @export
 TogglePinnedRequest <- R6::R6Class(
   "TogglePinnedRequest",
   inherit = TLRequest,
@@ -3532,13 +3447,6 @@ TogglePinnedRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name TogglePinnedToTopRequest
-#' @usage TogglePinnedToTopRequest$new(peer, id)
-#' @format An R6 object inheriting from TLRequest (if available)
-#' @field peer TypeInputPeer input peer
-#' @field id integer vector story ids
-#' @title TogglePinnedToTopRequest
-#' @description Telegram API type TogglePinnedToTopRequest
-#' @export
 TogglePinnedToTopRequest <- R6::R6Class(
   "TogglePinnedToTopRequest",
   inherit = TLRequest,
@@ -3643,17 +3551,6 @@ TogglePinnedToTopRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name UpdateAlbumRequest
-#' @usage UpdateAlbumRequest$new(peer, album_id, title = NULL, delete_stories = NULL, add_stories = NULL, order = NULL)
-#' @format An R6 object inheriting from TLRequest (if available)
-#' @field peer TypeInputPeer input peer
-#' @field album_id integer album identifier
-#' @field title character or NULL new title
-#' @field delete_stories integer vector or NULL stories to delete
-#' @field add_stories integer vector or NULL stories to add
-#' @field order integer vector or NULL new order of stories
-#' @title UpdateAlbumRequest
-#' @description Telegram API type UpdateAlbumRequest
-#' @export
 UpdateAlbumRequest <- R6::R6Class(
   "UpdateAlbumRequest",
   inherit = TLRequest,

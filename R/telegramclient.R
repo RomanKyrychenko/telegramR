@@ -1736,25 +1736,6 @@ TelegramClient <- R6::R6Class(
     #' @param filter The filter to be used, if you want e.g. only admins. Default is NULL.
     #' @param aggressive Does nothing. Kept for backwards-compatibility. Default is FALSE.
     #' @return A _ParticipantsIter object.
-    #' @examples
-    #' # Show all user IDs in a chat
-    #' iter <- client$iter_participants(chat)
-    #' for (user in iter) {
-    #'   print(user$id)
-    #' }
-    #'
-    #' # Search by name
-    #' iter <- client$iter_participants(chat, search = 'name')
-    #' for (user in iter) {
-    #'   print(user$username)
-    #' }
-    #'
-    #' # Filter by admins
-    #' filter <- ChannelParticipantsAdmins()
-    #' iter <- client$iter_participants(chat, filter = filter)
-    #' for (user in iter) {
-    #'   print(user$first_name)
-    #' }
     iter_participants = function(entity, limit = NULL, search = '', filter = NULL, aggressive = FALSE) {
       return(.ParticipantsIter$new(
         client = self$client,
@@ -1769,15 +1750,6 @@ TelegramClient <- R6::R6Class(
     #'
     #' @param ... Arguments passed to iter_participants.
     #' @return A TotalList of participants.
-    #' @examples
-    #' users <- client$get_participants(chat)
-    #' print(users[[1]]$first_name)
-    #'
-    #' for (user in users) {
-    #'   if (!is.null(user$username)) {
-    #'     print(user$username)
-    #'   }
-    #' }
     get_participants = function(...) {
       iter <- self$iter_participants(...)
       return(iter$collect())
@@ -1809,13 +1781,6 @@ TelegramClient <- R6::R6Class(
     #' @param delete If TRUE, events of message deletions will be returned. Default is NULL.
     #' @param group_call If TRUE, events related to group calls will be returned. Default is NULL.
     #' @return An _AdminLogIter object.
-    #' @examples
-    #' iter <- client$iter_admin_log(channel)
-    #' for (event in iter) {
-    #'   if (event$changed_title) {
-    #'     print(paste('The title changed from', event$old, 'to', event$new))
-    #'   }
-    #' }
     iter_admin_log = function(entity, limit = NULL, max_id = 0, min_id = 0, search = NULL, admins = NULL,
                               join = NULL, leave = NULL, invite = NULL, restrict = NULL, unrestrict = NULL,
                               ban = NULL, unban = NULL, promote = NULL, demote = NULL, info = NULL,
@@ -1850,10 +1815,6 @@ TelegramClient <- R6::R6Class(
     #'
     #' @param ... Arguments passed to iter_admin_log.
     #' @return A list of admin log events.
-    #' @examples
-    #' # Get a list of deleted message events which said "heck"
-    #' events <- client$get_admin_log(channel, search = 'heck', delete = TRUE)
-    #' print(events[[1]]$old)
     get_admin_log = function(...) {
       iter <- self$iter_admin_log(...)
       return(iter$collect())
@@ -1868,12 +1829,6 @@ TelegramClient <- R6::R6Class(
     #' @param offset How many photos should be skipped before returning the first one. Default is 0.
     #' @param max_id The maximum ID allowed when fetching photos. Default is 0.
     #' @return A _ProfilePhotoIter object.
-    #' @examples
-    #' # Download all the profile photos of some user
-    #' iter <- client$iter_profile_photos(user)
-    #' for (photo in iter) {
-    #'   client$download_media(photo)
-    #' }
     iter_profile_photos = function(entity, limit = NULL, offset = 0, max_id = 0) {
       return(.ProfilePhotoIter$new(
         client = self$client,
@@ -1888,10 +1843,6 @@ TelegramClient <- R6::R6Class(
     #'
     #' @param ... Arguments passed to iter_profile_photos.
     #' @return A TotalList of photos.
-    #' @examples
-    #' # Get the photos of a channel
-    #' photos <- client$get_profile_photos(channel)
-    #' client$download_media(photos[[length(photos)]])
     get_profile_photos = function(...) {
       iter <- self$iter_profile_photos(...)
       return(iter$collect())
@@ -1906,18 +1857,6 @@ TelegramClient <- R6::R6Class(
     #' @param delay The delay in seconds between sending actions. Default is 4.
     #' @param auto_cancel Whether to cancel the action automatically. Default is TRUE.
     #' @return A _ChatAction object or a coroutine.
-    #' @examples
-    #' # Type for 2 seconds, then send a message
-    #' action <- client$action(chat, 'typing')
-    #' Sys.sleep(2)
-    #' client$send_message(chat, 'Hello world! I type slow ^^')
-    #'
-    #' # Cancel any previous action
-    #' client$action(chat, 'cancel')
-    #'
-    #' # Upload a document, showing its progress
-    #' action <- client$action(chat, 'document')
-    #' client$send_file(chat, zip_file, progress_callback = action$progress)
     action = function(entity, action, delay = 4, auto_cancel = TRUE) {
       if (is.character(action)) {
         action <- .ChatAction$.str_mapping[[tolower(action)]]
@@ -1956,12 +1895,6 @@ TelegramClient <- R6::R6Class(
     #' @param is_admin Whether the user is an admin. Default is NULL.
     #' @param title The custom title for the admin. Default is NULL.
     #' @return The resulting Updates object.
-    #' @examples
-    #' # Allowing user to pin messages in chat
-    #' client$edit_admin(chat, user, pin_messages = TRUE)
-    #'
-    #' # Granting all permissions except for add_admins
-    #' client$edit_admin(chat, user, is_admin = TRUE, add_admins = FALSE)
     edit_admin = function(entity, user, change_info = NULL, post_messages = NULL, edit_messages = NULL,
                           delete_messages = NULL, ban_users = NULL, invite_users = NULL, pin_messages = NULL,
                           add_admins = NULL, manage_call = NULL, anonymous = NULL, is_admin = NULL, title = NULL) {
@@ -2020,13 +1953,6 @@ TelegramClient <- R6::R6Class(
     #' @param invite_users Whether the user can invite users. Default is TRUE.
     #' @param pin_messages Whether the user can pin messages. Default is TRUE.
     #' @return The resulting Updates object.
-    #' @examples
-    #' # Banning user from chat forever
-    #' client$edit_permissions(chat, user, view_messages = FALSE)
-    #'
-    #' # Kicking someone (ban + un-ban)
-    #' client$edit_permissions(chat, user, view_messages = FALSE)
-    #' client$edit_permissions(chat, user)
     edit_permissions = function(entity, user = NULL, until_date = NULL, view_messages = TRUE,
                                 send_messages = TRUE, send_media = TRUE, send_stickers = TRUE,
                                 send_gifs = TRUE, send_games = TRUE, send_inline = TRUE,
@@ -2067,13 +1993,6 @@ TelegramClient <- R6::R6Class(
     #' @param entity The channel or chat where the user should be kicked from.
     #' @param user The user to kick.
     #' @return The service message produced about a user being kicked, if any.
-    #' @examples
-    #' # Kick some user from some chat, and deleting the service message
-    #' msg <- client$kick_participant(chat, user)
-    #' msg$delete()
-    #'
-    #' # Leaving chat
-    #' client$kick_participant(chat, 'me')
     kick_participant = function(entity, user) {
       entity <- self$client$get_input_entity(entity)
       user <- self$client$get_input_entity(user)
@@ -2109,14 +2028,6 @@ TelegramClient <- R6::R6Class(
     #' @param entity The channel or chat the user is participant of.
     #' @param user Target user. Default is NULL.
     #' @return A ParticipantPermissions instance or NULL.
-    #' @examples
-    #' permissions <- client$get_permissions(chat, user)
-    #' if (permissions$is_admin) {
-    #'   # do something
-    #' }
-    #'
-    #' # Get Banned Permissions of Chat
-    #' client$get_permissions(chat)
     get_permissions = function(entity, user = NULL) {
       entity <- self$client$get_entity(entity)
 
@@ -2157,11 +2068,6 @@ TelegramClient <- R6::R6Class(
     #' @param entity The channel from which to get statistics.
     #' @param message The message ID from which to get statistics. Default is NULL.
     #' @return BroadcastStats, MegagroupStats, or MessageStats.
-    #' @examples
-    #' channel <- -100123
-    #' stats <- client$get_stats(channel)
-    #' print(paste('Stats from', stats$period$min_date, 'to', stats$period$max_date, ':'))
-    #' print(stats$stringify())
     get_stats = function(entity, message = NULL) {
       entity <- self$client$get_input_entity(entity)
       if (entity_type(entity) != EntityType$CHANNEL) {

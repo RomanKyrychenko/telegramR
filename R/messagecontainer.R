@@ -31,9 +31,6 @@ MessageContainer <- R6::R6Class(
     #' @description
     #' Convert the `MessageContainer` object to a dictionary representation.
     #' @return A list containing the fields of the `MessageContainer` object in dictionary format.
-    #' @examples
-    #' container <- MessageContainer$new(messages = list())
-    #' container$to_dict()
     to_dict = function() {
       return(
         list(
@@ -53,10 +50,6 @@ MessageContainer <- R6::R6Class(
     #' Read and parse a `MessageContainer` object from a binary reader.
     #' @param reader A binary reader object to read the messages from.
     #' @return The updated `MessageContainer` object with the parsed messages.
-    #' @examples
-    #' # Assuming `reader` is a binary reader object:
-    #' container <- MessageContainer$new()
-    #' container$from_reader(reader)
     #' @description
     #' Read and parse a `MessageContainer` object from a binary reader.
     #' @param reader A binary reader object to read the messages from.

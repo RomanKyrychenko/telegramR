@@ -17,10 +17,6 @@ AESModeCTR <- R6::R6Class(
     #' Initialize the AES CTR mode with the given key and IV.
     #' @param key A raw vector representing the encryption key (16 bytes).
     #' @param iv A raw vector representing the initialization vector (16 bytes).
-    #' @examples
-    #' key <- as.raw(rep(0x01, 16))
-    #' iv <- as.raw(rep(0x02, 16))
-    #' aes_ctr <- AESModeCTR$new(key, iv)
     initialize = function(key, iv) {
       stopifnot(is.raw(key))
       stopifnot(is.raw(iv))
@@ -34,12 +30,6 @@ AESModeCTR <- R6::R6Class(
     #' Encrypt the given plain text using AES CTR mode.
     #' @param data A raw vector representing the plain text to encrypt.
     #' @return A raw vector representing the encrypted cipher text.
-    #' @examples
-    #' key <- as.raw(rep(0x01, 16))
-    #' iv <- as.raw(rep(0x02, 16))
-    #' aes_ctr <- AESModeCTR$new(key, iv)
-    #' plain_text <- as.raw(c(0x00, 0x01, 0x02, 0x03))
-    #' cipher_text <- aes_ctr$encrypt(plain_text)
     encrypt = function(data) {
       aes <- digest::AES(self$key, mode = "CTR", IV = self$iv)
       aes$encrypt(data)
@@ -49,12 +39,6 @@ AESModeCTR <- R6::R6Class(
     #' Decrypt the given cipher text using AES CTR mode.
     #' @param data A raw vector representing the cipher text to decrypt.
     #' @return A raw vector representing the decrypted plain text.
-    #' @examples
-    #' key <- as.raw(rep(0x01, 16))
-    #' iv <- as.raw(rep(0x02, 16))
-    #' aes_ctr <- AESModeCTR$new(key, iv)
-    #' cipher_text <- aes_ctr$encrypt(as.raw(c(0x00, 0x01, 0x02, 0x03)))
-    #' plain_text <- aes_ctr$decrypt(cipher_text)
     decrypt = function(data) {
       aes <- digest::AES(self$key, mode = "CTR", IV = self$iv)
       aes$decrypt(data, raw = TRUE)

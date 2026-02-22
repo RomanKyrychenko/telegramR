@@ -15,8 +15,6 @@
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- AddPreviewMediaRequest$new(botObj, "en", mediaObj)
 #' @title AddPreviewMediaRequest
 #' @description Telegram API type AddPreviewMediaRequest
 #' @export
@@ -156,8 +154,6 @@ AddPreviewMediaRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- AllowSendMessageRequest$new(botObj)
 #' @title AllowSendMessageRequest
 #' @description Telegram API type AllowSendMessageRequest
 #' @export
@@ -263,8 +259,6 @@ AllowSendMessageRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- AnswerWebhookJSONQueryRequest$new(12345678901234, dataObj)
 #' @title AnswerWebhookJSONQueryRequest
 #' @description Telegram API type AnswerWebhookJSONQueryRequest
 #' @export
@@ -371,8 +365,6 @@ AnswerWebhookJSONQueryRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- CanSendMessageRequest$new(botObj)
 #' @title CanSendMessageRequest
 #' @description Telegram API type CanSendMessageRequest
 #' @export
@@ -480,8 +472,6 @@ CanSendMessageRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- CheckDownloadFileParamsRequest$new(botObj, "file.png", "https://...")
 #' @title CheckDownloadFileParamsRequest
 #' @description Telegram API type CheckDownloadFileParamsRequest
 #' @export
@@ -602,8 +592,6 @@ CheckDownloadFileParamsRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- DeletePreviewMediaRequest$new(botObj, "en", list(media1, media2))
 #' @title DeletePreviewMediaRequest
 #' @description Telegram API type DeletePreviewMediaRequest
 #' @export
@@ -771,8 +759,6 @@ DeletePreviewMediaRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- EditPreviewMediaRequest$new(botObj, "en", mediaObj, newMediaObj)
 #' @title EditPreviewMediaRequest
 #' @description Telegram API type EditPreviewMediaRequest
 #' @export
@@ -973,8 +959,6 @@ GetAdminedBotsRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- GetBotCommandsRequest$new(scopeObj, "en")
 #' @title GetBotCommandsRequest
 #' @description Telegram API type GetBotCommandsRequest
 #' @export
@@ -1075,8 +1059,6 @@ GetBotCommandsRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- GetBotInfoRequest$new("en", bot = someBot)
 #' @title GetBotInfoRequest
 #' @description Telegram API type GetBotInfoRequest
 #' @export
@@ -1199,8 +1181,6 @@ GetBotInfoRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- GetBotMenuButtonRequest$new(someUser)
 #' @title GetBotMenuButtonRequest
 #' @description Telegram API type GetBotMenuButtonRequest
 #' @export
@@ -1307,8 +1287,6 @@ GetBotMenuButtonRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- GetBotRecommendationsRequest$new(someBot)
 #' @title GetBotRecommendationsRequest
 #' @description Telegram API type GetBotRecommendationsRequest
 #' @export
@@ -1415,8 +1393,6 @@ GetBotRecommendationsRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- GetPopularAppBotsRequest$new("0", 50)
 #' @title GetPopularAppBotsRequest
 #' @description Telegram API type GetPopularAppBotsRequest
 #' @export
@@ -1509,8 +1485,6 @@ GetPopularAppBotsRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- GetPreviewInfoRequest$new(bot, "en")
 #' @title GetPreviewInfoRequest
 #' @description Telegram API type GetPreviewInfoRequest
 #' @export
@@ -1624,8 +1598,6 @@ GetPreviewInfoRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- GetPreviewMediasRequest$new(bot)
 #' @title GetPreviewMediasRequest
 #' @description Telegram API type GetPreviewMediasRequest
 #' @export
@@ -1733,8 +1705,6 @@ GetPreviewMediasRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- InvokeWebViewCustomMethodRequest$new(bot, "methodName", paramsObj)
 #' @title InvokeWebViewCustomMethodRequest
 #' @description Telegram API type InvokeWebViewCustomMethodRequest
 #' @export
@@ -1872,8 +1842,6 @@ InvokeWebViewCustomMethodRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- ReorderPreviewMediasRequest$new(bot, "en", list(media1, media2))
 #' @title ReorderPreviewMediasRequest
 #' @description Telegram API type ReorderPreviewMediasRequest
 #' @export
@@ -2028,8 +1996,6 @@ ReorderPreviewMediasRequest$from_reader <- function(reader) {
 #' @description Represents the ReorderUsernamesRequest TL request.
 #' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
 #' @field order list of character usernames
-#' @examples
-#' # o <- ReorderUsernamesRequest$new(bot, list("u1", "u2"))
 #' @title ReorderUsernamesRequest
 #' @description Telegram API type ReorderUsernamesRequest
 #' @export
@@ -2159,8 +2125,6 @@ ReorderUsernamesRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- ResetBotCommandsRequest$new(scope, "en")
 #' @title ResetBotCommandsRequest
 #' @description Telegram API type ResetBotCommandsRequest
 #' @export
@@ -2274,8 +2238,6 @@ ResetBotCommandsRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- SendCustomRequestRequest$new("methodName", paramsObj)
 #' @title SendCustomRequestRequest
 #' @description Telegram API type SendCustomRequestRequest
 #' @export
@@ -2385,8 +2347,6 @@ SendCustomRequestRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- SetBotBroadcastDefaultAdminRightsRequest$new(admin_rights)
 #' @title SetBotBroadcastDefaultAdminRightsRequest
 #' @description Telegram API type SetBotBroadcastDefaultAdminRightsRequest
 #' @export
@@ -2475,8 +2435,6 @@ SetBotBroadcastDefaultAdminRightsRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- SetBotCommandsRequest$new(scope, "en", list(cmd1, cmd2))
 #' @title SetBotCommandsRequest
 #' @description Telegram API type SetBotCommandsRequest
 #' @export
@@ -2630,8 +2588,6 @@ SetBotCommandsRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- SetBotGroupDefaultAdminRightsRequest$new(admin_rights)
 #' @title SetBotGroupDefaultAdminRightsRequest
 #' @description Telegram API type SetBotGroupDefaultAdminRightsRequest
 #' @export
@@ -2722,8 +2678,6 @@ SetBotGroupDefaultAdminRightsRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- SetBotInfoRequest$new("en", bot = someBot, name = "Name")
 #' @title SetBotInfoRequest
 #' @description Telegram API type SetBotInfoRequest
 #' @export
@@ -2862,8 +2816,6 @@ SetBotInfoRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- SetBotMenuButtonRequest$new(user_id, button)
 #' @title SetBotMenuButtonRequest
 #' @description Telegram API type SetBotMenuButtonRequest
 #' @export
@@ -2992,8 +2944,6 @@ SetBotMenuButtonRequest$from_reader <- function(reader) {
 #' - to_list() -> list representation
 #' - to_bytes() -> raw vector bytes
 #'
-#' @examples
-#' # o <- SetCustomVerificationRequest$new(peer, TRUE, bot = someBot, custom_description = "desc")
 #' @title SetCustomVerificationRequest
 #' @description Telegram API type SetCustomVerificationRequest
 #' @export
@@ -3147,8 +3097,6 @@ SetCustomVerificationRequest$from_reader <- function(reader) {
 #'
 #' Each method is documented inline below.
 #'
-#' @examples
-#' # o <- ToggleUserEmojiStatusPermissionRequest$new(bot, TRUE)
 #' @title ToggleUserEmojiStatusPermissionRequest
 #' @description Telegram API type ToggleUserEmojiStatusPermissionRequest
 #' @export
@@ -3264,8 +3212,6 @@ ToggleUserEmojiStatusPermissionRequest$from_reader <- function(reader) {
 #' - to_list() -> list representation
 #' - to_bytes() -> raw vector bytes
 #'
-#' @examples
-#' # o <- ToggleUsernameRequest$new(bot, "myusername", TRUE)
 #' @title ToggleUsernameRequest
 #' @description Telegram API type ToggleUsernameRequest
 #' @export
@@ -3387,8 +3333,6 @@ ToggleUsernameRequest$from_reader <- function(reader) {
 #' - to_list() -> list representation
 #' - to_bytes() -> raw vector bytes
 #'
-#' @examples
-#' # o <- UpdateStarRefProgramRequest$new(bot, 100, 12)
 #' @title UpdateStarRefProgramRequest
 #' @description Telegram API type UpdateStarRefProgramRequest
 #' @export
@@ -3512,8 +3456,6 @@ UpdateStarRefProgramRequest$from_reader <- function(reader) {
 #' - to_list() -> list representation
 #' - to_bytes() -> raw vector bytes
 #'
-#' @examples
-#' # o <- UpdateUserEmojiStatusRequest$new(user_id, emoji_status)
 #' @title UpdateUserEmojiStatusRequest
 #' @description Telegram API type UpdateUserEmojiStatusRequest
 #' @export

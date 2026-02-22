@@ -13,8 +13,10 @@ EPOCH <- EPOCH_NAIVE
 #' @param dt A datetime object to be converted.
 #' @return A numeric value representing the timestamp in seconds since the epoch.
 #' @examples
+#' \dontrun{
 #' datetime_to_timestamp(as.POSIXct("2023-01-01 12:00:00", tz = "UTC"))
 #' datetime_to_timestamp(as.POSIXct("2023-01-01 12:00:00"))
+#' }
 #' @export
 datetime_to_timestamp <- function(dt) {
   if (is.na(attr(dt, "tzone"))) {
@@ -32,9 +34,11 @@ datetime_to_timestamp <- function(dt) {
 #' @param value The value to be serialized.
 #' @return A character string representing the serialized value.
 #' @examples
+#' \dontrun{
 #' json_default(charToRaw("test"))
 #' json_default(as.POSIXct("2023-01-01 12:00:00", tz = "UTC"))
 #' json_default(123)
+#' }
 #' @export
 json_default <- function(value) {
   if (is.raw(value)) {
@@ -55,8 +59,10 @@ json_default <- function(value) {
 #' @param indent The current indentation level (used for recursive calls).
 #' @return A character string representing the formatted object.
 #' @examples
+#' \dontrun{
 #' pretty_format(list(a = 1, b = "test", c = list(d = 2)))
 #' pretty_format(c(1, 2, 3))
+#' }
 #' @export
 pretty_format <- function(obj, indent = NULL) {
   if (is.null(indent)) {
@@ -146,8 +152,10 @@ pretty_format <- function(obj, indent = NULL) {
 #' @param data The data to be serialized.
 #' @return A raw vector representing the serialized data.
 #' @examples
+#' \dontrun{
 #' serialize_bytes(charToRaw("test"))
 #' serialize_bytes("test")
+#' }
 #' @export
 serialize_bytes <- function(data) {
   if (!is.raw(data)) {
@@ -190,10 +198,12 @@ serialize_bytes <- function(data) {
 #' @param dt The datetime object to be serialized.
 #' @return A raw vector representing the serialized datetime.
 #' @examples
+#' \dontrun{
 #' serialize_datetime(as.POSIXct("2023-01-01 12:00:00", tz = "UTC"))
 #' serialize_datetime(as.Date("2023-01-01"))
 #' serialize_datetime(as.numeric(1234567890))
 #' serialize_datetime(as.difftime(3600, units = "secs"))
+#' }
 #' @export
 serialize_datetime <- function(dt) {
   if (is.null(dt) || !inherits(dt, "difftime")) {

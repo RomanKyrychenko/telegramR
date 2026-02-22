@@ -19,9 +19,6 @@ Factorization <- R6::R6Class(
     #'
     #' @param pq An integer representing the product of two primes.
     #' @return A numeric vector containing the two factors `p` and `q`.
-    #' @examples
-    #' factorizer <- Factorization$new()
-    #' factorizer$factorize(15) # Returns c(3, 5)
     factorize = function(pq) {
       pq <- gmp::as.bigz(pq)
       if (gmp::mod.bigz(pq, 2) == 0) {
@@ -79,9 +76,6 @@ Factorization <- R6::R6Class(
     #' @param a An integer.
     #' @param b Another integer.
     #' @return The GCD of `a` and `b`.
-    #' @examples
-    #' factorizer <- Factorization$new()
-    #' factorizer$gcd(12, 8) # Returns 4
     gcd = function(a, b) {
       return(gmp::gcd.bigz(gmp::as.bigz(a), gmp::as.bigz(b)))
     }
