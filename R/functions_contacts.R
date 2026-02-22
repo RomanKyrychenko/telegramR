@@ -10,7 +10,7 @@
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
 #' - from_reader(reader): read from reader and return new instance
-#'
+#' @export
 AcceptContactRequest <- R6::R6Class(
   "AcceptContactRequest",
   inherit = TLRequest,
@@ -91,7 +91,7 @@ AcceptContactRequest$from_reader <- function(reader) {
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
 #' - from_reader(reader): read from reader and return new instance
-#'
+#' @export
 AddContactRequest <- R6::R6Class(
   "AddContactRequest",
   inherit = TLRequest,
@@ -250,7 +250,7 @@ AddContactRequest$from_reader <- function(reader) {
 #' - resolve(client, utils): resolve id into input_peer using client and utils
 #' - to_list(): return a list representation suitable for JSON/dumping
 #' - to_bytes(): return raw vector of bytes for the TL request
-#'
+#' @export
 BlockRequest <- R6::R6Class(
   "BlockRequest",
   inherit = TLRequest,
@@ -359,7 +359,7 @@ BlockRequest$from_reader <- function(reader) {
 #' - initialize(msg_id, delete_message = NULL, delete_history = NULL, report_spam = NULL): create new request
 #' - to_list(): return a list representation
 #' - to_bytes(): return raw vector of bytes for the TL request
-#'
+#' @export
 BlockFromRepliesRequest <- R6::R6Class(
   "BlockFromRepliesRequest",
   inherit = TLRequest,
