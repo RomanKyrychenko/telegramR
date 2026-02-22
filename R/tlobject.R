@@ -206,7 +206,7 @@ serialize_bytes <- function(data) {
 #' }
 #' @export
 serialize_datetime <- function(dt) {
-  if (is.null(dt) || !inherits(dt, "difftime")) {
+  if (is.null(dt)) {
     return(as.raw(rep(0, 4)))
   }
   if (inherits(dt, "POSIXt")) {
@@ -360,7 +360,7 @@ TLObject <- R6::R6Class(
     #' @param dt The datetime object to be serialized.
     #' @return A raw vector representing the serialized datetime.
     serialize_datetime = function(dt) {
-      if (is.null(dt) || !inherits(dt, "difftime")) {
+      if (is.null(dt)) {
         return(as.raw(rep(0, 4)))
       }
       if (inherits(dt, "POSIXt")) {
