@@ -37,7 +37,7 @@ AcceptEncryptionRequest <- R6::R6Class(
       c(
         as.raw(c(0x15, 0x04, 0xbc, 0x3d)),
         self$peer$bytes(),
-        self$serializeBytes(self$gB),
+        self$serialize_bytes(self$gB),
         pack("<q", self$keyFingerprint)
       )
     }
@@ -118,7 +118,7 @@ AcceptUrlAuthRequest <- R6::R6Class(
         if (is.null(self$peer)) raw(0) else self$peer$bytes(),
         if (is.null(self$msgId)) raw(0) else pack("<i", self$msgId),
         if (is.null(self$buttonId)) raw(0) else pack("<i", self$buttonId),
-        if (is.null(self$url)) raw(0) else self$serializeBytes(self$url)
+        if (is.null(self$url)) raw(0) else self$serialize_bytes(self$url)
       )
     }
   )
@@ -307,7 +307,7 @@ CheckChatInviteRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xbb, 0xb1, 0xad, 0x3e)),
-        self$serializeBytes(self$hash)
+        self$serialize_bytes(self$hash)
       )
     }
   )
@@ -355,7 +355,7 @@ CheckHistoryImportRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xf3, 0x19, 0xfe, 0x43)),
-        self$serializeBytes(self$importHead)
+        self$serialize_bytes(self$importHead)
       )
     }
   )
@@ -459,7 +459,7 @@ CheckQuickReplyShortcutRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xd3, 0xfb, 0xd0, 0xf1)),
-        self$serializeBytes(self$shortcut)
+        self$serialize_bytes(self$shortcut)
       )
     }
   )
@@ -642,7 +642,7 @@ ClickSponsoredMessageRequest <- R6::R6Class(
       c(
         as.raw(c(0x7e, 0x05, 0x35, 0x82)),
         pack("<I", flags),
-        self$serializeBytes(self$randomId)
+        self$serialize_bytes(self$randomId)
       )
     }
   )
@@ -714,7 +714,7 @@ CreateChatRequest <- R6::R6Class(
         as.raw(c(0xd4, 0xdd, 0xce, 0x92)),
         pack("<I", flags),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("<i", length(self$users)), do.call(c, lapply(self$users, function(x) x$bytes())),
-        self$serializeBytes(self$title),
+        self$serialize_bytes(self$title),
         if (is.null(self$ttlPeriod)) raw(0) else pack("<i", self$ttlPeriod)
       )
     }
@@ -897,7 +897,7 @@ DeleteExportedChatInviteRequest <- R6::R6Class(
       c(
         as.raw(c(0x2b, 0xa4, 0x64, 0xd4)),
         self$peer$bytes(),
-        self$serializeBytes(self$link)
+        self$serialize_bytes(self$link)
       )
     }
   )
@@ -1035,8 +1035,8 @@ DeleteHistoryRequest <- R6::R6Class(
         pack("<I", flags),
         self$peer$bytes(),
         pack("<i", self$maxId),
-        if (is.null(self$minDate)) raw(0) else self$serializeDatetime(self$minDate),
-        if (is.null(self$maxDate)) raw(0) else self$serializeDatetime(self$maxDate)
+        if (is.null(self$minDate)) raw(0) else self$serialize_datetime(self$minDate),
+        if (is.null(self$maxDate)) raw(0) else self$serialize_datetime(self$maxDate)
       )
     }
   )
@@ -1398,8 +1398,8 @@ DeleteSavedHistoryRequest <- R6::R6Class(
         if (is.null(self$parentPeer)) raw(0) else self$parentPeer$bytes(),
         self$peer$bytes(),
         pack("<i", self$maxId),
-        if (is.null(self$minDate)) raw(0) else self$serializeDatetime(self$minDate),
-        if (is.null(self$maxDate)) raw(0) else self$serializeDatetime(self$maxDate)
+        if (is.null(self$minDate)) raw(0) else self$serialize_datetime(self$minDate),
+        if (is.null(self$maxDate)) raw(0) else self$serialize_datetime(self$maxDate)
       )
     }
   )
@@ -1583,7 +1583,7 @@ EditChatAboutRequest <- R6::R6Class(
       c(
         as.raw(c(0x97, 0x07, 0xf6, 0xde)),
         self$peer$bytes(),
-        self$serializeBytes(self$about)
+        self$serialize_bytes(self$about)
       )
     }
   )
@@ -1823,7 +1823,7 @@ EditChatTitleRequest <- R6::R6Class(
       c(
         as.raw(c(0xfd, 0x3f, 0x78, 0x73)),
         pack("<q", self$chatId),
-        self$serializeBytes(self$title)
+        self$serialize_bytes(self$title)
       )
     }
   )
@@ -1904,11 +1904,11 @@ EditExportedChatInviteRequest <- R6::R6Class(
         as.raw(c(0x75, 0x2f, 0xca, 0xbd)),
         pack("<I", flags),
         self$peer$bytes(),
-        self$serializeBytes(self$link),
-        if (is.null(self$expireDate)) raw(0) else self$serializeDatetime(self$expireDate),
+        self$serialize_bytes(self$link),
+        if (is.null(self$expireDate)) raw(0) else self$serialize_datetime(self$expireDate),
         if (is.null(self$usageLimit)) raw(0) else pack("<i", self$usageLimit),
         if (is.null(self$requestNeeded)) raw(0) else if (self$requestNeeded) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)),
-        if (is.null(self$title)) raw(0) else self$serializeBytes(self$title)
+        if (is.null(self$title)) raw(0) else self$serialize_bytes(self$title)
       )
     }
   )
@@ -2064,7 +2064,7 @@ EditInlineBotMessageRequest <- R6::R6Class(
         as.raw(c(0xba, 0x7d, 0x55, 0x83)),
         pack("<I", flags),
         self$id$bytes(),
-        if (is.null(self$message)) raw(0) else self$serializeBytes(self$message),
+        if (is.null(self$message)) raw(0) else self$serialize_bytes(self$message),
         if (is.null(self$media)) raw(0) else self$media$bytes(),
         if (is.null(self$replyMarkup)) raw(0) else self$replyMarkup$bytes(),
         if (is.null(self$entities)) raw(0) else c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("<i", length(self$entities)), do.call(c, lapply(self$entities, function(x) x$bytes())))
@@ -2175,11 +2175,11 @@ EditMessageRequest <- R6::R6Class(
         pack("<I", flags),
         self$peer$bytes(),
         pack("<i", self$id),
-        if (is.null(self$message)) raw(0) else self$serializeBytes(self$message),
+        if (is.null(self$message)) raw(0) else self$serialize_bytes(self$message),
         if (is.null(self$media)) raw(0) else self$media$bytes(),
         if (is.null(self$replyMarkup)) raw(0) else self$replyMarkup$bytes(),
         if (is.null(self$entities)) raw(0) else c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("<i", length(self$entities)), do.call(c, lapply(self$entities, function(x) x$bytes()))),
-        if (is.null(self$scheduleDate)) raw(0) else self$serializeDatetime(self$scheduleDate),
+        if (is.null(self$scheduleDate)) raw(0) else self$serialize_datetime(self$scheduleDate),
         if (is.null(self$quickReplyShortcutId)) raw(0) else pack("<i", self$quickReplyShortcutId)
       )
     }
@@ -2248,7 +2248,7 @@ EditQuickReplyShortcutRequest <- R6::R6Class(
       c(
         as.raw(c(0xef, 0x3c, 0x00, 0x5c)),
         pack("<i", self$shortcutId),
-        self$serializeBytes(self$shortcut)
+        self$serialize_bytes(self$shortcut)
       )
     }
   )
@@ -2330,9 +2330,9 @@ ExportChatInviteRequest <- R6::R6Class(
         as.raw(c(0x90, 0xde, 0x55, 0xa4)),
         pack("<I", flags),
         self$peer$bytes(),
-        if (is.null(self$expireDate)) raw(0) else self$serializeDatetime(self$expireDate),
+        if (is.null(self$expireDate)) raw(0) else self$serialize_datetime(self$expireDate),
         if (is.null(self$usageLimit)) raw(0) else pack("<i", self$usageLimit),
-        if (is.null(self$title) || !nchar(self$title)) raw(0) else self$serializeBytes(self$title),
+        if (is.null(self$title) || !nchar(self$title)) raw(0) else self$serialize_bytes(self$title),
         if (is.null(self$subscriptionPricing)) raw(0) else self$subscriptionPricing$bytes()
       )
     }
@@ -2543,7 +2543,7 @@ ForwardMessagesRequest <- R6::R6Class(
         self$toPeer$bytes(),
         if (is.null(self$topMsgId)) raw(0) else pack("<i", self$topMsgId),
         if (is.null(self$replyTo)) raw(0) else self$replyTo$bytes(),
-        if (is.null(self$scheduleDate)) raw(0) else self$serializeDatetime(self$scheduleDate),
+        if (is.null(self$scheduleDate)) raw(0) else self$serialize_datetime(self$scheduleDate),
         if (is.null(self$sendAs)) raw(0) else self$sendAs$bytes(),
         if (is.null(self$quickReplyShortcut)) raw(0) else self$quickReplyShortcut$bytes(),
         if (is.null(self$videoTimestamp)) raw(0) else pack("<i", self$videoTimestamp),
@@ -3155,7 +3155,7 @@ GetBotCallbackAnswerRequest <- R6::R6Class(
         pack("<I", flags),
         self$peer$bytes(),
         pack("<i", self$msgId),
-        if (is.null(self$data) || !length(self$data)) raw(0) else self$serializeBytes(self$data),
+        if (is.null(self$data) || !length(self$data)) raw(0) else self$serialize_bytes(self$data),
         if (is.null(self$password)) raw(0) else self$password$bytes()
       )
     }
@@ -3245,9 +3245,9 @@ GetChatInviteImportersRequest <- R6::R6Class(
         as.raw(c(0xdf, 0x04, 0xdd, 0x4e)),
         pack("<I", flags),
         self$peer$bytes(),
-        if (is.null(self$link) || !nchar(self$link)) raw(0) else self$serializeBytes(self$link),
-        if (is.null(self$q) || !nchar(self$q)) raw(0) else self$serializeBytes(self$q),
-        self$serializeDatetime(self$offsetDate),
+        if (is.null(self$link) || !nchar(self$link)) raw(0) else self$serialize_bytes(self$link),
+        if (is.null(self$q) || !nchar(self$q)) raw(0) else self$serialize_bytes(self$q),
+        self$serialize_datetime(self$offsetDate),
         self$offsetUser$bytes(),
         pack("<i", self$limit)
       )
@@ -3742,7 +3742,7 @@ GetDialogsRequest <- R6::R6Class(
         as.raw(c(0xa0, 0xf4, 0xcb, 0x4f)),
         pack("<I", flags),
         if (is.null(self$folderId)) raw(0) else pack("<i", self$folderId),
-        self$serializeDatetime(self$offsetDate),
+        self$serialize_datetime(self$offsetDate),
         pack("<i", self$offsetId),
         self$offsetPeer$bytes(),
         pack("<i", self$limit),
@@ -3868,9 +3868,9 @@ GetDocumentByHashRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x1f, 0x06, 0xf2, 0xb1)),
-        self$serializeBytes(self$sha256),
+        self$serialize_bytes(self$sha256),
         pack("<q", self$size),
-        self$serializeBytes(self$mimeType)
+        self$serialize_bytes(self$mimeType)
       )
     }
   )
@@ -3968,7 +3968,7 @@ GetEmojiKeywordsRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x62, 0xe0, 0xa0, 0x35)),
-        self$serializeBytes(self$langCode)
+        self$serialize_bytes(self$langCode)
       )
     }
   )
@@ -4020,7 +4020,7 @@ GetEmojiKeywordsDifferenceRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xaf, 0xb6, 0x08, 0x15)),
-        self$serializeBytes(self$langCode),
+        self$serialize_bytes(self$langCode),
         pack("<i", self$fromVersion)
       )
     }
@@ -4072,7 +4072,7 @@ GetEmojiKeywordsLanguagesRequest <- R6::R6Class(
         as.raw(c(0xb2, 0x63, 0x99, 0x4e)),
         as.raw(c(0x1c, 0xb5, 0xc4, 0x15)),
         pack("<i", length(self$langCodes)),
-        do.call(c, lapply(self$langCodes, function(x) self$serializeBytes(x)))
+        do.call(c, lapply(self$langCodes, function(x) self$serialize_bytes(x)))
       )
     }
   )
@@ -4318,7 +4318,7 @@ GetEmojiURLRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x26, 0x0c, 0xb1, 0xd5)),
-        self$serializeBytes(self$langCode)
+        self$serialize_bytes(self$langCode)
       )
     }
   )
@@ -4377,7 +4377,7 @@ GetExportedChatInviteRequest <- R6::R6Class(
       c(
         as.raw(c(0x5c, 0x6f, 0x74, 0x73)),
         self$peer$bytes(),
-        self$serializeBytes(self$link)
+        self$serialize_bytes(self$link)
       )
     }
   )
@@ -4461,8 +4461,8 @@ GetExportedChatInvitesRequest <- R6::R6Class(
         pack("<I", flags),
         self$peer$bytes(),
         self$adminId$bytes(),
-        if (is.null(self$offsetDate) || !self$offsetDate) raw(0) else self$serializeDatetime(self$offsetDate),
-        if (is.null(self$offsetLink) || !self$offsetLink) raw(0) else self$serializeBytes(self$offsetLink),
+        if (is.null(self$offsetDate) || !self$offsetDate) raw(0) else self$serialize_datetime(self$offsetDate),
+        if (is.null(self$offsetLink) || !self$offsetLink) raw(0) else self$serialize_bytes(self$offsetLink),
         pack("<i", self$limit)
       )
     }
@@ -4941,7 +4941,7 @@ GetHistoryRequest <- R6::R6Class(
         as.raw(c(0xc5, 0xe6, 0x23, 0x44)),
         self$peer$bytes(),
         pack("<i", self$offsetId),
-        self$serializeDatetime(self$offsetDate),
+        self$serialize_datetime(self$offsetDate),
         pack("<i", self$addOffset),
         pack("<i", self$limit),
         pack("<i", self$maxId),
@@ -5026,8 +5026,8 @@ GetInlineBotResultsRequest <- R6::R6Class(
         self$bot$bytes(),
         self$peer$bytes(),
         if (is.null(self$geoPoint) || !length(self$geoPoint)) raw(0) else self$geoPoint$bytes(),
-        self$serializeBytes(self$query),
-        self$serializeBytes(self$offset)
+        self$serialize_bytes(self$query),
+        self$serialize_bytes(self$offset)
       )
     }
   )
@@ -5274,7 +5274,7 @@ GetMessageReactionsListRequest <- R6::R6Class(
         self$peer$bytes(),
         pack("<i", self$id),
         if (is.null(self$reaction) || !length(self$reaction)) raw(0) else self$reaction$bytes(),
-        if (is.null(self$offset) || !nchar(self$offset)) raw(0) else self$serializeBytes(self$offset),
+        if (is.null(self$offset) || !nchar(self$offset)) raw(0) else self$serialize_bytes(self$offset),
         pack("<i", self$limit)
       )
     }
@@ -6153,8 +6153,8 @@ GetPollVotesRequest <- R6::R6Class(
         pack("<I", flags),
         self$peer$bytes(),
         pack("<i", self$id),
-        if (is.null(self$option) || !length(self$option)) raw(0) else self$serializeBytes(self$option),
-        if (is.null(self$offset) || !nchar(self$offset)) raw(0) else self$serializeBytes(self$offset),
+        if (is.null(self$option) || !length(self$option)) raw(0) else self$serialize_bytes(self$option),
+        if (is.null(self$offset) || !nchar(self$offset)) raw(0) else self$serialize_bytes(self$offset),
         pack("<i", self$limit)
       )
     }
@@ -6219,7 +6219,7 @@ GetPreparedInlineMessageRequest <- R6::R6Class(
       c(
         as.raw(c(0xb8, 0xbd, 0x7e, 0x85)),
         self$bot$bytes(),
-        self$serializeBytes(self$id)
+        self$serialize_bytes(self$id)
       )
     }
   )
@@ -6595,7 +6595,7 @@ GetRepliesRequest <- R6::R6Class(
         self$peer$bytes(),
         pack("<i", self$msgId),
         pack("<i", self$offsetId),
-        self$serializeDatetime(self$offsetDate),
+        self$serialize_datetime(self$offsetDate),
         pack("<i", self$addOffset),
         pack("<i", self$limit),
         pack("<i", self$maxId),
@@ -6687,7 +6687,7 @@ GetSavedDialogsRequest <- R6::R6Class(
         as.raw(c(0x99, 0xfc, 0x91, 0x1e)),
         pack("<I", flags),
         if (is.null(self$parentPeer) || !self$parentPeer) raw(0) else self$parentPeer$bytes(),
-        self$serializeDatetime(self$offsetDate),
+        self$serialize_datetime(self$offsetDate),
         pack("<i", self$offsetId),
         self$offsetPeer$bytes(),
         pack("<i", self$limit),
@@ -6909,7 +6909,7 @@ GetSavedHistoryRequest <- R6::R6Class(
         if (is.null(self$parent_peer) || !self$parent_peer) raw(0) else self$parent_peer$bytes(),
         self$peer$bytes(),
         pack("<i", self$offset_id),
-        self$serializeDatetime(self$offset_date),
+        self$serialize_datetime(self$offset_date),
         pack("<i", self$add_offset),
         pack("<i", self$limit),
         pack("<i", self$max_id),
@@ -7271,7 +7271,7 @@ GetSearchResultsCalendarRequest <- R6::R6Class(
         if (is.null(self$savedPeerId) || !self$savedPeerId) raw(0) else self$savedPeerId$bytes(),
         self$filter$bytes(),
         pack("<i", self$offsetId),
-        self$serializeDatetime(self$offsetDate)
+        self$serialize_datetime(self$offsetDate)
       )
     }
   )
@@ -7563,7 +7563,7 @@ GetStickersRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xd5, 0xa5, 0xd3, 0xa1)),
-        self$serializeBytes(self$emoticon),
+        self$serialize_bytes(self$emoticon),
         pack("<q", self$hash)
       )
     }
@@ -7891,7 +7891,7 @@ GetWebPageRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xa3, 0x92, 0x96, 0x8d)),
-        self$serializeBytes(self$url),
+        self$serialize_bytes(self$url),
         pack("<i", self$hash)
       )
     }
@@ -7947,7 +7947,7 @@ GetWebPagePreviewRequest <- R6::R6Class(
       c(
         as.raw(c(0x6f, 0x6f, 0x0d, 0x57)),
         pack("<I", flags),
-        self$serializeBytes(self$message),
+        self$serialize_bytes(self$message),
         if (is.null(self$entities) || !self$entities) raw() else c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("<i", length(self$entities)), do.call(c, lapply(self$entities, function(x) x$bytes())))
       )
     }
@@ -8023,7 +8023,7 @@ HideAllChatJoinRequestsRequest <- R6::R6Class(
         as.raw(c(0xea, 0xf4, 0x85, 0xe0)),
         pack("<I", flags),
         self$peer$bytes(),
-        if (is.null(self$link) || !self$link) raw() else self$serializeBytes(self$link)
+        if (is.null(self$link) || !self$link) raw() else self$serialize_bytes(self$link)
       )
     }
   )
@@ -8198,7 +8198,7 @@ ImportChatInviteRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x1c, 0x05, 0x50, 0x6c)),
-        self$serializeBytes(self$hash)
+        self$serialize_bytes(self$hash)
       )
     }
   )
@@ -8715,7 +8715,7 @@ ReadEncryptedHistoryRequest <- R6::R6Class(
       c(
         as.raw(c(0x0a, 0x69, 0x4b, 0x7f)),
         self$peer$bytes(),
-        self$serializeDatetime(self$maxDate)
+        self$serialize_datetime(self$maxDate)
       )
     }
   )
@@ -9540,8 +9540,8 @@ ReportRequest <- R6::R6Class(
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         packBits(intToBits(length(self$id)), type = "integer"),
         unlist(lapply(self$id, function(x) packBits(intToBits(x), type = "integer"))),
-        self$serializeBytes(self$option),
-        self$serializeBytes(self$message)
+        self$serialize_bytes(self$option),
+        self$serialize_bytes(self$message)
       )
     }
   )
@@ -10596,13 +10596,13 @@ SaveDraftRequest <- R6::R6Class(
       if (!is.null(self$suggested_post)) flags <- bitwOr(flags, 256L)
       c(
         as.raw(c(0x8e, 0x30, 0xae, 0x54)),
-        packBits(as.integer(flags), type = "integer", endian = "little"),
+        writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
         if (!is.null(self$reply_to)) self$reply_to$bytes() else raw(0),
         self$peer$bytes(),
         self$serialize_bytes(self$message),
-        if (!is.null(self$entities)) c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), packBits(length(self$entities), type = "integer", endian = "little"), do.call(c, lapply(self$entities, function(x) x$bytes()))) else raw(0),
+        if (!is.null(self$entities)) c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), writeBin(as.integer(length(self$entities)), raw(), size = 4, endian = "little"), do.call(c, lapply(self$entities, function(x) x$bytes()))) else raw(0),
         if (!is.null(self$media)) self$media$bytes() else raw(0),
-        if (!is.null(self$effect)) packBits(as.integer(self$effect), type = "integer", endian = "little") else raw(0),
+        if (!is.null(self$effect)) writeBin(as.integer(self$effect), raw(), size = 4, endian = "little") else raw(0),
         if (!is.null(self$suggested_post)) self$suggested_post$bytes() else raw(0)
       )
     }
@@ -12276,7 +12276,7 @@ SendMultiMediaRequest <- R6::R6Class(
       if (!is.null(self$allow_paid_stars)) flags <- bitwOr(flags, 2097152L)
       c(
         as.raw(c(0x74, 0x9d, 0xf8, 0x1b)),
-        packBits(intToBits(flags, size = 32), type = "raw")[1:4],
+        writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
         self$peer$bytes(),
         if (!is.null(self$reply_to)) self$reply_to$bytes() else raw(0),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
@@ -12285,8 +12285,8 @@ SendMultiMediaRequest <- R6::R6Class(
         if (!is.null(self$schedule_date)) self$serialize_datetime(self$schedule_date) else raw(0),
         if (!is.null(self$send_as)) self$send_as$bytes() else raw(0),
         if (!is.null(self$quick_reply_shortcut)) self$quick_reply_shortcut$bytes() else raw(0),
-        if (!is.null(self$effect)) packBits(intToBits(self$effect, size = 64), type = "raw")[1:8] else raw(0),
-        if (!is.null(self$allow_paid_stars)) packBits(intToBits(self$allow_paid_stars, size = 64), type = "raw")[1:8] else raw(0)
+        if (!is.null(self$effect)) writeBin(as.double(self$effect), raw(), size = 8, endian = "little") else raw(0),
+        if (!is.null(self$allow_paid_stars)) writeBin(as.double(self$allow_paid_stars), raw(), size = 8, endian = "little") else raw(0)
       )
     }
   )
@@ -12375,11 +12375,11 @@ SendPaidReactionRequest <- R6::R6Class(
       if (!is.null(self$private)) flags <- bitwOr(flags, 1L)
       c(
         as.raw(c(0x50, 0xcb, 0xbb, 0x58)),
-        packBits(intToBits(flags, size = 32), type = "raw")[1:4],
+        writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
         self$peer$bytes(),
         packBits(intToBits(self$msg_id), type = "raw")[1:4],
         packBits(intToBits(self$count), type = "raw")[1:4],
-        packBits(intToBits(self$random_id, size = 64), type = "raw")[1:8],
+        writeBin(as.double(self$random_id), raw(), size = 8, endian = "little"),
         if (!is.null(self$private)) self$private$bytes() else raw(0)
       )
     }
@@ -12461,7 +12461,7 @@ SendQuickReplyMessagesRequest <- R6::R6Class(
         unlist(lapply(self$id, function(x) packBits(intToBits(x), type = "raw")[1:4])),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         packBits(intToBits(length(self$random_id)), type = "raw")[1:4],
-        unlist(lapply(self$random_id, function(x) packBits(intToBits(x, size = 64), type = "raw")[1:8]))
+        unlist(lapply(self$random_id, function(x) writeBin(as.double(x), raw(), size = 8, endian = "little")))
       )
     }
   )
@@ -12694,7 +12694,7 @@ SendScreenshotNotificationRequest <- R6::R6Class(
         as.raw(c(0x17, 0x58, 0x40, 0xa1)),
         self$peer$bytes(),
         self$reply_to$bytes(),
-        packBits(intToBits(self$random_id, size = 64), type = "raw")[1:8]
+        writeBin(as.double(self$random_id), raw(), size = 8, endian = "little")
       )
     }
   )
@@ -12832,7 +12832,7 @@ SendWebViewDataRequest <- R6::R6Class(
       c(
         as.raw(c(0xc8, 0x42, 0x02, 0xdc)),
         self$bot$bytes(),
-        packBits(intToBits(self$random_id, size = 64), type = "raw")[1:8],
+        writeBin(as.double(self$random_id), raw(), size = 8, endian = "little"),
         self$serialize_bytes(self$button_text),
         self$serialize_bytes(self$data)
       )
@@ -12956,7 +12956,7 @@ SetBotCallbackAnswerRequest <- R6::R6Class(
       c(
         as.raw(c(0x0a, 0x13, 0x8f, 0xd5)),
         packBits(intToBits(flags), type = "raw")[1:4],
-        packBits(intToBits(self$query_id, size = 8), type = "raw"),
+        writeBin(as.double(self$query_id), raw(), size = 8, endian = "little"),
         if (!is.null(self$message) && self$message != FALSE) self$serialize_bytes(self$message) else raw(0),
         if (!is.null(self$url) && self$url != FALSE) self$serialize_bytes(self$url) else raw(0),
         packBits(intToBits(self$cache_time), type = "raw")[1:4]
@@ -13022,7 +13022,7 @@ SetBotPrecheckoutResultsRequest <- R6::R6Class(
       c(
         as.raw(c(0x95, 0xdd, 0xc2, 0x09)),
         packBits(intToBits(flags), type = "raw")[1:4],
-        packBits(intToBits(self$query_id, size = 8), type = "raw"),
+        writeBin(as.double(self$query_id), raw(), size = 8, endian = "little"),
         if (!is.null(self$error) && self$error != FALSE) self$serialize_bytes(self$error) else raw(0)
       )
     }
@@ -13085,7 +13085,7 @@ SetBotShippingResultsRequest <- R6::R6Class(
       c(
         as.raw(c(0xfa, 0x72, 0xf6, 0xe5)),
         packBits(intToBits(flags), type = "raw")[1:4],
-        packBits(intToBits(self$query_id, size = 8), type = "raw"),
+        writeBin(as.double(self$query_id), raw(), size = 8, endian = "little"),
         if (!is.null(self$error) && self$error != FALSE) self$serialize_bytes(self$error) else raw(0),
         if (!is.null(self$shipping_options) && self$shipping_options != FALSE) c(as.raw(c(0x1c, 0xb5, 0xc4, 0x15)), packBits(intToBits(length(self$shipping_options)), type = "raw")[1:4], do.call(c, lapply(self$shipping_options, function(x) x$bytes()))) else raw(0)
       )
@@ -15416,7 +15416,7 @@ ViewSponsoredMessageRequest <- R6::R6Class(
     #' @param random_id Optional random ID, defaults to a generated value.
     initialize = function(random_id = NULL) {
       if (is.null(random_id)) {
-        self$random_id <- int_to_bytes(sample(.Machine$integer.max, 1), 4, "big", signed = TRUE)
+        self$random_id <- int_to_bytes(sample(.Machine$integer.max, 1), 4, "big")
       } else {
         self$random_id <- random_id
       }
