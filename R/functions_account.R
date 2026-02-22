@@ -44,8 +44,8 @@ AcceptAuthorizationRequest <- R6::R6Class(
       c(
         as.raw(c(0x73, 0x4c, 0xed, 0xf3)),
         writeBin(as.integer(self$botId), raw(), size = 8, endian = "little"),
-        self$serializeBytes(self$scope),
-        self$serializeBytes(self$publicKey),
+        self$serialize_bytes(self$scope),
+        self$serialize_bytes(self$publicKey),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         writeBin(length(self$valueHashes), raw(), size = 4, endian = "little"),
         do.call(c, lapply(self$valueHashes, function(x) x$bytes())),
@@ -223,9 +223,9 @@ ChangePhoneRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xdb, 0x2e, 0xc3, 0x70)),
-        self$serializeBytes(self$phoneNumber),
-        self$serializeBytes(self$phoneCodeHash),
-        self$serializeBytes(self$phoneCode)
+        self$serialize_bytes(self$phoneNumber),
+        self$serialize_bytes(self$phoneCodeHash),
+        self$serialize_bytes(self$phoneCode)
       )
     },
 
@@ -318,7 +318,7 @@ ConfirmPasswordEmailRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x20, 0x19, 0xdf, 0x8f)),
-        self$serializeBytes(self$code)
+        self$serialize_bytes(self$code)
       )
     },
 
@@ -371,8 +371,8 @@ ConfirmPhoneRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xc3, 0x78, 0x21, 0x5f)),
-        self$serializeBytes(self$phoneCodeHash),
-        self$serializeBytes(self$phoneCode)
+        self$serialize_bytes(self$phoneCodeHash),
+        self$serialize_bytes(self$phoneCode)
       )
     },
 
@@ -499,8 +499,8 @@ CreateThemeRequest <- R6::R6Class(
       c(
         as.raw(c(0x00, 0x44, 0x2e, 0x65)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
-        self$serializeBytes(self$slug),
-        self$serializeBytes(self$title),
+        self$serialize_bytes(self$slug),
+        self$serialize_bytes(self$title),
         if (!is.null(self$document)) self$document$bytes() else raw(),
         settingsBytes
       )
@@ -605,7 +605,7 @@ DeleteAccountRequest <- R6::R6Class(
       c(
         as.raw(c(0x74, 0xcf, 0xc0, 0xa2)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
-        self$serializeBytes(self$reason),
+        self$serialize_bytes(self$reason),
         if (!is.null(self$password)) self$password$bytes() else raw()
       )
     },
@@ -698,7 +698,7 @@ DeleteBusinessChatLinkRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x74, 0x36, 0x07, 0x60)),
-        self$serializeBytes(self$slug)
+        self$serialize_bytes(self$slug)
       )
     },
 
@@ -866,7 +866,7 @@ EditBusinessChatLinkRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xaf, 0x10, 0x34, 0x8c)),
-        self$serializeBytes(self$slug),
+        self$serialize_bytes(self$slug),
         self$link$bytes()
       )
     },
@@ -1064,8 +1064,8 @@ GetAuthorizationFormRequest <- R6::R6Class(
       c(
         as.raw(c(0x7a, 0x59, 0x29, 0xa9)),
         writeBin(as.integer(self$botId), raw(), size = 8, endian = "little"),
-        self$serializeBytes(self$scope),
-        self$serializeBytes(self$publicKey)
+        self$serialize_bytes(self$scope),
+        self$serialize_bytes(self$publicKey)
       )
     },
 
@@ -1247,7 +1247,7 @@ GetBotBusinessConnectionRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x70, 0x62, 0xa8, 0x76)),
-        self$serializeBytes(self$connectionId)
+        self$serialize_bytes(self$connectionId)
       )
     },
 
@@ -2546,7 +2546,7 @@ GetThemeRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xec, 0x69, 0x58, 0x3a)),
-        self$serializeBytes(self$format),
+        self$serialize_bytes(self$format),
         self$theme$bytes()
       )
     },
@@ -2601,7 +2601,7 @@ GetThemesRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x58, 0xe4, 0x06, 0x72)),
-        self$serializeBytes(self$format),
+        self$serialize_bytes(self$format),
         writeBin(as.integer(self$hash), raw(), size = 8, endian = "little")
       )
     },
@@ -3008,7 +3008,7 @@ InstallThemeRequest <- R6::R6Class(
         as.raw(c(0x3b, 0xbb, 0x27, 0xc7)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
         if (!is.null(self$theme)) self$theme$bytes() else raw(),
-        if (!is.null(self$format) && nzchar(self$format)) self$serializeBytes(self$format) else raw(),
+        if (!is.null(self$format) && nzchar(self$format)) self$serialize_bytes(self$format) else raw(),
         if (!is.null(self$baseTheme)) self$baseTheme$bytes() else raw()
       )
     },
@@ -3120,7 +3120,7 @@ InvalidateSignInCodesRequest <- R6::R6Class(
         as.raw(c(0xba, 0xe8, 0x8a, 0xca)),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         writeBin(length(self$codes), raw(), size = 4, endian = "little"),
-        do.call(c, lapply(self$codes, function(x) self$serializeBytes(x)))
+        do.call(c, lapply(self$codes, function(x) self$serialize_bytes(x)))
       )
     },
 
@@ -3194,9 +3194,9 @@ RegisterDeviceRequest <- R6::R6Class(
         as.raw(c(0x7a, 0x01, 0x86, 0xec)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
         writeBin(as.integer(self$tokenType), raw(), size = 4, endian = "little"),
-        self$serializeBytes(self$token),
+        self$serialize_bytes(self$token),
         if (self$appSandbox) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc)),
-        self$serializeBytes(self$secret),
+        self$serialize_bytes(self$secret),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         writeBin(length(self$otherUids), raw(), size = 4, endian = "little"),
         do.call(c, lapply(self$otherUids, function(x) writeBin(as.integer(x), raw(), size = 8, endian = "little")))
@@ -3262,7 +3262,7 @@ ReorderUsernamesRequest <- R6::R6Class(
         as.raw(c(0xab, 0x0e, 0x50, 0xef)),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         writeBin(length(self$order), raw(), size = 4, endian = "little"),
-        do.call(c, lapply(self$order, function(x) self$serializeBytes(x)))
+        do.call(c, lapply(self$order, function(x) self$serialize_bytes(x)))
       )
     },
 
@@ -3332,7 +3332,7 @@ ReportPeerRequest <- R6::R6Class(
         as.raw(c(0x86, 0x3d, 0xba, 0xc5)),
         self$peer$bytes(),
         self$reason$bytes(),
-        self$serializeBytes(self$message)
+        self$serialize_bytes(self$message)
       )
     },
 
@@ -3405,7 +3405,7 @@ ReportProfilePhotoRequest <- R6::R6Class(
         self$peer$bytes(),
         self$photoId$bytes(),
         self$reason$bytes(),
-        self$serializeBytes(self$message)
+        self$serialize_bytes(self$message)
       )
     },
 
@@ -3739,7 +3739,7 @@ ResolveBusinessChatLinkRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xee, 0xe5, 0x92, 0x54)),
-        self$serializeBytes(self$slug)
+        self$serialize_bytes(self$slug)
       )
     },
 
@@ -4196,7 +4196,7 @@ SendChangePhoneCodeRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xe5, 0x4a, 0x57, 0x82)),
-        self$serializeBytes(self$phoneNumber),
+        self$serialize_bytes(self$phoneNumber),
         self$settings$bytes()
       )
     },
@@ -4245,7 +4245,7 @@ SendConfirmPhoneCodeRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x88, 0xaa, 0x3f, 0x1b)),
-        self$serializeBytes(self$hash),
+        self$serialize_bytes(self$hash),
         self$settings$bytes()
       )
     },
@@ -4295,7 +4295,7 @@ SendVerifyEmailCodeRequest <- R6::R6Class(
       c(
         as.raw(c(0xbb, 0x37, 0xe0, 0x98)),
         self$purpose$bytes(),
-        self$serializeBytes(self$email)
+        self$serialize_bytes(self$email)
       )
     },
 
@@ -4344,7 +4344,7 @@ SendVerifyPhoneCodeRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xa5, 0xa3, 0x56, 0xf9)),
-        self$serializeBytes(self$phoneNumber),
+        self$serialize_bytes(self$phoneNumber),
         self$settings$bytes()
       )
     },
@@ -4945,7 +4945,7 @@ ToggleUsernameRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x76, 0xb3, 0xd6, 0x58)),
-        self$serializeBytes(self$username),
+        self$serialize_bytes(self$username),
         if (self$active) as.raw(c(0xb5, 0x75, 0x72, 0x99)) else as.raw(c(0x37, 0x97, 0x79, 0xbc))
       )
     },
@@ -4999,7 +4999,7 @@ UnregisterDeviceRequest <- R6::R6Class(
       c(
         as.raw(c(0x06, 0x32, 0x0d, 0x6a)),
         packBits(as.integer(self$tokenType), type = "integer"),
-        self$serializeBytes(self$token),
+        self$serialize_bytes(self$token),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
         packBits(length(self$otherUids), type = "integer"),
         do.call(c, lapply(self$otherUids, function(x) packBits(as.integer(x), type = "integer", size = 8)))
@@ -5254,7 +5254,7 @@ UpdateBusinessLocationRequest <- R6::R6Class(
         as.raw(c(0x1a, 0x13, 0x6b, 0x9e)),
         writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
         if (!is.null(self$geoPoint)) self$geoPoint$bytes() else raw(),
-        if (!is.null(self$address) && nzchar(self$address)) self$serializeBytes(self$address) else raw()
+        if (!is.null(self$address) && nzchar(self$address)) self$serialize_bytes(self$address) else raw()
       )
     },
 
@@ -5738,9 +5738,9 @@ UpdateProfileRequest <- R6::R6Class(
       c(
         as.raw(c(0x75, 0x57, 0x51, 0x78)),
         packBits(as.integer(flags), type = "integer"),
-        if (!is.null(self$firstName) && nzchar(self$firstName)) self$serializeBytes(self$firstName) else raw(),
-        if (!is.null(self$lastName) && nzchar(self$lastName)) self$serializeBytes(self$lastName) else raw(),
-        if (!is.null(self$about) && nzchar(self$about)) self$serializeBytes(self$about) else raw()
+        if (!is.null(self$firstName) && nzchar(self$firstName)) self$serialize_bytes(self$firstName) else raw(),
+        if (!is.null(self$lastName) && nzchar(self$lastName)) self$serialize_bytes(self$lastName) else raw(),
+        if (!is.null(self$about) && nzchar(self$about)) self$serialize_bytes(self$about) else raw()
       )
     },
 
@@ -5867,10 +5867,10 @@ UpdateThemeRequest <- R6::R6Class(
       c(
         as.raw(c(0xcc, 0x0c, 0xf4, 0x2b)),
         packBits(as.integer(flags), type = "integer"),
-        self$serializeBytes(self$format),
+        self$serialize_bytes(self$format),
         self$theme$bytes(),
-        if (!is.null(self$slug) && nzchar(self$slug)) self$serializeBytes(self$slug) else raw(),
-        if (!is.null(self$title) && nzchar(self$title)) self$serializeBytes(self$title) else raw(),
+        if (!is.null(self$slug) && nzchar(self$slug)) self$serialize_bytes(self$slug) else raw(),
+        if (!is.null(self$title) && nzchar(self$title)) self$serialize_bytes(self$title) else raw(),
         if (!is.null(self$document)) self$document$bytes() else raw(),
         settingsBytes
       )
@@ -5929,7 +5929,7 @@ UpdateUsernameRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x3e, 0x0b, 0xdd, 0x7c)),
-        self$serializeBytes(self$username)
+        self$serialize_bytes(self$username)
       )
     },
 
@@ -5981,8 +5981,8 @@ UploadRingtoneRequest <- R6::R6Class(
       c(
         as.raw(c(0x83, 0x1a, 0x83, 0xa2)),
         self$file$bytes(),
-        self$serializeBytes(self$fileName),
-        self$serializeBytes(self$mimeType)
+        self$serialize_bytes(self$fileName),
+        self$serialize_bytes(self$mimeType)
       )
     },
 
@@ -6042,8 +6042,8 @@ UploadThemeRequest <- R6::R6Class(
         packBits(as.integer(flags), type = "integer"),
         self$file$bytes(),
         if (!is.null(self$thumb) && self$thumb) self$thumb$bytes() else raw(),
-        self$serializeBytes(self$fileName),
-        self$serializeBytes(self$mimeType)
+        self$serialize_bytes(self$fileName),
+        self$serialize_bytes(self$mimeType)
       )
     },
 
@@ -6104,7 +6104,7 @@ UploadWallPaperRequest <- R6::R6Class(
         as.raw(c(0x03, 0x8f, 0x9a, 0xe3)),
         packBits(as.integer(c(0, if (is.null(self$forChat) || !self$forChat) 0 else 1)), type = "integer"),
         self$file$bytes(),
-        self$serializeBytes(self$mimeType),
+        self$serialize_bytes(self$mimeType),
         self$settings$bytes()
       )
     }
@@ -6189,9 +6189,9 @@ VerifyPhoneRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xf6, 0xa7, 0xd3, 0x4d)),
-        self$serializeBytes(self$phoneNumber),
-        self$serializeBytes(self$phoneCodeHash),
-        self$serializeBytes(self$phoneCode)
+        self$serialize_bytes(self$phoneNumber),
+        self$serialize_bytes(self$phoneCodeHash),
+        self$serialize_bytes(self$phoneCode)
       )
     }
   ),
