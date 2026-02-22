@@ -3518,6 +3518,7 @@ ResetAuthorizationRequest <- R6::R6Class(
 #' @title ResetNotifySettingsRequest
 #' @description R6 class representing a ResetNotifySettingsRequest.
 #' @details This class handles resetting notification settings.
+#' @export
 ResetNotifySettingsRequest <- R6::R6Class(
   "ResetNotifySettingsRequest",
   inherit = TLRequest,
@@ -3556,6 +3557,7 @@ ResetNotifySettingsRequest <- R6::R6Class(
 #' @title ResetPasswordRequest
 #' @description R6 class representing a ResetPasswordRequest.
 #' @details This class handles resetting the password.
+#' @export
 ResetPasswordRequest <- R6::R6Class(
   "ResetPasswordRequest",
   inherit = TLRequest,
@@ -3594,6 +3596,7 @@ ResetPasswordRequest <- R6::R6Class(
 #' @title ResetWallPapersRequest
 #' @description R6 class representing a ResetWallPapersRequest.
 #' @details This class handles resetting wallpapers.
+#' @export
 ResetWallPapersRequest <- R6::R6Class(
   "ResetWallPapersRequest",
   inherit = TLRequest,
@@ -3632,6 +3635,7 @@ ResetWallPapersRequest <- R6::R6Class(
 #' @title ResetWebAuthorizationRequest
 #' @description R6 class representing a ResetWebAuthorizationRequest.
 #' @details This class handles resetting web authorization with a hash.
+#' @export
 ResetWebAuthorizationRequest <- R6::R6Class(
   "ResetWebAuthorizationRequest",
   inherit = TLRequest,
@@ -3682,6 +3686,7 @@ ResetWebAuthorizationRequest <- R6::R6Class(
 #' @title ResetWebAuthorizationsRequest
 #' @description R6 class representing a ResetWebAuthorizationsRequest.
 #' @details This class handles resetting web authorizations.
+#' @export
 ResetWebAuthorizationsRequest <- R6::R6Class(
   "ResetWebAuthorizationsRequest",
   inherit = TLRequest,
@@ -3715,6 +3720,7 @@ ResetWebAuthorizationsRequest <- R6::R6Class(
 #' @title ResolveBusinessChatLinkRequest
 #' @description R6 class representing a ResolveBusinessChatLinkRequest.
 #' @details This class handles resolving a business chat link with a slug.
+#' @export
 ResolveBusinessChatLinkRequest <- R6::R6Class(
   "ResolveBusinessChatLinkRequest",
   inherit = TLRequest,
@@ -3759,6 +3765,7 @@ ResolveBusinessChatLinkRequest <- R6::R6Class(
 #' @title SaveAutoDownloadSettingsRequest
 #' @description R6 class representing a SaveAutoDownloadSettingsRequest.
 #' @details This class handles saving auto-download settings with optional low and high flags.
+#' @export
 SaveAutoDownloadSettingsRequest <- R6::R6Class(
   "SaveAutoDownloadSettingsRequest",
   inherit = TLRequest,
@@ -3816,6 +3823,7 @@ SaveAutoDownloadSettingsRequest <- R6::R6Class(
 #' @title SaveAutoSaveSettingsRequest
 #' @description R6 class representing a SaveAutoSaveSettingsRequest.
 #' @details This class handles saving auto-save settings with optional flags for users, chats, broadcasts, and a peer.
+#' @export
 SaveAutoSaveSettingsRequest <- R6::R6Class(
   "SaveAutoSaveSettingsRequest",
   inherit = TLRequest,
@@ -3892,6 +3900,7 @@ SaveAutoSaveSettingsRequest <- R6::R6Class(
 #' @title SaveMusicRequest
 #' @description R6 class representing a SaveMusicRequest.
 #' @details This class handles saving or unsaving music with an optional after ID.
+#' @export
 SaveMusicRequest <- R6::R6Class(
   "SaveMusicRequest",
   inherit = TLRequest,
@@ -3959,6 +3968,7 @@ SaveMusicRequest <- R6::R6Class(
 #' @title SaveRingtoneRequest
 #' @description R6 class representing a SaveRingtoneRequest.
 #' @details This class handles saving or unsaving a ringtone.
+#' @export
 SaveRingtoneRequest <- R6::R6Class(
   "SaveRingtoneRequest",
   inherit = TLRequest,
@@ -4016,6 +4026,7 @@ SaveRingtoneRequest <- R6::R6Class(
 #' @title SaveSecureValueRequest
 #' @description R6 class representing a SaveSecureValueRequest.
 #' @details This class handles saving a secure value with a secure secret ID.
+#' @export
 SaveSecureValueRequest <- R6::R6Class(
   "SaveSecureValueRequest",
   inherit = TLRequest,
@@ -4065,6 +4076,7 @@ SaveSecureValueRequest <- R6::R6Class(
 #' @title SaveThemeRequest
 #' @description R6 class representing a SaveThemeRequest.
 #' @details This class handles saving or unsaving a theme.
+#' @export
 SaveThemeRequest <- R6::R6Class(
   "SaveThemeRequest",
   inherit = TLRequest,
@@ -4114,6 +4126,7 @@ SaveThemeRequest <- R6::R6Class(
 #' @title SaveWallPaperRequest
 #' @description R6 class representing a SaveWallPaperRequest.
 #' @details This class handles saving or unsaving a wallpaper with settings.
+#' @export
 SaveWallPaperRequest <- R6::R6Class(
   "SaveWallPaperRequest",
   inherit = TLRequest,
@@ -4169,6 +4182,7 @@ SaveWallPaperRequest <- R6::R6Class(
 #' @title SendChangePhoneCodeRequest
 #' @description R6 class representing a SendChangePhoneCodeRequest.
 #' @details This class handles sending a change phone code request with phone number and settings.
+#' @export
 SendChangePhoneCodeRequest <- R6::R6Class(
   "SendChangePhoneCodeRequest",
   inherit = TLRequest,
@@ -4218,6 +4232,7 @@ SendChangePhoneCodeRequest <- R6::R6Class(
 #' @title SendConfirmPhoneCodeRequest
 #' @description R6 class representing a SendConfirmPhoneCodeRequest.
 #' @details This class handles sending a confirm phone code request with hash and settings.
+#' @export
 SendConfirmPhoneCodeRequest <- R6::R6Class(
   "SendConfirmPhoneCodeRequest",
   inherit = TLRequest,
@@ -4267,6 +4282,7 @@ SendConfirmPhoneCodeRequest <- R6::R6Class(
 #' @title SendVerifyEmailCodeRequest
 #' @description R6 class representing a SendVerifyEmailCodeRequest.
 #' @details This class handles sending a verify email code request with purpose and email.
+#' @export
 SendVerifyEmailCodeRequest <- R6::R6Class(
   "SendVerifyEmailCodeRequest",
   inherit = TLRequest,
@@ -4317,6 +4333,7 @@ SendVerifyEmailCodeRequest <- R6::R6Class(
 #' @title SendVerifyPhoneCodeRequest
 #' @description R6 class representing a SendVerifyPhoneCodeRequest.
 #' @details This class handles sending a verification code to a phone number for verification purposes.
+#' @export
 SendVerifyPhoneCodeRequest <- R6::R6Class(
   "SendVerifyPhoneCodeRequest",
   inherit = TLRequest,
@@ -4366,6 +4383,7 @@ SendVerifyPhoneCodeRequest <- R6::R6Class(
 #' @title SetAccountTTLRequest
 #' @description R6 class representing a SetAccountTTLRequest.
 #' @details This class handles setting the account TTL (time to live) for messages.
+#' @export
 SetAccountTTLRequest <- R6::R6Class(
   "SetAccountTTLRequest",
   inherit = TLRequest,

@@ -1,5 +1,6 @@
 #' @title CheckSearchPostsFloodRequest
 #' @description Represents a request to check search posts flood.
+#' @export
 CheckSearchPostsFloodRequest <- R6::R6Class(
   "CheckSearchPostsFloodRequest",
   inherit = TLRequest,
@@ -54,6 +55,7 @@ CheckSearchPostsFloodRequest$from_reader <- function(reader) {
 
 #' @title CheckUsernameRequest
 #' @description Represents a request to check a username in a channel.
+#' @export
 CheckUsernameRequest <- R6::R6Class(
   "CheckUsernameRequest",
   inherit = TLRequest,
@@ -118,6 +120,7 @@ CheckUsernameRequest$from_reader <- function(reader) {
 
 #' @title ConvertToGigagroupRequest
 #' @description Represents a request to convert a channel to a gigagroup.
+#' @export
 ConvertToGigagroupRequest <- R6::R6Class(
   "ConvertToGigagroupRequest",
   inherit = TLRequest,
@@ -176,6 +179,7 @@ ConvertToGigagroupRequest$from_reader <- function(reader) {
 
 #' @title CreateChannelRequest
 #' @description Represents a request to create a new channel.
+#' @export
 CreateChannelRequest <- R6::R6Class(
   "CreateChannelRequest",
   inherit = TLRequest,
@@ -288,6 +292,7 @@ CreateChannelRequest$from_reader <- function(reader) {
 
 #' @title CreateForumTopicRequest
 #' @description Represents a request to create a forum topic in a channel.
+#' @export
 CreateForumTopicRequest <- R6::R6Class(
   "CreateForumTopicRequest",
   inherit = TLRequest,
@@ -389,6 +394,7 @@ CreateForumTopicRequest$from_reader <- function(reader) {
 
 #' @title DeactivateAllUsernamesRequest
 #' @description Represents a request to deactivate all usernames in a channel.
+#' @export
 DeactivateAllUsernamesRequest <- R6::R6Class(
   "DeactivateAllUsernamesRequest",
   inherit = TLRequest,
@@ -447,6 +453,7 @@ DeactivateAllUsernamesRequest$from_reader <- function(reader) {
 
 #' @title DeleteChannelRequest
 #' @description Represents a request to delete a channel.
+#' @export
 DeleteChannelRequest <- R6::R6Class(
   "DeleteChannelRequest",
   inherit = TLRequest,
@@ -506,6 +513,7 @@ DeleteChannelRequest$from_reader <- function(reader) {
 
 #' @title DeleteHistoryRequest
 #' @description Represents a request to delete the history of a channel.
+#' @export
 DeleteHistoryRequest <- R6::R6Class(
   "DeleteHistoryRequest",
   inherit = TLRequest,
@@ -580,6 +588,7 @@ DeleteHistoryRequest$from_reader <- function(reader) {
 
 #' @title DeleteMessagesRequest
 #' @description Represents a request to delete messages in a channel.
+#' @export
 DeleteMessagesRequest <- R6::R6Class(
   "DeleteMessagesRequest",
   inherit = TLRequest,
@@ -652,6 +661,7 @@ DeleteMessagesRequest$from_reader <- function(reader) {
 
 #' @title DeleteParticipantHistoryRequest
 #' @description Represents a request to delete the history of a participant in a channel.
+#' @export
 DeleteParticipantHistoryRequest <- R6::R6Class(
   "DeleteParticipantHistoryRequest",
   inherit = TLRequest,
@@ -719,6 +729,7 @@ DeleteParticipantHistoryRequest$from_reader <- function(reader) {
 
 #' @title DeleteTopicHistoryRequest
 #' @description Represents a request to delete the history of a topic in a channel.
+#' @export
 DeleteTopicHistoryRequest <- R6::R6Class(
   "DeleteTopicHistoryRequest",
   inherit = TLRequest,
@@ -784,6 +795,7 @@ DeleteTopicHistoryRequest$from_reader <- function(reader) {
 
 #' @title EditAdminRequest
 #' @description Represents a request to edit admin rights for a user in a channel.
+#' @export
 EditAdminRequest <- R6::R6Class(
   "EditAdminRequest",
   inherit = TLRequest,
@@ -863,6 +875,7 @@ EditAdminRequest$from_reader <- function(reader) {
 
 #' @title EditBannedRequest
 #' @description Represents a request to edit banned rights for a participant in a channel.
+#' @export
 EditBannedRequest <- R6::R6Class(
   "EditBannedRequest",
   inherit = TLRequest,
@@ -936,7 +949,7 @@ EditBannedRequest$from_reader <- function(reader) {
 
 #' @title EditCreatorRequest
 #' @description Represents a request to edit the creator of a channel.
-#' Deserialize from a reader.
+#' @export
 EditCreatorRequest <- R6::R6Class(
   "EditCreatorRequest",
   inherit = TLRequest,
@@ -1009,6 +1022,7 @@ EditCreatorRequest$from_reader <- function(reader) {
 
 #' @title EditForumTopicRequest
 #' @description Represents a request to edit a forum topic in a channel.
+#' @export
 EditForumTopicRequest <- R6::R6Class(
   "EditForumTopicRequest",
   inherit = TLRequest,
@@ -1107,6 +1121,7 @@ EditForumTopicRequest$from_reader <- function(reader) {
 
 #' @title EditLocationRequest
 #' @description Represents a request to edit the location of a channel.
+#' @export
 EditLocationRequest <- R6::R6Class(
   "EditLocationRequest",
   inherit = TLRequest,
@@ -1179,6 +1194,7 @@ EditLocationRequest$from_reader <- function(reader) {
 
 #' @title EditPhotoRequest
 #' @description Represents a request to edit the photo of a channel.
+#' @export
 EditPhotoRequest <- R6::R6Class(
   "EditPhotoRequest",
   inherit = TLRequest,
@@ -1244,6 +1260,7 @@ EditPhotoRequest$from_reader <- function(reader) {
 
 #' @title EditTitleRequest
 #' @description Represents a request to edit the title of a channel.
+#' @export
 EditTitleRequest <- R6::R6Class(
   "EditTitleRequest",
   inherit = TLRequest,
@@ -1308,6 +1325,7 @@ EditTitleRequest$from_reader <- function(reader) {
 
 #' @title ExportMessageLinkRequest
 #' @description Represents a request to export a message link from a channel.
+#' @export
 ExportMessageLinkRequest <- R6::R6Class(
   "ExportMessageLinkRequest",
   inherit = TLRequest,
@@ -1389,6 +1407,7 @@ ExportMessageLinkRequest$from_reader <- function(reader) {
 
 #' @title GetAdminLogRequest
 #' @description Represents a request to get the admin log for a channel.
+#' @export
 GetAdminLogRequest <- R6::R6Class(
   "GetAdminLogRequest",
   inherit = TLRequest,
@@ -1509,6 +1528,7 @@ GetAdminLogRequest$from_reader <- function(reader) {
 
 #' @title GetAdminedPublicChannelsRequest
 #' @description Represents a request to get admined public channels.
+#' @export
 GetAdminedPublicChannelsRequest <- R6::R6Class(
   "GetAdminedPublicChannelsRequest",
   inherit = TLRequest,
@@ -1575,6 +1595,7 @@ GetAdminedPublicChannelsRequest$from_reader <- function(reader) {
 
 #' @title GetChannelRecommendationsRequest
 #' @description Represents a request to get channel recommendations.
+#' @export
 GetChannelRecommendationsRequest <- R6::R6Class(
   "GetChannelRecommendationsRequest",
   inherit = TLRequest,
@@ -1638,6 +1659,7 @@ GetChannelRecommendationsRequest$from_reader <- function(reader) {
 
 #' @title GetChannelsRequest
 #' @description Represents a request to get channels by their IDs.
+#' @export
 GetChannelsRequest <- R6::R6Class(
   "GetChannelsRequest",
   inherit = TLRequest,
@@ -1706,6 +1728,7 @@ GetChannelsRequest$from_reader <- function(reader) {
 
 #' @title GetForumTopicsRequest
 #' @description Represents a request to get forum topics from a channel.
+#' @export
 GetForumTopicsRequest <- R6::R6Class(
   "GetForumTopicsRequest",
   inherit = TLRequest,
@@ -1801,6 +1824,7 @@ GetForumTopicsRequest$from_reader <- function(reader) {
 
 #' @title GetForumTopicsByIDRequest
 #' @description Represents a request to get forum topics by their IDs from a channel.
+#' @export
 GetForumTopicsByIDRequest <- R6::R6Class(
   "GetForumTopicsByIDRequest",
   inherit = TLRequest,
@@ -1873,6 +1897,7 @@ GetForumTopicsByIDRequest$from_reader <- function(reader) {
 
 #' @title GetFullChannelRequest
 #' @description Represents a request to get full information about a channel.
+#' @export
 GetFullChannelRequest <- R6::R6Class(
   "GetFullChannelRequest",
   inherit = TLRequest,
@@ -1930,6 +1955,7 @@ GetFullChannelRequest$from_reader <- function(reader) {
 
 #' @title GetGroupsForDiscussionRequest
 #' @description Represents a request to get groups available for discussion.
+#' @export
 GetGroupsForDiscussionRequest <- R6::R6Class(
   "GetGroupsForDiscussionRequest",
   inherit = TLRequest,
@@ -1972,6 +1998,7 @@ GetGroupsForDiscussionRequest$from_reader <- function(reader) {
 
 #' @title GetInactiveChannelsRequest
 #' @description Represents a request to get inactive channels.
+#' @export
 GetInactiveChannelsRequest <- R6::R6Class(
   "GetInactiveChannelsRequest",
   inherit = TLRequest,
@@ -2015,6 +2042,7 @@ GetInactiveChannelsRequest$from_reader <- function(reader) {
 
 #' @title GetLeftChannelsRequest
 #' @description Represents a request to get left channels with an offset.
+#' @export
 GetLeftChannelsRequest <- R6::R6Class(
   "GetLeftChannelsRequest",
   inherit = TLRequest,
@@ -2065,6 +2093,7 @@ GetLeftChannelsRequest$from_reader <- function(reader) {
 
 #' @title GetMessageAuthorRequest
 #' @description Represents a request to get the author of a message in a channel.
+#' @export
 GetMessageAuthorRequest <- R6::R6Class(
   "GetMessageAuthorRequest",
   inherit = TLRequest,
@@ -2129,6 +2158,7 @@ GetMessageAuthorRequest$from_reader <- function(reader) {
 
 #' @title GetMessagesRequest
 #' @description Represents a request to get messages from a channel.
+#' @export
 GetMessagesRequest <- R6::R6Class(
   "GetMessagesRequest",
   inherit = TLRequest,
@@ -2206,6 +2236,7 @@ GetMessagesRequest$from_reader <- function(reader) {
 
 #' @title GetParticipantRequest
 #' @description Represents a request to get a participant from a channel.
+#' @export
 GetParticipantRequest <- R6::R6Class(
   "GetParticipantRequest",
   inherit = TLRequest,
@@ -2271,6 +2302,7 @@ GetParticipantRequest$from_reader <- function(reader) {
 
 #' @title GetParticipantsRequest
 #' @description Represents a request to get participants from a channel with filtering.
+#' @export
 GetParticipantsRequest <- R6::R6Class(
   "GetParticipantsRequest",
   inherit = TLRequest,
@@ -2356,6 +2388,7 @@ GetParticipantsRequest$from_reader <- function(reader) {
 
 #' @title GetSendAsRequest
 #' @description Represents a request to get send-as peers for a channel.
+#' @export
 GetSendAsRequest <- R6::R6Class(
   "GetSendAsRequest",
   inherit = TLRequest,
@@ -2423,6 +2456,7 @@ GetSendAsRequest$from_reader <- function(reader) {
 
 #' @title InviteToChannelRequest
 #' @description Represents a request to invite users to a channel.
+#' @export
 InviteToChannelRequest <- R6::R6Class(
   "InviteToChannelRequest",
   inherit = TLRequest,
@@ -2499,6 +2533,7 @@ InviteToChannelRequest$from_reader <- function(reader) {
 
 #' @title JoinChannelRequest
 #' @description Represents a request to join a channel.
+#' @export
 JoinChannelRequest <- R6::R6Class(
   "JoinChannelRequest",
   inherit = TLRequest,
@@ -2556,6 +2591,7 @@ JoinChannelRequest$from_reader <- function(reader) {
 
 #' @title LeaveChannelRequest
 #' @description Represents a request to leave a channel.
+#' @export
 LeaveChannelRequest <- R6::R6Class(
   "LeaveChannelRequest",
   inherit = TLRequest,
@@ -2614,6 +2650,7 @@ LeaveChannelRequest$from_reader <- function(reader) {
 
 #' @title ReadHistoryRequest
 #' @description Represents a request to read the history of a channel up to a maximum ID.
+#' @export
 ReadHistoryRequest <- R6::R6Class(
   "ReadHistoryRequest",
   inherit = TLRequest,
@@ -2678,6 +2715,7 @@ ReadHistoryRequest$from_reader <- function(reader) {
 
 #' @title ReadMessageContentsRequest
 #' @description Represents a request to read the contents of specific messages in a channel.
+#' @export
 ReadMessageContentsRequest <- R6::R6Class(
   "ReadMessageContentsRequest",
   inherit = TLRequest,
@@ -2750,6 +2788,7 @@ ReadMessageContentsRequest$from_reader <- function(reader) {
 
 #' @title ReorderPinnedForumTopicsRequest
 #' @description Represents a request to reorder pinned forum topics in a channel.
+#' @export
 ReorderPinnedForumTopicsRequest <- R6::R6Class(
   "ReorderPinnedForumTopicsRequest",
   inherit = TLRequest,
@@ -2830,6 +2869,7 @@ ReorderPinnedForumTopicsRequest$from_reader <- function(reader) {
 
 #' @title ReorderUsernamesRequest
 #' @description Represents a request to reorder usernames in a channel.
+#' @export
 ReorderUsernamesRequest <- R6::R6Class(
   "ReorderUsernamesRequest",
   inherit = TLRequest,
@@ -2901,6 +2941,7 @@ ReorderUsernamesRequest$from_reader <- function(reader) {
 
 #' @title ReportAntiSpamFalsePositiveRequest
 #' @description Represents a request to report an anti-spam false positive in a channel.
+#' @export
 ReportAntiSpamFalsePositiveRequest <- R6::R6Class(
   "ReportAntiSpamFalsePositiveRequest",
   inherit = TLRequest,
@@ -2966,6 +3007,7 @@ ReportAntiSpamFalsePositiveRequest$from_reader <- function(reader) {
 
 #' @title ReportSpamRequest
 #' @description Represents a request to report spam in a channel.
+#' @export
 ReportSpamRequest <- R6::R6Class(
   "ReportSpamRequest",
   inherit = TLRequest,
@@ -3045,6 +3087,7 @@ ReportSpamRequest$from_reader <- function(reader) {
 
 #' @title RestrictSponsoredMessagesRequest
 #' @description Represents a request to restrict sponsored messages in a channel.
+#' @export
 RestrictSponsoredMessagesRequest <- R6::R6Class(
   "RestrictSponsoredMessagesRequest",
   inherit = TLRequest,
@@ -3110,6 +3153,7 @@ RestrictSponsoredMessagesRequest$from_reader <- function(reader) {
 
 #' @title SearchPostsRequest
 #' @description Represents a request to search for posts with specified parameters.
+#' @export
 SearchPostsRequest <- R6::R6Class(
   "SearchPostsRequest",
   inherit = TLRequest,
@@ -3214,6 +3258,7 @@ SearchPostsRequest$from_reader <- function(reader) {
 
 #' @title SetBoostsToUnblockRestrictionsRequest
 #' @description Represents a request to set the number of boosts to unblock restrictions in a channel.
+#' @export
 SetBoostsToUnblockRestrictionsRequest <- R6::R6Class(
   "SetBoostsToUnblockRestrictionsRequest",
   inherit = TLRequest,
@@ -3279,6 +3324,7 @@ SetBoostsToUnblockRestrictionsRequest$from_reader <- function(reader) {
 
 #' @title SetDiscussionGroupRequest
 #' @description Represents a request to set the discussion group for a broadcast channel.
+#' @export
 SetDiscussionGroupRequest <- R6::R6Class(
   "SetDiscussionGroupRequest",
   inherit = TLRequest,
@@ -3344,6 +3390,7 @@ SetDiscussionGroupRequest$from_reader <- function(reader) {
 
 #' @title SetEmojiStickersRequest
 #' @description Represents a request to set emoji stickers for a channel.
+#' @export
 SetEmojiStickersRequest <- R6::R6Class(
   "SetEmojiStickersRequest",
   inherit = TLRequest,
@@ -3408,6 +3455,7 @@ SetEmojiStickersRequest$from_reader <- function(reader) {
 
 #' @title SetMainProfileTabRequest
 #' @description Represents a request to set the main profile tab for a channel.
+#' @export
 SetMainProfileTabRequest <- R6::R6Class(
   "SetMainProfileTabRequest",
   inherit = TLRequest,
@@ -3473,6 +3521,7 @@ SetMainProfileTabRequest$from_reader <- function(reader) {
 
 #' @title SetStickersRequest
 #' @description Represents a request to set stickers for a channel.
+#' @export
 SetStickersRequest <- R6::R6Class(
   "SetStickersRequest",
   inherit = TLRequest,
@@ -3537,6 +3586,7 @@ SetStickersRequest$from_reader <- function(reader) {
 
 #' @title ToggleAntiSpamRequest
 #' @description Represents a request to toggle anti-spam in a channel.
+#' @export
 ToggleAntiSpamRequest <- R6::R6Class(
   "ToggleAntiSpamRequest",
   inherit = TLRequest,
@@ -3601,6 +3651,7 @@ ToggleAntiSpamRequest$from_reader <- function(reader) {
 
 #' @title ToggleAutotranslationRequest
 #' @description Represents a request to toggle autotranslation in a channel.
+#' @export
 ToggleAutotranslationRequest <- R6::R6Class(
   "ToggleAutotranslationRequest",
   inherit = TLRequest,
@@ -3666,6 +3717,7 @@ ToggleAutotranslationRequest$from_reader <- function(reader) {
 
 #' @title ToggleForumRequest
 #' @description Represents a request to toggle the forum feature in a channel.
+#' @export
 ToggleForumRequest <- R6::R6Class(
   "ToggleForumRequest",
   inherit = TLRequest,
@@ -3737,6 +3789,7 @@ ToggleForumRequest$from_reader <- function(reader) {
 
 #' @title ToggleJoinRequestRequest
 #' @description Represents a request to toggle join requests in a channel.
+#' @export
 ToggleJoinRequestRequest <- R6::R6Class(
   "ToggleJoinRequestRequest",
   inherit = TLRequest,
@@ -3801,6 +3854,7 @@ ToggleJoinRequestRequest$from_reader <- function(reader) {
 
 #' @title ToggleJoinToSendRequest
 #' @description Represents a request to toggle join to send in a channel.
+#' @export
 ToggleJoinToSendRequest <- R6::R6Class(
   "ToggleJoinToSendRequest",
   inherit = TLRequest,
@@ -3866,6 +3920,7 @@ ToggleJoinToSendRequest$from_reader <- function(reader) {
 
 #' @title ToggleParticipantsHiddenRequest
 #' @description Represents a request to toggle the hidden status of participants in a channel.
+#' @export
 ToggleParticipantsHiddenRequest <- R6::R6Class(
   "ToggleParticipantsHiddenRequest",
   inherit = TLRequest,
@@ -3930,6 +3985,7 @@ ToggleParticipantsHiddenRequest$from_reader <- function(reader) {
 
 #' @title TogglePreHistoryHiddenRequest
 #' @description Represents a request to toggle the hidden status of pre-history in a channel.
+#' @export
 TogglePreHistoryHiddenRequest <- R6::R6Class(
   "TogglePreHistoryHiddenRequest",
   inherit = TLRequest,
@@ -3994,6 +4050,7 @@ TogglePreHistoryHiddenRequest$from_reader <- function(reader) {
 
 #' @title ToggleSignaturesRequest
 #' @description Represents a request to toggle signatures in a channel.
+#' @export
 ToggleSignaturesRequest <- R6::R6Class(
   "ToggleSignaturesRequest",
   inherit = TLRequest,
@@ -4068,6 +4125,7 @@ ToggleSignaturesRequest$from_reader <- function(reader) {
 
 #' @title ToggleSlowModeRequest
 #' @description Represents a request to toggle slow mode in a channel.
+#' @export
 ToggleSlowModeRequest <- R6::R6Class(
   "ToggleSlowModeRequest",
   inherit = TLRequest,
@@ -4132,6 +4190,7 @@ ToggleSlowModeRequest$from_reader <- function(reader) {
 
 #' @title ToggleUsernameRequest
 #' @description Represents a request to toggle the active status of a username in a channel.
+#' @export
 ToggleUsernameRequest <- R6::R6Class(
   "ToggleUsernameRequest",
   inherit = TLRequest,
@@ -4203,6 +4262,7 @@ ToggleUsernameRequest$from_reader <- function(reader) {
 
 #' @title ToggleViewForumAsMessagesRequest
 #' @description Represents a request to toggle viewing a forum as messages in a channel.
+#' @export
 ToggleViewForumAsMessagesRequest <- R6::R6Class(
   "ToggleViewForumAsMessagesRequest",
   inherit = TLRequest,
@@ -4268,6 +4328,7 @@ ToggleViewForumAsMessagesRequest$from_reader <- function(reader) {
 
 #' @title UpdateColorRequest
 #' @description Represents a request to update the color settings of a channel.
+#' @export
 UpdateColorRequest <- R6::R6Class(
   "UpdateColorRequest",
   inherit = TLRequest,
@@ -4350,6 +4411,7 @@ UpdateColorRequest$from_reader <- function(reader) {
 
 #' @title UpdateEmojiStatusRequest
 #' @description Represents a request to update the emoji status of a channel.
+#' @export
 UpdateEmojiStatusRequest <- R6::R6Class(
   "UpdateEmojiStatusRequest",
   inherit = TLRequest,
@@ -4414,6 +4476,7 @@ UpdateEmojiStatusRequest$from_reader <- function(reader) {
 
 #' @title UpdatePaidMessagesPriceRequest
 #' @description Represents a request to update the paid messages price for a channel.
+#' @export
 UpdatePaidMessagesPriceRequest <- R6::R6Class(
   "UpdatePaidMessagesPriceRequest",
   inherit = TLRequest,
@@ -4488,6 +4551,7 @@ UpdatePaidMessagesPriceRequest$from_reader <- function(reader) {
 
 #' @title UpdatePinnedForumTopicRequest
 #' @description Represents a request to update the pinned status of a forum topic in a channel.
+#' @export
 UpdatePinnedForumTopicRequest <- R6::R6Class(
   "UpdatePinnedForumTopicRequest",
   inherit = TLRequest,
@@ -4559,6 +4623,7 @@ UpdatePinnedForumTopicRequest$from_reader <- function(reader) {
 
 #' @title UpdateUsernameRequest
 #' @description Represents a request to update the username of a channel.
+#' @export
 UpdateUsernameRequest <- R6::R6Class(
   "UpdateUsernameRequest",
   inherit = TLRequest,

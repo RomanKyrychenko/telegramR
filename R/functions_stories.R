@@ -1402,6 +1402,7 @@ GetPeerMaxIDsRequest <- R6::R6Class(
 #' GetPeerStoriesRequest R6 class
 #'
 #' Request to get stories for a given peer. Returns stories.PeerStories.
+#' @export
 GetPeerStoriesRequest <- R6::R6Class(
   "GetPeerStoriesRequest",
   inherit = TLRequest,
@@ -1485,6 +1486,7 @@ GetPeerStoriesRequest <- R6::R6Class(
 #'
 #' Request to get pinned stories for a peer with pagination (offset_id, limit).
 #' Returns stories.Stories.
+#' @export
 GetPinnedStoriesRequest <- R6::R6Class(
   "GetPinnedStoriesRequest",
   inherit = TLRequest,
@@ -1585,6 +1587,7 @@ GetPinnedStoriesRequest <- R6::R6Class(
 #'
 #' Request to get archived stories for a peer with pagination (offset_id, limit).
 #' Returns stories.Stories.
+#' @export
 GetStoriesArchiveRequest <- R6::R6Class(
   "GetStoriesArchiveRequest",
   inherit = TLRequest,
@@ -1685,6 +1688,7 @@ GetStoriesArchiveRequest <- R6::R6Class(
 #'
 #' Request to get stories by explicit ids for a given peer.
 #' Returns stories.Stories.
+#' @export
 GetStoriesByIDRequest <- R6::R6Class(
   "GetStoriesByIDRequest",
   inherit = TLRequest,
@@ -1792,6 +1796,7 @@ GetStoriesByIDRequest <- R6::R6Class(
 #'
 #' Request to get story views for a peer and a vector of story ids.
 #' Returns stories.StoryViews.
+#' @export
 GetStoriesViewsRequest <- R6::R6Class(
   "GetStoriesViewsRequest",
   inherit = TLRequest,
@@ -1896,6 +1901,7 @@ GetStoriesViewsRequest <- R6::R6Class(
 #'
 #' Request to get a list of story reactions with optional filters.
 #' Returns stories.StoryReactionsList.
+#' @export
 GetStoryReactionsListRequest <- R6::R6Class(
   "GetStoryReactionsListRequest",
   inherit = TLRequest,
@@ -2055,6 +2061,7 @@ GetStoryReactionsListRequest <- R6::R6Class(
 #'
 #' Request to get a list of story views with optional filters (just_contacts,
 #' reactions_first, forwards_first, q). Returns a stories.StoryViewsList.
+#' @export
 GetStoryViewsListRequest <- R6::R6Class(
   "GetStoryViewsListRequest",
   inherit = TLRequest,
@@ -2223,6 +2230,7 @@ GetStoryViewsListRequest <- R6::R6Class(
 #'
 #' Request to increment story views for a peer and a vector of ids.
 #' Returns Bool.
+#' @export
 IncrementStoryViewsRequest <- R6::R6Class(
   "IncrementStoryViewsRequest",
   inherit = TLRequest,
@@ -2329,6 +2337,7 @@ IncrementStoryViewsRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name ReadStoriesRequest
+#' @export
 ReadStoriesRequest <- R6::R6Class(
   "ReadStoriesRequest",
   inherit = TLRequest,
@@ -2434,6 +2443,7 @@ ReadStoriesRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name ReorderAlbumsRequest
+#' @export
 ReorderAlbumsRequest <- R6::R6Class(
   "ReorderAlbumsRequest",
   inherit = TLRequest,
@@ -2539,6 +2549,7 @@ ReorderAlbumsRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name ReportRequest
+#' @export
 ReportRequest <- R6::R6Class(
   "ReportRequest",
   inherit = TLRequest,
@@ -2680,6 +2691,7 @@ ReportRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name SearchPostsRequest
+#' @export
 SearchPostsRequest <- R6::R6Class(
   "SearchPostsRequest",
   inherit = TLRequest,
@@ -2824,6 +2836,7 @@ SearchPostsRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name SendReactionRequest
+#' @export
 SendReactionRequest <- R6::R6Class(
   "SendReactionRequest",
   inherit = TLRequest,
@@ -2955,6 +2968,7 @@ SendReactionRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name SendStoryRequest
+#' @export
 SendStoryRequest <- R6::R6Class(
   "SendStoryRequest",
   inherit = TLRequest,
@@ -3301,6 +3315,7 @@ SendStoryRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name ToggleAllStoriesHiddenRequest
+#' @export
 ToggleAllStoriesHiddenRequest <- R6::R6Class(
   "ToggleAllStoriesHiddenRequest",
   inherit = TLRequest,
@@ -3368,6 +3383,7 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name TogglePeerStoriesHiddenRequest
+#' @export
 TogglePeerStoriesHiddenRequest <- R6::R6Class(
   "TogglePeerStoriesHiddenRequest",
   inherit = TLRequest,
@@ -3465,6 +3481,7 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name TogglePinnedRequest
+#' @export
 TogglePinnedRequest <- R6::R6Class(
   "TogglePinnedRequest",
   inherit = TLRequest,
@@ -3599,6 +3616,7 @@ TogglePinnedRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name TogglePinnedToTopRequest
+#' @export
 TogglePinnedToTopRequest <- R6::R6Class(
   "TogglePinnedToTopRequest",
   inherit = TLRequest,
@@ -3707,6 +3725,7 @@ TogglePinnedToTopRequest <- R6::R6Class(
 #'
 #' @docType class
 #' @name UpdateAlbumRequest
+#' @export
 UpdateAlbumRequest <- R6::R6Class(
   "UpdateAlbumRequest",
   inherit = TLRequest,
