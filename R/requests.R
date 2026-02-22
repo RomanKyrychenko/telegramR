@@ -25,7 +25,7 @@ DestroyAuthKeyRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create DestroyAuthKeyRequest from a reader
@@ -106,7 +106,7 @@ DestroySessionRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create DestroySessionRequest from a reader
@@ -157,7 +157,7 @@ GetFutureSaltsRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create GetFutureSaltsRequest from a reader
@@ -295,7 +295,7 @@ InitConnectionRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create InitConnectionRequest from a binary reader
@@ -407,7 +407,7 @@ InvokeAfterMsgRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create InvokeAfterMsgRequest from a binary reader
@@ -489,7 +489,7 @@ InvokeAfterMsgsRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create InvokeAfterMsgsRequest from a binary reader
@@ -582,7 +582,7 @@ InvokeWithApnsSecretRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create InvokeWithApnsSecretRequest from a binary reader
@@ -665,7 +665,7 @@ InvokeWithBusinessConnectionRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create InvokeWithBusinessConnectionRequest from a reader
@@ -750,7 +750,7 @@ InvokeWithGooglePlayIntegrityRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create InvokeWithGooglePlayIntegrityRequest from a reader
@@ -830,7 +830,7 @@ InvokeWithLayerRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create InvokeWithLayerRequest from a binary reader
@@ -907,7 +907,7 @@ InvokeWithMessagesRangeRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create InvokeWithMessagesRangeRequest from a binary reader
@@ -983,7 +983,7 @@ InvokeWithReCaptchaRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create InvokeWithReCaptchaRequest from a binary reader
@@ -1063,7 +1063,7 @@ InvokeWithTakeoutRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create InvokeWithTakeoutRequest from a binary reader
@@ -1139,7 +1139,7 @@ InvokeWithoutUpdatesRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create InvokeWithoutUpdatesRequest from a binary reader
@@ -1205,7 +1205,7 @@ PingRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create PingRequest from a binary reader
@@ -1277,7 +1277,7 @@ PingDelayDisconnectRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create PingDelayDisconnectRequest from a binary reader
@@ -1379,7 +1379,7 @@ ReqDHParamsRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create ReqDHParamsRequest from a binary reader
@@ -1459,7 +1459,7 @@ ReqPqRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create ReqPqRequest from a binary reader
@@ -1523,7 +1523,7 @@ ReqPqMultiRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create ReqPqMultiRequest from a binary reader
@@ -1583,7 +1583,7 @@ RpcDropAnswerRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create RpcDropAnswerRequest from a binary reader
@@ -1665,7 +1665,7 @@ SetClientDHParamsRequest <- R6::R6Class(
     }
   ),
   #' @field class Field.
-  class = FALSE
+  class = TRUE
 )
 
 #' Create SetClientDHParamsRequest from a binary reader
