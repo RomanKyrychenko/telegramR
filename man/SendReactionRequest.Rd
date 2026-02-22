@@ -4,20 +4,10 @@
 \name{SendReactionRequest}
 \alias{SendReactionRequest}
 \title{SendReactionRequest}
-\format{
-An R6 object inheriting from TLRequest
-}
-\usage{
-SendReactionRequest$new(peer, story_id, reaction, add_to_recent = NULL)
-}
 \description{
 Represents a request to send a reaction. This class inherits from TLRequest.
-
-Telegram API type SendReactionRequest
 }
 \details{
-SendReactionRequest R6 class
-
 Represents a TL request to send a reaction to a story.
 }
 \section{Super classes}{
@@ -120,19 +110,6 @@ The objects of this class are cloneable with this method.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SendReactionRequest}
-}
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{peer}}{TypeInputPeer}
-
-\item{\code{story_id}}{integer story id}
-
-\item{\code{reaction}}{TypeReaction}
-
-\item{\code{add_to_recent}}{logical or NULL}
-}
-\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

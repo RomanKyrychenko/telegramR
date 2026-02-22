@@ -18,9 +18,6 @@ This class handles reordering usernames.
 
 ReorderUsernamesRequest R6 class
 }
-\examples{
-# o <- ReorderUsernamesRequest$new(bot, list("u1", "u2"))
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ReorderUsernamesRequest}
 }

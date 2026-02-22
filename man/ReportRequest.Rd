@@ -4,20 +4,10 @@
 \name{ReportRequest}
 \alias{ReportRequest}
 \title{ReportRequest}
-\format{
-An R6 object inheriting from TLRequest
-}
-\usage{
-ReportRequest$new(peer, id, option, message)
-}
 \description{
 Represents a request to report messages. This class inherits from TLRequest.
-
-Telegram API type ReportRequest
 }
 \details{
-ReportRequest R6 class
-
 Represents a TL request to report stories.
 }
 \section{Super classes}{
@@ -120,19 +110,6 @@ The objects of this class are cloneable with this method.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ReportRequest}
-}
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{peer}}{TypeInputPeer input peer}
-
-\item{\code{id}}{integer vector of story ids}
-
-\item{\code{option}}{raw bytes option}
-
-\item{\code{message}}{character comment/message}
-}
-\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

@@ -19,10 +19,8 @@ It is ported from the Telegram Desktop source code.
 }
 \examples{
 \dontrun{
-\dontrun{
 # Assuming stripped is a raw vector from a stripped photo
 stripped <- as.raw(c(0x01, 0x80, 0x60, ...)) # example bytes
 jpg_bytes <- stripped_photo_to_jpg(stripped)
-}
 }
 }

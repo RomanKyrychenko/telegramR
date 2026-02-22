@@ -19,9 +19,6 @@ AddPreviewMediaRequest R6 class
 
 Represents the AddPreviewMediaRequest TL request.
 }
-\examples{
-# o <- AddPreviewMediaRequest$new(botObj, "en", mediaObj)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

@@ -12,26 +12,6 @@ Telegram API type Factorization
 This class implements the Pollard's Rho-Brent Integer Factorization algorithm
 to efficiently factorize large integers into their prime components.
 }
-\examples{
-
-## ------------------------------------------------
-## Method `Factorization$factorize`
-## ------------------------------------------------
-
-\dontrun{
-factorizer <- Factorization$new()
-factorizer$factorize(15) # Returns c(3, 5)
-}
-
-## ------------------------------------------------
-## Method `Factorization$gcd`
-## ------------------------------------------------
-
-\dontrun{
-factorizer <- Factorization$new()
-factorizer$gcd(12, 8) # Returns 4
-}
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -63,17 +43,6 @@ Implementation based on Pollard's Rho-Brent Integer Factorization algorithm.
 \subsection{Returns}{
 A numeric vector containing the two factors `p` and `q`.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-factorizer <- Factorization$new()
-factorizer$factorize(15) # Returns c(3, 5)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Factorization-gcd"></a>}}
@@ -96,17 +65,6 @@ Calculates the Greatest Common Divisor (GCD).
 \subsection{Returns}{
 The GCD of `a` and `b`.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-factorizer <- Factorization$new()
-factorizer$gcd(12, 8) # Returns 4
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Factorization-clone"></a>}}

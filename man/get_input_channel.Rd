@@ -17,9 +17,7 @@ Similar to `get_input_peer`, but for `InputChannel`'s alone.
 }
 \examples{
 \dontrun{
-\dontrun{
 # Assuming entity is a Channel object
 input_channel <- get_input_channel(entity)
-}
 }
 }

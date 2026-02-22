@@ -19,9 +19,6 @@ AllowSendMessageRequest R6 class
 
 Represents the AllowSendMessageRequest TL request.
 }
-\examples{
-# o <- AllowSendMessageRequest$new(botObj)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

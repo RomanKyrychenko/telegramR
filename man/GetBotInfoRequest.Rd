@@ -19,9 +19,6 @@ GetBotInfoRequest R6 class
 
 Represents the GetBotInfoRequest TL request.
 }
-\examples{
-# o <- GetBotInfoRequest$new("en", bot = someBot)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

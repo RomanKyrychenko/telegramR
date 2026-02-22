@@ -5,6 +5,7 @@
 \title{SetClientDHParamsRequest}
 \value{
 An R6 object of class \code{SetClientDHParamsRequest}.
+Initialize a new SetClientDHParamsRequest
 }
 \description{
 A class representing the `SetClientDHParamsRequest` object. This class is used to handle
@@ -33,11 +34,6 @@ the \code{encrypted_data} payload sent to the server for verification.
 SetClientDHParamsRequest Class
 
 Represents the TL request `SetClientDHParamsRequest`.
-}
-\examples{
-# req <- SetClientDHParamsRequest$new(nonce = some_large_int, server_nonce = other_large_int, encrypted_data = raw())
-Initialize a new SetClientDHParamsRequest
-
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}

@@ -19,6 +19,8 @@ Reads a 64-bit `takeout_id` and a nested `query` object from the provided
 `reader`, then constructs an \code{InvokeWithTakeoutRequest} instance.
 }
 \examples{
+\dontrun{
 # reader <- Reader$new(source)
 # req <- InvokeWithTakeoutRequest_from_reader(reader)
+}
 }

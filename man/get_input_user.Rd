@@ -17,9 +17,7 @@ Similar to \code{get_input_peer}, but for \code{InputUser}'s alone.
 }
 \examples{
 \dontrun{
-\dontrun{
 # Assuming entity is a User object
 input_user <- get_input_user(entity)
-}
 }
 }

@@ -17,9 +17,7 @@ Gets the display name for the given User, Chat or Channel. Returns an empty stri
 }
 \examples{
 \dontrun{
-\dontrun{
 # Assuming entity is a User object
 name <- get_display_name(entity)
-}
 }
 }

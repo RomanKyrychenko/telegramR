@@ -18,9 +18,6 @@ AnswerWebhookJSONQueryRequest R6 class
 
 Represents the AnswerWebhookJSONQueryRequest TL request.
 }
-\examples{
-# o <- AnswerWebhookJSONQueryRequest$new(12345678901234, dataObj)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

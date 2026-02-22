@@ -19,9 +19,6 @@ ResetBotCommandsRequest R6 class
 
 Represents the ResetBotCommandsRequest TL request.
 }
-\examples{
-# o <- ResetBotCommandsRequest$new(scope, "en")
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

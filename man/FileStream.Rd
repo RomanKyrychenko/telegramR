@@ -13,11 +13,6 @@ Telegram API type FileStream
 FileStream Class
 A class to handle file streams from various sources.
 }
-\examples{
-# fs <- FileStream$new("path/to/file.txt")
-# data <- fs$read(100)
-# fs$close()
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

@@ -21,7 +21,7 @@ Check if index is within a surrogate pair
 }
 \examples{
 \dontrun{
-text <- "\ud83d\udc00"  # Example surrogate pair (though R normalizes)
+text <- "\U0001F400"
 within_surrogate(text, 2)
 }
 }

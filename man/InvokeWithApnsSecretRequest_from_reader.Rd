@@ -19,6 +19,8 @@ Reads `nonce` and `secret` as Telegram-style strings and then reads the
 nested `query` object using the reader's `tgread_object()` method.
 }
 \examples{
+\dontrun{
 # reader <- Reader$new(source)
 # req <- InvokeWithApnsSecretRequest_from_reader(reader)
+}
 }

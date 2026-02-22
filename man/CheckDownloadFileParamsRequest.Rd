@@ -19,9 +19,6 @@ CheckDownloadFileParamsRequest R6 class
 
 Represents the CheckDownloadFileParamsRequest TL request.
 }
-\examples{
-# o <- CheckDownloadFileParamsRequest$new(botObj, "file.png", "https://...")
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

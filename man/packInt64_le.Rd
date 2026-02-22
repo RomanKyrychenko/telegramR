@@ -2,10 +2,14 @@
 % Please edit documentation in R/requests.R
 \name{packInt64_le}
 \alias{packInt64_le}
-\title{DestroySessionRequest}
+\title{Pack a 64-bit integer as little-endian raw bytes}
 \usage{
 packInt64_le(value)
 }
-\description{
-DestroySessionRequest
+\arguments{
+\item{value}{Integer, numeric, bigz, or raw value to pack}
 }
+\description{
+Pack a 64-bit integer as little-endian raw bytes
+}
+\keyword{internal}

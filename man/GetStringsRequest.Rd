@@ -11,9 +11,6 @@ GetStringsRequest R6 class
 
 TLRequest: GetStringsRequest
 }
-\examples{
-# req <- GetStringsRequest$new("default", "en", c("hello", "bye"))
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetStringsRequest}
 }

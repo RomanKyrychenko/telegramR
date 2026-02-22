@@ -19,9 +19,6 @@ GetPreviewInfoRequest R6 class
 
 Represents the GetPreviewInfoRequest TL request.
 }
-\examples{
-# o <- GetPreviewInfoRequest$new(bot, "en")
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

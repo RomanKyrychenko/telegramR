@@ -8,42 +8,6 @@ A wrapper around AES CTR mode with custom IV using the `digest` library.
 This class provides methods to encrypt and decrypt data using AES CTR mode.
 It initializes with a key and a 16-byte initialization vector (IV).
 }
-\examples{
-
-## ------------------------------------------------
-## Method `AESModeCTR$new`
-## ------------------------------------------------
-
-\dontrun{
-key <- as.raw(rep(0x01, 16))
-iv <- as.raw(rep(0x02, 16))
-aes_ctr <- AESModeCTR$new(key, iv)
-}
-
-## ------------------------------------------------
-## Method `AESModeCTR$encrypt`
-## ------------------------------------------------
-
-\dontrun{
-key <- as.raw(rep(0x01, 16))
-iv <- as.raw(rep(0x02, 16))
-aes_ctr <- AESModeCTR$new(key, iv)
-plain_text <- as.raw(c(0x00, 0x01, 0x02, 0x03))
-cipher_text <- aes_ctr$encrypt(plain_text)
-}
-
-## ------------------------------------------------
-## Method `AESModeCTR$decrypt`
-## ------------------------------------------------
-
-\dontrun{
-key <- as.raw(rep(0x01, 16))
-iv <- as.raw(rep(0x02, 16))
-aes_ctr <- AESModeCTR$new(key, iv)
-cipher_text <- aes_ctr$encrypt(as.raw(c(0x00, 0x01, 0x02, 0x03)))
-plain_text <- aes_ctr$decrypt(cipher_text)
-}
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -80,18 +44,6 @@ Initialize the AES CTR mode with the given key and IV.
 }
 \if{html}{\out{</div>}}
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-key <- as.raw(rep(0x01, 16))
-iv <- as.raw(rep(0x02, 16))
-aes_ctr <- AESModeCTR$new(key, iv)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-AESModeCTR-encrypt"></a>}}
@@ -112,20 +64,6 @@ Encrypt the given plain text using AES CTR mode.
 \subsection{Returns}{
 A raw vector representing the encrypted cipher text.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-key <- as.raw(rep(0x01, 16))
-iv <- as.raw(rep(0x02, 16))
-aes_ctr <- AESModeCTR$new(key, iv)
-plain_text <- as.raw(c(0x00, 0x01, 0x02, 0x03))
-cipher_text <- aes_ctr$encrypt(plain_text)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-AESModeCTR-decrypt"></a>}}
@@ -146,20 +84,6 @@ Decrypt the given cipher text using AES CTR mode.
 \subsection{Returns}{
 A raw vector representing the decrypted plain text.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-key <- as.raw(rep(0x01, 16))
-iv <- as.raw(rep(0x02, 16))
-aes_ctr <- AESModeCTR$new(key, iv)
-cipher_text <- aes_ctr$encrypt(as.raw(c(0x00, 0x01, 0x02, 0x03)))
-plain_text <- aes_ctr$decrypt(cipher_text)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-AESModeCTR-clone"></a>}}

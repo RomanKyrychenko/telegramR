@@ -19,9 +19,6 @@ SetBotMenuButtonRequest R6 class
 
 Represents the SetBotMenuButtonRequest TL request.
 }
-\examples{
-# o <- SetBotMenuButtonRequest$new(user_id, button)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

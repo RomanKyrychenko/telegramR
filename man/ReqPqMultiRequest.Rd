@@ -27,12 +27,6 @@ ReqPqMultiRequest Class
 
 Represents the TL request `ReqPqMultiRequest`.
 }
-\examples{
-# req <- ReqPqMultiRequest$new(nonce = some_large_int)
-# bytes <- req$to_bytes()
-Initialize a new ReqPqMultiRequest
-
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
@@ -166,7 +160,8 @@ The objects of this class are cloneable with this method.
 
 \item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
 
-\item{\code{nonce}}{128-bit nonce (large int or raw).}
+\item{\code{nonce}}{128-bit nonce (large int or raw).
+Initialize a new ReqPqMultiRequest}
 }
 \if{html}{\out{</div>}}
 }

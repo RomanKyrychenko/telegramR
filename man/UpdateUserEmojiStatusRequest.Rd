@@ -17,9 +17,6 @@ UpdateUserEmojiStatusRequest R6 class
 
 Represents the UpdateUserEmojiStatusRequest TL request.
 }
-\examples{
-# o <- UpdateUserEmojiStatusRequest$new(user_id, emoji_status)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

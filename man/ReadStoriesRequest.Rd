@@ -3,33 +3,18 @@
 \docType{class}
 \name{ReadStoriesRequest}
 \alias{ReadStoriesRequest}
-\title{ReadStoriesRequest}
-\format{
-An R6 object inheriting from TLRequest
-}
-\usage{
-ReadStoriesRequest$new(peer, max_id)
-}
+\title{ReadStoriesRequest R6 class}
 \description{
-Telegram API type ReadStoriesRequest
-}
-\details{
 ReadStoriesRequest R6 class
 
+ReadStoriesRequest R6 class
+}
+\details{
 Represents a TL request that reads stories up to a given max_id and
 returns a Vector<int> result.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ReadStoriesRequest}
-}
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{peer}}{TypeInputPeer input peer}
-
-\item{\code{max_id}}{integer max story id}
-}
-\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

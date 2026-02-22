@@ -8,6 +8,8 @@ cancel_futures(log, ...)
 }
 \arguments{
 \item{log}{Logger object for logging messages}
+
+\item{...}{Named future objects to cancel}
 }
 \description{
 Cancel futures if they are not resolved

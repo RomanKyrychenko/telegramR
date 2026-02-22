@@ -3,59 +3,17 @@
 \docType{class}
 \name{SendStoryRequest}
 \alias{SendStoryRequest}
-\title{SendStoryRequest}
-\format{
-An R6 object inheriting from TLRequest
-}
-\usage{
-SendStoryRequest$new(peer, media, privacy_rules, pinned = NULL, noforwards = NULL,
-                            fwd_modified = NULL, media_areas = NULL, caption = NULL,
-                            entities = NULL, random_id = NULL, period = NULL,
-                            fwd_from_id = NULL, fwd_from_story = NULL, albums = NULL)
-}
+\title{SendStoryRequest R6 class}
 \description{
-Telegram API type SendStoryRequest
-}
-\details{
 SendStoryRequest R6 class
 
+SendStoryRequest R6 class
+}
+\details{
 Represents a TL request to send a story.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SendStoryRequest}
-}
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{peer}}{TypeInputPeer}
-
-\item{\code{media}}{TypeInputMedia}
-
-\item{\code{privacy_rules}}{list of TypeInputPrivacyRule}
-
-\item{\code{pinned}}{logical}
-
-\item{\code{noforwards}}{logical}
-
-\item{\code{fwd_modified}}{logical}
-
-\item{\code{media_areas}}{list of TypeMediaArea}
-
-\item{\code{caption}}{character}
-
-\item{\code{entities}}{list of TypeMessageEntity}
-
-\item{\code{random_id}}{integer64-like random id (stored as numeric/int)}
-
-\item{\code{period}}{integer}
-
-\item{\code{fwd_from_id}}{TypeInputPeer}
-
-\item{\code{fwd_from_story}}{integer}
-
-\item{\code{albums}}{integer vector}
-}
-\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

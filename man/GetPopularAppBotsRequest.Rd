@@ -19,9 +19,6 @@ GetPopularAppBotsRequest R6 class
 
 Represents the GetPopularAppBotsRequest TL request.
 }
-\examples{
-# o <- GetPopularAppBotsRequest$new("0", 50)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

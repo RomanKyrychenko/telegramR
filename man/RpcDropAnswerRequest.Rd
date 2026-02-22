@@ -28,9 +28,6 @@ response variants (e.g. \code{RpcAnswerUnknown}, \code{RpcAnswerDroppedRunning},
 \details{
 Represents the TL request `RpcDropAnswerRequest`.
 }
-\examples{
-# req <- RpcDropAnswerRequest$new(req_msg_id = 1234567890123456789)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

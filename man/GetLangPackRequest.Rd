@@ -11,9 +11,6 @@ GetLangPackRequest R6 class
 
 TLRequest: GetLangPackRequest
 }
-\examples{
-# req <- GetLangPackRequest$new("default", "en")
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetLangPackRequest}
 }

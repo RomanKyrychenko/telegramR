@@ -14,11 +14,6 @@ Methods:
 \details{
 R6 representation of the TL request: SetBlockedRequest
 }
-\examples{
-\dontrun{
-SetBlockedRequest$new(list(peer1, peer2), 10, TRUE)$to_list()
-}
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SetBlockedRequest}
 }

@@ -11,27 +11,6 @@ The `MessageContainer` class is used to group multiple Telegram API messages tog
 It provides methods to initialize the container, convert it to a dictionary representation,
 and read messages from a binary reader.
 }
-\examples{
-
-## ------------------------------------------------
-## Method `MessageContainer$to_dict`
-## ------------------------------------------------
-
-\dontrun{
-container <- MessageContainer$new(messages = list())
-container$to_dict()
-}
-
-## ------------------------------------------------
-## Method `MessageContainer$from_reader`
-## ------------------------------------------------
-
-\dontrun{
-# Assuming `reader` is a binary reader object:
-container <- MessageContainer$new()
-container$from_reader(reader)
-}
-}
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageContainer}
 }
@@ -102,17 +81,6 @@ Convert the `MessageContainer` object to a dictionary representation.
 \subsection{Returns}{
 A list containing the fields of the `MessageContainer` object in dictionary format.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-container <- MessageContainer$new(messages = list())
-container$to_dict()
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-MessageContainer-from_reader"></a>}}
@@ -138,18 +106,6 @@ Read and parse a `MessageContainer` object from a binary reader.
 \subsection{Returns}{
 The updated `MessageContainer` object with the parsed messages.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-# Assuming `reader` is a binary reader object:
-container <- MessageContainer$new()
-container$from_reader(reader)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-MessageContainer-clone"></a>}}

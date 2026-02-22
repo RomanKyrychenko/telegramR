@@ -13,11 +13,6 @@ Methods:
 \details{
 R6 representation of the TL request: ToggleTopPeersRequest
 }
-\examples{
-\dontrun{
-ToggleTopPeersRequest$new(TRUE)$to_list()
-}
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ToggleTopPeersRequest}
 }

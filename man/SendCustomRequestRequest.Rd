@@ -19,9 +19,6 @@ SendCustomRequestRequest R6 class
 
 Represents the SendCustomRequestRequest TL request.
 }
-\examples{
-# o <- SendCustomRequestRequest$new("methodName", paramsObj)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

@@ -17,9 +17,6 @@ UpdateStarRefProgramRequest R6 class
 
 Represents the UpdateStarRefProgramRequest TL request.
 }
-\examples{
-# o <- UpdateStarRefProgramRequest$new(bot, 100, 12)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

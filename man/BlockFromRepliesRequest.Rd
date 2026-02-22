@@ -12,11 +12,6 @@ Methods:
 \details{
 R6 representation of the TL request: BlockFromRepliesRequest
 }
-\examples{
-\dontrun{
-BlockFromRepliesRequest$new(123, TRUE, FALSE, TRUE)$to_list()
-}
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{BlockFromRepliesRequest}
 }

@@ -24,9 +24,6 @@ ToggleUsernameRequest R6 class
 
 Represents the ToggleUsernameRequest TL request.
 }
-\examples{
-# o <- ToggleUsernameRequest$new(bot, "myusername", TRUE)
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ToggleUsernameRequest}
 }

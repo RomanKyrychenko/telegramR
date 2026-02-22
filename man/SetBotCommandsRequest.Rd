@@ -19,9 +19,6 @@ SetBotCommandsRequest R6 class
 
 Represents the SetBotCommandsRequest TL request.
 }
-\examples{
-# o <- SetBotCommandsRequest$new(scope, "en", list(cmd1, cmd2))
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

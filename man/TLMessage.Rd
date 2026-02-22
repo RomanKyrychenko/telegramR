@@ -7,17 +7,6 @@
 A class representing a Telegram Layer (TL) message.
 This class extends the TLObject class and provides functionality to store and manipulate TL message data.
 }
-\examples{
-
-## ------------------------------------------------
-## Method `TLMessage$to_dict`
-## ------------------------------------------------
-
-\dontrun{
-msg <- TLMessage(msg_id = 12345, seq_no = 1, obj = "Hello")
-msg$to_dict()
-}
-}
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{TLMessage}
 }
@@ -92,17 +81,6 @@ Convert the `TLMessage` object to a dictionary representation.
 \subsection{Returns}{
 A list containing the fields of the `TLMessage` object in dictionary format.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-msg <- TLMessage(msg_id = 12345, seq_no = 1, obj = "Hello")
-msg$to_dict()
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TLMessage-clone"></a>}}

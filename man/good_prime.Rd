@@ -3,19 +3,14 @@
 \docType{data}
 \name{good_prime}
 \alias{good_prime}
-\title{Check Prime and Generator}
+\title{Known good prime constant for Telegram cryptographic operations}
 \format{
 An object of class \code{raw} of length 256.
 }
 \usage{
 good_prime
 }
-\arguments{
-\item{prime_bytes}{A raw vector representing the prime in bytes.}
-
-\item{g}{An integer representing the generator.}
-}
 \description{
-Checks if the prime bytes match a known good prime and validates the generator, or performs detailed checks if not matching.
+Known good prime constant for Telegram cryptographic operations
 }
-\keyword{datasets}
+\keyword{internal}

@@ -3,14 +3,20 @@
 \docType{data}
 \name{mimetypes}
 \alias{mimetypes}
-\title{Extend the mimetypes character vector with additional common types.}
+\title{Register some of the most common mime-types to avoid any issues.}
 \format{
+An object of class \code{character} of length 1565.
+
 An object of class \code{character} of length 1565.
 }
 \usage{
 mimetypes
+
+mimetypes
 }
 \description{
+Register some of the most common mime-types to avoid any issues.
+
 Extend the mimetypes character vector with additional common types.
 }
 \keyword{datasets}

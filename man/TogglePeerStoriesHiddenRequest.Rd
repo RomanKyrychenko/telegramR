@@ -3,32 +3,17 @@
 \docType{class}
 \name{TogglePeerStoriesHiddenRequest}
 \alias{TogglePeerStoriesHiddenRequest}
-\title{TogglePeerStoriesHiddenRequest}
-\format{
-An R6 object inheriting from TLRequest (if available)
-}
-\usage{
-TogglePeerStoriesHiddenRequest$new(peer, hidden)
-}
+\title{TogglePeerStoriesHiddenRequest R6 class}
 \description{
-Telegram API type TogglePeerStoriesHiddenRequest
-}
-\details{
 TogglePeerStoriesHiddenRequest R6 class
 
+TogglePeerStoriesHiddenRequest R6 class
+}
+\details{
 Represents a TL request to toggle hidden state for stories of a particular peer.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{TogglePeerStoriesHiddenRequest}
-}
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{peer}}{TypeInputPeer input peer}
-
-\item{\code{hidden}}{logical desired hidden state}
-}
-\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

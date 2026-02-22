@@ -14,9 +14,6 @@ EditPeerFoldersRequest R6 class
 
 Represents the TL request EditPeerFoldersRequest.
 }
-\examples{
-# EditPeerFoldersRequest$new(list_of_folder_peers)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

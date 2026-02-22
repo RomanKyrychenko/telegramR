@@ -11,9 +11,6 @@ GetStateRequest R6 class
 
 Representation of updates.GetState request.
 }
-\examples{
-# req <- GetStateRequest$new()
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

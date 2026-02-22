@@ -3,40 +3,17 @@
 \docType{class}
 \name{UpdateAlbumRequest}
 \alias{UpdateAlbumRequest}
-\title{UpdateAlbumRequest}
-\format{
-An R6 object inheriting from TLRequest (if available)
-}
-\usage{
-UpdateAlbumRequest$new(peer, album_id, title = NULL, delete_stories = NULL, add_stories = NULL, order = NULL)
-}
+\title{UpdateAlbumRequest R6 class}
 \description{
-Telegram API type UpdateAlbumRequest
-}
-\details{
 UpdateAlbumRequest R6 class
 
+UpdateAlbumRequest R6 class
+}
+\details{
 Represents a TL request to update a story album.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{UpdateAlbumRequest}
-}
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{peer}}{TypeInputPeer input peer}
-
-\item{\code{album_id}}{integer album identifier}
-
-\item{\code{title}}{character or NULL new title}
-
-\item{\code{delete_stories}}{integer vector or NULL stories to delete}
-
-\item{\code{add_stories}}{integer vector or NULL stories to add}
-
-\item{\code{order}}{integer vector or NULL new order of stories}
-}
-\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

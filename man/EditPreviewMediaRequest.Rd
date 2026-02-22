@@ -19,9 +19,6 @@ EditPreviewMediaRequest R6 class
 
 Represents the EditPreviewMediaRequest TL request.
 }
-\examples{
-# o <- EditPreviewMediaRequest$new(botObj, "en", mediaObj, newMediaObj)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

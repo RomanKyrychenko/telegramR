@@ -4,20 +4,10 @@
 \name{SearchPostsRequest}
 \alias{SearchPostsRequest}
 \title{SearchPostsRequest}
-\format{
-An R6 object inheriting from TLRequest
-}
-\usage{
-SearchPostsRequest$new(offset, limit, hashtag = NULL, area = NULL, peer = NULL)
-}
 \description{
 Represents a request to search for posts with specified parameters.
-
-Telegram API type SearchPostsRequest
 }
 \details{
-SearchPostsRequest R6 class
-
 Represents a TL request to search posts/stories (by hashtag/area/peer).
 }
 \section{Super classes}{
@@ -145,21 +135,6 @@ The objects of this class are cloneable with this method.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SearchPostsRequest}
-}
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{offset}}{character offset cursor}
-
-\item{\code{limit}}{integer limit}
-
-\item{\code{hashtag}}{character or NULL}
-
-\item{\code{area}}{TypeMediaArea or NULL}
-
-\item{\code{peer}}{TypeInputPeer or NULL}
-}
-\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

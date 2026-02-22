@@ -17,10 +17,6 @@ GetDifferenceRequest R6 class
 
 Representation of updates.GetDifference request.
 }
-\examples{
-# req <- GetDifferenceRequest$new("default", "en", 123)
-# req <- GetDifferenceRequest$new(pts = 0, date = Sys.time(), qts = 0)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

@@ -41,9 +41,7 @@ It determines attributes such as filename, audio, and video based on the file's 
 }
 \examples{
 \dontrun{
-\dontrun{
 # Assuming types and helper functions are defined
 attrs <- get_attributes("example.mp3", voice_note = TRUE)
-}
 }
 }

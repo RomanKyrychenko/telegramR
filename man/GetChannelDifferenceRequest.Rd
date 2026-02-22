@@ -11,9 +11,6 @@ GetChannelDifferenceRequest R6 class
 
 Representation of updates.GetChannelDifference request.
 }
-\examples{
-# req <- GetChannelDifferenceRequest$new(channel = some_channel, filter = some_filter, pts = 0, limit = 100)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

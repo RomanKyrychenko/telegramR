@@ -31,6 +31,8 @@ Optional fields are controlled by bits in `flags`:
 The nested `query` object is read last using `tgread_object()`.
 }
 \examples{
+\dontrun{
 # reader <- Reader$new(source)
 # req <- InitConnectionRequest_from_reader(reader)
+}
 }

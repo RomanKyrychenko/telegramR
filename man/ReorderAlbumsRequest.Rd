@@ -3,32 +3,17 @@
 \docType{class}
 \name{ReorderAlbumsRequest}
 \alias{ReorderAlbumsRequest}
-\title{ReorderAlbumsRequest}
-\format{
-An R6 object inheriting from TLRequest
-}
-\usage{
-ReorderAlbumsRequest$new(peer, order)
-}
+\title{ReorderAlbumsRequest R6 class}
 \description{
-Telegram API type ReorderAlbumsRequest
-}
-\details{
 ReorderAlbumsRequest R6 class
 
+ReorderAlbumsRequest R6 class
+}
+\details{
 Represents a TL request to reorder albums for a peer; returns Bool.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ReorderAlbumsRequest}
-}
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{peer}}{TypeInputPeer input peer}
-
-\item{\code{order}}{integer vector new order of album ids}
-}
-\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

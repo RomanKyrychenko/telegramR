@@ -17,9 +17,6 @@ SetCustomVerificationRequest R6 class
 
 Represents the SetCustomVerificationRequest TL request.
 }
-\examples{
-# o <- SetCustomVerificationRequest$new(peer, TRUE, bot = someBot, custom_description = "desc")
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

@@ -18,9 +18,6 @@ SetBotGroupDefaultAdminRightsRequest R6 class
 
 Represents the SetBotGroupDefaultAdminRightsRequest TL request.
 }
-\examples{
-# o <- SetBotGroupDefaultAdminRightsRequest$new(admin_rights)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

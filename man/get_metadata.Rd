@@ -20,14 +20,3 @@ seekable or if metadata extraction fails, it returns NULL. This is a port from t
 Python hachoir-based implementation, adapted to R using the exiftoolr package for
 metadata extraction where possible.
 }
-\examples{
-\dontrun{
-\dontrun{
-# Assuming exiftoolr is installed and file exists
-metadata <- get_metadata("example.mp3")
-if (!is.null(metadata)) {
-  print(metadata)
-}
-}
-}
-}

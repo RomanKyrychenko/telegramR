@@ -18,9 +18,6 @@ GetBotCommandsRequest R6 class
 
 Represents the GetBotCommandsRequest TL request.
 }
-\examples{
-# o <- GetBotCommandsRequest$new(scopeObj, "en")
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

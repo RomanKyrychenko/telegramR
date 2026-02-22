@@ -19,9 +19,6 @@ GetPreviewMediasRequest R6 class
 
 Represents the GetPreviewMediasRequest TL request.
 }
-\examples{
-# o <- GetPreviewMediasRequest$new(bot)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

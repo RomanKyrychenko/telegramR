@@ -11,9 +11,6 @@ GetLanguagesRequest R6 class
 
 TLRequest: GetLanguagesRequest
 }
-\examples{
-# req <- GetLanguagesRequest$new("default")
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetLanguagesRequest}
 }

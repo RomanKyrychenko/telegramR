@@ -19,9 +19,6 @@ DeletePreviewMediaRequest R6 class
 
 Represents the DeletePreviewMediaRequest TL request.
 }
-\examples{
-# o <- DeletePreviewMediaRequest$new(botObj, "en", list(media1, media2))
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

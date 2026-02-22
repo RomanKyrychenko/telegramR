@@ -19,9 +19,6 @@ SetBotInfoRequest R6 class
 
 Represents the SetBotInfoRequest TL request.
 }
-\examples{
-# o <- SetBotInfoRequest$new("en", bot = someBot, name = "Name")
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

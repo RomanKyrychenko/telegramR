@@ -11,174 +11,6 @@ TelegramClient Class
 
 An R6 class that combines functionality from multiple method classes to interact with Telegram API
 }
-\examples{
-
-## ------------------------------------------------
-## Method `TelegramClient$iter_participants`
-## ------------------------------------------------
-
-\dontrun{
-# Show all user IDs in a chat
-iter <- client$iter_participants(chat)
-for (user in iter) {
-  print(user$id)
-}
-
-# Search by name
-iter <- client$iter_participants(chat, search = 'name')
-for (user in iter) {
-  print(user$username)
-}
-
-# Filter by admins
-filter <- ChannelParticipantsAdmins()
-iter <- client$iter_participants(chat, filter = filter)
-for (user in iter) {
-  print(user$first_name)
-}
-}
-
-## ------------------------------------------------
-## Method `TelegramClient$get_participants`
-## ------------------------------------------------
-
-\dontrun{
-users <- client$get_participants(chat)
-print(users[[1]]$first_name)
-
-for (user in users) {
-  if (!is.null(user$username)) {
-    print(user$username)
-  }
-}
-}
-
-## ------------------------------------------------
-## Method `TelegramClient$iter_admin_log`
-## ------------------------------------------------
-
-\dontrun{
-iter <- client$iter_admin_log(channel)
-for (event in iter) {
-  if (event$changed_title) {
-    print(paste('The title changed from', event$old, 'to', event$new))
-  }
-}
-}
-
-## ------------------------------------------------
-## Method `TelegramClient$get_admin_log`
-## ------------------------------------------------
-
-\dontrun{
-# Get a list of deleted message events which said "heck"
-events <- client$get_admin_log(channel, search = 'heck', delete = TRUE)
-print(events[[1]]$old)
-}
-
-## ------------------------------------------------
-## Method `TelegramClient$iter_profile_photos`
-## ------------------------------------------------
-
-\dontrun{
-# Download all the profile photos of some user
-iter <- client$iter_profile_photos(user)
-for (photo in iter) {
-  client$download_media(photo)
-}
-}
-
-## ------------------------------------------------
-## Method `TelegramClient$get_profile_photos`
-## ------------------------------------------------
-
-\dontrun{
-# Get the photos of a channel
-photos <- client$get_profile_photos(channel)
-client$download_media(photos[[length(photos)]])
-}
-
-## ------------------------------------------------
-## Method `TelegramClient$action`
-## ------------------------------------------------
-
-\dontrun{
-# Type for 2 seconds, then send a message
-action <- client$action(chat, 'typing')
-Sys.sleep(2)
-client$send_message(chat, 'Hello world! I type slow ^^')
-
-# Cancel any previous action
-client$action(chat, 'cancel')
-
-# Upload a document, showing its progress
-action <- client$action(chat, 'document')
-client$send_file(chat, zip_file, progress_callback = action$progress)
-}
-
-## ------------------------------------------------
-## Method `TelegramClient$edit_admin`
-## ------------------------------------------------
-
-\dontrun{
-# Allowing user to pin messages in chat
-client$edit_admin(chat, user, pin_messages = TRUE)
-
-# Granting all permissions except for add_admins
-client$edit_admin(chat, user, is_admin = TRUE, add_admins = FALSE)
-}
-
-## ------------------------------------------------
-## Method `TelegramClient$edit_permissions`
-## ------------------------------------------------
-
-\dontrun{
-# Banning user from chat forever
-client$edit_permissions(chat, user, view_messages = FALSE)
-
-# Kicking someone (ban + un-ban)
-client$edit_permissions(chat, user, view_messages = FALSE)
-client$edit_permissions(chat, user)
-}
-
-## ------------------------------------------------
-## Method `TelegramClient$kick_participant`
-## ------------------------------------------------
-
-\dontrun{
-# Kick some user from some chat, and deleting the service message
-msg <- client$kick_participant(chat, user)
-msg$delete()
-
-# Leaving chat
-client$kick_participant(chat, 'me')
-}
-
-## ------------------------------------------------
-## Method `TelegramClient$get_permissions`
-## ------------------------------------------------
-
-\dontrun{
-permissions <- client$get_permissions(chat, user)
-if (permissions$is_admin) {
-  # do something
-}
-
-# Get Banned Permissions of Chat
-client$get_permissions(chat)
-}
-
-## ------------------------------------------------
-## Method `TelegramClient$get_stats`
-## ------------------------------------------------
-
-\dontrun{
-channel <- -100123
-stats <- client$get_stats(channel)
-print(paste('Stats from', stats$period$min_date, 'to', stats$period$max_date, ':'))
-print(stats$stringify())
-}
-}
 \keyword{Internal}
 \keyword{helper}
 \keyword{internal}
@@ -1355,33 +1187,6 @@ The order is unspecified.
 \subsection{Returns}{
 A _ParticipantsIter object.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-# Show all user IDs in a chat
-iter <- client$iter_participants(chat)
-for (user in iter) {
-  print(user$id)
-}
-
-# Search by name
-iter <- client$iter_participants(chat, search = 'name')
-for (user in iter) {
-  print(user$username)
-}
-
-# Filter by admins
-filter <- ChannelParticipantsAdmins()
-iter <- client$iter_participants(chat, filter = filter)
-for (user in iter) {
-  print(user$first_name)
-}
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-get_participants"></a>}}
@@ -1402,23 +1207,6 @@ Same as iter_participants(), but returns a TotalList instead.
 \subsection{Returns}{
 A TotalList of participants.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-users <- client$get_participants(chat)
-print(users[[1]]$first_name)
-
-for (user in users) {
-  if (!is.null(user$username)) {
-    print(user$username)
-  }
-}
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-iter_admin_log"></a>}}
@@ -1503,21 +1291,6 @@ The default order is from the most recent event to the oldest.
 \subsection{Returns}{
 An _AdminLogIter object.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-iter <- client$iter_admin_log(channel)
-for (event in iter) {
-  if (event$changed_title) {
-    print(paste('The title changed from', event$old, 'to', event$new))
-  }
-}
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-get_admin_log"></a>}}
@@ -1538,18 +1311,6 @@ Same as iter_admin_log(), but returns a list instead.
 \subsection{Returns}{
 A list of admin log events.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-# Get a list of deleted message events which said "heck"
-events <- client$get_admin_log(channel, search = 'heck', delete = TRUE)
-print(events[[1]]$old)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-iter_profile_photos"></a>}}
@@ -1583,20 +1344,6 @@ The order is from the most recent photo to the oldest.
 \subsection{Returns}{
 A _ProfilePhotoIter object.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-# Download all the profile photos of some user
-iter <- client$iter_profile_photos(user)
-for (photo in iter) {
-  client$download_media(photo)
-}
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-get_profile_photos"></a>}}
@@ -1617,18 +1364,6 @@ Same as iter_profile_photos(), but returns a TotalList instead.
 \subsection{Returns}{
 A TotalList of photos.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-# Get the photos of a channel
-photos <- client$get_profile_photos(channel)
-client$download_media(photos[[length(photos)]])
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-action"></a>}}
@@ -1657,26 +1392,6 @@ Chat actions indicate things like "user is typing", etc.
 \subsection{Returns}{
 A _ChatAction object or a coroutine.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-# Type for 2 seconds, then send a message
-action <- client$action(chat, 'typing')
-Sys.sleep(2)
-client$send_message(chat, 'Hello world! I type slow ^^')
-
-# Cancel any previous action
-client$action(chat, 'cancel')
-
-# Upload a document, showing its progress
-action <- client$action(chat, 'document')
-client$send_file(chat, zip_file, progress_callback = action$progress)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-edit_admin"></a>}}
@@ -1738,20 +1453,6 @@ Edits admin permissions for someone in a chat.
 \subsection{Returns}{
 The resulting Updates object.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-# Allowing user to pin messages in chat
-client$edit_admin(chat, user, pin_messages = TRUE)
-
-# Granting all permissions except for add_admins
-client$edit_admin(chat, user, is_admin = TRUE, add_admins = FALSE)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-edit_permissions"></a>}}
@@ -1816,21 +1517,6 @@ Edits user restrictions in a chat.
 \subsection{Returns}{
 The resulting Updates object.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-# Banning user from chat forever
-client$edit_permissions(chat, user, view_messages = FALSE)
-
-# Kicking someone (ban + un-ban)
-client$edit_permissions(chat, user, view_messages = FALSE)
-client$edit_permissions(chat, user)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-kick_participant"></a>}}
@@ -1853,21 +1539,6 @@ Kicks a user from a chat.
 \subsection{Returns}{
 The service message produced about a user being kicked, if any.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-# Kick some user from some chat, and deleting the service message
-msg <- client$kick_participant(chat, user)
-msg$delete()
-
-# Leaving chat
-client$kick_participant(chat, 'me')
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-get_permissions"></a>}}
@@ -1890,22 +1561,6 @@ Fetches the permissions of a user in a specific chat or channel.
 \subsection{Returns}{
 A ParticipantPermissions instance or NULL.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-permissions <- client$get_permissions(chat, user)
-if (permissions$is_admin) {
-  # do something
-}
-
-# Get Banned Permissions of Chat
-client$get_permissions(chat)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-get_stats"></a>}}
@@ -1928,19 +1583,6 @@ Retrieves statistics from the given megagroup or broadcast channel.
 \subsection{Returns}{
 BroadcastStats, MegagroupStats, or MessageStats.
 }
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-channel <- -100123
-stats <- client$get_stats(channel)
-print(paste('Stats from', stats$period$min_date, 'to', stats$period$max_date, ':'))
-print(stats$stringify())
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-inline_query"></a>}}

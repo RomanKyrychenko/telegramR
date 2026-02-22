@@ -31,9 +31,7 @@ a call to \code{resolve_id(marked_id)}.
 }
 \examples{
 \dontrun{
-\dontrun{
 # Assuming peer is a PeerUser object
 id <- get_peer_id(peer)
-}
 }
 }

@@ -16,8 +16,6 @@ Raises an error indicating that the entity cannot be cast to the target type.
 }
 \examples{
 \dontrun{
-\dontrun{
 raise_cast_fail(some_entity, "InputPeer")
-}
 }
 }

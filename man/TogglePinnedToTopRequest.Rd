@@ -3,32 +3,17 @@
 \docType{class}
 \name{TogglePinnedToTopRequest}
 \alias{TogglePinnedToTopRequest}
-\title{TogglePinnedToTopRequest}
-\format{
-An R6 object inheriting from TLRequest (if available)
-}
-\usage{
-TogglePinnedToTopRequest$new(peer, id)
-}
+\title{TogglePinnedToTopRequest R6 class}
 \description{
-Telegram API type TogglePinnedToTopRequest
-}
-\details{
 TogglePinnedToTopRequest R6 class
 
+TogglePinnedToTopRequest R6 class
+}
+\details{
 Represents a TL request to toggle pinned-to-top state for stories.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{TogglePinnedToTopRequest}
-}
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{peer}}{TypeInputPeer input peer}
-
-\item{\code{id}}{integer vector story ids}
-}
-\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

@@ -16,13 +16,6 @@ The class keeps arbitrary R objects in the `items` field and a scalar numeric `t
 initialized to 0. It provides methods to construct an instance and to obtain
 two textual representations: a human-readable form and a dput()-based reproducible form.
 }
-\examples{
-# tl <- TotalList$new(items = list(1, "a", TRUE))
-# tl$total <- 1
-# tl$to_string()
-# tl$to_repr()
-
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

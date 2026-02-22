@@ -18,10 +18,8 @@ representing a voice note's waveform.
 }
 \examples{
 \dontrun{
-\dontrun{
 # Example usage (assuming encoded waveform)
 encoded <- as.raw(c(0x00, 0x00)) # Placeholder
 decoded <- decode_waveform(encoded)
-}
 }
 }

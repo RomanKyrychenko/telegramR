@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{parse_phone}
 \alias{parse_phone}
-\title{Parse Phone Number}
+\title{Check if Object is List-Like}
 \usage{
 parse_phone(phone)
 }
@@ -13,15 +13,16 @@ parse_phone(phone)
 A character string of the parsed phone number, or `NULL` if invalid.
 }
 \description{
+Parse Phone Number
+}
+\details{
 Parses the given phone number, removing non-digit characters, and returns it as a string
 if it consists only of digits. Returns `NULL` if invalid.
 }
 \examples{
 \dontrun{
-\dontrun{
 parse_phone(1234567890) # "1234567890"
 parse_phone("+1 (234) 567-890") # "1234567890"
 parse_phone("invalid") # NULL
-}
 }
 }

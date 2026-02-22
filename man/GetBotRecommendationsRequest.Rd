@@ -19,9 +19,6 @@ GetBotRecommendationsRequest R6 class
 
 Represents the GetBotRecommendationsRequest TL request.
 }
-\examples{
-# o <- GetBotRecommendationsRequest$new(someBot)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

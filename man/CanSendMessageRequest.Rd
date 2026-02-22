@@ -19,9 +19,6 @@ CanSendMessageRequest R6 class
 
 Represents the CanSendMessageRequest TL request.
 }
-\examples{
-# o <- CanSendMessageRequest$new(botObj)
-}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

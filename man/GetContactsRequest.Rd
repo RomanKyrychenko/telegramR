@@ -12,11 +12,6 @@ Methods:
 \details{
 R6 representation of the TL request: GetContactsRequest
 }
-\examples{
-\dontrun{
-GetContactsRequest$new(0)$to_list()
-}
-}
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetContactsRequest}
 }

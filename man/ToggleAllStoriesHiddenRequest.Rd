@@ -3,30 +3,17 @@
 \docType{class}
 \name{ToggleAllStoriesHiddenRequest}
 \alias{ToggleAllStoriesHiddenRequest}
-\title{ToggleAllStoriesHiddenRequest}
-\format{
-An R6 object inheriting from TLRequest (if available)
-}
-\usage{
-ToggleAllStoriesHiddenRequest$new(hidden)
-}
+\title{ToggleAllStoriesHiddenRequest R6 class}
 \description{
-Telegram API type ToggleAllStoriesHiddenRequest
-}
-\details{
 ToggleAllStoriesHiddenRequest R6 class
 
+ToggleAllStoriesHiddenRequest R6 class
+}
+\details{
 Represents a TL request to toggle the "all stories hidden" flag.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ToggleAllStoriesHiddenRequest}
-}
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{hidden}}{logical desired hidden state}
-}
-\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
