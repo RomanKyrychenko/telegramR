@@ -27,7 +27,10 @@ is_list_like <- function(obj, allow_data_frames = FALSE) {
     return(TRUE)
   }
 
-  # Check for other iterable types
+  # Check for other iterable types (but not R6 objects, which are environments)
+  if (inherits(obj, "R6") || (is.environment(obj) && !is.null(obj$.__enclos_env__))) {
+    return(FALSE)
+  }
   if (inherits(obj, c("environment", "pairlist"))) {
     return(TRUE)
   }
