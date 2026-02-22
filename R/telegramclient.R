@@ -3687,7 +3687,7 @@ TelegramClient <- R6::R6Class(
           stop("You can only invoke requests, not types!")
         }
         if (is.function(r$resolve)) {
-          r$resolve(self, utils)
+          tryCatch(r$resolve(self, utils), error = function(e) NULL)
         }
         ctor_key <- as.character(r$CONSTRUCTOR_ID)
 
