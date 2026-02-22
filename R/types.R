@@ -8345,8 +8345,8 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x5d8d353b), 32),
-        packBits(intToBits((if (is.null(self$prev_topic) || isFALSE(self$prev_topic)) 0 else 1) | (if (is.null(self$new_topic) || isFALSE(self$new_topic)) 0 else 2)), 32),
+        writeBin(as.integer(0x5d8d353b), raw(), size = 4, endian = "little"),
+        writeBin(as.integer((if (is.null(self$prev_topic) || isFALSE(self$prev_topic)) 0 else 1) | (if (is.null(self$new_topic) || isFALSE(self$new_topic)) 0 else 2)), raw(), size = 4, endian = "little"),
         if (is.null(self$prev_topic) || isFALSE(self$prev_topic)) raw() else self$prev_topic$bytes(),
         if (is.null(self$new_topic) || isFALSE(self$new_topic)) raw() else self$new_topic$bytes()
       )
@@ -8391,7 +8391,7 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x278f2868), 32),
+        writeBin(as.integer(0x278f2868), raw(), size = 4, endian = "little"),
         self$message$bytes()
       )
     }
@@ -8425,7 +8425,7 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x23209745), 32),
+        writeBin(as.integer(0x23209745), raw(), size = 4, endian = "little"),
         self$call$bytes()
       )
     }
@@ -8459,7 +8459,7 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x8f079643), 32),
+        writeBin(as.integer(0x8f079643), raw(), size = 4, endian = "little"),
         self$message$bytes()
       )
     }
@@ -8493,8 +8493,8 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x64f36dfc), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
+        writeBin(as.integer(0x64f36dfc), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(if (self$new_value) 0xb5757299 else 0x3797bc7c), raw(), size = 4, endian = "little")
       )
     }
   ),
@@ -8527,8 +8527,8 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
     },
     bytes = function() {
       c(
-        packBits(intToBits(0xc517f77e), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
+        writeBin(as.integer(0xc517f77e), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(if (self$new_value) 0xb5757299 else 0x3797bc7c), raw(), size = 4, endian = "little")
       )
     }
   ),
@@ -8561,8 +8561,8 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x2cc6383), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
+        writeBin(as.integer(0x2cc6383), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(if (self$new_value) 0xb5757299 else 0x3797bc7c), raw(), size = 4, endian = "little")
       )
     }
   ),
@@ -8595,8 +8595,8 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x56d6a247), 32),
-        packBits(intToBits(if (self$join_muted) 0xb5757299 else 0x3797bc7c), 32)
+        writeBin(as.integer(0x56d6a247), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(if (self$join_muted) 0xb5757299 else 0x3797bc7c), raw(), size = 4, endian = "little")
       )
     }
   ),
@@ -8630,8 +8630,8 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x1b7907ae), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
+        writeBin(as.integer(0x1b7907ae), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(if (self$new_value) 0xb5757299 else 0x3797bc7c), raw(), size = 4, endian = "little")
       )
     }
   ),
@@ -8664,8 +8664,8 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
     },
     bytes = function() {
       c(
-        packBits(intToBits(0xcb2ac766), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
+        writeBin(as.integer(0xcb2ac766), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(if (self$new_value) 0xb5757299 else 0x3797bc7c), raw(), size = 4, endian = "little")
       )
     }
   ),
@@ -8698,8 +8698,8 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x5f5c95f1), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
+        writeBin(as.integer(0x5f5c95f1), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(if (self$new_value) 0xb5757299 else 0x3797bc7c), raw(), size = 4, endian = "little")
       )
     }
   ),
@@ -8732,8 +8732,8 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x60a79c79), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
+        writeBin(as.integer(0x60a79c79), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(if (self$new_value) 0xb5757299 else 0x3797bc7c), raw(), size = 4, endian = "little")
       )
     }
   ),
@@ -8766,8 +8766,8 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x26ae0971), 32),
-        packBits(intToBits(if (self$new_value) 0xb5757299 else 0x3797bc7c), 32)
+        writeBin(as.integer(0x26ae0971), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(if (self$new_value) 0xb5757299 else 0x3797bc7c), raw(), size = 4, endian = "little")
       )
     }
   ),
@@ -8802,9 +8802,9 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x53909779), 32),
-        packBits(intToBits(as.integer(self$prev_value)), 32),
-        packBits(intToBits(as.integer(self$new_value)), 32)
+        writeBin(as.integer(0x53909779), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(as.integer(self$prev_value)), raw(), size = 4, endian = "little"),
+        writeBin(as.integer(as.integer(self$new_value)), raw(), size = 4, endian = "little")
       )
     }
   ),
@@ -8838,7 +8838,7 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
     },
     bytes = function() {
       c(
-        packBits(intToBits(0xe9e82c18), 32),
+        writeBin(as.integer(0xe9e82c18), raw(), size = 4, endian = "little"),
         self$message$bytes()
       )
     }
@@ -8908,8 +8908,8 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
     },
     bytes = function() {
       c(
-        packBits(intToBits(0xea107ae4), 32),
-        packBits(intToBits((if (is.null(self$join) || !self$join) 0 else 1) | (if (is.null(self$leave) || !self$leave) 0 else 2) | (if (is.null(self$invite) || !self$invite) 0 else 4) | (if (is.null(self$ban) || !self$ban) 0 else 8) | (if (is.null(self$unban) || !self$unban) 0 else 16) | (if (is.null(self$kick) || !self$kick) 0 else 32) | (if (is.null(self$unkick) || !self$unkick) 0 else 64) | (if (is.null(self$promote) || !self$promote) 0 else 128) | (if (is.null(self$demote) || !self$demote) 0 else 256) | (if (is.null(self$info) || !self$info) 0 else 512) | (if (is.null(self$settings) || !self$settings) 0 else 1024) | (if (is.null(self$pinned) || !self$pinned) 0 else 2048) | (if (is.null(self$edit) || !self$edit) 0 else 4096) | (if (is.null(self$delete) || !self$delete) 0 else 8192) | (if (is.null(self$group_call) || !self$group_call) 0 else 16384) | (if (is.null(self$invites) || !self$invites) 0 else 32768) | (if (is.null(self$send) || !self$send) 0 else 65536) | (if (is.null(self$forums) || !self$forums) 0 else 131072) | (if (is.null(self$sub_extend) || !self$sub_extend) 0 else 262144)), 32)
+        writeBin(as.integer(0xea107ae4), raw(), size = 4, endian = "little"),
+        writeBin(as.integer((if (is.null(self$join) || !self$join) 0 else 1) | (if (is.null(self$leave) || !self$leave) 0 else 2) | (if (is.null(self$invite) || !self$invite) 0 else 4) | (if (is.null(self$ban) || !self$ban) 0 else 8) | (if (is.null(self$unban) || !self$unban) 0 else 16) | (if (is.null(self$kick) || !self$kick) 0 else 32) | (if (is.null(self$unkick) || !self$unkick) 0 else 64) | (if (is.null(self$promote) || !self$promote) 0 else 128) | (if (is.null(self$demote) || !self$demote) 0 else 256) | (if (is.null(self$info) || !self$info) 0 else 512) | (if (is.null(self$settings) || !self$settings) 0 else 1024) | (if (is.null(self$pinned) || !self$pinned) 0 else 2048) | (if (is.null(self$edit) || !self$edit) 0 else 4096) | (if (is.null(self$delete) || !self$delete) 0 else 8192) | (if (is.null(self$group_call) || !self$group_call) 0 else 16384) | (if (is.null(self$invites) || !self$invites) 0 else 32768) | (if (is.null(self$send) || !self$send) 0 else 65536) | (if (is.null(self$forums) || !self$forums) 0 else 131072) | (if (is.null(self$sub_extend) || !self$sub_extend) 0 else 262144)), raw(), size = 4, endian = "little")
       )
     }
   ),
@@ -8971,8 +8971,8 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
     },
     bytes = function() {
       c(
-        packBits(intToBits(0x17d493d5), 32),
-        packBits(intToBits((if (is.null(self$broadcast) || !self$broadcast) 0 else 32) | (if (is.null(self$megagroup) || !self$megagroup) 0 else 256) | (if (is.null(self$until_date) || !self$until_date) 0 else 65536)), 32),
+        writeBin(as.integer(0x17d493d5), raw(), size = 4, endian = "little"),
+        writeBin(as.integer((if (is.null(self$broadcast) || !self$broadcast) 0 else 32) | (if (is.null(self$megagroup) || !self$megagroup) 0 else 256) | (if (is.null(self$until_date) || !self$until_date) 0 else 65536)), raw(), size = 4, endian = "little"),
         writeBin(as.numeric(self$id), raw(), size = 8, endian = "little"),
         writeBin(as.numeric(self$access_hash), raw(), size = 8, endian = "little"),
         self$serializebytes(self$title),
@@ -12086,7 +12086,7 @@ DestroyAuthKeyFail <- R6::R6Class(
       list("_" = "DestroyAuthKeyFail")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0x13, 0x9b, 0x10, 0xea)))
+      as.raw(c(0x13, 0x9b, 0x10, 0xea))
     }
   ),
   private = list(
@@ -34873,10 +34873,10 @@ PageRelatedArticle <- R6::R6Class("PageRelatedArticle",
         as.raw(c(0x08, 0xdc, 0x90, 0xb3)),
         packBits(intToBits((if (is.null(self$title)) 0 else 1) | (if (is.null(self$description)) 0 else 2) | (if (is.null(self$photo_id)) 0 else 4) | (if (is.null(self$author)) 0 else 8) | (if (is.null(self$published_date)) 0 else 16)), type = "raw")[1:4],
         self$serializebytes(self$url),
-        packBits(intToBits(self$webpage_id, 64), type = "raw")[1:8],
+        writeBin(as.double(self$webpage_id), raw(), size = 8, endian = "little"),
         if (!is.null(self$title)) self$serializebytes(self$title) else raw(0),
         if (!is.null(self$description)) self$serializebytes(self$description) else raw(0),
-        if (!is.null(self$photo_id)) packBits(intToBits(self$photo_id, 64), type = "raw")[1:8] else raw(0),
+        if (!is.null(self$photo_id)) writeBin(as.double(self$photo_id), raw(), size = 8, endian = "little") else raw(0),
         if (!is.null(self$author)) self$serializebytes(self$author) else raw(0),
         if (!is.null(self$published_date)) self$serialize_datetime(self$published_date) else raw(0)
       )
@@ -35360,7 +35360,7 @@ PeerChannel <- R6::R6Class("PeerChannel",
     bytes = function() {
       c(
         as.raw(c(0x1e, 0x37, 0xa5, 0xa2)),
-        packBits(intToBits(self$channel_id, 64), type = "raw")[1:8]
+        writeBin(as.double(self$channel_id), raw(), size = 8, endian = "little")
       )
     }
   ),
@@ -35392,7 +35392,7 @@ PeerChat <- R6::R6Class("PeerChat",
     bytes = function() {
       c(
         as.raw(c(0x9a, 0x01, 0xc6, 0x36)),
-        packBits(intToBits(self$chat_id, 64), type = "raw")[1:8]
+        writeBin(as.double(self$chat_id), raw(), size = 8, endian = "little")
       )
     }
   ),
@@ -35429,7 +35429,7 @@ PeerColor <- R6::R6Class("PeerColor",
         as.raw(c(0xcf, 0x5a, 0x4b, 0xb5)),
         packBits(intToBits((if (is.null(self$color)) 0 else 1) | (if (is.null(self$background_emoji_id)) 0 else 2)), type = "raw")[1:4],
         if (!is.null(self$color)) packBits(intToBits(self$color), type = "raw")[1:4] else raw(0),
-        if (!is.null(self$background_emoji_id)) packBits(intToBits(self$background_emoji_id, 64), type = "raw")[1:8] else raw(0)
+        if (!is.null(self$background_emoji_id)) writeBin(as.double(self$background_emoji_id), raw(), size = 8, endian = "little") else raw(0)
       )
     }
   ),
