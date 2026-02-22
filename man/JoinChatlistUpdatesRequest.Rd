@@ -14,13 +14,9 @@ Request to join a chatlist with specific peers.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor id.}
+\item{\code{chatlist}}{Field.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass id.}
-
-\item{\code{chatlist}}{TypeInputChatlist input chatlist object.}
-
-\item{\code{peers}}{List of TypeInputPeer input peers.}
+\item{\code{peers}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -9,6 +9,39 @@ Telegram API type MessageReplyHeader
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageReplyHeader}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{reply_to_scheduled}}{Field.}
+
+\item{\code{forum_topic}}{Field.}
+
+\item{\code{quote}}{Field.}
+
+\item{\code{reply_to_msg_id}}{Field.}
+
+\item{\code{reply_topeer_id}}{Field.}
+
+\item{\code{reply_from}}{Field.}
+
+\item{\code{reply_media}}{Field.}
+
+\item{\code{reply_to_top_id}}{Field.}
+
+\item{\code{quote_text}}{Field.}
+
+\item{\code{quote_entities}}{Field.}
+
+\item{\code{quote_offset}}{Field.}
+
+\item{\code{todo_item_id}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

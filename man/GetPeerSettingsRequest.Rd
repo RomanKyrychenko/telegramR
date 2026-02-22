@@ -12,10 +12,6 @@ Represents a request to get peer settings. This class inherits from TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xefd9a6a2).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x65a2f7a1).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

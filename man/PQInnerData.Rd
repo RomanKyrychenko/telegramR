@@ -4,9 +4,6 @@
 \alias{PQInnerData}
 \title{PQInnerData}
 \description{
-A class representing the `PQInnerData` object. This class is used to handle
-the serialization and deserialization of the `PQInnerData` object.
-
 Telegram API type PQInnerData
 
 Telegram API type PQInnerData
@@ -21,6 +18,20 @@ This class has 4 constructors:
 - \code{\link{PQInnerDataDc}()}
 - \code{\link{PQInnerDataTemp}()}
 - \code{\link{PQInnerDataTempDc}()}
+
+ pq
+ p
+ q
+ nonce
+ server_nonce
+ new_nonce
+ dc
+ expires_in
+ slot
+ date
+ expires
+ peer
+ cooldown_until_date
 }
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PQInnerData}
@@ -122,33 +133,6 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{pq}}{raw \cr
-pq
-@field p raw \cr
-p
-@field q raw \cr
-q
-@field nonce raw \cr
-nonce
-@field server_nonce raw \cr
-server_nonce
-@field new_nonce raw \cr
-new_nonce
-@field dc integer \cr
-dc
-@field expires_in integer \cr
-expires_in
-@field slot integer \cr
-slot
-@field date integer \cr
-date
-@field expires integer \cr
-expires
-@field peer TLObject \cr
-peer
-@field cooldown_until_date integer \cr
-cooldown_until_date}
-
 \item{\code{CONSTRUCTOR_ID}}{Integer. Constructor ID of the class.}
 
 \item{\code{SUBCLASS_OF_ID}}{Integer. Subclass of ID of the parent class.}
@@ -159,9 +143,15 @@ cooldown_until_date}
 
 \item{\code{id}}{Integer. Story ID.}
 
+\item{\code{q}}{Field.}
+
 \item{\code{via_mention}}{Logical. Whether the story was sent via mention.}
 
+\item{\code{nonce}}{Field.}
+
 \item{\code{story}}{Object. Story object.}
+
+\item{\code{server_nonce}}{Field.}
 
 \item{\code{new_nonce}}{Logical. New nonce for the story.}
 }

@@ -6,6 +6,19 @@
 \description{
 Telegram API type GeoPointAddress
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{country_iso2}}{Field.}
+
+\item{\code{state}}{Field.}
+
+\item{\code{city}}{Field.}
+
+\item{\code{street}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

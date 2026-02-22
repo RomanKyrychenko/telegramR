@@ -9,6 +9,31 @@ Telegram API type PremiumSubscriptionOption
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PremiumSubscriptionOption}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{months}}{Field.}
+
+\item{\code{currency}}{Field.}
+
+\item{\code{amount}}{Field.}
+
+\item{\code{bot_url}}{Field.}
+
+\item{\code{current}}{Field.}
+
+\item{\code{can_purchase_upgrade}}{Field.}
+
+\item{\code{transaction}}{Field.}
+
+\item{\code{store_product}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

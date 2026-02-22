@@ -4,24 +4,21 @@
 \alias{SetBotGroupDefaultAdminRightsRequest}
 \title{SetBotGroupDefaultAdminRightsRequest}
 \description{
-Methods:
-- initialize(admin_rights)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
-Each method is documented inline below.
-
 Telegram API type SetBotGroupDefaultAdminRightsRequest
 }
 \details{
 SetBotGroupDefaultAdminRightsRequest R6 class
 
 Represents the SetBotGroupDefaultAdminRightsRequest TL request.
+
+
+
+Each method is documented inline below.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{admin_rights}}{TypeChatAdminRights object or representation}
+\item{\code{admin_rights}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

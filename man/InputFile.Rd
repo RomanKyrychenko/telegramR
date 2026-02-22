@@ -6,6 +6,19 @@
 \description{
 Telegram API type InputFile
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{id}}{Field.}
+
+\item{\code{parts}}{Field.}
+
+\item{\code{name}}{Field.}
+
+\item{\code{md5_checksum}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

@@ -9,6 +9,51 @@ Telegram API type Authorization
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{Authorization}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{hash}}{Field.}
+
+\item{\code{device_model}}{Field.}
+
+\item{\code{platform}}{Field.}
+
+\item{\code{system_version}}{Field.}
+
+\item{\code{api_id}}{Field.}
+
+\item{\code{app_name}}{Field.}
+
+\item{\code{app_version}}{Field.}
+
+\item{\code{date_created}}{Field.}
+
+\item{\code{date_active}}{Field.}
+
+\item{\code{ip}}{Field.}
+
+\item{\code{country}}{Field.}
+
+\item{\code{region}}{Field.}
+
+\item{\code{current}}{Field.}
+
+\item{\code{official_app}}{Field.}
+
+\item{\code{password_pending}}{Field.}
+
+\item{\code{encrypted_requests_disabled}}{Field.}
+
+\item{\code{call_requests_disabled}}{Field.}
+
+\item{\code{unconfirmed}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -128,6 +173,7 @@ Serializes the Authorization object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the Authorization object.
+Reads an Authorization object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

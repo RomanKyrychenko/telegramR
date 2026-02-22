@@ -11,6 +11,100 @@ Telegram API type ChannelAdminLogEventsFilter
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ChannelAdminLogEventsFilter}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{join}}{Field.}
+
+\item{\code{leave}}{Field.}
+
+\item{\code{invite}}{Field.}
+
+\item{\code{ban}}{Field.}
+
+\item{\code{unban}}{Field.}
+
+\item{\code{kick}}{Field.}
+
+\item{\code{unkick}}{Field.}
+
+\item{\code{promote}}{Field.}
+
+\item{\code{demote}}{Field.}
+
+\item{\code{info}}{Field.}
+
+\item{\code{settings}}{Field.}
+
+\item{\code{pinned}}{Field.}
+
+\item{\code{edit}}{Field.}
+
+\item{\code{delete}}{Field.}
+
+\item{\code{group_call}}{Field.}
+
+\item{\code{invites}}{Field.}
+
+\item{\code{send}}{Field.}
+
+\item{\code{forums}}{Field.}
+
+\item{\code{sub_extend}}{Field.}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{join}}{Field.}
+
+\item{\code{leave}}{Field.}
+
+\item{\code{invite}}{Field.}
+
+\item{\code{ban}}{Field.}
+
+\item{\code{unban}}{Field.}
+
+\item{\code{kick}}{Field.}
+
+\item{\code{unkick}}{Field.}
+
+\item{\code{promote}}{Field.}
+
+\item{\code{demote}}{Field.}
+
+\item{\code{info}}{Field.}
+
+\item{\code{settings}}{Field.}
+
+\item{\code{pinned}}{Field.}
+
+\item{\code{edit}}{Field.}
+
+\item{\code{delete}}{Field.}
+
+\item{\code{group_call}}{Field.}
+
+\item{\code{invites}}{Field.}
+
+\item{\code{send}}{Field.}
+
+\item{\code{forums}}{Field.}
+
+\item{\code{sub_extend}}{Field.}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -103,6 +197,15 @@ The objects of this class are cloneable with this method.
 }
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ChannelAdminLogEventsFilter}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

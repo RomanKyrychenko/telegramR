@@ -9,6 +9,25 @@ Telegram API type BindAuthKeyInner
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{BindAuthKeyInner}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{nonce}}{Field.}
+
+\item{\code{temp_auth_key_id}}{Field.}
+
+\item{\code{perm_auth_key_id}}{Field.}
+
+\item{\code{temp_session_id}}{Field.}
+
+\item{\code{expires_at}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -89,6 +108,7 @@ Serializes the BindAuthKeyInner object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the BindAuthKeyInner object.
+Reads a BindAuthKeyInner object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

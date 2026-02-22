@@ -9,6 +9,27 @@ Telegram API type InputBotInlineResult
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{InputBotInlineResult}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{id}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{send_message}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{description}}{Field.}
+
+\item{\code{url}}{Field.}
+
+\item{\code{thumb}}{Field.}
+
+\item{\code{content}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

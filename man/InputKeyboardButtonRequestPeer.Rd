@@ -9,6 +9,29 @@ Telegram API type InputKeyboardButtonRequestPeer
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{InputKeyboardButtonRequestPeer}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{text}}{Field.}
+
+\item{\code{button_id}}{Field.}
+
+\item{\code{peer_type}}{Field.}
+
+\item{\code{max_quantity}}{Field.}
+
+\item{\code{name_requested}}{Field.}
+
+\item{\code{username_requested}}{Field.}
+
+\item{\code{photo_requested}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

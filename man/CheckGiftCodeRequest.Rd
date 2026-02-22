@@ -12,11 +12,11 @@ Represents a request to check a gift code. Inherits from TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{slug}}{The slug string.}
+\item{\code{slug}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

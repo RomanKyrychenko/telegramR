@@ -9,6 +9,19 @@ Telegram API type InputStorePaymentStarsTopup
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{InputStorePaymentStarsTopup}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{stars}}{Field.}
+
+\item{\code{currency}}{Field.}
+
+\item{\code{amount}}{Field.}
+
+\item{\code{spend_purpose_peer}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

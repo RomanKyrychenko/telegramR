@@ -9,6 +9,27 @@ Telegram API type PostAddress
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PostAddress}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{street_line1}}{Field.}
+
+\item{\code{street_line2}}{Field.}
+
+\item{\code{city}}{Field.}
+
+\item{\code{state}}{Field.}
+
+\item{\code{country_iso2}}{Field.}
+
+\item{\code{post_code}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

@@ -12,10 +12,6 @@ Represents a request to get custom emoji documents. This class inherits from TLR
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xd9ab0f54).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xcc590e08).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

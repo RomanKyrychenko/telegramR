@@ -4,8 +4,6 @@
 \alias{TotalList}
 \title{TotalList}
 \description{
-A simple R6 container that stores a list of items and maintains a numeric total.
-
 Telegram API type TotalList
 }
 \details{

@@ -9,6 +9,17 @@ Telegram API type ChatParticipantCreator
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ChatParticipantCreator}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{constructor_id}}{Field.}
+
+\item{\code{subclass_of_id}}{Field.}
+
+\item{\code{user_id}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

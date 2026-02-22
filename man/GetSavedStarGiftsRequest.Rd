@@ -4,8 +4,6 @@
 \alias{GetSavedStarGiftsRequest}
 \title{GetSavedStarGiftsRequest}
 \description{
-Represents a request to get saved star gifts. Inherits from TLRequest.
-
 Telegram API type GetSavedStarGiftsRequest
 }
 \section{Super classes}{
@@ -14,31 +12,31 @@ Telegram API type GetSavedStarGiftsRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{peer}}{The input peer (TypeInputPeer).}
+\item{\code{peer}}{Field.}
 
-\item{\code{offset}}{The offset string.}
+\item{\code{offset}}{Field.}
 
-\item{\code{limit}}{The limit integer.}
+\item{\code{limit}}{Field.}
 
-\item{\code{exclude_unsaved}}{Optional flag to exclude unsaved gifts.}
+\item{\code{exclude_unsaved}}{Field.}
 
-\item{\code{exclude_saved}}{Optional flag to exclude saved gifts.}
+\item{\code{exclude_saved}}{Field.}
 
-\item{\code{exclude_unlimited}}{Optional flag to exclude unlimited gifts.}
+\item{\code{exclude_unlimited}}{Field.}
 
-\item{\code{exclude_unique}}{Optional flag to exclude unique gifts.}
+\item{\code{exclude_unique}}{Field.}
 
-\item{\code{sort_by_value}}{Optional flag to sort by value.}
+\item{\code{sort_by_value}}{Field.}
 
-\item{\code{exclude_upgradable}}{Optional flag to exclude upgradable gifts.}
+\item{\code{exclude_upgradable}}{Field.}
 
-\item{\code{exclude_unupgradable}}{Optional flag to exclude unupgradable gifts.}
+\item{\code{exclude_unupgradable}}{Field.}
 
-\item{\code{collection_id}}{Optional collection ID.}
+\item{\code{collection_id}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

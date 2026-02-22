@@ -14,11 +14,7 @@ Request to get deep link info.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex).}
-
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
-
-\item{\code{path}}{character Deep link path.}
+\item{\code{path}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

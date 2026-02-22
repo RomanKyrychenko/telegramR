@@ -12,10 +12,6 @@ Represents a request to receive messages. This class inherits from TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x5a954c0).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x8565f897).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

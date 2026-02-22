@@ -9,6 +9,25 @@ Telegram API type InputBotInlineMessageMediaVenue
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{InputBotInlineMessageMediaVenue}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{geo_point}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{address}}{Field.}
+
+\item{\code{provider}}{Field.}
+
+\item{\code{venue_id}}{Field.}
+
+\item{\code{venue_type}}{Field.}
+
+\item{\code{reply_markup}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

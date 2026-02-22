@@ -26,7 +26,25 @@ to_raw() writes the constructor id (0xda9b0d0d) in little-endian, then a 4-byte
 integer for layer, then the nested query bytes. The nested query is expected to
 provide a to_raw() method returning a raw vector, or to already be a raw vector.
 If the query is a character, it will be converted using charToRaw().
-Initialize an InvokeWithLayerRequest
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{layer}}{Field.}
+
+\item{\code{query}}{Field.
+Initialize an InvokeWithLayerRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -85,14 +103,23 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor identifier.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{layer}}{Integer API layer.}
+\item{\code{layer}}{Field.}
 
-\item{\code{query}}{Nested query object implementing `to_list` and `to_bytes`.
+\item{\code{query}}{Field.
 Initialize a new InvokeWithLayerRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

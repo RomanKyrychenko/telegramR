@@ -12,10 +12,6 @@ Represents a request to get bot callback answer. This class inherits from TLRequ
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x9342ca07).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x6c4dd18c).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

@@ -6,6 +6,15 @@
 \description{
 Telegram API type FoundStory
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{peer}}{Field.}
+
+\item{\code{story}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

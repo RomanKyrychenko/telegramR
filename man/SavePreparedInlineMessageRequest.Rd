@@ -12,10 +12,6 @@ Represents a request to save a prepared inline message. This class inherits from
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xf21f7f2f).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xef9119bb).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

@@ -6,6 +6,27 @@
 \description{
 Telegram API type GlobalPrivacySettings
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{archive_and_mute_new_noncontactpeers}}{Field.}
+
+\item{\code{keep_archived_unmuted}}{Field.}
+
+\item{\code{keep_archived_folders}}{Field.}
+
+\item{\code{hide_read_marks}}{Field.}
+
+\item{\code{new_noncontactpeers_require_premium}}{Field.}
+
+\item{\code{display_gifts_button}}{Field.}
+
+\item{\code{noncontactpeers_paid_stars}}{Field.}
+
+\item{\code{disallowed_gifts}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

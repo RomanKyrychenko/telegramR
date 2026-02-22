@@ -4,27 +4,23 @@
 \alias{SetBotMenuButtonRequest}
 \title{SetBotMenuButtonRequest}
 \description{
-Methods:
-- initialize(user_id, button)
-- resolve(client, utils)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
-Each method is documented inline below.
-
 Telegram API type SetBotMenuButtonRequest
 }
 \details{
 SetBotMenuButtonRequest R6 class
 
 Represents the SetBotMenuButtonRequest TL request.
+
+
+
+Each method is documented inline below.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{user_id}}{TypeInputUser input user or object implementing to_list()/to_bytes()}
+\item{\code{user_id}}{Field.}
 
-\item{\code{button}}{TypeBotMenuButton object or representation}
+\item{\code{button}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

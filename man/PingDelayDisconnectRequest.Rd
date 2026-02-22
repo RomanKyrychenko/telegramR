@@ -21,7 +21,25 @@ Methods:
 - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
 
 Note: 64-bit integer handling uses numeric placeholders via writeBin.
-Initialize a PingDelayDisconnectRequest
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{ping_id}}{Field.}
+
+\item{\code{disconnect_delay}}{Field.
+Initialize a PingDelayDisconnectRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -80,14 +98,23 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor identifier.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{ping_id}}{Integer64 ping identifier.}
+\item{\code{ping_id}}{Field.}
 
-\item{\code{disconnect_delay}}{Integer delay in seconds before disconnect.
+\item{\code{disconnect_delay}}{Field.
 Initialize PingDelayDisconnectRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

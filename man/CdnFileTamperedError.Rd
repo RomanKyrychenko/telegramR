@@ -4,9 +4,6 @@
 \alias{CdnFileTamperedError}
 \title{CdnFileTamperedError}
 \description{
-Occurs when there's a hash mismatch between the decrypted CDN file
-and its expected hash.
-
 Telegram API type CdnFileTamperedError
 }
 \details{

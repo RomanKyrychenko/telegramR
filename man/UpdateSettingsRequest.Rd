@@ -14,7 +14,16 @@ Representation of the UpdateSettingsRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{allow_international}}{logical or NULL}
+\item{\code{allow_international}}{Field.}
+
+\item{\code{lock_class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{lock_class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

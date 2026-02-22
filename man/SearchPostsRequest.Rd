@@ -16,38 +16,42 @@ Represents a TL request to search posts/stories (by hashtag/area/peer).
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{offset_rate}}{The offset rate for pagination.}
+\item{\code{offset_rate}}{Field.}
 
-\item{\code{offset_peer}}{The offset peer for pagination.}
+\item{\code{offset_peer}}{Field.}
 
-\item{\code{offset_id}}{The offset ID for pagination.}
+\item{\code{offset_id}}{Field.}
 
-\item{\code{limit}}{The limit on the number of results.}
+\item{\code{limit}}{Field.}
 
-\item{\code{hashtag}}{The hashtag to search for (optional).}
+\item{\code{hashtag}}{Field.}
 
-\item{\code{query}}{The query string to search for (optional).}
+\item{\code{query}}{Field.}
 
-\item{\code{allow_paid_stars}}{The number of allowed paid stars (optional).}
+\item{\code{allow_paid_stars}}{Field.}
+
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
-\item{\code{offset_rate}}{The offset rate for pagination.}
+\item{\code{offset_rate}}{Field.}
 
-\item{\code{offset_peer}}{The offset peer for pagination.}
+\item{\code{offset_peer}}{Field.}
 
-\item{\code{offset_id}}{The offset ID for pagination.}
+\item{\code{offset_id}}{Field.}
 
-\item{\code{query}}{The query string to search for (optional).}
+\item{\code{query}}{Field.}
 
-\item{\code{allow_paid_stars}}{The number of allowed paid stars (optional).}
+\item{\code{allow_paid_stars}}{Field.}
+
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }
@@ -135,6 +139,25 @@ The objects of this class are cloneable with this method.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SearchPostsRequest}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{offset}}{Field.}
+
+\item{\code{limit}}{Field.}
+
+\item{\code{hashtag}}{Field.}
+
+\item{\code{area}}{Field.}
+
+\item{\code{peer}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

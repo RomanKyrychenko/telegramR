@@ -9,6 +9,25 @@ Telegram API type RequestedPeerUser
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{RequestedPeerUser}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{user_id}}{Field.}
+
+\item{\code{first_name}}{Field.}
+
+\item{\code{last_name}}{Field.}
+
+\item{\code{username}}{Field.}
+
+\item{\code{photo}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

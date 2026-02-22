@@ -14,9 +14,9 @@ Represents InviteToGroupCallRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{call}}{The input group call object (expected to implement bytes()).}
+\item{\code{call}}{Field.}
 
-\item{\code{users}}{List of input user objects (expected to implement bytes()).}
+\item{\code{users}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

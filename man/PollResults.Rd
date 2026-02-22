@@ -9,6 +9,27 @@ Telegram API type PollResults
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PollResults}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{min}}{Field.}
+
+\item{\code{results}}{Field.}
+
+\item{\code{total_voters}}{Field.}
+
+\item{\code{recent_voters}}{Field.}
+
+\item{\code{solution}}{Field.}
+
+\item{\code{solution_entities}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

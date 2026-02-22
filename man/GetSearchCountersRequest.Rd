@@ -12,10 +12,6 @@ Represents a request to get search counters. This class inherits from TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x1bbcf300).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x6bde3c6e).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

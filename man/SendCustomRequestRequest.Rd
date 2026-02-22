@@ -4,27 +4,23 @@
 \alias{SendCustomRequestRequest}
 \title{SendCustomRequestRequest}
 \description{
-Methods:
-- initialize(custom_method, params)
-- resolve(client, utils) (no-op by default)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
-Each method is documented inline below.
-
 Telegram API type SendCustomRequestRequest
 }
 \details{
 SendCustomRequestRequest R6 class
 
 Represents the SendCustomRequestRequest TL request.
+
+
+
+Each method is documented inline below.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{custom_method}}{character custom method name}
+\item{\code{custom_method}}{Field.}
 
-\item{\code{params}}{TypeDataJSON object or representation}
+\item{\code{params}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

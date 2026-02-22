@@ -20,22 +20,22 @@ Representation of updates.GetDifference request.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{lang_pack}}{character Language pack identifier}
+\item{\code{lang_pack}}{Field.}
 
-\item{\code{lang_code}}{character Language code}
+\item{\code{lang_code}}{Field.}
 
-\item{\code{from_version}}{integer Version to get difference from}
+\item{\code{from_version}}{Field.}
 }
 \if{html}{\out{</div>}}
 }
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
-\item{\code{lang_pack}}{character Language pack identifier}
+\item{\code{lang_pack}}{Field.}
 
-\item{\code{lang_code}}{character Language code}
+\item{\code{lang_code}}{Field.}
 
-\item{\code{from_version}}{integer Version to get difference from}
+\item{\code{from_version}}{Field.}
 }
 \if{html}{\out{</div>}}
 }
@@ -113,17 +113,17 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{pts}}{integer Current pts}
+\item{\code{pts}}{Field.}
 
-\item{\code{date}}{POSIXct|NULL Date}
+\item{\code{date}}{Field.}
 
-\item{\code{qts}}{integer QTS}
+\item{\code{qts}}{Field.}
 
-\item{\code{pts_limit}}{integer|NULL Optional pts_limit}
+\item{\code{pts_limit}}{Field.}
 
-\item{\code{pts_total_limit}}{integer|NULL Optional pts_total_limit}
+\item{\code{pts_total_limit}}{Field.}
 
-\item{\code{qts_limit}}{integer|NULL Optional qts_limit}
+\item{\code{qts_limit}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

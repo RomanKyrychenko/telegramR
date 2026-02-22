@@ -6,6 +6,15 @@
 \description{
 Telegram API type ExportedMessageLink
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{link}}{Field.}
+
+\item{\code{html}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

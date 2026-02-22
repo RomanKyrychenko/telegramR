@@ -14,15 +14,15 @@ Represents the TL request upload.GetFileRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{location}}{TLObject-like (input file location)}
+\item{\code{location}}{Field.}
 
-\item{\code{offset}}{numeric 64-bit offset}
+\item{\code{offset}}{Field.}
 
-\item{\code{limit}}{integer}
+\item{\code{limit}}{Field.}
 
-\item{\code{precise}}{logical|null}
+\item{\code{precise}}{Field.}
 
-\item{\code{cdn_supported}}{logical|null}
+\item{\code{cdn_supported}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

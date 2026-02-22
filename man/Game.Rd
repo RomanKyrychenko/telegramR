@@ -6,6 +6,25 @@
 \description{
 Telegram API type Game
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{id}}{Field.}
+
+\item{\code{access_hash}}{Field.}
+
+\item{\code{short_name}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{description}}{Field.}
+
+\item{\code{photo}}{Field.}
+
+\item{\code{document}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

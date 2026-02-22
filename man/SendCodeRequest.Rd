@@ -14,17 +14,17 @@ Represents the TLRequest auth.SendCodeRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0xa677244f).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0x6ce87081).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{phone_number}}{character Phone number.}
+\item{\code{phone_number}}{Field.}
 
-\item{\code{api_id}}{integer API id.}
+\item{\code{api_id}}{Field.}
 
-\item{\code{api_hash}}{character API hash.}
+\item{\code{api_hash}}{Field.}
 
-\item{\code{settings}}{TL object TypeCodeSettings.}
+\item{\code{settings}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

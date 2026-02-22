@@ -14,15 +14,15 @@ Represents CreateGroupCallRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{peer}}{The input peer object (expected to implement bytes()).}
+\item{\code{peer}}{Field.}
 
-\item{\code{rtmp_stream}}{Logical or NULL. If TRUE, RTMP stream.}
+\item{\code{rtmp_stream}}{Field.}
 
-\item{\code{random_id}}{Integer random id.}
+\item{\code{random_id}}{Field.}
 
-\item{\code{title}}{String or NULL.}
+\item{\code{title}}{Field.}
 
-\item{\code{schedule_date}}{Datetime or NULL.}
+\item{\code{schedule_date}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

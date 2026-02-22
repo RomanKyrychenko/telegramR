@@ -14,7 +14,7 @@ Represents DeclineConferenceCallInviteRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{msg_id}}{Integer message id.}
+\item{\code{msg_id}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

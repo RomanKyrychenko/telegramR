@@ -12,11 +12,11 @@ Request to get a vector of users by input user references.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the GetUsersRequest class.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the GetUsersRequest class.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{id}}{TLInputUser or a representation accepted by get_input_user}
+\item{\code{id}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -17,17 +17,17 @@ R6 class representing a GetStoryPublicForwardsRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer constructor id}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer subclass id}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{peer}}{input peer object}
+\item{\code{peer}}{Field.}
 
-\item{\code{id}}{integer story id}
+\item{\code{id}}{Field.}
 
-\item{\code{offset}}{character offset string}
+\item{\code{offset}}{Field.}
 
-\item{\code{limit}}{integer limit}
+\item{\code{limit}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -14,17 +14,17 @@ Represents the TLRequest auth.SignInRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0x8d52a951).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0xb9e04e39).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{phone_number}}{character Phone number.}
+\item{\code{phone_number}}{Field.}
 
-\item{\code{phone_code_hash}}{character Phone code hash.}
+\item{\code{phone_code_hash}}{Field.}
 
-\item{\code{phone_code}}{character Optional phone code.}
+\item{\code{phone_code}}{Field.}
 
-\item{\code{email_verification}}{TL object Optional email verification object.}
+\item{\code{email_verification}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

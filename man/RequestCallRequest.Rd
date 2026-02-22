@@ -14,15 +14,15 @@ Represents RequestCallRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{user_id}}{Input user object (must provide bytes()).}
+\item{\code{user_id}}{Field.}
 
-\item{\code{g_a_hash}}{Raw vector or string representing bytes payload.}
+\item{\code{g_a_hash}}{Field.}
 
-\item{\code{protocol}}{Protocol object (must provide bytes()).}
+\item{\code{protocol}}{Field.}
 
-\item{\code{video}}{Logical or NULL. If TRUE indicates video.}
+\item{\code{video}}{Field.}
 
-\item{\code{random_id}}{Integer random id (32-bit signed).}
+\item{\code{random_id}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

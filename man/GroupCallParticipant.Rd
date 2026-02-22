@@ -9,6 +9,49 @@ Telegram API type GroupCallParticipant
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{GroupCallParticipant}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{peer}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{source}}{Field.}
+
+\item{\code{muted}}{Field.}
+
+\item{\code{left}}{Field.}
+
+\item{\code{can_self_unmute}}{Field.}
+
+\item{\code{just_joined}}{Field.}
+
+\item{\code{versioned}}{Field.}
+
+\item{\code{min}}{Field.}
+
+\item{\code{muted_by_you}}{Field.}
+
+\item{\code{volume_by_admin}}{Field.}
+
+\item{\code{is_self}}{Field.}
+
+\item{\code{video_joined}}{Field.}
+
+\item{\code{active_date}}{Field.}
+
+\item{\code{volume}}{Field.}
+
+\item{\code{about}}{Field.}
+
+\item{\code{raise_hand_rating}}{Field.}
+
+\item{\code{video}}{Field.}
+
+\item{\code{presentation}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

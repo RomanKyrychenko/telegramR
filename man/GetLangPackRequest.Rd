@@ -17,9 +17,9 @@ TLRequest: GetLangPackRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{lang_pack}}{character Language pack identifier}
+\item{\code{lang_pack}}{Field.}
 
-\item{\code{lang_code}}{character Language code}
+\item{\code{lang_code}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

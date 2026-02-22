@@ -14,7 +14,7 @@ Represents GetGroupCallJoinAsRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{peer}}{The input peer object (expected to implement bytes()).}
+\item{\code{peer}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -4,8 +4,6 @@
 \alias{RpcResult}
 \title{RpcResult}
 \description{
-Represents the result of a Remote Procedure Call (RPC) in the Telegram API.
-
 Telegram API type RpcResult
 }
 \details{
@@ -20,15 +18,15 @@ The `RpcResult` class encapsulates the response of an RPC call, including the re
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{req_msg_id}}{\code{numeric} The ID of the request message.}
-
-\item{\code{body}}{\code{ANY} The body of the RPC result.}
-
-\item{\code{error}}{\code{ANY} The error object, if any.}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID for RpcResult (0xf35c6d01).}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID for RpcResult.}
+
+\item{\code{req_msg_id}}{Field.}
+
+\item{\code{body}}{Field.}
+
+\item{\code{error}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

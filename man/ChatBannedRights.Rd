@@ -9,6 +9,57 @@ Telegram API type ChatBannedRights
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ChatBannedRights}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{until_date}}{Field.}
+
+\item{\code{view_messages}}{Field.}
+
+\item{\code{send_messages}}{Field.}
+
+\item{\code{send_media}}{Field.}
+
+\item{\code{send_stickers}}{Field.}
+
+\item{\code{send_gifs}}{Field.}
+
+\item{\code{send_games}}{Field.}
+
+\item{\code{send_inline}}{Field.}
+
+\item{\code{embed_links}}{Field.}
+
+\item{\code{send_polls}}{Field.}
+
+\item{\code{change_info}}{Field.}
+
+\item{\code{invite_users}}{Field.}
+
+\item{\code{pin_messages}}{Field.}
+
+\item{\code{manage_topics}}{Field.}
+
+\item{\code{send_photos}}{Field.}
+
+\item{\code{send_videos}}{Field.}
+
+\item{\code{send_roundvideos}}{Field.}
+
+\item{\code{send_audios}}{Field.}
+
+\item{\code{send_voices}}{Field.}
+
+\item{\code{send_docs}}{Field.}
+
+\item{\code{send_plain}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

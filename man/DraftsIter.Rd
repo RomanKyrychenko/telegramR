@@ -4,8 +4,6 @@
 \alias{DraftsIter}
 \title{DraftsIter}
 \description{
-An iterator for Telegram drafts.
-
 Telegram API type DraftsIter
 }
 \details{

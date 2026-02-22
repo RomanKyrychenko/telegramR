@@ -4,27 +4,23 @@
 \alias{ResetBotCommandsRequest}
 \title{ResetBotCommandsRequest}
 \description{
-Methods:
-- initialize(scope, lang_code)
-- resolve(client, utils) (no-op kept for API consistency)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
-Each method is documented inline below.
-
 Telegram API type ResetBotCommandsRequest
 }
 \details{
 ResetBotCommandsRequest R6 class
 
 Represents the ResetBotCommandsRequest TL request.
+
+
+
+Each method is documented inline below.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{scope}}{TypeBotCommandScope object or representation}
+\item{\code{scope}}{Field.}
 
-\item{\code{lang_code}}{character language code}
+\item{\code{lang_code}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

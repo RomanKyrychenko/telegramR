@@ -4,8 +4,6 @@
 \alias{GetConnectedStarRefBotsRequest}
 \title{GetConnectedStarRefBotsRequest}
 \description{
-Represents a request to get connected star ref bots. Inherits from TLRequest.
-
 Telegram API type GetConnectedStarRefBotsRequest
 }
 \section{Super classes}{
@@ -14,17 +12,17 @@ Telegram API type GetConnectedStarRefBotsRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{peer}}{The input peer (TypeInputPeer).}
+\item{\code{peer}}{Field.}
 
-\item{\code{limit}}{The limit integer.}
+\item{\code{limit}}{Field.}
 
-\item{\code{offset_date}}{Optional offset date (datetime).}
+\item{\code{offset_date}}{Field.}
 
-\item{\code{offset_link}}{Optional offset link (string).}
+\item{\code{offset_link}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

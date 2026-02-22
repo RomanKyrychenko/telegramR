@@ -9,6 +9,19 @@ Telegram API type InputBotInlineMessageID64
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{InputBotInlineMessageID64}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{dc_id}}{Field.}
+
+\item{\code{owner_id}}{Field.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{access_hash}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

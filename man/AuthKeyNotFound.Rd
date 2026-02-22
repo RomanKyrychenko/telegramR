@@ -4,11 +4,6 @@
 \alias{AuthKeyNotFound}
 \title{AuthKeyNotFound}
 \description{
-The server claims it doesn't know about the authorization key (session file)
-currently being used. This might be because it either has never seen this
-authorization key, or it used to know about the authorization key but has
-forgotten it, either temporarily or permanently (possibly due to server errors).
-
 Telegram API type AuthKeyNotFound
 }
 \details{

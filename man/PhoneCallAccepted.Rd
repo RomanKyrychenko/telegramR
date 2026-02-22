@@ -9,6 +9,31 @@ Telegram API type PhoneCallAccepted
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PhoneCallAccepted}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{access_hash}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{admin_id}}{Field.}
+
+\item{\code{participant_id}}{Field.}
+
+\item{\code{g_b}}{Field.}
+
+\item{\code{protocol}}{Field.}
+
+\item{\code{video}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

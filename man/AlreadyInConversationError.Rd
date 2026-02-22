@@ -4,8 +4,6 @@
 \alias{AlreadyInConversationError}
 \title{AlreadyInConversationError}
 \description{
-Occurs when another exclusive conversation is opened in the same chat.
-
 Telegram API type AlreadyInConversationError
 }
 \details{

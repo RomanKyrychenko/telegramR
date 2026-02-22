@@ -12,10 +12,6 @@ Represents a request to send scheduled messages. This class inherits from TLRequ
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xbd38850a).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x8af52aac).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

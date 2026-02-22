@@ -4,8 +4,6 @@
 \alias{BinaryReader}
 \title{BinaryReader}
 \description{
-A utility class to read binary data, inspired by Python's BinaryReader.
-
 Telegram API type BinaryReader
 }
 \details{

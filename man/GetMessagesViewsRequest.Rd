@@ -12,10 +12,6 @@ Represents a request to get messages views. This class inherits from TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x5784d3e1).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xafb5eb9c).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

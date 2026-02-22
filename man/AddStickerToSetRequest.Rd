@@ -25,13 +25,13 @@ All methods are exported as part of the R6 object.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{numeric constructor id (hex)}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{numeric subclass id (hex)}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{stickerset}}{object InputStickerSet (TL) — required}
+\item{\code{stickerset}}{Field.}
 
-\item{\code{sticker}}{object InputStickerSetItem (TL) — required}
+\item{\code{sticker}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

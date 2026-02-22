@@ -12,10 +12,6 @@ Represents a request to send an encrypted file. This class inherits from TLReque
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x5559481d).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xc99e3e50).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

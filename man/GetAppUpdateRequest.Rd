@@ -14,11 +14,7 @@ Request to get app update info.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex).}
-
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
-
-\item{\code{source}}{character Source string.}
+\item{\code{source}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

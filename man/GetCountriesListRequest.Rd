@@ -14,13 +14,7 @@ Request to get the list of countries (possibly not modified).
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex).}
-
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
-
-\item{\code{langCode}}{character Language code.}
-
-\item{\code{hash}}{integer Hash to check for modifications.}
+\item{\code{langCode}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

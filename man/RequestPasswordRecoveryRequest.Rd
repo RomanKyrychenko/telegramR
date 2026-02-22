@@ -14,9 +14,9 @@ Represents the TLRequest auth.RequestPasswordRecoveryRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0xd897bc66).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0xfa72d43a).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 }
 \if{html}{\out{</div>}}
 }

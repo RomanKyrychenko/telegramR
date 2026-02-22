@@ -12,10 +12,6 @@ Represents a request to get admins with invites. This class inherits from TLRequ
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x3920e6ef).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x8f5bad2b).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

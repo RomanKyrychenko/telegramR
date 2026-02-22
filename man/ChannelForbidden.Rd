@@ -11,6 +11,48 @@ Telegram API type ChannelForbidden
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ChannelForbidden}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{access_hash}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{broadcast}}{Field.}
+
+\item{\code{megagroup}}{Field.}
+
+\item{\code{until_date}}{Field.}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{id}}{Field.}
+
+\item{\code{access_hash}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{broadcast}}{Field.}
+
+\item{\code{megagroup}}{Field.}
+
+\item{\code{until_date}}{Field.}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -90,6 +132,15 @@ The objects of this class are cloneable with this method.
 }
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ChannelForbidden}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

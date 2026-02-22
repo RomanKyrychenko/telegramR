@@ -9,6 +9,23 @@ Telegram API type DocumentAttributeCustomEmoji
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{DocumentAttributeCustomEmoji}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{alt}}{Field.}
+
+\item{\code{stickerset}}{Field.}
+
+\item{\code{free}}{Field.}
+
+\item{\code{text_color}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

@@ -9,6 +9,23 @@ Telegram API type MediaAreaSuggestedReaction
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MediaAreaSuggestedReaction}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{coordinates}}{Field.}
+
+\item{\code{reaction}}{Field.}
+
+\item{\code{dark}}{Field.}
+
+\item{\code{flipped}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

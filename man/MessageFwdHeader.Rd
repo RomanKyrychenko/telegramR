@@ -9,6 +9,41 @@ Telegram API type MessageFwdHeader
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageFwdHeader}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{imported}}{Field.}
+
+\item{\code{saved_out}}{Field.}
+
+\item{\code{from_id}}{Field.}
+
+\item{\code{from_name}}{Field.}
+
+\item{\code{channel_post}}{Field.}
+
+\item{\code{post_author}}{Field.}
+
+\item{\code{saved_frompeer}}{Field.}
+
+\item{\code{saved_from_msg_id}}{Field.}
+
+\item{\code{saved_from_id}}{Field.}
+
+\item{\code{saved_from_name}}{Field.}
+
+\item{\code{saved_date}}{Field.}
+
+\item{\code{psa_type}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

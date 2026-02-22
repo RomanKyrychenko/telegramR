@@ -14,13 +14,13 @@ Represents the TLRequest auth.ResetLoginEmailRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0x7e960193).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0x6ce87081).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{phone_number}}{character Phone number.}
+\item{\code{phone_number}}{Field.}
 
-\item{\code{phone_code_hash}}{character Phone code hash.}
+\item{\code{phone_code_hash}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -4,9 +4,6 @@
 \alias{TLObject}
 \title{TLObject}
 \description{
-A base class for all Telegram Layer (TL) objects. This class provides common methods
-for serialization, deserialization, and representation of TL objects.
-
 Telegram API type TLObject
 }
 \details{
@@ -18,6 +15,27 @@ TLObject Class
 \item{\code{CONSTRUCTOR_ID}}{A unique identifier for the TL object.}
 
 \item{\code{SUBCLASS_OF_ID}}{A unique identifier for the subclass of the TL object.}
+
+\item{\code{collapse}}{Field.}
+
+\item{\code{collapse}}{Field.}
+
+\item{\code{collapse}}{Field.}
+
+\item{\code{collapse}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{collapse}}{Field.}
+
+\item{\code{collapse}}{Field.}
+
+\item{\code{collapse}}{Field.}
+
+\item{\code{collapse}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

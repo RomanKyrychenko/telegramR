@@ -12,10 +12,6 @@ Represents a request to get message reactions list. This class inherits from TLR
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x461b3f48).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x60fce5e6).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

@@ -9,6 +9,29 @@ Telegram API type EncryptedChat
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{EncryptedChat}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{access_hash}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{admin_id}}{Field.}
+
+\item{\code{participant_id}}{Field.}
+
+\item{\code{g_a_or_b}}{Field.}
+
+\item{\code{key_fingerprint}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

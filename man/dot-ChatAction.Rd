@@ -17,20 +17,6 @@ cancelling it when done. It is designed to be used synchronously in R.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{client}}{The TelegramClient instance.}
-
-\item{\code{chat}}{The chat entity where the action is shown.}
-
-\item{\code{action}}{The action object (e.g., SendMessageTypingAction).}
-
-\item{\code{delay}}{The delay in seconds between sending actions (not used in synchronous version).}
-
-\item{\code{auto_cancel}}{Whether to cancel the action automatically on exit.}
-
-\item{\code{request}}{The current request object for setting the action.}
-
-\item{\code{running}}{Whether the action is currently running.}
-
 \item{\code{_str_mapping}}{A named list mapping string action names to SendMessageAction objects.}
 }
 \if{html}{\out{</div>}}
@@ -38,20 +24,6 @@ cancelling it when done. It is designed to be used synchronously in R.
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
-\item{\code{client}}{The TelegramClient instance.}
-
-\item{\code{chat}}{The chat entity where the action is shown.}
-
-\item{\code{action}}{The action object (e.g., SendMessageTypingAction).}
-
-\item{\code{delay}}{The delay in seconds between sending actions (not used in synchronous version).}
-
-\item{\code{auto_cancel}}{Whether to cancel the action automatically on exit.}
-
-\item{\code{request}}{The current request object for setting the action.}
-
-\item{\code{running}}{Whether the action is currently running.}
-
 \item{\code{_str_mapping}}{A named list mapping string action names to SendMessageAction objects.}
 }
 \if{html}{\out{</div>}}

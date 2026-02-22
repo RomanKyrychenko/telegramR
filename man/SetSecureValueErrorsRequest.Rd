@@ -12,13 +12,13 @@ Represents a request to set secure value errors for a Telegram user.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer. Unique constructor ID for this request type.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer. Unique subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{id}}{Object or NULL. The user identifier, expected to be a TLObject or compatible input.}
+\item{\code{id}}{Field.}
 
-\item{\code{errors}}{List or NULL. List of error objects (typically TLObjects) to be set for the user.}
+\item{\code{errors}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -18,17 +18,17 @@ R6 representation of the TL request: BlockFromRepliesRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex)}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex)}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{msg_id}}{integer Message id (int32)}
+\item{\code{msg_id}}{Field.}
 
-\item{\code{delete_message}}{logical|NULL Optional flag}
+\item{\code{delete_message}}{Field.}
 
-\item{\code{delete_history}}{logical|NULL Optional flag}
+\item{\code{delete_history}}{Field.}
 
-\item{\code{report_spam}}{logical|NULL Optional flag}
+\item{\code{report_spam}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

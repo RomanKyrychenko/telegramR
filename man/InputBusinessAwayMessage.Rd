@@ -6,6 +6,19 @@
 \description{
 Telegram API type InputBusinessAwayMessage
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{shortcut_id}}{Field.}
+
+\item{\code{schedule}}{Field.}
+
+\item{\code{recipients}}{Field.}
+
+\item{\code{offline_only}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

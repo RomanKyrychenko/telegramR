@@ -12,11 +12,11 @@ R6 request class to obtain a vector of RequirementToContact objects for multiple
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer. Unique constructor ID for this request (0xd89a83a3).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer. Subclass (result) ID (0x322623c3).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{id}}{list. List of TLInputUser objects or values resolvable via get_input_user identifying target users.}
+\item{\code{id}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

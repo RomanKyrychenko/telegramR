@@ -12,10 +12,6 @@ Represents a request to get my stickers. This class inherits from TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xd0b5e1fc).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xb1b4350a).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

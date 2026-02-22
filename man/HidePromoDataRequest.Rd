@@ -14,11 +14,7 @@ Request to hide promo data for a peer.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex).}
-
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
-
-\item{\code{peer}}{TLObject-like input peer (environment with to_bytes()/to_list() or raw)}
+\item{\code{peer}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

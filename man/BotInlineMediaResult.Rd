@@ -9,6 +9,29 @@ Telegram API type BotInlineMediaResult
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{BotInlineMediaResult}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{send_message}}{Field.}
+
+\item{\code{photo}}{Field.}
+
+\item{\code{document}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{description}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -95,6 +118,7 @@ Serializes the BotInlineMediaResult object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the BotInlineMediaResult object.
+Reads a BotInlineMediaResult object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

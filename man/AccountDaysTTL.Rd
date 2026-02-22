@@ -111,6 +111,10 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
 \item{\code{days}}{An integer representing the number of days.}
 }
 \if{html}{\out{</div>}}
@@ -181,6 +185,7 @@ Serializes the AccountDaysTTL object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the AccountDaysTTL object.
+Reads an AccountDaysTTL object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

@@ -14,11 +14,7 @@ Accept terms of service (help.TermsOfService). Serializes a DataJSON id.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex).}
-
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
-
-\item{\code{id}}{TLObject-like TypeDataJSON (environment with to_bytes()/to_list() or raw)}
+\item{\code{id}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

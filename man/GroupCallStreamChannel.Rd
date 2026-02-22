@@ -6,6 +6,17 @@
 \description{
 Telegram API type GroupCallStreamChannel
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{channel}}{Field.}
+
+\item{\code{scale}}{Field.}
+
+\item{\code{lastTimestampMs}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

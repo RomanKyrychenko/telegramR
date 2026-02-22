@@ -4,9 +4,6 @@
 \alias{ClientDHInnerData}
 \title{ClientDHInnerData}
 \description{
-A class representing the `ClientDHInnerData` object. This class is used to handle
-the serialization and deserialization of the `ClientDHInnerData` object.
-
 Telegram API type ClientDHInnerData
 
 Telegram API type ClientDHInnerData
@@ -107,6 +104,23 @@ The objects of this class are cloneable with this method.
 }
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ClientDHInnerData}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{nonce}}{Field.}
+
+\item{\code{server_nonce}}{Field.}
+
+\item{\code{retry_id}}{Field.}
+
+\item{\code{g_b}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

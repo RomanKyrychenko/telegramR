@@ -25,11 +25,31 @@ Methods:
 to_raw() writes the constructor id (0x1df92984) in little-endian, then nonce,
 token as raw bytes and then the nested query bytes. The nested query is expected
 to provide a to_raw() method or be a raw vector.
-Initialize an InvokeWithGooglePlayIntegrityRequest
 
 
 Writes constructor id 0x1df92984 as little-endian (bytes: 0x84 0x29 0xF9 0x1D),
 then nonce and token bytes, then nested query bytes.
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{classname}}{Field.}
+
+\item{\code{nonce}}{Field.}
+
+\item{\code{token}}{Field.}
+
+\item{\code{query}}{Field.
+Initialize an InvokeWithGooglePlayIntegrityRequest}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{classname}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -88,16 +108,25 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor identifier.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{nonce}}{Character or raw nonce value.}
+\item{\code{nonce}}{Field.}
 
-\item{\code{token}}{Character token value.}
+\item{\code{token}}{Field.}
 
-\item{\code{query}}{Nested query object implementing `to_list` and `to_bytes`.
+\item{\code{query}}{Field.
 Initialize a new InvokeWithGooglePlayIntegrityRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

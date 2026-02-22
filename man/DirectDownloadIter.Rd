@@ -31,6 +31,23 @@ Class for direct file downloading iteration.
 \item{\code{client}}{The TelegramClient instance.}
 
 \item{\code{cdn_redirect}}{The CDN redirect object.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

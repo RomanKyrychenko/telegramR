@@ -4,27 +4,23 @@
 \alias{GetBotInfoRequest}
 \title{GetBotInfoRequest}
 \description{
-Methods:
-- initialize(lang_code, bot = NULL)
-- resolve(client, utils)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
-Each method is documented inline below.
-
 Telegram API type GetBotInfoRequest
 }
 \details{
 GetBotInfoRequest R6 class
 
 Represents the GetBotInfoRequest TL request.
+
+
+
+Each method is documented inline below.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{lang_code}}{character language code}
+\item{\code{lang_code}}{Field.}
 
-\item{\code{bot}}{TypeInputUser|null optional}
+\item{\code{bot}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

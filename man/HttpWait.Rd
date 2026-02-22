@@ -6,6 +6,17 @@
 \description{
 Telegram API type HttpWait
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{max_delay}}{Field.}
+
+\item{\code{wait_after}}{Field.}
+
+\item{\code{max_wait}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

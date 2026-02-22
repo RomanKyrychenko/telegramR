@@ -14,11 +14,11 @@ Represents the TLRequest auth.ImportLoginTokenRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0x95ac5ce4).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0x6b55f636).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{token}}{raw|character Token bytes.}
+\item{\code{token}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

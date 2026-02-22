@@ -5,7 +5,6 @@
 \title{InvokeWithTakeoutRequest R6 class}
 \value{
 An R6 object of class \code{InvokeWithTakeoutRequest}.
-Initialize a new InvokeWithTakeoutRequest
 }
 \description{
 Represents the TL request `InvokeWithTakeoutRequest`.
@@ -28,7 +27,25 @@ Methods:
 
 to_raw() writes takeout_id as an 8-byte little-endian value using writeBin(as.numeric(...), size=8).
 For exact two's-complement 64-bit preservation, replace with a dedicated 64-bit serializer.
-Initialize an InvokeWithTakeoutRequest
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{takeout_id}}{Field.}
+
+\item{\code{query}}{Field.
+Initialize an InvokeWithTakeoutRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -87,13 +104,23 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor identifier for this request type.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{takeout_id}}{Integer64 takeout identifier.}
+\item{\code{takeout_id}}{Field.}
 
-\item{\code{query}}{Nested query object implementing `to_list` and `to_bytes`.}
+\item{\code{query}}{Field.
+Initialize a new InvokeWithTakeoutRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

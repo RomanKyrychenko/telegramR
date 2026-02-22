@@ -18,8 +18,6 @@ Note: to_raw() uses writeBin on numeric for 8-byte values. If exact 64-bit
 two's-complement preservation is required, replace with a dedicated 64-bit
 integer serialization utility.
 
-Initialize a RpcDropAnswerRequest
-
 R6 class representing a request to drop an RPC answer for a previously sent
 request message. The server will respond with one of the \code{RpcAnswer*}
 response variants (e.g. \code{RpcAnswerUnknown}, \code{RpcAnswerDroppedRunning},
@@ -31,7 +29,17 @@ Represents the TL request `RpcDropAnswerRequest`.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{req_msg_id}}{integer|numeric Request message id (64-bit).}
+\item{\code{req_msg_id}}{Field.
+Initialize a RpcDropAnswerRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }
@@ -92,11 +100,20 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor identifier.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{req_msg_id}}{Integer64 request message identifier whose answer should be dropped.}
+\item{\code{req_msg_id}}{Field.}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

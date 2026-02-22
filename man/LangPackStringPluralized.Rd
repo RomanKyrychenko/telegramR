@@ -9,6 +9,29 @@ Telegram API type LangPackStringPluralized
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{LangPackStringPluralized}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{key}}{Field.}
+
+\item{\code{other_value}}{Field.}
+
+\item{\code{zero_value}}{Field.}
+
+\item{\code{one_value}}{Field.}
+
+\item{\code{two_value}}{Field.}
+
+\item{\code{few_value}}{Field.}
+
+\item{\code{many_value}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

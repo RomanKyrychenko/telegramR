@@ -6,6 +6,17 @@
 \description{
 Telegram API type ExportedChatlistInvite
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{title}}{Field.}
+
+\item{\code{url}}{Field.}
+
+\item{\code{peers}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

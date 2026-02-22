@@ -4,12 +4,6 @@
 \alias{UpdateStarRefProgramRequest}
 \title{UpdateStarRefProgramRequest}
 \description{
-Methods:
-- initialize(bot, commission_permille, duration_months = NULL)
-- resolve(client, utils)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
 Telegram API type UpdateStarRefProgramRequest
 }
 \details{
@@ -20,11 +14,11 @@ Represents the UpdateStarRefProgramRequest TL request.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{bot}}{TypeInputUser input user or object implementing to_list()/to_bytes()}
+\item{\code{bot}}{Field.}
 
-\item{\code{commission_permille}}{integer commission in permille}
+\item{\code{commission_permille}}{Field.}
 
-\item{\code{duration_months}}{integer|null optional duration in months}
+\item{\code{duration_months}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

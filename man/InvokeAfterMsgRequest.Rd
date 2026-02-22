@@ -25,7 +25,25 @@ to_raw() writes the constructor id (0xcb9f372d) in little-endian (bytes: 0x2D 0x
 then msg_id as 8-byte little-endian value, followed by nested query bytes.
 Note: writeBin on numeric with size=8 uses IEEE754 double; for exact 64-bit two's-complement
 preservation, replace with a dedicated 64-bit writer.
-Initialize an InvokeAfterMsgRequest
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{msg_id}}{Field.}
+
+\item{\code{query}}{Field.
+Initialize an InvokeAfterMsgRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -84,14 +102,23 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor identifier.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{msg_id}}{Integer64 message identifier after which the query will be invoked.}
+\item{\code{msg_id}}{Field.}
 
-\item{\code{query}}{Nested query object; must implement \code{to_list} and \code{to_bytes}.
+\item{\code{query}}{Field.
 Initialize a new InvokeAfterMsgRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

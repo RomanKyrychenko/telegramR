@@ -12,10 +12,6 @@ Represents a request to read reactions. This class inherits from TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x9ec44f93).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x2c49c116).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

@@ -12,10 +12,6 @@ Represents a request to send bot requested peers. This class inherits from TLReq
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x91b2d060).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x8af52aac).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

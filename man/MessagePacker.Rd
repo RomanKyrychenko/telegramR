@@ -4,17 +4,13 @@
 \alias{MessagePacker}
 \title{MessagePacker}
 \description{
-MessagePacker collects state items (requests and associated metadata),
-assigns message ids, and packs one or more TL messages into a single byte
-payload. When multiple messages are present they are wrapped in a
-MessageContainer. The class exposes a simple FIFO deque interface and a
-blocking `get` method that returns the next batch of messages and the
-corresponding serialized bytes ready to be sent.
-
 Telegram API type MessagePacker
 }
 \details{
 MessagePacker R6 class
+
+
+  bytes and generate message ids via `write_data_as_message`.
 
 This method also sets `ready` to \code{TRUE} to notify any
   waiting `get` calls that new data is available.
@@ -32,14 +28,30 @@ Each element in `states` is appended in order. `ready` is set to
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{state}}{External state/transport object used to actually write message
-bytes and generate message ids via `write_data_as_message`.}
+\item{\code{state}}{Field.}
 
-\item{\code{deque}}{Internal list used as a FIFO queue of state items.}
+\item{\code{deque}}{Field.}
 
-\item{\code{ready}}{Logical flag that signals that new items were added to the queue.}
+\item{\code{ready}}{Field.}
 
-\item{\code{log}}{Optional logger object with methods like `debug` and `warning`.}
+\item{\code{log}}{Field.}
+
+\item{\code{add}}{Field.}
+
+\item{\code{add}}{Field.}
+
+\item{\code{content_related}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{add}}{Field.}
+
+\item{\code{add}}{Field.}
+
+\item{\code{content_related}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

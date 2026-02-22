@@ -9,6 +9,33 @@ Telegram API type DocumentAttributeVideo
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{DocumentAttributeVideo}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{duration}}{Field.}
+
+\item{\code{w}}{Field.}
+
+\item{\code{h}}{Field.}
+
+\item{\code{round_message}}{Field.}
+
+\item{\code{supports_streaming}}{Field.}
+
+\item{\code{nosound}}{Field.}
+
+\item{\code{preload_prefix_size}}{Field.}
+
+\item{\code{video_start_ts}}{Field.}
+
+\item{\code{video_codec}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

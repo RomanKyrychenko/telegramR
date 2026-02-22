@@ -22,6 +22,20 @@ Convert object to a simple list (dictionary-like)
 
 Writes constructor id 0xd1435160 as little-endian bytes: 0x60 0x51 0x43 0xD1
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -73,6 +87,15 @@ The objects of this class are cloneable with this method.
 
 \item{\code{SUBCLASS_OF_ID}}{Subclass ID for the request
 Convert to list representation}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

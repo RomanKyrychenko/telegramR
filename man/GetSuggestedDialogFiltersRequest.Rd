@@ -12,10 +12,6 @@ Represents a request to get suggested dialog filters. This class inherits from T
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xa29cd42c).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x7b296c39).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

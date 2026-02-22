@@ -12,21 +12,30 @@ Represents a request to get forum topics from a channel.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{channel}}{The input channel.}
+\item{\code{channel}}{Field.}
 
-\item{\code{offset_date}}{The offset date for pagination.}
+\item{\code{offset_date}}{Field.}
 
-\item{\code{offset_id}}{The offset ID for pagination.}
+\item{\code{offset_id}}{Field.}
 
-\item{\code{offset_topic}}{The offset topic for pagination.}
+\item{\code{offset_topic}}{Field.}
 
-\item{\code{limit}}{The limit on the number of results.}
+\item{\code{limit}}{Field.}
 
-\item{\code{q}}{The query string (optional).}
+\item{\code{q}}{Field.}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

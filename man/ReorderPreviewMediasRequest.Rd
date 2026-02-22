@@ -4,29 +4,25 @@
 \alias{ReorderPreviewMediasRequest}
 \title{ReorderPreviewMediasRequest}
 \description{
-Methods:
-- initialize(bot, lang_code, order)
-- resolve(client, utils)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
-Each method is documented inline below.
-
 Telegram API type ReorderPreviewMediasRequest
 }
 \details{
 ReorderPreviewMediasRequest R6 class
 
 Represents the ReorderPreviewMediasRequest TL request.
+
+
+
+Each method is documented inline below.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{bot}}{TypeInputUser input user or object implementing to_list()/to_bytes()}
+\item{\code{bot}}{Field.}
 
-\item{\code{lang_code}}{character language code}
+\item{\code{lang_code}}{Field.}
 
-\item{\code{order}}{list of TypeInputMedia objects or representations}
+\item{\code{order}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

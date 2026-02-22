@@ -12,10 +12,6 @@ Represents a request to get inline game high scores. This class inherits from TL
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xf635e1b).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x6ccd95fd).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

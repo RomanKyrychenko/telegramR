@@ -12,10 +12,6 @@ Represents a request to get default history TTL. This class inherits from TLRequ
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x658b7188).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xf00d3367).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

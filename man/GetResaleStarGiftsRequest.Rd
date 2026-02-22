@@ -4,8 +4,6 @@
 \alias{GetResaleStarGiftsRequest}
 \title{GetResaleStarGiftsRequest}
 \description{
-Represents a request to get resale star gifts. Inherits from TLRequest.
-
 Telegram API type GetResaleStarGiftsRequest
 }
 \section{Super classes}{
@@ -14,23 +12,23 @@ Telegram API type GetResaleStarGiftsRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{gift_id}}{The gift ID (integer).}
+\item{\code{gift_id}}{Field.}
 
-\item{\code{offset}}{The offset string.}
+\item{\code{offset}}{Field.}
 
-\item{\code{limit}}{The limit integer.}
+\item{\code{limit}}{Field.}
 
-\item{\code{sort_by_price}}{Optional flag to sort by price.}
+\item{\code{sort_by_price}}{Field.}
 
-\item{\code{sort_by_num}}{Optional flag to sort by number.}
+\item{\code{sort_by_num}}{Field.}
 
-\item{\code{attributes_hash}}{Optional attributes hash (integer).}
+\item{\code{attributes_hash}}{Field.}
 
-\item{\code{attributes}}{Optional list of star gift attribute IDs.}
+\item{\code{attributes}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -2,12 +2,8 @@
 % Please edit documentation in R/common.R
 \name{Exception}
 \alias{Exception}
-\title{Exception Classes}
+\title{Exception}
 \description{
-This file contains various exception classes used in the Telegram API client.
-These exceptions are used to handle errors and specific conditions that may arise
-during the operation of the client.
-
 Telegram API type Exception
 }
 \details{

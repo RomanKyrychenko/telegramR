@@ -14,9 +14,9 @@ Represents the TL request upload.ReuploadCdnFileRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{file_token}}{raw|integer|character}
+\item{\code{file_token}}{Field.}
 
-\item{\code{request_token}}{raw|integer|character}
+\item{\code{request_token}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

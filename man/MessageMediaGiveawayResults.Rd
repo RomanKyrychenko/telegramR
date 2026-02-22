@@ -9,6 +9,39 @@ Telegram API type MessageMediaGiveawayResults
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageMediaGiveawayResults}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{channel_id}}{Field.}
+
+\item{\code{launch_msg_id}}{Field.}
+
+\item{\code{winners_count}}{Field.}
+
+\item{\code{unclaimed_count}}{Field.}
+
+\item{\code{winners}}{Field.}
+
+\item{\code{until_date}}{Field.}
+
+\item{\code{only_new_subscribers}}{Field.}
+
+\item{\code{refunded}}{Field.}
+
+\item{\code{additionalpeers_count}}{Field.}
+
+\item{\code{months}}{Field.}
+
+\item{\code{stars}}{Field.}
+
+\item{\code{prize_description}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

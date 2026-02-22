@@ -9,6 +9,23 @@ Telegram API type BadServerSalt
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{BadServerSalt}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{bad_msg_id}}{Field.}
+
+\item{\code{bad_msg_seqno}}{Field.}
+
+\item{\code{error_code}}{Field.}
+
+\item{\code{new_server_salt}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -81,6 +98,7 @@ Serializes the BadServerSalt object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the BadServerSalt object.
+Reads a BadServerSalt object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

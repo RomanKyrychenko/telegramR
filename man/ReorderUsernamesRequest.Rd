@@ -7,8 +7,6 @@
 \description{
 R6 class representing a ReorderUsernamesRequest.
 
-Represents the ReorderUsernamesRequest TL request.
-
 Telegram API type ReorderUsernamesRequest
 
 Represents a request to reorder usernames in a channel.
@@ -117,16 +115,16 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{bot}}{TypeInputUser input user or object implementing to_list()/to_bytes()}
+\item{\code{bot}}{Field.}
 
-\item{\code{order}}{list of character usernames}
+\item{\code{order}}{Field.}
 }
 \if{html}{\out{</div>}}
 }
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
-\item{\code{bot}}{TypeInputUser input user or object implementing to_list()/to_bytes()}
+\item{\code{bot}}{Field.}
 }
 \if{html}{\out{</div>}}
 }
@@ -217,13 +215,22 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{channel}}{The input channel.}
+\item{\code{channel}}{Field.}
 
-\item{\code{order}}{The list of usernames in the new order.}
+\item{\code{order}}{Field.}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

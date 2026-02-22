@@ -12,10 +12,6 @@ Represents a request to get chats. This class inherits from TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x49e9528f).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x99d5cb14).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

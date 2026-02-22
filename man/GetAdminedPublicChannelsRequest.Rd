@@ -12,15 +12,24 @@ Represents a request to get admined public channels.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{by_location}}{Whether to filter by location.}
+\item{\code{by_location}}{Field.}
 
-\item{\code{check_limit}}{Whether to check the limit.}
+\item{\code{check_limit}}{Field.}
 
-\item{\code{for_personal}}{Whether for personal use.}
+\item{\code{for_personal}}{Field.}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

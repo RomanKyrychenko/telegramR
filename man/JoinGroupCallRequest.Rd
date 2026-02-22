@@ -14,21 +14,21 @@ Represents JoinGroupCallRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{call}}{The input group call object (expected to implement bytes()).}
+\item{\code{call}}{Field.}
 
-\item{\code{join_as}}{The input peer object to join as (expected to implement bytes()).}
+\item{\code{join_as}}{Field.}
 
-\item{\code{params}}{DataJSON-like object (expected to implement bytes()).}
+\item{\code{params}}{Field.}
 
-\item{\code{muted}}{Logical or NULL. If TRUE join muted.}
+\item{\code{muted}}{Field.}
 
-\item{\code{video_stopped}}{Logical or NULL. If TRUE join with video stopped.}
+\item{\code{video_stopped}}{Field.}
 
-\item{\code{invite_hash}}{Optional string or NULL.}
+\item{\code{invite_hash}}{Field.}
 
-\item{\code{public_key}}{Optional integer (256-bit) or NULL.}
+\item{\code{public_key}}{Field.}
 
-\item{\code{block}}{Optional raw vector or NULL.}
+\item{\code{block}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

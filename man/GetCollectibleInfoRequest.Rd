@@ -20,11 +20,11 @@ Request to retrieve collectible information (fragment.CollectibleInfo).
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor id (little-endian bytes: ba 85 1e be)}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass id}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{collectible}}{TLObject-like R6 object (must provide to_list/to_bytes or bytes)}
+\item{\code{collectible}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

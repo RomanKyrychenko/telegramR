@@ -4,8 +4,6 @@
 \alias{CheckGroupCallRequest}
 \title{CheckGroupCallRequest}
 \description{
-Represents CheckGroupCallRequest TLRequest.
-
 Telegram API type CheckGroupCallRequest
 }
 \details{
@@ -14,9 +12,9 @@ CheckGroupCallRequest R6 class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{call}}{The input group call object (expected to implement bytes()).}
+\item{\code{call}}{Field.}
 
-\item{\code{sources}}{List of integers.}
+\item{\code{sources}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

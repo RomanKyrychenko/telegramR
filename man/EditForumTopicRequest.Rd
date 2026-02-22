@@ -12,21 +12,30 @@ Represents a request to edit a forum topic in a channel.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{channel}}{The input channel.}
+\item{\code{channel}}{Field.}
 
-\item{\code{topic_id}}{The topic ID.}
+\item{\code{topic_id}}{Field.}
 
-\item{\code{title}}{The title (optional).}
+\item{\code{title}}{Field.}
 
-\item{\code{icon_emoji_id}}{The icon emoji ID (optional).}
+\item{\code{icon_emoji_id}}{Field.}
 
-\item{\code{closed}}{Whether the topic is closed (optional).}
+\item{\code{closed}}{Field.}
 
-\item{\code{hidden}}{Whether the topic is hidden (optional).}
+\item{\code{hidden}}{Field.}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

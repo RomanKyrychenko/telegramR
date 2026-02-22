@@ -14,13 +14,13 @@ Represents the TL request upload.SaveBigFilePartRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{file_id}}{numeric 64-bit file id (stored as numeric)}
+\item{\code{file_id}}{Field.}
 
-\item{\code{file_part}}{integer part index}
+\item{\code{file_part}}{Field.}
 
-\item{\code{file_total_parts}}{integer total number of parts}
+\item{\code{file_total_parts}}{Field.}
 
-\item{\code{bytes_data}}{raw|integer|character payload bytes}
+\item{\code{bytes_data}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

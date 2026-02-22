@@ -9,6 +9,25 @@ Telegram API type MessageMediaWebPage
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageMediaWebPage}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{webpage}}{Field.}
+
+\item{\code{force_large_media}}{Field.}
+
+\item{\code{force_small_media}}{Field.}
+
+\item{\code{manual}}{Field.}
+
+\item{\code{safe}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

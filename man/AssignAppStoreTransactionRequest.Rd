@@ -4,8 +4,6 @@
 \alias{AssignAppStoreTransactionRequest}
 \title{AssignAppStoreTransactionRequest}
 \description{
-Represents a request to assign an App Store transaction. Inherits from TLRequest.
-
 Telegram API type AssignAppStoreTransactionRequest
 }
 \section{Super classes}{
@@ -14,13 +12,13 @@ Telegram API type AssignAppStoreTransactionRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{receipt}}{The receipt bytes.}
+\item{\code{receipt}}{Field.}
 
-\item{\code{purpose}}{The input store payment purpose (TypeInputStorePaymentPurpose).}
+\item{\code{purpose}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -12,10 +12,6 @@ Represents a request to search custom emoji. This class inherits from TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x2c11c0d7).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xbcef6aba).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

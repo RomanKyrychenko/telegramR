@@ -14,13 +14,13 @@ Represents the TLRequest auth.ImportAuthorizationRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0xa57a7dad).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0xb9e04e39).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{id}}{numeric 64-bit id.}
+\item{\code{id}}{Field.}
 
-\item{\code{bytes}}{raw|character Token bytes.}
+\item{\code{bytes}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

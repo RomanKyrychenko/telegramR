@@ -26,11 +26,29 @@ to_raw() writes the constructor id (0xdd289f8e) in little-endian, then the
 connection_id bytes (here via charToRaw) and then the nested query bytes.
 The nested query is expected to provide a to_raw() method returning a raw vector,
 or to already be a raw vector. If the query is a character, it will be converted using charToRaw().
-Initialize an InvokeWithBusinessConnectionRequest
 
 
 Writes constructor id 0xdd289f8e as little-endian (bytes: 0x8E 0x9F 0x28 0xDD),
 then writes connection_id as raw bytes (charToRaw), then nested query bytes.
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{connection_id}}{Field.}
+
+\item{\code{query}}{Field.
+Initialize an InvokeWithBusinessConnectionRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -89,14 +107,23 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor identifier for this request type.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{connection_id}}{Character or raw connection identifier.}
+\item{\code{connection_id}}{Field.}
 
-\item{\code{query}}{Nested query object implementing `to_list` and `to_bytes`.
+\item{\code{query}}{Field.
 Initialize a new InvokeWithBusinessConnectionRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -16,11 +16,7 @@ Serializes constructor id followed by TL-string encoded slug.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor id.}
-
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass id.}
-
-\item{\code{slug}}{character invite slug.}
+\item{\code{slug}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

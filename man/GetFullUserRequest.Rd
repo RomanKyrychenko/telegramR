@@ -12,6 +12,9 @@ GetFullUserRequest
 An R6 class representing a request to get full information about a user.
 This class inherits from TLRequest and is used to construct and serialize
 Telegram API requests for retrieving detailed user data.
+
+  representation accepted by get_input_user. This field is resolved
+  during the request preparation.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{GetFullUserRequest}
@@ -19,13 +22,11 @@ Telegram API requests for retrieving detailed user data.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xb60f5918).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID (0x83df9df5).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{id}}{The user identifier, which can be a TLInputUser object or a
-representation accepted by get_input_user. This field is resolved
-during the request preparation.}
+\item{\code{id}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

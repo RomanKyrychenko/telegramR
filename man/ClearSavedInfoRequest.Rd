@@ -4,8 +4,6 @@
 \alias{ClearSavedInfoRequest}
 \title{ClearSavedInfoRequest}
 \description{
-Represents a request to clear saved payment info. Inherits from TLRequest.
-
 Telegram API type ClearSavedInfoRequest
 }
 \section{Super classes}{
@@ -14,13 +12,13 @@ Telegram API type ClearSavedInfoRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{credentials}}{Optional flag to clear credentials.}
+\item{\code{credentials}}{Field.}
 
-\item{\code{info}}{Optional flag to clear info.}
+\item{\code{info}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

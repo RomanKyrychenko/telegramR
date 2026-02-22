@@ -12,10 +12,6 @@ Represents a request to get discussion message. This class inherits from TLReque
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x446972fd).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x53f8e3e8).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

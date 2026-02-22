@@ -14,15 +14,15 @@ Represents ToggleGroupCallRecordRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{call}}{The input group call object (expected to implement bytes()).}
+\item{\code{call}}{Field.}
 
-\item{\code{start}}{Logical or NULL. If TRUE start recording.}
+\item{\code{start}}{Field.}
 
-\item{\code{video}}{Logical or NULL. If TRUE recording with video; must be present together with video_portrait or both absent.}
+\item{\code{video}}{Field.}
 
-\item{\code{title}}{Optional title string or NULL.}
+\item{\code{title}}{Field.}
 
-\item{\code{video_portrait}}{Logical or NULL. If provided indicates portrait video recording preference.}
+\item{\code{video_portrait}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

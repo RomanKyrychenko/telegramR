@@ -4,9 +4,6 @@
 \alias{ReqDHParamsRequest}
 \title{ReqDHParamsRequest}
 \description{
-A class representing the `ReqDHParamsRequest` object. This class is used to handle
-the serialization and deserialization of the `ReqDHParamsRequest` object.
-
 Telegram API type ReqDHParamsRequest
 
 Represents the TL request `ReqDHParamsRequest`.
@@ -30,7 +27,6 @@ Methods:
 Note: 128-bit integer handling is represented as numeric/double placeholders.
 For precise 128-bit two's-complement behavior, use a big-integer library and
 implement a precise serializer.
-Initialize a ReqDHParamsRequest
 
 R6 class representing a request for Diffie-Hellman parameters during
 the key exchange phase. This request carries:
@@ -121,6 +117,24 @@ The objects of this class are cloneable with this method.
 }
 }
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{nonce}}{Field.}
+
+\item{\code{server_nonce}}{Field.}
+
+\item{\code{p}}{Field.}
+
+\item{\code{q}}{Field.}
+
+\item{\code{public_key_fingerprint}}{Field.}
+
+\item{\code{encrypted_data}}{Field.
+Initialize a ReqDHParamsRequest}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -185,21 +199,30 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor identifier.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{nonce}}{128-bit client nonce.}
+\item{\code{nonce}}{Field.}
 
-\item{\code{server_nonce}}{128-bit server nonce.}
+\item{\code{server_nonce}}{Field.}
 
-\item{\code{p}}{Byte sequence for parameter \(p\).}
+\item{\code{p}}{Field.}
 
-\item{\code{q}}{Byte sequence for parameter \(q\).}
+\item{\code{q}}{Field.}
 
-\item{\code{public_key_fingerprint}}{64-bit fingerprint of the public key.}
+\item{\code{public_key_fingerprint}}{Field.}
 
-\item{\code{encrypted_data}}{Encrypted payload bytes.}
+\item{\code{encrypted_data}}{Field.}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

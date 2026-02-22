@@ -9,6 +9,23 @@ Telegram API type BotInlineMessageMediaAuto
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{BotInlineMessageMediaAuto}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{message}}{Field.}
+
+\item{\code{invert_media}}{Field.}
+
+\item{\code{entities}}{Field.}
+
+\item{\code{reply_markup}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -86,6 +103,7 @@ Serializes the BotInlineMessageMediaAuto object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the BotInlineMessageMediaAuto object.
+Reads a BotInlineMessageMediaAuto object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

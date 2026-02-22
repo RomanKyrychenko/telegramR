@@ -12,10 +12,6 @@ Represents a request to get emoji sticker groups. This class inherits from TLReq
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x1dd840f5).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x7eca55d9).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

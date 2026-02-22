@@ -12,10 +12,6 @@ Represents a request to get search results positions. This class inherits from T
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x9c7f2f10).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xd963708d).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

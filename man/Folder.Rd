@@ -6,6 +6,23 @@
 \description{
 Telegram API type Folder
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{id}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{autofill_new_broadcasts}}{Field.}
+
+\item{\code{autofill_public_groups}}{Field.}
+
+\item{\code{autofill_new_correspondents}}{Field.}
+
+\item{\code{photo}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

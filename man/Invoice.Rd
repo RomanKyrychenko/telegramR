@@ -9,6 +9,45 @@ Telegram API type Invoice
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{Invoice}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{currency}}{Field.}
+
+\item{\code{prices}}{Field.}
+
+\item{\code{test}}{Field.}
+
+\item{\code{name_requested}}{Field.}
+
+\item{\code{phone_requested}}{Field.}
+
+\item{\code{email_requested}}{Field.}
+
+\item{\code{shipping_address_requested}}{Field.}
+
+\item{\code{flexible}}{Field.}
+
+\item{\code{phone_to_provider}}{Field.}
+
+\item{\code{email_to_provider}}{Field.}
+
+\item{\code{recurring}}{Field.}
+
+\item{\code{max_tip_amount}}{Field.}
+
+\item{\code{suggested_tip_amounts}}{Field.}
+
+\item{\code{terms_url}}{Field.}
+
+\item{\code{subscription_period}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

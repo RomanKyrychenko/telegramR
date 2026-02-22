@@ -14,11 +14,11 @@ Represents the TLRequest auth.DropTempAuthKeysRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0x8e48a188).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0xf5b399ac).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{except_auth_keys}}{numeric vector 64-bit ids to drop (except list).}
+\item{\code{except_auth_keys}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

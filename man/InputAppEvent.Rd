@@ -6,6 +6,19 @@
 \description{
 Telegram API type InputAppEvent
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{time}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{peer}}{Field.}
+
+\item{\code{data}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

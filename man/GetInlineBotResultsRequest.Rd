@@ -12,10 +12,6 @@ Represents a request to get inline bot results. This class inherits from TLReque
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x514e999d).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x3ed4d9c9).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

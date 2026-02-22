@@ -12,27 +12,36 @@ Represents a request to create a new channel.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{title}}{The title of the channel.}
+\item{\code{title}}{Field.}
 
-\item{\code{about}}{The description of the channel.}
+\item{\code{about}}{Field.}
 
-\item{\code{broadcast}}{Whether the channel is a broadcast channel.}
+\item{\code{broadcast}}{Field.}
 
-\item{\code{megagroup}}{Whether the channel is a megagroup.}
+\item{\code{megagroup}}{Field.}
 
-\item{\code{for_import}}{Whether the channel is for import.}
+\item{\code{for_import}}{Field.}
 
-\item{\code{forum}}{Whether the channel is a forum.}
+\item{\code{forum}}{Field.}
 
-\item{\code{geo_point}}{The geo point for the channel.}
+\item{\code{geo_point}}{Field.}
 
-\item{\code{address}}{The address for the channel.}
+\item{\code{address}}{Field.}
 
-\item{\code{ttl_period}}{The TTL period for the channel.}
+\item{\code{ttl_period}}{Field.}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

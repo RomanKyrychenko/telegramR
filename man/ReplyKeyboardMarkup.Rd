@@ -9,6 +9,27 @@ Telegram API type ReplyKeyboardMarkup
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ReplyKeyboardMarkup}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{rows}}{Field.}
+
+\item{\code{resize}}{Field.}
+
+\item{\code{single_use}}{Field.}
+
+\item{\code{selective}}{Field.}
+
+\item{\code{persistent}}{Field.}
+
+\item{\code{placeholder}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

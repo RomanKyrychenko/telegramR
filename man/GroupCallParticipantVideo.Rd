@@ -9,6 +9,19 @@ Telegram API type GroupCallParticipantVideo
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{GroupCallParticipantVideo}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{endpoint}}{Field.}
+
+\item{\code{source_groups}}{Field.}
+
+\item{\code{paused}}{Field.}
+
+\item{\code{audio_source}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

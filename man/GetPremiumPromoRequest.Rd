@@ -14,9 +14,16 @@ Request to get premium promotion info.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex).}
-
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
+\item{\code{type}}{Field.
+Serialize to bytes (raw vector)}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{type}}{Field.
+Serialize to bytes (raw vector)}
 }
 \if{html}{\out{</div>}}
 }
@@ -53,7 +60,6 @@ Convert to list
 
 \subsection{Returns}{
 list with type discriminator
-Serialize to bytes (raw vector)
 }
 }
 \if{html}{\out{<hr>}}

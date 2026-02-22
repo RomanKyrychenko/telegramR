@@ -4,8 +4,6 @@
 \alias{CreateStarGiftCollectionRequest}
 \title{CreateStarGiftCollectionRequest}
 \description{
-Represents a request to create a star gift collection. Inherits from TLRequest.
-
 Telegram API type CreateStarGiftCollectionRequest
 }
 \section{Super classes}{
@@ -14,15 +12,15 @@ Telegram API type CreateStarGiftCollectionRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{peer}}{The input peer (TypeInputPeer).}
+\item{\code{peer}}{Field.}
 
-\item{\code{title}}{The title string.}
+\item{\code{title}}{Field.}
 
-\item{\code{stargift}}{List of input saved star gifts (list of TypeInputSavedStarGift).}
+\item{\code{stargift}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

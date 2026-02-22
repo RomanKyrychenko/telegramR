@@ -4,8 +4,6 @@
 \alias{GetStarsRevenueWithdrawalUrlRequest}
 \title{GetStarsRevenueWithdrawalUrlRequest}
 \description{
-Represents a request to get stars revenue withdrawal URL. Inherits from TLRequest.
-
 Telegram API type GetStarsRevenueWithdrawalUrlRequest
 }
 \section{Super classes}{
@@ -14,17 +12,17 @@ Telegram API type GetStarsRevenueWithdrawalUrlRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{peer}}{The input peer.}
+\item{\code{peer}}{Field.}
 
-\item{\code{password}}{The input check password SRP.}
+\item{\code{password}}{Field.}
 
-\item{\code{ton}}{Optional flag for TON.}
+\item{\code{ton}}{Field.}
 
-\item{\code{amount}}{Optional amount.}
+\item{\code{amount}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

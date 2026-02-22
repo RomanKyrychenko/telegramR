@@ -6,6 +6,15 @@
 \description{
 Telegram API type ImportedContact
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{user_id}}{Field.}
+
+\item{\code{client_id}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

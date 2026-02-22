@@ -14,17 +14,17 @@ Represents the TLRequest auth.BindTempAuthKeyRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0xcdd42a05).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0xf5b399ac).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{perm_auth_key_id}}{numeric 64-bit id.}
+\item{\code{perm_auth_key_id}}{Field.}
 
-\item{\code{nonce}}{numeric 64-bit nonce.}
+\item{\code{nonce}}{Field.}
 
-\item{\code{expires_at}}{POSIXct|Date Optional expiration datetime.}
+\item{\code{expires_at}}{Field.}
 
-\item{\code{encrypted_message}}{raw|character Encrypted message bytes.}
+\item{\code{encrypted_message}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -9,6 +9,31 @@ Telegram API type PhoneConnectionWebrtc
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PhoneConnectionWebrtc}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{ip}}{Field.}
+
+\item{\code{ipv6}}{Field.}
+
+\item{\code{port}}{Field.}
+
+\item{\code{username}}{Field.}
+
+\item{\code{password}}{Field.}
+
+\item{\code{turn}}{Field.}
+
+\item{\code{stun}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

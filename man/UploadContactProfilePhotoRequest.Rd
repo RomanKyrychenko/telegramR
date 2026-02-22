@@ -7,10 +7,6 @@
 A R6 object inheriting from TLRequest.
 }
 \description{
-Represents a request to upload a contact's profile photo. Fields correspond to
-the TL schema: user_id, suggest, save, file, video, video_start_ts,
-video_emoji_markup.
-
 Telegram API type UploadContactProfilePhotoRequest
 }
 \details{
@@ -55,6 +51,15 @@ R6 translation of the TLRequest UploadContactProfilePhotoRequest.
 \item{\code{video_start_ts}}{numeric or NULL}
 
 \item{\code{video_emoji_markup}}{TLObject or NULL}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

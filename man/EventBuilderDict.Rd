@@ -4,8 +4,6 @@
 \alias{EventBuilderDict}
 \title{EventBuilderDict}
 \description{
-Handles the building of events from updates and other data.
-
 Telegram API type EventBuilderDict
 }
 \details{

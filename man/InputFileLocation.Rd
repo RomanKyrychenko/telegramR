@@ -6,6 +6,19 @@
 \description{
 Telegram API type InputFileLocation
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{volume_id}}{Field.}
+
+\item{\code{local_id}}{Field.}
+
+\item{\code{secret}}{Field.}
+
+\item{\code{file_reference}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

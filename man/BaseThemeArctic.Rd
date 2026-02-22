@@ -9,6 +9,15 @@ Telegram API type BaseThemeArctic
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{BaseThemeArctic}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -68,6 +77,7 @@ Serializes the BaseThemeArctic object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the BaseThemeArctic object.
+Reads a BaseThemeArctic object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

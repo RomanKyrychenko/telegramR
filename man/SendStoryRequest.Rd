@@ -15,6 +15,43 @@ Represents a TL request to send a story.
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{SendStoryRequest}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{peer}}{Field.}
+
+\item{\code{media}}{Field.}
+
+\item{\code{privacy_rules}}{Field.}
+
+\item{\code{pinned}}{Field.}
+
+\item{\code{noforwards}}{Field.}
+
+\item{\code{fwd_modified}}{Field.}
+
+\item{\code{media_areas}}{Field.}
+
+\item{\code{caption}}{Field.}
+
+\item{\code{entities}}{Field.}
+
+\item{\code{random_id}}{Field.}
+
+\item{\code{period}}{Field.}
+
+\item{\code{fwd_from_id}}{Field.}
+
+\item{\code{fwd_from_story}}{Field.}
+
+\item{\code{albums}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

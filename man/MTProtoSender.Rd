@@ -240,6 +240,11 @@ Update time offset based on a correct message ID
 }
 \subsection{Returns}{
 Updated time offset
+Handle future salts
+Handle state forgotten (MsgsStateReq and MsgResendReq)
+Handle MsgsAllInfo
+Handle destroy session responses
+Handle destroy auth key responses
 }
 }
 \if{html}{\out{<hr>}}

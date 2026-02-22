@@ -20,19 +20,19 @@ R6 representation of the TL request: AddContactRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex)}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex)}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{id}}{TLObject Input user object (will be resolved with utils)}
+\item{\code{id}}{Field.}
 
-\item{\code{first_name}}{character First name}
+\item{\code{first_name}}{Field.}
 
-\item{\code{last_name}}{character Last name}
+\item{\code{last_name}}{Field.}
 
-\item{\code{phone}}{character Phone string}
+\item{\code{phone}}{Field.}
 
-\item{\code{add_phone_privacy_exception}}{logical|NULL Optional flag}
+\item{\code{add_phone_privacy_exception}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

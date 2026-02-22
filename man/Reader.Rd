@@ -6,6 +6,15 @@
 \description{
 Implements a simple reader.
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{socket}}{Field.}
+
+\item{\code{timeout}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

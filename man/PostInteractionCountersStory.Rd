@@ -9,6 +9,23 @@ Telegram API type PostInteractionCountersStory
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PostInteractionCountersStory}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{story_id}}{Field.}
+
+\item{\code{views}}{Field.}
+
+\item{\code{forwards}}{Field.}
+
+\item{\code{reactions}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

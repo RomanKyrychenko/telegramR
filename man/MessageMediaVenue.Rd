@@ -9,6 +9,27 @@ Telegram API type MessageMediaVenue
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageMediaVenue}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{geo}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{address}}{Field.}
+
+\item{\code{provider}}{Field.}
+
+\item{\code{venue_id}}{Field.}
+
+\item{\code{venue_type}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

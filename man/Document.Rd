@@ -9,6 +9,31 @@ Telegram API type Document
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{Document}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{id}}{Field.}
+
+\item{\code{access_hash}}{Field.}
+
+\item{\code{file_reference}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{mime_type}}{Field.}
+
+\item{\code{size}}{Field.}
+
+\item{\code{dc_id}}{Field.}
+
+\item{\code{attributes}}{Field.}
+
+\item{\code{thumbs}}{Field.}
+
+\item{\code{video_thumbs}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

@@ -7,9 +7,6 @@
 A R6 object inheriting from TLRequest.
 }
 \description{
-Request to get user photos. Fields correspond to the TL schema: user_id (input user),
-offset (int), max_id (long), limit (int).
-
 Telegram API type GetUserPhotosRequest
 }
 \details{
@@ -48,6 +45,15 @@ R6 translation of the TLRequest GetUserPhotosRequest.
 \item{\code{max_id}}{numeric (64-bit representation)}
 
 \item{\code{limit}}{integer}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

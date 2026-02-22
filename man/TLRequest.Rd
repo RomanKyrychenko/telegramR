@@ -4,9 +4,6 @@
 \alias{TLRequest}
 \title{TLRequest}
 \description{
-A class representing a Telegram Layer (TL) request. This class extends the `TLObject` class
-and provides methods for reading results and resolving requests.
-
 Telegram API type TLRequest
 }
 \details{

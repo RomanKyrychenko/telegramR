@@ -16,7 +16,16 @@ This calls a helper serialize_bytes() to encode the job_id.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{job_id}}{character}
+\item{\code{job_id}}{Field.}
+
+\item{\code{lock_class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{lock_class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

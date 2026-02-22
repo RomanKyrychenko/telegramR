@@ -9,6 +9,23 @@ Telegram API type ResPQ
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ResPQ}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{nonce}}{Field.}
+
+\item{\code{server_nonce}}{Field.}
+
+\item{\code{pq}}{Field.}
+
+\item{\code{server_public_key_fingerprints}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

@@ -4,8 +4,6 @@
 \alias{ToggleChatStarGiftNotificationsRequest}
 \title{ToggleChatStarGiftNotificationsRequest}
 \description{
-Represents a request to toggle chat star gift notifications. Inherits from TLRequest.
-
 Telegram API type ToggleChatStarGiftNotificationsRequest
 }
 \section{Super classes}{
@@ -14,13 +12,13 @@ Telegram API type ToggleChatStarGiftNotificationsRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{peer}}{The input peer.}
+\item{\code{peer}}{Field.}
 
-\item{\code{enabled}}{Optional flag to enable or disable notifications.}
+\item{\code{enabled}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

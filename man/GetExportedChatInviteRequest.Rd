@@ -12,10 +12,6 @@ Represents a request to get exported chat invite. This class inherits from TLReq
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x73746f5c).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x82dcd4ca).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

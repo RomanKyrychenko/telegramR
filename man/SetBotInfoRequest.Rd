@@ -4,33 +4,29 @@
 \alias{SetBotInfoRequest}
 \title{SetBotInfoRequest}
 \description{
-Methods:
-- initialize(lang_code, bot = NULL, name = NULL, about = NULL, description = NULL)
-- resolve(client, utils)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
-Each method is documented inline below.
-
 Telegram API type SetBotInfoRequest
 }
 \details{
 SetBotInfoRequest R6 class
 
 Represents the SetBotInfoRequest TL request.
+
+
+
+Each method is documented inline below.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{lang_code}}{character language code}
+\item{\code{lang_code}}{Field.}
 
-\item{\code{bot}}{TypeInputUser|null optional}
+\item{\code{bot}}{Field.}
 
-\item{\code{name}}{character|null optional}
+\item{\code{name}}{Field.}
 
-\item{\code{about}}{character|null optional}
+\item{\code{about}}{Field.}
 
-\item{\code{description}}{character|null optional}
+\item{\code{description}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

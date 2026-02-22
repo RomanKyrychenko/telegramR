@@ -9,6 +9,31 @@ Telegram API type PhoneCallWaiting
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PhoneCallWaiting}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{access_hash}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{admin_id}}{Field.}
+
+\item{\code{participant_id}}{Field.}
+
+\item{\code{protocol}}{Field.}
+
+\item{\code{video}}{Field.}
+
+\item{\code{receive_date}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

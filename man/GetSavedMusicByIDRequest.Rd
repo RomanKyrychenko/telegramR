@@ -17,13 +17,13 @@ Request to get saved music by document IDs for a user.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the GetSavedMusicByIDRequest class.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the GetSavedMusicByIDRequest class.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{id}}{TLInputUser or a representation accepted by get_input_user}
+\item{\code{id}}{Field.}
 
-\item{\code{documents}}{List of TLInputDocument or representations accepted by get_input_document}
+\item{\code{documents}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

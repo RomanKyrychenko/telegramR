@@ -9,6 +9,25 @@ Telegram API type PhoneCallProtocol
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PhoneCallProtocol}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{min_layer}}{Field.}
+
+\item{\code{max_layer}}{Field.}
+
+\item{\code{library_versions}}{Field.}
+
+\item{\code{udp_p2p}}{Field.}
+
+\item{\code{udp_reflector}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

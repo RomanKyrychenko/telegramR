@@ -9,6 +9,23 @@ Telegram API type BusinessAwayMessage
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{BusinessAwayMessage}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{shortcut_id}}{Field.}
+
+\item{\code{schedule}}{Field.}
+
+\item{\code{recipients}}{Field.}
+
+\item{\code{offline_only}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

@@ -14,13 +14,13 @@ Represents SetCallRatingRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{peer}}{The input phone call object (expected to implement bytes()).}
+\item{\code{peer}}{Field.}
 
-\item{\code{rating}}{Integer rating.}
+\item{\code{rating}}{Field.}
 
-\item{\code{comment}}{String comment.}
+\item{\code{comment}}{Field.}
 
-\item{\code{user_initiative}}{Logical or NULL. If TRUE indicates user-initiated rating.}
+\item{\code{user_initiative}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

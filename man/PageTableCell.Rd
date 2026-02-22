@@ -9,6 +9,31 @@ Telegram API type PageTableCell
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PageTableCell}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{header}}{Field.}
+
+\item{\code{align_center}}{Field.}
+
+\item{\code{align_right}}{Field.}
+
+\item{\code{valign_middle}}{Field.}
+
+\item{\code{valign_bottom}}{Field.}
+
+\item{\code{text}}{Field.}
+
+\item{\code{colspan}}{Field.}
+
+\item{\code{rowspan}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

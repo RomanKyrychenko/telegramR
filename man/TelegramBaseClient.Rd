@@ -11,6 +11,110 @@ message processing.
 \details{
 Abstract base class for telegram client implementation
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{use_ipv6}}{Field.}
+
+\item{\code{proxy}}{Field.}
+
+\item{\code{local_addr}}{Field.}
+
+\item{\code{timeout}}{Field.}
+
+\item{\code{request_retries}}{Field.}
+
+\item{\code{connection_retries}}{Field.}
+
+\item{\code{retry_delay}}{Field.}
+
+\item{\code{auto_reconnect}}{Field.}
+
+\item{\code{sequential_updates}}{Field.}
+
+\item{\code{flood_sleep_threshold}}{Field.}
+
+\item{\code{raise_last_call_error}}{Field.}
+
+\item{\code{device_model}}{Field.}
+
+\item{\code{system_version}}{Field.}
+
+\item{\code{app_version}}{Field.}
+
+\item{\code{lang_code}}{Field.}
+
+\item{\code{system_lang_code}}{Field.}
+
+\item{\code{base_logger}}{Field.}
+
+\item{\code{receive_updates}}{Field.}
+
+\item{\code{catch_up}}{Field.}
+
+\item{\code{query}}{Field.}
+
+\item{\code{auth_key_callback}}{Field.}
+
+\item{\code{auto_reconnect_callback}}{Field.
+Connect to Telegram
+
+Establishes a connection to Telegram servers}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{use_ipv6}}{Field.}
+
+\item{\code{proxy}}{Field.}
+
+\item{\code{local_addr}}{Field.}
+
+\item{\code{timeout}}{Field.}
+
+\item{\code{request_retries}}{Field.}
+
+\item{\code{connection_retries}}{Field.}
+
+\item{\code{retry_delay}}{Field.}
+
+\item{\code{auto_reconnect}}{Field.}
+
+\item{\code{sequential_updates}}{Field.}
+
+\item{\code{flood_sleep_threshold}}{Field.}
+
+\item{\code{raise_last_call_error}}{Field.}
+
+\item{\code{device_model}}{Field.}
+
+\item{\code{system_version}}{Field.}
+
+\item{\code{app_version}}{Field.}
+
+\item{\code{lang_code}}{Field.}
+
+\item{\code{system_lang_code}}{Field.}
+
+\item{\code{base_logger}}{Field.}
+
+\item{\code{receive_updates}}{Field.}
+
+\item{\code{catch_up}}{Field.}
+
+\item{\code{query}}{Field.}
+
+\item{\code{auth_key_callback}}{Field.}
+
+\item{\code{auto_reconnect_callback}}{Field.
+Connect to Telegram
+
+Establishes a connection to Telegram servers}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -110,10 +214,7 @@ Initialize a new Telegram client
 
 \item{\code{catch_up}}{Whether to catch up on missed updates}
 
-\item{\code{entity_cache_limit}}{Maximum number of entities to keep in cache
-Connect to Telegram
-
-Establishes a connection to Telegram servers}
+\item{\code{entity_cache_limit}}{Maximum number of entities to keep in cache}
 }
 \if{html}{\out{</div>}}
 }

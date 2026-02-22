@@ -6,6 +6,15 @@
 \description{
 Telegram API type InlineBotWebView
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{text}}{Field.}
+
+\item{\code{url}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

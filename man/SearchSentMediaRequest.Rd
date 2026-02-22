@@ -12,10 +12,6 @@ Represents a request to search sent media. This class inherits from TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x107e31a0).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xd4b40b5e).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

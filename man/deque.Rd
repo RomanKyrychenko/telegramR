@@ -12,3 +12,9 @@ deque(maxlen)
 \description{
 Simple implementation of a deque with max length
 }
+\section{Fields}{
+
+\describe{
+\item{\code{maxlen}}{Field.}
+}}
+

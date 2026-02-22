@@ -9,6 +9,37 @@ Telegram API type AutoDownloadSettings
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{AutoDownloadSettings}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{photo_size_max}}{Field.}
+
+\item{\code{video_size_max}}{Field.}
+
+\item{\code{file_size_max}}{Field.}
+
+\item{\code{video_upload_maxbitrate}}{Field.}
+
+\item{\code{small_queue_active_operations_max}}{Field.}
+
+\item{\code{large_queue_active_operations_max}}{Field.}
+
+\item{\code{disabled}}{Field.}
+
+\item{\code{video_preload_large}}{Field.}
+
+\item{\code{audio_preload_next}}{Field.}
+
+\item{\code{phonecalls_lessdata}}{Field.}
+
+\item{\code{stories_preload}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -107,6 +138,7 @@ Serializes the AutoDownloadSettings object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the AutoDownloadSettings object.
+Reads an AutoDownloadSettings object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

@@ -9,6 +9,27 @@ Telegram API type RequestPeerTypeChat
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{RequestPeerTypeChat}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{creator}}{Field.}
+
+\item{\code{bot_participant}}{Field.}
+
+\item{\code{has_username}}{Field.}
+
+\item{\code{forum}}{Field.}
+
+\item{\code{user_admin_rights}}{Field.}
+
+\item{\code{bot_admin_rights}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

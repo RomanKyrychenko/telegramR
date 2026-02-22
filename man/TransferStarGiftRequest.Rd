@@ -4,8 +4,6 @@
 \alias{TransferStarGiftRequest}
 \title{TransferStarGiftRequest}
 \description{
-Represents a request to transfer a star gift. Inherits from TLRequest.
-
 Telegram API type TransferStarGiftRequest
 }
 \section{Super classes}{
@@ -14,13 +12,13 @@ Telegram API type TransferStarGiftRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{stargift}}{The input saved star gift.}
+\item{\code{stargift}}{Field.}
 
-\item{\code{to_id}}{The input peer to transfer to.}
+\item{\code{to_id}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

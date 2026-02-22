@@ -4,9 +4,6 @@
 \alias{MTProtoState}
 \title{MTProtoState}
 \description{
-Manages the state needed for MTProto encryption, including message IDs,
-sequence numbers, and server salt.
-
 Telegram API type MTProtoState
 }
 \details{
@@ -22,6 +19,35 @@ MTProto protocol state management
 \item{\code{salt}}{Current server salt}
 
 \item{\code{id}}{Current session ID}
+
+\item{\code{algo}}{Field.}
+
+\item{\code{serialize}}{Field.}
+
+\item{\code{raw}}{Field.}
+
+\item{\code{algo}}{Field.}
+
+\item{\code{serialize}}{Field.}
+
+\item{\code{raw}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{algo}}{Field.}
+
+\item{\code{serialize}}{Field.}
+
+\item{\code{raw}}{Field.}
+
+\item{\code{algo}}{Field.}
+
+\item{\code{serialize}}{Field.}
+
+\item{\code{raw}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

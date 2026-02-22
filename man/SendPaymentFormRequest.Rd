@@ -4,8 +4,6 @@
 \alias{SendPaymentFormRequest}
 \title{SendPaymentFormRequest}
 \description{
-Represents a request to send a payment form. Inherits from TLRequest.
-
 Telegram API type SendPaymentFormRequest
 }
 \section{Super classes}{
@@ -14,21 +12,21 @@ Telegram API type SendPaymentFormRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{form_id}}{The form ID.}
+\item{\code{form_id}}{Field.}
 
-\item{\code{invoice}}{The input invoice.}
+\item{\code{invoice}}{Field.}
 
-\item{\code{credentials}}{The input payment credentials.}
+\item{\code{credentials}}{Field.}
 
-\item{\code{requested_info_id}}{Optional requested info ID.}
+\item{\code{requested_info_id}}{Field.}
 
-\item{\code{shipping_option_id}}{Optional shipping option ID.}
+\item{\code{shipping_option_id}}{Field.}
 
-\item{\code{tip_amount}}{Optional tip amount.}
+\item{\code{tip_amount}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

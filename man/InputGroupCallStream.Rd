@@ -6,6 +6,21 @@
 \description{
 Telegram API type InputGroupCallStream
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{call}}{Field.}
+
+\item{\code{time_ms}}{Field.}
+
+\item{\code{scale}}{Field.}
+
+\item{\code{video_channel}}{Field.}
+
+\item{\code{video_quality}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

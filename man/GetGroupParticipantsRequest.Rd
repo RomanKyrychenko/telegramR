@@ -14,15 +14,15 @@ Represents GetGroupParticipantsRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{call}}{The input group call object (expected to implement bytes()).}
+\item{\code{call}}{Field.}
 
-\item{\code{ids}}{List of input peer objects (expected to implement bytes()).}
+\item{\code{ids}}{Field.}
 
-\item{\code{sources}}{List of integers.}
+\item{\code{sources}}{Field.}
 
-\item{\code{offset}}{String offset.}
+\item{\code{offset}}{Field.}
 
-\item{\code{limit}}{Integer limit.}
+\item{\code{limit}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

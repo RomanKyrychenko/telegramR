@@ -4,27 +4,23 @@
 \alias{GetPopularAppBotsRequest}
 \title{GetPopularAppBotsRequest}
 \description{
-Methods:
-- initialize(offset, limit)
-- resolve(client, utils) (no-op)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
-Each method is documented inline below.
-
 Telegram API type GetPopularAppBotsRequest
 }
 \details{
 GetPopularAppBotsRequest R6 class
 
 Represents the GetPopularAppBotsRequest TL request.
+
+
+
+Each method is documented inline below.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{offset}}{character offset string}
+\item{\code{offset}}{Field.}
 
-\item{\code{limit}}{integer max items to return}
+\item{\code{limit}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

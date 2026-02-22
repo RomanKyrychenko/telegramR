@@ -12,10 +12,6 @@ Represents a request to get emoji status groups. This class inherits from TLRequ
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x2ecd56cd).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x7eca55d9).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

@@ -12,10 +12,6 @@ Represents a request to get chat invite importers. This class inherits from TLRe
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xdf04dd4e).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xd9bc8aa6).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

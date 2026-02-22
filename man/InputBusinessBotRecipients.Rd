@@ -6,6 +6,25 @@
 \description{
 Telegram API type InputBusinessBotRecipients
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{existing_chats}}{Field.}
+
+\item{\code{new_chats}}{Field.}
+
+\item{\code{contacts}}{Field.}
+
+\item{\code{non_contacts}}{Field.}
+
+\item{\code{exclude_selected}}{Field.}
+
+\item{\code{users}}{Field.}
+
+\item{\code{exclude_users}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

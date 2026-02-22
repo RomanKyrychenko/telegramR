@@ -12,10 +12,6 @@ Represents a request to uninstall a sticker set. This class inherits from TLRequ
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xf96e55de).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xf5b399ac).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

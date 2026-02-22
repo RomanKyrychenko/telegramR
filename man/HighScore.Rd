@@ -6,6 +6,17 @@
 \description{
 Telegram API type HighScore
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{pos}}{Field.}
+
+\item{\code{userId}}{Field.}
+
+\item{\code{score}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

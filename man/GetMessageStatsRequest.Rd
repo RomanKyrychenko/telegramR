@@ -17,15 +17,15 @@ R6 class representing a GetMessageStatsRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer constructor id}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer subclass id}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{channel}}{input channel object}
+\item{\code{channel}}{Field.}
 
-\item{\code{msg_id}}{integer message id}
+\item{\code{msg_id}}{Field.}
 
-\item{\code{dark}}{logical; optional dark flag}
+\item{\code{dark}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

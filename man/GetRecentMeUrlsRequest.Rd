@@ -14,11 +14,18 @@ Request to get recent "me" URLs with a referer string.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex).}
+\item{\code{referer}}{Field.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
-
-\item{\code{referer}}{character Referer string}
+\item{\code{type}}{Field.
+Serialize to bytes (raw vector)}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{type}}{Field.
+Serialize to bytes (raw vector)}
 }
 \if{html}{\out{</div>}}
 }
@@ -59,7 +66,6 @@ Convert to list}
 
 \subsection{Returns}{
 list with type discriminator and referer
-Serialize to bytes (raw vector)
 }
 }
 \if{html}{\out{<hr>}}

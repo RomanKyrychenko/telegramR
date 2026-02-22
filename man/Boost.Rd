@@ -9,6 +9,37 @@ Telegram API type Boost
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{Boost}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{expires}}{Field.}
+
+\item{\code{gift}}{Field.}
+
+\item{\code{giveaway}}{Field.}
+
+\item{\code{unclaimed}}{Field.}
+
+\item{\code{user_id}}{Field.}
+
+\item{\code{giveaway_msg_id}}{Field.}
+
+\item{\code{used_gift_slug}}{Field.}
+
+\item{\code{multiplier}}{Field.}
+
+\item{\code{stars}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -107,6 +138,7 @@ Serializes the Boost object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the Boost object.
+Reads a Boost object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

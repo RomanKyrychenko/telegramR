@@ -6,6 +6,19 @@
 \description{
 Telegram API type FactCheck
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{hash}}{Field.}
+
+\item{\code{need_check}}{Field.}
+
+\item{\code{country}}{Field.}
+
+\item{\code{text}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

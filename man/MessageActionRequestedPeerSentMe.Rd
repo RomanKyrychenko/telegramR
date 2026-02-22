@@ -9,6 +9,15 @@ Telegram API type MessageActionRequestedPeerSentMe
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageActionRequestedPeerSentMe}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{button_id}}{Field.}
+
+\item{\code{peers}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

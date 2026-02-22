@@ -17,13 +17,13 @@ R6 class representing a LoadAsyncGraphRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer constructor id}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer subclass id}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{token}}{character token}
+\item{\code{token}}{Field.}
 
-\item{\code{x}}{integer64 or numeric; optional x}
+\item{\code{x}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

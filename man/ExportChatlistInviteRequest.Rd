@@ -16,15 +16,11 @@ Serializes constructor id, chatlist bytes, title (TL-string), then peers vector.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor id.}
+\item{\code{chatlist}}{Field.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass id.}
+\item{\code{title}}{Field.}
 
-\item{\code{chatlist}}{TypeInputChatlist input chatlist object.}
-
-\item{\code{title}}{character invite title.}
-
-\item{\code{peers}}{list List of TypeInputPeer input peers.}
+\item{\code{peers}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

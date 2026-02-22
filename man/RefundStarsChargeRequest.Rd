@@ -4,8 +4,6 @@
 \alias{RefundStarsChargeRequest}
 \title{RefundStarsChargeRequest}
 \description{
-Represents a request to refund a stars charge. Inherits from TLRequest.
-
 Telegram API type RefundStarsChargeRequest
 }
 \section{Super classes}{
@@ -14,13 +12,13 @@ Telegram API type RefundStarsChargeRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{user_id}}{The input user.}
+\item{\code{user_id}}{Field.}
 
-\item{\code{charge_id}}{The charge ID.}
+\item{\code{charge_id}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

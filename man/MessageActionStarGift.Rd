@@ -9,6 +9,47 @@ Telegram API type MessageActionStarGift
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageActionStarGift}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{gift}}{Field.}
+
+\item{\code{name_hidden}}{Field.}
+
+\item{\code{saved}}{Field.}
+
+\item{\code{converted}}{Field.}
+
+\item{\code{upgraded}}{Field.}
+
+\item{\code{refunded}}{Field.}
+
+\item{\code{can_upgrade}}{Field.}
+
+\item{\code{prepaid_upgrade}}{Field.}
+
+\item{\code{upgrade_separate}}{Field.}
+
+\item{\code{message}}{Field.}
+
+\item{\code{convert_stars}}{Field.}
+
+\item{\code{upgrade_msg_id}}{Field.}
+
+\item{\code{upgrade_stars}}{Field.}
+
+\item{\code{from_id}}{Field.}
+
+\item{\code{peer}}{Field.}
+
+\item{\code{saved_id}}{Field.}
+
+\item{\code{prepaid_upgrade_hash}}{Field.}
+
+\item{\code{gift_msg_id}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

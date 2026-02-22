@@ -4,26 +4,23 @@
 \alias{AnswerWebhookJSONQueryRequest}
 \title{AnswerWebhookJSONQueryRequest}
 \description{
-Methods:
-- initialize(query_id, data)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
-Each method is documented inline below.
-
 Telegram API type AnswerWebhookJSONQueryRequest
 }
 \details{
 AnswerWebhookJSONQueryRequest R6 class
 
 Represents the AnswerWebhookJSONQueryRequest TL request.
+
+
+
+Each method is documented inline below.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{query_id}}{numeric 64-bit integer (stored as numeric; precision for >2^53 may be lost)}
+\item{\code{query_id}}{Field.}
 
-\item{\code{data}}{TypeDataJSON object or representation (R6 object implementing to_list()/to_bytes() or raw)}
+\item{\code{data}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

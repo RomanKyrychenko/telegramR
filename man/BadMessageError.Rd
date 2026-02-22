@@ -4,8 +4,6 @@
 \alias{BadMessageError}
 \title{BadMessageError}
 \description{
-Occurs when handling a bad_message_notification.
-
 Telegram API type BadMessageError
 }
 \details{

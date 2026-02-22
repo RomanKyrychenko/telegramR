@@ -9,6 +9,21 @@ Telegram API type MessageActionPrizeStars
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageActionPrizeStars}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{stars}}{Field.}
+
+\item{\code{transaction_id}}{Field.}
+
+\item{\code{boostpeer}}{Field.}
+
+\item{\code{giveaway_msg_id}}{Field.}
+
+\item{\code{unclaimed}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

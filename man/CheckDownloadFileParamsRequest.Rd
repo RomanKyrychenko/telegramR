@@ -4,29 +4,25 @@
 \alias{CheckDownloadFileParamsRequest}
 \title{CheckDownloadFileParamsRequest}
 \description{
-Methods:
-- initialize(bot, file_name, url)
-- resolve(client, utils)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
-Each method is documented inline below.
-
 Telegram API type CheckDownloadFileParamsRequest
 }
 \details{
 CheckDownloadFileParamsRequest R6 class
 
 Represents the CheckDownloadFileParamsRequest TL request.
+
+
+
+Each method is documented inline below.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{bot}}{TypeInputUser input user or object implementing to_list()/to_bytes()}
+\item{\code{bot}}{Field.}
 
-\item{\code{file_name}}{character file name}
+\item{\code{file_name}}{Field.}
 
-\item{\code{url}}{character download url}
+\item{\code{url}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

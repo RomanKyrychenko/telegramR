@@ -12,10 +12,6 @@ Represents a request to request an app web view. This class inherits from TLRequ
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x53618bce).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x93cea746).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

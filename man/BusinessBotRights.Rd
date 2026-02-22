@@ -9,6 +9,43 @@ Telegram API type BusinessBotRights
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{BusinessBotRights}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{reply}}{Field.}
+
+\item{\code{read_messages}}{Field.}
+
+\item{\code{delete_sent_messages}}{Field.}
+
+\item{\code{delete_received_messages}}{Field.}
+
+\item{\code{edit_name}}{Field.}
+
+\item{\code{edit_bio}}{Field.}
+
+\item{\code{edit_profile_photo}}{Field.}
+
+\item{\code{edit_username}}{Field.}
+
+\item{\code{view_gifts}}{Field.}
+
+\item{\code{sell_gifts}}{Field.}
+
+\item{\code{change_gift_settings}}{Field.}
+
+\item{\code{transfer_and_upgrade_gifts}}{Field.}
+
+\item{\code{transfer_stars}}{Field.}
+
+\item{\code{manage_stories}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

@@ -9,6 +9,27 @@ Telegram API type AvailableEffect
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{AvailableEffect}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{emoticon}}{Field.}
+
+\item{\code{effect_sticker_id}}{Field.}
+
+\item{\code{premium_required}}{Field.}
+
+\item{\code{static_icon_id}}{Field.}
+
+\item{\code{effect_animation_id}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -92,6 +113,7 @@ Serializes the AvailableEffect object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the AvailableEffect object.
+Reads an AvailableEffect object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

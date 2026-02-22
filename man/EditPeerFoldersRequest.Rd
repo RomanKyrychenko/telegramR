@@ -17,11 +17,11 @@ Represents the TL request EditPeerFoldersRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (0x6847d0ab)}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (0x8af52aac)}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{folder_peers}}{list List of InputFolderPeer objects (each should provide to_list() and to_raw())}
+\item{\code{folder_peers}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

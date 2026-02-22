@@ -12,10 +12,6 @@ Represents a request to get recent reactions. This class inherits from TLRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x39461db2).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xadc38324).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

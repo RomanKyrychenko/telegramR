@@ -56,6 +56,44 @@ It delegates fetching to the provided client via iter_messages().
 \item{\code{reply_to}}{Optional reply thread id}
 
 \item{\code{offset_date}}{Optional offset date}
+
+\item{\code{entity}}{Field.}
+
+\item{\code{from_user}}{Field.}
+
+\item{\code{offset_date}}{Field.}
+
+\item{\code{filter}}{Field.}
+
+\item{\code{search}}{Field.}
+
+\item{\code{reply_to}}{Field.}
+
+\item{\code{scheduled}}{Field.}
+
+\item{\code{reverse}}{Field.}
+
+\item{\code{wait_time}}{Field.
+Load next chunk
+
+Fetches the next chunk of messages and appends them to the internal buffer.}
+
+\item{\code{ids}}{Field.
+Check if there are more items to retrieve}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{entity}}{Field.}
+
+\item{\code{from_user}}{Field.}
+
+\item{\code{scheduled}}{Field.}
+
+\item{\code{ids}}{Field.
+Check if there are more items to retrieve}
 }
 \if{html}{\out{</div>}}
 }
@@ -125,10 +163,7 @@ Initialize the iterator with query parameters.
 
 \item{\code{wait_time}}{Optional per-request sleep in seconds.}
 
-\item{\code{limit}}{Integer or Inf, maximum messages to yield.
-Load next chunk
-
-Fetches the next chunk of messages and appends them to the internal buffer.}
+\item{\code{limit}}{Integer or Inf, maximum messages to yield.}
 }
 \if{html}{\out{</div>}}
 }
@@ -143,7 +178,6 @@ Fetches the next chunk of messages and appends them to the internal buffer.}
 
 \subsection{Returns}{
 A list of messages for this chunk or NULL if exhausted.
-Check if there are more items to retrieve
 }
 }
 \if{html}{\out{<hr>}}

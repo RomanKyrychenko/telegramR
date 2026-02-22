@@ -14,13 +14,7 @@ Notify server of bot updates status.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex).}
-
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
-
-\item{\code{pendingUpdatesCount}}{integer Count of pending updates.}
-
-\item{\code{message}}{character Additional message.}
+\item{\code{message}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

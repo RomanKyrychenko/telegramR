@@ -14,9 +14,9 @@ Represents SendSignalingDataRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{peer}}{The input phone call object (expected to implement bytes()).}
+\item{\code{peer}}{Field.}
 
-\item{\code{data}}{Raw bytes payload to send.}
+\item{\code{data}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

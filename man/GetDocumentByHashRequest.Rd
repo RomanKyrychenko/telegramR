@@ -12,10 +12,6 @@ Represents a request to get document by hash. This class inherits from TLRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xb1f2061f).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x211fe820).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

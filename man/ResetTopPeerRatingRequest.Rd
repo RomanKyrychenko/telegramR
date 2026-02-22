@@ -19,9 +19,13 @@ R6 representation of the TL request: ResetTopPeerRatingRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{category}}{TL object representing TopPeerCategory}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{peer}}{TL input_peer object (will be resolved with utils)}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{category}}{Field.}
+
+\item{\code{peer}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

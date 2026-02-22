@@ -9,6 +9,21 @@ Telegram API type MessageActionSuggestedPostApproval
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageActionSuggestedPostApproval}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{rejected}}{Field.}
+
+\item{\code{balance_too_low}}{Field.}
+
+\item{\code{reject_comment}}{Field.}
+
+\item{\code{schedule_date}}{Field.}
+
+\item{\code{price}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

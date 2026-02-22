@@ -4,8 +4,6 @@
 \alias{GetStarGiftCollectionsRequest}
 \title{GetStarGiftCollectionsRequest}
 \description{
-Represents a request to get star gift collections. Inherits from TLRequest.
-
 Telegram API type GetStarGiftCollectionsRequest
 }
 \section{Super classes}{
@@ -14,13 +12,13 @@ Telegram API type GetStarGiftCollectionsRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{peer}}{The input peer (TypeInputPeer).}
+\item{\code{peer}}{Field.}
 
-\item{\code{hash}}{The hash value (integer).}
+\item{\code{hash}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

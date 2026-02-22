@@ -9,6 +9,17 @@ Telegram API type BotCommandScopePeerAdmins
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{BotCommandScopePeerAdmins}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{peer}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -75,6 +86,7 @@ Serializes the BotCommandScopePeerAdmins object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the BotCommandScopePeerAdmins object.
+Reads a BotCommandScopePeerAdmins object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

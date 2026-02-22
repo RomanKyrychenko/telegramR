@@ -14,21 +14,21 @@ Represents EditGroupCallParticipantRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{call}}{The input group call object (expected to implement bytes()).}
+\item{\code{call}}{Field.}
 
-\item{\code{participant}}{The input peer object (expected to implement bytes()).}
+\item{\code{participant}}{Field.}
 
-\item{\code{muted}}{Logical or NULL. If TRUE, muted.}
+\item{\code{muted}}{Field.}
 
-\item{\code{volume}}{Integer or NULL. Volume level.}
+\item{\code{volume}}{Field.}
 
-\item{\code{raise_hand}}{Logical or NULL. If TRUE, raise hand.}
+\item{\code{raise_hand}}{Field.}
 
-\item{\code{video_stopped}}{Logical or NULL. If TRUE, video stopped.}
+\item{\code{video_stopped}}{Field.}
 
-\item{\code{video_paused}}{Logical or NULL. If TRUE, video paused.}
+\item{\code{video_paused}}{Field.}
 
-\item{\code{presentation_paused}}{Logical or NULL. If TRUE, presentation paused.}
+\item{\code{presentation_paused}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

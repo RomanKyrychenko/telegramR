@@ -14,11 +14,11 @@ R6 representation of the Telegram TL request upload.SaveFilePartRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{file_id}}{numeric (64-bit) Unique file identifier (stable per upload session).}
+\item{\code{file_id}}{Field.}
 
-\item{\code{file_part}}{integer Zero-based index of this file part.}
+\item{\code{file_part}}{Field.}
 
-\item{\code{bytes_data}}{raw|integer|character The binary payload for this part.}
+\item{\code{bytes_data}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -9,6 +9,35 @@ Telegram API type AttachMenuBot
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{AttachMenuBot}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{bot_id}}{Field.}
+
+\item{\code{short_name}}{Field.}
+
+\item{\code{icons}}{Field.}
+
+\item{\code{inactive}}{Field.}
+
+\item{\code{has_settings}}{Field.}
+
+\item{\code{request_write_access}}{Field.}
+
+\item{\code{show_in_attach_menu}}{Field.}
+
+\item{\code{show_in_side_menu}}{Field.}
+
+\item{\code{side_menu_disclaimer_needed}}{Field.}
+
+\item{\code{peer_types}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -104,6 +133,7 @@ Serializes the AttachMenuBot object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the AttachMenuBot object.
+Reads an AttachMenuBot object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

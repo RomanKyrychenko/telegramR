@@ -9,6 +9,23 @@ Telegram API type ChatPhoto
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ChatPhoto}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{photo_id}}{Field.}
+
+\item{\code{dc_id}}{Field.}
+
+\item{\code{has_video}}{Field.}
+
+\item{\code{stripped_thumb}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

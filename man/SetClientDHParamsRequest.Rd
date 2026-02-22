@@ -5,12 +5,8 @@
 \title{SetClientDHParamsRequest}
 \value{
 An R6 object of class \code{SetClientDHParamsRequest}.
-Initialize a new SetClientDHParamsRequest
 }
 \description{
-A class representing the `SetClientDHParamsRequest` object. This class is used to handle
-the serialization and deserialization of the `SetClientDHParamsRequest` object.
-
 Telegram API type SetClientDHParamsRequest
 
 Methods:
@@ -23,8 +19,6 @@ Methods:
 Note: 128-bit integer handling is represented here as numeric/double placeholders.
 For precise 128-bit two's-complement behavior, use a big-integer library and
 implement a precise serializer.
-
-Initialize a SetClientDHParamsRequest
 
 Represents the client's response during the Diffie-Hellman key exchange.
 Contains the client's \code{nonce}, the server's \code{server_nonce}, and
@@ -107,11 +101,12 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{nonce}}{numeric/integer 128-bit nonce (may be represented as numeric)}
+\item{\code{nonce}}{Field.}
 
-\item{\code{server_nonce}}{numeric/integer 128-bit server nonce}
+\item{\code{server_nonce}}{Field.}
 
-\item{\code{encrypted_data}}{raw Encrypted data as raw bytes}
+\item{\code{encrypted_data}}{Field.
+Initialize a SetClientDHParamsRequest}
 }
 \if{html}{\out{</div>}}
 }
@@ -172,15 +167,25 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor identifier for the request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{nonce}}{128-bit client nonce (large integer or raw).}
+\item{\code{nonce}}{Field.}
 
-\item{\code{server_nonce}}{128-bit server nonce (large integer or raw).}
+\item{\code{server_nonce}}{Field.}
 
-\item{\code{encrypted_data}}{Raw or character vector containing encrypted payload bytes.}
+\item{\code{encrypted_data}}{Field.
+Initialize a new SetClientDHParamsRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

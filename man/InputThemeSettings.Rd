@@ -6,6 +6,25 @@
 \description{
 Telegram API type InputThemeSettings
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{base_theme}}{Field.}
+
+\item{\code{accent_color}}{Field.}
+
+\item{\code{message_colors_animated}}{Field.}
+
+\item{\code{outbox_accent_color}}{Field.}
+
+\item{\code{message_colors}}{Field.}
+
+\item{\code{wallpaper}}{Field.}
+
+\item{\code{wallpaper_settings}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

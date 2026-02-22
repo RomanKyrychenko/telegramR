@@ -16,11 +16,7 @@ Serializes the constructor id followed by chatlist bytes.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor id.}
-
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass id.}
-
-\item{\code{chatlist}}{TypeInputChatlist input chatlist object.}
+\item{\code{chatlist}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -9,6 +9,27 @@ Telegram API type DialogFolder
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{DialogFolder}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{folder}}{Field.}
+
+\item{\code{peer}}{Field.}
+
+\item{\code{top_message}}{Field.}
+
+\item{\code{unread_muted_peers_count}}{Field.}
+
+\item{\code{unread_unmuted_peers_count}}{Field.}
+
+\item{\code{unread_muted_messages_count}}{Field.}
+
+\item{\code{unread_unmuted_messages_count}}{Field.}
+
+\item{\code{pinned}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

@@ -9,6 +9,57 @@ Telegram API type PeerSettings
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PeerSettings}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{report_spam}}{Field.}
+
+\item{\code{add_contact}}{Field.}
+
+\item{\code{block_contact}}{Field.}
+
+\item{\code{share_contact}}{Field.}
+
+\item{\code{need_contacts_exception}}{Field.}
+
+\item{\code{report_geo}}{Field.}
+
+\item{\code{autoarchived}}{Field.}
+
+\item{\code{invite_members}}{Field.}
+
+\item{\code{request_chat_broadcast}}{Field.}
+
+\item{\code{business_bot_paused}}{Field.}
+
+\item{\code{business_bot_can_reply}}{Field.}
+
+\item{\code{geo_distance}}{Field.}
+
+\item{\code{request_chat_title}}{Field.}
+
+\item{\code{request_chat_date}}{Field.}
+
+\item{\code{business_bot_id}}{Field.}
+
+\item{\code{business_bot_manage_url}}{Field.}
+
+\item{\code{charge_paid_message_stars}}{Field.}
+
+\item{\code{registration_month}}{Field.}
+
+\item{\code{phone_country}}{Field.}
+
+\item{\code{name_change_date}}{Field.}
+
+\item{\code{photo_change_date}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

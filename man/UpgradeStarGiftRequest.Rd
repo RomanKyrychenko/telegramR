@@ -4,8 +4,6 @@
 \alias{UpgradeStarGiftRequest}
 \title{UpgradeStarGiftRequest}
 \description{
-Represents a request to upgrade a star gift. Inherits from TLRequest.
-
 Telegram API type UpgradeStarGiftRequest
 }
 \section{Super classes}{
@@ -14,13 +12,13 @@ Telegram API type UpgradeStarGiftRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{stargift}}{The input saved star gift.}
+\item{\code{stargift}}{Field.}
 
-\item{\code{keep_original_details}}{Optional flag to keep original details.}
+\item{\code{keep_original_details}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

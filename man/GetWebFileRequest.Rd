@@ -14,11 +14,11 @@ Represents the TL request upload.GetWebFileRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{location}}{TLObject-like (input web file location)}
+\item{\code{location}}{Field.}
 
-\item{\code{offset}}{integer}
+\item{\code{offset}}{Field.}
 
-\item{\code{limit}}{integer}
+\item{\code{limit}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

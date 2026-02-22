@@ -9,6 +9,27 @@ Telegram API type InputBotInlineMessageMediaInvoice
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{InputBotInlineMessageMediaInvoice}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{title}}{Field.}
+
+\item{\code{description}}{Field.}
+
+\item{\code{invoice}}{Field.}
+
+\item{\code{payload}}{Field.}
+
+\item{\code{provider}}{Field.}
+
+\item{\code{provider_data}}{Field.}
+
+\item{\code{photo}}{Field.}
+
+\item{\code{reply_markup}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

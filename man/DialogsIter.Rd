@@ -4,8 +4,6 @@
 \alias{DialogsIter}
 \title{DialogsIter}
 \description{
-An iterator for Telegram dialogs.
-
 Telegram API type DialogsIter
 }
 \details{
@@ -17,6 +15,32 @@ The order is the same as the one seen in official applications (first pinned, th
 }
 \section{Super class}{
 \code{\link[telegramR:RequestIter]{telegramR::RequestIter}} -> \code{DialogsIter}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{request}}{Field.}
+
+\item{\code{seen}}{Field.}
+
+\item{\code{offset_date}}{Field.}
+
+\item{\code{ignore_migrated}}{Field.}
+
+\item{\code{limit}}{Field.}
+
+\item{\code{hash}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{limit}}{Field.}
+
+\item{\code{hash}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

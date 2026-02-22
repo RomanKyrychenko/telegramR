@@ -9,6 +9,23 @@ Telegram API type MediaAreaWeather
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MediaAreaWeather}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{coordinates}}{Field.}
+
+\item{\code{emoji}}{Field.}
+
+\item{\code{temperature_c}}{Field.}
+
+\item{\code{color}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

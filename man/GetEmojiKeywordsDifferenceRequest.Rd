@@ -12,10 +12,6 @@ Represents a request to get emoji keywords difference. This class inherits from 
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x1508b6af).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xd279c672).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

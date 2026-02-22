@@ -16,6 +16,29 @@ Returns Updates.
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{EditStoryRequest}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{peer}}{Field.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{media}}{Field.}
+
+\item{\code{media_areas}}{Field.}
+
+\item{\code{caption}}{Field.}
+
+\item{\code{entities}}{Field.}
+
+\item{\code{privacy_rules}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

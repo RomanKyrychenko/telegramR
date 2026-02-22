@@ -7,8 +7,6 @@
 A R6 object inheriting from TLRequest.
 }
 \description{
-Request to delete photos. Fields correspond to the TL schema: id (vector of input photos).
-
 Telegram API type DeletePhotosRequest
 }
 \details{
@@ -41,6 +39,15 @@ R6 translation of the TLRequest DeletePhotosRequest.
 \item{\code{SUBCLASS_OF_ID}}{integer}
 
 \item{\code{id}}{list of TLObject or NULL}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

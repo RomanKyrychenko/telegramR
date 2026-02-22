@@ -9,6 +9,19 @@ Telegram API type InputWebDocument
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{InputWebDocument}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{url}}{Field.}
+
+\item{\code{size}}{Field.}
+
+\item{\code{mime_type}}{Field.}
+
+\item{\code{attributes}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

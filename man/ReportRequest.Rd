@@ -16,10 +16,6 @@ Represents a TL request to report stories.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xfc78af9b).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xacd3f438).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
@@ -110,6 +106,23 @@ The objects of this class are cloneable with this method.
 }
 \section{Super classes}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{\link[telegramR:TLRequest]{telegramR::TLRequest}} -> \code{ReportRequest}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{peer}}{Field.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{option}}{Field.}
+
+\item{\code{message}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{

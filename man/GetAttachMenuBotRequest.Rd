@@ -12,10 +12,6 @@ Represents a request to get attach menu bot. This class inherits from TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x77216192).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xdb33883d).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

@@ -4,9 +4,6 @@
 \alias{FileStream}
 \title{FileStream}
 \description{
-This class can handle file paths, raw vectors, and connections. It provides
-methods to read data, close the stream, and get file size and name.
-
 Telegram API type FileStream
 }
 \details{

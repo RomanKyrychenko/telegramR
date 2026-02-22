@@ -12,6 +12,10 @@ Telegram API type AccessPointRule
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
 \item{\code{phone_prefix_rules}}{A string representing phone prefix rules.}
 
 \item{\code{dc_id}}{An integer representing the data center ID.}
@@ -90,6 +94,7 @@ Serializes the AccessPointRule object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the AccessPointRule object.
+Reads an AccessPointRule object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

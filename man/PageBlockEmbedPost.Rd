@@ -9,6 +9,29 @@ Telegram API type PageBlockEmbedPost
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PageBlockEmbedPost}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{url}}{Field.}
+
+\item{\code{webpage_id}}{Field.}
+
+\item{\code{author_photo_id}}{Field.}
+
+\item{\code{author}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{blocks}}{Field.}
+
+\item{\code{caption}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

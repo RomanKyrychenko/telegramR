@@ -18,9 +18,9 @@ R6 representation of the TL request: ExportContactTokenRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex)}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex)}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 }
 \if{html}{\out{</div>}}
 }

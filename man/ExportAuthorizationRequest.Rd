@@ -14,11 +14,11 @@ Represents the TLRequest auth.ExportAuthorizationRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0xe5bfffcd).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0x5fd1ec51).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{dc_id}}{integer Destination DC id.}
+\item{\code{dc_id}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -12,10 +12,6 @@ Represents a request to get outbox read date. This class inherits from TLRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x8c4bfe5d).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x6f5183c6).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

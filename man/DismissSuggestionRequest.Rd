@@ -14,13 +14,9 @@ Dismiss a suggestion for a peer with an associated suggestion string.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex).}
+\item{\code{peer}}{Field.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
-
-\item{\code{peer}}{TLObject-like input peer (environment with to_bytes()/to_list() or raw)}
-
-\item{\code{suggestion}}{character Suggestion string}
+\item{\code{suggestion}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

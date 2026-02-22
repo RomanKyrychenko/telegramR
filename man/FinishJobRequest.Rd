@@ -16,9 +16,18 @@ Encodes constructor id, flags (bit 0 for error), job_id and optional error.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{job_id}}{character}
+\item{\code{job_id}}{Field.}
 
-\item{\code{error}}{character or NULL}
+\item{\code{error}}{Field.}
+
+\item{\code{lock_class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{lock_class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -14,17 +14,13 @@ Request to edit an exported invite for a chatlist (optional title and peers).
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor id.}
+\item{\code{chatlist}}{Field.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass id.}
+\item{\code{slug}}{Field.}
 
-\item{\code{chatlist}}{TypeInputChatlist input chatlist object.}
+\item{\code{title}}{Field.}
 
-\item{\code{slug}}{character invite slug.}
-
-\item{\code{title}}{character optional invite title.}
-
-\item{\code{peers}}{list Optional list of TypeInputPeer input peers.}
+\item{\code{peers}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

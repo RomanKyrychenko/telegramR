@@ -6,6 +6,19 @@
 \description{
 Telegram API type EncryptedMessageService
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{chat_id}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{bytes}}{Field.}
+
+\item{\code{random_id}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

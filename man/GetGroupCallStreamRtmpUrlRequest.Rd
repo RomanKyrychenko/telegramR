@@ -14,9 +14,9 @@ Represents GetGroupCallStreamRtmpUrlRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{peer}}{The input peer object (expected to implement bytes()).}
+\item{\code{peer}}{Field.}
 
-\item{\code{revoke}}{Logical indicating revoke state.}
+\item{\code{revoke}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

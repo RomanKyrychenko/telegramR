@@ -14,9 +14,9 @@ Represents the TL request upload.GetFileHashesRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{location}}{TLObject-like object (input file location)}
+\item{\code{location}}{Field.}
 
-\item{\code{offset}}{numeric 64-bit offset}
+\item{\code{offset}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -6,6 +6,15 @@
 \description{
 Telegram API type InputGameShortName
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{bot_id}}{Field.}
+
+\item{\code{short_name}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

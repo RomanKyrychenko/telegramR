@@ -9,6 +9,43 @@ Telegram API type DialogFilter
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{DialogFilter}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{id}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{pinned_peers}}{Field.}
+
+\item{\code{include_peers}}{Field.}
+
+\item{\code{exclude_peers}}{Field.}
+
+\item{\code{contacts}}{Field.}
+
+\item{\code{non_contacts}}{Field.}
+
+\item{\code{groups}}{Field.}
+
+\item{\code{broadcasts}}{Field.}
+
+\item{\code{bots}}{Field.}
+
+\item{\code{exclude_muted}}{Field.}
+
+\item{\code{exclude_read}}{Field.}
+
+\item{\code{exclude_archived}}{Field.}
+
+\item{\code{title_noanimate}}{Field.}
+
+\item{\code{emoticon}}{Field.}
+
+\item{\code{color}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

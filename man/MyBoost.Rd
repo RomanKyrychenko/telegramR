@@ -9,6 +9,25 @@ Telegram API type MyBoost
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MyBoost}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{slot}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{expires}}{Field.}
+
+\item{\code{peer}}{Field.}
+
+\item{\code{cooldown_until_date}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

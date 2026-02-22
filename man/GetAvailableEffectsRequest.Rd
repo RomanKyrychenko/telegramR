@@ -12,10 +12,6 @@ Represents a request to get available effects. This class inherits from TLReques
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xdea20a39).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x4470d5bd).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

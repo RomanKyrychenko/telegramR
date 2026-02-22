@@ -4,8 +4,6 @@
 \alias{HTMLToTelegramParser}
 \title{HTMLToTelegramParser}
 \description{
-Parses HTML fragments into Telegram-compatible plain text and entity metadata.
-
 Walks an HTML fragment and builds a plain text string and a list of
 telegram-style message entities.
 }

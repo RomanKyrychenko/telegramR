@@ -15,15 +15,9 @@ of message entities.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex).}
+\item{\code{userId}}{Field.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex).}
-
-\item{\code{userId}}{TLObject-like input user (environment with to_bytes()/to_list() or raw)}
-
-\item{\code{message}}{character Message text}
-
-\item{\code{entities}}{list List of TLObject-like message entities}
+\item{\code{message}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

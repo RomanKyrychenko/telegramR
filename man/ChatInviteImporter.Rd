@@ -9,6 +9,27 @@ Telegram API type ChatInviteImporter
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ChatInviteImporter}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{user_id}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{requested}}{Field.}
+
+\item{\code{via_chatlist}}{Field.}
+
+\item{\code{about}}{Field.}
+
+\item{\code{approved_by}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

@@ -12,10 +12,6 @@ Represents a request to set inline game score. This class inherits from TLReques
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x15ad9f64).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xf5b399ac).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

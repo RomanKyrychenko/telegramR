@@ -14,11 +14,11 @@ Represents ToggleGroupCallSettingsRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{call}}{The input group call object (expected to implement bytes()).}
+\item{\code{call}}{Field.}
 
-\item{\code{reset_invite_hash}}{Logical or NULL. If TRUE resets invite hash.}
+\item{\code{reset_invite_hash}}{Field.}
 
-\item{\code{join_muted}}{Logical or NULL. If TRUE join muted, if FALSE join unmuted, if NULL absent.}
+\item{\code{join_muted}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

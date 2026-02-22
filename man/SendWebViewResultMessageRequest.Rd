@@ -12,10 +12,6 @@ Represents a request to send a web view result message. This class inherits from
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xa4314f5).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x75e49312).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

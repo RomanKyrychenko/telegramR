@@ -14,15 +14,15 @@ Represents the TLRequest auth.ImportWebTokenAuthorizationRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0x2db873a9).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0xb9e04e39).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{api_id}}{integer API id.}
+\item{\code{api_id}}{Field.}
 
-\item{\code{api_hash}}{character API hash.}
+\item{\code{api_hash}}{Field.}
 
-\item{\code{web_auth_token}}{character Web auth token.}
+\item{\code{web_auth_token}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

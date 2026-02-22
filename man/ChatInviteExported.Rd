@@ -9,6 +9,43 @@ Telegram API type ChatInviteExported
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ChatInviteExported}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{link}}{Field.}
+
+\item{\code{admin_id}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{revoked}}{Field.}
+
+\item{\code{permanent}}{Field.}
+
+\item{\code{request_needed}}{Field.}
+
+\item{\code{start_date}}{Field.}
+
+\item{\code{expire_date}}{Field.}
+
+\item{\code{usage_limit}}{Field.}
+
+\item{\code{usage}}{Field.}
+
+\item{\code{requested}}{Field.}
+
+\item{\code{subscription_expired}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{subscription_pricing}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

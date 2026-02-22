@@ -9,6 +9,21 @@ Telegram API type EncryptedChatWaiting
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{EncryptedChatWaiting}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{id}}{Field.}
+
+\item{\code{access_hash}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{admin_id}}{Field.}
+
+\item{\code{participant_id}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

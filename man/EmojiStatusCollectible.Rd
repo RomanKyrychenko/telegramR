@@ -9,6 +9,31 @@ Telegram API type EmojiStatusCollectible
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{EmojiStatusCollectible}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{collectible_id}}{Field.}
+
+\item{\code{document_id}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{slug}}{Field.}
+
+\item{\code{pattern_document_id}}{Field.}
+
+\item{\code{center_color}}{Field.}
+
+\item{\code{edge_color}}{Field.}
+
+\item{\code{pattern_color}}{Field.}
+
+\item{\code{text_color}}{Field.}
+
+\item{\code{until}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

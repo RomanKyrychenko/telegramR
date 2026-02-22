@@ -14,9 +14,9 @@ Represents LeaveGroupCallRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{call}}{The input group call object (expected to implement bytes()).}
+\item{\code{call}}{Field.}
 
-\item{\code{source}}{Integer source identifier.}
+\item{\code{source}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

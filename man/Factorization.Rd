@@ -2,10 +2,8 @@
 % Please edit documentation in R/factorization.R
 \name{Factorization}
 \alias{Factorization}
-\title{R6 Class Representing Factorization}
+\title{Factorization}
 \description{
-Provides methods to factorize large integers quickly using Pollard's Rho algorithm.
-
 Telegram API type Factorization
 }
 \details{

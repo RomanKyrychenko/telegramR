@@ -14,9 +14,9 @@ Represents SendConferenceCallBroadcastRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{call}}{Input group call object (must provide bytes()).}
+\item{\code{call}}{Field.}
 
-\item{\code{block}}{Raw bytes payload to send.}
+\item{\code{block}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -9,6 +9,31 @@ Telegram API type Page
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{Page}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{url}}{Field.}
+
+\item{\code{blocks}}{Field.}
+
+\item{\code{photos}}{Field.}
+
+\item{\code{documents}}{Field.}
+
+\item{\code{part}}{Field.}
+
+\item{\code{rtl}}{Field.}
+
+\item{\code{v2}}{Field.}
+
+\item{\code{views}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

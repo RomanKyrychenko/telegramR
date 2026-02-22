@@ -7,6 +7,23 @@
 Holds information relevant to sent messages, including the message ID assigned to the request,
 the container ID to which it belongs, the request itself, the request as raw bytes, and a future result.
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{container_id}}{Field.}
+
+\item{\code{msg_id}}{Field.}
+
+\item{\code{request}}{Field.}
+
+\item{\code{data}}{Field.}
+
+\item{\code{future}}{Field.}
+
+\item{\code{after}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

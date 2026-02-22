@@ -4,8 +4,6 @@
 \alias{InvalidBufferError}
 \title{InvalidBufferError}
 \description{
-Occurs when the buffer is invalid, and may contain an HTTP error code.
-
 Telegram API type InvalidBufferError
 }
 \details{

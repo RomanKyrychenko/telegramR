@@ -9,6 +9,21 @@ Telegram API type InputBotInlineMessageMediaContact
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{InputBotInlineMessageMediaContact}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{phone_number}}{Field.}
+
+\item{\code{first_name}}{Field.}
+
+\item{\code{last_name}}{Field.}
+
+\item{\code{vcard}}{Field.}
+
+\item{\code{reply_markup}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

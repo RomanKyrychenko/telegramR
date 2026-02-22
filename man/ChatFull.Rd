@@ -9,6 +9,55 @@ Telegram API type ChatFull
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ChatFull}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{about}}{Field.}
+
+\item{\code{participants}}{Field.}
+
+\item{\code{notify_settings}}{Field.}
+
+\item{\code{can_set_username}}{Field.}
+
+\item{\code{has_scheduled}}{Field.}
+
+\item{\code{translations_disabled}}{Field.}
+
+\item{\code{chat_photo}}{Field.}
+
+\item{\code{exported_invite}}{Field.}
+
+\item{\code{bot_info}}{Field.}
+
+\item{\code{pinned_msg_id}}{Field.}
+
+\item{\code{folder_id}}{Field.}
+
+\item{\code{call}}{Field.}
+
+\item{\code{ttl_period}}{Field.}
+
+\item{\code{groupcall_default_join_as}}{Field.}
+
+\item{\code{theme_emoticon}}{Field.}
+
+\item{\code{requests_pending}}{Field.}
+
+\item{\code{recent_requesters}}{Field.}
+
+\item{\code{available_reactions}}{Field.}
+
+\item{\code{reactions_limit}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

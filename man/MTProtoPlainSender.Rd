@@ -4,8 +4,6 @@
 \alias{MTProtoPlainSender}
 \title{MTProtoPlainSender}
 \description{
-MTProto Mobile Protocol plain sender  - (https://core.telegram.org/mtproto/description#unencrypted-messages)
-
 Telegram API type MTProtoPlainSender
 }
 \details{

@@ -4,8 +4,6 @@
 \alias{ConnectionHttp}
 \title{ConnectionHttp}
 \description{
-This class implements an HTTP connection using the HTTP packet codec.
-
 Telegram API type ConnectionHttp
 }
 \details{

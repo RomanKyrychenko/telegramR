@@ -4,12 +4,6 @@
 \alias{SetCustomVerificationRequest}
 \title{SetCustomVerificationRequest}
 \description{
-Methods:
-- initialize(peer, enabled = NULL, bot = NULL, custom_description = NULL)
-- resolve(client, utils)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
 Telegram API type SetCustomVerificationRequest
 }
 \details{
@@ -20,13 +14,13 @@ Represents the SetCustomVerificationRequest TL request.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{peer}}{TypeInputPeer input peer or object implementing to_list()/to_bytes()}
+\item{\code{peer}}{Field.}
 
-\item{\code{enabled}}{logical|null optional}
+\item{\code{enabled}}{Field.}
 
-\item{\code{bot}}{TypeInputUser|null optional}
+\item{\code{bot}}{Field.}
 
-\item{\code{custom_description}}{character|null optional}
+\item{\code{custom_description}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

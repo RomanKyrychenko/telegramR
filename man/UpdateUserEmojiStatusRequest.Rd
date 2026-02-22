@@ -4,12 +4,6 @@
 \alias{UpdateUserEmojiStatusRequest}
 \title{UpdateUserEmojiStatusRequest}
 \description{
-Methods:
-- initialize(user_id, emoji_status)
-- resolve(client, utils)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
 Telegram API type UpdateUserEmojiStatusRequest
 }
 \details{
@@ -20,9 +14,9 @@ Represents the UpdateUserEmojiStatusRequest TL request.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{user_id}}{TypeInputUser}
+\item{\code{user_id}}{Field.}
 
-\item{\code{emoji_status}}{TypeEmojiStatus}
+\item{\code{emoji_status}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -23,15 +23,15 @@ Represents a request to set a thumbnail for a sticker set.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{numeric constructor id (hex)}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{numeric subclass id (hex)}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{stickerset}}{object InputStickerSet (TL) — required}
+\item{\code{stickerset}}{Field.}
 
-\item{\code{thumb}}{object InputDocument (TL) — optional}
+\item{\code{thumb}}{Field.}
 
-\item{\code{thumb_document_id}}{integer64 / numeric — optional}
+\item{\code{thumb_document_id}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

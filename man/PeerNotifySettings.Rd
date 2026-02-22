@@ -9,6 +9,37 @@ Telegram API type PeerNotifySettings
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PeerNotifySettings}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{show_previews}}{Field.}
+
+\item{\code{silent}}{Field.}
+
+\item{\code{mute_until}}{Field.}
+
+\item{\code{ios_sound}}{Field.}
+
+\item{\code{android_sound}}{Field.}
+
+\item{\code{other_sound}}{Field.}
+
+\item{\code{stories_muted}}{Field.}
+
+\item{\code{stories_hide_sender}}{Field.}
+
+\item{\code{stories_ios_sound}}{Field.}
+
+\item{\code{stories_android_sound}}{Field.}
+
+\item{\code{stories_other_sound}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

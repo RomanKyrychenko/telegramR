@@ -9,6 +9,37 @@ Telegram API type LangPackLanguage
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{LangPackLanguage}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{name}}{Field.}
+
+\item{\code{native_name}}{Field.}
+
+\item{\code{lang_code}}{Field.}
+
+\item{\code{plural_code}}{Field.}
+
+\item{\code{strings_count}}{Field.}
+
+\item{\code{translated_count}}{Field.}
+
+\item{\code{translations_url}}{Field.}
+
+\item{\code{official}}{Field.}
+
+\item{\code{rtl}}{Field.}
+
+\item{\code{beta}}{Field.}
+
+\item{\code{base_lang_code}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

@@ -4,8 +4,6 @@
 \alias{Session}
 \title{Session}
 \description{
-Represents an abstract base class for managing session-related data.
-
 Telegram API type Session
 }
 \details{

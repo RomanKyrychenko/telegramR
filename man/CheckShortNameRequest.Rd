@@ -22,11 +22,11 @@ Represents a request to check whether a short name is available/valid.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{numeric constructor id (hex)}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{numeric subclass id (hex)}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{short_name}}{character — required}
+\item{\code{short_name}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

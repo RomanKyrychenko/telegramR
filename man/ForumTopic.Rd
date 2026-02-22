@@ -6,6 +6,49 @@
 \description{
 Telegram API type ForumTopic
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{id}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{icon_color}}{Field.}
+
+\item{\code{top_message}}{Field.}
+
+\item{\code{read_inbox_max_id}}{Field.}
+
+\item{\code{read_outbox_max_id}}{Field.}
+
+\item{\code{unread_count}}{Field.}
+
+\item{\code{unread_mentions_count}}{Field.}
+
+\item{\code{unread_reactions_count}}{Field.}
+
+\item{\code{from_id}}{Field.}
+
+\item{\code{notify_settings}}{Field.}
+
+\item{\code{my}}{Field.}
+
+\item{\code{closed}}{Field.}
+
+\item{\code{pinned}}{Field.}
+
+\item{\code{short}}{Field.}
+
+\item{\code{hidden}}{Field.}
+
+\item{\code{icon_emoji_id}}{Field.}
+
+\item{\code{draft}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

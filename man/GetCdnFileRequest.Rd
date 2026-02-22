@@ -14,11 +14,11 @@ Represents the TL request upload.GetCdnFileRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{file_token}}{raw|integer|character token bytes}
+\item{\code{file_token}}{Field.}
 
-\item{\code{offset}}{numeric 64-bit offset}
+\item{\code{offset}}{Field.}
 
-\item{\code{limit}}{integer}
+\item{\code{limit}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

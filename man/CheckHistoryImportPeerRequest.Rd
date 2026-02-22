@@ -12,10 +12,6 @@ Represents a request to check history import peer. This class inherits from TLRe
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x5dc60f03).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xb84bb337).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

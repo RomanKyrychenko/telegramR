@@ -9,6 +9,43 @@ Telegram API type PhoneCall
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PhoneCall}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{access_hash}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{admin_id}}{Field.}
+
+\item{\code{participant_id}}{Field.}
+
+\item{\code{g_a_or_b}}{Field.}
+
+\item{\code{key_fingerprint}}{Field.}
+
+\item{\code{protocol}}{Field.}
+
+\item{\code{connections}}{Field.}
+
+\item{\code{start_date}}{Field.}
+
+\item{\code{p2p_allowed}}{Field.}
+
+\item{\code{video}}{Field.}
+
+\item{\code{conference_supported}}{Field.}
+
+\item{\code{custom_parameters}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

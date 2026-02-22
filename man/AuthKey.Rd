@@ -4,24 +4,38 @@
 \alias{AuthKey}
 \title{AuthKey}
 \description{
-Represents an authorization key, used to encrypt and decrypt
-messages sent to Telegram's data centers.
-
 Telegram API type AuthKey
 }
 \details{
 AuthKey Class
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{key_id}}{Field.}
+
+\item{\code{key_id_raw}}{Field.}
+
+\item{\code{aux_hash}}{Field.}
+
+\item{\code{aux_hash_raw}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
-\item{\code{key}}{Direct accessor used across sender/state code.}
+\item{\code{key}}{Field.
+Direct accessor used across sender/state code.}
 
-\item{\code{active_key}}{Gets or sets the authorization key.}
+\item{\code{active_key}}{Field.
+Gets or sets the authorization key.}
 
-\item{\code{return_aux_hash}}{Gets the auxiliary hash derived from the key.}
+\item{\code{return_aux_hash}}{Field.
+Gets the auxiliary hash derived from the key.}
 
-\item{\code{return_key_id}}{Gets the key identifier derived from the key.}
+\item{\code{return_key_id}}{Field.
+Gets the key identifier derived from the key.}
 }
 \if{html}{\out{</div>}}
 }

@@ -9,6 +9,21 @@ Telegram API type Birthday
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{Birthday}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{day}}{Field.}
+
+\item{\code{month}}{Field.}
+
+\item{\code{year}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -79,6 +94,7 @@ Serializes the Birthday object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the Birthday object.
+Reads a Birthday object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

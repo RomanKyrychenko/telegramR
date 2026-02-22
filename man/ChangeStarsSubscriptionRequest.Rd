@@ -4,8 +4,6 @@
 \alias{ChangeStarsSubscriptionRequest}
 \title{ChangeStarsSubscriptionRequest}
 \description{
-Represents a request to change a stars subscription. Inherits from TLRequest.
-
 Telegram API type ChangeStarsSubscriptionRequest
 }
 \section{Super classes}{
@@ -14,15 +12,15 @@ Telegram API type ChangeStarsSubscriptionRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{peer}}{The input peer (TypeInputPeer).}
+\item{\code{peer}}{Field.}
 
-\item{\code{subscription_id}}{The subscription ID (string).}
+\item{\code{subscription_id}}{Field.}
 
-\item{\code{canceled}}{Optional flag indicating if canceled.}
+\item{\code{canceled}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

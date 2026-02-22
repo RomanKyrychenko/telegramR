@@ -9,6 +9,33 @@ Telegram API type BotInlineMessageMediaWebPage
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{BotInlineMessageMediaWebPage}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{message}}{Field.}
+
+\item{\code{url}}{Field.}
+
+\item{\code{invert_media}}{Field.}
+
+\item{\code{force_large_media}}{Field.}
+
+\item{\code{force_small_media}}{Field.}
+
+\item{\code{manual}}{Field.}
+
+\item{\code{safe}}{Field.}
+
+\item{\code{entities}}{Field.}
+
+\item{\code{reply_markup}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

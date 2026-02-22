@@ -9,6 +9,33 @@ Telegram API type SecureValue
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{SecureValue}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{hash}}{Field.}
+
+\item{\code{data}}{Field.}
+
+\item{\code{front_side}}{Field.}
+
+\item{\code{reverse_side}}{Field.}
+
+\item{\code{selfie}}{Field.}
+
+\item{\code{translation}}{Field.}
+
+\item{\code{files}}{Field.}
+
+\item{\code{plaindata}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

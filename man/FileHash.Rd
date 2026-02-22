@@ -6,6 +6,17 @@
 \description{
 Telegram API type FileHash
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{offset}}{Field.}
+
+\item{\code{limit}}{Field.}
+
+\item{\code{hash}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

@@ -4,8 +4,6 @@
 \alias{GzipPacked}
 \title{GzipPacked}
 \description{
-Represents a Telegram API object that handles gzipped data.
-
 Telegram API type GzipPacked
 }
 \details{
@@ -20,11 +18,11 @@ This class provides methods to initialize, compress, decompress, serialize, and 
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{data}}{\code{raw} The raw gzipped data.}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID for GzipPacked (0x3072cfa1).}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID for GzipPacked.}
+
+\item{\code{data}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

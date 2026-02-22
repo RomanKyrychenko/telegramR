@@ -4,8 +4,6 @@
 \alias{BotCancelStarsSubscriptionRequest}
 \title{BotCancelStarsSubscriptionRequest}
 \description{
-Represents a request to cancel a stars subscription for a bot. Inherits from TLRequest.
-
 Telegram API type BotCancelStarsSubscriptionRequest
 }
 \section{Super classes}{
@@ -14,15 +12,15 @@ Telegram API type BotCancelStarsSubscriptionRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{user_id}}{The input user (TypeInputUser).}
+\item{\code{user_id}}{Field.}
 
-\item{\code{charge_id}}{The charge ID (string).}
+\item{\code{charge_id}}{Field.}
 
-\item{\code{restore}}{Optional flag to restore the subscription.}
+\item{\code{restore}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

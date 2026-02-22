@@ -20,13 +20,13 @@ R6 representation of the TL request: UnblockRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex)}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex)}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{id}}{TLObject|list Input peer object (will be resolved with utils)}
+\item{\code{id}}{Field.}
 
-\item{\code{my_stories_from}}{logical|NULL Optional flag}
+\item{\code{my_stories_from}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

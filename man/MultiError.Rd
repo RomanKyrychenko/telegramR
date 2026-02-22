@@ -4,8 +4,6 @@
 \alias{MultiError}
 \title{MultiError}
 \description{
-Exception container for multiple `TLRequest`s.
-
 Telegram API type MultiError
 }
 \details{

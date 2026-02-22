@@ -7,9 +7,6 @@
 A R6 object inheriting from TLRequest.
 }
 \description{
-Represents a request to update a profile photo. Fields correspond to the TL
-schema: id (input photo), fallback (optional logical), bot (optional input user).
-
 Telegram API type UpdateProfilePhotoRequest
 }
 \details{
@@ -46,6 +43,15 @@ R6 translation of the TLRequest UpdateProfilePhotoRequest.
 \item{\code{fallback}}{logical or NULL}
 
 \item{\code{bot}}{TLObject or NULL}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

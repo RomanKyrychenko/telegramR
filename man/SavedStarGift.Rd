@@ -9,6 +9,55 @@ Telegram API type SavedStarGift
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{SavedStarGift}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{gift}}{Field.}
+
+\item{\code{name_hidden}}{Field.}
+
+\item{\code{unsaved}}{Field.}
+
+\item{\code{refunded}}{Field.}
+
+\item{\code{can_upgrade}}{Field.}
+
+\item{\code{pinned_to_top}}{Field.}
+
+\item{\code{upgrade_separate}}{Field.}
+
+\item{\code{from_id}}{Field.}
+
+\item{\code{message}}{Field.}
+
+\item{\code{msg_id}}{Field.}
+
+\item{\code{saved_id}}{Field.}
+
+\item{\code{convert_stars}}{Field.}
+
+\item{\code{upgrade_stars}}{Field.}
+
+\item{\code{can_export_at}}{Field.}
+
+\item{\code{transfer_stars}}{Field.}
+
+\item{\code{can_transfer_at}}{Field.}
+
+\item{\code{can_resell_at}}{Field.}
+
+\item{\code{collection_id}}{Field.}
+
+\item{\code{prepaid_upgrade_hash}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

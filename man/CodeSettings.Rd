@@ -9,6 +9,33 @@ Telegram API type CodeSettings
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{CodeSettings}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{allow_flashcall}}{Field.}
+
+\item{\code{current_number}}{Field.}
+
+\item{\code{allow_app_hash}}{Field.}
+
+\item{\code{allow_missed_call}}{Field.}
+
+\item{\code{allow_firebase}}{Field.}
+
+\item{\code{unknown_number}}{Field.}
+
+\item{\code{logout_tokens}}{Field.}
+
+\item{\code{token}}{Field.}
+
+\item{\code{app_sandbox}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

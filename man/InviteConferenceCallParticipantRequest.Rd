@@ -14,11 +14,11 @@ Represents InviteConferenceCallParticipantRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{call}}{The input group call object (expected to implement bytes()).}
+\item{\code{call}}{Field.}
 
-\item{\code{user_id}}{The input user object (expected to implement bytes()).}
+\item{\code{user_id}}{Field.}
 
-\item{\code{video}}{Logical or NULL. If TRUE, invite with video.}
+\item{\code{video}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

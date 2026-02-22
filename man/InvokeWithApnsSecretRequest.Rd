@@ -25,7 +25,27 @@ Methods:
 to_raw() writes constructor id 0x0dae54f8 (little-endian bytes: 0xf8 0x54 0xae 0x0d),
 then nonce and secret as TL strings (here serialized via charToRaw for simplicity),
 then nested query bytes.
-Initialize an InvokeWithApnsSecretRequest
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{nonce}}{Field.}
+
+\item{\code{secret}}{Field.}
+
+\item{\code{query}}{Field.
+Initialize an InvokeWithApnsSecretRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -84,16 +104,25 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor identifier.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{nonce}}{Character or raw nonce value.}
+\item{\code{nonce}}{Field.}
 
-\item{\code{secret}}{Character APNS secret value.}
+\item{\code{secret}}{Field.}
 
-\item{\code{query}}{Nested query object that must implement `to_list` and `to_bytes`.
+\item{\code{query}}{Field.
 Initialize a new InvokeWithApnsSecretRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -14,15 +14,15 @@ Represents DiscardCallRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{peer}}{The input phone call object (expected to implement bytes()).}
+\item{\code{peer}}{Field.}
 
-\item{\code{duration}}{Integer duration.}
+\item{\code{duration}}{Field.}
 
-\item{\code{reason}}{The phone call discard reason object (expected to implement bytes()).}
+\item{\code{reason}}{Field.}
 
-\item{\code{connection_id}}{Integer connection id.}
+\item{\code{connection_id}}{Field.}
 
-\item{\code{video}}{Logical or NULL. If TRUE, video.}
+\item{\code{video}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

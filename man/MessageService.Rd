@@ -9,6 +9,47 @@ Telegram API type MessageService
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageService}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{peer_id}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{action}}{Field.}
+
+\item{\code{out}}{Field.}
+
+\item{\code{mentioned}}{Field.}
+
+\item{\code{media_unread}}{Field.}
+
+\item{\code{reactions_are_possible}}{Field.}
+
+\item{\code{silent}}{Field.}
+
+\item{\code{post}}{Field.}
+
+\item{\code{legacy}}{Field.}
+
+\item{\code{from_id}}{Field.}
+
+\item{\code{savedpeer_id}}{Field.}
+
+\item{\code{reply_to}}{Field.}
+
+\item{\code{reactions}}{Field.}
+
+\item{\code{ttl_period}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

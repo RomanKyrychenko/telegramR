@@ -9,6 +9,41 @@ Telegram API type Dialog
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{Dialog}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{peer}}{Field.}
+
+\item{\code{top_message}}{Field.}
+
+\item{\code{read_inbox_max_id}}{Field.}
+
+\item{\code{read_outbox_max_id}}{Field.}
+
+\item{\code{unread_count}}{Field.}
+
+\item{\code{unread_mentions_count}}{Field.}
+
+\item{\code{unread_reactions_count}}{Field.}
+
+\item{\code{notify_settings}}{Field.}
+
+\item{\code{pinned}}{Field.}
+
+\item{\code{unread_mark}}{Field.}
+
+\item{\code{view_forum_as_messages}}{Field.}
+
+\item{\code{pts}}{Field.}
+
+\item{\code{draft}}{Field.}
+
+\item{\code{folder_id}}{Field.}
+
+\item{\code{ttl_period}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

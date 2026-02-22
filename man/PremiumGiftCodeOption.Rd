@@ -9,6 +9,27 @@ Telegram API type PremiumGiftCodeOption
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{PremiumGiftCodeOption}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{users}}{Field.}
+
+\item{\code{months}}{Field.}
+
+\item{\code{currency}}{Field.}
+
+\item{\code{amount}}{Field.}
+
+\item{\code{store_product}}{Field.}
+
+\item{\code{store_quantity}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

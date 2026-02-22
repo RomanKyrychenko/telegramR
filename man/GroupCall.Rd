@@ -9,6 +9,53 @@ Telegram API type GroupCall
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{GroupCall}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{id}}{Field.}
+
+\item{\code{access_hash}}{Field.}
+
+\item{\code{participants_count}}{Field.}
+
+\item{\code{unmuted_video_limit}}{Field.}
+
+\item{\code{version}}{Field.}
+
+\item{\code{join_muted}}{Field.}
+
+\item{\code{can_change_join_muted}}{Field.}
+
+\item{\code{join_date_asc}}{Field.}
+
+\item{\code{schedule_start_subscribed}}{Field.}
+
+\item{\code{can_start_video}}{Field.}
+
+\item{\code{record_video_active}}{Field.}
+
+\item{\code{rtmp_stream}}{Field.}
+
+\item{\code{listeners_hidden}}{Field.}
+
+\item{\code{conference}}{Field.}
+
+\item{\code{creator}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{stream_dc_id}}{Field.}
+
+\item{\code{record_start_date}}{Field.}
+
+\item{\code{schedule_date}}{Field.}
+
+\item{\code{unmuted_video_count}}{Field.}
+
+\item{\code{invite_link}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

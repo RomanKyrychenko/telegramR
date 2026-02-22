@@ -14,9 +14,9 @@ Represents SaveDefaultGroupCallJoinAsRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{peer}}{Input peer object (must provide bytes()).}
+\item{\code{peer}}{Field.}
 
-\item{\code{join_as}}{Input peer to join as (must provide bytes()).}
+\item{\code{join_as}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

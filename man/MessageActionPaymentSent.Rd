@@ -9,6 +9,27 @@ Telegram API type MessageActionPaymentSent
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageActionPaymentSent}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{currency}}{Field.}
+
+\item{\code{total_amount}}{Field.}
+
+\item{\code{recurring_init}}{Field.}
+
+\item{\code{recurring_used}}{Field.}
+
+\item{\code{invoice_slug}}{Field.}
+
+\item{\code{subscription_until_date}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

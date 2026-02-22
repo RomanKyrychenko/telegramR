@@ -6,6 +6,15 @@
 \description{
 Telegram API type ExportedContactToken
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{url}}{Field.}
+
+\item{\code{expires}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

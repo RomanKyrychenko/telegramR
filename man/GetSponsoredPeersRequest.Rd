@@ -18,7 +18,11 @@ R6 representation of the TL request: GetSponsoredPeersRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{q}}{character Query string}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{q}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

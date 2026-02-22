@@ -14,19 +14,19 @@ Represents CreateConferenceCallRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{muted}}{Logical or NULL. If TRUE, muted.}
+\item{\code{muted}}{Field.}
 
-\item{\code{video_stopped}}{Logical or NULL. If TRUE, video stopped.}
+\item{\code{video_stopped}}{Field.}
 
-\item{\code{join}}{Logical or NULL. If TRUE, join.}
+\item{\code{join}}{Field.}
 
-\item{\code{random_id}}{Integer random id.}
+\item{\code{random_id}}{Field.}
 
-\item{\code{public_key}}{Integer or NULL. 256-bit public key.}
+\item{\code{public_key}}{Field.}
 
-\item{\code{block}}{Raw bytes or NULL.}
+\item{\code{block}}{Field.}
 
-\item{\code{params}}{DataJSON-like object or NULL.}
+\item{\code{params}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

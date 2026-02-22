@@ -5,7 +5,6 @@
 \title{InvokeWithoutUpdatesRequest R6 class}
 \value{
 An R6 object of class \code{InvokeWithoutUpdatesRequest}.
-Initialize a new InvokeWithoutUpdatesRequest
 }
 \description{
 Represents the TL request `InvokeWithoutUpdatesRequest`.
@@ -26,7 +25,23 @@ Methods:
 Note: to_raw() expects the query to provide a to_raw() method returning a raw vector,
 or to already be a raw vector. If neither is true, the query is written via as.raw
 of its serialized form where appropriate.
-Initialize an InvokeWithoutUpdatesRequest
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{query}}{Field.
+Initialize an InvokeWithoutUpdatesRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -85,11 +100,21 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor identifier for this request type.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{query}}{Nested query object implementing `to_list` and `to_bytes`.}
+\item{\code{query}}{Field.
+Initialize a new InvokeWithoutUpdatesRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -19,34 +19,38 @@ Inherits from RequestIter.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{client}}{The TelegramClient instance.}
+\item{\code{limit}}{Field.}
 
-\item{\code{limit}}{The limit for the number of photos.}
+\item{\code{min_date}}{Field.}
 
-\item{\code{total}}{The total number of photos.}
+\item{\code{max_date}}{Field.}
 
-\item{\code{buffer}}{The buffer holding the current chunk of photos.}
+\item{\code{offset_id}}{Field.}
 
-\item{\code{left}}{The number of items left to process.}
+\item{\code{limit}}{Field.}
 
-\item{\code{request}}{The current request object.}
+\item{\code{min_id}}{Field.}
+
+\item{\code{hash}}{Field.}
 }
 \if{html}{\out{</div>}}
 }
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
-\item{\code{client}}{The TelegramClient instance.}
+\item{\code{limit}}{Field.}
 
-\item{\code{limit}}{The limit for the number of photos.}
+\item{\code{min_date}}{Field.}
 
-\item{\code{total}}{The total number of photos.}
+\item{\code{max_date}}{Field.}
 
-\item{\code{buffer}}{The buffer holding the current chunk of photos.}
+\item{\code{offset_id}}{Field.}
 
-\item{\code{left}}{The number of items left to process.}
+\item{\code{limit}}{Field.}
 
-\item{\code{request}}{The current request object.}
+\item{\code{min_id}}{Field.}
+
+\item{\code{hash}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

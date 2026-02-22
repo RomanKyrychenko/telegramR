@@ -9,6 +9,37 @@ Telegram API type AvailableReaction
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{AvailableReaction}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{reaction}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{static_icon}}{Field.}
+
+\item{\code{appear_animation}}{Field.}
+
+\item{\code{select_animation}}{Field.}
+
+\item{\code{activate_animation}}{Field.}
+
+\item{\code{effect_animation}}{Field.}
+
+\item{\code{inactive}}{Field.}
+
+\item{\code{premium}}{Field.}
+
+\item{\code{around_animation}}{Field.}
+
+\item{\code{center_icon}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -107,6 +138,7 @@ Serializes the AvailableReaction object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the AvailableReaction object.
+Reads an AvailableReaction object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

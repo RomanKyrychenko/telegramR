@@ -4,8 +4,6 @@
 \alias{ReadCancelledError}
 \title{ReadCancelledError}
 \description{
-Occurs when a read operation is cancelled.
-
 Telegram API type ReadCancelledError
 }
 \details{

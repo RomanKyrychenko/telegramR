@@ -9,6 +9,31 @@ Telegram API type BotApp
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{BotApp}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{access_hash}}{Field.}
+
+\item{\code{short_name}}{Field.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{description}}{Field.}
+
+\item{\code{photo}}{Field.}
+
+\item{\code{hash}}{Field.}
+
+\item{\code{document}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -98,6 +123,7 @@ Serializes the BotApp object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the BotApp object.
+Reads a BotApp object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

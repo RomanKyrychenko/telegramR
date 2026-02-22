@@ -4,29 +4,25 @@
 \alias{InvokeWebViewCustomMethodRequest}
 \title{InvokeWebViewCustomMethodRequest}
 \description{
-Methods:
-- initialize(bot, custom_method, params)
-- resolve(client, utils)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
-Each method is documented inline below.
-
 Telegram API type InvokeWebViewCustomMethodRequest
 }
 \details{
 InvokeWebViewCustomMethodRequest R6 class
 
 Represents the InvokeWebViewCustomMethodRequest TL request.
+
+
+
+Each method is documented inline below.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{bot}}{TypeInputUser input user or object implementing to_list()/to_bytes()}
+\item{\code{bot}}{Field.}
 
-\item{\code{custom_method}}{character custom method name}
+\item{\code{custom_method}}{Field.}
 
-\item{\code{params}}{TypeDataJSON object or representation}
+\item{\code{params}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

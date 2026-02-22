@@ -14,11 +14,11 @@ Represents AcceptCallRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{peer}}{The input phone call object (expected to implement bytes()).}
+\item{\code{peer}}{Field.}
 
-\item{\code{g_b}}{Raw bytes.}
+\item{\code{g_b}}{Field.}
 
-\item{\code{protocol}}{Protocol object (expected to implement bytes()).}
+\item{\code{protocol}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

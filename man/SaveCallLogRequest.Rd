@@ -14,9 +14,9 @@ Represents SaveCallLogRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{peer}}{Input phone call object (must provide bytes()).}
+\item{\code{peer}}{Field.}
 
-\item{\code{file}}{Input file object (must provide bytes()).}
+\item{\code{file}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

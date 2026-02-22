@@ -12,10 +12,6 @@ Represents a request to report a sponsored message. This class inherits from TLR
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x12cbf0c4).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x26231822).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

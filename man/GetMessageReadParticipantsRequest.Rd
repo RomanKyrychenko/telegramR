@@ -12,10 +12,6 @@ Represents a request to get message read participants. This class inherits from 
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x31c1c44f).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x21ca455b).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

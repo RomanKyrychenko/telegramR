@@ -7,12 +7,6 @@
 \description{
 R6 class representing a ToggleUsernameRequest.
 
-Methods:
-- initialize(bot, username, active)
-- resolve(client, utils)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
 Telegram API type ToggleUsernameRequest
 
 Represents a request to toggle the active status of a username in a channel.
@@ -114,18 +108,18 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{bot}}{TypeInputUser input user or object implementing to_list()/to_bytes()}
+\item{\code{bot}}{Field.}
 
-\item{\code{username}}{character}
+\item{\code{username}}{Field.}
 
-\item{\code{active}}{logical}
+\item{\code{active}}{Field.}
 }
 \if{html}{\out{</div>}}
 }
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
-\item{\code{bot}}{TypeInputUser input user or object implementing to_list()/to_bytes()}
+\item{\code{bot}}{Field.}
 }
 \if{html}{\out{</div>}}
 }
@@ -216,15 +210,24 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{channel}}{The input channel.}
+\item{\code{channel}}{Field.}
 
-\item{\code{username}}{The username.}
+\item{\code{username}}{Field.}
 
-\item{\code{active}}{Whether the username is active.}
+\item{\code{active}}{Field.}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

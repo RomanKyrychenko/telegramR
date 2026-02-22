@@ -9,6 +9,35 @@ Telegram API type DcOption
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{DcOption}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{id}}{Field.}
+
+\item{\code{ip_address}}{Field.}
+
+\item{\code{port}}{Field.}
+
+\item{\code{ipv6}}{Field.}
+
+\item{\code{media_only}}{Field.}
+
+\item{\code{tcpo_only}}{Field.}
+
+\item{\code{cdn}}{Field.}
+
+\item{\code{static}}{Field.}
+
+\item{\code{this_port_only}}{Field.}
+
+\item{\code{secret}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

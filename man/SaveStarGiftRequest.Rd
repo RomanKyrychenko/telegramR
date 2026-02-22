@@ -4,8 +4,6 @@
 \alias{SaveStarGiftRequest}
 \title{SaveStarGiftRequest}
 \description{
-Represents a request to save a star gift. Inherits from TLRequest.
-
 Telegram API type SaveStarGiftRequest
 }
 \section{Super classes}{
@@ -14,13 +12,13 @@ Telegram API type SaveStarGiftRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{stargift}}{The input saved star gift.}
+\item{\code{stargift}}{Field.}
 
-\item{\code{unsave}}{Optional flag to unsave.}
+\item{\code{unsave}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

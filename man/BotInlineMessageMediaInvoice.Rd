@@ -9,6 +9,31 @@ Telegram API type BotInlineMessageMediaInvoice
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{BotInlineMessageMediaInvoice}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{description}}{Field.}
+
+\item{\code{currency}}{Field.}
+
+\item{\code{total_amount}}{Field.}
+
+\item{\code{shipping_address_requested}}{Field.}
+
+\item{\code{test}}{Field.}
+
+\item{\code{photo}}{Field.}
+
+\item{\code{reply_markup}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -98,6 +123,7 @@ Serializes the BotInlineMessageMediaInvoice object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the BotInlineMessageMediaInvoice object.
+Reads a BotInlineMessageMediaInvoice object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

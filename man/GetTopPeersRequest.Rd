@@ -19,29 +19,33 @@ R6 representation of the TL request: GetTopPeersRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{offset}}{integer Offset}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{limit}}{integer Limit}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{hash}}{integer Hash (64-bit)}
+\item{\code{offset}}{Field.}
 
-\item{\code{correspondents}}{logical|NULL Optional flags...}
+\item{\code{limit}}{Field.}
 
-\item{\code{bots_pm}}{logical|NULL}
+\item{\code{hash}}{Field.}
 
-\item{\code{bots_inline}}{logical|NULL}
+\item{\code{correspondents}}{Field.}
 
-\item{\code{phone_calls}}{logical|NULL}
+\item{\code{bots_pm}}{Field.}
 
-\item{\code{forward_users}}{logical|NULL}
+\item{\code{bots_inline}}{Field.}
 
-\item{\code{forward_chats}}{logical|NULL}
+\item{\code{phone_calls}}{Field.}
 
-\item{\code{groups}}{logical|NULL}
+\item{\code{forward_users}}{Field.}
 
-\item{\code{channels}}{logical|NULL}
+\item{\code{forward_chats}}{Field.}
 
-\item{\code{bots_app}}{logical|NULL}
+\item{\code{groups}}{Field.}
+
+\item{\code{channels}}{Field.}
+
+\item{\code{bots_app}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

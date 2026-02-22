@@ -9,6 +9,33 @@ Telegram API type MonoForumDialog
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MonoForumDialog}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{peer}}{Field.}
+
+\item{\code{top_message}}{Field.}
+
+\item{\code{read_inbox_max_id}}{Field.}
+
+\item{\code{read_outbox_max_id}}{Field.}
+
+\item{\code{unread_count}}{Field.}
+
+\item{\code{unread_reactions_count}}{Field.}
+
+\item{\code{unread_mark}}{Field.}
+
+\item{\code{nopaid_messages_exception}}{Field.}
+
+\item{\code{draft}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

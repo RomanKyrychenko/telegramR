@@ -9,6 +9,35 @@ Telegram API type BotInfo
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{BotInfo}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{has_preview_medias}}{Field.}
+
+\item{\code{user_id}}{Field.}
+
+\item{\code{description}}{Field.}
+
+\item{\code{description_photo}}{Field.}
+
+\item{\code{description_document}}{Field.}
+
+\item{\code{commands}}{Field.}
+
+\item{\code{menu_button}}{Field.}
+
+\item{\code{privacy_policy_url}}{Field.}
+
+\item{\code{app_settings}}{Field.}
+
+\item{\code{verifier_settings}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -104,6 +133,7 @@ Serializes the BotInfo object to bytes.
 
 \subsection{Returns}{
 A raw vector representing the serialized bytes of the BotInfo object.
+Reads a BotInfo object from a BinaryReader.
 }
 }
 \if{html}{\out{<hr>}}

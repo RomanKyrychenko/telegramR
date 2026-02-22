@@ -87,9 +87,6 @@ A list containing the fields of the `MessageContainer` object in dictionary form
 \if{latex}{\out{\hypertarget{method-MessageContainer-from_reader}{}}}
 \subsection{Method \code{from_reader()}}{
 Read and parse a `MessageContainer` object from a binary reader.
-
-
-Read and parse a `MessageContainer` object from a binary reader.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MessageContainer$from_reader(reader)}\if{html}{\out{</div>}}
 }

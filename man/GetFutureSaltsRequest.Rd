@@ -17,10 +17,26 @@ Methods:
 - new(num): create new instance.
 - to_list(): return an R list representation.
 - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-Initialize a GetFutureSaltsRequest
 
 Writes constructor id 0xb921bd04 as little-endian bytes: 0x04 0xBD 0x21 0xB9,
 then writes num as 4-byte little-endian integer.
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{num}}{Field.
+Initialize a GetFutureSaltsRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -85,6 +101,15 @@ The objects of this class are cloneable with this method.
 
 \item{\code{num}}{Number of future salts to request
 Initialize the GetFutureSaltsRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

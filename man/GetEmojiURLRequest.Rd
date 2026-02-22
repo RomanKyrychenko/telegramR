@@ -12,10 +12,6 @@ Represents a request to get emoji URL. This class inherits from TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xd5b10c26).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x1fa08a19).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

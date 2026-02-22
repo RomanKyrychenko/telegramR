@@ -16,40 +16,6 @@ Inherits from RequestIter.
 \section{Super class}{
 \code{\link[telegramR:RequestIter]{telegramR::RequestIter}} -> \code{_AdminLogIter}
 }
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{client}}{The TelegramClient instance.}
-
-\item{\code{limit}}{The limit for the number of events.}
-
-\item{\code{total}}{The total number of events.}
-
-\item{\code{buffer}}{The buffer holding the current chunk of events.}
-
-\item{\code{left}}{The number of items left to process.}
-
-\item{\code{request}}{The current request object.}
-}
-\if{html}{\out{</div>}}
-}
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
-\item{\code{client}}{The TelegramClient instance.}
-
-\item{\code{limit}}{The limit for the number of events.}
-
-\item{\code{total}}{The total number of events.}
-
-\item{\code{buffer}}{The buffer holding the current chunk of events.}
-
-\item{\code{left}}{The number of items left to process.}
-
-\item{\code{request}}{The current request object.}
-}
-\if{html}{\out{</div>}}
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

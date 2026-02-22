@@ -21,8 +21,367 @@ An R6 class that combines functionality from multiple method classes to interact
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{password}}{Field.}
+
+\item{\code{new_secure_settings}}{Field.}
+
+\item{\code{client}}{Field.}
+
+\item{\code{phone}}{Field.}
+
+\item{\code{tos}}{Field.}
+
+\item{\code{authorized}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{offset_date}}{Field.}
+
+\item{\code{offset_id}}{Field.}
+
+\item{\code{ignore_pinned}}{Field.}
+
+\item{\code{ignore_migrated}}{Field.}
+
+\item{\code{folder}}{Field.}
+
+\item{\code{offset_date}}{Field.}
+
+\item{\code{offset_id}}{Field.}
+
+\item{\code{ignore_pinned}}{Field.}
+
+\item{\code{ignore_migrated}}{Field.}
+
+\item{\code{folder}}{Field.}
+
+\item{\code{timeout}}{Field.}
+
+\item{\code{total_timeout}}{Field.}
+
+\item{\code{max_messages}}{Field.}
+
+\item{\code{exclusive}}{Field.}
+
+\item{\code{limit}}{Field.}
+
+\item{\code{offset_date}}{Field.}
+
+\item{\code{search}}{Field.}
+
+\item{\code{filter}}{Field.}
+
+\item{\code{from_user}}{Field.}
+
+\item{\code{wait_time}}{Field.}
+
+\item{\code{ids}}{Field.}
+
+\item{\code{reverse}}{Field.}
+
+\item{\code{reply_to}}{Field.
+Get messages
+
+Same as iter_messages(), but returns a collected list/vector.
+If limit is missing, defaults to 1 unless both min_id and max_id are set.}
+
+\item{\code{message}}{Field.}
+
+\item{\code{reply_to}}{Field.}
+
+\item{\code{attributes}}{Field.}
+
+\item{\code{parse_mode}}{Field.}
+
+\item{\code{formatting_entities}}{Field.}
+
+\item{\code{link_preview}}{Field.}
+
+\item{\code{file}}{Field.}
+
+\item{\code{thumb}}{Field.}
+
+\item{\code{force_document}}{Field.}
+
+\item{\code{clear_draft}}{Field.}
+
+\item{\code{buttons}}{Field.}
+
+\item{\code{silent}}{Field.}
+
+\item{\code{background}}{Field.}
+
+\item{\code{supports_streaming}}{Field.}
+
+\item{\code{schedule}}{Field.}
+
+\item{\code{comment_to}}{Field.}
+
+\item{\code{nosound_video}}{Field.}
+
+\item{\code{send_as}}{Field.
+Forward messages
+
+Forwards one or more messages to the specified entity.}
+
+\item{\code{from_peer}}{Field.}
+
+\item{\code{background}}{Field.}
+
+\item{\code{with_my_score}}{Field.}
+
+\item{\code{silent}}{Field.}
+
+\item{\code{as_album}}{Field.}
+
+\item{\code{schedule}}{Field.}
+
+\item{\code{drop_author}}{Field.
+Edit a message
+
+Edits a message to change its text or media.}
+
+\item{\code{message}}{Field.}
+
+\item{\code{text}}{Field.}
+
+\item{\code{parse_mode}}{Field.}
+
+\item{\code{attributes}}{Field.}
+
+\item{\code{formatting_entities}}{Field.}
+
+\item{\code{link_preview}}{Field.}
+
+\item{\code{file}}{Field.}
+
+\item{\code{thumb}}{Field.}
+
+\item{\code{force_document}}{Field.}
+
+\item{\code{buttons}}{Field.}
+
+\item{\code{supports_streaming}}{Field.
+Delete messages
+
+Deletes the given messages, optionally for everyone (revoke).}
+
+\item{\code{message}}{Field.}
+
+\item{\code{max_id}}{Field.}
+
+\item{\code{clear_mentions}}{Field.
+Pin a message
+
+Pins a message in a chat.}
+
+\item{\code{notify}}{Field.
+Unpin a message
+
+Unpins a message in a chat. If message is NULL, unpins all.}
+
+\item{\code{message}}{Field.
+Resolve comment target for sending comments (linked discussion)}
+
+\item{\code{method}}{Field.}
+
+\item{\code{method}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
+
 \item{\code{parse_mode}}{The default parse mode for parsing messages.
 Set the default parse mode.}
+
+\item{\code{type}}{Field.
+Extract the response message based on the request and result.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{password}}{Field.}
+
+\item{\code{new_secure_settings}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{offset_date}}{Field.}
+
+\item{\code{offset_id}}{Field.}
+
+\item{\code{ignore_pinned}}{Field.}
+
+\item{\code{ignore_migrated}}{Field.}
+
+\item{\code{folder}}{Field.}
+
+\item{\code{offset_date}}{Field.}
+
+\item{\code{offset_id}}{Field.}
+
+\item{\code{ignore_pinned}}{Field.}
+
+\item{\code{ignore_migrated}}{Field.}
+
+\item{\code{folder}}{Field.}
+
+\item{\code{timeout}}{Field.}
+
+\item{\code{total_timeout}}{Field.}
+
+\item{\code{max_messages}}{Field.}
+
+\item{\code{exclusive}}{Field.}
+
+\item{\code{limit}}{Field.}
+
+\item{\code{offset_date}}{Field.}
+
+\item{\code{search}}{Field.}
+
+\item{\code{filter}}{Field.}
+
+\item{\code{from_user}}{Field.}
+
+\item{\code{wait_time}}{Field.}
+
+\item{\code{ids}}{Field.}
+
+\item{\code{reverse}}{Field.}
+
+\item{\code{reply_to}}{Field.
+Get messages
+
+Same as iter_messages(), but returns a collected list/vector.
+If limit is missing, defaults to 1 unless both min_id and max_id are set.}
+
+\item{\code{message}}{Field.}
+
+\item{\code{reply_to}}{Field.}
+
+\item{\code{attributes}}{Field.}
+
+\item{\code{formatting_entities}}{Field.}
+
+\item{\code{link_preview}}{Field.}
+
+\item{\code{file}}{Field.}
+
+\item{\code{thumb}}{Field.}
+
+\item{\code{force_document}}{Field.}
+
+\item{\code{clear_draft}}{Field.}
+
+\item{\code{buttons}}{Field.}
+
+\item{\code{silent}}{Field.}
+
+\item{\code{background}}{Field.}
+
+\item{\code{supports_streaming}}{Field.}
+
+\item{\code{schedule}}{Field.}
+
+\item{\code{comment_to}}{Field.}
+
+\item{\code{nosound_video}}{Field.}
+
+\item{\code{send_as}}{Field.
+Forward messages
+
+Forwards one or more messages to the specified entity.}
+
+\item{\code{from_peer}}{Field.}
+
+\item{\code{background}}{Field.}
+
+\item{\code{with_my_score}}{Field.}
+
+\item{\code{silent}}{Field.}
+
+\item{\code{as_album}}{Field.}
+
+\item{\code{schedule}}{Field.}
+
+\item{\code{drop_author}}{Field.
+Edit a message
+
+Edits a message to change its text or media.}
+
+\item{\code{message}}{Field.}
+
+\item{\code{text}}{Field.}
+
+\item{\code{attributes}}{Field.}
+
+\item{\code{formatting_entities}}{Field.}
+
+\item{\code{link_preview}}{Field.}
+
+\item{\code{file}}{Field.}
+
+\item{\code{thumb}}{Field.}
+
+\item{\code{force_document}}{Field.}
+
+\item{\code{buttons}}{Field.}
+
+\item{\code{supports_streaming}}{Field.
+Delete messages
+
+Deletes the given messages, optionally for everyone (revoke).}
+
+\item{\code{message}}{Field.}
+
+\item{\code{max_id}}{Field.}
+
+\item{\code{clear_mentions}}{Field.
+Pin a message
+
+Pins a message in a chat.}
+
+\item{\code{notify}}{Field.
+Unpin a message
+
+Unpins a message in a chat. If message is NULL, unpins all.}
+
+\item{\code{message}}{Field.
+Resolve comment target for sending comments (linked discussion)}
+
+\item{\code{method}}{Field.}
+
+\item{\code{method}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.}
+
+\item{\code{type}}{Field.
+Extract the response message based on the request and result.}
 }
 \if{html}{\out{</div>}}
 }
@@ -1729,10 +2088,6 @@ If either search, filter or from_user are provided, server-side search will be u
 }
 \subsection{Returns}{
 An iterator-like object or list depending on implementation.
-Get messages
-
-Same as iter_messages(), but returns a collected list/vector.
-If limit is missing, defaults to 1 unless both min_id and max_id are set.
 }
 }
 \if{html}{\out{<hr>}}
@@ -1834,9 +2189,6 @@ scheduling, and other options.
 }
 \subsection{Returns}{
 The sent message object.
-Forward messages
-
-Forwards one or more messages to the specified entity.
 }
 }
 \if{html}{\out{<hr>}}
@@ -1885,9 +2237,6 @@ Forwards one or more messages to the specified entity.
 }
 \subsection{Returns}{
 A list of forwarded message objects (or single if input wasn't a list).
-Edit a message
-
-Edits a message to change its text or media.
 }
 }
 \if{html}{\out{<hr>}}
@@ -1945,9 +2294,6 @@ Edits a message to change its text or media.
 }
 \subsection{Returns}{
 The edited message (or logical for inline bot messages depending on API).
-Delete messages
-
-Deletes the given messages, optionally for everyone (revoke).
 }
 }
 \if{html}{\out{<hr>}}
@@ -2007,9 +2353,6 @@ Marks messages as read and optionally clears mentions/reactions.
 }
 \subsection{Returns}{
 logical indicating success depending on API.
-Pin a message
-
-Pins a message in a chat.
 }
 }
 \if{html}{\out{<hr>}}
@@ -2035,9 +2378,6 @@ Pins a message in a chat.
 }
 \subsection{Returns}{
 API-dependent result or pinned service message.
-Unpin a message
-
-Unpins a message in a chat. If message is NULL, unpins all.
 }
 }
 \if{html}{\out{<hr>}}
@@ -2061,7 +2401,6 @@ Unpins a message in a chat. If message is NULL, unpins all.
 }
 \subsection{Returns}{
 API-dependent result.
-Resolve comment target for sending comments (linked discussion)
 }
 }
 \if{html}{\out{<hr>}}
@@ -2632,7 +2971,6 @@ Replace an entity with a mention of a user.
 }
 \subsection{Returns}{
 TRUE if replaced successfully, FALSE otherwise.
-Extract the response message based on the request and result.
 }
 }
 \if{html}{\out{<hr>}}

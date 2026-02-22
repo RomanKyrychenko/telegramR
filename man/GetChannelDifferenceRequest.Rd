@@ -14,15 +14,15 @@ Representation of updates.GetChannelDifference request.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{channel}}{TypeInputChannel Input channel (R6 object with bytes() or raw())}
+\item{\code{channel}}{Field.}
 
-\item{\code{filter}}{TypeChannelMessagesFilter Filter (R6 object with bytes() or raw())}
+\item{\code{filter}}{Field.}
 
-\item{\code{pts}}{integer PTS}
+\item{\code{pts}}{Field.}
 
-\item{\code{limit}}{integer Limit}
+\item{\code{limit}}{Field.}
 
-\item{\code{force}}{logical|NULL Optional force flag}
+\item{\code{force}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

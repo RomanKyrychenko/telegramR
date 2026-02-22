@@ -14,22 +14,26 @@ Represents a request to get messages. This class inherits from TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{channel}}{The input channel.}
+\item{\code{channel}}{Field.}
 
-\item{\code{id}}{The list of input messages.}
+\item{\code{id}}{Field.}
+
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
-\item{\code{channel}}{The input channel.}
+\item{\code{channel}}{Field.}
 
-\item{\code{id}}{The list of input messages.}
+\item{\code{id}}{Field.}
+
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }
@@ -121,10 +125,6 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0x63c66506).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0xd4b40b5e).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

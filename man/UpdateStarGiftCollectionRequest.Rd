@@ -4,8 +4,6 @@
 \alias{UpdateStarGiftCollectionRequest}
 \title{UpdateStarGiftCollectionRequest}
 \description{
-Represents a request to update a star gift collection. Inherits from TLRequest.
-
 Telegram API type UpdateStarGiftCollectionRequest
 }
 \section{Super classes}{
@@ -14,21 +12,21 @@ Telegram API type UpdateStarGiftCollectionRequest
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{peer}}{The input peer.}
+\item{\code{peer}}{Field.}
 
-\item{\code{collection_id}}{The collection ID.}
+\item{\code{collection_id}}{Field.}
 
-\item{\code{title}}{Optional title for the collection.}
+\item{\code{title}}{Field.}
 
-\item{\code{delete_stargift}}{Optional list of star gifts to delete.}
+\item{\code{delete_stargift}}{Field.}
 
-\item{\code{add_stargift}}{Optional list of star gifts to add.}
+\item{\code{add_stargift}}{Field.}
 
-\item{\code{order}}{Optional order of star gifts.}
+\item{\code{order}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

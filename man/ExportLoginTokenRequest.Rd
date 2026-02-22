@@ -14,15 +14,15 @@ Represents the TLRequest auth.ExportLoginTokenRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0xb7e085fe).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0x6b55f636).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{api_id}}{integer API id.}
+\item{\code{api_id}}{Field.}
 
-\item{\code{api_hash}}{character API hash.}
+\item{\code{api_hash}}{Field.}
 
-\item{\code{except_ids}}{numeric vector 64-bit ids to exclude.}
+\item{\code{except_ids}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

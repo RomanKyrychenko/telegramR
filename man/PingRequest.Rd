@@ -5,7 +5,6 @@
 \title{PingRequest R6 class}
 \value{
 An R6 object of class \code{PingRequest}.
-Initialize PingRequest
 }
 \description{
 Represents the TL request `PingRequest`.
@@ -24,7 +23,23 @@ Methods:
 - from_reader(reader): construct instance from a reader with read_long().
 
 Note: 64-bit integer handling uses numeric placeholders via writeBin.
-Initialize a PingRequest
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{ping_id}}{Field.
+Initialize a PingRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -83,11 +98,21 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor identifier.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{ping_id}}{Integer64 ping identifier.}
+\item{\code{ping_id}}{Field.
+Initialize PingRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

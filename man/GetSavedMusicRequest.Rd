@@ -17,17 +17,17 @@ Request to get saved music for a user.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Constructor ID for the GetSavedMusicRequest class.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Subclass ID for the GetSavedMusicRequest class.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{id}}{TLInputUser or a representation accepted by get_input_user}
+\item{\code{id}}{Field.}
 
-\item{\code{offset}}{Integer offset for pagination.}
+\item{\code{offset}}{Field.}
 
-\item{\code{limit}}{Integer limit for the number of items to retrieve.}
+\item{\code{limit}}{Field.}
 
-\item{\code{hash}}{Integer64 hash for caching purposes (may be represented as numeric in R}
+\item{\code{hash}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

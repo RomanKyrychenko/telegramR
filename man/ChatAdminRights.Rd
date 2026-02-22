@@ -9,6 +9,47 @@ Telegram API type ChatAdminRights
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{ChatAdminRights}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{change_info}}{Field.}
+
+\item{\code{post_messages}}{Field.}
+
+\item{\code{edit_messages}}{Field.}
+
+\item{\code{delete_messages}}{Field.}
+
+\item{\code{ban_users}}{Field.}
+
+\item{\code{invite_users}}{Field.}
+
+\item{\code{pin_messages}}{Field.}
+
+\item{\code{add_admins}}{Field.}
+
+\item{\code{anonymous}}{Field.}
+
+\item{\code{manage_call}}{Field.}
+
+\item{\code{other}}{Field.}
+
+\item{\code{manage_topics}}{Field.}
+
+\item{\code{post_stories}}{Field.}
+
+\item{\code{edit_stories}}{Field.}
+
+\item{\code{delete_stories}}{Field.}
+
+\item{\code{manage_direct_messages}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

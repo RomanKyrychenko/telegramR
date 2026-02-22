@@ -9,6 +9,33 @@ Telegram API type InputMediaInvoice
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{InputMediaInvoice}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{title}}{Field.}
+
+\item{\code{description}}{Field.}
+
+\item{\code{invoice}}{Field.}
+
+\item{\code{payload}}{Field.}
+
+\item{\code{providerdata}}{Field.}
+
+\item{\code{photo}}{Field.}
+
+\item{\code{provider}}{Field.}
+
+\item{\code{start_param}}{Field.}
+
+\item{\code{extended_media}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

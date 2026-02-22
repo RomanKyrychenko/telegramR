@@ -14,15 +14,15 @@ Represents DeleteConferenceCallParticipantsRequest TLRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{call}}{The input group call object (expected to implement bytes()).}
+\item{\code{call}}{Field.}
 
-\item{\code{ids}}{List of integers.}
+\item{\code{ids}}{Field.}
 
-\item{\code{block}}{Raw bytes.}
+\item{\code{block}}{Field.}
 
-\item{\code{only_left}}{Logical or NULL. If TRUE, only left.}
+\item{\code{only_left}}{Field.}
 
-\item{\code{kick}}{Logical or NULL. If TRUE, kick.}
+\item{\code{kick}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

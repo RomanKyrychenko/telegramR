@@ -6,6 +6,15 @@
 \description{
 Telegram API type InputInvoiceBusinessBotTransferStars
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{bot}}{Field.}
+
+\item{\code{stars}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

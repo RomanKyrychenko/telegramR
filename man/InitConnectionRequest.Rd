@@ -31,7 +31,6 @@ Methods:
 
 Note: string and object serialization is simplified (charToRaw, nested to_raw()). For
 exact TL compact string encoding or precise integer widths replace with correct utilities.
-Initialize an InitConnectionRequest
 
 to_list will call nested object's to_list() if available.
 Serialize to raw (bytes)
@@ -42,6 +41,41 @@ then flags (4 bytes little-endian), api_id (4 bytes little-endian),
 then simple string bytes for device_model, system_version, app_version,
 system_lang_code, lang_pack, lang_code, then optional proxy and params bytes,
 and finally nested query bytes.
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{api_id}}{Field.}
+
+\item{\code{device_model}}{Field.}
+
+\item{\code{system_version}}{Field.}
+
+\item{\code{app_version}}{Field.}
+
+\item{\code{system_lang_code}}{Field.}
+
+\item{\code{lang_pack}}{Field.}
+
+\item{\code{lang_code}}{Field.}
+
+\item{\code{query}}{Field.}
+
+\item{\code{proxy}}{Field.}
+
+\item{\code{params}}{Field.
+Initialize an InitConnectionRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -111,33 +145,42 @@ The objects of this class are cloneable with this method.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{Integer constructor identifier.}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{Integer subclass identifier.}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{api_id}}{Integer API identifier.}
+\item{\code{api_id}}{Field.}
 
-\item{\code{device_model}}{Character device model string.}
+\item{\code{device_model}}{Field.}
 
-\item{\code{system_version}}{Character operating system version string.}
+\item{\code{system_version}}{Field.}
 
-\item{\code{app_version}}{Character application version string.}
+\item{\code{app_version}}{Field.}
 
-\item{\code{system_lang_code}}{Character system language code.}
+\item{\code{system_lang_code}}{Field.}
 
-\item{\code{lang_pack}}{Character language pack.}
+\item{\code{lang_pack}}{Field.}
 
-\item{\code{lang_code}}{Character user language code.}
+\item{\code{lang_code}}{Field.}
 
-\item{\code{query}}{Object representing the nested query; must implement `to_list` and `to_bytes`.}
+\item{\code{query}}{Field.}
 
-\item{\code{proxy}}{Optional proxy object; must implement `to_list` and `to_bytes` when present.}
+\item{\code{proxy}}{Field.}
 
-\item{\code{params}}{Optional params object; must implement `to_list` and `to_bytes` when present.
+\item{\code{params}}{Field.
 Initialize a new InitConnectionRequest
 
 Creates a new instance and stores all provided metadata and nested objects.
 `proxy` and `params` are optional and default to `NULL`.}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

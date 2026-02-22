@@ -25,27 +25,27 @@ All methods are exported as part of the R6 object.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{numeric constructor id (hex)}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{numeric subclass id (hex)}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{user_id}}{object InputUser (TL) — required}
+\item{\code{user_id}}{Field.}
 
-\item{\code{title}}{character — required}
+\item{\code{title}}{Field.}
 
-\item{\code{short_name}}{character — required}
+\item{\code{short_name}}{Field.}
 
-\item{\code{stickers}}{list of InputStickerSetItem (TL) — required}
+\item{\code{stickers}}{Field.}
 
-\item{\code{masks}}{logical — optional}
+\item{\code{masks}}{Field.}
 
-\item{\code{emojis}}{logical — optional}
+\item{\code{emojis}}{Field.}
 
-\item{\code{text_color}}{logical — optional}
+\item{\code{text_color}}{Field.}
 
-\item{\code{thumb}}{object InputDocument (TL) — optional}
+\item{\code{thumb}}{Field.}
 
-\item{\code{software}}{character — optional}
+\item{\code{software}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

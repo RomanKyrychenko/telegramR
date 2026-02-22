@@ -9,6 +9,27 @@ Telegram API type MessageReactions
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageReactions}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{results}}{Field.}
+
+\item{\code{min}}{Field.}
+
+\item{\code{can_see_list}}{Field.}
+
+\item{\code{reactions_as_tags}}{Field.}
+
+\item{\code{recent_reactions}}{Field.}
+
+\item{\code{top_reactors}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

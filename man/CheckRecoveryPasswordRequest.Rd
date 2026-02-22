@@ -14,11 +14,11 @@ Represents the TLRequest auth.CheckRecoveryPasswordRequest.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{integer Constructor id (hex 0x0d36bf79).}
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
-\item{\code{SUBCLASS_OF_ID}}{integer Subclass id (hex 0xf5b399ac).}
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
 
-\item{\code{code}}{character Recovery code.}
+\item{\code{code}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

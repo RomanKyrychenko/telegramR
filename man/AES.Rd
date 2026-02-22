@@ -4,8 +4,6 @@
 \alias{AES}
 \title{AES}
 \description{
-Provides an interface to encrypt and decrypt text using the AES IGE mode.
-
 Telegram API type AES
 }
 \details{

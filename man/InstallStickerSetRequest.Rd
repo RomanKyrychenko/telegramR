@@ -12,10 +12,6 @@ Represents a request to install a sticker set. This class inherits from TLReques
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xc78fe460).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x67cb3fe8).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

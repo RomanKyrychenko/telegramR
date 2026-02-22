@@ -4,27 +4,23 @@
 \alias{ToggleUserEmojiStatusPermissionRequest}
 \title{ToggleUserEmojiStatusPermissionRequest}
 \description{
-Methods:
-- initialize(bot, enabled)
-- resolve(client, utils)
-- to_list() -> list representation
-- to_bytes() -> raw vector bytes
-
-Each method is documented inline below.
-
 Telegram API type ToggleUserEmojiStatusPermissionRequest
 }
 \details{
 ToggleUserEmojiStatusPermissionRequest R6 class
 
 Represents the ToggleUserEmojiStatusPermissionRequest TL request.
+
+
+
+Each method is documented inline below.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{bot}}{TypeInputUser input user or object implementing to_list()/to_bytes()}
+\item{\code{bot}}{Field.}
 
-\item{\code{enabled}}{logical}
+\item{\code{enabled}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

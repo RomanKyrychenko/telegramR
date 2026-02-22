@@ -9,6 +9,33 @@ Telegram API type DraftMessage
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{DraftMessage}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{message}}{Field.}
+
+\item{\code{date}}{Field.}
+
+\item{\code{no_webpage}}{Field.}
+
+\item{\code{invert_media}}{Field.}
+
+\item{\code{reply_to}}{Field.}
+
+\item{\code{entities}}{Field.}
+
+\item{\code{media}}{Field.}
+
+\item{\code{effect}}{Field.}
+
+\item{\code{suggested_post}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

@@ -9,6 +9,31 @@ Telegram API type InputStorePaymentPremiumGiveaway
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{InputStorePaymentPremiumGiveaway}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{boost_peer}}{Field.}
+
+\item{\code{until_date}}{Field.}
+
+\item{\code{currency}}{Field.}
+
+\item{\code{amount}}{Field.}
+
+\item{\code{only_new_subscribers}}{Field.}
+
+\item{\code{winners_are_visible}}{Field.}
+
+\item{\code{additional_peers}}{Field.}
+
+\item{\code{countries_iso2}}{Field.}
+
+\item{\code{prize_description}}{Field.}
+
+\item{\code{random_id}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

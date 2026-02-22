@@ -12,10 +12,6 @@ Represents a request to get featured emoji stickers. This class inherits from TL
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{CONSTRUCTOR_ID}}{The constructor ID for this request (0xecf6736).}
-
-\item{\code{SUBCLASS_OF_ID}}{The subclass ID for this request (0x2614b722).}
-
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}

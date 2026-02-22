@@ -9,6 +9,23 @@ Telegram API type MessageExtendedMediaPreview
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageExtendedMediaPreview}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{w}}{Field.}
+
+\item{\code{h}}{Field.}
+
+\item{\code{thumb}}{Field.}
+
+\item{\code{video_duration}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{

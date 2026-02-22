@@ -14,10 +14,26 @@ Methods:
 - new(session_id): create new instance.
 - to_list(): return an R list representation.
 - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-Initialize a DestroySessionRequest
 
 Writes constructor id 0xe7512126 as little-endian bytes: 0x26 0x21 0x51 0xE7,
 then writes session_id as 8-byte little-endian (placeholder via numeric).
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{session_id}}{Field.
+Initialize a DestroySessionRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -82,6 +98,15 @@ The objects of this class are cloneable with this method.
 
 \item{\code{session_id}}{Session ID to be destroyed
 Initialize the DestroySessionRequest}
+
+\item{\code{class}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{class}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

@@ -9,6 +9,35 @@ Telegram API type MessageMediaDocument
 \section{Super class}{
 \code{\link[telegramR:TLObject]{telegramR::TLObject}} -> \code{MessageMediaDocument}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{nopremium}}{Field.}
+
+\item{\code{spoiler}}{Field.}
+
+\item{\code{video}}{Field.}
+
+\item{\code{round}}{Field.}
+
+\item{\code{voice}}{Field.}
+
+\item{\code{document}}{Field.}
+
+\item{\code{alt_documents}}{Field.}
+
+\item{\code{video_cover}}{Field.}
+
+\item{\code{video_timestamp}}{Field.}
+
+\item{\code{ttl_seconds}}{Field.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
