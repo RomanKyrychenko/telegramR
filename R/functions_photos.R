@@ -751,14 +751,14 @@ UploadProfilePhotoRequest <- R6::R6Class(
       on.exit(close(con))
       # write constructor bytes (as in original: b'\xb5\xa3\x88\x03')
       writeBin(as.raw(c(0xb5, 0xa3, 0x88, 0x03)), con)
-      flags <- bitwOr(
+      flags <- Reduce(bitwOr, c(
         if (!is.null(self$fallback) && !identical(self$fallback, FALSE)) 8L else 0L,
         if (!is.null(self$bot) && !identical(self$bot, FALSE)) 32L else 0L,
         if (!is.null(self$file) && !identical(self$file, FALSE)) 1L else 0L,
         if (!is.null(self$video) && !identical(self$video, FALSE)) 2L else 0L,
         if (!is.null(self$video_start_ts) && !identical(self$video_start_ts, FALSE)) 4L else 0L,
         if (!is.null(self$video_emoji_markup) && !identical(self$video_emoji_markup, FALSE)) 16L else 0L
-      )
+      ))
       # write flags as 32-bit little-endian integer
       writeBin(as.integer(flags), con, size = 4, endian = "little")
       # write optional fields in the same order as original
