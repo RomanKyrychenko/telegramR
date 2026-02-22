@@ -37,7 +37,8 @@ RequestState <- R6::R6Class("RequestState",
         serializers <- list(
           function(x) if (is.function(x$to_raw)) x$to_raw() else NULL,
           function(x) if (is.function(x$to_bytes)) x$to_bytes() else NULL,
-          function(x) if (is.function(x$bytes)) x$bytes() else NULL
+          function(x) if (is.function(x$bytes)) x$bytes() else NULL,
+          function(x) if (is.function(x$.bytes)) x$.bytes() else NULL
         )
 
         raw_out <- NULL
