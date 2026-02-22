@@ -553,14 +553,14 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
       on.exit(close(con))
       # constructor bytes for 0xe14c4a71 -> raw bytes (little-endian ordering as bytes in file)
       writeBin(as.raw(c(0x71, 0x4a, 0x4c, 0xe1)), con)
-      flags <- bitwOr(
+      flags <- Reduce(bitwOr, c(
         if (!is.null(self$suggest) && !identical(self$suggest, FALSE)) 8L else 0L,
         if (!is.null(self$save) && !identical(self$save, FALSE)) 16L else 0L,
         if (!is.null(self$file) && !identical(self$file, FALSE)) 1L else 0L,
         if (!is.null(self$video) && !identical(self$video, FALSE)) 2L else 0L,
         if (!is.null(self$video_start_ts) && !identical(self$video_start_ts, FALSE)) 4L else 0L,
         if (!is.null(self$video_emoji_markup) && !identical(self$video_emoji_markup, FALSE)) 32L else 0L
-      )
+      ))
       # write flags as 32-bit little-endian integer
       writeBin(as.integer(flags), con, size = 4, endian = "little")
       # write required user_id

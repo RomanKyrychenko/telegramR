@@ -18689,11 +18689,11 @@ InputInvoiceStarGift <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x92, 0x5e, 0x62, 0xe8)),
-        as.raw(bitwOr(
+        as.raw(Reduce(bitwOr, c(
           ifelse(is.null(self$hide_name) || !self$hide_name, 0, 1),
           ifelse(is.null(self$include_upgrade) || !self$include_upgrade, 0, 4),
           ifelse(is.null(self$message), 0, 2)
-        )),
+        ))),
         self$peer$bytes(),
         writeBin(as.integer64(self$gift_id), raw(), size = 8),
         if (!is.null(self$message)) self$message$bytes() else raw()
@@ -23695,13 +23695,13 @@ InputStorePaymentStarsGiveaway <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0xfa, 0x08, 0x1f, 0x75)),
-        as.raw(bitwOr(
+        as.raw(Reduce(bitwOr, c(
           ifelse(is.null(self$only_new_subscribers) || !self$only_new_subscribers, 0, 1),
           ifelse(is.null(self$winners_are_visible) || !self$winners_are_visible, 0, 8),
           ifelse(is.null(self$additional_peers), 0, 2),
           ifelse(is.null(self$countries_iso2), 0, 4),
           ifelse(is.null(self$prize_description), 0, 16)
-        )),
+        ))),
         serialize_int64(self$stars),
         self$boost_peer$bytes(),
         if (!is.null(self$additional_peers)) serialize_list(self$additional_peers) else raw(0),
