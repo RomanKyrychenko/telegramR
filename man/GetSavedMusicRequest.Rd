@@ -37,7 +37,7 @@ Request to get saved music for a user.
 \item \href{#method-GetSavedMusicRequest-new}{\code{GetSavedMusicRequest$new()}}
 \item \href{#method-GetSavedMusicRequest-resolve}{\code{GetSavedMusicRequest$resolve()}}
 \item \href{#method-GetSavedMusicRequest-to_dict}{\code{GetSavedMusicRequest$to_dict()}}
-\item \href{#method-GetSavedMusicRequest-.bytes}{\code{GetSavedMusicRequest$.bytes()}}
+\item \href{#method-GetSavedMusicRequest-bytes}{\code{GetSavedMusicRequest$bytes()}}
 \item \href{#method-GetSavedMusicRequest-from_reader}{\code{GetSavedMusicRequest$from_reader()}}
 \item \href{#method-GetSavedMusicRequest-clone}{\code{GetSavedMusicRequest$clone()}}
 }
@@ -45,6 +45,7 @@ Request to get saved music for a user.
 \if{html}{\out{
 <details><summary>Inherited methods</summary>
 <ul>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".bytes"><a href='../../telegramR/html/TLObject.html#method-TLObject-.bytes'><code>telegramR::TLObject$.bytes()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".eq"><a href='../../telegramR/html/TLObject.html#method-TLObject-.eq'><code>telegramR::TLObject$.eq()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".ne"><a href='../../telegramR/html/TLObject.html#method-TLObject-.ne'><code>telegramR::TLObject$.ne()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".str"><a href='../../telegramR/html/TLObject.html#method-TLObject-.str'><code>telegramR::TLObject$.str()</code></a></span></li>
@@ -116,12 +117,12 @@ A raw vector representing the GetSavedMusicRequest.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetSavedMusicRequest-.bytes"></a>}}
-\if{latex}{\out{\hypertarget{method-GetSavedMusicRequest-.bytes}{}}}
-\subsection{Method \code{.bytes()}}{
+\if{html}{\out{<a id="method-GetSavedMusicRequest-bytes"></a>}}
+\if{latex}{\out{\hypertarget{method-GetSavedMusicRequest-bytes}{}}}
+\subsection{Method \code{bytes()}}{
 Converts the GetSavedMusicRequest to raw bytes.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicRequest$.bytes()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicRequest$bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{

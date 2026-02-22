@@ -36,7 +36,7 @@ Telegram API requests for retrieving detailed user data.
 \item \href{#method-GetFullUserRequest-new}{\code{GetFullUserRequest$new()}}
 \item \href{#method-GetFullUserRequest-resolve}{\code{GetFullUserRequest$resolve()}}
 \item \href{#method-GetFullUserRequest-to_dict}{\code{GetFullUserRequest$to_dict()}}
-\item \href{#method-GetFullUserRequest-.bytes}{\code{GetFullUserRequest$.bytes()}}
+\item \href{#method-GetFullUserRequest-bytes}{\code{GetFullUserRequest$bytes()}}
 \item \href{#method-GetFullUserRequest-from_reader}{\code{GetFullUserRequest$from_reader()}}
 \item \href{#method-GetFullUserRequest-clone}{\code{GetFullUserRequest$clone()}}
 }
@@ -44,6 +44,7 @@ Telegram API requests for retrieving detailed user data.
 \if{html}{\out{
 <details><summary>Inherited methods</summary>
 <ul>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".bytes"><a href='../../telegramR/html/TLObject.html#method-TLObject-.bytes'><code>telegramR::TLObject$.bytes()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".eq"><a href='../../telegramR/html/TLObject.html#method-TLObject-.eq'><code>telegramR::TLObject$.eq()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".ne"><a href='../../telegramR/html/TLObject.html#method-TLObject-.ne'><code>telegramR::TLObject$.ne()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".str"><a href='../../telegramR/html/TLObject.html#method-TLObject-.str'><code>telegramR::TLObject$.str()</code></a></span></li>
@@ -106,12 +107,12 @@ A list representation of the GetFullUserRequest.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetFullUserRequest-.bytes"></a>}}
-\if{latex}{\out{\hypertarget{method-GetFullUserRequest-.bytes}{}}}
-\subsection{Method \code{.bytes()}}{
+\if{html}{\out{<a id="method-GetFullUserRequest-bytes"></a>}}
+\if{latex}{\out{\hypertarget{method-GetFullUserRequest-bytes}{}}}
+\subsection{Method \code{bytes()}}{
 Converts the GetFullUserRequest to raw bytes.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GetFullUserRequest$.bytes()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GetFullUserRequest$bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{

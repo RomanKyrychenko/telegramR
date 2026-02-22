@@ -26,7 +26,7 @@ Request to get a vector of users by input user references.
 \item \href{#method-GetUsersRequest-new}{\code{GetUsersRequest$new()}}
 \item \href{#method-GetUsersRequest-resolve}{\code{GetUsersRequest$resolve()}}
 \item \href{#method-GetUsersRequest-to_dict}{\code{GetUsersRequest$to_dict()}}
-\item \href{#method-GetUsersRequest-.bytes}{\code{GetUsersRequest$.bytes()}}
+\item \href{#method-GetUsersRequest-bytes}{\code{GetUsersRequest$bytes()}}
 \item \href{#method-GetUsersRequest-from_reader}{\code{GetUsersRequest$from_reader()}}
 \item \href{#method-GetUsersRequest-clone}{\code{GetUsersRequest$clone()}}
 }
@@ -34,6 +34,7 @@ Request to get a vector of users by input user references.
 \if{html}{\out{
 <details><summary>Inherited methods</summary>
 <ul>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".bytes"><a href='../../telegramR/html/TLObject.html#method-TLObject-.bytes'><code>telegramR::TLObject$.bytes()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".eq"><a href='../../telegramR/html/TLObject.html#method-TLObject-.eq'><code>telegramR::TLObject$.eq()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".ne"><a href='../../telegramR/html/TLObject.html#method-TLObject-.ne'><code>telegramR::TLObject$.ne()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".str"><a href='../../telegramR/html/TLObject.html#method-TLObject-.str'><code>telegramR::TLObject$.str()</code></a></span></li>
@@ -96,12 +97,12 @@ List of resolved id objects.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUsersRequest-.bytes"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUsersRequest-.bytes}{}}}
-\subsection{Method \code{.bytes()}}{
+\if{html}{\out{<a id="method-GetUsersRequest-bytes"></a>}}
+\if{latex}{\out{\hypertarget{method-GetUsersRequest-bytes}{}}}
+\subsection{Method \code{bytes()}}{
 Initializes the GetUsersRequest.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GetUsersRequest$.bytes()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GetUsersRequest$bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{

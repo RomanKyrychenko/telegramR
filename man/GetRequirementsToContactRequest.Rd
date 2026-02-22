@@ -26,7 +26,7 @@ R6 request class to obtain a vector of RequirementToContact objects for multiple
 \item \href{#method-GetRequirementsToContactRequest-new}{\code{GetRequirementsToContactRequest$new()}}
 \item \href{#method-GetRequirementsToContactRequest-resolve}{\code{GetRequirementsToContactRequest$resolve()}}
 \item \href{#method-GetRequirementsToContactRequest-to_dict}{\code{GetRequirementsToContactRequest$to_dict()}}
-\item \href{#method-GetRequirementsToContactRequest-.bytes}{\code{GetRequirementsToContactRequest$.bytes()}}
+\item \href{#method-GetRequirementsToContactRequest-bytes}{\code{GetRequirementsToContactRequest$bytes()}}
 \item \href{#method-GetRequirementsToContactRequest-from_reader}{\code{GetRequirementsToContactRequest$from_reader()}}
 \item \href{#method-GetRequirementsToContactRequest-clone}{\code{GetRequirementsToContactRequest$clone()}}
 }
@@ -34,6 +34,7 @@ R6 request class to obtain a vector of RequirementToContact objects for multiple
 \if{html}{\out{
 <details><summary>Inherited methods</summary>
 <ul>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".bytes"><a href='../../telegramR/html/TLObject.html#method-TLObject-.bytes'><code>telegramR::TLObject$.bytes()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".eq"><a href='../../telegramR/html/TLObject.html#method-TLObject-.eq'><code>telegramR::TLObject$.eq()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".ne"><a href='../../telegramR/html/TLObject.html#method-TLObject-.ne'><code>telegramR::TLObject$.ne()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".str"><a href='../../telegramR/html/TLObject.html#method-TLObject-.str'><code>telegramR::TLObject$.str()</code></a></span></li>
@@ -102,12 +103,12 @@ list Representation with `_` discriminator and serialized id list.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetRequirementsToContactRequest-.bytes"></a>}}
-\if{latex}{\out{\hypertarget{method-GetRequirementsToContactRequest-.bytes}{}}}
-\subsection{Method \code{.bytes()}}{
+\if{html}{\out{<a id="method-GetRequirementsToContactRequest-bytes"></a>}}
+\if{latex}{\out{\hypertarget{method-GetRequirementsToContactRequest-bytes}{}}}
+\subsection{Method \code{bytes()}}{
 Serialize the request into a raw vector of TL-encoded bytes.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GetRequirementsToContactRequest$.bytes()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GetRequirementsToContactRequest$bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{

@@ -33,7 +33,7 @@ Request to get saved music by document IDs for a user.
 \item \href{#method-GetSavedMusicByIDRequest-new}{\code{GetSavedMusicByIDRequest$new()}}
 \item \href{#method-GetSavedMusicByIDRequest-resolve}{\code{GetSavedMusicByIDRequest$resolve()}}
 \item \href{#method-GetSavedMusicByIDRequest-to_dict}{\code{GetSavedMusicByIDRequest$to_dict()}}
-\item \href{#method-GetSavedMusicByIDRequest-.bytes}{\code{GetSavedMusicByIDRequest$.bytes()}}
+\item \href{#method-GetSavedMusicByIDRequest-bytes}{\code{GetSavedMusicByIDRequest$bytes()}}
 \item \href{#method-GetSavedMusicByIDRequest-from_reader}{\code{GetSavedMusicByIDRequest$from_reader()}}
 \item \href{#method-GetSavedMusicByIDRequest-clone}{\code{GetSavedMusicByIDRequest$clone()}}
 }
@@ -41,6 +41,7 @@ Request to get saved music by document IDs for a user.
 \if{html}{\out{
 <details><summary>Inherited methods</summary>
 <ul>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".bytes"><a href='../../telegramR/html/TLObject.html#method-TLObject-.bytes'><code>telegramR::TLObject$.bytes()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".eq"><a href='../../telegramR/html/TLObject.html#method-TLObject-.eq'><code>telegramR::TLObject$.eq()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".ne"><a href='../../telegramR/html/TLObject.html#method-TLObject-.ne'><code>telegramR::TLObject$.ne()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".str"><a href='../../telegramR/html/TLObject.html#method-TLObject-.str'><code>telegramR::TLObject$.str()</code></a></span></li>
@@ -105,12 +106,12 @@ A raw vector representing the GetSavedMusicByIDRequest.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetSavedMusicByIDRequest-.bytes"></a>}}
-\if{latex}{\out{\hypertarget{method-GetSavedMusicByIDRequest-.bytes}{}}}
-\subsection{Method \code{.bytes()}}{
+\if{html}{\out{<a id="method-GetSavedMusicByIDRequest-bytes"></a>}}
+\if{latex}{\out{\hypertarget{method-GetSavedMusicByIDRequest-bytes}{}}}
+\subsection{Method \code{bytes()}}{
 Initializes the GetSavedMusicByIDRequest.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicByIDRequest$.bytes()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GetSavedMusicByIDRequest$bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{

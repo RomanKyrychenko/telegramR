@@ -28,7 +28,7 @@ Represents a request to set secure value errors for a Telegram user.
 \item \href{#method-SetSecureValueErrorsRequest-new}{\code{SetSecureValueErrorsRequest$new()}}
 \item \href{#method-SetSecureValueErrorsRequest-resolve}{\code{SetSecureValueErrorsRequest$resolve()}}
 \item \href{#method-SetSecureValueErrorsRequest-to_dict}{\code{SetSecureValueErrorsRequest$to_dict()}}
-\item \href{#method-SetSecureValueErrorsRequest-.bytes}{\code{SetSecureValueErrorsRequest$.bytes()}}
+\item \href{#method-SetSecureValueErrorsRequest-bytes}{\code{SetSecureValueErrorsRequest$bytes()}}
 \item \href{#method-SetSecureValueErrorsRequest-from_reader}{\code{SetSecureValueErrorsRequest$from_reader()}}
 \item \href{#method-SetSecureValueErrorsRequest-clone}{\code{SetSecureValueErrorsRequest$clone()}}
 }
@@ -36,6 +36,7 @@ Represents a request to set secure value errors for a Telegram user.
 \if{html}{\out{
 <details><summary>Inherited methods</summary>
 <ul>
+<li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".bytes"><a href='../../telegramR/html/TLObject.html#method-TLObject-.bytes'><code>telegramR::TLObject$.bytes()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".eq"><a href='../../telegramR/html/TLObject.html#method-TLObject-.eq'><code>telegramR::TLObject$.eq()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".ne"><a href='../../telegramR/html/TLObject.html#method-TLObject-.ne'><code>telegramR::TLObject$.ne()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id=".str"><a href='../../telegramR/html/TLObject.html#method-TLObject-.str'><code>telegramR::TLObject$.str()</code></a></span></li>
@@ -100,12 +101,12 @@ List with resolved id and errors.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SetSecureValueErrorsRequest-.bytes"></a>}}
-\if{latex}{\out{\hypertarget{method-SetSecureValueErrorsRequest-.bytes}{}}}
-\subsection{Method \code{.bytes()}}{
+\if{html}{\out{<a id="method-SetSecureValueErrorsRequest-bytes"></a>}}
+\if{latex}{\out{\hypertarget{method-SetSecureValueErrorsRequest-bytes}{}}}
+\subsection{Method \code{bytes()}}{
 Converts the SetSecureValueErrorsRequest to a dictionary (list).
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SetSecureValueErrorsRequest$.bytes()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{SetSecureValueErrorsRequest$bytes()}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
