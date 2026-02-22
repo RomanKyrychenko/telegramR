@@ -46,7 +46,7 @@ GetFullUserRequest <- R6::R6Class(
 
     #' @description Converts the GetFullUserRequest to raw bytes.
     #' @return A raw vector representing the GetFullUserRequest.
-    .bytes = function() {
+    bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
 
@@ -54,8 +54,8 @@ GetFullUserRequest <- R6::R6Class(
       writeBin(as.raw(c(0x18, 0x59, 0x0f, 0xb6)), con)
 
       # id bytes
-      if (!is.null(self$id) && is.function(self$id$.bytes)) {
-        writeBin(self$id$.bytes(), con)
+      if (!is.null(self$id) && is.function(self$id$bytes)) {
+        writeBin(self$id$bytes(), con)
       } else if (!is.null(self$id) && is.raw(self$id)) {
         writeBin(self$id, con)
       }
@@ -120,7 +120,7 @@ GetRequirementsToContactRequest <- R6::R6Class(
 
     #' @description Serialize the request into a raw vector of TL-encoded bytes.
     #' @return raw Raw vector containing the TL serialization.
-    .bytes = function() {
+    bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
 
@@ -136,8 +136,8 @@ GetRequirementsToContactRequest <- R6::R6Class(
       # append each id object's bytes
       if (!is.null(self$id) && length(self$id) > 0) {
         for (elem in self$id) {
-          if (!is.null(elem) && is.function(elem$.bytes)) {
-            writeBin(elem$.bytes(), con)
+          if (!is.null(elem) && is.function(elem$bytes)) {
+            writeBin(elem$bytes(), con)
           } else if (!is.null(elem) && is.raw(elem)) {
             writeBin(elem, con)
           }
@@ -227,7 +227,7 @@ GetSavedMusicRequest <- R6::R6Class(
 
     #' @description Converts the GetSavedMusicRequest to raw bytes.
     #' @return A raw vector representing the GetSavedMusicRequest.
-    .bytes = function() {
+    bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
 
@@ -235,8 +235,8 @@ GetSavedMusicRequest <- R6::R6Class(
       writeBin(as.raw(c(0xe3, 0x7f, 0x8d, 0x78)), con)
 
       # id bytes
-      if (!is.null(self$id) && is.function(self$id$.bytes)) {
-        writeBin(self$id$.bytes(), con)
+      if (!is.null(self$id) && is.function(self$id$bytes)) {
+        writeBin(self$id$bytes(), con)
       } else if (!is.null(self$id) && is.raw(self$id)) {
         writeBin(self$id, con)
       }
@@ -324,16 +324,16 @@ GetSavedMusicByIDRequest <- R6::R6Class(
 
     #' @description Initializes the GetSavedMusicByIDRequest.
     #' @return A raw vector representing the GetSavedMusicByIDRequest.
-    .bytes = function() {
+    bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
 
       # constructor id (little-endian bytes)
       writeBin(as.raw(c(0xe9, 0xa4, 0x73, 0x75)), con)
 
-      # id bytes (assumes TLObject-like id with method .bytes)
-      if (!is.null(self$id) && is.function(self$id$.bytes)) {
-        writeBin(self$id$.bytes(), con)
+      # id bytes
+      if (!is.null(self$id) && is.function(self$id$bytes)) {
+        writeBin(self$id$bytes(), con)
       } else if (!is.null(self$id) && is.raw(self$id)) {
         writeBin(self$id, con)
       }
@@ -347,8 +347,8 @@ GetSavedMusicByIDRequest <- R6::R6Class(
       # append each document object's bytes
       if (!is.null(self$documents) && length(self$documents) > 0) {
         for (elem in self$documents) {
-          if (!is.null(elem) && is.function(elem$.bytes)) {
-            writeBin(elem$.bytes(), con)
+          if (!is.null(elem) && is.function(elem$bytes)) {
+            writeBin(elem$bytes(), con)
           } else if (!is.null(elem) && is.raw(elem)) {
             writeBin(elem, con)
           }
@@ -407,7 +407,11 @@ GetUsersRequest <- R6::R6Class(
       if (!is.null(self$id) && length(self$id) > 0) {
         tmp_list <- list()
         for (i in seq_along(self$id)) {
-          tmp_list[[i]] <- get_input_user(client$get_input_entity(self$id[[i]]))
+          ent <- client$get_input_entity(self$id[[i]])
+          if (inherits(ent, "Future")) {
+            ent <- future::value(ent)
+          }
+          tmp_list[[i]] <- get_input_user(ent)
         }
         self$id <- tmp_list
       }
@@ -424,7 +428,7 @@ GetUsersRequest <- R6::R6Class(
 
     #' @description Initializes the GetUsersRequest.
     #' @return List of resolved id objects.
-    .bytes = function() {
+    bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
 
@@ -440,8 +444,8 @@ GetUsersRequest <- R6::R6Class(
       # append each id object's bytes
       if (!is.null(self$id) && length(self$id) > 0) {
         for (elem in self$id) {
-          if (!is.null(elem) && is.function(elem$.bytes)) {
-            writeBin(elem$.bytes(), con)
+          if (!is.null(elem) && is.function(elem$bytes)) {
+            writeBin(elem$bytes(), con)
           } else if (!is.null(elem) && is.raw(elem)) {
             writeBin(elem, con)
           }
@@ -515,7 +519,7 @@ SetSecureValueErrorsRequest <- R6::R6Class(
 
     #' @description Converts the SetSecureValueErrorsRequest to a dictionary (list).
     #' @return A list representation of the SetSecureValueErrorsRequest.
-    .bytes = function() {
+    bytes = function() {
       # build raw bytes similar to Python implementation
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
@@ -523,9 +527,9 @@ SetSecureValueErrorsRequest <- R6::R6Class(
       # constructor id (little-endian bytes as in Python)
       writeBin(as.raw(c(0xb5, 0x94, 0xc8, 0x90)), con)
 
-      # id bytes (assumes TLObject-like id with method .bytes)
-      if (!is.null(self$id) && is.function(self$id$.bytes)) {
-        writeBin(self$id$.bytes(), con)
+      # id bytes
+      if (!is.null(self$id) && is.function(self$id$bytes)) {
+        writeBin(self$id$bytes(), con)
       } else if (!is.null(self$id) && is.raw(self$id)) {
         writeBin(self$id, con)
       }
@@ -539,8 +543,8 @@ SetSecureValueErrorsRequest <- R6::R6Class(
       # append each error object's bytes
       if (!is.null(self$errors) && length(self$errors) > 0) {
         for (err in self$errors) {
-          if (!is.null(err) && is.function(err$.bytes)) {
-            writeBin(err$.bytes(), con)
+          if (!is.null(err) && is.function(err$bytes)) {
+            writeBin(err$bytes(), con)
           }
         }
       }
