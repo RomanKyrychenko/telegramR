@@ -12111,7 +12111,7 @@ DestroyAuthKeyNone <- R6::R6Class(
       list("_" = "DestroyAuthKeyNone")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0x59, 0x22, 0x9f, 0x0a)))
+      as.raw(c(0x59, 0x22, 0x9f, 0x0a))
     }
   ),
   private = list(
@@ -12136,7 +12136,7 @@ DestroyAuthKeyOk <- R6::R6Class(
       list("_" = "DestroyAuthKeyOk")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0xd4, 0xe1, 0x60, 0xf6)))
+      as.raw(c(0xd4, 0xe1, 0x60, 0xf6))
     }
   ),
   private = list(
@@ -12885,7 +12885,7 @@ DocumentAttributeAnimated <- R6::R6Class(
       list("_" = "DocumentAttributeAnimated")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0x39, 0x89, 0xb5, 0x11)))
+      as.raw(c(0x39, 0x89, 0xb5, 0x11))
     }
   ),
   private = list(
@@ -13837,7 +13837,7 @@ EmojiListNotModified <- R6::R6Class(
       list("_" = "EmojiListNotModified")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0xfa, 0xad, 0x1e, 0x48)))
+      as.raw(c(0xfa, 0xad, 0x1e, 0x48))
     }
   )
 )
@@ -13867,7 +13867,7 @@ EmojiStatus <- R6::R6Class(
     bytes = function() {
       flags <- if (is.null(self$until)) 0 else 1
       c(
-        rawToChar(as.raw(c(0x8a, 0x06, 0xff, 0xe7))),
+        as.raw(c(0x8a, 0x06, 0xff, 0xe7)),
         as.raw(flags),
         writeBin(as.integer(self$document_id), raw(), size = 8, endian = "little"),
         if (!is.null(self$until)) serialize_datetime(self$until) else raw()
@@ -13960,7 +13960,7 @@ EmojiStatusEmpty <- R6::R6Class(
       list("_" = "EmojiStatusEmpty")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0xae, 0x1a, 0xe1, 0x2d)))
+      as.raw(c(0xae, 0x1a, 0xe1, 0x2d))
     }
   )
 )
@@ -13981,8 +13981,7 @@ EmojiURL <- R6::R6Class(
       list("_" = "EmojiURL", url = self$url)
     },
     bytes = function() {
-      rawToChar(as.raw(c(0x9d, 0x73, 0x75, 0xa5))) %>%
-        paste0(self$url)
+      c(as.raw(c(0x9d, 0x73, 0x75, 0xa5)), charToRaw(self$url))
     }
   )
 )
@@ -14136,10 +14135,10 @@ EncryptedChatEmpty <- R6::R6Class(
       )
     },
     bytes = function() {
-      rawToChar(c(
+      c(
         as.raw(c(0xa0, 0xc0, 0x7e, 0xab)),
         writeBin(as.integer(self$id), raw(), size = 4, endian = "little")
-      ))
+      )
     }
   ),
   private = list(
@@ -15399,12 +15398,12 @@ GroupCallStreamChannel <- R6::R6Class(
       )
     },
     bytes = function() {
-      rawToChar(c(
+      c(
         as.raw(c(0xaf, 0x48, 0xeb, 0x80)),
         writeBin(as.integer(self$channel), raw(), size = 4, endian = "little"),
         writeBin(as.integer(self$scale), raw(), size = 4, endian = "little"),
         writeBin(as.numeric(self$lastTimestampMs), raw(), size = 8, endian = "little")
-      ))
+      )
     }
   )
 )
@@ -15435,12 +15434,12 @@ HighScore <- R6::R6Class(
       )
     },
     bytes = function() {
-      rawToChar(c(
+      c(
         as.raw(c(0xeb, 0x79, 0xa3, 0x73)),
         writeBin(as.integer(self$pos), raw(), size = 4, endian = "little"),
         writeBin(as.numeric(self$userId), raw(), size = 8, endian = "little"),
         writeBin(as.integer(self$score), raw(), size = 4, endian = "little")
-      ))
+      )
     }
   )
 )
@@ -15471,12 +15470,12 @@ HttpWait <- R6::R6Class(
       )
     },
     bytes = function() {
-      rawToChar(c(
+      c(
         as.raw(c(0x9f, 0x35, 0x99, 0x92)),
         writeBin(as.integer(self$max_delay), raw(), size = 4, endian = "little"),
         writeBin(as.integer(self$wait_after), raw(), size = 4, endian = "little"),
         writeBin(as.integer(self$max_wait), raw(), size = 4, endian = "little")
-      ))
+      )
     }
   )
 )
@@ -15503,11 +15502,11 @@ ImportedContact <- R6::R6Class(
       )
     },
     bytes = function() {
-      rawToChar(c(
+      c(
         as.raw(c(0x50, 0x3c, 0x3e, 0xc1)),
         writeBin(as.integer(self$user_id), raw(), size = 8, endian = "little"),
         writeBin(as.integer(self$client_id), raw(), size = 8, endian = "little")
-      ))
+      )
     }
   )
 )
@@ -15653,7 +15652,7 @@ InlineQueryPeerTypeMegagroup <- R6::R6Class(
       list("_" = "InlineQueryPeerTypeMegagroup")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0x43, 0xbe, 0xc4, 0x5e)))
+      as.raw(c(0x43, 0xbe, 0xc4, 0x5e))
     }
   )
 )
@@ -15669,7 +15668,7 @@ InlineQueryPeerTypePM <- R6::R6Class(
       list("_" = "InlineQueryPeerTypePM")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0xac, 0x0f, 0x3c, 0x83)))
+      as.raw(c(0xac, 0x0f, 0x3c, 0x83))
     }
   )
 )
@@ -15685,7 +15684,7 @@ InlineQueryPeerTypeSameBotPM <- R6::R6Class(
       list("_" = "InlineQueryPeerTypeSameBotPM")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0x9d, 0xed, 0x81, 0x30)))
+      as.raw(c(0x9d, 0xed, 0x81, 0x30))
     }
   )
 )
@@ -17109,11 +17108,11 @@ InputChannel <- R6::R6Class(
       )
     },
     bytes = function() {
-      rawToChar(c(
+      c(
         as.raw(c(0x28, 0xec, 0x5a, 0xf3)),
         writeBin(self$channel_id, raw(), size = 8, endian = "little"),
         writeBin(self$access_hash, raw(), size = 8, endian = "little")
-      ))
+      )
     }
   )
 )
@@ -17133,7 +17132,7 @@ InputChannelEmpty <- R6::R6Class(
       list("_" = "InputChannelEmpty")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0x86, 0x1e, 0x8c, 0xee)))
+      as.raw(c(0x86, 0x1e, 0x8c, 0xee))
     }
   )
 )
@@ -17225,7 +17224,7 @@ InputChatPhotoEmpty <- R6::R6Class(
       list("_" = "InputChatPhotoEmpty")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0x57, 0x8f, 0xa4, 0x1c)))
+      as.raw(c(0x57, 0x8f, 0xa4, 0x1c))
     }
   )
 )
@@ -17250,7 +17249,7 @@ InputChatTheme <- R6::R6Class(
       list("_" = "InputChatTheme", emoticon = self$emoticon)
     },
     bytes = function() {
-      paste0(rawToChar(as.raw(c(0x5c, 0xe9, 0x3d, 0xc9))), self$emoticon)
+      c(as.raw(c(0x5c, 0xe9, 0x3d, 0xc9)), charToRaw(self$emoticon))
     }
   )
 )
@@ -17270,7 +17269,7 @@ InputChatThemeEmpty <- R6::R6Class(
       list("_" = "InputChatThemeEmpty")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0x83, 0x84, 0x26, 0x83)))
+      as.raw(c(0x83, 0x84, 0x26, 0x83))
     }
   )
 )
@@ -20722,7 +20721,7 @@ InputNotifyUsers <- R6::R6Class(
       list("_" = "InputNotifyUsers")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0x17, 0x44, 0x3B, 0x19)))
+      as.raw(c(0x17, 0x44, 0x3B, 0x19))
     }
   ),
   private = list(
@@ -20792,8 +20791,8 @@ InputPaymentCredentialsApplePay <- R6::R6Class(
       list("_" = "InputPaymentCredentialsApplePay", paymentdata = if (inherits(self$paymentdata, "TLObject")) self$paymentdata$to_dict() else self$paymentdata)
     },
     bytes = function() {
-      paste0(
-        rawToChar(as.raw(c(0x9f, 0xc3, 0xa1, 0x0a))),
+      c(
+        as.raw(c(0x9f, 0xc3, 0xa1, 0x0a)),
         self$paymentdata$bytes()
       )
     }
@@ -21032,7 +21031,7 @@ InputPeerEmpty <- R6::R6Class(
       list("_" = "InputPeerEmpty")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0xea, 0x18, 0x3b, 0x7f)))
+      as.raw(c(0xea, 0x18, 0x3b, 0x7f))
     }
   ),
   private = list(
@@ -21198,7 +21197,7 @@ InputPeerSelf <- R6::R6Class(
       list("_" = "InputPeerSelf")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0xc9, 0x7e, 0xa0, 0x7d)))
+      as.raw(c(0xc9, 0x7e, 0xa0, 0x7d))
     }
   ),
   private = list(
@@ -23846,7 +23845,7 @@ InputTakeoutFileLocation <- R6::R6Class(
       list("_" = "InputTakeoutFileLocation")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0x99, 0x58, 0xBE, 0x29)))
+      as.raw(c(0x99, 0x58, 0xBE, 0x29))
     }
   ),
   private = list(
@@ -23946,7 +23945,7 @@ InputThemeSlug <- R6::R6Class(
       list("_" = "InputThemeSlug", slug = self$slug)
     },
     bytes = function() {
-      rawToChar(c(as.raw(0xf1), as.raw(0x0d), as.raw(0x89), as.raw(0xf5), charToRaw(self$slug)))
+      c(as.raw(0xf1), as.raw(0x0d), as.raw(0x89), as.raw(0xf5), charToRaw(self$slug))
     }
   ),
   private = list(
@@ -23980,11 +23979,11 @@ InputUser <- R6::R6Class(
       list("_" = "InputUser", user_id = self$user_id, access_hash = self$access_hash)
     },
     bytes = function() {
-      rawToChar(c(
+      c(
         as.raw(0xc6), as.raw(0x58), as.raw(0x11), as.raw(0xf2),
         writeBin(self$user_id, raw(), size = 8),
         writeBin(self$access_hash, raw(), size = 8)
-      ))
+      )
     }
   ),
   private = list(
@@ -24011,7 +24010,7 @@ InputUserEmpty <- R6::R6Class(
       list("_" = "InputUserEmpty")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0xcf, 0x86, 0x88, 0xb9)))
+      as.raw(c(0xcf, 0x86, 0x88, 0xb9))
     }
   ),
   private = list(
@@ -24053,7 +24052,7 @@ InputUserFromMessage <- R6::R6Class(
     },
     bytes = function() {
       c(
-        rawToChar(as.raw(c(0xe2, 0x48, 0xa4, 0x1d))),
+        as.raw(c(0xe2, 0x48, 0xa4, 0x1d)),
         self$peer$bytes(),
         intToRaw(self$msg_id),
         intToRaw(self$user_id, 8)
@@ -24085,7 +24084,7 @@ InputUserSelf <- R6::R6Class(
       list("_" = "InputUserSelf")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0x3f, 0xb1, 0xc1, 0xf7)))
+      as.raw(c(0x3f, 0xb1, 0xc1, 0xf7))
     }
   ),
   private = list(
@@ -24690,9 +24689,9 @@ JsonBool <- R6::R6Class(
     },
     bytes = function() {
       if (self$value) {
-        rawToChar(as.raw(c(0x6a, 0x5e, 0x34, 0xc7, 0xb5, 0x75, 0x72, 0x99)))
+        as.raw(c(0x6a, 0x5e, 0x34, 0xc7, 0xb5, 0x75, 0x72, 0x99))
       } else {
-        rawToChar(as.raw(c(0x6a, 0x5e, 0x34, 0xc7, 0x37, 0x97, 0x79, 0xbc)))
+        as.raw(c(0x6a, 0x5e, 0x34, 0xc7, 0x37, 0x97, 0x79, 0xbc))
       }
     }
   ),
@@ -24719,7 +24718,7 @@ JsonNull <- R6::R6Class(
       list("_" = "JsonNull")
     },
     bytes = function() {
-      rawToChar(as.raw(c(0x68, 0x7b, 0x6d, 0x3f)))
+      as.raw(c(0x68, 0x7b, 0x6d, 0x3f))
     }
   ),
   private = list(
@@ -24753,7 +24752,7 @@ JsonNumber <- R6::R6Class(
     },
     bytes = function() {
       c(
-        rawToChar(as.raw(c(0xa4, 0xdf, 0xe0, 0x2b))),
+        as.raw(c(0xa4, 0xdf, 0xe0, 0x2b)),
         writeBin(self$value, raw(), size = 8, endian = "little")
       )
     }
