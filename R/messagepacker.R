@@ -1,26 +1,19 @@
 #' MessagePacker R6 class
 #'
-#' @description
-#' MessagePacker collects state items (requests and associated metadata),
-#' assigns message ids, and packs one or more TL messages into a single byte
-#' payload. When multiple messages are present they are wrapped in a
-#' MessageContainer. The class exposes a simple FIFO deque interface and a
-#' blocking `get` method that returns the next batch of messages and the
-#' corresponding serialized bytes ready to be sent.
 #'
-#' @field state External state/transport object used to actually write message
 #'   bytes and generate message ids via `write_data_as_message`.
-#' @field deque Internal list used as a FIFO queue of state items.
-#' @field ready Logical flag that signals that new items were added to the queue.
-#' @field log Optional logger object with methods like `debug` and `warning`.
 #' @title MessagePacker
 #' @description Telegram API type MessagePacker
 #' @export
 MessagePacker <- R6::R6Class("MessagePacker",
   public = list(
+    #' @field state Field.
     state = NULL,
+    #' @field deque Field.
     deque = NULL,
+    #' @field ready Field.
     ready = FALSE,
+    #' @field log Field.
     log = NULL,
 
     #' @description Initialize a MessagePacker
@@ -220,6 +213,7 @@ MessagePacker <- R6::R6Class("MessagePacker",
         {
           try(close(buffer_con), silent = TRUE)
         },
+        #' @field add Field.
         add = TRUE
       )
 
@@ -242,10 +236,12 @@ MessagePacker <- R6::R6Class("MessagePacker",
           {
             try(close(final_buffer_con), silent = TRUE)
           },
+          #' @field add Field.
           add = TRUE
         )
         container_id <- self$state$write_data_as_message(
           final_buffer_con, container_bytes,
+          #' @field content_related Field.
           content_related = FALSE
         )
         for (s in batch) {

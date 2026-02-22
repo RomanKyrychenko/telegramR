@@ -1,12 +1,9 @@
 #' R6 Class Representing GzipPacked
 #'
-#' @description
-#' Represents a Telegram API object that handles gzipped data.
 #'
 #' @details
 #' This class provides methods to initialize, compress, decompress, serialize, and convert gzipped data to various formats.
 #'
-#' @field data \code{raw} The raw gzipped data.
 #'
 #' @title GzipPacked
 #' @description Telegram API type GzipPacked
@@ -20,6 +17,7 @@ GzipPacked <- R6::R6Class(
     #' @field SUBCLASS_OF_ID The subclass ID for GzipPacked.
     SUBCLASS_OF_ID = 0x3072cfa1,
 
+    #' @field data Field.
     data = NULL,
 
     #' @description

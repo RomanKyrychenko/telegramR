@@ -17,8 +17,6 @@ is_typing <- FALSE
 
 
 #' EventBuilderDict class
-#' @description
-#' Handles the building of events from updates and other data.
 #' @title EventBuilderDict
 #' @description Telegram API type EventBuilderDict
 #' @export

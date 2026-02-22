@@ -4,9 +4,6 @@
 #' This class inherits from TLRequest and is used to construct and serialize
 #' Telegram API requests for retrieving detailed user data.
 #'
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb60f5918).
-#' @field SUBCLASS_OF_ID The subclass ID (0x83df9df5).
-#' @field id The user identifier, which can be a TLInputUser object or a
 #'   representation accepted by get_input_user. This field is resolved
 #'   during the request preparation.
 #' @title GetFullUserRequest
@@ -16,8 +13,11 @@ GetFullUserRequest <- R6::R6Class(
   "GetFullUserRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb60f5918,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x83df9df5,
+    #' @field id Field.
     id = NULL,
 
     #' @description Request to get full information about a user.
@@ -76,16 +76,16 @@ GetFullUserRequest <- R6::R6Class(
 
 #' @title GetRequirementsToContactRequest
 #' @description R6 request class to obtain a vector of RequirementToContact objects for multiple users. It serializes the request to Telegram TL bytes and can deserialize from a TL reader. The request resolves plain user references into TLInputUser objects before serialization.
-#' @field CONSTRUCTOR_ID Integer. Unique constructor ID for this request (0xd89a83a3).
-#' @field SUBCLASS_OF_ID Integer. Subclass (result) ID (0x322623c3).
-#' @field id list. List of TLInputUser objects or values resolvable via get_input_user identifying target users.
 #' @export
 GetRequirementsToContactRequest <- R6::R6Class(
   "GetRequirementsToContactRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd89a83a3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x322623c3,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize a new GetRequirementsToContactRequest.
@@ -171,12 +171,6 @@ GetRequirementsToContactRequest <- R6::R6Class(
 #'
 #' Request to get saved music for a user.
 #'
-#' @field CONSTRUCTOR_ID Constructor ID for the GetSavedMusicRequest class.
-#' @field SUBCLASS_OF_ID Subclass ID for the GetSavedMusicRequest class.
-#' @field id TLInputUser or a representation accepted by get_input_user
-#' @field offset Integer offset for pagination.
-#' @field limit Integer limit for the number of items to retrieve.
-#' @field hash Integer64 hash for caching purposes (may be represented as numeric in R
 #' @title GetSavedMusicRequest
 #' @description Telegram API type GetSavedMusicRequest
 #' @export
@@ -184,11 +178,17 @@ GetSavedMusicRequest <- R6::R6Class(
   "GetSavedMusicRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x788d7fe3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf813ae37,
+    #' @field id Field.
     id = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field hash Field.
     hash = NULL,
 
     #' @description Request to get saved music for a user.
@@ -271,10 +271,6 @@ GetSavedMusicRequest <- R6::R6Class(
 #'
 #' Request to get saved music by document IDs for a user.
 #'
-#' @field CONSTRUCTOR_ID Constructor ID for the GetSavedMusicByIDRequest class.
-#' @field SUBCLASS_OF_ID Subclass ID for the GetSavedMusicByIDRequest class.
-#' @field id TLInputUser or a representation accepted by get_input_user
-#' @field documents List of TLInputDocument or representations accepted by get_input_document
 #' @title GetSavedMusicByIDRequest
 #' @description Telegram API type GetSavedMusicByIDRequest
 #' @export
@@ -282,9 +278,13 @@ GetSavedMusicByIDRequest <- R6::R6Class(
   "GetSavedMusicByIDRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7573a4e9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf813ae37,
+    #' @field id Field.
     id = NULL,
+    #' @field documents Field.
     documents = NULL,
 
     #' @description Request to get saved music by document IDs for a user.
@@ -381,16 +381,16 @@ GetSavedMusicByIDRequest <- R6::R6Class(
 
 #' @title GetUsersRequest
 #' @description Request to get a vector of users by input user references.
-#' @field CONSTRUCTOR_ID Constructor ID for the GetUsersRequest class.
-#' @field SUBCLASS_OF_ID Subclass ID for the GetUsersRequest class.
-#' @field id TLInputUser or a representation accepted by get_input_user
 #' @export
 GetUsersRequest <- R6::R6Class(
   "GetUsersRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x0d91a548,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x406da4d,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initializes the GetUsersRequest.
@@ -473,18 +473,18 @@ GetUsersRequest <- R6::R6Class(
 
 #' @title SetSecureValueErrorsRequest
 #' @description Represents a request to set secure value errors for a Telegram user.
-#' @field CONSTRUCTOR_ID Integer. Unique constructor ID for this request type.
-#' @field SUBCLASS_OF_ID Integer. Unique subclass ID.
-#' @field id Object or NULL. The user identifier, expected to be a TLObject or compatible input.
-#' @field errors List or NULL. List of error objects (typically TLObjects) to be set for the user.
 #' @export
 SetSecureValueErrorsRequest <- R6::R6Class(
   "SetSecureValueErrorsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x90c894b5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field id Field.
     id = NULL,
+    #' @field errors Field.
     errors = NULL,
 
     #' @description Request to set secure value errors for a user.

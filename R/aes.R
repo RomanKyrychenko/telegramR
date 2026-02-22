@@ -1,7 +1,5 @@
 #' R6 Class Representing AES Encryption and Decryption
 #'
-#' @description
-#' Provides an interface to encrypt and decrypt text using the AES IGE mode.
 #'
 #' @details
 #' A pure R implementation of AES IGE mode encryption and decryption.

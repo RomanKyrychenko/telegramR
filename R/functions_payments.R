@@ -1,16 +1,16 @@
 #' @title ApplyGiftCodeRequest
 #' @description Represents a request to apply a gift code. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field slug The slug string.
 #' @export
 ApplyGiftCodeRequest <- R6::R6Class(
   "ApplyGiftCodeRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf6e26854,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field slug Field.
     slug = NULL,
 
     #' @description Initialize the ApplyGiftCodeRequest object.
@@ -49,12 +49,6 @@ ApplyGiftCodeRequest <- R6::R6Class(
 )
 
 #' @title AssignAppStoreTransactionRequest
-#' @description Represents a request to assign an App Store transaction. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field receipt The receipt bytes.
-#' @field purpose The input store payment purpose (TypeInputStorePaymentPurpose).
-#' @title AssignAppStoreTransactionRequest
 #' @description Telegram API type AssignAppStoreTransactionRequest
 #' @export
 AssignAppStoreTransactionRequest <- R6::R6Class(
@@ -62,9 +56,13 @@ AssignAppStoreTransactionRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x80ed747d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field receipt Field.
     receipt = NULL,
+    #' @field purpose Field.
     purpose = NULL,
 
     #' @description Initialize the AssignAppStoreTransactionRequest object.
@@ -108,12 +106,6 @@ AssignAppStoreTransactionRequest <- R6::R6Class(
 )
 
 #' @title AssignPlayMarketTransactionRequest
-#' @description Represents a request to assign a Play Market transaction. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field receipt The receipt data JSON (TypeDataJSON).
-#' @field purpose The input store payment purpose (TypeInputStorePaymentPurpose).
-#' @title AssignPlayMarketTransactionRequest
 #' @description Telegram API type AssignPlayMarketTransactionRequest
 #' @export
 AssignPlayMarketTransactionRequest <- R6::R6Class(
@@ -121,9 +113,13 @@ AssignPlayMarketTransactionRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdffd50d3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field receipt Field.
     receipt = NULL,
+    #' @field purpose Field.
     purpose = NULL,
 
     #' @description Initialize the AssignPlayMarketTransactionRequest object.
@@ -168,13 +164,6 @@ AssignPlayMarketTransactionRequest <- R6::R6Class(
 
 
 #' @title BotCancelStarsSubscriptionRequest
-#' @description Represents a request to cancel a stars subscription for a bot. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field user_id The input user (TypeInputUser).
-#' @field charge_id The charge ID (string).
-#' @field restore Optional flag to restore the subscription.
-#' @title BotCancelStarsSubscriptionRequest
 #' @description Telegram API type BotCancelStarsSubscriptionRequest
 #' @export
 BotCancelStarsSubscriptionRequest <- R6::R6Class(
@@ -182,10 +171,15 @@ BotCancelStarsSubscriptionRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6dfa0622,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field charge_id Field.
     charge_id = NULL,
+    #' @field restore Field.
     restore = NULL,
 
     #' @description Initialize the BotCancelStarsSubscriptionRequest object.
@@ -244,17 +238,17 @@ BotCancelStarsSubscriptionRequest <- R6::R6Class(
 
 #' @title CanPurchaseStoreRequest
 #' @description Represents a request to check if a store purchase can be made. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field purpose The input store payment purpose (TypeInputStorePaymentPurpose).
 #' @export
 CanPurchaseStoreRequest <- R6::R6Class(
   "CanPurchaseStoreRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4fdc5ea7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field purpose Field.
     purpose = NULL,
 
     #' @description Initialize the CanPurchaseStoreRequest object.
@@ -293,13 +287,6 @@ CanPurchaseStoreRequest <- R6::R6Class(
 )
 
 #' @title ChangeStarsSubscriptionRequest
-#' @description Represents a request to change a stars subscription. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer (TypeInputPeer).
-#' @field subscription_id The subscription ID (string).
-#' @field canceled Optional flag indicating if canceled.
-#' @title ChangeStarsSubscriptionRequest
 #' @description Telegram API type ChangeStarsSubscriptionRequest
 #' @export
 ChangeStarsSubscriptionRequest <- R6::R6Class(
@@ -307,10 +294,15 @@ ChangeStarsSubscriptionRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc7770878,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field peer Field.
     peer = NULL,
+    #' @field subscription_id Field.
     subscription_id = NULL,
+    #' @field canceled Field.
     canceled = NULL,
 
     #' @description Initialize the ChangeStarsSubscriptionRequest object.
@@ -372,17 +364,17 @@ ChangeStarsSubscriptionRequest <- R6::R6Class(
 
 #' @title CheckCanSendGiftRequest
 #' @description Represents a request to check if a gift can be sent. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field gift_id The gift ID (integer).
 #' @export
 CheckCanSendGiftRequest <- R6::R6Class(
   "CheckCanSendGiftRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc0c4edc9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x632efa30,
+    #' @field gift_id Field.
     gift_id = NULL,
 
     #' @description Initialize the CheckCanSendGiftRequest object.
@@ -422,17 +414,17 @@ CheckCanSendGiftRequest <- R6::R6Class(
 
 #' @title CheckGiftCodeRequest
 #' @description Represents a request to check a gift code. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field slug The slug string.
 #' @export
 CheckGiftCodeRequest <- R6::R6Class(
   "CheckGiftCodeRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8e51b4c1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b2997e8,
+    #' @field slug Field.
     slug = NULL,
 
     #' @description Initialize the CheckGiftCodeRequest object.
@@ -471,12 +463,6 @@ CheckGiftCodeRequest <- R6::R6Class(
 )
 
 #' @title ClearSavedInfoRequest
-#' @description Represents a request to clear saved payment info. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field credentials Optional flag to clear credentials.
-#' @field info Optional flag to clear info.
-#' @title ClearSavedInfoRequest
 #' @description Telegram API type ClearSavedInfoRequest
 #' @export
 ClearSavedInfoRequest <- R6::R6Class(
@@ -484,9 +470,13 @@ ClearSavedInfoRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd83d70c1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field credentials Field.
     credentials = NULL,
+    #' @field info Field.
     info = NULL,
 
     #' @description Initialize the ClearSavedInfoRequest object.
@@ -531,12 +521,6 @@ ClearSavedInfoRequest <- R6::R6Class(
 
 
 #' @title ConnectStarRefBotRequest
-#' @description Represents a request to connect a star ref bot. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer (TypeInputPeer).
-#' @field bot The input user (TypeInputUser).
-#' @title ConnectStarRefBotRequest
 #' @description Telegram API type ConnectStarRefBotRequest
 #' @export
 ConnectStarRefBotRequest <- R6::R6Class(
@@ -544,9 +528,13 @@ ConnectStarRefBotRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7ed5348a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x235e1a67,
+    #' @field peer Field.
     peer = NULL,
+    #' @field bot Field.
     bot = NULL,
 
     #' @description Initialize the ConnectStarRefBotRequest object.
@@ -599,17 +587,17 @@ ConnectStarRefBotRequest <- R6::R6Class(
 
 #' @title ConvertStarGiftRequest
 #' @description Represents a request to convert a star gift. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field stargift The input saved star gift (TypeInputSavedStarGift).
 #' @export
 ConvertStarGiftRequest <- R6::R6Class(
   "ConvertStarGiftRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x74bf076b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field stargift Field.
     stargift = NULL,
 
     #' @description Initialize the ConvertStarGiftRequest object.
@@ -648,13 +636,6 @@ ConvertStarGiftRequest <- R6::R6Class(
 )
 
 #' @title CreateStarGiftCollectionRequest
-#' @description Represents a request to create a star gift collection. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer (TypeInputPeer).
-#' @field title The title string.
-#' @field stargift List of input saved star gifts (list of TypeInputSavedStarGift).
-#' @title CreateStarGiftCollectionRequest
 #' @description Telegram API type CreateStarGiftCollectionRequest
 #' @export
 CreateStarGiftCollectionRequest <- R6::R6Class(
@@ -662,10 +643,15 @@ CreateStarGiftCollectionRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1f4a0e87,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x43e0cb4a,
+    #' @field peer Field.
     peer = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field stargift Field.
     stargift = NULL,
 
     #' @description Initialize the CreateStarGiftCollectionRequest object.
@@ -723,12 +709,6 @@ CreateStarGiftCollectionRequest <- R6::R6Class(
 
 
 #' @title DeleteStarGiftCollectionRequest
-#' @description Represents a request to delete a star gift collection. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer (TypeInputPeer).
-#' @field collection_id The collection ID (integer).
-#' @title DeleteStarGiftCollectionRequest
 #' @description Telegram API type DeleteStarGiftCollectionRequest
 #' @export
 DeleteStarGiftCollectionRequest <- R6::R6Class(
@@ -736,9 +716,13 @@ DeleteStarGiftCollectionRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xad5648e8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field peer Field.
     peer = NULL,
+    #' @field collection_id Field.
     collection_id = NULL,
 
     #' @description Initialize the DeleteStarGiftCollectionRequest object.
@@ -789,13 +773,6 @@ DeleteStarGiftCollectionRequest <- R6::R6Class(
 )
 
 #' @title EditConnectedStarRefBotRequest
-#' @description Represents a request to edit a connected star ref bot. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer (TypeInputPeer).
-#' @field link The link string.
-#' @field revoked Optional flag indicating if revoked.
-#' @title EditConnectedStarRefBotRequest
 #' @description Telegram API type EditConnectedStarRefBotRequest
 #' @export
 EditConnectedStarRefBotRequest <- R6::R6Class(
@@ -803,10 +780,15 @@ EditConnectedStarRefBotRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe4fca4a3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x235e1a67,
+    #' @field peer Field.
     peer = NULL,
+    #' @field link Field.
     link = NULL,
+    #' @field revoked Field.
     revoked = NULL,
 
     #' @description Initialize the EditConnectedStarRefBotRequest object.
@@ -864,17 +846,17 @@ EditConnectedStarRefBotRequest <- R6::R6Class(
 
 #' @title ExportInvoiceRequest
 #' @description Represents a request to export an invoice. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field invoice_media The input media for the invoice (TypeInputMedia).
 #' @export
 ExportInvoiceRequest <- R6::R6Class(
   "ExportInvoiceRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf91b065,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x36105432,
+    #' @field invoice_media Field.
     invoice_media = NULL,
 
     #' @description Initialize the ExportInvoiceRequest object.
@@ -921,12 +903,6 @@ ExportInvoiceRequest <- R6::R6Class(
 
 
 #' @title FulfillStarsSubscriptionRequest
-#' @description Represents a request to fulfill a stars subscription. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer (TypeInputPeer).
-#' @field subscription_id The subscription ID (string).
-#' @title FulfillStarsSubscriptionRequest
 #' @description Telegram API type FulfillStarsSubscriptionRequest
 #' @export
 FulfillStarsSubscriptionRequest <- R6::R6Class(
@@ -934,9 +910,13 @@ FulfillStarsSubscriptionRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcc5bebb3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field peer Field.
     peer = NULL,
+    #' @field subscription_id Field.
     subscription_id = NULL,
 
     #' @description Initialize the FulfillStarsSubscriptionRequest object.
@@ -988,17 +968,17 @@ FulfillStarsSubscriptionRequest <- R6::R6Class(
 
 #' @title GetBankCardDataRequest
 #' @description Represents a request to get bank card data. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field number The card number (string).
 #' @export
 GetBankCardDataRequest <- R6::R6Class(
   "GetBankCardDataRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2e79d779,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8c6dd68b,
+    #' @field number Field.
     number = NULL,
 
     #' @description Initialize the GetBankCardDataRequest object.
@@ -1038,12 +1018,6 @@ GetBankCardDataRequest <- R6::R6Class(
 
 
 #' @title GetConnectedStarRefBotRequest
-#' @description Represents a request to get a connected star ref bot. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer (TypeInputPeer).
-#' @field bot The input user (TypeInputUser).
-#' @title GetConnectedStarRefBotRequest
 #' @description Telegram API type GetConnectedStarRefBotRequest
 #' @export
 GetConnectedStarRefBotRequest <- R6::R6Class(
@@ -1051,9 +1025,13 @@ GetConnectedStarRefBotRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb7d998f0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x235e1a67,
+    #' @field peer Field.
     peer = NULL,
+    #' @field bot Field.
     bot = NULL,
 
     #' @description Initialize the GetConnectedStarRefBotRequest object.
@@ -1105,14 +1083,6 @@ GetConnectedStarRefBotRequest <- R6::R6Class(
 )
 
 #' @title GetConnectedStarRefBotsRequest
-#' @description Represents a request to get connected star ref bots. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer (TypeInputPeer).
-#' @field limit The limit integer.
-#' @field offset_date Optional offset date (datetime).
-#' @field offset_link Optional offset link (string).
-#' @title GetConnectedStarRefBotsRequest
 #' @description Telegram API type GetConnectedStarRefBotsRequest
 #' @export
 GetConnectedStarRefBotsRequest <- R6::R6Class(
@@ -1120,11 +1090,17 @@ GetConnectedStarRefBotsRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5869a553,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x235e1a67,
+    #' @field peer Field.
     peer = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field offset_date Field.
     offset_date = NULL,
+    #' @field offset_link Field.
     offset_link = NULL,
 
     #' @description Initialize the GetConnectedStarRefBotsRequest object.
@@ -1189,12 +1165,6 @@ GetConnectedStarRefBotsRequest <- R6::R6Class(
 
 
 #' @title GetGiveawayInfoRequest
-#' @description Represents a request to get giveaway info. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer (TypeInputPeer).
-#' @field msg_id The message ID (integer).
-#' @title GetGiveawayInfoRequest
 #' @description Telegram API type GetGiveawayInfoRequest
 #' @export
 GetGiveawayInfoRequest <- R6::R6Class(
@@ -1202,9 +1172,13 @@ GetGiveawayInfoRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf4239425,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x96a377bd,
+    #' @field peer Field.
     peer = NULL,
+    #' @field msg_id Field.
     msg_id = NULL,
 
     #' @description Initialize the GetGiveawayInfoRequest object.
@@ -1255,12 +1229,6 @@ GetGiveawayInfoRequest <- R6::R6Class(
 )
 
 #' @title GetPaymentFormRequest
-#' @description Represents a request to get a payment form. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field invoice The input invoice (TypeInputInvoice).
-#' @field theme_params Optional theme parameters (TypeDataJSON).
-#' @title GetPaymentFormRequest
 #' @description Telegram API type GetPaymentFormRequest
 #' @export
 GetPaymentFormRequest <- R6::R6Class(
@@ -1268,9 +1236,13 @@ GetPaymentFormRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x37148dbb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa0483f19,
+    #' @field invoice Field.
     invoice = NULL,
+    #' @field theme_params Field.
     theme_params = NULL,
 
     #' @description Initialize the GetPaymentFormRequest object.
@@ -1317,12 +1289,6 @@ GetPaymentFormRequest <- R6::R6Class(
 
 
 #' @title GetPaymentReceiptRequest
-#' @description Represents a request to get a payment receipt. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer (TypeInputPeer).
-#' @field msg_id The message ID (integer).
-#' @title GetPaymentReceiptRequest
 #' @description Telegram API type GetPaymentReceiptRequest
 #' @export
 GetPaymentReceiptRequest <- R6::R6Class(
@@ -1330,9 +1296,13 @@ GetPaymentReceiptRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2478d1cc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x590093c9,
+    #' @field peer Field.
     peer = NULL,
+    #' @field msg_id Field.
     msg_id = NULL,
 
     #' @description Initialize the GetPaymentReceiptRequest object.
@@ -1384,17 +1354,17 @@ GetPaymentReceiptRequest <- R6::R6Class(
 
 #' @title GetPremiumGiftCodeOptionsRequest
 #' @description Represents a request to get premium gift code options. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field boost_peer Optional input peer for boosting (TypeInputPeer).
 #' @export
 GetPremiumGiftCodeOptionsRequest <- R6::R6Class(
   "GetPremiumGiftCodeOptionsRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2757ba54,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xaa92583,
+    #' @field boost_peer Field.
     boost_peer = NULL,
 
     #' @description Initialize the GetPremiumGiftCodeOptionsRequest object.
@@ -1445,17 +1415,6 @@ GetPremiumGiftCodeOptionsRequest <- R6::R6Class(
 
 
 #' @title GetResaleStarGiftsRequest
-#' @description Represents a request to get resale star gifts. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field gift_id The gift ID (integer).
-#' @field offset The offset string.
-#' @field limit The limit integer.
-#' @field sort_by_price Optional flag to sort by price.
-#' @field sort_by_num Optional flag to sort by number.
-#' @field attributes_hash Optional attributes hash (integer).
-#' @field attributes Optional list of star gift attribute IDs.
-#' @title GetResaleStarGiftsRequest
 #' @description Telegram API type GetResaleStarGiftsRequest
 #' @export
 GetResaleStarGiftsRequest <- R6::R6Class(
@@ -1463,14 +1422,23 @@ GetResaleStarGiftsRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7a5fa236,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2dbb7e3,
+    #' @field gift_id Field.
     gift_id = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field sort_by_price Field.
     sort_by_price = NULL,
+    #' @field sort_by_num Field.
     sort_by_num = NULL,
+    #' @field attributes_hash Field.
     attributes_hash = NULL,
+    #' @field attributes Field.
     attributes = NULL,
 
     #' @description Initialize the GetResaleStarGiftsRequest object.
@@ -1553,15 +1521,15 @@ GetResaleStarGiftsRequest <- R6::R6Class(
 
 #' @title GetSavedInfoRequest
 #' @description Represents a request to get saved payment info. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
 #' @export
 GetSavedInfoRequest <- R6::R6Class(
   "GetSavedInfoRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x227d824b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xad3cf146,
 
     #' @description Initialize the GetSavedInfoRequest object.
@@ -1595,19 +1563,16 @@ GetSavedInfoRequest <- R6::R6Class(
 
 #' @title GetSavedStarGiftRequest
 #' @description Represents a request to get a saved star gift. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field stargift List of input saved star gifts.
 #' @export
 GetSavedStarGiftRequest <- R6::R6Class(
   "GetSavedStarGiftRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb455a106,
-    #' @field SUBCLASS_OF_ID
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd5112897,
-    #' @field stargift
+    #' @field stargift Field.
     stargift = NULL,
 
     #' @description Initialize the GetSavedStarGiftRequest object.
@@ -1648,21 +1613,6 @@ GetSavedStarGiftRequest <- R6::R6Class(
 
 
 #' @title GetSavedStarGiftsRequest
-#' @description Represents a request to get saved star gifts. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer (TypeInputPeer).
-#' @field offset The offset string.
-#' @field limit The limit integer.
-#' @field exclude_unsaved Optional flag to exclude unsaved gifts.
-#' @field exclude_saved Optional flag to exclude saved gifts.
-#' @field exclude_unlimited Optional flag to exclude unlimited gifts.
-#' @field exclude_unique Optional flag to exclude unique gifts.
-#' @field sort_by_value Optional flag to sort by value.
-#' @field exclude_upgradable Optional flag to exclude upgradable gifts.
-#' @field exclude_unupgradable Optional flag to exclude unupgradable gifts.
-#' @field collection_id Optional collection ID.
-#' @title GetSavedStarGiftsRequest
 #' @description Telegram API type GetSavedStarGiftsRequest
 #' @export
 GetSavedStarGiftsRequest <- R6::R6Class(
@@ -1670,18 +1620,31 @@ GetSavedStarGiftsRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa319e569,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd5112897,
+    #' @field peer Field.
     peer = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field exclude_unsaved Field.
     exclude_unsaved = NULL,
+    #' @field exclude_saved Field.
     exclude_saved = NULL,
+    #' @field exclude_unlimited Field.
     exclude_unlimited = NULL,
+    #' @field exclude_unique Field.
     exclude_unique = NULL,
+    #' @field sort_by_value Field.
     sort_by_value = NULL,
+    #' @field exclude_upgradable Field.
     exclude_upgradable = NULL,
+    #' @field exclude_unupgradable Field.
     exclude_unupgradable = NULL,
+    #' @field collection_id Field.
     collection_id = NULL,
 
     #' @description Initialize the GetSavedStarGiftsRequest object.
@@ -1780,25 +1743,19 @@ GetSavedStarGiftsRequest <- R6::R6Class(
 )
 
 #' @title GetStarGiftCollectionsRequest
-#' @description Represents a request to get star gift collections. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer (TypeInputPeer).
-#' @field hash The hash value (integer).
-#' @title GetStarGiftCollectionsRequest
 #' @description Telegram API type GetStarGiftCollectionsRequest
 #' @export
 GetStarGiftCollectionsRequest <- R6::R6Class(
   "GetStarGiftCollectionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x981b91dd,
-    #' @field SUBCLASS_OF_ID
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf01721ec,
-    #' @field peer
+    #' @field peer Field.
     peer = NULL,
-    #' @field hash
+    #' @field hash Field.
     hash = NULL,
 
     #' @description Initialize the GetStarGiftCollectionsRequest object.
@@ -1851,17 +1808,17 @@ GetStarGiftCollectionsRequest <- R6::R6Class(
 
 #' @title GetStarGiftUpgradePreviewRequest
 #' @description Represents a request to get the star gift upgrade preview. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field gift_id The gift ID (integer).
 #' @export
 GetStarGiftUpgradePreviewRequest <- R6::R6Class(
   "GetStarGiftUpgradePreviewRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9c9abcb1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5e2b68c7,
+    #' @field gift_id Field.
     gift_id = NULL,
 
     #' @description Initialize the GetStarGiftUpgradePreviewRequest object.
@@ -1900,12 +1857,6 @@ GetStarGiftUpgradePreviewRequest <- R6::R6Class(
 )
 
 #' @title GetStarGiftWithdrawalUrlRequest
-#' @description Represents a request to get the star gift withdrawal URL. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field stargift The input saved star gift (TypeInputSavedStarGift).
-#' @field password The input check password SRP (TypeInputCheckPasswordSRP).
-#' @title GetStarGiftWithdrawalUrlRequest
 #' @description Telegram API type GetStarGiftWithdrawalUrlRequest
 #' @export
 GetStarGiftWithdrawalUrlRequest <- R6::R6Class(
@@ -1913,9 +1864,13 @@ GetStarGiftWithdrawalUrlRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd06e93a8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa2822dc5,
+    #' @field stargift Field.
     stargift = NULL,
+    #' @field password Field.
     password = NULL,
 
     #' @description Initialize the GetStarGiftWithdrawalUrlRequest object.
@@ -1960,17 +1915,17 @@ GetStarGiftWithdrawalUrlRequest <- R6::R6Class(
 
 #' @title GetStarGiftsRequest
 #' @description Represents a request to get star gifts. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field hash The hash value (integer).
 #' @export
 GetStarGiftsRequest <- R6::R6Class(
   "GetStarGiftsRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc4563590,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6178d9a4,
+    #' @field hash Field.
     hash = NULL,
 
     #' @description Initialize the GetStarGiftsRequest object.
@@ -2011,17 +1966,17 @@ GetStarGiftsRequest <- R6::R6Class(
 
 #' @title GetStarsGiftOptionsRequest
 #' @description Represents a request to get stars gift options. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field user_id The input user (optional).
 #' @export
 GetStarsGiftOptionsRequest <- R6::R6Class(
   "GetStarsGiftOptionsRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd3c96bc8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe9a3b7d5,
+    #' @field user_id Field.
     user_id = NULL,
 
     #' @description Initialize the GetStarsGiftOptionsRequest object.
@@ -2072,15 +2027,15 @@ GetStarsGiftOptionsRequest <- R6::R6Class(
 
 #' @title GetStarsGiveawayOptionsRequest
 #' @description Represents a request to get stars giveaway options. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
 #' @export
 GetStarsGiveawayOptionsRequest <- R6::R6Class(
   "GetStarsGiveawayOptionsRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbd1efd3e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf8db30a9,
 
     #' @description Convert the object to a dictionary-like list.
@@ -2108,17 +2063,17 @@ GetStarsGiveawayOptionsRequest <- R6::R6Class(
 
 #' @title GetStarsRevenueAdsAccountUrlRequest
 #' @description Represents a request to get stars revenue ads account URL. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer.
 #' @export
 GetStarsRevenueAdsAccountUrlRequest <- R6::R6Class(
   "GetStarsRevenueAdsAccountUrlRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd1d7efc5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4a228b15,
+    #' @field peer Field.
     peer = NULL,
 
     #' @description Initialize the GetStarsRevenueAdsAccountUrlRequest object.
@@ -2165,13 +2120,6 @@ GetStarsRevenueAdsAccountUrlRequest <- R6::R6Class(
 
 
 #' @title GetStarsRevenueStatsRequest
-#' @description Represents a request to get stars revenue stats. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer.
-#' @field dark Optional flag for dark mode.
-#' @field ton Optional flag for TON.
-#' @title GetStarsRevenueStatsRequest
 #' @description Telegram API type GetStarsRevenueStatsRequest
 #' @export
 GetStarsRevenueStatsRequest <- R6::R6Class(
@@ -2179,10 +2127,15 @@ GetStarsRevenueStatsRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd91ffad6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa54755f3,
+    #' @field peer Field.
     peer = NULL,
+    #' @field dark Field.
     dark = NULL,
+    #' @field ton Field.
     ton = NULL,
 
     #' @description Initialize the GetStarsRevenueStatsRequest object.
@@ -2238,14 +2191,6 @@ GetStarsRevenueStatsRequest <- R6::R6Class(
 )
 
 #' @title GetStarsRevenueWithdrawalUrlRequest
-#' @description Represents a request to get stars revenue withdrawal URL. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer.
-#' @field password The input check password SRP.
-#' @field ton Optional flag for TON.
-#' @field amount Optional amount.
-#' @title GetStarsRevenueWithdrawalUrlRequest
 #' @description Telegram API type GetStarsRevenueWithdrawalUrlRequest
 #' @export
 GetStarsRevenueWithdrawalUrlRequest <- R6::R6Class(
@@ -2253,11 +2198,17 @@ GetStarsRevenueWithdrawalUrlRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2433dc92,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8466a0ee,
+    #' @field peer Field.
     peer = NULL,
+    #' @field password Field.
     password = NULL,
+    #' @field ton Field.
     ton = NULL,
+    #' @field amount Field.
     amount = NULL,
 
     #' @description Initialize the GetStarsRevenueWithdrawalUrlRequest object.
@@ -2320,12 +2271,6 @@ GetStarsRevenueWithdrawalUrlRequest <- R6::R6Class(
 
 
 #' @title GetStarsStatusRequest
-#' @description Represents a request to get stars status. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer.
-#' @field ton Optional flag for TON.
-#' @title GetStarsStatusRequest
 #' @description Telegram API type GetStarsStatusRequest
 #' @export
 GetStarsStatusRequest <- R6::R6Class(
@@ -2333,9 +2278,13 @@ GetStarsStatusRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4ea9b3bf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6e9c1d6f,
+    #' @field peer Field.
     peer = NULL,
+    #' @field ton Field.
     ton = NULL,
 
     #' @description Initialize the GetStarsStatusRequest object.
@@ -2387,13 +2336,6 @@ GetStarsStatusRequest <- R6::R6Class(
 )
 
 #' @title GetStarsSubscriptionsRequest
-#' @description Represents a request to get stars subscriptions. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer.
-#' @field offset The offset string.
-#' @field missing_balance Optional flag for missing balance.
-#' @title GetStarsSubscriptionsRequest
 #' @description Telegram API type GetStarsSubscriptionsRequest
 #' @export
 GetStarsSubscriptionsRequest <- R6::R6Class(
@@ -2401,10 +2343,15 @@ GetStarsSubscriptionsRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x32512c5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6e9c1d6f,
+    #' @field peer Field.
     peer = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field missing_balance Field.
     missing_balance = NULL,
 
     #' @description Initialize the GetStarsSubscriptionsRequest object.
@@ -2463,15 +2410,15 @@ GetStarsSubscriptionsRequest <- R6::R6Class(
 
 #' @title GetStarsTopupOptionsRequest
 #' @description Represents a request to get stars topup options. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
 #' @export
 GetStarsTopupOptionsRequest <- R6::R6Class(
   "GetStarsTopupOptionsRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc00ec7d3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd4fe8a99,
 
     #' @description Convert the object to a dictionary-like list.
@@ -2498,18 +2445,6 @@ GetStarsTopupOptionsRequest <- R6::R6Class(
 )
 
 #' @title GetStarsTransactionsRequest
-#' @description Represents a request to get stars transactions. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer.
-#' @field offset The offset string.
-#' @field limit The limit integer.
-#' @field inbound Optional flag for inbound transactions.
-#' @field outbound Optional flag for outbound transactions.
-#' @field ascending Optional flag for ascending order.
-#' @field ton Optional flag for TON.
-#' @field subscription_id Optional subscription ID.
-#' @title GetStarsTransactionsRequest
 #' @description Telegram API type GetStarsTransactionsRequest
 #' @export
 GetStarsTransactionsRequest <- R6::R6Class(
@@ -2517,15 +2452,25 @@ GetStarsTransactionsRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x69da4557,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6e9c1d6f,
+    #' @field peer Field.
     peer = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field inbound Field.
     inbound = NULL,
+    #' @field outbound Field.
     outbound = NULL,
+    #' @field ascending Field.
     ascending = NULL,
+    #' @field ton Field.
     ton = NULL,
+    #' @field subscription_id Field.
     subscription_id = NULL,
 
     #' @description Initialize the GetStarsTransactionsRequest object.
@@ -2610,13 +2555,6 @@ GetStarsTransactionsRequest <- R6::R6Class(
 
 
 #' @title GetStarsTransactionsByIDRequest
-#' @description Represents a request to get stars transactions by ID. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer.
-#' @field id List of input stars transactions.
-#' @field ton Optional flag for TON.
-#' @title GetStarsTransactionsByIDRequest
 #' @description Telegram API type GetStarsTransactionsByIDRequest
 #' @export
 GetStarsTransactionsByIDRequest <- R6::R6Class(
@@ -2624,10 +2562,15 @@ GetStarsTransactionsByIDRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2dca16b8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6e9c1d6f,
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
+    #' @field ton Field.
     ton = NULL,
 
     #' @description Initialize the GetStarsTransactionsByIDRequest object.
@@ -2685,15 +2628,6 @@ GetStarsTransactionsByIDRequest <- R6::R6Class(
 )
 
 #' @title GetSuggestedStarRefBotsRequest
-#' @description Represents a request to get suggested star ref bots. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer.
-#' @field offset The offset string.
-#' @field limit The limit integer.
-#' @field order_by_revenue Optional flag to order by revenue.
-#' @field order_by_date Optional flag to order by date.
-#' @title GetSuggestedStarRefBotsRequest
 #' @description Telegram API type GetSuggestedStarRefBotsRequest
 #' @export
 GetSuggestedStarRefBotsRequest <- R6::R6Class(
@@ -2701,12 +2635,19 @@ GetSuggestedStarRefBotsRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd6b48f7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x70189243,
+    #' @field peer Field.
     peer = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field order_by_revenue Field.
     order_by_revenue = NULL,
+    #' @field order_by_date Field.
     order_by_date = NULL,
 
     #' @description Initialize the GetSuggestedStarRefBotsRequest object.
@@ -2774,17 +2715,17 @@ GetSuggestedStarRefBotsRequest <- R6::R6Class(
 
 #' @title GetUniqueStarGiftRequest
 #' @description Represents a request to get a unique star gift. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field slug The slug string.
 #' @export
 GetUniqueStarGiftRequest <- R6::R6Class(
   "GetUniqueStarGiftRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa1974d72,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x78b0c5fb,
+    #' @field slug Field.
     slug = NULL,
 
     #' @description Initialize the GetUniqueStarGiftRequest object.
@@ -2824,17 +2765,17 @@ GetUniqueStarGiftRequest <- R6::R6Class(
 
 #' @title GetUniqueStarGiftValueInfoRequest
 #' @description Represents a request to get unique star gift value info. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field slug The slug string.
 #' @export
 GetUniqueStarGiftValueInfoRequest <- R6::R6Class(
   "GetUniqueStarGiftValueInfoRequest",
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4365af6b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x16355bc4,
+    #' @field slug Field.
     slug = NULL,
 
     #' @description Initialize the GetUniqueStarGiftValueInfoRequest object.
@@ -2873,13 +2814,6 @@ GetUniqueStarGiftValueInfoRequest <- R6::R6Class(
 )
 
 #' @title LaunchPrepaidGiveawayRequest
-#' @description Represents a request to launch a prepaid giveaway. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer.
-#' @field giveaway_id The giveaway ID.
-#' @field purpose The input store payment purpose.
-#' @title LaunchPrepaidGiveawayRequest
 #' @description Telegram API type LaunchPrepaidGiveawayRequest
 #' @export
 LaunchPrepaidGiveawayRequest <- R6::R6Class(
@@ -2887,10 +2821,15 @@ LaunchPrepaidGiveawayRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5ff58f20,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field peer Field.
     peer = NULL,
+    #' @field giveaway_id Field.
     giveaway_id = NULL,
+    #' @field purpose Field.
     purpose = NULL,
 
     #' @description Initialize the LaunchPrepaidGiveawayRequest object.
@@ -2947,12 +2886,6 @@ LaunchPrepaidGiveawayRequest <- R6::R6Class(
 
 
 #' @title RefundStarsChargeRequest
-#' @description Represents a request to refund a stars charge. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field user_id The input user.
-#' @field charge_id The charge ID.
-#' @title RefundStarsChargeRequest
 #' @description Telegram API type RefundStarsChargeRequest
 #' @export
 RefundStarsChargeRequest <- R6::R6Class(
@@ -2960,9 +2893,13 @@ RefundStarsChargeRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x25ae8f4a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field charge_id Field.
     charge_id = NULL,
 
     #' @description Initialize the RefundStarsChargeRequest object.
@@ -3013,12 +2950,6 @@ RefundStarsChargeRequest <- R6::R6Class(
 )
 
 #' @title ReorderStarGiftCollectionsRequest
-#' @description Represents a request to reorder star gift collections. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer.
-#' @field order The order list of integers.
-#' @title ReorderStarGiftCollectionsRequest
 #' @description Telegram API type ReorderStarGiftCollectionsRequest
 #' @export
 ReorderStarGiftCollectionsRequest <- R6::R6Class(
@@ -3026,9 +2957,13 @@ ReorderStarGiftCollectionsRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc32af4cc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field peer Field.
     peer = NULL,
+    #' @field order Field.
     order = NULL,
 
     #' @description Initialize the ReorderStarGiftCollectionsRequest object.
@@ -3080,12 +3015,6 @@ ReorderStarGiftCollectionsRequest <- R6::R6Class(
 )
 
 #' @title SaveStarGiftRequest
-#' @description Represents a request to save a star gift. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field stargift The input saved star gift.
-#' @field unsave Optional flag to unsave.
-#' @title SaveStarGiftRequest
 #' @description Telegram API type SaveStarGiftRequest
 #' @export
 SaveStarGiftRequest <- R6::R6Class(
@@ -3093,9 +3022,13 @@ SaveStarGiftRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2a2a697c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field stargift Field.
     stargift = NULL,
+    #' @field unsave Field.
     unsave = NULL,
 
     #' @description Initialize the SaveStarGiftRequest object.
@@ -3141,16 +3074,6 @@ SaveStarGiftRequest <- R6::R6Class(
 
 
 #' @title SendPaymentFormRequest
-#' @description Represents a request to send a payment form. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field form_id The form ID.
-#' @field invoice The input invoice.
-#' @field credentials The input payment credentials.
-#' @field requested_info_id Optional requested info ID.
-#' @field shipping_option_id Optional shipping option ID.
-#' @field tip_amount Optional tip amount.
-#' @title SendPaymentFormRequest
 #' @description Telegram API type SendPaymentFormRequest
 #' @export
 SendPaymentFormRequest <- R6::R6Class(
@@ -3158,13 +3081,21 @@ SendPaymentFormRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2d03522f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8ae16a9d,
+    #' @field form_id Field.
     form_id = NULL,
+    #' @field invoice Field.
     invoice = NULL,
+    #' @field credentials Field.
     credentials = NULL,
+    #' @field requested_info_id Field.
     requested_info_id = NULL,
+    #' @field shipping_option_id Field.
     shipping_option_id = NULL,
+    #' @field tip_amount Field.
     tip_amount = NULL,
 
     #' @description Initialize the SendPaymentFormRequest object.
@@ -3233,12 +3164,6 @@ SendPaymentFormRequest <- R6::R6Class(
 )
 
 #' @title SendStarsFormRequest
-#' @description Represents a request to send a stars form. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field form_id The form ID.
-#' @field invoice The input invoice.
-#' @title SendStarsFormRequest
 #' @description Telegram API type SendStarsFormRequest
 #' @export
 SendStarsFormRequest <- R6::R6Class(
@@ -3246,9 +3171,13 @@ SendStarsFormRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7998c914,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8ae16a9d,
+    #' @field form_id Field.
     form_id = NULL,
+    #' @field invoice Field.
     invoice = NULL,
 
     #' @description Initialize the SendStarsFormRequest object.
@@ -3293,12 +3222,6 @@ SendStarsFormRequest <- R6::R6Class(
 
 
 #' @title ToggleChatStarGiftNotificationsRequest
-#' @description Represents a request to toggle chat star gift notifications. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer.
-#' @field enabled Optional flag to enable or disable notifications.
-#' @title ToggleChatStarGiftNotificationsRequest
 #' @description Telegram API type ToggleChatStarGiftNotificationsRequest
 #' @export
 ToggleChatStarGiftNotificationsRequest <- R6::R6Class(
@@ -3306,9 +3229,13 @@ ToggleChatStarGiftNotificationsRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x60eaefa1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field peer Field.
     peer = NULL,
+    #' @field enabled Field.
     enabled = NULL,
 
     #' @description Initialize the ToggleChatStarGiftNotificationsRequest object.
@@ -3360,12 +3287,6 @@ ToggleChatStarGiftNotificationsRequest <- R6::R6Class(
 )
 
 #' @title ToggleStarGiftsPinnedToTopRequest
-#' @description Represents a request to toggle star gifts pinned to top. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer.
-#' @field stargift List of input saved star gifts.
-#' @title ToggleStarGiftsPinnedToTopRequest
 #' @description Telegram API type ToggleStarGiftsPinnedToTopRequest
 #' @export
 ToggleStarGiftsPinnedToTopRequest <- R6::R6Class(
@@ -3373,9 +3294,13 @@ ToggleStarGiftsPinnedToTopRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1513e7b0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field peer Field.
     peer = NULL,
+    #' @field stargift Field.
     stargift = NULL,
 
     #' @description Initialize the ToggleStarGiftsPinnedToTopRequest object.
@@ -3427,12 +3352,6 @@ ToggleStarGiftsPinnedToTopRequest <- R6::R6Class(
 )
 
 #' @title TransferStarGiftRequest
-#' @description Represents a request to transfer a star gift. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field stargift The input saved star gift.
-#' @field to_id The input peer to transfer to.
-#' @title TransferStarGiftRequest
 #' @description Telegram API type TransferStarGiftRequest
 #' @export
 TransferStarGiftRequest <- R6::R6Class(
@@ -3440,9 +3359,13 @@ TransferStarGiftRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7f18176a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field stargift Field.
     stargift = NULL,
+    #' @field to_id Field.
     to_id = NULL,
 
     #' @description Initialize the TransferStarGiftRequest object.
@@ -3494,16 +3417,6 @@ TransferStarGiftRequest <- R6::R6Class(
 
 
 #' @title UpdateStarGiftCollectionRequest
-#' @description Represents a request to update a star gift collection. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field peer The input peer.
-#' @field collection_id The collection ID.
-#' @field title Optional title for the collection.
-#' @field delete_stargift Optional list of star gifts to delete.
-#' @field add_stargift Optional list of star gifts to add.
-#' @field order Optional order of star gifts.
-#' @title UpdateStarGiftCollectionRequest
 #' @description Telegram API type UpdateStarGiftCollectionRequest
 #' @export
 UpdateStarGiftCollectionRequest <- R6::R6Class(
@@ -3511,13 +3424,21 @@ UpdateStarGiftCollectionRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4fddbee7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x43e0cb4a,
+    #' @field peer Field.
     peer = NULL,
+    #' @field collection_id Field.
     collection_id = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field delete_stargift Field.
     delete_stargift = NULL,
+    #' @field add_stargift Field.
     add_stargift = NULL,
+    #' @field order Field.
     order = NULL,
 
     #' @description Initialize the UpdateStarGiftCollectionRequest object.
@@ -3609,12 +3530,6 @@ UpdateStarGiftCollectionRequest <- R6::R6Class(
 )
 
 #' @title UpdateStarGiftPriceRequest
-#' @description Represents a request to update the price of a star gift. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field stargift The input saved star gift.
-#' @field resell_amount The resell amount (TypeStarsAmount).
-#' @title UpdateStarGiftPriceRequest
 #' @description Telegram API type UpdateStarGiftPriceRequest
 #' @export
 UpdateStarGiftPriceRequest <- R6::R6Class(
@@ -3622,9 +3537,13 @@ UpdateStarGiftPriceRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xedbe6ccb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field stargift Field.
     stargift = NULL,
+    #' @field resell_amount Field.
     resell_amount = NULL,
 
     #' @description Initialize the UpdateStarGiftPriceRequest object.
@@ -3669,12 +3588,6 @@ UpdateStarGiftPriceRequest <- R6::R6Class(
 
 
 #' @title UpgradeStarGiftRequest
-#' @description Represents a request to upgrade a star gift. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field stargift The input saved star gift.
-#' @field keep_original_details Optional flag to keep original details.
-#' @title UpgradeStarGiftRequest
 #' @description Telegram API type UpgradeStarGiftRequest
 #' @export
 UpgradeStarGiftRequest <- R6::R6Class(
@@ -3682,9 +3595,13 @@ UpgradeStarGiftRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xaed6e4f5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field stargift Field.
     stargift = NULL,
+    #' @field keep_original_details Field.
     keep_original_details = NULL,
 
     #' @description Initialize the UpgradeStarGiftRequest object.
@@ -3731,13 +3648,6 @@ UpgradeStarGiftRequest <- R6::R6Class(
 )
 
 #' @title ValidateRequestedInfoRequest
-#' @description Represents a request to validate requested payment info. Inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID.
-#' @field invoice The input invoice.
-#' @field info The payment requested info.
-#' @field save Optional flag to save the info.
-#' @title ValidateRequestedInfoRequest
 #' @description Telegram API type ValidateRequestedInfoRequest
 #' @export
 ValidateRequestedInfoRequest <- R6::R6Class(
@@ -3745,10 +3655,15 @@ ValidateRequestedInfoRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb6c8f12b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8f8044b7,
+    #' @field invoice Field.
     invoice = NULL,
+    #' @field info Field.
     info = NULL,
+    #' @field save Field.
     save = NULL,
 
     #' @description Initialize the ValidateRequestedInfoRequest object.

@@ -1,14 +1,14 @@
 #' @title CheckSearchPostsFloodRequest
 #' @description Represents a request to check search posts flood.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field query The query string (optional).
 CheckSearchPostsFloodRequest <- R6::R6Class(
   "CheckSearchPostsFloodRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x22567115,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc2c0ccc1,
+    #' @field query Field.
     query = NULL,
 
     #' @description Initialize the CheckSearchPostsFloodRequest.
@@ -37,13 +37,15 @@ CheckSearchPostsFloodRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#'
-#' @param reader The reader object.
-#' @return An instance of CheckSearchPostsFloodRequest.
+# Deserialize from a reader.
+# @name CheckSearchPostsFloodRequest_from_reader
+#
+# @param reader The reader object.
+# @return An instance of CheckSearchPostsFloodRequest.
 CheckSearchPostsFloodRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   query <- if ((flags && 1) != 0) reader$tgread_string() else NULL
@@ -52,17 +54,17 @@ CheckSearchPostsFloodRequest$from_reader <- function(reader) {
 
 #' @title CheckUsernameRequest
 #' @description Represents a request to check a username in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field username The username.
 CheckUsernameRequest <- R6::R6Class(
   "CheckUsernameRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x10e6bd2c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field username Field.
     username = NULL,
 
     #' @description Initialize the CheckUsernameRequest.
@@ -100,12 +102,14 @@ CheckUsernameRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of CheckUsernameRequest.
+# Deserialize from a reader.
+# @name CheckUsernameRequest_from_reader
+# @param reader The reader object.
+# @return An instance of CheckUsernameRequest.
 CheckUsernameRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   username <- reader$tgread_string()
@@ -114,15 +118,15 @@ CheckUsernameRequest$from_reader <- function(reader) {
 
 #' @title ConvertToGigagroupRequest
 #' @description Represents a request to convert a channel to a gigagroup.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
 ConvertToGigagroupRequest <- R6::R6Class(
   "ConvertToGigagroupRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb290c69,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
 
     #' @description Initialize the ConvertToGigagroupRequest.
@@ -156,13 +160,15 @@ ConvertToGigagroupRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#'
-#' @param reader The reader object.
-#' @return An instance of ConvertToGigagroupRequest.
+# Deserialize from a reader.
+# @name ConvertToGigagroupRequest_from_reader
+#
+# @param reader The reader object.
+# @return An instance of ConvertToGigagroupRequest.
 ConvertToGigagroupRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   ConvertToGigagroupRequest$new(channel = channel)
@@ -170,31 +176,31 @@ ConvertToGigagroupRequest$from_reader <- function(reader) {
 
 #' @title CreateChannelRequest
 #' @description Represents a request to create a new channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field title The title of the channel.
-#' @field about The description of the channel.
-#' @field broadcast Whether the channel is a broadcast channel.
-#' @field megagroup Whether the channel is a megagroup.
-#' @field for_import Whether the channel is for import.
-#' @field forum Whether the channel is a forum.
-#' @field geo_point The geo point for the channel.
-#' @field address The address for the channel.
-#' @field ttl_period The TTL period for the channel.
 CreateChannelRequest <- R6::R6Class(
   "CreateChannelRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x91006707,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field title Field.
     title = NULL,
+    #' @field about Field.
     about = NULL,
+    #' @field broadcast Field.
     broadcast = NULL,
+    #' @field megagroup Field.
     megagroup = NULL,
+    #' @field for_import Field.
     for_import = NULL,
+    #' @field forum Field.
     forum = NULL,
+    #' @field geo_point Field.
     geo_point = NULL,
+    #' @field address Field.
     address = NULL,
+    #' @field ttl_period Field.
     ttl_period = NULL,
 
     #' @description Initialize the CreateChannelRequest.
@@ -257,12 +263,14 @@ CreateChannelRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of CreateChannelRequest.
+# Deserialize from a reader.
+# @name CreateChannelRequest_from_reader
+# @param reader The reader object.
+# @return An instance of CreateChannelRequest.
 CreateChannelRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   broadcast <- (flags & 1) != 0
@@ -280,25 +288,25 @@ CreateChannelRequest$from_reader <- function(reader) {
 
 #' @title CreateForumTopicRequest
 #' @description Represents a request to create a forum topic in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field title The title of the topic.
-#' @field icon_color The icon color (optional).
-#' @field icon_emoji_id The icon emoji ID (optional).
-#' @field random_id The random ID.
-#' @field send_as The send as peer (optional).
 CreateForumTopicRequest <- R6::R6Class(
   "CreateForumTopicRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf40c0224,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field icon_color Field.
     icon_color = NULL,
+    #' @field icon_emoji_id Field.
     icon_emoji_id = NULL,
+    #' @field random_id Field.
     random_id = NULL,
+    #' @field send_as Field.
     send_as = NULL,
 
     #' @description Initialize the CreateForumTopicRequest.
@@ -359,13 +367,15 @@ CreateForumTopicRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#'
-#' @param reader The reader object.
-#' @return An instance of CreateForumTopicRequest.
+# Deserialize from a reader.
+# @name CreateForumTopicRequest_from_reader
+#
+# @param reader The reader object.
+# @return An instance of CreateForumTopicRequest.
 CreateForumTopicRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   channel <- reader$tgread_object()
@@ -379,15 +389,15 @@ CreateForumTopicRequest$from_reader <- function(reader) {
 
 #' @title DeactivateAllUsernamesRequest
 #' @description Represents a request to deactivate all usernames in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
 DeactivateAllUsernamesRequest <- R6::R6Class(
   "DeactivateAllUsernamesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa245dd3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field channel Field.
     channel = NULL,
 
     #' @description Initialize the DeactivateAllUsernamesRequest.
@@ -421,13 +431,15 @@ DeactivateAllUsernamesRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#'
-#' @param reader The reader object.
-#' @return An instance of DeactivateAllUsernamesRequest.
+# Deserialize from a reader.
+# @name DeactivateAllUsernamesRequest_from_reader
+#
+# @param reader The reader object.
+# @return An instance of DeactivateAllUsernamesRequest.
 DeactivateAllUsernamesRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   DeactivateAllUsernamesRequest$new(channel = channel)
@@ -435,15 +447,15 @@ DeactivateAllUsernamesRequest$from_reader <- function(reader) {
 
 #' @title DeleteChannelRequest
 #' @description Represents a request to delete a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
 DeleteChannelRequest <- R6::R6Class(
   "DeleteChannelRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc0111fe3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
 
     #' @description Initialize the DeleteChannelRequest.
@@ -477,13 +489,15 @@ DeleteChannelRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#'
-#' @param reader The reader object.
-#' @return An instance of DeleteChannelRequest.
+# Deserialize from a reader.
+# @name DeleteChannelRequest_from_reader
+#
+# @param reader The reader object.
+# @return An instance of DeleteChannelRequest.
 DeleteChannelRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   DeleteChannelRequest$new(channel = channel)
@@ -492,19 +506,19 @@ DeleteChannelRequest$from_reader <- function(reader) {
 
 #' @title DeleteHistoryRequest
 #' @description Represents a request to delete the history of a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field max_id The maximum message ID to delete up to.
-#' @field for_everyone Whether to delete for everyone.
 DeleteHistoryRequest <- R6::R6Class(
   "DeleteHistoryRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9baa9647,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field max_id Field.
     max_id = NULL,
+    #' @field for_everyone Field.
     for_everyone = NULL,
 
     #' @description Initialize the DeleteHistoryRequest.
@@ -547,13 +561,15 @@ DeleteHistoryRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#'
-#' @param reader The reader object.
-#' @return An instance of DeleteHistoryRequest.
+# Deserialize from a reader.
+# @name DeleteHistoryRequest_from_reader
+#
+# @param reader The reader object.
+# @return An instance of DeleteHistoryRequest.
 DeleteHistoryRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   for_everyone <- (flags & 1) != 0
@@ -564,17 +580,17 @@ DeleteHistoryRequest$from_reader <- function(reader) {
 
 #' @title DeleteMessagesRequest
 #' @description Represents a request to delete messages in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field id The list of message IDs to delete.
 DeleteMessagesRequest <- R6::R6Class(
   "DeleteMessagesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x84c1fd4e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xced3c06e,
+    #' @field channel Field.
     channel = NULL,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize the DeleteMessagesRequest.
@@ -614,13 +630,15 @@ DeleteMessagesRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#'
-#' @param reader The reader object.
-#' @return An instance of DeleteMessagesRequest.
+# Deserialize from a reader.
+# @name DeleteMessagesRequest_from_reader
+#
+# @param reader The reader object.
+# @return An instance of DeleteMessagesRequest.
 DeleteMessagesRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   reader$read_int()
@@ -634,17 +652,17 @@ DeleteMessagesRequest$from_reader <- function(reader) {
 
 #' @title DeleteParticipantHistoryRequest
 #' @description Represents a request to delete the history of a participant in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field participant The input participant.
 DeleteParticipantHistoryRequest <- R6::R6Class(
   "DeleteParticipantHistoryRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x367544db,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2c49c116,
+    #' @field channel Field.
     channel = NULL,
+    #' @field participant Field.
     participant = NULL,
 
     #' @description Initialize the DeleteParticipantHistoryRequest.
@@ -683,13 +701,15 @@ DeleteParticipantHistoryRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#'
-#' @param reader The reader object.
-#' @return An instance of DeleteParticipantHistoryRequest.
+# Deserialize from a reader.
+# @name DeleteParticipantHistoryRequest_from_reader
+#
+# @param reader The reader object.
+# @return An instance of DeleteParticipantHistoryRequest.
 DeleteParticipantHistoryRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   participant <- reader$tgread_object()
@@ -699,17 +719,17 @@ DeleteParticipantHistoryRequest$from_reader <- function(reader) {
 
 #' @title DeleteTopicHistoryRequest
 #' @description Represents a request to delete the history of a topic in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field top_msg_id The top message ID.
 DeleteTopicHistoryRequest <- R6::R6Class(
   "DeleteTopicHistoryRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x34435f2d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2c49c116,
+    #' @field channel Field.
     channel = NULL,
+    #' @field top_msg_id Field.
     top_msg_id = NULL,
 
     #' @description Initialize the DeleteTopicHistoryRequest.
@@ -747,13 +767,15 @@ DeleteTopicHistoryRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#'
-#' @param reader The reader object.
-#' @return An instance of DeleteTopicHistoryRequest.
+# Deserialize from a reader.
+# @name DeleteTopicHistoryRequest_from_reader
+#
+# @param reader The reader object.
+# @return An instance of DeleteTopicHistoryRequest.
 DeleteTopicHistoryRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   top_msg_id <- reader$read_int()
@@ -762,21 +784,21 @@ DeleteTopicHistoryRequest$from_reader <- function(reader) {
 
 #' @title EditAdminRequest
 #' @description Represents a request to edit admin rights for a user in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field user_id The input user ID.
-#' @field admin_rights The chat admin rights.
-#' @field rank The rank string.
 EditAdminRequest <- R6::R6Class(
   "EditAdminRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd33c8902,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field admin_rights Field.
     admin_rights = NULL,
+    #' @field rank Field.
     rank = NULL,
 
     #' @description Initialize the EditAdminRequest.
@@ -823,12 +845,14 @@ EditAdminRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditAdminRequest.
+# Deserialize from a reader.
+# @name EditAdminRequest_from_reader
+# @param reader The reader object.
+# @return An instance of EditAdminRequest.
 EditAdminRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   user_id <- reader$tgread_object()
@@ -839,19 +863,19 @@ EditAdminRequest$from_reader <- function(reader) {
 
 #' @title EditBannedRequest
 #' @description Represents a request to edit banned rights for a participant in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field participant The input participant.
-#' @field banned_rights The chat banned rights.
 EditBannedRequest <- R6::R6Class(
   "EditBannedRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x96e6cd81,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field participant Field.
     participant = NULL,
+    #' @field banned_rights Field.
     banned_rights = NULL,
 
     #' @description Initialize the EditBannedRequest.
@@ -894,12 +918,14 @@ EditBannedRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditBannedRequest.
+# Deserialize from a reader.
+# @name EditBannedRequest_from_reader
+# @param reader The reader object.
+# @return An instance of EditBannedRequest.
 EditBannedRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   participant <- reader$tgread_object()
@@ -910,20 +936,20 @@ EditBannedRequest$from_reader <- function(reader) {
 
 #' @title EditCreatorRequest
 #' @description Represents a request to edit the creator of a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field user_id The input user ID.
-#' @field password The input check password SRP.
 #' Deserialize from a reader.
 EditCreatorRequest <- R6::R6Class(
   "EditCreatorRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8f38cd1f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field password Field.
     password = NULL,
 
     #' @description Initialize the EditCreatorRequest.
@@ -966,12 +992,14 @@ EditCreatorRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditCreatorRequest.
+# Deserialize from a reader.
+# @name EditCreatorRequest_from_reader
+# @param reader The reader object.
+# @return An instance of EditCreatorRequest.
 EditCreatorRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   user_id <- reader$tgread_object()
@@ -981,25 +1009,25 @@ EditCreatorRequest$from_reader <- function(reader) {
 
 #' @title EditForumTopicRequest
 #' @description Represents a request to edit a forum topic in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field topic_id The topic ID.
-#' @field title The title (optional).
-#' @field icon_emoji_id The icon emoji ID (optional).
-#' @field closed Whether the topic is closed (optional).
-#' @field hidden Whether the topic is hidden (optional).
 EditForumTopicRequest <- R6::R6Class(
   "EditForumTopicRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf4dfa185,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field topic_id Field.
     topic_id = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field icon_emoji_id Field.
     icon_emoji_id = NULL,
+    #' @field closed Field.
     closed = NULL,
+    #' @field hidden Field.
     hidden = NULL,
 
     #' @description Initialize the EditForumTopicRequest.
@@ -1058,12 +1086,14 @@ EditForumTopicRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditForumTopicRequest.
+# Deserialize from a reader.
+# @name EditForumTopicRequest_from_reader
+# @param reader The reader object.
+# @return An instance of EditForumTopicRequest.
 EditForumTopicRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   channel <- reader$tgread_object()
@@ -1077,19 +1107,19 @@ EditForumTopicRequest$from_reader <- function(reader) {
 
 #' @title EditLocationRequest
 #' @description Represents a request to edit the location of a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field geo_point The input geo point.
-#' @field address The address.
 EditLocationRequest <- R6::R6Class(
   "EditLocationRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x58e63f6d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field geo_point Field.
     geo_point = NULL,
+    #' @field address Field.
     address = NULL,
 
     #' @description Initialize the EditLocationRequest.
@@ -1131,12 +1161,14 @@ EditLocationRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditLocationRequest.
+# Deserialize from a reader.
+# @name EditLocationRequest_from_reader
+# @param reader The reader object.
+# @return An instance of EditLocationRequest.
 EditLocationRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   geo_point <- reader$tgread_object()
@@ -1147,17 +1179,17 @@ EditLocationRequest$from_reader <- function(reader) {
 
 #' @title EditPhotoRequest
 #' @description Represents a request to edit the photo of a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field photo The input chat photo.
 EditPhotoRequest <- R6::R6Class(
   "EditPhotoRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf12e57c9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field photo Field.
     photo = NULL,
 
     #' @description Initialize the EditPhotoRequest.
@@ -1196,12 +1228,14 @@ EditPhotoRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditPhotoRequest.
+# Deserialize from a reader.
+# @name EditPhotoRequest_from_reader
+# @param reader The reader object.
+# @return An instance of EditPhotoRequest.
 EditPhotoRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   photo <- reader$tgread_object()
@@ -1210,17 +1244,17 @@ EditPhotoRequest$from_reader <- function(reader) {
 
 #' @title EditTitleRequest
 #' @description Represents a request to edit the title of a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field title The new title.
 EditTitleRequest <- R6::R6Class(
   "EditTitleRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x566decd0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field title Field.
     title = NULL,
 
     #' @description Initialize the EditTitleRequest.
@@ -1258,12 +1292,14 @@ EditTitleRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditTitleRequest.
+# Deserialize from a reader.
+# @name EditTitleRequest_from_reader
+# @param reader The reader object.
+# @return An instance of EditTitleRequest.
 EditTitleRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   title <- reader$tgread_string()
@@ -1272,21 +1308,21 @@ EditTitleRequest$from_reader <- function(reader) {
 
 #' @title ExportMessageLinkRequest
 #' @description Represents a request to export a message link from a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field id The message ID.
-#' @field grouped Whether to include grouped messages.
-#' @field thread Whether to include thread.
 ExportMessageLinkRequest <- R6::R6Class(
   "ExportMessageLinkRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe63fadeb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdee644cc,
+    #' @field channel Field.
     channel = NULL,
+    #' @field id Field.
     id = NULL,
+    #' @field grouped Field.
     grouped = NULL,
+    #' @field thread Field.
     thread = NULL,
 
     #' @description Initialize the ExportMessageLinkRequest.
@@ -1333,12 +1369,14 @@ ExportMessageLinkRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ExportMessageLinkRequest.
+# Deserialize from a reader.
+# @name ExportMessageLinkRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ExportMessageLinkRequest.
 ExportMessageLinkRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   grouped <- (flags & 1) != 0
@@ -1351,27 +1389,27 @@ ExportMessageLinkRequest$from_reader <- function(reader) {
 
 #' @title GetAdminLogRequest
 #' @description Represents a request to get the admin log for a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field q The query string.
-#' @field max_id The maximum ID.
-#' @field min_id The minimum ID.
-#' @field limit The limit on the number of results.
-#' @field events_filter The events filter (optional).
-#' @field admins The list of admin users (optional).
 GetAdminLogRequest <- R6::R6Class(
   "GetAdminLogRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x33ddf480,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x51f076bc,
+    #' @field channel Field.
     channel = NULL,
+    #' @field q Field.
     q = NULL,
+    #' @field max_id Field.
     max_id = NULL,
+    #' @field min_id Field.
     min_id = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field events_filter Field.
     events_filter = NULL,
+    #' @field admins Field.
     admins = NULL,
 
     #' @description Initialize the GetAdminLogRequest.
@@ -1439,12 +1477,14 @@ GetAdminLogRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetAdminLogRequest.
+# Deserialize from a reader.
+# @name GetAdminLogRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetAdminLogRequest.
 GetAdminLogRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   channel <- reader$tgread_object()
@@ -1469,19 +1509,19 @@ GetAdminLogRequest$from_reader <- function(reader) {
 
 #' @title GetAdminedPublicChannelsRequest
 #' @description Represents a request to get admined public channels.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field by_location Whether to filter by location.
-#' @field check_limit Whether to check the limit.
-#' @field for_personal Whether for personal use.
 GetAdminedPublicChannelsRequest <- R6::R6Class(
   "GetAdminedPublicChannelsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf8b036af,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x99d5cb14,
+    #' @field by_location Field.
     by_location = NULL,
+    #' @field check_limit Field.
     check_limit = NULL,
+    #' @field for_personal Field.
     for_personal = NULL,
 
     #' @description Initialize the GetAdminedPublicChannelsRequest.
@@ -1517,12 +1557,14 @@ GetAdminedPublicChannelsRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetAdminedPublicChannelsRequest.
+# Deserialize from a reader.
+# @name GetAdminedPublicChannelsRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetAdminedPublicChannelsRequest.
 GetAdminedPublicChannelsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   by_location <- (flags & 1) != 0
@@ -1533,15 +1575,15 @@ GetAdminedPublicChannelsRequest$from_reader <- function(reader) {
 
 #' @title GetChannelRecommendationsRequest
 #' @description Represents a request to get channel recommendations.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel (optional).
 GetChannelRecommendationsRequest <- R6::R6Class(
   "GetChannelRecommendationsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x25a71742,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x99d5cb14,
+    #' @field channel Field.
     channel = NULL,
 
     #' @description Initialize the GetChannelRecommendationsRequest.
@@ -1579,12 +1621,14 @@ GetChannelRecommendationsRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetChannelRecommendationsRequest.
+# Deserialize from a reader.
+# @name GetChannelRecommendationsRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetChannelRecommendationsRequest.
 GetChannelRecommendationsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   channel <- if ((flags && 1) != 0) reader$tgread_object() else NULL
@@ -1594,15 +1638,15 @@ GetChannelRecommendationsRequest$from_reader <- function(reader) {
 
 #' @title GetChannelsRequest
 #' @description Represents a request to get channels by their IDs.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field id The list of input channels.
 GetChannelsRequest <- R6::R6Class(
   "GetChannelsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa7f6bbb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x99d5cb14,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize the GetChannelsRequest.
@@ -1642,12 +1686,14 @@ GetChannelsRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetChannelsRequest.
+# Deserialize from a reader.
+# @name GetChannelsRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetChannelsRequest.
 GetChannelsRequest$from_reader <- function(reader) {
   reader$read_int()
   id <- list()
@@ -1660,25 +1706,25 @@ GetChannelsRequest$from_reader <- function(reader) {
 
 #' @title GetForumTopicsRequest
 #' @description Represents a request to get forum topics from a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field offset_date The offset date for pagination.
-#' @field offset_id The offset ID for pagination.
-#' @field offset_topic The offset topic for pagination.
-#' @field limit The limit on the number of results.
-#' @field q The query string (optional).
 GetForumTopicsRequest <- R6::R6Class(
   "GetForumTopicsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xde560d1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8e1d3e1e,
+    #' @field channel Field.
     channel = NULL,
+    #' @field offset_date Field.
     offset_date = NULL,
+    #' @field offset_id Field.
     offset_id = NULL,
+    #' @field offset_topic Field.
     offset_topic = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field q Field.
     q = NULL,
 
     #' @description Initialize the GetForumTopicsRequest.
@@ -1734,12 +1780,14 @@ GetForumTopicsRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetForumTopicsRequest.
+# Deserialize from a reader.
+# @name GetForumTopicsRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetForumTopicsRequest.
 GetForumTopicsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   channel <- reader$tgread_object()
@@ -1753,17 +1801,17 @@ GetForumTopicsRequest$from_reader <- function(reader) {
 
 #' @title GetForumTopicsByIDRequest
 #' @description Represents a request to get forum topics by their IDs from a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field topics The list of topic IDs.
 GetForumTopicsByIDRequest <- R6::R6Class(
   "GetForumTopicsByIDRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb0831eb9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8e1d3e1e,
+    #' @field channel Field.
     channel = NULL,
+    #' @field topics Field.
     topics = NULL,
 
     #' @description Initialize the GetForumTopicsByIDRequest.
@@ -1803,12 +1851,14 @@ GetForumTopicsByIDRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetForumTopicsByIDRequest.
+# Deserialize from a reader.
+# @name GetForumTopicsByIDRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetForumTopicsByIDRequest.
 GetForumTopicsByIDRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   reader$read_int()
@@ -1823,15 +1873,15 @@ GetForumTopicsByIDRequest$from_reader <- function(reader) {
 
 #' @title GetFullChannelRequest
 #' @description Represents a request to get full information about a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
 GetFullChannelRequest <- R6::R6Class(
   "GetFullChannelRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8736a09,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x225a5109,
+    #' @field channel Field.
     channel = NULL,
 
     #' @description Initialize the GetFullChannelRequest.
@@ -1865,12 +1915,14 @@ GetFullChannelRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetFullChannelRequest.
+# Deserialize from a reader.
+# @name GetFullChannelRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetFullChannelRequest.
 GetFullChannelRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   GetFullChannelRequest$new(channel = channel)
@@ -1878,13 +1930,13 @@ GetFullChannelRequest$from_reader <- function(reader) {
 
 #' @title GetGroupsForDiscussionRequest
 #' @description Represents a request to get groups available for discussion.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
 GetGroupsForDiscussionRequest <- R6::R6Class(
   "GetGroupsForDiscussionRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf5dad378,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x99d5cb14,
 
     #' @description Initialize the GetGroupsForDiscussionRequest.
@@ -1906,25 +1958,27 @@ GetGroupsForDiscussionRequest <- R6::R6Class(
       as.raw(c(0x78, 0xd3, 0xda, 0xf5))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetGroupsForDiscussionRequest.
+# Deserialize from a reader.
+# @name GetGroupsForDiscussionRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetGroupsForDiscussionRequest.
 GetGroupsForDiscussionRequest$from_reader <- function(reader) {
   GetGroupsForDiscussionRequest$new()
 }
 
 #' @title GetInactiveChannelsRequest
 #' @description Represents a request to get inactive channels.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
 GetInactiveChannelsRequest <- R6::R6Class(
   "GetInactiveChannelsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x11e831ee,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8bf3d7d4,
 
     #' @description Initialize the GetInactiveChannelsRequest.
@@ -1946,12 +2000,14 @@ GetInactiveChannelsRequest <- R6::R6Class(
       as.raw(c(0xee, 0x31, 0xe8, 0x11))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetInactiveChannelsRequest.
+# Deserialize from a reader.
+# @name GetInactiveChannelsRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetInactiveChannelsRequest.
 GetInactiveChannelsRequest$from_reader <- function(reader) {
   GetInactiveChannelsRequest$new()
 }
@@ -1959,15 +2015,15 @@ GetInactiveChannelsRequest$from_reader <- function(reader) {
 
 #' @title GetLeftChannelsRequest
 #' @description Represents a request to get left channels with an offset.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field offset The offset for pagination.
 GetLeftChannelsRequest <- R6::R6Class(
   "GetLeftChannelsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8341ecc0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x99d5cb14,
+    #' @field offset Field.
     offset = NULL,
 
     #' @description Initialize the GetLeftChannelsRequest.
@@ -1994,12 +2050,14 @@ GetLeftChannelsRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetLeftChannelsRequest.
+# Deserialize from a reader.
+# @name GetLeftChannelsRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetLeftChannelsRequest.
 GetLeftChannelsRequest$from_reader <- function(reader) {
   offset <- reader$read_int()
   GetLeftChannelsRequest$new(offset = offset)
@@ -2007,17 +2065,17 @@ GetLeftChannelsRequest$from_reader <- function(reader) {
 
 #' @title GetMessageAuthorRequest
 #' @description Represents a request to get the author of a message in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field id The message ID.
 GetMessageAuthorRequest <- R6::R6Class(
   "GetMessageAuthorRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xece2a0e6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2da17977,
+    #' @field channel Field.
     channel = NULL,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize the GetMessageAuthorRequest.
@@ -2055,12 +2113,14 @@ GetMessageAuthorRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetMessageAuthorRequest.
+# Deserialize from a reader.
+# @name GetMessageAuthorRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetMessageAuthorRequest.
 GetMessageAuthorRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   id <- reader$read_int()
@@ -2069,17 +2129,17 @@ GetMessageAuthorRequest$from_reader <- function(reader) {
 
 #' @title GetMessagesRequest
 #' @description Represents a request to get messages from a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field id The list of input messages.
 GetMessagesRequest <- R6::R6Class(
   "GetMessagesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xad8c9a23,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd4b40b5e,
+    #' @field channel Field.
     channel = NULL,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize the GetMessagesRequest.
@@ -2124,12 +2184,14 @@ GetMessagesRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetMessagesRequest.
+# Deserialize from a reader.
+# @name GetMessagesRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetMessagesRequest.
 GetMessagesRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   reader$read_int()
@@ -2144,17 +2206,17 @@ GetMessagesRequest$from_reader <- function(reader) {
 
 #' @title GetParticipantRequest
 #' @description Represents a request to get a participant from a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field participant The input participant.
 GetParticipantRequest <- R6::R6Class(
   "GetParticipantRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa0ab6cc6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6658151a,
+    #' @field channel Field.
     channel = NULL,
+    #' @field participant Field.
     participant = NULL,
 
     #' @description Initialize the GetParticipantRequest.
@@ -2193,12 +2255,14 @@ GetParticipantRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetParticipantRequest.
+# Deserialize from a reader.
+# @name GetParticipantRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetParticipantRequest.
 GetParticipantRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   participant <- reader$tgread_object()
@@ -2207,23 +2271,23 @@ GetParticipantRequest$from_reader <- function(reader) {
 
 #' @title GetParticipantsRequest
 #' @description Represents a request to get participants from a channel with filtering.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field filter The filter for participants.
-#' @field offset The offset for pagination.
-#' @field limit The limit on the number of results.
-#' @field hash The hash for caching.
 GetParticipantsRequest <- R6::R6Class(
   "GetParticipantsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x77ced9d0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe60a6e64,
+    #' @field channel Field.
     channel = NULL,
+    #' @field filter Field.
     filter = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field hash Field.
     hash = NULL,
 
     #' @description Initialize the GetParticipantsRequest.
@@ -2273,12 +2337,14 @@ GetParticipantsRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetParticipantsRequest.
+# Deserialize from a reader.
+# @name GetParticipantsRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetParticipantsRequest.
 GetParticipantsRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   filter <- reader$tgread_object()
@@ -2290,17 +2356,17 @@ GetParticipantsRequest$from_reader <- function(reader) {
 
 #' @title GetSendAsRequest
 #' @description Represents a request to get send-as peers for a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field peer The input peer.
-#' @field for_paid_reactions Whether for paid reactions.
 GetSendAsRequest <- R6::R6Class(
   "GetSendAsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe785a43f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x38cb8d21,
+    #' @field peer Field.
     peer = NULL,
+    #' @field for_paid_reactions Field.
     for_paid_reactions = NULL,
 
     #' @description Initialize the GetSendAsRequest.
@@ -2339,12 +2405,14 @@ GetSendAsRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetSendAsRequest.
+# Deserialize from a reader.
+# @name GetSendAsRequest_from_reader
+# @param reader The reader object.
+# @return An instance of GetSendAsRequest.
 GetSendAsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   for_paid_reactions <- (flags & 1) != 0
@@ -2355,17 +2423,17 @@ GetSendAsRequest$from_reader <- function(reader) {
 
 #' @title InviteToChannelRequest
 #' @description Represents a request to invite users to a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field users The list of input users to invite.
 InviteToChannelRequest <- R6::R6Class(
   "InviteToChannelRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc9e33d54,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3dbe90a1,
+    #' @field channel Field.
     channel = NULL,
+    #' @field users Field.
     users = NULL,
 
     #' @description Initialize the InviteToChannelRequest.
@@ -2410,12 +2478,14 @@ InviteToChannelRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of InviteToChannelRequest.
+# Deserialize from a reader.
+# @name InviteToChannelRequest_from_reader
+# @param reader The reader object.
+# @return An instance of InviteToChannelRequest.
 InviteToChannelRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   reader$read_int()
@@ -2429,15 +2499,15 @@ InviteToChannelRequest$from_reader <- function(reader) {
 
 #' @title JoinChannelRequest
 #' @description Represents a request to join a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
 JoinChannelRequest <- R6::R6Class(
   "JoinChannelRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x24b524c5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
 
     #' @description Initialize the JoinChannelRequest.
@@ -2471,12 +2541,14 @@ JoinChannelRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of JoinChannelRequest.
+# Deserialize from a reader.
+# @name JoinChannelRequest_from_reader
+# @param reader The reader object.
+# @return An instance of JoinChannelRequest.
 JoinChannelRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   JoinChannelRequest$new(channel = channel)
@@ -2484,15 +2556,15 @@ JoinChannelRequest$from_reader <- function(reader) {
 
 #' @title LeaveChannelRequest
 #' @description Represents a request to leave a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
 LeaveChannelRequest <- R6::R6Class(
   "LeaveChannelRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf836aa95,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
 
     #' @description Initialize the LeaveChannelRequest.
@@ -2526,12 +2598,14 @@ LeaveChannelRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of LeaveChannelRequest.
+# Deserialize from a reader.
+# @name LeaveChannelRequest_from_reader
+# @param reader The reader object.
+# @return An instance of LeaveChannelRequest.
 LeaveChannelRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   LeaveChannelRequest$new(channel = channel)
@@ -2540,17 +2614,17 @@ LeaveChannelRequest$from_reader <- function(reader) {
 
 #' @title ReadHistoryRequest
 #' @description Represents a request to read the history of a channel up to a maximum ID.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field max_id The maximum message ID to read up to.
 ReadHistoryRequest <- R6::R6Class(
   "ReadHistoryRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcc104937,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field max_id Field.
     max_id = NULL,
 
     #' @description Initialize the ReadHistoryRequest.
@@ -2588,12 +2662,14 @@ ReadHistoryRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReadHistoryRequest.
+# Deserialize from a reader.
+# @name ReadHistoryRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ReadHistoryRequest.
 ReadHistoryRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   max_id <- reader$read_int()
@@ -2602,17 +2678,17 @@ ReadHistoryRequest$from_reader <- function(reader) {
 
 #' @title ReadMessageContentsRequest
 #' @description Represents a request to read the contents of specific messages in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field id The list of message IDs to read.
 ReadMessageContentsRequest <- R6::R6Class(
   "ReadMessageContentsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xeab5dc38,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize the ReadMessageContentsRequest.
@@ -2652,12 +2728,14 @@ ReadMessageContentsRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReadMessageContentsRequest.
+# Deserialize from a reader.
+# @name ReadMessageContentsRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ReadMessageContentsRequest.
 ReadMessageContentsRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   reader$read_int()
@@ -2672,19 +2750,19 @@ ReadMessageContentsRequest$from_reader <- function(reader) {
 
 #' @title ReorderPinnedForumTopicsRequest
 #' @description Represents a request to reorder pinned forum topics in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field order The list of topic IDs in the new order.
-#' @field force Whether to force the reorder.
 ReorderPinnedForumTopicsRequest <- R6::R6Class(
   "ReorderPinnedForumTopicsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2950a18f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field order Field.
     order = NULL,
+    #' @field force Field.
     force = NULL,
 
     #' @description Initialize the ReorderPinnedForumTopicsRequest.
@@ -2729,12 +2807,14 @@ ReorderPinnedForumTopicsRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReorderPinnedForumTopicsRequest.
+# Deserialize from a reader.
+# @name ReorderPinnedForumTopicsRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ReorderPinnedForumTopicsRequest.
 ReorderPinnedForumTopicsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   force <- (flags & 1) != 0
@@ -2750,17 +2830,17 @@ ReorderPinnedForumTopicsRequest$from_reader <- function(reader) {
 
 #' @title ReorderUsernamesRequest
 #' @description Represents a request to reorder usernames in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field order The list of usernames in the new order.
 ReorderUsernamesRequest <- R6::R6Class(
   "ReorderUsernamesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb45ced1d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field order Field.
     order = NULL,
 
     #' @description Initialize the ReorderUsernamesRequest.
@@ -2800,12 +2880,14 @@ ReorderUsernamesRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReorderUsernamesRequest.
+# Deserialize from a reader.
+# @name ReorderUsernamesRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ReorderUsernamesRequest.
 ReorderUsernamesRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   reader$read_int()
@@ -2819,17 +2901,17 @@ ReorderUsernamesRequest$from_reader <- function(reader) {
 
 #' @title ReportAntiSpamFalsePositiveRequest
 #' @description Represents a request to report an anti-spam false positive in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field msg_id The message ID.
 ReportAntiSpamFalsePositiveRequest <- R6::R6Class(
   "ReportAntiSpamFalsePositiveRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa850a693,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field msg_id Field.
     msg_id = NULL,
 
     #' @description Initialize the ReportAntiSpamFalsePositiveRequest.
@@ -2867,12 +2949,14 @@ ReportAntiSpamFalsePositiveRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReportAntiSpamFalsePositiveRequest.
+# Deserialize from a reader.
+# @name ReportAntiSpamFalsePositiveRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ReportAntiSpamFalsePositiveRequest.
 ReportAntiSpamFalsePositiveRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   msg_id <- reader$read_int()
@@ -2882,19 +2966,19 @@ ReportAntiSpamFalsePositiveRequest$from_reader <- function(reader) {
 
 #' @title ReportSpamRequest
 #' @description Represents a request to report spam in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field participant The input participant.
-#' @field id The list of message IDs.
 ReportSpamRequest <- R6::R6Class(
   "ReportSpamRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf44a8315,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field participant Field.
     participant = NULL,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize the ReportSpamRequest.
@@ -2939,12 +3023,14 @@ ReportSpamRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReportSpamRequest.
+# Deserialize from a reader.
+# @name ReportSpamRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ReportSpamRequest.
 ReportSpamRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   participant <- reader$tgread_object()
@@ -2959,17 +3045,17 @@ ReportSpamRequest$from_reader <- function(reader) {
 
 #' @title RestrictSponsoredMessagesRequest
 #' @description Represents a request to restrict sponsored messages in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field restricted Whether sponsored messages are restricted.
 RestrictSponsoredMessagesRequest <- R6::R6Class(
   "RestrictSponsoredMessagesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9ae91519,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field restricted Field.
     restricted = NULL,
 
     #' @description Initialize the RestrictSponsoredMessagesRequest.
@@ -3007,12 +3093,14 @@ RestrictSponsoredMessagesRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of RestrictSponsoredMessagesRequest.
+# Deserialize from a reader.
+# @name RestrictSponsoredMessagesRequest_from_reader
+# @param reader The reader object.
+# @return An instance of RestrictSponsoredMessagesRequest.
 RestrictSponsoredMessagesRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   restricted <- reader$tgread_bool()
@@ -3022,27 +3110,27 @@ RestrictSponsoredMessagesRequest$from_reader <- function(reader) {
 
 #' @title SearchPostsRequest
 #' @description Represents a request to search for posts with specified parameters.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field offset_rate The offset rate for pagination.
-#' @field offset_peer The offset peer for pagination.
-#' @field offset_id The offset ID for pagination.
-#' @field limit The limit on the number of results.
-#' @field hashtag The hashtag to search for (optional).
-#' @field query The query string to search for (optional).
-#' @field allow_paid_stars The number of allowed paid stars (optional).
 SearchPostsRequest <- R6::R6Class(
   "SearchPostsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf2c4f24d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd4b40b5e,
+    #' @field offset_rate Field.
     offset_rate = NULL,
+    #' @field offset_peer Field.
     offset_peer = NULL,
+    #' @field offset_id Field.
     offset_id = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field hashtag Field.
     hashtag = NULL,
+    #' @field query Field.
     query = NULL,
+    #' @field allow_paid_stars Field.
     allow_paid_stars = NULL,
 
     #' @description Initialize the SearchPostsRequest.
@@ -3104,12 +3192,14 @@ SearchPostsRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of SearchPostsRequest.
+# Deserialize from a reader.
+# @name SearchPostsRequest_from_reader
+# @param reader The reader object.
+# @return An instance of SearchPostsRequest.
 SearchPostsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   hashtag <- if ((flags && 1) != 0) reader$tgread_string() else NULL
@@ -3124,17 +3214,17 @@ SearchPostsRequest$from_reader <- function(reader) {
 
 #' @title SetBoostsToUnblockRestrictionsRequest
 #' @description Represents a request to set the number of boosts to unblock restrictions in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field boosts The number of boosts.
 SetBoostsToUnblockRestrictionsRequest <- R6::R6Class(
   "SetBoostsToUnblockRestrictionsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xad399cee,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field boosts Field.
     boosts = NULL,
 
     #' @description Initialize the SetBoostsToUnblockRestrictionsRequest.
@@ -3172,12 +3262,14 @@ SetBoostsToUnblockRestrictionsRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetBoostsToUnblockRestrictionsRequest.
+# Deserialize from a reader.
+# @name SetBoostsToUnblockRestrictionsRequest_from_reader
+# @param reader The reader object.
+# @return An instance of SetBoostsToUnblockRestrictionsRequest.
 SetBoostsToUnblockRestrictionsRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   boosts <- reader$read_int()
@@ -3187,17 +3279,17 @@ SetBoostsToUnblockRestrictionsRequest$from_reader <- function(reader) {
 
 #' @title SetDiscussionGroupRequest
 #' @description Represents a request to set the discussion group for a broadcast channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field broadcast The input broadcast channel.
-#' @field group The input group channel.
 SetDiscussionGroupRequest <- R6::R6Class(
   "SetDiscussionGroupRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x40582bb2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field broadcast Field.
     broadcast = NULL,
+    #' @field group Field.
     group = NULL,
 
     #' @description Initialize the SetDiscussionGroupRequest.
@@ -3236,12 +3328,14 @@ SetDiscussionGroupRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetDiscussionGroupRequest.
+# Deserialize from a reader.
+# @name SetDiscussionGroupRequest_from_reader
+# @param reader The reader object.
+# @return An instance of SetDiscussionGroupRequest.
 SetDiscussionGroupRequest$from_reader <- function(reader) {
   broadcast <- reader$tgread_object()
   group <- reader$tgread_object()
@@ -3250,17 +3344,17 @@ SetDiscussionGroupRequest$from_reader <- function(reader) {
 
 #' @title SetEmojiStickersRequest
 #' @description Represents a request to set emoji stickers for a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field stickerset The input sticker set.
 SetEmojiStickersRequest <- R6::R6Class(
   "SetEmojiStickersRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3cd930b7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field stickerset Field.
     stickerset = NULL,
 
     #' @description Initialize the SetEmojiStickersRequest.
@@ -3298,12 +3392,14 @@ SetEmojiStickersRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetEmojiStickersRequest.
+# Deserialize from a reader.
+# @name SetEmojiStickersRequest_from_reader
+# @param reader The reader object.
+# @return An instance of SetEmojiStickersRequest.
 SetEmojiStickersRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   stickerset <- reader$tgread_object()
@@ -3312,17 +3408,17 @@ SetEmojiStickersRequest$from_reader <- function(reader) {
 
 #' @title SetMainProfileTabRequest
 #' @description Represents a request to set the main profile tab for a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field tab The profile tab.
 SetMainProfileTabRequest <- R6::R6Class(
   "SetMainProfileTabRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3583fcb1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field tab Field.
     tab = NULL,
 
     #' @description Initialize the SetMainProfileTabRequest.
@@ -3360,12 +3456,14 @@ SetMainProfileTabRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetMainProfileTabRequest.
+# Deserialize from a reader.
+# @name SetMainProfileTabRequest_from_reader
+# @param reader The reader object.
+# @return An instance of SetMainProfileTabRequest.
 SetMainProfileTabRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   tab <- reader$tgread_object()
@@ -3375,17 +3473,17 @@ SetMainProfileTabRequest$from_reader <- function(reader) {
 
 #' @title SetStickersRequest
 #' @description Represents a request to set stickers for a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field stickerset The input sticker set.
 SetStickersRequest <- R6::R6Class(
   "SetStickersRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xea8ca4f9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field stickerset Field.
     stickerset = NULL,
 
     #' @description Initialize the SetStickersRequest.
@@ -3423,12 +3521,14 @@ SetStickersRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetStickersRequest.
+# Deserialize from a reader.
+# @name SetStickersRequest_from_reader
+# @param reader The reader object.
+# @return An instance of SetStickersRequest.
 SetStickersRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   stickerset <- reader$tgread_object()
@@ -3437,17 +3537,17 @@ SetStickersRequest$from_reader <- function(reader) {
 
 #' @title ToggleAntiSpamRequest
 #' @description Represents a request to toggle anti-spam in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field enabled Whether anti-spam is enabled.
 ToggleAntiSpamRequest <- R6::R6Class(
   "ToggleAntiSpamRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x68f3e4eb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field enabled Field.
     enabled = NULL,
 
     #' @description Initialize the ToggleAntiSpamRequest.
@@ -3485,12 +3585,14 @@ ToggleAntiSpamRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleAntiSpamRequest.
+# Deserialize from a reader.
+# @name ToggleAntiSpamRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ToggleAntiSpamRequest.
 ToggleAntiSpamRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -3499,17 +3601,17 @@ ToggleAntiSpamRequest$from_reader <- function(reader) {
 
 #' @title ToggleAutotranslationRequest
 #' @description Represents a request to toggle autotranslation in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field enabled Whether autotranslation is enabled.
 ToggleAutotranslationRequest <- R6::R6Class(
   "ToggleAutotranslationRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x167fc0a1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field enabled Field.
     enabled = NULL,
 
     #' @description Initialize the ToggleAutotranslationRequest.
@@ -3547,12 +3649,14 @@ ToggleAutotranslationRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleAutotranslationRequest.
+# Deserialize from a reader.
+# @name ToggleAutotranslationRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ToggleAutotranslationRequest.
 ToggleAutotranslationRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -3562,19 +3666,19 @@ ToggleAutotranslationRequest$from_reader <- function(reader) {
 
 #' @title ToggleForumRequest
 #' @description Represents a request to toggle the forum feature in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field enabled Whether the forum is enabled.
-#' @field tabs Whether tabs are enabled.
 ToggleForumRequest <- R6::R6Class(
   "ToggleForumRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3ff75734,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field enabled Field.
     enabled = NULL,
+    #' @field tabs Field.
     tabs = NULL,
 
     #' @description Initialize the ToggleForumRequest.
@@ -3616,12 +3720,14 @@ ToggleForumRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleForumRequest.
+# Deserialize from a reader.
+# @name ToggleForumRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ToggleForumRequest.
 ToggleForumRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -3631,17 +3737,17 @@ ToggleForumRequest$from_reader <- function(reader) {
 
 #' @title ToggleJoinRequestRequest
 #' @description Represents a request to toggle join requests in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field enabled Whether join requests are enabled.
 ToggleJoinRequestRequest <- R6::R6Class(
   "ToggleJoinRequestRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4c2985b6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field enabled Field.
     enabled = NULL,
 
     #' @description Initialize the ToggleJoinRequestRequest.
@@ -3679,12 +3785,14 @@ ToggleJoinRequestRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleJoinRequestRequest.
+# Deserialize from a reader.
+# @name ToggleJoinRequestRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ToggleJoinRequestRequest.
 ToggleJoinRequestRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -3693,17 +3801,17 @@ ToggleJoinRequestRequest$from_reader <- function(reader) {
 
 #' @title ToggleJoinToSendRequest
 #' @description Represents a request to toggle join to send in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field enabled Whether join to send is enabled.
 ToggleJoinToSendRequest <- R6::R6Class(
   "ToggleJoinToSendRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe4cb9580,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field enabled Field.
     enabled = NULL,
 
     #' @description Initialize the ToggleJoinToSendRequest.
@@ -3741,12 +3849,14 @@ ToggleJoinToSendRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleJoinToSendRequest.
+# Deserialize from a reader.
+# @name ToggleJoinToSendRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ToggleJoinToSendRequest.
 ToggleJoinToSendRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -3756,17 +3866,17 @@ ToggleJoinToSendRequest$from_reader <- function(reader) {
 
 #' @title ToggleParticipantsHiddenRequest
 #' @description Represents a request to toggle the hidden status of participants in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field enabled Whether the feature is enabled.
 ToggleParticipantsHiddenRequest <- R6::R6Class(
   "ToggleParticipantsHiddenRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6a6e7854,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field enabled Field.
     enabled = NULL,
 
     #' @description Initialize the ToggleParticipantsHiddenRequest.
@@ -3804,12 +3914,14 @@ ToggleParticipantsHiddenRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleParticipantsHiddenRequest.
+# Deserialize from a reader.
+# @name ToggleParticipantsHiddenRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ToggleParticipantsHiddenRequest.
 ToggleParticipantsHiddenRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -3818,17 +3930,17 @@ ToggleParticipantsHiddenRequest$from_reader <- function(reader) {
 
 #' @title TogglePreHistoryHiddenRequest
 #' @description Represents a request to toggle the hidden status of pre-history in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field enabled Whether the feature is enabled.
 TogglePreHistoryHiddenRequest <- R6::R6Class(
   "TogglePreHistoryHiddenRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xeabbb94c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field enabled Field.
     enabled = NULL,
 
     #' @description Initialize the TogglePreHistoryHiddenRequest.
@@ -3866,12 +3978,14 @@ TogglePreHistoryHiddenRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of TogglePreHistoryHiddenRequest.
+# Deserialize from a reader.
+# @name TogglePreHistoryHiddenRequest_from_reader
+# @param reader The reader object.
+# @return An instance of TogglePreHistoryHiddenRequest.
 TogglePreHistoryHiddenRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -3880,19 +3994,19 @@ TogglePreHistoryHiddenRequest$from_reader <- function(reader) {
 
 #' @title ToggleSignaturesRequest
 #' @description Represents a request to toggle signatures in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field signatures_enabled Whether signatures are enabled.
-#' @field profiles_enabled Whether profiles are enabled.
 ToggleSignaturesRequest <- R6::R6Class(
   "ToggleSignaturesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x418d549c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field signatures_enabled Field.
     signatures_enabled = NULL,
+    #' @field profiles_enabled Field.
     profiles_enabled = NULL,
 
     #' @description Initialize the ToggleSignaturesRequest.
@@ -3935,12 +4049,14 @@ ToggleSignaturesRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleSignaturesRequest.
+# Deserialize from a reader.
+# @name ToggleSignaturesRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ToggleSignaturesRequest.
 ToggleSignaturesRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   signatures_enabled <- (flags & 1) != 0
@@ -3952,17 +4068,17 @@ ToggleSignaturesRequest$from_reader <- function(reader) {
 
 #' @title ToggleSlowModeRequest
 #' @description Represents a request to toggle slow mode in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field seconds The number of seconds for slow mode.
 ToggleSlowModeRequest <- R6::R6Class(
   "ToggleSlowModeRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xedd49ef0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field seconds Field.
     seconds = NULL,
 
     #' @description Initialize the ToggleSlowModeRequest.
@@ -4000,12 +4116,14 @@ ToggleSlowModeRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleSlowModeRequest.
+# Deserialize from a reader.
+# @name ToggleSlowModeRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ToggleSlowModeRequest.
 ToggleSlowModeRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   seconds <- reader$read_int()
@@ -4014,19 +4132,19 @@ ToggleSlowModeRequest$from_reader <- function(reader) {
 
 #' @title ToggleUsernameRequest
 #' @description Represents a request to toggle the active status of a username in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field username The username.
-#' @field active Whether the username is active.
 ToggleUsernameRequest <- R6::R6Class(
   "ToggleUsernameRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x50f24105,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field username Field.
     username = NULL,
+    #' @field active Field.
     active = NULL,
 
     #' @description Initialize the ToggleUsernameRequest.
@@ -4068,12 +4186,14 @@ ToggleUsernameRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleUsernameRequest.
+# Deserialize from a reader.
+# @name ToggleUsernameRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ToggleUsernameRequest.
 ToggleUsernameRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   username <- reader$tgread_string()
@@ -4083,17 +4203,17 @@ ToggleUsernameRequest$from_reader <- function(reader) {
 
 #' @title ToggleViewForumAsMessagesRequest
 #' @description Represents a request to toggle viewing a forum as messages in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field enabled Whether the feature is enabled.
 ToggleViewForumAsMessagesRequest <- R6::R6Class(
   "ToggleViewForumAsMessagesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9738bb15,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field enabled Field.
     enabled = NULL,
 
     #' @description Initialize the ToggleViewForumAsMessagesRequest.
@@ -4131,12 +4251,14 @@ ToggleViewForumAsMessagesRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleViewForumAsMessagesRequest.
+# Deserialize from a reader.
+# @name ToggleViewForumAsMessagesRequest_from_reader
+# @param reader The reader object.
+# @return An instance of ToggleViewForumAsMessagesRequest.
 ToggleViewForumAsMessagesRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -4146,21 +4268,21 @@ ToggleViewForumAsMessagesRequest$from_reader <- function(reader) {
 
 #' @title UpdateColorRequest
 #' @description Represents a request to update the color settings of a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field for_profile Whether the color is for the profile.
-#' @field color The color value.
-#' @field background_emoji_id The background emoji ID.
 UpdateColorRequest <- R6::R6Class(
   "UpdateColorRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd8aa3671,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field for_profile Field.
     for_profile = NULL,
+    #' @field color Field.
     color = NULL,
+    #' @field background_emoji_id Field.
     background_emoji_id = NULL,
 
     #' @description Initialize the UpdateColorRequest.
@@ -4209,12 +4331,14 @@ UpdateColorRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of UpdateColorRequest.
+# Deserialize from a reader.
+# @name UpdateColorRequest_from_reader
+# @param reader The reader object.
+# @return An instance of UpdateColorRequest.
 UpdateColorRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   for_profile <- (flags & 2) != 0
@@ -4226,17 +4350,17 @@ UpdateColorRequest$from_reader <- function(reader) {
 
 #' @title UpdateEmojiStatusRequest
 #' @description Represents a request to update the emoji status of a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field emoji_status The emoji status.
 UpdateEmojiStatusRequest <- R6::R6Class(
   "UpdateEmojiStatusRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf0d3e6a8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field emoji_status Field.
     emoji_status = NULL,
 
     #' @description Initialize the UpdateEmojiStatusRequest.
@@ -4274,12 +4398,14 @@ UpdateEmojiStatusRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of UpdateEmojiStatusRequest.
+# Deserialize from a reader.
+# @name UpdateEmojiStatusRequest_from_reader
+# @param reader The reader object.
+# @return An instance of UpdateEmojiStatusRequest.
 UpdateEmojiStatusRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   emoji_status <- reader$tgread_object()
@@ -4288,19 +4414,19 @@ UpdateEmojiStatusRequest$from_reader <- function(reader) {
 
 #' @title UpdatePaidMessagesPriceRequest
 #' @description Represents a request to update the paid messages price for a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field send_paid_messages_stars The number of stars for paid messages.
-#' @field broadcast_messages_allowed Whether broadcast messages are allowed.
 UpdatePaidMessagesPriceRequest <- R6::R6Class(
   "UpdatePaidMessagesPriceRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4b12327b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field send_paid_messages_stars Field.
     send_paid_messages_stars = NULL,
+    #' @field broadcast_messages_allowed Field.
     broadcast_messages_allowed = NULL,
 
     #' @description Initialize the UpdatePaidMessagesPriceRequest.
@@ -4343,12 +4469,14 @@ UpdatePaidMessagesPriceRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of UpdatePaidMessagesPriceRequest.
+# Deserialize from a reader.
+# @name UpdatePaidMessagesPriceRequest_from_reader
+# @param reader The reader object.
+# @return An instance of UpdatePaidMessagesPriceRequest.
 UpdatePaidMessagesPriceRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   broadcast_messages_allowed <- (flags & 1) != 0
@@ -4360,19 +4488,19 @@ UpdatePaidMessagesPriceRequest$from_reader <- function(reader) {
 
 #' @title UpdatePinnedForumTopicRequest
 #' @description Represents a request to update the pinned status of a forum topic in a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field topic_id The ID of the topic.
-#' @field pinned Whether the topic is pinned.
 UpdatePinnedForumTopicRequest <- R6::R6Class(
   "UpdatePinnedForumTopicRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6c2d9026,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field topic_id Field.
     topic_id = NULL,
+    #' @field pinned Field.
     pinned = NULL,
 
     #' @description Initialize the UpdatePinnedForumTopicRequest.
@@ -4414,12 +4542,14 @@ UpdatePinnedForumTopicRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of UpdatePinnedForumTopicRequest.
+# Deserialize from a reader.
+# @name UpdatePinnedForumTopicRequest_from_reader
+# @param reader The reader object.
+# @return An instance of UpdatePinnedForumTopicRequest.
 UpdatePinnedForumTopicRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   topic_id <- reader$read_int()
@@ -4429,17 +4559,17 @@ UpdatePinnedForumTopicRequest$from_reader <- function(reader) {
 
 #' @title UpdateUsernameRequest
 #' @description Represents a request to update the username of a channel.
-#' @field CONSTRUCTOR_ID The constructor ID for this request.
-#' @field SUBCLASS_OF_ID The subclass ID for this request.
-#' @field channel The input channel.
-#' @field username The new username.
 UpdateUsernameRequest <- R6::R6Class(
   "UpdateUsernameRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3514b3de,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field channel Field.
     channel = NULL,
+    #' @field username Field.
     username = NULL,
 
     #' @description Initialize the UpdateUsernameRequest.
@@ -4477,12 +4607,14 @@ UpdateUsernameRequest <- R6::R6Class(
       )
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Deserialize from a reader.
-#' @param reader The reader object.
-#' @return An instance of UpdateUsernameRequest.
+# Deserialize from a reader.
+# @name UpdateUsernameRequest_from_reader
+# @param reader The reader object.
+# @return An instance of UpdateUsernameRequest.
 UpdateUsernameRequest$from_reader <- function(reader) {
   channel <- reader$tgread_object()
   username <- reader$tgread_string()

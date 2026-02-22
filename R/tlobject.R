@@ -226,9 +226,6 @@ serialize_datetime <- function(dt) {
 
 #' TLObject Class
 #'
-#' @description
-#' A base class for all Telegram Layer (TL) objects. This class provides common methods
-#' for serialization, deserialization, and representation of TL objects.
 #'
 #' @title TLObject
 #' @description Telegram API type TLObject
@@ -258,6 +255,7 @@ TLObject <- R6::R6Class(
             sapply(names(obj), function(k) {
               paste0(k, "=", self$pretty_format(obj[[k]]))
             }),
+            #' @field collapse Field.
             collapse = ", "
           ), "}"))
         } else if (is.character(obj) || is.raw(obj)) {
@@ -265,6 +263,7 @@ TLObject <- R6::R6Class(
         } else if (is.vector(obj)) {
           return(paste0("[", paste(
             sapply(obj, self$pretty_format),
+            #' @field collapse Field.
             collapse = ", "
           ), "]"))
         } else {
@@ -283,6 +282,7 @@ TLObject <- R6::R6Class(
               result <- append(result, list(
                 paste0(
                   rep("\t", indent),
+                  #' @field collapse Field.
                   collapse = "",
                   k,
                   "=",
@@ -303,6 +303,7 @@ TLObject <- R6::R6Class(
           for (x in obj) {
             result <- append(result, list(paste0(
               rep("\t", indent),
+              #' @field collapse Field.
               collapse = "",
               self$pretty_format(x, indent),
               ","
@@ -448,9 +449,6 @@ TLObject <- R6::R6Class(
 
 #' TLRequest Class
 #'
-#' @description
-#' A class representing a Telegram Layer (TL) request. This class extends the `TLObject` class
-#' and provides methods for reading results and resolving requests.
 #'
 #' @title TLRequest
 #' @description Telegram API type TLRequest
@@ -481,9 +479,6 @@ TLRequest <- R6::R6Class(
 
 #' PQInnerData Class
 #'
-#' @description
-#' A class representing the `PQInnerData` object. This class is used to handle
-#' the serialization and deserialization of the `PQInnerData` object.
 #'
 #' @title PQInnerData
 #' @description Telegram API type PQInnerData
@@ -585,9 +580,6 @@ PQInnerData <- R6::R6Class(
 
 #' ClientDHInnerData Class
 #'
-#' @description
-#' A class representing the `ClientDHInnerData` object. This class is used to handle
-#' the serialization and deserialization of the `ClientDHInnerData` object.
 #'
 #' @title ClientDHInnerData
 #' @description Telegram API type ClientDHInnerData
@@ -673,9 +665,6 @@ ClientDHInnerData <- R6::R6Class(
 
 #' SetClientDHParamsRequest Class
 #'
-#' @description
-#' A class representing the `SetClientDHParamsRequest` object. This class is used to handle
-#' the serialization and deserialization of the `SetClientDHParamsRequest` object.
 #'
 #' @title SetClientDHParamsRequest
 #' @description Telegram API type SetClientDHParamsRequest
@@ -738,11 +727,8 @@ SetClientDHParamsRequest <- R6::R6Class(
     }
   ),
   private = list(
-    #' @description
     #' Create a new object from a binary reader.
     #'
-    #' @param reader A binary reader object.
-    #' @return A new `SetClientDHParamsRequest` object created from the binary reader.
     from_reader = function(reader) {
       nonce <- reader$read_large_int(bits = 128)
       server_nonce <- reader$read_large_int(bits = 128)
@@ -754,9 +740,6 @@ SetClientDHParamsRequest <- R6::R6Class(
 
 #' ReqPqMultiRequest Class
 #'
-#' @description
-#' A class representing the `ReqPqMultiRequest` object. This class is used to handle
-#' the serialization and deserialization of the `ReqPqMultiRequest` object.
 #'
 #' @title ReqPqMultiRequest
 #' @description Telegram API type ReqPqMultiRequest
@@ -805,11 +788,8 @@ ReqPqMultiRequest <- R6::R6Class(
     }
   ),
   private = list(
-    #' @description
     #' Create a new object from a binary reader.
     #'
-    #' @param reader A binary reader object.
-    #' @return A new `ReqPqMultiRequest` object created from the binary reader.
     from_reader = function(reader) {
       nonce <- reader$read_large_int(bits = 128)
       self$new(nonce = nonce)
@@ -819,9 +799,6 @@ ReqPqMultiRequest <- R6::R6Class(
 
 #' ReqDHParamsRequest Class
 #'
-#' @description
-#' A class representing the `ReqDHParamsRequest` object. This class is used to handle
-#' the serialization and deserialization of the `ReqDHParamsRequest` object.
 #'
 #' @title ReqDHParamsRequest
 #' @description Telegram API type ReqDHParamsRequest
@@ -905,11 +882,8 @@ ReqDHParamsRequest <- R6::R6Class(
     }
   ),
   private = list(
-    #' @description
     #' Create a new object from a binary reader.
     #'
-    #' @param reader A binary reader object.
-    #' @return A new `ReqDHParamsRequest` object created from the binary reader.
     from_reader = function(reader) {
       nonce <- reader$read_large_int(bits = 128)
       server_nonce <- reader$read_large_int(bits = 128)
@@ -931,9 +905,6 @@ ReqDHParamsRequest <- R6::R6Class(
 
 #' InputPeerEmpty Class
 #'
-#' @description
-#' A class representing the `InputPeerEmpty` object. This class is used to handle
-#' the serialization and deserialization of the `InputPeerEmpty` object.
 #'
 #' @title InputPeerEmpty
 #' @description Telegram API type InputPeerEmpty
@@ -965,10 +936,7 @@ InputPeerEmpty <- R6::R6Class(
     }
   ),
   private = list(
-    #' @description
     #' Create a new object from a binary reader.
-    #' @param reader A binary reader object.
-    #' @return A new `InputPeerEmpty` object created from the binary reader.
     from_reader = function(reader) {
       self$new()
     }

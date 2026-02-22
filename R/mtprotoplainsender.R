@@ -1,7 +1,5 @@
 #' This module contains the class used to communicate with Telegram's servers
 #' in plain text, when no authorization key has been created yet.
-#' @description
-#' MTProto Mobile Protocol plain sender  - (https://core.telegram.org/mtproto/description#unencrypted-messages)
 #' @title MTProtoPlainSender
 #' @description Telegram API type MTProtoPlainSender
 #' @export

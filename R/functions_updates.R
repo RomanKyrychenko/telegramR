@@ -2,21 +2,21 @@
 #'
 #' Representation of updates.GetChannelDifference request.
 #'
-#' @field channel TypeInputChannel Input channel (R6 object with bytes() or raw())
-#' @field filter TypeChannelMessagesFilter Filter (R6 object with bytes() or raw())
-#' @field pts integer PTS
-#' @field limit integer Limit
-#' @field force logical|NULL Optional force flag
 #' @title GetChannelDifferenceRequest
 #' @description Telegram API type GetChannelDifferenceRequest
 #' @export
 GetChannelDifferenceRequest <- R6::R6Class(
   "GetChannelDifferenceRequest",
   public = list(
+    #' @field channel Field.
     channel = NULL,
+    #' @field filter Field.
     filter = NULL,
+    #' @field pts Field.
     pts = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field force Field.
     force = NULL,
 
     #' @description Initializes a new GetChannelDifferenceRequest.
@@ -119,23 +119,23 @@ GetChannelDifferenceRequest$set("public", "from_reader", function(reader) {
 #'
 #' Representation of updates.GetDifference request.
 #'
-#' @field pts integer Current pts
-#' @field date POSIXct|NULL Date
-#' @field qts integer QTS
-#' @field pts_limit integer|NULL Optional pts_limit
-#' @field pts_total_limit integer|NULL Optional pts_total_limit
-#' @field qts_limit integer|NULL Optional qts_limit
 #' @title GetDifferenceRequest
 #' @description Telegram API type GetDifferenceRequest
 #' @export
 GetDifferenceRequest <- R6::R6Class(
   "GetDifferenceRequest",
   public = list(
+    #' @field pts Field.
     pts = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field qts Field.
     qts = NULL,
+    #' @field pts_limit Field.
     pts_limit = NULL,
+    #' @field pts_total_limit Field.
     pts_total_limit = NULL,
+    #' @field qts_limit Field.
     qts_limit = NULL,
 
     #' @description Converts the request to a list representation.

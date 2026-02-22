@@ -73,6 +73,7 @@ DirectDownloadIter <- R6::R6Class(
       future({
         if (is.null(cdn_redirect)) {
           self$request <- list(
+            #' @field type Field.
             type = "GetFileRequest",
             file = file,
             offset = offset,
@@ -81,6 +82,7 @@ DirectDownloadIter <- R6::R6Class(
           self$client <- self$client
         } else {
           self$request <- list(
+            #' @field type Field.
             type = "GetCdnFileRequest",
             file_token = cdn_redirect$file_token,
             offset = offset,
@@ -170,6 +172,7 @@ DirectDownloadIter <- R6::R6Class(
               self$client$call(
                 self$client$sender,
                 list(
+                  #' @field type Field.
                   type = "ReuploadCdnFileRequest",
                   file_token = self$cdn_redirect$file_token,
                   request_token = result$request_token

@@ -2,9 +2,6 @@
 #'
 #' TLRequest: GetDifferenceRequest
 #'
-#' @field lang_pack character Language pack identifier
-#' @field lang_code character Language code
-#' @field from_version integer Version to get difference from
 #' @title GetDifferenceRequest
 #' @description Telegram API type GetDifferenceRequest
 #' @export
@@ -13,8 +10,11 @@ GetDifferenceRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field lang_pack Field.
     lang_pack = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
+    #' @field from_version Field.
     from_version = NULL,
 
     #' @description Initialize GetDifferenceRequest
@@ -67,8 +67,6 @@ GetDifferenceRequest <- R6::R6Class(
 #'
 #' TLRequest: GetLangPackRequest
 #'
-#' @field lang_pack character Language pack identifier
-#' @field lang_code character Language code
 #' @title GetLangPackRequest
 #' @description Telegram API type GetLangPackRequest
 #' @export
@@ -76,7 +74,9 @@ GetLangPackRequest <- R6::R6Class(
   "GetLangPackRequest",
   inherit = TLRequest,
   public = list(
+    #' @field lang_pack Field.
     lang_pack = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
 
     #' @description Initialize GetLangPackRequest
@@ -118,8 +118,6 @@ GetLangPackRequest <- R6::R6Class(
 #'
 #' TLRequest: GetLanguageRequest
 #'
-#' @field lang_pack character Language pack identifier
-#' @field lang_code character Language code
 #' @title GetLanguageRequest
 #' @description Telegram API type GetLanguageRequest
 #' @export
@@ -128,7 +126,9 @@ GetLanguageRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field lang_pack Field.
     lang_pack = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
 
     #' @description Initialize GetLanguageRequest
@@ -171,7 +171,6 @@ GetLanguageRequest <- R6::R6Class(
 #'
 #' TLRequest: GetLanguagesRequest
 #'
-#' @field lang_pack character Language pack identifier
 #' @title GetLanguagesRequest
 #' @description Telegram API type GetLanguagesRequest
 #' @export
@@ -180,6 +179,7 @@ GetLanguagesRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field lang_pack Field.
     lang_pack = NULL,
 
     #' @description Initialize GetLanguagesRequest
@@ -217,9 +217,6 @@ GetLanguagesRequest <- R6::R6Class(
 #'
 #' TLRequest: GetStringsRequest
 #'
-#' @field lang_pack character Language pack identifier
-#' @field lang_code character Language code
-#' @field keys character Vector of keys to request
 #' @title GetStringsRequest
 #' @description Telegram API type GetStringsRequest
 #' @export
@@ -228,8 +225,11 @@ GetStringsRequest <- R6::R6Class(
   inherit = TLRequest,
   public = list(
 
+    #' @field lang_pack Field.
     lang_pack = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
+    #' @field keys Field.
     keys = NULL,
 
     #' @description Initialize GetStringsRequest

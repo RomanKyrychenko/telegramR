@@ -208,8 +208,6 @@ generate_key_data_from_nonce <- function(server_nonce, new_nonce) {
 
 #' TotalList R6 class
 #'
-#' @description
-#' A simple R6 container that stores a list of items and maintains a numeric total.
 #'
 #' @details
 #' The class keeps arbitrary R objects in the `items` field and a scalar numeric `total`
@@ -255,9 +253,6 @@ TotalList <- R6::R6Class(
 
 #' FileStream Class
 #' A class to handle file streams from various sources.
-#' @description
-#' This class can handle file paths, raw vectors, and connections. It provides
-#' methods to read data, close the stream, and get file size and name.
 #' @title FileStream
 #' @description Telegram API type FileStream
 #' @export

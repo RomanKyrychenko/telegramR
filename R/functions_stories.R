@@ -11,10 +11,14 @@ ActivateStealthModeRequest <- R6::R6Class(
   "ActivateStealthModeRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x57bbd166,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
 
+    #' @field past Field.
     past = NULL,
+    #' @field future Field.
     future = NULL,
 
     #' @description Initialize ActivateStealthModeRequest
@@ -90,9 +94,12 @@ CanSendStoryRequest <- R6::R6Class(
   "CanSendStoryRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x30eb63f0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcb53a298,
 
+    #' @field peer Field.
     peer = NULL,
 
     #' @description Initialize CanSendStoryRequest
@@ -176,11 +183,16 @@ CreateAlbumRequest <- R6::R6Class(
   "CreateAlbumRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa36396e5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7c8c5ea2,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field stories Field.
     stories = NULL,
 
     #' @description Initialize CreateAlbumRequest
@@ -299,10 +311,14 @@ DeleteAlbumRequest <- R6::R6Class(
   "DeleteAlbumRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8d3456d0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field album_id Field.
     album_id = NULL,
 
     #' @description Initialize DeleteAlbumRequest
@@ -391,10 +407,14 @@ DeleteStoriesRequest <- R6::R6Class(
   "DeleteStoriesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xae59db5f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5026710f,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize DeleteStoriesRequest
@@ -519,15 +539,24 @@ EditStoryRequest <- R6::R6Class(
   "EditStoryRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb583ba46,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
+    #' @field media Field.
     media = NULL,
+    #' @field media_areas Field.
     media_areas = NULL,
+    #' @field caption Field.
     caption = NULL,
+    #' @field entities Field.
     entities = NULL,
+    #' @field privacy_rules Field.
     privacy_rules = NULL,
 
     #' @description Initialize EditStoryRequest
@@ -765,10 +794,14 @@ ExportStoryLinkRequest <- R6::R6Class(
   "ExportStoryLinkRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7b8def20,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x0fc541a6,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize ExportStoryLinkRequest
@@ -859,12 +892,18 @@ GetAlbumStoriesRequest <- R6::R6Class(
   "GetAlbumStoriesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xac806d61,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x251c0c2c,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field album_id Field.
     album_id = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
 
     #' @description Initialize GetAlbumStoriesRequest
@@ -961,10 +1000,14 @@ GetAlbumsRequest <- R6::R6Class(
   "GetAlbumsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x25b3eac7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x05a73d39,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field hash Field.
     hash = NULL,
 
     #' @description Initialize GetAlbumsRequest
@@ -1050,7 +1093,9 @@ GetAllReadPeerStoriesRequest <- R6::R6Class(
   "GetAllReadPeerStoriesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9b5ae7f9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
 
 
@@ -1098,11 +1143,15 @@ GetAllStoriesRequest <- R6::R6Class(
   "GetAllStoriesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xeeb0d625,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7e60d0cd,
 
     .next = NULL,
+    #' @field hidden Field.
     hidden = NULL,
+    #' @field state Field.
     state = NULL,
 
     #' @description Initialize GetAllStoriesRequest
@@ -1193,7 +1242,9 @@ GetChatsToSendRequest <- R6::R6Class(
   "GetChatsToSendRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa56a8b60,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x99d5cb14,
 
 
@@ -1238,9 +1289,12 @@ GetPeerMaxIDsRequest <- R6::R6Class(
   "GetPeerMaxIDsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x535983c3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5026710f,
 
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize GetPeerMaxIDsRequest
@@ -1352,9 +1406,12 @@ GetPeerStoriesRequest <- R6::R6Class(
   "GetPeerStoriesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2c4ada50,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9d56cfd0,
 
+    #' @field peer Field.
     peer = NULL,
 
     #' @description Initialize GetPeerStoriesRequest
@@ -1432,11 +1489,16 @@ GetPinnedStoriesRequest <- R6::R6Class(
   "GetPinnedStoriesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5821a5dc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x251c0c2c,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field offset_id Field.
     offset_id = NULL,
+    #' @field limit Field.
     limit = NULL,
 
     #' @description Initialize GetPinnedStoriesRequest
@@ -1527,11 +1589,16 @@ GetStoriesArchiveRequest <- R6::R6Class(
   "GetStoriesArchiveRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb4352016,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x251c0c2c,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field offset_id Field.
     offset_id = NULL,
+    #' @field limit Field.
     limit = NULL,
 
     #' @description Initialize GetStoriesArchiveRequest
@@ -1622,10 +1689,14 @@ GetStoriesByIDRequest <- R6::R6Class(
   "GetStoriesByIDRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5774ca74,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x251c0c2c,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize GetStoriesByIDRequest
@@ -1725,10 +1796,14 @@ GetStoriesViewsRequest <- R6::R6Class(
   "GetStoriesViewsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x28e16cc8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4b3fc4ba,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize GetStoriesViewsRequest
@@ -1825,14 +1900,22 @@ GetStoryReactionsListRequest <- R6::R6Class(
   "GetStoryReactionsListRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb9b2881f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x046f91e3,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field forwards_first Field.
     forwards_first = NULL,
+    #' @field reaction Field.
     reaction = NULL,
+    #' @field offset Field.
     offset = NULL,
 
     #' @description Initialize GetStoryReactionsListRequest
@@ -1976,16 +2059,26 @@ GetStoryViewsListRequest <- R6::R6Class(
   "GetStoryViewsListRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7ed23c57,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb9437560,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field just_contacts Field.
     just_contacts = NULL,
+    #' @field reactions_first Field.
     reactions_first = NULL,
+    #' @field forwards_first Field.
     forwards_first = NULL,
+    #' @field q Field.
     q = NULL,
 
     #' @description Initialize GetStoryViewsListRequest
@@ -2134,10 +2227,14 @@ IncrementStoryViewsRequest <- R6::R6Class(
   "IncrementStoryViewsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb2028afb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize IncrementStoryViewsRequest
@@ -2236,10 +2333,14 @@ ReadStoriesRequest <- R6::R6Class(
   "ReadStoriesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa556dac8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5026710f,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field max_id Field.
     max_id = NULL,
 
     #' @description Initialize ReadStoriesRequest
@@ -2337,10 +2438,14 @@ ReorderAlbumsRequest <- R6::R6Class(
   "ReorderAlbumsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8535fbd9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field order Field.
     order = NULL,
 
     #' @description Initialize ReorderAlbumsRequest
@@ -2438,12 +2543,18 @@ ReportRequest <- R6::R6Class(
   "ReportRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x19d8eb45,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xacd3f438,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
+    #' @field option Field.
     option = NULL,
+    #' @field message Field.
     message = NULL,
 
     #' @description Initialize ReportRequest
@@ -2573,13 +2684,20 @@ SearchPostsRequest <- R6::R6Class(
   "SearchPostsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd1810907,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x17790b35,
 
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field hashtag Field.
     hashtag = NULL,
+    #' @field area Field.
     area = NULL,
+    #' @field peer Field.
     peer = NULL,
 
     #' @description Initialize SearchPostsRequest
@@ -2710,12 +2828,18 @@ SendReactionRequest <- R6::R6Class(
   "SendReactionRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7fd736b2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field story_id Field.
     story_id = NULL,
+    #' @field reaction Field.
     reaction = NULL,
+    #' @field add_to_recent Field.
     add_to_recent = NULL,
 
     #' @description Initialize SendReactionRequest
@@ -2835,22 +2959,38 @@ SendStoryRequest <- R6::R6Class(
   "SendStoryRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x737fc2ec,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field media Field.
     media = NULL,
+    #' @field privacy_rules Field.
     privacy_rules = NULL,
+    #' @field pinned Field.
     pinned = NULL,
+    #' @field noforwards Field.
     noforwards = NULL,
+    #' @field fwd_modified Field.
     fwd_modified = NULL,
+    #' @field media_areas Field.
     media_areas = NULL,
+    #' @field caption Field.
     caption = NULL,
+    #' @field entities Field.
     entities = NULL,
+    #' @field random_id Field.
     random_id = NULL,
+    #' @field period Field.
     period = NULL,
+    #' @field fwd_from_id Field.
     fwd_from_id = NULL,
+    #' @field fwd_from_story Field.
     fwd_from_story = NULL,
+    #' @field albums Field.
     albums = NULL,
 
     #' @description Initialize SendStoryRequest
@@ -3165,9 +3305,12 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
   "ToggleAllStoriesHiddenRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7c2557c4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
+    #' @field hidden Field.
     hidden = NULL,
 
     #' @description Initialize ToggleAllStoriesHiddenRequest
@@ -3229,10 +3372,14 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
   "TogglePeerStoriesHiddenRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbd0415c4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field hidden Field.
     hidden = NULL,
 
     #' @description Initialize TogglePeerStoriesHiddenRequest
@@ -3322,11 +3469,16 @@ TogglePinnedRequest <- R6::R6Class(
   "TogglePinnedRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9a75a1ef,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5026710f,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
+    #' @field pinned Field.
     pinned = NULL,
 
     #' @description Initialize TogglePinnedRequest
@@ -3451,10 +3603,14 @@ TogglePinnedToTopRequest <- R6::R6Class(
   "TogglePinnedToTopRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x0b297e9b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize TogglePinnedToTopRequest
@@ -3555,13 +3711,21 @@ UpdateAlbumRequest <- R6::R6Class(
   "UpdateAlbumRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5e5259b6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7c8c5ea2,
+    #' @field peer Field.
     peer = NULL,
+    #' @field album_id Field.
     album_id = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field delete_stories Field.
     delete_stories = NULL,
+    #' @field add_stories Field.
     add_stories = NULL,
+    #' @field order Field.
     order = NULL,
 
     #' @description Initialize UpdateAlbumRequest

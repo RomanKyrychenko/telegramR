@@ -4,11 +4,17 @@
 #' @export
 RequestState <- R6::R6Class("RequestState",
   public = list(
+    #' @field container_id Field.
     container_id = NULL,
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field request Field.
     request = NULL,
+    #' @field data Field.
     data = NULL,
+    #' @field future Field.
     future = NULL,
+    #' @field after Field.
     after = NULL,
 
     #' @description Creates a new RequestState instance.

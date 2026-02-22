@@ -1,9 +1,6 @@
 #' GetCdnFileRequest R6 class
 #'
 #' Represents the TL request upload.GetCdnFileRequest.
-#' @field file_token raw|integer|character token bytes
-#' @field offset numeric 64-bit offset
-#' @field limit integer
 #' @title GetCdnFileRequest
 #' @description Telegram API type GetCdnFileRequest
 #' @export
@@ -11,8 +8,11 @@ GetCdnFileRequest <- R6::R6Class(
   "GetCdnFileRequest",
   public = list(
 
+    #' @field file_token Field.
     file_token = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
 
     #' @description Initialize a GetCdnFileRequest
@@ -99,8 +99,6 @@ GetCdnFileRequest <- R6::R6Class(
 #' GetCdnFileHashesRequest R6 class
 #'
 #' Represents the TL request upload.GetCdnFileHashesRequest.
-#' @field file_token raw|integer|character token bytes
-#' @field offset numeric 64-bit offset
 #' @title GetCdnFileHashesRequest
 #' @description Telegram API type GetCdnFileHashesRequest
 #' @export
@@ -108,7 +106,9 @@ GetCdnFileHashesRequest <- R6::R6Class(
   "GetCdnFileHashesRequest",
   public = list(
 
+    #' @field file_token Field.
     file_token = NULL,
+    #' @field offset Field.
     offset = NULL,
 
     #' @description Initialize a GetCdnFileHashesRequest
@@ -184,11 +184,6 @@ GetCdnFileHashesRequest <- R6::R6Class(
 #' GetFileRequest R6 class
 #'
 #' Represents the TL request upload.GetFileRequest.
-#' @field location TLObject-like (input file location)
-#' @field offset numeric 64-bit offset
-#' @field limit integer
-#' @field precise logical|null
-#' @field cdn_supported logical|null
 #' @title GetFileRequest
 #' @description Telegram API type GetFileRequest
 #' @export
@@ -196,10 +191,15 @@ GetFileRequest <- R6::R6Class(
   "GetFileRequest",
   public = list(
 
+    #' @field location Field.
     location = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field precise Field.
     precise = NULL,
+    #' @field cdn_supported Field.
     cdn_supported = NULL,
 
     #' @description Initialize a GetFileRequest
@@ -280,8 +280,6 @@ GetFileRequest <- R6::R6Class(
 #' GetFileHashesRequest R6 class
 #'
 #' Represents the TL request upload.GetFileHashesRequest.
-#' @field location TLObject-like object (input file location)
-#' @field offset numeric 64-bit offset
 #' @title GetFileHashesRequest
 #' @description Telegram API type GetFileHashesRequest
 #' @export
@@ -289,7 +287,9 @@ GetFileHashesRequest <- R6::R6Class(
   "GetFileHashesRequest",
   public = list(
 
+    #' @field location Field.
     location = NULL,
+    #' @field offset Field.
     offset = NULL,
 
     #' @description Initialize a GetFileHashesRequest
@@ -372,9 +372,6 @@ GetFileHashesRequest <- R6::R6Class(
 #' GetWebFileRequest R6 class
 #'
 #' Represents the TL request upload.GetWebFileRequest.
-#' @field location TLObject-like (input web file location)
-#' @field offset integer
-#' @field limit integer
 #' @title GetWebFileRequest
 #' @description Telegram API type GetWebFileRequest
 #' @export
@@ -382,8 +379,11 @@ GetWebFileRequest <- R6::R6Class(
   "GetWebFileRequest",
   public = list(
 
+    #' @field location Field.
     location = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
 
     #' @description Initialize a GetWebFileRequest
@@ -471,8 +471,6 @@ GetWebFileRequest <- R6::R6Class(
 #' ReuploadCdnFileRequest R6 class
 #'
 #' Represents the TL request upload.ReuploadCdnFileRequest.
-#' @field file_token raw|integer|character
-#' @field request_token raw|integer|character
 #' @title ReuploadCdnFileRequest
 #' @description Telegram API type ReuploadCdnFileRequest
 #' @export
@@ -480,7 +478,9 @@ ReuploadCdnFileRequest <- R6::R6Class(
   "ReuploadCdnFileRequest",
   public = list(
 
+    #' @field file_token Field.
     file_token = NULL,
+    #' @field request_token Field.
     request_token = NULL,
 
     #' @description Initialize a ReuploadCdnFileRequest
@@ -562,10 +562,6 @@ ReuploadCdnFileRequest <- R6::R6Class(
 #' SaveBigFilePartRequest R6 class
 #'
 #' Represents the TL request upload.SaveBigFilePartRequest.
-#' @field file_id numeric 64-bit file id (stored as numeric)
-#' @field file_part integer part index
-#' @field file_total_parts integer total number of parts
-#' @field bytes_data raw|integer|character payload bytes
 #' @title SaveBigFilePartRequest
 #' @description Telegram API type SaveBigFilePartRequest
 #' @export
@@ -573,9 +569,13 @@ SaveBigFilePartRequest <- R6::R6Class(
   "SaveBigFilePartRequest",
   public = list(
 
+    #' @field file_id Field.
     file_id = NULL,
+    #' @field file_part Field.
     file_part = NULL,
+    #' @field file_total_parts Field.
     file_total_parts = NULL,
+    #' @field bytes_data Field.
     bytes_data = NULL,
 
     #' @description Initialize a SaveBigFilePartRequest
@@ -673,9 +673,6 @@ SaveBigFilePartRequest <- R6::R6Class(
 #' SaveFilePartRequest R6 class
 #'
 #' R6 representation of the Telegram TL request upload.SaveFilePartRequest.
-#' @field file_id numeric (64-bit) Unique file identifier (stable per upload session).
-#' @field file_part integer Zero-based index of this file part.
-#' @field bytes_data raw|integer|character The binary payload for this part.
 #' @title SaveFilePartRequest
 #' @description Telegram API type SaveFilePartRequest
 #' @export
@@ -683,8 +680,11 @@ SaveFilePartRequest <- R6::R6Class(
   "SaveFilePartRequest",
   public = list(
 
+    #' @field file_id Field.
     file_id = NULL,
+    #' @field file_part Field.
     file_part = NULL,
+    #' @field bytes_data Field.
     bytes_data = NULL,
 
     #' @description Initialize a new SaveFilePartRequest instance.

@@ -1,7 +1,5 @@
 #' R6 Class Representing a Session
 #'
-#' @description
-#' Represents an abstract base class for managing session-related data.
 #'
 #' @details
 #' This class defines the interface for session management, including

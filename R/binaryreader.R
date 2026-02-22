@@ -1,7 +1,5 @@
 #' BinaryReader Class
 #'
-#' @description
-#' A utility class to read binary data, inspired by Python's BinaryReader.
 #'
 #' @details
 #' Provides methods to read various data types and handle stream positions.

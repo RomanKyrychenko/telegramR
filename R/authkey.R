@@ -1,8 +1,5 @@
 #' AuthKey Class
 #'
-#' @description
-#' Represents an authorization key, used to encrypt and decrypt
-#' messages sent to Telegram's data centers.
 #'
 #' @title AuthKey
 #' @description Telegram API type AuthKey
@@ -10,9 +7,13 @@
 AuthKey <- R6::R6Class(
   "AuthKey",
   public = list(
+    #' @field key_id Field.
     key_id = NULL,
+    #' @field key_id_raw Field.
     key_id_raw = NULL,
+    #' @field aux_hash Field.
     aux_hash = NULL,
+    #' @field aux_hash_raw Field.
     aux_hash_raw = NULL,
 
     #' @description
@@ -62,7 +63,7 @@ AuthKey <- R6::R6Class(
     }
   ),
   active = list(
-    #' @field key
+    #' @field key Field.
     #' Direct accessor used across sender/state code.
     key = function(value) {
       if (missing(value)) {
@@ -71,7 +72,7 @@ AuthKey <- R6::R6Class(
       self$active_key <- value
     },
 
-    #' @field active_key
+    #' @field active_key Field.
     #' Gets or sets the authorization key.
     active_key = function(value) {
       if (missing(value)) {
@@ -105,13 +106,13 @@ AuthKey <- R6::R6Class(
       }
     },
 
-    #' @field return_aux_hash
+    #' @field return_aux_hash Field.
     #' Gets the auxiliary hash derived from the key.
     return_aux_hash = function() {
       return(private$.aux_hash)
     },
 
-    #' @field return_key_id
+    #' @field return_key_id Field.
     #' Gets the key identifier derived from the key.
     return_key_id = function() {
       return(private$.key_id)

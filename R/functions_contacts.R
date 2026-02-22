@@ -2,9 +2,6 @@
 #'
 #' R6 representation of the TL request: AcceptContactRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field id TLObject Input user object (will be resolved with utils)
 #'
 #' @description
 #' Methods:
@@ -18,8 +15,11 @@ AcceptContactRequest <- R6::R6Class(
   "AcceptContactRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf831a20f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize AcceptContactRequest
@@ -68,10 +68,11 @@ AcceptContactRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create AcceptContactRequest from reader
-#'
-#' @param reader object with method tgread_object()
-#' @return AcceptContactRequest
+# Create AcceptContactRequest from reader
+# @name AcceptContactRequest_from_reader
+#
+# @param reader object with method tgread_object()
+# @return AcceptContactRequest
 AcceptContactRequest$from_reader <- function(reader) {
   id_val <- reader$tgread_object()
   AcceptContactRequest$new(id = id_val)
@@ -82,13 +83,6 @@ AcceptContactRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: AddContactRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field id TLObject Input user object (will be resolved with utils)
-#' @field first_name character First name
-#' @field last_name character Last name
-#' @field phone character Phone string
-#' @field add_phone_privacy_exception logical|NULL Optional flag
 #'
 #' @description
 #' Methods:
@@ -102,12 +96,19 @@ AddContactRequest <- R6::R6Class(
   "AddContactRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe8f463d0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field id Field.
     id = NULL,
+    #' @field first_name Field.
     first_name = NULL,
+    #' @field last_name Field.
     last_name = NULL,
+    #' @field phone Field.
     phone = NULL,
+    #' @field add_phone_privacy_exception Field.
     add_phone_privacy_exception = NULL,
 
     #' @description Initialize AddContactRequest
@@ -216,10 +217,11 @@ AddContactRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create AddContactRequest from reader
-#'
-#' @param reader object with methods read_int(), tgread_object(), tgread_string()
-#' @return AddContactRequest
+# Create AddContactRequest from reader
+# @name AddContactRequest_from_reader
+#
+# @param reader object with methods read_int(), tgread_object(), tgread_string()
+# @return AddContactRequest
 AddContactRequest$from_reader <- function(reader) {
   flagsVal <- reader$read_int()
   addPhonePrivacyExceptionFlag <- bitwAnd(flagsVal, 1L) != 0L
@@ -241,10 +243,6 @@ AddContactRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: BlockRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field id TLObject|list Input peer object (will be resolved with utils)
-#' @field my_stories_from logical|NULL Optional flag
 #'
 #' @description
 #' Methods:
@@ -257,9 +255,13 @@ BlockRequest <- R6::R6Class(
   "BlockRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2e2e8734,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field id Field.
     id = NULL,
+    #' @field my_stories_from Field.
     my_stories_from = NULL,
 
     #' @description Initialize BlockRequest
@@ -334,10 +336,11 @@ BlockRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create BlockRequest from reader
-#'
-#' @param reader object that implements read_int() and tgread_object()
-#' @return BlockRequest
+# Create BlockRequest from reader
+# @name BlockRequest_from_reader
+#
+# @param reader object that implements read_int() and tgread_object()
+# @return BlockRequest
 BlockRequest$from_reader <- function(reader) {
   flagsVal <- reader$read_int()
   myStoriesFlag <- bitwAnd(flagsVal, 1L) != 0L
@@ -350,12 +353,6 @@ BlockRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: BlockFromRepliesRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field msg_id integer Message id (int32)
-#' @field delete_message logical|NULL Optional flag
-#' @field delete_history logical|NULL Optional flag
-#' @field report_spam logical|NULL Optional flag
 #'
 #' @description
 #' Methods:
@@ -367,11 +364,17 @@ BlockFromRepliesRequest <- R6::R6Class(
   "BlockFromRepliesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x29a8962c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field delete_message Field.
     delete_message = NULL,
+    #' @field delete_history Field.
     delete_history = NULL,
+    #' @field report_spam Field.
     report_spam = NULL,
 
     #' @description Initialize BlockFromRepliesRequest
@@ -431,10 +434,11 @@ BlockFromRepliesRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create BlockFromRepliesRequest from reader
-#'
-#' @param reader object with methods read_int()
-#' @return BlockFromRepliesRequest
+# Create BlockFromRepliesRequest from reader
+# @name BlockFromRepliesRequest_from_reader
+#
+# @param reader object with methods read_int()
+# @return BlockFromRepliesRequest
 BlockFromRepliesRequest$from_reader <- function(reader) {
   flagsVal <- reader$read_int()
   deleteMessageFlag <- bitwAnd(flagsVal, 1L) != 0L
@@ -454,9 +458,6 @@ BlockFromRepliesRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: DeleteByPhonesRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field phones character vector of phone strings
 #'
 #' @description
 #' Methods:
@@ -467,8 +468,11 @@ DeleteByPhonesRequest <- R6::R6Class(
   "DeleteByPhonesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1013fd9e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field phones Field.
     phones = NULL,
 
     #' @description Initialize DeleteByPhonesRequest
@@ -549,10 +553,11 @@ DeleteByPhonesRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create DeleteByPhonesRequest from reader
-#'
-#' @param reader object with methods read_int() and tgread_string()
-#' @return DeleteByPhonesRequest
+# Create DeleteByPhonesRequest from reader
+# @name DeleteByPhonesRequest_from_reader
+#
+# @param reader object with methods read_int() and tgread_string()
+# @return DeleteByPhonesRequest
 DeleteByPhonesRequest$from_reader <- function(reader) {
   # consume vector constructor id (typical TL format)
   reader$read_int()
@@ -571,9 +576,6 @@ DeleteByPhonesRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: DeleteContactsRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field id list List of input_user TL objects (or raw representations)
 #'
 #' @description
 #' Methods:
@@ -585,8 +587,11 @@ DeleteContactsRequest <- R6::R6Class(
   "DeleteContactsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x096a0e00,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize DeleteContactsRequest
@@ -675,10 +680,11 @@ DeleteContactsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create DeleteContactsRequest from reader
-#'
-#' @param reader object with methods read_int() and tgread_object()
-#' @return DeleteContactsRequest
+# Create DeleteContactsRequest from reader
+# @name DeleteContactsRequest_from_reader
+#
+# @param reader object with methods read_int() and tgread_object()
+# @return DeleteContactsRequest
 DeleteContactsRequest$from_reader <- function(reader) {
   # consume vector constructor id (typical TL format)
   reader$read_int()
@@ -697,9 +703,6 @@ DeleteContactsRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: EditCloseFriendsRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field id numeric Vector of 64-bit ids
 #'
 #' @description
 #' Methods:
@@ -711,8 +714,11 @@ EditCloseFriendsRequest <- R6::R6Class(
   "EditCloseFriendsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xba6705f0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize EditCloseFriendsRequest
@@ -786,10 +792,11 @@ EditCloseFriendsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create EditCloseFriendsRequest from reader
-#'
-#' @param reader object with methods read_int() and read_long()
-#' @return EditCloseFriendsRequest
+# Create EditCloseFriendsRequest from reader
+# @name EditCloseFriendsRequest_from_reader
+#
+# @param reader object with methods read_int() and read_long()
+# @return EditCloseFriendsRequest
 EditCloseFriendsRequest$from_reader <- function(reader) {
   # consume vector constructor id (typical TL format)
   reader$read_int()
@@ -808,8 +815,6 @@ EditCloseFriendsRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: ExportContactTokenRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
 #'
 #' @description
 #' Methods:
@@ -821,7 +826,9 @@ ExportContactTokenRequest <- R6::R6Class(
   "ExportContactTokenRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf8654027,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x86ddbed1,
 
     #' @description Initialize ExportContactTokenRequest
@@ -845,10 +852,11 @@ ExportContactTokenRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create ExportContactTokenRequest from reader
-#'
-#' @param reader object (not used)
-#' @return ExportContactTokenRequest
+# Create ExportContactTokenRequest from reader
+# @name ExportContactTokenRequest_from_reader
+#
+# @param reader object (not used)
+# @return ExportContactTokenRequest
 ExportContactTokenRequest$from_reader <- function(reader) {
   ExportContactTokenRequest$new()
 }
@@ -858,8 +866,6 @@ ExportContactTokenRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: GetBirthdaysRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
 #'
 #' @description
 #' Methods:
@@ -871,6 +877,7 @@ GetBirthdaysRequest <- R6::R6Class(
   "GetBirthdaysRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdaeda864,
     SUBCLASS_OF_ID = 0x0e7aabff, # keep provided subclass id (from original) - note: original had 0xe7aabff; preserve numeric
 
@@ -895,10 +902,11 @@ GetBirthdaysRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create GetBirthdaysRequest from reader
-#'
-#' @param reader object (not used)
-#' @return GetBirthdaysRequest
+# Create GetBirthdaysRequest from reader
+# @name GetBirthdaysRequest_from_reader
+#
+# @param reader object (not used)
+# @return GetBirthdaysRequest
 GetBirthdaysRequest$from_reader <- function(reader) {
   GetBirthdaysRequest$new()
 }
@@ -908,11 +916,6 @@ GetBirthdaysRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: GetBlockedRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field offset integer Offset
-#' @field limit integer Limit
-#' @field my_stories_from logical|NULL Optional flag
 #'
 #' @description
 #' Methods:
@@ -924,10 +927,15 @@ GetBlockedRequest <- R6::R6Class(
   "GetBlockedRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9a868f80,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xffba4f4f,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field my_stories_from Field.
     my_stories_from = NULL,
 
     #' @description Initialize GetBlockedRequest
@@ -986,10 +994,11 @@ GetBlockedRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create GetBlockedRequest from reader
-#'
-#' @param reader object with method read_int()
-#' @return GetBlockedRequest
+# Create GetBlockedRequest from reader
+# @name GetBlockedRequest_from_reader
+#
+# @param reader object with method read_int()
+# @return GetBlockedRequest
 GetBlockedRequest$from_reader <- function(reader) {
   flagsVal <- reader$read_int()
   myStoriesFlag <- bitwAnd(flagsVal, 1L) != 0L
@@ -1003,9 +1012,6 @@ GetBlockedRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: GetContactIDsRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field hash numeric 64-bit hash
 #'
 #' @description
 #' Methods:
@@ -1018,8 +1024,11 @@ GetContactIDsRequest <- R6::R6Class(
   "GetContactIDsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7adc669d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5026710f,
+    #' @field hash Field.
     hash = NULL,
 
     #' @description Initialize GetContactIDsRequest
@@ -1066,21 +1075,23 @@ GetContactIDsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create GetContactIDsRequest from reader
-#'
-#' @param reader object with method read_long()
-#' @return GetContactIDsRequest
+# Create GetContactIDsRequest from reader
+# @name GetContactIDsRequest_from_reader
+#
+# @param reader object with method read_long()
+# @return GetContactIDsRequest
 GetContactIDsRequest$from_reader <- function(reader) {
   hash_val <- reader$read_long()
   GetContactIDsRequest$new(hash = hash_val)
 }
 
-#' Read result for GetContactIDsRequest
-#'
-#' Static helper to read Vector<int> returned by the server for this request.
-#'
-#' @param reader object with methods read_int()
-#' @return integer vector
+# Read result for GetContactIDsRequest
+# @name GetContactIDsRequest_read_result
+#
+# Static helper to read Vector<int> returned by the server for this request.
+#
+# @param reader object with methods read_int()
+# @return integer vector
 GetContactIDsRequest$read_result <- function(reader) {
   # consume vector constructor id
   reader$read_int()
@@ -1100,9 +1111,6 @@ GetContactIDsRequest$read_result <- function(reader) {
 #'
 #' R6 representation of the TL request: GetContactsRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field hash numeric 64-bit hash
 #'
 #' @description
 #' Methods:
@@ -1114,8 +1122,11 @@ GetContactsRequest <- R6::R6Class(
   "GetContactsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5dd69e12,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x38be25f6,
+    #' @field hash Field.
     hash = NULL,
 
     #' @description Initialize GetContactsRequest
@@ -1161,10 +1172,11 @@ GetContactsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create GetContactsRequest from reader
-#'
-#' @param reader object with method read_long()
-#' @return GetContactsRequest
+# Create GetContactsRequest from reader
+# @name GetContactsRequest_from_reader
+#
+# @param reader object with method read_long()
+# @return GetContactsRequest
 GetContactsRequest$from_reader <- function(reader) {
   hash_val <- reader$read_long()
   GetContactsRequest$new(hash = hash_val)
@@ -1175,11 +1187,6 @@ GetContactsRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: GetLocatedRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field geo_point TL input geo point object
-#' @field background logical|NULL Optional background flag
-#' @field self_expires integer|NULL Optional self_expires value (seconds)
 #'
 #' @description
 #' Methods:
@@ -1192,10 +1199,15 @@ GetLocatedRequest <- R6::R6Class(
   "GetLocatedRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd348bc44,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field geo_point Field.
     geo_point = NULL,
+    #' @field background Field.
     background = NULL,
+    #' @field self_expires Field.
     self_expires = NULL,
 
     #' @description Initialize GetLocatedRequest
@@ -1257,10 +1269,11 @@ GetLocatedRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create GetLocatedRequest from reader
-#'
-#' @param reader object with methods read_int() and tgread_object()
-#' @return GetLocatedRequest
+# Create GetLocatedRequest from reader
+# @name GetLocatedRequest_from_reader
+#
+# @param reader object with methods read_int() and tgread_object()
+# @return GetLocatedRequest
 GetLocatedRequest$from_reader <- function(reader) {
   flags_val <- reader$read_int()
   background_flag <- bitwAnd(flags_val, 2L) != 0L
@@ -1283,7 +1296,9 @@ GetSavedRequest <- R6::R6Class(
   "GetSavedRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x82f1e39f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x975dbef,
 
     #' @description Initialize GetSavedRequest
@@ -1309,10 +1324,11 @@ GetSavedRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create GetSavedRequest from reader
-#'
-#' @param reader object (not used for this constructor)
-#' @return GetSavedRequest
+# Create GetSavedRequest from reader
+# @name GetSavedRequest_from_reader
+#
+# @param reader object (not used for this constructor)
+# @return GetSavedRequest
 GetSavedRequest$from_reader <- function(reader) {
   GetSavedRequest$new()
 }
@@ -1322,7 +1338,6 @@ GetSavedRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: GetSponsoredPeersRequest
 #'
-#' @field q character Query string
 #'
 #' @description
 #' Methods:
@@ -1334,8 +1349,11 @@ GetSponsoredPeersRequest <- R6::R6Class(
   "GetSponsoredPeersRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb6c8c393,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb45d5ccc,
+    #' @field q Field.
     q = NULL,
 
     #' @description Initialize GetSponsoredPeersRequest
@@ -1362,8 +1380,6 @@ GetSponsoredPeersRequest <- R6::R6Class(
   ),
   private = list(
     #' Serialize an R string to TL string bytes (per Telegram TL encoding)
-    #' @param s character
-    #' @return raw
     serialize_string_tl = function(s) {
       if (is.null(s)) {
         return(raw(0))
@@ -1393,10 +1409,11 @@ GetSponsoredPeersRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create GetSponsoredPeersRequest from reader
-#'
-#' @param reader object with method tgread_string()
-#' @return GetSponsoredPeersRequest
+# Create GetSponsoredPeersRequest from reader
+# @name GetSponsoredPeersRequest_from_reader
+#
+# @param reader object with method tgread_string()
+# @return GetSponsoredPeersRequest
 GetSponsoredPeersRequest$from_reader <- function(reader) {
   q_val <- reader$tgread_string()
   GetSponsoredPeersRequest$new(q = q_val)
@@ -1417,7 +1434,9 @@ GetStatusesRequest <- R6::R6Class(
   "GetStatusesRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc4a353ee,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdf815c90,
 
     #' @description Initialize GetStatusesRequest
@@ -1443,10 +1462,11 @@ GetStatusesRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create GetStatusesRequest from reader
-#'
-#' @param reader object (not used for this constructor)
-#' @return GetStatusesRequest
+# Create GetStatusesRequest from reader
+# @name GetStatusesRequest_from_reader
+#
+# @param reader object (not used for this constructor)
+# @return GetStatusesRequest
 GetStatusesRequest$from_reader <- function(reader) {
   GetStatusesRequest$new()
 }
@@ -1456,18 +1476,6 @@ GetStatusesRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: GetTopPeersRequest
 #'
-#' @field offset integer Offset
-#' @field limit integer Limit
-#' @field hash integer Hash (64-bit)
-#' @field correspondents logical|NULL Optional flags...
-#' @field bots_pm logical|NULL
-#' @field bots_inline logical|NULL
-#' @field phone_calls logical|NULL
-#' @field forward_users logical|NULL
-#' @field forward_chats logical|NULL
-#' @field groups logical|NULL
-#' @field channels logical|NULL
-#' @field bots_app logical|NULL
 #'
 #' @description
 #' Methods:
@@ -1480,19 +1488,33 @@ GetTopPeersRequest <- R6::R6Class(
   "GetTopPeersRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x973478b6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9ee8bb88,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field hash Field.
     hash = NULL,
+    #' @field correspondents Field.
     correspondents = NULL,
+    #' @field bots_pm Field.
     bots_pm = NULL,
+    #' @field bots_inline Field.
     bots_inline = NULL,
+    #' @field phone_calls Field.
     phone_calls = NULL,
+    #' @field forward_users Field.
     forward_users = NULL,
+    #' @field forward_chats Field.
     forward_chats = NULL,
+    #' @field groups Field.
     groups = NULL,
+    #' @field channels Field.
     channels = NULL,
+    #' @field bots_app Field.
     bots_app = NULL,
 
     #' @description Initialize GetTopPeersRequest
@@ -1602,10 +1624,11 @@ GetTopPeersRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create GetTopPeersRequest from reader
-#'
-#' @param reader object with methods read_int() and read_long()
-#' @return GetTopPeersRequest
+# Create GetTopPeersRequest from reader
+# @name GetTopPeersRequest_from_reader
+#
+# @param reader object with methods read_int() and read_long()
+# @return GetTopPeersRequest
 GetTopPeersRequest$from_reader <- function(reader) {
   flagsVal <- reader$read_int()
   correspondentsFlag <- bitwAnd(flagsVal, 1L) != 0L
@@ -1643,9 +1666,6 @@ GetTopPeersRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: ImportContactTokenRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field token character Token string
 #'
 #' @description
 #' Methods:
@@ -1657,8 +1677,11 @@ ImportContactTokenRequest <- R6::R6Class(
   "ImportContactTokenRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x13005788,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2da17977,
+    #' @field token Field.
     token = NULL,
 
     #' @description Initialize ImportContactTokenRequest
@@ -1725,10 +1748,11 @@ ImportContactTokenRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create ImportContactTokenRequest from reader
-#'
-#' @param reader object with method tgread_string()
-#' @return ImportContactTokenRequest
+# Create ImportContactTokenRequest from reader
+# @name ImportContactTokenRequest_from_reader
+#
+# @param reader object with method tgread_string()
+# @return ImportContactTokenRequest
 ImportContactTokenRequest$from_reader <- function(reader) {
   token_val <- reader$tgread_string()
   ImportContactTokenRequest$new(token = token_val)
@@ -1739,9 +1763,6 @@ ImportContactTokenRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: ImportContactsRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field contacts list List of input_contact TL objects
 #'
 #' @description
 #' Methods:
@@ -1753,8 +1774,11 @@ ImportContactsRequest <- R6::R6Class(
   "ImportContactsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2c800be5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8172ad93,
+    #' @field contacts Field.
     contacts = NULL,
 
     #' @description Initialize ImportContactsRequest
@@ -1826,10 +1850,11 @@ ImportContactsRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create ImportContactsRequest from reader
-#'
-#' @param reader object with methods read_int() and tgread_object()
-#' @return ImportContactsRequest
+# Create ImportContactsRequest from reader
+# @name ImportContactsRequest_from_reader
+#
+# @param reader object with methods read_int() and tgread_object()
+# @return ImportContactsRequest
 ImportContactsRequest$from_reader <- function(reader) {
   # consume vector constructor id (typical TL format)
   reader$read_int()
@@ -1858,7 +1883,9 @@ ResetSavedRequest <- R6::R6Class(
   "ResetSavedRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x879537f1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
     #' @description Initialize ResetSavedRequest
@@ -1888,10 +1915,11 @@ ResetSavedRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create ResetSavedRequest from reader
-#'
-#' @param reader object (not used for this constructor)
-#' @return ResetSavedRequest
+# Create ResetSavedRequest from reader
+# @name ResetSavedRequest_from_reader
+#
+# @param reader object (not used for this constructor)
+# @return ResetSavedRequest
 ResetSavedRequest$from_reader <- function(reader) {
   ResetSavedRequest$new()
 }
@@ -1901,8 +1929,6 @@ ResetSavedRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: ResetTopPeerRatingRequest
 #'
-#' @field category TL object representing TopPeerCategory
-#' @field peer TL input_peer object (will be resolved with utils)
 #'
 #' @description
 #' Methods:
@@ -1915,9 +1941,13 @@ ResetTopPeerRatingRequest <- R6::R6Class(
   "ResetTopPeerRatingRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1ae373ac,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field category Field.
     category = NULL,
+    #' @field peer Field.
     peer = NULL,
 
     #' @description Initialize ResetTopPeerRatingRequest
@@ -1985,10 +2015,11 @@ ResetTopPeerRatingRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create ResetTopPeerRatingRequest from reader
-#'
-#' @param reader object with method tgread_object()
-#' @return ResetTopPeerRatingRequest
+# Create ResetTopPeerRatingRequest from reader
+# @name ResetTopPeerRatingRequest_from_reader
+#
+# @param reader object with method tgread_object()
+# @return ResetTopPeerRatingRequest
 ResetTopPeerRatingRequest$from_reader <- function(reader) {
   category_val <- reader$tgread_object()
   peer_val <- reader$tgread_object()
@@ -2000,9 +2031,6 @@ ResetTopPeerRatingRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: ResolvePhoneRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field phone character Phone string
 #'
 #' @description
 #' Methods:
@@ -2014,8 +2042,11 @@ ResolvePhoneRequest <- R6::R6Class(
   "ResolvePhoneRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8af94344,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf065b3a8,
+    #' @field phone Field.
     phone = NULL,
 
     #' @description Initialize ResolvePhoneRequest
@@ -2082,10 +2113,11 @@ ResolvePhoneRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create ResolvePhoneRequest from reader
-#'
-#' @param reader object with method tgread_string()
-#' @return ResolvePhoneRequest
+# Create ResolvePhoneRequest from reader
+# @name ResolvePhoneRequest_from_reader
+#
+# @param reader object with method tgread_string()
+# @return ResolvePhoneRequest
 ResolvePhoneRequest$from_reader <- function(reader) {
   phone_val <- reader$tgread_string()
   ResolvePhoneRequest$new(phone = phone_val)
@@ -2096,10 +2128,6 @@ ResolvePhoneRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: ResolveUsernameRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field username character Username string
-#' @field referer character|NULL Optional referer string
 #'
 #' @description
 #' Methods:
@@ -2111,9 +2139,13 @@ ResolveUsernameRequest <- R6::R6Class(
   "ResolveUsernameRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x725afbbc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf065b3a8,
+    #' @field username Field.
     username = NULL,
+    #' @field referer Field.
     referer = NULL,
 
     #' @description Initialize ResolveUsernameRequest
@@ -2186,10 +2218,11 @@ ResolveUsernameRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create ResolveUsernameRequest from reader
-#'
-#' @param reader object with methods read_int() and tgread_string()
-#' @return ResolveUsernameRequest
+# Create ResolveUsernameRequest from reader
+# @name ResolveUsernameRequest_from_reader
+#
+# @param reader object with methods read_int() and tgread_string()
+# @return ResolveUsernameRequest
 ResolveUsernameRequest$from_reader <- function(reader) {
   flags_val <- reader$read_int()
   username_val <- reader$tgread_string()
@@ -2202,11 +2235,6 @@ ResolveUsernameRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: SetBlockedRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field id list List of input_peer TL objects (will be resolved with utils)
-#' @field limit integer Limit integer
-#' @field my_stories_from logical|NULL Optional flag
 #'
 #' @description
 #' Methods:
@@ -2220,10 +2248,15 @@ SetBlockedRequest <- R6::R6Class(
   "SetBlockedRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x94c65c76,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field id Field.
     id = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field my_stories_from Field.
     my_stories_from = NULL,
 
     #' @description Initialize SetBlockedRequest
@@ -2328,10 +2361,11 @@ SetBlockedRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create SetBlockedRequest from reader
-#'
-#' @param reader object that implements read_int() and tgread_object()
-#' @return SetBlockedRequest
+# Create SetBlockedRequest from reader
+# @name SetBlockedRequest_from_reader
+#
+# @param reader object that implements read_int() and tgread_object()
+# @return SetBlockedRequest
 SetBlockedRequest$from_reader <- function(reader) {
   flagsVal <- reader$read_int()
   myStoriesFlag <- bitwAnd(flagsVal, 1L) != 0L
@@ -2353,9 +2387,6 @@ SetBlockedRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: ToggleTopPeersRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field enabled logical Whether top peers are enabled
 #'
 #' @description
 #' Methods:
@@ -2368,8 +2399,11 @@ ToggleTopPeersRequest <- R6::R6Class(
   "ToggleTopPeersRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8514bdda,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field enabled Field.
     enabled = NULL,
 
     #' @description Initialize ToggleTopPeersRequest
@@ -2401,10 +2435,11 @@ ToggleTopPeersRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create ToggleTopPeersRequest from reader
-#'
-#' @param reader object with method tgread_bool() that returns logical
-#' @return ToggleTopPeersRequest
+# Create ToggleTopPeersRequest from reader
+# @name ToggleTopPeersRequest_from_reader
+#
+# @param reader object with method tgread_bool() that returns logical
+# @return ToggleTopPeersRequest
 ToggleTopPeersRequest$from_reader <- function(reader) {
   enabled_val <- reader$tgread_bool()
   ToggleTopPeersRequest$new(enabled = enabled_val)
@@ -2415,10 +2450,6 @@ ToggleTopPeersRequest$from_reader <- function(reader) {
 #'
 #' R6 representation of the TL request: UnblockRequest
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex)
-#' @field SUBCLASS_OF_ID integer Subclass id (hex)
-#' @field id TLObject|list Input peer object (will be resolved with utils)
-#' @field my_stories_from logical|NULL Optional flag
 #'
 #' @description
 #' Methods:
@@ -2432,9 +2463,13 @@ UnblockRequest <- R6::R6Class(
   "UnblockRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb550d328,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field id Field.
     id = NULL,
+    #' @field my_stories_from Field.
     my_stories_from = NULL,
 
     #' @description Initialize UnblockRequest
@@ -2499,8 +2534,6 @@ UnblockRequest <- R6::R6Class(
   private = list(
     #' Convert integer to little-endian raw vector of given size (bytes)
     #'
-    #' @param x integer
-    #' @param size integer byte size (default 4)
     int_to_le_raw = function(x, size = 4L) {
       xi <- as.integer(x)
       v <- raw(size)
@@ -2513,10 +2546,11 @@ UnblockRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create UnblockRequest from reader
-#'
-#' @param reader object that implements read_int() and tgread_object()
-#' @return UnblockRequest
+# Create UnblockRequest from reader
+# @name UnblockRequest_from_reader
+#
+# @param reader object that implements read_int() and tgread_object()
+# @return UnblockRequest
 UnblockRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   myStoriesFlag <- bitwAnd(flags, 1L) != 0L

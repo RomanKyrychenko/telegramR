@@ -2,9 +2,6 @@
 #'
 #' Accept terms of service (help.TermsOfService). Serializes a DataJSON id.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field id TLObject-like TypeDataJSON (environment with to_bytes()/to_list() or raw)
 #' @title AcceptTermsOfServiceRequest
 #' @description Telegram API type AcceptTermsOfServiceRequest
 #' @export
@@ -13,6 +10,7 @@ AcceptTermsOfServiceRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.numeric(0xee72f79a),
     SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
+    #' @field id Field.
     id = NULL,
 
     #' @description Initialize AcceptTermsOfServiceRequest
@@ -52,11 +50,12 @@ AcceptTermsOfServiceRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create AcceptTermsOfServiceRequest from a reader
-#'
-#' @param reader object providing `tgread_object()` method
-#' @return instance of AcceptTermsOfServiceRequest
-#' @export
+# Create AcceptTermsOfServiceRequest from a reader
+# @name AcceptTermsOfServiceRequest_from_reader
+#
+# @param reader object providing `tgread_object()` method
+# @return instance of AcceptTermsOfServiceRequest
+# @export
 AcceptTermsOfServiceRequest$from_reader <- function(reader) {
   idVal <- reader$tgread_object()
   AcceptTermsOfServiceRequest$new(id = idVal)
@@ -67,10 +66,6 @@ AcceptTermsOfServiceRequest$from_reader <- function(reader) {
 #'
 #' Dismiss a suggestion for a peer with an associated suggestion string.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field peer TLObject-like input peer (environment with to_bytes()/to_list() or raw)
-#' @field suggestion character Suggestion string
 #' @title DismissSuggestionRequest
 #' @description Telegram API type DismissSuggestionRequest
 #' @export
@@ -79,7 +74,9 @@ DismissSuggestionRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.numeric(0xf50dbaa1),
     SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
+    #' @field peer Field.
     peer = NULL,
+    #' @field suggestion Field.
     suggestion = "",
 
     #' @description Initialize DismissSuggestionRequest
@@ -146,11 +143,12 @@ DismissSuggestionRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create DismissSuggestionRequest from a reader
-#'
-#' @param reader object providing `tgread_object()` and `tgread_string()` methods
-#' @return instance of DismissSuggestionRequest
-#' @export
+# Create DismissSuggestionRequest from a reader
+# @name DismissSuggestionRequest_from_reader
+#
+# @param reader object providing `tgread_object()` and `tgread_string()` methods
+# @return instance of DismissSuggestionRequest
+# @export
 DismissSuggestionRequest$from_reader <- function(reader) {
   peerVal <- reader$tgread_object()
   suggestionVal <- reader$tgread_string()
@@ -163,11 +161,6 @@ DismissSuggestionRequest$from_reader <- function(reader) {
 #' Edit user info (help.UserInfo). Serializes an input user, a message and a list
 #' of message entities.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field userId TLObject-like input user (environment with to_bytes()/to_list() or raw)
-#' @field message character Message text
-#' @field entities list List of TLObject-like message entities
 #' @title EditUserInfoRequest
 #' @description Telegram API type EditUserInfoRequest
 #' @export
@@ -176,7 +169,9 @@ EditUserInfoRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x66b91b70),
     SUBCLASS_OF_ID = as.numeric(0x5c53d7d8),
+    #' @field userId Field.
     userId = NULL,
+    #' @field message Field.
     message = "",
     entities = list(),
 
@@ -275,11 +270,12 @@ EditUserInfoRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create EditUserInfoRequest from a reader
-#'
-#' @param reader object providing `tgread_object()`, `tgread_string()` and `read_int()` methods
-#' @return instance of EditUserInfoRequest
-#' @export
+# Create EditUserInfoRequest from a reader
+# @name EditUserInfoRequest_from_reader
+#
+# @param reader object providing `tgread_object()`, `tgread_string()` and `read_int()` methods
+# @return instance of EditUserInfoRequest
+# @export
 EditUserInfoRequest$from_reader <- function(reader) {
   userObj <- reader$tgread_object()
   messageVal <- reader$tgread_string()
@@ -298,9 +294,6 @@ EditUserInfoRequest$from_reader <- function(reader) {
 #'
 #' Request to get app configuration (possibly not modified).
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field hash integer Hash to check for modifications.
 #' @title GetAppConfigRequest
 #' @description Telegram API type GetAppConfigRequest
 #' @export
@@ -338,11 +331,12 @@ GetAppConfigRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetAppConfigRequest from a reader
-#'
-#' @param reader object providing `read_int()` method
-#' @return instance of GetAppConfigRequest
-#' @export
+# Create GetAppConfigRequest from a reader
+# @name GetAppConfigRequest_from_reader
+#
+# @param reader object providing `read_int()` method
+# @return instance of GetAppConfigRequest
+# @export
 GetAppConfigRequest$from_reader <- function(reader) {
   hashVal <- reader$read_int()
   GetAppConfigRequest$new(hash = hashVal)
@@ -353,9 +347,6 @@ GetAppConfigRequest$from_reader <- function(reader) {
 #'
 #' Request to get app update info.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field source character Source string.
 #' @title GetAppUpdateRequest
 #' @description Telegram API type GetAppUpdateRequest
 #' @export
@@ -364,6 +355,7 @@ GetAppUpdateRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x522d5a7d),
     SUBCLASS_OF_ID = as.numeric(0x5897069e),
+    #' @field source Field.
     source = "",
 
     #' @description Initialize GetAppUpdateRequest
@@ -407,11 +399,12 @@ GetAppUpdateRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetAppUpdateRequest from a reader
-#'
-#' @param reader object providing `tgread_string()` method
-#' @return instance of GetAppUpdateRequest
-#' @export
+# Create GetAppUpdateRequest from a reader
+# @name GetAppUpdateRequest_from_reader
+#
+# @param reader object providing `tgread_string()` method
+# @return instance of GetAppUpdateRequest
+# @export
 GetAppUpdateRequest$from_reader <- function(reader) {
   sourceVal <- reader$tgread_string()
   GetAppUpdateRequest$new(source = sourceVal)
@@ -422,8 +415,6 @@ GetAppUpdateRequest$from_reader <- function(reader) {
 #'
 #' Request to get CDN configuration.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @title GetCdnConfigRequest
 #' @description Telegram API type GetCdnConfigRequest
 #' @export
@@ -456,11 +447,12 @@ GetCdnConfigRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetCdnConfigRequest from a reader
-#'
-#' @param reader reader (not used)
-#' @return instance of GetCdnConfigRequest
-#' @export
+# Create GetCdnConfigRequest from a reader
+# @name GetCdnConfigRequest_from_reader
+#
+# @param reader reader (not used)
+# @return instance of GetCdnConfigRequest
+# @export
 GetCdnConfigRequest$from_reader <- function(reader) {
   GetCdnConfigRequest$new()
 }
@@ -470,8 +462,6 @@ GetCdnConfigRequest$from_reader <- function(reader) {
 #'
 #' Request to get configuration.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @title GetConfigRequest
 #' @description Telegram API type GetConfigRequest
 #' @export
@@ -505,11 +495,12 @@ GetConfigRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetConfigRequest from a reader
-#'
-#' @param reader object providing reader methods (not used here)
-#' @return instance of GetConfigRequest
-#' @export
+# Create GetConfigRequest from a reader
+# @name GetConfigRequest_from_reader
+#
+# @param reader object providing reader methods (not used here)
+# @return instance of GetConfigRequest
+# @export
 GetConfigRequest$from_reader <- function(reader) {
   GetConfigRequest$new()
 }
@@ -519,10 +510,6 @@ GetConfigRequest$from_reader <- function(reader) {
 #'
 #' Request to get the list of countries (possibly not modified).
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field langCode character Language code.
-#' @field hash integer Hash to check for modifications.
 #' @title GetCountriesListRequest
 #' @description Telegram API type GetCountriesListRequest
 #' @export
@@ -531,6 +518,7 @@ GetCountriesListRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x735787a8),
     SUBCLASS_OF_ID = as.numeric(0xea31fe88),
+    #' @field langCode Field.
     langCode = "",
     hash = 0L,
 
@@ -580,11 +568,12 @@ GetCountriesListRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetCountriesListRequest from a reader
-#'
-#' @param reader object providing tgread_string() and read_int() methods
-#' @return instance of GetCountriesListRequest
-#' @export
+# Create GetCountriesListRequest from a reader
+# @name GetCountriesListRequest_from_reader
+#
+# @param reader object providing tgread_string() and read_int() methods
+# @return instance of GetCountriesListRequest
+# @export
 GetCountriesListRequest$from_reader <- function(reader) {
   langVal <- reader$tgread_string()
   hashVal <- reader$read_int()
@@ -596,9 +585,6 @@ GetCountriesListRequest$from_reader <- function(reader) {
 #'
 #' Request to get deep link info.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field path character Deep link path.
 #' @title GetDeepLinkInfoRequest
 #' @description Telegram API type GetDeepLinkInfoRequest
 #' @export
@@ -607,6 +593,7 @@ GetDeepLinkInfoRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x3fedc75f),
     SUBCLASS_OF_ID = as.numeric(0x984aac38),
+    #' @field path Field.
     path = "",
 
     #' @description Initialize GetDeepLinkInfoRequest
@@ -650,11 +637,12 @@ GetDeepLinkInfoRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetDeepLinkInfoRequest from a reader
-#'
-#' @param reader object providing tgread_string() method
-#' @return instance of GetDeepLinkInfoRequest
-#' @export
+# Create GetDeepLinkInfoRequest from a reader
+# @name GetDeepLinkInfoRequest_from_reader
+#
+# @param reader object providing tgread_string() method
+# @return instance of GetDeepLinkInfoRequest
+# @export
 GetDeepLinkInfoRequest$from_reader <- function(reader) {
   pathVal <- reader$tgread_string()
   GetDeepLinkInfoRequest$new(path = pathVal)
@@ -665,8 +653,6 @@ GetDeepLinkInfoRequest$from_reader <- function(reader) {
 #'
 #' Request to get invite text.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @title GetInviteTextRequest
 #' @description Telegram API type GetInviteTextRequest
 #' @export
@@ -686,6 +672,7 @@ GetInviteTextRequest <- R6::R6Class(
     #' @return list with type discriminator
     to_list = function() {
       list(
+        #' @field type Field.
         type = "GetInviteTextRequest"
       )
     },
@@ -699,11 +686,12 @@ GetInviteTextRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetInviteTextRequest from a reader
-#'
-#' @param reader object providing reader methods (not used here)
-#' @return instance of GetInviteTextRequest
-#' @export
+# Create GetInviteTextRequest from a reader
+# @name GetInviteTextRequest_from_reader
+#
+# @param reader object providing reader methods (not used here)
+# @return instance of GetInviteTextRequest
+# @export
 GetInviteTextRequest$from_reader <- function(reader) {
   GetInviteTextRequest$new()
 }
@@ -713,8 +701,6 @@ GetInviteTextRequest$from_reader <- function(reader) {
 #'
 #' Request to get the nearest data-center info.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @title GetNearestDcRequest
 #' @description Telegram API type GetNearestDcRequest
 #' @export
@@ -734,6 +720,7 @@ GetNearestDcRequest <- R6::R6Class(
     #' @return list with type discriminator
     to_list = function() {
       list(
+        #' @field type Field.
         type = "GetNearestDcRequest"
       )
     },
@@ -747,10 +734,11 @@ GetNearestDcRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetNearestDcRequest from a reader
-#'
-#' @param reader object providing reader methods (not used here)
-#' @return instance of GetNearestDcRequest
+# Create GetNearestDcRequest from a reader
+# @name GetNearestDcRequest_from_reader
+#
+# @param reader object providing reader methods (not used here)
+# @return instance of GetNearestDcRequest
 GetNearestDcRequest$from_reader <- function(reader) {
   GetNearestDcRequest$new()
 }
@@ -760,9 +748,6 @@ GetNearestDcRequest$from_reader <- function(reader) {
 #'
 #' Request to get passport configuration (possibly not modified).
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field hash integer Hash to check for modifications.
 #' @title GetPassportConfigRequest
 #' @description Telegram API type GetPassportConfigRequest
 #' @export
@@ -783,6 +768,7 @@ GetPassportConfigRequest <- R6::R6Class(
     #' @return list with type discriminator and hash
     to_list = function() {
       list(
+        #' @field type Field.
         type = "GetPassportConfigRequest",
         hash = self$hash
       )
@@ -800,11 +786,12 @@ GetPassportConfigRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetPassportConfigRequest from a reader
-#'
-#' @param reader object providing `read_int()` method
-#' @return instance of GetPassportConfigRequest
-#' @export
+# Create GetPassportConfigRequest from a reader
+# @name GetPassportConfigRequest_from_reader
+#
+# @param reader object providing `read_int()` method
+# @return instance of GetPassportConfigRequest
+# @export
 GetPassportConfigRequest$from_reader <- function(reader) {
   hashVal <- reader$read_int()
   GetPassportConfigRequest$new(hash = hashVal)
@@ -815,9 +802,6 @@ GetPassportConfigRequest$from_reader <- function(reader) {
 #'
 #' Request to get peer colors (possibly not modified).
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field hash integer Hash to check for modifications.
 #' @title GetPeerColorsRequest
 #' @description Telegram API type GetPeerColorsRequest
 #' @export
@@ -838,6 +822,7 @@ GetPeerColorsRequest <- R6::R6Class(
     #' @return list with `type` discriminator and hash
     to_list = function() {
       list(
+        #' @field type Field.
         type = "GetPeerColorsRequest",
         hash = self$hash
       )
@@ -855,10 +840,11 @@ GetPeerColorsRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetPeerColorsRequest from a reader
-#'
-#' @param reader object providing `read_int()` method
-#' @return instance of GetPeerColorsRequest
+# Create GetPeerColorsRequest from a reader
+# @name GetPeerColorsRequest_from_reader
+#
+# @param reader object providing `read_int()` method
+# @return instance of GetPeerColorsRequest
 GetPeerColorsRequest$from_reader <- function(reader) {
   hashVal <- reader$read_int()
   GetPeerColorsRequest$new(hash = hashVal)
@@ -869,9 +855,6 @@ GetPeerColorsRequest$from_reader <- function(reader) {
 #'
 #' Request to get peer profile colors (possibly not modified).
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field hash integer Hash to check for modifications.
 #' @title GetPeerProfileColorsRequest
 #' @description Telegram API type GetPeerProfileColorsRequest
 #' @export
@@ -892,6 +875,7 @@ GetPeerProfileColorsRequest <- R6::R6Class(
     #' @return list with `type` discriminator and hash
     to_list = function() {
       list(
+        #' @field type Field.
         type = "GetPeerProfileColorsRequest",
         hash = self$hash
       )
@@ -909,10 +893,11 @@ GetPeerProfileColorsRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetPeerProfileColorsRequest from a reader
-#'
-#' @param reader object providing `read_int()` method
-#' @return instance of GetPeerProfileColorsRequest
+# Create GetPeerProfileColorsRequest from a reader
+# @name GetPeerProfileColorsRequest_from_reader
+#
+# @param reader object providing `read_int()` method
+# @return instance of GetPeerProfileColorsRequest
 GetPeerProfileColorsRequest$from_reader <- function(reader) {
   hashVal <- reader$read_int()
   GetPeerProfileColorsRequest$new(hash = hashVal)
@@ -923,8 +908,6 @@ GetPeerProfileColorsRequest$from_reader <- function(reader) {
 #'
 #' Request to get premium promotion info.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @title GetPremiumPromoRequest
 #' @description Telegram API type GetPremiumPromoRequest
 #' @export
@@ -944,6 +927,7 @@ GetPremiumPromoRequest <- R6::R6Class(
     #' @return list with type discriminator
     to_list = function() {
       list(
+        #' @field type Field.
         type = "GetPremiumPromoRequest"
       )
     },
@@ -957,11 +941,12 @@ GetPremiumPromoRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetPremiumPromoRequest from a reader
-#'
-#' @param reader object providing reader methods (not used here)
-#' @return instance of GetPremiumPromoRequest
-#' @export
+# Create GetPremiumPromoRequest from a reader
+# @name GetPremiumPromoRequest_from_reader
+#
+# @param reader object providing reader methods (not used here)
+# @return instance of GetPremiumPromoRequest
+# @export
 GetPremiumPromoRequest$from_reader <- function(reader) {
   GetPremiumPromoRequest$new()
 }
@@ -971,8 +956,6 @@ GetPremiumPromoRequest$from_reader <- function(reader) {
 #'
 #' Request to get promo data.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @title GetPromoDataRequest
 #' @description Telegram API type GetPromoDataRequest
 #' @export
@@ -992,6 +975,7 @@ GetPromoDataRequest <- R6::R6Class(
     #' @return list with type discriminator
     to_list = function() {
       list(
+        #' @field type Field.
         type = "GetPromoDataRequest"
       )
     },
@@ -1005,11 +989,12 @@ GetPromoDataRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetPromoDataRequest from a reader
-#'
-#' @param reader object providing reader methods (not used here)
-#' @return instance of GetPromoDataRequest
-#' @export
+# Create GetPromoDataRequest from a reader
+# @name GetPromoDataRequest_from_reader
+#
+# @param reader object providing reader methods (not used here)
+# @return instance of GetPromoDataRequest
+# @export
 GetPromoDataRequest$from_reader <- function(reader) {
   GetPromoDataRequest$new()
 }
@@ -1019,9 +1004,6 @@ GetPromoDataRequest$from_reader <- function(reader) {
 #'
 #' Request to get recent "me" URLs with a referer string.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field referer character Referer string
 #' @title GetRecentMeUrlsRequest
 #' @description Telegram API type GetRecentMeUrlsRequest
 #' @export
@@ -1030,6 +1012,7 @@ GetRecentMeUrlsRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x3dc0f114),
     SUBCLASS_OF_ID = as.numeric(0xf269c477),
+    #' @field referer Field.
     referer = "",
 
     #' @description Initialize GetRecentMeUrlsRequest
@@ -1042,6 +1025,7 @@ GetRecentMeUrlsRequest <- R6::R6Class(
     #' @return list with type discriminator and referer
     to_list = function() {
       list(
+        #' @field type Field.
         type = "GetRecentMeUrlsRequest",
         referer = self$referer
       )
@@ -1073,11 +1057,12 @@ GetRecentMeUrlsRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetRecentMeUrlsRequest from a reader
-#'
-#' @param reader object providing tgread_string() method
-#' @return instance of GetRecentMeUrlsRequest
-#' @export
+# Create GetRecentMeUrlsRequest from a reader
+# @name GetRecentMeUrlsRequest_from_reader
+#
+# @param reader object providing tgread_string() method
+# @return instance of GetRecentMeUrlsRequest
+# @export
 GetRecentMeUrlsRequest$from_reader <- function(reader) {
   refererVal <- reader$tgread_string()
   GetRecentMeUrlsRequest$new(referer = refererVal)
@@ -1088,8 +1073,6 @@ GetRecentMeUrlsRequest$from_reader <- function(reader) {
 #'
 #' Request to get support information.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @title GetSupportRequest
 #' @description Telegram API type GetSupportRequest
 #' @export
@@ -1109,6 +1092,7 @@ GetSupportRequest <- R6::R6Class(
     #' @return list with type discriminator
     to_list = function() {
       list(
+        #' @field type Field.
         type = "GetSupportRequest"
       )
     },
@@ -1122,11 +1106,12 @@ GetSupportRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetSupportRequest from a reader
-#'
-#' @param reader object providing reader methods (not used here)
-#' @return instance of GetSupportRequest
-#' @export
+# Create GetSupportRequest from a reader
+# @name GetSupportRequest_from_reader
+#
+# @param reader object providing reader methods (not used here)
+# @return instance of GetSupportRequest
+# @export
 GetSupportRequest$from_reader <- function(reader) {
   GetSupportRequest$new()
 }
@@ -1136,8 +1121,6 @@ GetSupportRequest$from_reader <- function(reader) {
 #'
 #' Request to get support name.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @title GetSupportNameRequest
 #' @description Telegram API type GetSupportNameRequest
 #' @export
@@ -1157,6 +1140,7 @@ GetSupportNameRequest <- R6::R6Class(
     #' @return list with `type` discriminator
     to_list = function() {
       list(
+        #' @field type Field.
         type = "GetSupportNameRequest"
       )
     },
@@ -1171,11 +1155,12 @@ GetSupportNameRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetSupportNameRequest from a reader
-#'
-#' @param reader object providing `read_*()` methods (not used here)
-#' @return instance of GetSupportNameRequest
-#' @export
+# Create GetSupportNameRequest from a reader
+# @name GetSupportNameRequest_from_reader
+#
+# @param reader object providing `read_*()` methods (not used here)
+# @return instance of GetSupportNameRequest
+# @export
 GetSupportNameRequest$from_reader <- function(reader) {
   GetSupportNameRequest$new()
 }
@@ -1185,8 +1170,6 @@ GetSupportNameRequest$from_reader <- function(reader) {
 #'
 #' Request to get terms of service update.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
 #' @title GetTermsOfServiceUpdateRequest
 #' @description Telegram API type GetTermsOfServiceUpdateRequest
 #' @export
@@ -1206,6 +1189,7 @@ GetTermsOfServiceUpdateRequest <- R6::R6Class(
     #' @return list with `type` discriminator
     to_list = function() {
       list(
+        #' @field type Field.
         type = "GetTermsOfServiceUpdateRequest"
       )
     },
@@ -1219,11 +1203,12 @@ GetTermsOfServiceUpdateRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetTermsOfServiceUpdateRequest from a reader
-#'
-#' @param reader object providing `read_*()` methods (not used here)
-#' @return instance of GetTermsOfServiceUpdateRequest
-#' @export
+# Create GetTermsOfServiceUpdateRequest from a reader
+# @name GetTermsOfServiceUpdateRequest_from_reader
+#
+# @param reader object providing `read_*()` methods (not used here)
+# @return instance of GetTermsOfServiceUpdateRequest
+# @export
 GetTermsOfServiceUpdateRequest$from_reader <- function(reader) {
   GetTermsOfServiceUpdateRequest$new()
 }
@@ -1233,9 +1218,6 @@ GetTermsOfServiceUpdateRequest$from_reader <- function(reader) {
 #'
 #' Request to get timezones list (possibly not modified).
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field hash integer Hash to check for modifications.
 #' @title GetTimezonesListRequest
 #' @description Telegram API type GetTimezonesListRequest
 #' @export
@@ -1256,6 +1238,7 @@ GetTimezonesListRequest <- R6::R6Class(
     #' @return list with `type` discriminator and hash
     to_list = function() {
       list(
+        #' @field type Field.
         type = "GetTimezonesListRequest",
         hash = self$hash
       )
@@ -1273,11 +1256,12 @@ GetTimezonesListRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetTimezonesListRequest from a reader
-#'
-#' @param reader object providing `read_int()` and similar methods
-#' @return instance of GetTimezonesListRequest
-#' @export
+# Create GetTimezonesListRequest from a reader
+# @name GetTimezonesListRequest_from_reader
+#
+# @param reader object providing `read_int()` and similar methods
+# @return instance of GetTimezonesListRequest
+# @export
 GetTimezonesListRequest$from_reader <- function(reader) {
   hashVal <- reader$read_int()
   GetTimezonesListRequest$new(hash = hashVal)
@@ -1288,9 +1272,6 @@ GetTimezonesListRequest$from_reader <- function(reader) {
 #'
 #' Request to get user info (help.UserInfo).
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field userId TLObject-like input user (environment with to_bytes()/to_list() or raw)
 #' @title GetUserInfoRequest
 #' @description Telegram API type GetUserInfoRequest
 #' @export
@@ -1299,6 +1280,7 @@ GetUserInfoRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x038a08d3),
     SUBCLASS_OF_ID = as.numeric(0x5c53d7d8),
+    #' @field userId Field.
     userId = NULL,
 
     #' @description Initialize GetUserInfoRequest
@@ -1348,11 +1330,12 @@ GetUserInfoRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create GetUserInfoRequest from a reader
-#'
-#' @param reader object providing `tgread_object()` method
-#' @return instance of GetUserInfoRequest
-#' @export
+# Create GetUserInfoRequest from a reader
+# @name GetUserInfoRequest_from_reader
+#
+# @param reader object providing `tgread_object()` method
+# @return instance of GetUserInfoRequest
+# @export
 GetUserInfoRequest$from_reader <- function(reader) {
   userObj <- reader$tgread_object()
   GetUserInfoRequest$new(userId = userObj)
@@ -1363,9 +1346,6 @@ GetUserInfoRequest$from_reader <- function(reader) {
 #'
 #' Request to hide promo data for a peer.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field peer TLObject-like input peer (environment with to_bytes()/to_list() or raw)
 #' @title HidePromoDataRequest
 #' @description Telegram API type HidePromoDataRequest
 #' @export
@@ -1374,6 +1354,7 @@ HidePromoDataRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x1e251c95),
     SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
+    #' @field peer Field.
     peer = NULL,
 
     #' @description Initialize HidePromoDataRequest
@@ -1420,11 +1401,12 @@ HidePromoDataRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create HidePromoDataRequest from a reader
-#'
-#' @param reader object providing `tgread_object()` method
-#' @return instance of HidePromoDataRequest
-#' @export
+# Create HidePromoDataRequest from a reader
+# @name HidePromoDataRequest_from_reader
+#
+# @param reader object providing `tgread_object()` method
+# @return instance of HidePromoDataRequest
+# @export
 HidePromoDataRequest$from_reader <- function(reader) {
   peerObj <- reader$tgread_object()
   HidePromoDataRequest$new(peer = peerObj)
@@ -1435,9 +1417,6 @@ HidePromoDataRequest$from_reader <- function(reader) {
 #'
 #' Request to save application log events.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field events list List of input app events (TLObject-like).
 #' @title SaveAppLogRequest
 #' @description Telegram API type SaveAppLogRequest
 #' @export
@@ -1446,6 +1425,7 @@ SaveAppLogRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x6f02f748),
     SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
+    #' @field events Field.
     events = NULL,
 
     #' @description Initialize SaveAppLogRequest
@@ -1497,11 +1477,12 @@ SaveAppLogRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create SaveAppLogRequest from a reader
-#'
-#' @param reader object providing `read_int()` and `tgread_object()` methods
-#' @return instance of SaveAppLogRequest
-#' @export
+# Create SaveAppLogRequest from a reader
+# @name SaveAppLogRequest_from_reader
+#
+# @param reader object providing `read_int()` and `tgread_object()` methods
+# @return instance of SaveAppLogRequest
+# @export
 SaveAppLogRequest$from_reader <- function(reader) {
   # read potential vector constructor int (discard)
   reader$read_int()
@@ -1518,10 +1499,6 @@ SaveAppLogRequest$from_reader <- function(reader) {
 #'
 #' Notify server of bot updates status.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (hex).
-#' @field SUBCLASS_OF_ID integer Subclass id (hex).
-#' @field pendingUpdatesCount integer Count of pending updates.
-#' @field message character Additional message.
 #' @title SetBotUpdatesStatusRequest
 #' @description Telegram API type SetBotUpdatesStatusRequest
 #' @export
@@ -1531,6 +1508,7 @@ SetBotUpdatesStatusRequest <- R6::R6Class(
     CONSTRUCTOR_ID = as.numeric(0xec22cfcd),
     SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
     pendingUpdatesCount = 0L,
+    #' @field message Field.
     message = "",
 
     #' @description Initialize SetBotUpdatesStatusRequest
@@ -1580,11 +1558,12 @@ SetBotUpdatesStatusRequest <- R6::R6Class(
   private = list()
 )
 
-#' Create SetBotUpdatesStatusRequest from a reader
-#'
-#' @param reader object providing `read_int()` and `tgread_string()` methods
-#' @return instance of SetBotUpdatesStatusRequest
-#' @export
+# Create SetBotUpdatesStatusRequest from a reader
+# @name SetBotUpdatesStatusRequest_from_reader
+#
+# @param reader object providing `read_int()` and `tgread_string()` methods
+# @return instance of SetBotUpdatesStatusRequest
+# @export
 SetBotUpdatesStatusRequest$from_reader <- function(reader) {
   pendingCount <- reader$read_int()
   msg <- reader$tgread_string()

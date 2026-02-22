@@ -2,9 +2,6 @@
 #'
 #' Represents the TL request EditPeerFoldersRequest.
 #'
-#' @field CONSTRUCTOR_ID integer Constructor id (0x6847d0ab)
-#' @field SUBCLASS_OF_ID integer Subclass id (0x8af52aac)
-#' @field folder_peers list List of InputFolderPeer objects (each should provide to_list() and to_raw())
 #' @return An R6 object of class EditPeerFoldersRequest
 #' @title EditPeerFoldersRequest
 #' @description Telegram API type EditPeerFoldersRequest
@@ -12,8 +9,11 @@
 EditPeerFoldersRequest <- R6::R6Class(
   "EditPeerFoldersRequest",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6847d0ab,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #' @field folder_peers Field.
     folder_peers = NULL,
 
     #' @description Initialize EditPeerFoldersRequest
@@ -67,12 +67,13 @@ EditPeerFoldersRequest <- R6::R6Class(
   )
 )
 
-#' Read EditPeerFoldersRequest from a reader
-#'
-#' reader must implement read_int() and tgread_object()
-#'
-#' @param reader Reader object with methods read_int() and tgread_object()
-#' @return EditPeerFoldersRequest
+# Read EditPeerFoldersRequest from a reader
+# @name EditPeerFoldersRequest_read_from
+#
+# reader must implement read_int() and tgread_object()
+#
+# @param reader Reader object with methods read_int() and tgread_object()
+# @return EditPeerFoldersRequest
 EditPeerFoldersRequest$read_from <- function(reader) {
   # consume constructor id (if present)
   reader$read_int()

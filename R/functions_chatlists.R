@@ -2,9 +2,6 @@
 #'
 #' Request to check a chatlist invite by slug.
 #'
-#' @field CONSTRUCTOR_ID Integer constructor id.
-#' @field SUBCLASS_OF_ID Integer subclass id.
-#' @field slug character invite slug.
 #' @title CheckChatlistInviteRequest
 #' @description Telegram API type CheckChatlistInviteRequest
 #' @export
@@ -13,6 +10,7 @@ CheckChatlistInviteRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0x41c10fff),
     SUBCLASS_OF_ID = as.integer(0x41720e75),
+    #' @field slug Field.
     slug = NULL,
 
     #' @description Initialize CheckChatlistInviteRequest
@@ -81,10 +79,6 @@ CheckChatlistInviteRequest$set("public", "from_reader", function(reader) {
 #'
 #' Request to delete an exported invite for a chatlist.
 #'
-#' @field CONSTRUCTOR_ID Integer constructor id.
-#' @field SUBCLASS_OF_ID Integer subclass id.
-#' @field chatlist TypeInputChatlist input chatlist object.
-#' @field slug character invite slug.
 #' @title DeleteExportedInviteRequest
 #' @description Telegram API type DeleteExportedInviteRequest
 #' @export
@@ -93,7 +87,9 @@ DeleteExportedInviteRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0x719c5c5e),
     SUBCLASS_OF_ID = as.integer(0xf5b399ac),
+    #' @field chatlist Field.
     chatlist = NULL,
+    #' @field slug Field.
     slug = NULL,
 
     #' @description Initialize DeleteExportedInviteRequest
@@ -171,12 +167,6 @@ DeleteExportedInviteRequest$set("public", "from_reader", function(reader) {
 #'
 #' Request to edit an exported invite for a chatlist (optional title and peers).
 #'
-#' @field CONSTRUCTOR_ID Integer constructor id.
-#' @field SUBCLASS_OF_ID Integer subclass id.
-#' @field chatlist TypeInputChatlist input chatlist object.
-#' @field slug character invite slug.
-#' @field title character optional invite title.
-#' @field peers list Optional list of TypeInputPeer input peers.
 #' @title EditExportedInviteRequest
 #' @description Telegram API type EditExportedInviteRequest
 #' @export
@@ -185,9 +175,13 @@ EditExportedInviteRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0x653db63d),
     SUBCLASS_OF_ID = as.integer(0x7711f8ff),
+    #' @field chatlist Field.
     chatlist = NULL,
+    #' @field slug Field.
     slug = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field peers Field.
     peers = NULL,
 
     #' @description Initialize EditExportedInviteRequest
@@ -349,11 +343,6 @@ EditExportedInviteRequest$set("public", "from_reader", function(reader) {
 #'
 #' Request to export an invite for a chatlist with a title and list of peers.
 #'
-#' @field CONSTRUCTOR_ID Integer constructor id.
-#' @field SUBCLASS_OF_ID Integer subclass id.
-#' @field chatlist TypeInputChatlist input chatlist object.
-#' @field title character invite title.
-#' @field peers list List of TypeInputPeer input peers.
 #' @title ExportChatlistInviteRequest
 #' @description Telegram API type ExportChatlistInviteRequest
 #' @export
@@ -362,8 +351,11 @@ ExportChatlistInviteRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0x8472478e),
     SUBCLASS_OF_ID = as.integer(0xc2694ee9),
+    #' @field chatlist Field.
     chatlist = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field peers Field.
     peers = NULL,
 
     #' @description Initialize ExportChatlistInviteRequest
@@ -491,9 +483,6 @@ ExportChatlistInviteRequest$set("public", "from_reader", function(reader) {
 #'
 #' Request to get updates for a chatlist.
 #'
-#' @field CONSTRUCTOR_ID Integer constructor id.
-#' @field SUBCLASS_OF_ID Integer subclass id.
-#' @field chatlist TypeInputChatlist input chatlist object.
 #' @title GetChatlistUpdatesRequest
 #' @description Telegram API type GetChatlistUpdatesRequest
 #' @export
@@ -502,6 +491,7 @@ GetChatlistUpdatesRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0x89419521),
     SUBCLASS_OF_ID = as.integer(0x7d1641ea),
+    #' @field chatlist Field.
     chatlist = NULL,
 
     #' @description Initialize GetChatlistUpdatesRequest
@@ -554,9 +544,6 @@ GetChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
 #'
 #' Request to get exported invites for a chatlist.
 #'
-#' @field CONSTRUCTOR_ID Integer constructor id.
-#' @field SUBCLASS_OF_ID Integer subclass id.
-#' @field chatlist TypeInputChatlist input chatlist object.
 #' @title GetExportedInvitesRequest
 #' @description Telegram API type GetExportedInvitesRequest
 #' @export
@@ -565,6 +552,7 @@ GetExportedInvitesRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0xce03da83),
     SUBCLASS_OF_ID = as.integer(0xe6c209c0),
+    #' @field chatlist Field.
     chatlist = NULL,
 
     #' @description Initialize GetExportedInvitesRequest
@@ -617,9 +605,6 @@ GetExportedInvitesRequest$set("public", "from_reader", function(reader) {
 #'
 #' Request to get suggestions of peers to leave from a chatlist.
 #'
-#' @field CONSTRUCTOR_ID Integer constructor id.
-#' @field SUBCLASS_OF_ID Integer subclass id.
-#' @field chatlist TypeInputChatlist input chatlist object.
 #' @title GetLeaveChatlistSuggestionsRequest
 #' @description Telegram API type GetLeaveChatlistSuggestionsRequest
 #' @export
@@ -628,6 +613,7 @@ GetLeaveChatlistSuggestionsRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0xfdbcd714),
     SUBCLASS_OF_ID = as.integer(0xb9945d7e),
+    #' @field chatlist Field.
     chatlist = NULL,
 
     #' @description Initialize GetLeaveChatlistSuggestionsRequest
@@ -680,9 +666,6 @@ GetLeaveChatlistSuggestionsRequest$set("public", "from_reader", function(reader)
 #'
 #' Request to hide updates for a chatlist.
 #'
-#' @field CONSTRUCTOR_ID Integer constructor id.
-#' @field SUBCLASS_OF_ID Integer subclass id.
-#' @field chatlist TypeInputChatlist input chatlist object.
 #' @title HideChatlistUpdatesRequest
 #' @description Telegram API type HideChatlistUpdatesRequest
 #' @export
@@ -691,6 +674,7 @@ HideChatlistUpdatesRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0x66e486fb),
     SUBCLASS_OF_ID = as.integer(0xf5b399ac),
+    #' @field chatlist Field.
     chatlist = NULL,
 
     #' @description Initialize HideChatlistUpdatesRequest
@@ -744,10 +728,6 @@ HideChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
 #'
 #' Request to join a chatlist invite (by slug) with specific peers.
 #'
-#' @field CONSTRUCTOR_ID Integer constructor id.
-#' @field SUBCLASS_OF_ID Integer subclass id.
-#' @field slug String invite slug.
-#' @field peers List of TypeInputPeer input peers.
 #' @title JoinChatlistInviteRequest
 #' @description Telegram API type JoinChatlistInviteRequest
 #' @export
@@ -756,7 +736,9 @@ JoinChatlistInviteRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0xa6b1e39a),
     SUBCLASS_OF_ID = as.integer(0x8af52aac),
+    #' @field slug Field.
     slug = NULL,
+    #' @field peers Field.
     peers = NULL,
 
     #' @description Initialize JoinChatlistInviteRequest
@@ -880,10 +862,6 @@ JoinChatlistInviteRequest$set("public", "from_reader", function(reader) {
 #'
 #' Request to join a chatlist with specific peers.
 #'
-#' @field CONSTRUCTOR_ID Integer constructor id.
-#' @field SUBCLASS_OF_ID Integer subclass id.
-#' @field chatlist TypeInputChatlist input chatlist object.
-#' @field peers List of TypeInputPeer input peers.
 #' @title JoinChatlistUpdatesRequest
 #' @description Telegram API type JoinChatlistUpdatesRequest
 #' @export
@@ -892,7 +870,9 @@ JoinChatlistUpdatesRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0xe089f8f5),
     SUBCLASS_OF_ID = as.integer(0x8af52aac),
+    #' @field chatlist Field.
     chatlist = NULL,
+    #' @field peers Field.
     peers = NULL,
 
     #' @description Initialize JoinChatlistUpdatesRequest
@@ -993,10 +973,6 @@ JoinChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
 #'
 #' Request to leave a chatlist for specific peers.
 #'
-#' @field CONSTRUCTOR_ID Integer constructor id.
-#' @field SUBCLASS_OF_ID Integer subclass id.
-#' @field chatlist TypeInputChatlist input chatlist object.
-#' @field peers List of TypeInputPeer input peers.
 #' @title LeaveChatlistRequest
 #' @description Telegram API type LeaveChatlistRequest
 #' @export
@@ -1005,7 +981,9 @@ LeaveChatlistRequest <- R6::R6Class(
   public = list(
     CONSTRUCTOR_ID = as.integer(0x74fae13a),
     SUBCLASS_OF_ID = as.integer(0x8af52aac),
+    #' @field chatlist Field.
     chatlist = NULL,
+    #' @field peers Field.
     peers = NULL,
 
     #' @description Initialize LeaveChatlistRequest

@@ -2,9 +2,6 @@
 #'
 #' Request to retrieve collectible information (fragment.CollectibleInfo).
 #'
-#' @field CONSTRUCTOR_ID Integer constructor id (little-endian bytes: ba 85 1e be)
-#' @field SUBCLASS_OF_ID Integer subclass id
-#' @field collectible TLObject-like R6 object (must provide to_list/to_bytes or bytes)
 #' @return R6 object of class GetCollectibleInfoRequest
 #' @title GetCollectibleInfoRequest
 #' @description Telegram API type GetCollectibleInfoRequest
@@ -13,8 +10,11 @@ GetCollectibleInfoRequest <- R6::R6Class(
   "GetCollectibleInfoRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbe1e85ba,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd4ea5790,
+    #' @field collectible Field.
     collectible = NULL,
 
     #' @description Initializes a new GetCollectibleInfoRequest.

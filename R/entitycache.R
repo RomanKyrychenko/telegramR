@@ -1,8 +1,11 @@
 EntityCache <- R6::R6Class(
   "EntityCache",
   public = list(
+    #' @field self_id Field.
     self_id = NULL,
+    #' @field self_bot Field.
     self_bot = NULL,
+    #' @field entities Field.
     entities = NULL,
 
     initialize = function() {

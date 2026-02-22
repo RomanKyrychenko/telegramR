@@ -73,6 +73,7 @@ TelegramClient <- R6::R6Class(
     #' @param max_attempts Maximum number of attempts for code/password verification
     #' @return The client instance
     start = function(phone = NULL,
+                     #' @field password Field.
                      password = NULL,
                      bot_token = NULL, force_sms = FALSE, code_callback = NULL,
                      first_name = "New User", last_name = "", max_attempts = 3) {
@@ -439,6 +440,7 @@ TelegramClient <- R6::R6Class(
               new_password_hash = new_password_hash,
               hint = hint,
               email = email,
+              #' @field new_secure_settings Field.
               new_secure_settings = NULL
             )
           ))
@@ -457,10 +459,14 @@ TelegramClient <- R6::R6Class(
       return(TRUE)
     },
 
+    #' @field client Field.
     client = NULL,
+    #' @field phone Field.
     phone = NULL,
     phone_code_hash = list(),
+    #' @field tos Field.
     tos = NULL,
+    #' @field authorized Field.
     authorized = FALSE,
     parse_phone_and_hash = function(phone, phone_hash) {
       phone <- self$parse_phone(phone) %||% self$phone
@@ -688,6 +694,7 @@ TelegramClient <- R6::R6Class(
 
             return(self$download_photo(
               entity$chat_photo, file,
+              #' @field date Field.
               date = NULL,
               thumb = thumb, progress_callback = NULL
             ))
@@ -705,6 +712,7 @@ TelegramClient <- R6::R6Class(
         if (inherits(photo, c("UserProfilePhoto", "ChatPhoto"))) {
           dc_id <- photo$dc_id
           loc <- list(
+            #' @field type Field.
             type = "InputPeerPhotoFileLocation",
             # min users can be used to download profile photos
             # self.get_input_entity would otherwise not accept those
@@ -738,6 +746,7 @@ TelegramClient <- R6::R6Class(
               ty <- entity_type(ie)
               if (ty == EntityType$CHANNEL) {
                 full <- self$call(list(
+                  #' @field type Field.
                   type = "GetFullChannelRequest",
                   channel = ie
                 ))
@@ -1211,6 +1220,7 @@ TelegramClient <- R6::R6Class(
 
         result <- await(self$download_file(
           list(
+            #' @field type Field.
             type = "InputPhotoFileLocation",
             id = photo$id,
             access_hash = photo$access_hash,
@@ -1295,6 +1305,7 @@ TelegramClient <- R6::R6Class(
 
         result <- await(self$download_file(
           list(
+            #' @field type Field.
             type = "InputDocumentFileLocation",
             id = document$id,
             access_hash = document$access_hash,
@@ -1501,11 +1512,16 @@ TelegramClient <- R6::R6Class(
     #'          FALSE implies folder=0 and TRUE implies folder=1.
     #' @return An iterator over dialogs.
     iter_dialogs = function(limit = NULL,
+                            #' @field offset_date Field.
                             offset_date = NULL,
+                            #' @field offset_id Field.
                             offset_id = 0,
                             offset_peer = InputPeerEmpty$new(),
+                            #' @field ignore_pinned Field.
                             ignore_pinned = FALSE,
+                            #' @field ignore_migrated Field.
                             ignore_migrated = FALSE,
+                            #' @field folder Field.
                             folder = NULL,
                             archived = NULL) {
       if (!is.null(archived)) {
@@ -1544,11 +1560,16 @@ TelegramClient <- R6::R6Class(
     #'           FALSE implies folder=0 and TRUE implies folder=1.
     #' @return A list of dialogs.
     get_dialogs = function(limit = NULL,
+                           #' @field offset_date Field.
                            offset_date = NULL,
+                           #' @field offset_id Field.
                            offset_id = 0,
                            offset_peer = InputPeerEmpty$new(),
+                           #' @field ignore_pinned Field.
                            ignore_pinned = FALSE,
+                           #' @field ignore_migrated Field.
                            ignore_migrated = FALSE,
+                           #' @field folder Field.
                            folder = NULL,
                            archived = NULL) {
       return(future({
@@ -1710,9 +1731,13 @@ TelegramClient <- R6::R6Class(
     #' @return A new Conversation object.
     #' @export
     conversation = function(entity,
+                            #' @field timeout Field.
                             timeout = 60,
+                            #' @field total_timeout Field.
                             total_timeout = NULL,
+                            #' @field max_messages Field.
                             max_messages = 100,
+                            #' @field exclusive Field.
                             exclusive = TRUE,
                             replies_are_responses = TRUE) {
       return(custom$Conversation(
@@ -2178,18 +2203,27 @@ TelegramClient <- R6::R6Class(
     #' @param scheduled logical. If TRUE, return scheduled messages (ignores other params except entity).
     #' @return An iterator-like object or list depending on implementation.
     iter_messages = function(entity,
+                             #' @field limit Field.
                              limit = NULL,
+                             #' @field offset_date Field.
                              offset_date = NULL,
                              offset_id = 0L,
                              max_id = 0L,
                              min_id = 0L,
                              add_offset = 0L,
+                             #' @field search Field.
                              search = NULL,
+                             #' @field filter Field.
                              filter = NULL,
+                             #' @field from_user Field.
                              from_user = NULL,
+                             #' @field wait_time Field.
                              wait_time = NULL,
+                             #' @field ids Field.
                              ids = NULL,
+                             #' @field reverse Field.
                              reverse = FALSE,
+                             #' @field reply_to Field.
                              reply_to = NULL,
                              scheduled = FALSE) {
       # NOTE: This is a placeholder that should delegate to the underlying client implementation.
@@ -2272,23 +2306,41 @@ TelegramClient <- R6::R6Class(
     #' @param message_effect_id integer. Effect id (private chats only).
     #' @return The sent message object.
     send_message = function(entity,
+                            #' @field message Field.
                             message = "",
+                            #' @field reply_to Field.
                             reply_to = NULL,
+                            #' @field attributes Field.
                             attributes = NULL,
+                            #' @field parse_mode Field.
                             parse_mode = NULL,
+                            #' @field formatting_entities Field.
                             formatting_entities = NULL,
+                            #' @field link_preview Field.
                             link_preview = TRUE,
+                            #' @field file Field.
                             file = NULL,
+                            #' @field thumb Field.
                             thumb = NULL,
+                            #' @field force_document Field.
                             force_document = FALSE,
+                            #' @field clear_draft Field.
                             clear_draft = FALSE,
+                            #' @field buttons Field.
                             buttons = NULL,
+                            #' @field silent Field.
                             silent = NULL,
+                            #' @field background Field.
                             background = NULL,
+                            #' @field supports_streaming Field.
                             supports_streaming = FALSE,
+                            #' @field schedule Field.
                             schedule = NULL,
+                            #' @field comment_to Field.
                             comment_to = NULL,
+                            #' @field nosound_video Field.
                             nosound_video = NULL,
+                            #' @field send_as Field.
                             send_as = NULL,
                             message_effect_id = NULL) {
       if (!is.null(self$client) && !is.null(self$client$send_message)) {
@@ -2335,12 +2387,19 @@ TelegramClient <- R6::R6Class(
     #' @return A list of forwarded message objects (or single if input wasn't a list).
     forward_messages = function(entity,
                                 messages,
+                                #' @field from_peer Field.
                                 from_peer = NULL,
+                                #' @field background Field.
                                 background = NULL,
+                                #' @field with_my_score Field.
                                 with_my_score = NULL,
+                                #' @field silent Field.
                                 silent = NULL,
+                                #' @field as_album Field.
                                 as_album = NULL,
+                                #' @field schedule Field.
                                 schedule = NULL,
+                                #' @field drop_author Field.
                                 drop_author = NULL,
                                 drop_media_captions = NULL) {
       if (!is.null(as_album)) {
@@ -2381,16 +2440,27 @@ TelegramClient <- R6::R6Class(
     #' @param schedule POSIXct/Date. Schedule time.
     #' @return The edited message (or logical for inline bot messages depending on API).
     edit_message = function(entity,
+                            #' @field message Field.
                             message = NULL,
+                            #' @field text Field.
                             text = NULL,
+                            #' @field parse_mode Field.
                             parse_mode = NULL,
+                            #' @field attributes Field.
                             attributes = NULL,
+                            #' @field formatting_entities Field.
                             formatting_entities = NULL,
+                            #' @field link_preview Field.
                             link_preview = TRUE,
+                            #' @field file Field.
                             file = NULL,
+                            #' @field thumb Field.
                             thumb = NULL,
+                            #' @field force_document Field.
                             force_document = FALSE,
+                            #' @field buttons Field.
                             buttons = NULL,
+                            #' @field supports_streaming Field.
                             supports_streaming = FALSE,
                             schedule = NULL) {
       if (!is.null(self$client) && !is.null(self$client$edit_message)) {
@@ -2445,8 +2515,11 @@ TelegramClient <- R6::R6Class(
     #' @param clear_reactions logical. Clear reactions badge.
     #' @return logical indicating success depending on API.
     send_read_acknowledge = function(entity,
+                                     #' @field message Field.
                                      message = NULL,
+                                     #' @field max_id Field.
                                      max_id = NULL,
+                                     #' @field clear_mentions Field.
                                      clear_mentions = FALSE,
                                      clear_reactions = FALSE) {
       if (!is.null(self$client) && !is.null(self$client$send_read_acknowledge)) {
@@ -2472,6 +2545,7 @@ TelegramClient <- R6::R6Class(
     #' @return API-dependent result or pinned service message.
     pin_message = function(entity,
                            message,
+                           #' @field notify Field.
                            notify = FALSE,
                            pm_oneside = FALSE) {
       self$pin_internal(entity = entity, message = message, unpin = FALSE, notify = notify, pm_oneside = pm_oneside)
@@ -2486,6 +2560,7 @@ TelegramClient <- R6::R6Class(
     #' @param notify logical. Notify members about the unpin.
     #' @return API-dependent result.
     unpin_message = function(entity,
+                             #' @field message Field.
                              message = NULL,
                              notify = FALSE) {
       self$pin_internal(entity = entity, message = message, unpin = TRUE, notify = notify, pm_oneside = FALSE)
@@ -2603,6 +2678,7 @@ TelegramClient <- R6::R6Class(
 
           if (is_big) {
             request <- list(
+              #' @field method Field.
               method = "upload.saveBigFilePart",
               file_id = file_id,
               file_part = part_index,
@@ -2611,6 +2687,7 @@ TelegramClient <- R6::R6Class(
             )
           } else {
             request <- list(
+              #' @field method Field.
               method = "upload.saveFilePart",
               file_id = file_id,
               file_part = part_index,
@@ -2631,6 +2708,7 @@ TelegramClient <- R6::R6Class(
 
         if (is_big) {
           list(
+            #' @field type Field.
             type = "InputFileBig",
             id = file_id,
             parts = part_count,
@@ -2638,6 +2716,7 @@ TelegramClient <- R6::R6Class(
           )
         } else {
           list(
+            #' @field type Field.
             type = "InputFile",
             id = file_id,
             parts = part_count,
@@ -2703,6 +2782,7 @@ TelegramClient <- R6::R6Class(
           }
 
           media <- list(
+            #' @field type Field.
             type = "InputMediaUploadedDocument",
             file = file_handle_result,
             mime_type = mime_type,
@@ -3511,6 +3591,7 @@ TelegramClient <- R6::R6Class(
       tryCatch(
         {
           entities[[i]] <- list(
+            #' @field type Field.
             type = "mention",
             offset = entities[[i]]$offset,
             length = entities[[i]]$length,

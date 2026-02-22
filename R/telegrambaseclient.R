@@ -128,24 +128,43 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
                           api_id,
                           api_hash,
                           connection = NULL, # ConnectionTcpFull in Python
+                          #' @field use_ipv6 Field.
                           use_ipv6 = FALSE,
+                          #' @field proxy Field.
                           proxy = NULL,
+                          #' @field local_addr Field.
                           local_addr = NULL,
+                          #' @field timeout Field.
                           timeout = 10,
+                          #' @field request_retries Field.
                           request_retries = 5,
+                          #' @field connection_retries Field.
                           connection_retries = 5,
+                          #' @field retry_delay Field.
                           retry_delay = 1,
+                          #' @field auto_reconnect Field.
                           auto_reconnect = TRUE,
+                          #' @field sequential_updates Field.
                           sequential_updates = FALSE,
+                          #' @field flood_sleep_threshold Field.
                           flood_sleep_threshold = 60,
+                          #' @field raise_last_call_error Field.
                           raise_last_call_error = FALSE,
+                          #' @field device_model Field.
                           device_model = NULL,
+                          #' @field system_version Field.
                           system_version = NULL,
+                          #' @field app_version Field.
                           app_version = NULL,
+                          #' @field lang_code Field.
                           lang_code = "en",
+                          #' @field system_lang_code Field.
                           system_lang_code = "en",
+                          #' @field base_logger Field.
                           base_logger = NULL,
+                          #' @field receive_updates Field.
                           receive_updates = TRUE,
+                          #' @field catch_up Field.
                           catch_up = FALSE,
                           entity_cache_limit = 5000) {
       if (is.null(api_id) || is.null(api_hash) || api_id == "" || api_hash == "") {
@@ -214,6 +233,7 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         lang_code = lang_code,
         system_lang_code = system_lang_code,
         lang_pack = "", # "langPacks are for official apps only"
+        #' @field query Field.
         query = NULL,
         proxy = NULL # init_proxy would be set here in the Python version
       )
@@ -256,11 +276,13 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         }
       }
       private$sender <- MTProtoSender$new(
+        #' @field auth_key_callback Field.
         auth_key_callback = NULL,
         retries = private$connection_retries,
         delay = private$retry_delay,
         auto_reconnect = private$auto_reconnect,
         connect_timeout = private$timeout,
+        #' @field auto_reconnect_callback Field.
         auto_reconnect_callback = NULL
       )
 
@@ -837,6 +859,7 @@ if (!exists("Queue", inherits = FALSE)) {
   Queue <- R6::R6Class(
     "Queue",
     public = list(
+      #' @field items Field.
       items = NULL,
       initialize = function() {
         self$items <- list()

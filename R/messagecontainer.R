@@ -46,8 +46,6 @@ MessageContainer <- R6::R6Class(
       )
     },
 
-    #' @description
-    #' Read and parse a `MessageContainer` object from a binary reader.
     #' @param reader A binary reader object to read the messages from.
     #' @return The updated `MessageContainer` object with the parsed messages.
     #' @description

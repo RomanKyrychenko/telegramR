@@ -1,14 +1,9 @@
 #' RpcResult Class
 #'
-#' @description
-#' Represents the result of a Remote Procedure Call (RPC) in the Telegram API.
 #'
 #' @details
 #' The `RpcResult` class encapsulates the response of an RPC call, including the request message ID, the body of the response, and any error that occurred.
 #'
-#' @field req_msg_id \code{numeric} The ID of the request message.
-#' @field body \code{ANY} The body of the RPC result.
-#' @field error \code{ANY} The error object, if any.
 #'
 #' @title RpcResult
 #' @description Telegram API type RpcResult
@@ -22,8 +17,11 @@ RpcResult <- R6::R6Class(
     #' @field SUBCLASS_OF_ID The subclass ID for RpcResult.
     SUBCLASS_OF_ID = 0xf35c6d01,
 
+    #' @field req_msg_id Field.
     req_msg_id = NULL,
+    #' @field body Field.
     body = NULL,
+    #' @field error Field.
     error = NULL,
 
     #' @description

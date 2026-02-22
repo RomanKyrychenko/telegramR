@@ -2,16 +2,7 @@
 #'
 #' Represents the AddPreviewMediaRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
-#' @field lang_code character language code
-#' @field media TypeInputMedia object or representation
 #'
-#' @description
-#' Methods:
-#' - initialize(bot, lang_code, media)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -21,8 +12,11 @@
 AddPreviewMediaRequest <- R6::R6Class(
   "AddPreviewMediaRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
+    #' @field media Field.
     media = NULL,
 
     #' @description Initialize AddPreviewMediaRequest
@@ -143,14 +137,7 @@ AddPreviewMediaRequest$from_reader <- function(reader) {
 #'
 #' Represents the AllowSendMessageRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
 #'
-#' @description
-#' Methods:
-#' - initialize(bot)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -160,6 +147,7 @@ AddPreviewMediaRequest$from_reader <- function(reader) {
 AllowSendMessageRequest <- R6::R6Class(
   "AllowSendMessageRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
 
     #' @description Initialize AllowSendMessageRequest
@@ -248,14 +236,7 @@ AllowSendMessageRequest$from_reader <- function(reader) {
 #'
 #' Represents the AnswerWebhookJSONQueryRequest TL request.
 #'
-#' @field query_id numeric 64-bit integer (stored as numeric; precision for >2^53 may be lost)
-#' @field data TypeDataJSON object or representation (R6 object implementing to_list()/to_bytes() or raw)
 #'
-#' @description
-#' Methods:
-#' - initialize(query_id, data)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -265,7 +246,9 @@ AllowSendMessageRequest$from_reader <- function(reader) {
 AnswerWebhookJSONQueryRequest <- R6::R6Class(
   "AnswerWebhookJSONQueryRequest",
   public = list(
+    #' @field query_id Field.
     query_id = NULL,
+    #' @field data Field.
     data = NULL,
 
     #' @description Initialize AnswerWebhookJSONQueryRequest
@@ -354,14 +337,7 @@ AnswerWebhookJSONQueryRequest$from_reader <- function(reader) {
 #'
 #' Represents the CanSendMessageRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
 #'
-#' @description
-#' Methods:
-#' - initialize(bot)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -371,6 +347,7 @@ AnswerWebhookJSONQueryRequest$from_reader <- function(reader) {
 CanSendMessageRequest <- R6::R6Class(
   "CanSendMessageRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
 
     #' @description Initialize CanSendMessageRequest
@@ -459,16 +436,7 @@ CanSendMessageRequest$from_reader <- function(reader) {
 #'
 #' Represents the CheckDownloadFileParamsRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
-#' @field file_name character file name
-#' @field url character download url
 #'
-#' @description
-#' Methods:
-#' - initialize(bot, file_name, url)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -478,8 +446,11 @@ CanSendMessageRequest$from_reader <- function(reader) {
 CheckDownloadFileParamsRequest <- R6::R6Class(
   "CheckDownloadFileParamsRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
+    #' @field file_name Field.
     file_name = NULL,
+    #' @field url Field.
     url = NULL,
 
     #' @description Initialize CheckDownloadFileParamsRequest
@@ -579,16 +550,7 @@ CheckDownloadFileParamsRequest$from_reader <- function(reader) {
 #'
 #' Represents the DeletePreviewMediaRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
-#' @field lang_code character language code
-#' @field media list of TypeInputMedia objects or representations
 #'
-#' @description
-#' Methods:
-#' - initialize(bot, lang_code, media)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -598,8 +560,11 @@ CheckDownloadFileParamsRequest$from_reader <- function(reader) {
 DeletePreviewMediaRequest <- R6::R6Class(
   "DeletePreviewMediaRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
+    #' @field media Field.
     media = NULL,
 
     #' @description Initialize DeletePreviewMediaRequest
@@ -745,17 +710,7 @@ DeletePreviewMediaRequest$from_reader <- function(reader) {
 #'
 #' Represents the EditPreviewMediaRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
-#' @field lang_code character language code
-#' @field media TypeInputMedia object or representation
-#' @field new_media TypeInputMedia object or representation
 #'
-#' @description
-#' Methods:
-#' - initialize(bot, lang_code, media, new_media)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -765,9 +720,13 @@ DeletePreviewMediaRequest$from_reader <- function(reader) {
 EditPreviewMediaRequest <- R6::R6Class(
   "EditPreviewMediaRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
+    #' @field media Field.
     media = NULL,
+    #' @field new_media Field.
     new_media = NULL,
 
     #' @description Initialize EditPreviewMediaRequest
@@ -948,14 +907,7 @@ GetAdminedBotsRequest$from_reader <- function(reader) {
 #'
 #' Represents the GetBotCommandsRequest TL request.
 #'
-#' @field scope TypeBotCommandScope object or representation
-#' @field lang_code character language code
 #'
-#' @description
-#' Methods:
-#' - initialize(scope, lang_code)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -965,7 +917,9 @@ GetAdminedBotsRequest$from_reader <- function(reader) {
 GetBotCommandsRequest <- R6::R6Class(
   "GetBotCommandsRequest",
   public = list(
+    #' @field scope Field.
     scope = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
 
     #' @description Initialize GetBotCommandsRequest
@@ -1047,15 +1001,7 @@ GetBotCommandsRequest$from_reader <- function(reader) {
 #'
 #' Represents the GetBotInfoRequest TL request.
 #'
-#' @field lang_code character language code
-#' @field bot TypeInputUser|null optional
 #'
-#' @description
-#' Methods:
-#' - initialize(lang_code, bot = NULL)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -1065,7 +1011,9 @@ GetBotCommandsRequest$from_reader <- function(reader) {
 GetBotInfoRequest <- R6::R6Class(
   "GetBotInfoRequest",
   public = list(
+    #' @field lang_code Field.
     lang_code = NULL,
+    #' @field bot Field.
     bot = NULL,
 
     #' @description Initialize GetBotInfoRequest
@@ -1170,14 +1118,7 @@ GetBotInfoRequest$from_reader <- function(reader) {
 #'
 #' Represents the GetBotMenuButtonRequest TL request.
 #'
-#' @field user_id TypeInputUser input user or object implementing to_list()/to_bytes()
 #'
-#' @description
-#' Methods:
-#' - initialize(user_id)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -1187,6 +1128,7 @@ GetBotInfoRequest$from_reader <- function(reader) {
 GetBotMenuButtonRequest <- R6::R6Class(
   "GetBotMenuButtonRequest",
   public = list(
+    #' @field user_id Field.
     user_id = NULL,
 
     #' @description Initialize GetBotMenuButtonRequest
@@ -1276,14 +1218,7 @@ GetBotMenuButtonRequest$from_reader <- function(reader) {
 #'
 #' Represents the GetBotRecommendationsRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
 #'
-#' @description
-#' Methods:
-#' - initialize(bot)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -1293,6 +1228,7 @@ GetBotMenuButtonRequest$from_reader <- function(reader) {
 GetBotRecommendationsRequest <- R6::R6Class(
   "GetBotRecommendationsRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
 
     #' @description Initialize GetBotRecommendationsRequest
@@ -1381,15 +1317,7 @@ GetBotRecommendationsRequest$from_reader <- function(reader) {
 #'
 #' Represents the GetPopularAppBotsRequest TL request.
 #'
-#' @field offset character offset string
-#' @field limit integer max items to return
 #'
-#' @description
-#' Methods:
-#' - initialize(offset, limit)
-#' - resolve(client, utils) (no-op)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -1399,7 +1327,9 @@ GetBotRecommendationsRequest$from_reader <- function(reader) {
 GetPopularAppBotsRequest <- R6::R6Class(
   "GetPopularAppBotsRequest",
   public = list(
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
 
     #' @description Initialize GetPopularAppBotsRequest
@@ -1473,15 +1403,7 @@ GetPopularAppBotsRequest$from_reader <- function(reader) {
 #'
 #' Represents the GetPreviewInfoRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
-#' @field lang_code character language code
 #'
-#' @description
-#' Methods:
-#' - initialize(bot, lang_code)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -1491,7 +1413,9 @@ GetPopularAppBotsRequest$from_reader <- function(reader) {
 GetPreviewInfoRequest <- R6::R6Class(
   "GetPreviewInfoRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
 
     #' @description Initialize GetPreviewInfoRequest
@@ -1587,14 +1511,7 @@ GetPreviewInfoRequest$from_reader <- function(reader) {
 #'
 #' Represents the GetPreviewMediasRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
 #'
-#' @description
-#' Methods:
-#' - initialize(bot)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -1604,6 +1521,7 @@ GetPreviewInfoRequest$from_reader <- function(reader) {
 GetPreviewMediasRequest <- R6::R6Class(
   "GetPreviewMediasRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
 
     #' @description Initialize GetPreviewMediasRequest
@@ -1692,16 +1610,7 @@ GetPreviewMediasRequest$from_reader <- function(reader) {
 #'
 #' Represents the InvokeWebViewCustomMethodRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
-#' @field custom_method character custom method name
-#' @field params TypeDataJSON object or representation
 #'
-#' @description
-#' Methods:
-#' - initialize(bot, custom_method, params)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -1711,8 +1620,11 @@ GetPreviewMediasRequest$from_reader <- function(reader) {
 InvokeWebViewCustomMethodRequest <- R6::R6Class(
   "InvokeWebViewCustomMethodRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
+    #' @field custom_method Field.
     custom_method = NULL,
+    #' @field params Field.
     params = NULL,
 
     #' @description Initialize InvokeWebViewCustomMethodRequest
@@ -1829,16 +1741,7 @@ InvokeWebViewCustomMethodRequest$from_reader <- function(reader) {
 #'
 #' Represents the ReorderPreviewMediasRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
-#' @field lang_code character language code
-#' @field order list of TypeInputMedia objects or representations
 #'
-#' @description
-#' Methods:
-#' - initialize(bot, lang_code, order)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -1848,8 +1751,11 @@ InvokeWebViewCustomMethodRequest$from_reader <- function(reader) {
 ReorderPreviewMediasRequest <- R6::R6Class(
   "ReorderPreviewMediasRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
+    #' @field order Field.
     order = NULL,
 
     #' @description Initialize ReorderPreviewMediasRequest
@@ -1993,9 +1899,6 @@ ReorderPreviewMediasRequest$from_reader <- function(reader) {
 
 #' ReorderUsernamesRequest R6 class
 #'
-#' @description Represents the ReorderUsernamesRequest TL request.
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
-#' @field order list of character usernames
 #' @title ReorderUsernamesRequest
 #' @description Telegram API type ReorderUsernamesRequest
 #' @export
@@ -2003,7 +1906,9 @@ ReorderUsernamesRequest <- R6::R6Class(
   "ReorderUsernamesRequest",
   public = list(
 
+    #' @field bot Field.
     bot = NULL,
+    #' @field order Field.
     order = NULL,
 
     #' @description Initialize ReorderUsernamesRequest
@@ -2113,15 +2018,7 @@ ReorderUsernamesRequest$from_reader <- function(reader) {
 #'
 #' Represents the ResetBotCommandsRequest TL request.
 #'
-#' @field scope TypeBotCommandScope object or representation
-#' @field lang_code character language code
 #'
-#' @description
-#' Methods:
-#' - initialize(scope, lang_code)
-#' - resolve(client, utils) (no-op kept for API consistency)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -2131,7 +2028,9 @@ ReorderUsernamesRequest$from_reader <- function(reader) {
 ResetBotCommandsRequest <- R6::R6Class(
   "ResetBotCommandsRequest",
   public = list(
+    #' @field scope Field.
     scope = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
 
     #' @description Initialize ResetBotCommandsRequest
@@ -2226,15 +2125,7 @@ ResetBotCommandsRequest$from_reader <- function(reader) {
 #'
 #' Represents the SendCustomRequestRequest TL request.
 #'
-#' @field custom_method character custom method name
-#' @field params TypeDataJSON object or representation
 #'
-#' @description
-#' Methods:
-#' - initialize(custom_method, params)
-#' - resolve(client, utils) (no-op by default)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -2244,7 +2135,9 @@ ResetBotCommandsRequest$from_reader <- function(reader) {
 SendCustomRequestRequest <- R6::R6Class(
   "SendCustomRequestRequest",
   public = list(
+    #' @field custom_method Field.
     custom_method = NULL,
+    #' @field params Field.
     params = NULL,
 
     #' @description Initialize SendCustomRequestRequest
@@ -2337,13 +2230,7 @@ SendCustomRequestRequest$from_reader <- function(reader) {
 #'
 #' Represents the SetBotBroadcastDefaultAdminRightsRequest TL request.
 #'
-#' @field admin_rights TypeChatAdminRights object or representation
 #'
-#' @description
-#' Methods:
-#' - initialize(admin_rights)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -2353,6 +2240,7 @@ SendCustomRequestRequest$from_reader <- function(reader) {
 SetBotBroadcastDefaultAdminRightsRequest <- R6::R6Class(
   "SetBotBroadcastDefaultAdminRightsRequest",
   public = list(
+    #' @field admin_rights Field.
     admin_rights = NULL,
 
     #' @description Initialize SetBotBroadcastDefaultAdminRightsRequest
@@ -2422,16 +2310,7 @@ SetBotBroadcastDefaultAdminRightsRequest$from_reader <- function(reader) {
 #'
 #' Represents the SetBotCommandsRequest TL request.
 #'
-#' @field scope TypeBotCommandScope object or representation
-#' @field lang_code character language code
-#' @field commands list of TypeBotCommand objects or representations
 #'
-#' @description
-#' Methods:
-#' - initialize(scope, lang_code, commands)
-#' - resolve(client, utils) (no-op by default)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -2441,8 +2320,11 @@ SetBotBroadcastDefaultAdminRightsRequest$from_reader <- function(reader) {
 SetBotCommandsRequest <- R6::R6Class(
   "SetBotCommandsRequest",
   public = list(
+    #' @field scope Field.
     scope = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
+    #' @field commands Field.
     commands = NULL,
 
     #' @description Initialize SetBotCommandsRequest
@@ -2578,13 +2460,7 @@ SetBotCommandsRequest$from_reader <- function(reader) {
 #'
 #' Represents the SetBotGroupDefaultAdminRightsRequest TL request.
 #'
-#' @field admin_rights TypeChatAdminRights object or representation
 #'
-#' @description
-#' Methods:
-#' - initialize(admin_rights)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -2594,6 +2470,7 @@ SetBotCommandsRequest$from_reader <- function(reader) {
 SetBotGroupDefaultAdminRightsRequest <- R6::R6Class(
   "SetBotGroupDefaultAdminRightsRequest",
   public = list(
+    #' @field admin_rights Field.
     admin_rights = NULL,
 
     #' @description Initialize SetBotGroupDefaultAdminRightsRequest
@@ -2663,18 +2540,7 @@ SetBotGroupDefaultAdminRightsRequest$from_reader <- function(reader) {
 #'
 #' Represents the SetBotInfoRequest TL request.
 #'
-#' @field lang_code character language code
-#' @field bot TypeInputUser|null optional
-#' @field name character|null optional
-#' @field about character|null optional
-#' @field description character|null optional
 #'
-#' @description
-#' Methods:
-#' - initialize(lang_code, bot = NULL, name = NULL, about = NULL, description = NULL)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -2684,10 +2550,15 @@ SetBotGroupDefaultAdminRightsRequest$from_reader <- function(reader) {
 SetBotInfoRequest <- R6::R6Class(
   "SetBotInfoRequest",
   public = list(
+    #' @field lang_code Field.
     lang_code = NULL,
+    #' @field bot Field.
     bot = NULL,
+    #' @field name Field.
     name = NULL,
+    #' @field about Field.
     about = NULL,
+    #' @field description Field.
     description = NULL,
 
     #' @description Initialize SetBotInfoRequest
@@ -2804,15 +2675,7 @@ SetBotInfoRequest$from_reader <- function(reader) {
 #'
 #' Represents the SetBotMenuButtonRequest TL request.
 #'
-#' @field user_id TypeInputUser input user or object implementing to_list()/to_bytes()
-#' @field button TypeBotMenuButton object or representation
 #'
-#' @description
-#' Methods:
-#' - initialize(user_id, button)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -2822,7 +2685,9 @@ SetBotInfoRequest$from_reader <- function(reader) {
 SetBotMenuButtonRequest <- R6::R6Class(
   "SetBotMenuButtonRequest",
   public = list(
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field button Field.
     button = NULL,
 
     #' @description Initialize SetBotMenuButtonRequest
@@ -2932,17 +2797,7 @@ SetBotMenuButtonRequest$from_reader <- function(reader) {
 #'
 #' Represents the SetCustomVerificationRequest TL request.
 #'
-#' @field peer TypeInputPeer input peer or object implementing to_list()/to_bytes()
-#' @field enabled logical|null optional
-#' @field bot TypeInputUser|null optional
-#' @field custom_description character|null optional
 #'
-#' @description
-#' Methods:
-#' - initialize(peer, enabled = NULL, bot = NULL, custom_description = NULL)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' @title SetCustomVerificationRequest
 #' @description Telegram API type SetCustomVerificationRequest
@@ -2950,9 +2805,13 @@ SetBotMenuButtonRequest$from_reader <- function(reader) {
 SetCustomVerificationRequest <- R6::R6Class(
   "SetCustomVerificationRequest",
   public = list(
+    #' @field peer Field.
     peer = NULL,
+    #' @field enabled Field.
     enabled = NULL,
+    #' @field bot Field.
     bot = NULL,
+    #' @field custom_description Field.
     custom_description = NULL,
 
     #' @description Initialize SetCustomVerificationRequest
@@ -3085,15 +2944,7 @@ SetCustomVerificationRequest$from_reader <- function(reader) {
 #'
 #' Represents the ToggleUserEmojiStatusPermissionRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
-#' @field enabled logical
 #'
-#' @description
-#' Methods:
-#' - initialize(bot, enabled)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' Each method is documented inline below.
 #'
@@ -3103,7 +2954,9 @@ SetCustomVerificationRequest$from_reader <- function(reader) {
 ToggleUserEmojiStatusPermissionRequest <- R6::R6Class(
   "ToggleUserEmojiStatusPermissionRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
+    #' @field enabled Field.
     enabled = NULL,
 
     #' @description Initialize ToggleUserEmojiStatusPermissionRequest
@@ -3201,16 +3054,7 @@ ToggleUserEmojiStatusPermissionRequest$from_reader <- function(reader) {
 #'
 #' Represents the ToggleUsernameRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
-#' @field username character
-#' @field active logical
 #'
-#' @description
-#' Methods:
-#' - initialize(bot, username, active)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' @title ToggleUsernameRequest
 #' @description Telegram API type ToggleUsernameRequest
@@ -3218,8 +3062,11 @@ ToggleUserEmojiStatusPermissionRequest$from_reader <- function(reader) {
 ToggleUsernameRequest <- R6::R6Class(
   "ToggleUsernameRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
+    #' @field username Field.
     username = NULL,
+    #' @field active Field.
     active = NULL,
 
     #' @description Initialize ToggleUsernameRequest
@@ -3322,16 +3169,7 @@ ToggleUsernameRequest$from_reader <- function(reader) {
 #'
 #' Represents the UpdateStarRefProgramRequest TL request.
 #'
-#' @field bot TypeInputUser input user or object implementing to_list()/to_bytes()
-#' @field commission_permille integer commission in permille
-#' @field duration_months integer|null optional duration in months
 #'
-#' @description
-#' Methods:
-#' - initialize(bot, commission_permille, duration_months = NULL)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' @title UpdateStarRefProgramRequest
 #' @description Telegram API type UpdateStarRefProgramRequest
@@ -3339,8 +3177,11 @@ ToggleUsernameRequest$from_reader <- function(reader) {
 UpdateStarRefProgramRequest <- R6::R6Class(
   "UpdateStarRefProgramRequest",
   public = list(
+    #' @field bot Field.
     bot = NULL,
+    #' @field commission_permille Field.
     commission_permille = NULL,
+    #' @field duration_months Field.
     duration_months = NULL,
 
     #' @description Initialize UpdateStarRefProgramRequest
@@ -3446,15 +3287,7 @@ UpdateStarRefProgramRequest$from_reader <- function(reader) {
 #'
 #' Represents the UpdateUserEmojiStatusRequest TL request.
 #'
-#' @field user_id TypeInputUser
-#' @field emoji_status TypeEmojiStatus
 #'
-#' @description
-#' Methods:
-#' - initialize(user_id, emoji_status)
-#' - resolve(client, utils)
-#' - to_list() -> list representation
-#' - to_bytes() -> raw vector bytes
 #'
 #' @title UpdateUserEmojiStatusRequest
 #' @description Telegram API type UpdateUserEmojiStatusRequest
@@ -3462,7 +3295,9 @@ UpdateStarRefProgramRequest$from_reader <- function(reader) {
 UpdateUserEmojiStatusRequest <- R6::R6Class(
   "UpdateUserEmojiStatusRequest",
   public = list(
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field emoji_status Field.
     emoji_status = NULL,
 
     #' @description Initialize UpdateUserEmojiStatusRequest

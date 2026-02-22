@@ -73,18 +73,27 @@ MessagesIter <- R6::R6Class(
     #' @param wait_time Optional per-request sleep in seconds.
     #' @param limit Integer or Inf, maximum messages to yield.
     initialize = function(client,
+                          #' @field entity Field.
                           entity = NULL,
                           offset_id = 0L,
                           min_id = 0L,
                           max_id = 0L,
+                          #' @field from_user Field.
                           from_user = NULL,
+                          #' @field offset_date Field.
                           offset_date = NULL,
                           add_offset = 0L,
+                          #' @field filter Field.
                           filter = NULL,
+                          #' @field search Field.
                           search = NULL,
+                          #' @field reply_to Field.
                           reply_to = NULL,
+                          #' @field scheduled Field.
                           scheduled = FALSE,
+                          #' @field reverse Field.
                           reverse = FALSE,
+                          #' @field wait_time Field.
                           wait_time = NULL,
                           limit = Inf) {
       self$client <- client
@@ -245,6 +254,7 @@ MessagesIter <- R6::R6Class(
         search = self$search,
         filter = self$filter,
         from_user = self$request$from_user,
+        #' @field ids Field.
         ids = NULL,
         reverse = self$reverse,
         reply_to = self$reply_to,

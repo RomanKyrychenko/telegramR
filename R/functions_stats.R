@@ -2,10 +2,6 @@
 #'
 #' R6 class representing a GetBroadcastStatsRequest TLRequest.
 #'
-#' @field CONSTRUCTOR_ID integer constructor id
-#' @field SUBCLASS_OF_ID integer subclass id
-#' @field channel input channel object
-#' @field dark logical; optional dark flag
 #'
 #' @title GetBroadcastStatsRequest
 #' @description Telegram API type GetBroadcastStatsRequest
@@ -14,9 +10,13 @@ GetBroadcastStatsRequest <- R6::R6Class(
   "GetBroadcastStatsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xab42441a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7ff25428,
+    #' @field channel Field.
     channel = NULL,
+    #' @field dark Field.
     dark = NULL,
 
     #' @description Initializes a new GetBroadcastStatsRequest.
@@ -74,10 +74,6 @@ GetBroadcastStatsRequest <- R6::R6Class(
 #'
 #' R6 class representing a GetMegagroupStatsRequest TLRequest.
 #'
-#' @field CONSTRUCTOR_ID integer constructor id
-#' @field SUBCLASS_OF_ID integer subclass id
-#' @field channel input channel object
-#' @field dark logical; optional dark flag
 #'
 #' @title GetMegagroupStatsRequest
 #' @description Telegram API type GetMegagroupStatsRequest
@@ -86,9 +82,13 @@ GetMegagroupStatsRequest <- R6::R6Class(
   "GetMegagroupStatsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdcdf8607,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b59be8d,
+    #' @field channel Field.
     channel = NULL,
+    #' @field dark Field.
     dark = NULL,
 
     #' @description Initializes a new GetMegagroupStatsRequest.
@@ -146,12 +146,6 @@ GetMegagroupStatsRequest <- R6::R6Class(
 #'
 #' R6 class representing a GetMessagePublicForwardsRequest TLRequest.
 #'
-#' @field CONSTRUCTOR_ID integer constructor id
-#' @field SUBCLASS_OF_ID integer subclass id
-#' @field channel input channel object
-#' @field msg_id integer message id
-#' @field offset character offset string
-#' @field limit integer limit
 #'
 #' @title GetMessagePublicForwardsRequest
 #' @description Telegram API type GetMessagePublicForwardsRequest
@@ -160,11 +154,17 @@ GetMessagePublicForwardsRequest <- R6::R6Class(
   "GetMessagePublicForwardsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5f150144,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa7283211,
+    #' @field channel Field.
     channel = NULL,
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
 
     #' @description Initializes a new GetMessagePublicForwardsRequest.
@@ -237,11 +237,6 @@ GetMessagePublicForwardsRequest <- R6::R6Class(
 #'
 #' R6 class representing a GetMessageStatsRequest TLRequest.
 #'
-#' @field CONSTRUCTOR_ID integer constructor id
-#' @field SUBCLASS_OF_ID integer subclass id
-#' @field channel input channel object
-#' @field msg_id integer message id
-#' @field dark logical; optional dark flag
 #'
 #' @title GetMessageStatsRequest
 #' @description Telegram API type GetMessageStatsRequest
@@ -250,10 +245,15 @@ GetMessageStatsRequest <- R6::R6Class(
   "GetMessageStatsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb6e0a3f5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9604a322,
+    #' @field channel Field.
     channel = NULL,
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field dark Field.
     dark = NULL,
 
     #' @description Initializes a new GetMessageStatsRequest.
@@ -315,12 +315,6 @@ GetMessageStatsRequest <- R6::R6Class(
 #'
 #' R6 class representing a GetStoryPublicForwardsRequest TLRequest.
 #'
-#' @field CONSTRUCTOR_ID integer constructor id
-#' @field SUBCLASS_OF_ID integer subclass id
-#' @field peer input peer object
-#' @field id integer story id
-#' @field offset character offset string
-#' @field limit integer limit
 #'
 #' @title GetStoryPublicForwardsRequest
 #' @description Telegram API type GetStoryPublicForwardsRequest
@@ -329,11 +323,17 @@ GetStoryPublicForwardsRequest <- R6::R6Class(
   "GetStoryPublicForwardsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa6437ef6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa7283211,
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
 
     #' @description Initializes a new GetStoryPublicForwardsRequest.
@@ -406,11 +406,6 @@ GetStoryPublicForwardsRequest <- R6::R6Class(
 #'
 #' R6 class representing a GetStoryStatsRequest TLRequest.
 #'
-#' @field CONSTRUCTOR_ID integer constructor id
-#' @field SUBCLASS_OF_ID integer subclass id
-#' @field peer input peer object
-#' @field id integer story id
-#' @field dark logical; optional dark flag
 #'
 #' @title GetStoryStatsRequest
 #' @description Telegram API type GetStoryStatsRequest
@@ -419,10 +414,15 @@ GetStoryStatsRequest <- R6::R6Class(
   "GetStoryStatsRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x374fef40,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8b4d43d4,
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
+    #' @field dark Field.
     dark = NULL,
 
     #' @description Initializes a new GetStoryStatsRequest.
@@ -484,10 +484,6 @@ GetStoryStatsRequest <- R6::R6Class(
 #'
 #' R6 class representing a LoadAsyncGraphRequest TLRequest.
 #'
-#' @field CONSTRUCTOR_ID integer constructor id
-#' @field SUBCLASS_OF_ID integer subclass id
-#' @field token character token
-#' @field x integer64 or numeric; optional x
 #'
 #' @title LoadAsyncGraphRequest
 #' @description Telegram API type LoadAsyncGraphRequest
@@ -496,9 +492,13 @@ LoadAsyncGraphRequest <- R6::R6Class(
   "LoadAsyncGraphRequest",
   inherit = TLRequest,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa05f1d62,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b903153,
+    #' @field token Field.
     token = NULL,
+    #' @field x Field.
     x = NULL,
 
     #' @description Initializes a new LoadAsyncGraphRequest.

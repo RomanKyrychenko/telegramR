@@ -13,11 +13,6 @@ crc32 <- function(x) {
   as.integer(unsigned)
 }
 
-#' @title Exception Classes
-#' @description
-#' This file contains various exception classes used in the Telegram API client.
-#' These exceptions are used to handle errors and specific conditions that may arise
-#' during the operation of the client.
 #'
 #' @details
 #' The classes defined in this file include:
@@ -55,8 +50,6 @@ Exception <- R6::R6Class(
 
 #' ReadCancelledError
 #'
-#' @description
-#' Occurs when a read operation is cancelled.
 #' @title ReadCancelledError
 #' @description Telegram API type ReadCancelledError
 #' @export
@@ -77,9 +70,6 @@ ReadCancelledError <- R6::R6Class(
 
 #' TypeNotFoundError
 #'
-#' @description
-#' Occurs when a type is not found, for example, when trying to read a TLObject
-#' with an invalid constructor code.
 #' @title TypeNotFoundError
 #' @description Telegram API type TypeNotFoundError
 #' @export
@@ -114,9 +104,6 @@ TypeNotFoundError <- R6::R6Class(
 
 #' InvalidChecksumError
 #'
-#' @description
-#' Occurs when using the TCP full mode and the checksum of a received packet
-#' doesn't match the expected checksum.
 #' @title InvalidChecksumError
 #' @description Telegram API type InvalidChecksumError
 #' @export
@@ -151,8 +138,6 @@ InvalidChecksumError <- R6::R6Class(
 
 #' InvalidBufferError
 #'
-#' @description
-#' Occurs when the buffer is invalid, and may contain an HTTP error code.
 #' @title InvalidBufferError
 #' @description Telegram API type InvalidBufferError
 #' @export
@@ -186,11 +171,6 @@ InvalidBufferError <- R6::R6Class(
 
 #' AuthKeyNotFound
 #'
-#' @description
-#' The server claims it doesn't know about the authorization key (session file)
-#' currently being used. This might be because it either has never seen this
-#' authorization key, or it used to know about the authorization key but has
-#' forgotten it, either temporarily or permanently (possibly due to server errors).
 #' @title AuthKeyNotFound
 #' @description Telegram API type AuthKeyNotFound
 #' @export
@@ -213,8 +193,6 @@ AuthKeyNotFound <- R6::R6Class(
 
 #' SecurityError
 #'
-#' @description
-#' Generic security error, mostly used when generating a new AuthKey.
 #' @title SecurityError
 #' @description Telegram API type SecurityError
 #' @export
@@ -235,9 +213,6 @@ SecurityError <- R6::R6Class(
 
 #' CdnFileTamperedError
 #'
-#' @description
-#' Occurs when there's a hash mismatch between the decrypted CDN file
-#' and its expected hash.
 #' @title CdnFileTamperedError
 #' @description Telegram API type CdnFileTamperedError
 #' @export
@@ -256,8 +231,6 @@ CdnFileTamperedError <- R6::R6Class(
 
 #' AlreadyInConversationError
 #'
-#' @description
-#' Occurs when another exclusive conversation is opened in the same chat.
 #' @title AlreadyInConversationError
 #' @description Telegram API type AlreadyInConversationError
 #' @export
@@ -280,8 +253,6 @@ AlreadyInConversationError <- R6::R6Class(
 
 #' BadMessageError
 #'
-#' @description
-#' Occurs when handling a bad_message_notification.
 #' @title BadMessageError
 #' @description Telegram API type BadMessageError
 #' @export
@@ -331,8 +302,6 @@ BadMessageError <- R6::R6Class(
 
 #' MultiError
 #'
-#' @description
-#' Exception container for multiple `TLRequest`s.
 #' @title MultiError
 #' @description Telegram API type MultiError
 #' @export

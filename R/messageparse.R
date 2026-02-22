@@ -7,6 +7,7 @@
 MessageParseMethods <- R6::R6Class(
   "MessageParseMethods",
   public = list(
+    #' @field parse_mode Field.
     parse_mode = NULL,
 
     #' @description Initialize with an optional parse mode.
@@ -70,6 +71,7 @@ MessageParseMethods <- R6::R6Class(
       tryCatch(
         {
           entities[[i]] <- list(
+            #' @field type Field.
             type = "mention",
             offset = entities[[i]]$offset,
             length = entities[[i]]$length,

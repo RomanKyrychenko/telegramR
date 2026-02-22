@@ -1,6 +1,3 @@
-#' @title R6 Class Representing Factorization
-#' @description
-#' Provides methods to factorize large integers quickly using Pollard's Rho algorithm.
 #' @details
 #' This class implements the Pollard's Rho-Brent Integer Factorization algorithm
 #' to efficiently factorize large integers into their prime components.

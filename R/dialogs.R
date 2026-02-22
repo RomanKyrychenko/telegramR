@@ -22,8 +22,6 @@ dialog_message_key <- function(peer, message_id) {
 
 #' DialogsIter class
 #'
-#' @description
-#' An iterator for Telegram dialogs.
 #'
 #' @details
 #' This class is used to iterate over Telegram dialogs (open conversations/subscribed channels).
@@ -36,9 +34,13 @@ DialogsIter <- R6::R6Class("DialogsIter",
   inherit = RequestIter,
   public = list(
     # Added fields to avoid adding bindings at runtime
+    #' @field request Field.
     request = NULL,
+    #' @field seen Field.
     seen = NULL,
+    #' @field offset_date Field.
     offset_date = NULL,
+    #' @field ignore_migrated Field.
     ignore_migrated = NULL,
 
     #' @description
@@ -64,7 +66,9 @@ DialogsIter <- R6::R6Class("DialogsIter",
           offset_date = offset_date,
           offset_id = offset_id,
           offset_peer = offset_peer,
+          #' @field limit Field.
           limit = 1,
+          #' @field hash Field.
           hash = 0,
           exclude_pinned = ignore_pinned,
           folder_id = folder
@@ -200,8 +204,6 @@ DialogsIter <- R6::R6Class("DialogsIter",
 )
 
 #' DraftsIter class
-#' @description
-#' An iterator for Telegram drafts.
 #' @title DraftsIter
 #' @description Telegram API type DraftsIter
 #' @export

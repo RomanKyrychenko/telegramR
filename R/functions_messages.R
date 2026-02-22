@@ -1,7 +1,5 @@
 #' @title AcceptEncryptionRequest
 #' @description Represents a request to accept encryption. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x3dbc0415).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x6d28a37a).
 #' @export
 AcceptEncryptionRequest <- R6::R6Class(
   "AcceptEncryptionRequest",
@@ -46,10 +44,11 @@ AcceptEncryptionRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of AcceptEncryptionRequest.
+# @title fromReader
+# @name AcceptEncryptionRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of AcceptEncryptionRequest.
 AcceptEncryptionRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   gB <- reader$tgreadBytes()
@@ -59,8 +58,6 @@ AcceptEncryptionRequest$fromReader <- function(reader) {
 
 #' @title AcceptUrlAuthRequest
 #' @description Represents a request to accept URL auth. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb12c7125).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x7765cb1e).
 #' @export
 AcceptUrlAuthRequest <- R6::R6Class(
   "AcceptUrlAuthRequest",
@@ -127,10 +124,11 @@ AcceptUrlAuthRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of AcceptUrlAuthRequest.
+# @title fromReader
+# @name AcceptUrlAuthRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of AcceptUrlAuthRequest.
 AcceptUrlAuthRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   writeAllowed <- bitwAnd(flags, 1) != 0
@@ -143,8 +141,6 @@ AcceptUrlAuthRequest$fromReader <- function(reader) {
 
 #' @title AddChatUserRequest
 #' @description Represents a request to add a chat user. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xcbc6d107).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x3dbe90a1).
 #' @export
 AddChatUserRequest <- R6::R6Class(
   "AddChatUserRequest",
@@ -196,10 +192,11 @@ AddChatUserRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of AddChatUserRequest.
+# @title fromReader
+# @name AddChatUserRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of AddChatUserRequest.
 AddChatUserRequest$fromReader <- function(reader) {
   chatId <- reader$readLong()
   userId <- reader$tgreadObject()
@@ -210,8 +207,6 @@ AddChatUserRequest$fromReader <- function(reader) {
 
 #' @title AppendTodoListRequest
 #' @description Represents a request to append a todo list. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x21a61057).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 AppendTodoListRequest <- R6::R6Class(
   "AppendTodoListRequest",
@@ -263,10 +258,11 @@ AppendTodoListRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of AppendTodoListRequest.
+# @title fromReader
+# @name AppendTodoListRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of AppendTodoListRequest.
 AppendTodoListRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   msgId <- reader$readInt()
@@ -281,8 +277,6 @@ AppendTodoListRequest$fromReader <- function(reader) {
 
 #' @title CheckChatInviteRequest
 #' @description Represents a request to check a chat invite. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x3eadb1bb).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x4561736).
 #' @export
 CheckChatInviteRequest <- R6::R6Class(
   "CheckChatInviteRequest",
@@ -319,10 +313,11 @@ CheckChatInviteRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of CheckChatInviteRequest.
+# @title fromReader
+# @name CheckChatInviteRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of CheckChatInviteRequest.
 CheckChatInviteRequest$fromReader <- function(reader) {
   hash <- reader$tgreadString()
   CheckChatInviteRequest$new(hash = hash)
@@ -330,8 +325,6 @@ CheckChatInviteRequest$fromReader <- function(reader) {
 
 #' @title CheckHistoryImportRequest
 #' @description Represents a request to check history import. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x43fe19f3).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x5bb2720b).
 #' @export
 CheckHistoryImportRequest <- R6::R6Class(
   "CheckHistoryImportRequest",
@@ -368,10 +361,11 @@ CheckHistoryImportRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of CheckHistoryImportRequest.
+# @title fromReader
+# @name CheckHistoryImportRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of CheckHistoryImportRequest.
 CheckHistoryImportRequest$fromReader <- function(reader) {
   importHead <- reader$tgreadString()
   CheckHistoryImportRequest$new(importHead = importHead)
@@ -380,8 +374,6 @@ CheckHistoryImportRequest$fromReader <- function(reader) {
 
 #' @title CheckHistoryImportPeerRequest
 #' @description Represents a request to check history import peer. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x5dc60f03).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xb84bb337).
 #' @export
 CheckHistoryImportPeerRequest <- R6::R6Class(
   "CheckHistoryImportPeerRequest",
@@ -425,10 +417,11 @@ CheckHistoryImportPeerRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of CheckHistoryImportPeerRequest.
+# @title fromReader
+# @name CheckHistoryImportPeerRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of CheckHistoryImportPeerRequest.
 CheckHistoryImportPeerRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   CheckHistoryImportPeerRequest$new(peer = peer)
@@ -436,8 +429,6 @@ CheckHistoryImportPeerRequest$fromReader <- function(reader) {
 
 #' @title CheckQuickReplyShortcutRequest
 #' @description Represents a request to check quick reply shortcut. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xf1d0fbd3).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 CheckQuickReplyShortcutRequest <- R6::R6Class(
   "CheckQuickReplyShortcutRequest",
@@ -474,10 +465,11 @@ CheckQuickReplyShortcutRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of CheckQuickReplyShortcutRequest.
+# @title fromReader
+# @name CheckQuickReplyShortcutRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of CheckQuickReplyShortcutRequest.
 CheckQuickReplyShortcutRequest$fromReader <- function(reader) {
   shortcut <- reader$tgreadString()
   CheckQuickReplyShortcutRequest$new(shortcut = shortcut)
@@ -485,8 +477,6 @@ CheckQuickReplyShortcutRequest$fromReader <- function(reader) {
 
 #' @title ClearAllDraftsRequest
 #' @description Represents a request to clear all drafts. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x7e58ee9c).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ClearAllDraftsRequest <- R6::R6Class(
   "ClearAllDraftsRequest",
@@ -511,10 +501,11 @@ ClearAllDraftsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ClearAllDraftsRequest.
+# @title fromReader
+# @name ClearAllDraftsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ClearAllDraftsRequest.
 ClearAllDraftsRequest$fromReader <- function(reader) {
   ClearAllDraftsRequest$new()
 }
@@ -522,8 +513,6 @@ ClearAllDraftsRequest$fromReader <- function(reader) {
 
 #' @title ClearRecentReactionsRequest
 #' @description Represents a request to clear recent reactions. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x9dfeefb4).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ClearRecentReactionsRequest <- R6::R6Class(
   "ClearRecentReactionsRequest",
@@ -548,18 +537,17 @@ ClearRecentReactionsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ClearRecentReactionsRequest.
+# @title fromReader
+# @name ClearRecentReactionsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ClearRecentReactionsRequest.
 ClearRecentReactionsRequest$fromReader <- function(reader) {
   ClearRecentReactionsRequest$new()
 }
 
 #' @title ClearRecentStickersRequest
 #' @description Represents a request to clear recent stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x8999602d).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ClearRecentStickersRequest <- R6::R6Class(
   "ClearRecentStickersRequest",
@@ -597,10 +585,11 @@ ClearRecentStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ClearRecentStickersRequest.
+# @title fromReader
+# @name ClearRecentStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ClearRecentStickersRequest.
 ClearRecentStickersRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   attached <- bitwAnd(flags, 1) != 0
@@ -609,8 +598,6 @@ ClearRecentStickersRequest$fromReader <- function(reader) {
 
 #' @title ClickSponsoredMessageRequest
 #' @description Represents a request to click a sponsored message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x8235057e).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ClickSponsoredMessageRequest <- R6::R6Class(
   "ClickSponsoredMessageRequest",
@@ -661,10 +648,11 @@ ClickSponsoredMessageRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ClickSponsoredMessageRequest.
+# @title fromReader
+# @name ClickSponsoredMessageRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ClickSponsoredMessageRequest.
 ClickSponsoredMessageRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   media <- bitwAnd(flags, 1) != 0
@@ -676,8 +664,6 @@ ClickSponsoredMessageRequest$fromReader <- function(reader) {
 
 #' @title CreateChatRequest
 #' @description Represents a request to create a chat. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x92ceddd4).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x3dbe90a1).
 #' @export
 CreateChatRequest <- R6::R6Class(
   "CreateChatRequest",
@@ -735,10 +721,11 @@ CreateChatRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of CreateChatRequest.
+# @title fromReader
+# @name CreateChatRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of CreateChatRequest.
 CreateChatRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   reader$readInt()
@@ -754,8 +741,6 @@ CreateChatRequest$fromReader <- function(reader) {
 
 #' @title DeleteChatRequest
 #' @description Represents a request to delete a chat. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x5bd0ee50).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 DeleteChatRequest <- R6::R6Class(
   "DeleteChatRequest",
@@ -792,10 +777,11 @@ DeleteChatRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of DeleteChatRequest.
+# @title fromReader
+# @name DeleteChatRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of DeleteChatRequest.
 DeleteChatRequest$fromReader <- function(reader) {
   chatId <- reader$readLong()
   DeleteChatRequest$new(chatId = chatId)
@@ -803,8 +789,6 @@ DeleteChatRequest$fromReader <- function(reader) {
 
 #' @title DeleteChatUserRequest
 #' @description Represents a request to delete a user from a chat. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xa2185cab).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 DeleteChatUserRequest <- R6::R6Class(
   "DeleteChatUserRequest",
@@ -856,10 +840,11 @@ DeleteChatUserRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of DeleteChatUserRequest.
+# @title fromReader
+# @name DeleteChatUserRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of DeleteChatUserRequest.
 DeleteChatUserRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   revokeHistory <- bitwAnd(flags, 1) != 0
@@ -871,8 +856,6 @@ DeleteChatUserRequest$fromReader <- function(reader) {
 
 #' @title DeleteExportedChatInviteRequest
 #' @description Represents a request to delete an exported chat invite. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xd464a42b).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 DeleteExportedChatInviteRequest <- R6::R6Class(
   "DeleteExportedChatInviteRequest",
@@ -920,10 +903,11 @@ DeleteExportedChatInviteRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of DeleteExportedChatInviteRequest.
+# @title fromReader
+# @name DeleteExportedChatInviteRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of DeleteExportedChatInviteRequest.
 DeleteExportedChatInviteRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   link <- reader$tgreadString()
@@ -932,8 +916,6 @@ DeleteExportedChatInviteRequest$fromReader <- function(reader) {
 
 #' @title DeleteFactCheckRequest
 #' @description Represents a request to delete a fact check. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xd1da940c).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 DeleteFactCheckRequest <- R6::R6Class(
   "DeleteFactCheckRequest",
@@ -981,10 +963,11 @@ DeleteFactCheckRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of DeleteFactCheckRequest.
+# @title fromReader
+# @name DeleteFactCheckRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of DeleteFactCheckRequest.
 DeleteFactCheckRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   msgId <- reader$readInt()
@@ -993,8 +976,6 @@ DeleteFactCheckRequest$fromReader <- function(reader) {
 
 #' @title DeleteHistoryRequest
 #' @description Represents a request to delete history. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb08f922a).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x2c49c116).
 #' @export
 DeleteHistoryRequest <- R6::R6Class(
   "DeleteHistoryRequest",
@@ -1061,10 +1042,11 @@ DeleteHistoryRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of DeleteHistoryRequest.
+# @title fromReader
+# @name DeleteHistoryRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of DeleteHistoryRequest.
 DeleteHistoryRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   justClear <- bitwAnd(flags, 1) != 0
@@ -1079,8 +1061,6 @@ DeleteHistoryRequest$fromReader <- function(reader) {
 
 #' @title DeleteMessagesRequest
 #' @description Represents a request to delete messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xe58e95d2).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xced3c06e).
 #' @export
 DeleteMessagesRequest <- R6::R6Class(
   "DeleteMessagesRequest",
@@ -1122,10 +1102,11 @@ DeleteMessagesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of DeleteMessagesRequest.
+# @title fromReader
+# @name DeleteMessagesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of DeleteMessagesRequest.
 DeleteMessagesRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   revoke <- bitwAnd(flags, 1) != 0
@@ -1140,8 +1121,6 @@ DeleteMessagesRequest$fromReader <- function(reader) {
 
 #' @title DeletePhoneCallHistoryRequest
 #' @description Represents a request to delete phone call history. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xf9cbe409).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf817652e).
 #' @export
 DeletePhoneCallHistoryRequest <- R6::R6Class(
   "DeletePhoneCallHistoryRequest",
@@ -1179,10 +1158,11 @@ DeletePhoneCallHistoryRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of DeletePhoneCallHistoryRequest.
+# @title fromReader
+# @name DeletePhoneCallHistoryRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of DeletePhoneCallHistoryRequest.
 DeletePhoneCallHistoryRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   revoke <- bitwAnd(flags, 1) != 0
@@ -1191,8 +1171,6 @@ DeletePhoneCallHistoryRequest$fromReader <- function(reader) {
 
 #' @title DeleteQuickReplyMessagesRequest
 #' @description Represents a request to delete quick reply messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xe105e910).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 DeleteQuickReplyMessagesRequest <- R6::R6Class(
   "DeleteQuickReplyMessagesRequest",
@@ -1233,10 +1211,11 @@ DeleteQuickReplyMessagesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of DeleteQuickReplyMessagesRequest.
+# @title fromReader
+# @name DeleteQuickReplyMessagesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of DeleteQuickReplyMessagesRequest.
 DeleteQuickReplyMessagesRequest$fromReader <- function(reader) {
   shortcutId <- reader$readInt()
   reader$readInt()
@@ -1251,8 +1230,6 @@ DeleteQuickReplyMessagesRequest$fromReader <- function(reader) {
 
 #' @title DeleteQuickReplyShortcutRequest
 #' @description Represents a request to delete a quick reply shortcut. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x3cc04740).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 DeleteQuickReplyShortcutRequest <- R6::R6Class(
   "DeleteQuickReplyShortcutRequest",
@@ -1289,10 +1266,11 @@ DeleteQuickReplyShortcutRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of DeleteQuickReplyShortcutRequest.
+# @title fromReader
+# @name DeleteQuickReplyShortcutRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of DeleteQuickReplyShortcutRequest.
 DeleteQuickReplyShortcutRequest$fromReader <- function(reader) {
   shortcutId <- reader$readInt()
   DeleteQuickReplyShortcutRequest$new(shortcutId = shortcutId)
@@ -1300,8 +1278,6 @@ DeleteQuickReplyShortcutRequest$fromReader <- function(reader) {
 
 #' @title DeleteRevokedExportedChatInvitesRequest
 #' @description Represents a request to delete revoked exported chat invites. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x56987bd5).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 DeleteRevokedExportedChatInvitesRequest <- R6::R6Class(
   "DeleteRevokedExportedChatInvitesRequest",
@@ -1350,10 +1326,11 @@ DeleteRevokedExportedChatInvitesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of DeleteRevokedExportedChatInvitesRequest.
+# @title fromReader
+# @name DeleteRevokedExportedChatInvitesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of DeleteRevokedExportedChatInvitesRequest.
 DeleteRevokedExportedChatInvitesRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   adminId <- reader$tgreadObject()
@@ -1362,8 +1339,6 @@ DeleteRevokedExportedChatInvitesRequest$fromReader <- function(reader) {
 
 #' @title DeleteSavedHistoryRequest
 #' @description Represents a request to delete saved history. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x4dc5085f).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x2c49c116).
 #' @export
 DeleteSavedHistoryRequest <- R6::R6Class(
   "DeleteSavedHistoryRequest",
@@ -1430,10 +1405,11 @@ DeleteSavedHistoryRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of DeleteSavedHistoryRequest.
+# @title fromReader
+# @name DeleteSavedHistoryRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of DeleteSavedHistoryRequest.
 DeleteSavedHistoryRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   parentPeer <- if (bitwAnd(flags, 1) != 0) reader$tgreadObject() else NULL
@@ -1447,8 +1423,6 @@ DeleteSavedHistoryRequest$fromReader <- function(reader) {
 
 #' @title DeleteScheduledMessagesRequest
 #' @description Represents a request to delete scheduled messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x59ae2b16).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 DeleteScheduledMessagesRequest <- R6::R6Class(
   "DeleteScheduledMessagesRequest",
@@ -1496,10 +1470,11 @@ DeleteScheduledMessagesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of DeleteScheduledMessagesRequest.
+# @title fromReader
+# @name DeleteScheduledMessagesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of DeleteScheduledMessagesRequest.
 DeleteScheduledMessagesRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   reader$readInt()
@@ -1513,8 +1488,6 @@ DeleteScheduledMessagesRequest$fromReader <- function(reader) {
 
 #' @title DiscardEncryptionRequest
 #' @description Represents a request to discard encryption. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xf393aea0).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 DiscardEncryptionRequest <- R6::R6Class(
   "DiscardEncryptionRequest",
@@ -1555,10 +1528,11 @@ DiscardEncryptionRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of DiscardEncryptionRequest.
+# @title fromReader
+# @name DiscardEncryptionRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of DiscardEncryptionRequest.
 DiscardEncryptionRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   deleteHistory <- bitwAnd(flags, 1L) != 0L
@@ -1568,8 +1542,6 @@ DiscardEncryptionRequest$fromReader <- function(reader) {
 
 #' @title EditChatAboutRequest
 #' @description Represents a request to edit chat about. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xdef60797).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 EditChatAboutRequest <- R6::R6Class(
   "EditChatAboutRequest",
@@ -1617,10 +1589,11 @@ EditChatAboutRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditChatAboutRequest.
+# @title fromReader
+# @name EditChatAboutRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of EditChatAboutRequest.
 EditChatAboutRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   about <- reader$tgreadString()
@@ -1630,8 +1603,6 @@ EditChatAboutRequest$fromReader <- function(reader) {
 
 #' @title EditChatAdminRequest
 #' @description Represents a request to edit chat admin. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xa85bd1c2).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 EditChatAdminRequest <- R6::R6Class(
   "EditChatAdminRequest",
@@ -1683,10 +1654,11 @@ EditChatAdminRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditChatAdminRequest.
+# @title fromReader
+# @name EditChatAdminRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of EditChatAdminRequest.
 EditChatAdminRequest$fromReader <- function(reader) {
   chatId <- reader$readLong()
   userId <- reader$tgreadObject()
@@ -1696,8 +1668,6 @@ EditChatAdminRequest$fromReader <- function(reader) {
 
 #' @title EditChatDefaultBannedRightsRequest
 #' @description Represents a request to edit chat default banned rights. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xa5866b41).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 EditChatDefaultBannedRightsRequest <- R6::R6Class(
   "EditChatDefaultBannedRightsRequest",
@@ -1745,10 +1715,11 @@ EditChatDefaultBannedRightsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditChatDefaultBannedRightsRequest.
+# @title fromReader
+# @name EditChatDefaultBannedRightsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of EditChatDefaultBannedRightsRequest.
 EditChatDefaultBannedRightsRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   bannedRights <- reader$tgreadObject()
@@ -1757,8 +1728,6 @@ EditChatDefaultBannedRightsRequest$fromReader <- function(reader) {
 
 #' @title EditChatPhotoRequest
 #' @description Represents a request to edit chat photo. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x35ddd674).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 EditChatPhotoRequest <- R6::R6Class(
   "EditChatPhotoRequest",
@@ -1806,10 +1775,11 @@ EditChatPhotoRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditChatPhotoRequest.
+# @title fromReader
+# @name EditChatPhotoRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of EditChatPhotoRequest.
 EditChatPhotoRequest$fromReader <- function(reader) {
   chatId <- reader$readLong()
   photo <- reader$tgreadObject()
@@ -1819,8 +1789,6 @@ EditChatPhotoRequest$fromReader <- function(reader) {
 
 #' @title EditChatTitleRequest
 #' @description Represents a request to edit a chat title. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x73783ffd).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 EditChatTitleRequest <- R6::R6Class(
   "EditChatTitleRequest",
@@ -1861,10 +1829,11 @@ EditChatTitleRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditChatTitleRequest.
+# @title fromReader
+# @name EditChatTitleRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of EditChatTitleRequest.
 EditChatTitleRequest$fromReader <- function(reader) {
   chatId <- reader$readLong()
   title <- reader$tgreadString()
@@ -1873,8 +1842,6 @@ EditChatTitleRequest$fromReader <- function(reader) {
 
 #' @title EditExportedChatInviteRequest
 #' @description Represents a request to edit an exported chat invite. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xbdca2f75).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x82dcd4ca).
 #' @export
 EditExportedChatInviteRequest <- R6::R6Class(
   "EditExportedChatInviteRequest",
@@ -1947,10 +1914,11 @@ EditExportedChatInviteRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditExportedChatInviteRequest.
+# @title fromReader
+# @name EditExportedChatInviteRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of EditExportedChatInviteRequest.
 EditExportedChatInviteRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   revoked <- bitwAnd(flags, 4) != 0
@@ -1965,8 +1933,6 @@ EditExportedChatInviteRequest$fromReader <- function(reader) {
 
 #' @title EditFactCheckRequest
 #' @description Represents a request to edit a fact check. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x589ee75).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 EditFactCheckRequest <- R6::R6Class(
   "EditFactCheckRequest",
@@ -2018,10 +1984,11 @@ EditFactCheckRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditFactCheckRequest.
+# @title fromReader
+# @name EditFactCheckRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of EditFactCheckRequest.
 EditFactCheckRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   msgId <- reader$readInt()
@@ -2032,8 +1999,6 @@ EditFactCheckRequest$fromReader <- function(reader) {
 
 #' @title EditInlineBotMessageRequest
 #' @description Represents a request to edit an inline bot message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x83557dba).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 EditInlineBotMessageRequest <- R6::R6Class(
   "EditInlineBotMessageRequest",
@@ -2108,10 +2073,11 @@ EditInlineBotMessageRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditInlineBotMessageRequest.
+# @title fromReader
+# @name EditInlineBotMessageRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of EditInlineBotMessageRequest.
 EditInlineBotMessageRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   noWebpage <- bitwAnd(flags, 2) != 0
@@ -2131,8 +2097,6 @@ EditInlineBotMessageRequest$fromReader <- function(reader) {
 
 #' @title EditMessageRequest
 #' @description Represents a request to edit a message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xdfd14005).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 EditMessageRequest <- R6::R6Class(
   "EditMessageRequest",
@@ -2222,10 +2186,11 @@ EditMessageRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditMessageRequest.
+# @title fromReader
+# @name EditMessageRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of EditMessageRequest.
 EditMessageRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   noWebpage <- bitwAnd(flags, 2) != 0
@@ -2249,8 +2214,6 @@ EditMessageRequest$fromReader <- function(reader) {
 
 #' @title EditQuickReplyShortcutRequest
 #' @description Represents a request to edit a quick reply shortcut. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x5c003cef).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 EditQuickReplyShortcutRequest <- R6::R6Class(
   "EditQuickReplyShortcutRequest",
@@ -2291,10 +2254,11 @@ EditQuickReplyShortcutRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of EditQuickReplyShortcutRequest.
+# @title fromReader
+# @name EditQuickReplyShortcutRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of EditQuickReplyShortcutRequest.
 EditQuickReplyShortcutRequest$fromReader <- function(reader) {
   shortcutId <- reader$readInt()
   shortcut <- reader$tgreadString()
@@ -2303,8 +2267,6 @@ EditQuickReplyShortcutRequest$fromReader <- function(reader) {
 
 #' @title ExportChatInviteRequest
 #' @description Represents a request to export a chat invite. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xa455de90).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xb4748a58).
 #' @export
 ExportChatInviteRequest <- R6::R6Class(
   "ExportChatInviteRequest",
@@ -2377,10 +2339,11 @@ ExportChatInviteRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ExportChatInviteRequest.
+# @title fromReader
+# @name ExportChatInviteRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ExportChatInviteRequest.
 ExportChatInviteRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   legacyRevokePermanent <- bitwAnd(flags, 4) != 0
@@ -2396,8 +2359,6 @@ ExportChatInviteRequest$fromReader <- function(reader) {
 
 #' @title FaveStickerRequest
 #' @description Represents a request to fave or unfave a sticker. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb9ffc55b).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 FaveStickerRequest <- R6::R6Class(
   "FaveStickerRequest",
@@ -2445,10 +2406,11 @@ FaveStickerRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of FaveStickerRequest.
+# @title fromReader
+# @name FaveStickerRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of FaveStickerRequest.
 FaveStickerRequest$fromReader <- function(reader) {
   id <- reader$tgreadObject()
   unfave <- reader$tgreadBool()
@@ -2457,8 +2419,6 @@ FaveStickerRequest$fromReader <- function(reader) {
 
 #' @title ForwardMessagesRequest
 #' @description Represents a request to forward messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x978928ca).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 ForwardMessagesRequest <- R6::R6Class(
   "ForwardMessagesRequest",
@@ -2594,10 +2554,11 @@ ForwardMessagesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ForwardMessagesRequest.
+# @title fromReader
+# @name ForwardMessagesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ForwardMessagesRequest.
 ForwardMessagesRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   silent <- bitwAnd(flags, 32) != 0
@@ -2634,8 +2595,6 @@ ForwardMessagesRequest$fromReader <- function(reader) {
 
 #' @title GetAdminsWithInvitesRequest
 #' @description Represents a request to get admins with invites. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x3920e6ef).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8f5bad2b).
 #' @export
 GetAdminsWithInvitesRequest <- R6::R6Class(
   "GetAdminsWithInvitesRequest",
@@ -2679,10 +2638,11 @@ GetAdminsWithInvitesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetAdminsWithInvitesRequest.
+# @title fromReader
+# @name GetAdminsWithInvitesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetAdminsWithInvitesRequest.
 GetAdminsWithInvitesRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   GetAdminsWithInvitesRequest$new(peer = peer)
@@ -2690,8 +2650,6 @@ GetAdminsWithInvitesRequest$fromReader <- function(reader) {
 
 #' @title GetAllDraftsRequest
 #' @description Represents a request to get all drafts. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x6a3f8d65).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 GetAllDraftsRequest <- R6::R6Class(
   "GetAllDraftsRequest",
@@ -2716,18 +2674,17 @@ GetAllDraftsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetAllDraftsRequest.
+# @title fromReader
+# @name GetAllDraftsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetAllDraftsRequest.
 GetAllDraftsRequest$fromReader <- function(reader) {
   GetAllDraftsRequest$new()
 }
 
 #' @title GetAllStickersRequest
 #' @description Represents a request to get all stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb8a0a1a8).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x45834829).
 #' @export
 GetAllStickersRequest <- R6::R6Class(
   "GetAllStickersRequest",
@@ -2764,10 +2721,11 @@ GetAllStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetAllStickersRequest.
+# @title fromReader
+# @name GetAllStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetAllStickersRequest.
 GetAllStickersRequest$fromReader <- function(reader) {
   hash <- reader$readLong()
   GetAllStickersRequest$new(hash = hash)
@@ -2776,8 +2734,6 @@ GetAllStickersRequest$fromReader <- function(reader) {
 
 #' @title GetArchivedStickersRequest
 #' @description Represents a request to get archived stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x57f17692).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x7296d771).
 #' @export
 GetArchivedStickersRequest <- R6::R6Class(
   "GetArchivedStickersRequest",
@@ -2827,10 +2783,11 @@ GetArchivedStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetArchivedStickersRequest.
+# @title fromReader
+# @name GetArchivedStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetArchivedStickersRequest.
 GetArchivedStickersRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   masks <- bitwAnd(flags, 1) != 0
@@ -2842,8 +2799,6 @@ GetArchivedStickersRequest$fromReader <- function(reader) {
 
 #' @title GetAttachMenuBotRequest
 #' @description Represents a request to get attach menu bot. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x77216192).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xdb33883d).
 #' @export
 GetAttachMenuBotRequest <- R6::R6Class(
   "GetAttachMenuBotRequest",
@@ -2887,10 +2842,11 @@ GetAttachMenuBotRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetAttachMenuBotRequest.
+# @title fromReader
+# @name GetAttachMenuBotRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetAttachMenuBotRequest.
 GetAttachMenuBotRequest$fromReader <- function(reader) {
   bot <- reader$tgreadObject()
   GetAttachMenuBotRequest$new(bot = bot)
@@ -2898,8 +2854,6 @@ GetAttachMenuBotRequest$fromReader <- function(reader) {
 
 #' @title GetAttachMenuBotsRequest
 #' @description Represents a request to get attach menu bots. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x16fcc2cb).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x842e23da).
 #' @export
 GetAttachMenuBotsRequest <- R6::R6Class(
   "GetAttachMenuBotsRequest",
@@ -2936,10 +2890,11 @@ GetAttachMenuBotsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetAttachMenuBotsRequest.
+# @title fromReader
+# @name GetAttachMenuBotsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetAttachMenuBotsRequest.
 GetAttachMenuBotsRequest$fromReader <- function(reader) {
   hash <- reader$readLong()
   GetAttachMenuBotsRequest$new(hash = hash)
@@ -2947,8 +2902,6 @@ GetAttachMenuBotsRequest$fromReader <- function(reader) {
 
 #' @title GetAttachedStickersRequest
 #' @description Represents a request to get attached stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xcc5b67cc).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xcc125f6b).
 #' @export
 GetAttachedStickersRequest <- R6::R6Class(
   "GetAttachedStickersRequest",
@@ -2985,10 +2938,11 @@ GetAttachedStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetAttachedStickersRequest.
+# @title fromReader
+# @name GetAttachedStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetAttachedStickersRequest.
 GetAttachedStickersRequest$fromReader <- function(reader) {
   media <- reader$tgreadObject()
   GetAttachedStickersRequest$new(media = media)
@@ -2997,8 +2951,6 @@ GetAttachedStickersRequest$fromReader <- function(reader) {
 
 #' @title GetAvailableEffectsRequest
 #' @description Represents a request to get available effects. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xdea20a39).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x4470d5bd).
 #' @export
 GetAvailableEffectsRequest <- R6::R6Class(
   "GetAvailableEffectsRequest",
@@ -3035,10 +2987,11 @@ GetAvailableEffectsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetAvailableEffectsRequest.
+# @title fromReader
+# @name GetAvailableEffectsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetAvailableEffectsRequest.
 GetAvailableEffectsRequest$fromReader <- function(reader) {
   hash <- reader$readInt()
   GetAvailableEffectsRequest$new(hash = hash)
@@ -3046,8 +2999,6 @@ GetAvailableEffectsRequest$fromReader <- function(reader) {
 
 #' @title GetAvailableReactionsRequest
 #' @description Represents a request to get available reactions. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x18dea0ac).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xe426ad82).
 #' @export
 GetAvailableReactionsRequest <- R6::R6Class(
   "GetAvailableReactionsRequest",
@@ -3084,10 +3035,11 @@ GetAvailableReactionsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetAvailableReactionsRequest.
+# @title fromReader
+# @name GetAvailableReactionsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetAvailableReactionsRequest.
 GetAvailableReactionsRequest$fromReader <- function(reader) {
   hash <- reader$readInt()
   GetAvailableReactionsRequest$new(hash = hash)
@@ -3095,8 +3047,6 @@ GetAvailableReactionsRequest$fromReader <- function(reader) {
 
 #' @title GetBotAppRequest
 #' @description Represents a request to get bot app. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x34fdc5c3).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8f7243a7).
 #' @export
 GetBotAppRequest <- R6::R6Class(
   "GetBotAppRequest",
@@ -3137,10 +3087,11 @@ GetBotAppRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetBotAppRequest.
+# @title fromReader
+# @name GetBotAppRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetBotAppRequest.
 GetBotAppRequest$fromReader <- function(reader) {
   app <- reader$tgreadObject()
   hash <- reader$readLong()
@@ -3149,8 +3100,6 @@ GetBotAppRequest$fromReader <- function(reader) {
 
 #' @title GetBotCallbackAnswerRequest
 #' @description Represents a request to get bot callback answer. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x9342ca07).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x6c4dd18c).
 #' @export
 GetBotCallbackAnswerRequest <- R6::R6Class(
   "GetBotCallbackAnswerRequest",
@@ -3213,10 +3162,11 @@ GetBotCallbackAnswerRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetBotCallbackAnswerRequest.
+# @title fromReader
+# @name GetBotCallbackAnswerRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetBotCallbackAnswerRequest.
 GetBotCallbackAnswerRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   game <- bitwAnd(flags, 2) != 0
@@ -3230,8 +3180,6 @@ GetBotCallbackAnswerRequest$fromReader <- function(reader) {
 
 #' @title GetChatInviteImportersRequest
 #' @description Represents a request to get chat invite importers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xdf04dd4e).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd9bc8aa6).
 #' @export
 GetChatInviteImportersRequest <- R6::R6Class(
   "GetChatInviteImportersRequest",
@@ -3307,10 +3255,11 @@ GetChatInviteImportersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetChatInviteImportersRequest.
+# @title fromReader
+# @name GetChatInviteImportersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetChatInviteImportersRequest.
 GetChatInviteImportersRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   requested <- bitwAnd(flags, 1) != 0
@@ -3326,8 +3275,6 @@ GetChatInviteImportersRequest$fromReader <- function(reader) {
 
 #' @title GetChatsRequest
 #' @description Represents a request to get chats. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x49e9528f).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x99d5cb14).
 #' @export
 GetChatsRequest <- R6::R6Class(
   "GetChatsRequest",
@@ -3366,10 +3313,11 @@ GetChatsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetChatsRequest.
+# @title fromReader
+# @name GetChatsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetChatsRequest.
 GetChatsRequest$fromReader <- function(reader) {
   reader$readInt()
   id <- list()
@@ -3382,8 +3330,6 @@ GetChatsRequest$fromReader <- function(reader) {
 
 #' @title GetCommonChatsRequest
 #' @description Represents a request to get common chats. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xe40ca104).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x99d5cb14).
 #' @export
 GetCommonChatsRequest <- R6::R6Class(
   "GetCommonChatsRequest",
@@ -3435,10 +3381,11 @@ GetCommonChatsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetCommonChatsRequest.
+# @title fromReader
+# @name GetCommonChatsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetCommonChatsRequest.
 GetCommonChatsRequest$fromReader <- function(reader) {
   userId <- reader$tgreadObject()
   maxId <- reader$readLong()
@@ -3449,8 +3396,6 @@ GetCommonChatsRequest$fromReader <- function(reader) {
 
 #' @title GetCustomEmojiDocumentsRequest
 #' @description Represents a request to get custom emoji documents. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xd9ab0f54).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xcc590e08).
 #' @export
 GetCustomEmojiDocumentsRequest <- R6::R6Class(
   "GetCustomEmojiDocumentsRequest",
@@ -3489,10 +3434,11 @@ GetCustomEmojiDocumentsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetCustomEmojiDocumentsRequest.
+# @title fromReader
+# @name GetCustomEmojiDocumentsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetCustomEmojiDocumentsRequest.
 GetCustomEmojiDocumentsRequest$fromReader <- function(reader) {
   reader$readInt()
   documentId <- list()
@@ -3505,8 +3451,6 @@ GetCustomEmojiDocumentsRequest$fromReader <- function(reader) {
 
 #' @title GetDefaultHistoryTTLRequest
 #' @description Represents a request to get default history TTL. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x658b7188).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf00d3367).
 #' @export
 GetDefaultHistoryTTLRequest <- R6::R6Class(
   "GetDefaultHistoryTTLRequest",
@@ -3531,18 +3475,17 @@ GetDefaultHistoryTTLRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetDefaultHistoryTTLRequest.
+# @title fromReader
+# @name GetDefaultHistoryTTLRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetDefaultHistoryTTLRequest.
 GetDefaultHistoryTTLRequest$fromReader <- function(reader) {
   GetDefaultHistoryTTLRequest$new()
 }
 
 #' @title GetDefaultTagReactionsRequest
 #' @description Represents a request to get default tag reactions. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xbdf93428).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xadc38324).
 #' @export
 GetDefaultTagReactionsRequest <- R6::R6Class(
   "GetDefaultTagReactionsRequest",
@@ -3579,10 +3522,11 @@ GetDefaultTagReactionsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetDefaultTagReactionsRequest.
+# @title fromReader
+# @name GetDefaultTagReactionsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetDefaultTagReactionsRequest.
 GetDefaultTagReactionsRequest$fromReader <- function(reader) {
   hash <- reader$readLong()
   GetDefaultTagReactionsRequest$new(hash = hash)
@@ -3590,8 +3534,6 @@ GetDefaultTagReactionsRequest$fromReader <- function(reader) {
 
 #' @title GetDhConfigRequest
 #' @description Represents a request to get DH config. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x26cf8950).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xe488ed8b).
 #' @export
 GetDhConfigRequest <- R6::R6Class(
   "GetDhConfigRequest",
@@ -3632,10 +3574,11 @@ GetDhConfigRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetDhConfigRequest.
+# @title fromReader
+# @name GetDhConfigRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetDhConfigRequest.
 GetDhConfigRequest$fromReader <- function(reader) {
   version <- reader$readInt()
   randomLength <- reader$readInt()
@@ -3645,8 +3588,6 @@ GetDhConfigRequest$fromReader <- function(reader) {
 
 #' @title GetDialogFiltersRequest
 #' @description Represents a request to get dialog filters. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xefd48c89).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xa5fff1b7).
 #' @export
 GetDialogFiltersRequest <- R6::R6Class(
   "GetDialogFiltersRequest",
@@ -3671,18 +3612,17 @@ GetDialogFiltersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetDialogFiltersRequest.
+# @title fromReader
+# @name GetDialogFiltersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetDialogFiltersRequest.
 GetDialogFiltersRequest$fromReader <- function(reader) {
   GetDialogFiltersRequest$new()
 }
 
 #' @title GetDialogUnreadMarksRequest
 #' @description Represents a request to get dialog unread marks. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x21202222).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xbec64ad9).
 #' @export
 GetDialogUnreadMarksRequest <- R6::R6Class(
   "GetDialogUnreadMarksRequest",
@@ -3730,10 +3670,11 @@ GetDialogUnreadMarksRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetDialogUnreadMarksRequest.
+# @title fromReader
+# @name GetDialogUnreadMarksRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetDialogUnreadMarksRequest.
 GetDialogUnreadMarksRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   parentPeer <- if (bitwAnd(flags, 1) != 0) reader$tgreadObject() else NULL
@@ -3742,8 +3683,6 @@ GetDialogUnreadMarksRequest$fromReader <- function(reader) {
 
 #' @title GetDialogsRequest
 #' @description Represents a request to get dialogs. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xa0f4cb4f).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xe1b52ee).
 #' @export
 GetDialogsRequest <- R6::R6Class(
   "GetDialogsRequest",
@@ -3813,10 +3752,11 @@ GetDialogsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetDialogsRequest.
+# @title fromReader
+# @name GetDialogsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetDialogsRequest.
 GetDialogsRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   excludePinned <- bitwAnd(flags, 1) != 0
@@ -3832,8 +3772,6 @@ GetDialogsRequest$fromReader <- function(reader) {
 
 #' @title GetDiscussionMessageRequest
 #' @description Represents a request to get discussion message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x446972fd).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x53f8e3e8).
 #' @export
 GetDiscussionMessageRequest <- R6::R6Class(
   "GetDiscussionMessageRequest",
@@ -3881,10 +3819,11 @@ GetDiscussionMessageRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetDiscussionMessageRequest.
+# @title fromReader
+# @name GetDiscussionMessageRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetDiscussionMessageRequest.
 GetDiscussionMessageRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   msgId <- reader$readInt()
@@ -3893,8 +3832,6 @@ GetDiscussionMessageRequest$fromReader <- function(reader) {
 
 #' @title GetDocumentByHashRequest
 #' @description Represents a request to get document by hash. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb1f2061f).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x211fe820).
 #' @export
 GetDocumentByHashRequest <- R6::R6Class(
   "GetDocumentByHashRequest",
@@ -3939,10 +3876,11 @@ GetDocumentByHashRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetDocumentByHashRequest.
+# @title fromReader
+# @name GetDocumentByHashRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetDocumentByHashRequest.
 GetDocumentByHashRequest$fromReader <- function(reader) {
   sha256 <- reader$tgreadBytes()
   size <- reader$readLong()
@@ -3952,8 +3890,6 @@ GetDocumentByHashRequest$fromReader <- function(reader) {
 
 #' @title GetEmojiGroupsRequest
 #' @description Represents a request to get emoji groups. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x7488ce5b).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x7eca55d9).
 #' @export
 GetEmojiGroupsRequest <- R6::R6Class(
   "GetEmojiGroupsRequest",
@@ -3990,10 +3926,11 @@ GetEmojiGroupsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetEmojiGroupsRequest.
+# @title fromReader
+# @name GetEmojiGroupsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetEmojiGroupsRequest.
 GetEmojiGroupsRequest$fromReader <- function(reader) {
   hash <- reader$readInt()
   GetEmojiGroupsRequest$new(hash = hash)
@@ -4001,8 +3938,6 @@ GetEmojiGroupsRequest$fromReader <- function(reader) {
 
 #' @title GetEmojiKeywordsRequest
 #' @description Represents a request to get emoji keywords. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x35a0e062).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd279c672).
 #' @export
 GetEmojiKeywordsRequest <- R6::R6Class(
   "GetEmojiKeywordsRequest",
@@ -4039,10 +3974,11 @@ GetEmojiKeywordsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetEmojiKeywordsRequest.
+# @title fromReader
+# @name GetEmojiKeywordsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetEmojiKeywordsRequest.
 GetEmojiKeywordsRequest$fromReader <- function(reader) {
   langCode <- reader$tgreadString()
   GetEmojiKeywordsRequest$new(langCode = langCode)
@@ -4051,8 +3987,6 @@ GetEmojiKeywordsRequest$fromReader <- function(reader) {
 
 #' @title GetEmojiKeywordsDifferenceRequest
 #' @description Represents a request to get emoji keywords difference. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x1508b6af).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd279c672).
 #' @export
 GetEmojiKeywordsDifferenceRequest <- R6::R6Class(
   "GetEmojiKeywordsDifferenceRequest",
@@ -4093,10 +4027,11 @@ GetEmojiKeywordsDifferenceRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetEmojiKeywordsDifferenceRequest.
+# @title fromReader
+# @name GetEmojiKeywordsDifferenceRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetEmojiKeywordsDifferenceRequest.
 GetEmojiKeywordsDifferenceRequest$fromReader <- function(reader) {
   langCode <- reader$tgreadString()
   fromVersion <- reader$readInt()
@@ -4105,8 +4040,6 @@ GetEmojiKeywordsDifferenceRequest$fromReader <- function(reader) {
 
 #' @title GetEmojiKeywordsLanguagesRequest
 #' @description Represents a request to get emoji keywords languages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x4e9963b2).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xe795d387).
 #' @export
 GetEmojiKeywordsLanguagesRequest <- R6::R6Class(
   "GetEmojiKeywordsLanguagesRequest",
@@ -4145,10 +4078,11 @@ GetEmojiKeywordsLanguagesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetEmojiKeywordsLanguagesRequest.
+# @title fromReader
+# @name GetEmojiKeywordsLanguagesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetEmojiKeywordsLanguagesRequest.
 GetEmojiKeywordsLanguagesRequest$fromReader <- function(reader) {
   reader$readInt()
   langCodes <- list()
@@ -4161,8 +4095,6 @@ GetEmojiKeywordsLanguagesRequest$fromReader <- function(reader) {
 
 #' @title GetEmojiProfilePhotoGroupsRequest
 #' @description Represents a request to get emoji profile photo groups. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x21a548f3).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x7eca55d9).
 #' @export
 GetEmojiProfilePhotoGroupsRequest <- R6::R6Class(
   "GetEmojiProfilePhotoGroupsRequest",
@@ -4199,10 +4131,11 @@ GetEmojiProfilePhotoGroupsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetEmojiProfilePhotoGroupsRequest.
+# @title fromReader
+# @name GetEmojiProfilePhotoGroupsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetEmojiProfilePhotoGroupsRequest.
 GetEmojiProfilePhotoGroupsRequest$fromReader <- function(reader) {
   hash <- reader$readInt()
   GetEmojiProfilePhotoGroupsRequest$new(hash = hash)
@@ -4210,8 +4143,6 @@ GetEmojiProfilePhotoGroupsRequest$fromReader <- function(reader) {
 
 #' @title GetEmojiStatusGroupsRequest
 #' @description Represents a request to get emoji status groups. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x2ecd56cd).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x7eca55d9).
 #' @export
 GetEmojiStatusGroupsRequest <- R6::R6Class(
   "GetEmojiStatusGroupsRequest",
@@ -4248,10 +4179,11 @@ GetEmojiStatusGroupsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetEmojiStatusGroupsRequest.
+# @title fromReader
+# @name GetEmojiStatusGroupsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetEmojiStatusGroupsRequest.
 GetEmojiStatusGroupsRequest$fromReader <- function(reader) {
   hash <- reader$readInt()
   GetEmojiStatusGroupsRequest$new(hash = hash)
@@ -4260,8 +4192,6 @@ GetEmojiStatusGroupsRequest$fromReader <- function(reader) {
 
 #' @title GetEmojiStickerGroupsRequest
 #' @description Represents a request to get emoji sticker groups. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x1dd840f5).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x7eca55d9).
 #' @export
 GetEmojiStickerGroupsRequest <- R6::R6Class(
   "GetEmojiStickerGroupsRequest",
@@ -4298,10 +4228,11 @@ GetEmojiStickerGroupsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetEmojiStickerGroupsRequest.
+# @title fromReader
+# @name GetEmojiStickerGroupsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetEmojiStickerGroupsRequest.
 GetEmojiStickerGroupsRequest$fromReader <- function(reader) {
   hash <- reader$readInt()
   GetEmojiStickerGroupsRequest$new(hash = hash)
@@ -4309,8 +4240,6 @@ GetEmojiStickerGroupsRequest$fromReader <- function(reader) {
 
 #' @title GetEmojiStickersRequest
 #' @description Represents a request to get emoji stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xfbfca18f).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x45834829).
 #' @export
 GetEmojiStickersRequest <- R6::R6Class(
   "GetEmojiStickersRequest",
@@ -4347,10 +4276,11 @@ GetEmojiStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetEmojiStickersRequest.
+# @title fromReader
+# @name GetEmojiStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetEmojiStickersRequest.
 GetEmojiStickersRequest$fromReader <- function(reader) {
   hash <- reader$readLong()
   GetEmojiStickersRequest$new(hash = hash)
@@ -4358,8 +4288,6 @@ GetEmojiStickersRequest$fromReader <- function(reader) {
 
 #' @title GetEmojiURLRequest
 #' @description Represents a request to get emoji URL. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xd5b10c26).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x1fa08a19).
 #' @export
 GetEmojiURLRequest <- R6::R6Class(
   "GetEmojiURLRequest",
@@ -4396,10 +4324,11 @@ GetEmojiURLRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetEmojiURLRequest.
+# @title fromReader
+# @name GetEmojiURLRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetEmojiURLRequest.
 GetEmojiURLRequest$fromReader <- function(reader) {
   langCode <- reader$tgreadString()
   GetEmojiURLRequest$new(langCode = langCode)
@@ -4407,8 +4336,6 @@ GetEmojiURLRequest$fromReader <- function(reader) {
 
 #' @title GetExportedChatInviteRequest
 #' @description Represents a request to get exported chat invite. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x73746f5c).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x82dcd4ca).
 #' @export
 GetExportedChatInviteRequest <- R6::R6Class(
   "GetExportedChatInviteRequest",
@@ -4456,10 +4383,11 @@ GetExportedChatInviteRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetExportedChatInviteRequest.
+# @title fromReader
+# @name GetExportedChatInviteRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetExportedChatInviteRequest.
 GetExportedChatInviteRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   link <- reader$tgreadString()
@@ -4469,8 +4397,6 @@ GetExportedChatInviteRequest$fromReader <- function(reader) {
 
 #' @title GetExportedChatInvitesRequest
 #' @description Represents a request to get exported chat invites. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xa2b5a3f6).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x603d3871).
 #' @export
 GetExportedChatInvitesRequest <- R6::R6Class(
   "GetExportedChatInvitesRequest",
@@ -4543,10 +4469,11 @@ GetExportedChatInvitesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetExportedChatInvitesRequest.
+# @title fromReader
+# @name GetExportedChatInvitesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetExportedChatInvitesRequest.
 GetExportedChatInvitesRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   revoked <- bitwAnd(flags, 8) != 0
@@ -4560,8 +4487,6 @@ GetExportedChatInvitesRequest$fromReader <- function(reader) {
 
 #' @title GetExtendedMediaRequest
 #' @description Represents a request to get extended media. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x84f80814).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 GetExtendedMediaRequest <- R6::R6Class(
   "GetExtendedMediaRequest",
@@ -4611,10 +4536,11 @@ GetExtendedMediaRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetExtendedMediaRequest.
+# @title fromReader
+# @name GetExtendedMediaRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetExtendedMediaRequest.
 GetExtendedMediaRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   reader$readInt()
@@ -4628,8 +4554,6 @@ GetExtendedMediaRequest$fromReader <- function(reader) {
 
 #' @title GetFactCheckRequest
 #' @description Represents a request to get fact check. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb9cdc5ee).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xbba61813).
 #' @export
 GetFactCheckRequest <- R6::R6Class(
   "GetFactCheckRequest",
@@ -4679,10 +4603,11 @@ GetFactCheckRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetFactCheckRequest.
+# @title fromReader
+# @name GetFactCheckRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetFactCheckRequest.
 GetFactCheckRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   reader$readInt()
@@ -4697,8 +4622,6 @@ GetFactCheckRequest$fromReader <- function(reader) {
 
 #' @title GetFavedStickersRequest
 #' @description Represents a request to get faved stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x4f1aaa9).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8e736fb9).
 #' @export
 GetFavedStickersRequest <- R6::R6Class(
   "GetFavedStickersRequest",
@@ -4735,10 +4658,11 @@ GetFavedStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetFavedStickersRequest.
+# @title fromReader
+# @name GetFavedStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetFavedStickersRequest.
 GetFavedStickersRequest$fromReader <- function(reader) {
   hash <- reader$readLong()
   GetFavedStickersRequest$new(hash = hash)
@@ -4746,8 +4670,6 @@ GetFavedStickersRequest$fromReader <- function(reader) {
 
 #' @title GetFeaturedEmojiStickersRequest
 #' @description Represents a request to get featured emoji stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xecf6736).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x2614b722).
 #' @export
 GetFeaturedEmojiStickersRequest <- R6::R6Class(
   "GetFeaturedEmojiStickersRequest",
@@ -4784,10 +4706,11 @@ GetFeaturedEmojiStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetFeaturedEmojiStickersRequest.
+# @title fromReader
+# @name GetFeaturedEmojiStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetFeaturedEmojiStickersRequest.
 GetFeaturedEmojiStickersRequest$fromReader <- function(reader) {
   hash <- reader$readLong()
   GetFeaturedEmojiStickersRequest$new(hash = hash)
@@ -4795,8 +4718,6 @@ GetFeaturedEmojiStickersRequest$fromReader <- function(reader) {
 
 #' @title GetFeaturedStickersRequest
 #' @description Represents a request to get featured stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x64780b14).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x2614b722).
 #' @export
 GetFeaturedStickersRequest <- R6::R6Class(
   "GetFeaturedStickersRequest",
@@ -4833,10 +4754,11 @@ GetFeaturedStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetFeaturedStickersRequest.
+# @title fromReader
+# @name GetFeaturedStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetFeaturedStickersRequest.
 GetFeaturedStickersRequest$fromReader <- function(reader) {
   hash <- reader$readLong()
   GetFeaturedStickersRequest$new(hash = hash)
@@ -4844,8 +4766,6 @@ GetFeaturedStickersRequest$fromReader <- function(reader) {
 
 #' @title GetFullChatRequest
 #' @description Represents a request to get full chat information. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xaeb00b34).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x225a5109).
 #' @export
 GetFullChatRequest <- R6::R6Class(
   "GetFullChatRequest",
@@ -4882,10 +4802,11 @@ GetFullChatRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetFullChatRequest.
+# @title fromReader
+# @name GetFullChatRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetFullChatRequest.
 GetFullChatRequest$fromReader <- function(reader) {
   chatId <- reader$readLong()
   GetFullChatRequest$new(chatId = chatId)
@@ -4894,8 +4815,6 @@ GetFullChatRequest$fromReader <- function(reader) {
 
 #' @title GetGameHighScoresRequest
 #' @description Represents a request to get game high scores. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xe822649d).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x6ccd95fd).
 #' @export
 GetGameHighScoresRequest <- R6::R6Class(
   "GetGameHighScoresRequest",
@@ -4948,10 +4867,11 @@ GetGameHighScoresRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetGameHighScoresRequest.
+# @title fromReader
+# @name GetGameHighScoresRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetGameHighScoresRequest.
 GetGameHighScoresRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   id <- reader$readInt()
@@ -4961,8 +4881,6 @@ GetGameHighScoresRequest$fromReader <- function(reader) {
 
 #' @title GetHistoryRequest
 #' @description Represents a request to get history. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x4423e6c5).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd4b40b5e).
 #' @export
 GetHistoryRequest <- R6::R6Class(
   "GetHistoryRequest",
@@ -5034,10 +4952,11 @@ GetHistoryRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetHistoryRequest.
+# @title fromReader
+# @name GetHistoryRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetHistoryRequest.
 GetHistoryRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   offsetId <- reader$readInt()
@@ -5052,8 +4971,6 @@ GetHistoryRequest$fromReader <- function(reader) {
 
 #' @title GetInlineBotResultsRequest
 #' @description Represents a request to get inline bot results. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x514e999d).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x3ed4d9c9).
 #' @export
 GetInlineBotResultsRequest <- R6::R6Class(
   "GetInlineBotResultsRequest",
@@ -5116,10 +5033,11 @@ GetInlineBotResultsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetInlineBotResultsRequest.
+# @title fromReader
+# @name GetInlineBotResultsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetInlineBotResultsRequest.
 GetInlineBotResultsRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   bot <- reader$tgreadObject()
@@ -5133,8 +5051,6 @@ GetInlineBotResultsRequest$fromReader <- function(reader) {
 
 #' @title GetInlineGameHighScoresRequest
 #' @description Represents a request to get inline game high scores. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xf635e1b).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x6ccd95fd).
 #' @export
 GetInlineGameHighScoresRequest <- R6::R6Class(
   "GetInlineGameHighScoresRequest",
@@ -5182,10 +5098,11 @@ GetInlineGameHighScoresRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetInlineGameHighScoresRequest.
+# @title fromReader
+# @name GetInlineGameHighScoresRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetInlineGameHighScoresRequest.
 GetInlineGameHighScoresRequest$fromReader <- function(reader) {
   id <- reader$tgreadObject()
   userId <- reader$tgreadObject()
@@ -5194,8 +5111,6 @@ GetInlineGameHighScoresRequest$fromReader <- function(reader) {
 
 #' @title GetMaskStickersRequest
 #' @description Represents a request to get mask stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x640f82b8).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x45834829).
 #' @export
 GetMaskStickersRequest <- R6::R6Class(
   "GetMaskStickersRequest",
@@ -5232,10 +5147,11 @@ GetMaskStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetMaskStickersRequest.
+# @title fromReader
+# @name GetMaskStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetMaskStickersRequest.
 GetMaskStickersRequest$fromReader <- function(reader) {
   hash <- reader$readLong()
   GetMaskStickersRequest$new(hash = hash)
@@ -5243,8 +5159,6 @@ GetMaskStickersRequest$fromReader <- function(reader) {
 
 #' @title GetMessageEditDataRequest
 #' @description Represents a request to get message edit data. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xfda68d36).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xfb47949d).
 #' @export
 GetMessageEditDataRequest <- R6::R6Class(
   "GetMessageEditDataRequest",
@@ -5292,10 +5206,11 @@ GetMessageEditDataRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetMessageEditDataRequest.
+# @title fromReader
+# @name GetMessageEditDataRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetMessageEditDataRequest.
 GetMessageEditDataRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   id <- reader$readInt()
@@ -5305,8 +5220,6 @@ GetMessageEditDataRequest$fromReader <- function(reader) {
 
 #' @title GetMessageReactionsListRequest
 #' @description Represents a request to get message reactions list. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x461b3f48).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x60fce5e6).
 #' @export
 GetMessageReactionsListRequest <- R6::R6Class(
   "GetMessageReactionsListRequest",
@@ -5368,10 +5281,11 @@ GetMessageReactionsListRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetMessageReactionsListRequest.
+# @title fromReader
+# @name GetMessageReactionsListRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetMessageReactionsListRequest.
 GetMessageReactionsListRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   peer <- reader$tgreadObject()
@@ -5384,8 +5298,6 @@ GetMessageReactionsListRequest$fromReader <- function(reader) {
 
 #' @title GetMessageReadParticipantsRequest
 #' @description Represents a request to get message read participants. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x31c1c44f).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x21ca455b).
 #' @export
 GetMessageReadParticipantsRequest <- R6::R6Class(
   "GetMessageReadParticipantsRequest",
@@ -5433,10 +5345,11 @@ GetMessageReadParticipantsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetMessageReadParticipantsRequest.
+# @title fromReader
+# @name GetMessageReadParticipantsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetMessageReadParticipantsRequest.
 GetMessageReadParticipantsRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   msgId <- reader$readInt()
@@ -5445,8 +5358,6 @@ GetMessageReadParticipantsRequest$fromReader <- function(reader) {
 
 #' @title GetMessagesRequest
 #' @description Represents a request to get messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x63c66506).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd4b40b5e).
 #' @export
 GetMessagesRequest <- R6::R6Class(
   "GetMessagesRequest",
@@ -5496,10 +5407,11 @@ GetMessagesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetMessagesRequest.
+# @title fromReader
+# @name GetMessagesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetMessagesRequest.
 GetMessagesRequest$fromReader <- function(reader) {
   reader$readInt()
   id <- list()
@@ -5513,8 +5425,6 @@ GetMessagesRequest$fromReader <- function(reader) {
 
 #' @title GetMessagesReactionsRequest
 #' @description Represents a request to get messages reactions. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x8bba90e6).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 GetMessagesReactionsRequest <- R6::R6Class(
   "GetMessagesReactionsRequest",
@@ -5564,10 +5474,11 @@ GetMessagesReactionsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetMessagesReactionsRequest.
+# @title fromReader
+# @name GetMessagesReactionsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetMessagesReactionsRequest.
 GetMessagesReactionsRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   reader$readInt()
@@ -5581,8 +5492,6 @@ GetMessagesReactionsRequest$fromReader <- function(reader) {
 
 #' @title GetMessagesViewsRequest
 #' @description Represents a request to get messages views. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x5784d3e1).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xafb5eb9c).
 #' @export
 GetMessagesViewsRequest <- R6::R6Class(
   "GetMessagesViewsRequest",
@@ -5636,10 +5545,11 @@ GetMessagesViewsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetMessagesViewsRequest.
+# @title fromReader
+# @name GetMessagesViewsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetMessagesViewsRequest.
 GetMessagesViewsRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   reader$readInt()
@@ -5654,8 +5564,6 @@ GetMessagesViewsRequest$fromReader <- function(reader) {
 
 #' @title GetMyStickersRequest
 #' @description Represents a request to get my stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xd0b5e1fc).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xb1b4350a).
 #' @export
 GetMyStickersRequest <- R6::R6Class(
   "GetMyStickersRequest",
@@ -5696,10 +5604,11 @@ GetMyStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetMyStickersRequest.
+# @title fromReader
+# @name GetMyStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetMyStickersRequest.
 GetMyStickersRequest$fromReader <- function(reader) {
   offsetId <- reader$readLong()
   limit <- reader$readInt()
@@ -5709,8 +5618,6 @@ GetMyStickersRequest$fromReader <- function(reader) {
 
 #' @title GetOldFeaturedStickersRequest
 #' @description Represents a request to get old featured stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x7ed094a1).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x2614b722).
 #' @export
 GetOldFeaturedStickersRequest <- R6::R6Class(
   "GetOldFeaturedStickersRequest",
@@ -5755,10 +5662,11 @@ GetOldFeaturedStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetOldFeaturedStickersRequest.
+# @title fromReader
+# @name GetOldFeaturedStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetOldFeaturedStickersRequest.
 GetOldFeaturedStickersRequest$fromReader <- function(reader) {
   offset <- reader$readInt()
   limit <- reader$readInt()
@@ -5768,8 +5676,6 @@ GetOldFeaturedStickersRequest$fromReader <- function(reader) {
 
 #' @title GetOnlinesRequest
 #' @description Represents a request to get onlines. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x6e2be050).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8c81903a).
 #' @export
 GetOnlinesRequest <- R6::R6Class(
   "GetOnlinesRequest",
@@ -5813,10 +5719,11 @@ GetOnlinesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetOnlinesRequest.
+# @title fromReader
+# @name GetOnlinesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetOnlinesRequest.
 GetOnlinesRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   GetOnlinesRequest$new(peer = peer)
@@ -5824,8 +5731,6 @@ GetOnlinesRequest$fromReader <- function(reader) {
 
 #' @title GetOutboxReadDateRequest
 #' @description Represents a request to get outbox read date. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x8c4bfe5d).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x6f5183c6).
 #' @export
 GetOutboxReadDateRequest <- R6::R6Class(
   "GetOutboxReadDateRequest",
@@ -5873,10 +5778,11 @@ GetOutboxReadDateRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetOutboxReadDateRequest.
+# @title fromReader
+# @name GetOutboxReadDateRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetOutboxReadDateRequest.
 GetOutboxReadDateRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   msgId <- reader$readInt()
@@ -5885,8 +5791,6 @@ GetOutboxReadDateRequest$fromReader <- function(reader) {
 
 #' @title GetPaidReactionPrivacyRequest
 #' @description Represents a request to get paid reaction privacy. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x472455aa).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 GetPaidReactionPrivacyRequest <- R6::R6Class(
   "GetPaidReactionPrivacyRequest",
@@ -5913,10 +5817,11 @@ GetPaidReactionPrivacyRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetPaidReactionPrivacyRequest.
+# @title fromReader
+# @name GetPaidReactionPrivacyRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetPaidReactionPrivacyRequest.
 GetPaidReactionPrivacyRequest$fromReader <- function(reader) {
   GetPaidReactionPrivacyRequest$new()
 }
@@ -5924,8 +5829,6 @@ GetPaidReactionPrivacyRequest$fromReader <- function(reader) {
 
 #' @title GetPeerDialogsRequest
 #' @description Represents a request to get peer dialogs. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xe470bcfd).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x3ac70132).
 #' @export
 GetPeerDialogsRequest <- R6::R6Class(
   "GetPeerDialogsRequest",
@@ -5975,10 +5878,11 @@ GetPeerDialogsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetPeerDialogsRequest.
+# @title fromReader
+# @name GetPeerDialogsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetPeerDialogsRequest.
 GetPeerDialogsRequest$fromReader <- function(reader) {
   reader$readInt()
   peers <- list()
@@ -5991,8 +5895,6 @@ GetPeerDialogsRequest$fromReader <- function(reader) {
 
 #' @title GetPeerSettingsRequest
 #' @description Represents a request to get peer settings. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xefd9a6a2).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x65a2f7a1).
 #' @export
 GetPeerSettingsRequest <- R6::R6Class(
   "GetPeerSettingsRequest",
@@ -6036,10 +5938,11 @@ GetPeerSettingsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetPeerSettingsRequest.
+# @title fromReader
+# @name GetPeerSettingsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetPeerSettingsRequest.
 GetPeerSettingsRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   GetPeerSettingsRequest$new(peer = peer)
@@ -6047,8 +5950,6 @@ GetPeerSettingsRequest$fromReader <- function(reader) {
 
 #' @title GetPinnedDialogsRequest
 #' @description Represents a request to get pinned dialogs. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xd6b94df2).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x3ac70132).
 #' @export
 GetPinnedDialogsRequest <- R6::R6Class(
   "GetPinnedDialogsRequest",
@@ -6085,10 +5986,11 @@ GetPinnedDialogsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetPinnedDialogsRequest.
+# @title fromReader
+# @name GetPinnedDialogsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetPinnedDialogsRequest.
 GetPinnedDialogsRequest$fromReader <- function(reader) {
   folderId <- reader$readInt()
   GetPinnedDialogsRequest$new(folderId = folderId)
@@ -6096,8 +5998,6 @@ GetPinnedDialogsRequest$fromReader <- function(reader) {
 
 #' @title GetPinnedSavedDialogsRequest
 #' @description Represents a request to get pinned saved dialogs. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xd63d94e0).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x614bb87e).
 #' @export
 GetPinnedSavedDialogsRequest <- R6::R6Class(
   "GetPinnedSavedDialogsRequest",
@@ -6128,10 +6028,11 @@ GetPinnedSavedDialogsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetPinnedSavedDialogsRequest.
+# @title fromReader
+# @name GetPinnedSavedDialogsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetPinnedSavedDialogsRequest.
 GetPinnedSavedDialogsRequest$fromReader <- function(reader) {
   GetPinnedSavedDialogsRequest$new()
 }
@@ -6139,8 +6040,6 @@ GetPinnedSavedDialogsRequest$fromReader <- function(reader) {
 
 #' @title GetPollResultsRequest
 #' @description Represents a request to get poll results. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x73bb643b).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 GetPollResultsRequest <- R6::R6Class(
   "GetPollResultsRequest",
@@ -6188,10 +6087,11 @@ GetPollResultsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetPollResultsRequest.
+# @title fromReader
+# @name GetPollResultsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetPollResultsRequest.
 GetPollResultsRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   msgId <- reader$readInt()
@@ -6200,8 +6100,6 @@ GetPollResultsRequest$fromReader <- function(reader) {
 
 #' @title GetPollVotesRequest
 #' @description Represents a request to get poll votes. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb86e380e).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xc2199885).
 #' @export
 GetPollVotesRequest <- R6::R6Class(
   "GetPollVotesRequest",
@@ -6263,10 +6161,11 @@ GetPollVotesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetPollVotesRequest.
+# @title fromReader
+# @name GetPollVotesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetPollVotesRequest.
 GetPollVotesRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   peer <- reader$tgreadObject()
@@ -6279,8 +6178,6 @@ GetPollVotesRequest$fromReader <- function(reader) {
 
 #' @title GetPreparedInlineMessageRequest
 #' @description Represents a request to get a prepared inline message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x857ebdb8).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x490ddf4d).
 #' @export
 GetPreparedInlineMessageRequest <- R6::R6Class(
   "GetPreparedInlineMessageRequest",
@@ -6328,10 +6225,11 @@ GetPreparedInlineMessageRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetPreparedInlineMessageRequest.
+# @title fromReader
+# @name GetPreparedInlineMessageRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetPreparedInlineMessageRequest.
 GetPreparedInlineMessageRequest$fromReader <- function(reader) {
   bot <- reader$tgreadObject()
   id <- reader$tgreadString()
@@ -6341,8 +6239,6 @@ GetPreparedInlineMessageRequest$fromReader <- function(reader) {
 
 #' @title GetQuickRepliesRequest
 #' @description Represents a request to get quick replies. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xd483f2a8).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf737e966).
 #' @export
 GetQuickRepliesRequest <- R6::R6Class(
   "GetQuickRepliesRequest",
@@ -6379,10 +6275,11 @@ GetQuickRepliesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetQuickRepliesRequest.
+# @title fromReader
+# @name GetQuickRepliesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetQuickRepliesRequest.
 GetQuickRepliesRequest$fromReader <- function(reader) {
   hash <- reader$readLong()
   GetQuickRepliesRequest$new(hash = hash)
@@ -6390,8 +6287,6 @@ GetQuickRepliesRequest$fromReader <- function(reader) {
 
 #' @title GetQuickReplyMessagesRequest
 #' @description Represents a request to get quick reply messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x94a495c3).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd4b40b5e).
 #' @export
 GetQuickReplyMessagesRequest <- R6::R6Class(
   "GetQuickReplyMessagesRequest",
@@ -6438,10 +6333,11 @@ GetQuickReplyMessagesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetQuickReplyMessagesRequest.
+# @title fromReader
+# @name GetQuickReplyMessagesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetQuickReplyMessagesRequest.
 GetQuickReplyMessagesRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   shortcutId <- reader$readInt()
@@ -6461,8 +6357,6 @@ GetQuickReplyMessagesRequest$fromReader <- function(reader) {
 
 #' @title GetRecentLocationsRequest
 #' @description Represents a request to get recent locations. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x702a40e0).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd4b40b5e).
 #' @export
 GetRecentLocationsRequest <- R6::R6Class(
   "GetRecentLocationsRequest",
@@ -6514,10 +6408,11 @@ GetRecentLocationsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetRecentLocationsRequest.
+# @title fromReader
+# @name GetRecentLocationsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetRecentLocationsRequest.
 GetRecentLocationsRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   limit <- reader$readInt()
@@ -6528,8 +6423,6 @@ GetRecentLocationsRequest$fromReader <- function(reader) {
 
 #' @title GetRecentReactionsRequest
 #' @description Represents a request to get recent reactions. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x39461db2).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xadc38324).
 #' @export
 GetRecentReactionsRequest <- R6::R6Class(
   "GetRecentReactionsRequest",
@@ -6570,10 +6463,11 @@ GetRecentReactionsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetRecentReactionsRequest.
+# @title fromReader
+# @name GetRecentReactionsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetRecentReactionsRequest.
 GetRecentReactionsRequest$fromReader <- function(reader) {
   limit <- reader$readInt()
   hash <- reader$readLong()
@@ -6582,8 +6476,6 @@ GetRecentReactionsRequest$fromReader <- function(reader) {
 
 #' @title GetRecentStickersRequest
 #' @description Represents a request to get recent stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x9da9403b).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf76f8683).
 #' @export
 GetRecentStickersRequest <- R6::R6Class(
   "GetRecentStickersRequest",
@@ -6625,10 +6517,11 @@ GetRecentStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetRecentStickersRequest.
+# @title fromReader
+# @name GetRecentStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetRecentStickersRequest.
 GetRecentStickersRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   attached <- bitwAnd(flags, 1L) != 0
@@ -6638,8 +6531,6 @@ GetRecentStickersRequest$fromReader <- function(reader) {
 
 #' @title GetRepliesRequest
 #' @description Represents a request to get replies. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x22ddd30c).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd4b40b5e).
 #' @export
 GetRepliesRequest <- R6::R6Class(
   "GetRepliesRequest",
@@ -6715,10 +6606,11 @@ GetRepliesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetRepliesRequest.
+# @title fromReader
+# @name GetRepliesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetRepliesRequest.
 GetRepliesRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   msgId <- reader$readInt()
@@ -6734,8 +6626,6 @@ GetRepliesRequest$fromReader <- function(reader) {
 
 #' @title GetSavedDialogsRequest
 #' @description Represents a request to get saved dialogs. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x1e91fc99).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x614bb87e).
 #' @export
 GetSavedDialogsRequest <- R6::R6Class(
   "GetSavedDialogsRequest",
@@ -6807,10 +6697,11 @@ GetSavedDialogsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetSavedDialogsRequest.
+# @title fromReader
+# @name GetSavedDialogsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetSavedDialogsRequest.
 GetSavedDialogsRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   excludePinned <- bitwAnd(flags, 1L) != 0
@@ -6825,8 +6716,6 @@ GetSavedDialogsRequest$fromReader <- function(reader) {
 
 #' @title GetSavedDialogsByIDRequest
 #' @description Represents a request to get saved dialogs by ID. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x6f6f9c96).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x614bb87e).
 #' @export
 GetSavedDialogsByIDRequest <- R6::R6Class(
   "GetSavedDialogsByIDRequest",
@@ -6883,10 +6772,11 @@ GetSavedDialogsByIDRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetSavedDialogsByIDRequest.
+# @title fromReader
+# @name GetSavedDialogsByIDRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetSavedDialogsByIDRequest.
 GetSavedDialogsByIDRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   parentPeer <- if (bitwAnd(flags, 2L) != 0) reader$tgreadObject() else NULL
@@ -6901,8 +6791,6 @@ GetSavedDialogsByIDRequest$fromReader <- function(reader) {
 
 #' @title GetSavedGifsRequest
 #' @description Represents a request to get saved GIFs. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x5cf09635).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xa68b61f5).
 #' @export
 GetSavedGifsRequest <- R6::R6Class(
   "GetSavedGifsRequest",
@@ -6939,10 +6827,11 @@ GetSavedGifsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetSavedGifsRequest.
+# @title fromReader
+# @name GetSavedGifsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetSavedGifsRequest.
 GetSavedGifsRequest$fromReader <- function(reader) {
   hash <- reader$readLong()
   GetSavedGifsRequest$new(hash = hash)
@@ -6951,8 +6840,6 @@ GetSavedGifsRequest$fromReader <- function(reader) {
 
 #' @title GetSavedHistoryRequest
 #' @description Represents a request to get saved history. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x998ab009).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd4b40b5e).
 #' @export
 GetSavedHistoryRequest <- R6::R6Class(
   "GetSavedHistoryRequest",
@@ -7033,10 +6920,11 @@ GetSavedHistoryRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetSavedHistoryRequest.
+# @title fromReader
+# @name GetSavedHistoryRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetSavedHistoryRequest.
 GetSavedHistoryRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   parent_peer <- if (bitwAnd(flags, 1L) != 0) reader$tgreadObject() else NULL
@@ -7053,8 +6941,6 @@ GetSavedHistoryRequest$fromReader <- function(reader) {
 
 #' @title GetSavedReactionTagsRequest
 #' @description Represents a request to get saved reaction tags. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x3637e05b).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xa39b5be3).
 #' @export
 GetSavedReactionTagsRequest <- R6::R6Class(
   "GetSavedReactionTagsRequest",
@@ -7106,10 +6992,11 @@ GetSavedReactionTagsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetSavedReactionTagsRequest.
+# @title fromReader
+# @name GetSavedReactionTagsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetSavedReactionTagsRequest.
 GetSavedReactionTagsRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   peer <- if (bitwAnd(flags, 1L) != 0) reader$tgreadObject() else NULL
@@ -7119,8 +7006,6 @@ GetSavedReactionTagsRequest$fromReader <- function(reader) {
 
 #' @title GetScheduledHistoryRequest
 #' @description Represents a request to get scheduled history. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xf516760b).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd4b40b5e).
 #' @export
 GetScheduledHistoryRequest <- R6::R6Class(
   "GetScheduledHistoryRequest",
@@ -7168,10 +7053,11 @@ GetScheduledHistoryRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetScheduledHistoryRequest.
+# @title fromReader
+# @name GetScheduledHistoryRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetScheduledHistoryRequest.
 GetScheduledHistoryRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   hash <- reader$readLong()
@@ -7181,8 +7067,6 @@ GetScheduledHistoryRequest$fromReader <- function(reader) {
 
 #' @title GetScheduledMessagesRequest
 #' @description Represents a request to get scheduled messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xbdbb0464).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd4b40b5e).
 #' @export
 GetScheduledMessagesRequest <- R6::R6Class(
   "GetScheduledMessagesRequest",
@@ -7230,10 +7114,11 @@ GetScheduledMessagesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetScheduledMessagesRequest.
+# @title fromReader
+# @name GetScheduledMessagesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetScheduledMessagesRequest.
 GetScheduledMessagesRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   reader$readInt()
@@ -7247,8 +7132,6 @@ GetScheduledMessagesRequest$fromReader <- function(reader) {
 
 #' @title GetSearchCountersRequest
 #' @description Represents a request to get search counters. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x1bbcf300).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x6bde3c6e).
 #' @export
 GetSearchCountersRequest <- R6::R6Class(
   "GetSearchCountersRequest",
@@ -7309,10 +7192,11 @@ GetSearchCountersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetSearchCountersRequest.
+# @title fromReader
+# @name GetSearchCountersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetSearchCountersRequest.
 GetSearchCountersRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   peer <- reader$tgreadObject()
@@ -7329,8 +7213,6 @@ GetSearchCountersRequest$fromReader <- function(reader) {
 
 #' @title GetSearchResultsCalendarRequest
 #' @description Represents a request to get search results calendar. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x6aa3f6bd).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x92c5640f).
 #' @export
 GetSearchResultsCalendarRequest <- R6::R6Class(
   "GetSearchResultsCalendarRequest",
@@ -7395,10 +7277,11 @@ GetSearchResultsCalendarRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetSearchResultsCalendarRequest.
+# @title fromReader
+# @name GetSearchResultsCalendarRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetSearchResultsCalendarRequest.
 GetSearchResultsCalendarRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   peer <- reader$tgreadObject()
@@ -7412,8 +7295,6 @@ GetSearchResultsCalendarRequest$fromReader <- function(reader) {
 
 #' @title GetSearchResultsPositionsRequest
 #' @description Represents a request to get search results positions. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x9c7f2f10).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd963708d).
 #' @export
 GetSearchResultsPositionsRequest <- R6::R6Class(
   "GetSearchResultsPositionsRequest",
@@ -7478,10 +7359,11 @@ GetSearchResultsPositionsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetSearchResultsPositionsRequest.
+# @title fromReader
+# @name GetSearchResultsPositionsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetSearchResultsPositionsRequest.
 GetSearchResultsPositionsRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   peer <- reader$tgreadObject()
@@ -7494,8 +7376,6 @@ GetSearchResultsPositionsRequest$fromReader <- function(reader) {
 
 #' @title GetSplitRangesRequest
 #' @description Represents a request to get split ranges. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x1cff7e08).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x5ba52504).
 #' @export
 GetSplitRangesRequest <- R6::R6Class(
   "GetSplitRangesRequest",
@@ -7522,18 +7402,17 @@ GetSplitRangesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetSplitRangesRequest.
+# @title fromReader
+# @name GetSplitRangesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetSplitRangesRequest.
 GetSplitRangesRequest$fromReader <- function(reader) {
   GetSplitRangesRequest$new()
 }
 
 #' @title GetSponsoredMessagesRequest
 #' @description Represents a request to get sponsored messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x3d6ce850).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x7f4169e0).
 #' @export
 GetSponsoredMessagesRequest <- R6::R6Class(
   "GetSponsoredMessagesRequest",
@@ -7583,10 +7462,11 @@ GetSponsoredMessagesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetSponsoredMessagesRequest.
+# @title fromReader
+# @name GetSponsoredMessagesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetSponsoredMessagesRequest.
 GetSponsoredMessagesRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   peer <- reader$tgreadObject()
@@ -7597,8 +7477,6 @@ GetSponsoredMessagesRequest$fromReader <- function(reader) {
 
 #' @title GetStickerSetRequest
 #' @description Represents a request to get a sticker set. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xc8a0ec74).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x9b704a5a).
 #' @export
 GetStickerSetRequest <- R6::R6Class(
   "GetStickerSetRequest",
@@ -7639,10 +7517,11 @@ GetStickerSetRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetStickerSetRequest.
+# @title fromReader
+# @name GetStickerSetRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetStickerSetRequest.
 GetStickerSetRequest$fromReader <- function(reader) {
   stickerset <- reader$tgreadObject()
   hash <- reader$readInt()
@@ -7651,8 +7530,6 @@ GetStickerSetRequest$fromReader <- function(reader) {
 
 #' @title GetStickersRequest
 #' @description Represents a request to get stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xd5a5d3a1).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd73bb9de).
 #' @export
 GetStickersRequest <- R6::R6Class(
   "GetStickersRequest",
@@ -7693,10 +7570,11 @@ GetStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetStickersRequest.
+# @title fromReader
+# @name GetStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetStickersRequest.
 GetStickersRequest$fromReader <- function(reader) {
   emoticon <- reader$tgreadString()
   hash <- reader$readLong()
@@ -7705,8 +7583,6 @@ GetStickersRequest$fromReader <- function(reader) {
 
 #' @title GetSuggestedDialogFiltersRequest
 #' @description Represents a request to get suggested dialog filters. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xa29cd42c).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x7b296c39).
 #' @export
 GetSuggestedDialogFiltersRequest <- R6::R6Class(
   "GetSuggestedDialogFiltersRequest",
@@ -7733,18 +7609,17 @@ GetSuggestedDialogFiltersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetSuggestedDialogFiltersRequest.
+# @title fromReader
+# @name GetSuggestedDialogFiltersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetSuggestedDialogFiltersRequest.
 GetSuggestedDialogFiltersRequest$fromReader <- function(reader) {
   GetSuggestedDialogFiltersRequest$new()
 }
 
 #' @title GetTopReactionsRequest
 #' @description Represents a request to get top reactions. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xbb8125ba).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xadc38324).
 #' @export
 GetTopReactionsRequest <- R6::R6Class(
   "GetTopReactionsRequest",
@@ -7785,10 +7660,11 @@ GetTopReactionsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetTopReactionsRequest.
+# @title fromReader
+# @name GetTopReactionsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetTopReactionsRequest.
 GetTopReactionsRequest$fromReader <- function(reader) {
   limit <- reader$readInt()
   hash <- reader$readLong()
@@ -7798,8 +7674,6 @@ GetTopReactionsRequest$fromReader <- function(reader) {
 
 #' @title GetUnreadMentionsRequest
 #' @description Represents a request to get unread mentions. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xf107e790).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd4b40b5e).
 #' @export
 GetUnreadMentionsRequest <- R6::R6Class(
   "GetUnreadMentionsRequest",
@@ -7869,10 +7743,11 @@ GetUnreadMentionsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetUnreadMentionsRequest.
+# @title fromReader
+# @name GetUnreadMentionsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetUnreadMentionsRequest.
 GetUnreadMentionsRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   peer <- reader$tgreadObject()
@@ -7887,8 +7762,6 @@ GetUnreadMentionsRequest$fromReader <- function(reader) {
 
 #' @title GetUnreadReactionsRequest
 #' @description Represents a request to get unread reactions. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xbd7f90ac).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd4b40b5e).
 #' @export
 GetUnreadReactionsRequest <- R6::R6Class(
   "GetUnreadReactionsRequest",
@@ -7965,10 +7838,11 @@ GetUnreadReactionsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetUnreadReactionsRequest.
+# @title fromReader
+# @name GetUnreadReactionsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetUnreadReactionsRequest.
 GetUnreadReactionsRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   peer <- reader$tgreadObject()
@@ -7984,8 +7858,6 @@ GetUnreadReactionsRequest$fromReader <- function(reader) {
 
 #' @title GetWebPageRequest
 #' @description Represents a request to get a web page. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x8d9692a3).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x2cf8b154).
 #' @export
 GetWebPageRequest <- R6::R6Class(
   "GetWebPageRequest",
@@ -8026,10 +7898,11 @@ GetWebPageRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetWebPageRequest.
+# @title fromReader
+# @name GetWebPageRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetWebPageRequest.
 GetWebPageRequest$fromReader <- function(reader) {
   url <- reader$tgreadString()
   hash <- reader$readInt()
@@ -8039,8 +7912,6 @@ GetWebPageRequest$fromReader <- function(reader) {
 
 #' @title GetWebPagePreviewRequest
 #' @description Represents a request to get a web page preview. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x570d6f6f).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xe29410c2).
 #' @export
 GetWebPagePreviewRequest <- R6::R6Class(
   "GetWebPagePreviewRequest",
@@ -8083,10 +7954,11 @@ GetWebPagePreviewRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of GetWebPagePreviewRequest.
+# @title fromReader
+# @name GetWebPagePreviewRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of GetWebPagePreviewRequest.
 GetWebPagePreviewRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   message <- reader$tgreadString()
@@ -8105,8 +7977,6 @@ GetWebPagePreviewRequest$fromReader <- function(reader) {
 
 #' @title HideAllChatJoinRequestsRequest
 #' @description Represents a request to hide all chat join requests. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xe085f4ea).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 HideAllChatJoinRequestsRequest <- R6::R6Class(
   "HideAllChatJoinRequestsRequest",
@@ -8159,10 +8029,11 @@ HideAllChatJoinRequestsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of HideAllChatJoinRequestsRequest.
+# @title fromReader
+# @name HideAllChatJoinRequestsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of HideAllChatJoinRequestsRequest.
 HideAllChatJoinRequestsRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   approved <- bitwAnd(flags, 1L) != 0
@@ -8173,8 +8044,6 @@ HideAllChatJoinRequestsRequest$fromReader <- function(reader) {
 
 #' @title HideChatJoinRequestRequest
 #' @description Represents a request to hide a chat join request. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x7fe7e815).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 HideChatJoinRequestRequest <- R6::R6Class(
   "HideChatJoinRequestRequest",
@@ -8228,10 +8097,11 @@ HideChatJoinRequestRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of HideChatJoinRequestRequest.
+# @title fromReader
+# @name HideChatJoinRequestRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of HideChatJoinRequestRequest.
 HideChatJoinRequestRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   approved <- bitwAnd(flags, 1L) != 0
@@ -8243,8 +8113,6 @@ HideChatJoinRequestRequest$fromReader <- function(reader) {
 
 #' @title HidePeerSettingsBarRequest
 #' @description Represents a request to hide peer settings bar. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x4facb138).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 HidePeerSettingsBarRequest <- R6::R6Class(
   "HidePeerSettingsBarRequest",
@@ -8288,10 +8156,11 @@ HidePeerSettingsBarRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of HidePeerSettingsBarRequest.
+# @title fromReader
+# @name HidePeerSettingsBarRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of HidePeerSettingsBarRequest.
 HidePeerSettingsBarRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   HidePeerSettingsBarRequest$new(peer = peer)
@@ -8299,8 +8168,6 @@ HidePeerSettingsBarRequest$fromReader <- function(reader) {
 
 #' @title ImportChatInviteRequest
 #' @description Represents a request to import a chat invite. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x6c50051c).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 ImportChatInviteRequest <- R6::R6Class(
   "ImportChatInviteRequest",
@@ -8337,10 +8204,11 @@ ImportChatInviteRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ImportChatInviteRequest.
+# @title fromReader
+# @name ImportChatInviteRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ImportChatInviteRequest.
 ImportChatInviteRequest$fromReader <- function(reader) {
   hash <- reader$tgreadString()
   ImportChatInviteRequest$new(hash = hash)
@@ -8348,8 +8216,6 @@ ImportChatInviteRequest$fromReader <- function(reader) {
 
 #' @title InitHistoryImportRequest
 #' @description Represents a request to initialize history import. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x34090c3b).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xb18bb50a).
 #' @export
 InitHistoryImportRequest <- R6::R6Class(
   "InitHistoryImportRequest",
@@ -8401,10 +8267,11 @@ InitHistoryImportRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of InitHistoryImportRequest.
+# @title fromReader
+# @name InitHistoryImportRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of InitHistoryImportRequest.
 InitHistoryImportRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   file <- reader$tgreadObject()
@@ -8415,8 +8282,6 @@ InitHistoryImportRequest$fromReader <- function(reader) {
 
 #' @title InstallStickerSetRequest
 #' @description Represents a request to install a sticker set. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xc78fe460).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x67cb3fe8).
 #' @export
 InstallStickerSetRequest <- R6::R6Class(
   "InstallStickerSetRequest",
@@ -8457,10 +8322,11 @@ InstallStickerSetRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of InstallStickerSetRequest.
+# @title fromReader
+# @name InstallStickerSetRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of InstallStickerSetRequest.
 InstallStickerSetRequest$fromReader <- function(reader) {
   stickerset <- reader$tgreadObject()
   archived <- reader$tgreadBool()
@@ -8469,8 +8335,6 @@ InstallStickerSetRequest$fromReader <- function(reader) {
 
 #' @title MarkDialogUnreadRequest
 #' @description Represents a request to mark a dialog as unread. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x8c5006f8).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 MarkDialogUnreadRequest <- R6::R6Class(
   "MarkDialogUnreadRequest",
@@ -8528,10 +8392,11 @@ MarkDialogUnreadRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of MarkDialogUnreadRequest.
+# @title fromReader
+# @name MarkDialogUnreadRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of MarkDialogUnreadRequest.
 MarkDialogUnreadRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   unread <- bitwAnd(flags, 1L) != 0
@@ -8542,8 +8407,6 @@ MarkDialogUnreadRequest$fromReader <- function(reader) {
 
 #' @title MigrateChatRequest
 #' @description Represents a request to migrate a chat. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xa2875319).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 MigrateChatRequest <- R6::R6Class(
   "MigrateChatRequest",
@@ -8580,10 +8443,11 @@ MigrateChatRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of MigrateChatRequest.
+# @title fromReader
+# @name MigrateChatRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of MigrateChatRequest.
 MigrateChatRequest$fromReader <- function(reader) {
   chatId <- reader$readLong()
   MigrateChatRequest$new(chatId = chatId)
@@ -8592,8 +8456,6 @@ MigrateChatRequest$fromReader <- function(reader) {
 
 #' @title ProlongWebViewRequest
 #' @description Represents a request to prolong a web view. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb0d81a83).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ProlongWebViewRequest <- R6::R6Class(
   "ProlongWebViewRequest",
@@ -8665,10 +8527,11 @@ ProlongWebViewRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ProlongWebViewRequest.
+# @title fromReader
+# @name ProlongWebViewRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ProlongWebViewRequest.
 ProlongWebViewRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   silent <- bitwAnd(flags, 32L) != 0
@@ -8682,8 +8545,6 @@ ProlongWebViewRequest$fromReader <- function(reader) {
 
 #' @title RateTranscribedAudioRequest
 #' @description Represents a request to rate transcribed audio. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x7f1d072f).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 RateTranscribedAudioRequest <- R6::R6Class(
   "RateTranscribedAudioRequest",
@@ -8739,10 +8600,11 @@ RateTranscribedAudioRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of RateTranscribedAudioRequest.
+# @title fromReader
+# @name RateTranscribedAudioRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of RateTranscribedAudioRequest.
 RateTranscribedAudioRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   msgId <- reader$readInt()
@@ -8753,8 +8615,6 @@ RateTranscribedAudioRequest$fromReader <- function(reader) {
 
 #' @title ReadDiscussionRequest
 #' @description Represents a request to read discussion. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xf731a9f4).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ReadDiscussionRequest <- R6::R6Class(
   "ReadDiscussionRequest",
@@ -8806,10 +8666,11 @@ ReadDiscussionRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReadDiscussionRequest.
+# @title fromReader
+# @name ReadDiscussionRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReadDiscussionRequest.
 ReadDiscussionRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   msgId <- reader$readInt()
@@ -8820,8 +8681,6 @@ ReadDiscussionRequest$fromReader <- function(reader) {
 
 #' @title ReadEncryptedHistoryRequest
 #' @description Represents a request to read encrypted history. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x7f4b690a).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ReadEncryptedHistoryRequest <- R6::R6Class(
   "ReadEncryptedHistoryRequest",
@@ -8862,10 +8721,11 @@ ReadEncryptedHistoryRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReadEncryptedHistoryRequest.
+# @title fromReader
+# @name ReadEncryptedHistoryRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReadEncryptedHistoryRequest.
 ReadEncryptedHistoryRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   maxDate <- reader$tgreadDate()
@@ -8874,8 +8734,6 @@ ReadEncryptedHistoryRequest$fromReader <- function(reader) {
 
 #' @title ReadFeaturedStickersRequest
 #' @description Represents a request to read featured stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x5b118126).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ReadFeaturedStickersRequest <- R6::R6Class(
   "ReadFeaturedStickersRequest",
@@ -8914,10 +8772,11 @@ ReadFeaturedStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReadFeaturedStickersRequest.
+# @title fromReader
+# @name ReadFeaturedStickersRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReadFeaturedStickersRequest.
 ReadFeaturedStickersRequest$fromReader <- function(reader) {
   reader$readInt()
   id <- list()
@@ -8930,8 +8789,6 @@ ReadFeaturedStickersRequest$fromReader <- function(reader) {
 
 #' @title ReadHistoryRequest
 #' @description Represents a request to read history. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xe306d3a).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xced3c06e).
 #' @export
 ReadHistoryRequest <- R6::R6Class(
   "ReadHistoryRequest",
@@ -8979,10 +8836,11 @@ ReadHistoryRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReadHistoryRequest.
+# @title fromReader
+# @name ReadHistoryRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReadHistoryRequest.
 ReadHistoryRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   maxId <- reader$readInt()
@@ -8992,8 +8850,6 @@ ReadHistoryRequest$fromReader <- function(reader) {
 
 #' @title ReadMentionsRequest
 #' @description Represents a request to read mentions. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x36e5bf4d).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x2c49c116).
 #' @export
 ReadMentionsRequest <- R6::R6Class(
   "ReadMentionsRequest",
@@ -9043,10 +8899,11 @@ ReadMentionsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReadMentionsRequest.
+# @title fromReader
+# @name ReadMentionsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReadMentionsRequest.
 ReadMentionsRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   peer <- reader$tgreadObject()
@@ -9056,8 +8913,6 @@ ReadMentionsRequest$fromReader <- function(reader) {
 
 #' @title ReadMessageContentsRequest
 #' @description Represents a request to read message contents. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x36a73f77).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xced3c06e).
 #' @export
 ReadMessageContentsRequest <- R6::R6Class(
   "ReadMessageContentsRequest",
@@ -9096,10 +8951,11 @@ ReadMessageContentsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReadMessageContentsRequest.
+# @title fromReader
+# @name ReadMessageContentsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReadMessageContentsRequest.
 ReadMessageContentsRequest$fromReader <- function(reader) {
   reader$readInt()
   id <- list()
@@ -9112,8 +8968,6 @@ ReadMessageContentsRequest$fromReader <- function(reader) {
 
 #' @title ReadReactionsRequest
 #' @description Represents a request to read reactions. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x9ec44f93).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x2c49c116).
 #' @export
 ReadReactionsRequest <- R6::R6Class(
   "ReadReactionsRequest",
@@ -9172,10 +9026,11 @@ ReadReactionsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReadReactionsRequest.
+# @title fromReader
+# @name ReadReactionsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReadReactionsRequest.
 ReadReactionsRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   peer <- reader$tgreadObject()
@@ -9187,8 +9042,6 @@ ReadReactionsRequest$fromReader <- function(reader) {
 
 #' @title ReadSavedHistoryRequest
 #' @description Represents a request to read saved history. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xba4a3b5b).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ReadSavedHistoryRequest <- R6::R6Class(
   "ReadSavedHistoryRequest",
@@ -9241,10 +9094,11 @@ ReadSavedHistoryRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReadSavedHistoryRequest.
+# @title fromReader
+# @name ReadSavedHistoryRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReadSavedHistoryRequest.
 ReadSavedHistoryRequest$fromReader <- function(reader) {
   parentPeer <- reader$tgreadObject()
   peer <- reader$tgreadObject()
@@ -9254,8 +9108,6 @@ ReadSavedHistoryRequest$fromReader <- function(reader) {
 
 #' @title ReceivedMessagesRequest
 #' @description Represents a request to receive messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x5a954c0).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8565f897).
 #' @export
 ReceivedMessagesRequest <- R6::R6Class(
   "ReceivedMessagesRequest",
@@ -9292,10 +9144,11 @@ ReceivedMessagesRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReceivedMessagesRequest.
+# @title fromReader
+# @name ReceivedMessagesRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReceivedMessagesRequest.
 ReceivedMessagesRequest$fromReader <- function(reader) {
   maxId <- reader$readInt()
   ReceivedMessagesRequest$new(maxId = maxId)
@@ -9303,8 +9156,6 @@ ReceivedMessagesRequest$fromReader <- function(reader) {
 
 #' @title ReceivedQueueRequest
 #' @description Represents a request to receive queue. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x55a5bb66).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8918e168).
 #' @export
 ReceivedQueueRequest <- R6::R6Class(
   "ReceivedQueueRequest",
@@ -9341,19 +9192,21 @@ ReceivedQueueRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReceivedQueueRequest.
+# @title fromReader
+# @name ReceivedQueueRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReceivedQueueRequest.
 ReceivedQueueRequest$fromReader <- function(reader) {
   maxQts <- reader$readInt()
   ReceivedQueueRequest$new(maxQts = maxQts)
 }
 
-#' @title readResult
-#' @description Static method to read the result from a reader.
-#' @param reader The reader object.
-#' @return A list of long values.
+# @title readResult
+# @name ReceivedQueueRequest_readResult
+# @description Static method to read the result from a reader.
+# @param reader The reader object.
+# @return A list of long values.
 ReceivedQueueRequest$readResult <- function(reader) {
   reader$readInt() # Vector ID
   sapply(1:reader$readInt(), function(x) reader$readLong())
@@ -9362,8 +9215,6 @@ ReceivedQueueRequest$readResult <- function(reader) {
 
 #' @title ReorderPinnedDialogsRequest
 #' @description Represents a request to reorder pinned dialogs. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x3b1adf37).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ReorderPinnedDialogsRequest <- R6::R6Class(
   "ReorderPinnedDialogsRequest",
@@ -9422,10 +9273,11 @@ ReorderPinnedDialogsRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReorderPinnedDialogsRequest.
+# @title from_reader
+# @name ReorderPinnedDialogsRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReorderPinnedDialogsRequest.
 ReorderPinnedDialogsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   force <- bitwAnd(flags, 1L) != 0
@@ -9441,8 +9293,6 @@ ReorderPinnedDialogsRequest$from_reader <- function(reader) {
 
 #' @title ReorderPinnedSavedDialogsRequest
 #' @description Represents a request to reorder pinned saved dialogs. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x8b716587).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ReorderPinnedSavedDialogsRequest <- R6::R6Class(
   "ReorderPinnedSavedDialogsRequest",
@@ -9497,10 +9347,11 @@ ReorderPinnedSavedDialogsRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReorderPinnedSavedDialogsRequest.
+# @title from_reader
+# @name ReorderPinnedSavedDialogsRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReorderPinnedSavedDialogsRequest.
 ReorderPinnedSavedDialogsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   force <- bitwAnd(flags, 1L) != 0
@@ -9515,8 +9366,6 @@ ReorderPinnedSavedDialogsRequest$from_reader <- function(reader) {
 
 #' @title ReorderQuickRepliesRequest
 #' @description Represents a request to reorder quick replies. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x60331907).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ReorderQuickRepliesRequest <- R6::R6Class(
   "ReorderQuickRepliesRequest",
@@ -9555,10 +9404,11 @@ ReorderQuickRepliesRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReorderQuickRepliesRequest.
+# @title from_reader
+# @name ReorderQuickRepliesRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReorderQuickRepliesRequest.
 ReorderQuickRepliesRequest$from_reader <- function(reader) {
   reader$read_int()
   order <- list()
@@ -9572,8 +9422,6 @@ ReorderQuickRepliesRequest$from_reader <- function(reader) {
 
 #' @title ReorderStickerSetsRequest
 #' @description Represents a request to reorder sticker sets. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x78337739).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ReorderStickerSetsRequest <- R6::R6Class(
   "ReorderStickerSetsRequest",
@@ -9622,10 +9470,11 @@ ReorderStickerSetsRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReorderStickerSetsRequest.
+# @title fromReader
+# @name ReorderStickerSetsRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReorderStickerSetsRequest.
 ReorderStickerSetsRequest$fromReader <- function(reader) {
   flags <- reader$readInt()
   masks <- bitwAnd(flags, 1L) != 0
@@ -9641,8 +9490,6 @@ ReorderStickerSetsRequest$fromReader <- function(reader) {
 
 #' @title ReportRequest
 #' @description Represents a request to report messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xfc78af9b).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xacd3f438).
 #' @export
 ReportRequest <- R6::R6Class(
   "ReportRequest",
@@ -9700,10 +9547,11 @@ ReportRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReportRequest.
+# @title fromReader
+# @name ReportRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReportRequest.
 ReportRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   reader$readInt()
@@ -9719,8 +9567,6 @@ ReportRequest$fromReader <- function(reader) {
 
 #' @title ReportEncryptedSpamRequest
 #' @description Represents a request to report encrypted spam. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x4b0c8c0f).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ReportEncryptedSpamRequest <- R6::R6Class(
   "ReportEncryptedSpamRequest",
@@ -9757,10 +9603,11 @@ ReportEncryptedSpamRequest <- R6::R6Class(
   )
 )
 
-#' @title fromReader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReportEncryptedSpamRequest.
+# @title fromReader
+# @name ReportEncryptedSpamRequest_fromReader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReportEncryptedSpamRequest.
 ReportEncryptedSpamRequest$fromReader <- function(reader) {
   peer <- reader$tgreadObject()
   ReportEncryptedSpamRequest$new(peer = peer)
@@ -9769,8 +9616,6 @@ ReportEncryptedSpamRequest$fromReader <- function(reader) {
 
 #' @title ReportMessagesDeliveryRequest
 #' @description Represents a request to report messages delivery. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x5a6d7395).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ReportMessagesDeliveryRequest <- R6::R6Class(
   "ReportMessagesDeliveryRequest",
@@ -9826,10 +9671,11 @@ ReportMessagesDeliveryRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReportMessagesDeliveryRequest.
+# @title from_reader
+# @name ReportMessagesDeliveryRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReportMessagesDeliveryRequest.
 ReportMessagesDeliveryRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   push <- bitwAnd(flags, 1L) != 0
@@ -9845,8 +9691,6 @@ ReportMessagesDeliveryRequest$from_reader <- function(reader) {
 
 #' @title ReportReactionRequest
 #' @description Represents a request to report a reaction. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x3f64c076).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ReportReactionRequest <- R6::R6Class(
   "ReportReactionRequest",
@@ -9899,10 +9743,11 @@ ReportReactionRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReportReactionRequest.
+# @title from_reader
+# @name ReportReactionRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReportReactionRequest.
 ReportReactionRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   id <- reader$read_int()
@@ -9912,8 +9757,6 @@ ReportReactionRequest$from_reader <- function(reader) {
 
 #' @title ReportSpamRequest
 #' @description Represents a request to report spam. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xcf1592db).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ReportSpamRequest <- R6::R6Class(
   "ReportSpamRequest",
@@ -9957,10 +9800,11 @@ ReportSpamRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReportSpamRequest.
+# @title from_reader
+# @name ReportSpamRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReportSpamRequest.
 ReportSpamRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   ReportSpamRequest$new(peer = peer)
@@ -9968,8 +9812,6 @@ ReportSpamRequest$from_reader <- function(reader) {
 
 #' @title ReportSponsoredMessageRequest
 #' @description Represents a request to report a sponsored message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x12cbf0c4).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x26231822).
 #' @export
 ReportSponsoredMessageRequest <- R6::R6Class(
   "ReportSponsoredMessageRequest",
@@ -10016,10 +9858,11 @@ ReportSponsoredMessageRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ReportSponsoredMessageRequest.
+# @title from_reader
+# @name ReportSponsoredMessageRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ReportSponsoredMessageRequest.
 ReportSponsoredMessageRequest$from_reader <- function(reader) {
   randomId <- reader$tgread_bytes()
   option <- reader$tgread_bytes()
@@ -10028,8 +9871,6 @@ ReportSponsoredMessageRequest$from_reader <- function(reader) {
 
 #' @title RequestAppWebViewRequest
 #' @description Represents a request to request an app web view. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x53618bce).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x93cea746).
 #' @export
 RequestAppWebViewRequest <- R6::R6Class(
   "RequestAppWebViewRequest",
@@ -10105,10 +9946,11 @@ RequestAppWebViewRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of RequestAppWebViewRequest.
+# @title from_reader
+# @name RequestAppWebViewRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of RequestAppWebViewRequest.
 RequestAppWebViewRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   writeAllowed <- bitwAnd(flags, 1L) != 0
@@ -10124,8 +9966,6 @@ RequestAppWebViewRequest$from_reader <- function(reader) {
 
 #' @title RequestEncryptionRequest
 #' @description Represents a request to request encryption. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xf64daf43).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x6d28a37a).
 #' @export
 RequestEncryptionRequest <- R6::R6Class(
   "RequestEncryptionRequest",
@@ -10182,10 +10022,11 @@ RequestEncryptionRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of RequestEncryptionRequest.
+# @title from_reader
+# @name RequestEncryptionRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of RequestEncryptionRequest.
 RequestEncryptionRequest$from_reader <- function(reader) {
   userId <- reader$tgread_object()
   randomId <- reader$read_int()
@@ -10196,8 +10037,6 @@ RequestEncryptionRequest$from_reader <- function(reader) {
 
 #' @title RequestMainWebViewRequest
 #' @description Represents a request to request the main web view for a bot. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xc9e01e7b).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x93cea746).
 #' @export
 RequestMainWebViewRequest <- R6::R6Class(
   "RequestMainWebViewRequest",
@@ -10270,10 +10109,11 @@ RequestMainWebViewRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of RequestMainWebViewRequest.
+# @title from_reader
+# @name RequestMainWebViewRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of RequestMainWebViewRequest.
 RequestMainWebViewRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   compact <- bitwAnd(flags, 128L) != 0
@@ -10288,8 +10128,6 @@ RequestMainWebViewRequest$from_reader <- function(reader) {
 
 #' @title RequestSimpleWebViewRequest
 #' @description Represents a request to request a simple web view for a bot. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x413a3e73).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x93cea746).
 #' @export
 RequestSimpleWebViewRequest <- R6::R6Class(
   "RequestSimpleWebViewRequest",
@@ -10370,10 +10208,11 @@ RequestSimpleWebViewRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of RequestSimpleWebViewRequest.
+# @title from_reader
+# @name RequestSimpleWebViewRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of RequestSimpleWebViewRequest.
 RequestSimpleWebViewRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   from_switch_webview <- bitwAnd(flags, 2L) != 0
@@ -10390,8 +10229,6 @@ RequestSimpleWebViewRequest$from_reader <- function(reader) {
 
 #' @title RequestUrlAuthRequest
 #' @description Represents a request to request URL auth. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x198fb446).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x7765cb1e).
 #' @export
 RequestUrlAuthRequest <- R6::R6Class(
   "RequestUrlAuthRequest",
@@ -10458,10 +10295,11 @@ RequestUrlAuthRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of RequestUrlAuthRequest.
+# @title from_reader
+# @name RequestUrlAuthRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of RequestUrlAuthRequest.
 RequestUrlAuthRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   if (bitwAnd(flags, 2L) != 0) {
@@ -10483,8 +10321,6 @@ RequestUrlAuthRequest$from_reader <- function(reader) {
 
 #' @title RequestWebViewRequest
 #' @description Represents a request to request a web view. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x269dc2c1).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x93cea746).
 #' @export
 RequestWebViewRequest <- R6::R6Class(
   "RequestWebViewRequest",
@@ -10583,10 +10419,11 @@ RequestWebViewRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of RequestWebViewRequest.
+# @title from_reader
+# @name RequestWebViewRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of RequestWebViewRequest.
 RequestWebViewRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   from_bot_menu <- bitwAnd(flags, 16L) != 0
@@ -10626,8 +10463,6 @@ RequestWebViewRequest$from_reader <- function(reader) {
 
 #' @title SaveDefaultSendAsRequest
 #' @description Represents a request to save the default send-as peer for a chat. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xccfddf96).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 SaveDefaultSendAsRequest <- R6::R6Class(
   "SaveDefaultSendAsRequest",
@@ -10676,10 +10511,11 @@ SaveDefaultSendAsRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SaveDefaultSendAsRequest.
+# @title from_reader
+# @name SaveDefaultSendAsRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SaveDefaultSendAsRequest.
 SaveDefaultSendAsRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   send_as <- reader$tgread_object()
@@ -10688,8 +10524,6 @@ SaveDefaultSendAsRequest$from_reader <- function(reader) {
 
 #' @title SaveDraftRequest
 #' @description Represents a request to save a draft message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x54ae308e).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 SaveDraftRequest <- R6::R6Class(
   "SaveDraftRequest",
@@ -10775,10 +10609,11 @@ SaveDraftRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SaveDraftRequest.
+# @title from_reader
+# @name SaveDraftRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SaveDraftRequest.
 SaveDraftRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   no_webpage <- bitwAnd(flags, 2L) != 0
@@ -10801,8 +10636,6 @@ SaveDraftRequest$from_reader <- function(reader) {
 
 #' @title SaveGifRequest
 #' @description Represents a request to save or unsave a GIF. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x327a30cb).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 SaveGifRequest <- R6::R6Class(
   "SaveGifRequest",
@@ -10850,10 +10683,11 @@ SaveGifRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SaveGifRequest.
+# @title from_reader
+# @name SaveGifRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SaveGifRequest.
 SaveGifRequest$from_reader <- function(reader) {
   id <- reader$tgread_object()
   unsave <- reader$tgread_bool()
@@ -10862,8 +10696,6 @@ SaveGifRequest$from_reader <- function(reader) {
 
 #' @title SavePreparedInlineMessageRequest
 #' @description Represents a request to save a prepared inline message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xf21f7f2f).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xef9119bb).
 #' @export
 SavePreparedInlineMessageRequest <- R6::R6Class(
   "SavePreparedInlineMessageRequest",
@@ -10926,10 +10758,11 @@ SavePreparedInlineMessageRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SavePreparedInlineMessageRequest.
+# @title from_reader
+# @name SavePreparedInlineMessageRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SavePreparedInlineMessageRequest.
 SavePreparedInlineMessageRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   result <- reader$tgread_object()
@@ -10948,8 +10781,6 @@ SavePreparedInlineMessageRequest$from_reader <- function(reader) {
 
 #' @title SaveRecentStickerRequest
 #' @description Represents a request to save or unsave a recent sticker. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x392718f8).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 SaveRecentStickerRequest <- R6::R6Class(
   "SaveRecentStickerRequest",
@@ -11003,10 +10834,11 @@ SaveRecentStickerRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SaveRecentStickerRequest.
+# @title from_reader
+# @name SaveRecentStickerRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SaveRecentStickerRequest.
 SaveRecentStickerRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   attached <- bitwAnd(flags, 1L) != 0
@@ -11018,8 +10850,6 @@ SaveRecentStickerRequest$from_reader <- function(reader) {
 
 #' @title SearchRequest
 #' @description Represents a request to search messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x29ee847a).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd4b40b5e).
 #' @export
 SearchRequest <- R6::R6Class(
   "SearchRequest",
@@ -11131,10 +10961,11 @@ SearchRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SearchRequest.
+# @title from_reader
+# @name SearchRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SearchRequest.
 SearchRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   peer <- reader$tgread_object()
@@ -11162,8 +10993,6 @@ SearchRequest$from_reader <- function(reader) {
 
 #' @title SearchCustomEmojiRequest
 #' @description Represents a request to search custom emoji. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x2c11c0d7).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xbcef6aba).
 #' @export
 SearchCustomEmojiRequest <- R6::R6Class(
   "SearchCustomEmojiRequest",
@@ -11204,10 +11033,11 @@ SearchCustomEmojiRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SearchCustomEmojiRequest.
+# @title from_reader
+# @name SearchCustomEmojiRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SearchCustomEmojiRequest.
 SearchCustomEmojiRequest$from_reader <- function(reader) {
   emoticon <- reader$tgread_string()
   hash <- reader$read_long()
@@ -11216,8 +11046,6 @@ SearchCustomEmojiRequest$from_reader <- function(reader) {
 
 #' @title SearchEmojiStickerSetsRequest
 #' @description Represents a request to search emoji sticker sets. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x92b4494c).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x40df361).
 #' @export
 SearchEmojiStickerSetsRequest <- R6::R6Class(
   "SearchEmojiStickerSetsRequest",
@@ -11264,10 +11092,11 @@ SearchEmojiStickerSetsRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SearchEmojiStickerSetsRequest.
+# @title from_reader
+# @name SearchEmojiStickerSetsRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SearchEmojiStickerSetsRequest.
 SearchEmojiStickerSetsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   exclude_featured <- bitwAnd(flags, 1L) != 0
@@ -11279,8 +11108,6 @@ SearchEmojiStickerSetsRequest$from_reader <- function(reader) {
 
 #' @title SearchGlobalRequest
 #' @description Represents a request to search globally. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x4bc6589a).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd4b40b5e).
 #' @export
 SearchGlobalRequest <- R6::R6Class(
   "SearchGlobalRequest",
@@ -11371,10 +11198,11 @@ SearchGlobalRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SearchGlobalRequest.
+# @title from_reader
+# @name SearchGlobalRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SearchGlobalRequest.
 SearchGlobalRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   broadcasts_only <- bitwAnd(flags, 2L) != 0
@@ -11394,8 +11222,6 @@ SearchGlobalRequest$from_reader <- function(reader) {
 
 #' @title SearchSentMediaRequest
 #' @description Represents a request to search sent media. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x107e31a0).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xd4b40b5e).
 #' @export
 SearchSentMediaRequest <- R6::R6Class(
   "SearchSentMediaRequest",
@@ -11440,10 +11266,11 @@ SearchSentMediaRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SearchSentMediaRequest.
+# @title from_reader
+# @name SearchSentMediaRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SearchSentMediaRequest.
 SearchSentMediaRequest$from_reader <- function(reader) {
   q <- reader$tgread_string()
   filter <- reader$tgread_object()
@@ -11453,8 +11280,6 @@ SearchSentMediaRequest$from_reader <- function(reader) {
 
 #' @title SearchStickerSetsRequest
 #' @description Represents a request to search sticker sets. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x35705b8a).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x40df361).
 #' @export
 SearchStickerSetsRequest <- R6::R6Class(
   "SearchStickerSetsRequest",
@@ -11501,10 +11326,11 @@ SearchStickerSetsRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SearchStickerSetsRequest.
+# @title from_reader
+# @name SearchStickerSetsRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SearchStickerSetsRequest.
 SearchStickerSetsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   exclude_featured <- bitwAnd(flags, 1L) != 0
@@ -11515,8 +11341,6 @@ SearchStickerSetsRequest$from_reader <- function(reader) {
 
 #' @title SearchStickersRequest
 #' @description Represents a request to search for stickers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x29b1c66a).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x6402151).
 #' @export
 SearchStickersRequest <- R6::R6Class(
   "SearchStickersRequest",
@@ -11580,10 +11404,11 @@ SearchStickersRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SearchStickersRequest.
+# @title from_reader
+# @name SearchStickersRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SearchStickersRequest.
 SearchStickersRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   emojis <- bitwAnd(flags, 1L) != 0
@@ -11602,8 +11427,6 @@ SearchStickersRequest$from_reader <- function(reader) {
 
 #' @title SendBotRequestedPeerRequest
 #' @description Represents a request to send bot requested peers. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x91b2d060).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SendBotRequestedPeerRequest <- R6::R6Class(
   "SendBotRequestedPeerRequest",
@@ -11665,10 +11488,11 @@ SendBotRequestedPeerRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendBotRequestedPeerRequest.
+# @title from_reader
+# @name SendBotRequestedPeerRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendBotRequestedPeerRequest.
 SendBotRequestedPeerRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   msg_id <- reader$read_int()
@@ -11684,8 +11508,6 @@ SendBotRequestedPeerRequest$from_reader <- function(reader) {
 
 #' @title SendEncryptedRequest
 #' @description Represents a request to send an encrypted message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x44fa7a15).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xc99e3e50).
 #' @export
 SendEncryptedRequest <- R6::R6Class(
   "SendEncryptedRequest",
@@ -11736,10 +11558,11 @@ SendEncryptedRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendEncryptedRequest.
+# @title from_reader
+# @name SendEncryptedRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendEncryptedRequest.
 SendEncryptedRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   silent <- bitwAnd(flags, 1L) != 0
@@ -11751,8 +11574,6 @@ SendEncryptedRequest$from_reader <- function(reader) {
 
 #' @title SendEncryptedFileRequest
 #' @description Represents a request to send an encrypted file. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x5559481d).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xc99e3e50).
 #' @export
 SendEncryptedFileRequest <- R6::R6Class(
   "SendEncryptedFileRequest",
@@ -11807,10 +11628,11 @@ SendEncryptedFileRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendEncryptedFileRequest.
+# @title from_reader
+# @name SendEncryptedFileRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendEncryptedFileRequest.
 SendEncryptedFileRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   silent <- bitwAnd(flags, 1L) != 0
@@ -11824,8 +11646,6 @@ SendEncryptedFileRequest$from_reader <- function(reader) {
 
 #' @title SendEncryptedServiceRequest
 #' @description Represents a request to send an encrypted service message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x32d439a4).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xc99e3e50).
 #' @export
 SendEncryptedServiceRequest <- R6::R6Class(
   "SendEncryptedServiceRequest",
@@ -11877,10 +11697,11 @@ SendEncryptedServiceRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendEncryptedServiceRequest.
+# @title from_reader
+# @name SendEncryptedServiceRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendEncryptedServiceRequest.
 SendEncryptedServiceRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   random_id <- reader$read_long()
@@ -11890,8 +11711,6 @@ SendEncryptedServiceRequest$from_reader <- function(reader) {
 
 #' @title SendInlineBotResultRequest
 #' @description Represents a request to send an inline bot result. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xc0cf7646).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SendInlineBotResultRequest <- R6::R6Class(
   "SendInlineBotResultRequest",
@@ -11993,10 +11812,11 @@ SendInlineBotResultRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendInlineBotResultRequest.
+# @title from_reader
+# @name SendInlineBotResultRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendInlineBotResultRequest.
 SendInlineBotResultRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   silent <- bitwAnd(flags, 32L) != 0
@@ -12018,8 +11838,6 @@ SendInlineBotResultRequest$from_reader <- function(reader) {
 
 #' @title SendMediaRequest
 #' @description Represents a request to send media. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xac55d9c1).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SendMediaRequest <- R6::R6Class(
   "SendMediaRequest",
@@ -12154,10 +11972,11 @@ SendMediaRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendMediaRequest.
+# @title from_reader
+# @name SendMediaRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendMediaRequest.
 SendMediaRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   silent <- bitwAnd(flags, 32L) != 0
@@ -12190,8 +12009,6 @@ SendMediaRequest$from_reader <- function(reader) {
 
 #' @title SendMessageRequest
 #' @description Represents a request to send a message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xfe05dc9a).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SendMessageRequest <- R6::R6Class(
   "SendMessageRequest",
@@ -12325,10 +12142,11 @@ SendMessageRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendMessageRequest.
+# @title from_reader
+# @name SendMessageRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendMessageRequest.
 SendMessageRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   no_webpage <- bitwAnd(flags, 2L) != 0
@@ -12362,8 +12180,6 @@ SendMessageRequest$from_reader <- function(reader) {
 
 #' @title SendMultiMediaRequest
 #' @description Represents a request to send multi media. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x1bf89d74).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SendMultiMediaRequest <- R6::R6Class(
   "SendMultiMediaRequest",
@@ -12476,10 +12292,11 @@ SendMultiMediaRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendMultiMediaRequest.
+# @title from_reader
+# @name SendMultiMediaRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendMultiMediaRequest.
 SendMultiMediaRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   silent <- bitwAnd(flags, 32L) != 0
@@ -12507,8 +12324,6 @@ SendMultiMediaRequest$from_reader <- function(reader) {
 
 #' @title SendPaidReactionRequest
 #' @description Represents a request to send a paid reaction. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x58bbcb50).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SendPaidReactionRequest <- R6::R6Class(
   "SendPaidReactionRequest",
@@ -12571,10 +12386,11 @@ SendPaidReactionRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendPaidReactionRequest.
+# @title from_reader
+# @name SendPaidReactionRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendPaidReactionRequest.
 SendPaidReactionRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   peer <- reader$tgread_object()
@@ -12588,8 +12404,6 @@ SendPaidReactionRequest$from_reader <- function(reader) {
 
 #' @title SendQuickReplyMessagesRequest
 #' @description Represents a request to send quick reply messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x6c750de1).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SendQuickReplyMessagesRequest <- R6::R6Class(
   "SendQuickReplyMessagesRequest",
@@ -12653,10 +12467,11 @@ SendQuickReplyMessagesRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendQuickReplyMessagesRequest.
+# @title from_reader
+# @name SendQuickReplyMessagesRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendQuickReplyMessagesRequest.
 SendQuickReplyMessagesRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   shortcut_id <- reader$read_int()
@@ -12675,8 +12490,6 @@ SendQuickReplyMessagesRequest$from_reader <- function(reader) {
 
 #' @title SendReactionRequest
 #' @description Represents a request to send a reaction. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xd30d78d4).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SendReactionRequest <- R6::R6Class(
   "SendReactionRequest",
@@ -12747,10 +12560,11 @@ SendReactionRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendReactionRequest.
+# @title from_reader
+# @name SendReactionRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendReactionRequest.
 SendReactionRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   big <- bitwAnd(flags, 2L) != 0
@@ -12768,8 +12582,6 @@ SendReactionRequest$from_reader <- function(reader) {
 
 #' @title SendScheduledMessagesRequest
 #' @description Represents a request to send scheduled messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xbd38850a).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SendScheduledMessagesRequest <- R6::R6Class(
   "SendScheduledMessagesRequest",
@@ -12819,10 +12631,11 @@ SendScheduledMessagesRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendScheduledMessagesRequest.
+# @title from_reader
+# @name SendScheduledMessagesRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendScheduledMessagesRequest.
 SendScheduledMessagesRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   reader$read_int()
@@ -12836,8 +12649,6 @@ SendScheduledMessagesRequest$from_reader <- function(reader) {
 
 #' @title SendScreenshotNotificationRequest
 #' @description Represents a request to send a screenshot notification. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xa1405817).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SendScreenshotNotificationRequest <- R6::R6Class(
   "SendScreenshotNotificationRequest",
@@ -12889,10 +12700,11 @@ SendScreenshotNotificationRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendScreenshotNotificationRequest.
+# @title from_reader
+# @name SendScreenshotNotificationRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendScreenshotNotificationRequest.
 SendScreenshotNotificationRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   reply_to <- reader$tgread_object()
@@ -12902,8 +12714,6 @@ SendScreenshotNotificationRequest$from_reader <- function(reader) {
 
 #' @title SendVoteRequest
 #' @description Represents a request to send a vote. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x10ea6184).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SendVoteRequest <- R6::R6Class(
   "SendVoteRequest",
@@ -12957,10 +12767,11 @@ SendVoteRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendVoteRequest.
+# @title from_reader
+# @name SendVoteRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendVoteRequest.
 SendVoteRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   msg_id <- reader$read_int()
@@ -12974,8 +12785,6 @@ SendVoteRequest$from_reader <- function(reader) {
 
 #' @title SendWebViewDataRequest
 #' @description Represents a request to send web view data. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xdc0242c8).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SendWebViewDataRequest <- R6::R6Class(
   "SendWebViewDataRequest",
@@ -13031,10 +12840,11 @@ SendWebViewDataRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendWebViewDataRequest.
+# @title from_reader
+# @name SendWebViewDataRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendWebViewDataRequest.
 SendWebViewDataRequest$from_reader <- function(reader) {
   bot <- reader$tgread_object()
   random_id <- reader$read_long()
@@ -13046,8 +12856,6 @@ SendWebViewDataRequest$from_reader <- function(reader) {
 
 #' @title SendWebViewResultMessageRequest
 #' @description Represents a request to send a web view result message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xa4314f5).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x75e49312).
 #' @export
 SendWebViewResultMessageRequest <- R6::R6Class(
   "SendWebViewResultMessageRequest",
@@ -13088,10 +12896,11 @@ SendWebViewResultMessageRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SendWebViewResultMessageRequest.
+# @title from_reader
+# @name SendWebViewResultMessageRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SendWebViewResultMessageRequest.
 SendWebViewResultMessageRequest$from_reader <- function(reader) {
   bot_query_id <- reader$tgread_string()
   result <- reader$tgread_object()
@@ -13100,8 +12909,6 @@ SendWebViewResultMessageRequest$from_reader <- function(reader) {
 
 #' @title SetBotCallbackAnswerRequest
 #' @description Represents a request to set bot callback answer. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xd58f130a).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 SetBotCallbackAnswerRequest <- R6::R6Class(
   "SetBotCallbackAnswerRequest",
@@ -13158,10 +12965,11 @@ SetBotCallbackAnswerRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetBotCallbackAnswerRequest.
+# @title from_reader
+# @name SetBotCallbackAnswerRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetBotCallbackAnswerRequest.
 SetBotCallbackAnswerRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   alert <- bitwAnd(flags, 2L) != 0
@@ -13174,8 +12982,6 @@ SetBotCallbackAnswerRequest$from_reader <- function(reader) {
 
 #' @title SetBotPrecheckoutResultsRequest
 #' @description Represents a request to set bot precheckout results. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x9c2dd95).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 SetBotPrecheckoutResultsRequest <- R6::R6Class(
   "SetBotPrecheckoutResultsRequest",
@@ -13223,10 +13029,11 @@ SetBotPrecheckoutResultsRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetBotPrecheckoutResultsRequest.
+# @title from_reader
+# @name SetBotPrecheckoutResultsRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetBotPrecheckoutResultsRequest.
 SetBotPrecheckoutResultsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   success <- bitwAnd(flags, 2L) != 0
@@ -13238,8 +13045,6 @@ SetBotPrecheckoutResultsRequest$from_reader <- function(reader) {
 
 #' @title SetBotShippingResultsRequest
 #' @description Represents a request to set bot shipping results. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xe5f672fa).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 SetBotShippingResultsRequest <- R6::R6Class(
   "SetBotShippingResultsRequest",
@@ -13288,10 +13093,11 @@ SetBotShippingResultsRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetBotShippingResultsRequest.
+# @title from_reader
+# @name SetBotShippingResultsRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetBotShippingResultsRequest.
 SetBotShippingResultsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   query_id <- reader$read_long()
@@ -13307,8 +13113,6 @@ SetBotShippingResultsRequest$from_reader <- function(reader) {
 
 #' @title SetChatAvailableReactionsRequest
 #' @description Represents a request to set chat available reactions. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x864b2581).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SetChatAvailableReactionsRequest <- R6::R6Class(
   "SetChatAvailableReactionsRequest",
@@ -13368,10 +13172,11 @@ SetChatAvailableReactionsRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetChatAvailableReactionsRequest.
+# @title from_reader
+# @name SetChatAvailableReactionsRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetChatAvailableReactionsRequest.
 SetChatAvailableReactionsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   peer <- reader$tgread_object()
@@ -13383,8 +13188,6 @@ SetChatAvailableReactionsRequest$from_reader <- function(reader) {
 
 #' @title SetChatThemeRequest
 #' @description Represents a request to set chat theme. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x81202c9).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SetChatThemeRequest <- R6::R6Class(
   "SetChatThemeRequest",
@@ -13432,10 +13235,11 @@ SetChatThemeRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetChatThemeRequest.
+# @title from_reader
+# @name SetChatThemeRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetChatThemeRequest.
 SetChatThemeRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   theme <- reader$tgread_object()
@@ -13445,8 +13249,6 @@ SetChatThemeRequest$from_reader <- function(reader) {
 
 #' @title SetChatWallPaperRequest
 #' @description Represents a request to set chat wallpaper. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x8ffacae1).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SetChatWallPaperRequest <- R6::R6Class(
   "SetChatWallPaperRequest",
@@ -13515,10 +13317,11 @@ SetChatWallPaperRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetChatWallPaperRequest.
+# @title from_reader
+# @name SetChatWallPaperRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetChatWallPaperRequest.
 SetChatWallPaperRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   for_both <- bitwAnd(flags, 8L) != 0
@@ -13532,8 +13335,6 @@ SetChatWallPaperRequest$from_reader <- function(reader) {
 
 #' @title SetDefaultHistoryTTLRequest
 #' @description Represents a request to set default history TTL. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x9eb51445).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 SetDefaultHistoryTTLRequest <- R6::R6Class(
   "SetDefaultHistoryTTLRequest",
@@ -13570,10 +13371,11 @@ SetDefaultHistoryTTLRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetDefaultHistoryTTLRequest.
+# @title from_reader
+# @name SetDefaultHistoryTTLRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetDefaultHistoryTTLRequest.
 SetDefaultHistoryTTLRequest$from_reader <- function(reader) {
   period <- reader$read_int()
   SetDefaultHistoryTTLRequest$new(period = period)
@@ -13581,8 +13383,6 @@ SetDefaultHistoryTTLRequest$from_reader <- function(reader) {
 
 #' @title SetDefaultReactionRequest
 #' @description Represents a request to set default reaction. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x4f47a016).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 SetDefaultReactionRequest <- R6::R6Class(
   "SetDefaultReactionRequest",
@@ -13619,10 +13419,11 @@ SetDefaultReactionRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetDefaultReactionRequest.
+# @title from_reader
+# @name SetDefaultReactionRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetDefaultReactionRequest.
 SetDefaultReactionRequest$from_reader <- function(reader) {
   reaction <- reader$tgread_object()
   SetDefaultReactionRequest$new(reaction = reaction)
@@ -13631,8 +13432,6 @@ SetDefaultReactionRequest$from_reader <- function(reader) {
 
 #' @title SetEncryptedTypingRequest
 #' @description Represents a request to set encrypted typing. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x791451ed).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 SetEncryptedTypingRequest <- R6::R6Class(
   "SetEncryptedTypingRequest",
@@ -13673,10 +13472,11 @@ SetEncryptedTypingRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetEncryptedTypingRequest.
+# @title from_reader
+# @name SetEncryptedTypingRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetEncryptedTypingRequest.
 SetEncryptedTypingRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   typing <- reader$tgread_bool()
@@ -13685,8 +13485,6 @@ SetEncryptedTypingRequest$from_reader <- function(reader) {
 
 #' @title SetGameScoreRequest
 #' @description Represents a request to set game score. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x8ef8ecc0).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SetGameScoreRequest <- R6::R6Class(
   "SetGameScoreRequest",
@@ -13753,10 +13551,11 @@ SetGameScoreRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetGameScoreRequest.
+# @title from_reader
+# @name SetGameScoreRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetGameScoreRequest.
 SetGameScoreRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   edit_message <- bitwAnd(flags, 1L) != 0
@@ -13770,8 +13569,6 @@ SetGameScoreRequest$from_reader <- function(reader) {
 
 #' @title SetHistoryTTLRequest
 #' @description Represents a request to set history TTL. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb80e5fe4).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 SetHistoryTTLRequest <- R6::R6Class(
   "SetHistoryTTLRequest",
@@ -13819,10 +13616,11 @@ SetHistoryTTLRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetHistoryTTLRequest.
+# @title from_reader
+# @name SetHistoryTTLRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetHistoryTTLRequest.
 SetHistoryTTLRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   period <- reader$read_int()
@@ -13832,8 +13630,6 @@ SetHistoryTTLRequest$from_reader <- function(reader) {
 
 #' @title SetInlineBotResultsRequest
 #' @description Represents a request to set inline bot results. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xbb12a419).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 SetInlineBotResultsRequest <- R6::R6Class(
   "SetInlineBotResultsRequest",
@@ -13905,10 +13701,11 @@ SetInlineBotResultsRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetInlineBotResultsRequest.
+# @title from_reader
+# @name SetInlineBotResultsRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetInlineBotResultsRequest.
 SetInlineBotResultsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   gallery <- bitwAnd(flags, 1L) != 0
@@ -13928,8 +13725,6 @@ SetInlineBotResultsRequest$from_reader <- function(reader) {
 
 #' @title SetInlineGameScoreRequest
 #' @description Represents a request to set inline game score. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x15ad9f64).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 SetInlineGameScoreRequest <- R6::R6Class(
   "SetInlineGameScoreRequest",
@@ -13991,10 +13786,11 @@ SetInlineGameScoreRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetInlineGameScoreRequest.
+# @title from_reader
+# @name SetInlineGameScoreRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetInlineGameScoreRequest.
 SetInlineGameScoreRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   edit_message <- bitwAnd(flags, 1L) != 0
@@ -14007,8 +13803,6 @@ SetInlineGameScoreRequest$from_reader <- function(reader) {
 
 #' @title SetTypingRequest
 #' @description Represents a request to set typing. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x58943ee2).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 SetTypingRequest <- R6::R6Class(
   "SetTypingRequest",
@@ -14063,10 +13857,11 @@ SetTypingRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of SetTypingRequest.
+# @title from_reader
+# @name SetTypingRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of SetTypingRequest.
 SetTypingRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   peer <- reader$tgread_object()
@@ -14078,8 +13873,6 @@ SetTypingRequest$from_reader <- function(reader) {
 
 #' @title StartBotRequest
 #' @description Represents a request to start a bot. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xe6df7378).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 StartBotRequest <- R6::R6Class(
   "StartBotRequest",
@@ -14140,10 +13933,11 @@ StartBotRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of StartBotRequest.
+# @title from_reader
+# @name StartBotRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of StartBotRequest.
 StartBotRequest$from_reader <- function(reader) {
   bot <- reader$tgread_object()
   peer <- reader$tgread_object()
@@ -14154,8 +13948,6 @@ StartBotRequest$from_reader <- function(reader) {
 
 #' @title StartHistoryImportRequest
 #' @description Represents a request to start history import. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb43df344).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 StartHistoryImportRequest <- R6::R6Class(
   "StartHistoryImportRequest",
@@ -14203,10 +13995,11 @@ StartHistoryImportRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of StartHistoryImportRequest.
+# @title from_reader
+# @name StartHistoryImportRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of StartHistoryImportRequest.
 StartHistoryImportRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   import_id <- reader$read_long()
@@ -14215,8 +14008,6 @@ StartHistoryImportRequest$from_reader <- function(reader) {
 
 #' @title ToggleBotInAttachMenuRequest
 #' @description Represents a request to toggle bot in attach menu. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x69f59d69).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ToggleBotInAttachMenuRequest <- R6::R6Class(
   "ToggleBotInAttachMenuRequest",
@@ -14270,10 +14061,11 @@ ToggleBotInAttachMenuRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleBotInAttachMenuRequest.
+# @title from_reader
+# @name ToggleBotInAttachMenuRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ToggleBotInAttachMenuRequest.
 ToggleBotInAttachMenuRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   write_allowed <- bitwAnd(flags, 1L) != 0
@@ -14285,8 +14077,6 @@ ToggleBotInAttachMenuRequest$from_reader <- function(reader) {
 
 #' @title ToggleDialogFilterTagsRequest
 #' @description Represents a request to toggle dialog filter tags. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xfd2dda49).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ToggleDialogFilterTagsRequest <- R6::R6Class(
   "ToggleDialogFilterTagsRequest",
@@ -14323,10 +14113,11 @@ ToggleDialogFilterTagsRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleDialogFilterTagsRequest.
+# @title from_reader
+# @name ToggleDialogFilterTagsRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ToggleDialogFilterTagsRequest.
 ToggleDialogFilterTagsRequest$from_reader <- function(reader) {
   enabled <- reader$tgread_bool()
   ToggleDialogFilterTagsRequest$new(enabled = enabled)
@@ -14334,8 +14125,6 @@ ToggleDialogFilterTagsRequest$from_reader <- function(reader) {
 
 #' @title ToggleDialogPinRequest
 #' @description Represents a request to toggle dialog pin. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xa731e257).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ToggleDialogPinRequest <- R6::R6Class(
   "ToggleDialogPinRequest",
@@ -14385,10 +14174,11 @@ ToggleDialogPinRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleDialogPinRequest.
+# @title from_reader
+# @name ToggleDialogPinRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ToggleDialogPinRequest.
 ToggleDialogPinRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   pinned <- bitwAnd(flags, 1L) != 0
@@ -14398,8 +14188,6 @@ ToggleDialogPinRequest$from_reader <- function(reader) {
 
 #' @title ToggleNoForwardsRequest
 #' @description Represents a request to toggle no forwards. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb11eafa2).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 ToggleNoForwardsRequest <- R6::R6Class(
   "ToggleNoForwardsRequest",
@@ -14447,10 +14235,11 @@ ToggleNoForwardsRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleNoForwardsRequest.
+# @title from_reader
+# @name ToggleNoForwardsRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ToggleNoForwardsRequest.
 ToggleNoForwardsRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   enabled <- reader$tgread_bool()
@@ -14460,8 +14249,6 @@ ToggleNoForwardsRequest$from_reader <- function(reader) {
 
 #' @title TogglePaidReactionPrivacyRequest
 #' @description Represents a request to toggle paid reaction privacy. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x435885b5).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 TogglePaidReactionPrivacyRequest <- R6::R6Class(
   "TogglePaidReactionPrivacyRequest",
@@ -14513,10 +14300,11 @@ TogglePaidReactionPrivacyRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of TogglePaidReactionPrivacyRequest.
+# @title from_reader
+# @name TogglePaidReactionPrivacyRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of TogglePaidReactionPrivacyRequest.
 TogglePaidReactionPrivacyRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   msg_id <- reader$read_int()
@@ -14526,8 +14314,6 @@ TogglePaidReactionPrivacyRequest$from_reader <- function(reader) {
 
 #' @title TogglePeerTranslationsRequest
 #' @description Represents a request to toggle peer translations. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xe47cb579).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 TogglePeerTranslationsRequest <- R6::R6Class(
   "TogglePeerTranslationsRequest",
@@ -14577,10 +14363,11 @@ TogglePeerTranslationsRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of TogglePeerTranslationsRequest.
+# @title from_reader
+# @name TogglePeerTranslationsRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of TogglePeerTranslationsRequest.
 TogglePeerTranslationsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   disabled <- bitwAnd(flags, 1L) != 0
@@ -14590,8 +14377,6 @@ TogglePeerTranslationsRequest$from_reader <- function(reader) {
 
 #' @title ToggleSavedDialogPinRequest
 #' @description Represents a request to toggle saved dialog pin. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xac81bbde).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ToggleSavedDialogPinRequest <- R6::R6Class(
   "ToggleSavedDialogPinRequest",
@@ -14641,10 +14426,11 @@ ToggleSavedDialogPinRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleSavedDialogPinRequest.
+# @title from_reader
+# @name ToggleSavedDialogPinRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ToggleSavedDialogPinRequest.
 ToggleSavedDialogPinRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   pinned <- bitwAnd(flags, 1L) != 0
@@ -14655,8 +14441,6 @@ ToggleSavedDialogPinRequest$from_reader <- function(reader) {
 
 #' @title ToggleStickerSetsRequest
 #' @description Represents a request to toggle sticker sets. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xb5052fea).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ToggleStickerSetsRequest <- R6::R6Class(
   "ToggleStickerSetsRequest",
@@ -14709,10 +14493,11 @@ ToggleStickerSetsRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleStickerSetsRequest.
+# @title from_reader
+# @name ToggleStickerSetsRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ToggleStickerSetsRequest.
 ToggleStickerSetsRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   uninstall <- bitwAnd(flags, 1L) != 0
@@ -14728,8 +14513,6 @@ ToggleStickerSetsRequest$from_reader <- function(reader) {
 
 #' @title ToggleSuggestedPostApprovalRequest
 #' @description Represents a request to toggle suggested post approval. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x8107455c).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 ToggleSuggestedPostApprovalRequest <- R6::R6Class(
   "ToggleSuggestedPostApprovalRequest",
@@ -14793,10 +14576,11 @@ ToggleSuggestedPostApprovalRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleSuggestedPostApprovalRequest.
+# @title from_reader
+# @name ToggleSuggestedPostApprovalRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ToggleSuggestedPostApprovalRequest.
 ToggleSuggestedPostApprovalRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   reject <- bitwAnd(flags, 2L) != 0
@@ -14809,8 +14593,6 @@ ToggleSuggestedPostApprovalRequest$from_reader <- function(reader) {
 
 #' @title ToggleTodoCompletedRequest
 #' @description Represents a request to toggle todo completed status. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xd3e03124).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 ToggleTodoCompletedRequest <- R6::R6Class(
   "ToggleTodoCompletedRequest",
@@ -14870,10 +14652,11 @@ ToggleTodoCompletedRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ToggleTodoCompletedRequest.
+# @title from_reader
+# @name ToggleTodoCompletedRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ToggleTodoCompletedRequest.
 ToggleTodoCompletedRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   msg_id <- reader$read_int()
@@ -14893,8 +14676,6 @@ ToggleTodoCompletedRequest$from_reader <- function(reader) {
 
 #' @title TranscribeAudioRequest
 #' @description Represents a request to transcribe audio. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x269e9a49).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x21b24936).
 #' @export
 TranscribeAudioRequest <- R6::R6Class(
   "TranscribeAudioRequest",
@@ -14942,10 +14723,11 @@ TranscribeAudioRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of TranscribeAudioRequest.
+# @title from_reader
+# @name TranscribeAudioRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of TranscribeAudioRequest.
 TranscribeAudioRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   msg_id <- reader$read_int()
@@ -14954,8 +14736,6 @@ TranscribeAudioRequest$from_reader <- function(reader) {
 
 #' @title TranslateTextRequest
 #' @description Represents a request to translate text. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x63183030).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x24243e8).
 #' @export
 TranslateTextRequest <- R6::R6Class(
   "TranslateTextRequest",
@@ -15022,10 +14802,11 @@ TranslateTextRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of TranslateTextRequest.
+# @title from_reader
+# @name TranslateTextRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of TranslateTextRequest.
 TranslateTextRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   if (bitwAnd(flags, 1L) != 0) {
@@ -15057,8 +14838,6 @@ TranslateTextRequest$from_reader <- function(reader) {
 
 #' @title UninstallStickerSetRequest
 #' @description Represents a request to uninstall a sticker set. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xf96e55de).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 UninstallStickerSetRequest <- R6::R6Class(
   "UninstallStickerSetRequest",
@@ -15095,10 +14874,11 @@ UninstallStickerSetRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of UninstallStickerSetRequest.
+# @title from_reader
+# @name UninstallStickerSetRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of UninstallStickerSetRequest.
 UninstallStickerSetRequest$from_reader <- function(reader) {
   stickerset <- reader$tgread_object()
   UninstallStickerSetRequest$new(stickerset = stickerset)
@@ -15107,8 +14887,6 @@ UninstallStickerSetRequest$from_reader <- function(reader) {
 
 #' @title UnpinAllMessagesRequest
 #' @description Represents a request to unpin all messages. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x62dd747).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x2c49c116).
 #' @export
 UnpinAllMessagesRequest <- R6::R6Class(
   "UnpinAllMessagesRequest",
@@ -15167,10 +14945,11 @@ UnpinAllMessagesRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of UnpinAllMessagesRequest.
+# @title from_reader
+# @name UnpinAllMessagesRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of UnpinAllMessagesRequest.
 UnpinAllMessagesRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   peer <- reader$tgread_object()
@@ -15181,8 +14960,6 @@ UnpinAllMessagesRequest$from_reader <- function(reader) {
 
 #' @title UpdateDialogFilterRequest
 #' @description Represents a request to update a dialog filter. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x1ad4a04a).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 UpdateDialogFilterRequest <- R6::R6Class(
   "UpdateDialogFilterRequest",
@@ -15226,10 +15003,11 @@ UpdateDialogFilterRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of UpdateDialogFilterRequest.
+# @title from_reader
+# @name UpdateDialogFilterRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of UpdateDialogFilterRequest.
 UpdateDialogFilterRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   id <- reader$read_int()
@@ -15239,8 +15017,6 @@ UpdateDialogFilterRequest$from_reader <- function(reader) {
 
 #' @title UpdateDialogFiltersOrderRequest
 #' @description Represents a request to update the order of dialog filters. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xc563c1e4).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 UpdateDialogFiltersOrderRequest <- R6::R6Class(
   "UpdateDialogFiltersOrderRequest",
@@ -15279,10 +15055,11 @@ UpdateDialogFiltersOrderRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of UpdateDialogFiltersOrderRequest.
+# @title from_reader
+# @name UpdateDialogFiltersOrderRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of UpdateDialogFiltersOrderRequest.
 UpdateDialogFiltersOrderRequest$from_reader <- function(reader) {
   reader$read_int()
   order <- list()
@@ -15295,8 +15072,6 @@ UpdateDialogFiltersOrderRequest$from_reader <- function(reader) {
 
 #' @title UpdatePinnedMessageRequest
 #' @description Represents a request to update a pinned message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0xd2aaf7ec).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x8af52aac).
 #' @export
 UpdatePinnedMessageRequest <- R6::R6Class(
   "UpdatePinnedMessageRequest",
@@ -15358,10 +15133,11 @@ UpdatePinnedMessageRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of UpdatePinnedMessageRequest.
+# @title from_reader
+# @name UpdatePinnedMessageRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of UpdatePinnedMessageRequest.
 UpdatePinnedMessageRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   silent <- bitwAnd(flags, 1L) != 0
@@ -15374,8 +15150,6 @@ UpdatePinnedMessageRequest$from_reader <- function(reader) {
 
 #' @title UpdateSavedReactionTagRequest
 #' @description Represents a request to update a saved reaction tag. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x60297dec).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 UpdateSavedReactionTagRequest <- R6::R6Class(
   "UpdateSavedReactionTagRequest",
@@ -15419,10 +15193,11 @@ UpdateSavedReactionTagRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of UpdateSavedReactionTagRequest.
+# @title from_reader
+# @name UpdateSavedReactionTagRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of UpdateSavedReactionTagRequest.
 UpdateSavedReactionTagRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   reaction <- reader$tgread_object()
@@ -15432,8 +15207,6 @@ UpdateSavedReactionTagRequest$from_reader <- function(reader) {
 
 #' @title UploadEncryptedFileRequest
 #' @description Represents a request to upload an encrypted file. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x5057c497).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x842a67c0).
 #' @export
 UploadEncryptedFileRequest <- R6::R6Class(
   "UploadEncryptedFileRequest",
@@ -15474,10 +15247,11 @@ UploadEncryptedFileRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of UploadEncryptedFileRequest.
+# @title from_reader
+# @name UploadEncryptedFileRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of UploadEncryptedFileRequest.
 UploadEncryptedFileRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   file <- reader$tgread_object()
@@ -15487,8 +15261,6 @@ UploadEncryptedFileRequest$from_reader <- function(reader) {
 
 #' @title UploadImportedMediaRequest
 #' @description Represents a request to upload imported media. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x2a862092).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x476cbe32).
 #' @export
 UploadImportedMediaRequest <- R6::R6Class(
   "UploadImportedMediaRequest",
@@ -15545,10 +15317,11 @@ UploadImportedMediaRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of UploadImportedMediaRequest.
+# @title from_reader
+# @name UploadImportedMediaRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of UploadImportedMediaRequest.
 UploadImportedMediaRequest$from_reader <- function(reader) {
   peer <- reader$tgread_object()
   import_id <- reader$read_long()
@@ -15559,8 +15332,6 @@ UploadImportedMediaRequest$from_reader <- function(reader) {
 
 #' @title UploadMediaRequest
 #' @description Represents a request to upload media. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x14967978).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0x476cbe32).
 #' @export
 UploadMediaRequest <- R6::R6Class(
   "UploadMediaRequest",
@@ -15616,10 +15387,11 @@ UploadMediaRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of UploadMediaRequest.
+# @title from_reader
+# @name UploadMediaRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of UploadMediaRequest.
 UploadMediaRequest$from_reader <- function(reader) {
   flags <- reader$read_int()
   business_connection_id <- if (bitwAnd(flags, 1L) != 0) reader$tgread_string() else NULL
@@ -15630,8 +15402,6 @@ UploadMediaRequest$from_reader <- function(reader) {
 
 #' @title ViewSponsoredMessageRequest
 #' @description Represents a request to view a sponsored message. This class inherits from TLRequest.
-#' @field CONSTRUCTOR_ID The constructor ID for this request (0x269e3643).
-#' @field SUBCLASS_OF_ID The subclass ID for this request (0xf5b399ac).
 #' @export
 ViewSponsoredMessageRequest <- R6::R6Class(
   "ViewSponsoredMessageRequest",
@@ -15672,10 +15442,11 @@ ViewSponsoredMessageRequest <- R6::R6Class(
   )
 )
 
-#' @title from_reader
-#' @description Class method to create an instance from a reader.
-#' @param reader The reader object.
-#' @return An instance of ViewSponsoredMessageRequest.
+# @title from_reader
+# @name ViewSponsoredMessageRequest_from_reader
+# @description Class method to create an instance from a reader.
+# @param reader The reader object.
+# @return An instance of ViewSponsoredMessageRequest.
 ViewSponsoredMessageRequest$from_reader <- function(reader) {
   random_id <- reader$tgread_bytes()
   ViewSponsoredMessageRequest$new(random_id = random_id)

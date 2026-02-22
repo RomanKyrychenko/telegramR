@@ -37,14 +37,16 @@ DestroyAuthKeyRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create a DestroyAuthKeyRequest from a reader
-#'
-#' The reader is not used for this constructor (no payload).
-#' @param reader ignored
-#' @return DestroyAuthKeyRequest instance
+# Create a DestroyAuthKeyRequest from a reader
+# @name DestroyAuthKeyRequest_from_reader
+#
+# The reader is not used for this constructor (no payload).
+# @param reader ignored
+# @return DestroyAuthKeyRequest instance
 DestroyAuthKeyRequest$from_reader <- function(reader) {
   DestroyAuthKeyRequest$new()
 }
@@ -64,6 +66,7 @@ DestroyAuthKeyRequest$from_reader <- function(reader) {
 DestroySessionRequest <- R6::R6Class(
   classname = "DestroySessionRequest",
   public = list(
+    #' @field session_id Field.
     session_id = NULL,
 
     #' Initialize a DestroySessionRequest
@@ -98,14 +101,16 @@ DestroySessionRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create a DestroySessionRequest from a reader
-#'
-#' The reader is expected to provide `read_long()` returning a numeric/integer for 64-bit.
-#' @param reader Object with a read_long() method
-#' @return DestroySessionRequest instance
+# Create a DestroySessionRequest from a reader
+# @name DestroySessionRequest_from_reader
+#
+# The reader is expected to provide `read_long()` returning a numeric/integer for 64-bit.
+# @param reader Object with a read_long() method
+# @return DestroySessionRequest instance
 DestroySessionRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$read_long)) {
     stop("reader must implement read_long()")
@@ -129,6 +134,7 @@ DestroySessionRequest$from_reader <- function(reader) {
 GetFutureSaltsRequest <- R6::R6Class(
   classname = "GetFutureSaltsRequest",
   public = list(
+    #' @field num Field.
     num = NULL,
 
     #' Initialize a GetFutureSaltsRequest
@@ -161,14 +167,16 @@ GetFutureSaltsRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create a GetFutureSaltsRequest from a reader
-#'
-#' The reader is expected to provide `read_int()` returning an integer (32-bit).
-#' @param reader Object with a read_int() method
-#' @return GetFutureSaltsRequest instance
+# Create a GetFutureSaltsRequest from a reader
+# @name GetFutureSaltsRequest_from_reader
+#
+# The reader is expected to provide `read_int()` returning an integer (32-bit).
+# @param reader Object with a read_int() method
+# @return GetFutureSaltsRequest instance
 GetFutureSaltsRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$read_int)) {
     stop("reader must implement read_int()")
@@ -204,15 +212,25 @@ GetFutureSaltsRequest$from_reader <- function(reader) {
 InitConnectionRequest <- R6::R6Class(
   classname = "InitConnectionRequest",
   public = list(
+    #' @field api_id Field.
     api_id = NULL,
+    #' @field device_model Field.
     device_model = NULL,
+    #' @field system_version Field.
     system_version = NULL,
+    #' @field app_version Field.
     app_version = NULL,
+    #' @field system_lang_code Field.
     system_lang_code = NULL,
+    #' @field lang_pack Field.
     lang_pack = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
+    #' @field query Field.
     query = NULL,
+    #' @field proxy Field.
     proxy = NULL,
+    #' @field params Field.
     params = NULL,
 
     #' Initialize an InitConnectionRequest
@@ -365,17 +383,19 @@ InitConnectionRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create an InitConnectionRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - read_int(): returns integer for 32-bit
-#' - tgread_string(): returns a character string
-#' - tgread_object(): returns the nested object (already parsed)
-#' @param reader Object with required methods
-#' @return InitConnectionRequest instance
+# Create an InitConnectionRequest from a reader
+# @name InitConnectionRequest_from_reader
+#
+# The reader is expected to provide:
+# - read_int(): returns integer for 32-bit
+# - tgread_string(): returns a character string
+# - tgread_object(): returns the nested object (already parsed)
+# @param reader Object with required methods
+# @return InitConnectionRequest instance
 InitConnectionRequest$from_reader <- function(reader) {
   if (is.null(reader) ||
     !is.function(reader$read_int) ||
@@ -441,7 +461,9 @@ InitConnectionRequest$from_reader <- function(reader) {
 InvokeAfterMsgRequest <- R6::R6Class(
   classname = "InvokeAfterMsgRequest",
   public = list(
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field query Field.
     query = NULL,
 
     #' Initialize an InvokeAfterMsgRequest
@@ -504,16 +526,18 @@ InvokeAfterMsgRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create an InvokeAfterMsgRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - read_long(): returns numeric/integer for 64-bit
-#' - tgread_object(): returns the nested query object (already parsed)
-#' @param reader Object with required methods
-#' @return InvokeAfterMsgRequest instance
+# Create an InvokeAfterMsgRequest from a reader
+# @name InvokeAfterMsgRequest_from_reader
+#
+# The reader is expected to provide:
+# - read_long(): returns numeric/integer for 64-bit
+# - tgread_object(): returns the nested query object (already parsed)
+# @param reader Object with required methods
+# @return InvokeAfterMsgRequest instance
 InvokeAfterMsgRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$read_long) || !is.function(reader$tgread_object)) {
     stop("reader must implement read_long() and tgread_object()")
@@ -544,7 +568,9 @@ InvokeAfterMsgRequest$from_reader <- function(reader) {
 InvokeAfterMsgsRequest <- R6::R6Class(
   classname = "InvokeAfterMsgsRequest",
   public = list(
+    #' @field msg_ids Field.
     msg_ids = NULL,
+    #' @field query Field.
     query = NULL,
 
     #' Initialize an InvokeAfterMsgsRequest
@@ -614,17 +640,19 @@ InvokeAfterMsgsRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create an InvokeAfterMsgsRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - read_int(): returns integer for 32-bit
-#' - read_long(): returns numeric/integer for 64-bit
-#' - tgread_object(): returns the nested query object (already parsed)
-#' @param reader Object with required methods
-#' @return InvokeAfterMsgsRequest instance
+# Create an InvokeAfterMsgsRequest from a reader
+# @name InvokeAfterMsgsRequest_from_reader
+#
+# The reader is expected to provide:
+# - read_int(): returns integer for 32-bit
+# - read_long(): returns numeric/integer for 64-bit
+# - tgread_object(): returns the nested query object (already parsed)
+# @param reader Object with required methods
+# @return InvokeAfterMsgsRequest instance
 InvokeAfterMsgsRequest$from_reader <- function(reader) {
   if (is.null(reader) ||
     !is.function(reader$read_int) ||
@@ -668,8 +696,11 @@ InvokeAfterMsgsRequest$from_reader <- function(reader) {
 InvokeWithApnsSecretRequest <- R6::R6Class(
   classname = "InvokeWithApnsSecretRequest",
   public = list(
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field secret Field.
     secret = NULL,
+    #' @field query Field.
     query = NULL,
 
     #' Initialize an InvokeWithApnsSecretRequest
@@ -732,16 +763,18 @@ InvokeWithApnsSecretRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create an InvokeWithApnsSecretRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - tgread_string(): returns a character string
-#' - tgread_object(): returns the nested query object (already parsed)
-#' @param reader Object with required methods
-#' @return InvokeWithApnsSecretRequest instance
+# Create an InvokeWithApnsSecretRequest from a reader
+# @name InvokeWithApnsSecretRequest_from_reader
+#
+# The reader is expected to provide:
+# - tgread_string(): returns a character string
+# - tgread_object(): returns the nested query object (already parsed)
+# @param reader Object with required methods
+# @return InvokeWithApnsSecretRequest instance
 InvokeWithApnsSecretRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$tgread_string) || !is.function(reader$tgread_object)) {
     stop("reader must implement tgread_string() and tgread_object()")
@@ -774,7 +807,9 @@ InvokeWithApnsSecretRequest$from_reader <- function(reader) {
 InvokeWithBusinessConnectionRequest <- R6::R6Class(
   classname = "InvokeWithBusinessConnectionRequest",
   public = list(
+    #' @field connection_id Field.
     connection_id = NULL,
+    #' @field query Field.
     query = NULL,
 
     #' Initialize an InvokeWithBusinessConnectionRequest
@@ -835,16 +870,18 @@ InvokeWithBusinessConnectionRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create an InvokeWithBusinessConnectionRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - tgread_string(): returns a character string
-#' - tgread_object(): returns the nested query object (already parsed)
-#' @param reader Object with required methods
-#' @return InvokeWithBusinessConnectionRequest instance
+# Create an InvokeWithBusinessConnectionRequest from a reader
+# @name InvokeWithBusinessConnectionRequest_from_reader
+#
+# The reader is expected to provide:
+# - tgread_string(): returns a character string
+# - tgread_object(): returns the nested query object (already parsed)
+# @param reader Object with required methods
+# @return InvokeWithBusinessConnectionRequest instance
 InvokeWithBusinessConnectionRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$tgread_string) || !is.function(reader$tgread_object)) {
     stop("reader must implement tgread_string() and tgread_object()")
@@ -874,10 +911,14 @@ InvokeWithBusinessConnectionRequest$from_reader <- function(reader) {
 #' token as raw bytes and then the nested query bytes. The nested query is expected
 #' to provide a to_raw() method or be a raw vector.
 InvokeWithGooglePlayIntegrityRequest <- R6::R6Class(
+  #' @field classname Field.
   classname = "InvokeWithGooglePlayIntegrityRequest",
   public = list(
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field token Field.
     token = NULL,
+    #' @field query Field.
     query = NULL,
 
     #' Initialize an InvokeWithGooglePlayIntegrityRequest
@@ -946,13 +987,14 @@ InvokeWithGooglePlayIntegrityRequest <- R6::R6Class(
   class = TRUE
 )
 
-#' Create an InvokeWithGooglePlayIntegrityRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - tgread_string(): returns a character string
-#' - tgread_object(): returns the nested query object (already parsed)
-#' @param reader Object with required methods
-#' @return InvokeWithGooglePlayIntegrityRequest instance
+# Create an InvokeWithGooglePlayIntegrityRequest from a reader
+# @name InvokeWithGooglePlayIntegrityRequest_from_reader
+#
+# The reader is expected to provide:
+# - tgread_string(): returns a character string
+# - tgread_object(): returns the nested query object (already parsed)
+# @param reader Object with required methods
+# @return InvokeWithGooglePlayIntegrityRequest instance
 InvokeWithGooglePlayIntegrityRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$tgread_string) || !is.function(reader$tgread_object)) {
     stop("reader must implement tgread_string() and tgread_object()")
@@ -985,7 +1027,9 @@ InvokeWithGooglePlayIntegrityRequest$from_reader <- function(reader) {
 InvokeWithLayerRequest <- R6::R6Class(
   classname = "InvokeWithLayerRequest",
   public = list(
+    #' @field layer Field.
     layer = NULL,
+    #' @field query Field.
     query = NULL,
 
     #' Initialize an InvokeWithLayerRequest
@@ -1046,16 +1090,18 @@ InvokeWithLayerRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create an InvokeWithLayerRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - read_int(): returns integer for 32-bit
-#' - tgread_object(): returns the nested query object (already parsed)
-#' @param reader Object with required methods
-#' @return InvokeWithLayerRequest instance
+# Create an InvokeWithLayerRequest from a reader
+# @name InvokeWithLayerRequest_from_reader
+#
+# The reader is expected to provide:
+# - read_int(): returns integer for 32-bit
+# - tgread_object(): returns the nested query object (already parsed)
+# @param reader Object with required methods
+# @return InvokeWithLayerRequest instance
 InvokeWithLayerRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$read_int) || !is.function(reader$tgread_object)) {
     stop("reader must implement read_int() and tgread_object()")
@@ -1085,7 +1131,9 @@ InvokeWithLayerRequest$from_reader <- function(reader) {
 InvokeWithMessagesRangeRequest <- R6::R6Class(
   classname = "InvokeWithMessagesRangeRequest",
   public = list(
+    #' @field range Field.
     range = NULL,
+    #' @field query Field.
     query = NULL,
 
     #' Initialize an InvokeWithMessagesRangeRequest
@@ -1157,16 +1205,18 @@ InvokeWithMessagesRangeRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create an InvokeWithMessagesRangeRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - tgread_object(): returns the nested range object (already parsed)
-#' - tgread_object(): returns the nested query object (already parsed)
-#' @param reader Object with required methods
-#' @return InvokeWithMessagesRangeRequest instance
+# Create an InvokeWithMessagesRangeRequest from a reader
+# @name InvokeWithMessagesRangeRequest_from_reader
+#
+# The reader is expected to provide:
+# - tgread_object(): returns the nested range object (already parsed)
+# - tgread_object(): returns the nested query object (already parsed)
+# @param reader Object with required methods
+# @return InvokeWithMessagesRangeRequest instance
 InvokeWithMessagesRangeRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$tgread_object)) {
     stop("reader must implement tgread_object()")
@@ -1197,7 +1247,9 @@ InvokeWithMessagesRangeRequest$from_reader <- function(reader) {
 InvokeWithReCaptchaRequest <- R6::R6Class(
   classname = "InvokeWithReCaptchaRequest",
   public = list(
+    #' @field token Field.
     token = NULL,
+    #' @field query Field.
     query = NULL,
 
     #' Initialize an InvokeWithReCaptchaRequest
@@ -1256,16 +1308,18 @@ InvokeWithReCaptchaRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create an InvokeWithReCaptchaRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - tgread_string(): returns a character string
-#' - tgread_object(): returns the nested query object (already parsed)
-#' @param reader Object with required methods
-#' @return InvokeWithReCaptchaRequest instance
+# Create an InvokeWithReCaptchaRequest from a reader
+# @name InvokeWithReCaptchaRequest_from_reader
+#
+# The reader is expected to provide:
+# - tgread_string(): returns a character string
+# - tgread_object(): returns the nested query object (already parsed)
+# @param reader Object with required methods
+# @return InvokeWithReCaptchaRequest instance
 InvokeWithReCaptchaRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$tgread_string) || !is.function(reader$tgread_object)) {
     stop("reader must implement tgread_string() and tgread_object()")
@@ -1295,7 +1349,9 @@ InvokeWithReCaptchaRequest$from_reader <- function(reader) {
 InvokeWithTakeoutRequest <- R6::R6Class(
   classname = "InvokeWithTakeoutRequest",
   public = list(
+    #' @field takeout_id Field.
     takeout_id = NULL,
+    #' @field query Field.
     query = NULL,
 
     #' Initialize an InvokeWithTakeoutRequest
@@ -1352,16 +1408,18 @@ InvokeWithTakeoutRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create an InvokeWithTakeoutRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - read_long(): returns numeric/integer for 64-bit
-#' - tgread_object(): returns nested query object
-#' @param reader Object with required methods
-#' @return InvokeWithTakeoutRequest instance
+# Create an InvokeWithTakeoutRequest from a reader
+# @name InvokeWithTakeoutRequest_from_reader
+#
+# The reader is expected to provide:
+# - read_long(): returns numeric/integer for 64-bit
+# - tgread_object(): returns nested query object
+# @param reader Object with required methods
+# @return InvokeWithTakeoutRequest instance
 InvokeWithTakeoutRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$read_long) || !is.function(reader$tgread_object)) {
     stop("reader must implement read_long() and tgread_object()")
@@ -1390,6 +1448,7 @@ InvokeWithTakeoutRequest$from_reader <- function(reader) {
 InvokeWithoutUpdatesRequest <- R6::R6Class(
   classname = "InvokeWithoutUpdatesRequest",
   public = list(
+    #' @field query Field.
     query = NULL,
 
     #' Initialize an InvokeWithoutUpdatesRequest
@@ -1445,15 +1504,17 @@ InvokeWithoutUpdatesRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create an InvokeWithoutUpdatesRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - tgread_object(): returns the nested query object (already parsed)
-#' @param reader Object with required method
-#' @return InvokeWithoutUpdatesRequest instance
+# Create an InvokeWithoutUpdatesRequest from a reader
+# @name InvokeWithoutUpdatesRequest_from_reader
+#
+# The reader is expected to provide:
+# - tgread_object(): returns the nested query object (already parsed)
+# @param reader Object with required method
+# @return InvokeWithoutUpdatesRequest instance
 InvokeWithoutUpdatesRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$tgread_object)) {
     stop("reader must implement tgread_object()")
@@ -1480,6 +1541,7 @@ InvokeWithoutUpdatesRequest$from_reader <- function(reader) {
 PingRequest <- R6::R6Class(
   classname = "PingRequest",
   public = list(
+    #' @field ping_id Field.
     ping_id = NULL,
 
     #' Initialize a PingRequest
@@ -1513,14 +1575,16 @@ PingRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create a PingRequest from a reader
-#'
-#' The reader is expected to provide `read_long()` that returns a numeric/integer value.
-#' @param reader Object with a read_long() method
-#' @return PingRequest instance
+# Create a PingRequest from a reader
+# @name PingRequest_from_reader
+#
+# The reader is expected to provide `read_long()` that returns a numeric/integer value.
+# @param reader Object with a read_long() method
+# @return PingRequest instance
 PingRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$read_long)) {
     stop("reader must implement read_long()")
@@ -1547,7 +1611,9 @@ PingRequest$from_reader <- function(reader) {
 PingDelayDisconnectRequest <- R6::R6Class(
   classname = "PingDelayDisconnectRequest",
   public = list(
+    #' @field ping_id Field.
     ping_id = NULL,
+    #' @field disconnect_delay Field.
     disconnect_delay = NULL,
 
     #' Initialize a PingDelayDisconnectRequest
@@ -1588,16 +1654,18 @@ PingDelayDisconnectRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create a PingDelayDisconnectRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - read_long(): returns numeric/integer for 64-bit
-#' - read_int(): returns integer for 32-bit
-#' @param reader Object with required methods
-#' @return PingDelayDisconnectRequest instance
+# Create a PingDelayDisconnectRequest from a reader
+# @name PingDelayDisconnectRequest_from_reader
+#
+# The reader is expected to provide:
+# - read_long(): returns numeric/integer for 64-bit
+# - read_int(): returns integer for 32-bit
+# @param reader Object with required methods
+# @return PingDelayDisconnectRequest instance
 PingDelayDisconnectRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$read_long) || !is.function(reader$read_int)) {
     stop("reader must implement read_long() and read_int()")
@@ -1631,11 +1699,17 @@ PingDelayDisconnectRequest$from_reader <- function(reader) {
 ReqDHParamsRequest <- R6::R6Class(
   classname = "ReqDHParamsRequest",
   public = list(
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field server_nonce Field.
     server_nonce = NULL,
+    #' @field p Field.
     p = NULL,
+    #' @field q Field.
     q = NULL,
+    #' @field public_key_fingerprint Field.
     public_key_fingerprint = NULL,
+    #' @field encrypted_data Field.
     encrypted_data = NULL,
 
     #' Initialize a ReqDHParamsRequest
@@ -1718,14 +1792,15 @@ ReqDHParamsRequest <- R6::R6Class(
   active = list()
 )
 
-#' Create a ReqDHParamsRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - read_large_int(bits = 128): returns numeric/placeholder for 128-bit integer
-#' - tgread_bytes(): returns raw vector of bytes
-#' - read_long(): returns numeric/integer for 64-bit
-#' @param reader Object with required methods
-#' @return ReqDHParamsRequest instance
+# Create a ReqDHParamsRequest from a reader
+# @name ReqDHParamsRequest_from_reader
+#
+# The reader is expected to provide:
+# - read_large_int(bits = 128): returns numeric/placeholder for 128-bit integer
+# - tgread_bytes(): returns raw vector of bytes
+# - read_long(): returns numeric/integer for 64-bit
+# @param reader Object with required methods
+# @return ReqDHParamsRequest instance
 ReqDHParamsRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$read_large_int) ||
     !is.function(reader$tgread_bytes) || !is.function(reader$read_long)) {
@@ -1752,7 +1827,6 @@ ReqDHParamsRequest$from_reader <- function(reader) {
 #'
 #' Represents the TL request `ReqPqRequest`.
 #'
-#' @field nonce numeric/integer 128-bit nonce (placeholder representation)
 #'
 #' @description
 #' Methods:
@@ -1766,6 +1840,7 @@ ReqDHParamsRequest$from_reader <- function(reader) {
 ReqPqRequest <- R6::R6Class(
   classname = "ReqPqRequest",
   public = list(
+    #' @field nonce Field.
     nonce = NULL,
 
     #' Initialize a ReqPqRequest
@@ -1800,14 +1875,16 @@ ReqPqRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create a ReqPqRequest from a reader
-#'
-#' The reader is expected to provide `read_large_int(bits = 128)`.
-#' @param reader Object with a read_large_int(bits = 128) method
-#' @return ReqPqRequest instance
+# Create a ReqPqRequest from a reader
+# @name ReqPqRequest_from_reader
+#
+# The reader is expected to provide `read_large_int(bits = 128)`.
+# @param reader Object with a read_large_int(bits = 128) method
+# @return ReqPqRequest instance
 ReqPqRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$read_large_int)) {
     stop("reader must implement read_large_int(bits = 128)")
@@ -1821,7 +1898,6 @@ ReqPqRequest$from_reader <- function(reader) {
 #'
 #' Represents the TL request `ReqPqMultiRequest`.
 #'
-#' @field nonce numeric/integer 128-bit nonce (placeholder representation)
 #'
 #' @description
 #' Methods:
@@ -1835,6 +1911,7 @@ ReqPqRequest$from_reader <- function(reader) {
 ReqPqMultiRequest <- R6::R6Class(
   classname = "ReqPqMultiRequest",
   public = list(
+    #' @field nonce Field.
     nonce = NULL,
 
     #' Initialize a ReqPqMultiRequest
@@ -1869,14 +1946,16 @@ ReqPqMultiRequest <- R6::R6Class(
     }
   ),
   active = list(),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create a ReqPqMultiRequest from a reader
-#'
-#' The reader is expected to provide `read_large_int(bits = 128)`.
-#' @param reader Object with a read_large_int(bits = 128) method
-#' @return ReqPqMultiRequest instance
+# Create a ReqPqMultiRequest from a reader
+# @name ReqPqMultiRequest_from_reader
+#
+# The reader is expected to provide `read_large_int(bits = 128)`.
+# @param reader Object with a read_large_int(bits = 128) method
+# @return ReqPqMultiRequest instance
 ReqPqMultiRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$read_large_int)) {
     stop("reader must implement read_large_int(bits = 128)")
@@ -1890,7 +1969,6 @@ ReqPqMultiRequest$from_reader <- function(reader) {
 #'
 #' Represents the TL request `RpcDropAnswerRequest`.
 #'
-#' @field req_msg_id integer|numeric Request message id (64-bit).
 #'
 #' @description
 #' Methods:
@@ -1907,6 +1985,7 @@ ReqPqMultiRequest$from_reader <- function(reader) {
 RpcDropAnswerRequest <- R6::R6Class(
   classname = "RpcDropAnswerRequest",
   public = list(
+    #' @field req_msg_id Field.
     req_msg_id = NULL,
 
     #' Initialize a RpcDropAnswerRequest
@@ -1943,14 +2022,16 @@ RpcDropAnswerRequest <- R6::R6Class(
   active = list(
     # no active bindings
   ),
+  #' @field class Field.
   class = TRUE
 )
 
-#' Create a RpcDropAnswerRequest from a reader
-#'
-#' The reader is expected to provide `read_long()` that returns a numeric/integer value.
-#' @param reader Object with a read_long() method
-#' @return RpcDropAnswerRequest instance
+# Create a RpcDropAnswerRequest from a reader
+# @name RpcDropAnswerRequest_from_reader
+#
+# The reader is expected to provide `read_long()` that returns a numeric/integer value.
+# @param reader Object with a read_long() method
+# @return RpcDropAnswerRequest instance
 RpcDropAnswerRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$read_long)) {
     stop("reader must implement read_long()")
@@ -1964,9 +2045,6 @@ RpcDropAnswerRequest$from_reader <- function(reader) {
 #'
 #' Represents the TL request `SetClientDHParamsRequest`.
 #'
-#' @field nonce numeric/integer 128-bit nonce (may be represented as numeric)
-#' @field server_nonce numeric/integer 128-bit server nonce
-#' @field encrypted_data raw Encrypted data as raw bytes
 #'
 #' @description
 #' Methods:
@@ -1983,8 +2061,11 @@ RpcDropAnswerRequest$from_reader <- function(reader) {
 SetClientDHParamsRequest <- R6::R6Class(
   classname = "SetClientDHParamsRequest",
   public = list(
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field server_nonce Field.
     server_nonce = NULL,
+    #' @field encrypted_data Field.
     encrypted_data = NULL,
 
     #' Initialize a SetClientDHParamsRequest
@@ -2049,13 +2130,14 @@ SetClientDHParamsRequest <- R6::R6Class(
   active = list()
 )
 
-#' Create a SetClientDHParamsRequest from a reader
-#'
-#' The reader is expected to provide:
-#' - read_large_int(bits = 128): returns numeric/placeholder for 128-bit integer
-#' - tgread_bytes(): returns raw vector of bytes
-#' @param reader Object with required methods
-#' @return SetClientDHParamsRequest instance
+# Create a SetClientDHParamsRequest from a reader
+# @name SetClientDHParamsRequest_from_reader
+#
+# The reader is expected to provide:
+# - read_large_int(bits = 128): returns numeric/placeholder for 128-bit integer
+# - tgread_bytes(): returns raw vector of bytes
+# @param reader Object with required methods
+# @return SetClientDHParamsRequest instance
 SetClientDHParamsRequest$from_reader <- function(reader) {
   if (is.null(reader) || !is.function(reader$read_large_int) || !is.function(reader$tgread_bytes)) {
     stop("reader must implement read_large_int(bits = 128) and tgread_bytes()")

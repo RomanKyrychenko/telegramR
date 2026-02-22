@@ -2,10 +2,6 @@
 #'
 #' Represents a request to add a sticker to a sticker set.
 #'
-#' @field CONSTRUCTOR_ID numeric constructor id (hex)
-#' @field SUBCLASS_OF_ID numeric subclass id (hex)
-#' @field stickerset object InputStickerSet (TL) — required
-#' @field sticker object InputStickerSetItem (TL) — required
 #'
 #' @section Methods:
 #' - initialize(stickerset, sticker): create instance.
@@ -22,9 +18,13 @@
 AddStickerToSetRequest <- R6::R6Class(
   "AddStickerToSetRequest",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8653febe,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
+    #' @field stickerset Field.
     stickerset = NULL,
+    #' @field sticker Field.
     sticker = NULL,
 
     #' @description Initialize AddStickerToSetRequest
@@ -114,12 +114,6 @@ AddStickerToSetRequest$set("public", "from_reader", function(reader) {
 #'
 #' Represents a request to change sticker attributes (emoji, mask coordinates, keywords).
 #'
-#' @field CONSTRUCTOR_ID numeric constructor id (hex)
-#' @field SUBCLASS_OF_ID numeric subclass id (hex)
-#' @field sticker object InputDocument (TL) — required
-#' @field emoji character — optional
-#' @field mask_coords object MaskCoords (TL) — optional
-#' @field keywords character — optional
 #'
 #' @section Methods:
 #' - initialize(sticker, emoji = NULL, mask_coords = NULL, keywords = NULL): create instance.
@@ -136,11 +130,17 @@ AddStickerToSetRequest$set("public", "from_reader", function(reader) {
 ChangeStickerRequest <- R6::R6Class(
   "ChangeStickerRequest",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf5537ebc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
+    #' @field sticker Field.
     sticker = NULL,
+    #' @field emoji Field.
     emoji = NULL,
+    #' @field mask_coords Field.
     mask_coords = NULL,
+    #' @field keywords Field.
     keywords = NULL,
 
     #' @description Initialize a ChangeStickerRequest
@@ -267,10 +267,6 @@ ChangeStickerRequest$set("public", "from_reader", function(reader) {
 #'
 #' Represents a request to change a sticker's position within a sticker set.
 #'
-#' @field CONSTRUCTOR_ID numeric constructor id (hex)
-#' @field SUBCLASS_OF_ID numeric subclass id (hex)
-#' @field sticker object InputDocument (TL) — required
-#' @field position integer — required
 #'
 #' @section Methods:
 #' - initialize(sticker, position): create instance.
@@ -287,9 +283,13 @@ ChangeStickerRequest$set("public", "from_reader", function(reader) {
 ChangeStickerPositionRequest <- R6::R6Class(
   "ChangeStickerPositionRequest",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xffb6d4ca,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
+    #' @field sticker Field.
     sticker = NULL,
+    #' @field position Field.
     position = NULL,
 
     #' @description Initialize a ChangeStickerPositionRequest
@@ -381,9 +381,6 @@ ChangeStickerPositionRequest$set("public", "from_reader", function(reader) {
 #'
 #' Represents a request to check whether a short name is available/valid.
 #'
-#' @field CONSTRUCTOR_ID numeric constructor id (hex)
-#' @field SUBCLASS_OF_ID numeric subclass id (hex)
-#' @field short_name character — required
 #'
 #' @section Methods:
 #' - initialize(short_name): create instance.
@@ -397,8 +394,11 @@ ChangeStickerPositionRequest$set("public", "from_reader", function(reader) {
 CheckShortNameRequest <- R6::R6Class(
   "CheckShortNameRequest",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x284b3639,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field short_name Field.
     short_name = NULL,
 
     #' @description Initialize a CheckShortNameRequest
@@ -465,17 +465,6 @@ CheckShortNameRequest$set("public", "from_reader", function(reader) {
 #'
 #' Represents a request to create a sticker set.
 #'
-#' @field CONSTRUCTOR_ID numeric constructor id (hex)
-#' @field SUBCLASS_OF_ID numeric subclass id (hex)
-#' @field user_id object InputUser (TL) — required
-#' @field title character — required
-#' @field short_name character — required
-#' @field stickers list of InputStickerSetItem (TL) — required
-#' @field masks logical — optional
-#' @field emojis logical — optional
-#' @field text_color logical — optional
-#' @field thumb object InputDocument (TL) — optional
-#' @field software character — optional
 #'
 #' @section Methods:
 #' - initialize(user_id, title, short_name, stickers, masks = NULL, emojis = NULL, text_color = NULL, thumb = NULL, software = NULL): create instance.
@@ -492,16 +481,27 @@ CheckShortNameRequest$set("public", "from_reader", function(reader) {
 CreateStickerSetRequest <- R6::R6Class(
   "CreateStickerSetRequest",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9021ab67,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field short_name Field.
     short_name = NULL,
+    #' @field stickers Field.
     stickers = NULL,
+    #' @field masks Field.
     masks = NULL,
+    #' @field emojis Field.
     emojis = NULL,
+    #' @field text_color Field.
     text_color = NULL,
+    #' @field thumb Field.
     thumb = NULL,
+    #' @field software Field.
     software = NULL,
 
     #' @description Initialize a CreateStickerSetRequest
@@ -696,9 +696,6 @@ CreateStickerSetRequest$set("public", "from_reader", function(reader) {
 #'
 #' Represents a request to delete a sticker set.
 #'
-#' @field CONSTRUCTOR_ID numeric constructor id (hex)
-#' @field SUBCLASS_OF_ID numeric subclass id (hex)
-#' @field stickerset object InputStickerSet (TL) — required
 #'
 #' @section Methods:
 #' - initialize(stickerset): create instance.
@@ -712,8 +709,11 @@ CreateStickerSetRequest$set("public", "from_reader", function(reader) {
 DeleteStickerSetRequest <- R6::R6Class(
   "DeleteStickerSetRequest",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x87704394,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
+    #' @field stickerset Field.
     stickerset = NULL,
 
     #' @description Initialize a DeleteStickerSetRequest
@@ -776,9 +776,6 @@ DeleteStickerSetRequest$set("public", "from_reader", function(reader) {
 #'
 #' Represents a request to remove a sticker from a set.
 #'
-#' @field CONSTRUCTOR_ID numeric constructor id (hex)
-#' @field SUBCLASS_OF_ID numeric subclass id (hex)
-#' @field sticker object InputDocument (TL) — required
 #'
 #' @section Methods:
 #' - initialize(sticker): create instance.
@@ -793,8 +790,11 @@ DeleteStickerSetRequest$set("public", "from_reader", function(reader) {
 RemoveStickerFromSetRequest <- R6::R6Class(
   "RemoveStickerFromSetRequest",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf7760f51,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
+    #' @field sticker Field.
     sticker = NULL,
 
     #' @description Initialize a RemoveStickerFromSetRequest
@@ -867,10 +867,6 @@ RemoveStickerFromSetRequest$set("public", "from_reader", function(reader) {
 #'
 #' Represents a request to rename a sticker set.
 #'
-#' @field CONSTRUCTOR_ID numeric constructor id (hex)
-#' @field SUBCLASS_OF_ID numeric subclass id (hex)
-#' @field stickerset object InputStickerSet (TL) — required
-#' @field title character — required
 #'
 #' @section Methods:
 #' - initialize(stickerset, title): create instance.
@@ -884,9 +880,13 @@ RemoveStickerFromSetRequest$set("public", "from_reader", function(reader) {
 RenameStickerSetRequest <- R6::R6Class(
   "RenameStickerSetRequest",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x124b1c00,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
+    #' @field stickerset Field.
     stickerset = NULL,
+    #' @field title Field.
     title = NULL,
 
     #' @description Initialize a RenameStickerSetRequest
@@ -971,10 +971,6 @@ RenameStickerSetRequest$set("public", "from_reader", function(reader) {
 #'
 #' Represents a request to replace a sticker with a new sticker item.
 #'
-#' @field CONSTRUCTOR_ID numeric constructor id (hex)
-#' @field SUBCLASS_OF_ID numeric subclass id (hex)
-#' @field sticker object InputDocument (TL) — required
-#' @field new_sticker object InputStickerSetItem (TL) — required
 #'
 #' @section Methods:
 #' - initialize(sticker, new_sticker): create instance.
@@ -989,9 +985,13 @@ RenameStickerSetRequest$set("public", "from_reader", function(reader) {
 ReplaceStickerRequest <- R6::R6Class(
   "ReplaceStickerRequest",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4696459a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
+    #' @field sticker Field.
     sticker = NULL,
+    #' @field new_sticker Field.
     new_sticker = NULL,
 
     #' @description Initialize a ReplaceStickerRequest
@@ -1077,11 +1077,6 @@ ReplaceStickerRequest$set("public", "from_reader", function(reader) {
 #'
 #' Represents a request to set a thumbnail for a sticker set.
 #'
-#' @field CONSTRUCTOR_ID numeric constructor id (hex)
-#' @field SUBCLASS_OF_ID numeric subclass id (hex)
-#' @field stickerset object InputStickerSet (TL) — required
-#' @field thumb object InputDocument (TL) — optional
-#' @field thumb_document_id integer64 / numeric — optional
 #'
 #' @section Methods:
 #' - initialize(stickerset, thumb = NULL, thumb_document_id = NULL): create instance.
@@ -1096,10 +1091,15 @@ ReplaceStickerRequest$set("public", "from_reader", function(reader) {
 SetStickerSetThumbRequest <- R6::R6Class(
   "SetStickerSetThumbRequest",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa76a5392,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
+    #' @field stickerset Field.
     stickerset = NULL,
+    #' @field thumb Field.
     thumb = NULL,
+    #' @field thumb_document_id Field.
     thumb_document_id = NULL,
 
     #' @description Initialize a SetStickerSetThumbRequest
@@ -1225,9 +1225,6 @@ SetStickerSetThumbRequest$set("public", "from_reader", function(reader) {
 #'
 #' Represents a request to suggest a short name for a sticker set.
 #'
-#' @field CONSTRUCTOR_ID numeric constructor id (hex)
-#' @field SUBCLASS_OF_ID numeric subclass id (hex)
-#' @field title character — required
 #'
 #' @section Methods:
 #' - initialize(title): create instance.
@@ -1241,8 +1238,11 @@ SetStickerSetThumbRequest$set("public", "from_reader", function(reader) {
 SuggestShortNameRequest <- R6::R6Class(
   "SuggestShortNameRequest",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4dafc503,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc44a4b21,
+    #' @field title Field.
     title = NULL,
 
     #' @description Initialize a SuggestShortNameRequest

@@ -50,11 +50,6 @@ MTProxyIO <- R6::R6Class("MTProxyIO",
   ),
   private = list(
 
-    #' @description Initialize header and encryption keys.
-    #' @param secret A raw vector representing the secret.
-    #' @param dc_id An integer representing the data center identifier.
-    #' @param packet_codec An object with an `obfuscate_tag` field.
-    #' @return A list containing the header, encryptor, and decryptor.
     init_header = function(secret, dc_id, packet_codec) {
       # Validate dd-secret conditions.
       is_dd <- (length(secret) == 17 && secret[1] == as.raw(0xDD))
@@ -176,9 +171,6 @@ TcpMTProxy <- R6::R6Class("TcpMTProxy",
   ),
   private = list(
 
-    #' @description Normalize the secret from hex or base64.
-    #' @param secret Secret as a character string.
-    #' @return A raw vector representing the first 16 bytes of the secret.
     normalize_secret = function(secret) {
       if (startsWith(secret, "ee") || startsWith(secret, "dd")) {
         secret <- substring(secret, 3)

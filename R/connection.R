@@ -643,7 +643,9 @@ Reader <- R6Class(
   "Reader",
   public = list(
     # Added: predeclare socket to avoid adding bindings to locked env
+    #' @field socket Field.
     socket = NULL,
+    #' @field timeout Field.
     timeout = 10,
 
     #' @description
@@ -721,6 +723,7 @@ Writer <- R6Class(
   "Writer",
   public = list(
     # Added: predeclare socket to avoid adding bindings to locked env
+    #' @field socket Field.
     socket = NULL,
 
     #' @description

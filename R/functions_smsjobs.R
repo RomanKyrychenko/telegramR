@@ -1,15 +1,15 @@
 #' FinishJobRequest R6 class
 #'
 #' Representation of the FinishJobRequest TLRequest.
-#' @field job_id character
-#' @field error character or NULL
 #' @title FinishJobRequest
 #' @description Telegram API type FinishJobRequest
 #' @export
 FinishJobRequest <- R6::R6Class(
   "FinishJobRequest",
   public = list(
+    #' @field job_id Field.
     job_id = NULL,
+    #' @field error Field.
     error = NULL,
 
     #' @description Initialize a FinishJobRequest
@@ -53,6 +53,7 @@ FinishJobRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
+  #' @field lock_class Field.
   lock_class = FALSE
 )
 
@@ -73,13 +74,13 @@ FinishJobRequest$set("public", "from_reader", function(reader) {
 #' GetSmsJobRequest R6 class
 #'
 #' Representation of the GetSmsJobRequest TLRequest.
-#' @field job_id character
 #' @title GetSmsJobRequest
 #' @description Telegram API type GetSmsJobRequest
 #' @export
 GetSmsJobRequest <- R6::R6Class(
   "GetSmsJobRequest",
   public = list(
+    #' @field job_id Field.
     job_id = NULL,
 
     #' @description Initialize a GetSmsJobRequest
@@ -111,6 +112,7 @@ GetSmsJobRequest <- R6::R6Class(
       c(ctor, serialize_bytes(self$job_id))
     }
   ),
+  #' @field lock_class Field.
   lock_class = FALSE
 )
 
@@ -150,6 +152,7 @@ GetStatusRequest <- R6::R6Class(
       as.raw(c(0xe8, 0x98, 0xa6, 0x10))
     }
   ),
+  #' @field lock_class Field.
   lock_class = FALSE
 )
 
@@ -188,6 +191,7 @@ IsEligibleToJoinRequest <- R6::R6Class(
       as.raw(c(0xd0, 0x39, 0xdc, 0x0e))
     }
   ),
+  #' @field lock_class Field.
   lock_class = FALSE
 )
 
@@ -234,6 +238,7 @@ JoinRequest <- R6::R6Class(
       as.raw(c(0x2d, 0xce, 0x4e, 0xa7))
     }
   ),
+  #' @field lock_class Field.
   lock_class = FALSE
 )
 
@@ -272,6 +277,7 @@ LeaveRequest <- R6::R6Class(
       as.raw(c(0x73, 0xad, 0x98, 0x98))
     }
   ),
+  #' @field lock_class Field.
   lock_class = FALSE
 )
 
@@ -284,13 +290,13 @@ LeaveRequest$set("public", "from_reader", function(reader) {
 #' UpdateSettingsRequest R6 class
 #'
 #' Representation of the UpdateSettingsRequest TLRequest.
-#' @field allow_international logical or NULL
 #' @title UpdateSettingsRequest
 #' @description Telegram API type UpdateSettingsRequest
 #' @export
 UpdateSettingsRequest <- R6::R6Class(
   "UpdateSettingsRequest",
   public = list(
+    #' @field allow_international Field.
     allow_international = NULL,
 
     #' @description Initialize UpdateSettingsRequest
@@ -322,6 +328,7 @@ UpdateSettingsRequest <- R6::R6Class(
       c(ctor, flags_bytes)
     }
   ),
+  #' @field lock_class Field.
   lock_class = FALSE
 )
 

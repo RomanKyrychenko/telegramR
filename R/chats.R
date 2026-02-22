@@ -12,13 +12,6 @@ NULL
 #' This class handles sending the appropriate action to the chat and optionally
 #' cancelling it when done. It is designed to be used synchronously in R.
 #'
-#' @field client The TelegramClient instance.
-#' @field chat The chat entity where the action is shown.
-#' @field action The action object (e.g., SendMessageTypingAction).
-#' @field delay The delay in seconds between sending actions (not used in synchronous version).
-#' @field auto_cancel Whether to cancel the action automatically on exit.
-#' @field request The current request object for setting the action.
-#' @field running Whether the action is currently running.
 #' @export
 .ChatAction <- R6::R6Class(
     "_ChatAction",
@@ -101,15 +94,6 @@ NULL
 #' The order is unspecified.
 #' Inherits from RequestIter.
 #'
-#' @field client The TelegramClient instance.
-#' @field limit The limit for the number of participants.
-#' @field total The total number of participants.
-#' @field buffer The buffer holding the current chunk of participants.
-#' @field left The number of items left to process.
-#' @field request The current request object.
-#' @field filter_entity A function to filter entities based on search.
-#' @field seen A set of seen user IDs to avoid duplicates.
-#' @field requests The request object for channels.
 #' @export
 .ParticipantsIter <- R6::R6Class(
     "_ParticipantsIter",
@@ -162,8 +146,10 @@ NULL
                 self$requests <- GetParticipantsRequest(
                     channel = entity,
                     filter = filter %||% ChannelParticipantsSearch(search),
+                    #' @field offset Field.
                     offset = 0,
                     limit = .MAX_PARTICIPANTS_CHUNK_SIZE,
+                    #' @field hash Field.
                     hash = 0
                 )
             } else if (ty == helpers$`_EntityType`$CHAT) {
@@ -232,8 +218,11 @@ NULL
                     self$total <- self$client(GetParticipantsRequest(
                         channel = self$requests$channel,
                         filter = ChannelParticipantsRecent(),
+                        #' @field offset Field.
                         offset = 0,
+                        #' @field limit Field.
                         limit = 1,
+                        #' @field hash Field.
                         hash = 0
                     ))$count
                 }
@@ -284,12 +273,6 @@ NULL
 #' The default order is from the most recent event to the oldest.
 #' Inherits from RequestIter.
 #'
-#' @field client The TelegramClient instance.
-#' @field limit The limit for the number of events.
-#' @field total The total number of events.
-#' @field buffer The buffer holding the current chunk of events.
-#' @field left The number of items left to process.
-#' @field request The current request object.
 #' @export
 .AdminLogIter <- R6::R6Class(
     "_AdminLogIter",
@@ -385,12 +368,6 @@ NULL
 #' The order is from the most recent photo to the oldest.
 #' Inherits from RequestIter.
 #'
-#' @field client The TelegramClient instance.
-#' @field limit The limit for the number of photos.
-#' @field total The total number of photos.
-#' @field buffer The buffer holding the current chunk of photos.
-#' @field left The number of items left to process.
-#' @field request The current request object.
 #' @export
 .ProfilePhotoIter <- R6::R6Class(
     "_ProfilePhotoIter",
@@ -408,6 +385,7 @@ NULL
                     entity,
                     offset = offset,
                     max_id = max_id,
+                    #' @field limit Field.
                     limit = 1
                 )
             } else {
@@ -415,13 +393,19 @@ NULL
                     peer = entity,
                     q = '',
                     filter = InputMessagesFilterChatPhotos(),
+                    #' @field min_date Field.
                     min_date = NULL,
+                    #' @field max_date Field.
                     max_date = NULL,
+                    #' @field offset_id Field.
                     offset_id = 0,
                     add_offset = offset,
+                    #' @field limit Field.
                     limit = 1,
                     max_id = max_id,
+                    #' @field min_id Field.
                     min_id = 0,
+                    #' @field hash Field.
                     hash = 0
                 )
             }

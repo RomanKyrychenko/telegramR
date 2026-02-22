@@ -70,7 +70,6 @@ HttpPacketCodec <- R6::R6Class("HttpPacketCodec",
 
 #' HTTP Connection Class
 #'
-#' @description This class implements an HTTP connection using the HTTP packet codec.
 #' @title ConnectionHttp
 #' @description Telegram API type ConnectionHttp
 #' @export

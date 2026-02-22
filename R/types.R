@@ -8,7 +8,9 @@ AccessPointRule <- R6::R6Class(
   "AccessPointRule",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4679b65f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb1aca0fd,
 
 
@@ -60,10 +62,7 @@ AccessPointRule <- R6::R6Class(
 
   private = list(
 
-    #' @description
     #' Reads an AccessPointRule object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AccessPointRule.
     from_reader = function(reader) {
       phone_prefix_rules <- reader$tgread_string()
       dc_id <- reader$read_int()
@@ -124,7 +123,9 @@ AccountDaysTTL <- R6::R6Class(
   "AccountDaysTTL",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb8d0afdf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbaa39d88,
 
 
@@ -160,10 +161,7 @@ AccountDaysTTL <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AccountDaysTTL object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AccountDaysTTL.
     from_reader = function(reader) {
       days <- reader$read_int()
       return(AccountDaysTTL$new(days))
@@ -178,18 +176,30 @@ AttachMenuBot <- R6::R6Class(
   "AttachMenuBot",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd90d8dfe,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f087446,
 
+    #' @field bot_id Field.
     bot_id = NULL,
+    #' @field short_name Field.
     short_name = NULL,
+    #' @field icons Field.
     icons = NULL,
+    #' @field inactive Field.
     inactive = NULL,
+    #' @field has_settings Field.
     has_settings = NULL,
+    #' @field request_write_access Field.
     request_write_access = NULL,
+    #' @field show_in_attach_menu Field.
     show_in_attach_menu = NULL,
+    #' @field show_in_side_menu Field.
     show_in_side_menu = NULL,
+    #' @field side_menu_disclaimer_needed Field.
     side_menu_disclaimer_needed = NULL,
+    #' @field peer_types Field.
     peer_types = NULL,
 
     #' @description
@@ -286,10 +296,7 @@ AttachMenuBot <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AttachMenuBot object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AttachMenuBot.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -345,11 +352,16 @@ AttachMenuBotIcon <- R6::R6Class(
   "AttachMenuBotIcon",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb2a7386b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x80484555,
 
+    #' @field name Field.
     name = NULL,
+    #' @field icon Field.
     icon = NULL,
+    #' @field colors Field.
     colors = NULL,
 
     #' @description
@@ -401,10 +413,7 @@ AttachMenuBotIcon <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AttachMenuBotIcon object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AttachMenuBotIcon.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -433,10 +442,14 @@ AttachMenuBotIconColor <- R6::R6Class(
   "AttachMenuBotIconColor",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4576f3f0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbea4cb6a,
 
+    #' @field name Field.
     name = NULL,
+    #' @field color Field.
     color = NULL,
 
     #' @description
@@ -472,10 +485,7 @@ AttachMenuBotIconColor <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AttachMenuBotIconColor object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AttachMenuBotIconColor.
     from_reader = function(reader) {
       name <- reader$tgread_string()
       color <- reader$read_int()
@@ -491,11 +501,16 @@ AttachMenuBots <- R6::R6Class(
   "AttachMenuBots",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3c4301c0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x842e23da,
 
+    #' @field hash Field.
     hash = NULL,
+    #' @field bots Field.
     bots = NULL,
+    #' @field users Field.
     users = NULL,
 
     #' @description
@@ -539,10 +554,7 @@ AttachMenuBots <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AttachMenuBots object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AttachMenuBots.
     from_reader = function(reader) {
       hash <- reader$read_long()
 
@@ -572,10 +584,14 @@ AttachMenuBotsBot <- R6::R6Class(
   "AttachMenuBotsBot",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x93bf667f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdb33883d,
 
+    #' @field bot Field.
     bot = NULL,
+    #' @field users Field.
     users = NULL,
 
     #' @description
@@ -613,10 +629,7 @@ AttachMenuBotsBot <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AttachMenuBotsBot object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AttachMenuBotsBot.
     from_reader = function(reader) {
       bot <- reader$tgread_object()
 
@@ -639,7 +652,9 @@ AttachMenuBotsNotModified <- R6::R6Class(
   "AttachMenuBotsNotModified",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf1d88a5c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x842e23da,
 
 
@@ -667,10 +682,7 @@ AttachMenuBotsNotModified <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AttachMenuBotsNotModified object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AttachMenuBotsNotModified.
     from_reader = function(reader) {
       return(AttachMenuBotsNotModified$new())
     }
@@ -684,7 +696,9 @@ AttachMenuPeerTypeBotPM <- R6::R6Class(
   "AttachMenuPeerTypeBotPM",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc32bfa1a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd1d886d0,
 
 
@@ -712,10 +726,7 @@ AttachMenuPeerTypeBotPM <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AttachMenuPeerTypeBotPM object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AttachMenuPeerTypeBotPM.
     from_reader = function(reader) {
       return(AttachMenuPeerTypeBotPM$new())
     }
@@ -729,7 +740,9 @@ AttachMenuPeerTypeBroadcast <- R6::R6Class(
   "AttachMenuPeerTypeBroadcast",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7bfbdefc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd1d886d0,
 
 
@@ -757,10 +770,7 @@ AttachMenuPeerTypeBroadcast <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AttachMenuPeerTypeBroadcast object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AttachMenuPeerTypeBroadcast.
     from_reader = function(reader) {
       return(AttachMenuPeerTypeBroadcast$new())
     }
@@ -774,7 +784,9 @@ AttachMenuPeerTypeChat <- R6::R6Class(
   "AttachMenuPeerTypeChat",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x0509113f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd1d886d0,
 
 
@@ -802,10 +814,7 @@ AttachMenuPeerTypeChat <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AttachMenuPeerTypeChat object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AttachMenuPeerTypeChat.
     from_reader = function(reader) {
       return(AttachMenuPeerTypeChat$new())
     }
@@ -819,7 +828,9 @@ AttachMenuPeerTypePM <- R6::R6Class(
   "AttachMenuPeerTypePM",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf146d31f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd1d886d0,
 
 
@@ -847,10 +858,7 @@ AttachMenuPeerTypePM <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AttachMenuPeerTypePM object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AttachMenuPeerTypePM.
     from_reader = function(reader) {
       return(AttachMenuPeerTypePM$new())
     }
@@ -864,7 +872,9 @@ AttachMenuPeerTypeSameBotPM <- R6::R6Class(
   "AttachMenuPeerTypeSameBotPM",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7d6be90e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd1d886d0,
 
 
@@ -892,10 +902,7 @@ AttachMenuPeerTypeSameBotPM <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AttachMenuPeerTypeSameBotPM object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AttachMenuPeerTypeSameBotPM.
     from_reader = function(reader) {
       return(AttachMenuPeerTypeSameBotPM$new())
     }
@@ -909,26 +916,46 @@ Authorization <- R6::R6Class(
   "Authorization",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xad01d61d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc913c01a,
 
+    #' @field hash Field.
     hash = NULL,
+    #' @field device_model Field.
     device_model = NULL,
+    #' @field platform Field.
     platform = NULL,
+    #' @field system_version Field.
     system_version = NULL,
+    #' @field api_id Field.
     api_id = NULL,
+    #' @field app_name Field.
     app_name = NULL,
+    #' @field app_version Field.
     app_version = NULL,
+    #' @field date_created Field.
     date_created = NULL,
+    #' @field date_active Field.
     date_active = NULL,
+    #' @field ip Field.
     ip = NULL,
+    #' @field country Field.
     country = NULL,
+    #' @field region Field.
     region = NULL,
+    #' @field current Field.
     current = NULL,
+    #' @field official_app Field.
     official_app = NULL,
+    #' @field password_pending Field.
     password_pending = NULL,
+    #' @field encrypted_requests_disabled Field.
     encrypted_requests_disabled = NULL,
+    #' @field call_requests_disabled Field.
     call_requests_disabled = NULL,
+    #' @field unconfirmed Field.
     unconfirmed = NULL,
 
     #' @description
@@ -1032,10 +1059,7 @@ Authorization <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an Authorization object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of Authorization.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -1090,19 +1114,32 @@ AutoDownloadSettings <- R6::R6Class(
   "AutoDownloadSettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbaa57628,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x512819c7,
 
+    #' @field photo_size_max Field.
     photo_size_max = NULL,
+    #' @field video_size_max Field.
     video_size_max = NULL,
+    #' @field file_size_max Field.
     file_size_max = NULL,
+    #' @field video_upload_maxbitrate Field.
     video_upload_maxbitrate = NULL,
+    #' @field small_queue_active_operations_max Field.
     small_queue_active_operations_max = NULL,
+    #' @field large_queue_active_operations_max Field.
     large_queue_active_operations_max = NULL,
+    #' @field disabled Field.
     disabled = NULL,
+    #' @field video_preload_large Field.
     video_preload_large = NULL,
+    #' @field audio_preload_next Field.
     audio_preload_next = NULL,
+    #' @field phonecalls_lessdata Field.
     phonecalls_lessdata = NULL,
+    #' @field stories_preload Field.
     stories_preload = NULL,
 
     #' @description
@@ -1178,10 +1215,7 @@ AutoDownloadSettings <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AutoDownloadSettings object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AutoDownloadSettings.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -1222,10 +1256,14 @@ AutoSaveException <- R6::R6Class(
   "AutoSaveException",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x81602d47,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdd868129,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field settings Field.
     settings = NULL,
 
     #' @description
@@ -1261,10 +1299,7 @@ AutoSaveException <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AutoSaveException object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AutoSaveException.
     from_reader = function(reader) {
       peer <- reader$tgread_object()
       settings <- reader$tgread_object()
@@ -1280,11 +1315,16 @@ AutoSaveSettings <- R6::R6Class(
   "AutoSaveSettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc84834ce,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcd3b96e6,
 
+    #' @field photos Field.
     photos = NULL,
+    #' @field videos Field.
     videos = NULL,
+    #' @field video_max_size Field.
     video_max_size = NULL,
 
     #' @description
@@ -1336,10 +1376,7 @@ AutoSaveSettings <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AutoSaveSettings object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AutoSaveSettings.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -1367,14 +1404,22 @@ AvailableEffect <- R6::R6Class(
   "AvailableEffect",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x93c3e27e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x985a2f81,
 
+    #' @field id Field.
     id = NULL,
+    #' @field emoticon Field.
     emoticon = NULL,
+    #' @field effect_sticker_id Field.
     effect_sticker_id = NULL,
+    #' @field premium_required Field.
     premium_required = NULL,
+    #' @field static_icon_id Field.
     static_icon_id = NULL,
+    #' @field effect_animation_id Field.
     effect_animation_id = NULL,
 
     #' @description
@@ -1447,10 +1492,7 @@ AvailableEffect <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AvailableEffect object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AvailableEffect.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -1489,19 +1531,32 @@ AvailableReaction <- R6::R6Class(
   "AvailableReaction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc077ec01,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8c1c9d73,
 
+    #' @field reaction Field.
     reaction = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field static_icon Field.
     static_icon = NULL,
+    #' @field appear_animation Field.
     appear_animation = NULL,
+    #' @field select_animation Field.
     select_animation = NULL,
+    #' @field activate_animation Field.
     activate_animation = NULL,
+    #' @field effect_animation Field.
     effect_animation = NULL,
+    #' @field inactive Field.
     inactive = NULL,
+    #' @field premium Field.
     premium = NULL,
+    #' @field around_animation Field.
     around_animation = NULL,
+    #' @field center_icon Field.
     center_icon = NULL,
 
     #' @description
@@ -1595,10 +1650,7 @@ AvailableReaction <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads an AvailableReaction object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of AvailableReaction.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -1646,11 +1698,16 @@ BadMsgNotification <- R6::R6Class(
   "BadMsgNotification",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa7eff811,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcebaa157,
 
+    #' @field bad_msg_id Field.
     bad_msg_id = NULL,
+    #' @field bad_msg_seqno Field.
     bad_msg_seqno = NULL,
+    #' @field error_code Field.
     error_code = NULL,
 
     #' @description
@@ -1690,10 +1747,7 @@ BadMsgNotification <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BadMsgNotification object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BadMsgNotification.
     from_reader = function(reader) {
       bad_msg_id <- reader$read_long()
       bad_msg_seqno <- reader$read_int()
@@ -1714,12 +1768,18 @@ BadServerSalt <- R6::R6Class(
   "BadServerSalt",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xedab447b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcebaa157,
 
+    #' @field bad_msg_id Field.
     bad_msg_id = NULL,
+    #' @field bad_msg_seqno Field.
     bad_msg_seqno = NULL,
+    #' @field error_code Field.
     error_code = NULL,
+    #' @field new_server_salt Field.
     new_server_salt = NULL,
 
     #' @description
@@ -1763,10 +1823,7 @@ BadServerSalt <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BadServerSalt object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BadServerSalt.
     from_reader = function(reader) {
       bad_msg_id <- reader$read_long()
       bad_msg_seqno <- reader$read_int()
@@ -1789,10 +1846,14 @@ BankCardOpenUrl <- R6::R6Class(
   "BankCardOpenUrl",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf568028a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf2e2460e,
 
+    #' @field url Field.
     url = NULL,
+    #' @field name Field.
     name = NULL,
 
     #' @description
@@ -1828,10 +1889,7 @@ BankCardOpenUrl <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BankCardOpenUrl object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BankCardOpenUrl.
     from_reader = function(reader) {
       url <- reader$tgread_string()
       name <- reader$tgread_string()
@@ -1847,7 +1905,9 @@ BaseThemeArctic <- R6::R6Class(
   "BaseThemeArctic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5b11125a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1f03f444,
 
     #' @description
@@ -1872,10 +1932,7 @@ BaseThemeArctic <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BaseThemeArctic object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BaseThemeArctic.
     from_reader = function(reader) {
       return(BaseThemeArctic$new())
     }
@@ -1889,7 +1946,9 @@ BaseThemeClassic <- R6::R6Class(
   "BaseThemeClassic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc3a12462,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1f03f444,
 
     #' @description
@@ -1914,10 +1973,7 @@ BaseThemeClassic <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BaseThemeClassic object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BaseThemeClassic.
     from_reader = function(reader) {
       return(BaseThemeClassic$new())
     }
@@ -1931,7 +1987,9 @@ BaseThemeDay <- R6::R6Class(
   "BaseThemeDay",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfbd81688,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1f03f444,
 
     #' @description
@@ -1956,10 +2014,7 @@ BaseThemeDay <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BaseThemeDay object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BaseThemeDay.
     from_reader = function(reader) {
       return(BaseThemeDay$new())
     }
@@ -1973,7 +2028,9 @@ BaseThemeNight <- R6::R6Class(
   "BaseThemeNight",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb7b31ea8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1f03f444,
 
     #' @description
@@ -1998,10 +2055,7 @@ BaseThemeNight <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BaseThemeNight object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BaseThemeNight.
     from_reader = function(reader) {
       return(BaseThemeNight$new())
     }
@@ -2015,7 +2069,9 @@ BaseThemeTinted <- R6::R6Class(
   "BaseThemeTinted",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6d5f77ee,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1f03f444,
 
     #' @description
@@ -2040,10 +2096,7 @@ BaseThemeTinted <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BaseThemeTinted object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BaseThemeTinted.
     from_reader = function(reader) {
       return(BaseThemeTinted$new())
     }
@@ -2057,13 +2110,20 @@ BindAuthKeyInner <- R6::R6Class(
   "BindAuthKeyInner",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x75a3f765,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2f099171,
 
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field temp_auth_key_id Field.
     temp_auth_key_id = NULL,
+    #' @field perm_auth_key_id Field.
     perm_auth_key_id = NULL,
+    #' @field temp_session_id Field.
     temp_session_id = NULL,
+    #' @field expires_at Field.
     expires_at = NULL,
 
     #' @description
@@ -2111,10 +2171,7 @@ BindAuthKeyInner <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BindAuthKeyInner object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BindAuthKeyInner.
     from_reader = function(reader) {
       nonce <- reader$read_long()
       temp_auth_key_id <- reader$read_long()
@@ -2139,11 +2196,16 @@ Birthday <- R6::R6Class(
   "Birthday",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6c8e1e06,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbe7fd664,
 
+    #' @field day Field.
     day = NULL,
+    #' @field month Field.
     month = NULL,
+    #' @field year Field.
     year = NULL,
 
     #' @description
@@ -2187,10 +2249,7 @@ Birthday <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a Birthday object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of Birthday.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -2213,19 +2272,32 @@ Boost <- R6::R6Class(
   "Boost",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4b3e14d6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x97a5086c,
 
+    #' @field id Field.
     id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field expires Field.
     expires = NULL,
+    #' @field gift Field.
     gift = NULL,
+    #' @field giveaway Field.
     giveaway = NULL,
+    #' @field unclaimed Field.
     unclaimed = NULL,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field giveaway_msg_id Field.
     giveaway_msg_id = NULL,
+    #' @field used_gift_slug Field.
     used_gift_slug = NULL,
+    #' @field multiplier Field.
     multiplier = NULL,
+    #' @field stars Field.
     stars = NULL,
 
     #' @description
@@ -2330,10 +2402,7 @@ Boost <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a Boost object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of Boost.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -2395,16 +2464,26 @@ BotApp <- R6::R6Class(
   "BotApp",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x95fcd1d6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20f32ae,
 
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field short_name Field.
     short_name = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
+    #' @field photo Field.
     photo = NULL,
+    #' @field hash Field.
     hash = NULL,
+    #' @field document Field.
     document = NULL,
 
     #' @description
@@ -2479,10 +2558,7 @@ BotApp <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotApp object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotApp.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -2521,7 +2597,9 @@ BotAppNotModified <- R6::R6Class(
   "BotAppNotModified",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5da674b7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20f32ae,
 
     #' @description
@@ -2546,10 +2624,7 @@ BotAppNotModified <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotAppNotModified object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotAppNotModified.
     from_reader = function(reader) {
       return(BotAppNotModified$new())
     }
@@ -2563,13 +2638,20 @@ BotAppSettings <- R6::R6Class(
   "BotAppSettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc99b1950,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x179e62e3,
 
+    #' @field placeholder_path Field.
     placeholder_path = NULL,
+    #' @field background_color Field.
     background_color = NULL,
+    #' @field background_dark_color Field.
     background_dark_color = NULL,
+    #' @field header_color Field.
     header_color = NULL,
+    #' @field header_dark_color Field.
     header_dark_color = NULL,
 
     #' @description
@@ -2639,10 +2721,7 @@ BotAppSettings <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotAppSettings object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotAppSettings.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -2689,14 +2768,22 @@ BotBusinessConnection <- R6::R6Class(
   "BotBusinessConnection",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8f34b2f5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b130546,
 
+    #' @field connection_id Field.
     connection_id = NULL,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field dc_id Field.
     dc_id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field disabled Field.
     disabled = NULL,
+    #' @field rights Field.
     rights = NULL,
 
     #' @description
@@ -2766,10 +2853,7 @@ BotBusinessConnection <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotBusinessConnection object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotBusinessConnection.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -2807,10 +2891,14 @@ BotCommand <- R6::R6Class(
   "BotCommand",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc27ac8c7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe1e62c2,
 
+    #' @field command Field.
     command = NULL,
+    #' @field description Field.
     description = NULL,
 
     #' @description
@@ -2846,10 +2934,7 @@ BotCommand <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotCommand object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotCommand.
     from_reader = function(reader) {
       command <- reader$tgread_string()
       description <- reader$tgread_string()
@@ -2869,7 +2954,9 @@ BotCommandScopeChatAdmins <- R6::R6Class(
   "BotCommandScopeChatAdmins",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb9aa606a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4baf5d10,
 
     #' @description
@@ -2894,10 +2981,7 @@ BotCommandScopeChatAdmins <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotCommandScopeChatAdmins object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotCommandScopeChatAdmins.
     from_reader = function(reader) {
       return(BotCommandScopeChatAdmins$new())
     }
@@ -2911,7 +2995,9 @@ BotCommandScopeChats <- R6::R6Class(
   "BotCommandScopeChats",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6fe1a881,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4baf5d10,
 
     #' @description
@@ -2936,10 +3022,7 @@ BotCommandScopeChats <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotCommandScopeChats object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotCommandScopeChats.
     from_reader = function(reader) {
       return(BotCommandScopeChats$new())
     }
@@ -2953,7 +3036,9 @@ BotCommandScopeDefault <- R6::R6Class(
   "BotCommandScopeDefault",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2f6cb2ab,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4baf5d10,
 
     #' @description
@@ -2978,10 +3063,7 @@ BotCommandScopeDefault <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotCommandScopeDefault object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotCommandScopeDefault.
     from_reader = function(reader) {
       return(BotCommandScopeDefault$new())
     }
@@ -2995,9 +3077,12 @@ BotCommandScopePeer <- R6::R6Class(
   "BotCommandScopePeer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdb9d897d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4baf5d10,
 
+    #' @field peer Field.
     peer = NULL,
 
     #' @description
@@ -3029,10 +3114,7 @@ BotCommandScopePeer <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotCommandScopePeer object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotCommandScopePeer.
     from_reader = function(reader) {
       peer <- reader$tgread_object()
 
@@ -3050,9 +3132,12 @@ BotCommandScopePeerAdmins <- R6::R6Class(
   "BotCommandScopePeerAdmins",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3fd863d1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4baf5d10,
 
+    #' @field peer Field.
     peer = NULL,
 
     #' @description
@@ -3084,10 +3169,7 @@ BotCommandScopePeerAdmins <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotCommandScopePeerAdmins object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotCommandScopePeerAdmins.
     from_reader = function(reader) {
       peer <- reader$tgread_object()
 
@@ -3105,10 +3187,14 @@ BotCommandScopePeerUser <- R6::R6Class(
   "BotCommandScopePeerUser",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa1321f3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4baf5d10,
 
+    #' @field peer Field.
     peer = NULL,
+    #' @field user_id Field.
     user_id = NULL,
 
     #' @description
@@ -3144,10 +3230,7 @@ BotCommandScopePeerUser <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotCommandScopePeerUser object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotCommandScopePeerUser.
     from_reader = function(reader) {
       peer <- reader$tgread_object()
       user_id <- reader$tgread_object()
@@ -3167,7 +3250,9 @@ BotCommandScopeUsers <- R6::R6Class(
   "BotCommandScopeUsers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3c4f04d8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4baf5d10,
 
     #' @description
@@ -3192,10 +3277,7 @@ BotCommandScopeUsers <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotCommandScopeUsers object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotCommandScopeUsers.
     from_reader = function(reader) {
       return(BotCommandScopeUsers$new())
     }
@@ -3209,18 +3291,30 @@ BotInfo <- R6::R6Class(
   "BotInfo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4d8a0299,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1f701db,
 
+    #' @field has_preview_medias Field.
     has_preview_medias = NULL,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field description Field.
     description = NULL,
+    #' @field description_photo Field.
     description_photo = NULL,
+    #' @field description_document Field.
     description_document = NULL,
+    #' @field commands Field.
     commands = NULL,
+    #' @field menu_button Field.
     menu_button = NULL,
+    #' @field privacy_policy_url Field.
     privacy_policy_url = NULL,
+    #' @field app_settings Field.
     app_settings = NULL,
+    #' @field verifier_settings Field.
     verifier_settings = NULL,
 
     #' @description
@@ -3348,10 +3442,7 @@ BotInfo <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotInfo object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotInfo.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -3432,15 +3523,24 @@ BotInlineMediaResult <- R6::R6Class(
   "BotInlineMediaResult",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x17db940b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3832b3d5,
 
+    #' @field id Field.
     id = NULL,
+    #' @field type Field.
     type = NULL,
+    #' @field send_message Field.
     send_message = NULL,
+    #' @field photo Field.
     photo = NULL,
+    #' @field document Field.
     document = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
 
     #' @description
@@ -3526,10 +3626,7 @@ BotInlineMediaResult <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotInlineMediaResult object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotInlineMediaResult.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -3578,12 +3675,18 @@ BotInlineMessageMediaAuto <- R6::R6Class(
   "BotInlineMessageMediaAuto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x764cf810,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc4910f88,
 
+    #' @field message Field.
     message = NULL,
+    #' @field invert_media Field.
     invert_media = NULL,
+    #' @field entities Field.
     entities = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
 
     #' @description
@@ -3653,10 +3756,7 @@ BotInlineMessageMediaAuto <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotInlineMessageMediaAuto object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotInlineMessageMediaAuto.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -3698,13 +3798,20 @@ BotInlineMessageMediaContact <- R6::R6Class(
   "BotInlineMessageMediaContact",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x18d1cdc2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc4910f88,
 
+    #' @field phone_number Field.
     phone_number = NULL,
+    #' @field first_name Field.
     first_name = NULL,
+    #' @field last_name Field.
     last_name = NULL,
+    #' @field vcard Field.
     vcard = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
 
     #' @description
@@ -3766,10 +3873,7 @@ BotInlineMessageMediaContact <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotInlineMessageMediaContact object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotInlineMessageMediaContact.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -3801,13 +3905,20 @@ BotInlineMessageMediaGeo <- R6::R6Class(
   "BotInlineMessageMediaGeo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x51846fd,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc4910f88,
 
+    #' @field geo Field.
     geo = NULL,
+    #' @field heading Field.
     heading = NULL,
+    #' @field period Field.
     period = NULL,
+    #' @field proximity_notification_radius Field.
     proximity_notification_radius = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
 
     #' @description
@@ -3884,10 +3995,7 @@ BotInlineMessageMediaGeo <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotInlineMessageMediaGeo object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotInlineMessageMediaGeo.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -3931,16 +4039,26 @@ BotInlineMessageMediaInvoice <- R6::R6Class(
   "BotInlineMessageMediaInvoice",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x354a9b09,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc4910f88,
 
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
+    #' @field currency Field.
     currency = NULL,
+    #' @field total_amount Field.
     total_amount = NULL,
+    #' @field shipping_address_requested Field.
     shipping_address_requested = NULL,
+    #' @field test Field.
     test = NULL,
+    #' @field photo Field.
     photo = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
 
     #' @description
@@ -4028,10 +4146,7 @@ BotInlineMessageMediaInvoice <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotInlineMessageMediaInvoice object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotInlineMessageMediaInvoice.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -4082,15 +4197,24 @@ BotInlineMessageMediaVenue <- R6::R6Class(
   "BotInlineMessageMediaVenue",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8a86659c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc4910f88,
 
+    #' @field geo Field.
     geo = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field address Field.
     address = NULL,
+    #' @field provider Field.
     provider = NULL,
+    #' @field venue_id Field.
     venue_id = NULL,
+    #' @field venue_type Field.
     venue_type = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
 
     #' @description
@@ -4160,10 +4284,7 @@ BotInlineMessageMediaVenue <- R6::R6Class(
   ),
 
   private = list(
-    #' @description
     #' Reads a BotInlineMessageMediaVenue object from a BinaryReader.
-    #' @param reader A BinaryReader object to read from.
-    #' @return An instance of BotInlineMessageMediaVenue.
     from_reader = function(reader) {
       flags <- reader$read_int()
 
@@ -4199,16 +4320,27 @@ BotInlineMessageMediaWebPage <- R6::R6Class(
   "BotInlineMessageMediaWebPage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x809ad9a6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc4910f88,
+    #' @field message Field.
     message = NULL,
+    #' @field url Field.
     url = NULL,
+    #' @field invert_media Field.
     invert_media = NULL,
+    #' @field force_large_media Field.
     force_large_media = NULL,
+    #' @field force_small_media Field.
     force_small_media = NULL,
+    #' @field manual Field.
     manual = NULL,
+    #' @field safe Field.
     safe = NULL,
+    #' @field entities Field.
     entities = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
     initialize = function(message, url, invert_media = NULL, force_large_media = NULL, force_small_media = NULL, manual = NULL, safe = NULL, entities = NULL, reply_markup = NULL) {
       self$message <- message
@@ -4313,12 +4445,19 @@ BotInlineMessageText <- R6::R6Class(
   "BotInlineMessageText",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8c7f65e2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc4910f88,
+    #' @field message Field.
     message = NULL,
+    #' @field no_webpage Field.
     no_webpage = NULL,
+    #' @field invert_media Field.
     invert_media = NULL,
+    #' @field entities Field.
     entities = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
     initialize = function(message, no_webpage = NULL, invert_media = NULL, entities = NULL, reply_markup = NULL) {
       self$message <- message
@@ -4405,15 +4544,25 @@ BotInlineResult <- R6::R6Class(
   "BotInlineResult",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x11965f3a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3832b3d5,
+    #' @field id Field.
     id = NULL,
+    #' @field type Field.
     type = NULL,
+    #' @field send_message Field.
     send_message = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
+    #' @field url Field.
     url = NULL,
+    #' @field thumb Field.
     thumb = NULL,
+    #' @field content Field.
     content = NULL,
     initialize = function(id, type, send_message, title = NULL, description = NULL, url = NULL, thumb = NULL, content = NULL) {
       self$id <- id
@@ -4530,9 +4679,13 @@ BotMenuButton <- R6::R6Class(
   "BotMenuButton",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc7b57ce6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4c71bd3c,
+    #' @field text Field.
     text = NULL,
+    #' @field url Field.
     url = NULL,
     initialize = function(text, url) {
       self$text <- text
@@ -4573,7 +4726,9 @@ BotMenuButtonCommands <- R6::R6Class(
   "BotMenuButtonCommands",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4258c205,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4c71bd3c,
     initialize = function() {
       # No parameters
@@ -4605,7 +4760,9 @@ BotMenuButtonDefault <- R6::R6Class(
   "BotMenuButtonDefault",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7533a588,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4c71bd3c,
     initialize = function() {
       # No parameters
@@ -4637,9 +4794,13 @@ BotPreviewMedia <- R6::R6Class(
   "BotPreviewMedia",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x23e91ba3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x562abc2d,
+    #' @field date Field.
     date = NULL,
+    #' @field media Field.
     media = NULL,
     initialize = function(date = NULL, media) {
       self$date <- date
@@ -4680,10 +4841,15 @@ BotVerification <- R6::R6Class(
   "BotVerification",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf93cd45c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2cbf3c5a,
+    #' @field bot_id Field.
     bot_id = NULL,
+    #' @field icon Field.
     icon = NULL,
+    #' @field description Field.
     description = NULL,
     initialize = function(bot_id, icon, description) {
       self$bot_id <- bot_id
@@ -4728,11 +4894,17 @@ BotVerifierSettings <- R6::R6Class(
   "BotVerifierSettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb0cd6617,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1d6034c,
+    #' @field icon Field.
     icon = NULL,
+    #' @field company Field.
     company = NULL,
+    #' @field can_modify_custom_description Field.
     can_modify_custom_description = NULL,
+    #' @field custom_description Field.
     custom_description = NULL,
     initialize = function(icon, company, can_modify_custom_description = NULL, custom_description = NULL) {
       self$icon <- icon
@@ -4797,11 +4969,17 @@ BusinessAwayMessage <- R6::R6Class(
   "BusinessAwayMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xef156a5c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1d3ae24,
+    #' @field shortcut_id Field.
     shortcut_id = NULL,
+    #' @field schedule Field.
     schedule = NULL,
+    #' @field recipients Field.
     recipients = NULL,
+    #' @field offline_only Field.
     offline_only = NULL,
     initialize = function(shortcut_id, schedule, recipients, offline_only = NULL) {
       self$shortcut_id <- shortcut_id
@@ -4855,7 +5033,9 @@ BusinessAwayMessageScheduleAlways <- R6::R6Class(
   "BusinessAwayMessageScheduleAlways",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc9b9e2b9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2818a05e,
     initialize = function() {
       # No parameters
@@ -4887,9 +5067,13 @@ BusinessAwayMessageScheduleCustom <- R6::R6Class(
   "BusinessAwayMessageScheduleCustom",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcc4d9ecc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2818a05e,
+    #' @field start_date Field.
     start_date = NULL,
+    #' @field end_date Field.
     end_date = NULL,
     initialize = function(start_date = NULL, end_date = NULL) {
       self$start_date <- start_date
@@ -4930,7 +5114,9 @@ BusinessAwayMessageScheduleOutsideWorkHours <- R6::R6Class(
   "BusinessAwayMessageScheduleOutsideWorkHours",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc3f2f501,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2818a05e,
     initialize = function() {
       # No parameters
@@ -4962,14 +5148,23 @@ BusinessBotRecipients <- R6::R6Class(
   "BusinessBotRecipients",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb88cf373,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf09283ca,
+    #' @field existing_chats Field.
     existing_chats = NULL,
+    #' @field new_chats Field.
     new_chats = NULL,
+    #' @field contacts Field.
     contacts = NULL,
+    #' @field non_contacts Field.
     non_contacts = NULL,
+    #' @field exclude_selected Field.
     exclude_selected = NULL,
+    #' @field users Field.
     users = NULL,
+    #' @field exclude_users Field.
     exclude_users = NULL,
     initialize = function(existing_chats = NULL, new_chats = NULL, contacts = NULL, non_contacts = NULL, exclude_selected = NULL, users = NULL, exclude_users = NULL) {
       self$existing_chats <- existing_chats
@@ -5070,21 +5265,37 @@ BusinessBotRights <- R6::R6Class(
   "BusinessBotRights",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa0624cf7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb8dc759a,
+    #' @field reply Field.
     reply = NULL,
+    #' @field read_messages Field.
     read_messages = NULL,
+    #' @field delete_sent_messages Field.
     delete_sent_messages = NULL,
+    #' @field delete_received_messages Field.
     delete_received_messages = NULL,
+    #' @field edit_name Field.
     edit_name = NULL,
+    #' @field edit_bio Field.
     edit_bio = NULL,
+    #' @field edit_profile_photo Field.
     edit_profile_photo = NULL,
+    #' @field edit_username Field.
     edit_username = NULL,
+    #' @field view_gifts Field.
     view_gifts = NULL,
+    #' @field sell_gifts Field.
     sell_gifts = NULL,
+    #' @field change_gift_settings Field.
     change_gift_settings = NULL,
+    #' @field transfer_and_upgrade_gifts Field.
     transfer_and_upgrade_gifts = NULL,
+    #' @field transfer_stars Field.
     transfer_stars = NULL,
+    #' @field manage_stories Field.
     manage_stories = NULL,
     initialize = function(reply = NULL, read_messages = NULL, delete_sent_messages = NULL, delete_received_messages = NULL, edit_name = NULL, edit_bio = NULL, edit_profile_photo = NULL, edit_username = NULL, view_gifts = NULL, sell_gifts = NULL, change_gift_settings = NULL, transfer_and_upgrade_gifts = NULL, transfer_stars = NULL, manage_stories = NULL) {
       self$reply <- reply
@@ -5182,12 +5393,19 @@ BusinessChatLink <- R6::R6Class(
   "BusinessChatLink",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb4ae666f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3c0d4a8b,
+    #' @field link Field.
     link = NULL,
+    #' @field message Field.
     message = NULL,
+    #' @field views Field.
     views = NULL,
+    #' @field entities Field.
     entities = NULL,
+    #' @field title Field.
     title = NULL,
     initialize = function(link, message, views, entities = NULL, title = NULL) {
       self$link <- link
@@ -5272,10 +5490,15 @@ BusinessGreetingMessage <- R6::R6Class(
   "BusinessGreetingMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe519abab,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb344eace,
+    #' @field shortcut_id Field.
     shortcut_id = NULL,
+    #' @field recipients Field.
     recipients = NULL,
+    #' @field no_activity_days Field.
     no_activity_days = NULL,
     initialize = function(shortcut_id, recipients, no_activity_days) {
       self$shortcut_id <- shortcut_id
@@ -5320,10 +5543,15 @@ BusinessIntro <- R6::R6Class(
   "BusinessIntro",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5a0a066d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6504d3c7,
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
+    #' @field sticker Field.
     sticker = NULL,
     initialize = function(title, description, sticker = NULL) {
       self$title <- title
@@ -5382,9 +5610,13 @@ BusinessLocation <- R6::R6Class(
   "BusinessLocation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xac5c1af7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x99accad0,
+    #' @field address Field.
     address = NULL,
+    #' @field geo_point Field.
     geo_point = NULL,
     initialize = function(address, geo_point = NULL) {
       self$address <- address
@@ -5439,13 +5671,21 @@ BusinessRecipients <- R6::R6Class(
   "BusinessRecipients",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x21108ff7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x52852e46,
+    #' @field existing_chats Field.
     existing_chats = NULL,
+    #' @field new_chats Field.
     new_chats = NULL,
+    #' @field contacts Field.
     contacts = NULL,
+    #' @field non_contacts Field.
     non_contacts = NULL,
+    #' @field exclude_selected Field.
     exclude_selected = NULL,
+    #' @field users Field.
     users = NULL,
     initialize = function(existing_chats = NULL, new_chats = NULL, contacts = NULL, non_contacts = NULL, exclude_selected = NULL, users = NULL) {
       self$existing_chats <- existing_chats
@@ -5527,9 +5767,13 @@ BusinessWeeklyOpen <- R6::R6Class(
   "BusinessWeeklyOpen",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x120b1ab9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x18402627,
+    #' @field start_minute Field.
     start_minute = NULL,
+    #' @field end_minute Field.
     end_minute = NULL,
     initialize = function(start_minute, end_minute) {
       self$start_minute <- start_minute
@@ -5570,10 +5814,15 @@ BusinessWorkHours <- R6::R6Class(
   "BusinessWorkHours",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8c92b098,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x659fa805,
+    #' @field timezone_id Field.
     timezone_id = NULL,
+    #' @field weekly_open Field.
     weekly_open = NULL,
+    #' @field open_now Field.
     open_now = NULL,
     initialize = function(timezone_id, weekly_open, open_now = NULL) {
       self$timezone_id <- timezone_id
@@ -5628,8 +5877,11 @@ CdnConfig <- R6::R6Class(
   "CdnConfig",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5725e40a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xecda397c,
+    #' @field public_keys Field.
     public_keys = NULL,
     initialize = function(public_keys) {
       self$public_keys <- public_keys
@@ -5670,9 +5922,13 @@ CdnPublicKey <- R6::R6Class(
   "CdnPublicKey",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc982eaba,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x16db47f3,
+    #' @field dc_id Field.
     dc_id = NULL,
+    #' @field public_key Field.
     public_key = NULL,
     initialize = function(dc_id, public_key) {
       self$dc_id <- dc_id
@@ -5713,56 +5969,107 @@ CdnPublicKey <- R6::R6Class(
 Channel <- R6::R6Class("Channel",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfe685355,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc5af5d94,
+    #' @field id Field.
     id = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field photo Field.
     photo = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field creator Field.
     creator = NULL,
+    #' @field left Field.
     left = NULL,
+    #' @field broadcast Field.
     broadcast = NULL,
+    #' @field verified Field.
     verified = NULL,
+    #' @field megagroup Field.
     megagroup = NULL,
+    #' @field restricted Field.
     restricted = NULL,
+    #' @field signatures Field.
     signatures = NULL,
+    #' @field min Field.
     min = NULL,
+    #' @field scam Field.
     scam = NULL,
+    #' @field has_link Field.
     has_link = NULL,
+    #' @field has_geo Field.
     has_geo = NULL,
+    #' @field slowmode_enabled Field.
     slowmode_enabled = NULL,
+    #' @field call_active Field.
     call_active = NULL,
+    #' @field call_not_empty Field.
     call_not_empty = NULL,
+    #' @field fake Field.
     fake = NULL,
+    #' @field gigagroup Field.
     gigagroup = NULL,
+    #' @field noforwards Field.
     noforwards = NULL,
+    #' @field join_to_send Field.
     join_to_send = NULL,
+    #' @field join_request Field.
     join_request = NULL,
+    #' @field forum Field.
     forum = NULL,
+    #' @field stories_hidden Field.
     stories_hidden = NULL,
+    #' @field stories_hidden_min Field.
     stories_hidden_min = NULL,
+    #' @field stories_unavailable Field.
     stories_unavailable = NULL,
+    #' @field signature_profiles Field.
     signature_profiles = NULL,
+    #' @field autotranslation Field.
     autotranslation = NULL,
+    #' @field broadcast_messages_allowed Field.
     broadcast_messages_allowed = NULL,
+    #' @field monoforum Field.
     monoforum = NULL,
+    #' @field forum_tabs Field.
     forum_tabs = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field username Field.
     username = NULL,
+    #' @field restriction_reason Field.
     restriction_reason = NULL,
+    #' @field admin_rights Field.
     admin_rights = NULL,
+    #' @field banned_rights Field.
     banned_rights = NULL,
+    #' @field default_banned_rights Field.
     default_banned_rights = NULL,
+    #' @field participants_count Field.
     participants_count = NULL,
+    #' @field usernames Field.
     usernames = NULL,
+    #' @field stories_max_id Field.
     stories_max_id = NULL,
+    #' @field color Field.
     color = NULL,
+    #' @field profile_color Field.
     profile_color = NULL,
+    #' @field emoji_status Field.
     emoji_status = NULL,
+    #' @field level Field.
     level = NULL,
+    #' @field subscription_until_date Field.
     subscription_until_date = NULL,
+    #' @field bot_verification_icon Field.
     bot_verification_icon = NULL,
+    #' @field send_paid_messages_stars Field.
     send_paid_messages_stars = NULL,
+    #' @field linked_monoforum_id Field.
     linked_monoforum_id = NULL,
     initialize = function(id, title, photo, date,
                           creator = NULL, left = NULL, broadcast = NULL, verified = NULL,
@@ -5889,6 +6196,7 @@ Channel <- R6::R6Class("Channel",
       as.raw(c(0xfe, 0x68, 0x53, 0x55)) # CONSTRUCTOR_ID
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -5898,11 +6206,17 @@ Channel <- R6::R6Class("Channel",
 ChannelAdminLogEvent <- R6::R6Class("ChannelAdminLogEvent",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1fad68cd,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x408f0999,
+    #' @field id Field.
     id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field action Field.
     action = NULL,
     initialize = function(id, date, user_id, action) {
       self$id <- id
@@ -5924,6 +6238,7 @@ ChannelAdminLogEvent <- R6::R6Class("ChannelAdminLogEvent",
       as.raw(c(0x1f, 0xad, 0x68, 0xcd))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -5933,9 +6248,13 @@ ChannelAdminLogEvent <- R6::R6Class("ChannelAdminLogEvent",
 ChannelAdminLogEventActionChangeAbout <- R6::R6Class("ChannelAdminLogEventActionChangeAbout",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x55188a2e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_value Field.
     prev_value = NULL,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -5953,6 +6272,7 @@ ChannelAdminLogEventActionChangeAbout <- R6::R6Class("ChannelAdminLogEventAction
       as.raw(c(0x55, 0x18, 0x8a, 0x2e))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -5962,9 +6282,13 @@ ChannelAdminLogEventActionChangeAbout <- R6::R6Class("ChannelAdminLogEventAction
 ChannelAdminLogEventActionChangeAvailableReactions <- R6::R6Class("ChannelAdminLogEventActionChangeAvailableReactions",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbe4e0ef8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_value Field.
     prev_value = NULL,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -5982,6 +6306,7 @@ ChannelAdminLogEventActionChangeAvailableReactions <- R6::R6Class("ChannelAdminL
       as.raw(c(0xbe, 0x4e, 0x0e, 0xf8))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -5989,9 +6314,13 @@ ChannelAdminLogEventActionChangeAvailableReactions <- R6::R6Class("ChannelAdminL
 ChannelAdminLogEventActionChangeEmojiStatus <- R6::R6Class("ChannelAdminLogEventActionChangeEmojiStatus",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3ea9feb1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_value Field.
     prev_value = NULL,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -6009,6 +6338,7 @@ ChannelAdminLogEventActionChangeEmojiStatus <- R6::R6Class("ChannelAdminLogEvent
       as.raw(c(0x3e, 0xa9, 0xfe, 0xb1))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6018,9 +6348,13 @@ ChannelAdminLogEventActionChangeEmojiStatus <- R6::R6Class("ChannelAdminLogEvent
 ChannelAdminLogEventActionChangeEmojiStickerSet <- R6::R6Class("ChannelAdminLogEventActionChangeEmojiStickerSet",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x46d840ab,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_stickerset Field.
     prev_stickerset = NULL,
+    #' @field new_stickerset Field.
     new_stickerset = NULL,
     initialize = function(prev_stickerset, new_stickerset) {
       self$prev_stickerset <- prev_stickerset
@@ -6038,6 +6372,7 @@ ChannelAdminLogEventActionChangeEmojiStickerSet <- R6::R6Class("ChannelAdminLogE
       as.raw(c(0x46, 0xd8, 0x40, 0xab))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6047,9 +6382,13 @@ ChannelAdminLogEventActionChangeEmojiStickerSet <- R6::R6Class("ChannelAdminLogE
 ChannelAdminLogEventActionChangeHistoryTTL <- R6::R6Class("ChannelAdminLogEventActionChangeHistoryTTL",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6e941a38,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_value Field.
     prev_value = NULL,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -6067,6 +6406,7 @@ ChannelAdminLogEventActionChangeHistoryTTL <- R6::R6Class("ChannelAdminLogEventA
       as.raw(c(0x6e, 0x94, 0x1a, 0x38))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6076,9 +6416,13 @@ ChannelAdminLogEventActionChangeHistoryTTL <- R6::R6Class("ChannelAdminLogEventA
 ChannelAdminLogEventActionChangeLinkedChat <- R6::R6Class("ChannelAdminLogEventActionChangeLinkedChat",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x50c7ac8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_value Field.
     prev_value = NULL,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -6096,6 +6440,7 @@ ChannelAdminLogEventActionChangeLinkedChat <- R6::R6Class("ChannelAdminLogEventA
       as.raw(c(0x05, 0x0c, 0x7a, 0xc8))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6105,9 +6450,13 @@ ChannelAdminLogEventActionChangeLinkedChat <- R6::R6Class("ChannelAdminLogEventA
 ChannelAdminLogEventActionChangeLocation <- R6::R6Class("ChannelAdminLogEventActionChangeLocation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe6b76ae,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_value Field.
     prev_value = NULL,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -6125,6 +6474,7 @@ ChannelAdminLogEventActionChangeLocation <- R6::R6Class("ChannelAdminLogEventAct
       as.raw(c(0x0e, 0x6b, 0x76, 0xae))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6134,9 +6484,13 @@ ChannelAdminLogEventActionChangeLocation <- R6::R6Class("ChannelAdminLogEventAct
 ChannelAdminLogEventActionChangePeerColor <- R6::R6Class("ChannelAdminLogEventActionChangePeerColor",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5796e780,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_value Field.
     prev_value = NULL,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -6154,6 +6508,7 @@ ChannelAdminLogEventActionChangePeerColor <- R6::R6Class("ChannelAdminLogEventAc
       as.raw(c(0x57, 0x96, 0xe7, 0x80))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6163,9 +6518,13 @@ ChannelAdminLogEventActionChangePeerColor <- R6::R6Class("ChannelAdminLogEventAc
 ChannelAdminLogEventActionChangePhoto <- R6::R6Class("ChannelAdminLogEventActionChangePhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x434bd2af,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_photo Field.
     prev_photo = NULL,
+    #' @field new_photo Field.
     new_photo = NULL,
     initialize = function(prev_photo, new_photo) {
       self$prev_photo <- prev_photo
@@ -6183,6 +6542,7 @@ ChannelAdminLogEventActionChangePhoto <- R6::R6Class("ChannelAdminLogEventAction
       as.raw(c(0x43, 0x4b, 0xd2, 0xaf))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6192,9 +6552,13 @@ ChannelAdminLogEventActionChangePhoto <- R6::R6Class("ChannelAdminLogEventAction
 ChannelAdminLogEventActionChangeProfilePeerColor <- R6::R6Class("ChannelAdminLogEventActionChangeProfilePeerColor",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5e477b25,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_value Field.
     prev_value = NULL,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -6212,6 +6576,7 @@ ChannelAdminLogEventActionChangeProfilePeerColor <- R6::R6Class("ChannelAdminLog
       as.raw(c(0x5e, 0x47, 0x7b, 0x25))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6221,9 +6586,13 @@ ChannelAdminLogEventActionChangeProfilePeerColor <- R6::R6Class("ChannelAdminLog
 ChannelAdminLogEventActionChangeStickerSet <- R6::R6Class("ChannelAdminLogEventActionChangeStickerSet",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb1c3caa7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_stickerset Field.
     prev_stickerset = NULL,
+    #' @field new_stickerset Field.
     new_stickerset = NULL,
     initialize = function(prev_stickerset, new_stickerset) {
       self$prev_stickerset <- prev_stickerset
@@ -6241,6 +6610,7 @@ ChannelAdminLogEventActionChangeStickerSet <- R6::R6Class("ChannelAdminLogEventA
       as.raw(c(0xb1, 0xc3, 0xca, 0xa7))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6250,9 +6620,13 @@ ChannelAdminLogEventActionChangeStickerSet <- R6::R6Class("ChannelAdminLogEventA
 ChannelAdminLogEventActionChangeTitle <- R6::R6Class("ChannelAdminLogEventActionChangeTitle",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe6dfb825,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_value Field.
     prev_value = NULL,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -6270,6 +6644,7 @@ ChannelAdminLogEventActionChangeTitle <- R6::R6Class("ChannelAdminLogEventAction
       as.raw(c(0xe6, 0xdf, 0xb8, 0x25))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6279,9 +6654,13 @@ ChannelAdminLogEventActionChangeTitle <- R6::R6Class("ChannelAdminLogEventAction
 ChannelAdminLogEventActionChangeUsername <- R6::R6Class("ChannelAdminLogEventActionChangeUsername",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6a4afc38,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_value Field.
     prev_value = NULL,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -6299,6 +6678,7 @@ ChannelAdminLogEventActionChangeUsername <- R6::R6Class("ChannelAdminLogEventAct
       as.raw(c(0x6a, 0x4a, 0xfc, 0x38))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6308,9 +6688,13 @@ ChannelAdminLogEventActionChangeUsername <- R6::R6Class("ChannelAdminLogEventAct
 ChannelAdminLogEventActionChangeUsernames <- R6::R6Class("ChannelAdminLogEventActionChangeUsernames",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf04fb3a9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_value Field.
     prev_value = NULL,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -6328,6 +6712,7 @@ ChannelAdminLogEventActionChangeUsernames <- R6::R6Class("ChannelAdminLogEventAc
       as.raw(c(0xf0, 0x4f, 0xb3, 0xa9))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6337,9 +6722,13 @@ ChannelAdminLogEventActionChangeUsernames <- R6::R6Class("ChannelAdminLogEventAc
 ChannelAdminLogEventActionChangeWallpaper <- R6::R6Class("ChannelAdminLogEventActionChangeWallpaper",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x31bb5d52,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_value Field.
     prev_value = NULL,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -6357,6 +6746,7 @@ ChannelAdminLogEventActionChangeWallpaper <- R6::R6Class("ChannelAdminLogEventAc
       as.raw(c(0x31, 0xbb, 0x5d, 0x52))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6366,8 +6756,11 @@ ChannelAdminLogEventActionChangeWallpaper <- R6::R6Class("ChannelAdminLogEventAc
 ChannelAdminLogEventActionCreateTopic <- R6::R6Class("ChannelAdminLogEventActionCreateTopic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x58707d28,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field topic Field.
     topic = NULL,
     initialize = function(topic) {
       self$topic <- topic
@@ -6383,6 +6776,7 @@ ChannelAdminLogEventActionCreateTopic <- R6::R6Class("ChannelAdminLogEventAction
       as.raw(c(0x58, 0x70, 0x7d, 0x28))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6392,9 +6786,13 @@ ChannelAdminLogEventActionCreateTopic <- R6::R6Class("ChannelAdminLogEventAction
 ChannelAdminLogEventActionDefaultBannedRights <- R6::R6Class("ChannelAdminLogEventActionDefaultBannedRights",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2df5fc0a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_banned_rights Field.
     prev_banned_rights = NULL,
+    #' @field new_banned_rights Field.
     new_banned_rights = NULL,
     initialize = function(prev_banned_rights, new_banned_rights) {
       self$prev_banned_rights <- prev_banned_rights
@@ -6412,6 +6810,7 @@ ChannelAdminLogEventActionDefaultBannedRights <- R6::R6Class("ChannelAdminLogEve
       as.raw(c(0x2d, 0xf5, 0xfc, 0x0a))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6421,8 +6820,11 @@ ChannelAdminLogEventActionDefaultBannedRights <- R6::R6Class("ChannelAdminLogEve
 ChannelAdminLogEventActionDeleteMessage <- R6::R6Class("ChannelAdminLogEventActionDeleteMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x42e047bb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field message Field.
     message = NULL,
     initialize = function(message) {
       self$message <- message
@@ -6438,6 +6840,7 @@ ChannelAdminLogEventActionDeleteMessage <- R6::R6Class("ChannelAdminLogEventActi
       as.raw(c(0x42, 0xe0, 0x47, 0xbb))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6447,8 +6850,11 @@ ChannelAdminLogEventActionDeleteMessage <- R6::R6Class("ChannelAdminLogEventActi
 ChannelAdminLogEventActionDeleteTopic <- R6::R6Class("ChannelAdminLogEventActionDeleteTopic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xae168909,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field topic Field.
     topic = NULL,
     initialize = function(topic) {
       self$topic <- topic
@@ -6464,6 +6870,7 @@ ChannelAdminLogEventActionDeleteTopic <- R6::R6Class("ChannelAdminLogEventAction
       as.raw(c(0xae, 0x16, 0x89, 0x09))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6473,8 +6880,11 @@ ChannelAdminLogEventActionDeleteTopic <- R6::R6Class("ChannelAdminLogEventAction
 ChannelAdminLogEventActionDiscardGroupCall <- R6::R6Class("ChannelAdminLogEventActionDiscardGroupCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdb9f9140,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field call Field.
     call = NULL,
     initialize = function(call) {
       self$call <- call
@@ -6490,6 +6900,7 @@ ChannelAdminLogEventActionDiscardGroupCall <- R6::R6Class("ChannelAdminLogEventA
       as.raw(c(0xdb, 0x9f, 0x91, 0x40))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6499,9 +6910,13 @@ ChannelAdminLogEventActionDiscardGroupCall <- R6::R6Class("ChannelAdminLogEventA
 ChannelAdminLogEventActionEditMessage <- R6::R6Class("ChannelAdminLogEventActionEditMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x709b2405,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_message Field.
     prev_message = NULL,
+    #' @field new_message Field.
     new_message = NULL,
     initialize = function(prev_message, new_message) {
       self$prev_message <- prev_message
@@ -6519,6 +6934,7 @@ ChannelAdminLogEventActionEditMessage <- R6::R6Class("ChannelAdminLogEventAction
       as.raw(c(0x70, 0x9b, 0x24, 0x05))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6528,9 +6944,13 @@ ChannelAdminLogEventActionEditMessage <- R6::R6Class("ChannelAdminLogEventAction
 ChannelAdminLogEventActionEditTopic <- R6::R6Class("ChannelAdminLogEventActionEditTopic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf06fe208,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_topic Field.
     prev_topic = NULL,
+    #' @field new_topic Field.
     new_topic = NULL,
     initialize = function(prev_topic, new_topic) {
       self$prev_topic <- prev_topic
@@ -6548,6 +6968,7 @@ ChannelAdminLogEventActionEditTopic <- R6::R6Class("ChannelAdminLogEventActionEd
       as.raw(c(0xf0, 0x6f, 0xe2, 0x08))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6557,8 +6978,11 @@ ChannelAdminLogEventActionEditTopic <- R6::R6Class("ChannelAdminLogEventActionEd
 ChannelAdminLogEventActionExportedInviteDelete <- R6::R6Class("ChannelAdminLogEventActionExportedInviteDelete",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5a50fca4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field invite Field.
     invite = NULL,
     initialize = function(invite) {
       self$invite <- invite
@@ -6574,6 +6998,7 @@ ChannelAdminLogEventActionExportedInviteDelete <- R6::R6Class("ChannelAdminLogEv
       as.raw(c(0x5a, 0x50, 0xfc, 0xa4))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6583,9 +7008,13 @@ ChannelAdminLogEventActionExportedInviteDelete <- R6::R6Class("ChannelAdminLogEv
 ChannelAdminLogEventActionExportedInviteEdit <- R6::R6Class("ChannelAdminLogEventActionExportedInviteEdit",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe90ebb59,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_invite Field.
     prev_invite = NULL,
+    #' @field new_invite Field.
     new_invite = NULL,
     initialize = function(prev_invite, new_invite) {
       self$prev_invite <- prev_invite
@@ -6603,6 +7032,7 @@ ChannelAdminLogEventActionExportedInviteEdit <- R6::R6Class("ChannelAdminLogEven
       as.raw(c(0xe9, 0x0e, 0xbb, 0x59))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6612,8 +7042,11 @@ ChannelAdminLogEventActionExportedInviteEdit <- R6::R6Class("ChannelAdminLogEven
 ChannelAdminLogEventActionExportedInviteRevoke <- R6::R6Class("ChannelAdminLogEventActionExportedInviteRevoke",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x410a134e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field invite Field.
     invite = NULL,
     initialize = function(invite) {
       self$invite <- invite
@@ -6629,6 +7062,7 @@ ChannelAdminLogEventActionExportedInviteRevoke <- R6::R6Class("ChannelAdminLogEv
       as.raw(c(0x41, 0x0a, 0x13, 0x4e))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6638,8 +7072,11 @@ ChannelAdminLogEventActionExportedInviteRevoke <- R6::R6Class("ChannelAdminLogEv
 ChannelAdminLogEventActionParticipantInvite <- R6::R6Class("ChannelAdminLogEventActionParticipantInvite",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe31c34d8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field participant Field.
     participant = NULL,
     initialize = function(participant) {
       self$participant <- participant
@@ -6655,6 +7092,7 @@ ChannelAdminLogEventActionParticipantInvite <- R6::R6Class("ChannelAdminLogEvent
       as.raw(c(0xe3, 0x1c, 0x34, 0xd8))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6664,7 +7102,9 @@ ChannelAdminLogEventActionParticipantInvite <- R6::R6Class("ChannelAdminLogEvent
 ChannelAdminLogEventActionParticipantJoin <- R6::R6Class("ChannelAdminLogEventActionParticipantJoin",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x183040d3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function() {
       # No parameters
@@ -6677,6 +7117,7 @@ ChannelAdminLogEventActionParticipantJoin <- R6::R6Class("ChannelAdminLogEventAc
       as.raw(c(0x18, 0x30, 0x40, 0xd3))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6686,9 +7127,13 @@ ChannelAdminLogEventActionParticipantJoin <- R6::R6Class("ChannelAdminLogEventAc
 ChannelAdminLogEventActionParticipantJoinByInvite <- R6::R6Class("ChannelAdminLogEventActionParticipantJoinByInvite",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfe9fc158,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field invite Field.
     invite = NULL,
+    #' @field via_chatlist Field.
     via_chatlist = NULL,
     initialize = function(invite, via_chatlist = NULL) {
       self$invite <- invite
@@ -6706,6 +7151,7 @@ ChannelAdminLogEventActionParticipantJoinByInvite <- R6::R6Class("ChannelAdminLo
       as.raw(c(0xfe, 0x9f, 0xc1, 0x58))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6715,9 +7161,13 @@ ChannelAdminLogEventActionParticipantJoinByInvite <- R6::R6Class("ChannelAdminLo
 ChannelAdminLogEventActionParticipantJoinByRequest <- R6::R6Class("ChannelAdminLogEventActionParticipantJoinByRequest",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xafb6144a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field invite Field.
     invite = NULL,
+    #' @field approved_by Field.
     approved_by = NULL,
     initialize = function(invite, approved_by) {
       self$invite <- invite
@@ -6735,6 +7185,7 @@ ChannelAdminLogEventActionParticipantJoinByRequest <- R6::R6Class("ChannelAdminL
       as.raw(c(0xaf, 0xb6, 0x14, 0x4a))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6744,7 +7195,9 @@ ChannelAdminLogEventActionParticipantJoinByRequest <- R6::R6Class("ChannelAdminL
 ChannelAdminLogEventActionParticipantLeave <- R6::R6Class("ChannelAdminLogEventActionParticipantLeave",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf89777f2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function() {
       # No parameters
@@ -6757,6 +7210,7 @@ ChannelAdminLogEventActionParticipantLeave <- R6::R6Class("ChannelAdminLogEventA
       as.raw(c(0xf8, 0x97, 0x77, 0xf2))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6766,8 +7220,11 @@ ChannelAdminLogEventActionParticipantLeave <- R6::R6Class("ChannelAdminLogEventA
 ChannelAdminLogEventActionParticipantMute <- R6::R6Class("ChannelAdminLogEventActionParticipantMute",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf92424d2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field participant Field.
     participant = NULL,
     initialize = function(participant) {
       self$participant <- participant
@@ -6783,6 +7240,7 @@ ChannelAdminLogEventActionParticipantMute <- R6::R6Class("ChannelAdminLogEventAc
       as.raw(c(0xf9, 0x24, 0x24, 0xd2))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6792,9 +7250,13 @@ ChannelAdminLogEventActionParticipantMute <- R6::R6Class("ChannelAdminLogEventAc
 ChannelAdminLogEventActionParticipantSubExtend <- R6::R6Class("ChannelAdminLogEventActionParticipantSubExtend",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x64642db3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_participant Field.
     prev_participant = NULL,
+    #' @field new_participant Field.
     new_participant = NULL,
     initialize = function(prev_participant, new_participant) {
       self$prev_participant <- prev_participant
@@ -6812,6 +7274,7 @@ ChannelAdminLogEventActionParticipantSubExtend <- R6::R6Class("ChannelAdminLogEv
       as.raw(c(0x64, 0x64, 0x2d, 0xb3))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6821,9 +7284,13 @@ ChannelAdminLogEventActionParticipantSubExtend <- R6::R6Class("ChannelAdminLogEv
 ChannelAdminLogEventActionParticipantToggleAdmin <- R6::R6Class("ChannelAdminLogEventActionParticipantToggleAdmin",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd5676710,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_participant Field.
     prev_participant = NULL,
+    #' @field new_participant Field.
     new_participant = NULL,
     initialize = function(prev_participant, new_participant) {
       self$prev_participant <- prev_participant
@@ -6841,6 +7308,7 @@ ChannelAdminLogEventActionParticipantToggleAdmin <- R6::R6Class("ChannelAdminLog
       as.raw(c(0xd5, 0x67, 0x67, 0x10))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6850,9 +7318,13 @@ ChannelAdminLogEventActionParticipantToggleAdmin <- R6::R6Class("ChannelAdminLog
 ChannelAdminLogEventActionParticipantToggleBan <- R6::R6Class("ChannelAdminLogEventActionParticipantToggleBan",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe6d83d7e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_participant Field.
     prev_participant = NULL,
+    #' @field new_participant Field.
     new_participant = NULL,
     initialize = function(prev_participant, new_participant) {
       self$prev_participant <- prev_participant
@@ -6870,6 +7342,7 @@ ChannelAdminLogEventActionParticipantToggleBan <- R6::R6Class("ChannelAdminLogEv
       as.raw(c(0xe6, 0xd8, 0x3d, 0x7e))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6879,8 +7352,11 @@ ChannelAdminLogEventActionParticipantToggleBan <- R6::R6Class("ChannelAdminLogEv
 ChannelAdminLogEventActionParticipantUnmute <- R6::R6Class("ChannelAdminLogEventActionParticipantUnmute",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe64429c0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field participant Field.
     participant = NULL,
     initialize = function(participant) {
       self$participant <- participant
@@ -6896,6 +7372,7 @@ ChannelAdminLogEventActionParticipantUnmute <- R6::R6Class("ChannelAdminLogEvent
       as.raw(c(0xe6, 0x44, 0x29, 0xc0))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6905,8 +7382,11 @@ ChannelAdminLogEventActionParticipantUnmute <- R6::R6Class("ChannelAdminLogEvent
 ChannelAdminLogEventActionParticipantVolume <- R6::R6Class("ChannelAdminLogEventActionParticipantVolume",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3e7f6847,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field participant Field.
     participant = NULL,
     initialize = function(participant) {
       self$participant <- participant
@@ -6922,6 +7402,7 @@ ChannelAdminLogEventActionParticipantVolume <- R6::R6Class("ChannelAdminLogEvent
       as.raw(c(0x3e, 0x7f, 0x68, 0x47))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6931,9 +7412,13 @@ ChannelAdminLogEventActionParticipantVolume <- R6::R6Class("ChannelAdminLogEvent
 ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPinTopic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5d8d353b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_topic Field.
     prev_topic = NULL,
+    #' @field new_topic Field.
     new_topic = NULL,
     initialize = function(prev_topic = NULL, new_topic = NULL) {
       self$prev_topic <- prev_topic
@@ -6951,6 +7436,7 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
       as.raw(c(0x5d, 0x8d, 0x35, 0x3b))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6960,8 +7446,11 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
 ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventActionSendMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x278f2868,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field message Field.
     message = NULL,
     initialize = function(message) {
       self$message <- message
@@ -6977,6 +7466,7 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
       as.raw(c(0x27, 0x8f, 0x28, 0x68))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -6986,8 +7476,11 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
 ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventActionStartGroupCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x23209745,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field call Field.
     call = NULL,
     initialize = function(call) {
       self$call <- call
@@ -7003,6 +7496,7 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
       as.raw(c(0x23, 0x20, 0x97, 0x45))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7012,8 +7506,11 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
 ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionStopPoll",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8f079643,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field message Field.
     message = NULL,
     initialize = function(message) {
       self$message <- message
@@ -7029,6 +7526,7 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
       as.raw(c(0x8f, 0x07, 0x96, 0x43))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7038,8 +7536,11 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
 ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventActionToggleAntiSpam",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x64f36dfc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -7055,6 +7556,7 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
       as.raw(c(0x64, 0xf3, 0x6d, 0xfc))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7064,8 +7566,11 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
 ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogEventActionToggleAutotranslation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc517f77e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -7081,6 +7586,7 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
       as.raw(c(0xc5, 0x17, 0xf7, 0x7e))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7090,8 +7596,11 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
 ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventActionToggleForum",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2cc6383,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -7107,6 +7616,7 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
       as.raw(c(0x02, 0xcc, 0x63, 0x83))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7116,8 +7626,11 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
 ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLogEventActionToggleGroupCallSetting",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x56d6a247,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field join_muted Field.
     join_muted = NULL,
     initialize = function(join_muted) {
       self$join_muted <- join_muted
@@ -7133,6 +7646,7 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
       as.raw(c(0x56, 0xd6, 0xa2, 0x47))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7142,8 +7656,11 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
 ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActionToggleInvites",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1b7907ae,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -7159,6 +7676,7 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
       as.raw(c(0x1b, 0x79, 0x07, 0xae))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7168,8 +7686,11 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
 ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventActionToggleNoForwards",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcb2ac766,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -7185,6 +7706,7 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
       as.raw(c(0xcb, 0x2a, 0xc7, 0x66))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7194,8 +7716,11 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
 ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLogEventActionTogglePreHistoryHidden",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5f5c95f1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -7211,6 +7736,7 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
       as.raw(c(0x5f, 0x5c, 0x95, 0xf1))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7220,8 +7746,11 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
 ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLogEventActionToggleSignatureProfiles",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x60a79c79,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -7237,6 +7766,7 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
       as.raw(c(0x60, 0xa7, 0x9c, 0x79))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7246,8 +7776,11 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
 ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventActionToggleSignatures",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x26ae0971,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -7263,6 +7796,7 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
       as.raw(c(0x26, 0xae, 0x09, 0x71))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7272,9 +7806,13 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
 ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventActionToggleSlowMode",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x53909779,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field prev_value Field.
     prev_value = NULL,
+    #' @field new_value Field.
     new_value = NULL,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -7292,6 +7830,7 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
       as.raw(c(0x53, 0x90, 0x97, 0x79))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7301,8 +7840,11 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
 ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActionUpdatePinned",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe9e82c18,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
+    #' @field message Field.
     message = NULL,
     initialize = function(message) {
       self$message <- message
@@ -7318,6 +7860,7 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
       as.raw(c(0xe9, 0xe8, 0x2c, 0x18))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7327,26 +7870,47 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
 ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xea107ae4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7cbbf319,
+    #' @field join Field.
     join = NULL,
+    #' @field leave Field.
     leave = NULL,
+    #' @field invite Field.
     invite = NULL,
+    #' @field ban Field.
     ban = NULL,
+    #' @field unban Field.
     unban = NULL,
+    #' @field kick Field.
     kick = NULL,
+    #' @field unkick Field.
     unkick = NULL,
+    #' @field promote Field.
     promote = NULL,
+    #' @field demote Field.
     demote = NULL,
+    #' @field info Field.
     info = NULL,
+    #' @field settings Field.
     settings = NULL,
+    #' @field pinned Field.
     pinned = NULL,
+    #' @field edit Field.
     edit = NULL,
+    #' @field delete Field.
     delete = NULL,
+    #' @field group_call Field.
     group_call = NULL,
+    #' @field invites Field.
     invites = NULL,
+    #' @field send Field.
     send = NULL,
+    #' @field forums Field.
     forums = NULL,
+    #' @field sub_extend Field.
     sub_extend = NULL,
     initialize = function(join = NULL, leave = NULL, invite = NULL, ban = NULL, unban = NULL,
                           kick = NULL, unkick = NULL, promote = NULL, demote = NULL, info = NULL,
@@ -7401,6 +7965,7 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
       as.raw(c(0xea, 0x10, 0x7a, 0xe4))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7410,13 +7975,21 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
 ChannelForbidden <- R6::R6Class("ChannelForbidden",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x17d493d5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc5af5d94,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field broadcast Field.
     broadcast = NULL,
+    #' @field megagroup Field.
     megagroup = NULL,
+    #' @field until_date Field.
     until_date = NULL,
     initialize = function(id, access_hash, title, broadcast = NULL, megagroup = NULL, until_date = NULL) {
       self$id <- id
@@ -7442,6 +8015,7 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
       as.raw(c(0x17, 0xd4, 0x93, 0xd5))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7451,73 +8025,141 @@ ChannelForbidden <- R6::R6Class("ChannelForbidden",
 ChannelFull <- R6::R6Class("ChannelFull",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe4e0b29d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd49a2697,
+    #' @field id Field.
     id = NULL,
+    #' @field about Field.
     about = NULL,
+    #' @field read_inbox_max_id Field.
     read_inbox_max_id = NULL,
+    #' @field read_outbox_max_id Field.
     read_outbox_max_id = NULL,
+    #' @field unread_count Field.
     unread_count = NULL,
+    #' @field chat_photo Field.
     chat_photo = NULL,
+    #' @field notify_settings Field.
     notify_settings = NULL,
+    #' @field bot_info Field.
     bot_info = NULL,
+    #' @field pts Field.
     pts = NULL,
+    #' @field can_view_participants Field.
     can_view_participants = NULL,
+    #' @field can_set_username Field.
     can_set_username = NULL,
+    #' @field can_set_stickers Field.
     can_set_stickers = NULL,
+    #' @field hidden_prehistory Field.
     hidden_prehistory = NULL,
+    #' @field can_set_location Field.
     can_set_location = NULL,
+    #' @field has_scheduled Field.
     has_scheduled = NULL,
+    #' @field can_view_stats Field.
     can_view_stats = NULL,
+    #' @field blocked Field.
     blocked = NULL,
+    #' @field can_delete_channel Field.
     can_delete_channel = NULL,
+    #' @field antispam Field.
     antispam = NULL,
+    #' @field participants_hidden Field.
     participants_hidden = NULL,
+    #' @field translations_disabled Field.
     translations_disabled = NULL,
+    #' @field stories_pinned_available Field.
     stories_pinned_available = NULL,
+    #' @field view_forum_as_messages Field.
     view_forum_as_messages = NULL,
+    #' @field restricted_sponsored Field.
     restricted_sponsored = NULL,
+    #' @field can_view_revenue Field.
     can_view_revenue = NULL,
+    #' @field paid_media_allowed Field.
     paid_media_allowed = NULL,
+    #' @field can_view_stars_revenue Field.
     can_view_stars_revenue = NULL,
+    #' @field paid_reactions_available Field.
     paid_reactions_available = NULL,
+    #' @field stargifts_available Field.
     stargifts_available = NULL,
+    #' @field paid_messages_available Field.
     paid_messages_available = NULL,
+    #' @field participants_count Field.
     participants_count = NULL,
+    #' @field admins_count Field.
     admins_count = NULL,
+    #' @field kicked_count Field.
     kicked_count = NULL,
+    #' @field banned_count Field.
     banned_count = NULL,
+    #' @field online_count Field.
     online_count = NULL,
+    #' @field exported_invite Field.
     exported_invite = NULL,
+    #' @field migrated_from_chat_id Field.
     migrated_from_chat_id = NULL,
+    #' @field migrated_from_max_id Field.
     migrated_from_max_id = NULL,
+    #' @field pinned_msg_id Field.
     pinned_msg_id = NULL,
+    #' @field stickerset Field.
     stickerset = NULL,
+    #' @field available_min_id Field.
     available_min_id = NULL,
+    #' @field folder_id Field.
     folder_id = NULL,
+    #' @field linked_chat_id Field.
     linked_chat_id = NULL,
+    #' @field location Field.
     location = NULL,
+    #' @field slowmode_seconds Field.
     slowmode_seconds = NULL,
+    #' @field slowmode_next_send_date Field.
     slowmode_next_send_date = NULL,
+    #' @field stats_dc Field.
     stats_dc = NULL,
+    #' @field call Field.
     call = NULL,
+    #' @field ttl_period Field.
     ttl_period = NULL,
+    #' @field pending_suggestions Field.
     pending_suggestions = NULL,
+    #' @field groupcall_default_join_as Field.
     groupcall_default_join_as = NULL,
+    #' @field theme_emoticon Field.
     theme_emoticon = NULL,
+    #' @field requests_pending Field.
     requests_pending = NULL,
+    #' @field recent_requesters Field.
     recent_requesters = NULL,
+    #' @field default_send_as Field.
     default_send_as = NULL,
+    #' @field available_reactions Field.
     available_reactions = NULL,
+    #' @field reactions_limit Field.
     reactions_limit = NULL,
+    #' @field stories Field.
     stories = NULL,
+    #' @field wallpaper Field.
     wallpaper = NULL,
+    #' @field boosts_applied Field.
     boosts_applied = NULL,
+    #' @field boosts_unrestrict Field.
     boosts_unrestrict = NULL,
+    #' @field emojiset Field.
     emojiset = NULL,
+    #' @field bot_verification Field.
     bot_verification = NULL,
+    #' @field stargifts_count Field.
     stargifts_count = NULL,
+    #' @field send_paid_messages_stars Field.
     send_paid_messages_stars = NULL,
+    #' @field main_tab Field.
     main_tab = NULL,
     initialize = function(id, about, read_inbox_max_id, read_outbox_max_id, unread_count, chat_photo, notify_settings, bot_info, pts,
                           can_view_participants = NULL, can_set_username = NULL, can_set_stickers = NULL, hidden_prehistory = NULL,
@@ -7676,6 +8318,7 @@ ChannelFull <- R6::R6Class("ChannelFull",
       as.raw(c(0xe4, 0xe0, 0xb2, 0x9d))
     }
   ),
+  #' @field class Field.
   class = TRUE
 )
 
@@ -7685,7 +8328,9 @@ ChannelFull <- R6::R6Class("ChannelFull",
 ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPinTopic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5d8d353b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(prev_topic = NULL, new_topic = NULL) {
       self$prev_topic <- prev_topic
@@ -7731,7 +8376,9 @@ ChannelAdminLogEventActionPinTopic <- R6::R6Class("ChannelAdminLogEventActionPin
 ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventActionSendMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x278f2868,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(message) {
       self$message <- message
@@ -7763,7 +8410,9 @@ ChannelAdminLogEventActionSendMessage <- R6::R6Class("ChannelAdminLogEventAction
 ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventActionStartGroupCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x23209745,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(call) {
       self$call <- call
@@ -7795,7 +8444,9 @@ ChannelAdminLogEventActionStartGroupCall <- R6::R6Class("ChannelAdminLogEventAct
 ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionStopPoll",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8f079643,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(message) {
       self$message <- message
@@ -7827,7 +8478,9 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
 ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventActionToggleAntiSpam",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x64f36dfc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -7859,7 +8512,9 @@ ChannelAdminLogEventActionToggleAntiSpam <- R6::R6Class("ChannelAdminLogEventAct
 ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogEventActionToggleAutotranslation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc517f77e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -7891,7 +8546,9 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
 ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventActionToggleForum",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2cc6383,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -7923,7 +8580,9 @@ ChannelAdminLogEventActionToggleForum <- R6::R6Class("ChannelAdminLogEventAction
 ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLogEventActionToggleGroupCallSetting",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x56d6a247,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(join_muted) {
       self$join_muted <- join_muted
@@ -7956,7 +8615,9 @@ ChannelAdminLogEventActionToggleGroupCallSetting <- R6::R6Class("ChannelAdminLog
 ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActionToggleInvites",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1b7907ae,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -7988,7 +8649,9 @@ ChannelAdminLogEventActionToggleInvites <- R6::R6Class("ChannelAdminLogEventActi
 ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventActionToggleNoForwards",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcb2ac766,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -8020,7 +8683,9 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
 ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLogEventActionTogglePreHistoryHidden",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5f5c95f1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -8052,7 +8717,9 @@ ChannelAdminLogEventActionTogglePreHistoryHidden <- R6::R6Class("ChannelAdminLog
 ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLogEventActionToggleSignatureProfiles",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x60a79c79,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -8084,7 +8751,9 @@ ChannelAdminLogEventActionToggleSignatureProfiles <- R6::R6Class("ChannelAdminLo
 ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventActionToggleSignatures",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x26ae0971,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(new_value) {
       self$new_value <- new_value
@@ -8116,7 +8785,9 @@ ChannelAdminLogEventActionToggleSignatures <- R6::R6Class("ChannelAdminLogEventA
 ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventActionToggleSlowMode",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x53909779,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(prev_value, new_value) {
       self$prev_value <- prev_value
@@ -8152,7 +8823,9 @@ ChannelAdminLogEventActionToggleSlowMode <- R6::R6Class("ChannelAdminLogEventAct
 ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActionUpdatePinned",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe9e82c18,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb2b987f3,
     initialize = function(message) {
       self$message <- message
@@ -8184,7 +8857,9 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
 ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xea107ae4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7cbbf319,
     initialize = function(join = NULL, leave = NULL, invite = NULL, ban = NULL, unban = NULL, kick = NULL, unkick = NULL, promote = NULL, demote = NULL, info = NULL, settings = NULL, pinned = NULL, edit = NULL, delete = NULL, group_call = NULL, invites = NULL, send = NULL, forums = NULL, sub_extend = NULL) {
       self$join <- join
@@ -8271,7 +8946,9 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
 ChannelForbidden <- R6::R6Class("ChannelForbidden",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x17d493d5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc5af5d94,
     initialize = function(id, access_hash, title, broadcast = NULL, megagroup = NULL, until_date = NULL) {
       self$id <- id
@@ -8328,73 +9005,141 @@ ChannelFull <- R6::R6Class(
   "ChannelFull",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe4e0b29d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd49a2697,
+    #' @field id Field.
     id = NULL,
+    #' @field about Field.
     about = NULL,
+    #' @field read_inbox_max_id Field.
     read_inbox_max_id = NULL,
+    #' @field read_outbox_max_id Field.
     read_outbox_max_id = NULL,
+    #' @field unread_count Field.
     unread_count = NULL,
+    #' @field chat_photo Field.
     chat_photo = NULL,
+    #' @field notify_settings Field.
     notify_settings = NULL,
+    #' @field bot_info Field.
     bot_info = NULL,
+    #' @field pts Field.
     pts = NULL,
+    #' @field can_view_participants Field.
     can_view_participants = NULL,
+    #' @field can_set_username Field.
     can_set_username = NULL,
+    #' @field can_set_stickers Field.
     can_set_stickers = NULL,
+    #' @field hidden_prehistory Field.
     hidden_prehistory = NULL,
+    #' @field can_set_location Field.
     can_set_location = NULL,
+    #' @field has_scheduled Field.
     has_scheduled = NULL,
+    #' @field can_view_stats Field.
     can_view_stats = NULL,
+    #' @field blocked Field.
     blocked = NULL,
+    #' @field can_delete_channel Field.
     can_delete_channel = NULL,
+    #' @field antispam Field.
     antispam = NULL,
+    #' @field participants_hidden Field.
     participants_hidden = NULL,
+    #' @field translations_disabled Field.
     translations_disabled = NULL,
+    #' @field stories_pinned_available Field.
     stories_pinned_available = NULL,
+    #' @field view_forum_as_messages Field.
     view_forum_as_messages = NULL,
+    #' @field restricted_sponsored Field.
     restricted_sponsored = NULL,
+    #' @field can_view_revenue Field.
     can_view_revenue = NULL,
+    #' @field paid_media_allowed Field.
     paid_media_allowed = NULL,
+    #' @field can_view_stars_revenue Field.
     can_view_stars_revenue = NULL,
+    #' @field paid_reactions_available Field.
     paid_reactions_available = NULL,
+    #' @field stargifts_available Field.
     stargifts_available = NULL,
+    #' @field paid_messages_available Field.
     paid_messages_available = NULL,
+    #' @field participants_count Field.
     participants_count = NULL,
+    #' @field admins_count Field.
     admins_count = NULL,
+    #' @field kicked_count Field.
     kicked_count = NULL,
+    #' @field banned_count Field.
     banned_count = NULL,
+    #' @field online_count Field.
     online_count = NULL,
+    #' @field exported_invite Field.
     exported_invite = NULL,
+    #' @field migrated_from_chat_id Field.
     migrated_from_chat_id = NULL,
+    #' @field migrated_from_max_id Field.
     migrated_from_max_id = NULL,
+    #' @field pinned_msg_id Field.
     pinned_msg_id = NULL,
+    #' @field stickerset Field.
     stickerset = NULL,
+    #' @field available_min_id Field.
     available_min_id = NULL,
+    #' @field folder_id Field.
     folder_id = NULL,
+    #' @field linked_chat_id Field.
     linked_chat_id = NULL,
+    #' @field location Field.
     location = NULL,
+    #' @field slowmode_seconds Field.
     slowmode_seconds = NULL,
+    #' @field slowmode_next_send_date Field.
     slowmode_next_send_date = NULL,
+    #' @field stats_dc Field.
     stats_dc = NULL,
+    #' @field call Field.
     call = NULL,
+    #' @field ttl_period Field.
     ttl_period = NULL,
+    #' @field pending_suggestions Field.
     pending_suggestions = NULL,
+    #' @field groupcall_default_join_as Field.
     groupcall_default_join_as = NULL,
+    #' @field theme_emoticon Field.
     theme_emoticon = NULL,
+    #' @field requests_pending Field.
     requests_pending = NULL,
+    #' @field recent_requesters Field.
     recent_requesters = NULL,
+    #' @field default_send_as Field.
     default_send_as = NULL,
+    #' @field available_reactions Field.
     available_reactions = NULL,
+    #' @field reactions_limit Field.
     reactions_limit = NULL,
+    #' @field stories Field.
     stories = NULL,
+    #' @field wallpaper Field.
     wallpaper = NULL,
+    #' @field boosts_applied Field.
     boosts_applied = NULL,
+    #' @field boosts_unrestrict Field.
     boosts_unrestrict = NULL,
+    #' @field emojiset Field.
     emojiset = NULL,
+    #' @field bot_verification Field.
     bot_verification = NULL,
+    #' @field stargifts_count Field.
     stargifts_count = NULL,
+    #' @field send_paid_messages_stars Field.
     send_paid_messages_stars = NULL,
+    #' @field main_tab Field.
     main_tab = NULL,
     initialize = function(id, about, read_inbox_max_id, read_outbox_max_id, unread_count, chat_photo, notify_settings, bot_info, pts,
                           can_view_participants = NULL, can_set_username = NULL, can_set_stickers = NULL, hidden_prehistory = NULL,
@@ -8558,9 +9303,13 @@ ChannelLocation <- R6::R6Class(
   "ChannelLocation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x209b82db,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xec260b7f,
+    #' @field geo_point Field.
     geo_point = NULL,
+    #' @field address Field.
     address = NULL,
     initialize = function(geo_point, address) {
       self$geo_point <- geo_point
@@ -8596,7 +9345,9 @@ ChannelLocation <- R6::R6Class(
 ChannelLocationEmpty <- R6::R6Class("ChannelLocationEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbfb5ad8b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xec260b7f,
     initialize = function() {
       # no fields
@@ -8624,9 +9375,13 @@ ChannelLocationEmpty <- R6::R6Class("ChannelLocationEmpty",
 ChannelMessagesFilter <- R6::R6Class("ChannelMessagesFilter",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcd77d957,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x13336a56,
+    #' @field ranges Field.
     ranges = NULL,
+    #' @field exclude_new_messages Field.
     exclude_new_messages = NULL,
     initialize = function(ranges, exclude_new_messages = NULL) {
       self$ranges <- ranges
@@ -8667,7 +9422,9 @@ ChannelMessagesFilter <- R6::R6Class("ChannelMessagesFilter",
 ChannelMessagesFilterEmpty <- R6::R6Class("ChannelMessagesFilterEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x94d42ee7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x13336a56,
     initialize = function() {
       # empty
@@ -8695,10 +9452,15 @@ ChannelParticipant <- R6::R6Class(
   "ChannelParticipant",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcb397619,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd9c7fc18,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field subscription_until_date Field.
     subscription_until_date = NULL,
     initialize = function(user_id, date, subscription_until_date = NULL) {
       self$user_id <- user_id
@@ -8741,15 +9503,25 @@ ChannelParticipantAdmin <- R6::R6Class(
   "ChannelParticipantAdmin",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x34c3bb53,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd9c7fc18,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field promoted_by Field.
     promoted_by = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field admin_rights Field.
     admin_rights = NULL,
+    #' @field can_edit Field.
     can_edit = NULL,
+    #' @field is_self Field.
     is_self = NULL,
+    #' @field inviter_id Field.
     inviter_id = NULL,
+    #' @field rank Field.
     rank = NULL,
     initialize = function(user_id, promoted_by, date, admin_rights, can_edit = NULL, is_self = NULL, inviter_id = NULL, rank = NULL) {
       self$user_id <- user_id
@@ -8822,12 +9594,19 @@ ChannelParticipantBanned <- R6::R6Class(
   "ChannelParticipantBanned",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6df8014e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd9c7fc18,
+    #' @field peer Field.
     peer = NULL,
+    #' @field kicked_by Field.
     kicked_by = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field banned_rights Field.
     banned_rights = NULL,
+    #' @field left Field.
     left = NULL,
     initialize = function(peer, kicked_by, date, banned_rights, left = NULL) {
       self$peer <- peer
@@ -8878,10 +9657,15 @@ ChannelParticipantCreator <- R6::R6Class(
   "ChannelParticipantCreator",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2fe601d3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd9c7fc18,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field admin_rights Field.
     admin_rights = NULL,
+    #' @field rank Field.
     rank = NULL,
     initialize = function(user_id, admin_rights, rank = NULL) {
       self$user_id <- user_id
@@ -8927,8 +9711,11 @@ ChannelParticipantLeft <- R6::R6Class(
   "ChannelParticipantLeft",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1b03f006,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd9c7fc18,
+    #' @field peer Field.
     peer = NULL,
     initialize = function(peer) {
       self$peer <- peer
@@ -8961,12 +9748,19 @@ ChannelParticipantSelf <- R6::R6Class(
   "ChannelParticipantSelf",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4f607bef,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd9c7fc18,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field inviter_id Field.
     inviter_id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field via_request Field.
     via_request = NULL,
+    #' @field subscription_until_date Field.
     subscription_until_date = NULL,
     initialize = function(user_id, inviter_id, date, via_request = NULL, subscription_until_date = NULL) {
       self$user_id <- user_id
@@ -9021,7 +9815,9 @@ ChannelParticipantsAdmins <- R6::R6Class(
   "ChannelParticipantsAdmins",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb4608969,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbf4e2753,
     to_dict = function() {
       list("_" = "ChannelParticipantsAdmins")
@@ -9044,8 +9840,11 @@ ChannelParticipantsBanned <- R6::R6Class(
   "ChannelParticipantsBanned",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1427a5e1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbf4e2753,
+    #' @field q Field.
     q = NULL,
     initialize = function(q) {
       self$q <- q
@@ -9075,7 +9874,9 @@ ChannelParticipantsBots <- R6::R6Class(
   "ChannelParticipantsBots",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb0d1865b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbf4e2753,
     to_dict = function() {
       list("_" = "ChannelParticipantsBots")
@@ -9098,8 +9899,11 @@ ChannelParticipantsContacts <- R6::R6Class(
   "ChannelParticipantsContacts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbb6ae88d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbf4e2753,
+    #' @field q Field.
     q = NULL,
     initialize = function(q) {
       self$q <- q
@@ -9129,8 +9933,11 @@ ChannelParticipantsKicked <- R6::R6Class(
   "ChannelParticipantsKicked",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa3b54985,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbf4e2753,
+    #' @field q Field.
     q = NULL,
     initialize = function(q) {
       self$q <- q
@@ -9160,9 +9967,13 @@ ChannelParticipantsMentions <- R6::R6Class(
   "ChannelParticipantsMentions",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe04b5ceb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbf4e2753,
+    #' @field q Field.
     q = NULL,
+    #' @field top_msg_id Field.
     top_msg_id = NULL,
     initialize = function(q = NULL, top_msg_id = NULL) {
       self$q <- q
@@ -9204,7 +10015,9 @@ ChannelParticipantsRecent <- R6::R6Class(
   "ChannelParticipantsRecent",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xde3f3c79,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbf4e2753,
     to_dict = function() {
       list("_" = "ChannelParticipantsRecent")
@@ -9227,8 +10040,11 @@ ChannelParticipantsSearch <- R6::R6Class(
   "ChannelParticipantsSearch",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x656ac4b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbf4e2753,
+    #' @field q Field.
     q = NULL,
     initialize = function(q) {
       self$q <- q
@@ -9258,23 +10074,41 @@ ChatAdminRights <- R6::R6Class(
   "ChatAdminRights",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5fb224d5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x863dc7c4,
+    #' @field change_info Field.
     change_info = NULL,
+    #' @field post_messages Field.
     post_messages = NULL,
+    #' @field edit_messages Field.
     edit_messages = NULL,
+    #' @field delete_messages Field.
     delete_messages = NULL,
+    #' @field ban_users Field.
     ban_users = NULL,
+    #' @field invite_users Field.
     invite_users = NULL,
+    #' @field pin_messages Field.
     pin_messages = NULL,
+    #' @field add_admins Field.
     add_admins = NULL,
+    #' @field anonymous Field.
     anonymous = NULL,
+    #' @field manage_call Field.
     manage_call = NULL,
+    #' @field other Field.
     other = NULL,
+    #' @field manage_topics Field.
     manage_topics = NULL,
+    #' @field post_stories Field.
     post_stories = NULL,
+    #' @field edit_stories Field.
     edit_stories = NULL,
+    #' @field delete_stories Field.
     delete_stories = NULL,
+    #' @field manage_direct_messages Field.
     manage_direct_messages = NULL,
     initialize = function(change_info = NULL, post_messages = NULL, edit_messages = NULL, delete_messages = NULL, ban_users = NULL, invite_users = NULL, pin_messages = NULL, add_admins = NULL, anonymous = NULL, manage_call = NULL, other = NULL, manage_topics = NULL, post_stories = NULL, edit_stories = NULL, delete_stories = NULL, manage_direct_messages = NULL) {
       self$change_info <- change_info
@@ -9395,10 +10229,15 @@ ChatAdminWithInvites <- R6::R6Class(
   "ChatAdminWithInvites",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf2ecef23,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5063f398,
+    #' @field admin_id Field.
     admin_id = NULL,
+    #' @field invites_count Field.
     invites_count = NULL,
+    #' @field revoked_invites_count Field.
     revoked_invites_count = NULL,
     initialize = function(admin_id, invites_count, revoked_invites_count) {
       self$admin_id <- admin_id
@@ -9439,28 +10278,51 @@ ChatBannedRights <- R6::R6Class(
   "ChatBannedRights",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9f120418,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4b5445a9,
+    #' @field until_date Field.
     until_date = NULL,
+    #' @field view_messages Field.
     view_messages = NULL,
+    #' @field send_messages Field.
     send_messages = NULL,
+    #' @field send_media Field.
     send_media = NULL,
+    #' @field send_stickers Field.
     send_stickers = NULL,
+    #' @field send_gifs Field.
     send_gifs = NULL,
+    #' @field send_games Field.
     send_games = NULL,
+    #' @field send_inline Field.
     send_inline = NULL,
+    #' @field embed_links Field.
     embed_links = NULL,
+    #' @field send_polls Field.
     send_polls = NULL,
+    #' @field change_info Field.
     change_info = NULL,
+    #' @field invite_users Field.
     invite_users = NULL,
+    #' @field pin_messages Field.
     pin_messages = NULL,
+    #' @field manage_topics Field.
     manage_topics = NULL,
+    #' @field send_photos Field.
     send_photos = NULL,
+    #' @field send_videos Field.
     send_videos = NULL,
+    #' @field send_roundvideos Field.
     send_roundvideos = NULL,
+    #' @field send_audios Field.
     send_audios = NULL,
+    #' @field send_voices Field.
     send_voices = NULL,
+    #' @field send_docs Field.
     send_docs = NULL,
+    #' @field send_plain Field.
     send_plain = NULL,
     initialize = function(until_date, view_messages = NULL, send_messages = NULL, send_media = NULL, send_stickers = NULL, send_gifs = NULL, send_games = NULL, send_inline = NULL, embed_links = NULL, send_polls = NULL, change_info = NULL, invite_users = NULL, pin_messages = NULL, manage_topics = NULL, send_photos = NULL, send_videos = NULL, send_roundvideos = NULL, send_audios = NULL, send_voices = NULL, send_docs = NULL, send_plain = NULL) {
       self$until_date <- until_date
@@ -9577,27 +10439,49 @@ ChatFull <- R6::R6Class(
   "ChatFull",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2633421b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd49a2697,
+    #' @field id Field.
     id = NULL,
+    #' @field about Field.
     about = NULL,
+    #' @field participants Field.
     participants = NULL,
+    #' @field notify_settings Field.
     notify_settings = NULL,
+    #' @field can_set_username Field.
     can_set_username = NULL,
+    #' @field has_scheduled Field.
     has_scheduled = NULL,
+    #' @field translations_disabled Field.
     translations_disabled = NULL,
+    #' @field chat_photo Field.
     chat_photo = NULL,
+    #' @field exported_invite Field.
     exported_invite = NULL,
+    #' @field bot_info Field.
     bot_info = NULL,
+    #' @field pinned_msg_id Field.
     pinned_msg_id = NULL,
+    #' @field folder_id Field.
     folder_id = NULL,
+    #' @field call Field.
     call = NULL,
+    #' @field ttl_period Field.
     ttl_period = NULL,
+    #' @field groupcall_default_join_as Field.
     groupcall_default_join_as = NULL,
+    #' @field theme_emoticon Field.
     theme_emoticon = NULL,
+    #' @field requests_pending Field.
     requests_pending = NULL,
+    #' @field recent_requesters Field.
     recent_requesters = NULL,
+    #' @field available_reactions Field.
     available_reactions = NULL,
+    #' @field reactions_limit Field.
     reactions_limit = NULL,
     initialize = function(id, about, participants, notify_settings,
                           can_set_username = NULL, has_scheduled = NULL,
@@ -9709,25 +10593,45 @@ ChatInvite <- R6::R6Class(
   "ChatInvite",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5c9d3702,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4561736,
+    #' @field title Field.
     title = NULL,
+    #' @field photo Field.
     photo = NULL,
+    #' @field participants_count Field.
     participants_count = NULL,
+    #' @field color Field.
     color = NULL,
+    #' @field channel Field.
     channel = NULL,
+    #' @field broadcast Field.
     broadcast = NULL,
+    #' @field public Field.
     public = NULL,
+    #' @field megagroup Field.
     megagroup = NULL,
+    #' @field request_needed Field.
     request_needed = NULL,
+    #' @field verified Field.
     verified = NULL,
+    #' @field scam Field.
     scam = NULL,
+    #' @field fake Field.
     fake = NULL,
+    #' @field can_refulfill_subscription Field.
     can_refulfill_subscription = NULL,
+    #' @field about Field.
     about = NULL,
+    #' @field participants Field.
     participants = NULL,
+    #' @field subscription_pricing Field.
     subscription_pricing = NULL,
+    #' @field subscription_form_id Field.
     subscription_form_id = NULL,
+    #' @field bot_verification Field.
     bot_verification = NULL,
     initialize = function(title, photo, participants_count, color, channel = NULL, broadcast = NULL, public = NULL, megagroup = NULL, request_needed = NULL, verified = NULL, scam = NULL, fake = NULL, can_refulfill_subscription = NULL, about = NULL, participants = NULL, subscription_pricing = NULL, subscription_form_id = NULL, bot_verification = NULL) {
       self$title <- title
@@ -9782,8 +10686,11 @@ ChatInviteAlready <- R6::R6Class(
   "ChatInviteAlready",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5a686d7c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4561736,
+    #' @field chat Field.
     chat = NULL,
     initialize = function(chat) {
       self$chat <- chat
@@ -9804,21 +10711,37 @@ ChatInviteExported <- R6::R6Class(
   "ChatInviteExported",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa22cbd96,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb4748a58,
+    #' @field link Field.
     link = NULL,
+    #' @field admin_id Field.
     admin_id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field revoked Field.
     revoked = NULL,
+    #' @field permanent Field.
     permanent = NULL,
+    #' @field request_needed Field.
     request_needed = NULL,
+    #' @field start_date Field.
     start_date = NULL,
+    #' @field expire_date Field.
     expire_date = NULL,
+    #' @field usage_limit Field.
     usage_limit = NULL,
+    #' @field usage Field.
     usage = NULL,
+    #' @field requested Field.
     requested = NULL,
+    #' @field subscription_expired Field.
     subscription_expired = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field subscription_pricing Field.
     subscription_pricing = NULL,
     initialize = function(link, admin_id, date, revoked = NULL, permanent = NULL, request_needed = NULL, start_date = NULL, expire_date = NULL, usage_limit = NULL, usage = NULL, requested = NULL, subscription_expired = NULL, title = NULL, subscription_pricing = NULL) {
       self$link <- link
@@ -9865,13 +10788,21 @@ ChatInviteImporter <- R6::R6Class(
   "ChatInviteImporter",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8c5adfd9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5312542e,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field requested Field.
     requested = NULL,
+    #' @field via_chatlist Field.
     via_chatlist = NULL,
+    #' @field about Field.
     about = NULL,
+    #' @field approved_by Field.
     approved_by = NULL,
     initialize = function(user_id, date, requested = NULL, via_chatlist = NULL, about = NULL, approved_by = NULL) {
       self$user_id <- user_id
@@ -9902,9 +10833,13 @@ ChatInvitePeek <- R6::R6Class(
   "ChatInvitePeek",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x61695cb0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4561736,
+    #' @field chat Field.
     chat = NULL,
+    #' @field expires Field.
     expires = NULL,
     initialize = function(chat, expires) {
       self$chat <- chat
@@ -9927,7 +10862,9 @@ ChatInvitePublicJoinRequests <- R6::R6Class(
   "ChatInvitePublicJoinRequests",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xed107ab7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb4748a58,
     to_dict = function() {
       list("_" = "ChatInvitePublicJoinRequests")
@@ -9942,8 +10879,11 @@ ChatOnlines <- R6::R6Class(
   "ChatOnlines",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf041e250,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8c81903a,
+    #' @field onlines Field.
     onlines = NULL,
     initialize = function(onlines) {
       self$onlines <- onlines
@@ -9976,10 +10916,15 @@ ChatParticipant <- R6::R6Class(
   "ChatParticipant",
   inherit = TLObject,
   public = list(
+    #' @field constructor_id Field.
     constructor_id = 0xc02d4007,
+    #' @field subclass_of_id Field.
     subclass_of_id = 0x7d7c6f86,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field inviter_id Field.
     inviter_id = NULL,
+    #' @field date Field.
     date = NULL,
     initialize = function(user_id, inviter_id, date) {
       self$user_id <- user_id
@@ -10018,10 +10963,15 @@ ChatParticipantAdmin <- R6::R6Class(
   "ChatParticipantAdmin",
   inherit = TLObject,
   public = list(
+    #' @field constructor_id Field.
     constructor_id = 0xa0933f5b,
+    #' @field subclass_of_id Field.
     subclass_of_id = 0x7d7c6f86,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field inviter_id Field.
     inviter_id = NULL,
+    #' @field date Field.
     date = NULL,
     initialize = function(user_id, inviter_id, date) {
       self$user_id <- user_id
@@ -10060,8 +11010,11 @@ ChatParticipantCreator <- R6::R6Class(
   "ChatParticipantCreator",
   inherit = TLObject,
   public = list(
+    #' @field constructor_id Field.
     constructor_id = 0xe46bcee4,
+    #' @field subclass_of_id Field.
     subclass_of_id = 0x7d7c6f86,
+    #' @field user_id Field.
     user_id = NULL,
     initialize = function(user_id) {
       self$user_id <- user_id
@@ -10092,10 +11045,15 @@ ChatParticipants <- R6::R6Class(
   "ChatParticipants",
   inherit = TLObject,
   public = list(
+    #' @field constructor_id Field.
     constructor_id = 0x3cbc93f8,
+    #' @field subclass_of_id Field.
     subclass_of_id = 0x1fa89571,
+    #' @field chat_id Field.
     chat_id = NULL,
+    #' @field participants Field.
     participants = NULL,
+    #' @field version Field.
     version = NULL,
     initialize = function(chat_id, participants, version) {
       self$chat_id <- chat_id
@@ -10140,9 +11098,13 @@ ChatParticipantsForbidden <- R6::R6Class(
   "ChatParticipantsForbidden",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8763d3e1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1fa89571,
+    #' @field chat_id Field.
     chat_id = NULL,
+    #' @field self_participant Field.
     self_participant = NULL,
     initialize = function(chat_id, self_participant = NULL) {
       self$chat_id <- chat_id
@@ -10182,11 +11144,17 @@ ChatPhoto <- R6::R6Class(
   "ChatPhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1c6e1c11,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xac3ec4e5,
+    #' @field photo_id Field.
     photo_id = NULL,
+    #' @field dc_id Field.
     dc_id = NULL,
+    #' @field has_video Field.
     has_video = NULL,
+    #' @field stripped_thumb Field.
     stripped_thumb = NULL,
     initialize = function(photo_id, dc_id, has_video = NULL, stripped_thumb = NULL) {
       self$photo_id <- photo_id
@@ -10222,7 +11190,9 @@ ChatPhotoEmpty <- R6::R6Class(
   "ChatPhotoEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x37c1011c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xac3ec4e5,
     to_list = function() {
       list("_" = "ChatPhotoEmpty")
@@ -10240,8 +11210,11 @@ ChatReactionsAll <- R6::R6Class(
   "ChatReactionsAll",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x52928bca,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x131e24b5,
+    #' @field allow_custom Field.
     allow_custom = NULL,
     initialize = function(allow_custom = NULL) {
       self$allow_custom <- allow_custom
@@ -10268,7 +11241,9 @@ ChatReactionsNone <- R6::R6Class(
   "ChatReactionsNone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xeafc32bc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x131e24b5,
     to_list = function() {
       list("_" = "ChatReactionsNone")
@@ -10286,8 +11261,11 @@ ChatReactionsSome <- R6::R6Class(
   "ChatReactionsSome",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x661d4037,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x131e24b5,
+    #' @field reactions Field.
     reactions = NULL,
     initialize = function(reactions) {
       self$reactions <- reactions
@@ -10315,8 +11293,11 @@ ChatTheme <- R6::R6Class(
   "ChatTheme",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc3dffc04,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2ffca7f5,
+    #' @field emoticon Field.
     emoticon = NULL,
     initialize = function(emoticon) {
       self$emoticon <- emoticon
@@ -10343,9 +11324,13 @@ ChatThemeUniqueGift <- R6::R6Class(
   "ChatThemeUniqueGift",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3458f9c8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2ffca7f5,
+    #' @field gift Field.
     gift = NULL,
+    #' @field theme_settings Field.
     theme_settings = NULL,
     initialize = function(gift, theme_settings) {
       self$gift <- gift
@@ -10376,11 +11361,17 @@ ClientDHInnerData <- R6::R6Class(
   "ClientDHInnerData",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6643b654,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf8eeef6a,
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field server_nonce Field.
     server_nonce = NULL,
+    #' @field retry_id Field.
     retry_id = NULL,
+    #' @field g_b Field.
     g_b = NULL,
     initialize = function(nonce, server_nonce, retry_id, g_b) {
       self$nonce <- nonce
@@ -10416,16 +11407,27 @@ CodeSettings <- R6::R6Class(
   "CodeSettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xad253d78,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x48edbc8a,
+    #' @field allow_flashcall Field.
     allow_flashcall = NULL,
+    #' @field current_number Field.
     current_number = NULL,
+    #' @field allow_app_hash Field.
     allow_app_hash = NULL,
+    #' @field allow_missed_call Field.
     allow_missed_call = NULL,
+    #' @field allow_firebase Field.
     allow_firebase = NULL,
+    #' @field unknown_number Field.
     unknown_number = NULL,
+    #' @field logout_tokens Field.
     logout_tokens = NULL,
+    #' @field token Field.
     token = NULL,
+    #' @field app_sandbox Field.
     app_sandbox = NULL,
     initialize = function(allow_flashcall = NULL, current_number = NULL, allow_app_hash = NULL,
                           allow_missed_call = NULL, allow_firebase = NULL, unknown_number = NULL,
@@ -10464,54 +11466,103 @@ Config <- R6::R6Class(
   "Config",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcc1a241e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd3262a4a,
+    #' @field date Field.
     date = NULL,
+    #' @field expires Field.
     expires = NULL,
+    #' @field test_mode Field.
     test_mode = NULL,
+    #' @field this_dc Field.
     this_dc = NULL,
+    #' @field dc_options Field.
     dc_options = NULL,
+    #' @field dc_txt_domain_name Field.
     dc_txt_domain_name = NULL,
+    #' @field chat_size_max Field.
     chat_size_max = NULL,
+    #' @field megagroup_size_max Field.
     megagroup_size_max = NULL,
+    #' @field forwarded_count_max Field.
     forwarded_count_max = NULL,
+    #' @field online_update_period_ms Field.
     online_update_period_ms = NULL,
+    #' @field offline_blur_timeout_ms Field.
     offline_blur_timeout_ms = NULL,
+    #' @field offline_idle_timeout_ms Field.
     offline_idle_timeout_ms = NULL,
+    #' @field online_cloud_timeout_ms Field.
     online_cloud_timeout_ms = NULL,
+    #' @field notify_cloud_delay_ms Field.
     notify_cloud_delay_ms = NULL,
+    #' @field notify_default_delay_ms Field.
     notify_default_delay_ms = NULL,
+    #' @field push_chat_period_ms Field.
     push_chat_period_ms = NULL,
+    #' @field push_chat_limit Field.
     push_chat_limit = NULL,
+    #' @field edit_time_limit Field.
     edit_time_limit = NULL,
+    #' @field revoke_time_limit Field.
     revoke_time_limit = NULL,
+    #' @field revoke_pm_time_limit Field.
     revoke_pm_time_limit = NULL,
+    #' @field rating_e_decay Field.
     rating_e_decay = NULL,
+    #' @field stickers_recent_limit Field.
     stickers_recent_limit = NULL,
+    #' @field channels_read_media_period Field.
     channels_read_media_period = NULL,
+    #' @field call_receive_timeout_ms Field.
     call_receive_timeout_ms = NULL,
+    #' @field call_ring_timeout_ms Field.
     call_ring_timeout_ms = NULL,
+    #' @field call_connect_timeout_ms Field.
     call_connect_timeout_ms = NULL,
+    #' @field call_packet_timeout_ms Field.
     call_packet_timeout_ms = NULL,
+    #' @field me_url_prefix Field.
     me_url_prefix = NULL,
+    #' @field caption_length_max Field.
     caption_length_max = NULL,
+    #' @field message_length_max Field.
     message_length_max = NULL,
+    #' @field webfile_dc_id Field.
     webfile_dc_id = NULL,
+    #' @field default_p2p_contacts Field.
     default_p2p_contacts = NULL,
+    #' @field preload_featured_stickers Field.
     preload_featured_stickers = NULL,
+    #' @field revoke_pm_inbox Field.
     revoke_pm_inbox = NULL,
+    #' @field blocked_mode Field.
     blocked_mode = NULL,
+    #' @field force_try_ipv6 Field.
     force_try_ipv6 = NULL,
+    #' @field tmp_sessions Field.
     tmp_sessions = NULL,
+    #' @field autoupdate_url_prefix Field.
     autoupdate_url_prefix = NULL,
+    #' @field gif_search_username Field.
     gif_search_username = NULL,
+    #' @field venue_search_username Field.
     venue_search_username = NULL,
+    #' @field img_search_username Field.
     img_search_username = NULL,
+    #' @field static_maps_provider Field.
     static_maps_provider = NULL,
+    #' @field suggested_lang_code Field.
     suggested_lang_code = NULL,
+    #' @field lang_pack_version Field.
     lang_pack_version = NULL,
+    #' @field base_lang_pack_version Field.
     base_lang_pack_version = NULL,
+    #' @field reactions_default Field.
     reactions_default = NULL,
+    #' @field autologin_token Field.
     autologin_token = NULL,
     initialize = function(date, expires, test_mode, this_dc, dc_options, dc_txt_domain_name,
                           chat_size_max, megagroup_size_max, forwarded_count_max,
@@ -10639,10 +11690,15 @@ ConnectedBot <- R6::R6Class(
   "ConnectedBot",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcd64636c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x35e81b9e,
+    #' @field bot_id Field.
     bot_id = NULL,
+    #' @field recipients Field.
     recipients = NULL,
+    #' @field rights Field.
     rights = NULL,
     initialize = function(bot_id, recipients, rights) {
       self$bot_id <- bot_id
@@ -10680,15 +11736,25 @@ ConnectedBotStarRef <- R6::R6Class(
   "ConnectedBotStarRef",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x19a13f71,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa0528f8c,
+    #' @field url Field.
     url = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field bot_id Field.
     bot_id = NULL,
+    #' @field commission_permille Field.
     commission_permille = NULL,
+    #' @field participants Field.
     participants = NULL,
+    #' @field revenue Field.
     revenue = NULL,
+    #' @field revoked Field.
     revoked = NULL,
+    #' @field duration_months Field.
     duration_months = NULL,
     initialize = function(url, date, bot_id, commission_permille, participants, revenue, revoked = NULL, duration_months = NULL) {
       self$url <- url
@@ -10741,9 +11807,13 @@ Contact <- R6::R6Class(
   "Contact",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x145ade0b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x83dfdfa4,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field mutual Field.
     mutual = NULL,
     initialize = function(user_id, mutual) {
       self$user_id <- user_id
@@ -10777,9 +11847,13 @@ ContactBirthday <- R6::R6Class(
   "ContactBirthday",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1d998733,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd8dd2806,
+    #' @field contact_id Field.
     contact_id = NULL,
+    #' @field birthday Field.
     birthday = NULL,
     initialize = function(contact_id, birthday) {
       self$contact_id <- contact_id
@@ -10813,9 +11887,13 @@ ContactStatus <- R6::R6Class(
   "ContactStatus",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x16d9703b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x68c0d74c,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field status Field.
     status = NULL,
     initialize = function(user_id, status) {
       self$user_id <- user_id
@@ -10849,8 +11927,11 @@ DataJSON <- R6::R6Class(
   "DataJSON",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7d748d04,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xad0352e8,
+    #' @field data Field.
     data = NULL,
     initialize = function(data) {
       self$data <- data
@@ -10881,17 +11962,29 @@ DcOption <- R6::R6Class(
   "DcOption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x18b7a10d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9e43e123,
+    #' @field id Field.
     id = NULL,
+    #' @field ip_address Field.
     ip_address = NULL,
+    #' @field port Field.
     port = NULL,
+    #' @field ipv6 Field.
     ipv6 = NULL,
+    #' @field media_only Field.
     media_only = NULL,
+    #' @field tcpo_only Field.
     tcpo_only = NULL,
+    #' @field cdn Field.
     cdn = NULL,
+    #' @field static Field.
     static = NULL,
+    #' @field this_port_only Field.
     this_port_only = NULL,
+    #' @field secret Field.
     secret = NULL,
     initialize = function(id, ip_address, port, ipv6 = NULL, media_only = NULL, tcpo_only = NULL, cdn = NULL, static = NULL, this_port_only = NULL, secret = NULL) {
       self$id <- id
@@ -10950,8 +12043,11 @@ DefaultHistoryTTL <- R6::R6Class(
   "DefaultHistoryTTL",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x43b46b20,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf00d3367,
+    #' @field period Field.
     period = NULL,
     initialize = function(period) {
       self$period <- period
@@ -10982,7 +12078,9 @@ DestroyAuthKeyFail <- R6::R6Class(
   "DestroyAuthKeyFail",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xea109b13,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8291e68e,
     to_dict = function() {
       list("_" = "DestroyAuthKeyFail")
@@ -11005,7 +12103,9 @@ DestroyAuthKeyNone <- R6::R6Class(
   "DestroyAuthKeyNone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x0a9f2259,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8291e68e,
     to_dict = function() {
       list("_" = "DestroyAuthKeyNone")
@@ -11028,7 +12128,9 @@ DestroyAuthKeyOk <- R6::R6Class(
   "DestroyAuthKeyOk",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf660e1d4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8291e68e,
     to_dict = function() {
       list("_" = "DestroyAuthKeyOk")
@@ -11051,8 +12153,11 @@ DestroySessionNone <- R6::R6Class(
   "DestroySessionNone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x62d350c9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xaf0ce7bd,
+    #' @field session_id Field.
     session_id = NULL,
     initialize = function(session_id) {
       self$session_id <- session_id
@@ -11085,8 +12190,11 @@ DestroySessionOk <- R6::R6Class(
   "DestroySessionOk",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe22045fc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xaf0ce7bd,
+    #' @field session_id Field.
     session_id = NULL,
     initialize = function(session_id) {
       self$session_id <- session_id
@@ -11119,10 +12227,15 @@ DhGenFail <- R6::R6Class(
   "DhGenFail",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa69dae02,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55dd6cdb,
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field server_nonce Field.
     server_nonce = NULL,
+    #' @field new_nonce_hash3 Field.
     new_nonce_hash3 = NULL,
     initialize = function(nonce, server_nonce, new_nonce_hash3) {
       self$nonce <- nonce
@@ -11155,10 +12268,15 @@ DhGenOk <- R6::R6Class(
   "DhGenOk",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3bcbf734,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55dd6cdb,
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field server_nonce Field.
     server_nonce = NULL,
+    #' @field new_nonce_hash1 Field.
     new_nonce_hash1 = NULL,
     initialize = function(nonce, server_nonce, new_nonce_hash1) {
       self$nonce <- nonce
@@ -11191,10 +12309,15 @@ DhGenRetry <- R6::R6Class(
   "DhGenRetry",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x46dc1fb9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55dd6cdb,
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field server_nonce Field.
     server_nonce = NULL,
+    #' @field new_nonce_hash2 Field.
     new_nonce_hash2 = NULL,
     initialize = function(nonce, server_nonce, new_nonce_hash2) {
       self$nonce <- nonce
@@ -11227,20 +12350,35 @@ Dialog <- R6::R6Class(
   "Dialog",
   inherit = TLObject,
   public = list(
+    #' @field peer Field.
     peer = NULL,
+    #' @field top_message Field.
     top_message = NULL,
+    #' @field read_inbox_max_id Field.
     read_inbox_max_id = NULL,
+    #' @field read_outbox_max_id Field.
     read_outbox_max_id = NULL,
+    #' @field unread_count Field.
     unread_count = NULL,
+    #' @field unread_mentions_count Field.
     unread_mentions_count = NULL,
+    #' @field unread_reactions_count Field.
     unread_reactions_count = NULL,
+    #' @field notify_settings Field.
     notify_settings = NULL,
+    #' @field pinned Field.
     pinned = NULL,
+    #' @field unread_mark Field.
     unread_mark = NULL,
+    #' @field view_forum_as_messages Field.
     view_forum_as_messages = NULL,
+    #' @field pts Field.
     pts = NULL,
+    #' @field draft Field.
     draft = NULL,
+    #' @field folder_id Field.
     folder_id = NULL,
+    #' @field ttl_period Field.
     ttl_period = NULL,
     initialize = function(peer, top_message, read_inbox_max_id, read_outbox_max_id, unread_count, unread_mentions_count, unread_reactions_count, notify_settings, pinned = NULL, unread_mark = NULL, view_forum_as_messages = NULL, pts = NULL, draft = NULL, folder_id = NULL, ttl_period = NULL) {
       self$peer <- peer
@@ -11289,21 +12427,37 @@ DialogFilter <- R6::R6Class(
   "DialogFilter",
   inherit = TLObject,
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field pinned_peers Field.
     pinned_peers = NULL,
+    #' @field include_peers Field.
     include_peers = NULL,
+    #' @field exclude_peers Field.
     exclude_peers = NULL,
+    #' @field contacts Field.
     contacts = NULL,
+    #' @field non_contacts Field.
     non_contacts = NULL,
+    #' @field groups Field.
     groups = NULL,
+    #' @field broadcasts Field.
     broadcasts = NULL,
+    #' @field bots Field.
     bots = NULL,
+    #' @field exclude_muted Field.
     exclude_muted = NULL,
+    #' @field exclude_read Field.
     exclude_read = NULL,
+    #' @field exclude_archived Field.
     exclude_archived = NULL,
+    #' @field title_noanimate Field.
     title_noanimate = NULL,
+    #' @field emoticon Field.
     emoticon = NULL,
+    #' @field color Field.
     color = NULL,
     initialize = function(id, title, pinned_peers, include_peers, exclude_peers, contacts = NULL, non_contacts = NULL, groups = NULL, broadcasts = NULL, bots = NULL, exclude_muted = NULL, exclude_read = NULL, exclude_archived = NULL, title_noanimate = NULL, emoticon = NULL, color = NULL) {
       self$id <- id
@@ -11354,13 +12508,21 @@ DialogFolder <- R6::R6Class(
   "DialogFolder",
   inherit = TLObject,
   public = list(
+    #' @field folder Field.
     folder = NULL,
+    #' @field peer Field.
     peer = NULL,
+    #' @field top_message Field.
     top_message = NULL,
+    #' @field unread_muted_peers_count Field.
     unread_muted_peers_count = NULL,
+    #' @field unread_unmuted_peers_count Field.
     unread_unmuted_peers_count = NULL,
+    #' @field unread_muted_messages_count Field.
     unread_muted_messages_count = NULL,
+    #' @field unread_unmuted_messages_count Field.
     unread_unmuted_messages_count = NULL,
+    #' @field pinned Field.
     pinned = NULL,
     initialize = function(folder, peer, top_message, unread_muted_peers_count, unread_unmuted_peers_count, unread_muted_messages_count, unread_unmuted_messages_count, pinned = NULL) {
       self$folder <- folder
@@ -11408,13 +12570,21 @@ DialogFilterChatlist <- R6::R6Class(
   "DialogFilterChatlist",
   inherit = TLObject,
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field pinned_peers Field.
     pinned_peers = NULL,
+    #' @field include_peers Field.
     include_peers = NULL,
+    #' @field has_my_invites Field.
     has_my_invites = NULL,
+    #' @field title_noanimate Field.
     title_noanimate = NULL,
+    #' @field emoticon Field.
     emoticon = NULL,
+    #' @field color Field.
     color = NULL,
     initialize = function(id, title, pinned_peers, include_peers, has_my_invites = NULL, title_noanimate = NULL, emoticon = NULL, color = NULL) {
       self$id <- id
@@ -11462,7 +12632,9 @@ DialogFilterSuggested <- R6::R6Class(
   "DialogFilterSuggested",
   inherit = TLObject,
   public = list(
+    #' @field filter Field.
     filter = NULL,
+    #' @field description Field.
     description = NULL,
     initialize = function(filter, description) {
       self$filter <- filter
@@ -11485,6 +12657,7 @@ DialogPeer <- R6::R6Class(
   "DialogPeer",
   inherit = TLObject,
   public = list(
+    #' @field peer Field.
     peer = NULL,
     initialize = function(peer) {
       self$peer <- peer
@@ -11511,6 +12684,7 @@ DialogPeerFolder <- R6::R6Class(
   "DialogPeerFolder",
   inherit = TLObject,
   public = list(
+    #' @field folder_id Field.
     folder_id = NULL,
     initialize = function(folder_id) {
       self$folder_id <- folder_id
@@ -11537,11 +12711,17 @@ DisallowedGiftsSettings <- R6::R6Class(
   "DisallowedGiftsSettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x71f276c4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x382e9ab,
+    #' @field disallow_unlimited_stargifts Field.
     disallow_unlimited_stargifts = NULL,
+    #' @field disallow_limited_stargifts Field.
     disallow_limited_stargifts = NULL,
+    #' @field disallow_unique_stargifts Field.
     disallow_unique_stargifts = NULL,
+    #' @field disallow_premium_gifts Field.
     disallow_premium_gifts = NULL,
     initialize = function(disallow_unlimited_stargifts = NULL, disallow_limited_stargifts = NULL, disallow_unique_stargifts = NULL, disallow_premium_gifts = NULL) {
       self$disallow_unlimited_stargifts <- disallow_unlimited_stargifts
@@ -11590,15 +12770,25 @@ Document <- R6::R6Class(
   "Document",
   inherit = TLObject,
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field file_reference Field.
     file_reference = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field mime_type Field.
     mime_type = NULL,
+    #' @field size Field.
     size = NULL,
+    #' @field dc_id Field.
     dc_id = NULL,
+    #' @field attributes Field.
     attributes = NULL,
+    #' @field thumbs Field.
     thumbs = NULL,
+    #' @field video_thumbs Field.
     video_thumbs = NULL,
     initialize = function(id, access_hash, file_reference, date, mime_type, size, dc_id, attributes, thumbs = NULL, video_thumbs = NULL) {
       self$id <- id
@@ -11687,7 +12877,9 @@ DocumentAttributeAnimated <- R6::R6Class(
   "DocumentAttributeAnimated",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x11b58939,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf729eb9b,
     to_dict = function() {
       list("_" = "DocumentAttributeAnimated")
@@ -11710,12 +12902,19 @@ DocumentAttributeAudio <- R6::R6Class(
   "DocumentAttributeAudio",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9852f9c6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf729eb9b,
+    #' @field duration Field.
     duration = NULL,
+    #' @field voice Field.
     voice = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field performer Field.
     performer = NULL,
+    #' @field waveform Field.
     waveform = NULL,
     initialize = function(duration, voice = NULL, title = NULL, performer = NULL, waveform = NULL) {
       self$duration <- duration
@@ -11752,11 +12951,17 @@ DocumentAttributeCustomEmoji <- R6::R6Class(
   "DocumentAttributeCustomEmoji",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfd149899,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf729eb9b,
+    #' @field alt Field.
     alt = NULL,
+    #' @field stickerset Field.
     stickerset = NULL,
+    #' @field free Field.
     free = NULL,
+    #' @field text_color Field.
     text_color = NULL,
     initialize = function(alt, stickerset, free = NULL, text_color = NULL) {
       self$alt <- alt
@@ -11791,8 +12996,11 @@ DocumentAttributeFilename <- R6::R6Class(
   "DocumentAttributeFilename",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x15590068,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf729eb9b,
+    #' @field file_name Field.
     file_name = NULL,
     initialize = function(file_name) {
       self$file_name <- file_name
@@ -11821,7 +13029,9 @@ DocumentAttributeHasStickers <- R6::R6Class(
   "DocumentAttributeHasStickers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9801d2f7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf729eb9b,
     to_dict = function() {
       list("_" = "DocumentAttributeHasStickers")
@@ -11844,9 +13054,13 @@ DocumentAttributeImageSize <- R6::R6Class(
   "DocumentAttributeImageSize",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6c37c15c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf729eb9b,
+    #' @field w Field.
     w = NULL,
+    #' @field h Field.
     h = NULL,
     initialize = function(w, h) {
       self$w <- w
@@ -11877,11 +13091,17 @@ DocumentAttributeSticker <- R6::R6Class(
   "DocumentAttributeSticker",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6319d612,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf729eb9b,
+    #' @field alt Field.
     alt = NULL,
+    #' @field stickerset Field.
     stickerset = NULL,
+    #' @field mask Field.
     mask = NULL,
+    #' @field mask_coords Field.
     mask_coords = NULL,
     initialize = function(alt, stickerset, mask = NULL, mask_coords = NULL) {
       self$alt <- alt
@@ -11916,16 +13136,27 @@ DocumentAttributeVideo <- R6::R6Class(
   "DocumentAttributeVideo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x43c57c48,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf729eb9b,
+    #' @field duration Field.
     duration = NULL,
+    #' @field w Field.
     w = NULL,
+    #' @field h Field.
     h = NULL,
+    #' @field round_message Field.
     round_message = NULL,
+    #' @field supports_streaming Field.
     supports_streaming = NULL,
+    #' @field nosound Field.
     nosound = NULL,
+    #' @field preload_prefix_size Field.
     preload_prefix_size = NULL,
+    #' @field video_start_ts Field.
     video_start_ts = NULL,
+    #' @field video_codec Field.
     video_codec = NULL,
     initialize = function(duration, w, h, round_message = NULL, supports_streaming = NULL, nosound = NULL, preload_prefix_size = NULL, video_start_ts = NULL, video_codec = NULL) {
       self$duration <- duration
@@ -11970,8 +13201,11 @@ DocumentEmpty <- R6::R6Class(
   "DocumentEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x36f8c871,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x211fe820,
+    #' @field id Field.
     id = NULL,
     initialize = function(id) {
       self$id <- id
@@ -12000,16 +13234,27 @@ DraftMessage <- R6::R6Class(
   "DraftMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x96eaa5eb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x33d47f45,
+    #' @field message Field.
     message = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field no_webpage Field.
     no_webpage = NULL,
+    #' @field invert_media Field.
     invert_media = NULL,
+    #' @field reply_to Field.
     reply_to = NULL,
+    #' @field entities Field.
     entities = NULL,
+    #' @field media Field.
     media = NULL,
+    #' @field effect Field.
     effect = NULL,
+    #' @field suggested_post Field.
     suggested_post = NULL,
     initialize = function(message, date = NULL, no_webpage = NULL, invert_media = NULL, reply_to = NULL, entities = NULL, media = NULL, effect = NULL, suggested_post = NULL) {
       self$message <- message
@@ -12054,8 +13299,11 @@ DraftMessageEmpty <- R6::R6Class(
   "DraftMessageEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1b0c841a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x33d47f45,
+    #' @field date Field.
     date = NULL,
     initialize = function(date = NULL) {
       self$date <- date
@@ -12084,8 +13332,11 @@ EmailVerificationApple <- R6::R6Class(
   "EmailVerificationApple",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x96d074fd,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x241ee240,
+    #' @field token Field.
     token = NULL,
     initialize = function(token) {
       self$token <- token
@@ -12114,8 +13365,11 @@ EmailVerificationCode <- R6::R6Class(
   "EmailVerificationCode",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x922e55a9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x241ee240,
+    #' @field code Field.
     code = NULL,
     initialize = function(code) {
       self$code <- code
@@ -12144,8 +13398,11 @@ EmailVerificationGoogle <- R6::R6Class(
   "EmailVerificationGoogle",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdb909ec2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x241ee240,
+    #' @field token Field.
     token = NULL,
     initialize = function(token) {
       self$token <- token
@@ -12174,7 +13431,9 @@ EmailVerifyPurposeLoginChange <- R6::R6Class(
   "EmailVerifyPurposeLoginChange",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x527d22eb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb9686ae8,
     to_dict = function() {
       list("_" = "EmailVerifyPurposeLoginChange")
@@ -12197,9 +13456,13 @@ EmailVerifyPurposeLoginSetup <- R6::R6Class(
   "EmailVerifyPurposeLoginSetup",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4345be73,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb9686ae8,
+    #' @field phone_number Field.
     phone_number = NULL,
+    #' @field phone_code_hash Field.
     phone_code_hash = NULL,
     initialize = function(phone_number, phone_code_hash) {
       self$phone_number <- phone_number
@@ -12230,7 +13493,9 @@ EmailVerifyPurposePassport <- R6::R6Class(
   "EmailVerifyPurposePassport",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbbf51685,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb9686ae8,
     to_dict = function() {
       list("_" = "EmailVerifyPurposePassport")
@@ -12253,10 +13518,15 @@ EmojiGroup <- R6::R6Class(
   "EmojiGroup",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7a9abda9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55e0a193,
+    #' @field title Field.
     title = NULL,
+    #' @field icon_emoji_id Field.
     icon_emoji_id = NULL,
+    #' @field emoticons Field.
     emoticons = NULL,
     initialize = function(title, icon_emoji_id, emoticons) {
       self$title <- title
@@ -12291,10 +13561,15 @@ EmojiGroupGreeting <- R6::R6Class(
   "EmojiGroupGreeting",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x80d26cc7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55e0a193,
+    #' @field title Field.
     title = NULL,
+    #' @field icon_emoji_id Field.
     icon_emoji_id = NULL,
+    #' @field emoticons Field.
     emoticons = NULL,
     initialize = function(title, icon_emoji_id, emoticons) {
       self$title <- title
@@ -12329,9 +13604,13 @@ EmojiGroupPremium <- R6::R6Class(
   "EmojiGroupPremium",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x93bcf34,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55e0a193,
+    #' @field title Field.
     title = NULL,
+    #' @field icon_emoji_id Field.
     icon_emoji_id = NULL,
     initialize = function(title, icon_emoji_id) {
       self$title <- title
@@ -12361,9 +13640,13 @@ EmojiKeyword <- R6::R6Class(
   "EmojiKeyword",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd5b3b9f9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6612a53e,
+    #' @field keyword Field.
     keyword = NULL,
+    #' @field emoticons Field.
     emoticons = NULL,
     initialize = function(keyword, emoticons) {
       self$keyword <- keyword
@@ -12395,9 +13678,13 @@ EmojiKeywordDeleted <- R6::R6Class(
   "EmojiKeywordDeleted",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x236df622,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6612a53e,
+    #' @field keyword Field.
     keyword = NULL,
+    #' @field emoticons Field.
     emoticons = NULL,
     initialize = function(keyword, emoticons) {
       self$keyword <- keyword
@@ -12429,11 +13716,17 @@ EmojiKeywordsDifference <- R6::R6Class(
   "EmojiKeywordsDifference",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5cc761bd,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd279c672,
+    #' @field lang_code Field.
     lang_code = NULL,
+    #' @field from_version Field.
     from_version = NULL,
+    #' @field version Field.
     version = NULL,
+    #' @field keywords Field.
     keywords = NULL,
     initialize = function(lang_code, from_version, version, keywords) {
       self$lang_code <- lang_code
@@ -12471,8 +13764,11 @@ EmojiLanguage <- R6::R6Class(
   "EmojiLanguage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb3fb5361,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa48d04ee,
+    #' @field lang_code Field.
     lang_code = NULL,
     initialize = function(lang_code) {
       self$lang_code <- lang_code
@@ -12499,9 +13795,13 @@ EmojiList <- R6::R6Class(
   "EmojiList",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7a1e11d1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbcef6aba,
+    #' @field hash Field.
     hash = NULL,
+    #' @field document_id Field.
     document_id = NULL,
     initialize = function(hash, document_id) {
       self$hash <- hash
@@ -12549,7 +13849,9 @@ EmojiStatus <- R6::R6Class(
   "EmojiStatus",
   inherit = TLObject,
   public = list(
+    #' @field document_id Field.
     document_id = NULL,
+    #' @field until Field.
     until = NULL,
     initialize = function(document_id, until = NULL) {
       self$document_id <- document_id
@@ -12581,15 +13883,25 @@ EmojiStatusCollectible <- R6::R6Class(
   "EmojiStatusCollectible",
   inherit = TLObject,
   public = list(
+    #' @field collectible_id Field.
     collectible_id = NULL,
+    #' @field document_id Field.
     document_id = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field slug Field.
     slug = NULL,
+    #' @field pattern_document_id Field.
     pattern_document_id = NULL,
+    #' @field center_color Field.
     center_color = NULL,
+    #' @field edge_color Field.
     edge_color = NULL,
+    #' @field pattern_color Field.
     pattern_color = NULL,
+    #' @field text_color Field.
     text_color = NULL,
+    #' @field until Field.
     until = NULL,
     initialize = function(collectible_id, document_id, title, slug, pattern_document_id, center_color, edge_color, pattern_color, text_color, until = NULL) {
       self$collectible_id <- collectible_id
@@ -12660,6 +13972,7 @@ EmojiURL <- R6::R6Class(
   "EmojiURL",
   inherit = TLObject,
   public = list(
+    #' @field url Field.
     url = NULL,
     initialize = function(url) {
       self$url <- url
@@ -12682,14 +13995,23 @@ EncryptedChat <- R6::R6Class(
   "EncryptedChat",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x61f0d4c7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6d28a37a,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field admin_id Field.
     admin_id = NULL,
+    #' @field participant_id Field.
     participant_id = NULL,
+    #' @field g_a_or_b Field.
     g_a_or_b = NULL,
+    #' @field key_fingerprint Field.
     key_fingerprint = NULL,
     initialize = function(id, access_hash, date, admin_id, participant_id, g_a_or_b, key_fingerprint) {
       self$id <- id
@@ -12754,9 +14076,13 @@ EncryptedChatDiscarded <- R6::R6Class(
   "EncryptedChatDiscarded",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1e1c7c45,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6d28a37a,
+    #' @field id Field.
     id = NULL,
+    #' @field history_deleted Field.
     history_deleted = NULL,
     initialize = function(id, history_deleted = NULL) {
       self$id <- id
@@ -12794,8 +14120,11 @@ EncryptedChatEmpty <- R6::R6Class(
   "EncryptedChatEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xab7ec0a0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6d28a37a,
+    #' @field id Field.
     id = NULL,
     initialize = function(id) {
       self$id <- id
@@ -12828,14 +14157,23 @@ EncryptedChatRequested <- R6::R6Class(
   "EncryptedChatRequested",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x48f1d94c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6d28a37a,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field admin_id Field.
     admin_id = NULL,
+    #' @field participant_id Field.
     participant_id = NULL,
+    #' @field g_a Field.
     g_a = NULL,
+    #' @field folder_id Field.
     folder_id = NULL,
     initialize = function(id, access_hash, date, admin_id, participant_id, g_a, folder_id = NULL) {
       self$id <- id
@@ -12904,10 +14242,15 @@ EncryptedChatWaiting <- R6::R6Class(
   "EncryptedChatWaiting",
   inherit = TLObject,
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field admin_id Field.
     admin_id = NULL,
+    #' @field participant_id Field.
     participant_id = NULL,
     initialize = function(id, access_hash, date, admin_id, participant_id) {
       self$id <- id
@@ -12946,10 +14289,15 @@ EncryptedFile <- R6::R6Class(
   "EncryptedFile",
   inherit = TLObject,
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field size Field.
     size = NULL,
+    #' @field dc_id Field.
     dc_id = NULL,
+    #' @field key_fingerprint Field.
     key_fingerprint = NULL,
     initialize = function(id, access_hash, size, dc_id, key_fingerprint) {
       self$id <- id
@@ -12998,10 +14346,15 @@ EncryptedFileEmpty <- R6::R6Class("EncryptedFileEmpty",
 #' @export
 EncryptedMessage <- R6::R6Class("EncryptedMessage",
   public = list(
+    #' @field chat_id Field.
     chat_id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field bytes Field.
     bytes = NULL,
+    #' @field file Field.
     file = NULL,
+    #' @field random_id Field.
     random_id = NULL,
     initialize = function(chat_id, date = NULL, bytes, file, random_id = NULL) {
       self$chat_id <- chat_id
@@ -13028,9 +14381,13 @@ EncryptedMessage <- R6::R6Class("EncryptedMessage",
 #' @export
 EncryptedMessageService <- R6::R6Class("EncryptedMessageService",
   public = list(
+    #' @field chat_id Field.
     chat_id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field bytes Field.
     bytes = NULL,
+    #' @field random_id Field.
     random_id = NULL,
     initialize = function(chat_id, date = NULL, bytes, random_id = NULL) {
       self$chat_id <- chat_id
@@ -13055,8 +14412,11 @@ EncryptedMessageService <- R6::R6Class("EncryptedMessageService",
 #' @export
 ExportedChatlistInvite <- R6::R6Class("ExportedChatlistInvite",
   public = list(
+    #' @field title Field.
     title = NULL,
+    #' @field url Field.
     url = NULL,
+    #' @field peers Field.
     peers = NULL,
     initialize = function(title, url, peers) {
       self$title <- title
@@ -13079,7 +14439,9 @@ ExportedChatlistInvite <- R6::R6Class("ExportedChatlistInvite",
 #' @export
 ExportedContactToken <- R6::R6Class("ExportedContactToken",
   public = list(
+    #' @field url Field.
     url = NULL,
+    #' @field expires Field.
     expires = NULL,
     initialize = function(url, expires = NULL) {
       self$url <- url
@@ -13100,7 +14462,9 @@ ExportedContactToken <- R6::R6Class("ExportedContactToken",
 #' @export
 ExportedMessageLink <- R6::R6Class("ExportedMessageLink",
   public = list(
+    #' @field link Field.
     link = NULL,
+    #' @field html Field.
     html = NULL,
     initialize = function(link, html) {
       self$link <- link
@@ -13121,6 +14485,7 @@ ExportedMessageLink <- R6::R6Class("ExportedMessageLink",
 #' @export
 ExportedStoryLink <- R6::R6Class("ExportedStoryLink",
   public = list(
+    #' @field link Field.
     link = NULL,
     initialize = function(link) {
       self$link <- link
@@ -13139,9 +14504,13 @@ ExportedStoryLink <- R6::R6Class("ExportedStoryLink",
 #' @export
 FactCheck <- R6::R6Class("FactCheck",
   public = list(
+    #' @field hash Field.
     hash = NULL,
+    #' @field need_check Field.
     need_check = NULL,
+    #' @field country Field.
     country = NULL,
+    #' @field text Field.
     text = NULL,
     initialize = function(hash, need_check = NULL, country = NULL, text = NULL) {
       self$hash <- hash
@@ -13166,8 +14535,11 @@ FactCheck <- R6::R6Class("FactCheck",
 #' @export
 FileHash <- R6::R6Class("FileHash",
   public = list(
+    #' @field offset Field.
     offset = NULL,
+    #' @field limit Field.
     limit = NULL,
+    #' @field hash Field.
     hash = NULL,
     initialize = function(offset, limit, hash) {
       self$offset <- offset
@@ -13190,11 +14562,17 @@ FileHash <- R6::R6Class("FileHash",
 #' @export
 Folder <- R6::R6Class("Folder",
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field autofill_new_broadcasts Field.
     autofill_new_broadcasts = NULL,
+    #' @field autofill_public_groups Field.
     autofill_public_groups = NULL,
+    #' @field autofill_new_correspondents Field.
     autofill_new_correspondents = NULL,
+    #' @field photo Field.
     photo = NULL,
     initialize = function(id, title, autofill_new_broadcasts = NULL, autofill_public_groups = NULL, autofill_new_correspondents = NULL, photo = NULL) {
       self$id <- id
@@ -13223,7 +14601,9 @@ Folder <- R6::R6Class("Folder",
 #' @export
 FolderPeer <- R6::R6Class("FolderPeer",
   public = list(
+    #' @field peer Field.
     peer = NULL,
+    #' @field folder_id Field.
     folder_id = NULL,
     initialize = function(peer, folder_id) {
       self$peer <- peer
@@ -13244,24 +14624,43 @@ FolderPeer <- R6::R6Class("FolderPeer",
 #' @export
 ForumTopic <- R6::R6Class("ForumTopic",
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field icon_color Field.
     icon_color = NULL,
+    #' @field top_message Field.
     top_message = NULL,
+    #' @field read_inbox_max_id Field.
     read_inbox_max_id = NULL,
+    #' @field read_outbox_max_id Field.
     read_outbox_max_id = NULL,
+    #' @field unread_count Field.
     unread_count = NULL,
+    #' @field unread_mentions_count Field.
     unread_mentions_count = NULL,
+    #' @field unread_reactions_count Field.
     unread_reactions_count = NULL,
+    #' @field from_id Field.
     from_id = NULL,
+    #' @field notify_settings Field.
     notify_settings = NULL,
+    #' @field my Field.
     my = NULL,
+    #' @field closed Field.
     closed = NULL,
+    #' @field pinned Field.
     pinned = NULL,
+    #' @field short Field.
     short = NULL,
+    #' @field hidden Field.
     hidden = NULL,
+    #' @field icon_emoji_id Field.
     icon_emoji_id = NULL,
+    #' @field draft Field.
     draft = NULL,
     initialize = function(id, date = NULL, title, icon_color, top_message, read_inbox_max_id, read_outbox_max_id, unread_count, unread_mentions_count, unread_reactions_count, from_id, notify_settings, my = NULL, closed = NULL, pinned = NULL, short = NULL, hidden = NULL, icon_emoji_id = NULL, draft = NULL) {
       self$id <- id
@@ -13316,6 +14715,7 @@ ForumTopic <- R6::R6Class("ForumTopic",
 #' @export
 ForumTopicDeleted <- R6::R6Class("ForumTopicDeleted",
   public = list(
+    #' @field id Field.
     id = NULL,
     initialize = function(id) {
       self$id <- id
@@ -13334,7 +14734,9 @@ ForumTopicDeleted <- R6::R6Class("ForumTopicDeleted",
 #' @export
 FoundStory <- R6::R6Class("FoundStory",
   public = list(
+    #' @field peer Field.
     peer = NULL,
+    #' @field story Field.
     story = NULL,
     initialize = function(peer, story) {
       self$peer <- peer
@@ -13356,11 +14758,16 @@ FoundStory <- R6::R6Class("FoundStory",
 FutureSalt <- R6::R6Class("FutureSalt",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x0949d9dc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x0949d9dc,
 
+    #' @field valid_since Field.
     valid_since = NULL,
+    #' @field valid_until Field.
     valid_until = NULL,
+    #' @field salt Field.
     salt = NULL,
     initialize = function(valid_since = NULL, valid_until = NULL, salt = NULL) {
       self$valid_since <- valid_since
@@ -13393,11 +14800,16 @@ FutureSalt <- R6::R6Class("FutureSalt",
 FutureSalts <- R6::R6Class("FutureSalts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xae500895,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xae500895,
 
+    #' @field req_msg_id Field.
     req_msg_id = NULL,
+    #' @field now Field.
     now = NULL,
+    #' @field salts Field.
     salts = NULL,
     initialize = function(req_msg_id = NULL, now = NULL, salts = NULL) {
       self$req_msg_id <- req_msg_id
@@ -13436,12 +14848,19 @@ FutureSalts <- R6::R6Class("FutureSalts",
 #' @export
 Game <- R6::R6Class("Game",
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field short_name Field.
     short_name = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
+    #' @field photo Field.
     photo = NULL,
+    #' @field document Field.
     document = NULL,
     initialize = function(id, access_hash, short_name, title, description, photo, document = NULL) {
       self$id <- id
@@ -13472,9 +14891,13 @@ Game <- R6::R6Class("Game",
 #' @export
 GeoPoint <- R6::R6Class("GeoPoint",
   public = list(
+    #' @field long Field.
     long = NULL,
+    #' @field lat Field.
     lat = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field accuracy_radius Field.
     accuracy_radius = NULL,
     initialize = function(long, lat, access_hash, accuracy_radius = NULL) {
       self$long <- long
@@ -13499,9 +14922,13 @@ GeoPoint <- R6::R6Class("GeoPoint",
 #' @export
 GeoPointAddress <- R6::R6Class("GeoPointAddress",
   public = list(
+    #' @field country_iso2 Field.
     country_iso2 = NULL,
+    #' @field state Field.
     state = NULL,
+    #' @field city Field.
     city = NULL,
+    #' @field street Field.
     street = NULL,
     initialize = function(country_iso2, state = NULL, city = NULL, street = NULL) {
       self$country_iso2 <- country_iso2
@@ -13537,13 +14964,21 @@ GeoPointEmpty <- R6::R6Class("GeoPointEmpty",
 #' @export
 GlobalPrivacySettings <- R6::R6Class("GlobalPrivacySettings",
   public = list(
+    #' @field archive_and_mute_new_noncontactpeers Field.
     archive_and_mute_new_noncontactpeers = NULL,
+    #' @field keep_archived_unmuted Field.
     keep_archived_unmuted = NULL,
+    #' @field keep_archived_folders Field.
     keep_archived_folders = NULL,
+    #' @field hide_read_marks Field.
     hide_read_marks = NULL,
+    #' @field new_noncontactpeers_require_premium Field.
     new_noncontactpeers_require_premium = NULL,
+    #' @field display_gifts_button Field.
     display_gifts_button = NULL,
+    #' @field noncontactpeers_paid_stars Field.
     noncontactpeers_paid_stars = NULL,
+    #' @field disallowed_gifts Field.
     disallowed_gifts = NULL,
     initialize = function(archive_and_mute_new_noncontactpeers = NULL, keep_archived_unmuted = NULL, keep_archived_folders = NULL, hide_read_marks = NULL, new_noncontactpeers_require_premium = NULL, display_gifts_button = NULL, noncontactpeers_paid_stars = NULL, disallowed_gifts = NULL) {
       self$archive_and_mute_new_noncontactpeers <- archive_and_mute_new_noncontactpeers
@@ -13578,26 +15013,47 @@ GroupCall <- R6::R6Class(
   "GroupCall",
   inherit = TLObject,
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field participants_count Field.
     participants_count = NULL,
+    #' @field unmuted_video_limit Field.
     unmuted_video_limit = NULL,
+    #' @field version Field.
     version = NULL,
+    #' @field join_muted Field.
     join_muted = NULL,
+    #' @field can_change_join_muted Field.
     can_change_join_muted = NULL,
+    #' @field join_date_asc Field.
     join_date_asc = NULL,
+    #' @field schedule_start_subscribed Field.
     schedule_start_subscribed = NULL,
+    #' @field can_start_video Field.
     can_start_video = NULL,
+    #' @field record_video_active Field.
     record_video_active = NULL,
+    #' @field rtmp_stream Field.
     rtmp_stream = NULL,
+    #' @field listeners_hidden Field.
     listeners_hidden = NULL,
+    #' @field conference Field.
     conference = NULL,
+    #' @field creator Field.
     creator = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field stream_dc_id Field.
     stream_dc_id = NULL,
+    #' @field record_start_date Field.
     record_start_date = NULL,
+    #' @field schedule_date Field.
     schedule_date = NULL,
+    #' @field unmuted_video_count Field.
     unmuted_video_count = NULL,
+    #' @field invite_link Field.
     invite_link = NULL,
     initialize = function(id, access_hash, participants_count, unmuted_video_limit, version,
                           join_muted = NULL, can_change_join_muted = NULL, join_date_asc = NULL,
@@ -13664,10 +15120,15 @@ GroupCallDiscarded <- R6::R6Class(
   "GroupCallDiscarded",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7780bcb4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b4f320,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field duration Field.
     duration = NULL,
     initialize = function(id, access_hash, duration) {
       self$id <- id
@@ -13708,24 +15169,43 @@ GroupCallParticipant <- R6::R6Class(
   "GroupCallParticipant",
   inherit = TLObject,
   public = list(
+    #' @field peer Field.
     peer = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field source Field.
     source = NULL,
+    #' @field muted Field.
     muted = NULL,
+    #' @field left Field.
     left = NULL,
+    #' @field can_self_unmute Field.
     can_self_unmute = NULL,
+    #' @field just_joined Field.
     just_joined = NULL,
+    #' @field versioned Field.
     versioned = NULL,
+    #' @field min Field.
     min = NULL,
+    #' @field muted_by_you Field.
     muted_by_you = NULL,
+    #' @field volume_by_admin Field.
     volume_by_admin = NULL,
+    #' @field is_self Field.
     is_self = NULL,
+    #' @field video_joined Field.
     video_joined = NULL,
+    #' @field active_date Field.
     active_date = NULL,
+    #' @field volume Field.
     volume = NULL,
+    #' @field about Field.
     about = NULL,
+    #' @field raise_hand_rating Field.
     raise_hand_rating = NULL,
+    #' @field video Field.
     video = NULL,
+    #' @field presentation Field.
     presentation = NULL,
     initialize = function(peer, date = NULL, source, muted = NULL, left = NULL, can_self_unmute = NULL,
                           just_joined = NULL, versioned = NULL, min = NULL, muted_by_you = NULL,
@@ -13822,9 +15302,13 @@ GroupCallParticipantVideo <- R6::R6Class(
   "GroupCallParticipantVideo",
   inherit = TLObject,
   public = list(
+    #' @field endpoint Field.
     endpoint = NULL,
+    #' @field source_groups Field.
     source_groups = NULL,
+    #' @field paused Field.
     paused = NULL,
+    #' @field audio_source Field.
     audio_source = NULL,
     initialize = function(endpoint, source_groups, paused = NULL, audio_source = NULL) {
       self$endpoint <- endpoint
@@ -13862,7 +15346,9 @@ GroupCallParticipantVideoSourceGroup <- R6::R6Class(
   "GroupCallParticipantVideoSourceGroup",
   inherit = TLObject,
   public = list(
+    #' @field semantics Field.
     semantics = NULL,
+    #' @field sources Field.
     sources = NULL,
     initialize = function(semantics, sources) {
       self$semantics <- semantics
@@ -13893,8 +15379,11 @@ GroupCallParticipantVideoSourceGroup <- R6::R6Class(
 GroupCallStreamChannel <- R6::R6Class(
   "GroupCallStreamChannel",
   public = list(
+    #' @field channel Field.
     channel = NULL,
+    #' @field scale Field.
     scale = NULL,
+    #' @field lastTimestampMs Field.
     lastTimestampMs = NULL,
     initialize = function(channel, scale, lastTimestampMs) {
       self$channel <- channel
@@ -13926,8 +15415,11 @@ GroupCallStreamChannel <- R6::R6Class(
 HighScore <- R6::R6Class(
   "HighScore",
   public = list(
+    #' @field pos Field.
     pos = NULL,
+    #' @field userId Field.
     userId = NULL,
+    #' @field score Field.
     score = NULL,
     initialize = function(pos, userId, score) {
       self$pos <- pos
@@ -13959,8 +15451,11 @@ HighScore <- R6::R6Class(
 HttpWait <- R6::R6Class(
   "HttpWait",
   public = list(
+    #' @field max_delay Field.
     max_delay = NULL,
+    #' @field wait_after Field.
     wait_after = NULL,
+    #' @field max_wait Field.
     max_wait = NULL,
     initialize = function(max_delay, wait_after, max_wait) {
       self$max_delay <- max_delay
@@ -13992,7 +15487,9 @@ HttpWait <- R6::R6Class(
 ImportedContact <- R6::R6Class(
   "ImportedContact",
   public = list(
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field client_id Field.
     client_id = NULL,
     initialize = function(user_id, client_id) {
       self$user_id <- user_id
@@ -14021,7 +15518,9 @@ ImportedContact <- R6::R6Class(
 InlineBotSwitchPM <- R6::R6Class(
   "InlineBotSwitchPM",
   public = list(
+    #' @field text Field.
     text = NULL,
+    #' @field start_param Field.
     start_param = NULL,
     initialize = function(text, start_param) {
       self$text <- text
@@ -14054,7 +15553,9 @@ InlineBotSwitchPM <- R6::R6Class(
 InlineBotWebView <- R6::R6Class(
   "InlineBotWebView",
   public = list(
+    #' @field text Field.
     text = NULL,
+    #' @field url Field.
     url = NULL,
     initialize = function(text, url) {
       self$text <- text
@@ -14088,7 +15589,9 @@ InlineQueryPeerTypeBotPM <- R6::R6Class(
   "InlineQueryPeerTypeBotPM",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x0e3b2d0c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xafb0fa1f,
     to_list = function() {
       list("_" = "InlineQueryPeerTypeBotPM")
@@ -14106,7 +15609,9 @@ InlineQueryPeerTypeBroadcast <- R6::R6Class(
   "InlineQueryPeerTypeBroadcast",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6334ee9a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xafb0fa1f,
     to_list = function() {
       list("_" = "InlineQueryPeerTypeBroadcast")
@@ -14124,7 +15629,9 @@ InlineQueryPeerTypeChat <- R6::R6Class(
   "InlineQueryPeerTypeChat",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd766c50a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xafb0fa1f,
     to_list = function() {
       list("_" = "InlineQueryPeerTypeChat")
@@ -14189,9 +15696,13 @@ InlineQueryPeerTypeSameBotPM <- R6::R6Class(
 InputAppEvent <- R6::R6Class(
   "InputAppEvent",
   public = list(
+    #' @field time Field.
     time = NULL,
+    #' @field type Field.
     type = NULL,
+    #' @field peer Field.
     peer = NULL,
+    #' @field data Field.
     data = NULL,
     initialize = function(time, type, peer, data) {
       self$time <- time
@@ -14226,7 +15737,9 @@ InputAppEvent <- R6::R6Class(
 InputBotAppID <- R6::R6Class(
   "InputBotAppID",
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(id, access_hash) {
       self$id <- id
@@ -14256,7 +15769,9 @@ InputBotAppShortName <- R6::R6Class(
   "InputBotAppShortName",
   inherit = TLObject,
   public = list(
+    #' @field bot_id Field.
     bot_id = NULL,
+    #' @field short_name Field.
     short_name = NULL,
     initialize = function(bot_id, short_name) {
       self$bot_id <- bot_id
@@ -14293,6 +15808,7 @@ InputBotInlineMessageGame <- R6::R6Class(
   "InputBotInlineMessageGame",
   inherit = TLObject,
   public = list(
+    #' @field reply_markup Field.
     reply_markup = NULL,
     initialize = function(reply_markup = NULL) {
       self$reply_markup <- reply_markup
@@ -14327,8 +15843,11 @@ InputBotInlineMessageID <- R6::R6Class(
   "InputBotInlineMessageID",
   inherit = TLObject,
   public = list(
+    #' @field dc_id Field.
     dc_id = NULL,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(dc_id, id, access_hash) {
       self$dc_id <- dc_id
@@ -14361,9 +15880,13 @@ InputBotInlineMessageID64 <- R6::R6Class(
   "InputBotInlineMessageID64",
   inherit = TLObject,
   public = list(
+    #' @field dc_id Field.
     dc_id = NULL,
+    #' @field owner_id Field.
     owner_id = NULL,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(dc_id, owner_id, id, access_hash) {
       self$dc_id <- dc_id
@@ -14399,9 +15922,13 @@ InputBotInlineMessageMediaAuto <- R6::R6Class(
   "InputBotInlineMessageMediaAuto",
   inherit = TLObject,
   public = list(
+    #' @field message Field.
     message = NULL,
+    #' @field invert_media Field.
     invert_media = NULL,
+    #' @field entities Field.
     entities = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
     initialize = function(message, invert_media = NULL, entities = NULL, reply_markup = NULL) {
       self$message <- message
@@ -14468,10 +15995,15 @@ InputBotInlineMessageMediaContact <- R6::R6Class(
   "InputBotInlineMessageMediaContact",
   inherit = TLObject,
   public = list(
+    #' @field phone_number Field.
     phone_number = NULL,
+    #' @field first_name Field.
     first_name = NULL,
+    #' @field last_name Field.
     last_name = NULL,
+    #' @field vcard Field.
     vcard = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
     initialize = function(phone_number, first_name, last_name, vcard, reply_markup = NULL) {
       self$phone_number <- phone_number
@@ -14522,10 +16054,15 @@ InputBotInlineMessageMediaGeo <- R6::R6Class(
   "InputBotInlineMessageMediaGeo",
   inherit = TLObject,
   public = list(
+    #' @field geo_point Field.
     geo_point = NULL,
+    #' @field heading Field.
     heading = NULL,
+    #' @field period Field.
     period = NULL,
+    #' @field proximity_notification_radius Field.
     proximity_notification_radius = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
     initialize = function(geo_point, heading = NULL, period = NULL, proximity_notification_radius = NULL, reply_markup = NULL) {
       self$geo_point <- geo_point
@@ -14585,13 +16122,21 @@ InputBotInlineMessageMediaInvoice <- R6::R6Class(
   "InputBotInlineMessageMediaInvoice",
   inherit = TLObject,
   public = list(
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
+    #' @field invoice Field.
     invoice = NULL,
+    #' @field payload Field.
     payload = NULL,
+    #' @field provider Field.
     provider = NULL,
+    #' @field provider_data Field.
     provider_data = NULL,
+    #' @field photo Field.
     photo = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
     initialize = function(title, description, invoice, payload, provider, provider_data, photo = NULL, reply_markup = NULL) {
       self$title <- title
@@ -14668,12 +16213,19 @@ InputBotInlineMessageMediaVenue <- R6::R6Class(
   "InputBotInlineMessageMediaVenue",
   inherit = TLObject,
   public = list(
+    #' @field geo_point Field.
     geo_point = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field address Field.
     address = NULL,
+    #' @field provider Field.
     provider = NULL,
+    #' @field venue_id Field.
     venue_id = NULL,
+    #' @field venue_type Field.
     venue_type = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
     initialize = function(geo_point, title, address, provider, venue_id, venue_type, reply_markup = NULL) {
       self$geo_point <- geo_point
@@ -14742,13 +16294,21 @@ InputBotInlineMessageMediaWebPage <- R6::R6Class(
   "InputBotInlineMessageMediaWebPage",
   inherit = TLObject,
   public = list(
+    #' @field message Field.
     message = NULL,
+    #' @field url Field.
     url = NULL,
+    #' @field invert_media Field.
     invert_media = NULL,
+    #' @field force_large_media Field.
     force_large_media = NULL,
+    #' @field force_small_media Field.
     force_small_media = NULL,
+    #' @field optional Field.
     optional = NULL,
+    #' @field entities Field.
     entities = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
     initialize = function(message, url, invert_media = NULL, force_large_media = NULL,
                           force_small_media = NULL, optional = NULL, entities = NULL,
@@ -14845,10 +16405,15 @@ InputBotInlineMessageText <- R6::R6Class(
   "InputBotInlineMessageText",
   inherit = TLObject,
   public = list(
+    #' @field message Field.
     message = NULL,
+    #' @field no_webpage Field.
     no_webpage = NULL,
+    #' @field invert_media Field.
     invert_media = NULL,
+    #' @field entities Field.
     entities = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
     initialize = function(message, no_webpage = NULL, invert_media = NULL, entities = NULL, reply_markup = NULL) {
       self$message <- message
@@ -14928,13 +16493,21 @@ InputBotInlineResult <- R6::R6Class(
   "InputBotInlineResult",
   inherit = TLObject,
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field type Field.
     type = NULL,
+    #' @field send_message Field.
     send_message = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
+    #' @field url Field.
     url = NULL,
+    #' @field thumb Field.
     thumb = NULL,
+    #' @field content Field.
     content = NULL,
     initialize = function(id, type, send_message, title = NULL, description = NULL, url = NULL, thumb = NULL, content = NULL) {
       self$id <- id
@@ -15007,13 +16580,21 @@ InputBotInlineResultDocument <- R6::R6Class(
   "InputBotInlineResultDocument",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfff8fdc4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x80a4a3de,
+    #' @field id Field.
     id = NULL,
+    #' @field type Field.
     type = NULL,
+    #' @field document Field.
     document = NULL,
+    #' @field send_message Field.
     send_message = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
     initialize = function(id, type, document, send_message, title = NULL, description = NULL) {
       self$id <- id
@@ -15073,10 +16654,15 @@ InputBotInlineResultGame <- R6::R6Class(
   "InputBotInlineResultGame",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4fa417f2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x80a4a3de,
+    #' @field id Field.
     id = NULL,
+    #' @field short_name Field.
     short_name = NULL,
+    #' @field send_message Field.
     send_message = NULL,
     initialize = function(id, short_name, send_message) {
       self$id <- id
@@ -15109,11 +16695,17 @@ InputBotInlineResultPhoto <- R6::R6Class(
   "InputBotInlineResultPhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa8d864a7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x80a4a3de,
+    #' @field id Field.
     id = NULL,
+    #' @field type Field.
     type = NULL,
+    #' @field photo Field.
     photo = NULL,
+    #' @field send_message Field.
     send_message = NULL,
     initialize = function(id, type, photo, send_message) {
       self$id <- id
@@ -15148,9 +16740,13 @@ InputBotInlineResultPhoto <- R6::R6Class(
 InputBusinessAwayMessage <- R6::R6Class(
   "InputBusinessAwayMessage",
   public = list(
+    #' @field shortcut_id Field.
     shortcut_id = NULL,
+    #' @field schedule Field.
     schedule = NULL,
+    #' @field recipients Field.
     recipients = NULL,
+    #' @field offline_only Field.
     offline_only = NULL,
     initialize = function(shortcut_id, schedule, recipients, offline_only = NULL) {
       self$shortcut_id <- shortcut_id
@@ -15185,12 +16781,19 @@ InputBusinessAwayMessage <- R6::R6Class(
 InputBusinessBotRecipients <- R6::R6Class(
   "InputBusinessBotRecipients",
   public = list(
+    #' @field existing_chats Field.
     existing_chats = NULL,
+    #' @field new_chats Field.
     new_chats = NULL,
+    #' @field contacts Field.
     contacts = NULL,
+    #' @field non_contacts Field.
     non_contacts = NULL,
+    #' @field exclude_selected Field.
     exclude_selected = NULL,
+    #' @field users Field.
     users = NULL,
+    #' @field exclude_users Field.
     exclude_users = NULL,
     initialize = function(existing_chats = NULL, new_chats = NULL, contacts = NULL, non_contacts = NULL, exclude_selected = NULL, users = NULL, exclude_users = NULL) {
       self$existing_chats <- existing_chats
@@ -15256,10 +16859,15 @@ InputBusinessChatLink <- R6::R6Class(
   "InputBusinessChatLink",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x11679fa7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xab670513,
+    #' @field message Field.
     message = NULL,
+    #' @field entities Field.
     entities = NULL,
+    #' @field title Field.
     title = NULL,
     initialize = function(message, entities = NULL, title = NULL) {
       self$message <- message
@@ -15293,10 +16901,15 @@ InputBusinessGreetingMessage <- R6::R6Class(
   "InputBusinessGreetingMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x194cb3b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6278dcdd,
+    #' @field shortcut_id Field.
     shortcut_id = NULL,
+    #' @field recipients Field.
     recipients = NULL,
+    #' @field no_activity_days Field.
     no_activity_days = NULL,
     initialize = function(shortcut_id, recipients, no_activity_days) {
       self$shortcut_id <- shortcut_id
@@ -15329,10 +16942,15 @@ InputBusinessIntro <- R6::R6Class(
   "InputBusinessIntro",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9c469cd,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x645a767d,
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
+    #' @field sticker Field.
     sticker = NULL,
     initialize = function(title, description, sticker = NULL) {
       self$title <- title
@@ -15377,13 +16995,21 @@ InputBusinessRecipients <- R6::R6Class(
   "InputBusinessRecipients",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6f8b32aa,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd7ee53f,
+    #' @field existing_chats Field.
     existing_chats = NULL,
+    #' @field new_chats Field.
     new_chats = NULL,
+    #' @field contacts Field.
     contacts = NULL,
+    #' @field non_contacts Field.
     non_contacts = NULL,
+    #' @field exclude_selected Field.
     exclude_selected = NULL,
+    #' @field users Field.
     users = NULL,
     initialize = function(existing_chats = NULL, new_chats = NULL, contacts = NULL, non_contacts = NULL, exclude_selected = NULL, users = NULL) {
       self$existing_chats <- existing_chats
@@ -15463,9 +17089,13 @@ InputChannel <- R6::R6Class(
   "InputChannel",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf35aec28,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x40f202fd,
+    #' @field channel_id Field.
     channel_id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(channel_id, access_hash) {
       self$channel_id <- channel_id
@@ -15495,7 +17125,9 @@ InputChannelEmpty <- R6::R6Class(
   "InputChannelEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xee8c1e86,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x40f202fd,
     to_dict = function() {
       list("_" = "InputChannelEmpty")
@@ -15513,10 +17145,15 @@ InputChannelFromMessage <- R6::R6Class(
   "InputChannelFromMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5b934f9d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x40f202fd,
+    #' @field peer Field.
     peer = NULL,
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field channel_id Field.
     channel_id = NULL,
     initialize = function(peer, msg_id, channel_id) {
       self$peer <- peer
@@ -15549,8 +17186,11 @@ InputChatPhoto <- R6::R6Class(
   "InputChatPhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8953ad37,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd4eb2d74,
+    #' @field id Field.
     id = NULL,
     initialize = function(id) {
       self$id <- id
@@ -15577,7 +17217,9 @@ InputChatPhotoEmpty <- R6::R6Class(
   "InputChatPhotoEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1ca48f57,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd4eb2d74,
     to_dict = function() {
       list("_" = "InputChatPhotoEmpty")
@@ -15595,8 +17237,11 @@ InputChatTheme <- R6::R6Class(
   "InputChatTheme",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc93de95c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x57294e64,
+    #' @field emoticon Field.
     emoticon = NULL,
     initialize = function(emoticon) {
       self$emoticon <- emoticon
@@ -15617,7 +17262,9 @@ InputChatThemeEmpty <- R6::R6Class(
   "InputChatThemeEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x83268483,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x57294e64,
     to_dict = function() {
       list("_" = "InputChatThemeEmpty")
@@ -15635,8 +17282,11 @@ InputChatThemeUniqueGift <- R6::R6Class(
   "InputChatThemeUniqueGift",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x87e5dfe4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x57294e64,
+    #' @field slug Field.
     slug = NULL,
     initialize = function(slug) {
       self$slug <- slug
@@ -15669,11 +17319,17 @@ InputChatUploadedPhoto <- R6::R6Class(
   "InputChatUploadedPhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbdcdaec0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd4eb2d74,
+    #' @field file Field.
     file = NULL,
+    #' @field video Field.
     video = NULL,
+    #' @field video_start_ts Field.
     video_start_ts = NULL,
+    #' @field video_emoji_markup Field.
     video_emoji_markup = NULL,
     initialize = function(file = NULL, video = NULL, video_start_ts = NULL, video_emoji_markup = NULL) {
       self$file <- file
@@ -15727,8 +17383,11 @@ InputChatlistDialogFilter <- R6::R6Class(
   "InputChatlistDialogFilter",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf3e0da33,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x23f9659,
+    #' @field filter_id Field.
     filter_id = NULL,
     initialize = function(filter_id) {
       self$filter_id <- filter_id
@@ -15755,7 +17414,9 @@ InputCheckPasswordEmpty <- R6::R6Class(
   "InputCheckPasswordEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9880f658,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd41af560,
     to_dict = function() {
       list("_" = "InputCheckPasswordEmpty")
@@ -15773,10 +17434,15 @@ InputCheckPasswordSRP <- R6::R6Class(
   "InputCheckPasswordSRP",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd27ff082,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd41af560,
+    #' @field srp_id Field.
     srp_id = NULL,
+    #' @field A Field.
     A = NULL,
+    #' @field M1 Field.
     M1 = NULL,
     initialize = function(srp_id, A, M1) {
       self$srp_id <- srp_id
@@ -15809,9 +17475,13 @@ InputClientProxy <- R6::R6Class(
   "InputClientProxy",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x75588b3f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x91a4346,
+    #' @field address Field.
     address = NULL,
+    #' @field port Field.
     port = NULL,
     initialize = function(address, port) {
       self$address <- address
@@ -15841,8 +17511,11 @@ InputCollectiblePhone <- R6::R6Class(
   "InputCollectiblePhone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa2e214a4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2a0f81eb,
+    #' @field phone Field.
     phone = NULL,
     initialize = function(phone) {
       self$phone <- phone
@@ -15869,8 +17542,11 @@ InputCollectibleUsername <- R6::R6Class(
   "InputCollectibleUsername",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe39460a9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2a0f81eb,
+    #' @field username Field.
     username = NULL,
     initialize = function(username) {
       self$username <- username
@@ -15897,8 +17573,11 @@ InputDialogPeer <- R6::R6Class(
   "InputDialogPeer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfcaafeb7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa21c9795,
+    #' @field peer Field.
     peer = NULL,
     initialize = function(peer) {
       self$peer <- peer
@@ -15925,8 +17604,11 @@ InputDialogPeerFolder <- R6::R6Class(
   "InputDialogPeerFolder",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x64600527,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa21c9795,
+    #' @field folder_id Field.
     folder_id = NULL,
     initialize = function(folder_id) {
       self$folder_id <- folder_id
@@ -15953,10 +17635,15 @@ InputDocument <- R6::R6Class(
   "InputDocument",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1abfb575,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf33fdb68,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field file_reference Field.
     file_reference = NULL,
     initialize = function(id, access_hash, file_reference) {
       self$id <- id
@@ -15997,7 +17684,9 @@ InputDocumentEmpty <- R6::R6Class(
   "InputDocumentEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x72f0eaae,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf33fdb68,
     to_list = function() {
       list("_" = "InputDocumentEmpty")
@@ -16020,11 +17709,17 @@ InputDocumentFileLocation <- R6::R6Class(
   "InputDocumentFileLocation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbad07584,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1523d462,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field file_reference Field.
     file_reference = NULL,
+    #' @field thumb_size Field.
     thumb_size = NULL,
     initialize = function(id, access_hash, file_reference, thumb_size) {
       self$id <- id
@@ -16069,9 +17764,13 @@ InputEmojiStatusCollectible <- R6::R6Class(
   "InputEmojiStatusCollectible",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7141dbf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf930b138,
+    #' @field collectible_id Field.
     collectible_id = NULL,
+    #' @field until Field.
     until = NULL,
     initialize = function(collectible_id, until = NULL) {
       self$collectible_id <- collectible_id
@@ -16111,9 +17810,13 @@ InputEncryptedChat <- R6::R6Class(
   "InputEncryptedChat",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf141b5e1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6c7606c0,
+    #' @field chat_id Field.
     chat_id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(chat_id, access_hash) {
       self$chat_id <- chat_id
@@ -16143,9 +17846,13 @@ InputEncryptedFile <- R6::R6Class(
   "InputEncryptedFile",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5a17b5e5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8574c27a,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(id, access_hash) {
       self$id <- id
@@ -16174,8 +17881,11 @@ InputEncryptedFile <- R6::R6Class(
 InputEncryptedFileBigUploaded <- R6::R6Class(
   "InputEncryptedFileBigUploaded",
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field parts Field.
     parts = NULL,
+    #' @field key_fingerprint Field.
     key_fingerprint = NULL,
     initialize = function(id, parts, key_fingerprint) {
       self$id <- id
@@ -16222,7 +17932,9 @@ InputEncryptedFileEmpty <- R6::R6Class(
 InputEncryptedFileLocation <- R6::R6Class(
   "InputEncryptedFileLocation",
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(id, access_hash) {
       self$id <- id
@@ -16251,9 +17963,13 @@ InputEncryptedFileLocation <- R6::R6Class(
 InputEncryptedFileUploaded <- R6::R6Class(
   "InputEncryptedFileUploaded",
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field parts Field.
     parts = NULL,
+    #' @field md5_checksum Field.
     md5_checksum = NULL,
+    #' @field key_fingerprint Field.
     key_fingerprint = NULL,
     initialize = function(id, parts, md5_checksum, key_fingerprint) {
       self$id <- id
@@ -16288,9 +18004,13 @@ InputEncryptedFileUploaded <- R6::R6Class(
 InputFile <- R6::R6Class(
   "InputFile",
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field parts Field.
     parts = NULL,
+    #' @field name Field.
     name = NULL,
+    #' @field md5_checksum Field.
     md5_checksum = NULL,
     initialize = function(id, parts, name, md5_checksum) {
       self$id <- id
@@ -16325,8 +18045,11 @@ InputFile <- R6::R6Class(
 InputFileBig <- R6::R6Class(
   "InputFileBig",
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field parts Field.
     parts = NULL,
+    #' @field name Field.
     name = NULL,
     initialize = function(id, parts, name) {
       self$id <- id
@@ -16358,9 +18081,13 @@ InputFileBig <- R6::R6Class(
 InputFileLocation <- R6::R6Class(
   "InputFileLocation",
   public = list(
+    #' @field volume_id Field.
     volume_id = NULL,
+    #' @field local_id Field.
     local_id = NULL,
+    #' @field secret Field.
     secret = NULL,
+    #' @field file_reference Field.
     file_reference = NULL,
     initialize = function(volume_id, local_id, secret, file_reference) {
       self$volume_id <- volume_id
@@ -16395,6 +18122,7 @@ InputFileLocation <- R6::R6Class(
 InputFileStoryDocument <- R6::R6Class(
   "InputFileStoryDocument",
   public = list(
+    #' @field id Field.
     id = NULL,
     initialize = function(id) {
       self$id <- id
@@ -16420,7 +18148,9 @@ InputFileStoryDocument <- R6::R6Class(
 InputFolderPeer <- R6::R6Class(
   "InputFolderPeer",
   public = list(
+    #' @field peer Field.
     peer = NULL,
+    #' @field folder_id Field.
     folder_id = NULL,
     initialize = function(peer, folder_id) {
       self$peer <- peer
@@ -16449,7 +18179,9 @@ InputFolderPeer <- R6::R6Class(
 InputGameID <- R6::R6Class(
   "InputGameID",
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(id, access_hash) {
       self$id <- id
@@ -16478,7 +18210,9 @@ InputGameID <- R6::R6Class(
 InputGameShortName <- R6::R6Class(
   "InputGameShortName",
   public = list(
+    #' @field bot_id Field.
     bot_id = NULL,
+    #' @field short_name Field.
     short_name = NULL,
     initialize = function(bot_id, short_name) {
       self$bot_id <- bot_id
@@ -16507,10 +18241,15 @@ InputGameShortName <- R6::R6Class(
 InputGeoPoint <- R6::R6Class(
   "InputGeoPoint",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x48222faf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x430d225,
+    #' @field lat Field.
     lat = NULL,
+    #' @field long Field.
     long = NULL,
+    #' @field accuracy_radius Field.
     accuracy_radius = NULL,
     initialize = function(lat, long, accuracy_radius = NULL) {
       self$lat <- lat
@@ -16547,7 +18286,9 @@ InputGeoPoint <- R6::R6Class(
 InputGeoPointEmpty <- R6::R6Class(
   "InputGeoPointEmpty",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe4c123d6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x430d225,
     to_dict = function() {
       list("_" = "InputGeoPointEmpty")
@@ -16561,9 +18302,13 @@ InputGeoPointEmpty <- R6::R6Class(
 InputGroupCall <- R6::R6Class(
   "InputGroupCall",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd8aa840f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x58611ab1,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(id, access_hash) {
       self$id <- id
@@ -16593,8 +18338,11 @@ InputGroupCallInviteMessage <- R6::R6Class(
   "InputGroupCallInviteMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8c10603f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x58611ab1,
+    #' @field msg_id Field.
     msg_id = NULL,
     initialize = function(msg_id) {
       self$msg_id <- msg_id
@@ -16621,8 +18369,11 @@ InputGroupCallSlug <- R6::R6Class(
   "InputGroupCallSlug",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfe06823f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x58611ab1,
+    #' @field slug Field.
     slug = NULL,
     initialize = function(slug) {
       self$slug <- slug
@@ -16648,10 +18399,15 @@ InputGroupCallSlug <- R6::R6Class(
 InputGroupCallStream <- R6::R6Class(
   "InputGroupCallStream",
   public = list(
+    #' @field call Field.
     call = NULL,
+    #' @field time_ms Field.
     time_ms = NULL,
+    #' @field scale Field.
     scale = NULL,
+    #' @field video_channel Field.
     video_channel = NULL,
+    #' @field video_quality Field.
     video_quality = NULL,
     initialize = function(call, time_ms, scale, video_channel = NULL, video_quality = NULL) {
       self$call <- call
@@ -16694,7 +18450,9 @@ InputGroupCallStream <- R6::R6Class(
 InputInvoiceBusinessBotTransferStars <- R6::R6Class(
   "InputInvoiceBusinessBotTransferStars",
   public = list(
+    #' @field bot Field.
     bot = NULL,
+    #' @field stars Field.
     stars = NULL,
     initialize = function(bot, stars) {
       self$bot <- bot
@@ -16724,8 +18482,11 @@ InputInvoiceChatInviteSubscription <- R6::R6Class(
   "InputInvoiceChatInviteSubscription",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x34e793f1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x726e9bfe,
+    #' @field hash Field.
     hash = NULL,
     initialize = function(hash) {
       self$hash <- hash
@@ -16752,9 +18513,13 @@ InputInvoiceMessage <- R6::R6Class(
   "InputInvoiceMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc5b56859,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x726e9bfe,
+    #' @field peer Field.
     peer = NULL,
+    #' @field msg_id Field.
     msg_id = NULL,
     initialize = function(peer, msg_id) {
       self$peer <- peer
@@ -16784,9 +18549,13 @@ InputInvoicePremiumGiftCode <- R6::R6Class(
   "InputInvoicePremiumGiftCode",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x98986c0d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x726e9bfe,
+    #' @field purpose Field.
     purpose = NULL,
+    #' @field option Field.
     option = NULL,
     initialize = function(purpose, option) {
       self$purpose <- purpose
@@ -16815,10 +18584,15 @@ InputInvoicePremiumGiftCode <- R6::R6Class(
 InputInvoicePremiumGiftStars <- R6::R6Class(
   "InputInvoicePremiumGiftStars",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdabab2ef,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x726e9bfe,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field months Field.
     months = NULL,
+    #' @field message Field.
     message = NULL,
     initialize = function(user_id, months, message = NULL) {
       self$user_id <- user_id
@@ -16851,8 +18625,11 @@ InputInvoicePremiumGiftStars <- R6::R6Class(
 InputInvoiceSlug <- R6::R6Class(
   "InputInvoiceSlug",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc326caef,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x726e9bfe,
+    #' @field slug Field.
     slug = NULL,
     initialize = function(slug) {
       self$slug <- slug
@@ -16878,12 +18655,19 @@ InputInvoiceSlug <- R6::R6Class(
 InputInvoiceStarGift <- R6::R6Class(
   "InputInvoiceStarGift",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe8625e92,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x726e9bfe,
+    #' @field peer Field.
     peer = NULL,
+    #' @field gift_id Field.
     gift_id = NULL,
+    #' @field hide_name Field.
     hide_name = NULL,
+    #' @field include_upgrade Field.
     include_upgrade = NULL,
+    #' @field message Field.
     message = NULL,
     initialize = function(peer, gift_id, hide_name = NULL, include_upgrade = NULL, message = NULL) {
       self$peer <- peer
@@ -16924,9 +18708,13 @@ InputInvoiceStarGift <- R6::R6Class(
 InputInvoiceStarGiftPrepaidUpgrade <- R6::R6Class(
   "InputInvoiceStarGiftPrepaidUpgrade",
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9a0b48b8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x726e9bfe,
+    #' @field peer Field.
     peer = NULL,
+    #' @field hash Field.
     hash = NULL,
     initialize = function(peer, hash) {
       self$peer <- peer
@@ -16956,10 +18744,15 @@ InputInvoiceStarGiftResale <- R6::R6Class(
   "InputInvoiceStarGiftResale",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc39f5324,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x726e9bfe,
+    #' @field slug Field.
     slug = NULL,
+    #' @field to_id Field.
     to_id = NULL,
+    #' @field ton Field.
     ton = NULL,
     initialize = function(slug, to_id, ton = NULL) {
       self$slug <- slug
@@ -16992,9 +18785,13 @@ InputInvoiceStarGiftTransfer <- R6::R6Class(
   "InputInvoiceStarGiftTransfer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4a5f5bd9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x726e9bfe,
+    #' @field stargift Field.
     stargift = NULL,
+    #' @field to_id Field.
     to_id = NULL,
     initialize = function(stargift, to_id) {
       self$stargift <- stargift
@@ -17024,9 +18821,13 @@ InputInvoiceStarGiftUpgrade <- R6::R6Class(
   "InputInvoiceStarGiftUpgrade",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4d818d5d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x726e9bfe,
+    #' @field stargift Field.
     stargift = NULL,
+    #' @field keep_original_details Field.
     keep_original_details = NULL,
     initialize = function(stargift, keep_original_details = NULL) {
       self$stargift <- stargift
@@ -17056,8 +18857,11 @@ InputInvoiceStars <- R6::R6Class(
   "InputInvoiceStars",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x65f00ce3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x726e9bfe,
+    #' @field purpose Field.
     purpose = NULL,
     initialize = function(purpose) {
       self$purpose <- purpose
@@ -17084,14 +18888,23 @@ InputKeyboardButtonRequestPeer <- R6::R6Class(
   "InputKeyboardButtonRequestPeer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc9662d05,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
+    #' @field button_id Field.
     button_id = NULL,
+    #' @field peer_type Field.
     peer_type = NULL,
+    #' @field max_quantity Field.
     max_quantity = NULL,
+    #' @field name_requested Field.
     name_requested = NULL,
+    #' @field username_requested Field.
     username_requested = NULL,
+    #' @field photo_requested Field.
     photo_requested = NULL,
     initialize = function(text, button_id, peer_type, max_quantity, name_requested = NULL, username_requested = NULL, photo_requested = NULL) {
       self$text <- text
@@ -17159,12 +18972,19 @@ InputKeyboardButtonUrlAuth <- R6::R6Class(
   "InputKeyboardButtonUrlAuth",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd02e7fd4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
+    #' @field url Field.
     url = NULL,
+    #' @field bot Field.
     bot = NULL,
+    #' @field request_write_access Field.
     request_write_access = NULL,
+    #' @field fwd_text Field.
     fwd_text = NULL,
     initialize = function(text, url, bot, request_write_access = NULL, fwd_text = NULL) {
       self$text <- text
@@ -17197,9 +19017,13 @@ InputKeyboardButtonUserProfile <- R6::R6Class(
   "InputKeyboardButtonUserProfile",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe988037b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
+    #' @field user_id Field.
     user_id = NULL,
     initialize = function(text, user_id) {
       self$text <- text
@@ -17226,10 +19050,15 @@ InputMediaAreaChannelPost <- R6::R6Class(
   "InputMediaAreaChannelPost",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2271f2bf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf36d7bf2,
+    #' @field coordinates Field.
     coordinates = NULL,
+    #' @field channel Field.
     channel = NULL,
+    #' @field msg_id Field.
     msg_id = NULL,
     initialize = function(coordinates, channel, msg_id) {
       self$coordinates <- coordinates
@@ -17262,10 +19091,15 @@ InputMediaAreaVenue <- R6::R6Class(
   "InputMediaAreaVenue",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb282217f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf36d7bf2,
+    #' @field coordinates Field.
     coordinates = NULL,
+    #' @field query_id Field.
     query_id = NULL,
+    #' @field result_id Field.
     result_id = NULL,
     initialize = function(coordinates, query_id, result_id) {
       self$coordinates <- coordinates
@@ -17298,11 +19132,17 @@ InputMediaContact <- R6::R6Class(
   "InputMediaContact",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf8ab7dfb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field phone_number Field.
     phone_number = NULL,
+    #' @field first_name Field.
     first_name = NULL,
+    #' @field last_name Field.
     last_name = NULL,
+    #' @field vcard Field.
     vcard = NULL,
     initialize = function(phone_number, first_name, last_name, vcard) {
       self$phone_number <- phone_number
@@ -17338,8 +19178,11 @@ InputMediaDice <- R6::R6Class(
   "InputMediaDice",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe66fbf7b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field emoticon Field.
     emoticon = NULL,
     initialize = function(emoticon) {
       self$emoticon <- emoticon
@@ -17366,13 +19209,21 @@ InputMediaDocument <- R6::R6Class(
   "InputMediaDocument",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa8763ab5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field id Field.
     id = NULL,
+    #' @field spoiler Field.
     spoiler = NULL,
+    #' @field video_cover Field.
     video_cover = NULL,
+    #' @field video_timestamp Field.
     video_timestamp = NULL,
+    #' @field ttl_seconds Field.
     ttl_seconds = NULL,
+    #' @field query Field.
     query = NULL,
     initialize = function(id, spoiler = NULL, video_cover = NULL, video_timestamp = NULL, ttl_seconds = NULL, query = NULL) {
       self$id <- id
@@ -17434,12 +19285,19 @@ InputMediaDocumentExternal <- R6::R6Class(
   "InputMediaDocumentExternal",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x779600f9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field url Field.
     url = NULL,
+    #' @field spoiler Field.
     spoiler = NULL,
+    #' @field ttl_seconds Field.
     ttl_seconds = NULL,
+    #' @field video_cover Field.
     video_cover = NULL,
+    #' @field video_timestamp Field.
     video_timestamp = NULL,
     initialize = function(url, spoiler = NULL, ttl_seconds = NULL, video_cover = NULL, video_timestamp = NULL) {
       self$url <- url
@@ -17476,7 +19334,9 @@ InputMediaEmpty <- R6::R6Class(
   "InputMediaEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9664f57f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
     initialize = function() {
       # no fields
@@ -17502,8 +19362,11 @@ InputMediaGame <- R6::R6Class(
   "InputMediaGame",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd33f43f3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field id Field.
     id = NULL,
     initialize = function(id) {
       self$id <- id
@@ -17529,12 +19392,19 @@ InputMediaGeoLive <- R6::R6Class(
   "InputMediaGeoLive",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x971fa843,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field geo_point Field.
     geo_point = NULL,
+    #' @field stopped Field.
     stopped = NULL,
+    #' @field heading Field.
     heading = NULL,
+    #' @field period Field.
     period = NULL,
+    #' @field proximity_notification_radius Field.
     proximity_notification_radius = NULL,
     initialize = function(geo_point, stopped = NULL, heading = NULL, period = NULL, proximity_notification_radius = NULL) {
       self$geo_point <- geo_point
@@ -17571,8 +19441,11 @@ InputMediaGeoPoint <- R6::R6Class(
   "InputMediaGeoPoint",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf9c44144,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field geo_point Field.
     geo_point = NULL,
     initialize = function(geo_point) {
       self$geo_point <- geo_point
@@ -17601,16 +19474,27 @@ InputMediaInvoice <- R6::R6Class(
   "InputMediaInvoice",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x405fef0d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
+    #' @field invoice Field.
     invoice = NULL,
+    #' @field payload Field.
     payload = NULL,
+    #' @field providerdata Field.
     providerdata = NULL,
+    #' @field photo Field.
     photo = NULL,
+    #' @field provider Field.
     provider = NULL,
+    #' @field start_param Field.
     start_param = NULL,
+    #' @field extended_media Field.
     extended_media = NULL,
     initialize = function(title, description, invoice, payload, providerdata, photo = NULL, provider = NULL, start_param = NULL, extended_media = NULL) {
       self$title <- title
@@ -17655,10 +19539,15 @@ InputMediaPaidMedia <- R6::R6Class(
   "InputMediaPaidMedia",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc4103386,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field stars_amount Field.
     stars_amount = NULL,
+    #' @field extended_media Field.
     extended_media = NULL,
+    #' @field payload Field.
     payload = NULL,
     initialize = function(stars_amount, extended_media, payload = NULL) {
       self$stars_amount <- stars_amount
@@ -17691,10 +19580,15 @@ InputMediaPhoto <- R6::R6Class(
   "InputMediaPhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb3ba0635,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field id Field.
     id = NULL,
+    #' @field spoiler Field.
     spoiler = NULL,
+    #' @field ttl_seconds Field.
     ttl_seconds = NULL,
     initialize = function(id, spoiler = NULL, ttl_seconds = NULL) {
       self$id <- id
@@ -17727,10 +19621,15 @@ InputMediaPhotoExternal <- R6::R6Class(
   "InputMediaPhotoExternal",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe5bbfe1a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field url Field.
     url = NULL,
+    #' @field spoiler Field.
     spoiler = NULL,
+    #' @field ttl_seconds Field.
     ttl_seconds = NULL,
     initialize = function(url, spoiler = NULL, ttl_seconds = NULL) {
       self$url <- url
@@ -17764,10 +19663,15 @@ InputMediaPoll <- R6::R6Class(
   inherit = TLObject,
   public = list(
     CONSTRUCTOR_ID = 0x0f94e5f1, # keep as numeric constant (hex shown in python)
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field poll Field.
     poll = NULL,
+    #' @field correct_answers Field.
     correct_answers = NULL,
+    #' @field solution Field.
     solution = NULL,
+    #' @field solution_entities Field.
     solution_entities = NULL,
     initialize = function(poll, correct_answers = NULL, solution = NULL, solution_entities = NULL) {
       self$poll <- poll
@@ -17802,9 +19706,13 @@ InputMediaStory <- R6::R6Class(
   "InputMediaStory",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x89fdd778,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
     initialize = function(peer, id) {
       self$peer <- peer
@@ -17836,8 +19744,11 @@ InputMediaTodo <- R6::R6Class(
   "InputMediaTodo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9fc55fde,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field todo Field.
     todo = NULL,
     initialize = function(todo) {
       self$todo <- todo
@@ -17867,18 +19778,31 @@ InputMediaUploadedDocument <- R6::R6Class(
   "InputMediaUploadedDocument",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x037c9330,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field file Field.
     file = NULL,
+    #' @field mime_type Field.
     mime_type = NULL,
+    #' @field attributes Field.
     attributes = NULL,
+    #' @field nosound_video Field.
     nosound_video = NULL,
+    #' @field force_file Field.
     force_file = NULL,
+    #' @field spoiler Field.
     spoiler = NULL,
+    #' @field thumb Field.
     thumb = NULL,
+    #' @field stickers Field.
     stickers = NULL,
+    #' @field video_cover Field.
     video_cover = NULL,
+    #' @field video_timestamp Field.
     video_timestamp = NULL,
+    #' @field ttl_seconds Field.
     ttl_seconds = NULL,
     initialize = function(file, mime_type, attributes,
                           nosound_video = NULL, force_file = NULL, spoiler = NULL,
@@ -17931,11 +19855,17 @@ InputMediaUploadedPhoto <- R6::R6Class(
   "InputMediaUploadedPhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1e287d04,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field file Field.
     file = NULL,
+    #' @field spoiler Field.
     spoiler = NULL,
+    #' @field stickers Field.
     stickers = NULL,
+    #' @field ttl_seconds Field.
     ttl_seconds = NULL,
     initialize = function(file, spoiler = NULL, stickers = NULL, ttl_seconds = NULL) {
       self$file <- file
@@ -17971,13 +19901,21 @@ InputMediaUploadedPhoto <- R6::R6Class(
 InputMediaVenue <- R6::R6Class("InputMediaVenue",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc13d1c11,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field geo_point Field.
     geo_point = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field address Field.
     address = NULL,
+    #' @field provider Field.
     provider = NULL,
+    #' @field venue_id Field.
     venue_id = NULL,
+    #' @field venue_type Field.
     venue_type = NULL,
     initialize = function(geo_point, title, address, provider, venue_id, venue_type) {
       self$geo_point <- geo_point
@@ -18016,11 +19954,17 @@ InputMediaVenue <- R6::R6Class("InputMediaVenue",
 InputMediaWebPage <- R6::R6Class("InputMediaWebPage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc21b8849,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfaf846f4,
+    #' @field url Field.
     url = NULL,
+    #' @field force_large_media Field.
     force_large_media = NULL,
+    #' @field force_small_media Field.
     force_small_media = NULL,
+    #' @field optional Field.
     optional = NULL,
     initialize = function(url, force_large_media = NULL, force_small_media = NULL, optional = NULL) {
       self$url <- url
@@ -18055,9 +19999,13 @@ InputMediaWebPage <- R6::R6Class("InputMediaWebPage",
 InputMessageCallbackQuery <- R6::R6Class("InputMessageCallbackQuery",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xacfa1a7e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x54b6bcc5,
+    #' @field id Field.
     id = NULL,
+    #' @field query_id Field.
     query_id = NULL,
     initialize = function(id, query_id) {
       self$id <- id
@@ -18083,10 +20031,15 @@ InputMessageCallbackQuery <- R6::R6Class("InputMessageCallbackQuery",
 InputMessageEntityMentionName <- R6::R6Class("InputMessageEntityMentionName",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x208e68c9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
+    #' @field offset Field.
     offset = NULL,
+    #' @field length Field.
     length = NULL,
+    #' @field user_id Field.
     user_id = NULL,
     initialize = function(offset, length, user_id) {
       self$offset <- offset
@@ -18118,8 +20071,11 @@ InputMessageEntityMentionName <- R6::R6Class("InputMessageEntityMentionName",
 InputMessageID <- R6::R6Class("InputMessageID",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa676a322,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x54b6bcc5,
+    #' @field id Field.
     id = NULL,
     initialize = function(id) {
       self$id <- id
@@ -18144,7 +20100,9 @@ InputMessageID <- R6::R6Class("InputMessageID",
 InputMessagePinned <- R6::R6Class("InputMessagePinned",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x86872538,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x54b6bcc5,
     initialize = function() {
       # no fields
@@ -18169,8 +20127,11 @@ InputMessagePinned <- R6::R6Class("InputMessagePinned",
 InputMessageReplyTo <- R6::R6Class("InputMessageReplyTo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbad88395,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x54b6bcc5,
+    #' @field id Field.
     id = NULL,
     initialize = function(id) {
       self$id <- id
@@ -18195,7 +20156,9 @@ InputMessageReplyTo <- R6::R6Class("InputMessageReplyTo",
 InputMessagesFilterChatPhotos <- R6::R6Class("InputMessagesFilterChatPhotos",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3a20ecb8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     initialize = function() { },
     to_dict = function() {
@@ -18218,7 +20181,9 @@ InputMessagesFilterChatPhotos <- R6::R6Class("InputMessagesFilterChatPhotos",
 InputMessagesFilterContacts <- R6::R6Class("InputMessagesFilterContacts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe062db83,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     initialize = function() { },
     to_dict = function() {
@@ -18241,7 +20206,9 @@ InputMessagesFilterContacts <- R6::R6Class("InputMessagesFilterContacts",
 InputMessagesFilterDocument <- R6::R6Class("InputMessagesFilterDocument",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9eddf188,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     initialize = function() { },
     to_dict = function() {
@@ -18264,7 +20231,9 @@ InputMessagesFilterDocument <- R6::R6Class("InputMessagesFilterDocument",
 InputMessagesFilterEmpty <- R6::R6Class("InputMessagesFilterEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x57e2f66c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     initialize = function() { },
     to_dict = function() {
@@ -18287,7 +20256,9 @@ InputMessagesFilterEmpty <- R6::R6Class("InputMessagesFilterEmpty",
 InputMessagesFilterGeo <- R6::R6Class("InputMessagesFilterGeo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe7026d0d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     initialize = function() { },
     to_dict = function() {
@@ -18310,7 +20281,9 @@ InputMessagesFilterGeo <- R6::R6Class("InputMessagesFilterGeo",
 InputMessagesFilterGif <- R6::R6Class("InputMessagesFilterGif",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xffc86587,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     initialize = function() { },
     to_dict = function() {
@@ -18333,7 +20306,9 @@ InputMessagesFilterGif <- R6::R6Class("InputMessagesFilterGif",
 InputMessagesFilterMusic <- R6::R6Class("InputMessagesFilterMusic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3751b49e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     initialize = function() { },
     to_dict = function() {
@@ -18356,7 +20331,9 @@ InputMessagesFilterMusic <- R6::R6Class("InputMessagesFilterMusic",
 InputMessagesFilterMyMentions <- R6::R6Class("InputMessagesFilterMyMentions",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc1f8e69a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     initialize = function() { },
     to_dict = function() {
@@ -18380,8 +20357,11 @@ InputMessagesFilterPhoneCalls <- R6::R6Class(
   "InputMessagesFilterPhoneCalls",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x80c99768,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
+    #' @field missed Field.
     missed = NULL,
     initialize = function(missed = NULL) {
       self$missed <- missed
@@ -18409,7 +20389,9 @@ InputMessagesFilterPhotoVideo <- R6::R6Class(
   "InputMessagesFilterPhotoVideo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x56e9f0e4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     to_dict = function() {
       list("_" = "InputMessagesFilterPhotoVideo")
@@ -18434,7 +20416,9 @@ InputMessagesFilterPhotos <- R6::R6Class(
   "InputMessagesFilterPhotos",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9609a51c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     to_dict = function() {
       list("_" = "InputMessagesFilterPhotos")
@@ -18457,7 +20441,9 @@ InputMessagesFilterPinned <- R6::R6Class(
   "InputMessagesFilterPinned",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1bb00451,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     to_dict = function() {
       list("_" = "InputMessagesFilterPinned")
@@ -18480,7 +20466,9 @@ InputMessagesFilterRoundVideo <- R6::R6Class(
   "InputMessagesFilterRoundVideo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb549da53,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     to_dict = function() {
       list("_" = "InputMessagesFilterRoundVideo")
@@ -18503,7 +20491,9 @@ InputMessagesFilterRoundVoice <- R6::R6Class(
   "InputMessagesFilterRoundVoice",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7a7c17a4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     to_dict = function() {
       list("_" = "InputMessagesFilterRoundVoice")
@@ -18526,7 +20516,9 @@ InputMessagesFilterUrl <- R6::R6Class(
   "InputMessagesFilterUrl",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7ef0dd87,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     to_dict = function() {
       list("_" = "InputMessagesFilterUrl")
@@ -18549,7 +20541,9 @@ InputMessagesFilterVideo <- R6::R6Class(
   "InputMessagesFilterVideo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9fc00e65,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     to_dict = function() {
       list("_" = "InputMessagesFilterVideo")
@@ -18572,7 +20566,9 @@ InputMessagesFilterVoice <- R6::R6Class(
   "InputMessagesFilterVoice",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x50f5c392,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
     to_dict = function() {
       list("_" = "InputMessagesFilterVoice")
@@ -18595,7 +20591,9 @@ InputNotifyBroadcasts <- R6::R6Class(
   "InputNotifyBroadcasts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb1db7c7e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x58981615,
     to_dict = function() {
       list("_" = "InputNotifyBroadcasts")
@@ -18618,7 +20616,9 @@ InputNotifyChats <- R6::R6Class(
   "InputNotifyChats",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4a95e84e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x58981615,
     to_dict = function() {
       list("_" = "InputNotifyChats")
@@ -18641,9 +20641,13 @@ InputNotifyForumTopic <- R6::R6Class(
   "InputNotifyForumTopic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5c467992,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x58981615,
+    #' @field peer Field.
     peer = NULL,
+    #' @field top_msg_id Field.
     top_msg_id = NULL,
     initialize = function(peer, top_msg_id) {
       self$peer <- peer
@@ -18676,8 +20680,11 @@ InputNotifyPeer <- R6::R6Class(
   "InputNotifyPeer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb8bc5b0c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x58981615,
+    #' @field peer Field.
     peer = NULL,
     initialize = function(peer) {
       self$peer <- peer
@@ -18707,7 +20714,9 @@ InputNotifyUsers <- R6::R6Class(
   "InputNotifyUsers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x193b4417,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x58981615,
     to_dict = function() {
       list("_" = "InputNotifyUsers")
@@ -18730,9 +20739,13 @@ InputPaymentCredentials <- R6::R6Class(
   "InputPaymentCredentials",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3417d728,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2899a53d,
+    #' @field data Field.
     data = NULL,
+    #' @field save Field.
     save = NULL,
     initialize = function(data, save = NULL) {
       self$data <- data
@@ -18766,8 +20779,11 @@ InputPaymentCredentialsApplePay <- R6::R6Class(
   "InputPaymentCredentialsApplePay",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xaa1c39f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2899a53d,
+    #' @field paymentdata Field.
     paymentdata = NULL,
     initialize = function(paymentdata) {
       self$paymentdata <- paymentdata
@@ -18797,8 +20813,11 @@ InputPaymentCredentialsGooglePay <- R6::R6Class(
   "InputPaymentCredentialsGooglePay",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8ac32801,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2899a53d,
+    #' @field payment_token Field.
     payment_token = NULL,
     initialize = function(payment_token) {
       self$payment_token <- payment_token
@@ -18828,9 +20847,13 @@ InputPaymentCredentialsSaved <- R6::R6Class(
   "InputPaymentCredentialsSaved",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc10eb2cf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2899a53d,
+    #' @field id Field.
     id = NULL,
+    #' @field tmp_password Field.
     tmp_password = NULL,
     initialize = function(id, tmp_password) {
       self$id <- id
@@ -18863,9 +20886,13 @@ InputPeerChannel <- R6::R6Class(
   "InputPeerChannel",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x27bcbbfc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc91c90b6,
+    #' @field channel_id Field.
     channel_id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(channel_id, access_hash) {
       self$channel_id <- channel_id
@@ -18912,10 +20939,15 @@ InputPeerChannelFromMessage <- R6::R6Class(
   "InputPeerChannelFromMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbd2a0840,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc91c90b6,
+    #' @field peer Field.
     peer = NULL,
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field channel_id Field.
     channel_id = NULL,
     initialize = function(peer, msg_id, channel_id) {
       self$peer <- peer
@@ -18951,8 +20983,11 @@ InputPeerChat <- R6::R6Class(
   "InputPeerChat",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x35a95cb9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc91c90b6,
+    #' @field chat_id Field.
     chat_id = NULL,
     initialize = function(chat_id) {
       self$chat_id <- chat_id
@@ -18989,7 +21024,9 @@ InputPeerEmpty <- R6::R6Class(
   "InputPeerEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7f3b18ea,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc91c90b6,
     to_dict = function() {
       list("_" = "InputPeerEmpty")
@@ -19012,14 +21049,23 @@ InputPeerNotifySettings <- R6::R6Class(
   "InputPeerNotifySettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcacb6ae2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x90db0b0d,
+    #' @field show_previews Field.
     show_previews = NULL,
+    #' @field silent Field.
     silent = NULL,
+    #' @field mute_until Field.
     mute_until = NULL,
+    #' @field sound Field.
     sound = NULL,
+    #' @field stories_muted Field.
     stories_muted = NULL,
+    #' @field stories_hide_sender Field.
     stories_hide_sender = NULL,
+    #' @field stories_sound Field.
     stories_sound = NULL,
     initialize = function(show_previews = NULL, silent = NULL, mute_until = NULL, sound = NULL, stories_muted = NULL, stories_hide_sender = NULL, stories_sound = NULL) {
       self$show_previews <- show_previews
@@ -19092,10 +21138,15 @@ InputPeerPhotoFileLocation <- R6::R6Class(
   "InputPeerPhotoFileLocation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x37257e99,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1523d462,
+    #' @field peer Field.
     peer = NULL,
+    #' @field photo_id Field.
     photo_id = NULL,
+    #' @field big Field.
     big = NULL,
     initialize = function(peer, photo_id, big = NULL) {
       self$peer <- peer
@@ -19139,7 +21190,9 @@ InputPeerSelf <- R6::R6Class(
   "InputPeerSelf",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7da07ec9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc91c90b6,
     to_dict = function() {
       list("_" = "InputPeerSelf")
@@ -19162,9 +21215,13 @@ InputPeerUser <- R6::R6Class(
   "InputPeerUser",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdde8a54c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc91c90b6,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(user_id, access_hash) {
       self$user_id <- user_id
@@ -19211,7 +21268,9 @@ InputPeerUserFromMessage <- R6::R6Class(
   "InputPeerUserFromMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa87b0a1c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc91c90b6,
     initialize = function(peer, msg_id, user_id) {
       self$peer <- peer
@@ -19246,7 +21305,9 @@ InputPhoneCall <- R6::R6Class(
   "InputPhoneCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1e36fded,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbcaaf240,
     initialize = function(id, access_hash) {
       self$id <- id
@@ -19278,7 +21339,9 @@ InputPhoneContact <- R6::R6Class(
   "InputPhoneContact",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf392b7f4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xae696a82,
     initialize = function(client_id, phone, first_name, last_name) {
       self$client_id <- client_id
@@ -19316,7 +21379,9 @@ InputPhoto <- R6::R6Class(
   "InputPhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3bb3b94a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x846363e0,
     initialize = function(id, access_hash, file_reference) {
       self$id <- id
@@ -19351,7 +21416,9 @@ InputPhotoEmpty <- R6::R6Class(
   "InputPhotoEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1cd7bf0d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x846363e0,
     to_dict = function() {
       list("_" = "InputPhotoEmpty")
@@ -19374,7 +21441,9 @@ InputPhotoFileLocation <- R6::R6Class(
   "InputPhotoFileLocation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x40181ffe,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1523d462,
     initialize = function(id, access_hash, file_reference, thumb_size) {
       self$id <- id
@@ -19412,7 +21481,9 @@ InputPhotoLegacyFileLocation <- R6::R6Class(
   "InputPhotoLegacyFileLocation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd83466f3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1523d462,
     initialize = function(id, access_hash, file_reference, volume_id, local_id, secret) {
       self$id <- id
@@ -19456,7 +21527,9 @@ InputPrivacyKeyAbout <- R6::R6Class(
   "InputPrivacyKeyAbout",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3823cc40,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
       list("_" = "InputPrivacyKeyAbout")
@@ -19479,7 +21552,9 @@ InputPrivacyKeyAddedByPhone <- R6::R6Class(
   "InputPrivacyKeyAddedByPhone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd1219bdd,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
       list("_" = "InputPrivacyKeyAddedByPhone")
@@ -19502,7 +21577,9 @@ InputPrivacyKeyBirthday <- R6::R6Class(
   "InputPrivacyKeyBirthday",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd65a11cc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
       list("_" = "InputPrivacyKeyBirthday")
@@ -19525,7 +21602,9 @@ InputPrivacyKeyChatInvite <- R6::R6Class(
   "InputPrivacyKeyChatInvite",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbfdfb0426,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
       list("_" = "InputPrivacyKeyChatInvite")
@@ -19548,7 +21627,9 @@ InputPrivacyKeyForwards <- R6::R6Class(
   "InputPrivacyKeyForwards",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa4dd4c08,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
       list("_" = "InputPrivacyKeyForwards")
@@ -19571,7 +21652,9 @@ InputPrivacyKeyNoPaidMessages <- R6::R6Class(
   "InputPrivacyKeyNoPaidMessages",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbdc597b4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
       list("_" = "InputPrivacyKeyNoPaidMessages")
@@ -19594,7 +21677,9 @@ InputPrivacyKeyPhoneCall <- R6::R6Class(
   "InputPrivacyKeyPhoneCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfabadc5f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
       list("_" = "InputPrivacyKeyPhoneCall")
@@ -19617,7 +21702,9 @@ InputPrivacyKeyPhoneNumber <- R6::R6Class(
   "InputPrivacyKeyPhoneNumber",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x352dafa,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
       list("_" = "InputPrivacyKeyPhoneNumber")
@@ -19640,7 +21727,9 @@ InputPrivacyKeyPhoneP2P <- R6::R6Class(
   "InputPrivacyKeyPhoneP2P",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdb9e70d2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
       list("_" = "InputPrivacyKeyPhoneP2P")
@@ -19663,7 +21752,9 @@ InputPrivacyKeyProfilePhoto <- R6::R6Class(
   "InputPrivacyKeyProfilePhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5719bacc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
       list("_" = "InputPrivacyKeyProfilePhoto")
@@ -19686,7 +21777,9 @@ InputPrivacyKeyStarGiftsAutoSave <- R6::R6Class(
   "InputPrivacyKeyStarGiftsAutoSave",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe1732341,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
       list("_" = "InputPrivacyKeyStarGiftsAutoSave")
@@ -19709,7 +21802,9 @@ InputPrivacyKeyStatusTimestamp <- R6::R6Class(
   "InputPrivacyKeyStatusTimestamp",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4f96cb18,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
       list("_" = "InputPrivacyKeyStatusTimestamp")
@@ -19732,7 +21827,9 @@ InputPrivacyKeyVoiceMessages <- R6::R6Class(
   "InputPrivacyKeyVoiceMessages",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xaee69d68,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x53627f8,
     to_dict = function() {
       list("_" = "InputPrivacyKeyVoiceMessages")
@@ -19755,7 +21852,9 @@ InputPrivacyValueAllowAll <- R6::R6Class(
   "InputPrivacyValueAllowAll",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x184b35ce,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5a3b6b22,
     to_dict = function() {
       list("_" = "InputPrivacyValueAllowAll")
@@ -19778,7 +21877,9 @@ InputPrivacyValueAllowBots <- R6::R6Class(
   "InputPrivacyValueAllowBots",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5a4fcce5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5a3b6b22,
     to_dict = function() {
       list("_" = "InputPrivacyValueAllowBots")
@@ -19801,7 +21902,9 @@ InputPrivacyValueAllowChatParticipants <- R6::R6Class(
   "InputPrivacyValueAllowChatParticipants",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x840649cf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5a3b6b22,
     initialize = function(chats) {
       self$chats <- chats
@@ -19831,7 +21934,9 @@ InputPrivacyValueAllowCloseFriends <- R6::R6Class(
   "InputPrivacyValueAllowCloseFriends",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2f453e49,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5a3b6b22,
     to_dict = function() {
       list("_" = "InputPrivacyValueAllowCloseFriends")
@@ -19854,7 +21959,9 @@ InputPrivacyValueAllowContacts <- R6::R6Class(
   "InputPrivacyValueAllowContacts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd09e07b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5a3b6b22,
     to_dict = function() {
       list("_" = "InputPrivacyValueAllowContacts")
@@ -19877,7 +21984,9 @@ InputPrivacyValueAllowPremium <- R6::R6Class(
   "InputPrivacyValueAllowPremium",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x77cdc9f1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5a3b6b22,
     to_dict = function() {
       list("_" = "InputPrivacyValueAllowPremium")
@@ -19900,7 +22009,9 @@ InputPrivacyValueAllowUsers <- R6::R6Class(
   "InputPrivacyValueAllowUsers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x131cc67f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5a3b6b22,
     initialize = function(users) {
       self$users <- users
@@ -19930,7 +22041,9 @@ InputPrivacyValueDisallowAll <- R6::R6Class(
   "InputPrivacyValueDisallowAll",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd66b66c9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5a3b6b22,
     to_dict = function() {
       list("_" = "InputPrivacyValueDisallowAll")
@@ -19953,7 +22066,9 @@ InputPrivacyValueDisallowBots <- R6::R6Class(
   "InputPrivacyValueDisallowBots",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc4e57915,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5a3b6b22,
     to_dict = function() {
       list("_" = "InputPrivacyValueDisallowBots")
@@ -19976,7 +22091,9 @@ InputPrivacyValueDisallowChatParticipants <- R6::R6Class(
   "InputPrivacyValueDisallowChatParticipants",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe94f0f86,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5a3b6b22,
     initialize = function(chats) {
       self$chats <- chats
@@ -20006,7 +22123,9 @@ InputPrivacyValueDisallowContacts <- R6::R6Class(
   "InputPrivacyValueDisallowContacts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xba52007,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5a3b6b22,
     to_dict = function() {
       list("_" = "InputPrivacyValueDisallowContacts")
@@ -20029,7 +22148,9 @@ InputPrivacyValueDisallowUsers <- R6::R6Class(
   "InputPrivacyValueDisallowUsers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x90110467,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5a3b6b22,
     initialize = function(users) {
       self$users <- users
@@ -20059,7 +22180,9 @@ InputQuickReplyShortcut <- R6::R6Class(
   "InputQuickReplyShortcut",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x24596d41,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa5687c57,
     initialize = function(shortcut) {
       self$shortcut <- shortcut
@@ -20088,7 +22211,9 @@ InputQuickReplyShortcutId <- R6::R6Class(
   "InputQuickReplyShortcutId",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1190cf1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa5687c57,
     initialize = function(shortcut_id) {
       self$shortcut_id <- shortcut_id
@@ -20117,7 +22242,9 @@ InputReplyToMessage <- R6::R6Class(
   "InputReplyToMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x869fbe10,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8c71131d,
     initialize = function(reply_to_msg_id, top_msg_id = NULL, reply_topeer_id = NULL, quote_text = NULL, quote_entities = NULL, quote_offset = NULL, monoforumpeer_id = NULL, todo_item_id = NULL) {
       self$reply_to_msg_id <- reply_to_msg_id
@@ -20181,7 +22308,9 @@ InputReplyToMonoForum <- R6::R6Class(
   "InputReplyToMonoForum",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x69d66c45,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8c71131d,
     initialize = function(monoforumpeer_id) {
       self$monoforumpeer_id <- monoforumpeer_id
@@ -20210,7 +22339,9 @@ InputReplyToStory <- R6::R6Class(
   "InputReplyToStory",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5881323a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8c71131d,
     initialize = function(peer, story_id) {
       self$peer <- peer
@@ -20239,7 +22370,9 @@ InputReportReasonChildAbuse <- R6::R6Class(
   "InputReportReasonChildAbuse",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xadf44ee3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list("_" = "InputReportReasonChildAbuse")
@@ -20262,7 +22395,9 @@ InputReportReasonCopyright <- R6::R6Class(
   "InputReportReasonCopyright",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9b89f93a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list("_" = "InputReportReasonCopyright")
@@ -20285,7 +22420,9 @@ InputReportReasonFake <- R6::R6Class(
   "InputReportReasonFake",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf5ddd6e7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list("_" = "InputReportReasonFake")
@@ -20308,7 +22445,9 @@ InputReportReasonGeoIrrelevant <- R6::R6Class(
   "InputReportReasonGeoIrrelevant",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdbd4feed,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list("_" = "InputReportReasonGeoIrrelevant")
@@ -20331,7 +22470,9 @@ InputReportReasonIllegalDrugs <- R6::R6Class(
   "InputReportReasonIllegalDrugs",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa8eb2be,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list("_" = "InputReportReasonIllegalDrugs")
@@ -20354,7 +22495,9 @@ InputReportReasonOther <- R6::R6Class(
   "InputReportReasonOther",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc1e4a2b1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list("_" = "InputReportReasonOther")
@@ -20377,7 +22520,9 @@ InputReportReasonPersonalDetails <- R6::R6Class(
   "InputReportReasonPersonalDetails",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9ec7863d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list("_" = "InputReportReasonPersonalDetails")
@@ -20400,7 +22545,9 @@ InputReportReasonPornography <- R6::R6Class(
   "InputReportReasonPornography",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2e59d922,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list("_" = "InputReportReasonPornography")
@@ -20423,7 +22570,9 @@ InputReportReasonSpam <- R6::R6Class(
   "InputReportReasonSpam",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x58dbcab8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list("_" = "InputReportReasonSpam")
@@ -20446,7 +22595,9 @@ InputReportReasonViolence <- R6::R6Class(
   "InputReportReasonViolence",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1e22c78d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8401bd27,
     to_dict = function() {
       list("_" = "InputReportReasonViolence")
@@ -20469,7 +22620,9 @@ InputSavedStarGiftChat <- R6::R6Class(
   "InputSavedStarGiftChat",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf101aa7f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8f7599ae,
     initialize = function(peer, saved_id) {
       self$peer <- peer
@@ -20498,7 +22651,9 @@ InputSavedStarGiftSlug <- R6::R6Class(
   "InputSavedStarGiftSlug",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2085c238,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8f7599ae,
     initialize = function(slug) {
       self$slug <- slug
@@ -20525,7 +22680,9 @@ InputSavedStarGiftUser <- R6::R6Class(
   "InputSavedStarGiftUser",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x69279795,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8f7599ae,
     initialize = function(msg_id) {
       self$msg_id <- msg_id
@@ -20552,7 +22709,9 @@ InputSecureFile <- R6::R6Class(
   "InputSecureFile",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5367e5be,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdac8adfc,
     initialize = function(id, access_hash) {
       self$id <- id
@@ -20581,7 +22740,9 @@ InputSecureFileLocation <- R6::R6Class(
   "InputSecureFileLocation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcbc7ee28,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1523d462,
     initialize = function(id, access_hash) {
       self$id <- id
@@ -20610,7 +22771,9 @@ InputSecureFileUploaded <- R6::R6Class(
   "InputSecureFileUploaded",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3334b0f0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdac8adfc,
     initialize = function(id, parts, md5_checksum, file_hash, secret) {
       self$id <- id
@@ -20645,7 +22808,9 @@ InputSecureValue <- R6::R6Class(
   "InputSecureValue",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdb21d0a7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb49da1fc,
     initialize = function(type, data = NULL, front_side = NULL, reverse_side = NULL, selfie = NULL, translation = NULL, files = NULL, plaindata = NULL) {
       self$type <- type
@@ -20698,7 +22863,9 @@ InputSingleMedia <- R6::R6Class(
   "InputSingleMedia",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1cc6e91f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x21ca8ed8,
     initialize = function(media, message, random_id = NULL, entities = NULL) {
       self$media <- media
@@ -20738,7 +22905,9 @@ InputStarsTransaction <- R6::R6Class(
   "InputStarsTransaction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x206ae6d1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x11e208ea,
     initialize = function(id, refund = NULL) {
       self$id <- id
@@ -20769,7 +22938,9 @@ InputStickerSetAnimatedEmoji <- R6::R6Class(
   "InputStickerSetAnimatedEmoji",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x28703c8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list("_" = "InputStickerSetAnimatedEmoji")
@@ -20792,7 +22963,9 @@ InputStickerSetAnimatedEmojiAnimations <- R6::R6Class(
   "InputStickerSetAnimatedEmojiAnimations",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcde3739,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list("_" = "InputStickerSetAnimatedEmojiAnimations")
@@ -20815,7 +22988,9 @@ InputStickerSetDice <- R6::R6Class(
   "InputStickerSetDice",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe67f520e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3da389aa,
     initialize = function(emoticon) {
       self$emoticon <- emoticon
@@ -20842,7 +23017,9 @@ InputStickerSetEmojiChannelDefaultStatuses <- R6::R6Class(
   "InputStickerSetEmojiChannelDefaultStatuses",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x49748553,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list("_" = "InputStickerSetEmojiChannelDefaultStatuses")
@@ -20865,7 +23042,9 @@ InputStickerSetEmojiDefaultStatuses <- R6::R6Class(
   "InputStickerSetEmojiDefaultStatuses",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x29d0f5ee,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list("_" = "InputStickerSetEmojiDefaultStatuses")
@@ -20888,7 +23067,9 @@ InputStickerSetEmojiDefaultTopicIcons <- R6::R6Class(
   "InputStickerSetEmojiDefaultTopicIcons",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x44c1f8e9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list("_" = "InputStickerSetEmojiDefaultTopicIcons")
@@ -20911,7 +23092,9 @@ InputStickerSetEmojiGenericAnimations <- R6::R6Class(
   "InputStickerSetEmojiGenericAnimations",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4c4d4ce,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list("_" = "InputStickerSetEmojiGenericAnimations")
@@ -20934,7 +23117,9 @@ InputStickerSetEmpty <- R6::R6Class(
   "InputStickerSetEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xffb62b95,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list("_" = "InputStickerSetEmpty")
@@ -20957,7 +23142,9 @@ InputStickerSetID <- R6::R6Class(
   "InputStickerSetID",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9de7a269,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3da389aa,
     initialize = function(id, access_hash) {
       self$id <- id
@@ -20986,7 +23173,9 @@ InputStickerSetItem <- R6::R6Class(
   "InputStickerSetItem",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x32da9e9c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xae59f075,
     initialize = function(document, emoji, mask_coords = NULL, keywords = NULL) {
       self$document <- document
@@ -21021,7 +23210,9 @@ InputStickerSetPremiumGifts <- R6::R6Class(
   "InputStickerSetPremiumGifts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc88b3b02,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list("_" = "InputStickerSetPremiumGifts")
@@ -21044,7 +23235,9 @@ InputStickerSetShortName <- R6::R6Class(
   "InputStickerSetShortName",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x861cc8a0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3da389aa,
     initialize = function(short_name) {
       self$short_name <- short_name
@@ -21071,7 +23264,9 @@ InputStickerSetThumb <- R6::R6Class(
   "InputStickerSetThumb",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9d84f3db,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1523d462,
     initialize = function(stickerset, thumb_version) {
       self$stickerset <- stickerset
@@ -21100,7 +23295,9 @@ InputStickerSetTonGifts <- R6::R6Class(
   "InputStickerSetTonGifts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1cf671a0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3da389aa,
     to_dict = function() {
       list("_" = "InputStickerSetTonGifts")
@@ -21123,7 +23320,9 @@ InputStickeredMediaDocument <- R6::R6Class(
   "InputStickeredMediaDocument",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x438865b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5146d99e,
     initialize = function(id) {
       self$id <- id
@@ -21150,7 +23349,9 @@ InputStickeredMediaPhoto <- R6::R6Class(
   "InputStickeredMediaPhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4a992157,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5146d99e,
     initialize = function(id) {
       self$id <- id
@@ -21177,7 +23378,9 @@ InputStorePaymentAuthCode <- R6::R6Class(
   "InputStorePaymentAuthCode",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9bb2636d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe7a4174d,
     initialize = function(phone_number, phone_code_hash, currency, amount, restore = NULL) {
       self$phone_number <- phone_number
@@ -21214,10 +23417,15 @@ InputStorePaymentGiftPremium <- R6::R6Class(
   "InputStorePaymentGiftPremium",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x616f7fe8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe7a4174d,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field currency Field.
     currency = NULL,
+    #' @field amount Field.
     amount = NULL,
     initialize = function(user_id, currency, amount) {
       self$user_id <- user_id
@@ -21258,10 +23466,15 @@ InputStorePaymentPremiumGiftCode <- R6::R6Class(
   "InputStorePaymentPremiumGiftCode",
   inherit = TLObject,
   public = list(
+    #' @field users Field.
     users = NULL,
+    #' @field currency Field.
     currency = NULL,
+    #' @field amount Field.
     amount = NULL,
+    #' @field boost_peer Field.
     boost_peer = NULL,
+    #' @field message Field.
     message = NULL,
     initialize = function(users, currency, amount, boost_peer = NULL, message = NULL) {
       self$users <- users
@@ -21290,15 +23503,25 @@ InputStorePaymentPremiumGiveaway <- R6::R6Class(
   "InputStorePaymentPremiumGiveaway",
   inherit = TLObject,
   public = list(
+    #' @field boost_peer Field.
     boost_peer = NULL,
+    #' @field until_date Field.
     until_date = NULL,
+    #' @field currency Field.
     currency = NULL,
+    #' @field amount Field.
     amount = NULL,
+    #' @field only_new_subscribers Field.
     only_new_subscribers = NULL,
+    #' @field winners_are_visible Field.
     winners_are_visible = NULL,
+    #' @field additional_peers Field.
     additional_peers = NULL,
+    #' @field countries_iso2 Field.
     countries_iso2 = NULL,
+    #' @field prize_description Field.
     prize_description = NULL,
+    #' @field random_id Field.
     random_id = NULL,
     initialize = function(boost_peer, until_date, currency, amount, only_new_subscribers = NULL,
                           winners_are_visible = NULL, additional_peers = NULL, countries_iso2 = NULL,
@@ -21339,7 +23562,9 @@ InputStorePaymentPremiumSubscription <- R6::R6Class(
   "InputStorePaymentPremiumSubscription",
   inherit = TLObject,
   public = list(
+    #' @field restore Field.
     restore = NULL,
+    #' @field upgrade Field.
     upgrade = NULL,
     initialize = function(restore = NULL, upgrade = NULL) {
       self$restore <- restore
@@ -21367,9 +23592,13 @@ InputStorePaymentStarsGift <- R6::R6Class(
   "InputStorePaymentStarsGift",
   inherit = TLObject,
   public = list(
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field stars Field.
     stars = NULL,
+    #' @field currency Field.
     currency = NULL,
+    #' @field amount Field.
     amount = NULL,
     initialize = function(user_id, stars, currency, amount) {
       self$user_id <- user_id
@@ -21405,17 +23634,29 @@ InputStorePaymentStarsGiveaway <- R6::R6Class(
   "InputStorePaymentStarsGiveaway",
   inherit = TLObject,
   public = list(
+    #' @field stars Field.
     stars = NULL,
+    #' @field boost_peer Field.
     boost_peer = NULL,
+    #' @field until_date Field.
     until_date = NULL,
+    #' @field currency Field.
     currency = NULL,
+    #' @field amount Field.
     amount = NULL,
+    #' @field users Field.
     users = NULL,
+    #' @field only_new_subscribers Field.
     only_new_subscribers = NULL,
+    #' @field winners_are_visible Field.
     winners_are_visible = NULL,
+    #' @field additional_peers Field.
     additional_peers = NULL,
+    #' @field countries_iso2 Field.
     countries_iso2 = NULL,
+    #' @field prize_description Field.
     prize_description = NULL,
+    #' @field random_id Field.
     random_id = NULL,
     initialize = function(stars, boost_peer, until_date, currency, amount, users,
                           only_new_subscribers = NULL, winners_are_visible = NULL,
@@ -21483,9 +23724,13 @@ InputStorePaymentStarsTopup <- R6::R6Class(
   "InputStorePaymentStarsTopup",
   inherit = TLObject,
   public = list(
+    #' @field stars Field.
     stars = NULL,
+    #' @field currency Field.
     currency = NULL,
+    #' @field amount Field.
     amount = NULL,
+    #' @field spend_purpose_peer Field.
     spend_purpose_peer = NULL,
     initialize = function(stars, currency, amount, spend_purpose_peer = NULL) {
       self$stars <- stars
@@ -21522,7 +23767,9 @@ InputStorePaymentPremiumSubscription <- R6::R6Class(
   "InputStorePaymentPremiumSubscription",
   inherit = TLObject,
   public = list(
+    #' @field restore Field.
     restore = NULL,
+    #' @field upgrade Field.
     upgrade = NULL,
     initialize = function(restore = NULL, upgrade = NULL) {
       self$restore <- restore
@@ -21558,7 +23805,9 @@ InputStorePaymentGiftPremium <- R6::R6Class(
   "InputStorePaymentGiftPremium",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x616f7fe8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe7a4174d,
     initialize = function(user_id, currency, amount) {
       self$user_id <- user_id
@@ -21589,7 +23838,9 @@ InputTakeoutFileLocation <- R6::R6Class(
   "InputTakeoutFileLocation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x29be5899,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1523d462,
     to_dict = function() {
       list("_" = "InputTakeoutFileLocation")
@@ -21611,7 +23862,9 @@ InputTakeoutFileLocation <- R6::R6Class(
 InputTheme <- R6::R6Class(
   "InputTheme",
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(id, access_hash) {
       self$id <- id
@@ -21633,12 +23886,19 @@ InputTheme <- R6::R6Class(
 InputThemeSettings <- R6::R6Class(
   "InputThemeSettings",
   public = list(
+    #' @field base_theme Field.
     base_theme = NULL,
+    #' @field accent_color Field.
     accent_color = NULL,
+    #' @field message_colors_animated Field.
     message_colors_animated = NULL,
+    #' @field outbox_accent_color Field.
     outbox_accent_color = NULL,
+    #' @field message_colors Field.
     message_colors = NULL,
+    #' @field wallpaper Field.
     wallpaper = NULL,
+    #' @field wallpaper_settings Field.
     wallpaper_settings = NULL,
     initialize = function(base_theme, accent_color, message_colors_animated = NULL,
                           outbox_accent_color = NULL, message_colors = NULL,
@@ -21673,8 +23933,11 @@ InputThemeSlug <- R6::R6Class(
   "InputThemeSlug",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf5890df1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7a100f0,
+    #' @field slug Field.
     slug = NULL,
     initialize = function(slug) {
       self$slug <- slug
@@ -21701,9 +23964,13 @@ InputUser <- R6::R6Class(
   "InputUser",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf21158c6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe669bf46,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(user_id, access_hash) {
       self$user_id <- user_id
@@ -21736,7 +24003,9 @@ InputUserEmpty <- R6::R6Class(
   "InputUserEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb98886cf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe669bf46,
     to_dict = function() {
       list("_" = "InputUserEmpty")
@@ -21759,10 +24028,15 @@ InputUserFromMessage <- R6::R6Class(
   "InputUserFromMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1da448e2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe669bf46,
+    #' @field peer Field.
     peer = NULL,
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field user_id Field.
     user_id = NULL,
     initialize = function(peer, msg_id, user_id) {
       self$peer <- peer
@@ -21803,7 +24077,9 @@ InputUserSelf <- R6::R6Class(
   "InputUserSelf",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf7c1b13f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe669bf46,
     to_dict = function() {
       list("_" = "InputUserSelf")
@@ -21826,7 +24102,9 @@ InputWallPaper <- R6::R6Class(
   "InputWallPaper",
   inherit = TLObject,
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(id, access_hash) {
       self$id <- id
@@ -21863,6 +24141,7 @@ InputWallPaperNoFile <- R6::R6Class(
   "InputWallPaperNoFile",
   inherit = TLObject,
   public = list(
+    #' @field id Field.
     id = NULL,
     initialize = function(id) {
       self$id <- id
@@ -21895,6 +24174,7 @@ InputWallPaperSlug <- R6::R6Class(
   "InputWallPaperSlug",
   inherit = TLObject,
   public = list(
+    #' @field slug Field.
     slug = NULL,
     initialize = function(slug) {
       self$slug <- slug
@@ -21927,9 +24207,13 @@ InputWebDocument <- R6::R6Class(
   "InputWebDocument",
   inherit = TLObject,
   public = list(
+    #' @field url Field.
     url = NULL,
+    #' @field size Field.
     size = NULL,
+    #' @field mime_type Field.
     mime_type = NULL,
+    #' @field attributes Field.
     attributes = NULL,
     initialize = function(url, size, mime_type, attributes) {
       self$url <- url
@@ -21972,9 +24256,13 @@ InputWebFileAudioAlbumThumbLocation <- R6::R6Class(
   "InputWebFileAudioAlbumThumbLocation",
   inherit = TLObject,
   public = list(
+    #' @field small Field.
     small = NULL,
+    #' @field document Field.
     document = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field performer Field.
     performer = NULL,
     initialize = function(small = NULL, document = NULL, title = NULL, performer = NULL) {
       self$small <- small
@@ -22016,13 +24304,21 @@ InputWebFileGeoPointLocation <- R6::R6Class(
   "InputWebFileGeoPointLocation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9f2221c9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf72ed8d9,
+    #' @field geo_point Field.
     geo_point = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field w Field.
     w = NULL,
+    #' @field h Field.
     h = NULL,
+    #' @field zoom Field.
     zoom = NULL,
+    #' @field scale Field.
     scale = NULL,
     initialize = function(geo_point, access_hash, w, h, zoom, scale) {
       self$geo_point <- geo_point
@@ -22075,9 +24371,13 @@ InputWebFileLocation <- R6::R6Class(
   "InputWebFileLocation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc239d686,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf72ed8d9,
+    #' @field url Field.
     url = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
     initialize = function(url, access_hash) {
       self$url <- url
@@ -22114,22 +24414,39 @@ Invoice <- R6::R6Class(
   "Invoice",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x49ee584,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5fd82ed8,
+    #' @field currency Field.
     currency = NULL,
+    #' @field prices Field.
     prices = NULL,
+    #' @field test Field.
     test = NULL,
+    #' @field name_requested Field.
     name_requested = NULL,
+    #' @field phone_requested Field.
     phone_requested = NULL,
+    #' @field email_requested Field.
     email_requested = NULL,
+    #' @field shipping_address_requested Field.
     shipping_address_requested = NULL,
+    #' @field flexible Field.
     flexible = NULL,
+    #' @field phone_to_provider Field.
     phone_to_provider = NULL,
+    #' @field email_to_provider Field.
     email_to_provider = NULL,
+    #' @field recurring Field.
     recurring = NULL,
+    #' @field max_tip_amount Field.
     max_tip_amount = NULL,
+    #' @field suggested_tip_amounts Field.
     suggested_tip_amounts = NULL,
+    #' @field terms_url Field.
     terms_url = NULL,
+    #' @field subscription_period Field.
     subscription_period = NULL,
     initialize = function(currency, prices, test = NULL, name_requested = NULL, phone_requested = NULL,
                           email_requested = NULL, shipping_address_requested = NULL, flexible = NULL,
@@ -22228,9 +24545,13 @@ IpPort <- R6::R6Class(
   "IpPort",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd433ad73,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa2a03726,
+    #' @field ipv4 Field.
     ipv4 = NULL,
+    #' @field port Field.
     port = NULL,
     initialize = function(ipv4, port) {
       self$ipv4 <- ipv4
@@ -22263,10 +24584,15 @@ IpPortSecret <- R6::R6Class(
   "IpPortSecret",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x37982646,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa2a03726,
+    #' @field ipv4 Field.
     ipv4 = NULL,
+    #' @field port Field.
     port = NULL,
+    #' @field secret Field.
     secret = NULL,
     initialize = function(ipv4, port, secret) {
       self$ipv4 <- ipv4
@@ -22302,8 +24628,11 @@ JsonArray <- R6::R6Class(
   "JsonArray",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf7444763,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xeb9987b3,
+    #' @field value Field.
     value = NULL,
     initialize = function(value) {
       self$value <- value
@@ -22344,8 +24673,11 @@ JsonBool <- R6::R6Class(
   "JsonBool",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc7345e6a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xeb9987b3,
+    #' @field value Field.
     value = NULL,
     initialize = function(value) {
       self$value <- value
@@ -22379,7 +24711,9 @@ JsonNull <- R6::R6Class(
   "JsonNull",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3f6d7b68,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xeb9987b3,
     to_dict = function() {
       list("_" = "JsonNull")
@@ -22402,8 +24736,11 @@ JsonNumber <- R6::R6Class(
   "JsonNumber",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2be0dfa4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xeb9987b3,
+    #' @field value Field.
     value = NULL,
     initialize = function(value) {
       self$value <- value
@@ -22436,8 +24773,11 @@ JsonObject <- R6::R6Class(
   "JsonObject",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x99c1d49d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xeb9987b3,
+    #' @field value Field.
     value = NULL,
     initialize = function(value) {
       self$value <- value
@@ -22483,9 +24823,13 @@ JsonObjectValue <- R6::R6Class(
   "JsonObjectValue",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc0de1bd9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x937fceb9,
+    #' @field key Field.
     key = NULL,
+    #' @field value Field.
     value = NULL,
     initialize = function(key, value) {
       self$key <- key
@@ -22523,8 +24867,11 @@ JsonString <- R6::R6Class(
   "JsonString",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb71e767a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xeb9987b3,
+    #' @field value Field.
     value = NULL,
     initialize = function(value) {
       self$value <- value
@@ -22554,8 +24901,11 @@ KeyboardButton <- R6::R6Class(
   "KeyboardButton",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa2fa4880,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
     initialize = function(text) {
       self$text <- text
@@ -22585,8 +24935,11 @@ KeyboardButtonBuy <- R6::R6Class(
   "KeyboardButtonBuy",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xafd93fbb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
     initialize = function(text) {
       self$text <- text
@@ -22616,10 +24969,15 @@ KeyboardButtonCallback <- R6::R6Class(
   "KeyboardButtonCallback",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x35bbdb6b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
+    #' @field data Field.
     data = NULL,
+    #' @field requires_password Field.
     requires_password = NULL,
     initialize = function(text, data, requires_password = NULL) {
       self$text <- text
@@ -22655,7 +25013,9 @@ KeyboardButtonCallback <- R6::R6Class(
 KeyboardButtonCopy <- R6::R6Class("KeyboardButtonCopy",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x75d2698e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, copy_text) {
       self$text <- text
@@ -22684,7 +25044,9 @@ KeyboardButtonCopy <- R6::R6Class("KeyboardButtonCopy",
 KeyboardButtonGame <- R6::R6Class("KeyboardButtonGame",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x50f41ccf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text) {
       self$text <- text
@@ -22711,7 +25073,9 @@ KeyboardButtonGame <- R6::R6Class("KeyboardButtonGame",
 KeyboardButtonRequestGeoLocation <- R6::R6Class("KeyboardButtonRequestGeoLocation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfc796b3f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text) {
       self$text <- text
@@ -22738,7 +25102,9 @@ KeyboardButtonRequestGeoLocation <- R6::R6Class("KeyboardButtonRequestGeoLocatio
 KeyboardButtonRequestPeer <- R6::R6Class("KeyboardButtonRequestPeer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x53d7bfd8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, button_id, peer_type, max_quantity) {
       self$text <- text
@@ -22771,7 +25137,9 @@ KeyboardButtonRequestPeer <- R6::R6Class("KeyboardButtonRequestPeer",
 KeyboardButtonRequestPhone <- R6::R6Class("KeyboardButtonRequestPhone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb16a6c29,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text) {
       self$text <- text
@@ -22798,7 +25166,9 @@ KeyboardButtonRequestPhone <- R6::R6Class("KeyboardButtonRequestPhone",
 KeyboardButtonRequestPoll <- R6::R6Class("KeyboardButtonRequestPoll",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbbc7515d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, quiz = NULL) {
       self$text <- text
@@ -22833,7 +25203,9 @@ KeyboardButtonRequestPoll <- R6::R6Class("KeyboardButtonRequestPoll",
 KeyboardButtonRow <- R6::R6Class("KeyboardButtonRow",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x77608b83,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x847730ae,
     initialize = function(buttons) {
       self$buttons <- buttons
@@ -22865,7 +25237,9 @@ KeyboardButtonRow <- R6::R6Class("KeyboardButtonRow",
 KeyboardButtonSimpleWebView <- R6::R6Class("KeyboardButtonSimpleWebView",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa0c0505c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, url) {
       self$text <- text
@@ -22894,7 +25268,9 @@ KeyboardButtonSimpleWebView <- R6::R6Class("KeyboardButtonSimpleWebView",
 KeyboardButtonSwitchInline <- R6::R6Class("KeyboardButtonSwitchInline",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x93b9fbb5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, query, samepeer = NULL, peer_types = NULL) {
       self$text <- text
@@ -22939,7 +25315,9 @@ KeyboardButtonSwitchInline <- R6::R6Class("KeyboardButtonSwitchInline",
 KeyboardButtonUrl <- R6::R6Class("KeyboardButtonUrl",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x258aff05,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, url) {
       self$text <- text
@@ -22968,7 +25346,9 @@ KeyboardButtonUrl <- R6::R6Class("KeyboardButtonUrl",
 KeyboardButtonUrlAuth <- R6::R6Class("KeyboardButtonUrlAuth",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x10b78d29,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, url, button_id, fwd_text = NULL) {
       self$text <- text
@@ -23007,7 +25387,9 @@ KeyboardButtonUrlAuth <- R6::R6Class("KeyboardButtonUrlAuth",
 KeyboardButtonUserProfile <- R6::R6Class("KeyboardButtonUserProfile",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x308660c1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, user_id) {
       self$text <- text
@@ -23036,7 +25418,9 @@ KeyboardButtonUserProfile <- R6::R6Class("KeyboardButtonUserProfile",
 KeyboardButtonWebView <- R6::R6Class("KeyboardButtonWebView",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x13767230,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, url) {
       self$text <- text
@@ -23065,7 +25449,9 @@ KeyboardButtonWebView <- R6::R6Class("KeyboardButtonWebView",
 KeyboardButton <- R6::R6Class("KeyboardButton",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa2fa4880,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text) {
       self$text <- text
@@ -23092,7 +25478,9 @@ KeyboardButton <- R6::R6Class("KeyboardButton",
 KeyboardButtonBuy <- R6::R6Class("KeyboardButtonBuy",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xafd93fbb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text) {
       self$text <- text
@@ -23119,7 +25507,9 @@ KeyboardButtonBuy <- R6::R6Class("KeyboardButtonBuy",
 KeyboardButtonCallback <- R6::R6Class("KeyboardButtonCallback",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x35bbdb6b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
     initialize = function(text, data, requires_password = NULL) {
       self$text <- text
@@ -23153,9 +25543,13 @@ KeyboardButtonCopy <- R6::R6Class(
   "KeyboardButtonCopy",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x75d2698e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
+    #' @field copy_text Field.
     copy_text = NULL,
     initialize = function(text, copy_text) {
       self$text <- text
@@ -23188,8 +25582,11 @@ KeyboardButtonGame <- R6::R6Class(
   "KeyboardButtonGame",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x50f41ccf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
     initialize = function(text) {
       self$text <- text
@@ -23219,8 +25616,11 @@ KeyboardButtonRequestGeoLocation <- R6::R6Class(
   "KeyboardButtonRequestGeoLocation",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfc796b3f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
     initialize = function(text) {
       self$text <- text
@@ -23250,11 +25650,17 @@ KeyboardButtonRequestPeer <- R6::R6Class(
   "KeyboardButtonRequestPeer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x53d7bfd8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
+    #' @field button_id Field.
     button_id = NULL,
+    #' @field peer_type Field.
     peer_type = NULL,
+    #' @field max_quantity Field.
     max_quantity = NULL,
     initialize = function(text, button_id, peer_type, max_quantity) {
       self$text <- text
@@ -23293,8 +25699,11 @@ KeyboardButtonRequestPhone <- R6::R6Class(
   "KeyboardButtonRequestPhone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb16a6c29,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
     initialize = function(text) {
       self$text <- text
@@ -23324,9 +25733,13 @@ KeyboardButtonRequestPoll <- R6::R6Class(
   "KeyboardButtonRequestPoll",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbbc7515d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
+    #' @field quiz Field.
     quiz = NULL,
     initialize = function(text, quiz = NULL) {
       self$text <- text
@@ -23366,8 +25779,11 @@ KeyboardButtonRow <- R6::R6Class(
   "KeyboardButtonRow",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x77608b83,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x847730ae,
+    #' @field buttons Field.
     buttons = NULL,
     initialize = function(buttons) {
       self$buttons <- buttons
@@ -23404,9 +25820,13 @@ KeyboardButtonSimpleWebView <- R6::R6Class(
   "KeyboardButtonSimpleWebView",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa0c0505c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
+    #' @field url Field.
     url = NULL,
     initialize = function(text, url) {
       self$text <- text
@@ -23439,11 +25859,17 @@ KeyboardButtonSwitchInline <- R6::R6Class(
   "KeyboardButtonSwitchInline",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x93b9fbb5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
+    #' @field query Field.
     query = NULL,
+    #' @field samepeer Field.
     samepeer = NULL,
+    #' @field peer_types Field.
     peer_types = NULL,
     initialize = function(text, query, samepeer = NULL, peer_types = NULL) {
       self$text <- text
@@ -23492,9 +25918,13 @@ KeyboardButtonUrl <- R6::R6Class(
   "KeyboardButtonUrl",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x258aff05,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
+    #' @field url Field.
     url = NULL,
     initialize = function(text, url) {
       self$text <- text
@@ -23527,11 +25957,17 @@ KeyboardButtonUrlAuth <- R6::R6Class(
   "KeyboardButtonUrlAuth",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x10b78d29,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
+    #' @field url Field.
     url = NULL,
+    #' @field button_id Field.
     button_id = NULL,
+    #' @field fwd_text Field.
     fwd_text = NULL,
     initialize = function(text, url, button_id, fwd_text = NULL) {
       self$text <- text
@@ -23577,9 +26013,13 @@ KeyboardButtonUserProfile <- R6::R6Class(
   "KeyboardButtonUserProfile",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x308660c1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
+    #' @field user_id Field.
     user_id = NULL,
     initialize = function(text, user_id) {
       self$text <- text
@@ -23612,9 +26052,13 @@ KeyboardButtonWebView <- R6::R6Class(
   "KeyboardButtonWebView",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x13767230,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbad74a3,
+    #' @field text Field.
     text = NULL,
+    #' @field url Field.
     url = NULL,
     initialize = function(text, url) {
       self$text <- text
@@ -23647,9 +26091,13 @@ LabeledPrice <- R6::R6Class(
   "LabeledPrice",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcb296bf8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1c84047a,
+    #' @field label Field.
     label = NULL,
+    #' @field amount Field.
     amount = NULL,
     initialize = function(label, amount) {
       self$label <- label
@@ -23682,11 +26130,17 @@ LangPackDifference <- R6::R6Class(
   "LangPackDifference",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf385c1f6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x52662d55,
+    #' @field lang_code Field.
     lang_code = NULL,
+    #' @field from_version Field.
     from_version = NULL,
+    #' @field version Field.
     version = NULL,
+    #' @field strings Field.
     strings = NULL,
     initialize = function(lang_code, from_version, version, strings) {
       self$lang_code <- lang_code
@@ -23715,18 +26169,31 @@ LangPackLanguage <- R6::R6Class(
   "LangPackLanguage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xeeca5ce3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xabac89b7,
+    #' @field name Field.
     name = NULL,
+    #' @field native_name Field.
     native_name = NULL,
+    #' @field lang_code Field.
     lang_code = NULL,
+    #' @field plural_code Field.
     plural_code = NULL,
+    #' @field strings_count Field.
     strings_count = NULL,
+    #' @field translated_count Field.
     translated_count = NULL,
+    #' @field translations_url Field.
     translations_url = NULL,
+    #' @field official Field.
     official = NULL,
+    #' @field rtl Field.
     rtl = NULL,
+    #' @field beta Field.
     beta = NULL,
+    #' @field base_lang_code Field.
     base_lang_code = NULL,
     initialize = function(name, native_name, lang_code, plural_code, strings_count, translated_count, translations_url, official = NULL, rtl = NULL, beta = NULL, base_lang_code = NULL) {
       self$name <- name
@@ -23762,9 +26229,13 @@ LangPackString <- R6::R6Class(
   "LangPackString",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcad181f6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdc179ab9,
+    #' @field key Field.
     key = NULL,
+    #' @field value Field.
     value = NULL,
     initialize = function(key, value) {
       self$key <- key
@@ -23791,8 +26262,11 @@ LangPackStringDeleted <- R6::R6Class(
   "LangPackStringDeleted",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2979eeb2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdc179ab9,
+    #' @field key Field.
     key = NULL,
     initialize = function(key) {
       self$key <- key
@@ -23818,14 +26292,23 @@ LangPackStringPluralized <- R6::R6Class(
   "LangPackStringPluralized",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6c47ac9f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdc179ab9,
+    #' @field key Field.
     key = NULL,
+    #' @field other_value Field.
     other_value = NULL,
+    #' @field zero_value Field.
     zero_value = NULL,
+    #' @field one_value Field.
     one_value = NULL,
+    #' @field two_value Field.
     two_value = NULL,
+    #' @field few_value Field.
     few_value = NULL,
+    #' @field many_value Field.
     many_value = NULL,
     initialize = function(key, other_value, zero_value = NULL, one_value = NULL, two_value = NULL, few_value = NULL, many_value = NULL) {
       self$key <- key
@@ -23857,11 +26340,17 @@ MaskCoords <- R6::R6Class(
   "MaskCoords",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xaed6dbb2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6bbb2fd,
+    #' @field n Field.
     n = NULL,
+    #' @field x Field.
     x = NULL,
+    #' @field y Field.
     y = NULL,
+    #' @field zoom Field.
     zoom = NULL,
     initialize = function(n, x, y, zoom) {
       self$n <- n
@@ -23890,10 +26379,15 @@ MediaAreaChannelPost <- R6::R6Class(
   "MediaAreaChannelPost",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x770416af,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf36d7bf2,
+    #' @field coordinates Field.
     coordinates = NULL,
+    #' @field channel_id Field.
     channel_id = NULL,
+    #' @field msg_id Field.
     msg_id = NULL,
     initialize = function(coordinates, channel_id, msg_id) {
       self$coordinates <- coordinates
@@ -23921,13 +26415,21 @@ MediaAreaCoordinates <- R6::R6Class(
   "MediaAreaCoordinates",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcfc9e002,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1d448c39,
+    #' @field x Field.
     x = NULL,
+    #' @field y Field.
     y = NULL,
+    #' @field w Field.
     w = NULL,
+    #' @field h Field.
     h = NULL,
+    #' @field rotation Field.
     rotation = NULL,
+    #' @field radius Field.
     radius = NULL,
     initialize = function(x, y, w, h, rotation, radius = NULL) {
       self$x <- x
@@ -23957,10 +26459,15 @@ MediaAreaCoordinates <- R6::R6Class(
 MediaAreaGeoPoint <- R6::R6Class("MediaAreaGeoPoint",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcad5452d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf36d7bf2,
+    #' @field coordinates Field.
     coordinates = NULL,
+    #' @field geo Field.
     geo = NULL,
+    #' @field address Field.
     address = NULL,
     initialize = function(coordinates, geo, address = NULL) {
       self$coordinates <- coordinates
@@ -23999,8 +26506,11 @@ MediaAreaStarGift <- R6::R6Class("MediaAreaStarGift",
   inherit = TLObject,
   public = list(
     CONSTRUCTOR_ID = 0x77879f6d, # placeholder; original had bytes, no explicit hex in R snippet
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf36d7bf2,
+    #' @field coordinates Field.
     coordinates = NULL,
+    #' @field slug Field.
     slug = NULL,
     initialize = function(coordinates, slug) {
       self$coordinates <- coordinates
@@ -24033,11 +26543,17 @@ MediaAreaStarGift <- R6::R6Class("MediaAreaStarGift",
 MediaAreaSuggestedReaction <- R6::R6Class("MediaAreaSuggestedReaction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x14455871,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf36d7bf2,
+    #' @field coordinates Field.
     coordinates = NULL,
+    #' @field reaction Field.
     reaction = NULL,
+    #' @field dark Field.
     dark = NULL,
+    #' @field flipped Field.
     flipped = NULL,
     initialize = function(coordinates, reaction, dark = NULL, flipped = NULL) {
       self$coordinates <- coordinates
@@ -24077,9 +26593,13 @@ MediaAreaSuggestedReaction <- R6::R6Class("MediaAreaSuggestedReaction",
 MediaAreaUrl <- R6::R6Class("MediaAreaUrl",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x37381085,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf36d7bf2,
+    #' @field coordinates Field.
     coordinates = NULL,
+    #' @field url Field.
     url = NULL,
     initialize = function(coordinates, url) {
       self$coordinates <- coordinates
@@ -24112,14 +26632,23 @@ MediaAreaUrl <- R6::R6Class("MediaAreaUrl",
 MediaAreaVenue <- R6::R6Class("MediaAreaVenue",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbe82db9c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf36d7bf2,
+    #' @field coordinates Field.
     coordinates = NULL,
+    #' @field geo Field.
     geo = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field address Field.
     address = NULL,
+    #' @field provider Field.
     provider = NULL,
+    #' @field venue_id Field.
     venue_id = NULL,
+    #' @field venue_type Field.
     venue_type = NULL,
     initialize = function(coordinates, geo, title, address, provider, venue_id, venue_type) {
       self$coordinates <- coordinates
@@ -24170,11 +26699,17 @@ MediaAreaVenue <- R6::R6Class("MediaAreaVenue",
 MediaAreaWeather <- R6::R6Class("MediaAreaWeather",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x49a6549c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf36d7bf2,
+    #' @field coordinates Field.
     coordinates = NULL,
+    #' @field emoji Field.
     emoji = NULL,
+    #' @field temperature_c Field.
     temperature_c = NULL,
+    #' @field color Field.
     color = NULL,
     initialize = function(coordinates, emoji, temperature_c, color) {
       self$coordinates <- coordinates
@@ -24214,49 +26749,93 @@ Message <- R6::R6Class(
   "Message",
   inherit = TLObject,
   public = list(
+    #' @field id Field.
     id = NULL,
+    #' @field peer_id Field.
     peer_id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field message Field.
     message = NULL,
+    #' @field out Field.
     out = NULL,
+    #' @field mentioned Field.
     mentioned = NULL,
+    #' @field media_unread Field.
     media_unread = NULL,
+    #' @field silent Field.
     silent = NULL,
+    #' @field post Field.
     post = NULL,
+    #' @field from_scheduled Field.
     from_scheduled = NULL,
+    #' @field legacy Field.
     legacy = NULL,
+    #' @field edit_hide Field.
     edit_hide = NULL,
+    #' @field pinned Field.
     pinned = NULL,
+    #' @field noforwards Field.
     noforwards = NULL,
+    #' @field invert_media Field.
     invert_media = NULL,
+    #' @field offline Field.
     offline = NULL,
+    #' @field video_processing_pending Field.
     video_processing_pending = NULL,
+    #' @field paid_suggested_post_stars Field.
     paid_suggested_post_stars = NULL,
+    #' @field paid_suggested_post_ton Field.
     paid_suggested_post_ton = NULL,
+    #' @field from_id Field.
     from_id = NULL,
+    #' @field from_boosts_applied Field.
     from_boosts_applied = NULL,
+    #' @field saved_peer_id Field.
     saved_peer_id = NULL,
+    #' @field fwd_from Field.
     fwd_from = NULL,
+    #' @field via_bot_id Field.
     via_bot_id = NULL,
+    #' @field via_business_bot_id Field.
     via_business_bot_id = NULL,
+    #' @field reply_to Field.
     reply_to = NULL,
+    #' @field media Field.
     media = NULL,
+    #' @field reply_markup Field.
     reply_markup = NULL,
+    #' @field entities Field.
     entities = NULL,
+    #' @field views Field.
     views = NULL,
+    #' @field forwards Field.
     forwards = NULL,
+    #' @field replies Field.
     replies = NULL,
+    #' @field edit_date Field.
     edit_date = NULL,
+    #' @field post_author Field.
     post_author = NULL,
+    #' @field grouped_id Field.
     grouped_id = NULL,
+    #' @field reactions Field.
     reactions = NULL,
+    #' @field restriction_reason Field.
     restriction_reason = NULL,
+    #' @field ttl_period Field.
     ttl_period = NULL,
+    #' @field quick_reply_shortcut_id Field.
     quick_reply_shortcut_id = NULL,
+    #' @field effect Field.
     effect = NULL,
+    #' @field factcheck Field.
     factcheck = NULL,
+    #' @field report_delivery_until_date Field.
     report_delivery_until_date = NULL,
+    #' @field paid_message_stars Field.
     paid_message_stars = NULL,
+    #' @field suggested_post Field.
     suggested_post = NULL,
     initialize = function(id, peer_id, date, message, out = NULL, mentioned = NULL, media_unread = NULL, silent = NULL,
                           post = NULL, from_scheduled = NULL, legacy = NULL, edit_hide = NULL, pinned = NULL,
@@ -24438,8 +27017,11 @@ MessageActionBoostApply <- R6::R6Class(
   "MessageActionBoostApply",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcc02aa6d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field boosts Field.
     boosts = NULL,
     initialize = function(boosts) {
       self$boosts <- boosts
@@ -24466,11 +27048,17 @@ MessageActionBotAllowed <- R6::R6Class(
   "MessageActionBotAllowed",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc516d679,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field attach_menu Field.
     attach_menu = NULL,
+    #' @field from_request Field.
     from_request = NULL,
+    #' @field domain Field.
     domain = NULL,
+    #' @field app Field.
     app = NULL,
     initialize = function(attach_menu = NULL, from_request = NULL, domain = NULL, app = NULL) {
       self$attach_menu <- attach_menu
@@ -24512,8 +27100,11 @@ MessageActionChannelCreate <- R6::R6Class(
   "MessageActionChannelCreate",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x95d2ac92,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field title Field.
     title = NULL,
     initialize = function(title) {
       self$title <- title
@@ -24543,9 +27134,13 @@ MessageActionChannelMigrateFrom <- R6::R6Class(
   "MessageActionChannelMigrateFrom",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xea3948e9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field title Field.
     title = NULL,
+    #' @field chat_id Field.
     chat_id = NULL,
     initialize = function(title, chat_id) {
       self$title <- title
@@ -24578,8 +27173,11 @@ MessageActionChatAddUser <- R6::R6Class(
   "MessageActionChatAddUser",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x15cefd00,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field users Field.
     users = NULL,
     initialize = function(users) {
       self$users <- users
@@ -24614,9 +27212,13 @@ MessageActionChatCreate <- R6::R6Class(
   "MessageActionChatCreate",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbd47cbad,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field title Field.
     title = NULL,
+    #' @field users Field.
     users = NULL,
     initialize = function(title, users) {
       self$title <- title
@@ -24659,7 +27261,9 @@ MessageActionChatDeletePhoto <- R6::R6Class(
   "MessageActionChatDeletePhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x95e3fbef,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     to_dict = function() {
       list(`_` = "MessageActionChatDeletePhoto")
@@ -24682,8 +27286,11 @@ MessageActionChatDeleteUser <- R6::R6Class(
   "MessageActionChatDeleteUser",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa43f30cc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field user_id Field.
     user_id = NULL,
     initialize = function(user_id) {
       self$user_id <- user_id
@@ -24716,8 +27323,11 @@ MessageActionChatEditPhoto <- R6::R6Class(
   "MessageActionChatEditPhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7fcb13a8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field photo Field.
     photo = NULL,
     initialize = function(photo) {
       self$photo <- photo
@@ -24750,8 +27360,11 @@ MessageActionChatEditTitle <- R6::R6Class(
   "MessageActionChatEditTitle",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb5a1ce5a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field title Field.
     title = NULL,
     initialize = function(title) {
       self$title <- title
@@ -24784,8 +27397,11 @@ MessageActionChatJoinedByLink <- R6::R6Class(
   "MessageActionChatJoinedByLink",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x31224c3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field inviter_id Field.
     inviter_id = NULL,
     initialize = function(inviter_id) {
       self$inviter_id <- inviter_id
@@ -24818,7 +27434,9 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   "MessageActionChatJoinedByRequest",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xebbca3cb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     to_dict = function() {
       list(`_` = "MessageActionChatJoinedByRequest")
@@ -24841,8 +27459,11 @@ MessageActionChatMigrateTo <- R6::R6Class(
   "MessageActionChatMigrateTo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe1037f92,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field channel_id Field.
     channel_id = NULL,
     initialize = function(channel_id) {
       self$channel_id <- channel_id
@@ -24874,13 +27495,21 @@ MessageActionChatMigrateTo <- R6::R6Class(
 MessageActionConferenceCall <- R6::R6Class("MessageActionConferenceCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2ffe2f7a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field call_id Field.
     call_id = NULL,
+    #' @field missed Field.
     missed = NULL,
+    #' @field active Field.
     active = NULL,
+    #' @field video Field.
     video = NULL,
+    #' @field duration Field.
     duration = NULL,
+    #' @field other_participants Field.
     other_participants = NULL,
     initialize = function(call_id, missed = NULL, active = NULL, video = NULL, duration = NULL, other_participants = NULL) {
       self$call_id <- call_id
@@ -24932,7 +27561,9 @@ MessageActionConferenceCall <- R6::R6Class("MessageActionConferenceCall",
 MessageActionContactSignUp <- R6::R6Class("MessageActionContactSignUp",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf3f25f76,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list(`_` = "MessageActionContactSignUp"),
@@ -24950,8 +27581,11 @@ MessageActionContactSignUp <- R6::R6Class("MessageActionContactSignUp",
 MessageActionCustomAction <- R6::R6Class("MessageActionCustomAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfae69f56,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field message Field.
     message = NULL,
     initialize = function(message) {
       self$message <- message
@@ -24974,7 +27608,9 @@ MessageActionCustomAction <- R6::R6Class("MessageActionCustomAction",
 MessageActionEmpty <- R6::R6Class("MessageActionEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb6aef7b0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list(`_` = "MessageActionEmpty"),
@@ -24992,8 +27628,11 @@ MessageActionEmpty <- R6::R6Class("MessageActionEmpty",
 MessageActionChatEditTitle <- R6::R6Class("MessageActionChatEditTitle",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb5a1ce5a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field title Field.
     title = NULL,
     initialize = function(title) {
       self$title <- title
@@ -25013,8 +27652,11 @@ MessageActionChatEditTitle <- R6::R6Class("MessageActionChatEditTitle",
 MessageActionChatEditPhoto <- R6::R6Class("MessageActionChatEditPhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7fcb13a8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field photo Field.
     photo = NULL,
     initialize = function(photo) {
       self$photo <- photo
@@ -25034,9 +27676,13 @@ MessageActionChatEditPhoto <- R6::R6Class("MessageActionChatEditPhoto",
 MessageActionChatCreate <- R6::R6Class("MessageActionChatCreate",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbd47cbad,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field title Field.
     title = NULL,
+    #' @field users Field.
     users = NULL,
     initialize = function(title, users) {
       self$title <- title
@@ -25063,8 +27709,11 @@ MessageActionChatCreate <- R6::R6Class("MessageActionChatCreate",
 MessageActionChatAddUser <- R6::R6Class("MessageActionChatAddUser",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x15cefd00,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field users Field.
     users = NULL,
     initialize = function(users) {
       self$users <- users
@@ -25089,8 +27738,11 @@ MessageActionChatAddUser <- R6::R6Class("MessageActionChatAddUser",
 MessageActionChatDeleteUser <- R6::R6Class("MessageActionChatDeleteUser",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa43f30cc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field user_id Field.
     user_id = NULL,
     initialize = function(user_id) {
       self$user_id <- user_id
@@ -25110,8 +27762,11 @@ MessageActionChatDeleteUser <- R6::R6Class("MessageActionChatDeleteUser",
 MessageActionChatJoinedByLink <- R6::R6Class("MessageActionChatJoinedByLink",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x31224c3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field inviter_id Field.
     inviter_id = NULL,
     initialize = function(inviter_id) {
       self$inviter_id <- inviter_id
@@ -25131,7 +27786,9 @@ MessageActionChatJoinedByLink <- R6::R6Class("MessageActionChatJoinedByLink",
 MessageActionChatJoinedByRequest <- R6::R6Class("MessageActionChatJoinedByRequest",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xebbca3cb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list(`_` = "MessageActionChatJoinedByRequest"),
@@ -25149,8 +27806,11 @@ MessageActionChatJoinedByRequest <- R6::R6Class("MessageActionChatJoinedByReques
 MessageActionChatMigrateTo <- R6::R6Class("MessageActionChatMigrateTo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe1037f92,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field channel_id Field.
     channel_id = NULL,
     initialize = function(channel_id) {
       self$channel_id <- channel_id
@@ -25170,8 +27830,11 @@ MessageActionChatMigrateTo <- R6::R6Class("MessageActionChatMigrateTo",
 MessageActionChannelCreate <- R6::R6Class("MessageActionChannelCreate",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x95d2ac92,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field title Field.
     title = NULL,
     initialize = function(title) {
       self$title <- title
@@ -25191,9 +27854,13 @@ MessageActionChannelCreate <- R6::R6Class("MessageActionChannelCreate",
 MessageActionChannelMigrateFrom <- R6::R6Class("MessageActionChannelMigrateFrom",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xea3948e9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field title Field.
     title = NULL,
+    #' @field chat_id Field.
     chat_id = NULL,
     initialize = function(title, chat_id) {
       self$title <- title
@@ -25214,7 +27881,9 @@ MessageActionChannelMigrateFrom <- R6::R6Class("MessageActionChannelMigrateFrom"
 MessageActionChatDeletePhoto <- R6::R6Class("MessageActionChatDeletePhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x95e3fbef,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list(`_` = "MessageActionChatDeletePhoto"),
@@ -25232,9 +27901,13 @@ MessageActionChatDeletePhoto <- R6::R6Class("MessageActionChatDeletePhoto",
 MessageActionGameScore <- R6::R6Class("MessageActionGameScore",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x92a72876,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field game_id Field.
     game_id = NULL,
+    #' @field score Field.
     score = NULL,
     initialize = function(game_id, score) {
       self$game_id <- game_id
@@ -25255,10 +27928,15 @@ MessageActionGameScore <- R6::R6Class("MessageActionGameScore",
 MessageActionGeoProximityReached <- R6::R6Class("MessageActionGeoProximityReached",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x98e0d697,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field from_id Field.
     from_id = NULL,
+    #' @field to_id Field.
     to_id = NULL,
+    #' @field distance Field.
     distance = NULL,
     initialize = function(from_id, to_id, distance) {
       self$from_id <- from_id
@@ -25294,13 +27972,21 @@ MessageActionConferenceCall <- R6::R6Class(
   "MessageActionConferenceCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2ffe2f7a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field call_id Field.
     call_id = NULL,
+    #' @field missed Field.
     missed = NULL,
+    #' @field active Field.
     active = NULL,
+    #' @field video Field.
     video = NULL,
+    #' @field duration Field.
     duration = NULL,
+    #' @field other_participants Field.
     other_participants = NULL,
     initialize = function(call_id, missed = NULL, active = NULL, video = NULL, duration = NULL, other_participants = NULL) {
       self$call_id <- call_id
@@ -25352,7 +28038,9 @@ MessageActionContactSignUp <- R6::R6Class(
   "MessageActionContactSignUp",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf3f25f76,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list("_" = "MessageActionContactSignUp"),
@@ -25374,8 +28062,11 @@ MessageActionCustomAction <- R6::R6Class(
   "MessageActionCustomAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfae69f56,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field message Field.
     message = NULL,
     initialize = function(message) {
       self$message <- message
@@ -25400,7 +28091,9 @@ MessageActionEmpty <- R6::R6Class(
   "MessageActionEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb6aef7b0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list("_" = "MessageActionEmpty"),
@@ -25422,9 +28115,13 @@ MessageActionGameScore <- R6::R6Class(
   "MessageActionGameScore",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x92a72876,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field game_id Field.
     game_id = NULL,
+    #' @field score Field.
     score = NULL,
     initialize = function(game_id, score) {
       self$game_id <- game_id
@@ -25451,10 +28148,15 @@ MessageActionGeoProximityReached <- R6::R6Class(
   "MessageActionGeoProximityReached",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x98e0d697,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field from_id Field.
     from_id = NULL,
+    #' @field to_id Field.
     to_id = NULL,
+    #' @field distance Field.
     distance = NULL,
     initialize = function(from_id, to_id, distance) {
       self$from_id <- from_id
@@ -25490,8 +28192,11 @@ MessageActionChatEditTitle <- R6::R6Class(
   "MessageActionChatEditTitle",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb5a1ce5a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field title Field.
     title = NULL,
     initialize = function(title) {
       self$title <- title
@@ -25517,7 +28222,9 @@ MessageActionChatJoinedByLink <- R6::R6Class(
   inherit = TLObject,
   public = list(
     CONSTRUCTOR_ID = 0x031224c3, # keep consistent with encoding above
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field inviter_id Field.
     inviter_id = NULL,
     initialize = function(inviter_id) {
       self$inviter_id <- inviter_id
@@ -25542,7 +28249,9 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   "MessageActionChatJoinedByRequest",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xebbca3cb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list("_" = "MessageActionChatJoinedByRequest"),
@@ -25563,8 +28272,11 @@ MessageActionChatMigrateTo <- R6::R6Class(
   "MessageActionChatMigrateTo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe1037f92,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field channel_id Field.
     channel_id = NULL,
     initialize = function(channel_id) {
       self$channel_id <- channel_id
@@ -25594,13 +28306,21 @@ MessageActionConferenceCall <- R6::R6Class(
   "MessageActionConferenceCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2ffe2f7a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field call_id Field.
     call_id = NULL,
+    #' @field missed Field.
     missed = NULL,
+    #' @field active Field.
     active = NULL,
+    #' @field video Field.
     video = NULL,
+    #' @field duration Field.
     duration = NULL,
+    #' @field other_participants Field.
     other_participants = NULL,
     initialize = function(call_id, missed = NULL, active = NULL, video = NULL, duration = NULL, other_participants = NULL) {
       self$call_id <- call_id
@@ -25655,7 +28375,9 @@ MessageActionContactSignUp <- R6::R6Class(
   "MessageActionContactSignUp",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf3f25f76,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list("_" = "MessageActionContactSignUp"),
@@ -25677,8 +28399,11 @@ MessageActionCustomAction <- R6::R6Class(
   "MessageActionCustomAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfae69f56,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field message Field.
     message = NULL,
     initialize = function(message) {
       self$message <- message
@@ -25702,7 +28427,9 @@ MessageActionEmpty <- R6::R6Class(
   "MessageActionEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb6aef7b0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list("_" = "MessageActionEmpty"),
@@ -25723,9 +28450,13 @@ MessageActionGameScore <- R6::R6Class(
   "MessageActionGameScore",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x92a72876,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field game_id Field.
     game_id = NULL,
+    #' @field score Field.
     score = NULL,
     initialize = function(game_id, score) {
       self$game_id <- game_id
@@ -25751,10 +28482,15 @@ MessageActionGeoProximityReached <- R6::R6Class(
   "MessageActionGeoProximityReached",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x98e0d697,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field from_id Field.
     from_id = NULL,
+    #' @field to_id Field.
     to_id = NULL,
+    #' @field distance Field.
     distance = NULL,
     initialize = function(from_id, to_id, distance) {
       self$from_id <- from_id
@@ -25789,8 +28525,11 @@ MessageActionChatEditTitle <- R6::R6Class(
   "MessageActionChatEditTitle",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb5a1ce5a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field title Field.
     title = NULL,
     initialize = function(title) {
       self$title <- title
@@ -25817,8 +28556,11 @@ MessageActionChatJoinedByLink <- R6::R6Class(
   "MessageActionChatJoinedByLink",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x031224c3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field inviter_id Field.
     inviter_id = NULL,
     initialize = function(inviter_id) {
       self$inviter_id <- inviter_id
@@ -25839,7 +28581,9 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   "MessageActionChatJoinedByRequest",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xebbca3cb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list("_" = "MessageActionChatJoinedByRequest"),
@@ -25858,8 +28602,11 @@ MessageActionChatMigrateTo <- R6::R6Class(
   "MessageActionChatMigrateTo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe1037f92,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field channel_id Field.
     channel_id = NULL,
     initialize = function(channel_id) {
       self$channel_id <- channel_id
@@ -25880,13 +28627,21 @@ MessageActionConferenceCall <- R6::R6Class(
   "MessageActionConferenceCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2ffe2f7a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field call_id Field.
     call_id = NULL,
+    #' @field missed Field.
     missed = NULL,
+    #' @field active Field.
     active = NULL,
+    #' @field video Field.
     video = NULL,
+    #' @field duration Field.
     duration = NULL,
+    #' @field other_participants Field.
     other_participants = NULL,
     initialize = function(call_id, missed = NULL, active = NULL, video = NULL, duration = NULL, other_participants = NULL) {
       self$call_id <- call_id
@@ -25941,7 +28696,9 @@ MessageActionContactSignUp <- R6::R6Class(
   "MessageActionContactSignUp",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf3f25f76,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list("_" = "MessageActionContactSignUp"),
@@ -25960,8 +28717,11 @@ MessageActionCustomAction <- R6::R6Class(
   "MessageActionCustomAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfae69f56,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field message Field.
     message = NULL,
     initialize = function(message) {
       self$message <- message
@@ -25987,7 +28747,9 @@ MessageActionEmpty <- R6::R6Class(
   "MessageActionEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb6aef7b0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list("_" = "MessageActionEmpty"),
@@ -26006,9 +28768,13 @@ MessageActionGameScore <- R6::R6Class(
   "MessageActionGameScore",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x92a72876,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field game_id Field.
     game_id = NULL,
+    #' @field score Field.
     score = NULL,
     initialize = function(game_id, score) {
       self$game_id <- game_id
@@ -26030,10 +28796,15 @@ MessageActionGeoProximityReached <- R6::R6Class(
   "MessageActionGeoProximityReached",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x98e0d697,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field from_id Field.
     from_id = NULL,
+    #' @field to_id Field.
     to_id = NULL,
+    #' @field distance Field.
     distance = NULL,
     initialize = function(from_id, to_id, distance) {
       self$from_id <- from_id
@@ -26065,17 +28836,29 @@ MessageActionGiftCode <- R6::R6Class(
   "MessageActionGiftCode",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x56d03994,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field months Field.
     months = NULL,
+    #' @field slug Field.
     slug = NULL,
+    #' @field via_giveaway Field.
     via_giveaway = NULL,
+    #' @field unclaimed Field.
     unclaimed = NULL,
+    #' @field boostpeer Field.
     boostpeer = NULL,
+    #' @field currency Field.
     currency = NULL,
+    #' @field amount Field.
     amount = NULL,
+    #' @field crypto_currency Field.
     crypto_currency = NULL,
+    #' @field crypto_amount Field.
     crypto_amount = NULL,
+    #' @field message Field.
     message = NULL,
     initialize = function(months, slug, via_giveaway = NULL, unclaimed = NULL, boostpeer = NULL, currency = NULL, amount = NULL, crypto_currency = NULL, crypto_amount = NULL, message = NULL) {
       self$months <- months
@@ -26137,13 +28920,21 @@ MessageActionGiftPremium <- R6::R6Class(
   "MessageActionGiftPremium",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6c6274fa,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field currency Field.
     currency = NULL,
+    #' @field amount Field.
     amount = NULL,
+    #' @field months Field.
     months = NULL,
+    #' @field crypto_currency Field.
     crypto_currency = NULL,
+    #' @field crypto_amount Field.
     crypto_amount = NULL,
+    #' @field message Field.
     message = NULL,
     initialize = function(currency, amount, months, crypto_currency = NULL, crypto_amount = NULL, message = NULL) {
       self$currency <- currency
@@ -26185,13 +28976,21 @@ MessageActionGiftStars <- R6::R6Class(
   "MessageActionGiftStars",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x45d5b021,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field currency Field.
     currency = NULL,
+    #' @field amount Field.
     amount = NULL,
+    #' @field stars Field.
     stars = NULL,
+    #' @field crypto_currency Field.
     crypto_currency = NULL,
+    #' @field crypto_amount Field.
     crypto_amount = NULL,
+    #' @field transaction_id Field.
     transaction_id = NULL,
     initialize = function(currency, amount, stars, crypto_currency = NULL, crypto_amount = NULL, transaction_id = NULL) {
       self$currency <- currency
@@ -26233,12 +29032,19 @@ MessageActionGiftTon <- R6::R6Class(
   "MessageActionGiftTon",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa8a3c699,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field currency Field.
     currency = NULL,
+    #' @field amount Field.
     amount = NULL,
+    #' @field crypto_currency Field.
     crypto_currency = NULL,
+    #' @field crypto_amount Field.
     crypto_amount = NULL,
+    #' @field transaction_id Field.
     transaction_id = NULL,
     initialize = function(currency, amount, crypto_currency, crypto_amount, transaction_id = NULL) {
       self$currency <- currency
@@ -26278,8 +29084,11 @@ MessageActionGiveawayLaunch <- R6::R6Class(
   "MessageActionGiveawayLaunch",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa80f51e4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field stars Field.
     stars = NULL,
     initialize = function(stars = NULL) {
       self$stars <- stars
@@ -26304,10 +29113,15 @@ MessageActionGiveawayResults <- R6::R6Class(
   "MessageActionGiveawayResults",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x87e2f155,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field winners_count Field.
     winners_count = NULL,
+    #' @field unclaimed_count Field.
     unclaimed_count = NULL,
+    #' @field stars Field.
     stars = NULL,
     initialize = function(winners_count, unclaimed_count, stars = NULL) {
       self$winners_count <- winners_count
@@ -26336,9 +29150,13 @@ MessageActionGroupCall <- R6::R6Class(
   "MessageActionGroupCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7a0d7f42,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field call Field.
     call = NULL,
+    #' @field duration Field.
     duration = NULL,
     initialize = function(call, duration = NULL) {
       self$call <- call
@@ -26365,9 +29183,13 @@ MessageActionGroupCallScheduled <- R6::R6Class(
   "MessageActionGroupCallScheduled",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb3a07661,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field call Field.
     call = NULL,
+    #' @field schedule_date Field.
     schedule_date = NULL,
     initialize = function(call, schedule_date) {
       self$call <- call
@@ -26389,7 +29211,9 @@ MessageActionHistoryClear <- R6::R6Class(
   "MessageActionHistoryClear",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9fbab604,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list("_" = "MessageActionHistoryClear"),
@@ -26408,9 +29232,13 @@ MessageActionInviteToGroupCall <- R6::R6Class(
   "MessageActionInviteToGroupCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x502f92f7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field call Field.
     call = NULL,
+    #' @field users Field.
     users = NULL,
     initialize = function(call, users) {
       self$call <- call
@@ -26443,9 +29271,13 @@ MessageActionPaidMessagesPrice <- R6::R6Class(
   "MessageActionPaidMessagesPrice",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x84b88578,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field stars Field.
     stars = NULL,
+    #' @field broadcast_messages_allowed Field.
     broadcast_messages_allowed = NULL,
     initialize = function(stars, broadcast_messages_allowed = NULL) {
       self$stars <- stars
@@ -26472,9 +29304,13 @@ MessageActionPaidMessagesRefunded <- R6::R6Class(
   "MessageActionPaidMessagesRefunded",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xac1f1fcd,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field count Field.
     count = NULL,
+    #' @field stars Field.
     stars = NULL,
     initialize = function(count, stars) {
       self$count <- count
@@ -26496,12 +29332,19 @@ MessageActionPaymentRefunded <- R6::R6Class(
   "MessageActionPaymentRefunded",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x41b3e202,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field peer Field.
     peer = NULL,
+    #' @field currency Field.
     currency = NULL,
+    #' @field total_amount Field.
     total_amount = NULL,
+    #' @field charge Field.
     charge = NULL,
+    #' @field payload Field.
     payload = NULL,
     initialize = function(peer, currency, total_amount, charge, payload = NULL) {
       self$peer <- peer
@@ -26543,13 +29386,21 @@ MessageActionPaymentSent <- R6::R6Class(
   "MessageActionPaymentSent",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc624b16e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field currency Field.
     currency = NULL,
+    #' @field total_amount Field.
     total_amount = NULL,
+    #' @field recurring_init Field.
     recurring_init = NULL,
+    #' @field recurring_used Field.
     recurring_used = NULL,
+    #' @field invoice_slug Field.
     invoice_slug = NULL,
+    #' @field subscription_until_date Field.
     subscription_until_date = NULL,
     initialize = function(currency, total_amount, recurring_init = NULL, recurring_used = NULL, invoice_slug = NULL, subscription_until_date = NULL) {
       self$currency <- currency
@@ -26594,16 +29445,27 @@ MessageActionPaymentSentMe <- R6::R6Class(
   "MessageActionPaymentSentMe",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xffa00ccc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field currency Field.
     currency = NULL,
+    #' @field total_amount Field.
     total_amount = NULL,
+    #' @field payload Field.
     payload = NULL,
+    #' @field charge Field.
     charge = NULL,
+    #' @field recurring_init Field.
     recurring_init = NULL,
+    #' @field recurring_used Field.
     recurring_used = NULL,
+    #' @field info Field.
     info = NULL,
+    #' @field shipping_option_id Field.
     shipping_option_id = NULL,
+    #' @field subscription_until_date Field.
     subscription_until_date = NULL,
     initialize = function(currency, total_amount, payload, charge, recurring_init = NULL, recurring_used = NULL, info = NULL, shipping_option_id = NULL, subscription_until_date = NULL) {
       self$currency <- currency
@@ -26653,11 +29515,17 @@ MessageActionPhoneCall <- R6::R6Class(
   "MessageActionPhoneCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x80e11a7f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field call_id Field.
     call_id = NULL,
+    #' @field video Field.
     video = NULL,
+    #' @field reason Field.
     reason = NULL,
+    #' @field duration Field.
     duration = NULL,
     initialize = function(call_id, video = NULL, reason = NULL, duration = NULL) {
       self$call_id <- call_id
@@ -26696,7 +29564,9 @@ MessageActionPinMessage <- R6::R6Class(
   "MessageActionPinMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x94bd38ed,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
     initialize = function() {},
     to_dict = function() list("_" = "MessageActionPinMessage"),
@@ -26715,10 +29585,15 @@ MessageActionPrizeStars <- R6::R6Class(
   "MessageActionPrizeStars",
   inherit = TLObject,
   public = list(
+    #' @field stars Field.
     stars = NULL,
+    #' @field transaction_id Field.
     transaction_id = NULL,
+    #' @field boostpeer Field.
     boostpeer = NULL,
+    #' @field giveaway_msg_id Field.
     giveaway_msg_id = NULL,
+    #' @field unclaimed Field.
     unclaimed = NULL,
     initialize = function(stars, transaction_id, boostpeer, giveaway_msg_id, unclaimed = NULL) {
       self$stars <- stars
@@ -26752,7 +29627,9 @@ MessageActionRequestedPeer <- R6::R6Class(
   "MessageActionRequestedPeer",
   inherit = TLObject,
   public = list(
+    #' @field button_id Field.
     button_id = NULL,
+    #' @field peers Field.
     peers = NULL,
     initialize = function(button_id, peers) {
       self$button_id <- button_id
@@ -26780,7 +29657,9 @@ MessageActionRequestedPeerSentMe <- R6::R6Class(
   "MessageActionRequestedPeerSentMe",
   inherit = TLObject,
   public = list(
+    #' @field button_id Field.
     button_id = NULL,
+    #' @field peers Field.
     peers = NULL,
     initialize = function(button_id, peers) {
       self$button_id <- button_id
@@ -26825,6 +29704,7 @@ MessageActionSecureValuesSent <- R6::R6Class(
   "MessageActionSecureValuesSent",
   inherit = TLObject,
   public = list(
+    #' @field types Field.
     types = NULL,
     initialize = function(types) {
       self$types <- types
@@ -26850,7 +29730,9 @@ MessageActionSecureValuesSentMe <- R6::R6Class(
   "MessageActionSecureValuesSentMe",
   inherit = TLObject,
   public = list(
+    #' @field values Field.
     values = NULL,
+    #' @field credentials Field.
     credentials = NULL,
     initialize = function(values, credentials) {
       self$values <- values
@@ -26878,6 +29760,7 @@ MessageActionSetChatTheme <- R6::R6Class(
   "MessageActionSetChatTheme",
   inherit = TLObject,
   public = list(
+    #' @field theme Field.
     theme = NULL,
     initialize = function(theme) {
       self$theme <- theme
@@ -26903,8 +29786,11 @@ MessageActionSetChatWallPaper <- R6::R6Class(
   "MessageActionSetChatWallPaper",
   inherit = TLObject,
   public = list(
+    #' @field wallpaper Field.
     wallpaper = NULL,
+    #' @field same Field.
     same = NULL,
+    #' @field for_both Field.
     for_both = NULL,
     initialize = function(wallpaper, same = NULL, for_both = NULL) {
       self$wallpaper <- wallpaper
@@ -26934,7 +29820,9 @@ MessageActionSetMessagesTTL <- R6::R6Class(
   "MessageActionSetMessagesTTL",
   inherit = TLObject,
   public = list(
+    #' @field period Field.
     period = NULL,
+    #' @field auto_setting_from Field.
     auto_setting_from = NULL,
     initialize = function(period, auto_setting_from = NULL) {
       self$period <- period
@@ -26962,23 +29850,41 @@ MessageActionStarGift <- R6::R6Class(
   "MessageActionStarGift",
   inherit = TLObject,
   public = list(
+    #' @field gift Field.
     gift = NULL,
+    #' @field name_hidden Field.
     name_hidden = NULL,
+    #' @field saved Field.
     saved = NULL,
+    #' @field converted Field.
     converted = NULL,
+    #' @field upgraded Field.
     upgraded = NULL,
+    #' @field refunded Field.
     refunded = NULL,
+    #' @field can_upgrade Field.
     can_upgrade = NULL,
+    #' @field prepaid_upgrade Field.
     prepaid_upgrade = NULL,
+    #' @field upgrade_separate Field.
     upgrade_separate = NULL,
+    #' @field message Field.
     message = NULL,
+    #' @field convert_stars Field.
     convert_stars = NULL,
+    #' @field upgrade_msg_id Field.
     upgrade_msg_id = NULL,
+    #' @field upgrade_stars Field.
     upgrade_stars = NULL,
+    #' @field from_id Field.
     from_id = NULL,
+    #' @field peer Field.
     peer = NULL,
+    #' @field saved_id Field.
     saved_id = NULL,
+    #' @field prepaid_upgrade_hash Field.
     prepaid_upgrade_hash = NULL,
+    #' @field gift_msg_id Field.
     gift_msg_id = NULL,
     initialize = function(gift, name_hidden = NULL, saved = NULL, converted = NULL, upgraded = NULL, refunded = NULL, can_upgrade = NULL, prepaid_upgrade = NULL, upgrade_separate = NULL, message = NULL, convert_stars = NULL, upgrade_msg_id = NULL, upgrade_stars = NULL, from_id = NULL, peer = NULL, saved_id = NULL, prepaid_upgrade_hash = NULL, gift_msg_id = NULL) {
       self$gift <- gift
@@ -27038,19 +29944,33 @@ MessageActionStarGiftUnique <- R6::R6Class(
   "MessageActionStarGiftUnique",
   inherit = TLObject,
   public = list(
+    #' @field gift Field.
     gift = NULL,
+    #' @field upgrade Field.
     upgrade = NULL,
+    #' @field transferred Field.
     transferred = NULL,
+    #' @field saved Field.
     saved = NULL,
+    #' @field refunded Field.
     refunded = NULL,
+    #' @field prepaid_upgrade Field.
     prepaid_upgrade = NULL,
+    #' @field can_export_at Field.
     can_export_at = NULL,
+    #' @field transfer_stars Field.
     transfer_stars = NULL,
+    #' @field from_id Field.
     from_id = NULL,
+    #' @field peer Field.
     peer = NULL,
+    #' @field saved_id Field.
     saved_id = NULL,
+    #' @field resale_amount Field.
     resale_amount = NULL,
+    #' @field can_transfer_at Field.
     can_transfer_at = NULL,
+    #' @field can_resell_at Field.
     can_resell_at = NULL,
     initialize = function(gift, upgrade = NULL, transferred = NULL, saved = NULL, refunded = NULL, prepaid_upgrade = NULL, can_export_at = NULL, transfer_stars = NULL, from_id = NULL, peer = NULL, saved_id = NULL, resale_amount = NULL, can_transfer_at = NULL, can_resell_at = NULL) {
       self$gift <- gift
@@ -27102,6 +30022,7 @@ MessageActionSuggestProfilePhoto <- R6::R6Class(
   "MessageActionSuggestProfilePhoto",
   inherit = TLObject,
   public = list(
+    #' @field photo Field.
     photo = NULL,
     initialize = function(photo) {
       self$photo <- photo
@@ -27127,10 +30048,15 @@ MessageActionSuggestedPostApproval <- R6::R6Class(
   "MessageActionSuggestedPostApproval",
   inherit = TLObject,
   public = list(
+    #' @field rejected Field.
     rejected = NULL,
+    #' @field balance_too_low Field.
     balance_too_low = NULL,
+    #' @field reject_comment Field.
     reject_comment = NULL,
+    #' @field schedule_date Field.
     schedule_date = NULL,
+    #' @field price Field.
     price = NULL,
     initialize = function(rejected = NULL, balance_too_low = NULL, reject_comment = NULL, schedule_date = NULL, price = NULL) {
       self$rejected <- rejected
@@ -27164,6 +30090,7 @@ MessageActionSuggestedPostRefund <- R6::R6Class(
   "MessageActionSuggestedPostRefund",
   inherit = TLObject,
   public = list(
+    #' @field payer_initiated Field.
     payer_initiated = NULL,
     initialize = function(payer_initiated = NULL) {
       self$payer_initiated <- payer_initiated
@@ -27184,6 +30111,7 @@ MessageActionSuggestedPostSuccess <- R6::R6Class(
   "MessageActionSuggestedPostSuccess",
   inherit = TLObject,
   public = list(
+    #' @field price Field.
     price = NULL,
     initialize = function(price) {
       self$price <- price
@@ -27204,8 +30132,11 @@ MessageActionTodoAppendTasks <- R6::R6Class(
   "MessageActionTodoAppendTasks",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc7edbc83,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field list Field.
     list = NULL,
     initialize = function(list) {
       self$list <- list
@@ -27233,9 +30164,13 @@ MessageActionTodoCompletions <- R6::R6Class(
   "MessageActionTodoCompletions",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcc7c5c89,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field completed Field.
     completed = NULL,
+    #' @field incompleted Field.
     incompleted = NULL,
     initialize = function(completed, incompleted) {
       self$completed <- completed
@@ -27265,10 +30200,15 @@ MessageActionTopicCreate <- R6::R6Class(
   "MessageActionTopicCreate",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x0d999256,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field title Field.
     title = NULL,
+    #' @field icon_color Field.
     icon_color = NULL,
+    #' @field icon_emoji_id Field.
     icon_emoji_id = NULL,
     initialize = function(title, icon_color, icon_emoji_id = NULL) {
       self$title <- title
@@ -27298,11 +30238,17 @@ MessageActionTopicEdit <- R6::R6Class(
   "MessageActionTopicEdit",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc0944820,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field title Field.
     title = NULL,
+    #' @field icon_emoji_id Field.
     icon_emoji_id = NULL,
+    #' @field closed Field.
     closed = NULL,
+    #' @field hidden Field.
     hidden = NULL,
     initialize = function(title = NULL, icon_emoji_id = NULL, closed = NULL, hidden = NULL) {
       self$title <- title
@@ -27333,8 +30279,11 @@ MessageActionWebViewDataSent <- R6::R6Class(
   "MessageActionWebViewDataSent",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb4c38cb5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field text Field.
     text = NULL,
     initialize = function(text) {
       self$text <- text
@@ -27357,9 +30306,13 @@ MessageActionWebViewDataSentMe <- R6::R6Class(
   "MessageActionWebViewDataSentMe",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x47dd8079,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8680d126,
+    #' @field text Field.
     text = NULL,
+    #' @field data Field.
     data = NULL,
     initialize = function(text, data) {
       self$text <- text
@@ -27383,9 +30336,13 @@ MessageEmpty <- R6::R6Class(
   "MessageEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x90a6ca84,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x790009e3,
+    #' @field id Field.
     id = NULL,
+    #' @field peer_id Field.
     peer_id = NULL,
     initialize = function(id, peer_id = NULL) {
       self$id <- id
@@ -27409,9 +30366,13 @@ MessageEntityBankCard <- R6::R6Class(
   "MessageEntityBankCard",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x761e6af4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
+    #' @field offset Field.
     offset = NULL,
+    #' @field length Field.
     length = NULL,
     initialize = function(offset, length) {
       self$offset <- offset
@@ -27433,7 +30394,9 @@ MessageEntityBlockquote <- R6::R6Class(
   "MessageEntityBlockquote",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf1ccaaac,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL, collapsed = NULL,
     initialize = function(offset, length, collapsed = NULL) {
@@ -27457,7 +30420,9 @@ MessageEntityBold <- R6::R6Class(
   "MessageEntityBold",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbd610bc9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) {
@@ -27480,7 +30445,9 @@ MessageEntityBotCommand <- R6::R6Class(
   "MessageEntityBotCommand",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6cef8ac7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) {
@@ -27503,7 +30470,9 @@ MessageEntityCashtag <- R6::R6Class(
   "MessageEntityCashtag",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4c4e743f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) {
@@ -27526,7 +30495,9 @@ MessageEntityCode <- R6::R6Class(
   "MessageEntityCode",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x28a20571,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) {
@@ -27549,7 +30520,9 @@ MessageEntityCustomEmoji <- R6::R6Class(
   "MessageEntityCustomEmoji",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc8cf05f8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL, document_id = NULL,
     initialize = function(offset, length, document_id) {
@@ -27573,7 +30546,9 @@ MessageEntityEmail <- R6::R6Class(
   "MessageEntityEmail",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x64e475c2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) {
@@ -27596,7 +30571,9 @@ MessageEntityHashtag <- R6::R6Class(
   "MessageEntityHashtag",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6f635b0d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) {
@@ -27619,7 +30596,9 @@ MessageEntityItalic <- R6::R6Class(
   "MessageEntityItalic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x826f8b60,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) {
@@ -27642,7 +30621,9 @@ MessageEntityMention <- R6::R6Class(
   "MessageEntityMention",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfa04579d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) {
@@ -27665,7 +30646,9 @@ MessageEntityMentionName <- R6::R6Class(
   "MessageEntityMentionName",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdc7b1140,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL, user_id = NULL,
     initialize = function(offset, length, user_id) {
@@ -27689,7 +30672,9 @@ MessageEntityPhone <- R6::R6Class(
   "MessageEntityPhone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9b69e34b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) {
@@ -27712,7 +30697,9 @@ MessageEntityPre <- R6::R6Class(
   "MessageEntityPre",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x73924be0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL, language = NULL,
     initialize = function(offset, length, language) {
@@ -27736,7 +30723,9 @@ MessageEntitySpoiler <- R6::R6Class(
   "MessageEntitySpoiler",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x32ca960f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) {
@@ -27759,7 +30748,9 @@ MessageEntityStrike <- R6::R6Class(
   "MessageEntityStrike",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbf0693d4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
     offset = NULL, length = NULL,
     initialize = function(offset, length) {
@@ -27782,10 +30773,15 @@ MessageEntityTextUrl <- R6::R6Class(
   "MessageEntityTextUrl",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x76a6d327,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
+    #' @field offset Field.
     offset = NULL,
+    #' @field length Field.
     length = NULL,
+    #' @field url Field.
     url = NULL,
     initialize = function(offset, length, url) {
       self$offset <- offset
@@ -27810,9 +30806,13 @@ MessageEntityUnderline <- R6::R6Class(
   "MessageEntityUnderline",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9c4e7e8b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
+    #' @field offset Field.
     offset = NULL,
+    #' @field length Field.
     length = NULL,
     initialize = function(offset, length) {
       self$offset <- offset
@@ -27836,9 +30836,13 @@ MessageEntityUnknown <- R6::R6Class(
   "MessageEntityUnknown",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbb92ba95,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
+    #' @field offset Field.
     offset = NULL,
+    #' @field length Field.
     length = NULL,
     initialize = function(offset, length) {
       self$offset <- offset
@@ -27862,9 +30866,13 @@ MessageEntityUrl <- R6::R6Class(
   "MessageEntityUrl",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6ed02538,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf6419dc,
+    #' @field offset Field.
     offset = NULL,
+    #' @field length Field.
     length = NULL,
     initialize = function(offset, length) {
       self$offset <- offset
@@ -27888,8 +30896,11 @@ MessageExtendedMedia <- R6::R6Class(
   "MessageExtendedMedia",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xee479c64,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9727d95d,
+    #' @field media Field.
     media = NULL,
     initialize = function(media) {
       self$media <- media
@@ -27912,11 +30923,17 @@ MessageExtendedMediaPreview <- R6::R6Class(
   "MessageExtendedMediaPreview",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xad628cc8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9727d95d,
+    #' @field w Field.
     w = NULL,
+    #' @field h Field.
     h = NULL,
+    #' @field thumb Field.
     thumb = NULL,
+    #' @field video_duration Field.
     video_duration = NULL,
     initialize = function(w = NULL, h = NULL, thumb = NULL, video_duration = NULL) {
       self$w <- w
@@ -27950,20 +30967,35 @@ MessageFwdHeader <- R6::R6Class(
   "MessageFwdHeader",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4e4df4bb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7a286804,
+    #' @field date Field.
     date = NULL,
+    #' @field imported Field.
     imported = NULL,
+    #' @field saved_out Field.
     saved_out = NULL,
+    #' @field from_id Field.
     from_id = NULL,
+    #' @field from_name Field.
     from_name = NULL,
+    #' @field channel_post Field.
     channel_post = NULL,
+    #' @field post_author Field.
     post_author = NULL,
+    #' @field saved_frompeer Field.
     saved_frompeer = NULL,
+    #' @field saved_from_msg_id Field.
     saved_from_msg_id = NULL,
+    #' @field saved_from_id Field.
     saved_from_id = NULL,
+    #' @field saved_from_name Field.
     saved_from_name = NULL,
+    #' @field saved_date Field.
     saved_date = NULL,
+    #' @field psa_type Field.
     psa_type = NULL,
     initialize = function(date = NULL, imported = NULL, saved_out = NULL, from_id = NULL, from_name = NULL,
                           channel_post = NULL, post_author = NULL, saved_frompeer = NULL, saved_from_msg_id = NULL,
@@ -28017,12 +31049,19 @@ MessageMediaContact <- R6::R6Class(
   "MessageMediaContact",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x70322949,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field phone_number Field.
     phone_number = NULL,
+    #' @field first_name Field.
     first_name = NULL,
+    #' @field last_name Field.
     last_name = NULL,
+    #' @field vcard Field.
     vcard = NULL,
+    #' @field user_id Field.
     user_id = NULL,
     initialize = function(phone_number, first_name, last_name, vcard, user_id) {
       self$phone_number <- phone_number
@@ -28058,9 +31097,13 @@ MessageMediaDice <- R6::R6Class(
   "MessageMediaDice",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3f7ee58b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field value Field.
     value = NULL,
+    #' @field emoticon Field.
     emoticon = NULL,
     initialize = function(value, emoticon) {
       self$value <- value
@@ -28084,17 +31127,29 @@ MessageMediaDocument <- R6::R6Class(
   "MessageMediaDocument",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x52d8ccd9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field nopremium Field.
     nopremium = NULL,
+    #' @field spoiler Field.
     spoiler = NULL,
+    #' @field video Field.
     video = NULL,
+    #' @field round Field.
     round = NULL,
+    #' @field voice Field.
     voice = NULL,
+    #' @field document Field.
     document = NULL,
+    #' @field alt_documents Field.
     alt_documents = NULL,
+    #' @field video_cover Field.
     video_cover = NULL,
+    #' @field video_timestamp Field.
     video_timestamp = NULL,
+    #' @field ttl_seconds Field.
     ttl_seconds = NULL,
     initialize = function(nopremium = NULL, spoiler = NULL, video = NULL, round = NULL, voice = NULL,
                           document = NULL, alt_documents = NULL, video_cover = NULL, video_timestamp = NULL,
@@ -28142,7 +31197,9 @@ MessageMediaEmpty <- R6::R6Class(
   "MessageMediaEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3ded6320,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
     initialize = function() {},
     to_dict = function() list("_" = "MessageMediaEmpty"),
@@ -28163,8 +31220,11 @@ MessageMediaGame <- R6::R6Class(
   "MessageMediaGame",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfdb19008,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field game Field.
     game = NULL,
     initialize = function(game) {
       self$game <- game
@@ -28187,8 +31247,11 @@ MessageMediaGeo <- R6::R6Class(
   "MessageMediaGeo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x56e0d474,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field geo Field.
     geo = NULL,
     initialize = function(geo) {
       self$geo <- geo
@@ -28211,11 +31274,17 @@ MessageMediaGeoLive <- R6::R6Class(
   "MessageMediaGeoLive",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb940c666,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field geo Field.
     geo = NULL,
+    #' @field period Field.
     period = NULL,
+    #' @field heading Field.
     heading = NULL,
+    #' @field proximity_notification_radius Field.
     proximity_notification_radius = NULL,
     initialize = function(geo, period, heading = NULL, proximity_notification_radius = NULL) {
       self$geo <- geo
@@ -28249,16 +31318,27 @@ MessageMediaGiveaway <- R6::R6Class(
   "MessageMediaGiveaway",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xaa073beb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field channels Field.
     channels = NULL,
+    #' @field quantity Field.
     quantity = NULL,
+    #' @field until_date Field.
     until_date = NULL,
+    #' @field only_new_subscribers Field.
     only_new_subscribers = NULL,
+    #' @field winners_are_visible Field.
     winners_are_visible = NULL,
+    #' @field countries_iso2 Field.
     countries_iso2 = NULL,
+    #' @field prize_description Field.
     prize_description = NULL,
+    #' @field months Field.
     months = NULL,
+    #' @field stars Field.
     stars = NULL,
     initialize = function(channels, quantity, until_date = NULL, only_new_subscribers = NULL, winners_are_visible = NULL, countries_iso2 = NULL, prize_description = NULL, months = NULL, stars = NULL) {
       self$channels <- channels
@@ -28302,19 +31382,33 @@ MessageMediaGiveawayResults <- R6::R6Class(
   "MessageMediaGiveawayResults",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xceaa3ea1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field channel_id Field.
     channel_id = NULL,
+    #' @field launch_msg_id Field.
     launch_msg_id = NULL,
+    #' @field winners_count Field.
     winners_count = NULL,
+    #' @field unclaimed_count Field.
     unclaimed_count = NULL,
+    #' @field winners Field.
     winners = NULL,
+    #' @field until_date Field.
     until_date = NULL,
+    #' @field only_new_subscribers Field.
     only_new_subscribers = NULL,
+    #' @field refunded Field.
     refunded = NULL,
+    #' @field additionalpeers_count Field.
     additionalpeers_count = NULL,
+    #' @field months Field.
     months = NULL,
+    #' @field stars Field.
     stars = NULL,
+    #' @field prize_description Field.
     prize_description = NULL,
     initialize = function(channel_id, launch_msg_id, winners_count, unclaimed_count, winners, until_date = NULL, only_new_subscribers = NULL, refunded = NULL, additionalpeers_count = NULL, months = NULL, stars = NULL, prize_description = NULL) {
       self$channel_id <- channel_id
@@ -28364,17 +31458,29 @@ MessageMediaInvoice <- R6::R6Class(
   "MessageMediaInvoice",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf6a548d3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
+    #' @field currency Field.
     currency = NULL,
+    #' @field total_amount Field.
     total_amount = NULL,
+    #' @field start_param Field.
     start_param = NULL,
+    #' @field shipping_address_requested Field.
     shipping_address_requested = NULL,
+    #' @field test Field.
     test = NULL,
+    #' @field photo Field.
     photo = NULL,
+    #' @field receipt_msg_id Field.
     receipt_msg_id = NULL,
+    #' @field extended_media Field.
     extended_media = NULL,
     initialize = function(title, description, currency, total_amount, start_param, shipping_address_requested = NULL, test = NULL, photo = NULL, receipt_msg_id = NULL, extended_media = NULL) {
       self$title <- title
@@ -28420,9 +31526,13 @@ MessageMediaPaidMedia <- R6::R6Class(
   "MessageMediaPaidMedia",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa8852491,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field stars_amount Field.
     stars_amount = NULL,
+    #' @field extended_media Field.
     extended_media = NULL,
     initialize = function(stars_amount, extended_media) {
       self$stars_amount <- stars_amount
@@ -28452,10 +31562,15 @@ MessageMediaPhoto <- R6::R6Class(
   "MessageMediaPhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x695150d7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field spoiler Field.
     spoiler = NULL,
+    #' @field photo Field.
     photo = NULL,
+    #' @field ttl_seconds Field.
     ttl_seconds = NULL,
     initialize = function(spoiler = NULL, photo = NULL, ttl_seconds = NULL) {
       self$spoiler <- spoiler
@@ -28487,9 +31602,13 @@ MessageMediaPoll <- R6::R6Class(
   "MessageMediaPoll",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4bd6e798,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field poll Field.
     poll = NULL,
+    #' @field results Field.
     results = NULL,
     initialize = function(poll, results) {
       self$poll <- poll
@@ -28519,11 +31638,17 @@ MessageMediaStory <- R6::R6Class(
   "MessageMediaStory",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x68cb6283,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field peer Field.
     peer = NULL,
+    #' @field id Field.
     id = NULL,
+    #' @field via_mention Field.
     via_mention = NULL,
+    #' @field story Field.
     story = NULL,
     initialize = function(peer, id, via_mention = NULL, story = NULL) {
       self$peer <- peer
@@ -28557,9 +31682,13 @@ MessageMediaToDo <- R6::R6Class(
   "MessageMediaToDo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8a53b014,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field todo Field.
     todo = NULL,
+    #' @field completions Field.
     completions = NULL,
     initialize = function(todo, completions = NULL) {
       self$todo <- todo
@@ -28589,7 +31718,9 @@ MessageMediaUnsupported <- R6::R6Class(
   "MessageMediaUnsupported",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9f84f49e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
     initialize = function() {},
     to_dict = function() list(`_` = "MessageMediaUnsupported"),
@@ -28610,13 +31741,21 @@ MessageMediaVenue <- R6::R6Class(
   "MessageMediaVenue",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2ec0533f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field geo Field.
     geo = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field address Field.
     address = NULL,
+    #' @field provider Field.
     provider = NULL,
+    #' @field venue_id Field.
     venue_id = NULL,
+    #' @field venue_type Field.
     venue_type = NULL,
     initialize = function(geo, title, address, provider, venue_id, venue_type) {
       self$geo <- geo
@@ -28654,12 +31793,19 @@ MessageMediaWebPage <- R6::R6Class(
   "MessageMediaWebPage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xddf10c3b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x476cbe32,
+    #' @field webpage Field.
     webpage = NULL,
+    #' @field force_large_media Field.
     force_large_media = NULL,
+    #' @field force_small_media Field.
     force_small_media = NULL,
+    #' @field manual Field.
     manual = NULL,
+    #' @field safe Field.
     safe = NULL,
     initialize = function(webpage, force_large_media = NULL, force_small_media = NULL, manual = NULL, safe = NULL) {
       self$webpage <- webpage
@@ -28695,13 +31841,21 @@ MessagePeerReaction <- R6::R6Class(
   "MessagePeerReaction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8c79b63c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xaf73a2a5,
+    #' @field peer_id Field.
     peer_id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field reaction Field.
     reaction = NULL,
+    #' @field big Field.
     big = NULL,
+    #' @field unread Field.
     unread = NULL,
+    #' @field my Field.
     my = NULL,
     initialize = function(peer_id, date = NULL, reaction, big = NULL, unread = NULL, my = NULL) {
       self$peer_id <- peer_id
@@ -28739,10 +31893,15 @@ MessagePeerVote <- R6::R6Class(
   "MessagePeerVote",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb6cc2d5c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x85c27202,
+    #' @field peer Field.
     peer = NULL,
+    #' @field option Field.
     option = NULL,
+    #' @field date Field.
     date = NULL,
     initialize = function(peer, option, date) {
       self$peer <- peer
@@ -28777,9 +31936,13 @@ MessagePeerVoteInputOption <- R6::R6Class(
   "MessagePeerVoteInputOption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x74cda504,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x85c27202,
+    #' @field peer Field.
     peer = NULL,
+    #' @field date Field.
     date = NULL,
     initialize = function(peer, date) {
       self$peer <- peer
@@ -28811,10 +31974,15 @@ MessagePeerVoteMultiple <- R6::R6Class(
   "MessagePeerVoteMultiple",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4628f6e6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x85c27202,
+    #' @field peer Field.
     peer = NULL,
+    #' @field options Field.
     options = NULL,
+    #' @field date Field.
     date = NULL,
     initialize = function(peer, options, date) {
       self$peer <- peer
@@ -28856,9 +32024,13 @@ MessageRange <- R6::R6Class(
   "MessageRange",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x0ae30253,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbec74577,
+    #' @field min_id Field.
     min_id = NULL,
+    #' @field max_id Field.
     max_id = NULL,
     initialize = function(min_id, max_id) {
       self$min_id <- min_id
@@ -28884,13 +32056,21 @@ MessageReactions <- R6::R6Class(
   "MessageReactions",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x0a339f0b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a5b071c,
+    #' @field results Field.
     results = NULL,
+    #' @field min Field.
     min = NULL,
+    #' @field can_see_list Field.
     can_see_list = NULL,
+    #' @field reactions_as_tags Field.
     reactions_as_tags = NULL,
+    #' @field recent_reactions Field.
     recent_reactions = NULL,
+    #' @field top_reactors Field.
     top_reactors = NULL,
     initialize = function(results, min = NULL, can_see_list = NULL, reactions_as_tags = NULL, recent_reactions = NULL, top_reactors = NULL) {
       self$results <- results
@@ -28962,12 +32142,19 @@ MessageReactor <- R6::R6Class(
   "MessageReactor",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4ba3a95a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf0381ab9,
+    #' @field count Field.
     count = NULL,
+    #' @field top Field.
     top = NULL,
+    #' @field my Field.
     my = NULL,
+    #' @field anonymous Field.
     anonymous = NULL,
+    #' @field peer_id Field.
     peer_id = NULL,
     initialize = function(count, top = NULL, my = NULL, anonymous = NULL, peer_id = NULL) {
       self$count <- count
@@ -29013,14 +32200,23 @@ MessageReplies <- R6::R6Class(
   "MessageReplies",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x83d60fc2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6ccd5ce2,
+    #' @field replies Field.
     replies = NULL,
+    #' @field replies_pts Field.
     replies_pts = NULL,
+    #' @field comments Field.
     comments = NULL,
+    #' @field recent_repliers Field.
     recent_repliers = NULL,
+    #' @field channel_id Field.
     channel_id = NULL,
+    #' @field max_id Field.
     max_id = NULL,
+    #' @field read_max_id Field.
     read_max_id = NULL,
     initialize = function(replies, replies_pts, comments = NULL, recent_repliers = NULL, channel_id = NULL, max_id = NULL, read_max_id = NULL) {
       self$replies <- replies
@@ -29092,19 +32288,33 @@ MessageReplyHeader <- R6::R6Class(
   "MessageReplyHeader",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6917560b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b4d9167,
+    #' @field reply_to_scheduled Field.
     reply_to_scheduled = NULL,
+    #' @field forum_topic Field.
     forum_topic = NULL,
+    #' @field quote Field.
     quote = NULL,
+    #' @field reply_to_msg_id Field.
     reply_to_msg_id = NULL,
+    #' @field reply_topeer_id Field.
     reply_topeer_id = NULL,
+    #' @field reply_from Field.
     reply_from = NULL,
+    #' @field reply_media Field.
     reply_media = NULL,
+    #' @field reply_to_top_id Field.
     reply_to_top_id = NULL,
+    #' @field quote_text Field.
     quote_text = NULL,
+    #' @field quote_entities Field.
     quote_entities = NULL,
+    #' @field quote_offset Field.
     quote_offset = NULL,
+    #' @field todo_item_id Field.
     todo_item_id = NULL,
     initialize = function(reply_to_scheduled = NULL, forum_topic = NULL, quote = NULL, reply_to_msg_id = NULL, reply_topeer_id = NULL, reply_from = NULL, reply_media = NULL, reply_to_top_id = NULL, quote_text = NULL, quote_entities = NULL, quote_offset = NULL, todo_item_id = NULL) {
       self$reply_to_scheduled <- reply_to_scheduled
@@ -29222,9 +32432,13 @@ MessageReplyStoryHeader <- R6::R6Class(
   "MessageReplyStoryHeader",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x0e5af939,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b4d9167,
+    #' @field peer Field.
     peer = NULL,
+    #' @field story_id Field.
     story_id = NULL,
     initialize = function(peer, story_id) {
       self$peer <- peer
@@ -29256,9 +32470,13 @@ MessageReportOption <- R6::R6Class(
   "MessageReportOption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7903e3d9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfd79af88,
+    #' @field text Field.
     text = NULL,
+    #' @field option Field.
     option = NULL,
     initialize = function(text, option) {
       self$text <- text
@@ -29283,23 +32501,41 @@ MessageReportOption <- R6::R6Class(
 MessageService <- R6::R6Class("MessageService",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7a800e0a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x790009e3,
+    #' @field id Field.
     id = NULL,
+    #' @field peer_id Field.
     peer_id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field action Field.
     action = NULL,
+    #' @field out Field.
     out = NULL,
+    #' @field mentioned Field.
     mentioned = NULL,
+    #' @field media_unread Field.
     media_unread = NULL,
+    #' @field reactions_are_possible Field.
     reactions_are_possible = NULL,
+    #' @field silent Field.
     silent = NULL,
+    #' @field post Field.
     post = NULL,
+    #' @field legacy Field.
     legacy = NULL,
+    #' @field from_id Field.
     from_id = NULL,
+    #' @field savedpeer_id Field.
     savedpeer_id = NULL,
+    #' @field reply_to Field.
     reply_to = NULL,
+    #' @field reactions Field.
     reactions = NULL,
+    #' @field ttl_period Field.
     ttl_period = NULL,
     initialize = function(id, peer_id, date = NULL, action = NULL, out = NULL, mentioned = NULL,
                           media_unread = NULL, reactions_are_possible = NULL, silent = NULL,
@@ -29359,10 +32595,15 @@ MessageService <- R6::R6Class("MessageService",
 MessageViews <- R6::R6Class("MessageViews",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x455b853d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3cb083b9,
+    #' @field views Field.
     views = NULL,
+    #' @field forwards Field.
     forwards = NULL,
+    #' @field replies Field.
     replies = NULL,
     initialize = function(views = NULL, forwards = NULL, replies = NULL) {
       self$views <- views
@@ -29391,10 +32632,15 @@ MessageViews <- R6::R6Class("MessageViews",
 MissingInvitee <- R6::R6Class("MissingInvitee",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x628c9224,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5c8cacdc,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field premium_would_allow_invite Field.
     premium_would_allow_invite = NULL,
+    #' @field premium_required_for_pm Field.
     premium_required_for_pm = NULL,
     initialize = function(user_id, premium_would_allow_invite = NULL, premium_required_for_pm = NULL) {
       self$user_id <- user_id
@@ -29423,16 +32669,27 @@ MissingInvitee <- R6::R6Class("MissingInvitee",
 MonoForumDialog <- R6::R6Class("MonoForumDialog",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x64407ea7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x23ba6506,
+    #' @field peer Field.
     peer = NULL,
+    #' @field top_message Field.
     top_message = NULL,
+    #' @field read_inbox_max_id Field.
     read_inbox_max_id = NULL,
+    #' @field read_outbox_max_id Field.
     read_outbox_max_id = NULL,
+    #' @field unread_count Field.
     unread_count = NULL,
+    #' @field unread_reactions_count Field.
     unread_reactions_count = NULL,
+    #' @field unread_mark Field.
     unread_mark = NULL,
+    #' @field nopaid_messages_exception Field.
     nopaid_messages_exception = NULL,
+    #' @field draft Field.
     draft = NULL,
     initialize = function(peer, top_message, read_inbox_max_id, read_outbox_max_id, unread_count, unread_reactions_count,
                           unread_mark = NULL, nopaid_messages_exception = NULL, draft = NULL) {
@@ -29474,11 +32731,16 @@ MonoForumDialog <- R6::R6Class("MonoForumDialog",
 MsgDetailedInfo <- R6::R6Class("MsgDetailedInfo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x276d3ec6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5f32d5ee,
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field answer_msg_id Field.
     answer_msg_id = NULL,
     byte_data = NULL, # Renamed to avoid duplication
+    #' @field status Field.
     status = NULL,
     initialize = function(msg_id, answer_msg_id, byte_data, status) {
       self$msg_id <- msg_id
@@ -29512,10 +32774,15 @@ MsgDetailedInfo <- R6::R6Class("MsgDetailedInfo",
 MsgNewDetailedInfo <- R6::R6Class("MsgNewDetailedInfo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x809db6df,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5f32d5ee,
+    #' @field answer_msg_id Field.
     answer_msg_id = NULL,
+    #' @field byte_data Field.
     byte_data = NULL,
+    #' @field status Field.
     status = NULL,
     initialize = function(answer_msg_id, byte_data, status) {
       self$answer_msg_id <- answer_msg_id
@@ -29547,8 +32814,11 @@ MsgNewDetailedInfo <- R6::R6Class("MsgNewDetailedInfo",
 MsgResendReq <- R6::R6Class("MsgResendReq",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7d861a08,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2024514,
+    #' @field msg_ids Field.
     msg_ids = NULL,
     initialize = function(msg_ids) {
       self$msg_ids <- msg_ids
@@ -29579,8 +32849,11 @@ MsgResendReq <- R6::R6Class("MsgResendReq",
 MsgsAck <- R6::R6Class("MsgsAck",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x62d6b459,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x827677c4,
+    #' @field msg_ids Field.
     msg_ids = NULL,
     initialize = function(msg_ids = NULL) {
       self$msg_ids <- msg_ids
@@ -29613,9 +32886,13 @@ MsgsAck <- R6::R6Class("MsgsAck",
 MsgsAllInfo <- R6::R6Class("MsgsAllInfo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8cc0d131,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfa8fcb54,
+    #' @field msg_ids Field.
     msg_ids = NULL,
+    #' @field info Field.
     info = NULL,
     initialize = function(msg_ids, info) {
       self$msg_ids <- msg_ids
@@ -29643,9 +32920,13 @@ MsgsAllInfo <- R6::R6Class("MsgsAllInfo",
 MsgsStateInfo <- R6::R6Class("MsgsStateInfo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x04deb57d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x70a0a64,
+    #' @field req_msg_id Field.
     req_msg_id = NULL,
+    #' @field info Field.
     info = NULL,
     initialize = function(req_msg_id, info) {
       self$req_msg_id <- req_msg_id
@@ -29668,8 +32949,11 @@ MsgsStateInfo <- R6::R6Class("MsgsStateInfo",
 MsgsStateReq <- R6::R6Class("MsgsStateReq",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xda69fb52,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x18f01dd0,
+    #' @field msg_ids Field.
     msg_ids = NULL,
     initialize = function(msg_ids) {
       self$msg_ids <- msg_ids
@@ -29695,12 +32979,19 @@ MsgsStateReq <- R6::R6Class("MsgsStateReq",
 MyBoost <- R6::R6Class("MyBoost",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc448415c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc51a68bf,
+    #' @field slot Field.
     slot = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field expires Field.
     expires = NULL,
+    #' @field peer Field.
     peer = NULL,
+    #' @field cooldown_until_date Field.
     cooldown_until_date = NULL,
     initialize = function(slot, date = NULL, expires = NULL, peer = NULL, cooldown_until_date = NULL) {
       self$slot <- slot
@@ -29733,10 +33024,15 @@ MyBoost <- R6::R6Class("MyBoost",
 NearestDc <- R6::R6Class("NearestDc",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8e1a1775,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3877045f,
+    #' @field country Field.
     country = NULL,
+    #' @field this_dc Field.
     this_dc = NULL,
+    #' @field nearest_dc Field.
     nearest_dc = NULL,
     initialize = function(country, this_dc, nearest_dc) {
       self$country <- country
@@ -29758,10 +33054,15 @@ NearestDc <- R6::R6Class("NearestDc",
 NewSessionCreated <- R6::R6Class("NewSessionCreated",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9ec20908,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x510d3031,
+    #' @field first_msg_id Field.
     first_msg_id = NULL,
+    #' @field unique_id Field.
     unique_id = NULL,
+    #' @field server_salt Field.
     server_salt = NULL,
     initialize = function(first_msg_id = NULL, unique_id = NULL, server_salt = NULL) {
       self$first_msg_id <- first_msg_id
@@ -29786,7 +33087,9 @@ NewSessionCreated <- R6::R6Class("NewSessionCreated",
 NotificationSoundDefault <- R6::R6Class("NotificationSoundDefault",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x97e8bebe,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf2f5e55b,
     initialize = function() {},
     to_dict = function() list(`_` = "NotificationSoundDefault"),
@@ -29804,9 +33107,13 @@ NotificationSoundDefault <- R6::R6Class("NotificationSoundDefault",
 NotificationSoundLocal <- R6::R6Class("NotificationSoundLocal",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x830b9ae4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf2f5e55b,
+    #' @field title Field.
     title = NULL,
+    #' @field data Field.
     data = NULL,
     initialize = function(title, data) {
       self$title <- title
@@ -29827,7 +33134,9 @@ NotificationSoundLocal <- R6::R6Class("NotificationSoundLocal",
 NotificationSoundNone <- R6::R6Class("NotificationSoundNone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6f0c34df,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf2f5e55b,
     initialize = function() {},
     to_dict = function() list(`_` = "NotificationSoundNone"),
@@ -29845,8 +33154,11 @@ NotificationSoundNone <- R6::R6Class("NotificationSoundNone",
 NotificationSoundRingtone <- R6::R6Class("NotificationSoundRingtone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xff6c8049,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf2f5e55b,
+    #' @field id Field.
     id = NULL,
     initialize = function(id) {
       self$id <- id
@@ -29866,7 +33178,9 @@ NotificationSoundRingtone <- R6::R6Class("NotificationSoundRingtone",
 NotifyBroadcasts <- R6::R6Class("NotifyBroadcasts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd612e8ef,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdfe8602e,
     initialize = function() {},
     to_dict = function() list(`_` = "NotifyBroadcasts"),
@@ -29884,7 +33198,9 @@ NotifyBroadcasts <- R6::R6Class("NotifyBroadcasts",
 NotifyChats <- R6::R6Class("NotifyChats",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc007cec3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdfe8602e,
     initialize = function() {},
     to_dict = function() list(`_` = "NotifyChats"),
@@ -29902,9 +33218,13 @@ NotifyChats <- R6::R6Class("NotifyChats",
 NotifyForumTopic <- R6::R6Class("NotifyForumTopic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x226e6308,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdfe8602e,
+    #' @field peer Field.
     peer = NULL,
+    #' @field top_msg_id Field.
     top_msg_id = NULL,
     initialize = function(peer, top_msg_id) {
       self$peer <- peer
@@ -29931,8 +33251,11 @@ NotifyForumTopic <- R6::R6Class("NotifyForumTopic",
 NotifyPeer <- R6::R6Class("NotifyPeer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9fd40bd8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdfe8602e,
+    #' @field peer Field.
     peer = NULL,
     initialize = function(peer) {
       self$peer <- peer
@@ -29952,7 +33275,9 @@ NotifyPeer <- R6::R6Class("NotifyPeer",
 NotifyUsers <- R6::R6Class("NotifyUsers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb4c83b4c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdfe8602e,
     initialize = function() {},
     to_dict = function() list(`_` = "NotifyUsers"),
@@ -29970,8 +33295,11 @@ NotifyUsers <- R6::R6Class("NotifyUsers",
 OutboxReadDate <- R6::R6Class("OutboxReadDate",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3bb842ac,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6f5183c6,
+    #' @field date Field.
     date = NULL,
     initialize = function(date = NULL) {
       self$date <- date
@@ -29993,31 +33321,18 @@ OutboxReadDate <- R6::R6Class("OutboxReadDate",
 #' - \code{\link{PQInnerDataTemp}()}
 #' - \code{\link{PQInnerDataTempDc}()}
 #'
-#' @field pq raw \cr
 #'  pq
-#'  @field p raw \cr
 #'  p
-#'  @field q raw \cr
 #'  q
-#'  @field nonce raw \cr
 #'  nonce
-#'  @field server_nonce raw \cr
 #'  server_nonce
-#'  @field new_nonce raw \cr
 #'  new_nonce
-#'  @field dc integer \cr
 #'  dc
-#'  @field expires_in integer \cr
 #'  expires_in
-#'  @field slot integer \cr
 #'  slot
-#'  @field date integer \cr
 #'  date
-#'  @field expires integer \cr
 #'  expires
-#'  @field peer TLObject \cr
 #'  peer
-#'  @field cooldown_until_date integer \cr
 #'  cooldown_until_date
 #' @title PQInnerData
 #' @description Telegram API type PQInnerData
@@ -30039,12 +33354,15 @@ PQInnerData <- R6::R6Class("PQInnerData",
     p = NULL,
 
     #' @field id Integer. Story ID.
+    #' @field q Field.
     q = NULL,
 
     #' @field via_mention Logical. Whether the story was sent via mention.
+    #' @field nonce Field.
     nonce = NULL,
 
     #' @field story Object. Story object.
+    #' @field server_nonce Field.
     server_nonce = NULL,
 
     #' @field new_nonce Logical. New nonce for the story.
@@ -30073,14 +33391,23 @@ PQInnerData <- R6::R6Class("PQInnerData",
 PQInnerDataDc <- R6::R6Class("PQInnerDataDc",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa9f55f95,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x41701377,
+    #' @field pq Field.
     pq = NULL,
+    #' @field p Field.
     p = NULL,
+    #' @field q Field.
     q = NULL,
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field server_nonce Field.
     server_nonce = NULL,
+    #' @field new_nonce Field.
     new_nonce = NULL,
+    #' @field dc Field.
     dc = NULL,
     initialize = function(pq, p, q, nonce, server_nonce, new_nonce, dc) {
       self$pq <- pq
@@ -30106,14 +33433,23 @@ PQInnerDataDc <- R6::R6Class("PQInnerDataDc",
 PQInnerDataTemp <- R6::R6Class("PQInnerDataTemp",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3c6a84d4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x41701377,
+    #' @field pq Field.
     pq = NULL,
+    #' @field p Field.
     p = NULL,
+    #' @field q Field.
     q = NULL,
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field server_nonce Field.
     server_nonce = NULL,
+    #' @field new_nonce Field.
     new_nonce = NULL,
+    #' @field expires_in Field.
     expires_in = NULL,
     initialize = function(pq, p, q, nonce, server_nonce, new_nonce, expires_in) {
       self$pq <- pq
@@ -30139,15 +33475,25 @@ PQInnerDataTemp <- R6::R6Class("PQInnerDataTemp",
 PQInnerDataTempDc <- R6::R6Class("PQInnerDataTempDc",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x56fddf88,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x41701377,
+    #' @field pq Field.
     pq = NULL,
+    #' @field p Field.
     p = NULL,
+    #' @field q Field.
     q = NULL,
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field server_nonce Field.
     server_nonce = NULL,
+    #' @field new_nonce Field.
     new_nonce = NULL,
+    #' @field dc Field.
     dc = NULL,
+    #' @field expires_in Field.
     expires_in = NULL,
     initialize = function(pq, p, q, nonce, server_nonce, new_nonce, dc, expires_in) {
       self$pq <- pq
@@ -30175,15 +33521,25 @@ PQInnerDataTempDc <- R6::R6Class(
   "PQInnerDataTempDc",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x56fddf88,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x41701377,
+    #' @field pq Field.
     pq = NULL,
+    #' @field p Field.
     p = NULL,
+    #' @field q Field.
     q = NULL,
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field server_nonce Field.
     server_nonce = NULL,
+    #' @field new_nonce Field.
     new_nonce = NULL,
+    #' @field dc Field.
     dc = NULL,
+    #' @field expires_in Field.
     expires_in = NULL,
     initialize = function(pq = NULL, p = NULL, q = NULL, nonce = NULL, server_nonce = NULL, new_nonce = NULL, dc = NULL, expires_in = NULL) {
       self$pq <- pq
@@ -30233,15 +33589,25 @@ Page <- R6::R6Class(
   "Page",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x98657f0d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb438191e,
+    #' @field url Field.
     url = NULL,
+    #' @field blocks Field.
     blocks = NULL,
+    #' @field photos Field.
     photos = NULL,
+    #' @field documents Field.
     documents = NULL,
+    #' @field part Field.
     part = NULL,
+    #' @field rtl Field.
     rtl = NULL,
+    #' @field v2 Field.
     v2 = NULL,
+    #' @field views Field.
     views = NULL,
     initialize = function(url = NULL, blocks = list(), photos = list(), documents = list(), part = NULL, rtl = NULL, v2 = NULL, views = NULL) {
       self$url <- url
@@ -30298,8 +33664,11 @@ PageBlockAnchor <- R6::R6Class(
   "PageBlockAnchor",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xce0d37b0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field name Field.
     name = NULL,
     initialize = function(name) {
       self$name <- name
@@ -30333,9 +33702,13 @@ PageBlockAudio <- R6::R6Class(
   "PageBlockAudio",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x804361ea,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field audio_id Field.
     audio_id = NULL,
+    #' @field caption Field.
     caption = NULL,
     initialize = function(audio_id = NULL, caption = NULL) {
       self$audio_id <- audio_id
@@ -30361,9 +33734,13 @@ PageBlockAuthorDate <- R6::R6Class(
   "PageBlockAuthorDate",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbaafe5e0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field author Field.
     author = NULL,
+    #' @field published_date Field.
     published_date = NULL,
     initialize = function(author = NULL, published_date = NULL) {
       self$author <- author
@@ -30389,9 +33766,13 @@ PageBlockBlockquote <- R6::R6Class(
   "PageBlockBlockquote",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x263d7c26,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field text Field.
     text = NULL,
+    #' @field caption Field.
     caption = NULL,
     initialize = function(text = NULL, caption = NULL) {
       self$text <- text
@@ -30417,8 +33798,11 @@ PageBlockChannel <- R6::R6Class(
   "PageBlockChannel",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xef1751b5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field channel Field.
     channel = NULL,
     initialize = function(channel = NULL) {
       self$channel <- channel
@@ -30442,9 +33826,13 @@ PageBlockCollage <- R6::R6Class(
   "PageBlockCollage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x65a0fa4d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field items Field.
     items = NULL,
+    #' @field caption Field.
     caption = NULL,
     initialize = function(items = list(), caption = NULL) {
       self$items <- items
@@ -30473,8 +33861,11 @@ PageBlockCover <- R6::R6Class(
   "PageBlockCover",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x39f23300,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field cover Field.
     cover = NULL,
     initialize = function(cover = NULL) {
       self$cover <- cover
@@ -30498,10 +33889,15 @@ PageBlockDetails <- R6::R6Class(
   "PageBlockDetails",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x76768bed,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field blocks Field.
     blocks = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field open Field.
     open = NULL,
     initialize = function(blocks = list(), title = NULL, open = NULL) {
       self$blocks <- blocks
@@ -30533,7 +33929,9 @@ PageBlockDivider <- R6::R6Class(
   "PageBlockDivider",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdb20b188,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
     initialize = function() {},
     to_dict = function() list(`_` = "PageBlockDivider"),
@@ -30554,15 +33952,25 @@ PageBlockEmbed <- R6::R6Class(
   "PageBlockEmbed",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa8718dc5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field caption Field.
     caption = NULL,
+    #' @field full_width Field.
     full_width = NULL,
+    #' @field allow_scrolling Field.
     allow_scrolling = NULL,
+    #' @field url Field.
     url = NULL,
+    #' @field html Field.
     html = NULL,
+    #' @field poster_photo_id Field.
     poster_photo_id = NULL,
+    #' @field w Field.
     w = NULL,
+    #' @field h Field.
     h = NULL,
     initialize = function(caption = NULL, full_width = NULL, allow_scrolling = NULL, url = NULL, html = NULL, poster_photo_id = NULL, w = NULL, h = NULL) {
       self$caption <- caption
@@ -30601,14 +34009,23 @@ PageBlockEmbedPost <- R6::R6Class(
   "PageBlockEmbedPost",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf259a80b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field url Field.
     url = NULL,
+    #' @field webpage_id Field.
     webpage_id = NULL,
+    #' @field author_photo_id Field.
     author_photo_id = NULL,
+    #' @field author Field.
     author = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field blocks Field.
     blocks = NULL,
+    #' @field caption Field.
     caption = NULL,
     initialize = function(url = NULL, webpage_id = NULL, author_photo_id = NULL, author = NULL, date = NULL, blocks = list(), caption = NULL) {
       self$url <- url
@@ -30647,8 +34064,11 @@ PageBlockFooter <- R6::R6Class(
   "PageBlockFooter",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x48870999,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field text Field.
     text = NULL,
     initialize = function(text = NULL) {
       self$text <- text
@@ -30672,8 +34092,11 @@ PageBlockHeader <- R6::R6Class(
   "PageBlockHeader",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbfd064ec,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field text Field.
     text = NULL,
     initialize = function(text = NULL) {
       self$text <- text
@@ -30697,8 +34120,11 @@ PageBlockKicker <- R6::R6Class(
   "PageBlockKicker",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1e148390,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field text Field.
     text = NULL,
     initialize = function(text = NULL) {
       self$text <- text
@@ -30722,8 +34148,11 @@ PageBlockList <- R6::R6Class(
   "PageBlockList",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe4e88011,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field items Field.
     items = NULL,
     initialize = function(items = list()) {
       self$items <- items
@@ -30750,12 +34179,19 @@ PageBlockMap <- R6::R6Class(
   "PageBlockMap",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa44f3ef6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field geo Field.
     geo = NULL,
+    #' @field zoom Field.
     zoom = NULL,
+    #' @field w Field.
     w = NULL,
+    #' @field h Field.
     h = NULL,
+    #' @field caption Field.
     caption = NULL,
     initialize = function(geo = NULL, zoom = NULL, w = NULL, h = NULL, caption = NULL) {
       self$geo <- geo
@@ -30787,8 +34223,11 @@ PageBlockOrderedList <- R6::R6Class(
   "PageBlockOrderedList",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9a8ae1e1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field items Field.
     items = NULL,
     initialize = function(items = list()) {
       self$items <- items
@@ -30815,8 +34254,11 @@ PageBlockParagraph <- R6::R6Class(
   "PageBlockParagraph",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x467a0766,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field text Field.
     text = NULL,
     initialize = function(text = NULL) {
       self$text <- text
@@ -30840,11 +34282,17 @@ PageBlockPhoto <- R6::R6Class(
   "PageBlockPhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1759c560,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field photo_id Field.
     photo_id = NULL,
+    #' @field caption Field.
     caption = NULL,
+    #' @field url Field.
     url = NULL,
+    #' @field webpage_id Field.
     webpage_id = NULL,
     initialize = function(photo_id = NULL, caption = NULL, url = NULL, webpage_id = NULL) {
       self$photo_id <- photo_id
@@ -30875,9 +34323,13 @@ PageBlockPreformatted <- R6::R6Class(
   "PageBlockPreformatted",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc070d93e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field text Field.
     text = NULL,
+    #' @field language Field.
     language = NULL,
     initialize = function(text = NULL, language = NULL) {
       self$text <- text
@@ -30903,9 +34355,13 @@ PageBlockPullquote <- R6::R6Class(
   "PageBlockPullquote",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4f4456d3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field text Field.
     text = NULL,
+    #' @field caption Field.
     caption = NULL,
     initialize = function(text = NULL, caption = NULL) {
       self$text <- text
@@ -30931,9 +34387,13 @@ PageBlockRelatedArticles <- R6::R6Class(
   "PageBlockRelatedArticles",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x16115a96,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field title Field.
     title = NULL,
+    #' @field articles Field.
     articles = NULL,
     initialize = function(title = NULL, articles = list()) {
       self$title <- title
@@ -30962,9 +34422,13 @@ PageBlockSlideshow <- R6::R6Class(
   "PageBlockSlideshow",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x031f9590,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field items Field.
     items = NULL,
+    #' @field caption Field.
     caption = NULL,
     initialize = function(items = list(), caption = NULL) {
       self$items <- items
@@ -30993,8 +34457,11 @@ PageBlockSubheader <- R6::R6Class(
   "PageBlockSubheader",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf12bb6e1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field text Field.
     text = NULL,
     initialize = function(text = NULL) {
       self$text <- text
@@ -31018,8 +34485,11 @@ PageBlockSubtitle <- R6::R6Class(
   "PageBlockSubtitle",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8ffa9a1f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field text Field.
     text = NULL,
     initialize = function(text = NULL) {
       self$text <- text
@@ -31043,11 +34513,17 @@ PageBlockTable <- R6::R6Class(
   "PageBlockTable",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbf4dea82,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field title Field.
     title = NULL,
+    #' @field rows Field.
     rows = NULL,
+    #' @field bordered Field.
     bordered = NULL,
+    #' @field striped Field.
     striped = NULL,
     initialize = function(title = NULL, rows = list(), bordered = NULL, striped = NULL) {
       self$title <- title
@@ -31081,8 +34557,11 @@ PageBlockTitle <- R6::R6Class(
   "PageBlockTitle",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x70abc3fd,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field text Field.
     text = NULL,
     initialize = function(text = NULL) {
       self$text <- text
@@ -31106,7 +34585,9 @@ PageBlockUnsupported <- R6::R6Class(
   "PageBlockUnsupported",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x13567e8a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
     initialize = function() {},
     to_dict = function() list(`_` = "PageBlockUnsupported"),
@@ -31127,11 +34608,17 @@ PageBlockVideo <- R6::R6Class(
   "PageBlockVideo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7c8fe7b6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1aca5644,
+    #' @field video_id Field.
     video_id = NULL,
+    #' @field caption Field.
     caption = NULL,
+    #' @field autoplay Field.
     autoplay = NULL,
+    #' @field loop Field.
     loop = NULL,
     initialize = function(video_id = NULL, caption = NULL, autoplay = NULL, loop = NULL) {
       self$video_id <- video_id
@@ -31162,9 +34649,13 @@ PageCaption <- R6::R6Class(
   "PageCaption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6f747657,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x29b8eeb3,
+    #' @field text Field.
     text = NULL,
+    #' @field credit Field.
     credit = NULL,
     initialize = function(text = NULL, credit = NULL) {
       self$text <- text
@@ -31201,8 +34692,11 @@ PageCaption <- R6::R6Class(
 PageListItemBlocks <- R6::R6Class("PageListItemBlocks",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x25e073fc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8caebcb1,
+    #' @field blocks Field.
     blocks = NULL,
     initialize = function(blocks = list()) {
       self$blocks <- blocks
@@ -31235,8 +34729,11 @@ PageListItemBlocks <- R6::R6Class("PageListItemBlocks",
 PageListItemText <- R6::R6Class("PageListItemText",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb92fb6cd,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8caebcb1,
+    #' @field text Field.
     text = NULL,
     initialize = function(text = NULL) {
       self$text <- text
@@ -31264,9 +34761,13 @@ PageListItemText <- R6::R6Class("PageListItemText",
 PageListOrderedItemBlocks <- R6::R6Class("PageListOrderedItemBlocks",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x98dd8936,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xeeda0eb8,
+    #' @field num Field.
     num = NULL,
+    #' @field blocks Field.
     blocks = NULL,
     initialize = function(num = NULL, blocks = list()) {
       self$num <- num
@@ -31302,9 +34803,13 @@ PageListOrderedItemBlocks <- R6::R6Class("PageListOrderedItemBlocks",
 PageListOrderedItemText <- R6::R6Class("PageListOrderedItemText",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5e068047,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xeeda0eb8,
+    #' @field num Field.
     num = NULL,
+    #' @field text Field.
     text = NULL,
     initialize = function(num = NULL, text = NULL) {
       self$num <- num
@@ -31335,14 +34840,23 @@ PageListOrderedItemText <- R6::R6Class("PageListOrderedItemText",
 PageRelatedArticle <- R6::R6Class("PageRelatedArticle",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb390dc08,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x36d05822,
+    #' @field url Field.
     url = NULL,
+    #' @field webpage_id Field.
     webpage_id = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
+    #' @field photo_id Field.
     photo_id = NULL,
+    #' @field author Field.
     author = NULL,
+    #' @field published_date Field.
     published_date = NULL,
     initialize = function(url = NULL, webpage_id = NULL, title = NULL, description = NULL, photo_id = NULL, author = NULL, published_date = NULL) {
       self$url <- url
@@ -31390,15 +34904,25 @@ PageRelatedArticle <- R6::R6Class("PageRelatedArticle",
 PageTableCell <- R6::R6Class("PageTableCell",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x34566b6a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb0eb3054,
+    #' @field header Field.
     header = NULL,
+    #' @field align_center Field.
     align_center = NULL,
+    #' @field align_right Field.
     align_right = NULL,
+    #' @field valign_middle Field.
     valign_middle = NULL,
+    #' @field valign_bottom Field.
     valign_bottom = NULL,
+    #' @field text Field.
     text = NULL,
+    #' @field colspan Field.
     colspan = NULL,
+    #' @field rowspan Field.
     rowspan = NULL,
     initialize = function(header = NULL, align_center = NULL, align_right = NULL, valign_middle = NULL, valign_bottom = NULL, text = NULL, colspan = NULL, rowspan = NULL) {
       self$header <- header
@@ -31444,8 +34968,11 @@ PageTableCell <- R6::R6Class("PageTableCell",
 PageTableRow <- R6::R6Class("PageTableRow",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe0c0c5e5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x59acee11,
+    #' @field cells Field.
     cells = NULL,
     initialize = function(cells = list()) {
       self$cells <- cells
@@ -31478,7 +35005,9 @@ PageTableRow <- R6::R6Class("PageTableRow",
 PaidReactionPrivacyAnonymous <- R6::R6Class("PaidReactionPrivacyAnonymous",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1f0c1ad9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x65d77636,
     initialize = function() {},
     to_dict = function() list(`_` = "PaidReactionPrivacyAnonymous"),
@@ -31498,7 +35027,9 @@ PaidReactionPrivacyAnonymous <- R6::R6Class("PaidReactionPrivacyAnonymous",
 PaidReactionPrivacyDefault <- R6::R6Class("PaidReactionPrivacyDefault",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x206ad49e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x65d77636,
     initialize = function() {},
     to_dict = function() list(`_` = "PaidReactionPrivacyDefault"),
@@ -31518,8 +35049,11 @@ PaidReactionPrivacyDefault <- R6::R6Class("PaidReactionPrivacyDefault",
 PaidReactionPrivacyPeer <- R6::R6Class("PaidReactionPrivacyPeer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdc6cfcf0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x65d77636,
+    #' @field peer Field.
     peer = NULL,
     initialize = function(peer = NULL) {
       self$peer <- peer
@@ -31547,11 +35081,17 @@ PaidReactionPrivacyPeer <- R6::R6Class("PaidReactionPrivacyPeer",
 PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow <- R6::R6Class("PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3a912d4a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x37bcf5cc,
+    #' @field salt1 Field.
     salt1 = NULL,
+    #' @field salt2 Field.
     salt2 = NULL,
+    #' @field g Field.
     g = NULL,
+    #' @field p Field.
     p = NULL,
     initialize = function(salt1 = NULL, salt2 = NULL, g = NULL, p = NULL) {
       self$salt1 <- salt1
@@ -31588,7 +35128,9 @@ PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow <- R6::R6Class
 PasswordKdfAlgoUnknown <- R6::R6Class("PasswordKdfAlgoUnknown",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd45ab096,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x37bcf5cc,
     initialize = function() {},
     to_dict = function() list(`_` = "PasswordKdfAlgoUnknown"),
@@ -31608,9 +35150,13 @@ PasswordKdfAlgoUnknown <- R6::R6Class("PasswordKdfAlgoUnknown",
 PaymentCharge <- R6::R6Class("PaymentCharge",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xea02c27e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3cc830d9,
+    #' @field id Field.
     id = NULL,
+    #' @field provider_charge_id Field.
     provider_charge_id = NULL,
     initialize = function(id = NULL, provider_charge_id = NULL) {
       self$id <- id
@@ -31641,9 +35187,13 @@ PaymentCharge <- R6::R6Class("PaymentCharge",
 PaymentFormMethod <- R6::R6Class("PaymentFormMethod",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x88f8f21b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3fc1c816,
+    #' @field url Field.
     url = NULL,
+    #' @field title Field.
     title = NULL,
     initialize = function(url = NULL, title = NULL) {
       self$url <- url
@@ -31674,11 +35224,17 @@ PaymentFormMethod <- R6::R6Class("PaymentFormMethod",
 PaymentRequestedInfo <- R6::R6Class("PaymentRequestedInfo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x909c3f94,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8db03146,
+    #' @field name Field.
     name = NULL,
+    #' @field phone Field.
     phone = NULL,
+    #' @field email Field.
     email = NULL,
+    #' @field shipping_address Field.
     shipping_address = NULL,
     initialize = function(name = NULL, phone = NULL, email = NULL, shipping_address = NULL) {
       self$name <- name
@@ -31717,9 +35273,13 @@ PaymentRequestedInfo <- R6::R6Class("PaymentRequestedInfo",
 PaymentSavedCredentialsCard <- R6::R6Class("PaymentSavedCredentialsCard",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcdc27a1f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb3627ee3,
+    #' @field id Field.
     id = NULL,
+    #' @field title Field.
     title = NULL,
     initialize = function(id = NULL, title = NULL) {
       self$id <- id
@@ -31750,9 +35310,13 @@ PaymentSavedCredentialsCard <- R6::R6Class("PaymentSavedCredentialsCard",
 PeerBlocked <- R6::R6Class("PeerBlocked",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe8fd8014,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x54f2fc98,
+    #' @field peer_id Field.
     peer_id = NULL,
+    #' @field date Field.
     date = NULL,
     initialize = function(peer_id = NULL, date = NULL) {
       self$peer_id <- peer_id
@@ -31783,8 +35347,11 @@ PeerBlocked <- R6::R6Class("PeerBlocked",
 PeerChannel <- R6::R6Class("PeerChannel",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa2a5371e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2d45687,
+    #' @field channel_id Field.
     channel_id = NULL,
     initialize = function(channel_id = NULL) {
       self$channel_id <- channel_id
@@ -31812,8 +35379,11 @@ PeerChannel <- R6::R6Class("PeerChannel",
 PeerChat <- R6::R6Class("PeerChat",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x36c6019a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2d45687,
+    #' @field chat_id Field.
     chat_id = NULL,
     initialize = function(chat_id = NULL) {
       self$chat_id <- chat_id
@@ -31841,9 +35411,13 @@ PeerChat <- R6::R6Class("PeerChat",
 PeerColor <- R6::R6Class("PeerColor",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb54b5acf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf281a47f,
+    #' @field color Field.
     color = NULL,
+    #' @field background_emoji_id Field.
     background_emoji_id = NULL,
     initialize = function(color = NULL, background_emoji_id = NULL) {
       self$color <- color
@@ -31876,10 +35450,15 @@ PeerColor <- R6::R6Class("PeerColor",
 PeerLocated <- R6::R6Class("PeerLocated",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xca461b5d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfada34ac,
+    #' @field peer Field.
     peer = NULL,
+    #' @field expires Field.
     expires = NULL,
+    #' @field distance Field.
     distance = NULL,
     initialize = function(peer = NULL, expires = NULL, distance = NULL) {
       self$peer <- peer
@@ -31913,18 +35492,31 @@ PeerLocated <- R6::R6Class("PeerLocated",
 PeerNotifySettings <- R6::R6Class("PeerNotifySettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x99622c0c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcf20c074,
+    #' @field show_previews Field.
     show_previews = NULL,
+    #' @field silent Field.
     silent = NULL,
+    #' @field mute_until Field.
     mute_until = NULL,
+    #' @field ios_sound Field.
     ios_sound = NULL,
+    #' @field android_sound Field.
     android_sound = NULL,
+    #' @field other_sound Field.
     other_sound = NULL,
+    #' @field stories_muted Field.
     stories_muted = NULL,
+    #' @field stories_hide_sender Field.
     stories_hide_sender = NULL,
+    #' @field stories_ios_sound Field.
     stories_ios_sound = NULL,
+    #' @field stories_android_sound Field.
     stories_android_sound = NULL,
+    #' @field stories_other_sound Field.
     stories_other_sound = NULL,
     initialize = function(show_previews = NULL, silent = NULL, mute_until = NULL, ios_sound = NULL, android_sound = NULL, other_sound = NULL, stories_muted = NULL, stories_hide_sender = NULL, stories_ios_sound = NULL, stories_android_sound = NULL, stories_other_sound = NULL) {
       self$show_previews <- show_previews
@@ -32028,8 +35620,11 @@ PeerNotifySettings <- R6::R6Class("PeerNotifySettings",
 PeerSelfLocated <- R6::R6Class("PeerSelfLocated",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf8ec284b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfada34ac,
+    #' @field expires Field.
     expires = NULL,
     initialize = function(expires = NULL) {
       self$expires <- expires
@@ -32057,28 +35652,51 @@ PeerSelfLocated <- R6::R6Class("PeerSelfLocated",
 PeerSettings <- R6::R6Class("PeerSettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf47741f7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf6a79f84,
+    #' @field report_spam Field.
     report_spam = NULL,
+    #' @field add_contact Field.
     add_contact = NULL,
+    #' @field block_contact Field.
     block_contact = NULL,
+    #' @field share_contact Field.
     share_contact = NULL,
+    #' @field need_contacts_exception Field.
     need_contacts_exception = NULL,
+    #' @field report_geo Field.
     report_geo = NULL,
+    #' @field autoarchived Field.
     autoarchived = NULL,
+    #' @field invite_members Field.
     invite_members = NULL,
+    #' @field request_chat_broadcast Field.
     request_chat_broadcast = NULL,
+    #' @field business_bot_paused Field.
     business_bot_paused = NULL,
+    #' @field business_bot_can_reply Field.
     business_bot_can_reply = NULL,
+    #' @field geo_distance Field.
     geo_distance = NULL,
+    #' @field request_chat_title Field.
     request_chat_title = NULL,
+    #' @field request_chat_date Field.
     request_chat_date = NULL,
+    #' @field business_bot_id Field.
     business_bot_id = NULL,
+    #' @field business_bot_manage_url Field.
     business_bot_manage_url = NULL,
+    #' @field charge_paid_message_stars Field.
     charge_paid_message_stars = NULL,
+    #' @field registration_month Field.
     registration_month = NULL,
+    #' @field phone_country Field.
     phone_country = NULL,
+    #' @field name_change_date Field.
     name_change_date = NULL,
+    #' @field photo_change_date Field.
     photo_change_date = NULL,
     initialize = function(report_spam = NULL, add_contact = NULL, block_contact = NULL, share_contact = NULL, need_contacts_exception = NULL, report_geo = NULL, autoarchived = NULL, invite_members = NULL, request_chat_broadcast = NULL, business_bot_paused = NULL, business_bot_can_reply = NULL, geo_distance = NULL, request_chat_title = NULL, request_chat_date = NULL, business_bot_id = NULL, business_bot_manage_url = NULL, charge_paid_message_stars = NULL, registration_month = NULL, phone_country = NULL, name_change_date = NULL, photo_change_date = NULL) {
       self$report_spam <- report_spam
@@ -32199,10 +35817,15 @@ PeerSettings <- R6::R6Class("PeerSettings",
 PeerStories <- R6::R6Class("PeerStories",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9a35e999,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x122c8a47,
+    #' @field peer Field.
     peer = NULL,
+    #' @field stories Field.
     stories = NULL,
+    #' @field max_read_id Field.
     max_read_id = NULL,
     initialize = function(peer = NULL, stories = NULL, max_read_id = NULL) {
       self$peer <- peer
@@ -32246,8 +35869,11 @@ PeerStories <- R6::R6Class("PeerStories",
 PeerUser <- R6::R6Class("PeerUser",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x59511722,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2d45687,
+    #' @field user_id Field.
     user_id = NULL,
     initialize = function(user_id = NULL) {
       self$user_id <- user_id
@@ -32275,11 +35901,17 @@ PeerUser <- R6::R6Class("PeerUser",
 PendingSuggestion <- R6::R6Class("PendingSuggestion",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe7e82e12,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xba6174a7,
+    #' @field suggestion Field.
     suggestion = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field description Field.
     description = NULL,
+    #' @field url Field.
     url = NULL,
     initialize = function(suggestion = NULL, title = NULL, description = NULL, url = NULL) {
       self$suggestion <- suggestion
@@ -32316,21 +35948,37 @@ PendingSuggestion <- R6::R6Class("PendingSuggestion",
 PhoneCall <- R6::R6Class("PhoneCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x30535af5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc47f1bd1,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field admin_id Field.
     admin_id = NULL,
+    #' @field participant_id Field.
     participant_id = NULL,
+    #' @field g_a_or_b Field.
     g_a_or_b = NULL,
+    #' @field key_fingerprint Field.
     key_fingerprint = NULL,
+    #' @field protocol Field.
     protocol = NULL,
+    #' @field connections Field.
     connections = NULL,
+    #' @field start_date Field.
     start_date = NULL,
+    #' @field p2p_allowed Field.
     p2p_allowed = NULL,
+    #' @field video Field.
     video = NULL,
+    #' @field conference_supported Field.
     conference_supported = NULL,
+    #' @field custom_parameters Field.
     custom_parameters = NULL,
     initialize = function(id = NULL, access_hash = NULL, date = NULL, admin_id = NULL, participant_id = NULL, g_a_or_b = NULL, key_fingerprint = NULL, protocol = NULL, connections = NULL, start_date = NULL, p2p_allowed = NULL, video = NULL, conference_supported = NULL, custom_parameters = NULL) {
       self$id <- id
@@ -32404,15 +36052,25 @@ PhoneCall <- R6::R6Class("PhoneCall",
 PhoneCallAccepted <- R6::R6Class("PhoneCallAccepted",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3660c311,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc47f1bd1,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field admin_id Field.
     admin_id = NULL,
+    #' @field participant_id Field.
     participant_id = NULL,
+    #' @field g_b Field.
     g_b = NULL,
+    #' @field protocol Field.
     protocol = NULL,
+    #' @field video Field.
     video = NULL,
     initialize = function(id = NULL, access_hash = NULL, date = NULL, admin_id = NULL, participant_id = NULL, g_b = NULL, protocol = NULL, video = NULL) {
       self$id <- id
@@ -32462,7 +36120,9 @@ PhoneCallAccepted <- R6::R6Class("PhoneCallAccepted",
 PhoneCallDiscardReasonBusy <- R6::R6Class("PhoneCallDiscardReasonBusy",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfaf7e8c9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd89bad3d,
     to_dict = function() list(`_` = "PhoneCallDiscardReasonBusy"),
     bytes = function() as.raw(c(0xc9, 0xe8, 0xf7, 0xfa))
@@ -32479,7 +36139,9 @@ PhoneCallDiscardReasonBusy <- R6::R6Class("PhoneCallDiscardReasonBusy",
 PhoneCallDiscardReasonDisconnect <- R6::R6Class("PhoneCallDiscardReasonDisconnect",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe095c1a0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd89bad3d,
     to_dict = function() list(`_` = "PhoneCallDiscardReasonDisconnect"),
     bytes = function() as.raw(c(0xa0, 0xc1, 0x95, 0xe0))
@@ -32496,7 +36158,9 @@ PhoneCallDiscardReasonDisconnect <- R6::R6Class("PhoneCallDiscardReasonDisconnec
 PhoneCallDiscardReasonHangup <- R6::R6Class("PhoneCallDiscardReasonHangup",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x57adc690,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd89bad3d,
     to_dict = function() list(`_` = "PhoneCallDiscardReasonHangup"),
     bytes = function() as.raw(c(0x90, 0xc6, 0xad, 0x57))
@@ -32513,8 +36177,11 @@ PhoneCallDiscardReasonHangup <- R6::R6Class("PhoneCallDiscardReasonHangup",
 PhoneCallDiscardReasonMigrateConferenceCall <- R6::R6Class("PhoneCallDiscardReasonMigrateConferenceCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9fbbf1f7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd89bad3d,
+    #' @field slug Field.
     slug = NULL,
     initialize = function(slug = NULL) {
       self$slug <- slug
@@ -32542,7 +36209,9 @@ PhoneCallDiscardReasonMigrateConferenceCall <- R6::R6Class("PhoneCallDiscardReas
 PhoneCallDiscardReasonMissed <- R6::R6Class("PhoneCallDiscardReasonMissed",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x85e42301,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd89bad3d,
     to_dict = function() list(`_` = "PhoneCallDiscardReasonMissed"),
     bytes = function() as.raw(c(0x01, 0x23, 0xe4, 0x85))
@@ -32559,13 +36228,21 @@ PhoneCallDiscardReasonMissed <- R6::R6Class("PhoneCallDiscardReasonMissed",
 PhoneCallDiscarded <- R6::R6Class("PhoneCallDiscarded",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x50ca4de1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc47f1bd1,
+    #' @field id Field.
     id = NULL,
+    #' @field need_rating Field.
     need_rating = NULL,
+    #' @field need_debug Field.
     need_debug = NULL,
+    #' @field video Field.
     video = NULL,
+    #' @field reason Field.
     reason = NULL,
+    #' @field duration Field.
     duration = NULL,
     initialize = function(id = NULL, need_rating = NULL, need_debug = NULL, video = NULL, reason = NULL, duration = NULL) {
       self$id <- id
@@ -32615,8 +36292,11 @@ PhoneCallDiscarded <- R6::R6Class("PhoneCallDiscarded",
 PhoneCallEmpty <- R6::R6Class("PhoneCallEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5366c915,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc47f1bd1,
+    #' @field id Field.
     id = NULL,
     initialize = function(id = NULL) {
       self$id <- id
@@ -32644,12 +36324,19 @@ PhoneCallEmpty <- R6::R6Class("PhoneCallEmpty",
 PhoneCallProtocol <- R6::R6Class("PhoneCallProtocol",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfc878fc8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x783991a3,
+    #' @field min_layer Field.
     min_layer = NULL,
+    #' @field max_layer Field.
     max_layer = NULL,
+    #' @field library_versions Field.
     library_versions = NULL,
+    #' @field udp_p2p Field.
     udp_p2p = NULL,
+    #' @field udp_reflector Field.
     udp_reflector = NULL,
     initialize = function(min_layer = NULL, max_layer = NULL, library_versions = NULL, udp_p2p = NULL, udp_reflector = NULL) {
       self$min_layer <- min_layer
@@ -32693,15 +36380,25 @@ PhoneCallProtocol <- R6::R6Class("PhoneCallProtocol",
 PhoneCallRequested <- R6::R6Class("PhoneCallRequested",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x14b0ed0c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc47f1bd1,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field admin_id Field.
     admin_id = NULL,
+    #' @field participant_id Field.
     participant_id = NULL,
+    #' @field g_a_hash Field.
     g_a_hash = NULL,
+    #' @field protocol Field.
     protocol = NULL,
+    #' @field video Field.
     video = NULL,
     initialize = function(id = NULL, access_hash = NULL, date = NULL, admin_id = NULL, participant_id = NULL, g_a_hash = NULL, protocol = NULL, video = NULL) {
       self$id <- id
@@ -32751,15 +36448,25 @@ PhoneCallRequested <- R6::R6Class("PhoneCallRequested",
 PhoneCallWaiting <- R6::R6Class("PhoneCallWaiting",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc5226f17,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc47f1bd1,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field admin_id Field.
     admin_id = NULL,
+    #' @field participant_id Field.
     participant_id = NULL,
+    #' @field protocol Field.
     protocol = NULL,
+    #' @field video Field.
     video = NULL,
+    #' @field receive_date Field.
     receive_date = NULL,
     initialize = function(id = NULL, access_hash = NULL, date = NULL, admin_id = NULL, participant_id = NULL, protocol = NULL, video = NULL, receive_date = NULL) {
       self$id <- id
@@ -32813,13 +36520,21 @@ PhoneCallWaiting <- R6::R6Class("PhoneCallWaiting",
 PhoneConnection <- R6::R6Class("PhoneConnection",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9cc123c7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xaa8de40d,
+    #' @field id Field.
     id = NULL,
+    #' @field ip Field.
     ip = NULL,
+    #' @field ipv6 Field.
     ipv6 = NULL,
+    #' @field port Field.
     port = NULL,
+    #' @field peer_tag Field.
     peer_tag = NULL,
+    #' @field tcp Field.
     tcp = NULL,
     initialize = function(id = NULL, ip = NULL, ipv6 = NULL, port = NULL, peer_tag = NULL, tcp = NULL) {
       self$id <- id
@@ -32863,15 +36578,25 @@ PhoneConnection <- R6::R6Class("PhoneConnection",
 PhoneConnectionWebrtc <- R6::R6Class("PhoneConnectionWebrtc",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x635fe375,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xaa8de40d,
+    #' @field id Field.
     id = NULL,
+    #' @field ip Field.
     ip = NULL,
+    #' @field ipv6 Field.
     ipv6 = NULL,
+    #' @field port Field.
     port = NULL,
+    #' @field username Field.
     username = NULL,
+    #' @field password Field.
     password = NULL,
+    #' @field turn Field.
     turn = NULL,
+    #' @field stun Field.
     stun = NULL,
     initialize = function(id = NULL, ip = NULL, ipv6 = NULL, port = NULL, username = NULL, password = NULL, turn = NULL, stun = NULL) {
       self$id <- id
@@ -32920,15 +36645,25 @@ PhoneConnectionWebrtc <- R6::R6Class("PhoneConnectionWebrtc",
 Photo <- R6::R6Class("Photo",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfb197a65,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd576ab1c,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field file_reference Field.
     file_reference = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field sizes Field.
     sizes = NULL,
+    #' @field dc_id Field.
     dc_id = NULL,
+    #' @field has_stickers Field.
     has_stickers = NULL,
+    #' @field video_sizes Field.
     video_sizes = NULL,
     initialize = function(id = NULL, access_hash = NULL, file_reference = NULL, date = NULL, sizes = NULL, dc_id = NULL, has_stickers = NULL, video_sizes = NULL) {
       self$id <- id
@@ -32990,11 +36725,17 @@ Photo <- R6::R6Class("Photo",
 PhotoCachedSize <- R6::R6Class("PhotoCachedSize",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x21e1ad6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x17cc29d9,
+    #' @field type Field.
     type = NULL,
+    #' @field w Field.
     w = NULL,
+    #' @field h Field.
     h = NULL,
+    #' @field bytes Field.
     bytes = NULL,
     initialize = function(type = NULL, w = NULL, h = NULL, bytes = NULL) {
       self$type <- type
@@ -33022,8 +36763,11 @@ PhotoCachedSize <- R6::R6Class("PhotoCachedSize",
 PhotoEmpty <- R6::R6Class("PhotoEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2331b22d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd576ab1c,
+    #' @field id Field.
     id = NULL,
     initialize = function(id = NULL) {
       self$id <- id
@@ -33047,9 +36791,13 @@ PhotoEmpty <- R6::R6Class("PhotoEmpty",
 PhotoPathSize <- R6::R6Class("PhotoPathSize",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd8214d41,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x17cc29d9,
+    #' @field type Field.
     type = NULL,
+    #' @field bytes Field.
     bytes = NULL,
     initialize = function(type = NULL, bytes = NULL) {
       self$type <- type
@@ -33075,11 +36823,17 @@ PhotoPathSize <- R6::R6Class("PhotoPathSize",
 PhotoSize <- R6::R6Class("PhotoSize",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x75c78e60,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x17cc29d9,
+    #' @field type Field.
     type = NULL,
+    #' @field w Field.
     w = NULL,
+    #' @field h Field.
     h = NULL,
+    #' @field size Field.
     size = NULL,
     initialize = function(type = NULL, w = NULL, h = NULL, size = NULL) {
       self$type <- type
@@ -33109,8 +36863,11 @@ PhotoSize <- R6::R6Class("PhotoSize",
 PhotoSizeEmpty <- R6::R6Class("PhotoSizeEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe17e23c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x17cc29d9,
+    #' @field type Field.
     type = NULL,
     initialize = function(type = NULL) {
       self$type <- type
@@ -33130,11 +36887,17 @@ PhotoSizeEmpty <- R6::R6Class("PhotoSizeEmpty",
 PhotoSizeProgressive <- R6::R6Class("PhotoSizeProgressive",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfa3efb95,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x17cc29d9,
+    #' @field type Field.
     type = NULL,
+    #' @field w Field.
     w = NULL,
+    #' @field h Field.
     h = NULL,
+    #' @field sizes Field.
     sizes = NULL,
     initialize = function(type = NULL, w = NULL, h = NULL, sizes = NULL) {
       self$type <- type
@@ -33174,9 +36937,13 @@ PhotoSizeProgressive <- R6::R6Class("PhotoSizeProgressive",
 PhotoStrippedSize <- R6::R6Class("PhotoStrippedSize",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe0b0bc2e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x17cc29d9,
+    #' @field type Field.
     type = NULL,
+    #' @field raw_bytes Field.
     raw_bytes = NULL,
     initialize = function(type = NULL, raw_bytes = NULL) {
       self$type <- type
@@ -33202,16 +36969,27 @@ PhotoStrippedSize <- R6::R6Class("PhotoStrippedSize",
 Poll <- R6::R6Class("Poll",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x58747131,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x248e557b,
+    #' @field id Field.
     id = NULL,
+    #' @field question Field.
     question = NULL,
+    #' @field answers Field.
     answers = NULL,
+    #' @field closed Field.
     closed = NULL,
+    #' @field public_voters Field.
     public_voters = NULL,
+    #' @field multiple_choice Field.
     multiple_choice = NULL,
+    #' @field quiz Field.
     quiz = NULL,
+    #' @field close_period Field.
     close_period = NULL,
+    #' @field close_date Field.
     close_date = NULL,
     initialize = function(id = NULL, question = NULL, answers = NULL, closed = NULL, public_voters = NULL, multiple_choice = NULL, quiz = NULL, close_period = NULL, close_date = NULL) {
       self$id <- id
@@ -33265,9 +37043,13 @@ Poll <- R6::R6Class("Poll",
 PollAnswer <- R6::R6Class("PollAnswer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xff16e2ca,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7ea5dd9e,
+    #' @field text Field.
     text = NULL,
+    #' @field option Field.
     option = NULL,
     initialize = function(text = NULL, option = NULL) {
       self$text <- text
@@ -33293,11 +37075,17 @@ PollAnswer <- R6::R6Class("PollAnswer",
 PollAnswerVoters <- R6::R6Class("PollAnswerVoters",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3b6ddad2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7ce0cf91,
+    #' @field option Field.
     option = NULL,
+    #' @field voters Field.
     voters = NULL,
+    #' @field chosen Field.
     chosen = NULL,
+    #' @field correct Field.
     correct = NULL,
     initialize = function(option = NULL, voters = NULL, chosen = NULL, correct = NULL) {
       self$option <- option
@@ -33334,13 +37122,21 @@ PollAnswerVoters <- R6::R6Class("PollAnswerVoters",
 PollResults <- R6::R6Class("PollResults",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7adf2420,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc3b4f687,
+    #' @field min Field.
     min = NULL,
+    #' @field results Field.
     results = NULL,
+    #' @field total_voters Field.
     total_voters = NULL,
+    #' @field recent_voters Field.
     recent_voters = NULL,
+    #' @field solution Field.
     solution = NULL,
+    #' @field solution_entities Field.
     solution_entities = NULL,
     initialize = function(min = NULL, results = NULL, total_voters = NULL, recent_voters = NULL, solution = NULL, solution_entities = NULL) {
       self$min <- min
@@ -33411,9 +37207,13 @@ PollResults <- R6::R6Class("PollResults",
 Pong <- R6::R6Class("Pong",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x347773c5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x816aee71,
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field ping_id Field.
     ping_id = NULL,
     initialize = function(msg_id = NULL, ping_id = NULL) {
       self$msg_id <- msg_id
@@ -33439,9 +37239,13 @@ Pong <- R6::R6Class("Pong",
 PopularContact <- R6::R6Class("PopularContact",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5ce14175,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x409255a,
+    #' @field client_id Field.
     client_id = NULL,
+    #' @field importers Field.
     importers = NULL,
     initialize = function(client_id = NULL, importers = NULL) {
       self$client_id <- client_id
@@ -33467,13 +37271,21 @@ PopularContact <- R6::R6Class("PopularContact",
 PostAddress <- R6::R6Class("PostAddress",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1e8caaeb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8d7eda2c,
+    #' @field street_line1 Field.
     street_line1 = NULL,
+    #' @field street_line2 Field.
     street_line2 = NULL,
+    #' @field city Field.
     city = NULL,
+    #' @field state Field.
     state = NULL,
+    #' @field country_iso2 Field.
     country_iso2 = NULL,
+    #' @field post_code Field.
     post_code = NULL,
     initialize = function(street_line1 = NULL, street_line2 = NULL, city = NULL, state = NULL, country_iso2 = NULL, post_code = NULL) {
       self$street_line1 <- street_line1
@@ -33507,11 +37319,17 @@ PostAddress <- R6::R6Class("PostAddress",
 PostInteractionCountersMessage <- R6::R6Class("PostInteractionCountersMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe7058e7f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6e4a459b,
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field views Field.
     views = NULL,
+    #' @field forwards Field.
     forwards = NULL,
+    #' @field reactions Field.
     reactions = NULL,
     initialize = function(msg_id = NULL, views = NULL, forwards = NULL, reactions = NULL) {
       self$msg_id <- msg_id
@@ -33541,11 +37359,17 @@ PostInteractionCountersMessage <- R6::R6Class("PostInteractionCountersMessage",
 PostInteractionCountersStory <- R6::R6Class("PostInteractionCountersStory",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8a480e27,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6e4a459b,
+    #' @field story_id Field.
     story_id = NULL,
+    #' @field views Field.
     views = NULL,
+    #' @field forwards Field.
     forwards = NULL,
+    #' @field reactions Field.
     reactions = NULL,
     initialize = function(story_id = NULL, views = NULL, forwards = NULL, reactions = NULL) {
       self$story_id <- story_id
@@ -33575,13 +37399,21 @@ PostInteractionCountersStory <- R6::R6Class("PostInteractionCountersStory",
 PremiumGiftCodeOption <- R6::R6Class("PremiumGiftCodeOption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x257e962b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x21d3c2,
+    #' @field users Field.
     users = NULL,
+    #' @field months Field.
     months = NULL,
+    #' @field currency Field.
     currency = NULL,
+    #' @field amount Field.
     amount = NULL,
+    #' @field store_product Field.
     store_product = NULL,
+    #' @field store_quantity Field.
     store_quantity = NULL,
     initialize = function(users = NULL, months = NULL, currency = NULL, amount = NULL, store_product = NULL, store_quantity = NULL) {
       self$users <- users
@@ -33626,15 +37458,25 @@ PremiumGiftCodeOption <- R6::R6Class("PremiumGiftCodeOption",
 PremiumSubscriptionOption <- R6::R6Class("PremiumSubscriptionOption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5f2d1df2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2e2dc73f,
+    #' @field months Field.
     months = NULL,
+    #' @field currency Field.
     currency = NULL,
+    #' @field amount Field.
     amount = NULL,
+    #' @field bot_url Field.
     bot_url = NULL,
+    #' @field current Field.
     current = NULL,
+    #' @field can_purchase_upgrade Field.
     can_purchase_upgrade = NULL,
+    #' @field transaction Field.
     transaction = NULL,
+    #' @field store_product Field.
     store_product = NULL,
     initialize = function(months = NULL, currency = NULL, amount = NULL, bot_url = NULL, current = NULL, can_purchase_upgrade = NULL, transaction = NULL, store_product = NULL) {
       self$months <- months
@@ -33683,11 +37525,17 @@ PremiumSubscriptionOption <- R6::R6Class("PremiumSubscriptionOption",
 PrepaidGiveaway <- R6::R6Class("PrepaidGiveaway",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb2539d54,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xee3e6780,
+    #' @field id Field.
     id = NULL,
+    #' @field months Field.
     months = NULL,
+    #' @field quantity Field.
     quantity = NULL,
+    #' @field date Field.
     date = NULL,
     initialize = function(id = NULL, months = NULL, quantity = NULL, date = NULL) {
       self$id <- id
@@ -33717,12 +37565,19 @@ PrepaidGiveaway <- R6::R6Class("PrepaidGiveaway",
 PrepaidStarsGiveaway <- R6::R6Class("PrepaidStarsGiveaway",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9a9d77e0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xee3e6780,
+    #' @field id Field.
     id = NULL,
+    #' @field stars Field.
     stars = NULL,
+    #' @field quantity Field.
     quantity = NULL,
+    #' @field boosts Field.
     boosts = NULL,
+    #' @field date Field.
     date = NULL,
     initialize = function(id = NULL, stars = NULL, quantity = NULL, boosts = NULL, date = NULL) {
       self$id <- id
@@ -33754,7 +37609,9 @@ PrepaidStarsGiveaway <- R6::R6Class("PrepaidStarsGiveaway",
 PrivacyKeyAbout <- R6::R6Class("PrivacyKeyAbout",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa486b761,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x824651c3,
     to_dict = function() list(`_` = "PrivacyKeyAbout"),
     bytes = function() as.raw(c(0x61, 0xb7, 0x86, 0xa4))
@@ -33771,7 +37628,9 @@ PrivacyKeyAbout <- R6::R6Class("PrivacyKeyAbout",
 PrivacyKeyAddedByPhone <- R6::R6Class("PrivacyKeyAddedByPhone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x42ffd42b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x824651c3,
     to_dict = function() list(`_` = "PrivacyKeyAddedByPhone"),
     bytes = function() as.raw(c(0x2b, 0xd4, 0xff, 0x42))
@@ -33788,7 +37647,9 @@ PrivacyKeyAddedByPhone <- R6::R6Class("PrivacyKeyAddedByPhone",
 PrivacyKeyBirthday <- R6::R6Class("PrivacyKeyBirthday",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2000a518,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x824651c3,
     to_dict = function() list(`_` = "PrivacyKeyBirthday"),
     bytes = function() as.raw(c(0x18, 0xa5, 0x00, 0x20))
@@ -33805,7 +37666,9 @@ PrivacyKeyBirthday <- R6::R6Class("PrivacyKeyBirthday",
 PrivacyKeyChatInvite <- R6::R6Class("PrivacyKeyChatInvite",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x500e6dfa,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x824651c3,
     to_dict = function() list(`_` = "PrivacyKeyChatInvite"),
     bytes = function() as.raw(c(0xfa, 0x6d, 0x0e, 0x50))
@@ -33822,7 +37685,9 @@ PrivacyKeyChatInvite <- R6::R6Class("PrivacyKeyChatInvite",
 PrivacyKeyForwards <- R6::R6Class("PrivacyKeyForwards",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x69ec56a3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x824651c3,
     to_dict = function() list(`_` = "PrivacyKeyForwards"),
     bytes = function() as.raw(c(0xa3, 0x56, 0xec, 0x69))
@@ -33839,7 +37704,9 @@ PrivacyKeyForwards <- R6::R6Class("PrivacyKeyForwards",
 PrivacyKeyNoPaidMessages <- R6::R6Class("PrivacyKeyNoPaidMessages",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x17d348d2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x824651c3,
     to_dict = function() list(`_` = "PrivacyKeyNoPaidMessages"),
     bytes = function() as.raw(c(0xd2, 0x48, 0xd3, 0x17))
@@ -33856,7 +37723,9 @@ PrivacyKeyNoPaidMessages <- R6::R6Class("PrivacyKeyNoPaidMessages",
 PrivacyKeyPhoneCall <- R6::R6Class("PrivacyKeyPhoneCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3d662b7b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x824651c3,
     to_dict = function() list(`_` = "PrivacyKeyPhoneCall"),
     bytes = function() as.raw(c(0x7b, 0x2b, 0x66, 0x3d))
@@ -33873,7 +37742,9 @@ PrivacyKeyPhoneCall <- R6::R6Class("PrivacyKeyPhoneCall",
 PrivacyKeyPhoneNumber <- R6::R6Class("PrivacyKeyPhoneNumber",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd19ae46d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x824651c3,
     to_dict = function() list(`_` = "PrivacyKeyPhoneNumber"),
     bytes = function() as.raw(c(0x6d, 0xe4, 0x9a, 0xd1))
@@ -33890,7 +37761,9 @@ PrivacyKeyPhoneNumber <- R6::R6Class("PrivacyKeyPhoneNumber",
 PrivacyKeyPhoneP2P <- R6::R6Class("PrivacyKeyPhoneP2P",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x39491cc8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x824651c3,
     to_dict = function() list(`_` = "PrivacyKeyPhoneP2P"),
     bytes = function() as.raw(c(0xc8, 0x1c, 0x49, 0x39))
@@ -33907,7 +37780,9 @@ PrivacyKeyPhoneP2P <- R6::R6Class("PrivacyKeyPhoneP2P",
 PrivacyKeyProfilePhoto <- R6::R6Class("PrivacyKeyProfilePhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x96151fed,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x824651c3,
     to_dict = function() list(`_` = "PrivacyKeyProfilePhoto"),
     bytes = function() as.raw(c(0xed, 0x1f, 0x15, 0x96))
@@ -33924,7 +37799,9 @@ PrivacyKeyProfilePhoto <- R6::R6Class("PrivacyKeyProfilePhoto",
 PrivacyKeyStarGiftsAutoSave <- R6::R6Class("PrivacyKeyStarGiftsAutoSave",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2ca4fdf8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x824651c3,
     to_dict = function() list(`_` = "PrivacyKeyStarGiftsAutoSave"),
     bytes = function() as.raw(c(0xf8, 0xfd, 0xa4, 0x2c))
@@ -33941,7 +37818,9 @@ PrivacyKeyStarGiftsAutoSave <- R6::R6Class("PrivacyKeyStarGiftsAutoSave",
 PrivacyKeyStatusTimestamp <- R6::R6Class("PrivacyKeyStatusTimestamp",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbc2eab30,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x824651c3,
     to_dict = function() list(`_` = "PrivacyKeyStatusTimestamp"),
     bytes = function() as.raw(c(0x30, 0xab, 0x2e, 0xbc))
@@ -33958,7 +37837,9 @@ PrivacyKeyStatusTimestamp <- R6::R6Class("PrivacyKeyStatusTimestamp",
 PrivacyKeyVoiceMessages <- R6::R6Class("PrivacyKeyVoiceMessages",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x697f414,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x824651c3,
     to_dict = function() list(`_` = "PrivacyKeyVoiceMessages"),
     bytes = function() as.raw(c(0x14, 0xf4, 0x97, 0x06))
@@ -33975,7 +37856,9 @@ PrivacyKeyVoiceMessages <- R6::R6Class("PrivacyKeyVoiceMessages",
 PrivacyValueAllowAll <- R6::R6Class("PrivacyValueAllowAll",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x65427b82,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xebb7f270,
     to_dict = function() list(`_` = "PrivacyValueAllowAll"),
     bytes = function() as.raw(c(0x82, 0x7b, 0x42, 0x65))
@@ -33992,7 +37875,9 @@ PrivacyValueAllowAll <- R6::R6Class("PrivacyValueAllowAll",
 PrivacyValueAllowBots <- R6::R6Class("PrivacyValueAllowBots",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x21461b5d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xebb7f270,
     to_dict = function() list(`_` = "PrivacyValueAllowBots"),
     bytes = function() as.raw(c(0x5d, 0x1b, 0x46, 0x21))
@@ -34009,8 +37894,11 @@ PrivacyValueAllowBots <- R6::R6Class("PrivacyValueAllowBots",
 PrivacyValueAllowChatParticipants <- R6::R6Class("PrivacyValueAllowChatParticipants",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6b134e8e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xebb7f270,
+    #' @field chats Field.
     chats = NULL,
     initialize = function(chats = NULL) {
       self$chats <- chats
@@ -34041,7 +37929,9 @@ PrivacyValueAllowChatParticipants <- R6::R6Class("PrivacyValueAllowChatParticipa
 PrivacyValueAllowCloseFriends <- R6::R6Class("PrivacyValueAllowCloseFriends",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf7e8d89b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xebb7f270,
     to_dict = function() list(`_` = "PrivacyValueAllowCloseFriends"),
     bytes = function() as.raw(c(0x9b, 0xd8, 0xe8, 0xf7))
@@ -34058,7 +37948,9 @@ PrivacyValueAllowCloseFriends <- R6::R6Class("PrivacyValueAllowCloseFriends",
 PrivacyValueAllowContacts <- R6::R6Class("PrivacyValueAllowContacts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfffe1bac,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xebb7f270,
     to_dict = function() list(`_` = "PrivacyValueAllowContacts"),
     bytes = function() as.raw(c(0xac, 0x1b, 0xfe, 0xff))
@@ -34075,7 +37967,9 @@ PrivacyValueAllowContacts <- R6::R6Class("PrivacyValueAllowContacts",
 PrivacyValueAllowPremium <- R6::R6Class("PrivacyValueAllowPremium",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xece9814b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xebb7f270,
     to_dict = function() list(`_` = "PrivacyValueAllowPremium"),
     bytes = function() as.raw(c(0x4b, 0x81, 0xe9, 0xec))
@@ -34092,8 +37986,11 @@ PrivacyValueAllowPremium <- R6::R6Class("PrivacyValueAllowPremium",
 PrivacyValueAllowUsers <- R6::R6Class("PrivacyValueAllowUsers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb8905fb2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xebb7f270,
+    #' @field users Field.
     users = NULL,
     initialize = function(users = NULL) {
       self$users <- users
@@ -34124,7 +38021,9 @@ PrivacyValueAllowUsers <- R6::R6Class("PrivacyValueAllowUsers",
 PrivacyValueDisallowAll <- R6::R6Class("PrivacyValueDisallowAll",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8b73e763,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xebb7f270,
     to_dict = function() list(`_` = "PrivacyValueDisallowAll"),
     bytes = function() as.raw(c(0x63, 0xe7, 0x73, 0x8b))
@@ -34141,7 +38040,9 @@ PrivacyValueDisallowAll <- R6::R6Class("PrivacyValueDisallowAll",
 PrivacyValueDisallowBots <- R6::R6Class("PrivacyValueDisallowBots",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf6a5f82f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xebb7f270,
     to_dict = function() list(`_` = "PrivacyValueDisallowBots"),
     bytes = function() as.raw(c(0x2f, 0xf8, 0xa5, 0xf6))
@@ -34158,8 +38059,11 @@ PrivacyValueDisallowBots <- R6::R6Class("PrivacyValueDisallowBots",
 PrivacyValueDisallowChatParticipants <- R6::R6Class("PrivacyValueDisallowChatParticipants",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x41c87565,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xebb7f270,
+    #' @field chats Field.
     chats = NULL,
     initialize = function(chats = NULL) {
       self$chats <- chats
@@ -34196,7 +38100,9 @@ PrivacyValueDisallowChatParticipants <- R6::R6Class("PrivacyValueDisallowChatPar
 PrivacyValueDisallowContacts <- R6::R6Class("PrivacyValueDisallowContacts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf888fa1a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xebb7f270,
     to_dict = function() list(`_` = "PrivacyValueDisallowContacts"),
     bytes = function() as.raw(c(0x1a, 0xfa, 0x88, 0xf8))
@@ -34213,8 +38119,11 @@ PrivacyValueDisallowContacts <- R6::R6Class("PrivacyValueDisallowContacts",
 PrivacyValueDisallowUsers <- R6::R6Class("PrivacyValueDisallowUsers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe4621141,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xebb7f270,
+    #' @field users Field.
     users = NULL,
     initialize = function(users = NULL) {
       self$users <- users
@@ -34251,7 +38160,9 @@ PrivacyValueDisallowUsers <- R6::R6Class("PrivacyValueDisallowUsers",
 ProfileTabFiles <- R6::R6Class("ProfileTabFiles",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xab339c00,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xae48d1b4,
     to_dict = function() list(`_` = "ProfileTabFiles"),
     bytes = function() as.raw(c(0x00, 0x9c, 0x33, 0xab))
@@ -34268,7 +38179,9 @@ ProfileTabFiles <- R6::R6Class("ProfileTabFiles",
 ProfileTabGifs <- R6::R6Class("ProfileTabGifs",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa2c0f695,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xae48d1b4,
     to_dict = function() list(`_` = "ProfileTabGifs"),
     bytes = function() as.raw(c(0x95, 0xf6, 0xc0, 0xa2))
@@ -34285,7 +38198,9 @@ ProfileTabGifs <- R6::R6Class("ProfileTabGifs",
 ProfileTabGifts <- R6::R6Class("ProfileTabGifts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4d4bd46a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xae48d1b4,
     to_dict = function() list(`_` = "ProfileTabGifts"),
     bytes = function() as.raw(c(0x6a, 0xd4, 0x4b, 0x4d))
@@ -34302,7 +38217,9 @@ ProfileTabGifts <- R6::R6Class("ProfileTabGifts",
 ProfileTabLinks <- R6::R6Class("ProfileTabLinks",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd3656499,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xae48d1b4,
     to_dict = function() list(`_` = "ProfileTabLinks"),
     bytes = function() as.raw(c(0x99, 0x64, 0x65, 0xd3))
@@ -34319,7 +38236,9 @@ ProfileTabLinks <- R6::R6Class("ProfileTabLinks",
 ProfileTabMedia <- R6::R6Class("ProfileTabMedia",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x72c64955,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xae48d1b4,
     to_dict = function() list(`_` = "ProfileTabMedia"),
     bytes = function() as.raw(c(0x55, 0x49, 0xc6, 0x72))
@@ -34336,7 +38255,9 @@ ProfileTabMedia <- R6::R6Class("ProfileTabMedia",
 ProfileTabMusic <- R6::R6Class("ProfileTabMusic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9f27d26e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xae48d1b4,
     to_dict = function() list(`_` = "ProfileTabMusic"),
     bytes = function() as.raw(c(0x6e, 0xd2, 0x27, 0x9f))
@@ -34353,7 +38274,9 @@ ProfileTabMusic <- R6::R6Class("ProfileTabMusic",
 ProfileTabPosts <- R6::R6Class("ProfileTabPosts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb98cd696,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xae48d1b4,
     to_dict = function() list(`_` = "ProfileTabPosts"),
     bytes = function() as.raw(c(0x96, 0xd6, 0x8c, 0xb9))
@@ -34370,7 +38293,9 @@ ProfileTabPosts <- R6::R6Class("ProfileTabPosts",
 ProfileTabVoice <- R6::R6Class("ProfileTabVoice",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe477092e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xae48d1b4,
     to_dict = function() list(`_` = "ProfileTabVoice"),
     bytes = function() as.raw(c(0x2e, 0x09, 0x77, 0xe4))
@@ -34387,8 +38312,11 @@ ProfileTabVoice <- R6::R6Class("ProfileTabVoice",
 PublicForwardMessage <- R6::R6Class("PublicForwardMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1f2bf4a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x629015d3,
+    #' @field message Field.
     message = NULL,
     initialize = function(message = NULL) {
       self$message <- message
@@ -34415,9 +38343,13 @@ PublicForwardMessage <- R6::R6Class("PublicForwardMessage",
 PublicForwardStory <- R6::R6Class("PublicForwardStory",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xedf3add0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x629015d3,
+    #' @field peer Field.
     peer = NULL,
+    #' @field story Field.
     story = NULL,
     initialize = function(peer = NULL, story = NULL) {
       self$peer <- peer
@@ -34447,11 +38379,17 @@ PublicForwardStory <- R6::R6Class("PublicForwardStory",
 QuickReply <- R6::R6Class("QuickReply",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x697102b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe2ea0f12,
+    #' @field shortcut_id Field.
     shortcut_id = NULL,
+    #' @field shortcut Field.
     shortcut = NULL,
+    #' @field top_message Field.
     top_message = NULL,
+    #' @field count Field.
     count = NULL,
     initialize = function(shortcut_id = NULL, shortcut = NULL, top_message = NULL, count = NULL) {
       self$shortcut_id <- shortcut_id
@@ -34487,10 +38425,15 @@ QuickReply <- R6::R6Class("QuickReply",
 ReactionCount <- R6::R6Class("ReactionCount",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa3d1cb80,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd208ce3f,
+    #' @field reaction Field.
     reaction = NULL,
+    #' @field count Field.
     count = NULL,
+    #' @field chosen_order Field.
     chosen_order = NULL,
     initialize = function(reaction = NULL, count = NULL, chosen_order = NULL) {
       self$reaction <- reaction
@@ -34531,8 +38474,11 @@ ReactionCount <- R6::R6Class("ReactionCount",
 ReactionCustomEmoji <- R6::R6Class("ReactionCustomEmoji",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8935fc73,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5da165a1,
+    #' @field document_id Field.
     document_id = NULL,
     initialize = function(document_id = NULL) {
       self$document_id <- document_id
@@ -34559,8 +38505,11 @@ ReactionCustomEmoji <- R6::R6Class("ReactionCustomEmoji",
 ReactionEmoji <- R6::R6Class("ReactionEmoji",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1b2286b8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5da165a1,
+    #' @field emoticon Field.
     emoticon = NULL,
     initialize = function(emoticon = NULL) {
       self$emoticon <- emoticon
@@ -34587,7 +38536,9 @@ ReactionEmoji <- R6::R6Class("ReactionEmoji",
 ReactionEmpty <- R6::R6Class("ReactionEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x79f5d419,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5da165a1,
     to_dict = function() list(`_` = "ReactionEmpty"),
     bytes = function() as.raw(c(0x19, 0xd4, 0xf5, 0x79))
@@ -34604,7 +38555,9 @@ ReactionEmpty <- R6::R6Class("ReactionEmpty",
 ReactionNotificationsFromAll <- R6::R6Class("ReactionNotificationsFromAll",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4b9e22a0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x345f7940,
     to_dict = function() list(`_` = "ReactionNotificationsFromAll"),
     bytes = function() as.raw(c(0xa0, 0x22, 0x9e, 0x4b))
@@ -34621,7 +38574,9 @@ ReactionNotificationsFromAll <- R6::R6Class("ReactionNotificationsFromAll",
 ReactionNotificationsFromContacts <- R6::R6Class("ReactionNotificationsFromContacts",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbac3a61a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x345f7940,
     to_dict = function() list(`_` = "ReactionNotificationsFromContacts"),
     bytes = function() as.raw(c(0x1a, 0xa6, 0xc3, 0xba))
@@ -34638,7 +38593,9 @@ ReactionNotificationsFromContacts <- R6::R6Class("ReactionNotificationsFromConta
 ReactionPaid <- R6::R6Class("ReactionPaid",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x523da4eb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5da165a1,
     to_dict = function() list(`_` = "ReactionPaid"),
     bytes = function() as.raw(c(0xeb, 0xa4, 0x3d, 0x52))
@@ -34655,11 +38612,17 @@ ReactionPaid <- R6::R6Class("ReactionPaid",
 ReactionsNotifySettings <- R6::R6Class("ReactionsNotifySettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x56e34970,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8dff0851,
+    #' @field sound Field.
     sound = NULL,
+    #' @field show_previews Field.
     show_previews = NULL,
+    #' @field messages_notify_from Field.
     messages_notify_from = NULL,
+    #' @field stories_notify_from Field.
     stories_notify_from = NULL,
     initialize = function(sound = NULL, show_previews = NULL, messages_notify_from = NULL, stories_notify_from = NULL) {
       self$sound <- sound
@@ -34708,9 +38671,13 @@ ReactionsNotifySettings <- R6::R6Class("ReactionsNotifySettings",
 ReadParticipantDate <- R6::R6Class("ReadParticipantDate",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4a4ff172,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfd078ce2,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field date Field.
     date = NULL,
     initialize = function(user_id = NULL, date = NULL) {
       self$user_id <- user_id
@@ -34740,9 +38707,13 @@ ReadParticipantDate <- R6::R6Class("ReadParticipantDate",
 ReceivedNotifyMessage <- R6::R6Class("ReceivedNotifyMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa384b779,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa962381e,
+    #' @field id Field.
     id = NULL,
+    #' @field flags Field.
     flags = NULL,
     initialize = function(id = NULL, flags = NULL) {
       self$id <- id
@@ -34772,9 +38743,13 @@ ReceivedNotifyMessage <- R6::R6Class("ReceivedNotifyMessage",
 RecentMeUrlChat <- R6::R6Class("RecentMeUrlChat",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb2da71d2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55a53079,
+    #' @field url Field.
     url = NULL,
+    #' @field chat_id Field.
     chat_id = NULL,
     initialize = function(url = NULL, chat_id = NULL) {
       self$url <- url
@@ -34804,9 +38779,13 @@ RecentMeUrlChat <- R6::R6Class("RecentMeUrlChat",
 RecentMeUrlChatInvite <- R6::R6Class("RecentMeUrlChatInvite",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xeb49081d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55a53079,
+    #' @field url Field.
     url = NULL,
+    #' @field chat_invite Field.
     chat_invite = NULL,
     initialize = function(url = NULL, chat_invite = NULL) {
       self$url <- url
@@ -34836,9 +38815,13 @@ RecentMeUrlChatInvite <- R6::R6Class("RecentMeUrlChatInvite",
 RecentMeUrlStickerSet <- R6::R6Class("RecentMeUrlStickerSet",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbc0a57dc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55a53079,
+    #' @field url Field.
     url = NULL,
+    #' @field set Field.
     set = NULL,
     initialize = function(url = NULL, set = NULL) {
       self$url <- url
@@ -34868,8 +38851,11 @@ RecentMeUrlStickerSet <- R6::R6Class("RecentMeUrlStickerSet",
 RecentMeUrlUnknown <- R6::R6Class("RecentMeUrlUnknown",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x46e1d13d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55a53079,
+    #' @field url Field.
     url = NULL,
     initialize = function(url = NULL) {
       self$url <- url
@@ -34896,9 +38882,13 @@ RecentMeUrlUnknown <- R6::R6Class("RecentMeUrlUnknown",
 RecentMeUrlUser <- R6::R6Class("RecentMeUrlUser",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb92c09e2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55a53079,
+    #' @field url Field.
     url = NULL,
+    #' @field user_id Field.
     user_id = NULL,
     initialize = function(url = NULL, user_id = NULL) {
       self$url <- url
@@ -34928,8 +38918,11 @@ RecentMeUrlUser <- R6::R6Class("RecentMeUrlUser",
 ReplyInlineMarkup <- R6::R6Class("ReplyInlineMarkup",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x48a30254,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe2e10ef2,
+    #' @field rows Field.
     rows = NULL,
     initialize = function(rows = NULL) {
       self$rows <- rows
@@ -34965,10 +38958,15 @@ ReplyInlineMarkup <- R6::R6Class("ReplyInlineMarkup",
 ReplyKeyboardForceReply <- R6::R6Class("ReplyKeyboardForceReply",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x86b40b08,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe2e10ef2,
+    #' @field single_use Field.
     single_use = NULL,
+    #' @field selective Field.
     selective = NULL,
+    #' @field placeholder Field.
     placeholder = NULL,
     initialize = function(single_use = NULL, selective = NULL, placeholder = NULL) {
       self$single_use <- single_use
@@ -35009,8 +39007,11 @@ ReplyKeyboardForceReply <- R6::R6Class("ReplyKeyboardForceReply",
 ReplyKeyboardHide <- R6::R6Class("ReplyKeyboardHide",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa03e5b85,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe2e10ef2,
+    #' @field selective Field.
     selective = NULL,
     initialize = function(selective = NULL) {
       self$selective <- selective
@@ -35040,13 +39041,21 @@ ReplyKeyboardHide <- R6::R6Class("ReplyKeyboardHide",
 ReplyKeyboardMarkup <- R6::R6Class("ReplyKeyboardMarkup",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x85dd99d1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe2e10ef2,
+    #' @field rows Field.
     rows = NULL,
+    #' @field resize Field.
     resize = NULL,
+    #' @field single_use Field.
     single_use = NULL,
+    #' @field selective Field.
     selective = NULL,
+    #' @field persistent Field.
     persistent = NULL,
+    #' @field placeholder Field.
     placeholder = NULL,
     initialize = function(rows = NULL, resize = NULL, single_use = NULL, selective = NULL, persistent = NULL, placeholder = NULL) {
       self$rows <- rows
@@ -35105,9 +39114,13 @@ ReplyKeyboardMarkup <- R6::R6Class("ReplyKeyboardMarkup",
 ReportResultAddComment <- R6::R6Class("ReportResultAddComment",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6f09ac31,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xacd3f438,
+    #' @field option Field.
     option = NULL,
+    #' @field optional Field.
     optional = NULL,
     initialize = function(option = NULL, optional = NULL) {
       self$option <- option
@@ -35140,9 +39153,13 @@ ReportResultAddComment <- R6::R6Class("ReportResultAddComment",
 ReportResultChooseOption <- R6::R6Class("ReportResultChooseOption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf0e4e0b6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xacd3f438,
+    #' @field title Field.
     title = NULL,
+    #' @field options Field.
     options = NULL,
     initialize = function(title = NULL, options = NULL) {
       self$title <- title
@@ -35181,7 +39198,9 @@ ReportResultChooseOption <- R6::R6Class("ReportResultChooseOption",
 ReportResultReported <- R6::R6Class("ReportResultReported",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8db33c4b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xacd3f438,
     to_dict = function() list(`_` = "ReportResultReported"),
     bytes = function() as.raw(c(0x4b, 0x3c, 0xb3, 0x8d))
@@ -35198,11 +39217,17 @@ ReportResultReported <- R6::R6Class("ReportResultReported",
 RequestPeerTypeBroadcast <- R6::R6Class("RequestPeerTypeBroadcast",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x339bef6c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe9a0e814,
+    #' @field creator Field.
     creator = NULL,
+    #' @field has_username Field.
     has_username = NULL,
+    #' @field user_admin_rights Field.
     user_admin_rights = NULL,
+    #' @field bot_admin_rights Field.
     bot_admin_rights = NULL,
     initialize = function(creator = NULL, has_username = NULL, user_admin_rights = NULL, bot_admin_rights = NULL) {
       self$creator <- creator
@@ -35256,13 +39281,21 @@ RequestPeerTypeBroadcast <- R6::R6Class("RequestPeerTypeBroadcast",
 RequestPeerTypeChat <- R6::R6Class("RequestPeerTypeChat",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc9f06e1b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe9a0e814,
+    #' @field creator Field.
     creator = NULL,
+    #' @field bot_participant Field.
     bot_participant = NULL,
+    #' @field has_username Field.
     has_username = NULL,
+    #' @field forum Field.
     forum = NULL,
+    #' @field user_admin_rights Field.
     user_admin_rights = NULL,
+    #' @field bot_admin_rights Field.
     bot_admin_rights = NULL,
     initialize = function(creator = NULL, bot_participant = NULL, has_username = NULL, forum = NULL, user_admin_rights = NULL, bot_admin_rights = NULL) {
       self$creator <- creator
@@ -35327,9 +39360,13 @@ RequestPeerTypeChat <- R6::R6Class("RequestPeerTypeChat",
 RequestPeerTypeUser <- R6::R6Class("RequestPeerTypeUser",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5f3b8a00,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe9a0e814,
+    #' @field bot Field.
     bot = NULL,
+    #' @field premium Field.
     premium = NULL,
     initialize = function(bot = NULL, premium = NULL) {
       self$bot <- bot
@@ -35372,11 +39409,17 @@ RequestPeerTypeUser <- R6::R6Class("RequestPeerTypeUser",
 RequestedPeerChannel <- R6::R6Class("RequestedPeerChannel",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8ba403e4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc2887c10,
+    #' @field channel_id Field.
     channel_id = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field username Field.
     username = NULL,
+    #' @field photo Field.
     photo = NULL,
     initialize = function(channel_id = NULL, title = NULL, username = NULL, photo = NULL) {
       self$channel_id <- channel_id
@@ -35430,10 +39473,15 @@ RequestedPeerChannel <- R6::R6Class("RequestedPeerChannel",
 RequestedPeerChat <- R6::R6Class("RequestedPeerChat",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7307544f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc2887c10,
+    #' @field chat_id Field.
     chat_id = NULL,
+    #' @field title Field.
     title = NULL,
+    #' @field photo Field.
     photo = NULL,
     initialize = function(chat_id = NULL, title = NULL, photo = NULL) {
       self$chat_id <- chat_id
@@ -35479,12 +39527,19 @@ RequestedPeerChat <- R6::R6Class("RequestedPeerChat",
 RequestedPeerUser <- R6::R6Class("RequestedPeerUser",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd62ff46a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc2887c10,
+    #' @field user_id Field.
     user_id = NULL,
+    #' @field first_name Field.
     first_name = NULL,
+    #' @field last_name Field.
     last_name = NULL,
+    #' @field username Field.
     username = NULL,
+    #' @field photo Field.
     photo = NULL,
     initialize = function(user_id = NULL, first_name = NULL, last_name = NULL, username = NULL, photo = NULL) {
       self$user_id <- user_id
@@ -35546,7 +39601,9 @@ RequestedPeerUser <- R6::R6Class("RequestedPeerUser",
 RequirementToContactEmpty <- R6::R6Class("RequirementToContactEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x50a9839,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8d756391,
     to_dict = function() list(`_` = "RequirementToContactEmpty"),
     bytes = function() as.raw(c(0x39, 0x98, 0x0a, 0x05))
@@ -35563,8 +39620,11 @@ RequirementToContactEmpty <- R6::R6Class("RequirementToContactEmpty",
 RequirementToContactPaidMessages <- R6::R6Class("RequirementToContactPaidMessages",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb4f67e93,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8d756391,
+    #' @field stars_amount Field.
     stars_amount = NULL,
     initialize = function(stars_amount = NULL) {
       self$stars_amount <- stars_amount
@@ -35587,7 +39647,9 @@ RequirementToContactPaidMessages <- R6::R6Class("RequirementToContactPaidMessage
 RequirementToContactPremium <- R6::R6Class("RequirementToContactPremium",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe581e4e9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8d756391,
     to_dict = function() list(`_` = "RequirementToContactPremium"),
     bytes = function() as.raw(c(0xe9, 0xe4, 0x81, 0xe5))
@@ -35604,11 +39666,17 @@ RequirementToContactPremium <- R6::R6Class("RequirementToContactPremium",
 ResPQ <- R6::R6Class("ResPQ",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5162463,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x786986b8,
+    #' @field nonce Field.
     nonce = NULL,
+    #' @field server_nonce Field.
     server_nonce = NULL,
+    #' @field pq Field.
     pq = NULL,
+    #' @field server_public_key_fingerprints Field.
     server_public_key_fingerprints = NULL,
     initialize = function(nonce = NULL, server_nonce = NULL, pq = NULL, server_public_key_fingerprints = NULL) {
       self$nonce <- nonce
@@ -35638,10 +39706,15 @@ ResPQ <- R6::R6Class("ResPQ",
 RestrictionReason <- R6::R6Class("RestrictionReason",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd072acb4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6ad95ad,
+    #' @field platform Field.
     platform = NULL,
+    #' @field reason Field.
     reason = NULL,
+    #' @field text Field.
     text = NULL,
     initialize = function(platform = NULL, reason = NULL, text = NULL) {
       self$platform <- platform
@@ -35668,10 +39741,15 @@ RestrictionReason <- R6::R6Class("RestrictionReason",
 RpcAnswerDropped <- R6::R6Class("RpcAnswerDropped",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa43ad8b7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4bca7570,
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field seq_no Field.
     seq_no = NULL,
+    #' @field raw_bytes Field.
     raw_bytes = NULL,
     initialize = function(msg_id = NULL, seq_no = NULL, raw_bytes = NULL) {
       self$msg_id <- msg_id
@@ -35698,7 +39776,9 @@ RpcAnswerDropped <- R6::R6Class("RpcAnswerDropped",
 RpcAnswerDroppedRunning <- R6::R6Class("RpcAnswerDroppedRunning",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcd78e586,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4bca7570,
     to_dict = function() list(`_` = "RpcAnswerDroppedRunning"),
     bytes = function() as.raw(c(0x86, 0xe5, 0x78, 0xcd))
@@ -35715,7 +39795,9 @@ RpcAnswerDroppedRunning <- R6::R6Class("RpcAnswerDroppedRunning",
 RpcAnswerUnknown <- R6::R6Class("RpcAnswerUnknown",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5e2ad36e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4bca7570,
     to_dict = function() list(`_` = "RpcAnswerUnknown"),
     bytes = function() as.raw(c(0x6e, 0xd3, 0x2a, 0x5e))
@@ -35732,9 +39814,13 @@ RpcAnswerUnknown <- R6::R6Class("RpcAnswerUnknown",
 RpcError <- R6::R6Class("RpcError",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2144ca19,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4a17e265,
+    #' @field error_code Field.
     error_code = NULL,
+    #' @field error_message Field.
     error_message = NULL,
     initialize = function(error_code = NULL, error_message = NULL) {
       self$error_code <- error_code
@@ -35759,10 +39845,15 @@ RpcError <- R6::R6Class("RpcError",
 SavedDialog <- R6::R6Class("SavedDialog",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbd87cb6c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x23ba6506,
+    #' @field peer Field.
     peer = NULL,
+    #' @field top_message Field.
     top_message = NULL,
+    #' @field pinned Field.
     pinned = NULL,
     initialize = function(peer = NULL, top_message = NULL, pinned = NULL) {
       self$peer <- peer
@@ -35790,11 +39881,17 @@ SavedDialog <- R6::R6Class("SavedDialog",
 SavedPhoneContact <- R6::R6Class("SavedPhoneContact",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1142bd56,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6db98c4,
+    #' @field phone Field.
     phone = NULL,
+    #' @field first_name Field.
     first_name = NULL,
+    #' @field last_name Field.
     last_name = NULL,
+    #' @field date Field.
     date = NULL,
     initialize = function(phone = NULL, first_name = NULL, last_name = NULL, date = NULL) {
       self$phone <- phone
@@ -35823,10 +39920,15 @@ SavedPhoneContact <- R6::R6Class("SavedPhoneContact",
 SavedReactionTag <- R6::R6Class("SavedReactionTag",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcb6ff828,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xed681418,
+    #' @field reaction Field.
     reaction = NULL,
+    #' @field count Field.
     count = NULL,
+    #' @field title Field.
     title = NULL,
     initialize = function(reaction = NULL, count = NULL, title = NULL) {
       self$reaction <- reaction
@@ -35854,27 +39956,49 @@ SavedReactionTag <- R6::R6Class("SavedReactionTag",
 SavedStarGift <- R6::R6Class("SavedStarGift",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x19a9b572,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8e2b3c14,
+    #' @field date Field.
     date = NULL,
+    #' @field gift Field.
     gift = NULL,
+    #' @field name_hidden Field.
     name_hidden = NULL,
+    #' @field unsaved Field.
     unsaved = NULL,
+    #' @field refunded Field.
     refunded = NULL,
+    #' @field can_upgrade Field.
     can_upgrade = NULL,
+    #' @field pinned_to_top Field.
     pinned_to_top = NULL,
+    #' @field upgrade_separate Field.
     upgrade_separate = NULL,
+    #' @field from_id Field.
     from_id = NULL,
+    #' @field message Field.
     message = NULL,
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field saved_id Field.
     saved_id = NULL,
+    #' @field convert_stars Field.
     convert_stars = NULL,
+    #' @field upgrade_stars Field.
     upgrade_stars = NULL,
+    #' @field can_export_at Field.
     can_export_at = NULL,
+    #' @field transfer_stars Field.
     transfer_stars = NULL,
+    #' @field can_transfer_at Field.
     can_transfer_at = NULL,
+    #' @field can_resell_at Field.
     can_resell_at = NULL,
+    #' @field collection_id Field.
     collection_id = NULL,
+    #' @field prepaid_upgrade_hash Field.
     prepaid_upgrade_hash = NULL,
     initialize = function(date = NULL, gift = NULL, name_hidden = NULL, unsaved = NULL, refunded = NULL, can_upgrade = NULL, pinned_to_top = NULL, upgrade_separate = NULL, from_id = NULL, message = NULL, msg_id = NULL, saved_id = NULL, convert_stars = NULL, upgrade_stars = NULL, can_export_at = NULL, transfer_stars = NULL, can_transfer_at = NULL, can_resell_at = NULL, collection_id = NULL, prepaid_upgrade_hash = NULL) {
       self$date <- date
@@ -35962,12 +40086,19 @@ SavedStarGift <- R6::R6Class("SavedStarGift",
 SearchPostsFlood <- R6::R6Class("SearchPostsFlood",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3e0b5b6a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc2c0ccc1,
+    #' @field total_daily Field.
     total_daily = NULL,
+    #' @field remains Field.
     remains = NULL,
+    #' @field stars_amount Field.
     stars_amount = NULL,
+    #' @field query_is_free Field.
     query_is_free = NULL,
+    #' @field wait_till Field.
     wait_till = NULL,
     initialize = function(total_daily = NULL, remains = NULL, stars_amount = NULL, query_is_free = NULL, wait_till = NULL) {
       self$total_daily <- total_daily
@@ -35999,10 +40130,15 @@ SearchPostsFlood <- R6::R6Class("SearchPostsFlood",
 SearchResultPosition <- R6::R6Class("SearchResultPosition",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7f648b67,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb8e21614,
+    #' @field msg_id Field.
     msg_id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field offset Field.
     offset = NULL,
     initialize = function(msg_id = NULL, date = NULL, offset = NULL) {
       self$msg_id <- msg_id
@@ -36029,11 +40165,17 @@ SearchResultPosition <- R6::R6Class("SearchResultPosition",
 SearchResultsCalendarPeriod <- R6::R6Class("SearchResultsCalendarPeriod",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc9b0539f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe25cf8ff,
+    #' @field date Field.
     date = NULL,
+    #' @field min_msg_id Field.
     min_msg_id = NULL,
+    #' @field max_msg_id Field.
     max_msg_id = NULL,
+    #' @field count Field.
     count = NULL,
     initialize = function(date = NULL, min_msg_id = NULL, max_msg_id = NULL, count = NULL) {
       self$date <- date
@@ -36062,10 +40204,15 @@ SearchResultsCalendarPeriod <- R6::R6Class("SearchResultsCalendarPeriod",
 SecureCredentialsEncrypted <- R6::R6Class("SecureCredentialsEncrypted",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x33f0ea47,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x94dc7633,
+    #' @field data Field.
     data = NULL,
+    #' @field hash Field.
     hash = NULL,
+    #' @field secret Field.
     secret = NULL,
     initialize = function(data = NULL, hash = NULL, secret = NULL) {
       self$data <- data
@@ -36092,10 +40239,15 @@ SecureCredentialsEncrypted <- R6::R6Class("SecureCredentialsEncrypted",
 SecureData <- R6::R6Class("SecureData",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8aeabec3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7cd41eb4,
+    #' @field data Field.
     data = NULL,
+    #' @field data_hash Field.
     data_hash = NULL,
+    #' @field secret Field.
     secret = NULL,
     initialize = function(data = NULL, data_hash = NULL, secret = NULL) {
       self$data <- data
@@ -36122,14 +40274,23 @@ SecureData <- R6::R6Class("SecureData",
 SecureFile <- R6::R6Class("SecureFile",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7d09c27e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5db8dbc7,
+    #' @field id Field.
     id = NULL,
+    #' @field access_hash Field.
     access_hash = NULL,
+    #' @field size Field.
     size = NULL,
+    #' @field dc_id Field.
     dc_id = NULL,
+    #' @field date Field.
     date = NULL,
+    #' @field file_hash Field.
     file_hash = NULL,
+    #' @field secret Field.
     secret = NULL,
     initialize = function(id = NULL, access_hash = NULL, size = NULL, dc_id = NULL, date = NULL, file_hash = NULL, secret = NULL) {
       self$id <- id
@@ -36164,7 +40325,9 @@ SecureFile <- R6::R6Class("SecureFile",
 SecureFileEmpty <- R6::R6Class("SecureFileEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x64199744,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5db8dbc7,
     to_dict = function() list(`_` = "SecureFileEmpty"),
     bytes = function() as.raw(c(0x44, 0x97, 0x19, 0x64))
@@ -36181,8 +40344,11 @@ SecureFileEmpty <- R6::R6Class("SecureFileEmpty",
 SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000 <- R6::R6Class("SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbbf2dda0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x77262943,
+    #' @field salt Field.
     salt = NULL,
     initialize = function(salt = NULL) {
       self$salt <- salt
@@ -36205,8 +40371,11 @@ SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000 <- R6::R6Class("SecurePasswordKd
 SecurePasswordKdfAlgoSHA512 <- R6::R6Class("SecurePasswordKdfAlgoSHA512",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x86471d92,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x77262943,
+    #' @field salt Field.
     salt = NULL,
     initialize = function(salt = NULL) {
       self$salt <- salt
@@ -36229,7 +40398,9 @@ SecurePasswordKdfAlgoSHA512 <- R6::R6Class("SecurePasswordKdfAlgoSHA512",
 SecurePasswordKdfAlgoUnknown <- R6::R6Class("SecurePasswordKdfAlgoUnknown",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4a8537,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x77262943,
     to_dict = function() list(`_` = "SecurePasswordKdfAlgoUnknown"),
     bytes = function() as.raw(c(0x37, 0x85, 0x4a, 0x00))
@@ -36246,8 +40417,11 @@ SecurePasswordKdfAlgoUnknown <- R6::R6Class("SecurePasswordKdfAlgoUnknown",
 SecurePlainEmail <- R6::R6Class("SecurePlainEmail",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x21ec5a5f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x23b2afb6,
+    #' @field email Field.
     email = NULL,
     initialize = function(email = NULL) {
       self$email <- email
@@ -36270,8 +40444,11 @@ SecurePlainEmail <- R6::R6Class("SecurePlainEmail",
 SecurePlainPhone <- R6::R6Class("SecurePlainPhone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7d6099dd,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x23b2afb6,
+    #' @field phone Field.
     phone = NULL,
     initialize = function(phone = NULL) {
       self$phone <- phone
@@ -36294,11 +40471,17 @@ SecurePlainPhone <- R6::R6Class("SecurePlainPhone",
 SecureRequiredType <- R6::R6Class("SecureRequiredType",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x829d99da,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7c7b420a,
+    #' @field type Field.
     type = NULL,
+    #' @field native_names Field.
     native_names = NULL,
+    #' @field selfie_required Field.
     selfie_required = NULL,
+    #' @field translation_required Field.
     translation_required = NULL,
     initialize = function(type = NULL, native_names = NULL, selfie_required = NULL, translation_required = NULL) {
       self$type <- type
@@ -36328,8 +40511,11 @@ SecureRequiredType <- R6::R6Class("SecureRequiredType",
 SecureRequiredTypeOneOf <- R6::R6Class("SecureRequiredTypeOneOf",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x27477b4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7c7b420a,
+    #' @field types Field.
     types = NULL,
     initialize = function(types = NULL) {
       self$types <- types
@@ -36353,10 +40539,15 @@ SecureRequiredTypeOneOf <- R6::R6Class("SecureRequiredTypeOneOf",
 SecureSecretSettings <- R6::R6Class("SecureSecretSettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1527bcac,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc6c802fb,
+    #' @field secure_algo Field.
     secure_algo = NULL,
+    #' @field secure_secret Field.
     secure_secret = NULL,
+    #' @field secure_secret_id Field.
     secure_secret_id = NULL,
     initialize = function(secure_algo = NULL, secure_secret = NULL, secure_secret_id = NULL) {
       self$secure_algo <- secure_algo
@@ -36383,16 +40574,27 @@ SecureSecretSettings <- R6::R6Class("SecureSecretSettings",
 SecureValue <- R6::R6Class("SecureValue",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x187fa0ca,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x51138ae,
+    #' @field type Field.
     type = NULL,
+    #' @field hash Field.
     hash = NULL,
+    #' @field data Field.
     data = NULL,
+    #' @field front_side Field.
     front_side = NULL,
+    #' @field reverse_side Field.
     reverse_side = NULL,
+    #' @field selfie Field.
     selfie = NULL,
+    #' @field translation Field.
     translation = NULL,
+    #' @field files Field.
     files = NULL,
+    #' @field plaindata Field.
     plaindata = NULL,
     initialize = function(type = NULL, hash = NULL, data = NULL, front_side = NULL, reverse_side = NULL, selfie = NULL, translation = NULL, files = NULL, plaindata = NULL) {
       self$type <- type
@@ -36452,10 +40654,15 @@ SecureValue <- R6::R6Class("SecureValue",
 SecureValueError <- R6::R6Class("SecureValueError",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x869d758f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6075fce,
+    #' @field type Field.
     type = NULL,
+    #' @field hash Field.
     hash = NULL,
+    #' @field text Field.
     text = NULL,
     initialize = function(type = NULL, hash = NULL, text = NULL) {
       self$type <- type
@@ -36482,11 +40689,17 @@ SecureValueError <- R6::R6Class("SecureValueError",
 SecureValueErrorData <- R6::R6Class("SecureValueErrorData",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe8a40bd9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6075fce,
+    #' @field type Field.
     type = NULL,
+    #' @field data_hash Field.
     data_hash = NULL,
+    #' @field field Field.
     field = NULL,
+    #' @field text Field.
     text = NULL,
     initialize = function(type = NULL, data_hash = NULL, field = NULL, text = NULL) {
       self$type <- type
@@ -36515,7 +40728,9 @@ SecureValueErrorData <- R6::R6Class("SecureValueErrorData",
 SecureValueErrorFile <- R6::R6Class("SecureValueErrorFile",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7a700873,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6075fce,
     initialize = function(type, file_hash, text) {
       self$type <- type
@@ -36551,7 +40766,9 @@ SecureValueErrorFile <- R6::R6Class("SecureValueErrorFile",
 SecureValueErrorFiles <- R6::R6Class("SecureValueErrorFiles",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x666220e9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6075fce,
     initialize = function(type, file_hash, text) {
       self$type <- type
@@ -36592,7 +40809,9 @@ SecureValueErrorFiles <- R6::R6Class("SecureValueErrorFiles",
 SecureValueErrorFrontSide <- R6::R6Class("SecureValueErrorFrontSide",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbe3dfa,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6075fce,
     initialize = function(type, file_hash, text) {
       self$type <- type
@@ -36628,7 +40847,9 @@ SecureValueErrorFrontSide <- R6::R6Class("SecureValueErrorFrontSide",
 SecureValueErrorReverseSide <- R6::R6Class("SecureValueErrorReverseSide",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x868a2aa5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6075fce,
     initialize = function(type, file_hash, text) {
       self$type <- type
@@ -36664,7 +40885,9 @@ SecureValueErrorReverseSide <- R6::R6Class("SecureValueErrorReverseSide",
 SecureValueErrorSelfie <- R6::R6Class("SecureValueErrorSelfie",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe537ced6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6075fce,
     initialize = function(type, file_hash, text) {
       self$type <- type
@@ -36700,7 +40923,9 @@ SecureValueErrorSelfie <- R6::R6Class("SecureValueErrorSelfie",
 SecureValueErrorTranslationFile <- R6::R6Class("SecureValueErrorTranslationFile",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa1144770,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6075fce,
     initialize = function(type, file_hash, text) {
       self$type <- type
@@ -36736,7 +40961,9 @@ SecureValueErrorTranslationFile <- R6::R6Class("SecureValueErrorTranslationFile"
 SecureValueErrorTranslationFiles <- R6::R6Class("SecureValueErrorTranslationFiles",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x34636dd8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6075fce,
     initialize = function(type, file_hash, text) {
       self$type <- type
@@ -36777,7 +41004,9 @@ SecureValueErrorTranslationFiles <- R6::R6Class("SecureValueErrorTranslationFile
 SecureValueHash <- R6::R6Class("SecureValueHash",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xed1ecdb0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd5f5c007,
     initialize = function(type, hash) {
       self$type <- type
@@ -36810,7 +41039,9 @@ SecureValueHash <- R6::R6Class("SecureValueHash",
 SecureValueTypeAddress <- R6::R6Class("SecureValueTypeAddress",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcbe31e26,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8893f596,
     to_dict = function() {
       list(`_` = "SecureValueTypeAddress")
@@ -36833,7 +41064,9 @@ SecureValueTypeAddress <- R6::R6Class("SecureValueTypeAddress",
 SecureValueTypeBankStatement <- R6::R6Class("SecureValueTypeBankStatement",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x89137c0d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8893f596,
     to_dict = function() {
       list(`_` = "SecureValueTypeBankStatement")
@@ -36856,7 +41089,9 @@ SecureValueTypeBankStatement <- R6::R6Class("SecureValueTypeBankStatement",
 SecureValueTypeDriverLicense <- R6::R6Class("SecureValueTypeDriverLicense",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6e425c4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8893f596,
     to_dict = function() {
       list(`_` = "SecureValueTypeDriverLicense")
@@ -36879,7 +41114,9 @@ SecureValueTypeDriverLicense <- R6::R6Class("SecureValueTypeDriverLicense",
 SecureValueTypeEmail <- R6::R6Class("SecureValueTypeEmail",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8e3ca7ee,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8893f596,
     to_dict = function() {
       list(`_` = "SecureValueTypeEmail")
@@ -36902,7 +41139,9 @@ SecureValueTypeEmail <- R6::R6Class("SecureValueTypeEmail",
 SecureValueTypeIdentityCard <- R6::R6Class("SecureValueTypeIdentityCard",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa0d0744b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8893f596,
     to_dict = function() {
       list(`_` = "SecureValueTypeIdentityCard")
@@ -36925,7 +41164,9 @@ SecureValueTypeIdentityCard <- R6::R6Class("SecureValueTypeIdentityCard",
 SecureValueTypeInternalPassport <- R6::R6Class("SecureValueTypeInternalPassport",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x99a48f23,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8893f596,
     to_dict = function() {
       list(`_` = "SecureValueTypeInternalPassport")
@@ -36948,7 +41189,9 @@ SecureValueTypeInternalPassport <- R6::R6Class("SecureValueTypeInternalPassport"
 SecureValueTypePassport <- R6::R6Class("SecureValueTypePassport",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3dac6a00,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8893f596,
     to_dict = function() {
       list(`_` = "SecureValueTypePassport")
@@ -36971,7 +41214,9 @@ SecureValueTypePassport <- R6::R6Class("SecureValueTypePassport",
 SecureValueTypePassportRegistration <- R6::R6Class("SecureValueTypePassportRegistration",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x99e3806a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8893f596,
     to_dict = function() {
       list(`_` = "SecureValueTypePassportRegistration")
@@ -36994,7 +41239,9 @@ SecureValueTypePassportRegistration <- R6::R6Class("SecureValueTypePassportRegis
 SecureValueTypePersonalDetails <- R6::R6Class("SecureValueTypePersonalDetails",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9d2a81e3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8893f596,
     to_dict = function() {
       list(`_` = "SecureValueTypePersonalDetails")
@@ -37017,7 +41264,9 @@ SecureValueTypePersonalDetails <- R6::R6Class("SecureValueTypePersonalDetails",
 SecureValueTypePhone <- R6::R6Class("SecureValueTypePhone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb320aadb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8893f596,
     to_dict = function() {
       list(`_` = "SecureValueTypePhone")
@@ -37040,7 +41289,9 @@ SecureValueTypePhone <- R6::R6Class("SecureValueTypePhone",
 SecureValueTypeRentalAgreement <- R6::R6Class("SecureValueTypeRentalAgreement",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8b883488,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8893f596,
     to_dict = function() {
       list(`_` = "SecureValueTypeRentalAgreement")
@@ -37063,7 +41314,9 @@ SecureValueTypeRentalAgreement <- R6::R6Class("SecureValueTypeRentalAgreement",
 SecureValueTypeTemporaryRegistration <- R6::R6Class("SecureValueTypeTemporaryRegistration",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xea02ec33,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8893f596,
     to_dict = function() {
       list(`_` = "SecureValueTypeTemporaryRegistration")
@@ -37086,7 +41339,9 @@ SecureValueTypeTemporaryRegistration <- R6::R6Class("SecureValueTypeTemporaryReg
 SecureValueTypeUtilityBill <- R6::R6Class("SecureValueTypeUtilityBill",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfc36954e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8893f596,
     to_dict = function() {
       list(`_` = "SecureValueTypeUtilityBill")
@@ -37109,7 +41364,9 @@ SecureValueTypeUtilityBill <- R6::R6Class("SecureValueTypeUtilityBill",
 SendAsPeer <- R6::R6Class("SendAsPeer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb81c7034,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x442381e4,
     initialize = function(peer, premium_required = NULL) {
       self$peer <- peer
@@ -37143,7 +41400,9 @@ SendAsPeer <- R6::R6Class("SendAsPeer",
 SendMessageCancelAction <- R6::R6Class("SendMessageCancelAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfd5ec8f5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
     to_dict = function() {
       list(`_` = "SendMessageCancelAction")
@@ -37166,7 +41425,9 @@ SendMessageCancelAction <- R6::R6Class("SendMessageCancelAction",
 SendMessageChooseContactAction <- R6::R6Class("SendMessageChooseContactAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x628cbc6f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
     to_dict = function() {
       list(`_` = "SendMessageChooseContactAction")
@@ -37189,7 +41450,9 @@ SendMessageChooseContactAction <- R6::R6Class("SendMessageChooseContactAction",
 SendMessageChooseStickerAction <- R6::R6Class("SendMessageChooseStickerAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb05ac6b1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
     to_dict = function() {
       list(`_` = "SendMessageChooseStickerAction")
@@ -37212,7 +41475,9 @@ SendMessageChooseStickerAction <- R6::R6Class("SendMessageChooseStickerAction",
 SendMessageEmojiInteraction <- R6::R6Class("SendMessageEmojiInteraction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x25972bcb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
     initialize = function(emoticon, msg_id, interaction) {
       self$emoticon <- emoticon
@@ -37248,7 +41513,9 @@ SendMessageEmojiInteraction <- R6::R6Class("SendMessageEmojiInteraction",
 SendMessageEmojiInteractionSeen <- R6::R6Class("SendMessageEmojiInteractionSeen",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb665902e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
     initialize = function(emoticon) {
       self$emoticon <- emoticon
@@ -37278,7 +41545,9 @@ SendMessageEmojiInteractionSeen <- R6::R6Class("SendMessageEmojiInteractionSeen"
 SendMessageGamePlayAction <- R6::R6Class("SendMessageGamePlayAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdd6a8f48,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
     to_dict = function() {
       list(`_` = "SendMessageGamePlayAction")
@@ -37301,7 +41570,9 @@ SendMessageGamePlayAction <- R6::R6Class("SendMessageGamePlayAction",
 SendMessageGeoLocationAction <- R6::R6Class("SendMessageGeoLocationAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x176f8ba1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
     to_dict = function() {
       list(`_` = "SendMessageGeoLocationAction")
@@ -37324,8 +41595,11 @@ SendMessageGeoLocationAction <- R6::R6Class("SendMessageGeoLocationAction",
 SendMessageHistoryImportAction <- R6::R6Class("SendMessageHistoryImportAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdbda9246,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
+    #' @field progress Field.
     progress = NULL,
     initialize = function(progress) {
       self$progress <- progress
@@ -37355,7 +41629,9 @@ SendMessageHistoryImportAction <- R6::R6Class("SendMessageHistoryImportAction",
 SendMessageRecordAudioAction <- R6::R6Class("SendMessageRecordAudioAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd52f73f7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
     to_dict = function() {
       list(`_` = "SendMessageRecordAudioAction")
@@ -37378,7 +41654,9 @@ SendMessageRecordAudioAction <- R6::R6Class("SendMessageRecordAudioAction",
 SendMessageRecordRoundAction <- R6::R6Class("SendMessageRecordRoundAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x88f27fbc,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
     to_dict = function() {
       list(`_` = "SendMessageRecordRoundAction")
@@ -37401,7 +41679,9 @@ SendMessageRecordRoundAction <- R6::R6Class("SendMessageRecordRoundAction",
 SendMessageRecordVideoAction <- R6::R6Class("SendMessageRecordVideoAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa187d66f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
     to_dict = function() {
       list(`_` = "SendMessageRecordVideoAction")
@@ -37426,7 +41706,9 @@ SendMessageRecordVideoAction <- R6::R6Class("SendMessageRecordVideoAction",
 SendMessageTypingAction <- R6::R6Class("SendMessageTypingAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x16bf744e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
     to_dict = function() {
       list(`_` = "SendMessageTypingAction")
@@ -37449,8 +41731,11 @@ SendMessageTypingAction <- R6::R6Class("SendMessageTypingAction",
 SendMessageUploadAudioAction <- R6::R6Class("SendMessageUploadAudioAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf351d7ab,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
+    #' @field progress Field.
     progress = NULL,
     initialize = function(progress) {
       self$progress <- progress
@@ -37480,8 +41765,11 @@ SendMessageUploadAudioAction <- R6::R6Class("SendMessageUploadAudioAction",
 SendMessageUploadDocumentAction <- R6::R6Class("SendMessageUploadDocumentAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xaa0cd9e4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
+    #' @field progress Field.
     progress = NULL,
     initialize = function(progress) {
       self$progress <- progress
@@ -37511,8 +41799,11 @@ SendMessageUploadDocumentAction <- R6::R6Class("SendMessageUploadDocumentAction"
 SendMessageUploadPhotoAction <- R6::R6Class("SendMessageUploadPhotoAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd1d34a26,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
+    #' @field progress Field.
     progress = NULL,
     initialize = function(progress) {
       self$progress <- progress
@@ -37542,8 +41833,11 @@ SendMessageUploadPhotoAction <- R6::R6Class("SendMessageUploadPhotoAction",
 SendMessageUploadRoundAction <- R6::R6Class("SendMessageUploadRoundAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x243e1c66,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
+    #' @field progress Field.
     progress = NULL,
     initialize = function(progress) {
       self$progress <- progress
@@ -37573,8 +41867,11 @@ SendMessageUploadRoundAction <- R6::R6Class("SendMessageUploadRoundAction",
 SendMessageUploadVideoAction <- R6::R6Class("SendMessageUploadVideoAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe9763aec,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
+    #' @field progress Field.
     progress = NULL,
     initialize = function(progress) {
       self$progress <- progress
@@ -37604,7 +41901,9 @@ SendMessageUploadVideoAction <- R6::R6Class("SendMessageUploadVideoAction",
 ServerDHInnerData <- R6::R6Class("ServerDHInnerData",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb5890dba,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc69a67bc,
     initialize = function(nonce, server_nonce, g, dh_prime, g_a, server_time) {
       self$nonce <- nonce
@@ -37650,7 +41949,9 @@ ServerDHParamsFail <- R6::R6Class(
   "ServerDHParamsFail",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x79cb045d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa6188d9e,
     initialize = function(nonce, server_nonce, new_nonce_hash) {
       self$nonce <- nonce
@@ -37691,7 +41992,9 @@ ServerDHParamsOk <- R6::R6Class(
   "ServerDHParamsOk",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd0e8075c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa6188d9e,
     initialize = function(nonce, server_nonce, encrypted_answer) {
       self$nonce <- nonce
@@ -37732,7 +42035,9 @@ ShippingOption <- R6::R6Class(
   "ShippingOption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb6213cdf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf4e94c78,
     initialize = function(id, title, prices) {
       self$id <- id
@@ -37778,7 +42083,9 @@ SmsJob <- R6::R6Class(
   "SmsJob",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe6a1eeb8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1f24187e,
     initialize = function(job_id, phone_number, text) {
       self$job_id <- job_id
@@ -37819,7 +42126,9 @@ SpeakingInGroupCallAction <- R6::R6Class(
   "SpeakingInGroupCallAction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd92c2285,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x20b2cc21,
     to_dict = function() {
       list(`_` = "SpeakingInGroupCallAction")
@@ -37843,7 +42152,9 @@ SponsoredMessage <- R6::R6Class(
   "SponsoredMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7dbf8673,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe157d836,
     initialize = function(url, title, message, button_text, recommended = NULL, can_report = NULL, random_id = NULL, entities = NULL, photo = NULL, media = NULL, color = NULL, sponsor_info = NULL, additional_info = NULL, min_display_duration = NULL, max_display_duration = NULL) {
       self$url <- url
@@ -37976,7 +42287,9 @@ SponsoredMessageReportOption <- R6::R6Class(
   "SponsoredMessageReportOption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x430d3150,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdd32a718,
     initialize = function(text, option) {
       self$text <- text
@@ -38013,7 +42326,9 @@ SponsoredPeer <- R6::R6Class(
   "SponsoredPeer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc69708d3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3f75800e,
     initialize = function(peer, random_id = NULL, sponsor_info = NULL, additional_info = NULL) {
       self$peer <- peer
@@ -38065,7 +42380,9 @@ StarGift <- R6::R6Class(
   "StarGift",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x80ac53c3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc31c590b,
     initialize = function(id, sticker, stars, convert_stars, limited = NULL, sold_out = NULL, birthday = NULL, require_premium = NULL, limited_per_user = NULL, availability_remains = NULL, availability_total = NULL, availability_resale = NULL, first_sale_date = NULL, last_sale_date = NULL, upgrade_stars = NULL, resell_min_stars = NULL, title = NULL, released_by = NULL, per_user_total = NULL, per_user_remains = NULL, locked_until_date = NULL) {
       self$id <- id
@@ -38240,7 +42557,9 @@ StarGiftAttributeBackdrop <- R6::R6Class(
   "StarGiftAttributeBackdrop",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd93d859c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x87b581c8,
     initialize = function(name, backdrop_id, center_color, edge_color, pattern_color, text_color, rarity_permille) {
       self$name <- name
@@ -38297,7 +42616,9 @@ StarGiftAttributeCounter <- R6::R6Class(
   "StarGiftAttributeCounter",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2eb1b658,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8c28b293,
     initialize = function(attribute, count) {
       self$attribute <- attribute
@@ -38334,7 +42655,9 @@ StarGiftAttributeIdBackdrop <- R6::R6Class(
   "StarGiftAttributeIdBackdrop",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1f01c757,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb3212ab7,
     initialize = function(backdrop_id) {
       self$backdrop_id <- backdrop_id
@@ -38367,7 +42690,9 @@ StarGiftAttributeIdModel <- R6::R6Class(
   "StarGiftAttributeIdModel",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x48aaae3c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb3212ab7,
     initialize = function(document_id) {
       self$document_id <- document_id
@@ -38400,7 +42725,9 @@ StarGiftAttributeIdPattern <- R6::R6Class(
   "StarGiftAttributeIdPattern",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4a162433,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb3212ab7,
     initialize = function(document_id) {
       self$document_id <- document_id
@@ -38433,7 +42760,9 @@ StarGiftAttributeModel <- R6::R6Class(
   "StarGiftAttributeModel",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x39d99013,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x87b581c8,
     initialize = function(name, document, rarity_permille) {
       self$name <- name
@@ -38474,7 +42803,9 @@ StarGiftAttributeOriginalDetails <- R6::R6Class(
   "StarGiftAttributeOriginalDetails",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe0bff26c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x87b581c8,
     initialize = function(recipient_id, date, sender_id = NULL, message = NULL) {
       self$recipient_id <- recipient_id
@@ -38526,7 +42857,9 @@ StarGiftAttributePattern <- R6::R6Class(
   "StarGiftAttributePattern",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x13acff19,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x87b581c8,
     initialize = function(name, document, rarity_permille) {
       self$name <- name
@@ -38567,7 +42900,9 @@ StarGiftCollection <- R6::R6Class(
   "StarGiftCollection",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9d6b13b0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x43e0cb4a,
     initialize = function(collection_id, title, gifts_count, hash, icon = NULL) {
       self$collection_id <- collection_id
@@ -38623,7 +42958,9 @@ StarGiftUnique <- R6::R6Class(
   "StarGiftUnique",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1befe865,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc31c590b,
     initialize = function(id, gift_id, title, slug, num, attributes, availability_issued, availability_total, require_premium = NULL, resale_ton_only = NULL, theme_available = NULL, owner_id = NULL, owner_name = NULL, owner_address = NULL, gift_address = NULL, resell_amount = NULL, released_by = NULL, value_amount = NULL, value_currency = NULL, themepeer = NULL) {
       self$id <- id
@@ -38782,7 +43119,9 @@ StarRefProgram <- R6::R6Class(
   "StarRefProgram",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdd0c66f2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9888e002,
     initialize = function(bot_id, commission_permille, duration_months = NULL, end_date = NULL, daily_revenue_per_user = NULL) {
       self$bot_id <- bot_id
@@ -38842,7 +43181,9 @@ StarsAmount <- R6::R6Class(
   "StarsAmount",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbbb6b4a3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x355b3240,
     initialize = function(amount, nanos) {
       self$amount <- amount
@@ -38879,7 +43220,9 @@ StarsGiftOption <- R6::R6Class(
   "StarsGiftOption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5e0589f1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xa9cd4bb7,
     initialize = function(stars, currency, amount, extended = NULL, store_product = NULL) {
       self$stars <- stars
@@ -38933,7 +43276,9 @@ StarsGiftOption <- R6::R6Class(
 StarsGiveawayOption <- R6::R6Class("StarsGiveawayOption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x94ce852a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3a28a20b,
     initialize = function(stars, yearly_boosts, currency, amount, winners, extended = NULL, default = NULL, store_product = NULL) {
       self$stars <- stars
@@ -38995,7 +43340,9 @@ StarsGiveawayOption <- R6::R6Class("StarsGiveawayOption",
 StarsGiveawayWinnersOption <- R6::R6Class("StarsGiveawayWinnersOption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x54236209,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xfbfaa2e4,
     initialize = function(users, per_user_stars, default = NULL) {
       self$users <- users
@@ -39037,7 +43384,9 @@ StarsGiveawayWinnersOption <- R6::R6Class("StarsGiveawayWinnersOption",
 StarsRating <- R6::R6Class("StarsRating",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1b0e4f07,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x63736420,
     initialize = function(level, current_level_stars, stars, next_level_stars = NULL) {
       self$level <- level
@@ -39084,7 +43433,9 @@ StarsRating <- R6::R6Class("StarsRating",
 StarsRevenueStatus <- R6::R6Class("StarsRevenueStatus",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfebe5491,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3d7d9ff1,
     initialize = function(current_balance, available_balance, overall_revenue, withdrawal_enabled = NULL, next_withdrawal_at = NULL) {
       self$current_balance <- current_balance
@@ -39134,7 +43485,9 @@ StarsRevenueStatus <- R6::R6Class("StarsRevenueStatus",
 StarsSubscription <- R6::R6Class("StarsSubscription",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2e6eab1a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xeced29c3,
     initialize = function(id, peer, until_date, pricing, canceled = NULL, can_refulfill = NULL, missing_balance = NULL, bot_canceled = NULL, chat_invite_hash = NULL, title = NULL, photo = NULL, invoice_slug = NULL) {
       self$id <- id
@@ -39209,7 +43562,9 @@ StarsSubscription <- R6::R6Class("StarsSubscription",
 StarsSubscriptionPricing <- R6::R6Class("StarsSubscriptionPricing",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5416d58,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbbf7b9a9,
     initialize = function(period, amount) {
       self$period <- period
@@ -39246,7 +43601,9 @@ StarsSubscriptionPricing <- R6::R6Class("StarsSubscriptionPricing",
 StarsTonAmount <- R6::R6Class("StarsTonAmount",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x74aee3e0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x355b3240,
     initialize = function(amount) {
       self$amount <- amount
@@ -39279,7 +43636,9 @@ StarsTonAmount <- R6::R6Class("StarsTonAmount",
 StarsTopupOption <- R6::R6Class("StarsTopupOption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbd915c0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe5bca5ec,
     initialize = function(stars, currency, amount, extended = NULL, store_product = NULL) {
       self$stars <- stars
@@ -39329,7 +43688,9 @@ StarsTopupOption <- R6::R6Class("StarsTopupOption",
 StarsTransaction <- R6::R6Class("StarsTransaction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x13659eb0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x86884772,
     initialize = function(id, amount, date, peer, refund = NULL, pending = NULL, failed = NULL, gift = NULL, reaction = NULL, stargift_upgrade = NULL, business_transfer = NULL, stargift_resale = NULL, posts_search = NULL, stargift_prepaid_upgrade = NULL, title = NULL, description = NULL, photo = NULL, transaction_date = NULL, transaction_url = NULL, bot_payload = NULL, msg_id = NULL, extended_media = NULL, subscription_period = NULL, giveaway_post_id = NULL, stargift = NULL, floodskip_number = NULL, starref_commission_permille = NULL, starrefpeer = NULL, starref_amount = NULL, paid_messages = NULL, premium_gift_months = NULL, ads_proceeds_from_date = NULL, ads_proceeds_to_date = NULL) {
       self$id <- id
@@ -39490,7 +43851,9 @@ StarsTransaction <- R6::R6Class("StarsTransaction",
 StarsTransactionPeer <- R6::R6Class("StarsTransactionPeer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd80da15d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x41b69183,
     initialize = function(peer) {
       self$peer <- peer
@@ -39523,7 +43886,9 @@ StarsTransactionPeer <- R6::R6Class("StarsTransactionPeer",
 StarsTransactionPeerAPI <- R6::R6Class("StarsTransactionPeerAPI",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf9677aad,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x41b69183,
     to_dict = function() {
       list(`_` = "StarsTransactionPeerAPI")
@@ -39546,7 +43911,9 @@ StarsTransactionPeerAPI <- R6::R6Class("StarsTransactionPeerAPI",
 StarsTransactionPeerAds <- R6::R6Class("StarsTransactionPeerAds",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x60682812,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x41b69183,
     to_dict = function() {
       list(`_` = "StarsTransactionPeerAds")
@@ -39569,7 +43936,9 @@ StarsTransactionPeerAds <- R6::R6Class("StarsTransactionPeerAds",
 StarsTransactionPeerAppStore <- R6::R6Class("StarsTransactionPeerAppStore",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb457b375,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x41b69183,
     to_dict = function() {
       list(`_` = "StarsTransactionPeerAppStore")
@@ -39592,7 +43961,9 @@ StarsTransactionPeerAppStore <- R6::R6Class("StarsTransactionPeerAppStore",
 StarsTransactionPeerFragment <- R6::R6Class("StarsTransactionPeerFragment",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe92fd902,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x41b69183,
     to_dict = function() {
       list(`_` = "StarsTransactionPeerFragment")
@@ -39615,7 +43986,9 @@ StarsTransactionPeerFragment <- R6::R6Class("StarsTransactionPeerFragment",
 StarsTransactionPeerPlayMarket <- R6::R6Class("StarsTransactionPeerPlayMarket",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7b560a0b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x41b69183,
     to_dict = function() {
       list(`_` = "StarsTransactionPeerPlayMarket")
@@ -39638,7 +44011,9 @@ StarsTransactionPeerPlayMarket <- R6::R6Class("StarsTransactionPeerPlayMarket",
 StarsTransactionPeerPremiumBot <- R6::R6Class("StarsTransactionPeerPremiumBot",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x250dbaf8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x41b69183,
     to_dict = function() {
       list(`_` = "StarsTransactionPeerPremiumBot")
@@ -39661,7 +44036,9 @@ StarsTransactionPeerPremiumBot <- R6::R6Class("StarsTransactionPeerPremiumBot",
 StarsTransactionPeerUnsupported <- R6::R6Class("StarsTransactionPeerUnsupported",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x95f2bfe4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x41b69183,
     to_dict = function() {
       list(`_` = "StarsTransactionPeerUnsupported")
@@ -39684,7 +44061,9 @@ StarsTransactionPeerUnsupported <- R6::R6Class("StarsTransactionPeerUnsupported"
 StatsAbsValueAndPrev <- R6::R6Class("StatsAbsValueAndPrev",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcb43acde,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3ebe59af,
     initialize = function(current, previous) {
       self$current <- current
@@ -40644,7 +45023,9 @@ TextFixed <- R6::R6Class("TextFixed",
 TlsBlockString <- R6::R6Class("TlsBlockString",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4218a164,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1163490,
     initialize = function(data) {
       self$data <- data
@@ -40666,7 +45047,9 @@ TlsBlockString <- R6::R6Class("TlsBlockString",
 TlsBlockZero <- R6::R6Class("TlsBlockZero",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9333afb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1163490,
     initialize = function(length) {
       self$length <- length
@@ -40688,7 +45071,9 @@ TlsBlockZero <- R6::R6Class("TlsBlockZero",
 TextImage <- R6::R6Class("TextImage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x81ccf4f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1d0b479,
     initialize = function(document_id, w, h) {
       self$document_id <- document_id
@@ -40712,7 +45097,9 @@ TextImage <- R6::R6Class("TextImage",
 TextItalic <- R6::R6Class("TextItalic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd912a59c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1d0b479,
     initialize = function(text) {
       self$text <- text
@@ -40734,7 +45121,9 @@ TextItalic <- R6::R6Class("TextItalic",
 TextMarked <- R6::R6Class("TextMarked",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x34b8621,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1d0b479,
     initialize = function(text) {
       self$text <- text
@@ -40756,7 +45145,9 @@ TextMarked <- R6::R6Class("TextMarked",
 TextPhone <- R6::R6Class("TextPhone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1ccb966a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1d0b479,
     initialize = function(text, phone) {
       self$text <- text
@@ -40779,7 +45170,9 @@ TextPhone <- R6::R6Class("TextPhone",
 TextPlain <- R6::R6Class("TextPlain",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x744694e0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1d0b479,
     initialize = function(text) {
       self$text <- text
@@ -40801,7 +45194,9 @@ TextPlain <- R6::R6Class("TextPlain",
 TextStrike <- R6::R6Class("TextStrike",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9bf8bb95,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1d0b479,
     initialize = function(text) {
       self$text <- text
@@ -40823,7 +45218,9 @@ TextStrike <- R6::R6Class("TextStrike",
 TextSubscript <- R6::R6Class("TextSubscript",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xed6a8504,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1d0b479,
     initialize = function(text) {
       self$text <- text
@@ -40845,7 +45242,9 @@ TextSubscript <- R6::R6Class("TextSubscript",
 TextSuperscript <- R6::R6Class("TextSuperscript",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc7fb5e01,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1d0b479,
     initialize = function(text) {
       self$text <- text
@@ -40867,7 +45266,9 @@ TextSuperscript <- R6::R6Class("TextSuperscript",
 TextUnderline <- R6::R6Class("TextUnderline",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc12622c4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1d0b479,
     initialize = function(text) {
       self$text <- text
@@ -40889,7 +45290,9 @@ TextUnderline <- R6::R6Class("TextUnderline",
 TextUrl <- R6::R6Class("TextUrl",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3c2884c1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1d0b479,
     initialize = function(text, url, webpage_id) {
       self$text <- text
@@ -40913,7 +45316,9 @@ TextUrl <- R6::R6Class("TextUrl",
 TextWithEntities <- R6::R6Class("TextWithEntities",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x751f3146,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x95ca4b05,
     initialize = function(text, entities) {
       self$text <- text
@@ -40941,7 +45346,9 @@ TextWithEntities <- R6::R6Class("TextWithEntities",
 Theme <- R6::R6Class("Theme",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa00e67d6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x56b4c80c,
     initialize = function(id, access_hash, slug, title, creator = NULL, default = NULL, for_chat = NULL, document = NULL, settings = NULL, emoticon = NULL, installs_count = NULL) {
       self$id <- id
@@ -40995,7 +45402,9 @@ Theme <- R6::R6Class("Theme",
 ThemeSettings <- R6::R6Class("ThemeSettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfa58b6d4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x82666d38,
     initialize = function(base_theme, accent_color, message_colors_animated = NULL, outbox_accent_color = NULL, message_colors = NULL, wallpaper = NULL) {
       self$base_theme <- base_theme
@@ -41039,7 +45448,9 @@ ThemeSettings <- R6::R6Class("ThemeSettings",
 Timezone <- R6::R6Class("Timezone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xff9289f5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xce77d0c1,
     initialize = function(id, name, utc_offset) {
       self$id <- id
@@ -41063,7 +45474,9 @@ Timezone <- R6::R6Class("Timezone",
 TlsBlockDomain <- R6::R6Class("TlsBlockDomain",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x10e8636f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1163490,
     to_dict = function() {
       list(`_` = "TlsBlockDomain")
@@ -41082,7 +45495,9 @@ TlsBlockDomain <- R6::R6Class("TlsBlockDomain",
 TlsBlockGrease <- R6::R6Class("TlsBlockGrease",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe675a1c1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1163490,
     initialize = function(seed) {
       self$seed <- seed
@@ -41104,7 +45519,9 @@ TlsBlockGrease <- R6::R6Class("TlsBlockGrease",
 TlsBlockPublicKey <- R6::R6Class("TlsBlockPublicKey",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9eb95b5c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1163490,
     to_dict = function() {
       list(`_` = "TlsBlockPublicKey")
@@ -41123,7 +45540,9 @@ TlsBlockPublicKey <- R6::R6Class("TlsBlockPublicKey",
 TlsBlockRandom <- R6::R6Class("TlsBlockRandom",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4d4dc41e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1163490,
     initialize = function(length) {
       self$length <- length
@@ -41145,7 +45564,9 @@ TlsBlockRandom <- R6::R6Class("TlsBlockRandom",
 TlsBlockScope <- R6::R6Class("TlsBlockScope",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe725d44f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf1163490,
     initialize = function(entries) {
       self$entries <- entries
@@ -41172,8 +45593,11 @@ TlsClientHello <- R6::R6Class(
   "TlsClientHello",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6c52c484,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbef20920,
+    #' @field blocks Field.
     blocks = NULL,
     initialize = function(blocks) {
       self$blocks <- blocks
@@ -41216,10 +45640,15 @@ TodoCompletion <- R6::R6Class(
   "TodoCompletion",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4cc120b7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xbae65b7b,
+    #' @field id Field.
     id = NULL,
+    #' @field completed_by Field.
     completed_by = NULL,
+    #' @field date Field.
     date = NULL,
     initialize = function(id, completed_by, date) {
       self$id <- id
@@ -41260,9 +45689,13 @@ TodoItem <- R6::R6Class(
   "TodoItem",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcba9a52f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdfdae6b5,
+    #' @field id Field.
     id = NULL,
+    #' @field title Field.
     title = NULL,
     initialize = function(id, title) {
       self$id <- id
@@ -41299,11 +45732,17 @@ TodoList <- R6::R6Class(
   "TodoList",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x49b92a26,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x84093bb3,
+    #' @field title Field.
     title = NULL,
+    #' @field list Field.
     list = NULL,
+    #' @field others_can_append Field.
     others_can_append = NULL,
+    #' @field others_can_complete Field.
     others_can_complete = NULL,
     initialize = function(title, list, others_can_append = NULL, others_can_complete = NULL) {
       self$title <- title
@@ -41352,9 +45791,13 @@ TopPeer <- R6::R6Class(
   "TopPeer",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xedcdc05b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6916c601,
+    #' @field peer Field.
     peer = NULL,
+    #' @field rating Field.
     rating = NULL,
     initialize = function(peer, rating) {
       self$peer <- peer
@@ -41391,7 +45834,9 @@ TopPeerCategoryBotsApp <- R6::R6Class(
   "TopPeerCategoryBotsApp",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfd9e7bec,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xddf02502,
     to_dict = function() {
       list(`_` = "TopPeerCategoryBotsApp")
@@ -41415,7 +45860,9 @@ TopPeerCategoryBotsInline <- R6::R6Class(
   "TopPeerCategoryBotsInline",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x148677e2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xddf02502,
     to_dict = function() {
       list(`_` = "TopPeerCategoryBotsInline")
@@ -41439,7 +45886,9 @@ TopPeerCategoryBotsPM <- R6::R6Class(
   "TopPeerCategoryBotsPM",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xab661b5b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xddf02502,
     to_dict = function() {
       list(`_` = "TopPeerCategoryBotsPM")
@@ -41463,7 +45912,9 @@ TopPeerCategoryChannels <- R6::R6Class(
   "TopPeerCategoryChannels",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x161d9628,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xddf02502,
     to_dict = function() {
       list(`_` = "TopPeerCategoryChannels")
@@ -41487,7 +45938,9 @@ TopPeerCategoryCorrespondents <- R6::R6Class(
   "TopPeerCategoryCorrespondents",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x637b7ed,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xddf02502,
     to_dict = function() {
       list(`_` = "TopPeerCategoryCorrespondents")
@@ -41511,7 +45964,9 @@ TopPeerCategoryForwardChats <- R6::R6Class(
   "TopPeerCategoryForwardChats",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfbeec0f0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xddf02502,
     to_dict = function() {
       list(`_` = "TopPeerCategoryForwardChats")
@@ -41535,7 +45990,9 @@ TopPeerCategoryForwardUsers <- R6::R6Class(
   "TopPeerCategoryForwardUsers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa8406ca9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xddf02502,
     to_dict = function() {
       list(`_` = "TopPeerCategoryForwardUsers")
@@ -41559,7 +46016,9 @@ TopPeerCategoryGroups <- R6::R6Class(
   "TopPeerCategoryGroups",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbd17a14a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xddf02502,
     to_dict = function() {
       list(`_` = "TopPeerCategoryGroups")
@@ -41583,7 +46042,9 @@ TopPeerCategoryPeers <- R6::R6Class(
   "TopPeerCategoryPeers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfb834291,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4aec930,
     initialize = function(category, count, peers) {
       self$category <- category
@@ -41628,7 +46089,9 @@ TopPeerCategoryPhoneCalls <- R6::R6Class(
   "TopPeerCategoryPhoneCalls",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1e76a78c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xddf02502,
     to_dict = function() {
       list(`_` = "TopPeerCategoryPhoneCalls")
@@ -41652,7 +46115,9 @@ UpdateAttachMenuBots <- R6::R6Class(
   "UpdateAttachMenuBots",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x17b7a20b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateAttachMenuBots")
@@ -41676,7 +46141,9 @@ UpdateAutoSaveSettings <- R6::R6Class(
   "UpdateAutoSaveSettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xec05b097,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateAutoSaveSettings")
@@ -41700,7 +46167,9 @@ UpdateBotBusinessConnect <- R6::R6Class(
   "UpdateBotBusinessConnect",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8ae5c97a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(connection, qts) {
       self$connection <- connection
@@ -41738,7 +46207,9 @@ UpdateBotCallbackQuery <- R6::R6Class(
   "UpdateBotCallbackQuery",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb9cfc48d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(query_id, user_id, peer, msg_id, chat_instance, data = NULL, game_short_name = NULL) {
       self$query_id <- query_id
@@ -41796,7 +46267,9 @@ UpdateBotChatBoost <- R6::R6Class(
   "UpdateBotChatBoost",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x904dd49c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, boost, qts) {
       self$peer <- peer
@@ -41836,7 +46309,9 @@ UpdateBotChatInviteRequester <- R6::R6Class(
   "UpdateBotChatInviteRequester",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x11dfa986,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, date, user_id, about, invite, qts) {
       self$peer <- peer
@@ -41890,7 +46365,9 @@ UpdateBotCommands <- R6::R6Class(
   "UpdateBotCommands",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4d712f2e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, bot_id, commands) {
       self$peer <- peer
@@ -41938,7 +46415,9 @@ UpdateBotDeleteBusinessMessage <- R6::R6Class(
   "UpdateBotDeleteBusinessMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa02a982e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(connection_id, peer, messages, qts) {
       self$connection_id <- connection_id
@@ -41987,7 +46466,9 @@ UpdateBotEditBusinessMessage <- R6::R6Class(
   "UpdateBotEditBusinessMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x07df587c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(connection_id, message, qts, reply_to_message = NULL) {
       self$connection_id <- connection_id
@@ -42034,7 +46515,9 @@ UpdateBotEditBusinessMessage <- R6::R6Class(
 UpdateBotInlineQuery <- R6::R6Class("UpdateBotInlineQuery",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x496f379c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(query_id, user_id, query, offset, geo = NULL, peer_type = NULL) {
       self$query_id <- query_id
@@ -42089,7 +46572,9 @@ UpdateBotInlineQuery <- R6::R6Class("UpdateBotInlineQuery",
 UpdateBotInlineSend <- R6::R6Class("UpdateBotInlineSend",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x12f12a07,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(user_id, query, id, geo = NULL, msg_id = NULL) {
       self$user_id <- user_id
@@ -42140,7 +46625,9 @@ UpdateBotInlineSend <- R6::R6Class("UpdateBotInlineSend",
 UpdateBotMenuButton <- R6::R6Class("UpdateBotMenuButton",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x14b85813,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(bot_id, button) {
       self$bot_id <- bot_id
@@ -42177,7 +46664,9 @@ UpdateBotMenuButton <- R6::R6Class("UpdateBotMenuButton",
 UpdateBotMessageReaction <- R6::R6Class("UpdateBotMessageReaction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xac21d3ce,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, msg_id, date, actor, old_reactions, new_reactions, qts) {
       self$peer <- peer
@@ -42242,7 +46731,9 @@ UpdateBotMessageReaction <- R6::R6Class("UpdateBotMessageReaction",
 UpdateBotMessageReactions <- R6::R6Class("UpdateBotMessageReactions",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9cb7759,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, msg_id, date, reactions, qts) {
       self$peer <- peer
@@ -42295,7 +46786,9 @@ UpdateBotMessageReactions <- R6::R6Class("UpdateBotMessageReactions",
 UpdateBotNewBusinessMessage <- R6::R6Class("UpdateBotNewBusinessMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9ddb347c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(connection_id, message, qts, reply_to_message = NULL) {
       self$connection_id <- connection_id
@@ -42342,7 +46835,9 @@ UpdateBotNewBusinessMessage <- R6::R6Class("UpdateBotNewBusinessMessage",
 UpdateBotPrecheckoutQuery <- R6::R6Class("UpdateBotPrecheckoutQuery",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8caa9a96,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(query_id, user_id, payload, currency, total_amount, info = NULL, shipping_option_id = NULL) {
       self$query_id <- query_id
@@ -42401,7 +46896,9 @@ UpdateBotPrecheckoutQuery <- R6::R6Class("UpdateBotPrecheckoutQuery",
 UpdateBotPurchasedPaidMedia <- R6::R6Class("UpdateBotPurchasedPaidMedia",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x283bd312,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(user_id, payload, qts) {
       self$user_id <- user_id
@@ -42442,7 +46939,9 @@ UpdateBotPurchasedPaidMedia <- R6::R6Class("UpdateBotPurchasedPaidMedia",
 UpdateBotShippingQuery <- R6::R6Class("UpdateBotShippingQuery",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb5aefd7d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(query_id, user_id, payload, shipping_address) {
       self$query_id <- query_id
@@ -42487,7 +46986,9 @@ UpdateBotShippingQuery <- R6::R6Class("UpdateBotShippingQuery",
 UpdateBotStopped <- R6::R6Class("UpdateBotStopped",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc4870a49,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(user_id, date, stopped, qts) {
       self$user_id <- user_id
@@ -42532,7 +47033,9 @@ UpdateBotStopped <- R6::R6Class("UpdateBotStopped",
 UpdateBotWebhookJSON <- R6::R6Class("UpdateBotWebhookJSON",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8317c0c3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(data) {
       self$data <- data
@@ -42565,7 +47068,9 @@ UpdateBotWebhookJSON <- R6::R6Class("UpdateBotWebhookJSON",
 UpdateBotWebhookJSONQuery <- R6::R6Class("UpdateBotWebhookJSONQuery",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9b9240a6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(query_id, data, timeout) {
       self$query_id <- query_id
@@ -42606,7 +47111,9 @@ UpdateBotWebhookJSONQuery <- R6::R6Class("UpdateBotWebhookJSONQuery",
 UpdateBusinessBotCallbackQuery <- R6::R6Class("UpdateBusinessBotCallbackQuery",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1ea2fda7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(query_id, user_id, connection_id, message, chat_instance, reply_to_message = NULL, data = NULL) {
       self$query_id <- query_id
@@ -42665,7 +47172,9 @@ UpdateBusinessBotCallbackQuery <- R6::R6Class("UpdateBusinessBotCallbackQuery",
 UpdateChannel <- R6::R6Class("UpdateChannel",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x635b4c09,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id) {
       self$channel_id <- channel_id
@@ -42698,7 +47207,9 @@ UpdateChannel <- R6::R6Class("UpdateChannel",
 UpdateChannelAvailableMessages <- R6::R6Class("UpdateChannelAvailableMessages",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb23fc698,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, available_min_id) {
       self$channel_id <- channel_id
@@ -42735,7 +47246,9 @@ UpdateChannelAvailableMessages <- R6::R6Class("UpdateChannelAvailableMessages",
 UpdateChannelMessageForwards <- R6::R6Class("UpdateChannelMessageForwards",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd29a27f4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, id, forwards) {
       self$channel_id <- channel_id
@@ -42776,7 +47289,9 @@ UpdateChannelMessageForwards <- R6::R6Class("UpdateChannelMessageForwards",
 UpdateChannelMessageViews <- R6::R6Class("UpdateChannelMessageViews",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf226ac08,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, id, views) {
       self$channel_id <- channel_id
@@ -42817,7 +47332,9 @@ UpdateChannelMessageViews <- R6::R6Class("UpdateChannelMessageViews",
 UpdateChannelParticipant <- R6::R6Class("UpdateChannelParticipant",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x985d3abb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, date, actor_id, user_id, qts, via_chatlist = NULL, prev_participant = NULL, new_participant = NULL, invite = NULL) {
       self$channel_id <- channel_id
@@ -42883,7 +47400,9 @@ UpdateChannelParticipant <- R6::R6Class("UpdateChannelParticipant",
 UpdateChannelPinnedTopic <- R6::R6Class("UpdateChannelPinnedTopic",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x192efbe3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, topic_id, pinned = NULL) {
       self$channel_id <- channel_id
@@ -42925,7 +47444,9 @@ UpdateChannelPinnedTopic <- R6::R6Class("UpdateChannelPinnedTopic",
 UpdateChannelPinnedTopics <- R6::R6Class("UpdateChannelPinnedTopics",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfe198602,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, order = NULL) {
       self$channel_id <- channel_id
@@ -42970,7 +47491,9 @@ UpdateChannelPinnedTopics <- R6::R6Class("UpdateChannelPinnedTopics",
 UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesContents",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x25f324f7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, messages, top_msg_id = NULL, savedpeer_id = NULL) {
       self$channel_id <- channel_id
@@ -43021,7 +47544,9 @@ UpdateChannelReadMessagesContents <- R6::R6Class("UpdateChannelReadMessagesConte
 UpdateChannelTooLong <- R6::R6Class("UpdateChannelTooLong",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x108d941f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, pts = NULL) {
       self$channel_id <- channel_id
@@ -43058,7 +47583,9 @@ UpdateChannelTooLong <- R6::R6Class("UpdateChannelTooLong",
 UpdateChannelUserTyping <- R6::R6Class("UpdateChannelUserTyping",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8c88c923,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, from_id, action, top_msg_id = NULL) {
       self$channel_id <- channel_id
@@ -43103,7 +47630,9 @@ UpdateChannelUserTyping <- R6::R6Class("UpdateChannelUserTyping",
 UpdateChannelViewForumAsMessages <- R6::R6Class("UpdateChannelViewForumAsMessages",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7b68920,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, enabled) {
       self$channel_id <- channel_id
@@ -43140,7 +47669,9 @@ UpdateChannelViewForumAsMessages <- R6::R6Class("UpdateChannelViewForumAsMessage
 UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2f2ba99f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, webpage, pts, pts_count) {
       self$channel_id <- channel_id
@@ -43185,7 +47716,9 @@ UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
 UpdateChat <- R6::R6Class("UpdateChat",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf89a6a4e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(chat_id) {
       self$chat_id <- chat_id
@@ -43218,7 +47751,9 @@ UpdateChat <- R6::R6Class("UpdateChat",
 UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x54c01850,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, default_banned_rights, version) {
       self$peer <- peer
@@ -43259,7 +47794,9 @@ UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
 UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd087663a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(chat_id, date, actor_id, user_id, qts, prev_participant = NULL, new_participant = NULL, invite = NULL) {
       self$chat_id <- chat_id
@@ -43320,7 +47857,9 @@ UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
 UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3dda5451,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(chat_id, user_id, inviter_id, date, version) {
       self$chat_id <- chat_id
@@ -43369,7 +47908,9 @@ UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
 UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd7ca61a2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(chat_id, user_id, is_admin, version) {
       self$chat_id <- chat_id
@@ -43789,7 +48330,9 @@ UpdateChannelWebPage <- R6::R6Class("UpdateChannelWebPage",
 UpdateChat <- R6::R6Class("UpdateChat",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf89a6a4e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(chat_id) {
       self$chat_id <- chat_id
@@ -43816,7 +48359,9 @@ UpdateChat <- R6::R6Class("UpdateChat",
 UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x54c01850,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, default_banned_rights, version) {
       self$peer <- peer
@@ -43847,7 +48392,9 @@ UpdateChatDefaultBannedRights <- R6::R6Class("UpdateChatDefaultBannedRights",
 UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd087663a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(chat_id, date, actor_id, user_id, qts, prev_participant = NULL, new_participant = NULL, invite = NULL) {
       self$chat_id <- chat_id
@@ -43890,7 +48437,9 @@ UpdateChatParticipant <- R6::R6Class("UpdateChatParticipant",
 UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3dda5451,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(chat_id, user_id, inviter_id, date, version) {
       self$chat_id <- chat_id
@@ -43925,7 +48474,9 @@ UpdateChatParticipantAdd <- R6::R6Class("UpdateChatParticipantAdd",
 UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd7ca61a2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(chat_id, user_id, is_admin, version) {
       self$chat_id <- chat_id
@@ -43958,7 +48509,9 @@ UpdateChatParticipantAdmin <- R6::R6Class("UpdateChatParticipantAdmin",
 UpdateChatParticipantDelete <- R6::R6Class("UpdateChatParticipantDelete",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe32f3d77,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(chat_id, user_id, version) {
       self$chat_id <- chat_id
@@ -43989,7 +48542,9 @@ UpdateChatParticipantDelete <- R6::R6Class("UpdateChatParticipantDelete",
 UpdateChatParticipants <- R6::R6Class("UpdateChatParticipants",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7761198,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(participants) {
       self$participants <- participants
@@ -44019,7 +48574,9 @@ UpdateChatParticipants <- R6::R6Class("UpdateChatParticipants",
 UpdateChatUserTyping <- R6::R6Class("UpdateChatUserTyping",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x83487af0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(chat_id, from_id, action) {
       self$chat_id <- chat_id
@@ -44055,7 +48612,9 @@ UpdateChatUserTyping <- R6::R6Class("UpdateChatUserTyping",
 UpdateConfig <- R6::R6Class("UpdateConfig",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa229dd06,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateConfig")
@@ -44078,7 +48637,9 @@ UpdateConfig <- R6::R6Class("UpdateConfig",
 UpdateContactsReset <- R6::R6Class("UpdateContactsReset",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7084a7be,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateContactsReset")
@@ -44101,7 +48662,9 @@ UpdateContactsReset <- R6::R6Class("UpdateContactsReset",
 UpdateDcOptions <- R6::R6Class("UpdateDcOptions",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8e5e9873,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(dc_options) {
       self$dc_options <- dc_options
@@ -44132,7 +48695,9 @@ UpdateDcOptions <- R6::R6Class("UpdateDcOptions",
 UpdateDeleteChannelMessages <- R6::R6Class("UpdateDeleteChannelMessages",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc32d5b12,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, messages, pts, pts_count) {
       self$channel_id <- channel_id
@@ -44172,7 +48737,9 @@ UpdateDeleteChannelMessages <- R6::R6Class("UpdateDeleteChannelMessages",
 UpdateDeleteMessages <- R6::R6Class("UpdateDeleteMessages",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa20db0e5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(messages, pts, pts_count) {
       self$messages <- messages
@@ -44209,7 +48776,9 @@ UpdateDeleteMessages <- R6::R6Class("UpdateDeleteMessages",
 UpdateDeleteQuickReply <- R6::R6Class("UpdateDeleteQuickReply",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x53e6f1ec,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(shortcut_id) {
       self$shortcut_id <- shortcut_id
@@ -44239,7 +48808,9 @@ UpdateDeleteQuickReply <- R6::R6Class("UpdateDeleteQuickReply",
 UpdateDeleteQuickReplyMessages <- R6::R6Class("UpdateDeleteQuickReplyMessages",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x566fe7cd,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(shortcut_id, messages) {
       self$shortcut_id <- shortcut_id
@@ -44273,7 +48844,9 @@ UpdateDeleteQuickReplyMessages <- R6::R6Class("UpdateDeleteQuickReplyMessages",
 UpdateDeleteScheduledMessages <- R6::R6Class("UpdateDeleteScheduledMessages",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf2a71983,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, messages, sent_messages = NULL) {
       self$peer <- peer
@@ -44317,7 +48890,9 @@ UpdateDeleteScheduledMessages <- R6::R6Class("UpdateDeleteScheduledMessages",
 UpdateDialogFilter <- R6::R6Class("UpdateDialogFilter",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x26ffde7d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(id, filter = NULL) {
       self$id <- id
@@ -44352,7 +48927,9 @@ UpdateDialogFilter <- R6::R6Class("UpdateDialogFilter",
 UpdateDialogFilterOrder <- R6::R6Class("UpdateDialogFilterOrder",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa5d72105,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(order) {
       self$order <- order
@@ -44383,7 +48960,9 @@ UpdateDialogFilterOrder <- R6::R6Class("UpdateDialogFilterOrder",
 UpdateDialogFilters <- R6::R6Class("UpdateDialogFilters",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3504914f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateDialogFilters")
@@ -44406,7 +48985,9 @@ UpdateDialogFilters <- R6::R6Class("UpdateDialogFilters",
 UpdateDialogPinned <- R6::R6Class("UpdateDialogPinned",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6e6fe51c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, pinned = NULL, folder_id = NULL) {
       self$peer <- peer
@@ -44444,7 +49025,9 @@ UpdateDialogPinned <- R6::R6Class("UpdateDialogPinned",
 UpdateDialogUnreadMark <- R6::R6Class("UpdateDialogUnreadMark",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb658f23e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, unread = NULL, savedpeer_id = NULL) {
       self$peer <- peer
@@ -44482,7 +49065,9 @@ UpdateDialogUnreadMark <- R6::R6Class("UpdateDialogUnreadMark",
 UpdateDraftMessage <- R6::R6Class("UpdateDraftMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xedfc111e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, draft, top_msg_id = NULL, savedpeer_id = NULL) {
       self$peer <- peer
@@ -44516,7 +49101,9 @@ UpdateDraftMessage <- R6::R6Class("UpdateDraftMessage",
 UpdateEditChannelMessage <- R6::R6Class("UpdateEditChannelMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1b3f4df7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(message, pts, pts_count) {
       self$message <- message
@@ -44547,7 +49134,9 @@ UpdateEditChannelMessage <- R6::R6Class("UpdateEditChannelMessage",
 UpdateEditMessage <- R6::R6Class("UpdateEditMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe40370a3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(message, pts, pts_count) {
       self$message <- message
@@ -44578,7 +49167,9 @@ UpdateEditMessage <- R6::R6Class("UpdateEditMessage",
 UpdateEncryptedChatTyping <- R6::R6Class("UpdateEncryptedChatTyping",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1710f156,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(chat_id) {
       self$chat_id <- chat_id
@@ -44605,7 +49196,9 @@ UpdateEncryptedChatTyping <- R6::R6Class("UpdateEncryptedChatTyping",
 UpdateEncryptedMessagesRead <- R6::R6Class("UpdateEncryptedMessagesRead",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x38fe25b7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(chat_id, max_date, date) {
       self$chat_id <- chat_id
@@ -44636,7 +49229,9 @@ UpdateEncryptedMessagesRead <- R6::R6Class("UpdateEncryptedMessagesRead",
 UpdateEncryption <- R6::R6Class("UpdateEncryption",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb4a2e88d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(chat, date) {
       self$chat <- chat
@@ -44665,7 +49260,9 @@ UpdateEncryption <- R6::R6Class("UpdateEncryption",
 UpdateFavedStickers <- R6::R6Class("UpdateFavedStickers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe511996d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateFavedStickers")
@@ -44686,7 +49283,9 @@ UpdateFavedStickers <- R6::R6Class("UpdateFavedStickers",
 UpdateFolderPeers <- R6::R6Class("UpdateFolderPeers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x19360dc0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(folderpeers, pts, pts_count) {
       self$folderpeers <- folderpeers
@@ -44718,7 +49317,9 @@ UpdateFolderPeers <- R6::R6Class("UpdateFolderPeers",
 UpdateGeoLiveViewed <- R6::R6Class("UpdateGeoLiveViewed",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x871fb939,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, msg_id) {
       self$peer <- peer
@@ -44747,7 +49348,9 @@ UpdateGeoLiveViewed <- R6::R6Class("UpdateGeoLiveViewed",
 UpdateGroupCall <- R6::R6Class("UpdateGroupCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x97d64341,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(call, chat_id = NULL) {
       self$call <- call
@@ -44777,7 +49380,9 @@ UpdateGroupCall <- R6::R6Class("UpdateGroupCall",
 UpdateGroupCallChainBlocks <- R6::R6Class("UpdateGroupCallChainBlocks",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa477288f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(call, sub_chain_id, blocks, next_offset) {
       self$call <- call
@@ -44828,7 +49433,9 @@ UpdateGroupCallChainBlocks <- R6::R6Class("UpdateGroupCallChainBlocks",
 UpdateGroupCallConnection <- R6::R6Class("UpdateGroupCallConnection",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb783982,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(params, presentation = NULL) {
       self$params <- params
@@ -44867,7 +49474,9 @@ UpdateGroupCallConnection <- R6::R6Class("UpdateGroupCallConnection",
 UpdateGroupCallParticipants <- R6::R6Class("UpdateGroupCallParticipants",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf2ebdb4e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(call, participants, version) {
       self$call <- call
@@ -44914,7 +49523,9 @@ UpdateGroupCallParticipants <- R6::R6Class("UpdateGroupCallParticipants",
 UpdateInlineBotCallbackQuery <- R6::R6Class("UpdateInlineBotCallbackQuery",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x691e9052,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(query_id, user_id, msg_id, chat_instance, data = NULL, game_short_name = NULL) {
       self$query_id <- query_id
@@ -44970,7 +49581,9 @@ UpdateInlineBotCallbackQuery <- R6::R6Class("UpdateInlineBotCallbackQuery",
 UpdateLangPack <- R6::R6Class("UpdateLangPack",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x56022f4d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(difference) {
       self$difference <- difference
@@ -45004,7 +49617,9 @@ UpdateLangPack <- R6::R6Class("UpdateLangPack",
 UpdateLangPackTooLong <- R6::R6Class("UpdateLangPackTooLong",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x46560264,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(lang_code) {
       self$lang_code <- lang_code
@@ -45038,7 +49653,9 @@ UpdateLangPackTooLong <- R6::R6Class("UpdateLangPackTooLong",
 UpdateLoginToken <- R6::R6Class("UpdateLoginToken",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x564fe691,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateLoginToken")
@@ -45061,7 +49678,9 @@ UpdateLoginToken <- R6::R6Class("UpdateLoginToken",
 UpdateMessageExtendedMedia <- R6::R6Class("UpdateMessageExtendedMedia",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd5a41724,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, msg_id, extended_media) {
       self$peer <- peer
@@ -45108,7 +49727,9 @@ UpdateMessageExtendedMedia <- R6::R6Class("UpdateMessageExtendedMedia",
 UpdateMessageID <- R6::R6Class("UpdateMessageID",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4e90bfd6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(id, random_id = NULL) {
       self$id <- id
@@ -45146,7 +49767,9 @@ UpdateMessageID <- R6::R6Class("UpdateMessageID",
 UpdateMessagePoll <- R6::R6Class("UpdateMessagePoll",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xaca1657b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(poll_id, results, poll = NULL) {
       self$poll_id <- poll_id
@@ -45190,7 +49813,9 @@ UpdateMessagePoll <- R6::R6Class("UpdateMessagePoll",
 UpdateMessagePollVote <- R6::R6Class("UpdateMessagePollVote",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x24f40e77,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(poll_id, peer, options, qts) {
       self$poll_id <- poll_id
@@ -45241,7 +49866,9 @@ UpdateMessagePollVote <- R6::R6Class("UpdateMessagePollVote",
 UpdateMessageReactions <- R6::R6Class("UpdateMessageReactions",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1e297bfa,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, msg_id, reactions, top_msg_id = NULL, savedpeer_id = NULL) {
       self$peer <- peer
@@ -45293,7 +49920,9 @@ UpdateMessageReactions <- R6::R6Class("UpdateMessageReactions",
 UpdateMonoForumNoPaidException <- R6::R6Class("UpdateMonoForumNoPaidException",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9f812b08,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, savedpeer_id, exception = NULL) {
       self$channel_id <- channel_id
@@ -45336,7 +49965,9 @@ UpdateMonoForumNoPaidException <- R6::R6Class("UpdateMonoForumNoPaidException",
 UpdateMoveStickerSetToTop <- R6::R6Class("UpdateMoveStickerSetToTop",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x86fccf85,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(stickerset, masks = NULL, emojis = NULL) {
       self$stickerset <- stickerset
@@ -45378,7 +50009,9 @@ UpdateMoveStickerSetToTop <- R6::R6Class("UpdateMoveStickerSetToTop",
 UpdateNewAuthorization <- R6::R6Class("UpdateNewAuthorization",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8951abef,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(hash, unconfirmed = NULL, date = NULL, device = NULL, location = NULL) {
       self$hash <- hash
@@ -45430,7 +50063,9 @@ UpdateNewAuthorization <- R6::R6Class("UpdateNewAuthorization",
 UpdateNewChannelMessage <- R6::R6Class("UpdateNewChannelMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x62ba04d9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(message, pts, pts_count) {
       self$message <- message
@@ -45472,7 +50107,9 @@ UpdateNewChannelMessage <- R6::R6Class("UpdateNewChannelMessage",
 UpdateNewEncryptedMessage <- R6::R6Class("UpdateNewEncryptedMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x12bcbd9a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(message, qts) {
       self$message <- message
@@ -45510,7 +50147,9 @@ UpdateNewEncryptedMessage <- R6::R6Class("UpdateNewEncryptedMessage",
 UpdateNewMessage <- R6::R6Class("UpdateNewMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1f2b0afd,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(message, pts, pts_count) {
       self$message <- message
@@ -45552,7 +50191,9 @@ UpdateNewMessage <- R6::R6Class("UpdateNewMessage",
 UpdateNewQuickReply <- R6::R6Class("UpdateNewQuickReply",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf53da717,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(quick_reply) {
       self$quick_reply <- quick_reply
@@ -45586,7 +50227,9 @@ UpdateNewQuickReply <- R6::R6Class("UpdateNewQuickReply",
 UpdateNewScheduledMessage <- R6::R6Class("UpdateNewScheduledMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x39a51dfb,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(message) {
       self$message <- message
@@ -45616,7 +50259,9 @@ UpdateNewScheduledMessage <- R6::R6Class("UpdateNewScheduledMessage",
 UpdateNewStickerSet <- R6::R6Class("UpdateNewStickerSet",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x688a30aa,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(stickerset) {
       self$stickerset <- stickerset
@@ -45646,7 +50291,9 @@ UpdateNewStickerSet <- R6::R6Class("UpdateNewStickerSet",
 UpdateNewStoryReaction <- R6::R6Class("UpdateNewStoryReaction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1824e40b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(story_id, peer, reaction) {
       self$story_id <- story_id
@@ -45682,7 +50329,9 @@ UpdateNewStoryReaction <- R6::R6Class("UpdateNewStoryReaction",
 UpdateNotifySettings <- R6::R6Class("UpdateNotifySettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbec268ef,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, notify_settings) {
       self$peer <- peer
@@ -45715,7 +50364,9 @@ UpdateNotifySettings <- R6::R6Class("UpdateNotifySettings",
 UpdatePaidReactionPrivacy <- R6::R6Class("UpdatePaidReactionPrivacy",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8b725fce,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(private) {
       self$private <- private
@@ -45745,7 +50396,9 @@ UpdatePaidReactionPrivacy <- R6::R6Class("UpdatePaidReactionPrivacy",
 UpdatePeerBlocked <- R6::R6Class("UpdatePeerBlocked",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xebe07752,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer_id, blocked = NULL, blocked_my_stories_from = NULL) {
       self$peer_id <- peer_id
@@ -45783,7 +50436,9 @@ UpdatePeerBlocked <- R6::R6Class("UpdatePeerBlocked",
 UpdatePeerHistoryTTL <- R6::R6Class("UpdatePeerHistoryTTL",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbb9bb9a5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, ttl_period = NULL) {
       self$peer <- peer
@@ -45818,7 +50473,9 @@ UpdatePeerHistoryTTL <- R6::R6Class("UpdatePeerHistoryTTL",
 UpdatePeerLocated <- R6::R6Class("UpdatePeerLocated",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb4afcfb0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peers) {
       self$peers <- peers
@@ -45849,7 +50506,9 @@ UpdatePeerLocated <- R6::R6Class("UpdatePeerLocated",
 UpdatePeerSettings <- R6::R6Class("UpdatePeerSettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6a7e7366,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, settings) {
       self$peer <- peer
@@ -45882,7 +50541,9 @@ UpdatePeerSettings <- R6::R6Class("UpdatePeerSettings",
 UpdatePeerWallpaper <- R6::R6Class("UpdatePeerWallpaper",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xae3f101d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, wallpaper_overridden = NULL, wallpaper = NULL) {
       self$peer <- peer
@@ -45920,7 +50581,9 @@ UpdatePeerWallpaper <- R6::R6Class("UpdatePeerWallpaper",
 UpdatePendingJoinRequests <- R6::R6Class("UpdatePendingJoinRequests",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7063c3db,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, requests_pending, recent_requesters) {
       self$peer <- peer
@@ -45957,7 +50620,9 @@ UpdatePendingJoinRequests <- R6::R6Class("UpdatePendingJoinRequests",
 UpdatePhoneCall <- R6::R6Class("UpdatePhoneCall",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xab0f6b1e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(phone_call) {
       self$phone_call <- phone_call
@@ -45987,7 +50652,9 @@ UpdatePhoneCall <- R6::R6Class("UpdatePhoneCall",
 UpdatePhoneCallSignalingData <- R6::R6Class("UpdatePhoneCallSignalingData",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2661bf09,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(phone_call_id, data) {
       self$phone_call_id <- phone_call_id
@@ -46020,7 +50687,9 @@ UpdatePhoneCallSignalingData <- R6::R6Class("UpdatePhoneCallSignalingData",
 UpdatePinnedChannelMessages <- R6::R6Class("UpdatePinnedChannelMessages",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5bb98608,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, messages, pts, pts_count, pinned = NULL) {
       self$channel_id <- channel_id
@@ -46065,7 +50734,9 @@ UpdatePinnedChannelMessages <- R6::R6Class("UpdatePinnedChannelMessages",
 UpdatePinnedDialogs <- R6::R6Class("UpdatePinnedDialogs",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfa0f3ca2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(folder_id = NULL, order = NULL) {
       self$folder_id <- folder_id
@@ -46105,7 +50776,9 @@ UpdatePinnedDialogs <- R6::R6Class("UpdatePinnedDialogs",
 UpdatePinnedMessages <- R6::R6Class("UpdatePinnedMessages",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xed85eab5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, messages, pts, pts_count, pinned = NULL) {
       self$peer <- peer
@@ -46150,7 +50823,9 @@ UpdatePinnedMessages <- R6::R6Class("UpdatePinnedMessages",
 UpdatePinnedSavedDialogs <- R6::R6Class("UpdatePinnedSavedDialogs",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x686c85a6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(order = NULL) {
       self$order <- order
@@ -46187,7 +50862,9 @@ UpdatePinnedSavedDialogs <- R6::R6Class("UpdatePinnedSavedDialogs",
 UpdatePrivacy <- R6::R6Class("UpdatePrivacy",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xee3b272a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(key, rules) {
       self$key <- key
@@ -46221,7 +50898,9 @@ UpdatePrivacy <- R6::R6Class("UpdatePrivacy",
 UpdatePtsChanged <- R6::R6Class("UpdatePtsChanged",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3354678f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdatePtsChanged")
@@ -46244,7 +50923,9 @@ UpdatePtsChanged <- R6::R6Class("UpdatePtsChanged",
 UpdateQuickReplies <- R6::R6Class("UpdateQuickReplies",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf9470ab2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(quick_replies) {
       self$quick_replies <- quick_replies
@@ -46284,7 +50965,9 @@ UpdateQuickReplies <- R6::R6Class("UpdateQuickReplies",
 UpdateQuickReplyMessage <- R6::R6Class("UpdateQuickReplyMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3e050d0f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(message) {
       self$message <- message
@@ -46317,7 +51000,9 @@ UpdateQuickReplyMessage <- R6::R6Class("UpdateQuickReplyMessage",
 UpdateReadChannelDiscussionInbox <- R6::R6Class("UpdateReadChannelDiscussionInbox",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd6b19546,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, top_msg_id, read_max_id, broadcast_id = NULL, broadcast_post = NULL) {
       self$channel_id <- channel_id
@@ -46369,7 +51054,9 @@ UpdateReadChannelDiscussionInbox <- R6::R6Class("UpdateReadChannelDiscussionInbo
 UpdateReadChannelDiscussionOutbox <- R6::R6Class("UpdateReadChannelDiscussionOutbox",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x695c9e7c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, top_msg_id, read_max_id) {
       self$channel_id <- channel_id
@@ -46410,7 +51097,9 @@ UpdateReadChannelDiscussionOutbox <- R6::R6Class("UpdateReadChannelDiscussionOut
 UpdateReadChannelInbox <- R6::R6Class("UpdateReadChannelInbox",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x922e6e10,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, max_id, still_unread_count, pts, folder_id = NULL) {
       self$channel_id <- channel_id
@@ -46462,7 +51151,9 @@ UpdateReadChannelInbox <- R6::R6Class("UpdateReadChannelInbox",
 UpdateReadChannelOutbox <- R6::R6Class("UpdateReadChannelOutbox",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb75f99a9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, max_id) {
       self$channel_id <- channel_id
@@ -46499,7 +51190,9 @@ UpdateReadChannelOutbox <- R6::R6Class("UpdateReadChannelOutbox",
 UpdateReadFeaturedEmojiStickers <- R6::R6Class("UpdateReadFeaturedEmojiStickers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xfb4c496c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateReadFeaturedEmojiStickers")
@@ -46522,7 +51215,9 @@ UpdateReadFeaturedEmojiStickers <- R6::R6Class("UpdateReadFeaturedEmojiStickers"
 UpdateReadFeaturedStickers <- R6::R6Class("UpdateReadFeaturedStickers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x571d2742,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateReadFeaturedStickers")
@@ -46545,7 +51240,9 @@ UpdateReadFeaturedStickers <- R6::R6Class("UpdateReadFeaturedStickers",
 UpdateReadHistoryInbox <- R6::R6Class("UpdateReadHistoryInbox",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9c974fdf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, max_id, still_unread_count, pts, pts_count, folder_id = NULL) {
       self$peer <- peer
@@ -46601,7 +51298,9 @@ UpdateReadHistoryInbox <- R6::R6Class("UpdateReadHistoryInbox",
 UpdateReadHistoryOutbox <- R6::R6Class("UpdateReadHistoryOutbox",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2f2f21bf,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, max_id, pts, pts_count) {
       self$peer <- peer
@@ -46646,7 +51345,9 @@ UpdateReadHistoryOutbox <- R6::R6Class("UpdateReadHistoryOutbox",
 UpdateReadMessagesContents <- R6::R6Class("UpdateReadMessagesContents",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf8227181,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(messages, pts, pts_count, date = NULL) {
       self$messages <- messages
@@ -46701,7 +51402,9 @@ UpdateReadMessagesContents <- R6::R6Class("UpdateReadMessagesContents",
 UpdateReadMonoForumInbox <- R6::R6Class("UpdateReadMonoForumInbox",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x77b0e372,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, savedpeer_id, read_max_id) {
       self$channel_id <- channel_id
@@ -46742,7 +51445,9 @@ UpdateReadMonoForumInbox <- R6::R6Class("UpdateReadMonoForumInbox",
 UpdateReadMonoForumOutbox <- R6::R6Class("UpdateReadMonoForumOutbox",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa4a79376,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(channel_id, savedpeer_id, read_max_id) {
       self$channel_id <- channel_id
@@ -46783,7 +51488,9 @@ UpdateReadMonoForumOutbox <- R6::R6Class("UpdateReadMonoForumOutbox",
 UpdateReadStories <- R6::R6Class("UpdateReadStories",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf74e932b,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, max_id) {
       self$peer <- peer
@@ -46820,7 +51527,9 @@ UpdateReadStories <- R6::R6Class("UpdateReadStories",
 UpdateRecentEmojiStatuses <- R6::R6Class("UpdateRecentEmojiStatuses",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x30f443db,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateRecentEmojiStatuses")
@@ -46843,7 +51552,9 @@ UpdateRecentEmojiStatuses <- R6::R6Class("UpdateRecentEmojiStatuses",
 UpdateRecentReactions <- R6::R6Class("UpdateRecentReactions",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6f7863f4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateRecentReactions")
@@ -46866,7 +51577,9 @@ UpdateRecentReactions <- R6::R6Class("UpdateRecentReactions",
 UpdateRecentStickers <- R6::R6Class("UpdateRecentStickers",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9a422c20,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateRecentStickers")
@@ -46889,7 +51602,9 @@ UpdateRecentStickers <- R6::R6Class("UpdateRecentStickers",
 UpdateSavedDialogPinned <- R6::R6Class("UpdateSavedDialogPinned",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xaeaf9e74,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, pinned = NULL) {
       self$peer <- peer
@@ -46928,7 +51643,9 @@ UpdateSavedDialogPinned <- R6::R6Class("UpdateSavedDialogPinned",
 UpdateSavedGifs <- R6::R6Class("UpdateSavedGifs",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9375341e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateSavedGifs")
@@ -46951,7 +51668,9 @@ UpdateSavedGifs <- R6::R6Class("UpdateSavedGifs",
 UpdateSavedReactionTags <- R6::R6Class("UpdateSavedReactionTags",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x39c67432,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateSavedReactionTags")
@@ -46974,7 +51693,9 @@ UpdateSavedReactionTags <- R6::R6Class("UpdateSavedReactionTags",
 UpdateSavedRingtones <- R6::R6Class("UpdateSavedRingtones",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x74d8be99,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     to_dict = function() {
       list(`_` = "UpdateSavedRingtones")
@@ -46997,7 +51718,9 @@ UpdateSavedRingtones <- R6::R6Class("UpdateSavedRingtones",
 UpdateSentPhoneCode <- R6::R6Class("UpdateSentPhoneCode",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x504aa18f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(sent_code) {
       self$sent_code <- sent_code
@@ -47030,7 +51753,9 @@ UpdateSentPhoneCode <- R6::R6Class("UpdateSentPhoneCode",
 UpdateSentStoryReaction <- R6::R6Class("UpdateSentStoryReaction",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7d627683,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, story_id, reaction) {
       self$peer <- peer
@@ -47071,7 +51796,9 @@ UpdateSentStoryReaction <- R6::R6Class("UpdateSentStoryReaction",
 UpdateServiceNotification <- R6::R6Class("UpdateServiceNotification",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xebe46819,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(type, message, media, entities, popup = NULL, invert_media = NULL, inbox_date = NULL) {
       self$type <- type
@@ -47136,7 +51863,9 @@ UpdateServiceNotification <- R6::R6Class("UpdateServiceNotification",
 UpdateShort <- R6::R6Class("UpdateShort",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x78d4dec1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
     initialize = function(update, date) {
       self$update <- update
@@ -47173,7 +51902,9 @@ UpdateShort <- R6::R6Class("UpdateShort",
 UpdateShortChatMessage <- R6::R6Class("UpdateShortChatMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4d6deea5,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
     initialize = function(id, from_id, chat_id, message, pts, pts_count, date, out = NULL, mentioned = NULL, media_unread = NULL, silent = NULL, fwd_from = NULL, via_bot_id = NULL, reply_to = NULL, entities = NULL, ttl_period = NULL) {
       self$id <- id
@@ -47275,7 +52006,9 @@ UpdateShortChatMessage <- R6::R6Class("UpdateShortChatMessage",
 UpdateShortMessage <- R6::R6Class("UpdateShortMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x313bc7f8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
     initialize = function(id, user_id, message, pts, pts_count, date, out = NULL, mentioned = NULL, media_unread = NULL, silent = NULL, fwd_from = NULL, via_bot_id = NULL, reply_to = NULL, entities = NULL, ttl_period = NULL) {
       self$id <- id
@@ -47367,7 +52100,9 @@ UpdateShortMessage <- R6::R6Class("UpdateShortMessage",
 UpdateShortSentMessage <- R6::R6Class("UpdateShortSentMessage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9015e101,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
     initialize = function(id, pts, pts_count, date, out = NULL, media = NULL, entities = NULL, ttl_period = NULL) {
       self$id <- id
@@ -47434,7 +52169,9 @@ UpdateShortSentMessage <- R6::R6Class("UpdateShortSentMessage",
 UpdateSmsJob <- R6::R6Class("UpdateSmsJob",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf16269d4,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(job_id) {
       self$job_id <- job_id
@@ -47467,7 +52204,9 @@ UpdateSmsJob <- R6::R6Class("UpdateSmsJob",
 UpdateStarsBalance <- R6::R6Class("UpdateStarsBalance",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4e80a379,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(balance) {
       self$balance <- balance
@@ -47500,7 +52239,9 @@ UpdateStarsBalance <- R6::R6Class("UpdateStarsBalance",
 UpdateStarsRevenueStatus <- R6::R6Class("UpdateStarsRevenueStatus",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa584b019,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, status) {
       self$peer <- peer
@@ -47537,7 +52278,9 @@ UpdateStarsRevenueStatus <- R6::R6Class("UpdateStarsRevenueStatus",
 UpdateStickerSets <- R6::R6Class("UpdateStickerSets",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x31c24808,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(masks = NULL, emojis = NULL) {
       self$masks <- masks
@@ -47574,7 +52317,9 @@ UpdateStickerSets <- R6::R6Class("UpdateStickerSets",
 UpdateStickerSetsOrder <- R6::R6Class("UpdateStickerSetsOrder",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbb2d201,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(order, masks = NULL, emojis = NULL) {
       self$order <- order
@@ -47616,7 +52361,9 @@ UpdateStickerSetsOrder <- R6::R6Class("UpdateStickerSetsOrder",
 UpdateStoriesStealthMode <- R6::R6Class("UpdateStoriesStealthMode",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2c084dc1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(stealth_mode) {
       self$stealth_mode <- stealth_mode
@@ -47649,7 +52396,9 @@ UpdateStoriesStealthMode <- R6::R6Class("UpdateStoriesStealthMode",
 UpdateStory <- R6::R6Class("UpdateStory",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x75b3b798,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, story) {
       self$peer <- peer
@@ -47686,7 +52435,9 @@ UpdateStory <- R6::R6Class("UpdateStory",
 UpdateStoryID <- R6::R6Class("UpdateStoryID",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1bf335b9,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(id, random_id = NULL) {
       self$id <- id
@@ -47723,7 +52474,9 @@ UpdateStoryID <- R6::R6Class("UpdateStoryID",
 UpdateTheme <- R6::R6Class("UpdateTheme",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8216fba3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(theme) {
       self$theme <- theme
@@ -47756,7 +52509,9 @@ UpdateTheme <- R6::R6Class("UpdateTheme",
 UpdateTranscribedAudio <- R6::R6Class("UpdateTranscribedAudio",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x84cd5a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(peer, msg_id, transcription_id, text, pending = NULL) {
       self$peer <- peer
@@ -47806,7 +52561,9 @@ UpdateTranscribedAudio <- R6::R6Class("UpdateTranscribedAudio",
 UpdateUser <- R6::R6Class("UpdateUser",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x20529438,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(user_id) {
       self$user_id <- user_id
@@ -47839,7 +52596,9 @@ UpdateUser <- R6::R6Class("UpdateUser",
 UpdateUserEmojiStatus <- R6::R6Class("UpdateUserEmojiStatus",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x28373599,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(user_id, emoji_status) {
       self$user_id <- user_id
@@ -47876,7 +52635,9 @@ UpdateUserEmojiStatus <- R6::R6Class("UpdateUserEmojiStatus",
 UpdateUserName <- R6::R6Class("UpdateUserName",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa7848924,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(user_id, first_name, last_name, usernames) {
       self$user_id <- user_id
@@ -47922,7 +52683,9 @@ UpdateUserName <- R6::R6Class("UpdateUserName",
 UpdateUserPhone <- R6::R6Class("UpdateUserPhone",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5492a13,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(user_id, phone) {
       self$user_id <- user_id
@@ -47959,7 +52722,9 @@ UpdateUserPhone <- R6::R6Class("UpdateUserPhone",
 UpdateUserStatus <- R6::R6Class("UpdateUserStatus",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe5bdf8de,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(user_id, status) {
       self$user_id <- user_id
@@ -47996,7 +52761,9 @@ UpdateUserStatus <- R6::R6Class("UpdateUserStatus",
 UpdateUserTyping <- R6::R6Class("UpdateUserTyping",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc01e857f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(user_id, action) {
       self$user_id <- user_id
@@ -48031,7 +52798,9 @@ UpdateUserTyping <- R6::R6Class("UpdateUserTyping",
 UpdateWebPage <- R6::R6Class("UpdateWebPage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7f891213,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(webpage, pts, pts_count) {
       self$webpage <- webpage
@@ -48069,7 +52838,9 @@ UpdateWebPage <- R6::R6Class("UpdateWebPage",
 UpdateWebViewResultSent <- R6::R6Class("UpdateWebViewResultSent",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1592b79d,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9f89304e,
     initialize = function(query_id) {
       self$query_id <- query_id
@@ -48101,7 +52872,9 @@ UpdateWebViewResultSent <- R6::R6Class("UpdateWebViewResultSent",
 Updates <- R6::R6Class("Updates",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x74ae4240,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
     initialize = function(updates, users, chats, date, seq) {
       self$updates <- updates
@@ -48153,7 +52926,9 @@ Updates <- R6::R6Class("Updates",
 UpdatesCombined <- R6::R6Class("UpdatesCombined",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x725b04c3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
     initialize = function(updates, users, chats, date, seq_start, seq) {
       self$updates <- updates
@@ -48209,7 +52984,9 @@ UpdatesCombined <- R6::R6Class("UpdatesCombined",
 UpdatesTooLong <- R6::R6Class("UpdatesTooLong",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe317af7e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
     to_dict = function() {
       list(`_` = "UpdatesTooLong")
@@ -48232,7 +53009,9 @@ UpdatesTooLong <- R6::R6Class("UpdatesTooLong",
 UrlAuthResultAccepted <- R6::R6Class("UrlAuthResultAccepted",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8f8c0e4e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7765cb1e,
     initialize = function(url) {
       self$url <- url
@@ -48264,7 +53043,9 @@ UrlAuthResultAccepted <- R6::R6Class("UrlAuthResultAccepted",
 UrlAuthResultDefault <- R6::R6Class("UrlAuthResultDefault",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa9d6db1f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7765cb1e,
     to_dict = function() {
       list(`_` = "UrlAuthResultDefault")
@@ -48287,7 +53068,9 @@ UrlAuthResultDefault <- R6::R6Class("UrlAuthResultDefault",
 UrlAuthResultRequest <- R6::R6Class("UrlAuthResultRequest",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x92d33a0e,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7765cb1e,
     initialize = function(bot, domain, request_write_access = NULL) {
       self$bot <- bot
@@ -48329,7 +53112,9 @@ UrlAuthResultRequest <- R6::R6Class("UrlAuthResultRequest",
 User <- R6::R6Class("User",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x20b1422,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2da17977,
     initialize = function(id, is_self = NULL, contact = NULL, mutual_contact = NULL, deleted = NULL, bot = NULL, bot_chat_history = NULL, bot_nochats = NULL, verified = NULL, restricted = NULL, min = NULL, bot_inline_geo = NULL, support = NULL, scam = NULL, apply_min_photo = NULL, fake = NULL, bot_attach_menu = NULL, premium = NULL, attach_menu_enabled = NULL, bot_can_edit = NULL, close_friend = NULL, stories_hidden = NULL, stories_unavailable = NULL, contact_require_premium = NULL, bot_business = NULL, bot_has_main_app = NULL, access_hash = NULL, first_name = NULL, last_name = NULL, username = NULL, phone = NULL, photo = NULL, status = NULL, bot_info_version = NULL, restriction_reason = NULL, bot_inline_placeholder = NULL, lang_code = NULL, emoji_status = NULL, usernames = NULL, stories_max_id = NULL, color = NULL, profile_color = NULL, bot_active_users = NULL, bot_verification_icon = NULL, send_paid_messages_stars = NULL) {
       self$id <- id
@@ -48529,7 +53314,9 @@ User <- R6::R6Class("User",
 UserEmpty <- R6::R6Class("UserEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd3bc4b7a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2da17977,
     initialize = function(id) {
       self$id <- id
@@ -48561,7 +53348,9 @@ UserEmpty <- R6::R6Class("UserEmpty",
 UserFull <- R6::R6Class("UserFull",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc577b5ad,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1f4661b9,
     initialize = function(id, settings, notify_settings, common_chats_count, blocked = NULL, phone_calls_available = NULL, phone_calls_private = NULL, can_pin_message = NULL, has_scheduled = NULL, video_calls_available = NULL, voice_messages_forbidden = NULL, translations_disabled = NULL, stories_pinned_available = NULL, blocked_my_stories_from = NULL, wallpaper_overridden = NULL, contact_require_premium = NULL, read_dates_private = NULL, sponsored_enabled = NULL, can_view_revenue = NULL, bot_can_manage_emoji_status = NULL, display_gifts_button = NULL, about = NULL, personal_photo = NULL, profile_photo = NULL, fallback_photo = NULL, bot_info = NULL, pinned_msg_id = NULL, folder_id = NULL, ttl_period = NULL, theme = NULL, private_forward_name = NULL, bot_group_admin_rights = NULL, bot_broadcast_admin_rights = NULL, wallpaper = NULL, stories = NULL, business_work_hours = NULL, business_location = NULL, business_greeting_message = NULL, business_away_message = NULL, business_intro = NULL, birthday = NULL, personal_channel_id = NULL, personal_channel_message = NULL, stargifts_count = NULL, starref_program = NULL, bot_verification = NULL, send_paid_messages_stars = NULL, disallowed_gifts = NULL, stars_rating = NULL, stars_my_pending_rating = NULL, stars_my_pending_rating_date = NULL, main_tab = NULL, saved_music = NULL) {
       self$id <- id
@@ -48791,7 +53580,9 @@ UserFull <- R6::R6Class("UserFull",
 UserProfilePhoto <- R6::R6Class("UserProfilePhoto",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x82d1f706,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc6338f7d,
     initialize = function(photo_id, dc_id, has_video = NULL, personal = NULL, stripped_thumb = NULL) {
       self$photo_id <- photo_id
@@ -48840,7 +53631,9 @@ UserProfilePhoto <- R6::R6Class("UserProfilePhoto",
 UserProfilePhotoEmpty <- R6::R6Class("UserProfilePhotoEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4f11bae1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc6338f7d,
     to_dict = function() {
       list(`_` = "UserProfilePhotoEmpty")
@@ -48863,7 +53656,9 @@ UserProfilePhotoEmpty <- R6::R6Class("UserProfilePhotoEmpty",
 UserStatusEmpty <- R6::R6Class("UserStatusEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9d05049,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b0b743e,
     to_dict = function() {
       list(`_` = "UserStatusEmpty")
@@ -48886,7 +53681,9 @@ UserStatusEmpty <- R6::R6Class("UserStatusEmpty",
 UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x65899777,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b0b743e,
     initialize = function(by_me = NULL) {
       self$by_me <- by_me
@@ -48920,7 +53717,9 @@ UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
 UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x541a1d1a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b0b743e,
     initialize = function(by_me = NULL) {
       self$by_me <- by_me
@@ -48954,7 +53753,9 @@ UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
 UserStatusOffline <- R6::R6Class("UserStatusOffline",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8c703f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b0b743e,
     initialize = function(was_online = NULL) {
       self$was_online <- was_online
@@ -48987,7 +53788,9 @@ UserStatusOffline <- R6::R6Class("UserStatusOffline",
 UserStatusOnline <- R6::R6Class("UserStatusOnline",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xedb93949,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b0b743e,
     initialize = function(expires = NULL) {
       self$expires <- expires
@@ -49020,7 +53823,9 @@ UserStatusOnline <- R6::R6Class("UserStatusOnline",
 UserStatusRecently <- R6::R6Class("UserStatusRecently",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7b197dc8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b0b743e,
     initialize = function(by_me = NULL) {
       self$by_me <- by_me
@@ -49054,7 +53859,9 @@ UserStatusRecently <- R6::R6Class("UserStatusRecently",
 UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x65899777,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b0b743e,
     initialize = function(by_me = NULL) {
       self$by_me <- by_me
@@ -49082,7 +53889,9 @@ UserStatusLastMonth <- R6::R6Class("UserStatusLastMonth",
 UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x541a1d1a,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b0b743e,
     initialize = function(by_me = NULL) {
       self$by_me <- by_me
@@ -49110,7 +53919,9 @@ UserStatusLastWeek <- R6::R6Class("UserStatusLastWeek",
 UserStatusOffline <- R6::R6Class("UserStatusOffline",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8c703f,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b0b743e,
     initialize = function(was_online = NULL) {
       self$was_online <- was_online
@@ -49137,7 +53948,9 @@ UserStatusOffline <- R6::R6Class("UserStatusOffline",
 UserStatusOnline <- R6::R6Class("UserStatusOnline",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xedb93949,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b0b743e,
     initialize = function(expires = NULL) {
       self$expires <- expires
@@ -49164,7 +53977,9 @@ UserStatusOnline <- R6::R6Class("UserStatusOnline",
 UserStatusRecently <- R6::R6Class("UserStatusRecently",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7b197dc8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5b0b743e,
     initialize = function(by_me = NULL) {
       self$by_me <- by_me
@@ -49192,7 +54007,9 @@ UserStatusRecently <- R6::R6Class("UserStatusRecently",
 Username <- R6::R6Class("Username",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb4073647,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1286421,
     initialize = function(username, editable = NULL, active = NULL) {
       self$username <- username
@@ -49224,7 +54041,9 @@ Username <- R6::R6Class("Username",
 VideoSize <- R6::R6Class("VideoSize",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xde33b094,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x62f1d509,
     initialize = function(type, w, h, size, video_start_ts = NULL) {
       self$type <- type
@@ -49264,7 +54083,9 @@ VideoSize <- R6::R6Class("VideoSize",
 VideoSizeEmojiMarkup <- R6::R6Class("VideoSizeEmojiMarkup",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf85c413c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x62f1d509,
     initialize = function(emoji_id, background_colors) {
       self$emoji_id <- emoji_id
@@ -49294,7 +54115,9 @@ VideoSizeEmojiMarkup <- R6::R6Class("VideoSizeEmojiMarkup",
 VideoSizeStickerMarkup <- R6::R6Class("VideoSizeStickerMarkup",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xda082fe,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x62f1d509,
     initialize = function(stickerset, sticker_id, background_colors) {
       self$stickerset <- stickerset
@@ -49326,7 +54149,9 @@ VideoSizeStickerMarkup <- R6::R6Class("VideoSizeStickerMarkup",
 WallPaper <- R6::R6Class("WallPaper",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa437c3ed,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x96a2c98b,
     initialize = function(id, access_hash, slug, document, creator = NULL, default = NULL, pattern = NULL, dark = NULL, settings = NULL) {
       self$id <- id
@@ -49374,7 +54199,9 @@ WallPaper <- R6::R6Class("WallPaper",
 WallPaperNoFile <- R6::R6Class("WallPaperNoFile",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe0804116,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x96a2c98b,
     initialize = function(id, default = NULL, dark = NULL, settings = NULL) {
       self$id <- id
@@ -49412,7 +54239,9 @@ WallPaperNoFile <- R6::R6Class("WallPaperNoFile",
 WallPaperSettings <- R6::R6Class("WallPaperSettings",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x372efcd0,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4175e312,
     initialize = function(blur = NULL, motion = NULL, background_color = NULL, second_background_color = NULL, third_background_color = NULL, fourth_background_color = NULL, intensity = NULL, rotation = NULL, emoticon = NULL) {
       self$blur <- blur
@@ -49484,7 +54313,9 @@ WallPaperSettings <- R6::R6Class("WallPaperSettings",
 WebAuthorization <- R6::R6Class("WebAuthorization",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa6f8f452,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3764d30,
     initialize = function(hash, bot_id, domain, browser, platform, date_created = NULL, date_active = NULL, ip, region) {
       self$hash <- hash
@@ -49538,7 +54369,9 @@ WebAuthorization <- R6::R6Class("WebAuthorization",
 WebDocument <- R6::R6Class("WebDocument",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1c570ed1,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3b642814,
     initialize = function(url, access_hash, size, mime_type, attributes) {
       self$url <- url
@@ -49581,7 +54414,9 @@ WebDocument <- R6::R6Class("WebDocument",
 WebDocumentNoProxy <- R6::R6Class("WebDocumentNoProxy",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf9c8bcc6,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3b642814,
     initialize = function(url, size, mime_type, attributes) {
       self$url <- url
@@ -49621,7 +54456,9 @@ WebDocumentNoProxy <- R6::R6Class("WebDocumentNoProxy",
 WebPage <- R6::R6Class("WebPage",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe89c45b2,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55a97481,
     initialize = function(id, url, display_url, hash, has_large_media = NULL, video_cover_photo = NULL, type = NULL, site_name = NULL, title = NULL, description = NULL, photo = NULL, embed_url = NULL, embed_type = NULL, embed_width = NULL, embed_height = NULL, duration = NULL, author = NULL, document = NULL, cached_page = NULL, attributes = NULL) {
       self$id <- id
@@ -49787,7 +54624,9 @@ WebPage <- R6::R6Class("WebPage",
 WebPageAttributeStarGiftCollection <- R6::R6Class("WebPageAttributeStarGiftCollection",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x31cad303,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xafcfe9c7,
     initialize = function(icons) {
       self$icons <- icons
@@ -49819,7 +54658,9 @@ WebPageAttributeStarGiftCollection <- R6::R6Class("WebPageAttributeStarGiftColle
 WebPageAttributeStickerSet <- R6::R6Class("WebPageAttributeStickerSet",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x50cc03d3,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xafcfe9c7,
     initialize = function(stickers, emojis = NULL, text_color = NULL) {
       self$stickers <- stickers
@@ -49859,7 +54700,9 @@ WebPageAttributeStickerSet <- R6::R6Class("WebPageAttributeStickerSet",
 WebPageAttributeStory <- R6::R6Class("WebPageAttributeStory",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2e94c3e7,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xafcfe9c7,
     initialize = function(peer, id, story = NULL) {
       self$peer <- peer
@@ -49900,7 +54743,9 @@ WebPageAttributeStory <- R6::R6Class("WebPageAttributeStory",
 WebPageAttributeTheme <- R6::R6Class("WebPageAttributeTheme",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x54b56617,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xafcfe9c7,
     initialize = function(documents = NULL, settings = NULL) {
       self$documents <- documents
@@ -49947,7 +54792,9 @@ WebPageAttributeTheme <- R6::R6Class("WebPageAttributeTheme",
 WebPageAttributeUniqueStarGift <- R6::R6Class("WebPageAttributeUniqueStarGift",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcf6f6db8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xafcfe9c7,
     initialize = function(gift) {
       self$gift <- gift
@@ -49977,7 +54824,9 @@ WebPageAttributeUniqueStarGift <- R6::R6Class("WebPageAttributeUniqueStarGift",
 WebPageEmpty <- R6::R6Class("WebPageEmpty",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x211a1788,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55a97481,
     initialize = function(id, url = NULL) {
       self$id <- id
@@ -50014,7 +54863,9 @@ WebPageEmpty <- R6::R6Class("WebPageEmpty",
 WebPageNotModified <- R6::R6Class("WebPageNotModified",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7311ca11,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55a97481,
     initialize = function(cached_page_views = NULL) {
       self$cached_page_views <- cached_page_views
@@ -50047,7 +54898,9 @@ WebPageNotModified <- R6::R6Class("WebPageNotModified",
 WebPagePending <- R6::R6Class("WebPagePending",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb0d13e47,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x55a97481,
     initialize = function(id, date, url = NULL) {
       self$id <- id
@@ -50092,7 +54945,9 @@ WebPagePending <- R6::R6Class("WebPagePending",
 WebViewMessageSent <- R6::R6Class("WebViewMessageSent",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc94511c,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x75e49312,
     initialize = function(msg_id = NULL) {
       self$msg_id <- msg_id
@@ -50125,7 +54980,9 @@ WebViewMessageSent <- R6::R6Class("WebViewMessageSent",
 WebViewResultUrl <- R6::R6Class("WebViewResultUrl",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4d22ff98,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x93cea746,
     initialize = function(url, fullsize = NULL, fullscreen = NULL, query_id = NULL) {
       self$url <- url

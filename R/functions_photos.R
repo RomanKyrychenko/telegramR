@@ -2,8 +2,6 @@
 #'
 #' R6 translation of the TLRequest DeletePhotosRequest.
 #'
-#' @description
-#' Request to delete photos. Fields correspond to the TL schema: id (vector of input photos).
 #'
 #' @format A R6 object inheriting from TLRequest.
 #' @section Methods:
@@ -100,6 +98,7 @@ DeletePhotosRequest <- R6::R6Class(
   active = list(
     # nothing active
   ),
+  #' @field class Field.
   class = TRUE,
   private = list(
     from_reader_impl = function(reader) {
@@ -116,22 +115,24 @@ DeletePhotosRequest <- R6::R6Class(
   portable = TRUE
 )
 
-#' Construct DeletePhotosRequest from a reader
-#'
-#' Class-level convenience wrapper around the private from_reader_impl.
-#' @param reader Reader object providing read_int, tgread_object, etc.
-#' @return DeletePhotosRequest instance
-#' @export
+# Construct DeletePhotosRequest from a reader
+# @name DeletePhotosRequest_from_reader
+#
+# Class-level convenience wrapper around the private from_reader_impl.
+# @param reader Reader object providing read_int, tgread_object, etc.
+# @return DeletePhotosRequest instance
+# @export
 DeletePhotosRequest$from_reader <- function(reader) {
   DeletePhotosRequest$private_methods$from_reader_impl(reader)
 }
 
-#' Read result for DeletePhotosRequest
-#'
-#' Reads a Vector<long> result returned by the server for this request.
-#' @param reader Reader object providing read_int, read_long, etc.
-#' @return numeric vector (R doubles) of longs
-#' @export
+# Read result for DeletePhotosRequest
+# @name DeletePhotosRequest_read_result
+#
+# Reads a Vector<long> result returned by the server for this request.
+# @param reader Reader object providing read_int, read_long, etc.
+# @return numeric vector (R doubles) of longs
+# @export
 DeletePhotosRequest$read_result <- function(reader) {
   # consume vector constructor id
   reader$read_int()
@@ -148,9 +149,6 @@ DeletePhotosRequest$read_result <- function(reader) {
 #'
 #' R6 translation of the TLRequest GetUserPhotosRequest.
 #'
-#' @description
-#' Request to get user photos. Fields correspond to the TL schema: user_id (input user),
-#' offset (int), max_id (long), limit (int).
 #'
 #' @format A R6 object inheriting from TLRequest.
 #' @section Methods:
@@ -257,6 +255,7 @@ GetUserPhotosRequest <- R6::R6Class(
   active = list(
     # nothing active
   ),
+  #' @field class Field.
   class = TRUE,
   private = list(
     from_reader_impl = function(reader) {
@@ -275,12 +274,13 @@ GetUserPhotosRequest <- R6::R6Class(
   portable = TRUE
 )
 
-#' Construct GetUserPhotosRequest from a reader
-#'
-#' Class-level convenience wrapper around the private from_reader_impl.
-#' @param reader Reader object providing tgread_object, read_int, read_long, etc.
-#' @return GetUserPhotosRequest instance
-#' @export
+# Construct GetUserPhotosRequest from a reader
+# @name GetUserPhotosRequest_from_reader
+#
+# Class-level convenience wrapper around the private from_reader_impl.
+# @param reader Reader object providing tgread_object, read_int, read_long, etc.
+# @return GetUserPhotosRequest instance
+# @export
 GetUserPhotosRequest$from_reader <- function(reader) {
   GetUserPhotosRequest$private_methods$from_reader_impl(reader)
 }
@@ -290,9 +290,6 @@ GetUserPhotosRequest$from_reader <- function(reader) {
 #'
 #' R6 translation of the TLRequest UpdateProfilePhotoRequest.
 #'
-#' @description
-#' Represents a request to update a profile photo. Fields correspond to the TL
-#' schema: id (input photo), fallback (optional logical), bot (optional input user).
 #'
 #' @format A R6 object inheriting from TLRequest.
 #' @section Methods:
@@ -410,6 +407,7 @@ UpdateProfilePhotoRequest <- R6::R6Class(
   active = list(
     # nothing active
   ),
+  #' @field class Field.
   class = TRUE,
   private = list(
     # class-level helper to construct from reader
@@ -435,12 +433,13 @@ UpdateProfilePhotoRequest <- R6::R6Class(
   portable = TRUE
 )
 
-#' Construct UpdateProfilePhotoRequest from a reader
-#'
-#' Class-level convenience wrapper around the private from_reader_impl.
-#' @param reader Reader object providing read_int, tgread_object, etc.
-#' @return UpdateProfilePhotoRequest instance
-#' @export
+# Construct UpdateProfilePhotoRequest from a reader
+# @name UpdateProfilePhotoRequest_from_reader
+#
+# Class-level convenience wrapper around the private from_reader_impl.
+# @param reader Reader object providing read_int, tgread_object, etc.
+# @return UpdateProfilePhotoRequest instance
+# @export
 UpdateProfilePhotoRequest$from_reader <- function(reader) {
   UpdateProfilePhotoRequest$private_methods$from_reader_impl(reader)
 }
@@ -450,10 +449,6 @@ UpdateProfilePhotoRequest$from_reader <- function(reader) {
 #'
 #' R6 translation of the TLRequest UploadContactProfilePhotoRequest.
 #'
-#' @description
-#' Represents a request to upload a contact's profile photo. Fields correspond to
-#' the TL schema: user_id, suggest, save, file, video, video_start_ts,
-#' video_emoji_markup.
 #'
 #' @format A R6 object inheriting from TLRequest.
 #' @section Methods:
@@ -593,6 +588,7 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
   active = list(
     # nothing active
   ),
+  #' @field class Field.
   class = TRUE,
   private = list(
     # class-level helper to construct from reader
@@ -641,11 +637,12 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
   portable = TRUE
 )
 
-#' @description Construct UploadContactProfilePhotoRequest from a reader
-#'
-#' Class-level convenience wrapper around the private from_reader_impl.
-#' @param reader Reader object providing read_int, tgread_object, read_double, etc.
-#' @return UploadContactProfilePhotoRequest instance
+# @description Construct UploadContactProfilePhotoRequest from a reader
+# @name UploadContactProfilePhotoRequest_from_reader
+#
+# Class-level convenience wrapper around the private from_reader_impl.
+# @param reader Reader object providing read_int, tgread_object, read_double, etc.
+# @return UploadContactProfilePhotoRequest instance
 UploadContactProfilePhotoRequest$from_reader <- function(reader) {
   UploadContactProfilePhotoRequest$private_methods$from_reader_impl(reader)
 }
@@ -655,10 +652,6 @@ UploadContactProfilePhotoRequest$from_reader <- function(reader) {
 #'
 #' R6 translation of the TLRequest UploadProfilePhotoRequest.
 #'
-#' @description
-#' Represents a request to upload a profile photo. Fields correspond to
-#' the TL schema: fallback, bot, file, video, video_start_ts,
-#' video_emoji_markup.
 #'
 #' @format A R6 object inheriting from TLRequest.
 #' @section Methods:
@@ -794,6 +787,7 @@ UploadProfilePhotoRequest <- R6::R6Class(
   active = list(
     # nothing active
   ),
+  #' @field class Field.
   class = TRUE,
   private = list(
     # class-level helper to construct from reader
@@ -838,11 +832,12 @@ UploadProfilePhotoRequest <- R6::R6Class(
   portable = TRUE
 )
 
-#' @description Construct UploadProfilePhotoRequest from a reader
-#'
-#' Class-level convenience wrapper around the private from_reader_impl.
-#' @param reader Reader object providing read_int, tgread_object, read_double, etc.
-#' @return UploadProfilePhotoRequest instance
+# @description Construct UploadProfilePhotoRequest from a reader
+# @name UploadProfilePhotoRequest_from_reader
+#
+# Class-level convenience wrapper around the private from_reader_impl.
+# @param reader Reader object providing read_int, tgread_object, read_double, etc.
+# @return UploadProfilePhotoRequest instance
 UploadProfilePhotoRequest$from_reader <- function(reader) {
   UploadProfilePhotoRequest$private_methods$from_reader_impl(reader)
 }

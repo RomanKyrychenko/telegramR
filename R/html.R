@@ -28,7 +28,6 @@ make_entity <- function(type, offset, length = 0, ...) {
   e
 }
 
-#' @description Parses HTML fragments into Telegram-compatible plain text and entity metadata.
 #' @details
 #'   Traverses the HTML node tree, tracking active tags and their metadata to
 #'   construct Telegram message entities (bold, italic, underline, strike,

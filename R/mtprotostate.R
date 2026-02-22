@@ -81,9 +81,6 @@ packInt64 <- function(value) {
 
 #' MTProto protocol state management
 #'
-#' @description
-#' Manages the state needed for MTProto encryption, including message IDs,
-#' sequence numbers, and server salt.
 #' @title MTProtoState
 #' @description Telegram API type MTProtoState
 #' @export
@@ -215,8 +212,11 @@ MTProtoState <- R6::R6Class("MTProtoState",
       # Calculate message key following MTProto 2.0 guidelines
       msg_key_large <- digest::digest(
         c(self$auth_key$key[89:(88 + 32)], data, padding),
+        #' @field algo Field.
         algo = "sha256",
+        #' @field serialize Field.
         serialize = FALSE,
+        #' @field raw Field.
         raw = TRUE
       )
 
@@ -293,8 +293,11 @@ MTProtoState <- R6::R6Class("MTProtoState",
       # Verify message integrity
       our_key <- digest::digest(
         c(self$auth_key$key[97:(96 + 32)], body),
+        #' @field algo Field.
         algo = "sha256",
+        #' @field serialize Field.
         serialize = FALSE,
+        #' @field raw Field.
         raw = TRUE
       )[9:24]
 
@@ -426,11 +429,6 @@ MTProtoState <- R6::R6Class("MTProtoState",
     ignore_count = NULL,
     packet_dumped = NULL,
 
-    #' @description Calculate encryption key and initialization vector
-    #' @param auth_key Authentication key
-    #' @param msg_key Message key
-    #' @param client Boolean indicating if this is for client or server
-    #' @return List containing aes_key and aes_iv
     calc_key = function(auth_key, msg_key, client) {
       x <- 0
       if (!client) x <- 8
@@ -455,9 +453,6 @@ MTProtoState <- R6::R6Class("MTProtoState",
       return(list(aes_key = aes_key, aes_iv = aes_iv))
     },
 
-    #' @description Generate next sequence number
-    #' @param content_related Boolean indicating if message is content-related
-    #' @return Next sequence number
     get_seq_no = function(content_related) {
       if (content_related) {
         result <- private$sequence * 2 + 1
@@ -468,7 +463,6 @@ MTProtoState <- R6::R6Class("MTProtoState",
       }
     },
 
-    #' @description Track ignored messages and throw error if too many consecutive
     count_ignored = function() {
       private$ignore_count <- private$ignore_count + 1
       if (private$ignore_count >= MAX_CONSECUTIVE_IGNORED) {
@@ -487,6 +481,7 @@ deque <- function(maxlen) {
   R6::R6Class("Deque",
     public = list(
       items = list(),
+      #' @field maxlen Field.
       maxlen = NULL,
       initialize = function(maxlen) {
         self$maxlen <- maxlen
