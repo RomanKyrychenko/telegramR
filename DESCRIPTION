@@ -28,14 +28,14 @@ Imports:
     later,
     bitops,
     gmp,
-    magick,
     xml2,
     mime
 Suggests:
     testthat (>= 3.0.0),
     withr,
     exiftoolr,
-    fs
+    fs,
+    magick
 Config/testthat/edition: 3
 RoxygenNote: 7.3.3
 Collate: 
