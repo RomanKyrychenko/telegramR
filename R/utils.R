@@ -111,6 +111,9 @@ pack <- function(format, ...) {
   con <- rawConnection(raw(0), "wb")
   on.exit(close(con))
 
+  # Strip endianness prefix (we always use little-endian)
+  format <- sub("^[<>!=@]", "", format)
+
   # Simple format parsing (one char per value for now)
   fmt_chars <- strsplit(format, "")[[1]]
   if (length(fmt_chars) != length(values)) {
@@ -177,6 +180,9 @@ pack <- function(format, ...) {
 unpack <- function(format, data) {
   con <- rawConnection(data, "rb")
   on.exit(close(con))
+
+  # Strip endianness prefix (we always use little-endian)
+  format <- sub("^[<>!=@]", "", format)
 
   fmt_chars <- strsplit(format, "")[[1]]
   result <- list()
@@ -1704,11 +1710,11 @@ parse_username <- function(username) {
     group1 <- substr(username, match_start, match_start + match_length - 1)
     is_invite <- grepl("\\+|joinchat", group1)
     if (is_invite) {
-      return(list(username_part, TRUE))
+      return(list(username = username_part, is_join_chat = TRUE))
     } else {
       username_part <- sub("/$", "", username_part)
       if (grepl(valid_username_re, username_part, ignore.case = TRUE)) {
-        return(list(tolower(username_part), FALSE))
+        return(list(username = tolower(username_part), is_join_chat = FALSE))
       }
     }
   }
@@ -1719,10 +1725,10 @@ parse_username <- function(username) {
     match_start <- m
     match_length <- attr(m, "match.length")
     username_part <- substr(username, match_start + match_length, nchar(username))
-    return(list(username_part, TRUE))
+    return(list(username = username_part, is_join_chat = TRUE))
   }
 
-  return(list(NULL, FALSE))
+  return(list(username = NULL, is_join_chat = FALSE))
 }
 
 
