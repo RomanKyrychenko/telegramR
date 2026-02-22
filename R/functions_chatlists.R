@@ -8,8 +8,8 @@
 CheckChatlistInviteRequest <- R6::R6Class(
   "CheckChatlistInviteRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x41c10fff),
-    SUBCLASS_OF_ID = as.integer(0x41720e75),
+    CONSTRUCTOR_ID = 0x41c10fff,
+    SUBCLASS_OF_ID = 0x41720e75,
     #' @field slug Field.
     slug = NULL,
 
@@ -85,8 +85,8 @@ CheckChatlistInviteRequest$set("public", "from_reader", function(reader) {
 DeleteExportedInviteRequest <- R6::R6Class(
   "DeleteExportedInviteRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x719c5c5e),
-    SUBCLASS_OF_ID = as.integer(0xf5b399ac),
+    CONSTRUCTOR_ID = 0x719c5c5e,
+    SUBCLASS_OF_ID = 0xf5b399ac,
     #' @field chatlist Field.
     chatlist = NULL,
     #' @field slug Field.
@@ -173,8 +173,8 @@ DeleteExportedInviteRequest$set("public", "from_reader", function(reader) {
 EditExportedInviteRequest <- R6::R6Class(
   "EditExportedInviteRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x653db63d),
-    SUBCLASS_OF_ID = as.integer(0x7711f8ff),
+    CONSTRUCTOR_ID = 0x653db63d,
+    SUBCLASS_OF_ID = 0x7711f8ff,
     #' @field chatlist Field.
     chatlist = NULL,
     #' @field slug Field.
@@ -349,8 +349,8 @@ EditExportedInviteRequest$set("public", "from_reader", function(reader) {
 ExportChatlistInviteRequest <- R6::R6Class(
   "ExportChatlistInviteRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x8472478e),
-    SUBCLASS_OF_ID = as.integer(0xc2694ee9),
+    CONSTRUCTOR_ID = 0x8472478e,
+    SUBCLASS_OF_ID = 0xc2694ee9,
     #' @field chatlist Field.
     chatlist = NULL,
     #' @field title Field.
@@ -489,8 +489,8 @@ ExportChatlistInviteRequest$set("public", "from_reader", function(reader) {
 GetChatlistUpdatesRequest <- R6::R6Class(
   "GetChatlistUpdatesRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x89419521),
-    SUBCLASS_OF_ID = as.integer(0x7d1641ea),
+    CONSTRUCTOR_ID = 0x89419521,
+    SUBCLASS_OF_ID = 0x7d1641ea,
     #' @field chatlist Field.
     chatlist = NULL,
 
@@ -550,8 +550,8 @@ GetChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
 GetExportedInvitesRequest <- R6::R6Class(
   "GetExportedInvitesRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xce03da83),
-    SUBCLASS_OF_ID = as.integer(0xe6c209c0),
+    CONSTRUCTOR_ID = 0xce03da83,
+    SUBCLASS_OF_ID = 0xe6c209c0,
     #' @field chatlist Field.
     chatlist = NULL,
 
@@ -611,8 +611,8 @@ GetExportedInvitesRequest$set("public", "from_reader", function(reader) {
 GetLeaveChatlistSuggestionsRequest <- R6::R6Class(
   "GetLeaveChatlistSuggestionsRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xfdbcd714),
-    SUBCLASS_OF_ID = as.integer(0xb9945d7e),
+    CONSTRUCTOR_ID = 0xfdbcd714,
+    SUBCLASS_OF_ID = 0xb9945d7e,
     #' @field chatlist Field.
     chatlist = NULL,
 
@@ -672,8 +672,8 @@ GetLeaveChatlistSuggestionsRequest$set("public", "from_reader", function(reader)
 HideChatlistUpdatesRequest <- R6::R6Class(
   "HideChatlistUpdatesRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x66e486fb),
-    SUBCLASS_OF_ID = as.integer(0xf5b399ac),
+    CONSTRUCTOR_ID = 0x66e486fb,
+    SUBCLASS_OF_ID = 0xf5b399ac,
     #' @field chatlist Field.
     chatlist = NULL,
 
@@ -734,8 +734,8 @@ HideChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
 JoinChatlistInviteRequest <- R6::R6Class(
   "JoinChatlistInviteRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xa6b1e39a),
-    SUBCLASS_OF_ID = as.integer(0x8af52aac),
+    CONSTRUCTOR_ID = 0xa6b1e39a,
+    SUBCLASS_OF_ID = 0x8af52aac,
     #' @field slug Field.
     slug = NULL,
     #' @field peers Field.
@@ -868,8 +868,8 @@ JoinChatlistInviteRequest$set("public", "from_reader", function(reader) {
 JoinChatlistUpdatesRequest <- R6::R6Class(
   "JoinChatlistUpdatesRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0xe089f8f5),
-    SUBCLASS_OF_ID = as.integer(0x8af52aac),
+    CONSTRUCTOR_ID = 0xe089f8f5,
+    SUBCLASS_OF_ID = 0x8af52aac,
     #' @field chatlist Field.
     chatlist = NULL,
     #' @field peers Field.
@@ -979,8 +979,8 @@ JoinChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
 LeaveChatlistRequest <- R6::R6Class(
   "LeaveChatlistRequest",
   public = list(
-    CONSTRUCTOR_ID = as.integer(0x74fae13a),
-    SUBCLASS_OF_ID = as.integer(0x8af52aac),
+    CONSTRUCTOR_ID = 0x74fae13a,
+    SUBCLASS_OF_ID = 0x8af52aac,
     #' @field chatlist Field.
     chatlist = NULL,
     #' @field peers Field.

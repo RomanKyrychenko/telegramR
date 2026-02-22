@@ -8459,7 +8459,7 @@ ChannelAdminLogEventActionStopPoll <- R6::R6Class("ChannelAdminLogEventActionSto
     },
     bytes = function() {
       c(
-        writeBin(as.integer(0x8f079643), raw(), size = 4, endian = "little"),
+        as.raw(c(0x43, 0x96, 0x07, 0x8f)),
         self$message$bytes()
       )
     }
@@ -8527,7 +8527,7 @@ ChannelAdminLogEventActionToggleAutotranslation <- R6::R6Class("ChannelAdminLogE
     },
     bytes = function() {
       c(
-        writeBin(as.integer(0xc517f77e), raw(), size = 4, endian = "little"),
+        as.raw(c(0x7e, 0xf7, 0x17, 0xc5)),
         writeBin(as.integer(if (self$new_value) 0xb5757299 else 0x3797bc7c), raw(), size = 4, endian = "little")
       )
     }
@@ -8664,7 +8664,7 @@ ChannelAdminLogEventActionToggleNoForwards <- R6::R6Class("ChannelAdminLogEventA
     },
     bytes = function() {
       c(
-        writeBin(as.integer(0xcb2ac766), raw(), size = 4, endian = "little"),
+        as.raw(c(0x66, 0xc7, 0x2a, 0xcb)),
         writeBin(as.integer(if (self$new_value) 0xb5757299 else 0x3797bc7c), raw(), size = 4, endian = "little")
       )
     }
@@ -8838,7 +8838,7 @@ ChannelAdminLogEventActionUpdatePinned <- R6::R6Class("ChannelAdminLogEventActio
     },
     bytes = function() {
       c(
-        writeBin(as.integer(0xe9e82c18), raw(), size = 4, endian = "little"),
+        as.raw(c(0x18, 0x2c, 0xe8, 0xe9)),
         self$message$bytes()
       )
     }
@@ -8908,7 +8908,7 @@ ChannelAdminLogEventsFilter <- R6::R6Class("ChannelAdminLogEventsFilter",
     },
     bytes = function() {
       c(
-        writeBin(as.integer(0xea107ae4), raw(), size = 4, endian = "little"),
+        as.raw(c(0xe4, 0x7a, 0x10, 0xea)),
         writeBin(as.integer((if (is.null(self$join) || !self$join) 0 else 1) | (if (is.null(self$leave) || !self$leave) 0 else 2) | (if (is.null(self$invite) || !self$invite) 0 else 4) | (if (is.null(self$ban) || !self$ban) 0 else 8) | (if (is.null(self$unban) || !self$unban) 0 else 16) | (if (is.null(self$kick) || !self$kick) 0 else 32) | (if (is.null(self$unkick) || !self$unkick) 0 else 64) | (if (is.null(self$promote) || !self$promote) 0 else 128) | (if (is.null(self$demote) || !self$demote) 0 else 256) | (if (is.null(self$info) || !self$info) 0 else 512) | (if (is.null(self$settings) || !self$settings) 0 else 1024) | (if (is.null(self$pinned) || !self$pinned) 0 else 2048) | (if (is.null(self$edit) || !self$edit) 0 else 4096) | (if (is.null(self$delete) || !self$delete) 0 else 8192) | (if (is.null(self$group_call) || !self$group_call) 0 else 16384) | (if (is.null(self$invites) || !self$invites) 0 else 32768) | (if (is.null(self$send) || !self$send) 0 else 65536) | (if (is.null(self$forums) || !self$forums) 0 else 131072) | (if (is.null(self$sub_extend) || !self$sub_extend) 0 else 262144)), raw(), size = 4, endian = "little")
       )
     }

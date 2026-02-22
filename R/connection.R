@@ -412,7 +412,6 @@ Connection <- R6Class(
               warning(sprintf("Unexpected exception in send loop: %s", e$message))
             }
             private$._connected <<- FALSE
-            break
           }
         )
       }

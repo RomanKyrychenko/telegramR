@@ -5016,11 +5016,11 @@ UnregisterDeviceRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x06, 0x32, 0x0d, 0x6a)),
-        packBits(as.integer(self$tokenType), type = "integer"),
+        writeBin(as.integer(self$tokenType), raw(), size = 4, endian = "little"),
         self$serialize_bytes(self$token),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
-        packBits(length(self$otherUids), type = "integer"),
-        do.call(c, lapply(self$otherUids, function(x) packBits(as.integer(x), type = "integer", size = 8)))
+        writeBin(as.integer(length(self$otherUids)), raw(), size = 4, endian = "little"),
+        do.call(c, lapply(self$otherUids, function(x) writeBin(as.numeric(x), raw(), size = 8, endian = "little")))
       )
     },
 
