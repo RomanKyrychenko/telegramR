@@ -42,8 +42,9 @@ test_that("is_list_like identifies list-like objects", {
   expect_true(is_list_like(list(1, 2, 3)))
   expect_true(is_list_like(1:10))
   expect_false(is_list_like("string"))
-  expect_false(is_list_like(as.raw(c(1, 2))))
-  expect_true(is_list_like(data.frame(a = 1:3)))
+  expect_true(is_list_like(as.raw(c(1, 2))))
+  expect_false(is_list_like(data.frame(a = 1:3)))
+  expect_true(is_list_like(data.frame(a = 1:3), allow_data_frames = TRUE))
 })
 
 # Test for resolve_id function
