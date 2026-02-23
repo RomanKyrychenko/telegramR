@@ -1,4 +1,4 @@
-# telegramR
+# telegramR <a href="https://romankyrychenko.github.io/telegramR/"><img src="man/figures/logo.png" align="right" height="139" alt="telegramR website" /></a>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/RomanKyrychenko/telegramR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/RomanKyrychenko/telegramR/actions/workflows/R-CMD-check.yaml)
