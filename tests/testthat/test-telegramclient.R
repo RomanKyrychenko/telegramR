@@ -1,7 +1,7 @@
 # Provide a minimal base class so TelegramClient can be instantiated without full package context.
 if (!exists("TelegramBaseClient")) {
   TelegramBaseClient <- R6::R6Class("TelegramBaseClient", public = list(
-    initialize = function(...) { }
+    initialize = function(...) {}
   ))
 }
 
@@ -42,18 +42,21 @@ test_that("build_reply_markup handles NULL, reply markup passthrough, keyboard a
   expect_null(cli$build_reply_markup(NULL))
 
   # Already-a-reply-markup is returned unchanged
-  m <- list(dummy = TRUE); attr(m, "SUBCLASS_OF_ID") <- 0xe2e10ef2
+  m <- list(dummy = TRUE)
+  attr(m, "SUBCLASS_OF_ID") <- 0xe2e10ef2
   expect_identical(cli$build_reply_markup(m), m)
 
   # Single keyboard button -> ReplyKeyboardMarkup
-  kb <- list(is_inline = FALSE); attr(kb, "SUBCLASS_OF_ID") <- 0xbad74a3
+  kb <- list(is_inline = FALSE)
+  attr(kb, "SUBCLASS_OF_ID") <- 0xbad74a3
   res_kb <- cli$build_reply_markup(kb)
   expect_equal(res_kb[["_type"]], "ReplyKeyboardMarkup")
   expect_length(res_kb$rows, 1)
   expect_equal(res_kb$rows[[1]]$buttons[[1]]$is_inline, FALSE)
 
   # Single inline button -> ReplyInlineMarkup (no rows since no keyboard buttons)
-  inline <- list(is_inline = TRUE); attr(inline, "SUBCLASS_OF_ID") <- 123L
+  inline <- list(is_inline = TRUE)
+  attr(inline, "SUBCLASS_OF_ID") <- 123L
   res_inline <- cli$build_reply_markup(inline)
   expect_equal(res_inline[["_type"]], "ReplyInlineMarkup")
   expect_length(res_inline$rows, 0)
@@ -71,7 +74,8 @@ test_that("build_reply_markup handles NULL, reply markup passthrough, keyboard a
   )
 
   # CustomButton extracts flags and inner button
-  inner <- list(is_inline = FALSE); attr(inner, "SUBCLASS_OF_ID") <- 0xbad74a3
+  inner <- list(is_inline = FALSE)
+  attr(inner, "SUBCLASS_OF_ID") <- 0xbad74a3
   custom <- structure(list(button = inner, resize = TRUE, single_use = FALSE, selective = TRUE), class = "CustomButton")
   res_custom <- cli$build_reply_markup(list(custom))
   expect_equal(res_custom[["_type"]], "ReplyKeyboardMarkup")
@@ -126,9 +130,11 @@ test_that("replace_with_mention returns TRUE on success and FALSE on invalid ind
 test_that("get_response_message maps random_id to message correctly", {
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
-  upd_map <- list(random_id = 123, id = 10); class(upd_map) <- "UpdateMessageID"
+  upd_map <- list(random_id = 123, id = 10)
+  class(upd_map) <- "UpdateMessageID"
   msg <- list(id = 10, text = "mapped message")
-  upd_msg <- list(message = msg); class(upd_msg) <- "UpdateNewMessage"
+  upd_msg <- list(message = msg)
+  class(upd_msg) <- "UpdateNewMessage"
 
   result_updates <- list(updates = list(upd_map, upd_msg), users = list(), chats = list())
   class(result_updates) <- "Updates"
@@ -145,34 +151,42 @@ test_that("get_response_message maps random_id to message correctly", {
   expect_type(res_list, "list")
   expect_equal(res_list[[1]]$text, "mapped message")
 
-  short_result <- list(update = upd_msg); class(short_result) <- "UpdateShort"
+  short_result <- list(update = upd_msg)
+  class(short_result) <- "UpdateShort"
   short_msgs <- cli$get_response_message(NULL, short_result, NULL)
   expect_equal(short_msgs[["10"]]$text, "mapped message")
 
-  bad_result <- list(foo = "bar"); class(bad_result) <- "SomethingElse"
+  bad_result <- list(foo = "bar")
+  class(bad_result) <- "SomethingElse"
   expect_null(cli$get_response_message(NULL, bad_result, NULL))
 
   req_no_rand <- list()
-  expect_warning(res_null <- cli$get_response_message(req_no_rand, result_updates, NULL),
-                 "No random_id in request to map to, returning NULL")
+  expect_warning(
+    res_null <- cli$get_response_message(req_no_rand, result_updates, NULL),
+    "No random_id in request to map to, returning NULL"
+  )
   expect_null(res_null)
 })
 
 test_that("is_image detects file extensions correctly", {
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
-  img <- tempfile(fileext = ".jpg"); on.exit(unlink(img), add = TRUE); file.create(img)
+  img <- tempfile(fileext = ".jpg")
+  on.exit(unlink(img), add = TRUE)
+  file.create(img)
   expect_true(cli$is_image(img))
 
-  non_img <- tempfile(fileext = ".txt"); on.exit(unlink(non_img), add = TRUE); writeLines("hello", non_img)
+  non_img <- tempfile(fileext = ".txt")
+  on.exit(unlink(non_img), add = TRUE)
+  writeLines("hello", non_img)
   expect_false(cli$is_image(non_img))
 })
 
 test_that("get_appropriated_part_size returns expected KB values", {
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
-  expect_equal(cli$get_appropriated_part_size(104857600), 64)        # 100MB
-  expect_equal(cli$get_appropriated_part_size(200 * 1024^2), 128)    # 200MB
-  expect_equal(cli$get_appropriated_part_size(1073741824), 256)      # 1GB
+  expect_equal(cli$get_appropriated_part_size(104857600), 64) # 100MB
+  expect_equal(cli$get_appropriated_part_size(200 * 1024^2), 128) # 200MB
+  expect_equal(cli$get_appropriated_part_size(1073741824), 256) # 1GB
 })
 
 test_that("get_proper_filename builds names with extension and avoids collisions", {
@@ -180,31 +194,43 @@ test_that("get_proper_filename builds names with extension and avoids collisions
 
   dir <- tempdir()
   # Use possible_names so it's deterministic
-  fn1 <- cli$get_proper_filename(NULL, kind = "photo", extension = ".jpg",
-                                 date = NULL, possible_names = list("test_name"))
+  fn1 <- cli$get_proper_filename(NULL,
+    kind = "photo", extension = ".jpg",
+    date = NULL, possible_names = list("test_name")
+  )
   expect_true(grepl("test_name\\.jpg$", fn1))
 
   # Place in directory
-  fn2 <- cli$get_proper_filename(dir, kind = "document", extension = ".pdf",
-                                 date = NULL, possible_names = list("doc"))
+  fn2 <- cli$get_proper_filename(dir,
+    kind = "document", extension = ".pdf",
+    date = NULL, possible_names = list("doc")
+  )
   expect_true(grepl("doc\\.pdf$", fn2))
 
   # Create file to force collision and ensure suffix " (1)" is used
   file.create(fn2)
-  fn3 <- cli$get_proper_filename(dir, kind = "document", extension = ".pdf",
-                                 date = NULL, possible_names = list("doc"))
+  fn3 <- cli$get_proper_filename(dir,
+    kind = "document", extension = ".pdf",
+    date = NULL, possible_names = list("doc")
+  )
   expect_true(grepl("doc \\(1\\)\\.pdf$", fn3))
 })
 
 test_that("get_thumb selects appropriate thumbnail", {
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
-  ps1 <- list(type = "s", size = 10); class(ps1) <- "PhotoSize"
-  ps2 <- list(type = "m", size = 50); class(ps2) <- "PhotoSize"
-  cached <- list(bytes = as.raw(1:20)); class(cached) <- "PhotoCachedSize"
-  stripped <- list(bytes = as.raw(1:5)); class(stripped) <- "PhotoStrippedSize"
-  video <- list(type = "v", size = 100); class(video) <- "VideoSize"
-  pathsize <- list(type = "p", size = 999); class(pathsize) <- "PhotoPathSize"
+  ps1 <- list(type = "s", size = 10)
+  class(ps1) <- "PhotoSize"
+  ps2 <- list(type = "m", size = 50)
+  class(ps2) <- "PhotoSize"
+  cached <- list(bytes = as.raw(1:20))
+  class(cached) <- "PhotoCachedSize"
+  stripped <- list(bytes = as.raw(1:5))
+  class(stripped) <- "PhotoStrippedSize"
+  video <- list(type = "v", size = 100)
+  class(video) <- "VideoSize"
+  pathsize <- list(type = "p", size = 999)
+  class(pathsize) <- "PhotoPathSize"
 
   thumbs <- list(ps1, ps2, cached, stripped, video, pathsize)
 
@@ -261,9 +287,9 @@ test_that("file_to_media returns nulls for NULL input and external media for URL
 
 test_that("get_appropriated_part_size returns expected KB values", {
   um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
-  expect_equal(um$get_appropriated_part_size(104857600), 64)       # 100MB
-  expect_equal(um$get_appropriated_part_size(200 * 1024^2), 128)  # 200MB
-  expect_equal(um$get_appropriated_part_size(1073741824), 256)     # 1GB
+  expect_equal(um$get_appropriated_part_size(104857600), 64) # 100MB
+  expect_equal(um$get_appropriated_part_size(200 * 1024^2), 128) # 200MB
+  expect_equal(um$get_appropriated_part_size(1073741824), 256) # 1GB
 })
 
 test_that("resize_photo_if_needed returns original when not an image", {
@@ -320,12 +346,14 @@ test_that("get_running_loop returns POSIXct", {
 test_that("EventBuilderDict builds, caches and sets client for EventCommon", {
   # Define an R6 EventCommon to mimic behavior
   EventCommonClass <- R6Class("EventCommon",
-                              public = list(
-                                client = NULL,
-                                original_update = NULL,
-                                entities = NULL,
-                                set_client = function(client) { self$client <- client }
-                              )
+    public = list(
+      client = NULL,
+      original_update = NULL,
+      entities = NULL,
+      set_client = function(client) {
+        self$client <- client
+      }
+    )
   )
 
   # Fake client with a self_id
@@ -506,8 +534,10 @@ test_that("single inline button becomes ReplyInlineMarkup (empty rows if no keyb
 })
 
 test_that("mixing inline and normal buttons errors", {
-  kb <- list(is_inline = FALSE); attr(kb, "SUBCLASS_OF_ID") <- 0xbad74a3
-  inline <- list(is_inline = TRUE); attr(inline, "SUBCLASS_OF_ID") <- 123L
+  kb <- list(is_inline = FALSE)
+  attr(kb, "SUBCLASS_OF_ID") <- 0xbad74a3
+  inline <- list(is_inline = TRUE)
+  attr(inline, "SUBCLASS_OF_ID") <- 123L
   expect_error(
     btns$build_reply_markup(list(list(kb), list(inline))),
     "You cannot mix inline with normal buttons"
@@ -515,7 +545,8 @@ test_that("mixing inline and normal buttons errors", {
 })
 
 test_that("inline_only with normal button errors", {
-  kb <- list(is_inline = FALSE); attr(kb, "SUBCLASS_OF_ID") <- 0xbad74a3
+  kb <- list(is_inline = FALSE)
+  attr(kb, "SUBCLASS_OF_ID") <- 0xbad74a3
   expect_error(
     btns$build_reply_markup(kb, inline_only = TRUE),
     "You cannot use non-inline buttons here"
@@ -538,7 +569,8 @@ test_that("CustomButton extracts flags and inner button", {
 })
 
 test_that("MessageButton unwraps to its inner button", {
-  inline <- list(is_inline = TRUE); attr(inline, "SUBCLASS_OF_ID") <- 999L
+  inline <- list(is_inline = TRUE)
+  attr(inline, "SUBCLASS_OF_ID") <- 999L
   msgb <- structure(list(button = inline), class = "MessageButton")
   res <- btns$build_reply_markup(list(msgb))
   expect_equal(res[["_type"]], "ReplyInlineMarkup")
@@ -742,5 +774,3 @@ test_that("download_contact returns a vCard as raw when asked", {
   expect_true(grepl("BEGIN:VCARD", text))
   expect_true(grepl("TEL;TYPE=cell;VALUE=uri:tel:\\+12345", text) || grepl("12345", text))
 })
-
-

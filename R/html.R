@@ -44,7 +44,6 @@ make_entity <- function(type, offset, length = 0, ...) {
 HTMLToTelegramParser <- R6::R6Class(
   "HTMLToTelegramParser",
   public = list(
-
     #' @field text accumulated plain text
     text = "",
 

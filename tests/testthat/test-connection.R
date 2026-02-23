@@ -1,5 +1,5 @@
-port = 443
-ip = "149.154.167.220"
+port <- 443
+ip <- "149.154.167.220"
 
 test_that("initializes connection with valid parameters", {
   connection <- Connection$new(ip = ip, port = port, dc_id = 1)
@@ -15,11 +15,15 @@ test_that("connects to server successfully", {
   skip_on_ci()
   connection <- Connection$new(ip = ip, port = port, dc_id = 1)
 
-  #result <- value(connection$connect())
+  # result <- value(connection$connect())
   result <- connection$connect() %>%
-    {.$then} %>%
-    environment %>%
-    {.$private$value}
+    {
+      .$then
+    } %>%
+    environment() %>%
+    {
+      .$private$value
+    }
   expect_true(result)
   expect_true(connection$.__enclos_env__$private$._connected)
 })

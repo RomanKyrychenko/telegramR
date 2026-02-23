@@ -952,8 +952,7 @@ GetAccountTTLRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.raw(c(0x88, 0x9d, 0xa3, 0xba)),
 
     #' @description Initialize the GetAccountTTLRequest.
-    initialize = function() {
-    },
+    initialize = function() {},
 
     #' @description Convert to dictionary.
     #' @return A list representing the object.
@@ -995,8 +994,7 @@ GetAllSecureValuesRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.raw(c(0x21, 0x41, 0x2e, 0xe8)),
 
     #' @description Initialize the GetAllSecureValuesRequest.
-    initialize = function() {
-    },
+    initialize = function() {},
 
     #' @description Convert to dictionary.
     #' @return A list representing the object.
@@ -1098,8 +1096,7 @@ GetAuthorizationsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.raw(c(0xff, 0xe0, 0x5e, 0x0b)),
 
     #' @description Initialize the GetAuthorizationsRequest.
-    initialize = function() {
-    },
+    initialize = function() {},
 
     #' @description Convert to dictionary.
     #' @return A list representing the object.
@@ -1142,8 +1139,7 @@ GetAutoDownloadSettingsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.raw(c(0x21, 0x59, 0xb8, 0x2f)),
 
     #' @description Initialize the GetAutoDownloadSettingsRequest.
-    initialize = function() {
-    },
+    initialize = function() {},
 
     #' @description Convert to dictionary.
     #' @return A list representing the object.
@@ -1185,8 +1181,7 @@ GetAutoSaveSettingsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.raw(c(0x02, 0x2f, 0xcf, 0x48)),
 
     #' @description Initialize the GetAutoSaveSettingsRequest.
-    initialize = function() {
-    },
+    initialize = function() {},
 
     #' @description Convert to dictionary.
     #' @return A list representing the object.
@@ -1278,8 +1273,7 @@ GetBusinessChatLinksRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.raw(c(0x31, 0x4a, 0xba, 0xc6)),
 
     #' @description Initialize the GetBusinessChatLinksRequest.
-    initialize = function() {
-    },
+    initialize = function() {},
 
     #' @description Convert to dictionary.
     #' @return A list representing the object.

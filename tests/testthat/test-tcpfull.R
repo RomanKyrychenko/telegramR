@@ -3,8 +3,10 @@ test_that("encodes packet with valid data correctly", {
   data <- raw(16)
   result <- codec$encode_packet(data)
   total_length <- as.integer(length(data) + 12L)
-  header <- c(writeBin(total_length, raw(), size = 4, endian = "little"),
-              writeBin(as.integer(0L), raw(), size = 4, endian = "little"))
+  header <- c(
+    writeBin(total_length, raw(), size = 4, endian = "little"),
+    writeBin(as.integer(0L), raw(), size = 4, endian = "little")
+  )
   packet <- c(header, data)
   crc_value <- crc32(packet)
   crc_raw <- writeBin(as.integer(crc_value), raw(), size = 4, endian = "little")
@@ -22,13 +24,17 @@ test_that("reads packet with valid data successfully", {
   reader <- list(
     readexactly = function(n) {
       if (n == 8L) {
-        c(writeBin(as.integer(20L), raw(), size = 4, endian = "little"),
-          writeBin(as.integer(0L), raw(), size = 4, endian = "little"))
+        c(
+          writeBin(as.integer(20L), raw(), size = 4, endian = "little"),
+          writeBin(as.integer(0L), raw(), size = 4, endian = "little")
+        )
       } else if (n == 12L) {
         body <- raw(8)
-        crc_value <- crc32(c(writeBin(as.integer(20L), raw(), size = 4, endian = "little"),
-                             writeBin(as.integer(0L), raw(), size = 4, endian = "little"),
-                             body))
+        crc_value <- crc32(c(
+          writeBin(as.integer(20L), raw(), size = 4, endian = "little"),
+          writeBin(as.integer(0L), raw(), size = 4, endian = "little"),
+          body
+        ))
         c(body, writeBin(as.integer(crc_value), raw(), size = 4, endian = "little"))
       }
     }
@@ -42,8 +48,10 @@ test_that("throws error when packet length is less than 8", {
   reader <- list(
     readexactly = function(n) {
       if (n == 8L) {
-        c(writeBin(as.integer(4L), raw(), size = 4, endian = "little"),
-          writeBin(as.integer(0L), raw(), size = 4, endian = "little"))
+        c(
+          writeBin(as.integer(4L), raw(), size = 4, endian = "little"),
+          writeBin(as.integer(0L), raw(), size = 4, endian = "little")
+        )
       }
     }
   )
@@ -55,8 +63,10 @@ test_that("throws error when checksum is invalid", {
   reader <- list(
     readexactly = function(n) {
       if (n == 8L) {
-        c(writeBin(as.integer(20L), raw(), size = 4, endian = "little"),
-          writeBin(as.integer(0L), raw(), size = 4, endian = "little"))
+        c(
+          writeBin(as.integer(20L), raw(), size = 4, endian = "little"),
+          writeBin(as.integer(0L), raw(), size = 4, endian = "little")
+        )
       } else if (n == 12L) {
         body <- raw(8)
         invalid_crc <- as.integer(12345L)

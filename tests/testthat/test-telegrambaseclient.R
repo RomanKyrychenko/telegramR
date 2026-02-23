@@ -7,8 +7,8 @@ test_that("TelegramBaseClient initializes with valid parameters", {
   client <- TelegramBaseClient$new(
     session = session,
     api_id = api_id,
-    api_hash = api_hash#,
-    #phone = "+380980018456"
+    api_hash = api_hash # ,
+    # phone = "+380980018456"
   )
 
   print(client)

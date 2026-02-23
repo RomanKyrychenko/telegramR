@@ -51,7 +51,6 @@ IntermediatePacketCodec <- R6::R6Class("IntermediatePacketCodec",
 RandomizedIntermediatePacketCodec <- R6::R6Class("RandomizedIntermediatePacketCodec",
   inherit = IntermediatePacketCodec,
   public = list(
-
     #' @field tag A raw vector representing the tag for the codec.
     tag = NULL,
 

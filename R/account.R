@@ -23,7 +23,6 @@ AccountMethods <- R6::R6Class(
 TakeoutClient <- R6::R6Class(
   "TakeoutClient",
   public = list(
-
     #' @field finalize A logical indicating whether to finalize the takeout session.
     finalize = NULL,
 

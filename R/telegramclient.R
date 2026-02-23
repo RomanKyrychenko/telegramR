@@ -12,7 +12,6 @@ TelegramClient <- R6::R6Class(
   "TelegramClient",
   inherit = TelegramBaseClient,
   public = list(
-
     #' @description Initialize a new `AccountMethods` object.
     #' @param finalize A logical indicating whether to finalize the takeout session.
     #' @param contacts A logical indicating whether to include contacts in the takeout session.
@@ -82,10 +81,10 @@ TelegramClient <- R6::R6Class(
       }
 
       if (is.null(phone)) {
-        phone = readline("Please enter your phone (or bot token): ")
+        phone <- readline("Please enter your phone (or bot token): ")
       }
       if (is.null(password)) {
-        password = getPass::getPass("Please enter your password: ")
+        password <- getPass::getPass("Please enter your password: ")
       }
       if (is.null(code_callback)) {
         code_callback <- function() readline("Please enter the code you received: ")
@@ -126,9 +125,13 @@ TelegramClient <- R6::R6Class(
     sign_in = function(phone = NULL, code = NULL, password = NULL,
                        bot_token = NULL, phone_code_hash = NULL) {
       ctor_key <- function(obj) {
-        if (!is.list(obj) || is.null(obj$CONSTRUCTOR_ID)) return(NA_character_)
+        if (!is.list(obj) || is.null(obj$CONSTRUCTOR_ID)) {
+          return(NA_character_)
+        }
         v <- as.numeric(obj$CONSTRUCTOR_ID)[1]
-        if (is.na(v)) return(NA_character_)
+        if (is.na(v)) {
+          return(NA_character_)
+        }
         if (v < 0) v <- v + 2^32
         sprintf("%.0f", v)
       }
@@ -186,21 +189,24 @@ TelegramClient <- R6::R6Class(
       # Fallback parser for auth.Authorization (0x2EA2C0D4 = 782418132)
       # when ctor_map doesn't have the class and tgread_object returned raw data
       if (is.list(result) && !is.null(result$data) && is.raw(result$data) &&
-          identical(ctor_key(result), "782418132")) {
-        tryCatch({
-          reader <- BinaryReader$new(result$data)
-          flags <- reader$read_int()
-          # flags.1: otherwise_relogin_days (int32)
-          if (bitwAnd(flags, 2L) != 0L) reader$read_int()
-          # flags.0: tmp_sessions (int32)
-          if (bitwAnd(flags, 1L) != 0L) reader$read_int()
-          # flags.2: future_auth_token (bytes)
-          if (bitwAnd(flags, 4L) != 0L) reader$tgread_bytes()
-          # user: User object
-          result$user <- reader$tgread_object()
-        }, error = function(e) {
-          message(sprintf("[sign_in] Failed to parse auth.Authorization fallback: %s", e$message))
-        })
+        identical(ctor_key(result), "782418132")) {
+        tryCatch(
+          {
+            reader <- BinaryReader$new(result$data)
+            flags <- reader$read_int()
+            # flags.1: otherwise_relogin_days (int32)
+            if (bitwAnd(flags, 2L) != 0L) reader$read_int()
+            # flags.0: tmp_sessions (int32)
+            if (bitwAnd(flags, 1L) != 0L) reader$read_int()
+            # flags.2: future_auth_token (bytes)
+            if (bitwAnd(flags, 4L) != 0L) reader$tgread_bytes()
+            # user: User object
+            result$user <- reader$tgread_object()
+          },
+          error = function(e) {
+            message(sprintf("[sign_in] Failed to parse auth.Authorization fallback: %s", e$message))
+          }
+        )
       }
 
       user <- result$user
@@ -234,9 +240,13 @@ TelegramClient <- R6::R6Class(
     send_code_request = function(phone, force_sms = FALSE, retry_count = 0) {
       parse_sent_code_fallback <- function(res) {
         ctor_key <- function(obj) {
-          if (!is.list(obj) || is.null(obj$CONSTRUCTOR_ID)) return(NA_character_)
+          if (!is.list(obj) || is.null(obj$CONSTRUCTOR_ID)) {
+            return(NA_character_)
+          }
           v <- as.numeric(obj$CONSTRUCTOR_ID)[1]
-          if (is.na(v)) return(NA_character_)
+          if (is.na(v)) {
+            return(NA_character_)
+          }
           if (v < 0) v <- v + 2^32
           sprintf("%.0f", v)
         }
@@ -265,7 +275,9 @@ TelegramClient <- R6::R6Class(
           }
         }
 
-        if (!is.list(res) || is.null(res$CONSTRUCTOR_ID)) return(res)
+        if (!is.list(res) || is.null(res$CONSTRUCTOR_ID)) {
+          return(res)
+        }
         key <- ctor_key(res)
         if (identical(key, "596704836")) { # 0x2390fe44 auth.sentCodeSuccess
           class(res) <- c("auth.SentCodeSuccess", class(res))
@@ -276,14 +288,19 @@ TelegramClient <- R6::R6Class(
         }
 
         reader <- BinaryReader$new(res$data)
-        parsed <- tryCatch({
-          flags <- reader$read_int()
-          skip_sent_code_type(reader)
-          pch <- reader$tgread_string()
-          list(flags = flags, phone_code_hash = pch)
-        }, error = function(e) NULL)
+        parsed <- tryCatch(
+          {
+            flags <- reader$read_int()
+            skip_sent_code_type(reader)
+            pch <- reader$tgread_string()
+            list(flags = flags, phone_code_hash = pch)
+          },
+          error = function(e) NULL
+        )
         try(reader$close(), silent = TRUE)
-        if (is.null(parsed)) return(res)
+        if (is.null(parsed)) {
+          return(res)
+        }
 
         res$phone_code_hash <- parsed$phone_code_hash
         class(res) <- c("auth.SentCode", class(res))
@@ -1782,7 +1799,7 @@ TelegramClient <- R6::R6Class(
     #' @param filter The filter to be used, if you want e.g. only admins. Default is NULL.
     #' @param aggressive Does nothing. Kept for backwards-compatibility. Default is FALSE.
     #' @return A _ParticipantsIter object.
-    iter_participants = function(entity, limit = NULL, search = '', filter = NULL, aggressive = FALSE) {
+    iter_participants = function(entity, limit = NULL, search = "", filter = NULL, aggressive = FALSE) {
       return(.ParticipantsIter$new(
         client = self$client,
         limit = limit,
@@ -1947,9 +1964,11 @@ TelegramClient <- R6::R6Class(
       entity <- self$client$get_input_entity(entity)
       user <- self$client$get_input_entity(user)
 
-      perm_names <- c('change_info', 'post_messages', 'edit_messages', 'delete_messages',
-                      'ban_users', 'invite_users', 'pin_messages', 'add_admins',
-                      'anonymous', 'manage_call')
+      perm_names <- c(
+        "change_info", "post_messages", "edit_messages", "delete_messages",
+        "ban_users", "invite_users", "pin_messages", "add_admins",
+        "anonymous", "manage_call"
+      )
 
       ty <- entity_type(entity)
       if (ty == EntityType$CHANNEL) {
@@ -1964,20 +1983,22 @@ TelegramClient <- R6::R6Class(
           }
         }
 
-        perms <- list(change_info = change_info, post_messages = post_messages, edit_messages = edit_messages,
-                      delete_messages = delete_messages, ban_users = ban_users, invite_users = invite_users,
-                      pin_messages = pin_messages, add_admins = add_admins, anonymous = anonymous, manage_call = manage_call)
+        perms <- list(
+          change_info = change_info, post_messages = post_messages, edit_messages = edit_messages,
+          delete_messages = delete_messages, ban_users = ban_users, invite_users = invite_users,
+          pin_messages = pin_messages, add_admins = add_admins, anonymous = anonymous, manage_call = manage_call
+        )
         rights <- do.call(ChatAdminRights, lapply(perm_names, function(name) {
           if (!is.null(perms[[name]])) perms[[name]] else is_admin
         }))
-        return(self$client(EditAdminRequest(entity, user, rights, rank = title %||% '')))
+        return(self$client(EditAdminRequest(entity, user, rights, rank = title %||% "")))
       } else if (ty == EntityType$CHAT) {
         if (is.null(is_admin)) {
           is_admin <- any(sapply(perm_names, function(x) get(x)))
         }
         return(self$client(EditChatAdminRequest(entity$chat_id, user, is_admin = is_admin)))
       } else {
-        stop('You can only edit permissions in groups and channels')
+        stop("You can only edit permissions in groups and channels")
       }
     },
 
@@ -2007,7 +2028,7 @@ TelegramClient <- R6::R6Class(
       entity <- self$client$get_input_entity(entity)
       ty <- entity_type(entity)
       if (ty != EntityType$CHANNEL) {
-        stop('You must pass either a channel or a supergroup')
+        stop("You must pass either a channel or a supergroup")
       }
 
       rights <- ChatBannedRights(
@@ -2063,7 +2084,7 @@ TelegramClient <- R6::R6Class(
           ))
         }
       } else {
-        stop('You must pass either a channel or a chat')
+        stop("You must pass either a channel or a chat")
       }
 
       return(self$client$`_get_response_message`(NULL, resp, entity))
@@ -2106,7 +2127,7 @@ TelegramClient <- R6::R6Class(
         stop("UserNotParticipantError")
       }
 
-      stop('You must pass either a channel or a chat')
+      stop("You must pass either a channel or a chat")
     },
 
     #' @description Retrieves statistics from the given megagroup or broadcast channel.
@@ -2117,31 +2138,41 @@ TelegramClient <- R6::R6Class(
     get_stats = function(entity, message = NULL) {
       entity <- self$client$get_input_entity(entity)
       if (entity_type(entity) != EntityType$CHANNEL) {
-        stop('You must pass a channel entity')
+        stop("You must pass a channel entity")
       }
 
       message <- utils$get_message_id(message)
       if (!is.null(message)) {
-        tryCatch({
-          req <- GetMessageStatsRequest$new(entity, message)
-          return(self$client(req))
-        }, StatsMigrateError = function(e) {
-          dc <- e$dc
-        })
-      } else {
-        tryCatch({
-          req <- GetBroadcastStatsRequest$new(entity)
-          return(self$client(req))
-        }, StatsMigrateError = function(e) {
-          dc <- e$dc
-        }, BroadcastRequiredError = function(e) {
-          req <- GetMegagroupStatsRequest$new(entity)
-          tryCatch({
+        tryCatch(
+          {
+            req <- GetMessageStatsRequest$new(entity, message)
             return(self$client(req))
-          }, StatsMigrateError = function(e) {
+          },
+          StatsMigrateError = function(e) {
             dc <- e$dc
-          })
-        })
+          }
+        )
+      } else {
+        tryCatch(
+          {
+            req <- GetBroadcastStatsRequest$new(entity)
+            return(self$client(req))
+          },
+          StatsMigrateError = function(e) {
+            dc <- e$dc
+          },
+          BroadcastRequiredError = function(e) {
+            req <- GetMegagroupStatsRequest$new(entity)
+            tryCatch(
+              {
+                return(self$client(req))
+              },
+              StatsMigrateError = function(e) {
+                dc <- e$dc
+              }
+            )
+          }
+        )
       }
 
       sender <- self$client$`_borrow_exported_sender`(dc)
@@ -3214,7 +3245,7 @@ TelegramClient <- R6::R6Class(
                     },
                     error = function(e) {
                       if (inherits(e, c("ServerError", "TimedOutError", "FloodWaitError")) ||
-                          inherits(e, "ValueError")) {
+                        inherits(e, "ValueError")) {
                         # Telegram is having issues
                         self$client$log[["name"]]$info(
                           "Cannot get difference since Telegram is having issues: %s",

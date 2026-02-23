@@ -34,7 +34,6 @@ crc32 <- function(x) {
 Exception <- R6::R6Class(
   "Exception",
   public = list(
-
     #' @field message \code{character} The error message.
     message = NULL,
 
@@ -57,7 +56,6 @@ ReadCancelledError <- R6::R6Class(
   "ReadCancelledError",
   inherit = Exception,
   public = list(
-
     #' @description
     #' Constructor for the ReadCancelledError class.
     #' @param message \code{character} The error message.
@@ -77,7 +75,6 @@ TypeNotFoundError <- R6::R6Class(
   "TypeNotFoundError",
   inherit = Exception,
   public = list(
-
     #' @field invalid_constructor_id \code{numeric} The invalid constructor ID.
     invalid_constructor_id = NULL,
 
@@ -111,7 +108,6 @@ InvalidChecksumError <- R6::R6Class(
   "InvalidChecksumError",
   inherit = Exception,
   public = list(
-
     #' @field checksum \code{numeric} The received checksum.
     checksum = NULL,
 
@@ -145,7 +141,6 @@ InvalidBufferError <- R6::R6Class(
   "InvalidBufferError",
   inherit = Exception,
   public = list(
-
     #' @field payload \code{raw} The invalid buffer payload.
     payload = NULL,
 
@@ -178,7 +173,6 @@ AuthKeyNotFound <- R6::R6Class(
   "AuthKeyNotFound",
   inherit = Exception,
   public = list(
-
     #' @description
     #' Constructor for the AuthKeyNotFound class.
     #' @param message \code{character} The error message.
@@ -200,7 +194,6 @@ SecurityError <- R6::R6Class(
   "SecurityError",
   inherit = Exception,
   public = list(
-
     #' @description
     #' Constructor for the SecurityError class.
     #' @param message \code{character} The error message.
@@ -220,7 +213,6 @@ CdnFileTamperedError <- R6::R6Class(
   "CdnFileTamperedError",
   inherit = SecurityError,
   public = list(
-
     #' @description
     #' Constructor for the CdnFileTamperedError class.
     initialize = function() {
@@ -238,7 +230,6 @@ AlreadyInConversationError <- R6::R6Class(
   "AlreadyInConversationError",
   inherit = Exception,
   public = list(
-
     #' @description
     #' Constructor for the AlreadyInConversationError class.
     #' @param message \code{character} The error message.
@@ -260,7 +251,6 @@ BadMessageError <- R6::R6Class(
   "BadMessageError",
   inherit = Exception,
   public = list(
-
     #' @field request \code{TLRequest} The request that caused the error.
     request = NULL,
 
@@ -309,7 +299,6 @@ MultiError <- R6::R6Class(
   "MultiError",
   inherit = Exception,
   public = list(
-
     #' @field exceptions \code{list} A list of exceptions.
     exceptions = NULL,
 

@@ -7,7 +7,6 @@
 Factorization <- R6::R6Class(
   "Factorization",
   public = list(
-
     #' @description
     #' Factorizes the given large integer.
     #'

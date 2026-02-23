@@ -4,7 +4,6 @@
 #' @export
 ObfuscatedIO <- R6::R6Class("ObfuscatedIO",
   public = list(
-
     #' @field header The obfuscation header as a raw vector.
     header = NULL,
 

@@ -54,7 +54,7 @@ test_that("find_ssl_lib handles macOS version-specific logic", {
     dyn.load = mock_dyn_load
   ))
 
-  #expect_equal(mf(), "/path/to/libssl.46.dylib")
+  # expect_equal(mf(), "/path/to/libssl.46.dylib")
 })
 
 test_that("find_ssl_lib falls back to libssl.dylib on older macOS versions", {
@@ -67,7 +67,7 @@ test_that("find_ssl_lib falls back to libssl.dylib on older macOS versions", {
     dyn.load = mock_dyn_load
   ))
 
-  #expect_equal(mf(), "/path/to/libssl.dylib")
+  # expect_equal(mf(), "/path/to/libssl.dylib")
 })
 
 test_that("find_ssl_lib handles non-macOS systems", {

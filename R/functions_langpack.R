@@ -9,7 +9,6 @@ GetDifferenceRequest <- R6::R6Class(
   "GetDifferenceRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field lang_pack Field.
     lang_pack = NULL,
     #' @field lang_code Field.
@@ -125,7 +124,6 @@ GetLanguageRequest <- R6::R6Class(
   "GetLanguageRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field lang_pack Field.
     lang_pack = NULL,
     #' @field lang_code Field.
@@ -178,7 +176,6 @@ GetLanguagesRequest <- R6::R6Class(
   "GetLanguagesRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field lang_pack Field.
     lang_pack = NULL,
 
@@ -224,7 +221,6 @@ GetStringsRequest <- R6::R6Class(
   "GetStringsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field lang_pack Field.
     lang_pack = NULL,
     #' @field lang_code Field.

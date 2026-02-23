@@ -600,7 +600,6 @@ CreateGroupCallRequest$set("public", "from_reader", function(reader) {
 })
 
 
-
 #' DeclineConferenceCallInviteRequest R6 class
 #'
 #' Represents DeclineConferenceCallInviteRequest TLRequest.
@@ -979,7 +978,6 @@ DiscardGroupCallRequest$set("public", "from_reader", function(reader) {
 })
 
 
-
 #' EditGroupCallParticipantRequest R6 class
 #'
 #' Represents EditGroupCallParticipantRequest TLRequest.
@@ -1330,7 +1328,6 @@ ExportGroupCallInviteRequest$set("public", "from_reader", function(reader) {
 GetCallConfigRequest <- R6::R6Class(
   "GetCallConfigRequest",
   public = list(
-
     #' @description Convert object to a list
     #' @return A named list representing the request.
     to_list = function() {

@@ -5,7 +5,6 @@
 FullPacketCodec <- R6::R6Class("FullPacketCodec",
   inherit = PacketCodec,
   public = list(
-
     #' @field .send_counter Counter for sent packets.
     .send_counter = NULL,
 

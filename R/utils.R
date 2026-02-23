@@ -815,7 +815,9 @@ SIZE_FOR_HASH <- 256
 #' @return A bigz integer.
 #' @export
 int_from_bytes <- function(data, endian = "big") {
-  if (base::length(data) == 0) return(gmp::as.bigz(0))
+  if (base::length(data) == 0) {
+    return(gmp::as.bigz(0))
+  }
   if (endian == "little") data <- rev(data)
   hex <- paste(sprintf("%02x", as.integer(data)), collapse = "")
   return(gmp::as.bigz(paste0("0x", hex)))
@@ -850,7 +852,9 @@ int_to_bytes <- function(val, length, endian = "big") {
 #' @export
 xor_bytes <- function(a, b) {
   len <- min(base::length(a), base::length(b))
-  if (len == 0) return(raw(0))
+  if (len == 0) {
+    return(raw(0))
+  }
   return(as.raw(bitwXor(as.integer(a[1:len]), as.integer(b[1:len]))))
 }
 
@@ -925,7 +929,7 @@ is_good_mod_exp_first <- function(modexp, prime) {
   diff <- prime - modexp
   min_diff_bits_count <- 2048 - 64
   max_mod_exp_size <- 256
-  
+
   bit_count_diff <- gmp::sizeinbase(diff, 2)
   bit_count_modexp <- gmp::sizeinbase(modexp, 2)
 
@@ -937,8 +941,6 @@ is_good_mod_exp_first <- function(modexp, prime) {
   }
   return(TRUE)
 }
-
-
 
 
 #' Get Input Media
@@ -1245,6 +1247,7 @@ get_message_id <- function(message) {
 #' metadata <- get_metadata("example.mp3")
 #' if (!is.null(metadata)) {
 #'   print(metadata)
+#' }
 #' }
 get_metadata <- function(file) {
   # Check if required package is available (equivalent to checking hachoir in Python)
@@ -2448,6 +2451,7 @@ decode_waveform <- function(waveform) {
 #' splits <- split_text(text, entities, limit = 20)
 #' for (split in splits) {
 #'   # Send split[[1]] (text) with split[[2]] (entities)
+#' }
 #' }
 split_text <- function(text, entities, limit = 4096L, max_entities = 100L, split_at = c("\\n", "\\s", ".")) {
   # Helper function to update an entity with new values

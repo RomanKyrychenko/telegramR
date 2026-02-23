@@ -24,7 +24,6 @@ DeletePhotosRequest <- R6::R6Class(
   "DeletePhotosRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0x87cf7f2f,
 
@@ -171,7 +170,6 @@ GetUserPhotosRequest <- R6::R6Class(
   "GetUserPhotosRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0x91cd32a8,
 
@@ -312,7 +310,6 @@ UpdateProfilePhotoRequest <- R6::R6Class(
   "UpdateProfilePhotoRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0x09e82039,
 
@@ -471,7 +468,6 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
   "UploadContactProfilePhotoRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0xe14c4a71,
 
@@ -674,7 +670,6 @@ UploadProfilePhotoRequest <- R6::R6Class(
   "UploadProfilePhotoRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0x0388a3b5,
 

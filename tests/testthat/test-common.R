@@ -56,4 +56,3 @@ test_that("BadMessageError initializes correctly with unknown code", {
   expect_equal(error$request, "request")
   expect_equal(error$code, 999)
 })
-

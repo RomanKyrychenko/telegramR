@@ -5,12 +5,11 @@
 #' @export
 MTProtoPlainSender <- R6::R6Class("MTProtoPlainSender",
   public = list(
-
     #' @description Initializes the MTProto plain sender.
     #' @param connection the Connection to be used.
     #' @param loggers Optional loggers map.
     initialize = function(connection, loggers = NULL) {
-      private$state <- MTProtoState$new(auth_key = NULL, loggers = NULL )
+      private$state <- MTProtoState$new(auth_key = NULL, loggers = NULL)
       private$connection <- connection
       private$loggers <- loggers
     },
@@ -121,8 +120,12 @@ MTProtoPlainSender <- R6::R6Class("MTProtoPlainSender",
 #' @export
 packInt64 <- function(value) {
   if (is.raw(value)) {
-    if (length(value) == 8) return(value)
-    if (length(value) < 8) return(c(value, raw(8 - length(value))))
+    if (length(value) == 8) {
+      return(value)
+    }
+    if (length(value) < 8) {
+      return(c(value, raw(8 - length(value))))
+    }
     return(value[1:8])
   }
   int_to_bytes(value, length = 8, endian = "little")

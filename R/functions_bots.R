@@ -875,7 +875,6 @@ EditPreviewMediaRequest$from_reader <- function(reader) {
 GetAdminedBotsRequest <- R6::R6Class(
   "GetAdminedBotsRequest",
   public = list(
-
     #' @description Initialize GetAdminedBotsRequest
     initialize = function() {
       invisible(self)
@@ -1905,7 +1904,6 @@ ReorderPreviewMediasRequest$from_reader <- function(reader) {
 ReorderUsernamesRequest <- R6::R6Class(
   "ReorderUsernamesRequest",
   public = list(
-
     #' @field bot Field.
     bot = NULL,
     #' @field order Field.

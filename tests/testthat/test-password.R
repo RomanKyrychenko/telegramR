@@ -8,9 +8,13 @@ factorization <- list(
   Factorization = list(
     factorize = function(x) {
       # Simple mock: return 1 if prime, else factors
-      if (x == 2 || x == 3 || x == 5 || x == 7) return(1)
-      if (x %% 2 == 0 || x %% 3 == 0 || x %% 5 == 0 || x %% 7 == 0) return(c(2, x/2))  # Not prime
-      return(1)  # Assume prime for other small numbers
+      if (x == 2 || x == 3 || x == 5 || x == 7) {
+        return(1)
+      }
+      if (x %% 2 == 0 || x %% 3 == 0 || x %% 5 == 0 || x %% 7 == 0) {
+        return(c(2, x / 2))
+      } # Not prime
+      return(1) # Assume prime for other small numbers
     }
   )
 )
@@ -19,24 +23,24 @@ factorization <- list(
 test_that("check_prime_and_good_check works with valid inputs", {
   # Use a small prime for testing (2048 bits is too large for quick tests; adjust as needed)
   # For simplicity, use a known small prime that fits the conditions
-  prime <- 2^2047 - 1  # A large prime, but for test, use smaller
+  prime <- 2^2047 - 1 # A large prime, but for test, use smaller
   # Actually, for quick test, use a small prime like 7, but adjust bit length check
   # Since bit length is checked, use a prime with ~2048 bits, but that's impractical; mock or skip slow parts
 
   # Skip detailed primality for speed; test logic
   expect_error(check_prime_and_good_check(-1, 2), "bad prime count")
-  expect_error(check_prime_and_good_check(15, 2), "not prime")  # 15 is not prime
-  expect_error(check_prime_and_good_check(7, 8), "bad g")  # Invalid g
+  expect_error(check_prime_and_good_check(15, 2), "not prime") # 15 is not prime
+  expect_error(check_prime_and_good_check(7, 8), "bad g") # Invalid g
   # Valid case: assume a prime that passes
   # This is tricky without full primality; perhaps skip or use known values
 })
 
 test_that("check_prime_and_good_check validates g conditions", {
-  prime <- 17  # 17 %% 8 == 1, not 7
+  prime <- 17 # 17 %% 8 == 1, not 7
   expect_error(check_prime_and_good_check(prime, 2), "mod8")
   # For g=3, need prime %% 3 == 2, etc.
   # Adjust prime accordingly
-  prime_for_g3 <- 5  # 5 %% 3 == 2
+  prime_for_g3 <- 5 # 5 %% 3 == 2
   expect_silent(check_prime_and_good_check(prime_for_g3, 3))
 })
 
@@ -61,19 +65,19 @@ test_that("check_prime_and_good uses known prime", {
     0x6F, 0x4F, 0xAD, 0xF0, 0x34, 0xB1, 0x04, 0x03, 0x11, 0x9C, 0xD8, 0xE3, 0xB9, 0x2F, 0xCC, 0x5B
   ))
   expect_silent(check_prime_and_good(good_prime, 3))
-  #expect_error(check_prime_and_good(good_prime, 2), "bad g")  # Not in allowed list
+  # expect_error(check_prime_and_good(good_prime, 2), "bad g")  # Not in allowed list
   # For non-matching prime, it calls check_prime_and_good_check
   bad_prime <- as.raw(rep(0x00, 256))
-  #expect_error(check_prime_and_good(bad_prime, 2), "bad prime count")
+  # expect_error(check_prime_and_good(bad_prime, 2), "bad prime count")
 })
 
 # Tests for PasswordKdf class
 test_that("PasswordKdf$is_good_mod_exp_first works", {
   kdf <- PasswordKdf$new()
-  prime <- 2^2048 - 1  # Mock large prime
+  prime <- 2^2048 - 1 # Mock large prime
   modexp <- prime - 1000
   expect_true(kdf$is_good_mod_exp_first(modexp, prime))
-  expect_false(kdf$is_good_mod_exp_first(prime + 1, prime))  # diff < 0
+  expect_false(kdf$is_good_mod_exp_first(prime + 1, prime)) # diff < 0
 })
 
 test_that("PasswordKdf$xor works", {
@@ -100,13 +104,13 @@ test_that("PasswordKdf$compute_hash works", {
   )
   password <- "test"
   result <- kdf$compute_hash(algo, password)
-  expect_length(result, 32)  # SHA256
+  expect_length(result, 32) # SHA256
 })
 
 test_that("PasswordKdf$compute_digest works", {
   kdf <- PasswordKdf$new()
   algo <- list(
-    p = good_prime,  # From above
+    p = good_prime, # From above
     g = 3,
     salt1 = charToRaw("salt1"),
     salt2 = charToRaw("salt2")

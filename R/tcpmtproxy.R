@@ -3,7 +3,6 @@
 #' @export
 MTProxyIO <- R6::R6Class("MTProxyIO",
   public = list(
-
     #' @field header The MTProxy header.
     header = NULL,
 
@@ -49,7 +48,6 @@ MTProxyIO <- R6::R6Class("MTProxyIO",
     }
   ),
   private = list(
-
     init_header = function(secret, dc_id, packet_codec) {
       # Validate dd-secret conditions.
       is_dd <- (length(secret) == 17 && secret[1] == as.raw(0xDD))
@@ -108,7 +106,6 @@ MTProxyIO <- R6::R6Class("MTProxyIO",
 #' @export
 TcpMTProxy <- R6::R6Class("TcpMTProxy",
   public = list(
-
     #' @field secret The MTProxy secret.
     secret = NULL,
 
@@ -170,7 +167,6 @@ TcpMTProxy <- R6::R6Class("TcpMTProxy",
     }
   ),
   private = list(
-
     normalize_secret = function(secret) {
       if (startsWith(secret, "ee") || startsWith(secret, "dd")) {
         secret <- substring(secret, 3)
@@ -197,7 +193,6 @@ TcpMTProxy <- R6::R6Class("TcpMTProxy",
 ConnectionTcpMTProxyAbridged <- R6::R6Class("ConnectionTcpMTProxyAbridged",
   inherit = TcpMTProxy,
   public = list(
-
     #' @field packet_codec The packet codec used for this connection.
     packet_codec = NULL,
 
@@ -222,7 +217,6 @@ ConnectionTcpMTProxyAbridged <- R6::R6Class("ConnectionTcpMTProxyAbridged",
 ConnectionTcpMTProxyIntermediate <- R6::R6Class("ConnectionTcpMTProxyIntermediate",
   inherit = TcpMTProxy,
   public = list(
-
     #' @field packet_codec The packet codec used for this connection.
     packet_codec = NULL,
 
@@ -247,7 +241,6 @@ ConnectionTcpMTProxyIntermediate <- R6::R6Class("ConnectionTcpMTProxyIntermediat
 ConnectionTcpMTProxyRandomizedIntermediate <- R6::R6Class("ConnectionTcpMTProxyRandomizedIntermediate",
   inherit = TcpMTProxy,
   public = list(
-
     #' @field packet_codec The packet codec used for this connection.
     packet_codec = NULL,
 

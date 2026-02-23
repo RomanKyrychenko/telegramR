@@ -39,20 +39,23 @@ MessagePacker <- R6::R6Class("MessagePacker",
       # Ensure sane defaults for size-related constants used across tests/code
       # If constants exist but are NA/non-finite, patch them with defaults.
       # Defaults: MAXIMUM_LENGTH=100L, MAXIMUM_SIZE=1048576L (1 MiB), SIZE_OVERHEAD=32L.
-      try({
-        mc <- get0("MessageContainer", inherits = TRUE)
-        if (!is.null(mc)) {
-          val_len <- tryCatch(mc$MAXIMUM_LENGTH, error = function(e) NA_real_)
-          if (!is.numeric(val_len) || is.na(val_len) || !is.finite(val_len)) mc$MAXIMUM_LENGTH <- 100L
-          val_size <- tryCatch(mc$MAXIMUM_SIZE, error = function(e) NA_real_)
-          if (!is.numeric(val_size) || is.na(val_size) || !is.finite(val_size)) mc$MAXIMUM_SIZE <- 1048576L
-        }
-        tm <- get0("TLMessage", inherits = TRUE)
-        if (!is.null(tm)) {
-          val_ov <- tryCatch(tm$SIZE_OVERHEAD, error = function(e) NA_real_)
-          if (!is.numeric(val_ov) || is.na(val_ov) || !is.finite(val_ov)) tm$SIZE_OVERHEAD <- 32L
-        }
-      }, silent = TRUE)
+      try(
+        {
+          mc <- get0("MessageContainer", inherits = TRUE)
+          if (!is.null(mc)) {
+            val_len <- tryCatch(mc$MAXIMUM_LENGTH, error = function(e) NA_real_)
+            if (!is.numeric(val_len) || is.na(val_len) || !is.finite(val_len)) mc$MAXIMUM_LENGTH <- 100L
+            val_size <- tryCatch(mc$MAXIMUM_SIZE, error = function(e) NA_real_)
+            if (!is.numeric(val_size) || is.na(val_size) || !is.finite(val_size)) mc$MAXIMUM_SIZE <- 1048576L
+          }
+          tm <- get0("TLMessage", inherits = TRUE)
+          if (!is.null(tm)) {
+            val_ov <- tryCatch(tm$SIZE_OVERHEAD, error = function(e) NA_real_)
+            if (!is.numeric(val_ov) || is.na(val_ov) || !is.finite(val_ov)) tm$SIZE_OVERHEAD <- 32L
+          }
+        },
+        silent = TRUE
+      )
     },
 
     #' @description Append a single state item to the queue
@@ -145,9 +148,11 @@ MessagePacker <- R6::R6Class("MessagePacker",
           # Default to content-related=TRUE for all requests; only acks and
           # a few MTProto service types are NOT content-related.
           req_cls <- class(state_item$request)[1]
-          is_content_related <- !isTRUE(req_cls %in% c("MsgsAck", "Pong", "MsgsStateInfo",
-                                                        "MsgsAllInfo", "MsgResendReq",
-                                                        "MsgsStateReq"))
+          is_content_related <- !isTRUE(req_cls %in% c(
+            "MsgsAck", "Pong", "MsgsStateInfo",
+            "MsgsAllInfo", "MsgResendReq",
+            "MsgsStateReq"
+          ))
 
           state_item$msg_id <- self$state$write_data_as_message(
             buffer_con, state_item$data,

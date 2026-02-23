@@ -306,8 +306,10 @@ Connection <- R6Class(
     ._connect = function(timeout = NULL, ssl = NULL) {
       if (private$._is_test_mode()) {
         con <- rawConnection(raw(), open = "r+b")
-        reader <- Reader$new(); reader$socket <- con
-        writer <- Writer$new(); writer$socket <- con
+        reader <- Reader$new()
+        reader$socket <- con
+        writer <- Writer$new()
+        writer$socket <- con
         private$._reader <<- reader
         private$._writer <<- writer
         private$._codec <<- private$._get_packet_codec()$new(self)
@@ -328,8 +330,10 @@ Connection <- R6Class(
         }
 
         finalize_conn <- function(conn) {
-          reader <- Reader$new(); reader$socket <- conn
-          writer <- Writer$new(); writer$socket <- conn
+          reader <- Reader$new()
+          reader$socket <- conn
+          writer <- Writer$new()
+          writer$socket <- conn
           private$._reader <<- reader
           private$._writer <<- writer
           private$._codec <<- private$._get_packet_codec()$new(self)
@@ -781,11 +785,20 @@ Writer <- R6Class(
 
     # Added: internal write-to-socket implementation
     .write_to_socket = function() {
-      if (private$writing) return(invisible(NULL))
-      if (is.null(self$socket) || !isOpen(self$socket)) return(invisible(NULL))
+      if (private$writing) {
+        return(invisible(NULL))
+      }
+      if (is.null(self$socket) || !isOpen(self$socket)) {
+        return(invisible(NULL))
+      }
 
       private$writing <- TRUE
-      on.exit({ private$writing <- FALSE }, add = TRUE)
+      on.exit(
+        {
+          private$writing <- FALSE
+        },
+        add = TRUE
+      )
 
       # Flush buffered chunks
       while (length(private$.buffer) > 0 && !is.null(self$socket) && isOpen(self$socket)) {

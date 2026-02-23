@@ -1,4 +1,4 @@
-.MAX_CHUNK_SIZE = 100
+.MAX_CHUNK_SIZE <- 100
 
 
 #' MessagesIter R6 class
@@ -187,7 +187,7 @@ MessagesIter <- R6::R6Class(
         peer = self$entity_input,
         q = self$search %||% "",
         filter = self$filter,
-        max_date = self$offset_date,   # for search global
+        max_date = self$offset_date, # for search global
         offset_date = self$offset_date, # for history/replies
         offset_id = off_id,
         add_offset = self$add_offset,
@@ -223,7 +223,9 @@ MessagesIter <- R6::R6Class(
     #'
     #' @return A list of messages for this chunk or NULL if exhausted.
     load_next_chunk = function() {
-      if (self$exhausted) return(NULL)
+      if (self$exhausted) {
+        return(NULL)
+      }
       if (!is.null(self$wait_time) && self$wait_time > 0) Sys.sleep(self$wait_time)
 
       n <- if (is.finite(self$left)) min(self$left, private$max_chunk_size) else private$max_chunk_size
@@ -316,8 +318,12 @@ MessagesIter <- R6::R6Class(
     #'
     #' @return logical indicating whether there are more items to fetch or buffered.
     has_next = function() {
-      if (length(self$buffer) > 0) return(TRUE)
-      if (!self$exhausted) return(TRUE)
+      if (length(self$buffer) > 0) {
+        return(TRUE)
+      }
+      if (!self$exhausted) {
+        return(TRUE)
+      }
       FALSE
     },
 
@@ -327,7 +333,9 @@ MessagesIter <- R6::R6Class(
     .next = function() {
       if (length(self$buffer) == 0) {
         chunk <- self$load_next_chunk()
-        if (is.null(chunk) || length(chunk) == 0) return(NULL)
+        if (is.null(chunk) || length(chunk) == 0) {
+          return(NULL)
+        }
       }
       item <- self$buffer[[1]]
       if (length(self$buffer) > 1) {
@@ -340,19 +348,29 @@ MessagesIter <- R6::R6Class(
   ),
   private = list(
     max_chunk_size = 100L,
-
     select_request_type = function(is_global, scheduled, is_replies, is_search_like) {
-      if (is_global) return("search_global")
-      if (isTRUE(scheduled)) return("scheduled")
-      if (isTRUE(is_replies)) return("replies")
-      if (isTRUE(is_search_like)) return("search")
+      if (is_global) {
+        return("search_global")
+      }
+      if (isTRUE(scheduled)) {
+        return("scheduled")
+      }
+      if (isTRUE(is_replies)) {
+        return("replies")
+      }
+      if (isTRUE(is_search_like)) {
+        return("search")
+      }
       "history"
     },
-
     prime_total_count = function() {
       # Best effort: try to fetch 1 item to learn total via client
-      if (self$exhausted) return(invisible(NULL))
-      if (is.null(self$client) || is.null(self$client$iter_messages) || is.null(self$client$collect)) return(invisible(NULL))
+      if (self$exhausted) {
+        return(invisible(NULL))
+      }
+      if (is.null(self$client) || is.null(self$client$iter_messages) || is.null(self$client$collect)) {
+        return(invisible(NULL))
+      }
       it <- self$client$iter_messages(
         entity = self$entity_input,
         limit = 1L,
@@ -375,24 +393,30 @@ MessagesIter <- R6::R6Class(
       }
       invisible(NULL)
     },
-
     message_in_range = function(message) {
       mid <- tryCatch(message$id, error = function(e) NULL)
-      if (is.null(mid)) return(FALSE)
+      if (is.null(mid)) {
+        return(FALSE)
+      }
 
       if (!is.null(self$entity_input)) {
         if (self$reverse) {
-          if (mid <= self$last_id || mid >= self$max_id) return(FALSE)
+          if (mid <= self$last_id || mid >= self$max_id) {
+            return(FALSE)
+          }
         } else {
-          if (mid >= self$last_id || mid <= self$min_id) return(FALSE)
+          if (mid >= self$last_id || mid <= self$min_id) {
+            return(FALSE)
+          }
         }
       }
       TRUE
     },
-
     update_offset = function(last_message) {
       mid <- tryCatch(last_message$id, error = function(e) NULL)
-      if (is.null(mid)) return(invisible(NULL))
+      if (is.null(mid)) {
+        return(invisible(NULL))
+      }
 
       self$request$offset_id <- mid
       if (self$reverse) {

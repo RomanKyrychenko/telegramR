@@ -9,7 +9,6 @@
 AES <- R6::R6Class(
   "AES",
   public = list(
-
     #' @description
     #' Decrypts the given text in 16-byte blocks using the provided key and IV.
     #' @param cipher_text A raw vector representing the encrypted text.

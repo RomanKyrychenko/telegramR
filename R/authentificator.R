@@ -25,9 +25,15 @@ do_authentication <- function(sender) {
   }
 
   as_raw <- function(x) {
-    if (is.raw(x)) return(x)
-    if (is.null(x)) return(raw(0))
-    if (inherits(x, "bignum")) return(as.raw(x))
+    if (is.raw(x)) {
+      return(x)
+    }
+    if (is.null(x)) {
+      return(raw(0))
+    }
+    if (inherits(x, "bignum")) {
+      return(as.raw(x))
+    }
     if (inherits(x, "bigz")) {
       hex <- as.character(x, b = 16)
       if (nchar(hex) %% 2 == 1) hex <- paste0("0", hex)
@@ -36,7 +42,9 @@ do_authentication <- function(sender) {
     if (is.numeric(x)) {
       v <- as.numeric(x[1])
       if (!is.finite(v) || v < 0) stop("Unsupported numeric raw coercion")
-      if (v == 0) return(as.raw(0x00))
+      if (v == 0) {
+        return(as.raw(0x00))
+      }
       out <- raw(0)
       while (v > 0) {
         out <- c(as.raw(as.integer(v %% 256)), out)
@@ -266,7 +274,7 @@ do_authentication <- function(sender) {
     stop("Step 2: unexpected response ServerDHParamsFail")
   }
   if (!identical(as_raw(server_dh_params$nonce), nonce) ||
-      !identical(as_raw(server_dh_params$server_nonce), server_nonce)) {
+    !identical(as_raw(server_dh_params$server_nonce), server_nonce)) {
     stop("Step 2: nonce mismatch in server DH params")
   }
   if (length(server_dh_params$encrypted_answer) %% 16 != 0) {
@@ -284,8 +292,8 @@ do_authentication <- function(sender) {
     g_b <- modexp(g, b, dh_prime)
     g_ab <- modexp(g_a, b, dh_prime)
     if (!(g > 1 && g < (dh_prime - 1) &&
-          g_a > 1 && g_a < (dh_prime - 1) &&
-          g_b > 1 && g_b < (dh_prime - 1))) {
+      g_a > 1 && g_a < (dh_prime - 1) &&
+      g_b > 1 && g_b < (dh_prime - 1))) {
       stop("Diffie-Hellman values are not in the valid range")
     }
     g_b_bytes <- int_to_bytes(g_b, 256, "big")
@@ -343,10 +351,10 @@ do_authentication <- function(sender) {
     if (is_mock_payload) {
       # Legacy mocked tests don't provide real nonce hashes.
     } else {
-    expected_hash <- calc_new_nonce_hash(new_nonce, auth_key_raw, 1L)
-    if (!identical(as_raw(dh_gen$new_nonce_hash1), expected_hash)) {
-      stop("Step 3: invalid new_nonce_hash1")
-    }
+      expected_hash <- calc_new_nonce_hash(new_nonce, auth_key_raw, 1L)
+      if (!identical(as_raw(dh_gen$new_nonce_hash1), expected_hash)) {
+        stop("Step 3: invalid new_nonce_hash1")
+      }
     }
   } else if (identical(dh_gen$class, "DhGenRetry")) {
     stop("Step 3: DH retry requested by server")

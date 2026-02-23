@@ -234,7 +234,6 @@ serialize_datetime <- function(dt) {
 TLObject <- R6::R6Class(
   "TLObject",
   public = list(
-
     #' @field CONSTRUCTOR_ID A unique identifier for the TL object.
     CONSTRUCTOR_ID = NULL,
 
@@ -459,7 +458,6 @@ TLRequest <- R6::R6Class(
   "TLRequest",
   inherit = TLObject,
   public = list(
-
     #' @description
     #' Read the result from a binary reader.
     #' @param reader A binary reader object to read the result from.

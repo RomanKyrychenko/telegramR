@@ -68,7 +68,7 @@ add_surrogate <- function(text) {
     code <- utf8ToInt(x)
     if (code >= 0x10000 && code <= 0x10FFFF) {
       high <- bitops::bitShiftR(code - 0x10000, 10) + 0xD800
-      low  <- bitops::bitAnd(code - 0x10000, 0x3FF) + 0xDC00
+      low <- bitops::bitAnd(code - 0x10000, 0x3FF) + 0xDC00
       return(intToUtf8(c(high, low)))
     } else {
       return(x)
@@ -119,7 +119,7 @@ within_surrogate <- function(text, index, text_length = NULL) {
   curr_code <- utf8ToInt(curr)
   return(
     prev_code >= 0xD800 && prev_code <= 0xDBFF &&
-    curr_code >= 0xDC00 && curr_code <= 0xDFFF
+      curr_code >= 0xDC00 && curr_code <= 0xDFFF
   )
 }
 
@@ -219,7 +219,6 @@ generate_key_data_from_nonce <- function(server_nonce, new_nonce) {
 TotalList <- R6::R6Class(
   "TotalList",
   public = list(
-
     #' @field items list List of objects contained in the instance.
     items = NULL,
 
@@ -259,7 +258,6 @@ TotalList <- R6::R6Class(
 FileStream <- R6::R6Class(
   "FileStream",
   public = list(
-
     #' @field file The original file input (path, raw vector, or connection).
     file = NULL,
 

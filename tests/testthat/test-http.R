@@ -4,8 +4,10 @@ test_that("encodes packet with correct HTTP headers and data", {
   data <- charToRaw("test_data")
 
   result <- codec$encode_packet(data)
-  header <- sprintf("POST /api HTTP/1.1\r\nHost: %s:%s\r\nContent-Type: application/x-www-form-urlencoded\r\nConnection: keep-alive\r\nKeep-Alive: timeout=100000, max=10000000\r\nContent-Length: %d\r\n\r\n",
-                    "127.0.0.1", 8080, length(data))
+  header <- sprintf(
+    "POST /api HTTP/1.1\r\nHost: %s:%s\r\nContent-Type: application/x-www-form-urlencoded\r\nConnection: keep-alive\r\nKeep-Alive: timeout=100000, max=10000000\r\nContent-Length: %d\r\n\r\n",
+    "127.0.0.1", 8080, length(data)
+  )
   expected <- c(charToRaw(header), data)
 
   expect_equal(result, expected)

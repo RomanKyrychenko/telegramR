@@ -6,7 +6,6 @@ TLMessage <- R6::R6Class(
   "TLMessage",
   inherit = TLObject,
   public = list(
-
     #' @field msg_id The message ID (numeric).
     msg_id = NULL,
 

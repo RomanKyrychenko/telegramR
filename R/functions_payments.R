@@ -5,7 +5,6 @@ ApplyGiftCodeRequest <- R6::R6Class(
   "ApplyGiftCodeRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf6e26854,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -55,7 +54,6 @@ AssignAppStoreTransactionRequest <- R6::R6Class(
   "AssignAppStoreTransactionRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x80ed747d,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -112,7 +110,6 @@ AssignPlayMarketTransactionRequest <- R6::R6Class(
   "AssignPlayMarketTransactionRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xdffd50d3,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -170,7 +167,6 @@ BotCancelStarsSubscriptionRequest <- R6::R6Class(
   "BotCancelStarsSubscriptionRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6dfa0622,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -243,7 +239,6 @@ CanPurchaseStoreRequest <- R6::R6Class(
   "CanPurchaseStoreRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4fdc5ea7,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -293,7 +288,6 @@ ChangeStarsSubscriptionRequest <- R6::R6Class(
   "ChangeStarsSubscriptionRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc7770878,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -369,7 +363,6 @@ CheckCanSendGiftRequest <- R6::R6Class(
   "CheckCanSendGiftRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc0c4edc9,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -419,7 +412,6 @@ CheckGiftCodeRequest <- R6::R6Class(
   "CheckGiftCodeRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8e51b4c1,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -469,7 +461,6 @@ ClearSavedInfoRequest <- R6::R6Class(
   "ClearSavedInfoRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd83d70c1,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -527,7 +518,6 @@ ConnectStarRefBotRequest <- R6::R6Class(
   "ConnectStarRefBotRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7ed5348a,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -592,7 +582,6 @@ ConvertStarGiftRequest <- R6::R6Class(
   "ConvertStarGiftRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x74bf076b,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -642,7 +631,6 @@ CreateStarGiftCollectionRequest <- R6::R6Class(
   "CreateStarGiftCollectionRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1f4a0e87,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -715,7 +703,6 @@ DeleteStarGiftCollectionRequest <- R6::R6Class(
   "DeleteStarGiftCollectionRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xad5648e8,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -779,7 +766,6 @@ EditConnectedStarRefBotRequest <- R6::R6Class(
   "EditConnectedStarRefBotRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe4fca4a3,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -851,7 +837,6 @@ ExportInvoiceRequest <- R6::R6Class(
   "ExportInvoiceRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf91b065,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -909,7 +894,6 @@ FulfillStarsSubscriptionRequest <- R6::R6Class(
   "FulfillStarsSubscriptionRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcc5bebb3,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -973,7 +957,6 @@ GetBankCardDataRequest <- R6::R6Class(
   "GetBankCardDataRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2e79d779,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -1024,7 +1007,6 @@ GetConnectedStarRefBotRequest <- R6::R6Class(
   "GetConnectedStarRefBotRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb7d998f0,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -1089,7 +1071,6 @@ GetConnectedStarRefBotsRequest <- R6::R6Class(
   "GetConnectedStarRefBotsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5869a553,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -1171,7 +1152,6 @@ GetGiveawayInfoRequest <- R6::R6Class(
   "GetGiveawayInfoRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf4239425,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -1235,7 +1215,6 @@ GetPaymentFormRequest <- R6::R6Class(
   "GetPaymentFormRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x37148dbb,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -1295,7 +1274,6 @@ GetPaymentReceiptRequest <- R6::R6Class(
   "GetPaymentReceiptRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2478d1cc,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -1359,7 +1337,6 @@ GetPremiumGiftCodeOptionsRequest <- R6::R6Class(
   "GetPremiumGiftCodeOptionsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2757ba54,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -1421,7 +1398,6 @@ GetResaleStarGiftsRequest <- R6::R6Class(
   "GetResaleStarGiftsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7a5fa236,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -1526,7 +1502,6 @@ GetSavedInfoRequest <- R6::R6Class(
   "GetSavedInfoRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x227d824b,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -1619,7 +1594,6 @@ GetSavedStarGiftsRequest <- R6::R6Class(
   "GetSavedStarGiftsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa319e569,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -1813,7 +1787,6 @@ GetStarGiftUpgradePreviewRequest <- R6::R6Class(
   "GetStarGiftUpgradePreviewRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9c9abcb1,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -1863,7 +1836,6 @@ GetStarGiftWithdrawalUrlRequest <- R6::R6Class(
   "GetStarGiftWithdrawalUrlRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd06e93a8,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -1920,7 +1892,6 @@ GetStarGiftsRequest <- R6::R6Class(
   "GetStarGiftsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc4563590,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -1971,7 +1942,6 @@ GetStarsGiftOptionsRequest <- R6::R6Class(
   "GetStarsGiftOptionsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd3c96bc8,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2032,7 +2002,6 @@ GetStarsGiveawayOptionsRequest <- R6::R6Class(
   "GetStarsGiveawayOptionsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbd1efd3e,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2068,7 +2037,6 @@ GetStarsRevenueAdsAccountUrlRequest <- R6::R6Class(
   "GetStarsRevenueAdsAccountUrlRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd1d7efc5,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2126,7 +2094,6 @@ GetStarsRevenueStatsRequest <- R6::R6Class(
   "GetStarsRevenueStatsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd91ffad6,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2197,7 +2164,6 @@ GetStarsRevenueWithdrawalUrlRequest <- R6::R6Class(
   "GetStarsRevenueWithdrawalUrlRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2433dc92,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2277,7 +2243,6 @@ GetStarsStatusRequest <- R6::R6Class(
   "GetStarsStatusRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4ea9b3bf,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2342,7 +2307,6 @@ GetStarsSubscriptionsRequest <- R6::R6Class(
   "GetStarsSubscriptionsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x32512c5,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2415,7 +2379,6 @@ GetStarsTopupOptionsRequest <- R6::R6Class(
   "GetStarsTopupOptionsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc00ec7d3,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2451,7 +2414,6 @@ GetStarsTransactionsRequest <- R6::R6Class(
   "GetStarsTransactionsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x69da4557,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2561,7 +2523,6 @@ GetStarsTransactionsByIDRequest <- R6::R6Class(
   "GetStarsTransactionsByIDRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2dca16b8,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2634,7 +2595,6 @@ GetSuggestedStarRefBotsRequest <- R6::R6Class(
   "GetSuggestedStarRefBotsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd6b48f7,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2720,7 +2680,6 @@ GetUniqueStarGiftRequest <- R6::R6Class(
   "GetUniqueStarGiftRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa1974d72,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2770,7 +2729,6 @@ GetUniqueStarGiftValueInfoRequest <- R6::R6Class(
   "GetUniqueStarGiftValueInfoRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4365af6b,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2820,7 +2778,6 @@ LaunchPrepaidGiveawayRequest <- R6::R6Class(
   "LaunchPrepaidGiveawayRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5ff58f20,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2892,7 +2849,6 @@ RefundStarsChargeRequest <- R6::R6Class(
   "RefundStarsChargeRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x25ae8f4a,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -2956,7 +2912,6 @@ ReorderStarGiftCollectionsRequest <- R6::R6Class(
   "ReorderStarGiftCollectionsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc32af4cc,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -3021,7 +2976,6 @@ SaveStarGiftRequest <- R6::R6Class(
   "SaveStarGiftRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2a2a697c,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -3080,7 +3034,6 @@ SendPaymentFormRequest <- R6::R6Class(
   "SendPaymentFormRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2d03522f,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -3170,7 +3123,6 @@ SendStarsFormRequest <- R6::R6Class(
   "SendStarsFormRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7998c914,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -3228,7 +3180,6 @@ ToggleChatStarGiftNotificationsRequest <- R6::R6Class(
   "ToggleChatStarGiftNotificationsRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x60eaefa1,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -3293,7 +3244,6 @@ ToggleStarGiftsPinnedToTopRequest <- R6::R6Class(
   "ToggleStarGiftsPinnedToTopRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x1513e7b0,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -3358,7 +3308,6 @@ TransferStarGiftRequest <- R6::R6Class(
   "TransferStarGiftRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7f18176a,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -3423,7 +3372,6 @@ UpdateStarGiftCollectionRequest <- R6::R6Class(
   "UpdateStarGiftCollectionRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4fddbee7,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -3536,7 +3484,6 @@ UpdateStarGiftPriceRequest <- R6::R6Class(
   "UpdateStarGiftPriceRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xedbe6ccb,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -3594,7 +3541,6 @@ UpgradeStarGiftRequest <- R6::R6Class(
   "UpgradeStarGiftRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xaed6e4f5,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
@@ -3654,7 +3600,6 @@ ValidateRequestedInfoRequest <- R6::R6Class(
   "ValidateRequestedInfoRequest",
   inherit = TLRequest,
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb6c8f12b,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.

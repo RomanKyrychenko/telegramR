@@ -1,7 +1,7 @@
 # Test for chunks function
 test_that("chunks splits iterable into chunks of specified size", {
-  expect_equal(chunks(1:10, 3), list(c(1,2,3), c(4,5,6), c(7,8,9), c(10)))
-  expect_equal(chunks(1:5, 2), list(c(1,2), c(3,4), c(5)))
+  expect_equal(chunks(1:10, 3), list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9), c(10)))
+  expect_equal(chunks(1:5, 2), list(c(1, 2), c(3, 4), c(5)))
   expect_equal(chunks(c(), 3), list())
 })
 
@@ -77,9 +77,9 @@ test_that("decode_telegram_base64 and encode_telegram_base64 are inverses", {
 
 # Test for get_appropriated_part_size
 test_that("get_appropriated_part_size returns correct sizes", {
-  expect_equal(get_appropriated_part_size(50000000), 128)  # < 100MB
-  expect_equal(get_appropriated_part_size(200000000), 256)  # 100MB to 750MB
-  expect_equal(get_appropriated_part_size(1000000000), 512)  # > 750MB
+  expect_equal(get_appropriated_part_size(50000000), 128) # < 100MB
+  expect_equal(get_appropriated_part_size(200000000), 256) # 100MB to 750MB
+  expect_equal(get_appropriated_part_size(1000000000), 512) # > 750MB
 })
 
 # Test for photo_size_byte_count
@@ -90,7 +90,7 @@ test_that("photo_size_byte_count calculates byte counts", {
 
   size <- list(bytes = as.raw(c(0x01, 0x02, 0x03)))
   class(size) <- "PhotoStrippedSize"
-  expect_equal(photo_size_byte_count(size), 625)  # 3 bytes + 622 JPEG overhead when first byte is 0x01
+  expect_equal(photo_size_byte_count(size), 625) # 3 bytes + 622 JPEG overhead when first byte is 0x01
 
   size <- list()
   class(size) <- "PhotoSizeEmpty"

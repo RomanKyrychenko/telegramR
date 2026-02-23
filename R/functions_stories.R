@@ -61,7 +61,6 @@ ActivateStealthModeRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
     #' @description Read an ActivateStealthModeRequest instance from a reader
     #'
@@ -154,7 +153,6 @@ CanSendStoryRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
     #' @description Read a CanSendStoryRequest instance from a reader
     #'
@@ -273,7 +271,6 @@ CreateAlbumRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
     #' @description Read a CreateAlbumRequest instance from a reader
     #'
@@ -378,9 +375,7 @@ DeleteAlbumRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a DeleteAlbumRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -481,7 +476,6 @@ DeleteStoriesRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
     #' @description Read a DeleteStoriesRequest instance from a reader
     #'
@@ -511,7 +505,9 @@ DeleteStoriesRequest <- R6::R6Class(
     read_result = function(reader) {
       # read vector constructor id (ignored)
       n_val <- reader$read_int()
-      if (n_val <= 0) return(integer(0))
+      if (n_val <= 0) {
+        return(integer(0))
+      }
       out <- integer(n_val)
       for (i in seq_len(n_val)) out[i] <- reader$read_int()
       out
@@ -578,7 +574,7 @@ EditStoryRequest <- R6::R6Class(
       self$privacy_rules <- if (!is.null(privacy_rules)) privacy_rules else NULL
 
       # enforce caption and entities to be both present or both NULL (they share the same flag)
-      if (!( (is.null(self$caption) && is.null(self$entities)) || (!is.null(self$caption) && !is.null(self$entities)) )) {
+      if (!((is.null(self$caption) && is.null(self$entities)) || (!is.null(self$caption) && !is.null(self$entities)))) {
         stop("caption and entities parameters must be either both NULL or both provided")
       }
 
@@ -664,10 +660,15 @@ EditStoryRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- vec_tag
         parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$media_areas)), raw(), size = 4, endian = "little")
         for (ma in self$media_areas) {
-          if (is.function(ma$to_bytes)) parts[[length(parts) + 1]] <- ma$to_bytes()
-          else if (is.function(ma$bytes)) parts[[length(parts) + 1]] <- ma$bytes()
-          else if (is.function(ma$.bytes)) parts[[length(parts) + 1]] <- ma$.bytes()
-          else stop("media_area element must provide to_bytes/bytes/_bytes")
+          if (is.function(ma$to_bytes)) {
+            parts[[length(parts) + 1]] <- ma$to_bytes()
+          } else if (is.function(ma$bytes)) {
+            parts[[length(parts) + 1]] <- ma$bytes()
+          } else if (is.function(ma$.bytes)) {
+            parts[[length(parts) + 1]] <- ma$.bytes()
+          } else {
+            stop("media_area element must provide to_bytes/bytes/_bytes")
+          }
         }
       }
 
@@ -685,10 +686,15 @@ EditStoryRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- vec_tag
         parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$entities)), raw(), size = 4, endian = "little")
         for (ent in self$entities) {
-          if (is.function(ent$to_bytes)) parts[[length(parts) + 1]] <- ent$to_bytes()
-          else if (is.function(ent$bytes)) parts[[length(parts) + 1]] <- ent$bytes()
-          else if (is.function(ent$.bytes)) parts[[length(parts) + 1]] <- ent$.bytes()
-          else stop("entity element must provide to_bytes/bytes/_bytes")
+          if (is.function(ent$to_bytes)) {
+            parts[[length(parts) + 1]] <- ent$to_bytes()
+          } else if (is.function(ent$bytes)) {
+            parts[[length(parts) + 1]] <- ent$bytes()
+          } else if (is.function(ent$.bytes)) {
+            parts[[length(parts) + 1]] <- ent$.bytes()
+          } else {
+            stop("entity element must provide to_bytes/bytes/_bytes")
+          }
         }
       }
 
@@ -698,19 +704,22 @@ EditStoryRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- vec_tag
         parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$privacy_rules)), raw(), size = 4, endian = "little")
         for (pr in self$privacy_rules) {
-          if (is.function(pr$to_bytes)) parts[[length(parts) + 1]] <- pr$to_bytes()
-          else if (is.function(pr$bytes)) parts[[length(parts) + 1]] <- pr$bytes()
-          else if (is.function(pr$.bytes)) parts[[length(parts) + 1]] <- pr$.bytes()
-          else stop("privacy_rule element must provide to_bytes/bytes/_bytes")
+          if (is.function(pr$to_bytes)) {
+            parts[[length(parts) + 1]] <- pr$to_bytes()
+          } else if (is.function(pr$bytes)) {
+            parts[[length(parts) + 1]] <- pr$bytes()
+          } else if (is.function(pr$.bytes)) {
+            parts[[length(parts) + 1]] <- pr$.bytes()
+          } else {
+            stop("privacy_rule element must provide to_bytes/bytes/_bytes")
+          }
         }
       }
 
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read an EditStoryRequest instance from a reader
     #'
     #' reader expected to implement: read_int(), tgread_object(), tgread_string()
@@ -729,7 +738,7 @@ EditStoryRequest <- R6::R6Class(
 
       mediaAreasList <- NULL
       if (bitwAnd(flagsVal, 8L) != 0L) {
-         # vector constructor id (ignored)
+        # vector constructor id (ignored)
         nma <- reader$read_int()
         if (nma > 0) {
           mediaAreasList <- vector("list", nma)
@@ -745,7 +754,7 @@ EditStoryRequest <- R6::R6Class(
         captionVal <- reader$tgread_string()
 
         # read entities vector
-         # vector constructor id (ignored)
+        # vector constructor id (ignored)
         ne <- reader$read_int()
         if (ne > 0) {
           entitiesList <- vector("list", ne)
@@ -757,7 +766,7 @@ EditStoryRequest <- R6::R6Class(
 
       privacyRulesList <- NULL
       if (bitwAnd(flagsVal, 4L) != 0L) {
-         # vector constructor id (ignored)
+        # vector constructor id (ignored)
         npr <- reader$read_int()
         if (npr > 0) {
           privacyRulesList <- vector("list", npr)
@@ -860,9 +869,7 @@ ExportStoryLinkRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read an ExportStoryLinkRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -970,7 +977,6 @@ GetAlbumStoriesRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
     #' @description Read a GetAlbumStoriesRequest instance from a reader
     #'
@@ -1066,9 +1072,7 @@ GetAlbumsRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a GetAlbumsRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_long()
@@ -1114,9 +1118,7 @@ GetAllReadPeerStoriesRequest <- R6::R6Class(
       as.raw(c(0xf9, 0xe7, 0x5a, 0x9b))
     }
   ),
-
   class = list(
-
     #' @description Read a GetAllReadPeerStoriesRequest instance from a reader
     #'
     #' reader expected to implement nothing special for this class
@@ -1147,7 +1149,6 @@ GetAllStoriesRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xeeb0d625,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7e60d0cd,
-
     .next = NULL,
     #' @field hidden Field.
     hidden = NULL,
@@ -1210,9 +1211,7 @@ GetAllStoriesRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a GetAllStoriesRequest instance from a reader
     #'
     #' reader expected to implement: read_int(), tgread_string()
@@ -1224,9 +1223,11 @@ GetAllStoriesRequest <- R6::R6Class(
       hiddenFlag <- bitwAnd(flagsVal, 4L) != 0L
       stateVal <- if (bitwAnd(flagsVal, 1L) != 0L) reader$tgread_string() else NULL
 
-      GetAllStoriesRequest$new(.next = if (nextFlag) TRUE else NULL,
-                               hidden = if (hiddenFlag) TRUE else NULL,
-                               state = stateVal)
+      GetAllStoriesRequest$new(
+        .next = if (nextFlag) TRUE else NULL,
+        hidden = if (hiddenFlag) TRUE else NULL,
+        state = stateVal
+      )
     }
   )
 )
@@ -1263,9 +1264,7 @@ GetChatsToSendRequest <- R6::R6Class(
       as.raw(c(0x60, 0x8b, 0x6a, 0xa5))
     }
   ),
-
   class = list(
-
     #' @description Read a GetChatsToSendRequest instance from a reader
     #'
     #' reader expected to implement nothing special for this class
@@ -1362,7 +1361,6 @@ GetPeerMaxIDsRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
     #' @description Read a GetPeerMaxIDsRequest instance from a reader
     #'
@@ -1390,7 +1388,9 @@ GetPeerMaxIDsRequest <- R6::R6Class(
       # read vector constructor id (ignored)
 
       n <- reader$read_int()
-      if (n <= 0) return(integer(0))
+      if (n <= 0) {
+        return(integer(0))
+      }
       out <- integer(n)
       for (i in seq_len(n)) out[i] <- reader$read_int()
       out
@@ -1466,9 +1466,7 @@ GetPeerStoriesRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a GetPeerStoriesRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object()
@@ -1565,9 +1563,7 @@ GetPinnedStoriesRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a GetPinnedStoriesRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -1666,9 +1662,7 @@ GetStoriesArchiveRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a GetStoriesArchiveRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -1765,9 +1759,7 @@ GetStoriesByIDRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a GetStoriesByIDRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -1870,9 +1862,7 @@ GetStoriesViewsRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a GetStoriesViewsRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -2024,9 +2014,7 @@ GetStoryReactionsListRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a GetStoryReactionsListRequest instance from a reader
     #'
     #' reader expected to implement: read_int(), tgread_object(), tgread_string()
@@ -2190,9 +2178,7 @@ GetStoryViewsListRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a GetStoryViewsListRequest instance from a reader
     #'
     #' reader expected to implement: read_int(), tgread_object(), tgread_string()
@@ -2303,9 +2289,7 @@ IncrementStoryViewsRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read an IncrementStoryViewsRequest instance from a reader
     #'
     #' reader expected to implement: tgread_object(), read_int()
@@ -2406,9 +2390,7 @@ ReadStoriesRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a ReadStoriesRequest instance from a reader
     #'
     #' reader is expected to implement: tgread_object(), read_int()
@@ -2428,7 +2410,9 @@ ReadStoriesRequest <- R6::R6Class(
       # read vector constructor id (ignored)
 
       n <- reader$read_int()
-      if (n <= 0) return(integer(0))
+      if (n <= 0) {
+        return(integer(0))
+      }
       out <- integer(n)
       for (i in seq_len(n)) out[i] <- reader$read_int()
       out
@@ -2517,7 +2501,6 @@ ReorderAlbumsRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
     #' @description Read a ReorderAlbumsRequest instance from a reader
     #'
@@ -2657,9 +2640,7 @@ ReportRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a ReportRequest instance from reader
     #'
     #' reader is expected to implement: tgread_object(), read_int(), tgread_bytes(), tgread_string()
@@ -2669,7 +2650,7 @@ ReportRequest <- R6::R6Class(
       peerObj <- reader$tgread_object()
 
       # read vector tag then length then ints
-       # vector constructor id (ignored)
+      # vector constructor id (ignored)
       nIds <- reader$read_int()
       idsVec <- if (nIds <= 0) integer(0) else integer(nIds)
       if (nIds > 0) {
@@ -2781,18 +2762,28 @@ SearchPostsRequest <- R6::R6Class(
 
       # optional area bytes
       if (!is.null(self$area)) {
-        if (is.function(self$area$to_bytes)) parts[[length(parts) + 1]] <- self$area$to_bytes()
-        else if (is.function(self$area$bytes)) parts[[length(parts) + 1]] <- self$area$bytes()
-        else if (is.function(self$area$.bytes)) parts[[length(parts) + 1]] <- self$area$.bytes()
-        else stop("area object must provide to_bytes/bytes/_bytes")
+        if (is.function(self$area$to_bytes)) {
+          parts[[length(parts) + 1]] <- self$area$to_bytes()
+        } else if (is.function(self$area$bytes)) {
+          parts[[length(parts) + 1]] <- self$area$bytes()
+        } else if (is.function(self$area$.bytes)) {
+          parts[[length(parts) + 1]] <- self$area$.bytes()
+        } else {
+          stop("area object must provide to_bytes/bytes/_bytes")
+        }
       }
 
       # optional peer bytes
       if (!is.null(self$peer)) {
-        if (is.function(self$peer$to_bytes)) parts[[length(parts) + 1]] <- self$peer$to_bytes()
-        else if (is.function(self$peer$bytes)) parts[[length(parts) + 1]] <- self$peer$bytes()
-        else if (is.function(self$peer$bytes)) parts[[length(parts) + 1]] <- self$peer$bytes()
-        else stop("peer object must provide to_bytes/bytes/_bytes")
+        if (is.function(self$peer$to_bytes)) {
+          parts[[length(parts) + 1]] <- self$peer$to_bytes()
+        } else if (is.function(self$peer$bytes)) {
+          parts[[length(parts) + 1]] <- self$peer$bytes()
+        } else if (is.function(self$peer$bytes)) {
+          parts[[length(parts) + 1]] <- self$peer$bytes()
+        } else {
+          stop("peer object must provide to_bytes/bytes/_bytes")
+        }
       }
 
       # offset and limit
@@ -2808,7 +2799,6 @@ SearchPostsRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
     #' @description Read a SearchPostsRequest instance from reader
     #'
@@ -2935,9 +2925,7 @@ SendReactionRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a SendReactionRequest instance from a reader
     #'
     #' reader is expected to implement: read_int(), tgread_object()
@@ -3144,10 +3132,15 @@ SendStoryRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- vec_tag
         parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$media_areas)), raw(), size = 4, endian = "little")
         for (ma in self$media_areas) {
-          if (is.function(ma$to_bytes)) parts[[length(parts) + 1]] <- ma$to_bytes()
-          else if (is.function(ma$bytes)) parts[[length(parts) + 1]] <- ma$bytes()
-          else if (is.function(ma$.bytes)) parts[[length(parts) + 1]] <- ma$.bytes()
-          else stop("media_area element must provide to_bytes/bytes/_bytes")
+          if (is.function(ma$to_bytes)) {
+            parts[[length(parts) + 1]] <- ma$to_bytes()
+          } else if (is.function(ma$bytes)) {
+            parts[[length(parts) + 1]] <- ma$bytes()
+          } else if (is.function(ma$.bytes)) {
+            parts[[length(parts) + 1]] <- ma$.bytes()
+          } else {
+            stop("media_area element must provide to_bytes/bytes/_bytes")
+          }
         }
       }
 
@@ -3170,10 +3163,15 @@ SendStoryRequest <- R6::R6Class(
         parts[[length(parts) + 1]] <- vec_tag
         parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$entities)), raw(), size = 4, endian = "little")
         for (ent in self$entities) {
-          if (is.function(ent$to_bytes)) parts[[length(parts) + 1]] <- ent$to_bytes()
-          else if (is.function(ent$bytes)) parts[[length(parts) + 1]] <- ent$bytes()
-          else if (is.function(ent$.bytes)) parts[[length(parts) + 1]] <- ent$.bytes()
-          else stop("entity element must provide to_bytes/bytes/_bytes")
+          if (is.function(ent$to_bytes)) {
+            parts[[length(parts) + 1]] <- ent$to_bytes()
+          } else if (is.function(ent$bytes)) {
+            parts[[length(parts) + 1]] <- ent$bytes()
+          } else if (is.function(ent$.bytes)) {
+            parts[[length(parts) + 1]] <- ent$.bytes()
+          } else {
+            stop("entity element must provide to_bytes/bytes/_bytes")
+          }
         }
       }
 
@@ -3182,10 +3180,15 @@ SendStoryRequest <- R6::R6Class(
       parts[[length(parts) + 1]] <- vec_tag
       parts[[length(parts) + 1]] <- writeBin(as.integer(length(self$privacy_rules)), raw(), size = 4, endian = "little")
       for (pr in self$privacy_rules) {
-        if (is.function(pr$to_bytes)) parts[[length(parts) + 1]] <- pr$to_bytes()
-        else if (is.function(pr$bytes)) parts[[length(parts) + 1]] <- pr$bytes()
-        else if (is.function(pr$.bytes)) parts[[length(parts) + 1]] <- pr$.bytes()
-        else stop("privacy_rule element must provide to_bytes/bytes/_bytes")
+        if (is.function(pr$to_bytes)) {
+          parts[[length(parts) + 1]] <- pr$to_bytes()
+        } else if (is.function(pr$bytes)) {
+          parts[[length(parts) + 1]] <- pr$bytes()
+        } else if (is.function(pr$.bytes)) {
+          parts[[length(parts) + 1]] <- pr$.bytes()
+        } else {
+          stop("privacy_rule element must provide to_bytes/bytes/_bytes")
+        }
       }
 
       # random_id as 64-bit little-endian
@@ -3198,10 +3201,15 @@ SendStoryRequest <- R6::R6Class(
 
       # fwd_from_id
       if (!is.null(self$fwd_from_id)) {
-        if (is.function(self$fwd_from_id$to_bytes)) parts[[length(parts) + 1]] <- self$fwd_from_id$to_bytes()
-        else if (is.function(self$fwd_from_id$bytes)) parts[[length(parts) + 1]] <- self$fwd_from_id$bytes()
-        else if (is.function(self$fwd_from_id$.bytes)) parts[[length(parts) + 1]] <- self$fwd_from_id$.bytes()
-        else stop("fwd_from_id must provide to_bytes/bytes/_bytes")
+        if (is.function(self$fwd_from_id$to_bytes)) {
+          parts[[length(parts) + 1]] <- self$fwd_from_id$to_bytes()
+        } else if (is.function(self$fwd_from_id$bytes)) {
+          parts[[length(parts) + 1]] <- self$fwd_from_id$bytes()
+        } else if (is.function(self$fwd_from_id$.bytes)) {
+          parts[[length(parts) + 1]] <- self$fwd_from_id$.bytes()
+        } else {
+          stop("fwd_from_id must provide to_bytes/bytes/_bytes")
+        }
       }
 
       # fwd_from_story
@@ -3220,9 +3228,7 @@ SendStoryRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a SendStoryRequest instance from a reader
     #'
     #' reader is expected to implement: read_int(), tgread_object(), tgread_string(), read_long()
@@ -3240,12 +3246,14 @@ SendStoryRequest <- R6::R6Class(
       # media_areas
       mediaAreasVal <- NULL
       if (bitwAnd(flagsVal, 32L) != 0L) {
-         # vector constructor
+        # vector constructor
         nma <- reader$read_int()
         if (nma > 0) {
           mediaAreasVal <- vector("list", nma)
           for (i in seq_len(nma)) mediaAreasVal[[i]] <- reader$tgread_object()
-        } else mediaAreasVal <- list()
+        } else {
+          mediaAreasVal <- list()
+        }
       }
 
       # caption
@@ -3254,12 +3262,13 @@ SendStoryRequest <- R6::R6Class(
       # entities
       entitiesVal <- NULL
       if (bitwAnd(flagsVal, 2L) != 0L) {
-
         ne <- reader$read_int()
         if (ne > 0) {
           entitiesVal <- vector("list", ne)
           for (i in seq_len(ne)) entitiesVal[[i]] <- reader$tgread_object()
-        } else entitiesVal <- list()
+        } else {
+          entitiesVal <- list()
+        }
       }
 
       # privacy_rules (vector)
@@ -3280,12 +3289,13 @@ SendStoryRequest <- R6::R6Class(
 
       albumsVal <- NULL
       if (bitwAnd(flagsVal, 256L) != 0L) {
-
         na <- reader$read_int()
         if (na > 0) {
           albumsVal <- integer(na)
           for (i in seq_len(na)) albumsVal[i] <- reader$read_int()
-        } else albumsVal <- integer(0)
+        } else {
+          albumsVal <- integer(0)
+        }
       }
 
       SendStoryRequest$new(
@@ -3361,9 +3371,7 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a ToggleAllStoriesHiddenRequest instance from a reader
     #'
     #' reader is expected to implement: tgread_bool()
@@ -3458,9 +3466,7 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
-
     #' @description Read a TogglePeerStoriesHiddenRequest instance from a reader
     #'
     #' reader is expected to implement: tgread_object(), tgread_bool()
@@ -3570,7 +3576,6 @@ TogglePinnedRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
     #' @description Read a TogglePinnedRequest instance from a reader
     #'
@@ -3581,7 +3586,7 @@ TogglePinnedRequest <- R6::R6Class(
       peer_obj <- reader$tgread_object()
 
       # read vector tag then length then ints
-       # vector constructor id (ignored)
+      # vector constructor id (ignored)
       n <- reader$read_int()
       ids <- if (n <= 0) integer(0) else integer(n)
       if (n > 0) {
@@ -3600,14 +3605,15 @@ TogglePinnedRequest <- R6::R6Class(
       # read vector constructor id
 
       n <- reader$read_int()
-      if (n <= 0) return(integer(0))
+      if (n <= 0) {
+        return(integer(0))
+      }
       out <- integer(n)
       for (i in seq_len(n)) out[i] <- reader$read_int()
       out
     }
   )
 )
-
 
 
 #' TogglePinnedToTopRequest R6 class
@@ -3695,7 +3701,6 @@ TogglePinnedToTopRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-
   class = list(
     #' @description Read a TogglePinnedToTopRequest instance from a reader
     #'
@@ -3706,7 +3711,7 @@ TogglePinnedToTopRequest <- R6::R6Class(
       peer_obj <- reader$tgread_object()
 
       # read vector tag then length then ints
-       # vector constructor id (ignored)
+      # vector constructor id (ignored)
       n <- reader$read_int()
       ids <- if (n <= 0) integer(0) else integer(n)
       if (n > 0) {
@@ -3868,7 +3873,6 @@ UpdateAlbumRequest <- R6::R6Class(
 
   # class method implemented as public so it can be called like UpdateAlbumRequest$from_reader(reader)
   class = list(
-
     #' @description Read an UpdateAlbumRequest instance from a reader
     #'
     #' reader is expected to implement: read_int(), tgread_object(), tgread_string()
@@ -3885,7 +3889,9 @@ UpdateAlbumRequest <- R6::R6Class(
         # read and check vector constructor then length then ints
         .vec_tag <- reader$read_int() # usually vector constructor
         n <- reader$read_int()
-        if (n <= 0) return(integer(0))
+        if (n <= 0) {
+          return(integer(0))
+        }
         out <- integer(n)
         for (i in seq_len(n)) out[i] <- reader$read_int()
         out

@@ -7,7 +7,6 @@
 ApplyBoostRequest <- R6::R6Class(
   "ApplyBoostRequest",
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor ID for the request
     CONSTRUCTOR_ID = 0x6b7da746,
 
@@ -110,7 +109,6 @@ ApplyBoostRequest <- R6::R6Class(
 GetBoostsListRequest <- R6::R6Class(
   "GetBoostsListRequest",
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor ID for the request
     CONSTRUCTOR_ID = 0x60f67660,
 
@@ -202,7 +200,6 @@ GetBoostsListRequest <- R6::R6Class(
 GetBoostsStatusRequest <- R6::R6Class(
   "GetBoostsStatusRequest",
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor ID for the request
     CONSTRUCTOR_ID = 0x061f2f04, # note: bytes b'a\x1f/\x04' -> 0x61 0x1f 0x2f 0x04, but integer shown here for reference
 
@@ -267,7 +264,6 @@ GetBoostsStatusRequest <- R6::R6Class(
 GetMyBoostsRequest <- R6::R6Class(
   "GetMyBoostsRequest",
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor ID for the request
     CONSTRUCTOR_ID = 0xbe77b4a,
 
@@ -313,7 +309,6 @@ GetMyBoostsRequest <- R6::R6Class(
 GetUserBoostsRequest <- R6::R6Class(
   "GetUserBoostsRequest",
   public = list(
-
     #' @field CONSTRUCTOR_ID Constructor ID for the request
     CONSTRUCTOR_ID = 0x39854d1f,
 

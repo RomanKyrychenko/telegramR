@@ -11,13 +11,10 @@
 Session <- R6::R6Class(
   "Session",
   public = list(
-
     #' @description
     #' Constructor for the Session class
     #' @return None.
-    initialize = function() {
-
-    },
+    initialize = function() {},
 
     #' @description
     #' Creates a clone of this session object.
@@ -63,9 +60,7 @@ Session <- R6::R6Class(
     #' @description
     #' Frees any used resources upon disconnection.
     #' @return None.
-    close = function() {
-
-    },
+    close = function() {},
 
     #' @description
     #' Persists session information to disk.

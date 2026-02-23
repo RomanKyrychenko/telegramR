@@ -14,12 +14,15 @@ test_that("reads packet with random padding successfully", {
   padded_data <- c(raw(10), as.raw(c(0x01, 0x02)))
   reader <- list(
     readexactly = function(n) {
-      if (n == 4) writeBin(as.integer(length(padded_data)), raw(), size = 4, endian = "little")
-      else padded_data
+      if (n == 4) {
+        writeBin(as.integer(length(padded_data)), raw(), size = 4, endian = "little")
+      } else {
+        padded_data
+      }
     }
   )
   result <- value(codec$read_packet(reader))
-  expect_equal(length(result), 12)  # 12 bytes padded_data, no padding stripped since 12 %% 4 == 0
+  expect_equal(length(result), 12) # 12 bytes padded_data, no padding stripped since 12 %% 4 == 0
 })
 
 test_that("throws error when reader fails to provide length prefix", {
@@ -34,8 +37,11 @@ test_that("throws error when reader fails to provide full packet data", {
   codec <- RandomizedIntermediatePacketCodec$new()
   reader <- list(
     readexactly = function(n) {
-      if (n == 4) writeBin(as.integer(20), raw(), size = 4, endian = "little")
-      else stop("ReadError: failed to read full packet data")
+      if (n == 4) {
+        writeBin(as.integer(20), raw(), size = 4, endian = "little")
+      } else {
+        stop("ReadError: failed to read full packet data")
+      }
     }
   )
   expect_error(value(codec$read_packet(reader)), "ReadError: failed to read full packet data")

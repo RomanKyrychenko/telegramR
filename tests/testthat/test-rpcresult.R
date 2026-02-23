@@ -9,7 +9,9 @@ test_that("RpcResult from_reader handles RpcError correctly", {
   mock_reader <- list(
     read_long = function() 12345,
     read_int = function(signed = TRUE) {
-      if (isTRUE(!signed)) return(0x2144ca19)
+      if (isTRUE(!signed)) {
+        return(0x2144ca19)
+      }
       return(123L)
     },
     tgread_string = function() "FLOOD_WAIT_23",
@@ -37,7 +39,9 @@ test_that("RpcResult from_reader handles GzipPacked correctly", {
   mock_reader <- list(
     read_long = function() 12345,
     read_int = function(signed = TRUE) {
-      if (isTRUE(!signed)) return(0x3072cfa1)
+      if (isTRUE(!signed)) {
+        return(0x3072cfa1)
+      }
       return(0L)
     },
     tgread_bytes = function() compressed,

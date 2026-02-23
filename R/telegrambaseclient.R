@@ -26,7 +26,6 @@ DISCONNECT_EXPORTED_AFTER <- 60
 #' @export
 ExportState <- R6Class("ExportState",
   public = list(
-
     #' @description
     #' Constructor for the ExportState class
     #' @return None.
@@ -97,7 +96,6 @@ ExportState <- R6Class("ExportState",
 #' @export
 TelegramBaseClient <- R6Class("TelegramBaseClient",
   public = list(
-
     #' @description Initialize a new Telegram client
     #'
     #' @param session Session object or path to session file
@@ -814,12 +812,17 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       fml <- tryCatch(names(formals(conn_fun)), error = function(e) NULL)
       res <- NULL
       if (!is.null(fml) && ("connection" %in% fml || "..." %in% fml)) {
-        res <- tryCatch({ conn_fun(build_connection()) }, error = function(e) {
-          call_txt <- tryCatch(paste(deparse(conditionCall(e)), collapse = " "), error = function(...) "")
-          msg_txt <- tryCatch(conditionMessage(e), error = function(...) as.character(e))
-          logger::log_warn("connect() failed: {msg_txt} [{class(e)[1]}] {call_txt}")
-          stop(e)
-        })
+        res <- tryCatch(
+          {
+            conn_fun(build_connection())
+          },
+          error = function(e) {
+            call_txt <- tryCatch(paste(deparse(conditionCall(e)), collapse = " "), error = function(...) "")
+            msg_txt <- tryCatch(conditionMessage(e), error = function(...) as.character(e))
+            logger::log_warn("connect() failed: {msg_txt} [{class(e)[1]}] {call_txt}")
+            stop(e)
+          }
+        )
       } else {
         # Legacy fallback for older connect signatures
         args <- list(
@@ -831,12 +834,17 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         if (!is.null(fml) && !("..." %in% fml)) {
           args <- args[intersect(names(args), fml)]
         }
-        res <- tryCatch({ do.call(conn_fun, args) }, error = function(e) {
-          call_txt <- tryCatch(paste(deparse(conditionCall(e)), collapse = " "), error = function(...) "")
-          msg_txt <- tryCatch(conditionMessage(e), error = function(...) as.character(e))
-          logger::log_warn("connect() failed: {msg_txt} [{class(e)[1]}] {call_txt}")
-          stop(e)
-        })
+        res <- tryCatch(
+          {
+            do.call(conn_fun, args)
+          },
+          error = function(e) {
+            call_txt <- tryCatch(paste(deparse(conditionCall(e)), collapse = " "), error = function(...) "")
+            msg_txt <- tryCatch(conditionMessage(e), error = function(...) as.character(e))
+            logger::log_warn("connect() failed: {msg_txt} [{class(e)[1]}] {call_txt}")
+            stop(e)
+          }
+        )
       }
       if (inherits(res, c("Future", "promise"))) {
         res <- tryCatch(future::value(res), error = function(e) {

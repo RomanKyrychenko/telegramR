@@ -133,7 +133,6 @@ GetSmsJobRequest$set("public", "from_reader", function(reader) {
 GetStatusRequest <- R6::R6Class(
   "GetStatusRequest",
   public = list(
-
     #' @description Initialize a GetStatusRequest
     #' @return self
     initialize = function() {
@@ -172,7 +171,6 @@ GetStatusRequest$set("public", "from_reader", function(reader) {
 IsEligibleToJoinRequest <- R6::R6Class(
   "IsEligibleToJoinRequest",
   public = list(
-
     #' @description Initialize an IsEligibleToJoinRequest
     #' @return self
     initialize = function() {
@@ -219,7 +217,6 @@ write_uint32_le <- function(x) {
 JoinRequest <- R6::R6Class(
   "JoinRequest",
   public = list(
-
     #' @description Initialize a JoinRequest
     #' @return self
     initialize = function() {
@@ -258,7 +255,6 @@ JoinRequest$set("public", "from_reader", function(reader) {
 LeaveRequest <- R6::R6Class(
   "LeaveRequest",
   public = list(
-
     #' @description Initialize a LeaveRequest
     #' @return self
     initialize = function() {

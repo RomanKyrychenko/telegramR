@@ -6,7 +6,6 @@ AbridgedPacketCodec <- R6Class(
   "AbridgedPacketCodec",
   inherit = PacketCodec,
   public = list(
-
     #' @field tag A raw byte representing the tag for the codec.
     tag = as.raw(0xef),
 

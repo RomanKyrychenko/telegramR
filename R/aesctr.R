@@ -6,7 +6,6 @@
 AESModeCTR <- R6::R6Class(
   "AESModeCTR",
   public = list(
-
     #' @field key The encryption key as a raw vector.
     key = NULL,
 

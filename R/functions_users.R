@@ -158,7 +158,7 @@ GetRequirementsToContactRequest <- R6::R6Class(
       if (count > 0) {
         for (i in seq_len(count)) {
           x <- reader$tgread_object()
-            id_list[[i]] <- x
+          id_list[[i]] <- x
         }
       }
       self$new(id = id_list)

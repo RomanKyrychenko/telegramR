@@ -59,9 +59,7 @@ AccessPointRule <- R6::R6Class(
       )))
     }
   ),
-
   private = list(
-
     #' Reads an AccessPointRule object from a BinaryReader.
     from_reader = function(reader) {
       phone_prefix_rules <- reader$tgread_string()
@@ -82,7 +80,6 @@ AccountDaysTTL <- R6::R6Class(
   "AccountDaysTTL",
   inherit = TLObject,
   public = list(
-
     #' @field days An integer representing the number of days.
     days = NULL,
 
@@ -159,7 +156,6 @@ AccountDaysTTL <- R6::R6Class(
       )))
     }
   ),
-
   private = list(
     #' Reads an AccountDaysTTL object from a BinaryReader.
     from_reader = function(reader) {
@@ -294,7 +290,6 @@ AttachMenuBot <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads an AttachMenuBot object from a BinaryReader.
     from_reader = function(reader) {
@@ -411,7 +406,6 @@ AttachMenuBotIcon <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads an AttachMenuBotIcon object from a BinaryReader.
     from_reader = function(reader) {
@@ -483,7 +477,6 @@ AttachMenuBotIconColor <- R6::R6Class(
       )))
     }
   ),
-
   private = list(
     #' Reads an AttachMenuBotIconColor object from a BinaryReader.
     from_reader = function(reader) {
@@ -552,7 +545,6 @@ AttachMenuBots <- R6::R6Class(
       )))
     }
   ),
-
   private = list(
     #' Reads an AttachMenuBots object from a BinaryReader.
     from_reader = function(reader) {
@@ -627,7 +619,6 @@ AttachMenuBotsBot <- R6::R6Class(
       )))
     }
   ),
-
   private = list(
     #' Reads an AttachMenuBotsBot object from a BinaryReader.
     from_reader = function(reader) {
@@ -680,7 +671,6 @@ AttachMenuBotsNotModified <- R6::R6Class(
       return(as.raw(c(0x5c, 0x8a, 0xd8, 0xf1)))
     }
   ),
-
   private = list(
     #' Reads an AttachMenuBotsNotModified object from a BinaryReader.
     from_reader = function(reader) {
@@ -724,7 +714,6 @@ AttachMenuPeerTypeBotPM <- R6::R6Class(
       return(as.raw(c(0x1a, 0xfa, 0x2b, 0xc3)))
     }
   ),
-
   private = list(
     #' Reads an AttachMenuPeerTypeBotPM object from a BinaryReader.
     from_reader = function(reader) {
@@ -768,7 +757,6 @@ AttachMenuPeerTypeBroadcast <- R6::R6Class(
       return(as.raw(c(0xfc, 0xde, 0xfb, 0x7b)))
     }
   ),
-
   private = list(
     #' Reads an AttachMenuPeerTypeBroadcast object from a BinaryReader.
     from_reader = function(reader) {
@@ -812,7 +800,6 @@ AttachMenuPeerTypeChat <- R6::R6Class(
       return(as.raw(c(0x3f, 0x11, 0x09, 0x05)))
     }
   ),
-
   private = list(
     #' Reads an AttachMenuPeerTypeChat object from a BinaryReader.
     from_reader = function(reader) {
@@ -856,7 +843,6 @@ AttachMenuPeerTypePM <- R6::R6Class(
       return(as.raw(c(0x1f, 0xd3, 0x46, 0xf1)))
     }
   ),
-
   private = list(
     #' Reads an AttachMenuPeerTypePM object from a BinaryReader.
     from_reader = function(reader) {
@@ -900,7 +886,6 @@ AttachMenuPeerTypeSameBotPM <- R6::R6Class(
       return(as.raw(c(0x0e, 0xe9, 0x6b, 0x7d)))
     }
   ),
-
   private = list(
     #' Reads an AttachMenuPeerTypeSameBotPM object from a BinaryReader.
     from_reader = function(reader) {
@@ -1057,7 +1042,6 @@ Authorization <- R6::R6Class(
       )))
     }
   ),
-
   private = list(
     #' Reads an Authorization object from a BinaryReader.
     from_reader = function(reader) {
@@ -1213,7 +1197,6 @@ AutoDownloadSettings <- R6::R6Class(
       )))
     }
   ),
-
   private = list(
     #' Reads an AutoDownloadSettings object from a BinaryReader.
     from_reader = function(reader) {
@@ -1297,7 +1280,6 @@ AutoSaveException <- R6::R6Class(
       )))
     }
   ),
-
   private = list(
     #' Reads an AutoSaveException object from a BinaryReader.
     from_reader = function(reader) {
@@ -1374,7 +1356,6 @@ AutoSaveSettings <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads an AutoSaveSettings object from a BinaryReader.
     from_reader = function(reader) {
@@ -1490,7 +1471,6 @@ AvailableEffect <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads an AvailableEffect object from a BinaryReader.
     from_reader = function(reader) {
@@ -1648,7 +1628,6 @@ AvailableReaction <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads an AvailableReaction object from a BinaryReader.
     from_reader = function(reader) {
@@ -1745,7 +1724,6 @@ BadMsgNotification <- R6::R6Class(
       )))
     }
   ),
-
   private = list(
     #' Reads a BadMsgNotification object from a BinaryReader.
     from_reader = function(reader) {
@@ -1821,7 +1799,6 @@ BadServerSalt <- R6::R6Class(
       )))
     }
   ),
-
   private = list(
     #' Reads a BadServerSalt object from a BinaryReader.
     from_reader = function(reader) {
@@ -1887,7 +1864,6 @@ BankCardOpenUrl <- R6::R6Class(
       )))
     }
   ),
-
   private = list(
     #' Reads a BankCardOpenUrl object from a BinaryReader.
     from_reader = function(reader) {
@@ -1930,7 +1906,6 @@ BaseThemeArctic <- R6::R6Class(
       return(as.raw(c(0x5a, 0x12, 0x11, 0x5b)))
     }
   ),
-
   private = list(
     #' Reads a BaseThemeArctic object from a BinaryReader.
     from_reader = function(reader) {
@@ -1971,7 +1946,6 @@ BaseThemeClassic <- R6::R6Class(
       return(as.raw(c(0x62, 0x24, 0xa1, 0xc3)))
     }
   ),
-
   private = list(
     #' Reads a BaseThemeClassic object from a BinaryReader.
     from_reader = function(reader) {
@@ -2012,7 +1986,6 @@ BaseThemeDay <- R6::R6Class(
       return(as.raw(c(0x88, 0x16, 0xd8, 0xfb)))
     }
   ),
-
   private = list(
     #' Reads a BaseThemeDay object from a BinaryReader.
     from_reader = function(reader) {
@@ -2053,7 +2026,6 @@ BaseThemeNight <- R6::R6Class(
       return(as.raw(c(0xa8, 0x1e, 0xb3, 0xb7)))
     }
   ),
-
   private = list(
     #' Reads a BaseThemeNight object from a BinaryReader.
     from_reader = function(reader) {
@@ -2094,7 +2066,6 @@ BaseThemeTinted <- R6::R6Class(
       return(as.raw(c(0xee, 0x77, 0x5f, 0x6d)))
     }
   ),
-
   private = list(
     #' Reads a BaseThemeTinted object from a BinaryReader.
     from_reader = function(reader) {
@@ -2169,7 +2140,6 @@ BindAuthKeyInner <- R6::R6Class(
       )))
     }
   ),
-
   private = list(
     #' Reads a BindAuthKeyInner object from a BinaryReader.
     from_reader = function(reader) {
@@ -2247,7 +2217,6 @@ Birthday <- R6::R6Class(
       )))
     }
   ),
-
   private = list(
     #' Reads a Birthday object from a BinaryReader.
     from_reader = function(reader) {
@@ -2400,7 +2369,6 @@ Boost <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads a Boost object from a BinaryReader.
     from_reader = function(reader) {
@@ -2556,7 +2524,6 @@ BotApp <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads a BotApp object from a BinaryReader.
     from_reader = function(reader) {
@@ -2622,7 +2589,6 @@ BotAppNotModified <- R6::R6Class(
       return(as.raw(c(0xb7, 0x74, 0xa6, 0x5d)))
     }
   ),
-
   private = list(
     #' Reads a BotAppNotModified object from a BinaryReader.
     from_reader = function(reader) {
@@ -2719,7 +2685,6 @@ BotAppSettings <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads a BotAppSettings object from a BinaryReader.
     from_reader = function(reader) {
@@ -2851,7 +2816,6 @@ BotBusinessConnection <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads a BotBusinessConnection object from a BinaryReader.
     from_reader = function(reader) {
@@ -2932,7 +2896,6 @@ BotCommand <- R6::R6Class(
       ))
     }
   ),
-
   private = list(
     #' Reads a BotCommand object from a BinaryReader.
     from_reader = function(reader) {
@@ -2979,7 +2942,6 @@ BotCommandScopeChatAdmins <- R6::R6Class(
       return(as.raw(c(0x6a, 0x60, 0xaa, 0xb9)))
     }
   ),
-
   private = list(
     #' Reads a BotCommandScopeChatAdmins object from a BinaryReader.
     from_reader = function(reader) {
@@ -3020,7 +2982,6 @@ BotCommandScopeChats <- R6::R6Class(
       return(as.raw(c(0x81, 0xa8, 0xe1, 0x6f)))
     }
   ),
-
   private = list(
     #' Reads a BotCommandScopeChats object from a BinaryReader.
     from_reader = function(reader) {
@@ -3061,7 +3022,6 @@ BotCommandScopeDefault <- R6::R6Class(
       return(as.raw(c(0xab, 0xb2, 0x6c, 0x2f)))
     }
   ),
-
   private = list(
     #' Reads a BotCommandScopeDefault object from a BinaryReader.
     from_reader = function(reader) {
@@ -3112,7 +3072,6 @@ BotCommandScopePeer <- R6::R6Class(
       ))
     }
   ),
-
   private = list(
     #' Reads a BotCommandScopePeer object from a BinaryReader.
     from_reader = function(reader) {
@@ -3167,7 +3126,6 @@ BotCommandScopePeerAdmins <- R6::R6Class(
       ))
     }
   ),
-
   private = list(
     #' Reads a BotCommandScopePeerAdmins object from a BinaryReader.
     from_reader = function(reader) {
@@ -3228,7 +3186,6 @@ BotCommandScopePeerUser <- R6::R6Class(
       ))
     }
   ),
-
   private = list(
     #' Reads a BotCommandScopePeerUser object from a BinaryReader.
     from_reader = function(reader) {
@@ -3275,7 +3232,6 @@ BotCommandScopeUsers <- R6::R6Class(
       return(as.raw(c(0xd8, 0x04, 0x4f, 0x3c)))
     }
   ),
-
   private = list(
     #' Reads a BotCommandScopeUsers object from a BinaryReader.
     from_reader = function(reader) {
@@ -3440,7 +3396,6 @@ BotInfo <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads a BotInfo object from a BinaryReader.
     from_reader = function(reader) {
@@ -3624,7 +3579,6 @@ BotInlineMediaResult <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads a BotInlineMediaResult object from a BinaryReader.
     from_reader = function(reader) {
@@ -3754,7 +3708,6 @@ BotInlineMessageMediaAuto <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads a BotInlineMessageMediaAuto object from a BinaryReader.
     from_reader = function(reader) {
@@ -3871,7 +3824,6 @@ BotInlineMessageMediaContact <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads a BotInlineMessageMediaContact object from a BinaryReader.
     from_reader = function(reader) {
@@ -3993,7 +3945,6 @@ BotInlineMessageMediaGeo <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads a BotInlineMessageMediaGeo object from a BinaryReader.
     from_reader = function(reader) {
@@ -4144,7 +4095,6 @@ BotInlineMessageMediaInvoice <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads a BotInlineMessageMediaInvoice object from a BinaryReader.
     from_reader = function(reader) {
@@ -4282,7 +4232,6 @@ BotInlineMessageMediaVenue <- R6::R6Class(
       return(do.call(c, result))
     }
   ),
-
   private = list(
     #' Reads a BotInlineMessageMediaVenue object from a BinaryReader.
     from_reader = function(reader) {
@@ -14782,7 +14731,6 @@ FutureSalt <- R6::R6Class("FutureSalt",
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       valid_since <- reader$read_int()
@@ -14824,7 +14772,6 @@ FutureSalts <- R6::R6Class("FutureSalts",
       )
     }
   ),
-
   private = list(
     from_reader = function(reader) {
       req_msg_id <- reader$read_long()
@@ -20159,7 +20106,7 @@ InputMessagesFilterChatPhotos <- R6::R6Class("InputMessagesFilterChatPhotos",
     CONSTRUCTOR_ID = 0x3a20ecb8,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
-    initialize = function() { },
+    initialize = function() {},
     to_dict = function() {
       list("_" = "InputMessagesFilterChatPhotos")
     },
@@ -20184,7 +20131,7 @@ InputMessagesFilterContacts <- R6::R6Class("InputMessagesFilterContacts",
     CONSTRUCTOR_ID = 0xe062db83,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
-    initialize = function() { },
+    initialize = function() {},
     to_dict = function() {
       list("_" = "InputMessagesFilterContacts")
     },
@@ -20209,7 +20156,7 @@ InputMessagesFilterDocument <- R6::R6Class("InputMessagesFilterDocument",
     CONSTRUCTOR_ID = 0x9eddf188,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
-    initialize = function() { },
+    initialize = function() {},
     to_dict = function() {
       list("_" = "InputMessagesFilterDocument")
     },
@@ -20234,7 +20181,7 @@ InputMessagesFilterEmpty <- R6::R6Class("InputMessagesFilterEmpty",
     CONSTRUCTOR_ID = 0x57e2f66c,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
-    initialize = function() { },
+    initialize = function() {},
     to_dict = function() {
       list("_" = "InputMessagesFilterEmpty")
     },
@@ -20259,7 +20206,7 @@ InputMessagesFilterGeo <- R6::R6Class("InputMessagesFilterGeo",
     CONSTRUCTOR_ID = 0xe7026d0d,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
-    initialize = function() { },
+    initialize = function() {},
     to_dict = function() {
       list("_" = "InputMessagesFilterGeo")
     },
@@ -20284,7 +20231,7 @@ InputMessagesFilterGif <- R6::R6Class("InputMessagesFilterGif",
     CONSTRUCTOR_ID = 0xffc86587,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
-    initialize = function() { },
+    initialize = function() {},
     to_dict = function() {
       list("_" = "InputMessagesFilterGif")
     },
@@ -20309,7 +20256,7 @@ InputMessagesFilterMusic <- R6::R6Class("InputMessagesFilterMusic",
     CONSTRUCTOR_ID = 0x3751b49e,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
-    initialize = function() { },
+    initialize = function() {},
     to_dict = function() {
       list("_" = "InputMessagesFilterMusic")
     },
@@ -20334,7 +20281,7 @@ InputMessagesFilterMyMentions <- R6::R6Class("InputMessagesFilterMyMentions",
     CONSTRUCTOR_ID = 0xc1f8e69a,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8a36ec14,
-    initialize = function() { },
+    initialize = function() {},
     to_dict = function() {
       list("_" = "InputMessagesFilterMyMentions")
     },
@@ -32831,7 +32778,7 @@ MsgResendReq <- R6::R6Class("MsgResendReq",
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    reader$read_int(signed = FALSE)  # vector constructor id 0x1cb5c415
+    reader$read_int(signed = FALSE) # vector constructor id 0x1cb5c415
     count <- reader$read_int()
     msg_ids <- list()
     for (i in seq_len(count)) {
@@ -32901,7 +32848,7 @@ MsgsAllInfo <- R6::R6Class("MsgsAllInfo",
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    reader$read_int(signed = FALSE)  # vector constructor id 0x1cb5c415
+    reader$read_int(signed = FALSE) # vector constructor id 0x1cb5c415
     count <- reader$read_int()
     msg_ids <- list()
     for (i in seq_len(count)) {
@@ -32961,7 +32908,7 @@ MsgsStateReq <- R6::R6Class("MsgsStateReq",
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    reader$read_int(signed = FALSE)  # vector constructor id 0x1cb5c415
+    reader$read_int(signed = FALSE) # vector constructor id 0x1cb5c415
     count <- reader$read_int()
     msg_ids <- list()
     for (i in seq_len(count)) {
@@ -33339,7 +33286,6 @@ OutboxReadDate <- R6::R6Class("OutboxReadDate",
 PQInnerData <- R6::R6Class("PQInnerData",
   inherit = TLObject,
   public = list(
-
     #' @field CONSTRUCTOR_ID Integer. Constructor ID of the class.
     CONSTRUCTOR_ID = 0x83c95aec,
 
@@ -33366,7 +33312,6 @@ PQInnerData <- R6::R6Class("PQInnerData",
 
     #' @field new_nonce Logical. New nonce for the story.
     new_nonce = NULL,
-
     initialize = function(pq, p, q, nonce, server_nonce, new_nonce) {
       self$pq <- pq
       self$p <- p

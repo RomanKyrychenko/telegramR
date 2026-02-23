@@ -10,7 +10,6 @@
 BinaryReader <- R6::R6Class(
   "BinaryReader",
   public = list(
-
     #' @description
     #' Initializes the BinaryReader with the given binary data.
     #' @param data A raw vector representing the binary data to read.
@@ -201,7 +200,9 @@ BinaryReader <- R6::R6Class(
     #' @return A POSIXct datetime or NULL if the timestamp is 0.
     tgread_date = function() {
       value <- self$read_int(signed = FALSE)
-      if (is.null(value) || value == 0) return(NULL)
+      if (is.null(value) || value == 0) {
+        return(NULL)
+      }
       as.POSIXct(as.numeric(value), origin = "1970-01-01", tz = "UTC")
     },
 
@@ -284,11 +285,15 @@ BinaryReader <- R6::R6Class(
           result <- tryCatch(do.call(cls$new, parsed), error = function(e) parsed)
           return(result)
         }
-        if (!is.null(parsed)) return(parsed)
+        if (!is.null(parsed)) {
+          return(parsed)
+        }
       }
 
       # Fallback: return blank object or raw data
-      if (!is.null(obj)) return(obj)
+      if (!is.null(obj)) {
+        return(obj)
+      }
       tryCatch(self$set_position(pos_after_ctor), error = function(e2) NULL)
       cur <- self$tell_position()
       remaining <- length(private$.data) - cur
@@ -308,7 +313,9 @@ BinaryReader <- R6::R6Class(
 
 .telegramR_norm_ctor_id <- function(x) {
   v <- as.numeric(x)[1]
-  if (is.na(v)) return(NA_character_)
+  if (is.na(v)) {
+    return(NA_character_)
+  }
   if (v < 0) v <- v + 2^32
   sprintf("%.0f", v)
 }
@@ -322,17 +329,24 @@ BinaryReader <- R6::R6Class(
   # Search multiple environments to handle both installed package and
   # devtools::load_all() / source() workflows.
   envs_to_search <- list()
-  tryCatch({
-    pkg_name <- utils::packageName()
-    if (!is.null(pkg_name) && nzchar(pkg_name)) {
-      envs_to_search <- c(envs_to_search, list(asNamespace(pkg_name)))
-    }
-  }, error = function(e) NULL)
-  tryCatch({
-    ns <- asNamespace("telegramR")
-    if (!any(vapply(envs_to_search, identical, logical(1), ns)))
-      envs_to_search <- c(envs_to_search, list(ns))
-  }, error = function(e) NULL)
+  tryCatch(
+    {
+      pkg_name <- utils::packageName()
+      if (!is.null(pkg_name) && nzchar(pkg_name)) {
+        envs_to_search <- c(envs_to_search, list(asNamespace(pkg_name)))
+      }
+    },
+    error = function(e) NULL
+  )
+  tryCatch(
+    {
+      ns <- asNamespace("telegramR")
+      if (!any(vapply(envs_to_search, identical, logical(1), ns))) {
+        envs_to_search <- c(envs_to_search, list(ns))
+      }
+    },
+    error = function(e) NULL
+  )
   # Also search the global environment (for source()'d code)
   envs_to_search <- c(envs_to_search, list(.GlobalEnv))
 
@@ -347,20 +361,26 @@ BinaryReader <- R6::R6Class(
       cid <- NULL
       pf <- obj$public_fields
       if (!is.null(pf) && !is.null(pf$CONSTRUCTOR_ID)) {
-        cid <- tryCatch({
-          v <- pf$CONSTRUCTOR_ID
-          if (is.function(v)) v <- v()
-          v
-        }, error = function(e) NULL)
+        cid <- tryCatch(
+          {
+            v <- pf$CONSTRUCTOR_ID
+            if (is.function(v)) v <- v()
+            v
+          },
+          error = function(e) NULL
+        )
       }
       if (is.null(cid)) {
         af <- obj$active
         if (!is.null(af) && !is.null(af$CONSTRUCTOR_ID) && is.function(af$CONSTRUCTOR_ID)) {
           cid <- tryCatch(af$CONSTRUCTOR_ID(), error = function(e) {
-            tryCatch({
-              inst <- obj$new()
-              inst$CONSTRUCTOR_ID
-            }, error = function(e2) NULL)
+            tryCatch(
+              {
+                inst <- obj$new()
+                inst$CONSTRUCTOR_ID
+              },
+              error = function(e2) NULL
+            )
           })
         }
       }

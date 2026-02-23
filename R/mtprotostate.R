@@ -86,7 +86,6 @@ packInt64 <- function(value) {
 #' @export
 MTProtoState <- R6::R6Class("MTProtoState",
   public = list(
-
     #' @field auth_key Authentication key for encryption
     auth_key = NULL,
 
@@ -428,7 +427,6 @@ MTProtoState <- R6::R6Class("MTProtoState",
     highest_remote_id = NULL,
     ignore_count = NULL,
     packet_dumped = NULL,
-
     calc_key = function(auth_key, msg_key, client) {
       x <- 0
       if (!client) x <- 8
@@ -452,7 +450,6 @@ MTProtoState <- R6::R6Class("MTProtoState",
 
       return(list(aes_key = aes_key, aes_iv = aes_iv))
     },
-
     get_seq_no = function(content_related) {
       if (content_related) {
         result <- private$sequence * 2 + 1
@@ -462,7 +459,6 @@ MTProtoState <- R6::R6Class("MTProtoState",
         return(private$sequence * 2)
       }
     },
-
     count_ignored = function() {
       private$ignore_count <- private$ignore_count + 1
       if (private$ignore_count >= MAX_CONSECUTIVE_IGNORED) {

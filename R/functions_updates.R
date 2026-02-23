@@ -238,7 +238,6 @@ GetDifferenceRequest$set("public", "from_reader", function(reader) {
 GetStateRequest <- R6::R6Class(
   "GetStateRequest",
   public = list(
-
     #' @description Converts the request to a list representation.
     initialize = function() {},
 

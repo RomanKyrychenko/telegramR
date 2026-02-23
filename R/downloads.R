@@ -9,7 +9,6 @@ TIMED_OUT_SLEEP <- 1
 CdnRedirect <- R6::R6Class(
   "CdnRedirect",
   public = list(
-
     #' @field cdn_redirect The CDN redirect object.
     cdn_redirect = NULL,
 
@@ -27,7 +26,6 @@ DirectDownloadIter <- R6::R6Class(
   "DirectDownloadIter",
   inherit = RequestIter,
   public = list(
-
     #' @field total The total size of the file.
     total = 0,
 
@@ -267,7 +265,6 @@ GenericDownloadIter <- R6::R6Class(
   "GenericDownloadIter",
   inherit = DirectDownloadIter,
   public = list(
-
     #' @description Load the next chunk for generic download.
     load_next_chunk = function() {
       future({

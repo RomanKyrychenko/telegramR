@@ -10,7 +10,9 @@ server_keys <- list()
 
 .strip_leading_zero <- function(x) {
   x <- as.raw(x)
-  if (length(x) == 0) return(x)
+  if (length(x) == 0) {
+    return(x)
+  }
   while (length(x) > 1 && identical(x[1], as.raw(0x00))) {
     x <- x[-1]
   }
@@ -64,7 +66,9 @@ server_keys <- list()
 #' @export
 get_byte_array <- function(integer) {
   # Handle empty/NULL early
-  if (is.null(integer) || length(integer) == 0) return(raw(0))
+  if (is.null(integer) || length(integer) == 0) {
+    return(raw(0))
+  }
 
   # bignum from openssl
   if (inherits(integer, "bignum")) {
@@ -81,13 +85,17 @@ get_byte_array <- function(integer) {
   }
 
   # Raw: return as-is
-  if (is.raw(integer)) return(integer)
+  if (is.raw(integer)) {
+    return(integer)
+  }
 
   # Numeric: convert to big-endian minimal-length bytes
   if (is.numeric(integer)) {
     x <- as.numeric(integer[1])
     if (!is.finite(x) || x < 0) stop("Unsupported numeric value in get_byte_array")
-    if (x == 0) return(as.raw(0))
+    if (x == 0) {
+      return(as.raw(0))
+    }
     bytes <- raw(0)
     while (x > 0) {
       # LSB-first (little-endian) order
@@ -130,7 +138,9 @@ add_key <- function(pub, old = FALSE) {
   )
 
   update_env <- function(env) {
-    if (!exists("server_keys", envir = env, inherits = FALSE)) return()
+    if (!exists("server_keys", envir = env, inherits = FALSE)) {
+      return()
+    }
     locked <- bindingIsLocked("server_keys", env)
     if (locked) unlockBinding("server_keys", env)
     srv <- get("server_keys", envir = env, inherits = FALSE)
@@ -232,5 +242,5 @@ PGHKSMeRFvp3IWcmdJqXahxLCUS1Eh6MAQIDAQAB
 )
 
 for (pub in default_keys) {
- add_key(pub, old = FALSE)
+  add_key(pub, old = FALSE)
 }

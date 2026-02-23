@@ -27,9 +27,13 @@ test_that("reads packet with length greater than or equal to 127 successfully", 
   codec <- AbridgedPacketCodec$new(connection = NULL)
   reader <- list(
     readexactly = function(n) {
-      if (n == 1) as.raw(0x7f)
-      else if (n == 3) as.raw(c(0x00, 0x02, 0x00))
-      else raw(512)
+      if (n == 1) {
+        as.raw(0x7f)
+      } else if (n == 3) {
+        as.raw(c(0x00, 0x02, 0x00))
+      } else {
+        raw(512)
+      }
     }
   )
   result <- value(codec$read_packet(reader))

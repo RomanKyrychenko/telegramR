@@ -6009,8 +6009,7 @@ GetPinnedSavedDialogsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = 0x614bb87e,
 
     #' @description Initialize the GetPinnedSavedDialogsRequest object.
-    initialize = function() {
-    },
+    initialize = function() {},
 
     #' @description Convert the object to a dictionary.
     #' @return A list representing the object.

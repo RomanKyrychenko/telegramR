@@ -61,30 +61,33 @@ DialogsIter <- R6::R6Class("DialogsIter",
       super$initialize(client, limit)
 
       # Using a Future (avoid %<-% to bypass global inspection issues)
-      private$init_future <- future({
-        self$request <- GetDialogsRequest$new(
-          offset_date = offset_date,
-          offset_id = offset_id,
-          offset_peer = offset_peer,
-          #' @field limit Field.
-          limit = 1,
-          #' @field hash Field.
-          hash = 0,
-          exclude_pinned = ignore_pinned,
-          folder_id = folder
-        )
+      private$init_future <- future(
+        {
+          self$request <- GetDialogsRequest$new(
+            offset_date = offset_date,
+            offset_id = offset_id,
+            offset_peer = offset_peer,
+            #' @field limit Field.
+            limit = 1,
+            #' @field hash Field.
+            hash = 0,
+            exclude_pinned = ignore_pinned,
+            folder_id = folder
+          )
 
-        if (self$limit <= 0) {
-          # Special case, get a single dialog and determine count
-          dialogs <- await(self$client(self$request))
-          self$total <- if (!is.null(dialogs$count)) dialogs$count else length(dialogs$dialogs)
-          stop("StopAsyncIteration")
-        }
+          if (self$limit <= 0) {
+            # Special case, get a single dialog and determine count
+            dialogs <- await(self$client(self$request))
+            self$total <- if (!is.null(dialogs$count)) dialogs$count else length(dialogs$dialogs)
+            stop("StopAsyncIteration")
+          }
 
-        self$seen <- set()
-        self$offset_date <- offset_date
-        self$ignore_migrated <- ignore_migrated
-      }, globals = FALSE)
+          self$seen <- set()
+          self$offset_date <- offset_date
+          self$ignore_migrated <- ignore_migrated
+        },
+        globals = FALSE
+      )
     },
 
     #' @description
@@ -210,7 +213,6 @@ DialogsIter <- R6::R6Class("DialogsIter",
 DraftsIter <- R6::R6Class("DraftsIter",
   inherit = RequestIter,
   public = list(
-
     #' @description
     #' Constructor for the DraftsIter class.
     #' @param client The Telegram client.
@@ -221,35 +223,38 @@ DraftsIter <- R6::R6Class("DraftsIter",
       super$initialize(client, limit)
 
       # Using a Future (avoid %<-% to bypass global inspection issues)
-      private$init_future <- future({
-        if (is.null(entities)) {
-          r <- await(self$client(GetAllDraftsRequest$new()))
-          items <- r$updates
-        } else {
-          peers <- list()
-          for (entity in entities) {
-            input_entity <- await(self$client$get_input_entity(entity))
-            peers <- c(peers, list(InputDialogPeer$new(input_entity)))
+      private$init_future <- future(
+        {
+          if (is.null(entities)) {
+            r <- await(self$client(GetAllDraftsRequest$new()))
+            items <- r$updates
+          } else {
+            peers <- list()
+            for (entity in entities) {
+              input_entity <- await(self$client$get_input_entity(entity))
+              peers <- c(peers, list(InputDialogPeer$new(input_entity)))
+            }
+
+            r <- await(self$client(GetPeerDialogsRequest$new(peers)))
+            items <- r$dialogs
           }
 
-          r <- await(self$client(GetPeerDialogsRequest$new(peers)))
-          items <- r$dialogs
-        }
+          # Create entities dictionary
+          entities_dict <- list()
+          all_entities <- c(r$users, r$chats)
+          for (x in all_entities) {
+            entities_dict[[as.character(get_peer_id(x))]] <- x
+          }
 
-        # Create entities dictionary
-        entities_dict <- list()
-        all_entities <- c(r$users, r$chats)
-        for (x in all_entities) {
-          entities_dict[[as.character(get_peer_id(x))]] <- x
-        }
-
-        # Extend buffer with drafts
-        for (d in items) {
-          entity <- entities_dict[[as.character(get_peer_id(d$peer))]]
-          draft_obj <- custom$Draft(self$client, entity, d$draft)
-          self$buffer <- c(self$buffer, list(draft_obj))
-        }
-      }, globals = FALSE)
+          # Extend buffer with drafts
+          for (d in items) {
+            entity <- entities_dict[[as.character(get_peer_id(d$peer))]]
+            draft_obj <- custom$Draft(self$client, entity, d$draft)
+            self$buffer <- c(self$buffer, list(draft_obj))
+          }
+        },
+        globals = FALSE
+      )
     },
 
     #' @description

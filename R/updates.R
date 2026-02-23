@@ -22,7 +22,6 @@ is_typing <- FALSE
 #' @export
 EventBuilderDict <- R6::R6Class("EventBuilderDict",
   public = list(
-
     #' @field client The Telegram client instance.
     client = NULL,
 

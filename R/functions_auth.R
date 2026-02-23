@@ -1498,11 +1498,21 @@ SendCodeRequest <- R6::R6Class(
         rawConnectionValue(con)
       }
       serialize_tl_obj <- function(obj) {
-        if (is.null(obj)) return(raw())
-        if (is.raw(obj)) return(obj)
-        if (is.function(obj$to_bytes)) return(obj$to_bytes())
-        if (is.function(obj$to_raw)) return(obj$to_raw())
-        if (is.function(obj$bytes)) return(obj$bytes())
+        if (is.null(obj)) {
+          return(raw())
+        }
+        if (is.raw(obj)) {
+          return(obj)
+        }
+        if (is.function(obj$to_bytes)) {
+          return(obj$to_bytes())
+        }
+        if (is.function(obj$to_raw)) {
+          return(obj$to_raw())
+        }
+        if (is.function(obj$bytes)) {
+          return(obj$bytes())
+        }
 
         # Fallback for partially generated CodeSettings class with no bytes methods.
         if (inherits(obj, "CodeSettings")) {

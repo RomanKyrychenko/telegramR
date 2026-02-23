@@ -76,7 +76,9 @@ msg_id_key <- function(msg_id) {
   # get_new_msg_id) and double (from read_long / bytes_to_int) produce the
   # same key.  Both suffer the same double-precision rounding, making the
   # keys consistent.
-  if (is.null(msg_id) || length(msg_id) == 0) return("0")
+  if (is.null(msg_id) || length(msg_id) == 0) {
+    return("0")
+  }
   sprintf("%.0f", as.numeric(msg_id))
 }
 
@@ -96,15 +98,23 @@ msg_id_key <- function(msg_id) {
 #' @return The fulfilled value, or stops with the rejection reason.
 #' @keywords internal
 await_promise <- function(p, timeout = 30) {
-  if (!inherits(p, "promise")) return(p)
+  if (!inherits(p, "promise")) {
+    return(p)
+  }
 
   result <- NULL
   error <- NULL
   resolved <- FALSE
 
   promises::then(p,
-    onFulfilled = function(value) { result <<- value; resolved <<- TRUE },
-    onRejected  = function(err)   { error  <<- err;   resolved <<- TRUE }
+    onFulfilled = function(value) {
+      result <<- value
+      resolved <<- TRUE
+    },
+    onRejected = function(err) {
+      error <<- err
+      resolved <<- TRUE
+    }
   )
 
   started <- proc.time()[["elapsed"]]
@@ -217,7 +227,6 @@ clone_error <- function(error) {
 #' @export
 MTProtoSender <- R6::R6Class("MTProtoSender",
   public = list(
-
     #' @field auth_key Authentication key
     auth_key = NULL,
 
@@ -304,8 +313,12 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$pending_ack <- local({
         items <- list()
         list(
-          add = function(x) { items[[length(items) + 1]] <<- x },
-          clear = function() { items <<- list() },
+          add = function(x) {
+            items[[length(items) + 1]] <<- x
+          },
+          clear = function() {
+            items <<- list()
+          },
           length = function() base::length(items),
           as_list = function() items
         )
@@ -319,7 +332,9 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       # Helper to safely get a constructor ID and normalize it as a character key.
       ctor_key <- function(cls_name) {
         cls <- tryCatch(get(cls_name, inherits = TRUE), error = function(e) NULL)
-        if (is.null(cls)) return(NULL)
+        if (is.null(cls)) {
+          return(NULL)
+        }
         cid <- NULL
         if (inherits(cls, "R6ClassGenerator")) {
           # Try active bindings first (no instantiation needed)
@@ -331,11 +346,14 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           if (is.null(cid)) {
             pf <- cls$public_fields
             if (!is.null(pf) && !is.null(pf$CONSTRUCTOR_ID)) {
-              cid <- tryCatch({
-                v <- pf$CONSTRUCTOR_ID
-                if (is.function(v)) v <- v()
-                v
-              }, error = function(e) NULL)
+              cid <- tryCatch(
+                {
+                  v <- pf$CONSTRUCTOR_ID
+                  if (is.function(v)) v <- v()
+                  v
+                },
+                error = function(e) NULL
+              )
             }
           }
           # Last resort: try instantiation
@@ -344,9 +362,13 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             if (!is.null(inst)) cid <- tryCatch(inst$CONSTRUCTOR_ID, error = function(e) NULL)
           }
         }
-        if (is.null(cid)) return(NULL)
+        if (is.null(cid)) {
+          return(NULL)
+        }
         v <- as.numeric(cid)
-        if (is.na(v)) return(NULL)
+        if (is.na(v)) {
+          return(NULL)
+        }
         if (v < 0) v <- v + 2^32
         sprintf("%.0f", v)
       }
@@ -623,120 +645,142 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     # R6 object for critical MTProto types that handlers depend on.
     ._parse_fallback_obj = function(obj) {
       ctor <- as.numeric(obj$CONSTRUCTOR_ID)
-      if (is.na(ctor)) return(obj)
+      if (is.na(ctor)) {
+        return(obj)
+      }
       if (ctor < 0) ctor <- ctor + 2^32
       data <- obj$data
-      if (is.null(data) || length(data) == 0) return(obj)
+      if (is.null(data) || length(data) == 0) {
+        return(obj)
+      }
 
       reader <- tryCatch(BinaryReader$new(data), error = function(e) NULL)
-      if (is.null(reader)) return(obj)
+      if (is.null(reader)) {
+        return(obj)
+      }
 
-      message(sprintf("[parse_fallback] ctor=%.0f, class=%s, data_len=%d",
-                      ctor, class(ctor), length(data)))
+      message(sprintf(
+        "[parse_fallback] ctor=%.0f, class=%s, data_len=%d",
+        ctor, class(ctor), length(data)
+      ))
 
       # Use plain lists with the correct field names to avoid R6 inheritance
       # conflicts (TLObject defines CONSTRUCTOR_ID as a public field, but some
       # subclasses like BadServerSalt override it with an active binding).
-      parsed <- tryCatch({
-        # BadServerSalt  0xedab447b = 3987424379
-        if (isTRUE(abs(ctor - 3987424379) < 1)) {
-          bad_msg_id <- reader$read_long(signed = FALSE)
-          bad_msg_seqno <- reader$read_int()
-          error_code <- reader$read_int()
-          new_server_salt <- reader$read_long(signed = FALSE)
-          message(sprintf("[parse_fallback] BadServerSalt: bad_msg_id=%s, error=%s, new_salt=%s",
-                          as.character(bad_msg_id), as.character(error_code),
-                          as.character(new_server_salt)))
-          list(CONSTRUCTOR_ID = ctor, bad_msg_id = bad_msg_id,
-               bad_msg_seqno = bad_msg_seqno, error_code = error_code,
-               new_server_salt = new_server_salt)
-
-        # RpcResult  0xf35c6d01 = 4082920705
-        } else if (isTRUE(abs(ctor - 4082920705) < 1)) {
-          msg_id <- reader$read_long()
-          inner_code <- reader$read_int(signed = FALSE)
-          rpc_error_ctor <- as.numeric(0x2144ca19)
-          gzip_ctor <- as.numeric(0x3072cfa1)
-          if (isTRUE(abs(as.numeric(inner_code) - rpc_error_ctor) < 1)) {
+      parsed <- tryCatch(
+        {
+          # BadServerSalt  0xedab447b = 3987424379
+          if (isTRUE(abs(ctor - 3987424379) < 1)) {
+            bad_msg_id <- reader$read_long(signed = FALSE)
+            bad_msg_seqno <- reader$read_int()
             error_code <- reader$read_int()
-            error_message <- reader$tgread_string()
-            message(sprintf("[parse_fallback] RpcResult error: %d %s", error_code, error_message))
-            list(CONSTRUCTOR_ID = ctor, req_msg_id = msg_id, body = NULL,
-                 error = list(error_code = error_code, error_message = error_message))
-          } else if (isTRUE(abs(as.numeric(inner_code) - gzip_ctor) < 1)) {
-            decompressed <- memDecompress(reader$tgread_bytes(), type = "gzip")
-            list(CONSTRUCTOR_ID = ctor, req_msg_id = msg_id, body = decompressed, error = NULL)
-          } else {
-            # Seek back 4 bytes to include inner constructor ID in body
-            cur_pos <- reader$tell_position()
-            remaining <- length(data) - cur_pos + 4  # +4 for the inner_code we already read
-            reader$set_position(cur_pos - 4)
-            body_bytes <- reader$read(remaining)
-            list(CONSTRUCTOR_ID = ctor, req_msg_id = msg_id, body = body_bytes, error = NULL)
-          }
+            new_server_salt <- reader$read_long(signed = FALSE)
+            message(sprintf(
+              "[parse_fallback] BadServerSalt: bad_msg_id=%s, error=%s, new_salt=%s",
+              as.character(bad_msg_id), as.character(error_code),
+              as.character(new_server_salt)
+            ))
+            list(
+              CONSTRUCTOR_ID = ctor, bad_msg_id = bad_msg_id,
+              bad_msg_seqno = bad_msg_seqno, error_code = error_code,
+              new_server_salt = new_server_salt
+            )
 
-        # NewSessionCreated  0x9ec20908 = 2663516424
-        } else if (isTRUE(abs(ctor - 2663516424) < 1)) {
-          first_msg_id <- reader$read_long()
-          unique_id <- reader$read_long()
-          server_salt <- reader$read_long(signed = FALSE)
-          message(sprintf("[parse_fallback] NewSessionCreated: salt=%s", as.character(server_salt)))
-          list(CONSTRUCTOR_ID = ctor, first_msg_id = first_msg_id,
-               unique_id = unique_id, server_salt = server_salt)
-
-        # GzipPacked  0x3072cfa1 = 812830625
-        } else if (isTRUE(abs(ctor - 812830625) < 1)) {
-          list(CONSTRUCTOR_ID = ctor,
-               data = memDecompress(reader$tgread_bytes(), type = "gzip"))
-
-        # MessageContainer  0x73f1f8dc = 1945237724
-        } else if (isTRUE(abs(ctor - 1945237724) < 1)) {
-          count <- reader$read_int()
-          messages <- list()
-          for (i in seq_len(count)) {
+            # RpcResult  0xf35c6d01 = 4082920705
+          } else if (isTRUE(abs(ctor - 4082920705) < 1)) {
             msg_id <- reader$read_long()
-            seq_no <- reader$read_int()
-            len <- reader$read_int()
-            before <- reader$tell_position()
-            inner_obj <- reader$tgread_object()
-            reader$set_position(before + len)
-            # Use plain list instead of TLMessage$new() to avoid R6 inheritance conflict
-            messages[[i]] <- list(msg_id = msg_id, seq_no = seq_no, obj = inner_obj)
+            inner_code <- reader$read_int(signed = FALSE)
+            rpc_error_ctor <- as.numeric(0x2144ca19)
+            gzip_ctor <- as.numeric(0x3072cfa1)
+            if (isTRUE(abs(as.numeric(inner_code) - rpc_error_ctor) < 1)) {
+              error_code <- reader$read_int()
+              error_message <- reader$tgread_string()
+              message(sprintf("[parse_fallback] RpcResult error: %d %s", error_code, error_message))
+              list(
+                CONSTRUCTOR_ID = ctor, req_msg_id = msg_id, body = NULL,
+                error = list(error_code = error_code, error_message = error_message)
+              )
+            } else if (isTRUE(abs(as.numeric(inner_code) - gzip_ctor) < 1)) {
+              decompressed <- memDecompress(reader$tgread_bytes(), type = "gzip")
+              list(CONSTRUCTOR_ID = ctor, req_msg_id = msg_id, body = decompressed, error = NULL)
+            } else {
+              # Seek back 4 bytes to include inner constructor ID in body
+              cur_pos <- reader$tell_position()
+              remaining <- length(data) - cur_pos + 4 # +4 for the inner_code we already read
+              reader$set_position(cur_pos - 4)
+              body_bytes <- reader$read(remaining)
+              list(CONSTRUCTOR_ID = ctor, req_msg_id = msg_id, body = body_bytes, error = NULL)
+            }
+
+            # NewSessionCreated  0x9ec20908 = 2663516424
+          } else if (isTRUE(abs(ctor - 2663516424) < 1)) {
+            first_msg_id <- reader$read_long()
+            unique_id <- reader$read_long()
+            server_salt <- reader$read_long(signed = FALSE)
+            message(sprintf("[parse_fallback] NewSessionCreated: salt=%s", as.character(server_salt)))
+            list(
+              CONSTRUCTOR_ID = ctor, first_msg_id = first_msg_id,
+              unique_id = unique_id, server_salt = server_salt
+            )
+
+            # GzipPacked  0x3072cfa1 = 812830625
+          } else if (isTRUE(abs(ctor - 812830625) < 1)) {
+            list(
+              CONSTRUCTOR_ID = ctor,
+              data = memDecompress(reader$tgread_bytes(), type = "gzip")
+            )
+
+            # MessageContainer  0x73f1f8dc = 1945237724
+          } else if (isTRUE(abs(ctor - 1945237724) < 1)) {
+            count <- reader$read_int()
+            messages <- list()
+            for (i in seq_len(count)) {
+              msg_id <- reader$read_long()
+              seq_no <- reader$read_int()
+              len <- reader$read_int()
+              before <- reader$tell_position()
+              inner_obj <- reader$tgread_object()
+              reader$set_position(before + len)
+              # Use plain list instead of TLMessage$new() to avoid R6 inheritance conflict
+              messages[[i]] <- list(msg_id = msg_id, seq_no = seq_no, obj = inner_obj)
+            }
+            # Return plain list with messages field (handle_container accesses $messages)
+            list(CONSTRUCTOR_ID = ctor, messages = messages)
+
+            # BadMsgNotification  0xa7eff811 = 2817521681
+          } else if (isTRUE(abs(ctor - 2817521681) < 1)) {
+            bad_msg_id <- reader$read_long()
+            bad_msg_seqno <- reader$read_int()
+            error_code <- reader$read_int()
+            list(
+              CONSTRUCTOR_ID = ctor, bad_msg_id = bad_msg_id,
+              bad_msg_seqno = bad_msg_seqno, error_code = error_code
+            )
+
+            # Pong  0x347773c5 = 880243653
+          } else if (isTRUE(abs(ctor - 880243653) < 1)) {
+            msg_id <- reader$read_long()
+            ping_id <- reader$read_long()
+            list(CONSTRUCTOR_ID = ctor, msg_id = msg_id, ping_id = ping_id)
+
+            # MsgsAck  0x62d6b459 = 1658238041
+          } else if (isTRUE(abs(ctor - 1658238041) < 1)) {
+            vec_ctor <- reader$read_int(signed = FALSE) # vector constructor
+            count <- reader$read_int()
+            msg_ids <- list()
+            for (i in seq_len(count)) {
+              msg_ids[[i]] <- reader$read_long()
+            }
+            list(CONSTRUCTOR_ID = ctor, msg_ids = msg_ids)
+          } else {
+            obj
           }
-          # Return plain list with messages field (handle_container accesses $messages)
-          list(CONSTRUCTOR_ID = ctor, messages = messages)
-
-        # BadMsgNotification  0xa7eff811 = 2817521681
-        } else if (isTRUE(abs(ctor - 2817521681) < 1)) {
-          bad_msg_id <- reader$read_long()
-          bad_msg_seqno <- reader$read_int()
-          error_code <- reader$read_int()
-          list(CONSTRUCTOR_ID = ctor, bad_msg_id = bad_msg_id,
-               bad_msg_seqno = bad_msg_seqno, error_code = error_code)
-
-        # Pong  0x347773c5 = 880243653
-        } else if (isTRUE(abs(ctor - 880243653) < 1)) {
-          msg_id <- reader$read_long()
-          ping_id <- reader$read_long()
-          list(CONSTRUCTOR_ID = ctor, msg_id = msg_id, ping_id = ping_id)
-
-        # MsgsAck  0x62d6b459 = 1658238041
-        } else if (isTRUE(abs(ctor - 1658238041) < 1)) {
-          vec_ctor <- reader$read_int(signed = FALSE)  # vector constructor
-          count <- reader$read_int()
-          msg_ids <- list()
-          for (i in seq_len(count)) {
-            msg_ids[[i]] <- reader$read_long()
-          }
-          list(CONSTRUCTOR_ID = ctor, msg_ids = msg_ids)
-
-        } else {
+        },
+        error = function(e) {
+          message(sprintf("[parse_fallback] ERROR parsing ctor %.0f: %s", ctor, conditionMessage(e)))
           obj
         }
-      }, error = function(e) {
-        message(sprintf("[parse_fallback] ERROR parsing ctor %.0f: %s", ctor, conditionMessage(e)))
-        obj
-      })
+      )
 
       tryCatch(reader$close(), error = function(e) NULL)
       parsed
@@ -758,7 +802,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
       invisible(TRUE)
     },
-
     .connect = function() {
       private$log$info("Connecting to %s...", private$connection$to_string())
 
@@ -852,7 +895,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
 
       private$log$info("Connection to %s complete!", private$connection$to_string())
     },
-
     try_connect = function(attempt) {
       tryCatch(
         {
@@ -876,7 +918,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         }
       )
     },
-
     try_gen_auth_key = function(attempt) {
       plain <- MTProtoPlainSender$new(private$connection, loggers = private$loggers)
       tryCatch(
@@ -915,7 +956,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         }
       )
     },
-
     .disconnect = function(error = NULL) {
       if (is.null(private$connection)) {
         private$log$info("Not disconnecting (already have no connection)")
@@ -956,7 +996,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         private$disconnected_future <- future::future(NULL, seed = FALSE)
       }
     },
-
     .reconnect = function(last_error) {
       private$log$info("Closing current connection to begin reconnect...")
       await_promise(private$connection$disconnect())
@@ -1037,7 +1076,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         future::value(private$disconnect(error = error))
       }
     },
-
     start_reconnect = function(error) {
       if (private$user_connected && !private$reconnecting) {
         # Set reconnecting flag to avoid race conditions
@@ -1050,7 +1088,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         })
       }
     },
-
     pump_io_until = function(states) {
       if (length(states) == 0) {
         return(invisible(NULL))
@@ -1084,8 +1121,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           for (st in batch) {
             if (!is.list(st)) {
               key <- msg_id_key(st$msg_id)
-              message(sprintf("[pump] batch item: class=%s, msg_id_key=%s",
-                              paste(class(st$request), collapse=","), key))
+              message(sprintf(
+                "[pump] batch item: class=%s, msg_id_key=%s",
+                paste(class(st$request), collapse = ","), key
+              ))
               private$pending_state[[key]] <- st
             } else {
               for (s in st) {
@@ -1094,8 +1133,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             }
           }
 
-          message(sprintf("[pump] Sending %d encrypted bytes, pending_keys=%s",
-                          length(data), paste(names(private$pending_state), collapse=",")))
+          message(sprintf(
+            "[pump] Sending %d encrypted bytes, pending_keys=%s",
+            length(data), paste(names(private$pending_state), collapse = ",")
+          ))
           tryCatch(
             {
               await_promise(private$connection$send(data), timeout = timeout_sec)
@@ -1115,8 +1156,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
 
       # Now receive responses until all states are resolved
-      message(sprintf("[pump] Entering recv loop, %d state(s) to resolve, pending_state keys: %s",
-                      length(states), paste(names(private$pending_state), collapse=",")))
+      message(sprintf(
+        "[pump] Entering recv loop, %d state(s) to resolve, pending_state keys: %s",
+        length(states), paste(names(private$pending_state), collapse = ",")
+      ))
       while (!all(vapply(states, state_done, logical(1)))) {
         elapsed <- proc.time()[["elapsed"]] - started_at
         remaining <- timeout_sec - elapsed
@@ -1142,8 +1185,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             for (st in batch) {
               if (!is.list(st)) {
                 key <- msg_id_key(st$msg_id)
-                message(sprintf("[pump] re-queue batch item: class=%s, msg_id_key=%s",
-                                paste(class(st$request), collapse=","), key))
+                message(sprintf(
+                  "[pump] re-queue batch item: class=%s, msg_id_key=%s",
+                  paste(class(st$request), collapse = ","), key
+                ))
                 private$pending_state[[key]] <- st
               } else {
                 for (s in st) {
@@ -1151,9 +1196,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
                 }
               }
             }
-            message(sprintf("[pump] Re-sending %d encrypted bytes (%d items), pending_keys=%s",
-                            length(data), length(batch),
-                            paste(names(private$pending_state), collapse=",")))
+            message(sprintf(
+              "[pump] Re-sending %d encrypted bytes (%d items), pending_keys=%s",
+              length(data), length(batch),
+              paste(names(private$pending_state), collapse = ",")
+            ))
             tryCatch(
               await_promise(private$connection$send(data), timeout = remaining),
               error = function(e) {
@@ -1186,9 +1233,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           {
             message <- private$state$decrypt_message_data(body)
             if (!is.null(message)) {
-              message(sprintf("[pump] Decrypted OK, obj class: %s, CTOR: %s",
-                              paste(class(message$obj), collapse=","),
-                              as.character(message$obj$CONSTRUCTOR_ID)))
+              message(sprintf(
+                "[pump] Decrypted OK, obj class: %s, CTOR: %s",
+                paste(class(message$obj), collapse = ","),
+                as.character(message$obj$CONSTRUCTOR_ID)
+              ))
               private$process_message(message)
             } else {
               message("[pump] decrypt returned NULL")
@@ -1202,7 +1251,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
 
       invisible(NULL)
     },
-
     keepalive_ping = function(rnd_id) {
       # If no ping is in progress, send one
       if (is.null(private$ping)) {
@@ -1271,7 +1319,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         private$log$debug("Encrypted messages sent")
       }
     },
-
     recv_loop = function() {
       while (private$user_connected && !private$reconnecting) {
         private$log$debug("Receiving items from the network...")
@@ -1365,16 +1412,18 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$pending_ack$add(message$msg_id)
 
       is_fallback <- is.list(message$obj) && !inherits(message$obj, "R6") &&
-          !is.null(message$obj$CONSTRUCTOR_ID) && !is.null(message$obj$data) &&
-          length(names(message$obj)) == 2  # raw fallback has exactly CONSTRUCTOR_ID + data
+        !is.null(message$obj$CONSTRUCTOR_ID) && !is.null(message$obj$data) &&
+        length(names(message$obj)) == 2 # raw fallback has exactly CONSTRUCTOR_ID + data
 
       # If obj is a fallback list (from tgread_object failing to find the class),
       # try to convert it to a proper R6 object for critical MTProto types.
       if (is_fallback) {
-        message(sprintf("[process] Got fallback list, CTOR=%.0f, data_len=%d, attempting parse",
-                        as.numeric(message$obj$CONSTRUCTOR_ID), length(message$obj$data)))
+        message(sprintf(
+          "[process] Got fallback list, CTOR=%.0f, data_len=%d, attempting parse",
+          as.numeric(message$obj$CONSTRUCTOR_ID), length(message$obj$data)
+        ))
         message$obj <- private$._parse_fallback_obj(message$obj)
-        message(sprintf("[process] After parse: obj_class=%s", paste(class(message$obj), collapse=",")))
+        message(sprintf("[process] After parse: obj_class=%s", paste(class(message$obj), collapse = ",")))
       }
 
       # Find appropriate handler using normalized constructor ID key
@@ -1384,9 +1433,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       ctor_str <- sprintf("%.0f", v)
       handler <- private$handlers[[ctor_str]]
 
-      message(sprintf("[process] ctor_id=%s, handler_found=%s, obj_class=%s",
-                      ctor_str, !is.null(handler),
-                      paste(class(message$obj), collapse=",")))
+      message(sprintf(
+        "[process] ctor_id=%s, handler_found=%s, obj_class=%s",
+        ctor_str, !is.null(handler),
+        paste(class(message$obj), collapse = ",")
+      ))
 
       # Default to update handler if not found
       if (is.null(handler)) {
@@ -1401,7 +1452,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         }
       )
     },
-
     pop_states = function(msg_id) {
       # Look for exact match
       msg_id_str <- msg_id_key(msg_id)
@@ -1431,21 +1481,22 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       # Check last acknowledgments
       for (ack in private$last_acks$items) {
         if (!is.null(ack$msg_id) && length(ack$msg_id) > 0 &&
-            identical(msg_id_key(ack$msg_id), msg_id_str)) {
+          identical(msg_id_key(ack$msg_id), msg_id_str)) {
           return(list(ack))
         }
       }
 
       return(list())
     },
-
     handle_rpc_result = function(message) {
       rpc_result <- message$obj
       req_key <- msg_id_key(rpc_result$req_msg_id)
-      message(sprintf("[handle_rpc_result] req_msg_id=%s, key=%s, pending_keys=%s, has_error=%s",
-                      as.character(rpc_result$req_msg_id), req_key,
-                      paste(names(private$pending_state), collapse=","),
-                      !is.null(rpc_result$error)))
+      message(sprintf(
+        "[handle_rpc_result] req_msg_id=%s, key=%s, pending_keys=%s, has_error=%s",
+        as.character(rpc_result$req_msg_id), req_key,
+        paste(names(private$pending_state), collapse = ","),
+        !is.null(rpc_result$error)
+      ))
       state <- private$pending_state[[req_key]]
       private$pending_state[[req_key]] <- NULL
 
@@ -1507,21 +1558,18 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         )
       }
     },
-
     handle_container = function(message) {
       private$log$debug("Handling container")
       for (inner_message in message$obj$messages) {
         private$process_message(inner_message)
       }
     },
-
     handle_gzip_packed = function(message) {
       private$log$debug("Handling gzipped data")
       reader <- BinaryReader$new(message$obj$data)
       message$obj <- reader$tgread_object()
       private$process_message(message)
     },
-
     handle_update = function(message) {
       tryCatch(
         {
@@ -1542,33 +1590,36 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         }
       )
     },
-
     store_own_updates = function(obj) {
       # Guard entire method: many Update* and messages.* classes may not exist yet.
-      tryCatch({
-        ctor <- obj$CONSTRUCTOR_ID
-        if (is.null(ctor)) return(invisible(NULL))
+      tryCatch(
+        {
+          ctor <- obj$CONSTRUCTOR_ID
+          if (is.null(ctor)) {
+            return(invisible(NULL))
+          }
 
-        update_ids <- tryCatch(c(
-          UpdateShortMessage$CONSTRUCTOR_ID,
-          UpdateShortChatMessage$CONSTRUCTOR_ID,
-          UpdateShort$CONSTRUCTOR_ID,
-          UpdatesCombined$CONSTRUCTOR_ID,
-          Updates$CONSTRUCTOR_ID,
-          UpdateShortSentMessage$CONSTRUCTOR_ID
-        ), error = function(e) numeric(0))
+          update_ids <- tryCatch(c(
+            UpdateShortMessage$CONSTRUCTOR_ID,
+            UpdateShortChatMessage$CONSTRUCTOR_ID,
+            UpdateShort$CONSTRUCTOR_ID,
+            UpdatesCombined$CONSTRUCTOR_ID,
+            Updates$CONSTRUCTOR_ID,
+            UpdateShortSentMessage$CONSTRUCTOR_ID
+          ), error = function(e) numeric(0))
 
-        if (as.numeric(ctor) %in% as.numeric(update_ids)) {
-          obj$.self_outgoing <- TRUE
-          private$updates_queue$put_nowait(obj)
-          return(invisible(NULL))
+          if (as.numeric(ctor) %in% as.numeric(update_ids)) {
+            obj$.self_outgoing <- TRUE
+            private$updates_queue$put_nowait(obj)
+            return(invisible(NULL))
+          }
+        },
+        error = function(e) {
+          # Ignore — update classes not available
         }
-      }, error = function(e) {
-        # Ignore — update classes not available
-      })
+      )
       invisible(NULL)
     },
-
     handle_pong = function(message) {
       pong <- message$obj
       private$log$debug("Handling pong for message %d", pong$msg_id)
@@ -1583,25 +1634,27 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         state$future$set_result(pong)
       }
     },
-
     handle_bad_server_salt = function(message) {
       bad_salt <- message$obj
-      message(sprintf("[handle_bad_salt] bad_msg_id=%s, new_salt=%s, pending_keys=%s",
-                      as.character(bad_salt$bad_msg_id),
-                      as.character(bad_salt$new_server_salt),
-                      paste(names(private$pending_state), collapse=",")))
+      message(sprintf(
+        "[handle_bad_salt] bad_msg_id=%s, new_salt=%s, pending_keys=%s",
+        as.character(bad_salt$bad_msg_id),
+        as.character(bad_salt$new_server_salt),
+        paste(names(private$pending_state), collapse = ",")
+      ))
       private$state$salt <- bad_salt$new_server_salt
       states <- private$pop_states(bad_salt$bad_msg_id)
       message(sprintf("[handle_bad_salt] popped %d state(s)", length(states)))
       private$send_queue$extend(states)
     },
-
     handle_bad_notification = function(message) {
       bad_msg <- message$obj
-      message(sprintf("[handle_bad_notification] bad_msg_id=%s, error_code=%s, pending_keys=%s",
-                      as.character(bad_msg$bad_msg_id),
-                      as.character(bad_msg$error_code),
-                      paste(names(private$pending_state), collapse=",")))
+      message(sprintf(
+        "[handle_bad_notification] bad_msg_id=%s, error_code=%s, pending_keys=%s",
+        as.character(bad_msg$bad_msg_id),
+        as.character(bad_msg$error_code),
+        paste(names(private$pending_state), collapse = ",")
+      ))
       states <- private$pop_states(bad_msg$bad_msg_id)
       if (bad_msg$error_code %in% c(16, 17)) {
         # Sent msg_id too low or too high (respectively).
@@ -1628,19 +1681,16 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$send_queue$extend(states)
       private$log$debug("%d messages will be resent due to bad msg", length(states))
     },
-
     handle_detailed_info = function(message) {
       msg_id <- message$obj$answer_msg_id
       private$log$debug("Handling detailed info for message %d", msg_id)
       private$pending_ack$add(msg_id)
     },
-
     handle_new_detailed_info = function(message) {
       msg_id <- message$obj$answer_msg_id
       private$log$debug("Handling new detailed info for message %d", msg_id)
       private$pending_ack$add(msg_id)
     },
-
     handle_new_session_created = function(message) {
       message(sprintf("[handle_new_session] server_salt=%s", as.character(message$obj$server_salt)))
       new_salt <- message$obj$server_salt
@@ -1648,7 +1698,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         private$state$salt <- new_salt
       }
     },
-
     handle_ack = function(message) {
       ack <- message$obj
       private$log$debug("Handling acknowledge for %s", paste(ack$msg_ids, collapse = ", "))

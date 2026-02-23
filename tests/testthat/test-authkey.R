@@ -15,7 +15,7 @@ test_that("AuthKey calc_new_nonce_hash works correctly", {
   number <- 12345
 
   expect_error(auth_key$calc_new_nonce_hash(as.raw(1:16), number), "length\\(new_nonce\\) == 32")
-  #expect_error(auth_key$calc_new_nonce_hash(new_nonce, "not_a_number"), "is.integer\\(number\\)")
+  # expect_error(auth_key$calc_new_nonce_hash(new_nonce, "not_a_number"), "is.integer\\(number\\)")
 
   # Assuming sha1 and hash calculation are deterministic, you can test the output
   hash_result <- auth_key$calc_new_nonce_hash(new_nonce, number)

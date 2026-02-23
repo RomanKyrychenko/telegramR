@@ -7,7 +7,6 @@
 GetCdnFileRequest <- R6::R6Class(
   "GetCdnFileRequest",
   public = list(
-
     #' @field file_token Field.
     file_token = NULL,
     #' @field offset Field.
@@ -105,7 +104,6 @@ GetCdnFileRequest <- R6::R6Class(
 GetCdnFileHashesRequest <- R6::R6Class(
   "GetCdnFileHashesRequest",
   public = list(
-
     #' @field file_token Field.
     file_token = NULL,
     #' @field offset Field.
@@ -190,7 +188,6 @@ GetCdnFileHashesRequest <- R6::R6Class(
 GetFileRequest <- R6::R6Class(
   "GetFileRequest",
   public = list(
-
     #' @field location Field.
     location = NULL,
     #' @field offset Field.
@@ -286,7 +283,6 @@ GetFileRequest <- R6::R6Class(
 GetFileHashesRequest <- R6::R6Class(
   "GetFileHashesRequest",
   public = list(
-
     #' @field location Field.
     location = NULL,
     #' @field offset Field.
@@ -368,7 +364,6 @@ GetFileHashesRequest <- R6::R6Class(
 )
 
 
-
 #' GetWebFileRequest R6 class
 #'
 #' Represents the TL request upload.GetWebFileRequest.
@@ -378,7 +373,6 @@ GetFileHashesRequest <- R6::R6Class(
 GetWebFileRequest <- R6::R6Class(
   "GetWebFileRequest",
   public = list(
-
     #' @field location Field.
     location = NULL,
     #' @field offset Field.
@@ -467,7 +461,6 @@ GetWebFileRequest <- R6::R6Class(
 )
 
 
-
 #' ReuploadCdnFileRequest R6 class
 #'
 #' Represents the TL request upload.ReuploadCdnFileRequest.
@@ -477,7 +470,6 @@ GetWebFileRequest <- R6::R6Class(
 ReuploadCdnFileRequest <- R6::R6Class(
   "ReuploadCdnFileRequest",
   public = list(
-
     #' @field file_token Field.
     file_token = NULL,
     #' @field request_token Field.
@@ -568,7 +560,6 @@ ReuploadCdnFileRequest <- R6::R6Class(
 SaveBigFilePartRequest <- R6::R6Class(
   "SaveBigFilePartRequest",
   public = list(
-
     #' @field file_id Field.
     file_id = NULL,
     #' @field file_part Field.
@@ -669,7 +660,6 @@ SaveBigFilePartRequest <- R6::R6Class(
 )
 
 
-
 #' SaveFilePartRequest R6 class
 #'
 #' R6 representation of the Telegram TL request upload.SaveFilePartRequest.
@@ -679,7 +669,6 @@ SaveBigFilePartRequest <- R6::R6Class(
 SaveFilePartRequest <- R6::R6Class(
   "SaveFilePartRequest",
   public = list(
-
     #' @field file_id Field.
     file_id = NULL,
     #' @field file_part Field.
