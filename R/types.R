@@ -54970,6 +54970,57 @@ WebViewResultUrl <- R6::R6Class("WebViewResultUrl",
   class = TRUE
 )
 
+#' @title ContactsResolvedPeer
+#' @description Telegram API type contacts.ResolvedPeer (response to ResolveUsernameRequest).
+#' Fields: peer (Peer), users (Vector<User>), chats (Vector<Chat>).
+#' @export
+ContactsResolvedPeer <- R6::R6Class("ContactsResolvedPeer",
+  inherit = TLObject,
+  public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    CONSTRUCTOR_ID = 0x7f077635,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    SUBCLASS_OF_ID = 0x0,
+    #' @field peer The resolved peer (Peer).
+    peer = NULL,
+    #' @field users Vector of users returned by the resolution.
+    users = NULL,
+    #' @field chats Vector of chats returned by the resolution.
+    chats = NULL,
+    initialize = function(peer = NULL, users = NULL, chats = NULL) {
+      self$peer  <- peer
+      self$users <- if (is.null(users)) list() else users
+      self$chats <- if (is.null(chats)) list() else chats
+    },
+    to_dict = function() {
+      list(
+        `_`    = "ContactsResolvedPeer",
+        peer   = if (inherits(self$peer, "TLObject")) self$peer$to_dict() else self$peer,
+        users  = lapply(self$users, function(x) if (inherits(x, "TLObject")) x$to_dict() else x),
+        chats  = lapply(self$chats, function(x) if (inherits(x, "TLObject")) x$to_dict() else x)
+      )
+    },
+    bytes = function() {
+      raw(0) # read-only type; serialization not needed
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      peer  <- reader$tgread_object()
+      # read Vector<User>
+      reader$read_int() # skip vector constructor id (0x1cb5c415)
+      n_users <- reader$read_int()
+      users <- lapply(seq_len(n_users), function(i) reader$tgread_object())
+      # read Vector<Chat>
+      reader$read_int() # skip vector constructor id
+      n_chats <- reader$read_int()
+      chats <- lapply(seq_len(n_chats), function(i) reader$tgread_object())
+      self$initialize(peer = peer, users = users, chats = chats)
+    }
+  ),
+  class = TRUE
+)
+
 TypeAccessPointRule <- AccessPointRule
 TypeAccountDaysTTL <- AccountDaysTTL
 TypeAttachMenuBot <- AttachMenuBot
