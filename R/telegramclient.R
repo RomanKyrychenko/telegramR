@@ -2395,31 +2395,97 @@ TelegramClient <- R6::R6Class(
                             #' @field send_as Field.
                             send_as = NULL,
                             message_effect_id = NULL) {
-      if (!is.null(self$client) && !is.null(self$client$send_message)) {
-        return(self$client$send_message(
-          entity = entity,
-          message = message,
-          reply_to = reply_to,
-          attributes = attributes,
-          parse_mode = parse_mode,
-          formatting_entities = formatting_entities,
-          link_preview = link_preview,
-          file = file,
-          thumb = thumb,
-          force_document = force_document,
-          clear_draft = clear_draft,
-          buttons = buttons,
-          silent = silent,
-          background = background,
-          supports_streaming = supports_streaming,
-          schedule = schedule,
-          comment_to = comment_to,
-          nosound_video = nosound_video,
-          send_as = send_as,
-          message_effect_id = message_effect_id
-        ))
-      }
-      stop("send_message is not implemented in the provided client.")
+      future::future({
+        # Resolve entity -> InputPeer
+        entity_input <- tryCatch(
+          future::value(self$get_input_entity(entity)),
+          error = function(e) stop(sprintf("Could not resolve entity: %s", e$message))
+        )
+        entity_input <- tryCatch(
+          get_input_peer(entity_input),
+          error = function(e) entity_input
+        )
+
+        # Parse message text
+        parsed_text <- tryCatch(
+          self$parse_message_text(if (is.character(message)) message else "", parse_mode),
+          error = function(e) list(message = if (is.character(message)) message else "", entities = list())
+        )
+        msg_text     <- parsed_text$message
+        msg_entities <- if (!is.null(formatting_entities)) formatting_entities else parsed_text$entities
+
+        # Build reply markup
+        reply_markup_built <- tryCatch(
+          self$build_reply_markup(buttons),
+          error = function(e) NULL
+        )
+
+        # Build reply_to InputReplyToMessage if provided
+        reply_to_obj <- NULL
+        if (!is.null(reply_to)) {
+          reply_to_id <- if (is.numeric(reply_to)) as.integer(reply_to) else
+            tryCatch(as.integer(reply_to$id), error = function(e) as.integer(reply_to))
+          tryCatch({
+            reply_to_obj <- InputReplyToMessage$new(reply_to_id = reply_to_id)
+          }, error = function(e) NULL)
+        }
+
+        # Generate random_id
+        random_id <- sample(.Machine$integer.max, 1L)
+
+        # no_webpage flag (inverse of link_preview)
+        no_webpage <- if (is.null(link_preview) || isTRUE(link_preview)) NULL else TRUE
+
+        # Build the request
+        if (!is.null(file)) {
+          # SendMediaRequest path (media present)
+          media_result <- tryCatch(
+            self$file_to_media(file, force_document = force_document, attributes = attributes),
+            error = function(e) list(media = NULL, file_handle = NULL, as_image = NULL)
+          )
+          media_obj <- media_result$media
+          request <- SendMediaRequest$new(
+            peer          = entity_input,
+            media         = media_obj,
+            message       = msg_text,
+            silent        = silent,
+            background    = background,
+            clear_draft   = clear_draft,
+            reply_to      = reply_to_obj,
+            random_id     = random_id,
+            reply_markup  = reply_markup_built,
+            entities      = if (length(msg_entities) > 0) msg_entities else NULL,
+            schedule_date = schedule,
+            send_as       = if (!is.null(send_as)) tryCatch(future::value(self$get_input_entity(send_as)), error = function(e) NULL) else NULL
+          )
+        } else {
+          # SendMessageRequest path (text only)
+          request <- SendMessageRequest$new(
+            peer          = entity_input,
+            message       = msg_text,
+            no_webpage    = no_webpage,
+            silent        = silent,
+            background    = background,
+            clear_draft   = clear_draft,
+            reply_to      = reply_to_obj,
+            random_id     = random_id,
+            reply_markup  = reply_markup_built,
+            entities      = if (length(msg_entities) > 0) msg_entities else NULL,
+            schedule_date = schedule,
+            send_as       = if (!is.null(send_as)) tryCatch(future::value(self$get_input_entity(send_as)), error = function(e) NULL) else NULL
+          )
+        }
+
+        result <- self$invoke(request)
+
+        # Extract the sent Message from the Updates result
+        msg <- tryCatch(
+          self$get_response_message(request, result, entity_input),
+          error = function(e) result
+        )
+        msg
+      })
+
     },
 
     #' Forward messages
