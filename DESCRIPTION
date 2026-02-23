@@ -36,7 +36,9 @@ Suggests:
     exiftoolr,
     fs,
     getPass,
-    magick
+    magick,
+    knitr,
+    rmarkdown
 Config/testthat/edition: 3
 RoxygenNote: 7.3.3
 Collate: 
@@ -109,3 +111,4 @@ Collate:
     'updates.R'
     'utils.R'
 URL: https://romankyrychenko.github.io/telegramR/
+VignetteBuilder: knitr
