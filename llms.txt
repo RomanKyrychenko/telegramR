@@ -4488,3 +4488,9 @@ for (m in messages) {
 - [`xor_bytes()`](https://romankyrychenko.github.io/telegramR/reference/xor_bytes.md)
   : XOR two raw vectors
 
+# Articles
+
+### All vignettes
+
+- [Downloading Channel
+  Data](https://romankyrychenko.github.io/telegramR/articles/download-data.md):
