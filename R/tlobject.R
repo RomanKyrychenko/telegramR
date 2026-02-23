@@ -213,10 +213,11 @@ serialize_datetime <- function(dt) {
     dt <- datetime_to_timestamp(dt)
   } else if (inherits(dt, "Date")) {
     dt <- datetime_to_timestamp(as.POSIXct(dt))
-  } else if (is.numeric(dt)) {
-    dt <- as.integer(dt)
   } else if (inherits(dt, "difftime")) {
     dt <- datetime_to_timestamp(Sys.time() + dt)
+  }
+  if (is.numeric(dt)) {
+    dt <- as.integer(dt)
   }
   if (is.integer(dt)) {
     return(packBits(intToBits(dt), "raw"))
@@ -367,10 +368,11 @@ TLObject <- R6::R6Class(
         dt <- datetime_to_timestamp(dt)
       } else if (inherits(dt, "Date")) {
         dt <- datetime_to_timestamp(as.POSIXct(dt))
-      } else if (is.numeric(dt)) {
-        dt <- as.integer(dt)
       } else if (inherits(dt, "difftime")) {
         dt <- datetime_to_timestamp(Sys.time() + dt)
+      }
+      if (is.numeric(dt)) {
+        dt <- as.integer(dt)
       }
       if (is.integer(dt)) {
         return(packBits(intToBits(dt), "raw"))

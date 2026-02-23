@@ -271,7 +271,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       # Connection state
       private$user_connected <- FALSE
       private$reconnecting <- FALSE
-      private$disconnected_future <- future::future(NULL, seed = TRUE)
+      private$disconnected_future <- future::future(NULL, seed = FALSE)
 
       # Loop handles
       private$send_loop_handle <- NULL
@@ -847,7 +847,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
 
       # Reset disconnected future if already completed
       if (!is.null(private$disconnected_future) && future::resolved(private$disconnected_future)) {
-        private$disconnected_future <- future::future(NULL, seed = TRUE)
+        private$disconnected_future <- future::future(NULL, seed = FALSE)
       }
 
       private$log$info("Connection to %s complete!", private$connection$to_string())
@@ -953,7 +953,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       if (!is.null(private$disconnected_future) && !future::resolved(private$disconnected_future)) {
         # Keep this as a plain future marker; base Future objects do not
         # expose set_result/set_exception APIs.
-        private$disconnected_future <- future::future(NULL, seed = TRUE)
+        private$disconnected_future <- future::future(NULL, seed = FALSE)
       }
     },
 

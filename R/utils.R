@@ -1710,11 +1710,11 @@ parse_username <- function(username) {
     group1 <- substr(username, match_start, match_start + match_length - 1)
     is_invite <- grepl("\\+|joinchat", group1)
     if (is_invite) {
-      return(list(username = username_part, is_join_chat = TRUE))
+      return(list(username_part, TRUE))
     } else {
       username_part <- sub("/$", "", username_part)
       if (grepl(valid_username_re, username_part, ignore.case = TRUE)) {
-        return(list(username = tolower(username_part), is_join_chat = FALSE))
+        return(list(tolower(username_part), FALSE))
       }
     }
   }
@@ -1725,10 +1725,10 @@ parse_username <- function(username) {
     match_start <- m
     match_length <- attr(m, "match.length")
     username_part <- substr(username, match_start + match_length, nchar(username))
-    return(list(username = username_part, is_join_chat = TRUE))
+    return(list(username_part, TRUE))
   }
 
-  return(list(username = NULL, is_join_chat = FALSE))
+  return(list(NULL, FALSE))
 }
 
 
