@@ -515,8 +515,18 @@ TelegramClient <- R6::R6Class(
         future::value(self$connect())
       }
 
-      me <- future::value(self$get_me())
-      if (!is.null(me)) {
+      me <- NULL
+      auth_err <- NULL
+      tryCatch(
+        {
+          me <- future::value(self$get_me())
+        },
+        error = function(e) {
+          auth_err <<- e
+        }
+      )
+
+      if (!is.null(me) && !inherits(me, "Future")) {
         if (!is.null(bot_token)) {
           bot_id <- strsplit(bot_token, ":", fixed = TRUE)[[1]][1]
           if (bot_id != as.character(me$id)) {
@@ -527,6 +537,17 @@ TelegramClient <- R6::R6Class(
         }
 
         return(self)
+      }
+
+      # If auth key is unregistered/invalid, reset it and reconnect
+      if (!is.null(auth_err) && grepl("AUTH_KEY", conditionMessage(auth_err), ignore.case = TRUE)) {
+        message("Session auth key is no longer valid, generating a new one...")
+        private$session$auth_key <- NULL
+        if (!is.null(private$sender)) {
+          private$sender$auth_key <- AuthKey$new(NULL)
+          tryCatch(private$sender$disconnect(), error = function(e) NULL)
+        }
+        future::value(self$connect())
       }
 
       if (is.null(bot_token)) {
