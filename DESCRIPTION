@@ -35,6 +35,7 @@ Suggests:
     withr,
     exiftoolr,
     fs,
+    getPass,
     magick
 Config/testthat/edition: 3
 RoxygenNote: 7.3.3
