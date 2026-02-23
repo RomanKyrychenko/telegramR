@@ -1,0 +1,91 @@
+# MessageActionGroupCallScheduled
+
+Telegram API type MessageActionGroupCallScheduled
+
+## Super class
+
+[`telegramR::TLObject`](https://romankyrychenko.github.io/telegramR/reference/TLObject.md)
+-\> `MessageActionGroupCallScheduled`
+
+## Public fields
+
+- `CONSTRUCTOR_ID`:
+
+  Constructor identifier for this TL object.
+
+- `SUBCLASS_OF_ID`:
+
+  Subclass identifier for this TL object.
+
+- `call`:
+
+  Field.
+
+- `schedule_date`:
+
+  Field.
+
+## Methods
+
+### Public methods
+
+- [`MessageActionGroupCallScheduled$new()`](#method-MessageActionGroupCallScheduled-new)
+
+- [`MessageActionGroupCallScheduled$to_dict()`](#method-MessageActionGroupCallScheduled-to_dict)
+
+- [`MessageActionGroupCallScheduled$bytes()`](#method-MessageActionGroupCallScheduled-bytes)
+
+- [`MessageActionGroupCallScheduled$clone()`](#method-MessageActionGroupCallScheduled-clone)
+
+Inherited methods
+
+- [`telegramR::TLObject$.bytes()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-.bytes)
+- [`telegramR::TLObject$.eq()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-.eq)
+- [`telegramR::TLObject$.ne()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-.ne)
+- [`telegramR::TLObject$.str()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-.str)
+- [`telegramR::TLObject$from_reader()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-from_reader)
+- [`telegramR::TLObject$pretty_format()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-pretty_format)
+- [`telegramR::TLObject$serialize_bytes()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-serialize_bytes)
+- [`telegramR::TLObject$serialize_datetime()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-serialize_datetime)
+- [`telegramR::TLObject$stringify()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-stringify)
+- [`telegramR::TLObject$to_json()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-to_json)
+
+------------------------------------------------------------------------
+
+### Method `new()`
+
+#### Usage
+
+    MessageActionGroupCallScheduled$new(call, schedule_date)
+
+------------------------------------------------------------------------
+
+### Method `to_dict()`
+
+#### Usage
+
+    MessageActionGroupCallScheduled$to_dict()
+
+------------------------------------------------------------------------
+
+### Method `bytes()`
+
+#### Usage
+
+    MessageActionGroupCallScheduled$bytes()
+
+------------------------------------------------------------------------
+
+### Method `clone()`
+
+The objects of this class are cloneable with this method.
+
+#### Usage
+
+    MessageActionGroupCallScheduled$clone(deep = FALSE)
+
+#### Arguments
+
+- `deep`:
+
+  Whether to make a deep clone.

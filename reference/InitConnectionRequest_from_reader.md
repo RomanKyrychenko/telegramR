@@ -1,0 +1,44 @@
+# Create InitConnectionRequest from a binary reader
+
+Read and parse an InitConnectionRequest from a \`reader\` that provides
+binary-reading helpers. The function reads a 32-bit \`flags\` field
+first, followed by \`api_id\` and a sequence of UTF-8 strings:
+\`device_model\`, \`system_version\`, \`app_version\`,
+\`system_lang_code\`, \`lang_pack\`, and \`lang_code\`.
+
+## Usage
+
+``` r
+InitConnectionRequest_from_reader(reader)
+```
+
+## Arguments
+
+- reader:
+
+  Reader object providing: - \`read_int()\` to read 32-bit integers, -
+  \`tgread_string()\` to read Telegram-style strings, -
+  \`tgread_object()\` to read nested Telegram objects.
+
+## Value
+
+An instance of \`InitConnectionRequest\` populated with values read from
+the \`reader\`.
+
+## Details
+
+Optional fields are controlled by bits in \`flags\`: - bit 0 (value 1):
+\`proxy\` is present and will be read via \`tgread_object()\` - bit 1
+(value 2): \`params\` is present and will be read via
+\`tgread_object()\`
+
+The nested \`query\` object is read last using \`tgread_object()\`.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+# reader <- Reader$new(source)
+# req <- InitConnectionRequest_from_reader(reader)
+} # }
+```

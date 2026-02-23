@@ -1,0 +1,109 @@
+# PhoneCallProtocol
+
+Telegram API type PhoneCallProtocol
+
+## Super class
+
+[`telegramR::TLObject`](https://romankyrychenko.github.io/telegramR/reference/TLObject.md)
+-\> `PhoneCallProtocol`
+
+## Public fields
+
+- `CONSTRUCTOR_ID`:
+
+  Constructor identifier for this TL object.
+
+- `SUBCLASS_OF_ID`:
+
+  Subclass identifier for this TL object.
+
+- `min_layer`:
+
+  Field.
+
+- `max_layer`:
+
+  Field.
+
+- `library_versions`:
+
+  Field.
+
+- `udp_p2p`:
+
+  Field.
+
+- `udp_reflector`:
+
+  Field.
+
+## Methods
+
+### Public methods
+
+- [`PhoneCallProtocol$new()`](#method-PhoneCallProtocol-new)
+
+- [`PhoneCallProtocol$to_dict()`](#method-PhoneCallProtocol-to_dict)
+
+- [`PhoneCallProtocol$bytes()`](#method-PhoneCallProtocol-bytes)
+
+- [`PhoneCallProtocol$clone()`](#method-PhoneCallProtocol-clone)
+
+Inherited methods
+
+- [`telegramR::TLObject$.bytes()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-.bytes)
+- [`telegramR::TLObject$.eq()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-.eq)
+- [`telegramR::TLObject$.ne()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-.ne)
+- [`telegramR::TLObject$.str()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-.str)
+- [`telegramR::TLObject$from_reader()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-from_reader)
+- [`telegramR::TLObject$pretty_format()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-pretty_format)
+- [`telegramR::TLObject$serialize_bytes()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-serialize_bytes)
+- [`telegramR::TLObject$serialize_datetime()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-serialize_datetime)
+- [`telegramR::TLObject$stringify()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-stringify)
+- [`telegramR::TLObject$to_json()`](https://romankyrychenko.github.io/telegramR/reference/TLObject.html#method-to_json)
+
+------------------------------------------------------------------------
+
+### Method `new()`
+
+#### Usage
+
+    PhoneCallProtocol$new(
+      min_layer = NULL,
+      max_layer = NULL,
+      library_versions = NULL,
+      udp_p2p = NULL,
+      udp_reflector = NULL
+    )
+
+------------------------------------------------------------------------
+
+### Method `to_dict()`
+
+#### Usage
+
+    PhoneCallProtocol$to_dict()
+
+------------------------------------------------------------------------
+
+### Method `bytes()`
+
+#### Usage
+
+    PhoneCallProtocol$bytes()
+
+------------------------------------------------------------------------
+
+### Method `clone()`
+
+The objects of this class are cloneable with this method.
+
+#### Usage
+
+    PhoneCallProtocol$clone(deep = FALSE)
+
+#### Arguments
+
+- `deep`:
+
+  Whether to make a deep clone.

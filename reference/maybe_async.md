@@ -1,0 +1,37 @@
+# Maybe Async Utility Function
+
+This function checks if the provided coroutine or future is
+asynchronous. If it is a future, it warns about experimental async
+support and resolves it synchronously. Otherwise, it returns the input
+as-is. This is useful in contexts where asynchronous operations need to
+be handled in a synchronous manner.
+
+## Usage
+
+``` r
+maybe_async(coro)
+```
+
+## Arguments
+
+- coro:
+
+  A value that may be a future (from the 'future' package).
+
+## Value
+
+The resolved value if `coro` is a future, otherwise `coro` unchanged.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+# Assuming 'future' package is used for async operations
+library(future)
+f <- future({
+  Sys.sleep(1)
+  42
+})
+result <- maybe_async(f) # Will warn and resolve to 42
+} # }
+```

@@ -1,0 +1,4307 @@
+# Package index
+
+## All functions
+
+- [`AES`](https://romankyrychenko.github.io/telegramR/reference/AES.md)
+  : AES
+- [`AESModeCTR`](https://romankyrychenko.github.io/telegramR/reference/AESModeCTR.md)
+  : AESModeCTR
+- [`AbridgedPacketCodec`](https://romankyrychenko.github.io/telegramR/reference/AbridgedPacketCodec.md)
+  : AbridgedPacketCodec
+- [`AcceptAuthorizationRequest`](https://romankyrychenko.github.io/telegramR/reference/AcceptAuthorizationRequest.md)
+  : AcceptAuthorizationRequest
+- [`AcceptCallRequest`](https://romankyrychenko.github.io/telegramR/reference/AcceptCallRequest.md)
+  : AcceptCallRequest
+- [`AcceptContactRequest`](https://romankyrychenko.github.io/telegramR/reference/AcceptContactRequest.md)
+  : AcceptContactRequest
+- [`AcceptEncryptionRequest`](https://romankyrychenko.github.io/telegramR/reference/AcceptEncryptionRequest.md)
+  : AcceptEncryptionRequest
+- [`AcceptLoginTokenRequest`](https://romankyrychenko.github.io/telegramR/reference/AcceptLoginTokenRequest.md)
+  : AcceptLoginTokenRequest
+- [`AcceptTermsOfServiceRequest`](https://romankyrychenko.github.io/telegramR/reference/AcceptTermsOfServiceRequest.md)
+  : AcceptTermsOfServiceRequest
+- [`AcceptUrlAuthRequest`](https://romankyrychenko.github.io/telegramR/reference/AcceptUrlAuthRequest.md)
+  : AcceptUrlAuthRequest
+- [`AccessPointRule`](https://romankyrychenko.github.io/telegramR/reference/AccessPointRule.md)
+  : AccessPointRule
+- [`AccountDaysTTL`](https://romankyrychenko.github.io/telegramR/reference/AccountDaysTTL.md)
+  : AccountDaysTTL
+- [`AccountMethods`](https://romankyrychenko.github.io/telegramR/reference/AccountMethods.md)
+  : Account Methods
+- [`ActivateStealthModeRequest`](https://romankyrychenko.github.io/telegramR/reference/ActivateStealthModeRequest.md)
+  : ActivateStealthModeRequest
+- [`AddChatUserRequest`](https://romankyrychenko.github.io/telegramR/reference/AddChatUserRequest.md)
+  : AddChatUserRequest
+- [`AddContactRequest`](https://romankyrychenko.github.io/telegramR/reference/AddContactRequest.md)
+  : AddContactRequest
+- [`AddPreviewMediaRequest`](https://romankyrychenko.github.io/telegramR/reference/AddPreviewMediaRequest.md)
+  : AddPreviewMediaRequest
+- [`AddStickerToSetRequest`](https://romankyrychenko.github.io/telegramR/reference/AddStickerToSetRequest.md)
+  : AddStickerToSetRequest
+- [`AllowSendMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/AllowSendMessageRequest.md)
+  : AllowSendMessageRequest
+- [`AlreadyInConversationError`](https://romankyrychenko.github.io/telegramR/reference/AlreadyInConversationError.md)
+  : AlreadyInConversationError
+- [`AnswerWebhookJSONQueryRequest`](https://romankyrychenko.github.io/telegramR/reference/AnswerWebhookJSONQueryRequest.md)
+  : AnswerWebhookJSONQueryRequest
+- [`AppendTodoListRequest`](https://romankyrychenko.github.io/telegramR/reference/AppendTodoListRequest.md)
+  : AppendTodoListRequest
+- [`ApplyBoostRequest`](https://romankyrychenko.github.io/telegramR/reference/ApplyBoostRequest.md)
+  : ApplyBoostRequest
+- [`ApplyGiftCodeRequest`](https://romankyrychenko.github.io/telegramR/reference/ApplyGiftCodeRequest.md)
+  : ApplyGiftCodeRequest
+- [`AssignAppStoreTransactionRequest`](https://romankyrychenko.github.io/telegramR/reference/AssignAppStoreTransactionRequest.md)
+  : AssignAppStoreTransactionRequest
+- [`AssignPlayMarketTransactionRequest`](https://romankyrychenko.github.io/telegramR/reference/AssignPlayMarketTransactionRequest.md)
+  : AssignPlayMarketTransactionRequest
+- [`AsyncClassWrapper`](https://romankyrychenko.github.io/telegramR/reference/AsyncClassWrapper.md)
+  : AsyncClassWrapper
+- [`AsyncQueue`](https://romankyrychenko.github.io/telegramR/reference/AsyncQueue.md)
+  : AsyncQueue Class
+- [`AttachMenuBot`](https://romankyrychenko.github.io/telegramR/reference/AttachMenuBot.md)
+  : AttachMenuBot
+- [`AttachMenuBotIcon`](https://romankyrychenko.github.io/telegramR/reference/AttachMenuBotIcon.md)
+  : AttachMenuBotIcon
+- [`AttachMenuBotIconColor`](https://romankyrychenko.github.io/telegramR/reference/AttachMenuBotIconColor.md)
+  : AttachMenuBotIconColor
+- [`AttachMenuBots`](https://romankyrychenko.github.io/telegramR/reference/AttachMenuBots.md)
+  : AttachMenuBots
+- [`AttachMenuBotsBot`](https://romankyrychenko.github.io/telegramR/reference/AttachMenuBotsBot.md)
+  : AttachMenuBotsBot
+- [`AttachMenuBotsNotModified`](https://romankyrychenko.github.io/telegramR/reference/AttachMenuBotsNotModified.md)
+  : AttachMenuBotsNotModified
+- [`AttachMenuPeerTypeBotPM`](https://romankyrychenko.github.io/telegramR/reference/AttachMenuPeerTypeBotPM.md)
+  : AttachMenuPeerTypeBotPM
+- [`AttachMenuPeerTypeBroadcast`](https://romankyrychenko.github.io/telegramR/reference/AttachMenuPeerTypeBroadcast.md)
+  : AttachMenuPeerTypeBroadcast
+- [`AttachMenuPeerTypeChat`](https://romankyrychenko.github.io/telegramR/reference/AttachMenuPeerTypeChat.md)
+  : AttachMenuPeerTypeChat
+- [`AttachMenuPeerTypePM`](https://romankyrychenko.github.io/telegramR/reference/AttachMenuPeerTypePM.md)
+  : AttachMenuPeerTypePM
+- [`AttachMenuPeerTypeSameBotPM`](https://romankyrychenko.github.io/telegramR/reference/AttachMenuPeerTypeSameBotPM.md)
+  : AttachMenuPeerTypeSameBotPM
+- [`AuthKey`](https://romankyrychenko.github.io/telegramR/reference/AuthKey.md)
+  : AuthKey
+- [`AuthKeyNotFound`](https://romankyrychenko.github.io/telegramR/reference/AuthKeyNotFound.md)
+  : AuthKeyNotFound
+- [`Authorization`](https://romankyrychenko.github.io/telegramR/reference/Authorization.md)
+  : Authorization
+- [`AutoDownloadSettings`](https://romankyrychenko.github.io/telegramR/reference/AutoDownloadSettings.md)
+  : AutoDownloadSettings
+- [`AutoSaveException`](https://romankyrychenko.github.io/telegramR/reference/AutoSaveException.md)
+  : AutoSaveException
+- [`AutoSaveSettings`](https://romankyrychenko.github.io/telegramR/reference/AutoSaveSettings.md)
+  : AutoSaveSettings
+- [`AvailableEffect`](https://romankyrychenko.github.io/telegramR/reference/AvailableEffect.md)
+  : AvailableEffect
+- [`AvailableReaction`](https://romankyrychenko.github.io/telegramR/reference/AvailableReaction.md)
+  : AvailableReaction
+- [`BadMessageError`](https://romankyrychenko.github.io/telegramR/reference/BadMessageError.md)
+  : BadMessageError
+- [`BadMsgNotification`](https://romankyrychenko.github.io/telegramR/reference/BadMsgNotification.md)
+  : BadMsgNotification
+- [`BadServerSalt`](https://romankyrychenko.github.io/telegramR/reference/BadServerSalt.md)
+  : BadServerSalt
+- [`BankCardOpenUrl`](https://romankyrychenko.github.io/telegramR/reference/BankCardOpenUrl.md)
+  : BankCardOpenUrl
+- [`BaseThemeArctic`](https://romankyrychenko.github.io/telegramR/reference/BaseThemeArctic.md)
+  : BaseThemeArctic
+- [`BaseThemeClassic`](https://romankyrychenko.github.io/telegramR/reference/BaseThemeClassic.md)
+  : BaseThemeClassic
+- [`BaseThemeDay`](https://romankyrychenko.github.io/telegramR/reference/BaseThemeDay.md)
+  : BaseThemeDay
+- [`BaseThemeNight`](https://romankyrychenko.github.io/telegramR/reference/BaseThemeNight.md)
+  : BaseThemeNight
+- [`BaseThemeTinted`](https://romankyrychenko.github.io/telegramR/reference/BaseThemeTinted.md)
+  : BaseThemeTinted
+- [`BinaryReader`](https://romankyrychenko.github.io/telegramR/reference/BinaryReader.md)
+  : BinaryReader
+- [`BindAuthKeyInner`](https://romankyrychenko.github.io/telegramR/reference/BindAuthKeyInner.md)
+  : BindAuthKeyInner
+- [`BindTempAuthKeyRequest`](https://romankyrychenko.github.io/telegramR/reference/BindTempAuthKeyRequest.md)
+  : BindTempAuthKeyRequest
+- [`Birthday`](https://romankyrychenko.github.io/telegramR/reference/Birthday.md)
+  : Birthday
+- [`BlockFromRepliesRequest`](https://romankyrychenko.github.io/telegramR/reference/BlockFromRepliesRequest.md)
+  : BlockFromRepliesRequest
+- [`BlockRequest`](https://romankyrychenko.github.io/telegramR/reference/BlockRequest.md)
+  : BlockRequest
+- [`Boost`](https://romankyrychenko.github.io/telegramR/reference/Boost.md)
+  : Boost
+- [`BotApp`](https://romankyrychenko.github.io/telegramR/reference/BotApp.md)
+  : BotApp
+- [`BotAppNotModified`](https://romankyrychenko.github.io/telegramR/reference/BotAppNotModified.md)
+  : BotAppNotModified
+- [`BotAppSettings`](https://romankyrychenko.github.io/telegramR/reference/BotAppSettings.md)
+  : BotAppSettings
+- [`BotBusinessConnection`](https://romankyrychenko.github.io/telegramR/reference/BotBusinessConnection.md)
+  : BotBusinessConnection
+- [`BotCancelStarsSubscriptionRequest`](https://romankyrychenko.github.io/telegramR/reference/BotCancelStarsSubscriptionRequest.md)
+  : BotCancelStarsSubscriptionRequest
+- [`BotCommand`](https://romankyrychenko.github.io/telegramR/reference/BotCommand.md)
+  : BotCommand
+- [`BotCommandScopeChatAdmins`](https://romankyrychenko.github.io/telegramR/reference/BotCommandScopeChatAdmins.md)
+  : BotCommandScopeChatAdmins
+- [`BotCommandScopeChats`](https://romankyrychenko.github.io/telegramR/reference/BotCommandScopeChats.md)
+  : BotCommandScopeChats
+- [`BotCommandScopeDefault`](https://romankyrychenko.github.io/telegramR/reference/BotCommandScopeDefault.md)
+  : BotCommandScopeDefault
+- [`BotCommandScopePeer`](https://romankyrychenko.github.io/telegramR/reference/BotCommandScopePeer.md)
+  : BotCommandScopePeer
+- [`BotCommandScopePeerAdmins`](https://romankyrychenko.github.io/telegramR/reference/BotCommandScopePeerAdmins.md)
+  : BotCommandScopePeerAdmins
+- [`BotCommandScopePeerUser`](https://romankyrychenko.github.io/telegramR/reference/BotCommandScopePeerUser.md)
+  : BotCommandScopePeerUser
+- [`BotCommandScopeUsers`](https://romankyrychenko.github.io/telegramR/reference/BotCommandScopeUsers.md)
+  : BotCommandScopeUsers
+- [`BotInfo`](https://romankyrychenko.github.io/telegramR/reference/BotInfo.md)
+  : BotInfo
+- [`BotInlineMediaResult`](https://romankyrychenko.github.io/telegramR/reference/BotInlineMediaResult.md)
+  : BotInlineMediaResult
+- [`BotInlineMessageMediaAuto`](https://romankyrychenko.github.io/telegramR/reference/BotInlineMessageMediaAuto.md)
+  : BotInlineMessageMediaAuto
+- [`BotInlineMessageMediaContact`](https://romankyrychenko.github.io/telegramR/reference/BotInlineMessageMediaContact.md)
+  : BotInlineMessageMediaContact
+- [`BotInlineMessageMediaGeo`](https://romankyrychenko.github.io/telegramR/reference/BotInlineMessageMediaGeo.md)
+  : BotInlineMessageMediaGeo
+- [`BotInlineMessageMediaInvoice`](https://romankyrychenko.github.io/telegramR/reference/BotInlineMessageMediaInvoice.md)
+  : BotInlineMessageMediaInvoice
+- [`BotInlineMessageMediaVenue`](https://romankyrychenko.github.io/telegramR/reference/BotInlineMessageMediaVenue.md)
+  : BotInlineMessageMediaVenue
+- [`BotInlineMessageMediaWebPage`](https://romankyrychenko.github.io/telegramR/reference/BotInlineMessageMediaWebPage.md)
+  : BotInlineMessageMediaWebPage
+- [`BotInlineMessageText`](https://romankyrychenko.github.io/telegramR/reference/BotInlineMessageText.md)
+  : BotInlineMessageText
+- [`BotInlineResult`](https://romankyrychenko.github.io/telegramR/reference/BotInlineResult.md)
+  : BotInlineResult
+- [`BotMenuButton`](https://romankyrychenko.github.io/telegramR/reference/BotMenuButton.md)
+  : BotMenuButton
+- [`BotMenuButtonCommands`](https://romankyrychenko.github.io/telegramR/reference/BotMenuButtonCommands.md)
+  : BotMenuButtonCommands
+- [`BotMenuButtonDefault`](https://romankyrychenko.github.io/telegramR/reference/BotMenuButtonDefault.md)
+  : BotMenuButtonDefault
+- [`BotPreviewMedia`](https://romankyrychenko.github.io/telegramR/reference/BotPreviewMedia.md)
+  : BotPreviewMedia
+- [`BotVerification`](https://romankyrychenko.github.io/telegramR/reference/BotVerification.md)
+  : BotVerification
+- [`BotVerifierSettings`](https://romankyrychenko.github.io/telegramR/reference/BotVerifierSettings.md)
+  : BotVerifierSettings
+- [`BusinessAwayMessage`](https://romankyrychenko.github.io/telegramR/reference/BusinessAwayMessage.md)
+  : BusinessAwayMessage
+- [`BusinessAwayMessageScheduleAlways`](https://romankyrychenko.github.io/telegramR/reference/BusinessAwayMessageScheduleAlways.md)
+  : BusinessAwayMessageScheduleAlways
+- [`BusinessAwayMessageScheduleCustom`](https://romankyrychenko.github.io/telegramR/reference/BusinessAwayMessageScheduleCustom.md)
+  : BusinessAwayMessageScheduleCustom
+- [`BusinessAwayMessageScheduleOutsideWorkHours`](https://romankyrychenko.github.io/telegramR/reference/BusinessAwayMessageScheduleOutsideWorkHours.md)
+  : BusinessAwayMessageScheduleOutsideWorkHours
+- [`BusinessBotRecipients`](https://romankyrychenko.github.io/telegramR/reference/BusinessBotRecipients.md)
+  : BusinessBotRecipients
+- [`BusinessBotRights`](https://romankyrychenko.github.io/telegramR/reference/BusinessBotRights.md)
+  : BusinessBotRights
+- [`BusinessChatLink`](https://romankyrychenko.github.io/telegramR/reference/BusinessChatLink.md)
+  : BusinessChatLink
+- [`BusinessGreetingMessage`](https://romankyrychenko.github.io/telegramR/reference/BusinessGreetingMessage.md)
+  : BusinessGreetingMessage
+- [`BusinessIntro`](https://romankyrychenko.github.io/telegramR/reference/BusinessIntro.md)
+  : BusinessIntro
+- [`BusinessLocation`](https://romankyrychenko.github.io/telegramR/reference/BusinessLocation.md)
+  : BusinessLocation
+- [`BusinessRecipients`](https://romankyrychenko.github.io/telegramR/reference/BusinessRecipients.md)
+  : BusinessRecipients
+- [`BusinessWeeklyOpen`](https://romankyrychenko.github.io/telegramR/reference/BusinessWeeklyOpen.md)
+  : BusinessWeeklyOpen
+- [`BusinessWorkHours`](https://romankyrychenko.github.io/telegramR/reference/BusinessWorkHours.md)
+  : BusinessWorkHours
+- [`CanPurchaseStoreRequest`](https://romankyrychenko.github.io/telegramR/reference/CanPurchaseStoreRequest.md)
+  : CanPurchaseStoreRequest
+- [`CanSendMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/CanSendMessageRequest.md)
+  : CanSendMessageRequest
+- [`CanSendStoryRequest`](https://romankyrychenko.github.io/telegramR/reference/CanSendStoryRequest.md)
+  : CanSendStoryRequest
+- [`CancelCodeRequest`](https://romankyrychenko.github.io/telegramR/reference/CancelCodeRequest.md)
+  : CancelCodeRequest
+- [`CancelPasswordEmailRequest`](https://romankyrychenko.github.io/telegramR/reference/CancelPasswordEmailRequest.md)
+  : CancelPasswordEmailRequest
+- [`CdnConfig`](https://romankyrychenko.github.io/telegramR/reference/CdnConfig.md)
+  : CdnConfig
+- [`CdnFileTamperedError`](https://romankyrychenko.github.io/telegramR/reference/CdnFileTamperedError.md)
+  : CdnFileTamperedError
+- [`CdnPublicKey`](https://romankyrychenko.github.io/telegramR/reference/CdnPublicKey.md)
+  : CdnPublicKey
+- [`CdnRedirect`](https://romankyrychenko.github.io/telegramR/reference/CdnRedirect.md)
+  : CdnRedirect class
+- [`ChangeAuthorizationSettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/ChangeAuthorizationSettingsRequest.md)
+  : ChangeAuthorizationSettingsRequest
+- [`ChangePhoneRequest`](https://romankyrychenko.github.io/telegramR/reference/ChangePhoneRequest.md)
+  : ChangePhoneRequest
+- [`ChangeStarsSubscriptionRequest`](https://romankyrychenko.github.io/telegramR/reference/ChangeStarsSubscriptionRequest.md)
+  : ChangeStarsSubscriptionRequest
+- [`ChangeStickerPositionRequest`](https://romankyrychenko.github.io/telegramR/reference/ChangeStickerPositionRequest.md)
+  : ChangeStickerPositionRequest
+- [`ChangeStickerRequest`](https://romankyrychenko.github.io/telegramR/reference/ChangeStickerRequest.md)
+  : ChangeStickerRequest
+- [`Channel`](https://romankyrychenko.github.io/telegramR/reference/Channel.md)
+  : Channel
+- [`ChannelAdminLogEvent`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEvent.md)
+  : ChannelAdminLogEvent
+- [`ChannelAdminLogEventActionChangeAbout`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangeAbout.md)
+  : ChannelAdminLogEventActionChangeAbout
+- [`ChannelAdminLogEventActionChangeAvailableReactions`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangeAvailableReactions.md)
+  : ChannelAdminLogEventActionChangeAvailableReactions
+- [`ChannelAdminLogEventActionChangeEmojiStickerSet`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangeEmojiStickerSet.md)
+  : ChannelAdminLogEventActionChangeEmojiStickerSet
+- [`ChannelAdminLogEventActionChangeHistoryTTL`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangeHistoryTTL.md)
+  : ChannelAdminLogEventActionChangeHistoryTTL
+- [`ChannelAdminLogEventActionChangeLinkedChat`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangeLinkedChat.md)
+  : ChannelAdminLogEventActionChangeLinkedChat
+- [`ChannelAdminLogEventActionChangeLocation`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangeLocation.md)
+  : ChannelAdminLogEventActionChangeLocation
+- [`ChannelAdminLogEventActionChangePeerColor`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangePeerColor.md)
+  : ChannelAdminLogEventActionChangePeerColor
+- [`ChannelAdminLogEventActionChangePhoto`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangePhoto.md)
+  : ChannelAdminLogEventActionChangePhoto
+- [`ChannelAdminLogEventActionChangeProfilePeerColor`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangeProfilePeerColor.md)
+  : ChannelAdminLogEventActionChangeProfilePeerColor
+- [`ChannelAdminLogEventActionChangeStickerSet`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangeStickerSet.md)
+  : ChannelAdminLogEventActionChangeStickerSet
+- [`ChannelAdminLogEventActionChangeTitle`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangeTitle.md)
+  : ChannelAdminLogEventActionChangeTitle
+- [`ChannelAdminLogEventActionChangeUsername`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangeUsername.md)
+  : ChannelAdminLogEventActionChangeUsername
+- [`ChannelAdminLogEventActionChangeUsernames`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangeUsernames.md)
+  : ChannelAdminLogEventActionChangeUsernames
+- [`ChannelAdminLogEventActionChangeWallpaper`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionChangeWallpaper.md)
+  : ChannelAdminLogEventActionChangeWallpaper
+- [`ChannelAdminLogEventActionCreateTopic`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionCreateTopic.md)
+  : ChannelAdminLogEventActionCreateTopic
+- [`ChannelAdminLogEventActionDefaultBannedRights`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionDefaultBannedRights.md)
+  : ChannelAdminLogEventActionDefaultBannedRights
+- [`ChannelAdminLogEventActionDeleteMessage`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionDeleteMessage.md)
+  : ChannelAdminLogEventActionDeleteMessage
+- [`ChannelAdminLogEventActionDeleteTopic`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionDeleteTopic.md)
+  : ChannelAdminLogEventActionDeleteTopic
+- [`ChannelAdminLogEventActionDiscardGroupCall`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionDiscardGroupCall.md)
+  : ChannelAdminLogEventActionDiscardGroupCall
+- [`ChannelAdminLogEventActionEditMessage`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionEditMessage.md)
+  : ChannelAdminLogEventActionEditMessage
+- [`ChannelAdminLogEventActionEditTopic`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionEditTopic.md)
+  : ChannelAdminLogEventActionEditTopic
+- [`ChannelAdminLogEventActionExportedInviteDelete`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionExportedInviteDelete.md)
+  : ChannelAdminLogEventActionExportedInviteDelete
+- [`ChannelAdminLogEventActionExportedInviteEdit`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionExportedInviteEdit.md)
+  : ChannelAdminLogEventActionExportedInviteEdit
+- [`ChannelAdminLogEventActionExportedInviteRevoke`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionExportedInviteRevoke.md)
+  : ChannelAdminLogEventActionExportedInviteRevoke
+- [`ChannelAdminLogEventActionParticipantInvite`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionParticipantInvite.md)
+  : ChannelAdminLogEventActionParticipantInvite
+- [`ChannelAdminLogEventActionParticipantJoin`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionParticipantJoin.md)
+  : ChannelAdminLogEventActionParticipantJoin
+- [`ChannelAdminLogEventActionParticipantJoinByInvite`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionParticipantJoinByInvite.md)
+  : ChannelAdminLogEventActionParticipantJoinByInvite
+- [`ChannelAdminLogEventActionParticipantJoinByRequest`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionParticipantJoinByRequest.md)
+  : ChannelAdminLogEventActionParticipantJoinByRequest
+- [`ChannelAdminLogEventActionParticipantLeave`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionParticipantLeave.md)
+  : ChannelAdminLogEventActionParticipantLeave
+- [`ChannelAdminLogEventActionParticipantMute`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionParticipantMute.md)
+  : ChannelAdminLogEventActionParticipantMute
+- [`ChannelAdminLogEventActionParticipantSubExtend`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionParticipantSubExtend.md)
+  : ChannelAdminLogEventActionParticipantSubExtend
+- [`ChannelAdminLogEventActionParticipantToggleAdmin`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionParticipantToggleAdmin.md)
+  : ChannelAdminLogEventActionParticipantToggleAdmin
+- [`ChannelAdminLogEventActionParticipantToggleBan`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionParticipantToggleBan.md)
+  : ChannelAdminLogEventActionParticipantToggleBan
+- [`ChannelAdminLogEventActionParticipantUnmute`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionParticipantUnmute.md)
+  : ChannelAdminLogEventActionParticipantUnmute
+- [`ChannelAdminLogEventActionParticipantVolume`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionParticipantVolume.md)
+  : ChannelAdminLogEventActionParticipantVolume
+- [`ChannelAdminLogEventActionPinTopic`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionPinTopic.md)
+  : ChannelAdminLogEventActionPinTopic
+- [`ChannelAdminLogEventActionSendMessage`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionSendMessage.md)
+  : ChannelAdminLogEventActionSendMessage
+- [`ChannelAdminLogEventActionStartGroupCall`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionStartGroupCall.md)
+  : ChannelAdminLogEventActionStartGroupCall
+- [`ChannelAdminLogEventActionStopPoll`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionStopPoll.md)
+  : ChannelAdminLogEventActionStopPoll
+- [`ChannelAdminLogEventActionToggleAntiSpam`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionToggleAntiSpam.md)
+  : ChannelAdminLogEventActionToggleAntiSpam
+- [`ChannelAdminLogEventActionToggleAutotranslation`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionToggleAutotranslation.md)
+  : ChannelAdminLogEventActionToggleAutotranslation
+- [`ChannelAdminLogEventActionToggleForum`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionToggleForum.md)
+  : ChannelAdminLogEventActionToggleForum
+- [`ChannelAdminLogEventActionToggleGroupCallSetting`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionToggleGroupCallSetting.md)
+  : ChannelAdminLogEventActionToggleGroupCallSetting
+- [`ChannelAdminLogEventActionToggleInvites`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionToggleInvites.md)
+  : ChannelAdminLogEventActionToggleInvites
+- [`ChannelAdminLogEventActionToggleNoForwards`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionToggleNoForwards.md)
+  : ChannelAdminLogEventActionToggleNoForwards
+- [`ChannelAdminLogEventActionTogglePreHistoryHidden`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionTogglePreHistoryHidden.md)
+  : ChannelAdminLogEventActionTogglePreHistoryHidden
+- [`ChannelAdminLogEventActionToggleSignatureProfiles`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionToggleSignatureProfiles.md)
+  : ChannelAdminLogEventActionToggleSignatureProfiles
+- [`ChannelAdminLogEventActionToggleSignatures`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionToggleSignatures.md)
+  : ChannelAdminLogEventActionToggleSignatures
+- [`ChannelAdminLogEventActionToggleSlowMode`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionToggleSlowMode.md)
+  : ChannelAdminLogEventActionToggleSlowMode
+- [`ChannelAdminLogEventActionUpdatePinned`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventActionUpdatePinned.md)
+  : ChannelAdminLogEventActionUpdatePinned
+- [`ChannelAdminLogEventsFilter`](https://romankyrychenko.github.io/telegramR/reference/ChannelAdminLogEventsFilter.md)
+  : ChannelAdminLogEventsFilter
+- [`ChannelForbidden`](https://romankyrychenko.github.io/telegramR/reference/ChannelForbidden.md)
+  : ChannelForbidden
+- [`ChannelFull`](https://romankyrychenko.github.io/telegramR/reference/ChannelFull.md)
+  : ChannelFull
+- [`ChannelLocation`](https://romankyrychenko.github.io/telegramR/reference/ChannelLocation.md)
+  : ChannelLocation
+- [`ChannelLocationEmpty`](https://romankyrychenko.github.io/telegramR/reference/ChannelLocationEmpty.md)
+  : ChannelLocationEmpty
+- [`ChannelMessagesFilter`](https://romankyrychenko.github.io/telegramR/reference/ChannelMessagesFilter.md)
+  : ChannelMessagesFilter
+- [`ChannelMessagesFilterEmpty`](https://romankyrychenko.github.io/telegramR/reference/ChannelMessagesFilterEmpty.md)
+  : ChannelMessagesFilterEmpty
+- [`ChannelParticipant`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipant.md)
+  : ChannelParticipant
+- [`ChannelParticipantAdmin`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipantAdmin.md)
+  : ChannelParticipantAdmin
+- [`ChannelParticipantBanned`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipantBanned.md)
+  : ChannelParticipantBanned
+- [`ChannelParticipantCreator`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipantCreator.md)
+  : ChannelParticipantCreator
+- [`ChannelParticipantLeft`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipantLeft.md)
+  : ChannelParticipantLeft
+- [`ChannelParticipantSelf`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipantSelf.md)
+  : ChannelParticipantSelf
+- [`ChannelParticipantsAdmins`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipantsAdmins.md)
+  : ChannelParticipantsAdmins
+- [`ChannelParticipantsBanned`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipantsBanned.md)
+  : ChannelParticipantsBanned
+- [`ChannelParticipantsBots`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipantsBots.md)
+  : ChannelParticipantsBots
+- [`ChannelParticipantsContacts`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipantsContacts.md)
+  : ChannelParticipantsContacts
+- [`ChannelParticipantsKicked`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipantsKicked.md)
+  : ChannelParticipantsKicked
+- [`ChannelParticipantsMentions`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipantsMentions.md)
+  : ChannelParticipantsMentions
+- [`ChannelParticipantsRecent`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipantsRecent.md)
+  : ChannelParticipantsRecent
+- [`ChannelParticipantsSearch`](https://romankyrychenko.github.io/telegramR/reference/ChannelParticipantsSearch.md)
+  : ChannelParticipantsSearch
+- [`ChatAdminRights`](https://romankyrychenko.github.io/telegramR/reference/ChatAdminRights.md)
+  : ChatAdminRights
+- [`ChatAdminWithInvites`](https://romankyrychenko.github.io/telegramR/reference/ChatAdminWithInvites.md)
+  : ChatAdminWithInvites
+- [`ChatBannedRights`](https://romankyrychenko.github.io/telegramR/reference/ChatBannedRights.md)
+  : ChatBannedRights
+- [`ChatFull`](https://romankyrychenko.github.io/telegramR/reference/ChatFull.md)
+  : ChatFull
+- [`ChatInvite`](https://romankyrychenko.github.io/telegramR/reference/ChatInvite.md)
+  : ChatInvite
+- [`ChatInviteAlready`](https://romankyrychenko.github.io/telegramR/reference/ChatInviteAlready.md)
+  : ChatInviteAlready
+- [`ChatInviteExported`](https://romankyrychenko.github.io/telegramR/reference/ChatInviteExported.md)
+  : ChatInviteExported
+- [`ChatInviteImporter`](https://romankyrychenko.github.io/telegramR/reference/ChatInviteImporter.md)
+  : ChatInviteImporter
+- [`ChatInvitePeek`](https://romankyrychenko.github.io/telegramR/reference/ChatInvitePeek.md)
+  : ChatInvitePeek
+- [`ChatInvitePublicJoinRequests`](https://romankyrychenko.github.io/telegramR/reference/ChatInvitePublicJoinRequests.md)
+  : ChatInvitePublicJoinRequests
+- [`ChatOnlines`](https://romankyrychenko.github.io/telegramR/reference/ChatOnlines.md)
+  : ChatOnlines
+- [`ChatParticipant`](https://romankyrychenko.github.io/telegramR/reference/ChatParticipant.md)
+  : ChatParticipant
+- [`ChatParticipantAdmin`](https://romankyrychenko.github.io/telegramR/reference/ChatParticipantAdmin.md)
+  : ChatParticipantAdmin
+- [`ChatParticipantCreator`](https://romankyrychenko.github.io/telegramR/reference/ChatParticipantCreator.md)
+  : ChatParticipantCreator
+- [`ChatParticipants`](https://romankyrychenko.github.io/telegramR/reference/ChatParticipants.md)
+  : ChatParticipants
+- [`ChatParticipantsForbidden`](https://romankyrychenko.github.io/telegramR/reference/ChatParticipantsForbidden.md)
+  : ChatParticipantsForbidden
+- [`ChatPhoto`](https://romankyrychenko.github.io/telegramR/reference/ChatPhoto.md)
+  : ChatPhoto
+- [`ChatPhotoEmpty`](https://romankyrychenko.github.io/telegramR/reference/ChatPhotoEmpty.md)
+  : ChatPhotoEmpty
+- [`ChatReactionsAll`](https://romankyrychenko.github.io/telegramR/reference/ChatReactionsAll.md)
+  : ChatReactionsAll
+- [`ChatReactionsNone`](https://romankyrychenko.github.io/telegramR/reference/ChatReactionsNone.md)
+  : ChatReactionsNone
+- [`ChatReactionsSome`](https://romankyrychenko.github.io/telegramR/reference/ChatReactionsSome.md)
+  : ChatReactionsSome
+- [`ChatTheme`](https://romankyrychenko.github.io/telegramR/reference/ChatTheme.md)
+  : ChatTheme
+- [`ChatThemeUniqueGift`](https://romankyrychenko.github.io/telegramR/reference/ChatThemeUniqueGift.md)
+  : ChatThemeUniqueGift
+- [`CheckCanSendGiftRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckCanSendGiftRequest.md)
+  : CheckCanSendGiftRequest
+- [`CheckChatInviteRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckChatInviteRequest.md)
+  : CheckChatInviteRequest
+- [`CheckChatlistInviteRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckChatlistInviteRequest.md)
+  : CheckChatlistInviteRequest
+- [`CheckDownloadFileParamsRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckDownloadFileParamsRequest.md)
+  : CheckDownloadFileParamsRequest
+- [`CheckGiftCodeRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckGiftCodeRequest.md)
+  : CheckGiftCodeRequest
+- [`CheckGroupCallRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckGroupCallRequest.md)
+  : CheckGroupCallRequest
+- [`CheckHistoryImportPeerRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckHistoryImportPeerRequest.md)
+  : CheckHistoryImportPeerRequest
+- [`CheckHistoryImportRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckHistoryImportRequest.md)
+  : CheckHistoryImportRequest
+- [`CheckPasswordRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckPasswordRequest.md)
+  : CheckPasswordRequest
+- [`CheckQuickReplyShortcutRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckQuickReplyShortcutRequest.md)
+  : CheckQuickReplyShortcutRequest
+- [`CheckRecoveryPasswordRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckRecoveryPasswordRequest.md)
+  : CheckRecoveryPasswordRequest
+- [`CheckSearchPostsFloodRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckSearchPostsFloodRequest.md)
+  : CheckSearchPostsFloodRequest
+- [`CheckShortNameRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckShortNameRequest.md)
+  : CheckShortNameRequest
+- [`CheckUsernameRequest`](https://romankyrychenko.github.io/telegramR/reference/CheckUsernameRequest.md)
+  : CheckUsernameRequest
+- [`ClearAllDraftsRequest`](https://romankyrychenko.github.io/telegramR/reference/ClearAllDraftsRequest.md)
+  : ClearAllDraftsRequest
+- [`ClearRecentEmojiStatusesRequest`](https://romankyrychenko.github.io/telegramR/reference/ClearRecentEmojiStatusesRequest.md)
+  : ClearRecentEmojiStatusesRequest
+- [`ClearRecentReactionsRequest`](https://romankyrychenko.github.io/telegramR/reference/ClearRecentReactionsRequest.md)
+  : ClearRecentReactionsRequest
+- [`ClearRecentStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/ClearRecentStickersRequest.md)
+  : ClearRecentStickersRequest
+- [`ClearSavedInfoRequest`](https://romankyrychenko.github.io/telegramR/reference/ClearSavedInfoRequest.md)
+  : ClearSavedInfoRequest
+- [`ClickSponsoredMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/ClickSponsoredMessageRequest.md)
+  : ClickSponsoredMessageRequest
+- [`ClientDHInnerData`](https://romankyrychenko.github.io/telegramR/reference/ClientDHInnerData.md)
+  : ClientDHInnerData
+- [`CodeSettings`](https://romankyrychenko.github.io/telegramR/reference/CodeSettings.md)
+  : CodeSettings
+- [`Config`](https://romankyrychenko.github.io/telegramR/reference/Config.md)
+  : Config
+- [`ConfirmCallRequest`](https://romankyrychenko.github.io/telegramR/reference/ConfirmCallRequest.md)
+  : ConfirmCallRequest
+- [`ConfirmPasswordEmailRequest`](https://romankyrychenko.github.io/telegramR/reference/ConfirmPasswordEmailRequest.md)
+  : ConfirmPasswordEmailRequest
+- [`ConfirmPhoneRequest`](https://romankyrychenko.github.io/telegramR/reference/ConfirmPhoneRequest.md)
+  : ConfirmPhoneRequest
+- [`ConnectStarRefBotRequest`](https://romankyrychenko.github.io/telegramR/reference/ConnectStarRefBotRequest.md)
+  : ConnectStarRefBotRequest
+- [`ConnectedBot`](https://romankyrychenko.github.io/telegramR/reference/ConnectedBot.md)
+  : ConnectedBot
+- [`ConnectedBotStarRef`](https://romankyrychenko.github.io/telegramR/reference/ConnectedBotStarRef.md)
+  : ConnectedBotStarRef
+- [`Connection`](https://romankyrychenko.github.io/telegramR/reference/Connection.md)
+  : Connection Class
+- [`ConnectionHttp`](https://romankyrychenko.github.io/telegramR/reference/ConnectionHttp.md)
+  : ConnectionHttp
+- [`ConnectionTcpAbridged`](https://romankyrychenko.github.io/telegramR/reference/ConnectionTcpAbridged.md)
+  : ConnectionTcpAbridged
+- [`ConnectionTcpFull`](https://romankyrychenko.github.io/telegramR/reference/ConnectionTcpFull.md)
+  : ConnectionTcpFull
+- [`ConnectionTcpIntermediate`](https://romankyrychenko.github.io/telegramR/reference/ConnectionTcpIntermediate.md)
+  : ConnectionTcpIntermediate
+- [`ConnectionTcpMTProxyAbridged`](https://romankyrychenko.github.io/telegramR/reference/ConnectionTcpMTProxyAbridged.md)
+  : ConnectionTcpMTProxyAbridged
+- [`ConnectionTcpMTProxyIntermediate`](https://romankyrychenko.github.io/telegramR/reference/ConnectionTcpMTProxyIntermediate.md)
+  : ConnectionTcpMTProxyIntermediate
+- [`ConnectionTcpMTProxyRandomizedIntermediate`](https://romankyrychenko.github.io/telegramR/reference/ConnectionTcpMTProxyRandomizedIntermediate.md)
+  : ConnectionTcpMTProxyRandomizedIntermediate
+- [`ConnectionTcpObfuscated`](https://romankyrychenko.github.io/telegramR/reference/ConnectionTcpObfuscated.md)
+  : ConnectionTcpObfuscated
+- [`Contact`](https://romankyrychenko.github.io/telegramR/reference/Contact.md)
+  : Contact
+- [`ContactBirthday`](https://romankyrychenko.github.io/telegramR/reference/ContactBirthday.md)
+  : ContactBirthday
+- [`ContactStatus`](https://romankyrychenko.github.io/telegramR/reference/ContactStatus.md)
+  : ContactStatus
+- [`ConvertStarGiftRequest`](https://romankyrychenko.github.io/telegramR/reference/ConvertStarGiftRequest.md)
+  : ConvertStarGiftRequest
+- [`ConvertToGigagroupRequest`](https://romankyrychenko.github.io/telegramR/reference/ConvertToGigagroupRequest.md)
+  : ConvertToGigagroupRequest
+- [`CreateAlbumRequest`](https://romankyrychenko.github.io/telegramR/reference/CreateAlbumRequest.md)
+  : CreateAlbumRequest
+- [`CreateBusinessChatLinkRequest`](https://romankyrychenko.github.io/telegramR/reference/CreateBusinessChatLinkRequest.md)
+  : CreateBusinessChatLinkRequest
+- [`CreateChannelRequest`](https://romankyrychenko.github.io/telegramR/reference/CreateChannelRequest.md)
+  : CreateChannelRequest
+- [`CreateChatRequest`](https://romankyrychenko.github.io/telegramR/reference/CreateChatRequest.md)
+  : CreateChatRequest
+- [`CreateConferenceCallRequest`](https://romankyrychenko.github.io/telegramR/reference/CreateConferenceCallRequest.md)
+  : CreateConferenceCallRequest
+- [`CreateForumTopicRequest`](https://romankyrychenko.github.io/telegramR/reference/CreateForumTopicRequest.md)
+  : CreateForumTopicRequest
+- [`CreateGroupCallRequest`](https://romankyrychenko.github.io/telegramR/reference/CreateGroupCallRequest.md)
+  : CreateGroupCallRequest
+- [`CreateStarGiftCollectionRequest`](https://romankyrychenko.github.io/telegramR/reference/CreateStarGiftCollectionRequest.md)
+  : CreateStarGiftCollectionRequest
+- [`CreateStickerSetRequest`](https://romankyrychenko.github.io/telegramR/reference/CreateStickerSetRequest.md)
+  : CreateStickerSetRequest
+- [`CreateThemeRequest`](https://romankyrychenko.github.io/telegramR/reference/CreateThemeRequest.md)
+  : CreateThemeRequest
+- [`CustomMode`](https://romankyrychenko.github.io/telegramR/reference/CustomMode.md)
+  : CustomMode
+- [`DEFAULT_DC_ID`](https://romankyrychenko.github.io/telegramR/reference/DEFAULT_DC_ID.md)
+  : Constants
+- [`DEFAULT_DELIMITERS`](https://romankyrychenko.github.io/telegramR/reference/DEFAULT_DELIMITERS.md)
+  : Simple markdown parser which does not support nesting.
+- [`DEFAULT_URL_FORMAT`](https://romankyrychenko.github.io/telegramR/reference/DEFAULT_URL_FORMAT.md)
+  : Default URL format used by unparse (deprecated in some flows).
+- [`DEFAULT_URL_RE`](https://romankyrychenko.github.io/telegramR/reference/DEFAULT_URL_RE.md)
+  : Default regular expression to match inline Markdown-style URLs.
+- [`DataJSON`](https://romankyrychenko.github.io/telegramR/reference/DataJSON.md)
+  : DataJSON
+- [`DcOption`](https://romankyrychenko.github.io/telegramR/reference/DcOption.md)
+  : DcOption
+- [`DeactivateAllUsernamesRequest`](https://romankyrychenko.github.io/telegramR/reference/DeactivateAllUsernamesRequest.md)
+  : DeactivateAllUsernamesRequest
+- [`DeclineConferenceCallInviteRequest`](https://romankyrychenko.github.io/telegramR/reference/DeclineConferenceCallInviteRequest.md)
+  : DeclineConferenceCallInviteRequest
+- [`DeclinePasswordResetRequest`](https://romankyrychenko.github.io/telegramR/reference/DeclinePasswordResetRequest.md)
+  : DeclinePasswordResetRequest
+- [`DefaultHistoryTTL`](https://romankyrychenko.github.io/telegramR/reference/DefaultHistoryTTL.md)
+  : DefaultHistoryTTL
+- [`DeleteAccountRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteAccountRequest.md)
+  : DeleteAccountRequest
+- [`DeleteAlbumRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteAlbumRequest.md)
+  : DeleteAlbumRequest
+- [`DeleteAutoSaveExceptionsRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteAutoSaveExceptionsRequest.md)
+  : DeleteAutoSaveExceptionsRequest
+- [`DeleteBusinessChatLinkRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteBusinessChatLinkRequest.md)
+  : DeleteBusinessChatLinkRequest
+- [`DeleteByPhonesRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteByPhonesRequest.md)
+  : DeleteByPhonesRequest
+- [`DeleteChannelRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteChannelRequest.md)
+  : DeleteChannelRequest
+- [`DeleteChatRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteChatRequest.md)
+  : DeleteChatRequest
+- [`DeleteChatUserRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteChatUserRequest.md)
+  : DeleteChatUserRequest
+- [`DeleteConferenceCallParticipantsRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteConferenceCallParticipantsRequest.md)
+  : DeleteConferenceCallParticipantsRequest
+- [`DeleteContactsRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteContactsRequest.md)
+  : DeleteContactsRequest
+- [`DeleteExportedChatInviteRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteExportedChatInviteRequest.md)
+  : DeleteExportedChatInviteRequest
+- [`DeleteExportedInviteRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteExportedInviteRequest.md)
+  : DeleteExportedInviteRequest
+- [`DeleteFactCheckRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteFactCheckRequest.md)
+  : DeleteFactCheckRequest
+- [`DeleteHistoryRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteHistoryRequest.md)
+  : DeleteHistoryRequest
+- [`DeleteMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteMessagesRequest.md)
+  : DeleteMessagesRequest
+- [`DeleteParticipantHistoryRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteParticipantHistoryRequest.md)
+  : DeleteParticipantHistoryRequest
+- [`DeletePhoneCallHistoryRequest`](https://romankyrychenko.github.io/telegramR/reference/DeletePhoneCallHistoryRequest.md)
+  : DeletePhoneCallHistoryRequest
+- [`DeletePhotosRequest`](https://romankyrychenko.github.io/telegramR/reference/DeletePhotosRequest.md)
+  : DeletePhotosRequest
+- [`DeletePreviewMediaRequest`](https://romankyrychenko.github.io/telegramR/reference/DeletePreviewMediaRequest.md)
+  : DeletePreviewMediaRequest
+- [`DeleteQuickReplyMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteQuickReplyMessagesRequest.md)
+  : DeleteQuickReplyMessagesRequest
+- [`DeleteQuickReplyShortcutRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteQuickReplyShortcutRequest.md)
+  : DeleteQuickReplyShortcutRequest
+- [`DeleteRevokedExportedChatInvitesRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteRevokedExportedChatInvitesRequest.md)
+  : DeleteRevokedExportedChatInvitesRequest
+- [`DeleteSavedHistoryRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteSavedHistoryRequest.md)
+  : DeleteSavedHistoryRequest
+- [`DeleteScheduledMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteScheduledMessagesRequest.md)
+  : DeleteScheduledMessagesRequest
+- [`DeleteSecureValueRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteSecureValueRequest.md)
+  : DeleteSecureValueRequest
+- [`DeleteStarGiftCollectionRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteStarGiftCollectionRequest.md)
+  : DeleteStarGiftCollectionRequest
+- [`DeleteStickerSetRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteStickerSetRequest.md)
+  : DeleteStickerSetRequest
+- [`DeleteStoriesRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteStoriesRequest.md)
+  : DeleteStoriesRequest
+- [`DeleteTopicHistoryRequest`](https://romankyrychenko.github.io/telegramR/reference/DeleteTopicHistoryRequest.md)
+  : DeleteTopicHistoryRequest
+- [`DestroyAuthKeyFail`](https://romankyrychenko.github.io/telegramR/reference/DestroyAuthKeyFail.md)
+  : DestroyAuthKeyFail
+- [`DestroyAuthKeyNone`](https://romankyrychenko.github.io/telegramR/reference/DestroyAuthKeyNone.md)
+  : DestroyAuthKeyNone
+- [`DestroyAuthKeyOk`](https://romankyrychenko.github.io/telegramR/reference/DestroyAuthKeyOk.md)
+  : DestroyAuthKeyOk
+- [`DestroyAuthKeyRequest`](https://romankyrychenko.github.io/telegramR/reference/DestroyAuthKeyRequest.md)
+  : DestroyAuthKeyRequest R6 class
+- [`DestroyAuthKeyRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/DestroyAuthKeyRequest_from_reader.md)
+  : Create DestroyAuthKeyRequest from a reader
+- [`DestroySessionNone`](https://romankyrychenko.github.io/telegramR/reference/DestroySessionNone.md)
+  : DestroySessionNone
+- [`DestroySessionOk`](https://romankyrychenko.github.io/telegramR/reference/DestroySessionOk.md)
+  : DestroySessionOk
+- [`DestroySessionRequest`](https://romankyrychenko.github.io/telegramR/reference/DestroySessionRequest.md)
+  : DestroySessionRequest R6 class
+- [`DestroySessionRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/DestroySessionRequest_from_reader.md)
+  : Create DestroySessionRequest from a reader
+- [`DhGenFail`](https://romankyrychenko.github.io/telegramR/reference/DhGenFail.md)
+  : DhGenFail
+- [`DhGenOk`](https://romankyrychenko.github.io/telegramR/reference/DhGenOk.md)
+  : DhGenOk
+- [`DhGenRetry`](https://romankyrychenko.github.io/telegramR/reference/DhGenRetry.md)
+  : DhGenRetry
+- [`Dialog`](https://romankyrychenko.github.io/telegramR/reference/Dialog.md)
+  : Dialog
+- [`DialogFilter`](https://romankyrychenko.github.io/telegramR/reference/DialogFilter.md)
+  : DialogFilter
+- [`DialogFilterChatlist`](https://romankyrychenko.github.io/telegramR/reference/DialogFilterChatlist.md)
+  : DialogFilterChatlist
+- [`DialogFilterDefault`](https://romankyrychenko.github.io/telegramR/reference/DialogFilterDefault.md)
+  : DialogFilterDefault
+- [`DialogFilterSuggested`](https://romankyrychenko.github.io/telegramR/reference/DialogFilterSuggested.md)
+  : DialogFilterSuggested
+- [`DialogFolder`](https://romankyrychenko.github.io/telegramR/reference/DialogFolder.md)
+  : DialogFolder
+- [`DialogPeer`](https://romankyrychenko.github.io/telegramR/reference/DialogPeer.md)
+  : DialogPeer
+- [`DialogPeerFolder`](https://romankyrychenko.github.io/telegramR/reference/DialogPeerFolder.md)
+  : DialogPeerFolder
+- [`DialogsIter`](https://romankyrychenko.github.io/telegramR/reference/DialogsIter.md)
+  : DialogsIter
+- [`DirectDownloadIter`](https://romankyrychenko.github.io/telegramR/reference/DirectDownloadIter.md)
+  : DirectDownloadIter class
+- [`DisablePeerConnectedBotRequest`](https://romankyrychenko.github.io/telegramR/reference/DisablePeerConnectedBotRequest.md)
+  : DisablePeerConnectedBotRequest
+- [`DisallowedGiftsSettings`](https://romankyrychenko.github.io/telegramR/reference/DisallowedGiftsSettings.md)
+  : DisallowedGiftsSettings
+- [`DiscardCallRequest`](https://romankyrychenko.github.io/telegramR/reference/DiscardCallRequest.md)
+  : DiscardCallRequest
+- [`DiscardEncryptionRequest`](https://romankyrychenko.github.io/telegramR/reference/DiscardEncryptionRequest.md)
+  : DiscardEncryptionRequest
+- [`DiscardGroupCallRequest`](https://romankyrychenko.github.io/telegramR/reference/DiscardGroupCallRequest.md)
+  : DiscardGroupCallRequest
+- [`DismissSuggestionRequest`](https://romankyrychenko.github.io/telegramR/reference/DismissSuggestionRequest.md)
+  : DismissSuggestionRequest
+- [`Document`](https://romankyrychenko.github.io/telegramR/reference/Document.md)
+  : Document
+- [`DocumentAttributeAnimated`](https://romankyrychenko.github.io/telegramR/reference/DocumentAttributeAnimated.md)
+  : DocumentAttributeAnimated
+- [`DocumentAttributeAudio`](https://romankyrychenko.github.io/telegramR/reference/DocumentAttributeAudio.md)
+  : DocumentAttributeAudio
+- [`DocumentAttributeCustomEmoji`](https://romankyrychenko.github.io/telegramR/reference/DocumentAttributeCustomEmoji.md)
+  : DocumentAttributeCustomEmoji
+- [`DocumentAttributeFilename`](https://romankyrychenko.github.io/telegramR/reference/DocumentAttributeFilename.md)
+  : DocumentAttributeFilename
+- [`DocumentAttributeHasStickers`](https://romankyrychenko.github.io/telegramR/reference/DocumentAttributeHasStickers.md)
+  : DocumentAttributeHasStickers
+- [`DocumentAttributeImageSize`](https://romankyrychenko.github.io/telegramR/reference/DocumentAttributeImageSize.md)
+  : DocumentAttributeImageSize
+- [`DocumentAttributeSticker`](https://romankyrychenko.github.io/telegramR/reference/DocumentAttributeSticker.md)
+  : DocumentAttributeSticker
+- [`DocumentAttributeVideo`](https://romankyrychenko.github.io/telegramR/reference/DocumentAttributeVideo.md)
+  : DocumentAttributeVideo
+- [`DocumentEmpty`](https://romankyrychenko.github.io/telegramR/reference/DocumentEmpty.md)
+  : DocumentEmpty
+- [`DraftMessage`](https://romankyrychenko.github.io/telegramR/reference/DraftMessage.md)
+  : DraftMessage
+- [`DraftMessageEmpty`](https://romankyrychenko.github.io/telegramR/reference/DraftMessageEmpty.md)
+  : DraftMessageEmpty
+- [`DraftsIter`](https://romankyrychenko.github.io/telegramR/reference/DraftsIter.md)
+  : DraftsIter
+- [`DropTempAuthKeysRequest`](https://romankyrychenko.github.io/telegramR/reference/DropTempAuthKeysRequest.md)
+  : DropTempAuthKeysRequest
+- [`EditAdminRequest`](https://romankyrychenko.github.io/telegramR/reference/EditAdminRequest.md)
+  : EditAdminRequest
+- [`EditBannedRequest`](https://romankyrychenko.github.io/telegramR/reference/EditBannedRequest.md)
+  : EditBannedRequest
+- [`EditBusinessChatLinkRequest`](https://romankyrychenko.github.io/telegramR/reference/EditBusinessChatLinkRequest.md)
+  : EditBusinessChatLinkRequest
+- [`EditChatAboutRequest`](https://romankyrychenko.github.io/telegramR/reference/EditChatAboutRequest.md)
+  : EditChatAboutRequest
+- [`EditChatAdminRequest`](https://romankyrychenko.github.io/telegramR/reference/EditChatAdminRequest.md)
+  : EditChatAdminRequest
+- [`EditChatDefaultBannedRightsRequest`](https://romankyrychenko.github.io/telegramR/reference/EditChatDefaultBannedRightsRequest.md)
+  : EditChatDefaultBannedRightsRequest
+- [`EditChatPhotoRequest`](https://romankyrychenko.github.io/telegramR/reference/EditChatPhotoRequest.md)
+  : EditChatPhotoRequest
+- [`EditChatTitleRequest`](https://romankyrychenko.github.io/telegramR/reference/EditChatTitleRequest.md)
+  : EditChatTitleRequest
+- [`EditCloseFriendsRequest`](https://romankyrychenko.github.io/telegramR/reference/EditCloseFriendsRequest.md)
+  : EditCloseFriendsRequest
+- [`EditConnectedStarRefBotRequest`](https://romankyrychenko.github.io/telegramR/reference/EditConnectedStarRefBotRequest.md)
+  : EditConnectedStarRefBotRequest
+- [`EditCreatorRequest`](https://romankyrychenko.github.io/telegramR/reference/EditCreatorRequest.md)
+  : EditCreatorRequest
+- [`EditExportedChatInviteRequest`](https://romankyrychenko.github.io/telegramR/reference/EditExportedChatInviteRequest.md)
+  : EditExportedChatInviteRequest
+- [`EditExportedInviteRequest`](https://romankyrychenko.github.io/telegramR/reference/EditExportedInviteRequest.md)
+  : EditExportedInviteRequest
+- [`EditFactCheckRequest`](https://romankyrychenko.github.io/telegramR/reference/EditFactCheckRequest.md)
+  : EditFactCheckRequest
+- [`EditForumTopicRequest`](https://romankyrychenko.github.io/telegramR/reference/EditForumTopicRequest.md)
+  : EditForumTopicRequest
+- [`EditGroupCallParticipantRequest`](https://romankyrychenko.github.io/telegramR/reference/EditGroupCallParticipantRequest.md)
+  : EditGroupCallParticipantRequest
+- [`EditGroupCallTitleRequest`](https://romankyrychenko.github.io/telegramR/reference/EditGroupCallTitleRequest.md)
+  : EditGroupCallTitleRequest
+- [`EditInlineBotMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/EditInlineBotMessageRequest.md)
+  : EditInlineBotMessageRequest
+- [`EditLocationRequest`](https://romankyrychenko.github.io/telegramR/reference/EditLocationRequest.md)
+  : EditLocationRequest
+- [`EditMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/EditMessageRequest.md)
+  : EditMessageRequest
+- [`EditPeerFoldersRequest`](https://romankyrychenko.github.io/telegramR/reference/EditPeerFoldersRequest.md)
+  : EditPeerFoldersRequest
+- [`EditPhotoRequest`](https://romankyrychenko.github.io/telegramR/reference/EditPhotoRequest.md)
+  : EditPhotoRequest
+- [`EditPreviewMediaRequest`](https://romankyrychenko.github.io/telegramR/reference/EditPreviewMediaRequest.md)
+  : EditPreviewMediaRequest
+- [`EditQuickReplyShortcutRequest`](https://romankyrychenko.github.io/telegramR/reference/EditQuickReplyShortcutRequest.md)
+  : EditQuickReplyShortcutRequest
+- [`EditStoryRequest`](https://romankyrychenko.github.io/telegramR/reference/EditStoryRequest.md)
+  : EditStoryRequest
+- [`EditTitleRequest`](https://romankyrychenko.github.io/telegramR/reference/EditTitleRequest.md)
+  : EditTitleRequest
+- [`EditUserInfoRequest`](https://romankyrychenko.github.io/telegramR/reference/EditUserInfoRequest.md)
+  : EditUserInfoRequest
+- [`EmailVerificationApple`](https://romankyrychenko.github.io/telegramR/reference/EmailVerificationApple.md)
+  : EmailVerificationApple
+- [`EmailVerificationCode`](https://romankyrychenko.github.io/telegramR/reference/EmailVerificationCode.md)
+  : EmailVerificationCode
+- [`EmailVerificationGoogle`](https://romankyrychenko.github.io/telegramR/reference/EmailVerificationGoogle.md)
+  : EmailVerificationGoogle
+- [`EmailVerifyPurposeLoginChange`](https://romankyrychenko.github.io/telegramR/reference/EmailVerifyPurposeLoginChange.md)
+  : EmailVerifyPurposeLoginChange
+- [`EmailVerifyPurposeLoginSetup`](https://romankyrychenko.github.io/telegramR/reference/EmailVerifyPurposeLoginSetup.md)
+  : EmailVerifyPurposeLoginSetup
+- [`EmailVerifyPurposePassport`](https://romankyrychenko.github.io/telegramR/reference/EmailVerifyPurposePassport.md)
+  : EmailVerifyPurposePassport
+- [`EmojiGroup`](https://romankyrychenko.github.io/telegramR/reference/EmojiGroup.md)
+  : EmojiGroup
+- [`EmojiGroupGreeting`](https://romankyrychenko.github.io/telegramR/reference/EmojiGroupGreeting.md)
+  : EmojiGroupGreeting
+- [`EmojiGroupPremium`](https://romankyrychenko.github.io/telegramR/reference/EmojiGroupPremium.md)
+  : EmojiGroupPremium
+- [`EmojiKeyword`](https://romankyrychenko.github.io/telegramR/reference/EmojiKeyword.md)
+  : EmojiKeyword
+- [`EmojiKeywordDeleted`](https://romankyrychenko.github.io/telegramR/reference/EmojiKeywordDeleted.md)
+  : EmojiKeywordDeleted
+- [`EmojiKeywordsDifference`](https://romankyrychenko.github.io/telegramR/reference/EmojiKeywordsDifference.md)
+  : EmojiKeywordsDifference
+- [`EmojiLanguage`](https://romankyrychenko.github.io/telegramR/reference/EmojiLanguage.md)
+  : EmojiLanguage
+- [`EmojiList`](https://romankyrychenko.github.io/telegramR/reference/EmojiList.md)
+  : EmojiList
+- [`EmojiListNotModified`](https://romankyrychenko.github.io/telegramR/reference/EmojiListNotModified.md)
+  : EmojiListNotModified
+- [`EmojiStatus`](https://romankyrychenko.github.io/telegramR/reference/EmojiStatus.md)
+  : EmojiStatus
+- [`EmojiStatusCollectible`](https://romankyrychenko.github.io/telegramR/reference/EmojiStatusCollectible.md)
+  : EmojiStatusCollectible
+- [`EmojiStatusEmpty`](https://romankyrychenko.github.io/telegramR/reference/EmojiStatusEmpty.md)
+  : EmojiStatusEmpty
+- [`EmojiURL`](https://romankyrychenko.github.io/telegramR/reference/EmojiURL.md)
+  : EmojiURL
+- [`EncryptedChat`](https://romankyrychenko.github.io/telegramR/reference/EncryptedChat.md)
+  : EncryptedChat
+- [`EncryptedChatDiscarded`](https://romankyrychenko.github.io/telegramR/reference/EncryptedChatDiscarded.md)
+  : EncryptedChatDiscarded
+- [`EncryptedChatEmpty`](https://romankyrychenko.github.io/telegramR/reference/EncryptedChatEmpty.md)
+  : EncryptedChatEmpty
+- [`EncryptedChatRequested`](https://romankyrychenko.github.io/telegramR/reference/EncryptedChatRequested.md)
+  : EncryptedChatRequested
+- [`EncryptedChatWaiting`](https://romankyrychenko.github.io/telegramR/reference/EncryptedChatWaiting.md)
+  : EncryptedChatWaiting
+- [`EncryptedFile`](https://romankyrychenko.github.io/telegramR/reference/EncryptedFile.md)
+  : EncryptedFile
+- [`EncryptedFileEmpty`](https://romankyrychenko.github.io/telegramR/reference/EncryptedFileEmpty.md)
+  : EncryptedFileEmpty
+- [`EncryptedMessage`](https://romankyrychenko.github.io/telegramR/reference/EncryptedMessage.md)
+  : EncryptedMessage
+- [`EncryptedMessageService`](https://romankyrychenko.github.io/telegramR/reference/EncryptedMessageService.md)
+  : EncryptedMessageService
+- [`EntityType`](https://romankyrychenko.github.io/telegramR/reference/EntityType.md)
+  : Various helpers not related to the Telegram API itself Enum for
+  entity types
+- [`EventBuilderDict`](https://romankyrychenko.github.io/telegramR/reference/EventBuilderDict.md)
+  : EventBuilderDict
+- [`Exception`](https://romankyrychenko.github.io/telegramR/reference/Exception.md)
+  : Exception
+- [`ExportAuthorizationRequest`](https://romankyrychenko.github.io/telegramR/reference/ExportAuthorizationRequest.md)
+  : ExportAuthorizationRequest
+- [`ExportChatInviteRequest`](https://romankyrychenko.github.io/telegramR/reference/ExportChatInviteRequest.md)
+  : ExportChatInviteRequest
+- [`ExportChatlistInviteRequest`](https://romankyrychenko.github.io/telegramR/reference/ExportChatlistInviteRequest.md)
+  : ExportChatlistInviteRequest
+- [`ExportContactTokenRequest`](https://romankyrychenko.github.io/telegramR/reference/ExportContactTokenRequest.md)
+  : ExportContactTokenRequest
+- [`ExportGroupCallInviteRequest`](https://romankyrychenko.github.io/telegramR/reference/ExportGroupCallInviteRequest.md)
+  : ExportGroupCallInviteRequest
+- [`ExportInvoiceRequest`](https://romankyrychenko.github.io/telegramR/reference/ExportInvoiceRequest.md)
+  : ExportInvoiceRequest
+- [`ExportLoginTokenRequest`](https://romankyrychenko.github.io/telegramR/reference/ExportLoginTokenRequest.md)
+  : ExportLoginTokenRequest
+- [`ExportMessageLinkRequest`](https://romankyrychenko.github.io/telegramR/reference/ExportMessageLinkRequest.md)
+  : ExportMessageLinkRequest
+- [`ExportState`](https://romankyrychenko.github.io/telegramR/reference/ExportState.md)
+  : Export State Class
+- [`ExportStoryLinkRequest`](https://romankyrychenko.github.io/telegramR/reference/ExportStoryLinkRequest.md)
+  : ExportStoryLinkRequest
+- [`ExportedChatlistInvite`](https://romankyrychenko.github.io/telegramR/reference/ExportedChatlistInvite.md)
+  : ExportedChatlistInvite
+- [`ExportedContactToken`](https://romankyrychenko.github.io/telegramR/reference/ExportedContactToken.md)
+  : ExportedContactToken
+- [`ExportedMessageLink`](https://romankyrychenko.github.io/telegramR/reference/ExportedMessageLink.md)
+  : ExportedMessageLink
+- [`ExportedStoryLink`](https://romankyrychenko.github.io/telegramR/reference/ExportedStoryLink.md)
+  : ExportedStoryLink
+- [`FactCheck`](https://romankyrychenko.github.io/telegramR/reference/FactCheck.md)
+  : FactCheck
+- [`Factorization`](https://romankyrychenko.github.io/telegramR/reference/Factorization.md)
+  : Factorization
+- [`FaveStickerRequest`](https://romankyrychenko.github.io/telegramR/reference/FaveStickerRequest.md)
+  : FaveStickerRequest
+- [`FileHash`](https://romankyrychenko.github.io/telegramR/reference/FileHash.md)
+  : FileHash
+- [`FileInfo`](https://romankyrychenko.github.io/telegramR/reference/FileInfo.md)
+  : FileInfo
+- [`FileStream`](https://romankyrychenko.github.io/telegramR/reference/FileStream.md)
+  : FileStream
+- [`FinishJobRequest`](https://romankyrychenko.github.io/telegramR/reference/FinishJobRequest.md)
+  : FinishJobRequest
+- [`FinishTakeoutSessionRequest`](https://romankyrychenko.github.io/telegramR/reference/FinishTakeoutSessionRequest.md)
+  : FinishTakeoutSessionRequest
+- [`Folder`](https://romankyrychenko.github.io/telegramR/reference/Folder.md)
+  : Folder
+- [`FolderPeer`](https://romankyrychenko.github.io/telegramR/reference/FolderPeer.md)
+  : FolderPeer
+- [`ForumTopic`](https://romankyrychenko.github.io/telegramR/reference/ForumTopic.md)
+  : ForumTopic
+- [`ForumTopicDeleted`](https://romankyrychenko.github.io/telegramR/reference/ForumTopicDeleted.md)
+  : ForumTopicDeleted
+- [`ForwardMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/ForwardMessagesRequest.md)
+  : ForwardMessagesRequest
+- [`FoundStory`](https://romankyrychenko.github.io/telegramR/reference/FoundStory.md)
+  : FoundStory
+- [`FulfillStarsSubscriptionRequest`](https://romankyrychenko.github.io/telegramR/reference/FulfillStarsSubscriptionRequest.md)
+  : FulfillStarsSubscriptionRequest
+- [`FullPacketCodec`](https://romankyrychenko.github.io/telegramR/reference/FullPacketCodec.md)
+  : FullPacketCodec
+- [`FutureSalt`](https://romankyrychenko.github.io/telegramR/reference/FutureSalt.md)
+  : FutureSalt
+- [`FutureSalts`](https://romankyrychenko.github.io/telegramR/reference/FutureSalts.md)
+  : FutureSalts
+- [`Game`](https://romankyrychenko.github.io/telegramR/reference/Game.md)
+  : Game
+- [`GenericDownloadIter`](https://romankyrychenko.github.io/telegramR/reference/GenericDownloadIter.md)
+  : GenericDownloadIter class
+- [`GeoPoint`](https://romankyrychenko.github.io/telegramR/reference/GeoPoint.md)
+  : GeoPoint
+- [`GeoPointAddress`](https://romankyrychenko.github.io/telegramR/reference/GeoPointAddress.md)
+  : GeoPointAddress
+- [`GeoPointEmpty`](https://romankyrychenko.github.io/telegramR/reference/GeoPointEmpty.md)
+  : GeoPointEmpty
+- [`GetAccountTTLRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAccountTTLRequest.md)
+  : GetAccountTTLRequest
+- [`GetAdminLogRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAdminLogRequest.md)
+  : GetAdminLogRequest
+- [`GetAdminedBotsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAdminedBotsRequest.md)
+  : GetAdminedBotsRequest R6 class
+- [`GetAdminedPublicChannelsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAdminedPublicChannelsRequest.md)
+  : GetAdminedPublicChannelsRequest
+- [`GetAdminsWithInvitesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAdminsWithInvitesRequest.md)
+  : GetAdminsWithInvitesRequest
+- [`GetAlbumStoriesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAlbumStoriesRequest.md)
+  : GetAlbumStoriesRequest
+- [`GetAlbumsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAlbumsRequest.md)
+  : GetAlbumsRequest
+- [`GetAllDraftsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAllDraftsRequest.md)
+  : GetAllDraftsRequest
+- [`GetAllReadPeerStoriesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAllReadPeerStoriesRequest.md)
+  : GetAllReadPeerStoriesRequest
+- [`GetAllSecureValuesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAllSecureValuesRequest.md)
+  : GetAllSecureValuesRequest
+- [`GetAllStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAllStickersRequest.md)
+  : GetAllStickersRequest
+- [`GetAllStoriesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAllStoriesRequest.md)
+  : GetAllStoriesRequest
+- [`GetAppConfigRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAppConfigRequest.md)
+  : GetAppConfigRequest
+- [`GetAppUpdateRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAppUpdateRequest.md)
+  : GetAppUpdateRequest
+- [`GetArchivedStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetArchivedStickersRequest.md)
+  : GetArchivedStickersRequest
+- [`GetAttachMenuBotRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAttachMenuBotRequest.md)
+  : GetAttachMenuBotRequest
+- [`GetAttachMenuBotsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAttachMenuBotsRequest.md)
+  : GetAttachMenuBotsRequest
+- [`GetAttachedStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAttachedStickersRequest.md)
+  : GetAttachedStickersRequest
+- [`GetAuthorizationFormRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAuthorizationFormRequest.md)
+  : GetAuthorizationFormRequest
+- [`GetAuthorizationsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAuthorizationsRequest.md)
+  : GetAuthorizationsRequest
+- [`GetAutoDownloadSettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAutoDownloadSettingsRequest.md)
+  : GetAutoDownloadSettingsRequest
+- [`GetAutoSaveSettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAutoSaveSettingsRequest.md)
+  : GetAutoSaveSettingsRequest
+- [`GetAvailableEffectsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAvailableEffectsRequest.md)
+  : GetAvailableEffectsRequest
+- [`GetAvailableReactionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetAvailableReactionsRequest.md)
+  : GetAvailableReactionsRequest
+- [`GetBankCardDataRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBankCardDataRequest.md)
+  : GetBankCardDataRequest
+- [`GetBirthdaysRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBirthdaysRequest.md)
+  : GetBirthdaysRequest
+- [`GetBlockedRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBlockedRequest.md)
+  : GetBlockedRequest
+- [`GetBoostsListRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBoostsListRequest.md)
+  : GetBoostsListRequest
+- [`GetBoostsStatusRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBoostsStatusRequest.md)
+  : GetBoostsStatusRequest
+- [`GetBotAppRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBotAppRequest.md)
+  : GetBotAppRequest
+- [`GetBotBusinessConnectionRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBotBusinessConnectionRequest.md)
+  : GetBotBusinessConnectionRequest
+- [`GetBotCallbackAnswerRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBotCallbackAnswerRequest.md)
+  : GetBotCallbackAnswerRequest
+- [`GetBotCommandsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBotCommandsRequest.md)
+  : GetBotCommandsRequest
+- [`GetBotInfoRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBotInfoRequest.md)
+  : GetBotInfoRequest
+- [`GetBotMenuButtonRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBotMenuButtonRequest.md)
+  : GetBotMenuButtonRequest
+- [`GetBotRecommendationsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBotRecommendationsRequest.md)
+  : GetBotRecommendationsRequest
+- [`GetBroadcastStatsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBroadcastStatsRequest.md)
+  : GetBroadcastStatsRequest
+- [`GetBusinessChatLinksRequest`](https://romankyrychenko.github.io/telegramR/reference/GetBusinessChatLinksRequest.md)
+  : GetBusinessChatLinksRequest
+- [`GetCallConfigRequest`](https://romankyrychenko.github.io/telegramR/reference/GetCallConfigRequest.md)
+  : GetCallConfigRequest R6 class
+- [`GetCdnConfigRequest`](https://romankyrychenko.github.io/telegramR/reference/GetCdnConfigRequest.md)
+  : GetCdnConfigRequest
+- [`GetCdnFileHashesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetCdnFileHashesRequest.md)
+  : GetCdnFileHashesRequest
+- [`GetCdnFileRequest`](https://romankyrychenko.github.io/telegramR/reference/GetCdnFileRequest.md)
+  : GetCdnFileRequest
+- [`GetChannelDefaultEmojiStatusesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetChannelDefaultEmojiStatusesRequest.md)
+  : GetChannelDefaultEmojiStatusesRequest
+- [`GetChannelDifferenceRequest`](https://romankyrychenko.github.io/telegramR/reference/GetChannelDifferenceRequest.md)
+  : GetChannelDifferenceRequest
+- [`GetChannelRecommendationsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetChannelRecommendationsRequest.md)
+  : GetChannelRecommendationsRequest
+- [`GetChannelRestrictedStatusEmojisRequest`](https://romankyrychenko.github.io/telegramR/reference/GetChannelRestrictedStatusEmojisRequest.md)
+  : GetChannelRestrictedStatusEmojisRequest
+- [`GetChannelsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetChannelsRequest.md)
+  : GetChannelsRequest
+- [`GetChatInviteImportersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetChatInviteImportersRequest.md)
+  : GetChatInviteImportersRequest
+- [`GetChatThemesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetChatThemesRequest.md)
+  : GetChatThemesRequest
+- [`GetChatlistUpdatesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetChatlistUpdatesRequest.md)
+  : GetChatlistUpdatesRequest
+- [`GetChatsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetChatsRequest.md)
+  : GetChatsRequest
+- [`GetChatsToSendRequest`](https://romankyrychenko.github.io/telegramR/reference/GetChatsToSendRequest.md)
+  : GetChatsToSendRequest
+- [`GetCollectibleEmojiStatusesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetCollectibleEmojiStatusesRequest.md)
+  : GetCollectibleEmojiStatusesRequest
+- [`GetCollectibleInfoRequest`](https://romankyrychenko.github.io/telegramR/reference/GetCollectibleInfoRequest.md)
+  : GetCollectibleInfoRequest
+- [`GetCommonChatsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetCommonChatsRequest.md)
+  : GetCommonChatsRequest
+- [`GetConfigRequest`](https://romankyrychenko.github.io/telegramR/reference/GetConfigRequest.md)
+  : GetConfigRequest
+- [`GetConnectedBotsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetConnectedBotsRequest.md)
+  : GetConnectedBotsRequest
+- [`GetConnectedStarRefBotRequest`](https://romankyrychenko.github.io/telegramR/reference/GetConnectedStarRefBotRequest.md)
+  : GetConnectedStarRefBotRequest
+- [`GetConnectedStarRefBotsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetConnectedStarRefBotsRequest.md)
+  : GetConnectedStarRefBotsRequest
+- [`GetContactIDsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetContactIDsRequest.md)
+  : GetContactIDsRequest
+- [`GetContactSignUpNotificationRequest`](https://romankyrychenko.github.io/telegramR/reference/GetContactSignUpNotificationRequest.md)
+  : GetContactSignUpNotificationRequest
+- [`GetContactsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetContactsRequest.md)
+  : GetContactsRequest
+- [`GetContentSettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetContentSettingsRequest.md)
+  : GetContentSettingsRequest
+- [`GetCountriesListRequest`](https://romankyrychenko.github.io/telegramR/reference/GetCountriesListRequest.md)
+  : GetCountriesListRequest
+- [`GetCustomEmojiDocumentsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetCustomEmojiDocumentsRequest.md)
+  : GetCustomEmojiDocumentsRequest
+- [`GetDeepLinkInfoRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDeepLinkInfoRequest.md)
+  : GetDeepLinkInfoRequest
+- [`GetDefaultBackgroundEmojisRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDefaultBackgroundEmojisRequest.md)
+  : GetDefaultBackgroundEmojisRequest
+- [`GetDefaultEmojiStatusesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDefaultEmojiStatusesRequest.md)
+  : GetDefaultEmojiStatusesRequest
+- [`GetDefaultGroupPhotoEmojisRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDefaultGroupPhotoEmojisRequest.md)
+  : GetDefaultGroupPhotoEmojisRequest
+- [`GetDefaultHistoryTTLRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDefaultHistoryTTLRequest.md)
+  : GetDefaultHistoryTTLRequest
+- [`GetDefaultProfilePhotoEmojisRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDefaultProfilePhotoEmojisRequest.md)
+  : GetDefaultProfilePhotoEmojisRequest
+- [`GetDefaultTagReactionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDefaultTagReactionsRequest.md)
+  : GetDefaultTagReactionsRequest
+- [`GetDhConfigRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDhConfigRequest.md)
+  : GetDhConfigRequest
+- [`GetDialogFiltersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDialogFiltersRequest.md)
+  : GetDialogFiltersRequest
+- [`GetDialogUnreadMarksRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDialogUnreadMarksRequest.md)
+  : GetDialogUnreadMarksRequest
+- [`GetDialogsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDialogsRequest.md)
+  : GetDialogsRequest
+- [`GetDifferenceRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDifferenceRequest.md)
+  : GetDifferenceRequest
+- [`GetDiscussionMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDiscussionMessageRequest.md)
+  : GetDiscussionMessageRequest
+- [`GetDocumentByHashRequest`](https://romankyrychenko.github.io/telegramR/reference/GetDocumentByHashRequest.md)
+  : GetDocumentByHashRequest
+- [`GetEmojiGroupsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetEmojiGroupsRequest.md)
+  : GetEmojiGroupsRequest
+- [`GetEmojiKeywordsDifferenceRequest`](https://romankyrychenko.github.io/telegramR/reference/GetEmojiKeywordsDifferenceRequest.md)
+  : GetEmojiKeywordsDifferenceRequest
+- [`GetEmojiKeywordsLanguagesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetEmojiKeywordsLanguagesRequest.md)
+  : GetEmojiKeywordsLanguagesRequest
+- [`GetEmojiKeywordsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetEmojiKeywordsRequest.md)
+  : GetEmojiKeywordsRequest
+- [`GetEmojiProfilePhotoGroupsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetEmojiProfilePhotoGroupsRequest.md)
+  : GetEmojiProfilePhotoGroupsRequest
+- [`GetEmojiStatusGroupsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetEmojiStatusGroupsRequest.md)
+  : GetEmojiStatusGroupsRequest
+- [`GetEmojiStickerGroupsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetEmojiStickerGroupsRequest.md)
+  : GetEmojiStickerGroupsRequest
+- [`GetEmojiStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetEmojiStickersRequest.md)
+  : GetEmojiStickersRequest
+- [`GetEmojiURLRequest`](https://romankyrychenko.github.io/telegramR/reference/GetEmojiURLRequest.md)
+  : GetEmojiURLRequest
+- [`GetExportedChatInviteRequest`](https://romankyrychenko.github.io/telegramR/reference/GetExportedChatInviteRequest.md)
+  : GetExportedChatInviteRequest
+- [`GetExportedChatInvitesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetExportedChatInvitesRequest.md)
+  : GetExportedChatInvitesRequest
+- [`GetExportedInvitesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetExportedInvitesRequest.md)
+  : GetExportedInvitesRequest
+- [`GetExtendedMediaRequest`](https://romankyrychenko.github.io/telegramR/reference/GetExtendedMediaRequest.md)
+  : GetExtendedMediaRequest
+- [`GetFactCheckRequest`](https://romankyrychenko.github.io/telegramR/reference/GetFactCheckRequest.md)
+  : GetFactCheckRequest
+- [`GetFavedStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetFavedStickersRequest.md)
+  : GetFavedStickersRequest
+- [`GetFeaturedEmojiStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetFeaturedEmojiStickersRequest.md)
+  : GetFeaturedEmojiStickersRequest
+- [`GetFeaturedStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetFeaturedStickersRequest.md)
+  : GetFeaturedStickersRequest
+- [`GetFileHashesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetFileHashesRequest.md)
+  : GetFileHashesRequest
+- [`GetFileRequest`](https://romankyrychenko.github.io/telegramR/reference/GetFileRequest.md)
+  : GetFileRequest
+- [`GetForumTopicsByIDRequest`](https://romankyrychenko.github.io/telegramR/reference/GetForumTopicsByIDRequest.md)
+  : GetForumTopicsByIDRequest
+- [`GetForumTopicsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetForumTopicsRequest.md)
+  : GetForumTopicsRequest
+- [`GetFullChannelRequest`](https://romankyrychenko.github.io/telegramR/reference/GetFullChannelRequest.md)
+  : GetFullChannelRequest
+- [`GetFullChatRequest`](https://romankyrychenko.github.io/telegramR/reference/GetFullChatRequest.md)
+  : GetFullChatRequest
+- [`GetFullUserRequest`](https://romankyrychenko.github.io/telegramR/reference/GetFullUserRequest.md)
+  : GetFullUserRequest
+- [`GetFutureSaltsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetFutureSaltsRequest.md)
+  : GetFutureSaltsRequest R6 class
+- [`GetFutureSaltsRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/GetFutureSaltsRequest_from_reader.md)
+  : Create GetFutureSaltsRequest from a reader
+- [`GetGameHighScoresRequest`](https://romankyrychenko.github.io/telegramR/reference/GetGameHighScoresRequest.md)
+  : GetGameHighScoresRequest
+- [`GetGiveawayInfoRequest`](https://romankyrychenko.github.io/telegramR/reference/GetGiveawayInfoRequest.md)
+  : GetGiveawayInfoRequest
+- [`GetGlobalPrivacySettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetGlobalPrivacySettingsRequest.md)
+  : GetGlobalPrivacySettingsRequest
+- [`GetGroupCallChainBlocksRequest`](https://romankyrychenko.github.io/telegramR/reference/GetGroupCallChainBlocksRequest.md)
+  : GetGroupCallChainBlocksRequest
+- [`GetGroupCallJoinAsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetGroupCallJoinAsRequest.md)
+  : GetGroupCallJoinAsRequest
+- [`GetGroupCallRequest`](https://romankyrychenko.github.io/telegramR/reference/GetGroupCallRequest.md)
+  : GetGroupCallRequest
+- [`GetGroupCallStreamChannelsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetGroupCallStreamChannelsRequest.md)
+  : GetGroupCallStreamChannelsRequest
+- [`GetGroupCallStreamRtmpUrlRequest`](https://romankyrychenko.github.io/telegramR/reference/GetGroupCallStreamRtmpUrlRequest.md)
+  : GetGroupCallStreamRtmpUrlRequest
+- [`GetGroupParticipantsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetGroupParticipantsRequest.md)
+  : GetGroupParticipantsRequest
+- [`GetGroupsForDiscussionRequest`](https://romankyrychenko.github.io/telegramR/reference/GetGroupsForDiscussionRequest.md)
+  : GetGroupsForDiscussionRequest
+- [`GetHistoryRequest`](https://romankyrychenko.github.io/telegramR/reference/GetHistoryRequest.md)
+  : GetHistoryRequest
+- [`GetInactiveChannelsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetInactiveChannelsRequest.md)
+  : GetInactiveChannelsRequest
+- [`GetInlineBotResultsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetInlineBotResultsRequest.md)
+  : GetInlineBotResultsRequest
+- [`GetInlineGameHighScoresRequest`](https://romankyrychenko.github.io/telegramR/reference/GetInlineGameHighScoresRequest.md)
+  : GetInlineGameHighScoresRequest
+- [`GetInviteTextRequest`](https://romankyrychenko.github.io/telegramR/reference/GetInviteTextRequest.md)
+  : GetInviteTextRequest
+- [`GetLangPackRequest`](https://romankyrychenko.github.io/telegramR/reference/GetLangPackRequest.md)
+  : GetLangPackRequest
+- [`GetLanguageRequest`](https://romankyrychenko.github.io/telegramR/reference/GetLanguageRequest.md)
+  : GetLanguageRequest
+- [`GetLanguagesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetLanguagesRequest.md)
+  : GetLanguagesRequest
+- [`GetLeaveChatlistSuggestionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetLeaveChatlistSuggestionsRequest.md)
+  : GetLeaveChatlistSuggestionsRequest
+- [`GetLeftChannelsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetLeftChannelsRequest.md)
+  : GetLeftChannelsRequest
+- [`GetLocatedRequest`](https://romankyrychenko.github.io/telegramR/reference/GetLocatedRequest.md)
+  : GetLocatedRequest
+- [`GetMaskStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMaskStickersRequest.md)
+  : GetMaskStickersRequest
+- [`GetMegagroupStatsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMegagroupStatsRequest.md)
+  : GetMegagroupStatsRequest
+- [`GetMessageAuthorRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMessageAuthorRequest.md)
+  : GetMessageAuthorRequest
+- [`GetMessageEditDataRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMessageEditDataRequest.md)
+  : GetMessageEditDataRequest
+- [`GetMessagePublicForwardsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMessagePublicForwardsRequest.md)
+  : GetMessagePublicForwardsRequest
+- [`GetMessageReactionsListRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMessageReactionsListRequest.md)
+  : GetMessageReactionsListRequest
+- [`GetMessageReadParticipantsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMessageReadParticipantsRequest.md)
+  : GetMessageReadParticipantsRequest
+- [`GetMessageStatsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMessageStatsRequest.md)
+  : GetMessageStatsRequest
+- [`GetMessagesReactionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMessagesReactionsRequest.md)
+  : GetMessagesReactionsRequest
+- [`GetMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMessagesRequest.md)
+  : GetMessagesRequest
+- [`GetMessagesViewsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMessagesViewsRequest.md)
+  : GetMessagesViewsRequest
+- [`GetMultiWallPapersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMultiWallPapersRequest.md)
+  : GetMultiWallPapersRequest
+- [`GetMyBoostsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMyBoostsRequest.md)
+  : GetMyBoostsRequest
+- [`GetMyStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetMyStickersRequest.md)
+  : GetMyStickersRequest
+- [`GetNearestDcRequest`](https://romankyrychenko.github.io/telegramR/reference/GetNearestDcRequest.md)
+  : GetNearestDcRequest
+- [`GetNotifyExceptionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetNotifyExceptionsRequest.md)
+  : GetNotifyExceptionsRequest
+- [`GetNotifySettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetNotifySettingsRequest.md)
+  : GetNotifySettingsRequest
+- [`GetOldFeaturedStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetOldFeaturedStickersRequest.md)
+  : GetOldFeaturedStickersRequest
+- [`GetOnlinesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetOnlinesRequest.md)
+  : GetOnlinesRequest
+- [`GetOutboxReadDateRequest`](https://romankyrychenko.github.io/telegramR/reference/GetOutboxReadDateRequest.md)
+  : GetOutboxReadDateRequest
+- [`GetPaidMessagesRevenueRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPaidMessagesRevenueRequest.md)
+  : GetPaidMessagesRevenueRequest
+- [`GetPaidReactionPrivacyRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPaidReactionPrivacyRequest.md)
+  : GetPaidReactionPrivacyRequest
+- [`GetParticipantRequest`](https://romankyrychenko.github.io/telegramR/reference/GetParticipantRequest.md)
+  : GetParticipantRequest
+- [`GetParticipantsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetParticipantsRequest.md)
+  : GetParticipantsRequest
+- [`GetPassportConfigRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPassportConfigRequest.md)
+  : GetPassportConfigRequest
+- [`GetPasswordRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPasswordRequest.md)
+  : GetPasswordRequest
+- [`GetPasswordSettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPasswordSettingsRequest.md)
+  : GetPasswordSettingsRequest
+- [`GetPaymentFormRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPaymentFormRequest.md)
+  : GetPaymentFormRequest
+- [`GetPaymentReceiptRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPaymentReceiptRequest.md)
+  : GetPaymentReceiptRequest
+- [`GetPeerColorsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPeerColorsRequest.md)
+  : GetPeerColorsRequest
+- [`GetPeerDialogsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPeerDialogsRequest.md)
+  : GetPeerDialogsRequest
+- [`GetPeerMaxIDsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPeerMaxIDsRequest.md)
+  : GetPeerMaxIDsRequest
+- [`GetPeerProfileColorsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPeerProfileColorsRequest.md)
+  : GetPeerProfileColorsRequest
+- [`GetPeerSettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPeerSettingsRequest.md)
+  : GetPeerSettingsRequest
+- [`GetPeerStoriesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPeerStoriesRequest.md)
+  : GetPeerStoriesRequest R6 class
+- [`GetPinnedDialogsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPinnedDialogsRequest.md)
+  : GetPinnedDialogsRequest
+- [`GetPinnedSavedDialogsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPinnedSavedDialogsRequest.md)
+  : GetPinnedSavedDialogsRequest
+- [`GetPinnedStoriesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPinnedStoriesRequest.md)
+  : GetPinnedStoriesRequest R6 class
+- [`GetPollResultsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPollResultsRequest.md)
+  : GetPollResultsRequest
+- [`GetPollVotesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPollVotesRequest.md)
+  : GetPollVotesRequest
+- [`GetPopularAppBotsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPopularAppBotsRequest.md)
+  : GetPopularAppBotsRequest
+- [`GetPremiumGiftCodeOptionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPremiumGiftCodeOptionsRequest.md)
+  : GetPremiumGiftCodeOptionsRequest
+- [`GetPremiumPromoRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPremiumPromoRequest.md)
+  : GetPremiumPromoRequest
+- [`GetPreparedInlineMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPreparedInlineMessageRequest.md)
+  : GetPreparedInlineMessageRequest
+- [`GetPreviewInfoRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPreviewInfoRequest.md)
+  : GetPreviewInfoRequest
+- [`GetPreviewMediasRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPreviewMediasRequest.md)
+  : GetPreviewMediasRequest
+- [`GetPrivacyRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPrivacyRequest.md)
+  : GetPrivacyRequest
+- [`GetPromoDataRequest`](https://romankyrychenko.github.io/telegramR/reference/GetPromoDataRequest.md)
+  : GetPromoDataRequest
+- [`GetQuickRepliesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetQuickRepliesRequest.md)
+  : GetQuickRepliesRequest
+- [`GetQuickReplyMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetQuickReplyMessagesRequest.md)
+  : GetQuickReplyMessagesRequest
+- [`GetReactionsNotifySettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetReactionsNotifySettingsRequest.md)
+  : GetReactionsNotifySettingsRequest
+- [`GetRecentEmojiStatusesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetRecentEmojiStatusesRequest.md)
+  : GetRecentEmojiStatusesRequest
+- [`GetRecentLocationsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetRecentLocationsRequest.md)
+  : GetRecentLocationsRequest
+- [`GetRecentMeUrlsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetRecentMeUrlsRequest.md)
+  : GetRecentMeUrlsRequest
+- [`GetRecentReactionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetRecentReactionsRequest.md)
+  : GetRecentReactionsRequest
+- [`GetRecentStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetRecentStickersRequest.md)
+  : GetRecentStickersRequest
+- [`GetRepliesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetRepliesRequest.md)
+  : GetRepliesRequest
+- [`GetRequirementsToContactRequest`](https://romankyrychenko.github.io/telegramR/reference/GetRequirementsToContactRequest.md)
+  : GetRequirementsToContactRequest
+- [`GetResaleStarGiftsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetResaleStarGiftsRequest.md)
+  : GetResaleStarGiftsRequest
+- [`GetSavedDialogsByIDRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSavedDialogsByIDRequest.md)
+  : GetSavedDialogsByIDRequest
+- [`GetSavedDialogsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSavedDialogsRequest.md)
+  : GetSavedDialogsRequest
+- [`GetSavedGifsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSavedGifsRequest.md)
+  : GetSavedGifsRequest
+- [`GetSavedHistoryRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSavedHistoryRequest.md)
+  : GetSavedHistoryRequest
+- [`GetSavedInfoRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSavedInfoRequest.md)
+  : GetSavedInfoRequest
+- [`GetSavedMusicByIDRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSavedMusicByIDRequest.md)
+  : GetSavedMusicByIDRequest
+- [`GetSavedMusicIdsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSavedMusicIdsRequest.md)
+  : GetSavedMusicIdsRequest
+- [`GetSavedMusicRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSavedMusicRequest.md)
+  : GetSavedMusicRequest
+- [`GetSavedReactionTagsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSavedReactionTagsRequest.md)
+  : GetSavedReactionTagsRequest
+- [`GetSavedRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSavedRequest.md)
+  : GetSavedRequest
+- [`GetSavedRingtonesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSavedRingtonesRequest.md)
+  : GetSavedRingtonesRequest
+- [`GetSavedStarGiftRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSavedStarGiftRequest.md)
+  : GetSavedStarGiftRequest
+- [`GetSavedStarGiftsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSavedStarGiftsRequest.md)
+  : GetSavedStarGiftsRequest
+- [`GetScheduledHistoryRequest`](https://romankyrychenko.github.io/telegramR/reference/GetScheduledHistoryRequest.md)
+  : GetScheduledHistoryRequest
+- [`GetScheduledMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetScheduledMessagesRequest.md)
+  : GetScheduledMessagesRequest
+- [`GetSearchCountersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSearchCountersRequest.md)
+  : GetSearchCountersRequest
+- [`GetSearchResultsCalendarRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSearchResultsCalendarRequest.md)
+  : GetSearchResultsCalendarRequest
+- [`GetSearchResultsPositionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSearchResultsPositionsRequest.md)
+  : GetSearchResultsPositionsRequest
+- [`GetSecureValueRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSecureValueRequest.md)
+  : GetSecureValueRequest
+- [`GetSendAsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSendAsRequest.md)
+  : GetSendAsRequest
+- [`GetSmsJobRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSmsJobRequest.md)
+  : GetSmsJobRequest
+- [`GetSplitRangesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSplitRangesRequest.md)
+  : GetSplitRangesRequest
+- [`GetSponsoredMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSponsoredMessagesRequest.md)
+  : GetSponsoredMessagesRequest
+- [`GetSponsoredPeersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSponsoredPeersRequest.md)
+  : GetSponsoredPeersRequest
+- [`GetStarGiftCollectionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarGiftCollectionsRequest.md)
+  : GetStarGiftCollectionsRequest
+- [`GetStarGiftUpgradePreviewRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarGiftUpgradePreviewRequest.md)
+  : GetStarGiftUpgradePreviewRequest
+- [`GetStarGiftWithdrawalUrlRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarGiftWithdrawalUrlRequest.md)
+  : GetStarGiftWithdrawalUrlRequest
+- [`GetStarGiftsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarGiftsRequest.md)
+  : GetStarGiftsRequest
+- [`GetStarsGiftOptionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarsGiftOptionsRequest.md)
+  : GetStarsGiftOptionsRequest
+- [`GetStarsGiveawayOptionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarsGiveawayOptionsRequest.md)
+  : GetStarsGiveawayOptionsRequest
+- [`GetStarsRevenueAdsAccountUrlRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarsRevenueAdsAccountUrlRequest.md)
+  : GetStarsRevenueAdsAccountUrlRequest
+- [`GetStarsRevenueStatsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarsRevenueStatsRequest.md)
+  : GetStarsRevenueStatsRequest
+- [`GetStarsRevenueWithdrawalUrlRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarsRevenueWithdrawalUrlRequest.md)
+  : GetStarsRevenueWithdrawalUrlRequest
+- [`GetStarsStatusRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarsStatusRequest.md)
+  : GetStarsStatusRequest
+- [`GetStarsSubscriptionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarsSubscriptionsRequest.md)
+  : GetStarsSubscriptionsRequest
+- [`GetStarsTopupOptionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarsTopupOptionsRequest.md)
+  : GetStarsTopupOptionsRequest
+- [`GetStarsTransactionsByIDRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarsTransactionsByIDRequest.md)
+  : GetStarsTransactionsByIDRequest
+- [`GetStarsTransactionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStarsTransactionsRequest.md)
+  : GetStarsTransactionsRequest
+- [`GetStateRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStateRequest.md)
+  : GetStateRequest
+- [`GetStatusRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStatusRequest.md)
+  : GetStatusRequest
+- [`GetStatusesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStatusesRequest.md)
+  : GetStatusesRequest
+- [`GetStickerSetRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStickerSetRequest.md)
+  : GetStickerSetRequest
+- [`GetStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStickersRequest.md)
+  : GetStickersRequest
+- [`GetStoriesArchiveRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStoriesArchiveRequest.md)
+  : GetStoriesArchiveRequest R6 class
+- [`GetStoriesByIDRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStoriesByIDRequest.md)
+  : GetStoriesByIDRequest R6 class
+- [`GetStoriesViewsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStoriesViewsRequest.md)
+  : GetStoriesViewsRequest R6 class
+- [`GetStoryPublicForwardsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStoryPublicForwardsRequest.md)
+  : GetStoryPublicForwardsRequest
+- [`GetStoryReactionsListRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStoryReactionsListRequest.md)
+  : GetStoryReactionsListRequest R6 class
+- [`GetStoryStatsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStoryStatsRequest.md)
+  : GetStoryStatsRequest
+- [`GetStoryViewsListRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStoryViewsListRequest.md)
+  : GetStoryViewsListRequest R6 class
+- [`GetStringsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetStringsRequest.md)
+  : GetStringsRequest
+- [`GetSuggestedDialogFiltersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSuggestedDialogFiltersRequest.md)
+  : GetSuggestedDialogFiltersRequest
+- [`GetSuggestedStarRefBotsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSuggestedStarRefBotsRequest.md)
+  : GetSuggestedStarRefBotsRequest
+- [`GetSupportNameRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSupportNameRequest.md)
+  : GetSupportNameRequest
+- [`GetSupportRequest`](https://romankyrychenko.github.io/telegramR/reference/GetSupportRequest.md)
+  : GetSupportRequest
+- [`GetTermsOfServiceUpdateRequest`](https://romankyrychenko.github.io/telegramR/reference/GetTermsOfServiceUpdateRequest.md)
+  : GetTermsOfServiceUpdateRequest
+- [`GetThemeRequest`](https://romankyrychenko.github.io/telegramR/reference/GetThemeRequest.md)
+  : GetThemeRequest
+- [`GetThemesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetThemesRequest.md)
+  : GetThemesRequest
+- [`GetTimezonesListRequest`](https://romankyrychenko.github.io/telegramR/reference/GetTimezonesListRequest.md)
+  : GetTimezonesListRequest
+- [`GetTmpPasswordRequest`](https://romankyrychenko.github.io/telegramR/reference/GetTmpPasswordRequest.md)
+  : GetTmpPasswordRequest
+- [`GetTopPeersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetTopPeersRequest.md)
+  : GetTopPeersRequest
+- [`GetTopReactionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetTopReactionsRequest.md)
+  : GetTopReactionsRequest
+- [`GetUniqueGiftChatThemesRequest`](https://romankyrychenko.github.io/telegramR/reference/GetUniqueGiftChatThemesRequest.md)
+  : GetUniqueGiftChatThemesRequest
+- [`GetUniqueStarGiftRequest`](https://romankyrychenko.github.io/telegramR/reference/GetUniqueStarGiftRequest.md)
+  : GetUniqueStarGiftRequest
+- [`GetUniqueStarGiftValueInfoRequest`](https://romankyrychenko.github.io/telegramR/reference/GetUniqueStarGiftValueInfoRequest.md)
+  : GetUniqueStarGiftValueInfoRequest
+- [`GetUnreadMentionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetUnreadMentionsRequest.md)
+  : GetUnreadMentionsRequest
+- [`GetUnreadReactionsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetUnreadReactionsRequest.md)
+  : GetUnreadReactionsRequest
+- [`GetUserBoostsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetUserBoostsRequest.md)
+  : GetUserBoostsRequest
+- [`GetUserInfoRequest`](https://romankyrychenko.github.io/telegramR/reference/GetUserInfoRequest.md)
+  : GetUserInfoRequest
+- [`GetUserPhotosRequest`](https://romankyrychenko.github.io/telegramR/reference/GetUserPhotosRequest.md)
+  : GetUserPhotosRequest
+- [`GetUsersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetUsersRequest.md)
+  : GetUsersRequest
+- [`GetWallPaperRequest`](https://romankyrychenko.github.io/telegramR/reference/GetWallPaperRequest.md)
+  : GetWallPaperRequest
+- [`GetWallPapersRequest`](https://romankyrychenko.github.io/telegramR/reference/GetWallPapersRequest.md)
+  : GetWallPapersRequest
+- [`GetWebAuthorizationsRequest`](https://romankyrychenko.github.io/telegramR/reference/GetWebAuthorizationsRequest.md)
+  : GetWebAuthorizationsRequest
+- [`GetWebFileRequest`](https://romankyrychenko.github.io/telegramR/reference/GetWebFileRequest.md)
+  : GetWebFileRequest
+- [`GetWebPagePreviewRequest`](https://romankyrychenko.github.io/telegramR/reference/GetWebPagePreviewRequest.md)
+  : GetWebPagePreviewRequest
+- [`GetWebPageRequest`](https://romankyrychenko.github.io/telegramR/reference/GetWebPageRequest.md)
+  : GetWebPageRequest
+- [`GlobalPrivacySettings`](https://romankyrychenko.github.io/telegramR/reference/GlobalPrivacySettings.md)
+  : GlobalPrivacySettings
+- [`GroupCall`](https://romankyrychenko.github.io/telegramR/reference/GroupCall.md)
+  : GroupCall
+- [`GroupCallDiscarded`](https://romankyrychenko.github.io/telegramR/reference/GroupCallDiscarded.md)
+  : GroupCallDiscarded
+- [`GroupCallParticipant`](https://romankyrychenko.github.io/telegramR/reference/GroupCallParticipant.md)
+  : GroupCallParticipant
+- [`GroupCallParticipantVideo`](https://romankyrychenko.github.io/telegramR/reference/GroupCallParticipantVideo.md)
+  : GroupCallParticipantVideo
+- [`GroupCallParticipantVideoSourceGroup`](https://romankyrychenko.github.io/telegramR/reference/GroupCallParticipantVideoSourceGroup.md)
+  : GroupCallParticipantVideoSourceGroup
+- [`GroupCallStreamChannel`](https://romankyrychenko.github.io/telegramR/reference/GroupCallStreamChannel.md)
+  : GroupCallStreamChannel
+- [`GzipPacked`](https://romankyrychenko.github.io/telegramR/reference/GzipPacked.md)
+  : GzipPacked
+- [`HTMLToTelegramParser`](https://romankyrychenko.github.io/telegramR/reference/HTMLToTelegramParser.md)
+  : HTMLToTelegramParser
+- [`HideAllChatJoinRequestsRequest`](https://romankyrychenko.github.io/telegramR/reference/HideAllChatJoinRequestsRequest.md)
+  : HideAllChatJoinRequestsRequest
+- [`HideChatJoinRequestRequest`](https://romankyrychenko.github.io/telegramR/reference/HideChatJoinRequestRequest.md)
+  : HideChatJoinRequestRequest
+- [`HideChatlistUpdatesRequest`](https://romankyrychenko.github.io/telegramR/reference/HideChatlistUpdatesRequest.md)
+  : HideChatlistUpdatesRequest
+- [`HidePeerSettingsBarRequest`](https://romankyrychenko.github.io/telegramR/reference/HidePeerSettingsBarRequest.md)
+  : HidePeerSettingsBarRequest
+- [`HidePromoDataRequest`](https://romankyrychenko.github.io/telegramR/reference/HidePromoDataRequest.md)
+  : HidePromoDataRequest
+- [`HighScore`](https://romankyrychenko.github.io/telegramR/reference/HighScore.md)
+  : HighScore
+- [`HttpPacketCodec`](https://romankyrychenko.github.io/telegramR/reference/HttpPacketCodec.md)
+  : HTTP Packet Codec Class
+- [`HttpWait`](https://romankyrychenko.github.io/telegramR/reference/HttpWait.md)
+  : HttpWait
+- [`IDsIter`](https://romankyrychenko.github.io/telegramR/reference/IDsIter.md)
+  : IDsIter
+- [`ImportAuthorizationRequest`](https://romankyrychenko.github.io/telegramR/reference/ImportAuthorizationRequest.md)
+  : ImportAuthorizationRequest
+- [`ImportBotAuthorizationRequest`](https://romankyrychenko.github.io/telegramR/reference/ImportBotAuthorizationRequest.md)
+  : ImportBotAuthorizationRequest
+- [`ImportChatInviteRequest`](https://romankyrychenko.github.io/telegramR/reference/ImportChatInviteRequest.md)
+  : ImportChatInviteRequest
+- [`ImportContactTokenRequest`](https://romankyrychenko.github.io/telegramR/reference/ImportContactTokenRequest.md)
+  : ImportContactTokenRequest
+- [`ImportContactsRequest`](https://romankyrychenko.github.io/telegramR/reference/ImportContactsRequest.md)
+  : ImportContactsRequest
+- [`ImportLoginTokenRequest`](https://romankyrychenko.github.io/telegramR/reference/ImportLoginTokenRequest.md)
+  : ImportLoginTokenRequest
+- [`ImportWebTokenAuthorizationRequest`](https://romankyrychenko.github.io/telegramR/reference/ImportWebTokenAuthorizationRequest.md)
+  : ImportWebTokenAuthorizationRequest
+- [`ImportedContact`](https://romankyrychenko.github.io/telegramR/reference/ImportedContact.md)
+  : ImportedContact
+- [`IncrementStoryViewsRequest`](https://romankyrychenko.github.io/telegramR/reference/IncrementStoryViewsRequest.md)
+  : IncrementStoryViewsRequest R6 class
+- [`InitConnectionRequest`](https://romankyrychenko.github.io/telegramR/reference/InitConnectionRequest.md)
+  : InitConnectionRequest R6 class
+- [`InitConnectionRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/InitConnectionRequest_from_reader.md)
+  : Create InitConnectionRequest from a binary reader
+- [`InitHistoryImportRequest`](https://romankyrychenko.github.io/telegramR/reference/InitHistoryImportRequest.md)
+  : InitHistoryImportRequest
+- [`InitTakeoutSessionRequest`](https://romankyrychenko.github.io/telegramR/reference/InitTakeoutSessionRequest.md)
+  : InitTakeoutSessionRequest
+- [`InlineBotSwitchPM`](https://romankyrychenko.github.io/telegramR/reference/InlineBotSwitchPM.md)
+  : InlineBotSwitchPM
+- [`InlineBotWebView`](https://romankyrychenko.github.io/telegramR/reference/InlineBotWebView.md)
+  : InlineBotWebView
+- [`InlineQueryPeerTypeBotPM`](https://romankyrychenko.github.io/telegramR/reference/InlineQueryPeerTypeBotPM.md)
+  : InlineQueryPeerTypeBotPM
+- [`InlineQueryPeerTypeBroadcast`](https://romankyrychenko.github.io/telegramR/reference/InlineQueryPeerTypeBroadcast.md)
+  : InlineQueryPeerTypeBroadcast
+- [`InlineQueryPeerTypeChat`](https://romankyrychenko.github.io/telegramR/reference/InlineQueryPeerTypeChat.md)
+  : InlineQueryPeerTypeChat
+- [`InlineQueryPeerTypeMegagroup`](https://romankyrychenko.github.io/telegramR/reference/InlineQueryPeerTypeMegagroup.md)
+  : InlineQueryPeerTypeMegagroup
+- [`InlineQueryPeerTypePM`](https://romankyrychenko.github.io/telegramR/reference/InlineQueryPeerTypePM.md)
+  : InlineQueryPeerTypePM
+- [`InlineQueryPeerTypeSameBotPM`](https://romankyrychenko.github.io/telegramR/reference/InlineQueryPeerTypeSameBotPM.md)
+  : InlineQueryPeerTypeSameBotPM
+- [`InputAppEvent`](https://romankyrychenko.github.io/telegramR/reference/InputAppEvent.md)
+  : InputAppEvent
+- [`InputBotAppID`](https://romankyrychenko.github.io/telegramR/reference/InputBotAppID.md)
+  : InputBotAppID
+- [`InputBotAppShortName`](https://romankyrychenko.github.io/telegramR/reference/InputBotAppShortName.md)
+  : InputBotAppShortName
+- [`InputBotInlineMessageGame`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineMessageGame.md)
+  : InputBotInlineMessageGame
+- [`InputBotInlineMessageID`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineMessageID.md)
+  : InputBotInlineMessageID
+- [`InputBotInlineMessageID64`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineMessageID64.md)
+  : InputBotInlineMessageID64
+- [`InputBotInlineMessageMediaAuto`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineMessageMediaAuto.md)
+  : InputBotInlineMessageMediaAuto
+- [`InputBotInlineMessageMediaContact`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineMessageMediaContact.md)
+  : InputBotInlineMessageMediaContact
+- [`InputBotInlineMessageMediaGeo`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineMessageMediaGeo.md)
+  : InputBotInlineMessageMediaGeo
+- [`InputBotInlineMessageMediaInvoice`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineMessageMediaInvoice.md)
+  : InputBotInlineMessageMediaInvoice
+- [`InputBotInlineMessageMediaVenue`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineMessageMediaVenue.md)
+  : InputBotInlineMessageMediaVenue
+- [`InputBotInlineMessageMediaWebPage`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineMessageMediaWebPage.md)
+  : InputBotInlineMessageMediaWebPage
+- [`InputBotInlineMessageText`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineMessageText.md)
+  : InputBotInlineMessageText
+- [`InputBotInlineResult`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineResult.md)
+  : InputBotInlineResult
+- [`InputBotInlineResultDocument`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineResultDocument.md)
+  : InputBotInlineResultDocument
+- [`InputBotInlineResultGame`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineResultGame.md)
+  : InputBotInlineResultGame
+- [`InputBotInlineResultPhoto`](https://romankyrychenko.github.io/telegramR/reference/InputBotInlineResultPhoto.md)
+  : InputBotInlineResultPhoto
+- [`InputBusinessAwayMessage`](https://romankyrychenko.github.io/telegramR/reference/InputBusinessAwayMessage.md)
+  : InputBusinessAwayMessage
+- [`InputBusinessBotRecipients`](https://romankyrychenko.github.io/telegramR/reference/InputBusinessBotRecipients.md)
+  : InputBusinessBotRecipients
+- [`InputBusinessChatLink`](https://romankyrychenko.github.io/telegramR/reference/InputBusinessChatLink.md)
+  : InputBusinessChatLink
+- [`InputBusinessGreetingMessage`](https://romankyrychenko.github.io/telegramR/reference/InputBusinessGreetingMessage.md)
+  : InputBusinessGreetingMessage
+- [`InputBusinessIntro`](https://romankyrychenko.github.io/telegramR/reference/InputBusinessIntro.md)
+  : InputBusinessIntro
+- [`InputBusinessRecipients`](https://romankyrychenko.github.io/telegramR/reference/InputBusinessRecipients.md)
+  : InputBusinessRecipients
+- [`InputChannel`](https://romankyrychenko.github.io/telegramR/reference/InputChannel.md)
+  : InputChannel
+- [`InputChannelEmpty`](https://romankyrychenko.github.io/telegramR/reference/InputChannelEmpty.md)
+  : InputChannelEmpty
+- [`InputChannelFromMessage`](https://romankyrychenko.github.io/telegramR/reference/InputChannelFromMessage.md)
+  : InputChannelFromMessage
+- [`InputChatPhoto`](https://romankyrychenko.github.io/telegramR/reference/InputChatPhoto.md)
+  : InputChatPhoto
+- [`InputChatPhotoEmpty`](https://romankyrychenko.github.io/telegramR/reference/InputChatPhotoEmpty.md)
+  : InputChatPhotoEmpty
+- [`InputChatTheme`](https://romankyrychenko.github.io/telegramR/reference/InputChatTheme.md)
+  : InputChatTheme
+- [`InputChatThemeEmpty`](https://romankyrychenko.github.io/telegramR/reference/InputChatThemeEmpty.md)
+  : InputChatThemeEmpty
+- [`InputChatThemeUniqueGift`](https://romankyrychenko.github.io/telegramR/reference/InputChatThemeUniqueGift.md)
+  : InputChatThemeUniqueGift
+- [`InputChatUploadedPhoto`](https://romankyrychenko.github.io/telegramR/reference/InputChatUploadedPhoto.md)
+  : InputChatUploadedPhoto
+- [`InputChatlistDialogFilter`](https://romankyrychenko.github.io/telegramR/reference/InputChatlistDialogFilter.md)
+  : InputChatlistDialogFilter
+- [`InputCheckPasswordEmpty`](https://romankyrychenko.github.io/telegramR/reference/InputCheckPasswordEmpty.md)
+  : InputCheckPasswordEmpty
+- [`InputCheckPasswordSRP`](https://romankyrychenko.github.io/telegramR/reference/InputCheckPasswordSRP.md)
+  : InputCheckPasswordSRP
+- [`InputClientProxy`](https://romankyrychenko.github.io/telegramR/reference/InputClientProxy.md)
+  : InputClientProxy
+- [`InputCollectiblePhone`](https://romankyrychenko.github.io/telegramR/reference/InputCollectiblePhone.md)
+  : InputCollectiblePhone
+- [`InputCollectibleUsername`](https://romankyrychenko.github.io/telegramR/reference/InputCollectibleUsername.md)
+  : InputCollectibleUsername
+- [`InputDialogPeer`](https://romankyrychenko.github.io/telegramR/reference/InputDialogPeer.md)
+  : InputDialogPeer
+- [`InputDialogPeerFolder`](https://romankyrychenko.github.io/telegramR/reference/InputDialogPeerFolder.md)
+  : InputDialogPeerFolder
+- [`InputDocument`](https://romankyrychenko.github.io/telegramR/reference/InputDocument.md)
+  : InputDocument
+- [`InputDocumentEmpty`](https://romankyrychenko.github.io/telegramR/reference/InputDocumentEmpty.md)
+  : InputDocumentEmpty
+- [`InputDocumentFileLocation`](https://romankyrychenko.github.io/telegramR/reference/InputDocumentFileLocation.md)
+  : InputDocumentFileLocation
+- [`InputEmojiStatusCollectible`](https://romankyrychenko.github.io/telegramR/reference/InputEmojiStatusCollectible.md)
+  : InputEmojiStatusCollectible
+- [`InputEncryptedChat`](https://romankyrychenko.github.io/telegramR/reference/InputEncryptedChat.md)
+  : InputEncryptedChat
+- [`InputEncryptedFile`](https://romankyrychenko.github.io/telegramR/reference/InputEncryptedFile.md)
+  : InputEncryptedFile
+- [`InputEncryptedFileBigUploaded`](https://romankyrychenko.github.io/telegramR/reference/InputEncryptedFileBigUploaded.md)
+  : InputEncryptedFileBigUploaded
+- [`InputEncryptedFileEmpty`](https://romankyrychenko.github.io/telegramR/reference/InputEncryptedFileEmpty.md)
+  : InputEncryptedFileEmpty
+- [`InputEncryptedFileLocation`](https://romankyrychenko.github.io/telegramR/reference/InputEncryptedFileLocation.md)
+  : InputEncryptedFileLocation
+- [`InputEncryptedFileUploaded`](https://romankyrychenko.github.io/telegramR/reference/InputEncryptedFileUploaded.md)
+  : InputEncryptedFileUploaded
+- [`InputFile`](https://romankyrychenko.github.io/telegramR/reference/InputFile.md)
+  : InputFile
+- [`InputFileBig`](https://romankyrychenko.github.io/telegramR/reference/InputFileBig.md)
+  : InputFileBig
+- [`InputFileLocation`](https://romankyrychenko.github.io/telegramR/reference/InputFileLocation.md)
+  : InputFileLocation
+- [`InputFileStoryDocument`](https://romankyrychenko.github.io/telegramR/reference/InputFileStoryDocument.md)
+  : InputFileStoryDocument
+- [`InputFolderPeer`](https://romankyrychenko.github.io/telegramR/reference/InputFolderPeer.md)
+  : InputFolderPeer
+- [`InputGameID`](https://romankyrychenko.github.io/telegramR/reference/InputGameID.md)
+  : InputGameID
+- [`InputGameShortName`](https://romankyrychenko.github.io/telegramR/reference/InputGameShortName.md)
+  : InputGameShortName
+- [`InputGeoPoint`](https://romankyrychenko.github.io/telegramR/reference/InputGeoPoint.md)
+  : InputGeoPoint
+- [`InputGeoPointEmpty`](https://romankyrychenko.github.io/telegramR/reference/InputGeoPointEmpty.md)
+  : InputGeoPointEmpty
+- [`InputGroupCallInviteMessage`](https://romankyrychenko.github.io/telegramR/reference/InputGroupCallInviteMessage.md)
+  : InputGroupCallInviteMessage
+- [`InputGroupCallSlug`](https://romankyrychenko.github.io/telegramR/reference/InputGroupCallSlug.md)
+  : InputGroupCallSlug
+- [`InputGroupCallStream`](https://romankyrychenko.github.io/telegramR/reference/InputGroupCallStream.md)
+  : InputGroupCallStream
+- [`InputInvoiceBusinessBotTransferStars`](https://romankyrychenko.github.io/telegramR/reference/InputInvoiceBusinessBotTransferStars.md)
+  : InputInvoiceBusinessBotTransferStars
+- [`InputInvoiceChatInviteSubscription`](https://romankyrychenko.github.io/telegramR/reference/InputInvoiceChatInviteSubscription.md)
+  : InputInvoiceChatInviteSubscription
+- [`InputInvoiceMessage`](https://romankyrychenko.github.io/telegramR/reference/InputInvoiceMessage.md)
+  : InputInvoiceMessage
+- [`InputInvoicePremiumGiftCode`](https://romankyrychenko.github.io/telegramR/reference/InputInvoicePremiumGiftCode.md)
+  : InputInvoicePremiumGiftCode
+- [`InputInvoicePremiumGiftStars`](https://romankyrychenko.github.io/telegramR/reference/InputInvoicePremiumGiftStars.md)
+  : InputInvoicePremiumGiftStars
+- [`InputInvoiceSlug`](https://romankyrychenko.github.io/telegramR/reference/InputInvoiceSlug.md)
+  : InputInvoiceSlug
+- [`InputInvoiceStarGift`](https://romankyrychenko.github.io/telegramR/reference/InputInvoiceStarGift.md)
+  : InputInvoiceStarGift
+- [`InputInvoiceStarGiftPrepaidUpgrade`](https://romankyrychenko.github.io/telegramR/reference/InputInvoiceStarGiftPrepaidUpgrade.md)
+  : InputInvoiceStarGiftPrepaidUpgrade
+- [`InputInvoiceStarGiftResale`](https://romankyrychenko.github.io/telegramR/reference/InputInvoiceStarGiftResale.md)
+  : InputInvoiceStarGiftResale
+- [`InputInvoiceStarGiftTransfer`](https://romankyrychenko.github.io/telegramR/reference/InputInvoiceStarGiftTransfer.md)
+  : InputInvoiceStarGiftTransfer
+- [`InputInvoiceStarGiftUpgrade`](https://romankyrychenko.github.io/telegramR/reference/InputInvoiceStarGiftUpgrade.md)
+  : InputInvoiceStarGiftUpgrade
+- [`InputInvoiceStars`](https://romankyrychenko.github.io/telegramR/reference/InputInvoiceStars.md)
+  : InputInvoiceStars
+- [`InputKeyboardButtonRequestPeer`](https://romankyrychenko.github.io/telegramR/reference/InputKeyboardButtonRequestPeer.md)
+  : InputKeyboardButtonRequestPeer
+- [`InputKeyboardButtonUrlAuth`](https://romankyrychenko.github.io/telegramR/reference/InputKeyboardButtonUrlAuth.md)
+  : InputKeyboardButtonUrlAuth
+- [`InputKeyboardButtonUserProfile`](https://romankyrychenko.github.io/telegramR/reference/InputKeyboardButtonUserProfile.md)
+  : InputKeyboardButtonUserProfile
+- [`InputMediaAreaChannelPost`](https://romankyrychenko.github.io/telegramR/reference/InputMediaAreaChannelPost.md)
+  : InputMediaAreaChannelPost
+- [`InputMediaAreaVenue`](https://romankyrychenko.github.io/telegramR/reference/InputMediaAreaVenue.md)
+  : InputMediaAreaVenue
+- [`InputMediaContact`](https://romankyrychenko.github.io/telegramR/reference/InputMediaContact.md)
+  : InputMediaContact
+- [`InputMediaDice`](https://romankyrychenko.github.io/telegramR/reference/InputMediaDice.md)
+  : InputMediaDice
+- [`InputMediaDocument`](https://romankyrychenko.github.io/telegramR/reference/InputMediaDocument.md)
+  : InputMediaDocument
+- [`InputMediaDocumentExternal`](https://romankyrychenko.github.io/telegramR/reference/InputMediaDocumentExternal.md)
+  : InputMediaDocumentExternal
+- [`InputMediaEmpty`](https://romankyrychenko.github.io/telegramR/reference/InputMediaEmpty.md)
+  : InputMediaEmpty
+- [`InputMediaGame`](https://romankyrychenko.github.io/telegramR/reference/InputMediaGame.md)
+  : InputMediaGame
+- [`InputMediaGeoLive`](https://romankyrychenko.github.io/telegramR/reference/InputMediaGeoLive.md)
+  : InputMediaGeoLive
+- [`InputMediaGeoPoint`](https://romankyrychenko.github.io/telegramR/reference/InputMediaGeoPoint.md)
+  : InputMediaGeoPoint
+- [`InputMediaInvoice`](https://romankyrychenko.github.io/telegramR/reference/InputMediaInvoice.md)
+  : InputMediaInvoice
+- [`InputMediaPaidMedia`](https://romankyrychenko.github.io/telegramR/reference/InputMediaPaidMedia.md)
+  : InputMediaPaidMedia
+- [`InputMediaPhoto`](https://romankyrychenko.github.io/telegramR/reference/InputMediaPhoto.md)
+  : InputMediaPhoto
+- [`InputMediaPhotoExternal`](https://romankyrychenko.github.io/telegramR/reference/InputMediaPhotoExternal.md)
+  : InputMediaPhotoExternal
+- [`InputMediaPoll`](https://romankyrychenko.github.io/telegramR/reference/InputMediaPoll.md)
+  : InputMediaPoll
+- [`InputMediaStory`](https://romankyrychenko.github.io/telegramR/reference/InputMediaStory.md)
+  : InputMediaStory
+- [`InputMediaTodo`](https://romankyrychenko.github.io/telegramR/reference/InputMediaTodo.md)
+  : InputMediaTodo
+- [`InputMediaUploadedDocument`](https://romankyrychenko.github.io/telegramR/reference/InputMediaUploadedDocument.md)
+  : InputMediaUploadedDocument
+- [`InputMediaUploadedPhoto`](https://romankyrychenko.github.io/telegramR/reference/InputMediaUploadedPhoto.md)
+  : InputMediaUploadedPhoto
+- [`InputMediaVenue`](https://romankyrychenko.github.io/telegramR/reference/InputMediaVenue.md)
+  : InputMediaVenue
+- [`InputMediaWebPage`](https://romankyrychenko.github.io/telegramR/reference/InputMediaWebPage.md)
+  : InputMediaWebPage
+- [`InputMessageCallbackQuery`](https://romankyrychenko.github.io/telegramR/reference/InputMessageCallbackQuery.md)
+  : InputMessageCallbackQuery
+- [`InputMessageEntityMentionName`](https://romankyrychenko.github.io/telegramR/reference/InputMessageEntityMentionName.md)
+  : InputMessageEntityMentionName
+- [`InputMessageID`](https://romankyrychenko.github.io/telegramR/reference/InputMessageID.md)
+  : InputMessageID
+- [`InputMessagePinned`](https://romankyrychenko.github.io/telegramR/reference/InputMessagePinned.md)
+  : InputMessagePinned
+- [`InputMessageReplyTo`](https://romankyrychenko.github.io/telegramR/reference/InputMessageReplyTo.md)
+  : InputMessageReplyTo
+- [`InputMessagesFilterChatPhotos`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterChatPhotos.md)
+  : InputMessagesFilterChatPhotos
+- [`InputMessagesFilterContacts`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterContacts.md)
+  : InputMessagesFilterContacts
+- [`InputMessagesFilterDocument`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterDocument.md)
+  : InputMessagesFilterDocument
+- [`InputMessagesFilterEmpty`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterEmpty.md)
+  : InputMessagesFilterEmpty
+- [`InputMessagesFilterGeo`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterGeo.md)
+  : InputMessagesFilterGeo
+- [`InputMessagesFilterGif`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterGif.md)
+  : InputMessagesFilterGif
+- [`InputMessagesFilterMusic`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterMusic.md)
+  : InputMessagesFilterMusic
+- [`InputMessagesFilterMyMentions`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterMyMentions.md)
+  : InputMessagesFilterMyMentions
+- [`InputMessagesFilterPhoneCalls`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterPhoneCalls.md)
+  : InputMessagesFilterPhoneCalls
+- [`InputMessagesFilterPhotoVideo`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterPhotoVideo.md)
+  : InputMessagesFilterPhotoVideo
+- [`InputMessagesFilterPhotos`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterPhotos.md)
+  : InputMessagesFilterPhotos
+- [`InputMessagesFilterPinned`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterPinned.md)
+  : InputMessagesFilterPinned
+- [`InputMessagesFilterRoundVideo`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterRoundVideo.md)
+  : InputMessagesFilterRoundVideo
+- [`InputMessagesFilterRoundVoice`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterRoundVoice.md)
+  : InputMessagesFilterRoundVoice
+- [`InputMessagesFilterUrl`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterUrl.md)
+  : InputMessagesFilterUrl
+- [`InputMessagesFilterVideo`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterVideo.md)
+  : InputMessagesFilterVideo
+- [`InputMessagesFilterVoice`](https://romankyrychenko.github.io/telegramR/reference/InputMessagesFilterVoice.md)
+  : InputMessagesFilterVoice
+- [`InputNotifyBroadcasts`](https://romankyrychenko.github.io/telegramR/reference/InputNotifyBroadcasts.md)
+  : InputNotifyBroadcasts
+- [`InputNotifyChats`](https://romankyrychenko.github.io/telegramR/reference/InputNotifyChats.md)
+  : InputNotifyChats
+- [`InputNotifyForumTopic`](https://romankyrychenko.github.io/telegramR/reference/InputNotifyForumTopic.md)
+  : InputNotifyForumTopic
+- [`InputNotifyPeer`](https://romankyrychenko.github.io/telegramR/reference/InputNotifyPeer.md)
+  : InputNotifyPeer
+- [`InputNotifyUsers`](https://romankyrychenko.github.io/telegramR/reference/InputNotifyUsers.md)
+  : InputNotifyUsers
+- [`InputPaymentCredentials`](https://romankyrychenko.github.io/telegramR/reference/InputPaymentCredentials.md)
+  : InputPaymentCredentials
+- [`InputPaymentCredentialsApplePay`](https://romankyrychenko.github.io/telegramR/reference/InputPaymentCredentialsApplePay.md)
+  : InputPaymentCredentialsApplePay
+- [`InputPaymentCredentialsGooglePay`](https://romankyrychenko.github.io/telegramR/reference/InputPaymentCredentialsGooglePay.md)
+  : InputPaymentCredentialsGooglePay
+- [`InputPaymentCredentialsSaved`](https://romankyrychenko.github.io/telegramR/reference/InputPaymentCredentialsSaved.md)
+  : InputPaymentCredentialsSaved
+- [`InputPeerChannel`](https://romankyrychenko.github.io/telegramR/reference/InputPeerChannel.md)
+  : InputPeerChannel
+- [`InputPeerChannelFromMessage`](https://romankyrychenko.github.io/telegramR/reference/InputPeerChannelFromMessage.md)
+  : InputPeerChannelFromMessage
+- [`InputPeerChat`](https://romankyrychenko.github.io/telegramR/reference/InputPeerChat.md)
+  : InputPeerChat
+- [`InputPeerEmpty`](https://romankyrychenko.github.io/telegramR/reference/InputPeerEmpty.md)
+  : InputPeerEmpty
+- [`InputPeerNotifySettings`](https://romankyrychenko.github.io/telegramR/reference/InputPeerNotifySettings.md)
+  : InputPeerNotifySettings
+- [`InputPeerPhotoFileLocation`](https://romankyrychenko.github.io/telegramR/reference/InputPeerPhotoFileLocation.md)
+  : InputPeerPhotoFileLocation
+- [`InputPeerSelf`](https://romankyrychenko.github.io/telegramR/reference/InputPeerSelf.md)
+  : InputPeerSelf
+- [`InputPeerUser`](https://romankyrychenko.github.io/telegramR/reference/InputPeerUser.md)
+  : InputPeerUser
+- [`InputPeerUserFromMessage`](https://romankyrychenko.github.io/telegramR/reference/InputPeerUserFromMessage.md)
+  : InputPeerUserFromMessage
+- [`InputPhoneCall`](https://romankyrychenko.github.io/telegramR/reference/InputPhoneCall.md)
+  : InputPhoneCall
+- [`InputPhoneContact`](https://romankyrychenko.github.io/telegramR/reference/InputPhoneContact.md)
+  : InputPhoneContact
+- [`InputPhoto`](https://romankyrychenko.github.io/telegramR/reference/InputPhoto.md)
+  : InputPhoto
+- [`InputPhotoEmpty`](https://romankyrychenko.github.io/telegramR/reference/InputPhotoEmpty.md)
+  : InputPhotoEmpty
+- [`InputPhotoFileLocation`](https://romankyrychenko.github.io/telegramR/reference/InputPhotoFileLocation.md)
+  : InputPhotoFileLocation
+- [`InputPhotoLegacyFileLocation`](https://romankyrychenko.github.io/telegramR/reference/InputPhotoLegacyFileLocation.md)
+  : InputPhotoLegacyFileLocation
+- [`InputPrivacyKeyAbout`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyKeyAbout.md)
+  : InputPrivacyKeyAbout
+- [`InputPrivacyKeyAddedByPhone`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyKeyAddedByPhone.md)
+  : InputPrivacyKeyAddedByPhone
+- [`InputPrivacyKeyBirthday`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyKeyBirthday.md)
+  : InputPrivacyKeyBirthday
+- [`InputPrivacyKeyChatInvite`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyKeyChatInvite.md)
+  : InputPrivacyKeyChatInvite
+- [`InputPrivacyKeyForwards`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyKeyForwards.md)
+  : InputPrivacyKeyForwards
+- [`InputPrivacyKeyNoPaidMessages`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyKeyNoPaidMessages.md)
+  : InputPrivacyKeyNoPaidMessages
+- [`InputPrivacyKeyPhoneCall`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyKeyPhoneCall.md)
+  : InputPrivacyKeyPhoneCall
+- [`InputPrivacyKeyPhoneNumber`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyKeyPhoneNumber.md)
+  : InputPrivacyKeyPhoneNumber
+- [`InputPrivacyKeyPhoneP2P`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyKeyPhoneP2P.md)
+  : InputPrivacyKeyPhoneP2P
+- [`InputPrivacyKeyProfilePhoto`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyKeyProfilePhoto.md)
+  : InputPrivacyKeyProfilePhoto
+- [`InputPrivacyKeyStarGiftsAutoSave`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyKeyStarGiftsAutoSave.md)
+  : InputPrivacyKeyStarGiftsAutoSave
+- [`InputPrivacyKeyStatusTimestamp`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyKeyStatusTimestamp.md)
+  : InputPrivacyKeyStatusTimestamp
+- [`InputPrivacyKeyVoiceMessages`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyKeyVoiceMessages.md)
+  : InputPrivacyKeyVoiceMessages
+- [`InputPrivacyValueAllowAll`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyValueAllowAll.md)
+  : InputPrivacyValueAllowAll
+- [`InputPrivacyValueAllowBots`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyValueAllowBots.md)
+  : InputPrivacyValueAllowBots
+- [`InputPrivacyValueAllowChatParticipants`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyValueAllowChatParticipants.md)
+  : InputPrivacyValueAllowChatParticipants
+- [`InputPrivacyValueAllowCloseFriends`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyValueAllowCloseFriends.md)
+  : InputPrivacyValueAllowCloseFriends
+- [`InputPrivacyValueAllowContacts`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyValueAllowContacts.md)
+  : InputPrivacyValueAllowContacts
+- [`InputPrivacyValueAllowPremium`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyValueAllowPremium.md)
+  : InputPrivacyValueAllowPremium
+- [`InputPrivacyValueAllowUsers`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyValueAllowUsers.md)
+  : InputPrivacyValueAllowUsers
+- [`InputPrivacyValueDisallowAll`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyValueDisallowAll.md)
+  : InputPrivacyValueDisallowAll
+- [`InputPrivacyValueDisallowBots`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyValueDisallowBots.md)
+  : InputPrivacyValueDisallowBots
+- [`InputPrivacyValueDisallowChatParticipants`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyValueDisallowChatParticipants.md)
+  : InputPrivacyValueDisallowChatParticipants
+- [`InputPrivacyValueDisallowContacts`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyValueDisallowContacts.md)
+  : InputPrivacyValueDisallowContacts
+- [`InputPrivacyValueDisallowUsers`](https://romankyrychenko.github.io/telegramR/reference/InputPrivacyValueDisallowUsers.md)
+  : InputPrivacyValueDisallowUsers
+- [`InputQuickReplyShortcut`](https://romankyrychenko.github.io/telegramR/reference/InputQuickReplyShortcut.md)
+  : InputQuickReplyShortcut
+- [`InputQuickReplyShortcutId`](https://romankyrychenko.github.io/telegramR/reference/InputQuickReplyShortcutId.md)
+  : InputQuickReplyShortcutId
+- [`InputReplyToMessage`](https://romankyrychenko.github.io/telegramR/reference/InputReplyToMessage.md)
+  : InputReplyToMessage
+- [`InputReplyToMonoForum`](https://romankyrychenko.github.io/telegramR/reference/InputReplyToMonoForum.md)
+  : InputReplyToMonoForum
+- [`InputReplyToStory`](https://romankyrychenko.github.io/telegramR/reference/InputReplyToStory.md)
+  : InputReplyToStory
+- [`InputReportReasonChildAbuse`](https://romankyrychenko.github.io/telegramR/reference/InputReportReasonChildAbuse.md)
+  : InputReportReasonChildAbuse
+- [`InputReportReasonCopyright`](https://romankyrychenko.github.io/telegramR/reference/InputReportReasonCopyright.md)
+  : InputReportReasonCopyright
+- [`InputReportReasonFake`](https://romankyrychenko.github.io/telegramR/reference/InputReportReasonFake.md)
+  : InputReportReasonFake
+- [`InputReportReasonGeoIrrelevant`](https://romankyrychenko.github.io/telegramR/reference/InputReportReasonGeoIrrelevant.md)
+  : InputReportReasonGeoIrrelevant
+- [`InputReportReasonIllegalDrugs`](https://romankyrychenko.github.io/telegramR/reference/InputReportReasonIllegalDrugs.md)
+  : InputReportReasonIllegalDrugs
+- [`InputReportReasonOther`](https://romankyrychenko.github.io/telegramR/reference/InputReportReasonOther.md)
+  : InputReportReasonOther
+- [`InputReportReasonPersonalDetails`](https://romankyrychenko.github.io/telegramR/reference/InputReportReasonPersonalDetails.md)
+  : InputReportReasonPersonalDetails
+- [`InputReportReasonPornography`](https://romankyrychenko.github.io/telegramR/reference/InputReportReasonPornography.md)
+  : InputReportReasonPornography
+- [`InputReportReasonSpam`](https://romankyrychenko.github.io/telegramR/reference/InputReportReasonSpam.md)
+  : InputReportReasonSpam
+- [`InputReportReasonViolence`](https://romankyrychenko.github.io/telegramR/reference/InputReportReasonViolence.md)
+  : InputReportReasonViolence
+- [`InputSavedStarGiftChat`](https://romankyrychenko.github.io/telegramR/reference/InputSavedStarGiftChat.md)
+  : InputSavedStarGiftChat
+- [`InputSavedStarGiftSlug`](https://romankyrychenko.github.io/telegramR/reference/InputSavedStarGiftSlug.md)
+  : InputSavedStarGiftSlug
+- [`InputSavedStarGiftUser`](https://romankyrychenko.github.io/telegramR/reference/InputSavedStarGiftUser.md)
+  : InputSavedStarGiftUser
+- [`InputSecureFile`](https://romankyrychenko.github.io/telegramR/reference/InputSecureFile.md)
+  : InputSecureFile
+- [`InputSecureFileLocation`](https://romankyrychenko.github.io/telegramR/reference/InputSecureFileLocation.md)
+  : InputSecureFileLocation
+- [`InputSecureFileUploaded`](https://romankyrychenko.github.io/telegramR/reference/InputSecureFileUploaded.md)
+  : InputSecureFileUploaded
+- [`InputSecureValue`](https://romankyrychenko.github.io/telegramR/reference/InputSecureValue.md)
+  : InputSecureValue
+- [`InputSingleMedia`](https://romankyrychenko.github.io/telegramR/reference/InputSingleMedia.md)
+  : InputSingleMedia
+- [`InputStarsTransaction`](https://romankyrychenko.github.io/telegramR/reference/InputStarsTransaction.md)
+  : InputStarsTransaction
+- [`InputStickerSetAnimatedEmoji`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetAnimatedEmoji.md)
+  : InputStickerSetAnimatedEmoji
+- [`InputStickerSetAnimatedEmojiAnimations`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetAnimatedEmojiAnimations.md)
+  : InputStickerSetAnimatedEmojiAnimations
+- [`InputStickerSetDice`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetDice.md)
+  : InputStickerSetDice
+- [`InputStickerSetEmojiChannelDefaultStatuses`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetEmojiChannelDefaultStatuses.md)
+  : InputStickerSetEmojiChannelDefaultStatuses
+- [`InputStickerSetEmojiDefaultStatuses`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetEmojiDefaultStatuses.md)
+  : InputStickerSetEmojiDefaultStatuses
+- [`InputStickerSetEmojiDefaultTopicIcons`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetEmojiDefaultTopicIcons.md)
+  : InputStickerSetEmojiDefaultTopicIcons
+- [`InputStickerSetEmojiGenericAnimations`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetEmojiGenericAnimations.md)
+  : InputStickerSetEmojiGenericAnimations
+- [`InputStickerSetEmpty`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetEmpty.md)
+  : InputStickerSetEmpty
+- [`InputStickerSetID`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetID.md)
+  : InputStickerSetID
+- [`InputStickerSetItem`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetItem.md)
+  : InputStickerSetItem
+- [`InputStickerSetPremiumGifts`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetPremiumGifts.md)
+  : InputStickerSetPremiumGifts
+- [`InputStickerSetShortName`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetShortName.md)
+  : InputStickerSetShortName
+- [`InputStickerSetThumb`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetThumb.md)
+  : InputStickerSetThumb
+- [`InputStickerSetTonGifts`](https://romankyrychenko.github.io/telegramR/reference/InputStickerSetTonGifts.md)
+  : InputStickerSetTonGifts
+- [`InputStickeredMediaDocument`](https://romankyrychenko.github.io/telegramR/reference/InputStickeredMediaDocument.md)
+  : InputStickeredMediaDocument
+- [`InputStickeredMediaPhoto`](https://romankyrychenko.github.io/telegramR/reference/InputStickeredMediaPhoto.md)
+  : InputStickeredMediaPhoto
+- [`InputStorePaymentAuthCode`](https://romankyrychenko.github.io/telegramR/reference/InputStorePaymentAuthCode.md)
+  : InputStorePaymentAuthCode
+- [`InputStorePaymentGiftPremium`](https://romankyrychenko.github.io/telegramR/reference/InputStorePaymentGiftPremium.md)
+  : InputStorePaymentGiftPremium
+- [`InputStorePaymentPremiumGiftCode`](https://romankyrychenko.github.io/telegramR/reference/InputStorePaymentPremiumGiftCode.md)
+  : InputStorePaymentPremiumGiftCode
+- [`InputStorePaymentPremiumGiveaway`](https://romankyrychenko.github.io/telegramR/reference/InputStorePaymentPremiumGiveaway.md)
+  : InputStorePaymentPremiumGiveaway
+- [`InputStorePaymentPremiumSubscription`](https://romankyrychenko.github.io/telegramR/reference/InputStorePaymentPremiumSubscription.md)
+  : InputStorePaymentPremiumSubscription
+- [`InputStorePaymentStarsGift`](https://romankyrychenko.github.io/telegramR/reference/InputStorePaymentStarsGift.md)
+  : InputStorePaymentStarsGift
+- [`InputStorePaymentStarsGiveaway`](https://romankyrychenko.github.io/telegramR/reference/InputStorePaymentStarsGiveaway.md)
+  : InputStorePaymentStarsGiveaway
+- [`InputStorePaymentStarsTopup`](https://romankyrychenko.github.io/telegramR/reference/InputStorePaymentStarsTopup.md)
+  : InputStorePaymentStarsTopup
+- [`InputTakeoutFileLocation`](https://romankyrychenko.github.io/telegramR/reference/InputTakeoutFileLocation.md)
+  : InputTakeoutFileLocation
+- [`InputTheme`](https://romankyrychenko.github.io/telegramR/reference/InputTheme.md)
+  : InputTheme
+- [`InputThemeSettings`](https://romankyrychenko.github.io/telegramR/reference/InputThemeSettings.md)
+  : InputThemeSettings
+- [`InputThemeSlug`](https://romankyrychenko.github.io/telegramR/reference/InputThemeSlug.md)
+  : InputThemeSlug
+- [`InputUser`](https://romankyrychenko.github.io/telegramR/reference/InputUser.md)
+  : InputUser
+- [`InputUserEmpty`](https://romankyrychenko.github.io/telegramR/reference/InputUserEmpty.md)
+  : InputUserEmpty
+- [`InputUserFromMessage`](https://romankyrychenko.github.io/telegramR/reference/InputUserFromMessage.md)
+  : InputUserFromMessage
+- [`InputUserSelf`](https://romankyrychenko.github.io/telegramR/reference/InputUserSelf.md)
+  : InputUserSelf
+- [`InputWallPaper`](https://romankyrychenko.github.io/telegramR/reference/InputWallPaper.md)
+  : InputWallPaper
+- [`InputWallPaperNoFile`](https://romankyrychenko.github.io/telegramR/reference/InputWallPaperNoFile.md)
+  : InputWallPaperNoFile
+- [`InputWallPaperSlug`](https://romankyrychenko.github.io/telegramR/reference/InputWallPaperSlug.md)
+  : InputWallPaperSlug
+- [`InputWebDocument`](https://romankyrychenko.github.io/telegramR/reference/InputWebDocument.md)
+  : InputWebDocument
+- [`InputWebFileAudioAlbumThumbLocation`](https://romankyrychenko.github.io/telegramR/reference/InputWebFileAudioAlbumThumbLocation.md)
+  : InputWebFileAudioAlbumThumbLocation
+- [`InputWebFileGeoPointLocation`](https://romankyrychenko.github.io/telegramR/reference/InputWebFileGeoPointLocation.md)
+  : InputWebFileGeoPointLocation
+- [`InputWebFileLocation`](https://romankyrychenko.github.io/telegramR/reference/InputWebFileLocation.md)
+  : InputWebFileLocation
+- [`InstallStickerSetRequest`](https://romankyrychenko.github.io/telegramR/reference/InstallStickerSetRequest.md)
+  : InstallStickerSetRequest
+- [`InstallThemeRequest`](https://romankyrychenko.github.io/telegramR/reference/InstallThemeRequest.md)
+  : InstallThemeRequest
+- [`InstallWallPaperRequest`](https://romankyrychenko.github.io/telegramR/reference/InstallWallPaperRequest.md)
+  : InstallWallPaperRequest
+- [`IntermediatePacketCodec`](https://romankyrychenko.github.io/telegramR/reference/IntermediatePacketCodec.md)
+  : IntermediatePacketCodec
+- [`InvalidBufferError`](https://romankyrychenko.github.io/telegramR/reference/InvalidBufferError.md)
+  : InvalidBufferError
+- [`InvalidChecksumError`](https://romankyrychenko.github.io/telegramR/reference/InvalidChecksumError.md)
+  : InvalidChecksumError
+- [`InvalidateSignInCodesRequest`](https://romankyrychenko.github.io/telegramR/reference/InvalidateSignInCodesRequest.md)
+  : InvalidateSignInCodesRequest
+- [`InviteConferenceCallParticipantRequest`](https://romankyrychenko.github.io/telegramR/reference/InviteConferenceCallParticipantRequest.md)
+  : InviteConferenceCallParticipantRequest
+- [`InviteToChannelRequest`](https://romankyrychenko.github.io/telegramR/reference/InviteToChannelRequest.md)
+  : InviteToChannelRequest
+- [`InviteToGroupCallRequest`](https://romankyrychenko.github.io/telegramR/reference/InviteToGroupCallRequest.md)
+  : InviteToGroupCallRequest
+- [`Invoice`](https://romankyrychenko.github.io/telegramR/reference/Invoice.md)
+  : Invoice
+- [`InvokeAfterMsgRequest`](https://romankyrychenko.github.io/telegramR/reference/InvokeAfterMsgRequest.md)
+  : InvokeAfterMsgRequest R6 class
+- [`InvokeAfterMsgRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/InvokeAfterMsgRequest_from_reader.md)
+  : Create InvokeAfterMsgRequest from a binary reader
+- [`InvokeAfterMsgsRequest`](https://romankyrychenko.github.io/telegramR/reference/InvokeAfterMsgsRequest.md)
+  : InvokeAfterMsgsRequest R6 class
+- [`InvokeAfterMsgsRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/InvokeAfterMsgsRequest_from_reader.md)
+  : Create InvokeAfterMsgsRequest from a binary reader
+- [`InvokeWebViewCustomMethodRequest`](https://romankyrychenko.github.io/telegramR/reference/InvokeWebViewCustomMethodRequest.md)
+  : InvokeWebViewCustomMethodRequest
+- [`InvokeWithApnsSecretRequest`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithApnsSecretRequest.md)
+  : InvokeWithApnsSecretRequest R6 class
+- [`InvokeWithApnsSecretRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithApnsSecretRequest_from_reader.md)
+  : Create InvokeWithApnsSecretRequest from a binary reader
+- [`InvokeWithBusinessConnectionRequest`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithBusinessConnectionRequest.md)
+  : InvokeWithBusinessConnectionRequest R6 class
+- [`InvokeWithBusinessConnectionRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithBusinessConnectionRequest_from_reader.md)
+  : Create InvokeWithBusinessConnectionRequest from a reader
+- [`InvokeWithGooglePlayIntegrityRequest`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithGooglePlayIntegrityRequest.md)
+  : InvokeWithGooglePlayIntegrityRequest R6 class
+- [`InvokeWithGooglePlayIntegrityRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithGooglePlayIntegrityRequest_from_reader.md)
+  : Create InvokeWithGooglePlayIntegrityRequest from a reader
+- [`InvokeWithLayerRequest`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithLayerRequest.md)
+  : InvokeWithLayerRequest R6 class
+- [`InvokeWithLayerRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithLayerRequest_from_reader.md)
+  : Create InvokeWithLayerRequest from a binary reader
+- [`InvokeWithMessagesRangeRequest`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithMessagesRangeRequest.md)
+  : InvokeWithMessagesRangeRequest R6 class
+- [`InvokeWithMessagesRangeRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithMessagesRangeRequest_from_reader.md)
+  : Create InvokeWithMessagesRangeRequest from a binary reader
+- [`InvokeWithReCaptchaRequest`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithReCaptchaRequest.md)
+  : InvokeWithReCaptchaRequest R6 class
+- [`InvokeWithReCaptchaRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithReCaptchaRequest_from_reader.md)
+  : Create InvokeWithReCaptchaRequest from a binary reader
+- [`InvokeWithTakeoutRequest`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithTakeoutRequest.md)
+  : InvokeWithTakeoutRequest R6 class
+- [`InvokeWithTakeoutRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithTakeoutRequest_from_reader.md)
+  : Create InvokeWithTakeoutRequest from a binary reader
+- [`InvokeWithoutUpdatesRequest`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithoutUpdatesRequest.md)
+  : InvokeWithoutUpdatesRequest R6 class
+- [`InvokeWithoutUpdatesRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/InvokeWithoutUpdatesRequest_from_reader.md)
+  : Create InvokeWithoutUpdatesRequest from a binary reader
+- [`IpPort`](https://romankyrychenko.github.io/telegramR/reference/IpPort.md)
+  : IpPort
+- [`IpPortSecret`](https://romankyrychenko.github.io/telegramR/reference/IpPortSecret.md)
+  : IpPortSecret
+- [`IsEligibleToJoinRequest`](https://romankyrychenko.github.io/telegramR/reference/IsEligibleToJoinRequest.md)
+  : IsEligibleToJoinRequest
+- [`JoinChannelRequest`](https://romankyrychenko.github.io/telegramR/reference/JoinChannelRequest.md)
+  : JoinChannelRequest
+- [`JoinChatlistInviteRequest`](https://romankyrychenko.github.io/telegramR/reference/JoinChatlistInviteRequest.md)
+  : JoinChatlistInviteRequest
+- [`JoinChatlistUpdatesRequest`](https://romankyrychenko.github.io/telegramR/reference/JoinChatlistUpdatesRequest.md)
+  : JoinChatlistUpdatesRequest
+- [`JoinGroupCallPresentationRequest`](https://romankyrychenko.github.io/telegramR/reference/JoinGroupCallPresentationRequest.md)
+  : JoinGroupCallPresentationRequest
+- [`JoinGroupCallRequest`](https://romankyrychenko.github.io/telegramR/reference/JoinGroupCallRequest.md)
+  : JoinGroupCallRequest
+- [`JoinRequest`](https://romankyrychenko.github.io/telegramR/reference/JoinRequest.md)
+  : JoinRequest
+- [`JsonArray`](https://romankyrychenko.github.io/telegramR/reference/JsonArray.md)
+  : JsonArray
+- [`JsonBool`](https://romankyrychenko.github.io/telegramR/reference/JsonBool.md)
+  : JsonBool
+- [`JsonNull`](https://romankyrychenko.github.io/telegramR/reference/JsonNull.md)
+  : JsonNull
+- [`JsonNumber`](https://romankyrychenko.github.io/telegramR/reference/JsonNumber.md)
+  : JsonNumber
+- [`JsonObject`](https://romankyrychenko.github.io/telegramR/reference/JsonObject.md)
+  : JsonObject
+- [`JsonObjectValue`](https://romankyrychenko.github.io/telegramR/reference/JsonObjectValue.md)
+  : JsonObjectValue
+- [`JsonString`](https://romankyrychenko.github.io/telegramR/reference/JsonString.md)
+  : JsonString
+- [`KeyboardButton`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButton.md)
+  : KeyboardButton
+- [`KeyboardButtonBuy`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonBuy.md)
+  : KeyboardButtonBuy
+- [`KeyboardButtonCallback`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonCallback.md)
+  : KeyboardButtonCallback
+- [`KeyboardButtonCopy`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonCopy.md)
+  : KeyboardButtonCopy
+- [`KeyboardButtonGame`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonGame.md)
+  : KeyboardButtonGame
+- [`KeyboardButtonRequestGeoLocation`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonRequestGeoLocation.md)
+  : KeyboardButtonRequestGeoLocation
+- [`KeyboardButtonRequestPeer`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonRequestPeer.md)
+  : KeyboardButtonRequestPeer
+- [`KeyboardButtonRequestPhone`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonRequestPhone.md)
+  : KeyboardButtonRequestPhone
+- [`KeyboardButtonRequestPoll`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonRequestPoll.md)
+  : KeyboardButtonRequestPoll
+- [`KeyboardButtonRow`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonRow.md)
+  : KeyboardButtonRow
+- [`KeyboardButtonSimpleWebView`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonSimpleWebView.md)
+  : KeyboardButtonSimpleWebView
+- [`KeyboardButtonSwitchInline`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonSwitchInline.md)
+  : KeyboardButtonSwitchInline
+- [`KeyboardButtonUrl`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonUrl.md)
+  : KeyboardButtonUrl
+- [`KeyboardButtonUrlAuth`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonUrlAuth.md)
+  : KeyboardButtonUrlAuth
+- [`KeyboardButtonUserProfile`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonUserProfile.md)
+  : KeyboardButtonUserProfile
+- [`KeyboardButtonWebView`](https://romankyrychenko.github.io/telegramR/reference/KeyboardButtonWebView.md)
+  : KeyboardButtonWebView
+- [`LabeledPrice`](https://romankyrychenko.github.io/telegramR/reference/LabeledPrice.md)
+  : LabeledPrice
+- [`LangPackDifference`](https://romankyrychenko.github.io/telegramR/reference/LangPackDifference.md)
+  : LangPackDifference
+- [`LangPackLanguage`](https://romankyrychenko.github.io/telegramR/reference/LangPackLanguage.md)
+  : LangPackLanguage
+- [`LangPackString`](https://romankyrychenko.github.io/telegramR/reference/LangPackString.md)
+  : LangPackString
+- [`LangPackStringDeleted`](https://romankyrychenko.github.io/telegramR/reference/LangPackStringDeleted.md)
+  : LangPackStringDeleted
+- [`LangPackStringPluralized`](https://romankyrychenko.github.io/telegramR/reference/LangPackStringPluralized.md)
+  : LangPackStringPluralized
+- [`LaunchPrepaidGiveawayRequest`](https://romankyrychenko.github.io/telegramR/reference/LaunchPrepaidGiveawayRequest.md)
+  : LaunchPrepaidGiveawayRequest
+- [`LeaveChannelRequest`](https://romankyrychenko.github.io/telegramR/reference/LeaveChannelRequest.md)
+  : LeaveChannelRequest
+- [`LeaveChatlistRequest`](https://romankyrychenko.github.io/telegramR/reference/LeaveChatlistRequest.md)
+  : LeaveChatlistRequest
+- [`LeaveGroupCallPresentationRequest`](https://romankyrychenko.github.io/telegramR/reference/LeaveGroupCallPresentationRequest.md)
+  : LeaveGroupCallPresentationRequest
+- [`LeaveGroupCallRequest`](https://romankyrychenko.github.io/telegramR/reference/LeaveGroupCallRequest.md)
+  : LeaveGroupCallRequest
+- [`LeaveRequest`](https://romankyrychenko.github.io/telegramR/reference/LeaveRequest.md)
+  : LeaveRequest
+- [`LoadAsyncGraphRequest`](https://romankyrychenko.github.io/telegramR/reference/LoadAsyncGraphRequest.md)
+  : LoadAsyncGraphRequest
+- [`LogOutRequest`](https://romankyrychenko.github.io/telegramR/reference/LogOutRequest.md)
+  : LogOutRequest
+- [`MAX_RECENT_MSG_IDS`](https://romankyrychenko.github.io/telegramR/reference/MAX_RECENT_MSG_IDS.md)
+  : Constants
+- [`MIN_CHUNK_SIZE`](https://romankyrychenko.github.io/telegramR/reference/MIN_CHUNK_SIZE.md)
+  : Constants for file operations
+- [`MTProtoPlainSender`](https://romankyrychenko.github.io/telegramR/reference/MTProtoPlainSender.md)
+  : MTProtoPlainSender
+- [`MTProtoSender`](https://romankyrychenko.github.io/telegramR/reference/MTProtoSender.md)
+  : MTProtoSender
+- [`MTProtoState`](https://romankyrychenko.github.io/telegramR/reference/MTProtoState.md)
+  : MTProtoState
+- [`MTProxyIO`](https://romankyrychenko.github.io/telegramR/reference/MTProxyIO.md)
+  : MTProxyIO
+- [`MarkDialogUnreadRequest`](https://romankyrychenko.github.io/telegramR/reference/MarkDialogUnreadRequest.md)
+  : MarkDialogUnreadRequest
+- [`MaskCoords`](https://romankyrychenko.github.io/telegramR/reference/MaskCoords.md)
+  : MaskCoords
+- [`MediaAreaChannelPost`](https://romankyrychenko.github.io/telegramR/reference/MediaAreaChannelPost.md)
+  : MediaAreaChannelPost
+- [`MediaAreaCoordinates`](https://romankyrychenko.github.io/telegramR/reference/MediaAreaCoordinates.md)
+  : MediaAreaCoordinates
+- [`MediaAreaGeoPoint`](https://romankyrychenko.github.io/telegramR/reference/MediaAreaGeoPoint.md)
+  : MediaAreaGeoPoint
+- [`MediaAreaStarGift`](https://romankyrychenko.github.io/telegramR/reference/MediaAreaStarGift.md)
+  : MediaAreaStarGift
+- [`MediaAreaSuggestedReaction`](https://romankyrychenko.github.io/telegramR/reference/MediaAreaSuggestedReaction.md)
+  : MediaAreaSuggestedReaction
+- [`MediaAreaUrl`](https://romankyrychenko.github.io/telegramR/reference/MediaAreaUrl.md)
+  : MediaAreaUrl
+- [`MediaAreaVenue`](https://romankyrychenko.github.io/telegramR/reference/MediaAreaVenue.md)
+  : MediaAreaVenue
+- [`MediaAreaWeather`](https://romankyrychenko.github.io/telegramR/reference/MediaAreaWeather.md)
+  : MediaAreaWeather
+- [`Message`](https://romankyrychenko.github.io/telegramR/reference/Message.md)
+  : Message
+- [`MessageActionBoostApply`](https://romankyrychenko.github.io/telegramR/reference/MessageActionBoostApply.md)
+  : MessageActionBoostApply
+- [`MessageActionBotAllowed`](https://romankyrychenko.github.io/telegramR/reference/MessageActionBotAllowed.md)
+  : MessageActionBotAllowed
+- [`MessageActionChannelCreate`](https://romankyrychenko.github.io/telegramR/reference/MessageActionChannelCreate.md)
+  : MessageActionChannelCreate
+- [`MessageActionChannelMigrateFrom`](https://romankyrychenko.github.io/telegramR/reference/MessageActionChannelMigrateFrom.md)
+  : MessageActionChannelMigrateFrom
+- [`MessageActionChatAddUser`](https://romankyrychenko.github.io/telegramR/reference/MessageActionChatAddUser.md)
+  : MessageActionChatAddUser
+- [`MessageActionChatCreate`](https://romankyrychenko.github.io/telegramR/reference/MessageActionChatCreate.md)
+  : MessageActionChatCreate
+- [`MessageActionChatDeletePhoto`](https://romankyrychenko.github.io/telegramR/reference/MessageActionChatDeletePhoto.md)
+  : MessageActionChatDeletePhoto
+- [`MessageActionChatDeleteUser`](https://romankyrychenko.github.io/telegramR/reference/MessageActionChatDeleteUser.md)
+  : MessageActionChatDeleteUser
+- [`MessageActionChatEditPhoto`](https://romankyrychenko.github.io/telegramR/reference/MessageActionChatEditPhoto.md)
+  : MessageActionChatEditPhoto
+- [`MessageActionChatEditTitle`](https://romankyrychenko.github.io/telegramR/reference/MessageActionChatEditTitle.md)
+  : MessageActionChatEditTitle
+- [`MessageActionChatJoinedByLink`](https://romankyrychenko.github.io/telegramR/reference/MessageActionChatJoinedByLink.md)
+  : MessageActionChatJoinedByLink
+- [`MessageActionChatJoinedByRequest`](https://romankyrychenko.github.io/telegramR/reference/MessageActionChatJoinedByRequest.md)
+  : MessageActionChatJoinedByRequest
+- [`MessageActionChatMigrateTo`](https://romankyrychenko.github.io/telegramR/reference/MessageActionChatMigrateTo.md)
+  : MessageActionChatMigrateTo
+- [`MessageActionConferenceCall`](https://romankyrychenko.github.io/telegramR/reference/MessageActionConferenceCall.md)
+  : MessageActionConferenceCall
+- [`MessageActionContactSignUp`](https://romankyrychenko.github.io/telegramR/reference/MessageActionContactSignUp.md)
+  : MessageActionContactSignUp
+- [`MessageActionCustomAction`](https://romankyrychenko.github.io/telegramR/reference/MessageActionCustomAction.md)
+  : MessageActionCustomAction
+- [`MessageActionEmpty`](https://romankyrychenko.github.io/telegramR/reference/MessageActionEmpty.md)
+  : MessageActionEmpty
+- [`MessageActionGameScore`](https://romankyrychenko.github.io/telegramR/reference/MessageActionGameScore.md)
+  : MessageActionGameScore
+- [`MessageActionGeoProximityReached`](https://romankyrychenko.github.io/telegramR/reference/MessageActionGeoProximityReached.md)
+  : MessageActionGeoProximityReached
+- [`MessageActionGiftCode`](https://romankyrychenko.github.io/telegramR/reference/MessageActionGiftCode.md)
+  : MessageActionGiftCode
+- [`MessageActionGiftPremium`](https://romankyrychenko.github.io/telegramR/reference/MessageActionGiftPremium.md)
+  : MessageActionGiftPremium
+- [`MessageActionGiftStars`](https://romankyrychenko.github.io/telegramR/reference/MessageActionGiftStars.md)
+  : MessageActionGiftStars
+- [`MessageActionGiftTon`](https://romankyrychenko.github.io/telegramR/reference/MessageActionGiftTon.md)
+  : MessageActionGiftTon
+- [`MessageActionGiveawayLaunch`](https://romankyrychenko.github.io/telegramR/reference/MessageActionGiveawayLaunch.md)
+  : MessageActionGiveawayLaunch
+- [`MessageActionGiveawayResults`](https://romankyrychenko.github.io/telegramR/reference/MessageActionGiveawayResults.md)
+  : MessageActionGiveawayResults
+- [`MessageActionGroupCall`](https://romankyrychenko.github.io/telegramR/reference/MessageActionGroupCall.md)
+  : MessageActionGroupCall
+- [`MessageActionGroupCallScheduled`](https://romankyrychenko.github.io/telegramR/reference/MessageActionGroupCallScheduled.md)
+  : MessageActionGroupCallScheduled
+- [`MessageActionHistoryClear`](https://romankyrychenko.github.io/telegramR/reference/MessageActionHistoryClear.md)
+  : MessageActionHistoryClear
+- [`MessageActionInviteToGroupCall`](https://romankyrychenko.github.io/telegramR/reference/MessageActionInviteToGroupCall.md)
+  : MessageActionInviteToGroupCall
+- [`MessageActionPaidMessagesPrice`](https://romankyrychenko.github.io/telegramR/reference/MessageActionPaidMessagesPrice.md)
+  : MessageActionPaidMessagesPrice
+- [`MessageActionPaidMessagesRefunded`](https://romankyrychenko.github.io/telegramR/reference/MessageActionPaidMessagesRefunded.md)
+  : MessageActionPaidMessagesRefunded
+- [`MessageActionPaymentRefunded`](https://romankyrychenko.github.io/telegramR/reference/MessageActionPaymentRefunded.md)
+  : MessageActionPaymentRefunded
+- [`MessageActionPaymentSent`](https://romankyrychenko.github.io/telegramR/reference/MessageActionPaymentSent.md)
+  : MessageActionPaymentSent
+- [`MessageActionPaymentSentMe`](https://romankyrychenko.github.io/telegramR/reference/MessageActionPaymentSentMe.md)
+  : MessageActionPaymentSentMe
+- [`MessageActionPhoneCall`](https://romankyrychenko.github.io/telegramR/reference/MessageActionPhoneCall.md)
+  : MessageActionPhoneCall
+- [`MessageActionPinMessage`](https://romankyrychenko.github.io/telegramR/reference/MessageActionPinMessage.md)
+  : MessageActionPinMessage
+- [`MessageActionPrizeStars`](https://romankyrychenko.github.io/telegramR/reference/MessageActionPrizeStars.md)
+  : MessageActionPrizeStars
+- [`MessageActionRequestedPeer`](https://romankyrychenko.github.io/telegramR/reference/MessageActionRequestedPeer.md)
+  : MessageActionRequestedPeer
+- [`MessageActionRequestedPeerSentMe`](https://romankyrychenko.github.io/telegramR/reference/MessageActionRequestedPeerSentMe.md)
+  : MessageActionRequestedPeerSentMe
+- [`MessageActionScreenshotTaken`](https://romankyrychenko.github.io/telegramR/reference/MessageActionScreenshotTaken.md)
+  : MessageActionScreenshotTaken
+- [`MessageActionSecureValuesSent`](https://romankyrychenko.github.io/telegramR/reference/MessageActionSecureValuesSent.md)
+  : MessageActionSecureValuesSent
+- [`MessageActionSecureValuesSentMe`](https://romankyrychenko.github.io/telegramR/reference/MessageActionSecureValuesSentMe.md)
+  : MessageActionSecureValuesSentMe
+- [`MessageActionSetChatTheme`](https://romankyrychenko.github.io/telegramR/reference/MessageActionSetChatTheme.md)
+  : MessageActionSetChatTheme
+- [`MessageActionSetChatWallPaper`](https://romankyrychenko.github.io/telegramR/reference/MessageActionSetChatWallPaper.md)
+  : MessageActionSetChatWallPaper
+- [`MessageActionSetMessagesTTL`](https://romankyrychenko.github.io/telegramR/reference/MessageActionSetMessagesTTL.md)
+  : MessageActionSetMessagesTTL
+- [`MessageActionStarGift`](https://romankyrychenko.github.io/telegramR/reference/MessageActionStarGift.md)
+  : MessageActionStarGift
+- [`MessageActionStarGiftUnique`](https://romankyrychenko.github.io/telegramR/reference/MessageActionStarGiftUnique.md)
+  : MessageActionStarGiftUnique
+- [`MessageActionSuggestProfilePhoto`](https://romankyrychenko.github.io/telegramR/reference/MessageActionSuggestProfilePhoto.md)
+  : MessageActionSuggestProfilePhoto
+- [`MessageActionSuggestedPostApproval`](https://romankyrychenko.github.io/telegramR/reference/MessageActionSuggestedPostApproval.md)
+  : MessageActionSuggestedPostApproval
+- [`MessageActionSuggestedPostRefund`](https://romankyrychenko.github.io/telegramR/reference/MessageActionSuggestedPostRefund.md)
+  : MessageActionSuggestedPostRefund
+- [`MessageActionSuggestedPostSuccess`](https://romankyrychenko.github.io/telegramR/reference/MessageActionSuggestedPostSuccess.md)
+  : MessageActionSuggestedPostSuccess
+- [`MessageActionTodoAppendTasks`](https://romankyrychenko.github.io/telegramR/reference/MessageActionTodoAppendTasks.md)
+  : MessageActionTodoAppendTasks
+- [`MessageActionTodoCompletions`](https://romankyrychenko.github.io/telegramR/reference/MessageActionTodoCompletions.md)
+  : MessageActionTodoCompletions
+- [`MessageActionTopicCreate`](https://romankyrychenko.github.io/telegramR/reference/MessageActionTopicCreate.md)
+  : MessageActionTopicCreate
+- [`MessageActionTopicEdit`](https://romankyrychenko.github.io/telegramR/reference/MessageActionTopicEdit.md)
+  : MessageActionTopicEdit
+- [`MessageActionWebViewDataSent`](https://romankyrychenko.github.io/telegramR/reference/MessageActionWebViewDataSent.md)
+  : MessageActionWebViewDataSent
+- [`MessageActionWebViewDataSentMe`](https://romankyrychenko.github.io/telegramR/reference/MessageActionWebViewDataSentMe.md)
+  : MessageActionWebViewDataSentMe
+- [`MessageContainer`](https://romankyrychenko.github.io/telegramR/reference/MessageContainer.md)
+  : R6 Class Representing a MessageContainer
+- [`MessageEmpty`](https://romankyrychenko.github.io/telegramR/reference/MessageEmpty.md)
+  : MessageEmpty
+- [`MessageEntityBankCard`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityBankCard.md)
+  : MessageEntityBankCard
+- [`MessageEntityBlockquote`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityBlockquote.md)
+  : MessageEntityBlockquote
+- [`MessageEntityBold`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityBold.md)
+  : MessageEntityBold
+- [`MessageEntityBotCommand`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityBotCommand.md)
+  : MessageEntityBotCommand
+- [`MessageEntityCashtag`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityCashtag.md)
+  : MessageEntityCashtag
+- [`MessageEntityCode`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityCode.md)
+  : MessageEntityCode
+- [`MessageEntityCustomEmoji`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityCustomEmoji.md)
+  : MessageEntityCustomEmoji
+- [`MessageEntityEmail`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityEmail.md)
+  : MessageEntityEmail
+- [`MessageEntityHashtag`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityHashtag.md)
+  : MessageEntityHashtag
+- [`MessageEntityItalic`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityItalic.md)
+  : MessageEntityItalic
+- [`MessageEntityMention`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityMention.md)
+  : MessageEntityMention
+- [`MessageEntityMentionName`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityMentionName.md)
+  : MessageEntityMentionName
+- [`MessageEntityPhone`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityPhone.md)
+  : MessageEntityPhone
+- [`MessageEntityPre`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityPre.md)
+  : MessageEntityPre
+- [`MessageEntitySpoiler`](https://romankyrychenko.github.io/telegramR/reference/MessageEntitySpoiler.md)
+  : MessageEntitySpoiler
+- [`MessageEntityStrike`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityStrike.md)
+  : MessageEntityStrike
+- [`MessageEntityTextUrl`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityTextUrl.md)
+  : MessageEntityTextUrl
+- [`MessageEntityUnderline`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityUnderline.md)
+  : MessageEntityUnderline
+- [`MessageEntityUnknown`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityUnknown.md)
+  : MessageEntityUnknown
+- [`MessageEntityUrl`](https://romankyrychenko.github.io/telegramR/reference/MessageEntityUrl.md)
+  : MessageEntityUrl
+- [`MessageExtendedMedia`](https://romankyrychenko.github.io/telegramR/reference/MessageExtendedMedia.md)
+  : MessageExtendedMedia
+- [`MessageExtendedMediaPreview`](https://romankyrychenko.github.io/telegramR/reference/MessageExtendedMediaPreview.md)
+  : MessageExtendedMediaPreview
+- [`MessageFwdHeader`](https://romankyrychenko.github.io/telegramR/reference/MessageFwdHeader.md)
+  : MessageFwdHeader
+- [`MessageMediaContact`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaContact.md)
+  : MessageMediaContact
+- [`MessageMediaDice`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaDice.md)
+  : MessageMediaDice
+- [`MessageMediaDocument`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaDocument.md)
+  : MessageMediaDocument
+- [`MessageMediaEmpty`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaEmpty.md)
+  : MessageMediaEmpty
+- [`MessageMediaGame`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaGame.md)
+  : MessageMediaGame
+- [`MessageMediaGeo`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaGeo.md)
+  : MessageMediaGeo
+- [`MessageMediaGeoLive`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaGeoLive.md)
+  : MessageMediaGeoLive
+- [`MessageMediaGiveaway`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaGiveaway.md)
+  : MessageMediaGiveaway
+- [`MessageMediaGiveawayResults`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaGiveawayResults.md)
+  : MessageMediaGiveawayResults
+- [`MessageMediaInvoice`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaInvoice.md)
+  : MessageMediaInvoice
+- [`MessageMediaPaidMedia`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaPaidMedia.md)
+  : MessageMediaPaidMedia
+- [`MessageMediaPhoto`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaPhoto.md)
+  : MessageMediaPhoto
+- [`MessageMediaPoll`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaPoll.md)
+  : MessageMediaPoll
+- [`MessageMediaStory`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaStory.md)
+  : MessageMediaStory
+- [`MessageMediaToDo`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaToDo.md)
+  : MessageMediaToDo
+- [`MessageMediaUnsupported`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaUnsupported.md)
+  : MessageMediaUnsupported
+- [`MessageMediaVenue`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaVenue.md)
+  : MessageMediaVenue
+- [`MessageMediaWebPage`](https://romankyrychenko.github.io/telegramR/reference/MessageMediaWebPage.md)
+  : MessageMediaWebPage
+- [`MessagePacker`](https://romankyrychenko.github.io/telegramR/reference/MessagePacker.md)
+  : MessagePacker
+- [`MessageParseMethods`](https://romankyrychenko.github.io/telegramR/reference/MessageParseMethods.md)
+  : MessageParseMethods
+- [`MessagePeerReaction`](https://romankyrychenko.github.io/telegramR/reference/MessagePeerReaction.md)
+  : MessagePeerReaction
+- [`MessagePeerVote`](https://romankyrychenko.github.io/telegramR/reference/MessagePeerVote.md)
+  : MessagePeerVote
+- [`MessagePeerVoteInputOption`](https://romankyrychenko.github.io/telegramR/reference/MessagePeerVoteInputOption.md)
+  : MessagePeerVoteInputOption
+- [`MessagePeerVoteMultiple`](https://romankyrychenko.github.io/telegramR/reference/MessagePeerVoteMultiple.md)
+  : MessagePeerVoteMultiple
+- [`MessageRange`](https://romankyrychenko.github.io/telegramR/reference/MessageRange.md)
+  : MessageRange
+- [`MessageReactions`](https://romankyrychenko.github.io/telegramR/reference/MessageReactions.md)
+  : MessageReactions
+- [`MessageReactor`](https://romankyrychenko.github.io/telegramR/reference/MessageReactor.md)
+  : MessageReactor
+- [`MessageReplies`](https://romankyrychenko.github.io/telegramR/reference/MessageReplies.md)
+  : MessageReplies
+- [`MessageReplyHeader`](https://romankyrychenko.github.io/telegramR/reference/MessageReplyHeader.md)
+  : MessageReplyHeader
+- [`MessageReplyStoryHeader`](https://romankyrychenko.github.io/telegramR/reference/MessageReplyStoryHeader.md)
+  : MessageReplyStoryHeader
+- [`MessageReportOption`](https://romankyrychenko.github.io/telegramR/reference/MessageReportOption.md)
+  : MessageReportOption
+- [`MessageService`](https://romankyrychenko.github.io/telegramR/reference/MessageService.md)
+  : MessageService
+- [`MessageViews`](https://romankyrychenko.github.io/telegramR/reference/MessageViews.md)
+  : MessageViews
+- [`MessagesIter`](https://romankyrychenko.github.io/telegramR/reference/MessagesIter.md)
+  : MessagesIter
+- [`MigrateChatRequest`](https://romankyrychenko.github.io/telegramR/reference/MigrateChatRequest.md)
+  : MigrateChatRequest
+- [`MissingInvitee`](https://romankyrychenko.github.io/telegramR/reference/MissingInvitee.md)
+  : MissingInvitee
+- [`MonoForumDialog`](https://romankyrychenko.github.io/telegramR/reference/MonoForumDialog.md)
+  : MonoForumDialog
+- [`MsgDetailedInfo`](https://romankyrychenko.github.io/telegramR/reference/MsgDetailedInfo.md)
+  : MsgDetailedInfo
+- [`MsgNewDetailedInfo`](https://romankyrychenko.github.io/telegramR/reference/MsgNewDetailedInfo.md)
+  : MsgNewDetailedInfo
+- [`MsgResendReq`](https://romankyrychenko.github.io/telegramR/reference/MsgResendReq.md)
+  : MsgResendReq
+- [`MsgsAck`](https://romankyrychenko.github.io/telegramR/reference/MsgsAck.md)
+  : MsgsAck
+- [`MsgsAllInfo`](https://romankyrychenko.github.io/telegramR/reference/MsgsAllInfo.md)
+  : MsgsAllInfo
+- [`MsgsStateInfo`](https://romankyrychenko.github.io/telegramR/reference/MsgsStateInfo.md)
+  : MsgsStateInfo
+- [`MsgsStateReq`](https://romankyrychenko.github.io/telegramR/reference/MsgsStateReq.md)
+  : MsgsStateReq
+- [`MultiError`](https://romankyrychenko.github.io/telegramR/reference/MultiError.md)
+  : MultiError
+- [`MyBoost`](https://romankyrychenko.github.io/telegramR/reference/MyBoost.md)
+  : MyBoost
+- [`NearestDc`](https://romankyrychenko.github.io/telegramR/reference/NearestDc.md)
+  : NearestDc
+- [`NewSessionCreated`](https://romankyrychenko.github.io/telegramR/reference/NewSessionCreated.md)
+  : NewSessionCreated
+- [`NotificationSoundDefault`](https://romankyrychenko.github.io/telegramR/reference/NotificationSoundDefault.md)
+  : NotificationSoundDefault
+- [`NotificationSoundLocal`](https://romankyrychenko.github.io/telegramR/reference/NotificationSoundLocal.md)
+  : NotificationSoundLocal
+- [`NotificationSoundNone`](https://romankyrychenko.github.io/telegramR/reference/NotificationSoundNone.md)
+  : NotificationSoundNone
+- [`NotificationSoundRingtone`](https://romankyrychenko.github.io/telegramR/reference/NotificationSoundRingtone.md)
+  : NotificationSoundRingtone
+- [`NotifyBroadcasts`](https://romankyrychenko.github.io/telegramR/reference/NotifyBroadcasts.md)
+  : NotifyBroadcasts
+- [`NotifyChats`](https://romankyrychenko.github.io/telegramR/reference/NotifyChats.md)
+  : NotifyChats
+- [`NotifyForumTopic`](https://romankyrychenko.github.io/telegramR/reference/NotifyForumTopic.md)
+  : NotifyForumTopic
+- [`NotifyPeer`](https://romankyrychenko.github.io/telegramR/reference/NotifyPeer.md)
+  : NotifyPeer
+- [`NotifyUsers`](https://romankyrychenko.github.io/telegramR/reference/NotifyUsers.md)
+  : NotifyUsers
+- [`ObfuscatedConnection`](https://romankyrychenko.github.io/telegramR/reference/ObfuscatedConnection.md)
+  : ObfuscatedConnection Class
+- [`ObfuscatedIO`](https://romankyrychenko.github.io/telegramR/reference/ObfuscatedIO.md)
+  : ObfuscatedIO
+- [`OpaqueRequest`](https://romankyrychenko.github.io/telegramR/reference/OpaqueRequest.md)
+  : OpaqueRequest
+- [`OutboxReadDate`](https://romankyrychenko.github.io/telegramR/reference/OutboxReadDate.md)
+  : OutboxReadDate
+- [`PQInnerData`](https://romankyrychenko.github.io/telegramR/reference/PQInnerData.md)
+  : PQInnerData
+- [`PQInnerDataDc`](https://romankyrychenko.github.io/telegramR/reference/PQInnerDataDc.md)
+  : PQInnerDataDc
+- [`PQInnerDataTemp`](https://romankyrychenko.github.io/telegramR/reference/PQInnerDataTemp.md)
+  : PQInnerDataTemp
+- [`PQInnerDataTempDc`](https://romankyrychenko.github.io/telegramR/reference/PQInnerDataTempDc.md)
+  : PQInnerDataTempDc
+- [`PacketCodec`](https://romankyrychenko.github.io/telegramR/reference/PacketCodec.md)
+  : PacketCodec Class
+- [`Page`](https://romankyrychenko.github.io/telegramR/reference/Page.md)
+  : Page
+- [`PageBlockAnchor`](https://romankyrychenko.github.io/telegramR/reference/PageBlockAnchor.md)
+  : PageBlockAnchor
+- [`PageBlockAudio`](https://romankyrychenko.github.io/telegramR/reference/PageBlockAudio.md)
+  : PageBlockAudio
+- [`PageBlockAuthorDate`](https://romankyrychenko.github.io/telegramR/reference/PageBlockAuthorDate.md)
+  : PageBlockAuthorDate
+- [`PageBlockBlockquote`](https://romankyrychenko.github.io/telegramR/reference/PageBlockBlockquote.md)
+  : PageBlockBlockquote
+- [`PageBlockChannel`](https://romankyrychenko.github.io/telegramR/reference/PageBlockChannel.md)
+  : PageBlockChannel
+- [`PageBlockCollage`](https://romankyrychenko.github.io/telegramR/reference/PageBlockCollage.md)
+  : PageBlockCollage
+- [`PageBlockCover`](https://romankyrychenko.github.io/telegramR/reference/PageBlockCover.md)
+  : PageBlockCover
+- [`PageBlockDetails`](https://romankyrychenko.github.io/telegramR/reference/PageBlockDetails.md)
+  : PageBlockDetails
+- [`PageBlockDivider`](https://romankyrychenko.github.io/telegramR/reference/PageBlockDivider.md)
+  : PageBlockDivider
+- [`PageBlockEmbed`](https://romankyrychenko.github.io/telegramR/reference/PageBlockEmbed.md)
+  : PageBlockEmbed
+- [`PageBlockEmbedPost`](https://romankyrychenko.github.io/telegramR/reference/PageBlockEmbedPost.md)
+  : PageBlockEmbedPost
+- [`PageBlockFooter`](https://romankyrychenko.github.io/telegramR/reference/PageBlockFooter.md)
+  : PageBlockFooter
+- [`PageBlockHeader`](https://romankyrychenko.github.io/telegramR/reference/PageBlockHeader.md)
+  : PageBlockHeader
+- [`PageBlockKicker`](https://romankyrychenko.github.io/telegramR/reference/PageBlockKicker.md)
+  : PageBlockKicker
+- [`PageBlockList`](https://romankyrychenko.github.io/telegramR/reference/PageBlockList.md)
+  : PageBlockList
+- [`PageBlockMap`](https://romankyrychenko.github.io/telegramR/reference/PageBlockMap.md)
+  : PageBlockMap
+- [`PageBlockOrderedList`](https://romankyrychenko.github.io/telegramR/reference/PageBlockOrderedList.md)
+  : PageBlockOrderedList
+- [`PageBlockParagraph`](https://romankyrychenko.github.io/telegramR/reference/PageBlockParagraph.md)
+  : PageBlockParagraph
+- [`PageBlockPhoto`](https://romankyrychenko.github.io/telegramR/reference/PageBlockPhoto.md)
+  : PageBlockPhoto
+- [`PageBlockPreformatted`](https://romankyrychenko.github.io/telegramR/reference/PageBlockPreformatted.md)
+  : PageBlockPreformatted
+- [`PageBlockPullquote`](https://romankyrychenko.github.io/telegramR/reference/PageBlockPullquote.md)
+  : PageBlockPullquote
+- [`PageBlockRelatedArticles`](https://romankyrychenko.github.io/telegramR/reference/PageBlockRelatedArticles.md)
+  : PageBlockRelatedArticles
+- [`PageBlockSlideshow`](https://romankyrychenko.github.io/telegramR/reference/PageBlockSlideshow.md)
+  : PageBlockSlideshow
+- [`PageBlockSubheader`](https://romankyrychenko.github.io/telegramR/reference/PageBlockSubheader.md)
+  : PageBlockSubheader
+- [`PageBlockSubtitle`](https://romankyrychenko.github.io/telegramR/reference/PageBlockSubtitle.md)
+  : PageBlockSubtitle
+- [`PageBlockTable`](https://romankyrychenko.github.io/telegramR/reference/PageBlockTable.md)
+  : PageBlockTable
+- [`PageBlockTitle`](https://romankyrychenko.github.io/telegramR/reference/PageBlockTitle.md)
+  : PageBlockTitle
+- [`PageBlockUnsupported`](https://romankyrychenko.github.io/telegramR/reference/PageBlockUnsupported.md)
+  : PageBlockUnsupported
+- [`PageBlockVideo`](https://romankyrychenko.github.io/telegramR/reference/PageBlockVideo.md)
+  : PageBlockVideo
+- [`PageCaption`](https://romankyrychenko.github.io/telegramR/reference/PageCaption.md)
+  : PageCaption
+- [`PageListItemBlocks`](https://romankyrychenko.github.io/telegramR/reference/PageListItemBlocks.md)
+  : PageListItemBlocks
+- [`PageListItemText`](https://romankyrychenko.github.io/telegramR/reference/PageListItemText.md)
+  : PageListItemText
+- [`PageListOrderedItemBlocks`](https://romankyrychenko.github.io/telegramR/reference/PageListOrderedItemBlocks.md)
+  : PageListOrderedItemBlocks
+- [`PageListOrderedItemText`](https://romankyrychenko.github.io/telegramR/reference/PageListOrderedItemText.md)
+  : PageListOrderedItemText
+- [`PageRelatedArticle`](https://romankyrychenko.github.io/telegramR/reference/PageRelatedArticle.md)
+  : PageRelatedArticle
+- [`PageTableCell`](https://romankyrychenko.github.io/telegramR/reference/PageTableCell.md)
+  : PageTableCell
+- [`PageTableRow`](https://romankyrychenko.github.io/telegramR/reference/PageTableRow.md)
+  : PageTableRow
+- [`PaidReactionPrivacyAnonymous`](https://romankyrychenko.github.io/telegramR/reference/PaidReactionPrivacyAnonymous.md)
+  : PaidReactionPrivacyAnonymous
+- [`PaidReactionPrivacyDefault`](https://romankyrychenko.github.io/telegramR/reference/PaidReactionPrivacyDefault.md)
+  : PaidReactionPrivacyDefault
+- [`PaidReactionPrivacyPeer`](https://romankyrychenko.github.io/telegramR/reference/PaidReactionPrivacyPeer.md)
+  : PaidReactionPrivacyPeer
+- [`PasswordKdf`](https://romankyrychenko.github.io/telegramR/reference/PasswordKdf.md)
+  : PasswordKdf Class
+- [`PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow`](https://romankyrychenko.github.io/telegramR/reference/PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow.md)
+  : PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
+- [`PasswordKdfAlgoUnknown`](https://romankyrychenko.github.io/telegramR/reference/PasswordKdfAlgoUnknown.md)
+  : PasswordKdfAlgoUnknown
+- [`PaymentCharge`](https://romankyrychenko.github.io/telegramR/reference/PaymentCharge.md)
+  : PaymentCharge
+- [`PaymentFormMethod`](https://romankyrychenko.github.io/telegramR/reference/PaymentFormMethod.md)
+  : PaymentFormMethod
+- [`PaymentRequestedInfo`](https://romankyrychenko.github.io/telegramR/reference/PaymentRequestedInfo.md)
+  : PaymentRequestedInfo
+- [`PaymentSavedCredentialsCard`](https://romankyrychenko.github.io/telegramR/reference/PaymentSavedCredentialsCard.md)
+  : PaymentSavedCredentialsCard
+- [`PeerBlocked`](https://romankyrychenko.github.io/telegramR/reference/PeerBlocked.md)
+  : PeerBlocked
+- [`PeerChannel`](https://romankyrychenko.github.io/telegramR/reference/PeerChannel.md)
+  : PeerChannel
+- [`PeerChat`](https://romankyrychenko.github.io/telegramR/reference/PeerChat.md)
+  : PeerChat
+- [`PeerColor`](https://romankyrychenko.github.io/telegramR/reference/PeerColor.md)
+  : PeerColor
+- [`PeerLocated`](https://romankyrychenko.github.io/telegramR/reference/PeerLocated.md)
+  : PeerLocated
+- [`PeerNotifySettings`](https://romankyrychenko.github.io/telegramR/reference/PeerNotifySettings.md)
+  : PeerNotifySettings
+- [`PeerSelfLocated`](https://romankyrychenko.github.io/telegramR/reference/PeerSelfLocated.md)
+  : PeerSelfLocated
+- [`PeerSettings`](https://romankyrychenko.github.io/telegramR/reference/PeerSettings.md)
+  : PeerSettings
+- [`PeerStories`](https://romankyrychenko.github.io/telegramR/reference/PeerStories.md)
+  : PeerStories
+- [`PeerUser`](https://romankyrychenko.github.io/telegramR/reference/PeerUser.md)
+  : PeerUser
+- [`PendingSuggestion`](https://romankyrychenko.github.io/telegramR/reference/PendingSuggestion.md)
+  : PendingSuggestion
+- [`PhoneCall`](https://romankyrychenko.github.io/telegramR/reference/PhoneCall.md)
+  : PhoneCall
+- [`PhoneCallAccepted`](https://romankyrychenko.github.io/telegramR/reference/PhoneCallAccepted.md)
+  : PhoneCallAccepted
+- [`PhoneCallDiscardReasonBusy`](https://romankyrychenko.github.io/telegramR/reference/PhoneCallDiscardReasonBusy.md)
+  : PhoneCallDiscardReasonBusy
+- [`PhoneCallDiscardReasonDisconnect`](https://romankyrychenko.github.io/telegramR/reference/PhoneCallDiscardReasonDisconnect.md)
+  : PhoneCallDiscardReasonDisconnect
+- [`PhoneCallDiscardReasonHangup`](https://romankyrychenko.github.io/telegramR/reference/PhoneCallDiscardReasonHangup.md)
+  : PhoneCallDiscardReasonHangup
+- [`PhoneCallDiscardReasonMigrateConferenceCall`](https://romankyrychenko.github.io/telegramR/reference/PhoneCallDiscardReasonMigrateConferenceCall.md)
+  : PhoneCallDiscardReasonMigrateConferenceCall
+- [`PhoneCallDiscardReasonMissed`](https://romankyrychenko.github.io/telegramR/reference/PhoneCallDiscardReasonMissed.md)
+  : PhoneCallDiscardReasonMissed
+- [`PhoneCallDiscarded`](https://romankyrychenko.github.io/telegramR/reference/PhoneCallDiscarded.md)
+  : PhoneCallDiscarded
+- [`PhoneCallEmpty`](https://romankyrychenko.github.io/telegramR/reference/PhoneCallEmpty.md)
+  : PhoneCallEmpty
+- [`PhoneCallProtocol`](https://romankyrychenko.github.io/telegramR/reference/PhoneCallProtocol.md)
+  : PhoneCallProtocol
+- [`PhoneCallRequested`](https://romankyrychenko.github.io/telegramR/reference/PhoneCallRequested.md)
+  : PhoneCallRequested
+- [`PhoneCallWaiting`](https://romankyrychenko.github.io/telegramR/reference/PhoneCallWaiting.md)
+  : PhoneCallWaiting
+- [`PhoneConnection`](https://romankyrychenko.github.io/telegramR/reference/PhoneConnection.md)
+  : PhoneConnection
+- [`PhoneConnectionWebrtc`](https://romankyrychenko.github.io/telegramR/reference/PhoneConnectionWebrtc.md)
+  : PhoneConnectionWebrtc
+- [`Photo`](https://romankyrychenko.github.io/telegramR/reference/Photo.md)
+  : Photo
+- [`PhotoCachedSize`](https://romankyrychenko.github.io/telegramR/reference/PhotoCachedSize.md)
+  : PhotoCachedSize
+- [`PhotoEmpty`](https://romankyrychenko.github.io/telegramR/reference/PhotoEmpty.md)
+  : PhotoEmpty
+- [`PhotoPathSize`](https://romankyrychenko.github.io/telegramR/reference/PhotoPathSize.md)
+  : PhotoPathSize
+- [`PhotoSize`](https://romankyrychenko.github.io/telegramR/reference/PhotoSize.md)
+  : PhotoSize
+- [`PhotoSizeEmpty`](https://romankyrychenko.github.io/telegramR/reference/PhotoSizeEmpty.md)
+  : PhotoSizeEmpty
+- [`PhotoSizeProgressive`](https://romankyrychenko.github.io/telegramR/reference/PhotoSizeProgressive.md)
+  : PhotoSizeProgressive
+- [`PhotoStrippedSize`](https://romankyrychenko.github.io/telegramR/reference/PhotoStrippedSize.md)
+  : PhotoStrippedSize
+- [`PingDelayDisconnectRequest`](https://romankyrychenko.github.io/telegramR/reference/PingDelayDisconnectRequest.md)
+  : PingDelayDisconnectRequest R6 class
+- [`PingDelayDisconnectRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/PingDelayDisconnectRequest_from_reader.md)
+  : Create PingDelayDisconnectRequest from a binary reader
+- [`PingRequest`](https://romankyrychenko.github.io/telegramR/reference/PingRequest.md)
+  : PingRequest R6 class
+- [`PingRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/PingRequest_from_reader.md)
+  : Create PingRequest from a binary reader
+- [`Poll`](https://romankyrychenko.github.io/telegramR/reference/Poll.md)
+  : Poll
+- [`PollAnswer`](https://romankyrychenko.github.io/telegramR/reference/PollAnswer.md)
+  : PollAnswer
+- [`PollAnswerVoters`](https://romankyrychenko.github.io/telegramR/reference/PollAnswerVoters.md)
+  : PollAnswerVoters
+- [`PollResults`](https://romankyrychenko.github.io/telegramR/reference/PollResults.md)
+  : PollResults
+- [`Pong`](https://romankyrychenko.github.io/telegramR/reference/Pong.md)
+  : Pong
+- [`PopularContact`](https://romankyrychenko.github.io/telegramR/reference/PopularContact.md)
+  : PopularContact
+- [`PostAddress`](https://romankyrychenko.github.io/telegramR/reference/PostAddress.md)
+  : PostAddress
+- [`PostInteractionCountersMessage`](https://romankyrychenko.github.io/telegramR/reference/PostInteractionCountersMessage.md)
+  : PostInteractionCountersMessage
+- [`PostInteractionCountersStory`](https://romankyrychenko.github.io/telegramR/reference/PostInteractionCountersStory.md)
+  : PostInteractionCountersStory
+- [`PremiumGiftCodeOption`](https://romankyrychenko.github.io/telegramR/reference/PremiumGiftCodeOption.md)
+  : PremiumGiftCodeOption
+- [`PremiumSubscriptionOption`](https://romankyrychenko.github.io/telegramR/reference/PremiumSubscriptionOption.md)
+  : PremiumSubscriptionOption
+- [`PrepaidGiveaway`](https://romankyrychenko.github.io/telegramR/reference/PrepaidGiveaway.md)
+  : PrepaidGiveaway
+- [`PrepaidStarsGiveaway`](https://romankyrychenko.github.io/telegramR/reference/PrepaidStarsGiveaway.md)
+  : PrepaidStarsGiveaway
+- [`PrivacyKeyAbout`](https://romankyrychenko.github.io/telegramR/reference/PrivacyKeyAbout.md)
+  : PrivacyKeyAbout
+- [`PrivacyKeyAddedByPhone`](https://romankyrychenko.github.io/telegramR/reference/PrivacyKeyAddedByPhone.md)
+  : PrivacyKeyAddedByPhone
+- [`PrivacyKeyBirthday`](https://romankyrychenko.github.io/telegramR/reference/PrivacyKeyBirthday.md)
+  : PrivacyKeyBirthday
+- [`PrivacyKeyChatInvite`](https://romankyrychenko.github.io/telegramR/reference/PrivacyKeyChatInvite.md)
+  : PrivacyKeyChatInvite
+- [`PrivacyKeyForwards`](https://romankyrychenko.github.io/telegramR/reference/PrivacyKeyForwards.md)
+  : PrivacyKeyForwards
+- [`PrivacyKeyNoPaidMessages`](https://romankyrychenko.github.io/telegramR/reference/PrivacyKeyNoPaidMessages.md)
+  : PrivacyKeyNoPaidMessages
+- [`PrivacyKeyPhoneCall`](https://romankyrychenko.github.io/telegramR/reference/PrivacyKeyPhoneCall.md)
+  : PrivacyKeyPhoneCall
+- [`PrivacyKeyPhoneNumber`](https://romankyrychenko.github.io/telegramR/reference/PrivacyKeyPhoneNumber.md)
+  : PrivacyKeyPhoneNumber
+- [`PrivacyKeyPhoneP2P`](https://romankyrychenko.github.io/telegramR/reference/PrivacyKeyPhoneP2P.md)
+  : PrivacyKeyPhoneP2P
+- [`PrivacyKeyProfilePhoto`](https://romankyrychenko.github.io/telegramR/reference/PrivacyKeyProfilePhoto.md)
+  : PrivacyKeyProfilePhoto
+- [`PrivacyKeyStarGiftsAutoSave`](https://romankyrychenko.github.io/telegramR/reference/PrivacyKeyStarGiftsAutoSave.md)
+  : PrivacyKeyStarGiftsAutoSave
+- [`PrivacyKeyStatusTimestamp`](https://romankyrychenko.github.io/telegramR/reference/PrivacyKeyStatusTimestamp.md)
+  : PrivacyKeyStatusTimestamp
+- [`PrivacyKeyVoiceMessages`](https://romankyrychenko.github.io/telegramR/reference/PrivacyKeyVoiceMessages.md)
+  : PrivacyKeyVoiceMessages
+- [`PrivacyValueAllowAll`](https://romankyrychenko.github.io/telegramR/reference/PrivacyValueAllowAll.md)
+  : PrivacyValueAllowAll
+- [`PrivacyValueAllowBots`](https://romankyrychenko.github.io/telegramR/reference/PrivacyValueAllowBots.md)
+  : PrivacyValueAllowBots
+- [`PrivacyValueAllowChatParticipants`](https://romankyrychenko.github.io/telegramR/reference/PrivacyValueAllowChatParticipants.md)
+  : PrivacyValueAllowChatParticipants
+- [`PrivacyValueAllowCloseFriends`](https://romankyrychenko.github.io/telegramR/reference/PrivacyValueAllowCloseFriends.md)
+  : PrivacyValueAllowCloseFriends
+- [`PrivacyValueAllowContacts`](https://romankyrychenko.github.io/telegramR/reference/PrivacyValueAllowContacts.md)
+  : PrivacyValueAllowContacts
+- [`PrivacyValueAllowPremium`](https://romankyrychenko.github.io/telegramR/reference/PrivacyValueAllowPremium.md)
+  : PrivacyValueAllowPremium
+- [`PrivacyValueAllowUsers`](https://romankyrychenko.github.io/telegramR/reference/PrivacyValueAllowUsers.md)
+  : PrivacyValueAllowUsers
+- [`PrivacyValueDisallowAll`](https://romankyrychenko.github.io/telegramR/reference/PrivacyValueDisallowAll.md)
+  : PrivacyValueDisallowAll
+- [`PrivacyValueDisallowBots`](https://romankyrychenko.github.io/telegramR/reference/PrivacyValueDisallowBots.md)
+  : PrivacyValueDisallowBots
+- [`PrivacyValueDisallowChatParticipants`](https://romankyrychenko.github.io/telegramR/reference/PrivacyValueDisallowChatParticipants.md)
+  : PrivacyValueDisallowChatParticipants
+- [`PrivacyValueDisallowContacts`](https://romankyrychenko.github.io/telegramR/reference/PrivacyValueDisallowContacts.md)
+  : PrivacyValueDisallowContacts
+- [`PrivacyValueDisallowUsers`](https://romankyrychenko.github.io/telegramR/reference/PrivacyValueDisallowUsers.md)
+  : PrivacyValueDisallowUsers
+- [`ProfileTabFiles`](https://romankyrychenko.github.io/telegramR/reference/ProfileTabFiles.md)
+  : ProfileTabFiles
+- [`ProfileTabGifs`](https://romankyrychenko.github.io/telegramR/reference/ProfileTabGifs.md)
+  : ProfileTabGifs
+- [`ProfileTabGifts`](https://romankyrychenko.github.io/telegramR/reference/ProfileTabGifts.md)
+  : ProfileTabGifts
+- [`ProfileTabLinks`](https://romankyrychenko.github.io/telegramR/reference/ProfileTabLinks.md)
+  : ProfileTabLinks
+- [`ProfileTabMedia`](https://romankyrychenko.github.io/telegramR/reference/ProfileTabMedia.md)
+  : ProfileTabMedia
+- [`ProfileTabMusic`](https://romankyrychenko.github.io/telegramR/reference/ProfileTabMusic.md)
+  : ProfileTabMusic
+- [`ProfileTabPosts`](https://romankyrychenko.github.io/telegramR/reference/ProfileTabPosts.md)
+  : ProfileTabPosts
+- [`ProfileTabVoice`](https://romankyrychenko.github.io/telegramR/reference/ProfileTabVoice.md)
+  : ProfileTabVoice
+- [`ProlongWebViewRequest`](https://romankyrychenko.github.io/telegramR/reference/ProlongWebViewRequest.md)
+  : ProlongWebViewRequest
+- [`PublicForwardMessage`](https://romankyrychenko.github.io/telegramR/reference/PublicForwardMessage.md)
+  : PublicForwardMessage
+- [`PublicForwardStory`](https://romankyrychenko.github.io/telegramR/reference/PublicForwardStory.md)
+  : PublicForwardStory
+- [`QuickReply`](https://romankyrychenko.github.io/telegramR/reference/QuickReply.md)
+  : QuickReply
+- [`RandomizedIntermediatePacketCodec`](https://romankyrychenko.github.io/telegramR/reference/RandomizedIntermediatePacketCodec.md)
+  : RandomizedIntermediatePacketCodec
+- [`RateTranscribedAudioRequest`](https://romankyrychenko.github.io/telegramR/reference/RateTranscribedAudioRequest.md)
+  : RateTranscribedAudioRequest
+- [`ReactionCount`](https://romankyrychenko.github.io/telegramR/reference/ReactionCount.md)
+  : ReactionCount
+- [`ReactionCustomEmoji`](https://romankyrychenko.github.io/telegramR/reference/ReactionCustomEmoji.md)
+  : ReactionCustomEmoji
+- [`ReactionEmoji`](https://romankyrychenko.github.io/telegramR/reference/ReactionEmoji.md)
+  : ReactionEmoji
+- [`ReactionEmpty`](https://romankyrychenko.github.io/telegramR/reference/ReactionEmpty.md)
+  : ReactionEmpty
+- [`ReactionNotificationsFromAll`](https://romankyrychenko.github.io/telegramR/reference/ReactionNotificationsFromAll.md)
+  : ReactionNotificationsFromAll
+- [`ReactionNotificationsFromContacts`](https://romankyrychenko.github.io/telegramR/reference/ReactionNotificationsFromContacts.md)
+  : ReactionNotificationsFromContacts
+- [`ReactionPaid`](https://romankyrychenko.github.io/telegramR/reference/ReactionPaid.md)
+  : ReactionPaid
+- [`ReactionsNotifySettings`](https://romankyrychenko.github.io/telegramR/reference/ReactionsNotifySettings.md)
+  : ReactionsNotifySettings
+- [`ReadCancelledError`](https://romankyrychenko.github.io/telegramR/reference/ReadCancelledError.md)
+  : ReadCancelledError
+- [`ReadDiscussionRequest`](https://romankyrychenko.github.io/telegramR/reference/ReadDiscussionRequest.md)
+  : ReadDiscussionRequest
+- [`ReadEncryptedHistoryRequest`](https://romankyrychenko.github.io/telegramR/reference/ReadEncryptedHistoryRequest.md)
+  : ReadEncryptedHistoryRequest
+- [`ReadFeaturedStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/ReadFeaturedStickersRequest.md)
+  : ReadFeaturedStickersRequest
+- [`ReadHistoryRequest`](https://romankyrychenko.github.io/telegramR/reference/ReadHistoryRequest.md)
+  : ReadHistoryRequest
+- [`ReadMentionsRequest`](https://romankyrychenko.github.io/telegramR/reference/ReadMentionsRequest.md)
+  : ReadMentionsRequest
+- [`ReadMessageContentsRequest`](https://romankyrychenko.github.io/telegramR/reference/ReadMessageContentsRequest.md)
+  : ReadMessageContentsRequest
+- [`ReadParticipantDate`](https://romankyrychenko.github.io/telegramR/reference/ReadParticipantDate.md)
+  : ReadParticipantDate
+- [`ReadReactionsRequest`](https://romankyrychenko.github.io/telegramR/reference/ReadReactionsRequest.md)
+  : ReadReactionsRequest
+- [`ReadSavedHistoryRequest`](https://romankyrychenko.github.io/telegramR/reference/ReadSavedHistoryRequest.md)
+  : ReadSavedHistoryRequest
+- [`ReadStoriesRequest`](https://romankyrychenko.github.io/telegramR/reference/ReadStoriesRequest.md)
+  : ReadStoriesRequest R6 class
+- [`Reader`](https://romankyrychenko.github.io/telegramR/reference/Reader.md)
+  : Reader Class
+- [`ReceivedCallRequest`](https://romankyrychenko.github.io/telegramR/reference/ReceivedCallRequest.md)
+  : ReceivedCallRequest
+- [`ReceivedMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/ReceivedMessagesRequest.md)
+  : ReceivedMessagesRequest
+- [`ReceivedNotifyMessage`](https://romankyrychenko.github.io/telegramR/reference/ReceivedNotifyMessage.md)
+  : ReceivedNotifyMessage
+- [`ReceivedQueueRequest`](https://romankyrychenko.github.io/telegramR/reference/ReceivedQueueRequest.md)
+  : ReceivedQueueRequest
+- [`RecentMeUrlChat`](https://romankyrychenko.github.io/telegramR/reference/RecentMeUrlChat.md)
+  : RecentMeUrlChat
+- [`RecentMeUrlChatInvite`](https://romankyrychenko.github.io/telegramR/reference/RecentMeUrlChatInvite.md)
+  : RecentMeUrlChatInvite
+- [`RecentMeUrlStickerSet`](https://romankyrychenko.github.io/telegramR/reference/RecentMeUrlStickerSet.md)
+  : RecentMeUrlStickerSet
+- [`RecentMeUrlUnknown`](https://romankyrychenko.github.io/telegramR/reference/RecentMeUrlUnknown.md)
+  : RecentMeUrlUnknown
+- [`RecentMeUrlUser`](https://romankyrychenko.github.io/telegramR/reference/RecentMeUrlUser.md)
+  : RecentMeUrlUser
+- [`RecoverPasswordRequest`](https://romankyrychenko.github.io/telegramR/reference/RecoverPasswordRequest.md)
+  : RecoverPasswordRequest
+- [`RefundStarsChargeRequest`](https://romankyrychenko.github.io/telegramR/reference/RefundStarsChargeRequest.md)
+  : RefundStarsChargeRequest
+- [`RegisterDeviceRequest`](https://romankyrychenko.github.io/telegramR/reference/RegisterDeviceRequest.md)
+  : RegisterDeviceRequest
+- [`RemoveStickerFromSetRequest`](https://romankyrychenko.github.io/telegramR/reference/RemoveStickerFromSetRequest.md)
+  : RemoveStickerFromSetRequest
+- [`RenameStickerSetRequest`](https://romankyrychenko.github.io/telegramR/reference/RenameStickerSetRequest.md)
+  : RenameStickerSetRequest
+- [`ReorderAlbumsRequest`](https://romankyrychenko.github.io/telegramR/reference/ReorderAlbumsRequest.md)
+  : ReorderAlbumsRequest R6 class
+- [`ReorderPinnedDialogsRequest`](https://romankyrychenko.github.io/telegramR/reference/ReorderPinnedDialogsRequest.md)
+  : ReorderPinnedDialogsRequest
+- [`ReorderPinnedForumTopicsRequest`](https://romankyrychenko.github.io/telegramR/reference/ReorderPinnedForumTopicsRequest.md)
+  : ReorderPinnedForumTopicsRequest
+- [`ReorderPinnedSavedDialogsRequest`](https://romankyrychenko.github.io/telegramR/reference/ReorderPinnedSavedDialogsRequest.md)
+  : ReorderPinnedSavedDialogsRequest
+- [`ReorderPreviewMediasRequest`](https://romankyrychenko.github.io/telegramR/reference/ReorderPreviewMediasRequest.md)
+  : ReorderPreviewMediasRequest
+- [`ReorderQuickRepliesRequest`](https://romankyrychenko.github.io/telegramR/reference/ReorderQuickRepliesRequest.md)
+  : ReorderQuickRepliesRequest
+- [`ReorderStarGiftCollectionsRequest`](https://romankyrychenko.github.io/telegramR/reference/ReorderStarGiftCollectionsRequest.md)
+  : ReorderStarGiftCollectionsRequest
+- [`ReorderStickerSetsRequest`](https://romankyrychenko.github.io/telegramR/reference/ReorderStickerSetsRequest.md)
+  : ReorderStickerSetsRequest
+- [`ReorderUsernamesRequest`](https://romankyrychenko.github.io/telegramR/reference/ReorderUsernamesRequest.md)
+  : ReorderUsernamesRequest
+- [`ReplaceStickerRequest`](https://romankyrychenko.github.io/telegramR/reference/ReplaceStickerRequest.md)
+  : ReplaceStickerRequest
+- [`ReplyInlineMarkup`](https://romankyrychenko.github.io/telegramR/reference/ReplyInlineMarkup.md)
+  : ReplyInlineMarkup
+- [`ReplyKeyboardForceReply`](https://romankyrychenko.github.io/telegramR/reference/ReplyKeyboardForceReply.md)
+  : ReplyKeyboardForceReply
+- [`ReplyKeyboardHide`](https://romankyrychenko.github.io/telegramR/reference/ReplyKeyboardHide.md)
+  : ReplyKeyboardHide
+- [`ReplyKeyboardMarkup`](https://romankyrychenko.github.io/telegramR/reference/ReplyKeyboardMarkup.md)
+  : ReplyKeyboardMarkup
+- [`ReportAntiSpamFalsePositiveRequest`](https://romankyrychenko.github.io/telegramR/reference/ReportAntiSpamFalsePositiveRequest.md)
+  : ReportAntiSpamFalsePositiveRequest
+- [`ReportEncryptedSpamRequest`](https://romankyrychenko.github.io/telegramR/reference/ReportEncryptedSpamRequest.md)
+  : ReportEncryptedSpamRequest
+- [`ReportMessagesDeliveryRequest`](https://romankyrychenko.github.io/telegramR/reference/ReportMessagesDeliveryRequest.md)
+  : ReportMessagesDeliveryRequest
+- [`ReportMissingCodeRequest`](https://romankyrychenko.github.io/telegramR/reference/ReportMissingCodeRequest.md)
+  : ReportMissingCodeRequest
+- [`ReportPeerRequest`](https://romankyrychenko.github.io/telegramR/reference/ReportPeerRequest.md)
+  : ReportPeerRequest
+- [`ReportProfilePhotoRequest`](https://romankyrychenko.github.io/telegramR/reference/ReportProfilePhotoRequest.md)
+  : ReportProfilePhotoRequest
+- [`ReportReactionRequest`](https://romankyrychenko.github.io/telegramR/reference/ReportReactionRequest.md)
+  : ReportReactionRequest
+- [`ReportRequest`](https://romankyrychenko.github.io/telegramR/reference/ReportRequest.md)
+  : ReportRequest
+- [`ReportResultAddComment`](https://romankyrychenko.github.io/telegramR/reference/ReportResultAddComment.md)
+  : ReportResultAddComment
+- [`ReportResultChooseOption`](https://romankyrychenko.github.io/telegramR/reference/ReportResultChooseOption.md)
+  : ReportResultChooseOption
+- [`ReportResultReported`](https://romankyrychenko.github.io/telegramR/reference/ReportResultReported.md)
+  : ReportResultReported
+- [`ReportSpamRequest`](https://romankyrychenko.github.io/telegramR/reference/ReportSpamRequest.md)
+  : ReportSpamRequest
+- [`ReportSponsoredMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/ReportSponsoredMessageRequest.md)
+  : ReportSponsoredMessageRequest
+- [`ReqDHParamsRequest`](https://romankyrychenko.github.io/telegramR/reference/ReqDHParamsRequest.md)
+  : ReqDHParamsRequest
+- [`ReqDHParamsRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/ReqDHParamsRequest_from_reader.md)
+  : Create ReqDHParamsRequest from a binary reader
+- [`ReqPqMultiRequest`](https://romankyrychenko.github.io/telegramR/reference/ReqPqMultiRequest.md)
+  : ReqPqMultiRequest
+- [`ReqPqMultiRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/ReqPqMultiRequest_from_reader.md)
+  : Create ReqPqMultiRequest from a binary reader
+- [`ReqPqRequest`](https://romankyrychenko.github.io/telegramR/reference/ReqPqRequest.md)
+  : ReqPqRequest R6 class
+- [`ReqPqRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/ReqPqRequest_from_reader.md)
+  : Create ReqPqRequest from a binary reader
+- [`RequestAppWebViewRequest`](https://romankyrychenko.github.io/telegramR/reference/RequestAppWebViewRequest.md)
+  : RequestAppWebViewRequest
+- [`RequestCallRequest`](https://romankyrychenko.github.io/telegramR/reference/RequestCallRequest.md)
+  : RequestCallRequest
+- [`RequestEncryptionRequest`](https://romankyrychenko.github.io/telegramR/reference/RequestEncryptionRequest.md)
+  : RequestEncryptionRequest
+- [`RequestFirebaseSmsRequest`](https://romankyrychenko.github.io/telegramR/reference/RequestFirebaseSmsRequest.md)
+  : RequestFirebaseSmsRequest
+- [`RequestIter`](https://romankyrychenko.github.io/telegramR/reference/RequestIter.md)
+  : RequestIter
+- [`RequestMainWebViewRequest`](https://romankyrychenko.github.io/telegramR/reference/RequestMainWebViewRequest.md)
+  : RequestMainWebViewRequest
+- [`RequestPasswordRecoveryRequest`](https://romankyrychenko.github.io/telegramR/reference/RequestPasswordRecoveryRequest.md)
+  : RequestPasswordRecoveryRequest
+- [`RequestPeerTypeBroadcast`](https://romankyrychenko.github.io/telegramR/reference/RequestPeerTypeBroadcast.md)
+  : RequestPeerTypeBroadcast
+- [`RequestPeerTypeChat`](https://romankyrychenko.github.io/telegramR/reference/RequestPeerTypeChat.md)
+  : RequestPeerTypeChat
+- [`RequestPeerTypeUser`](https://romankyrychenko.github.io/telegramR/reference/RequestPeerTypeUser.md)
+  : RequestPeerTypeUser
+- [`RequestSimpleWebViewRequest`](https://romankyrychenko.github.io/telegramR/reference/RequestSimpleWebViewRequest.md)
+  : RequestSimpleWebViewRequest
+- [`RequestState`](https://romankyrychenko.github.io/telegramR/reference/RequestState.md)
+  : RequestState
+- [`RequestUrlAuthRequest`](https://romankyrychenko.github.io/telegramR/reference/RequestUrlAuthRequest.md)
+  : RequestUrlAuthRequest
+- [`RequestWebViewRequest`](https://romankyrychenko.github.io/telegramR/reference/RequestWebViewRequest.md)
+  : RequestWebViewRequest
+- [`RequestedPeerChannel`](https://romankyrychenko.github.io/telegramR/reference/RequestedPeerChannel.md)
+  : RequestedPeerChannel
+- [`RequestedPeerChat`](https://romankyrychenko.github.io/telegramR/reference/RequestedPeerChat.md)
+  : RequestedPeerChat
+- [`RequestedPeerUser`](https://romankyrychenko.github.io/telegramR/reference/RequestedPeerUser.md)
+  : RequestedPeerUser
+- [`RequirementToContactEmpty`](https://romankyrychenko.github.io/telegramR/reference/RequirementToContactEmpty.md)
+  : RequirementToContactEmpty
+- [`RequirementToContactPaidMessages`](https://romankyrychenko.github.io/telegramR/reference/RequirementToContactPaidMessages.md)
+  : RequirementToContactPaidMessages
+- [`RequirementToContactPremium`](https://romankyrychenko.github.io/telegramR/reference/RequirementToContactPremium.md)
+  : RequirementToContactPremium
+- [`ResPQ`](https://romankyrychenko.github.io/telegramR/reference/ResPQ.md)
+  : ResPQ
+- [`ResendCodeRequest`](https://romankyrychenko.github.io/telegramR/reference/ResendCodeRequest.md)
+  : ResendCodeRequest
+- [`ResendPasswordEmailRequest`](https://romankyrychenko.github.io/telegramR/reference/ResendPasswordEmailRequest.md)
+  : ResendPasswordEmailRequest
+- [`ResetAuthorizationRequest`](https://romankyrychenko.github.io/telegramR/reference/ResetAuthorizationRequest.md)
+  : ResetAuthorizationRequest
+- [`ResetAuthorizationsRequest`](https://romankyrychenko.github.io/telegramR/reference/ResetAuthorizationsRequest.md)
+  : ResetAuthorizationsRequest
+- [`ResetBotCommandsRequest`](https://romankyrychenko.github.io/telegramR/reference/ResetBotCommandsRequest.md)
+  : ResetBotCommandsRequest
+- [`ResetLoginEmailRequest`](https://romankyrychenko.github.io/telegramR/reference/ResetLoginEmailRequest.md)
+  : ResetLoginEmailRequest
+- [`ResetNotifySettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/ResetNotifySettingsRequest.md)
+  : ResetNotifySettingsRequest
+- [`ResetPasswordRequest`](https://romankyrychenko.github.io/telegramR/reference/ResetPasswordRequest.md)
+  : ResetPasswordRequest
+- [`ResetSavedRequest`](https://romankyrychenko.github.io/telegramR/reference/ResetSavedRequest.md)
+  : ResetSavedRequest
+- [`ResetTopPeerRatingRequest`](https://romankyrychenko.github.io/telegramR/reference/ResetTopPeerRatingRequest.md)
+  : ResetTopPeerRatingRequest
+- [`ResetWallPapersRequest`](https://romankyrychenko.github.io/telegramR/reference/ResetWallPapersRequest.md)
+  : ResetWallPapersRequest
+- [`ResetWebAuthorizationRequest`](https://romankyrychenko.github.io/telegramR/reference/ResetWebAuthorizationRequest.md)
+  : ResetWebAuthorizationRequest
+- [`ResetWebAuthorizationsRequest`](https://romankyrychenko.github.io/telegramR/reference/ResetWebAuthorizationsRequest.md)
+  : ResetWebAuthorizationsRequest
+- [`ResolveBusinessChatLinkRequest`](https://romankyrychenko.github.io/telegramR/reference/ResolveBusinessChatLinkRequest.md)
+  : ResolveBusinessChatLinkRequest
+- [`ResolvePhoneRequest`](https://romankyrychenko.github.io/telegramR/reference/ResolvePhoneRequest.md)
+  : ResolvePhoneRequest
+- [`ResolveUsernameRequest`](https://romankyrychenko.github.io/telegramR/reference/ResolveUsernameRequest.md)
+  : ResolveUsernameRequest
+- [`RestrictSponsoredMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/RestrictSponsoredMessagesRequest.md)
+  : RestrictSponsoredMessagesRequest
+- [`RestrictionReason`](https://romankyrychenko.github.io/telegramR/reference/RestrictionReason.md)
+  : RestrictionReason
+- [`ReuploadCdnFileRequest`](https://romankyrychenko.github.io/telegramR/reference/ReuploadCdnFileRequest.md)
+  : ReuploadCdnFileRequest
+- [`RpcAnswerDropped`](https://romankyrychenko.github.io/telegramR/reference/RpcAnswerDropped.md)
+  : RpcAnswerDropped
+- [`RpcAnswerDroppedRunning`](https://romankyrychenko.github.io/telegramR/reference/RpcAnswerDroppedRunning.md)
+  : RpcAnswerDroppedRunning
+- [`RpcAnswerUnknown`](https://romankyrychenko.github.io/telegramR/reference/RpcAnswerUnknown.md)
+  : RpcAnswerUnknown
+- [`RpcDropAnswerRequest`](https://romankyrychenko.github.io/telegramR/reference/RpcDropAnswerRequest.md)
+  : RpcDropAnswerRequest R6 class
+- [`RpcDropAnswerRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/RpcDropAnswerRequest_from_reader.md)
+  : Create RpcDropAnswerRequest from a binary reader
+- [`RpcError`](https://romankyrychenko.github.io/telegramR/reference/RpcError.md)
+  : RpcError
+- [`RpcResult`](https://romankyrychenko.github.io/telegramR/reference/RpcResult.md)
+  : RpcResult
+- [`SSL_PORT`](https://romankyrychenko.github.io/telegramR/reference/SSL_PORT.md)
+  : Constant for SSL Port
+- [`SaveAppLogRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveAppLogRequest.md)
+  : SaveAppLogRequest
+- [`SaveAutoDownloadSettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveAutoDownloadSettingsRequest.md)
+  : SaveAutoDownloadSettingsRequest
+- [`SaveAutoSaveSettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveAutoSaveSettingsRequest.md)
+  : SaveAutoSaveSettingsRequest
+- [`SaveBigFilePartRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveBigFilePartRequest.md)
+  : SaveBigFilePartRequest
+- [`SaveCallDebugRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveCallDebugRequest.md)
+  : SaveCallDebugRequest
+- [`SaveCallLogRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveCallLogRequest.md)
+  : SaveCallLogRequest
+- [`SaveDefaultGroupCallJoinAsRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveDefaultGroupCallJoinAsRequest.md)
+  : SaveDefaultGroupCallJoinAsRequest
+- [`SaveDefaultSendAsRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveDefaultSendAsRequest.md)
+  : SaveDefaultSendAsRequest
+- [`SaveDraftRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveDraftRequest.md)
+  : SaveDraftRequest
+- [`SaveFilePartRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveFilePartRequest.md)
+  : SaveFilePartRequest
+- [`SaveGifRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveGifRequest.md)
+  : SaveGifRequest
+- [`SaveMusicRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveMusicRequest.md)
+  : SaveMusicRequest
+- [`SavePreparedInlineMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/SavePreparedInlineMessageRequest.md)
+  : SavePreparedInlineMessageRequest
+- [`SaveRecentStickerRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveRecentStickerRequest.md)
+  : SaveRecentStickerRequest
+- [`SaveRingtoneRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveRingtoneRequest.md)
+  : SaveRingtoneRequest
+- [`SaveSecureValueRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveSecureValueRequest.md)
+  : SaveSecureValueRequest
+- [`SaveStarGiftRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveStarGiftRequest.md)
+  : SaveStarGiftRequest
+- [`SaveThemeRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveThemeRequest.md)
+  : SaveThemeRequest
+- [`SaveWallPaperRequest`](https://romankyrychenko.github.io/telegramR/reference/SaveWallPaperRequest.md)
+  : SaveWallPaperRequest
+- [`SavedDialog`](https://romankyrychenko.github.io/telegramR/reference/SavedDialog.md)
+  : SavedDialog
+- [`SavedPhoneContact`](https://romankyrychenko.github.io/telegramR/reference/SavedPhoneContact.md)
+  : SavedPhoneContact
+- [`SavedReactionTag`](https://romankyrychenko.github.io/telegramR/reference/SavedReactionTag.md)
+  : SavedReactionTag
+- [`SavedStarGift`](https://romankyrychenko.github.io/telegramR/reference/SavedStarGift.md)
+  : SavedStarGift
+- [`SearchCustomEmojiRequest`](https://romankyrychenko.github.io/telegramR/reference/SearchCustomEmojiRequest.md)
+  : SearchCustomEmojiRequest
+- [`SearchEmojiStickerSetsRequest`](https://romankyrychenko.github.io/telegramR/reference/SearchEmojiStickerSetsRequest.md)
+  : SearchEmojiStickerSetsRequest
+- [`SearchGlobalRequest`](https://romankyrychenko.github.io/telegramR/reference/SearchGlobalRequest.md)
+  : SearchGlobalRequest
+- [`SearchPostsFlood`](https://romankyrychenko.github.io/telegramR/reference/SearchPostsFlood.md)
+  : SearchPostsFlood
+- [`SearchPostsRequest`](https://romankyrychenko.github.io/telegramR/reference/SearchPostsRequest.md)
+  : SearchPostsRequest
+- [`SearchRequest`](https://romankyrychenko.github.io/telegramR/reference/SearchRequest.md)
+  : SearchRequest
+- [`SearchResultPosition`](https://romankyrychenko.github.io/telegramR/reference/SearchResultPosition.md)
+  : SearchResultPosition
+- [`SearchResultsCalendarPeriod`](https://romankyrychenko.github.io/telegramR/reference/SearchResultsCalendarPeriod.md)
+  : SearchResultsCalendarPeriod
+- [`SearchSentMediaRequest`](https://romankyrychenko.github.io/telegramR/reference/SearchSentMediaRequest.md)
+  : SearchSentMediaRequest
+- [`SearchStickerSetsRequest`](https://romankyrychenko.github.io/telegramR/reference/SearchStickerSetsRequest.md)
+  : SearchStickerSetsRequest
+- [`SearchStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/SearchStickersRequest.md)
+  : SearchStickersRequest
+- [`SecureCredentialsEncrypted`](https://romankyrychenko.github.io/telegramR/reference/SecureCredentialsEncrypted.md)
+  : SecureCredentialsEncrypted
+- [`SecureData`](https://romankyrychenko.github.io/telegramR/reference/SecureData.md)
+  : SecureData
+- [`SecureFile`](https://romankyrychenko.github.io/telegramR/reference/SecureFile.md)
+  : SecureFile
+- [`SecureFileEmpty`](https://romankyrychenko.github.io/telegramR/reference/SecureFileEmpty.md)
+  : SecureFileEmpty
+- [`SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000`](https://romankyrychenko.github.io/telegramR/reference/SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000.md)
+  : SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000
+- [`SecurePasswordKdfAlgoSHA512`](https://romankyrychenko.github.io/telegramR/reference/SecurePasswordKdfAlgoSHA512.md)
+  : SecurePasswordKdfAlgoSHA512
+- [`SecurePasswordKdfAlgoUnknown`](https://romankyrychenko.github.io/telegramR/reference/SecurePasswordKdfAlgoUnknown.md)
+  : SecurePasswordKdfAlgoUnknown
+- [`SecurePlainEmail`](https://romankyrychenko.github.io/telegramR/reference/SecurePlainEmail.md)
+  : SecurePlainEmail
+- [`SecurePlainPhone`](https://romankyrychenko.github.io/telegramR/reference/SecurePlainPhone.md)
+  : SecurePlainPhone
+- [`SecureRequiredType`](https://romankyrychenko.github.io/telegramR/reference/SecureRequiredType.md)
+  : SecureRequiredType
+- [`SecureRequiredTypeOneOf`](https://romankyrychenko.github.io/telegramR/reference/SecureRequiredTypeOneOf.md)
+  : SecureRequiredTypeOneOf
+- [`SecureSecretSettings`](https://romankyrychenko.github.io/telegramR/reference/SecureSecretSettings.md)
+  : SecureSecretSettings
+- [`SecureValue`](https://romankyrychenko.github.io/telegramR/reference/SecureValue.md)
+  : SecureValue
+- [`SecureValueError`](https://romankyrychenko.github.io/telegramR/reference/SecureValueError.md)
+  : SecureValueError
+- [`SecureValueErrorData`](https://romankyrychenko.github.io/telegramR/reference/SecureValueErrorData.md)
+  : SecureValueErrorData
+- [`SecureValueErrorFile`](https://romankyrychenko.github.io/telegramR/reference/SecureValueErrorFile.md)
+  : SecureValueErrorFile
+- [`SecureValueErrorFiles`](https://romankyrychenko.github.io/telegramR/reference/SecureValueErrorFiles.md)
+  : SecureValueErrorFiles
+- [`SecureValueErrorFrontSide`](https://romankyrychenko.github.io/telegramR/reference/SecureValueErrorFrontSide.md)
+  : SecureValueErrorFrontSide
+- [`SecureValueErrorReverseSide`](https://romankyrychenko.github.io/telegramR/reference/SecureValueErrorReverseSide.md)
+  : SecureValueErrorReverseSide
+- [`SecureValueErrorSelfie`](https://romankyrychenko.github.io/telegramR/reference/SecureValueErrorSelfie.md)
+  : SecureValueErrorSelfie
+- [`SecureValueErrorTranslationFile`](https://romankyrychenko.github.io/telegramR/reference/SecureValueErrorTranslationFile.md)
+  : SecureValueErrorTranslationFile
+- [`SecureValueErrorTranslationFiles`](https://romankyrychenko.github.io/telegramR/reference/SecureValueErrorTranslationFiles.md)
+  : SecureValueErrorTranslationFiles
+- [`SecureValueHash`](https://romankyrychenko.github.io/telegramR/reference/SecureValueHash.md)
+  : SecureValueHash
+- [`SecureValueTypeAddress`](https://romankyrychenko.github.io/telegramR/reference/SecureValueTypeAddress.md)
+  : SecureValueTypeAddress
+- [`SecureValueTypeBankStatement`](https://romankyrychenko.github.io/telegramR/reference/SecureValueTypeBankStatement.md)
+  : SecureValueTypeBankStatement
+- [`SecureValueTypeDriverLicense`](https://romankyrychenko.github.io/telegramR/reference/SecureValueTypeDriverLicense.md)
+  : SecureValueTypeDriverLicense
+- [`SecureValueTypeEmail`](https://romankyrychenko.github.io/telegramR/reference/SecureValueTypeEmail.md)
+  : SecureValueTypeEmail
+- [`SecureValueTypeIdentityCard`](https://romankyrychenko.github.io/telegramR/reference/SecureValueTypeIdentityCard.md)
+  : SecureValueTypeIdentityCard
+- [`SecureValueTypeInternalPassport`](https://romankyrychenko.github.io/telegramR/reference/SecureValueTypeInternalPassport.md)
+  : SecureValueTypeInternalPassport
+- [`SecureValueTypePassport`](https://romankyrychenko.github.io/telegramR/reference/SecureValueTypePassport.md)
+  : SecureValueTypePassport
+- [`SecureValueTypePassportRegistration`](https://romankyrychenko.github.io/telegramR/reference/SecureValueTypePassportRegistration.md)
+  : SecureValueTypePassportRegistration
+- [`SecureValueTypePersonalDetails`](https://romankyrychenko.github.io/telegramR/reference/SecureValueTypePersonalDetails.md)
+  : SecureValueTypePersonalDetails
+- [`SecureValueTypePhone`](https://romankyrychenko.github.io/telegramR/reference/SecureValueTypePhone.md)
+  : SecureValueTypePhone
+- [`SecureValueTypeRentalAgreement`](https://romankyrychenko.github.io/telegramR/reference/SecureValueTypeRentalAgreement.md)
+  : SecureValueTypeRentalAgreement
+- [`SecureValueTypeTemporaryRegistration`](https://romankyrychenko.github.io/telegramR/reference/SecureValueTypeTemporaryRegistration.md)
+  : SecureValueTypeTemporaryRegistration
+- [`SecureValueTypeUtilityBill`](https://romankyrychenko.github.io/telegramR/reference/SecureValueTypeUtilityBill.md)
+  : SecureValueTypeUtilityBill
+- [`SecurityError`](https://romankyrychenko.github.io/telegramR/reference/SecurityError.md)
+  : SecurityError
+- [`SendAsPeer`](https://romankyrychenko.github.io/telegramR/reference/SendAsPeer.md)
+  : SendAsPeer
+- [`SendBotRequestedPeerRequest`](https://romankyrychenko.github.io/telegramR/reference/SendBotRequestedPeerRequest.md)
+  : SendBotRequestedPeerRequest
+- [`SendChangePhoneCodeRequest`](https://romankyrychenko.github.io/telegramR/reference/SendChangePhoneCodeRequest.md)
+  : SendChangePhoneCodeRequest
+- [`SendCodeRequest`](https://romankyrychenko.github.io/telegramR/reference/SendCodeRequest.md)
+  : SendCodeRequest
+- [`SendConferenceCallBroadcastRequest`](https://romankyrychenko.github.io/telegramR/reference/SendConferenceCallBroadcastRequest.md)
+  : SendConferenceCallBroadcastRequest
+- [`SendConfirmPhoneCodeRequest`](https://romankyrychenko.github.io/telegramR/reference/SendConfirmPhoneCodeRequest.md)
+  : SendConfirmPhoneCodeRequest
+- [`SendCustomRequestRequest`](https://romankyrychenko.github.io/telegramR/reference/SendCustomRequestRequest.md)
+  : SendCustomRequestRequest
+- [`SendEncryptedFileRequest`](https://romankyrychenko.github.io/telegramR/reference/SendEncryptedFileRequest.md)
+  : SendEncryptedFileRequest
+- [`SendEncryptedRequest`](https://romankyrychenko.github.io/telegramR/reference/SendEncryptedRequest.md)
+  : SendEncryptedRequest
+- [`SendEncryptedServiceRequest`](https://romankyrychenko.github.io/telegramR/reference/SendEncryptedServiceRequest.md)
+  : SendEncryptedServiceRequest
+- [`SendInlineBotResultRequest`](https://romankyrychenko.github.io/telegramR/reference/SendInlineBotResultRequest.md)
+  : SendInlineBotResultRequest
+- [`SendMediaRequest`](https://romankyrychenko.github.io/telegramR/reference/SendMediaRequest.md)
+  : SendMediaRequest
+- [`SendMessageCancelAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageCancelAction.md)
+  : SendMessageCancelAction
+- [`SendMessageChooseContactAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageChooseContactAction.md)
+  : SendMessageChooseContactAction
+- [`SendMessageChooseStickerAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageChooseStickerAction.md)
+  : SendMessageChooseStickerAction
+- [`SendMessageEmojiInteraction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageEmojiInteraction.md)
+  : SendMessageEmojiInteraction
+- [`SendMessageEmojiInteractionSeen`](https://romankyrychenko.github.io/telegramR/reference/SendMessageEmojiInteractionSeen.md)
+  : SendMessageEmojiInteractionSeen
+- [`SendMessageGamePlayAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageGamePlayAction.md)
+  : SendMessageGamePlayAction
+- [`SendMessageGeoLocationAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageGeoLocationAction.md)
+  : SendMessageGeoLocationAction
+- [`SendMessageHistoryImportAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageHistoryImportAction.md)
+  : SendMessageHistoryImportAction
+- [`SendMessageRecordAudioAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageRecordAudioAction.md)
+  : SendMessageRecordAudioAction
+- [`SendMessageRecordRoundAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageRecordRoundAction.md)
+  : SendMessageRecordRoundAction
+- [`SendMessageRecordVideoAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageRecordVideoAction.md)
+  : SendMessageRecordVideoAction
+- [`SendMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/SendMessageRequest.md)
+  : SendMessageRequest
+- [`SendMessageTypingAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageTypingAction.md)
+  : SendMessageTypingAction
+- [`SendMessageUploadAudioAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageUploadAudioAction.md)
+  : SendMessageUploadAudioAction
+- [`SendMessageUploadDocumentAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageUploadDocumentAction.md)
+  : SendMessageUploadDocumentAction
+- [`SendMessageUploadPhotoAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageUploadPhotoAction.md)
+  : SendMessageUploadPhotoAction
+- [`SendMessageUploadRoundAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageUploadRoundAction.md)
+  : SendMessageUploadRoundAction
+- [`SendMessageUploadVideoAction`](https://romankyrychenko.github.io/telegramR/reference/SendMessageUploadVideoAction.md)
+  : SendMessageUploadVideoAction
+- [`SendMultiMediaRequest`](https://romankyrychenko.github.io/telegramR/reference/SendMultiMediaRequest.md)
+  : SendMultiMediaRequest
+- [`SendPaidReactionRequest`](https://romankyrychenko.github.io/telegramR/reference/SendPaidReactionRequest.md)
+  : SendPaidReactionRequest
+- [`SendPaymentFormRequest`](https://romankyrychenko.github.io/telegramR/reference/SendPaymentFormRequest.md)
+  : SendPaymentFormRequest
+- [`SendQuickReplyMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/SendQuickReplyMessagesRequest.md)
+  : SendQuickReplyMessagesRequest
+- [`SendReactionRequest`](https://romankyrychenko.github.io/telegramR/reference/SendReactionRequest.md)
+  : SendReactionRequest
+- [`SendScheduledMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/SendScheduledMessagesRequest.md)
+  : SendScheduledMessagesRequest
+- [`SendScreenshotNotificationRequest`](https://romankyrychenko.github.io/telegramR/reference/SendScreenshotNotificationRequest.md)
+  : SendScreenshotNotificationRequest
+- [`SendSignalingDataRequest`](https://romankyrychenko.github.io/telegramR/reference/SendSignalingDataRequest.md)
+  : SendSignalingDataRequest
+- [`SendStarsFormRequest`](https://romankyrychenko.github.io/telegramR/reference/SendStarsFormRequest.md)
+  : SendStarsFormRequest
+- [`SendStoryRequest`](https://romankyrychenko.github.io/telegramR/reference/SendStoryRequest.md)
+  : SendStoryRequest R6 class
+- [`SendVerifyEmailCodeRequest`](https://romankyrychenko.github.io/telegramR/reference/SendVerifyEmailCodeRequest.md)
+  : SendVerifyEmailCodeRequest
+- [`SendVerifyPhoneCodeRequest`](https://romankyrychenko.github.io/telegramR/reference/SendVerifyPhoneCodeRequest.md)
+  : SendVerifyPhoneCodeRequest
+- [`SendVoteRequest`](https://romankyrychenko.github.io/telegramR/reference/SendVoteRequest.md)
+  : SendVoteRequest
+- [`SendWebViewDataRequest`](https://romankyrychenko.github.io/telegramR/reference/SendWebViewDataRequest.md)
+  : SendWebViewDataRequest
+- [`SendWebViewResultMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/SendWebViewResultMessageRequest.md)
+  : SendWebViewResultMessageRequest
+- [`ServerDHInnerData`](https://romankyrychenko.github.io/telegramR/reference/ServerDHInnerData.md)
+  : ServerDHInnerData
+- [`ServerDHParamsFail`](https://romankyrychenko.github.io/telegramR/reference/ServerDHParamsFail.md)
+  : ServerDHParamsFail
+- [`ServerDHParamsOk`](https://romankyrychenko.github.io/telegramR/reference/ServerDHParamsOk.md)
+  : ServerDHParamsOk
+- [`Session`](https://romankyrychenko.github.io/telegramR/reference/Session.md)
+  : Session
+- [`SetAccountTTLRequest`](https://romankyrychenko.github.io/telegramR/reference/SetAccountTTLRequest.md)
+  : SetAccountTTLRequest
+- [`SetAuthorizationTTLRequest`](https://romankyrychenko.github.io/telegramR/reference/SetAuthorizationTTLRequest.md)
+  : SetAuthorizationTTLRequest
+- [`SetBlockedRequest`](https://romankyrychenko.github.io/telegramR/reference/SetBlockedRequest.md)
+  : SetBlockedRequest
+- [`SetBoostsToUnblockRestrictionsRequest`](https://romankyrychenko.github.io/telegramR/reference/SetBoostsToUnblockRestrictionsRequest.md)
+  : SetBoostsToUnblockRestrictionsRequest
+- [`SetBotBroadcastDefaultAdminRightsRequest`](https://romankyrychenko.github.io/telegramR/reference/SetBotBroadcastDefaultAdminRightsRequest.md)
+  : SetBotBroadcastDefaultAdminRightsRequest
+- [`SetBotCallbackAnswerRequest`](https://romankyrychenko.github.io/telegramR/reference/SetBotCallbackAnswerRequest.md)
+  : SetBotCallbackAnswerRequest
+- [`SetBotCommandsRequest`](https://romankyrychenko.github.io/telegramR/reference/SetBotCommandsRequest.md)
+  : SetBotCommandsRequest
+- [`SetBotGroupDefaultAdminRightsRequest`](https://romankyrychenko.github.io/telegramR/reference/SetBotGroupDefaultAdminRightsRequest.md)
+  : SetBotGroupDefaultAdminRightsRequest
+- [`SetBotInfoRequest`](https://romankyrychenko.github.io/telegramR/reference/SetBotInfoRequest.md)
+  : SetBotInfoRequest
+- [`SetBotMenuButtonRequest`](https://romankyrychenko.github.io/telegramR/reference/SetBotMenuButtonRequest.md)
+  : SetBotMenuButtonRequest
+- [`SetBotPrecheckoutResultsRequest`](https://romankyrychenko.github.io/telegramR/reference/SetBotPrecheckoutResultsRequest.md)
+  : SetBotPrecheckoutResultsRequest
+- [`SetBotShippingResultsRequest`](https://romankyrychenko.github.io/telegramR/reference/SetBotShippingResultsRequest.md)
+  : SetBotShippingResultsRequest
+- [`SetBotUpdatesStatusRequest`](https://romankyrychenko.github.io/telegramR/reference/SetBotUpdatesStatusRequest.md)
+  : SetBotUpdatesStatusRequest
+- [`SetCallRatingRequest`](https://romankyrychenko.github.io/telegramR/reference/SetCallRatingRequest.md)
+  : SetCallRatingRequest
+- [`SetChatAvailableReactionsRequest`](https://romankyrychenko.github.io/telegramR/reference/SetChatAvailableReactionsRequest.md)
+  : SetChatAvailableReactionsRequest
+- [`SetChatThemeRequest`](https://romankyrychenko.github.io/telegramR/reference/SetChatThemeRequest.md)
+  : SetChatThemeRequest
+- [`SetChatWallPaperRequest`](https://romankyrychenko.github.io/telegramR/reference/SetChatWallPaperRequest.md)
+  : SetChatWallPaperRequest
+- [`SetClientDHParamsRequest`](https://romankyrychenko.github.io/telegramR/reference/SetClientDHParamsRequest.md)
+  : SetClientDHParamsRequest
+- [`SetClientDHParamsRequest_from_reader()`](https://romankyrychenko.github.io/telegramR/reference/SetClientDHParamsRequest_from_reader.md)
+  : Create SetClientDHParamsRequest from a binary reader
+- [`SetContactSignUpNotificationRequest`](https://romankyrychenko.github.io/telegramR/reference/SetContactSignUpNotificationRequest.md)
+  : SetContactSignUpNotificationRequest
+- [`SetContentSettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/SetContentSettingsRequest.md)
+  : SetContentSettingsRequest
+- [`SetCustomVerificationRequest`](https://romankyrychenko.github.io/telegramR/reference/SetCustomVerificationRequest.md)
+  : SetCustomVerificationRequest
+- [`SetDefaultHistoryTTLRequest`](https://romankyrychenko.github.io/telegramR/reference/SetDefaultHistoryTTLRequest.md)
+  : SetDefaultHistoryTTLRequest
+- [`SetDefaultReactionRequest`](https://romankyrychenko.github.io/telegramR/reference/SetDefaultReactionRequest.md)
+  : SetDefaultReactionRequest
+- [`SetDiscussionGroupRequest`](https://romankyrychenko.github.io/telegramR/reference/SetDiscussionGroupRequest.md)
+  : SetDiscussionGroupRequest
+- [`SetEmojiStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/SetEmojiStickersRequest.md)
+  : SetEmojiStickersRequest
+- [`SetEncryptedTypingRequest`](https://romankyrychenko.github.io/telegramR/reference/SetEncryptedTypingRequest.md)
+  : SetEncryptedTypingRequest
+- [`SetGameScoreRequest`](https://romankyrychenko.github.io/telegramR/reference/SetGameScoreRequest.md)
+  : SetGameScoreRequest
+- [`SetGlobalPrivacySettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/SetGlobalPrivacySettingsRequest.md)
+  : SetGlobalPrivacySettingsRequest
+- [`SetHistoryTTLRequest`](https://romankyrychenko.github.io/telegramR/reference/SetHistoryTTLRequest.md)
+  : SetHistoryTTLRequest
+- [`SetInlineBotResultsRequest`](https://romankyrychenko.github.io/telegramR/reference/SetInlineBotResultsRequest.md)
+  : SetInlineBotResultsRequest
+- [`SetInlineGameScoreRequest`](https://romankyrychenko.github.io/telegramR/reference/SetInlineGameScoreRequest.md)
+  : SetInlineGameScoreRequest
+- [`SetMainProfileTabRequest`](https://romankyrychenko.github.io/telegramR/reference/SetMainProfileTabRequest.md)
+  : SetMainProfileTabRequest
+- [`SetPrivacyRequest`](https://romankyrychenko.github.io/telegramR/reference/SetPrivacyRequest.md)
+  : SetPrivacyRequest
+- [`SetReactionsNotifySettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/SetReactionsNotifySettingsRequest.md)
+  : SetReactionsNotifySettingsRequest
+- [`SetSecureValueErrorsRequest`](https://romankyrychenko.github.io/telegramR/reference/SetSecureValueErrorsRequest.md)
+  : SetSecureValueErrorsRequest
+- [`SetStickerSetThumbRequest`](https://romankyrychenko.github.io/telegramR/reference/SetStickerSetThumbRequest.md)
+  : SetStickerSetThumbRequest
+- [`SetStickersRequest`](https://romankyrychenko.github.io/telegramR/reference/SetStickersRequest.md)
+  : SetStickersRequest
+- [`SetTypingRequest`](https://romankyrychenko.github.io/telegramR/reference/SetTypingRequest.md)
+  : SetTypingRequest
+- [`ShippingOption`](https://romankyrychenko.github.io/telegramR/reference/ShippingOption.md)
+  : ShippingOption
+- [`SignInRequest`](https://romankyrychenko.github.io/telegramR/reference/SignInRequest.md)
+  : SignInRequest
+- [`SignUpRequest`](https://romankyrychenko.github.io/telegramR/reference/SignUpRequest.md)
+  : SignUpRequest
+- [`SmsJob`](https://romankyrychenko.github.io/telegramR/reference/SmsJob.md)
+  : SmsJob
+- [`SpeakingInGroupCallAction`](https://romankyrychenko.github.io/telegramR/reference/SpeakingInGroupCallAction.md)
+  : SpeakingInGroupCallAction
+- [`SponsoredMessage`](https://romankyrychenko.github.io/telegramR/reference/SponsoredMessage.md)
+  : SponsoredMessage
+- [`SponsoredMessageReportOption`](https://romankyrychenko.github.io/telegramR/reference/SponsoredMessageReportOption.md)
+  : SponsoredMessageReportOption
+- [`SponsoredPeer`](https://romankyrychenko.github.io/telegramR/reference/SponsoredPeer.md)
+  : SponsoredPeer
+- [`StarGift`](https://romankyrychenko.github.io/telegramR/reference/StarGift.md)
+  : StarGift
+- [`StarGiftAttributeBackdrop`](https://romankyrychenko.github.io/telegramR/reference/StarGiftAttributeBackdrop.md)
+  : StarGiftAttributeBackdrop
+- [`StarGiftAttributeCounter`](https://romankyrychenko.github.io/telegramR/reference/StarGiftAttributeCounter.md)
+  : StarGiftAttributeCounter
+- [`StarGiftAttributeIdBackdrop`](https://romankyrychenko.github.io/telegramR/reference/StarGiftAttributeIdBackdrop.md)
+  : StarGiftAttributeIdBackdrop
+- [`StarGiftAttributeIdModel`](https://romankyrychenko.github.io/telegramR/reference/StarGiftAttributeIdModel.md)
+  : StarGiftAttributeIdModel
+- [`StarGiftAttributeIdPattern`](https://romankyrychenko.github.io/telegramR/reference/StarGiftAttributeIdPattern.md)
+  : StarGiftAttributeIdPattern
+- [`StarGiftAttributeModel`](https://romankyrychenko.github.io/telegramR/reference/StarGiftAttributeModel.md)
+  : StarGiftAttributeModel
+- [`StarGiftAttributeOriginalDetails`](https://romankyrychenko.github.io/telegramR/reference/StarGiftAttributeOriginalDetails.md)
+  : StarGiftAttributeOriginalDetails
+- [`StarGiftAttributePattern`](https://romankyrychenko.github.io/telegramR/reference/StarGiftAttributePattern.md)
+  : StarGiftAttributePattern
+- [`StarGiftCollection`](https://romankyrychenko.github.io/telegramR/reference/StarGiftCollection.md)
+  : StarGiftCollection
+- [`StarGiftUnique`](https://romankyrychenko.github.io/telegramR/reference/StarGiftUnique.md)
+  : StarGiftUnique
+- [`StarRefProgram`](https://romankyrychenko.github.io/telegramR/reference/StarRefProgram.md)
+  : StarRefProgram
+- [`StarsAmount`](https://romankyrychenko.github.io/telegramR/reference/StarsAmount.md)
+  : StarsAmount
+- [`StarsGiftOption`](https://romankyrychenko.github.io/telegramR/reference/StarsGiftOption.md)
+  : StarsGiftOption
+- [`StarsGiveawayOption`](https://romankyrychenko.github.io/telegramR/reference/StarsGiveawayOption.md)
+  : StarsGiveawayOption
+- [`StarsGiveawayWinnersOption`](https://romankyrychenko.github.io/telegramR/reference/StarsGiveawayWinnersOption.md)
+  : StarsGiveawayWinnersOption
+- [`StarsRating`](https://romankyrychenko.github.io/telegramR/reference/StarsRating.md)
+  : StarsRating
+- [`StarsRevenueStatus`](https://romankyrychenko.github.io/telegramR/reference/StarsRevenueStatus.md)
+  : StarsRevenueStatus
+- [`StarsSubscription`](https://romankyrychenko.github.io/telegramR/reference/StarsSubscription.md)
+  : StarsSubscription
+- [`StarsSubscriptionPricing`](https://romankyrychenko.github.io/telegramR/reference/StarsSubscriptionPricing.md)
+  : StarsSubscriptionPricing
+- [`StarsTonAmount`](https://romankyrychenko.github.io/telegramR/reference/StarsTonAmount.md)
+  : StarsTonAmount
+- [`StarsTopupOption`](https://romankyrychenko.github.io/telegramR/reference/StarsTopupOption.md)
+  : StarsTopupOption
+- [`StarsTransaction`](https://romankyrychenko.github.io/telegramR/reference/StarsTransaction.md)
+  : StarsTransaction
+- [`StarsTransactionPeer`](https://romankyrychenko.github.io/telegramR/reference/StarsTransactionPeer.md)
+  : StarsTransactionPeer
+- [`StarsTransactionPeerAPI`](https://romankyrychenko.github.io/telegramR/reference/StarsTransactionPeerAPI.md)
+  : StarsTransactionPeerAPI
+- [`StarsTransactionPeerAds`](https://romankyrychenko.github.io/telegramR/reference/StarsTransactionPeerAds.md)
+  : StarsTransactionPeerAds
+- [`StarsTransactionPeerAppStore`](https://romankyrychenko.github.io/telegramR/reference/StarsTransactionPeerAppStore.md)
+  : StarsTransactionPeerAppStore
+- [`StarsTransactionPeerFragment`](https://romankyrychenko.github.io/telegramR/reference/StarsTransactionPeerFragment.md)
+  : StarsTransactionPeerFragment
+- [`StarsTransactionPeerPlayMarket`](https://romankyrychenko.github.io/telegramR/reference/StarsTransactionPeerPlayMarket.md)
+  : StarsTransactionPeerPlayMarket
+- [`StarsTransactionPeerPremiumBot`](https://romankyrychenko.github.io/telegramR/reference/StarsTransactionPeerPremiumBot.md)
+  : StarsTransactionPeerPremiumBot
+- [`StarsTransactionPeerUnsupported`](https://romankyrychenko.github.io/telegramR/reference/StarsTransactionPeerUnsupported.md)
+  : StarsTransactionPeerUnsupported
+- [`StartBotRequest`](https://romankyrychenko.github.io/telegramR/reference/StartBotRequest.md)
+  : StartBotRequest
+- [`StartHistoryImportRequest`](https://romankyrychenko.github.io/telegramR/reference/StartHistoryImportRequest.md)
+  : StartHistoryImportRequest
+- [`StartScheduledGroupCallRequest`](https://romankyrychenko.github.io/telegramR/reference/StartScheduledGroupCallRequest.md)
+  : StartScheduledGroupCallRequest
+- [`StatsAbsValueAndPrev`](https://romankyrychenko.github.io/telegramR/reference/StatsAbsValueAndPrev.md)
+  : StatsAbsValueAndPrev
+- [`StatsDateRangeDays`](https://romankyrychenko.github.io/telegramR/reference/StatsDateRangeDays.md)
+  : StatsDateRangeDays
+- [`StatsGraph`](https://romankyrychenko.github.io/telegramR/reference/StatsGraph.md)
+  : StatsGraph
+- [`StatsGraphAsync`](https://romankyrychenko.github.io/telegramR/reference/StatsGraphAsync.md)
+  : StatsGraphAsync
+- [`StatsGraphError`](https://romankyrychenko.github.io/telegramR/reference/StatsGraphError.md)
+  : StatsGraphError
+- [`StatsGroupTopAdmin`](https://romankyrychenko.github.io/telegramR/reference/StatsGroupTopAdmin.md)
+  : StatsGroupTopAdmin
+- [`StatsGroupTopInviter`](https://romankyrychenko.github.io/telegramR/reference/StatsGroupTopInviter.md)
+  : StatsGroupTopInviter
+- [`StatsGroupTopPoster`](https://romankyrychenko.github.io/telegramR/reference/StatsGroupTopPoster.md)
+  : StatsGroupTopPoster
+- [`StatsPercentValue`](https://romankyrychenko.github.io/telegramR/reference/StatsPercentValue.md)
+  : StatsPercentValue
+- [`StatsURL`](https://romankyrychenko.github.io/telegramR/reference/StatsURL.md)
+  : StatsURL
+- [`StickerKeyword`](https://romankyrychenko.github.io/telegramR/reference/StickerKeyword.md)
+  : StickerKeyword
+- [`StickerPack`](https://romankyrychenko.github.io/telegramR/reference/StickerPack.md)
+  : StickerPack
+- [`StickerSet`](https://romankyrychenko.github.io/telegramR/reference/StickerSet.md)
+  : StickerSet
+- [`StickerSetCovered`](https://romankyrychenko.github.io/telegramR/reference/StickerSetCovered.md)
+  : StickerSetCovered
+- [`StickerSetFullCovered`](https://romankyrychenko.github.io/telegramR/reference/StickerSetFullCovered.md)
+  : StickerSetFullCovered
+- [`StickerSetMultiCovered`](https://romankyrychenko.github.io/telegramR/reference/StickerSetMultiCovered.md)
+  : StickerSetMultiCovered
+- [`StickerSetNoCovered`](https://romankyrychenko.github.io/telegramR/reference/StickerSetNoCovered.md)
+  : StickerSetNoCovered
+- [`StoriesStealthMode`](https://romankyrychenko.github.io/telegramR/reference/StoriesStealthMode.md)
+  : StoriesStealthMode
+- [`StoryAlbum`](https://romankyrychenko.github.io/telegramR/reference/StoryAlbum.md)
+  : StoryAlbum
+- [`StoryFwdHeader`](https://romankyrychenko.github.io/telegramR/reference/StoryFwdHeader.md)
+  : StoryFwdHeader
+- [`StoryItem`](https://romankyrychenko.github.io/telegramR/reference/StoryItem.md)
+  : StoryItem
+- [`StoryItemDeleted`](https://romankyrychenko.github.io/telegramR/reference/StoryItemDeleted.md)
+  : StoryItemDeleted
+- [`StoryItemSkipped`](https://romankyrychenko.github.io/telegramR/reference/StoryItemSkipped.md)
+  : StoryItemSkipped
+- [`StoryReaction`](https://romankyrychenko.github.io/telegramR/reference/StoryReaction.md)
+  : StoryReaction
+- [`StoryReactionPublicForward`](https://romankyrychenko.github.io/telegramR/reference/StoryReactionPublicForward.md)
+  : StoryReactionPublicForward
+- [`StoryReactionPublicRepost`](https://romankyrychenko.github.io/telegramR/reference/StoryReactionPublicRepost.md)
+  : StoryReactionPublicRepost
+- [`StoryView`](https://romankyrychenko.github.io/telegramR/reference/StoryView.md)
+  : StoryView
+- [`StoryViewPublicForward`](https://romankyrychenko.github.io/telegramR/reference/StoryViewPublicForward.md)
+  : StoryViewPublicForward
+- [`StoryViewPublicRepost`](https://romankyrychenko.github.io/telegramR/reference/StoryViewPublicRepost.md)
+  : StoryViewPublicRepost
+- [`StoryViews`](https://romankyrychenko.github.io/telegramR/reference/StoryViews.md)
+  : StoryViews
+- [`SuggestShortNameRequest`](https://romankyrychenko.github.io/telegramR/reference/SuggestShortNameRequest.md)
+  : SuggestShortNameRequest
+- [`SuggestedPost`](https://romankyrychenko.github.io/telegramR/reference/SuggestedPost.md)
+  : SuggestedPost
+- [`TG_JOIN_RE`](https://romankyrychenko.github.io/telegramR/reference/TG_JOIN_RE.md)
+  : Telegram Join Regular Expression
+- [`TLMessage`](https://romankyrychenko.github.io/telegramR/reference/TLMessage.md)
+  : TLMessage
+- [`TLObject`](https://romankyrychenko.github.io/telegramR/reference/TLObject.md)
+  : TLObject
+- [`TLRequest`](https://romankyrychenko.github.io/telegramR/reference/TLRequest.md)
+  : TLRequest
+- [`TakeoutClient`](https://romankyrychenko.github.io/telegramR/reference/TakeoutClient.md)
+  : TakeoutClient
+- [`TcpMTProxy`](https://romankyrychenko.github.io/telegramR/reference/TcpMTProxy.md)
+  : TcpMTProxy
+- [`TelegramBaseClient`](https://romankyrychenko.github.io/telegramR/reference/TelegramBaseClient.md)
+  : Telegram Base Client
+- [`TextAnchor`](https://romankyrychenko.github.io/telegramR/reference/TextAnchor.md)
+  : TextAnchor
+- [`TextBold`](https://romankyrychenko.github.io/telegramR/reference/TextBold.md)
+  : TextBold
+- [`TextConcat`](https://romankyrychenko.github.io/telegramR/reference/TextConcat.md)
+  : TextConcat
+- [`TextEmail`](https://romankyrychenko.github.io/telegramR/reference/TextEmail.md)
+  : TextEmail
+- [`TextEmpty`](https://romankyrychenko.github.io/telegramR/reference/TextEmpty.md)
+  : TextEmpty
+- [`TextFixed`](https://romankyrychenko.github.io/telegramR/reference/TextFixed.md)
+  : TextFixed
+- [`TextImage`](https://romankyrychenko.github.io/telegramR/reference/TextImage.md)
+  : TextImage
+- [`TextItalic`](https://romankyrychenko.github.io/telegramR/reference/TextItalic.md)
+  : TextItalic
+- [`TextMarked`](https://romankyrychenko.github.io/telegramR/reference/TextMarked.md)
+  : TextMarked
+- [`TextPhone`](https://romankyrychenko.github.io/telegramR/reference/TextPhone.md)
+  : TextPhone
+- [`TextPlain`](https://romankyrychenko.github.io/telegramR/reference/TextPlain.md)
+  : TextPlain
+- [`TextStrike`](https://romankyrychenko.github.io/telegramR/reference/TextStrike.md)
+  : TextStrike
+- [`TextSubscript`](https://romankyrychenko.github.io/telegramR/reference/TextSubscript.md)
+  : TextSubscript
+- [`TextSuperscript`](https://romankyrychenko.github.io/telegramR/reference/TextSuperscript.md)
+  : TextSuperscript
+- [`TextUnderline`](https://romankyrychenko.github.io/telegramR/reference/TextUnderline.md)
+  : TextUnderline
+- [`TextUrl`](https://romankyrychenko.github.io/telegramR/reference/TextUrl.md)
+  : TextUrl
+- [`TextWithEntities`](https://romankyrychenko.github.io/telegramR/reference/TextWithEntities.md)
+  : TextWithEntities
+- [`Theme`](https://romankyrychenko.github.io/telegramR/reference/Theme.md)
+  : Theme
+- [`ThemeSettings`](https://romankyrychenko.github.io/telegramR/reference/ThemeSettings.md)
+  : ThemeSettings
+- [`Timezone`](https://romankyrychenko.github.io/telegramR/reference/Timezone.md)
+  : Timezone
+- [`TlsBlockDomain`](https://romankyrychenko.github.io/telegramR/reference/TlsBlockDomain.md)
+  : TlsBlockDomain
+- [`TlsBlockGrease`](https://romankyrychenko.github.io/telegramR/reference/TlsBlockGrease.md)
+  : TlsBlockGrease
+- [`TlsBlockPublicKey`](https://romankyrychenko.github.io/telegramR/reference/TlsBlockPublicKey.md)
+  : TlsBlockPublicKey
+- [`TlsBlockRandom`](https://romankyrychenko.github.io/telegramR/reference/TlsBlockRandom.md)
+  : TlsBlockRandom
+- [`TlsBlockScope`](https://romankyrychenko.github.io/telegramR/reference/TlsBlockScope.md)
+  : TlsBlockScope
+- [`TlsBlockString`](https://romankyrychenko.github.io/telegramR/reference/TlsBlockString.md)
+  : TlsBlockString
+- [`TlsBlockZero`](https://romankyrychenko.github.io/telegramR/reference/TlsBlockZero.md)
+  : TlsBlockZero
+- [`TlsClientHello`](https://romankyrychenko.github.io/telegramR/reference/TlsClientHello.md)
+  : TlsClientHello
+- [`TodoCompletion`](https://romankyrychenko.github.io/telegramR/reference/TodoCompletion.md)
+  : TodoCompletion
+- [`TodoItem`](https://romankyrychenko.github.io/telegramR/reference/TodoItem.md)
+  : TodoItem
+- [`TodoList`](https://romankyrychenko.github.io/telegramR/reference/TodoList.md)
+  : TodoList
+- [`ToggleAllStoriesHiddenRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleAllStoriesHiddenRequest.md)
+  : ToggleAllStoriesHiddenRequest R6 class
+- [`ToggleAntiSpamRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleAntiSpamRequest.md)
+  : ToggleAntiSpamRequest
+- [`ToggleAutotranslationRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleAutotranslationRequest.md)
+  : ToggleAutotranslationRequest
+- [`ToggleBotInAttachMenuRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleBotInAttachMenuRequest.md)
+  : ToggleBotInAttachMenuRequest
+- [`ToggleChatStarGiftNotificationsRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleChatStarGiftNotificationsRequest.md)
+  : ToggleChatStarGiftNotificationsRequest
+- [`ToggleConnectedBotPausedRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleConnectedBotPausedRequest.md)
+  : ToggleConnectedBotPausedRequest
+- [`ToggleDialogFilterTagsRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleDialogFilterTagsRequest.md)
+  : ToggleDialogFilterTagsRequest
+- [`ToggleDialogPinRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleDialogPinRequest.md)
+  : ToggleDialogPinRequest
+- [`ToggleForumRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleForumRequest.md)
+  : ToggleForumRequest
+- [`ToggleGroupCallRecordRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleGroupCallRecordRequest.md)
+  : ToggleGroupCallRecordRequest
+- [`ToggleGroupCallSettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleGroupCallSettingsRequest.md)
+  : ToggleGroupCallSettingsRequest
+- [`ToggleGroupCallStartSubscriptionRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleGroupCallStartSubscriptionRequest.md)
+  : ToggleGroupCallStartSubscriptionRequest
+- [`ToggleJoinRequestRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleJoinRequestRequest.md)
+  : ToggleJoinRequestRequest
+- [`ToggleJoinToSendRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleJoinToSendRequest.md)
+  : ToggleJoinToSendRequest
+- [`ToggleNoForwardsRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleNoForwardsRequest.md)
+  : ToggleNoForwardsRequest
+- [`ToggleNoPaidMessagesExceptionRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleNoPaidMessagesExceptionRequest.md)
+  : ToggleNoPaidMessagesExceptionRequest
+- [`TogglePaidReactionPrivacyRequest`](https://romankyrychenko.github.io/telegramR/reference/TogglePaidReactionPrivacyRequest.md)
+  : TogglePaidReactionPrivacyRequest
+- [`ToggleParticipantsHiddenRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleParticipantsHiddenRequest.md)
+  : ToggleParticipantsHiddenRequest
+- [`TogglePeerStoriesHiddenRequest`](https://romankyrychenko.github.io/telegramR/reference/TogglePeerStoriesHiddenRequest.md)
+  : TogglePeerStoriesHiddenRequest R6 class
+- [`TogglePeerTranslationsRequest`](https://romankyrychenko.github.io/telegramR/reference/TogglePeerTranslationsRequest.md)
+  : TogglePeerTranslationsRequest
+- [`TogglePinnedRequest`](https://romankyrychenko.github.io/telegramR/reference/TogglePinnedRequest.md)
+  : TogglePinnedRequest R6 class
+- [`TogglePinnedToTopRequest`](https://romankyrychenko.github.io/telegramR/reference/TogglePinnedToTopRequest.md)
+  : TogglePinnedToTopRequest R6 class
+- [`TogglePreHistoryHiddenRequest`](https://romankyrychenko.github.io/telegramR/reference/TogglePreHistoryHiddenRequest.md)
+  : TogglePreHistoryHiddenRequest
+- [`ToggleSavedDialogPinRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleSavedDialogPinRequest.md)
+  : ToggleSavedDialogPinRequest
+- [`ToggleSignaturesRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleSignaturesRequest.md)
+  : ToggleSignaturesRequest
+- [`ToggleSlowModeRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleSlowModeRequest.md)
+  : ToggleSlowModeRequest
+- [`ToggleSponsoredMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleSponsoredMessagesRequest.md)
+  : ToggleSponsoredMessagesRequest
+- [`ToggleStarGiftsPinnedToTopRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleStarGiftsPinnedToTopRequest.md)
+  : ToggleStarGiftsPinnedToTopRequest
+- [`ToggleStickerSetsRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleStickerSetsRequest.md)
+  : ToggleStickerSetsRequest
+- [`ToggleSuggestedPostApprovalRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleSuggestedPostApprovalRequest.md)
+  : ToggleSuggestedPostApprovalRequest
+- [`ToggleTodoCompletedRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleTodoCompletedRequest.md)
+  : ToggleTodoCompletedRequest
+- [`ToggleTopPeersRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleTopPeersRequest.md)
+  : ToggleTopPeersRequest
+- [`ToggleUserEmojiStatusPermissionRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleUserEmojiStatusPermissionRequest.md)
+  : ToggleUserEmojiStatusPermissionRequest
+- [`ToggleUsernameRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleUsernameRequest.md)
+  : ToggleUsernameRequest
+- [`ToggleViewForumAsMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/ToggleViewForumAsMessagesRequest.md)
+  : ToggleViewForumAsMessagesRequest
+- [`TopPeer`](https://romankyrychenko.github.io/telegramR/reference/TopPeer.md)
+  : TopPeer
+- [`TopPeerCategoryBotsApp`](https://romankyrychenko.github.io/telegramR/reference/TopPeerCategoryBotsApp.md)
+  : TopPeerCategoryBotsApp
+- [`TopPeerCategoryBotsInline`](https://romankyrychenko.github.io/telegramR/reference/TopPeerCategoryBotsInline.md)
+  : TopPeerCategoryBotsInline
+- [`TopPeerCategoryBotsPM`](https://romankyrychenko.github.io/telegramR/reference/TopPeerCategoryBotsPM.md)
+  : TopPeerCategoryBotsPM
+- [`TopPeerCategoryChannels`](https://romankyrychenko.github.io/telegramR/reference/TopPeerCategoryChannels.md)
+  : TopPeerCategoryChannels
+- [`TopPeerCategoryCorrespondents`](https://romankyrychenko.github.io/telegramR/reference/TopPeerCategoryCorrespondents.md)
+  : TopPeerCategoryCorrespondents
+- [`TopPeerCategoryForwardChats`](https://romankyrychenko.github.io/telegramR/reference/TopPeerCategoryForwardChats.md)
+  : TopPeerCategoryForwardChats
+- [`TopPeerCategoryForwardUsers`](https://romankyrychenko.github.io/telegramR/reference/TopPeerCategoryForwardUsers.md)
+  : TopPeerCategoryForwardUsers
+- [`TopPeerCategoryGroups`](https://romankyrychenko.github.io/telegramR/reference/TopPeerCategoryGroups.md)
+  : TopPeerCategoryGroups
+- [`TopPeerCategoryPeers`](https://romankyrychenko.github.io/telegramR/reference/TopPeerCategoryPeers.md)
+  : TopPeerCategoryPeers
+- [`TopPeerCategoryPhoneCalls`](https://romankyrychenko.github.io/telegramR/reference/TopPeerCategoryPhoneCalls.md)
+  : TopPeerCategoryPhoneCalls
+- [`TotalList`](https://romankyrychenko.github.io/telegramR/reference/TotalList.md)
+  : TotalList
+- [`TranscribeAudioRequest`](https://romankyrychenko.github.io/telegramR/reference/TranscribeAudioRequest.md)
+  : TranscribeAudioRequest
+- [`TransferStarGiftRequest`](https://romankyrychenko.github.io/telegramR/reference/TransferStarGiftRequest.md)
+  : TransferStarGiftRequest
+- [`TranslateTextRequest`](https://romankyrychenko.github.io/telegramR/reference/TranslateTextRequest.md)
+  : TranslateTextRequest
+- [`TypeNotFoundError`](https://romankyrychenko.github.io/telegramR/reference/TypeNotFoundError.md)
+  : TypeNotFoundError
+- [`USERNAME_RE`](https://romankyrychenko.github.io/telegramR/reference/USERNAME_RE.md)
+  : Username Regular Expression
+- [`UnblockRequest`](https://romankyrychenko.github.io/telegramR/reference/UnblockRequest.md)
+  : UnblockRequest
+- [`UninstallStickerSetRequest`](https://romankyrychenko.github.io/telegramR/reference/UninstallStickerSetRequest.md)
+  : UninstallStickerSetRequest
+- [`UnpinAllMessagesRequest`](https://romankyrychenko.github.io/telegramR/reference/UnpinAllMessagesRequest.md)
+  : UnpinAllMessagesRequest
+- [`UnregisterDeviceRequest`](https://romankyrychenko.github.io/telegramR/reference/UnregisterDeviceRequest.md)
+  : UnregisterDeviceRequest
+- [`UpdateAlbumRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateAlbumRequest.md)
+  : UpdateAlbumRequest R6 class
+- [`UpdateAttachMenuBots`](https://romankyrychenko.github.io/telegramR/reference/UpdateAttachMenuBots.md)
+  : UpdateAttachMenuBots
+- [`UpdateAutoSaveSettings`](https://romankyrychenko.github.io/telegramR/reference/UpdateAutoSaveSettings.md)
+  : UpdateAutoSaveSettings
+- [`UpdateBirthdayRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateBirthdayRequest.md)
+  : UpdateBirthdayRequest
+- [`UpdateBotBusinessConnect`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotBusinessConnect.md)
+  : UpdateBotBusinessConnect
+- [`UpdateBotCallbackQuery`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotCallbackQuery.md)
+  : UpdateBotCallbackQuery
+- [`UpdateBotChatBoost`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotChatBoost.md)
+  : UpdateBotChatBoost
+- [`UpdateBotChatInviteRequester`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotChatInviteRequester.md)
+  : UpdateBotChatInviteRequester
+- [`UpdateBotCommands`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotCommands.md)
+  : UpdateBotCommands
+- [`UpdateBotDeleteBusinessMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotDeleteBusinessMessage.md)
+  : UpdateBotDeleteBusinessMessage
+- [`UpdateBotEditBusinessMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotEditBusinessMessage.md)
+  : UpdateBotEditBusinessMessage
+- [`UpdateBotInlineQuery`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotInlineQuery.md)
+  : UpdateBotInlineQuery
+- [`UpdateBotInlineSend`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotInlineSend.md)
+  : UpdateBotInlineSend
+- [`UpdateBotMenuButton`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotMenuButton.md)
+  : UpdateBotMenuButton
+- [`UpdateBotMessageReaction`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotMessageReaction.md)
+  : UpdateBotMessageReaction
+- [`UpdateBotMessageReactions`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotMessageReactions.md)
+  : UpdateBotMessageReactions
+- [`UpdateBotNewBusinessMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotNewBusinessMessage.md)
+  : UpdateBotNewBusinessMessage
+- [`UpdateBotPrecheckoutQuery`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotPrecheckoutQuery.md)
+  : UpdateBotPrecheckoutQuery
+- [`UpdateBotPurchasedPaidMedia`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotPurchasedPaidMedia.md)
+  : UpdateBotPurchasedPaidMedia
+- [`UpdateBotShippingQuery`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotShippingQuery.md)
+  : UpdateBotShippingQuery
+- [`UpdateBotStopped`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotStopped.md)
+  : UpdateBotStopped
+- [`UpdateBotWebhookJSON`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotWebhookJSON.md)
+  : UpdateBotWebhookJSON
+- [`UpdateBotWebhookJSONQuery`](https://romankyrychenko.github.io/telegramR/reference/UpdateBotWebhookJSONQuery.md)
+  : UpdateBotWebhookJSONQuery
+- [`UpdateBusinessAwayMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateBusinessAwayMessageRequest.md)
+  : UpdateBusinessAwayMessageRequest
+- [`UpdateBusinessBotCallbackQuery`](https://romankyrychenko.github.io/telegramR/reference/UpdateBusinessBotCallbackQuery.md)
+  : UpdateBusinessBotCallbackQuery
+- [`UpdateBusinessGreetingMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateBusinessGreetingMessageRequest.md)
+  : UpdateBusinessGreetingMessageRequest
+- [`UpdateBusinessIntroRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateBusinessIntroRequest.md)
+  : UpdateBusinessIntroRequest
+- [`UpdateBusinessLocationRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateBusinessLocationRequest.md)
+  : UpdateBusinessLocationRequest
+- [`UpdateBusinessWorkHoursRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateBusinessWorkHoursRequest.md)
+  : UpdateBusinessWorkHoursRequest
+- [`UpdateChannel`](https://romankyrychenko.github.io/telegramR/reference/UpdateChannel.md)
+  : UpdateChannel
+- [`UpdateChannelAvailableMessages`](https://romankyrychenko.github.io/telegramR/reference/UpdateChannelAvailableMessages.md)
+  : UpdateChannelAvailableMessages
+- [`UpdateChannelMessageForwards`](https://romankyrychenko.github.io/telegramR/reference/UpdateChannelMessageForwards.md)
+  : UpdateChannelMessageForwards
+- [`UpdateChannelMessageViews`](https://romankyrychenko.github.io/telegramR/reference/UpdateChannelMessageViews.md)
+  : UpdateChannelMessageViews
+- [`UpdateChannelParticipant`](https://romankyrychenko.github.io/telegramR/reference/UpdateChannelParticipant.md)
+  : UpdateChannelParticipant
+- [`UpdateChannelPinnedTopic`](https://romankyrychenko.github.io/telegramR/reference/UpdateChannelPinnedTopic.md)
+  : UpdateChannelPinnedTopic
+- [`UpdateChannelPinnedTopics`](https://romankyrychenko.github.io/telegramR/reference/UpdateChannelPinnedTopics.md)
+  : UpdateChannelPinnedTopics
+- [`UpdateChannelReadMessagesContents`](https://romankyrychenko.github.io/telegramR/reference/UpdateChannelReadMessagesContents.md)
+  : UpdateChannelReadMessagesContents
+- [`UpdateChannelTooLong`](https://romankyrychenko.github.io/telegramR/reference/UpdateChannelTooLong.md)
+  : UpdateChannelTooLong
+- [`UpdateChannelUserTyping`](https://romankyrychenko.github.io/telegramR/reference/UpdateChannelUserTyping.md)
+  : UpdateChannelUserTyping
+- [`UpdateChannelViewForumAsMessages`](https://romankyrychenko.github.io/telegramR/reference/UpdateChannelViewForumAsMessages.md)
+  : UpdateChannelViewForumAsMessages
+- [`UpdateChannelWebPage`](https://romankyrychenko.github.io/telegramR/reference/UpdateChannelWebPage.md)
+  : UpdateChannelWebPage
+- [`UpdateChat`](https://romankyrychenko.github.io/telegramR/reference/UpdateChat.md)
+  : UpdateChat
+- [`UpdateChatDefaultBannedRights`](https://romankyrychenko.github.io/telegramR/reference/UpdateChatDefaultBannedRights.md)
+  : UpdateChatDefaultBannedRights
+- [`UpdateChatParticipant`](https://romankyrychenko.github.io/telegramR/reference/UpdateChatParticipant.md)
+  : UpdateChatParticipant
+- [`UpdateChatParticipantAdd`](https://romankyrychenko.github.io/telegramR/reference/UpdateChatParticipantAdd.md)
+  : UpdateChatParticipantAdd
+- [`UpdateChatParticipantAdmin`](https://romankyrychenko.github.io/telegramR/reference/UpdateChatParticipantAdmin.md)
+  : UpdateChatParticipantAdmin
+- [`UpdateChatParticipantDelete`](https://romankyrychenko.github.io/telegramR/reference/UpdateChatParticipantDelete.md)
+  : UpdateChatParticipantDelete
+- [`UpdateChatParticipants`](https://romankyrychenko.github.io/telegramR/reference/UpdateChatParticipants.md)
+  : UpdateChatParticipants
+- [`UpdateChatUserTyping`](https://romankyrychenko.github.io/telegramR/reference/UpdateChatUserTyping.md)
+  : UpdateChatUserTyping
+- [`UpdateColorRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateColorRequest.md)
+  : UpdateColorRequest
+- [`UpdateConfig`](https://romankyrychenko.github.io/telegramR/reference/UpdateConfig.md)
+  : UpdateConfig
+- [`UpdateConnectedBotRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateConnectedBotRequest.md)
+  : UpdateConnectedBotRequest
+- [`UpdateContactsReset`](https://romankyrychenko.github.io/telegramR/reference/UpdateContactsReset.md)
+  : UpdateContactsReset
+- [`UpdateDcOptions`](https://romankyrychenko.github.io/telegramR/reference/UpdateDcOptions.md)
+  : UpdateDcOptions
+- [`UpdateDeleteChannelMessages`](https://romankyrychenko.github.io/telegramR/reference/UpdateDeleteChannelMessages.md)
+  : UpdateDeleteChannelMessages
+- [`UpdateDeleteMessages`](https://romankyrychenko.github.io/telegramR/reference/UpdateDeleteMessages.md)
+  : UpdateDeleteMessages
+- [`UpdateDeleteQuickReply`](https://romankyrychenko.github.io/telegramR/reference/UpdateDeleteQuickReply.md)
+  : UpdateDeleteQuickReply
+- [`UpdateDeleteQuickReplyMessages`](https://romankyrychenko.github.io/telegramR/reference/UpdateDeleteQuickReplyMessages.md)
+  : UpdateDeleteQuickReplyMessages
+- [`UpdateDeleteScheduledMessages`](https://romankyrychenko.github.io/telegramR/reference/UpdateDeleteScheduledMessages.md)
+  : UpdateDeleteScheduledMessages
+- [`UpdateDeviceLockedRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateDeviceLockedRequest.md)
+  : UpdateDeviceLockedRequest
+- [`UpdateDialogFilter`](https://romankyrychenko.github.io/telegramR/reference/UpdateDialogFilter.md)
+  : UpdateDialogFilter
+- [`UpdateDialogFilterOrder`](https://romankyrychenko.github.io/telegramR/reference/UpdateDialogFilterOrder.md)
+  : UpdateDialogFilterOrder
+- [`UpdateDialogFilterRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateDialogFilterRequest.md)
+  : UpdateDialogFilterRequest
+- [`UpdateDialogFilters`](https://romankyrychenko.github.io/telegramR/reference/UpdateDialogFilters.md)
+  : UpdateDialogFilters
+- [`UpdateDialogFiltersOrderRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateDialogFiltersOrderRequest.md)
+  : UpdateDialogFiltersOrderRequest
+- [`UpdateDialogPinned`](https://romankyrychenko.github.io/telegramR/reference/UpdateDialogPinned.md)
+  : UpdateDialogPinned
+- [`UpdateDialogUnreadMark`](https://romankyrychenko.github.io/telegramR/reference/UpdateDialogUnreadMark.md)
+  : UpdateDialogUnreadMark
+- [`UpdateDraftMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateDraftMessage.md)
+  : UpdateDraftMessage
+- [`UpdateEditChannelMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateEditChannelMessage.md)
+  : UpdateEditChannelMessage
+- [`UpdateEditMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateEditMessage.md)
+  : UpdateEditMessage
+- [`UpdateEmojiStatusRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateEmojiStatusRequest.md)
+  : UpdateEmojiStatusRequest
+- [`UpdateEncryptedChatTyping`](https://romankyrychenko.github.io/telegramR/reference/UpdateEncryptedChatTyping.md)
+  : UpdateEncryptedChatTyping
+- [`UpdateEncryptedMessagesRead`](https://romankyrychenko.github.io/telegramR/reference/UpdateEncryptedMessagesRead.md)
+  : UpdateEncryptedMessagesRead
+- [`UpdateEncryption`](https://romankyrychenko.github.io/telegramR/reference/UpdateEncryption.md)
+  : UpdateEncryption
+- [`UpdateFavedStickers`](https://romankyrychenko.github.io/telegramR/reference/UpdateFavedStickers.md)
+  : UpdateFavedStickers
+- [`UpdateFolderPeers`](https://romankyrychenko.github.io/telegramR/reference/UpdateFolderPeers.md)
+  : UpdateFolderPeers
+- [`UpdateGeoLiveViewed`](https://romankyrychenko.github.io/telegramR/reference/UpdateGeoLiveViewed.md)
+  : UpdateGeoLiveViewed
+- [`UpdateGroupCall`](https://romankyrychenko.github.io/telegramR/reference/UpdateGroupCall.md)
+  : UpdateGroupCall
+- [`UpdateGroupCallChainBlocks`](https://romankyrychenko.github.io/telegramR/reference/UpdateGroupCallChainBlocks.md)
+  : UpdateGroupCallChainBlocks
+- [`UpdateGroupCallConnection`](https://romankyrychenko.github.io/telegramR/reference/UpdateGroupCallConnection.md)
+  : UpdateGroupCallConnection
+- [`UpdateGroupCallParticipants`](https://romankyrychenko.github.io/telegramR/reference/UpdateGroupCallParticipants.md)
+  : UpdateGroupCallParticipants
+- [`UpdateInlineBotCallbackQuery`](https://romankyrychenko.github.io/telegramR/reference/UpdateInlineBotCallbackQuery.md)
+  : UpdateInlineBotCallbackQuery
+- [`UpdateLangPack`](https://romankyrychenko.github.io/telegramR/reference/UpdateLangPack.md)
+  : UpdateLangPack
+- [`UpdateLangPackTooLong`](https://romankyrychenko.github.io/telegramR/reference/UpdateLangPackTooLong.md)
+  : UpdateLangPackTooLong
+- [`UpdateLoginToken`](https://romankyrychenko.github.io/telegramR/reference/UpdateLoginToken.md)
+  : UpdateLoginToken
+- [`UpdateMessageExtendedMedia`](https://romankyrychenko.github.io/telegramR/reference/UpdateMessageExtendedMedia.md)
+  : UpdateMessageExtendedMedia
+- [`UpdateMessageID`](https://romankyrychenko.github.io/telegramR/reference/UpdateMessageID.md)
+  : UpdateMessageID
+- [`UpdateMessagePoll`](https://romankyrychenko.github.io/telegramR/reference/UpdateMessagePoll.md)
+  : UpdateMessagePoll
+- [`UpdateMessagePollVote`](https://romankyrychenko.github.io/telegramR/reference/UpdateMessagePollVote.md)
+  : UpdateMessagePollVote
+- [`UpdateMessageReactions`](https://romankyrychenko.github.io/telegramR/reference/UpdateMessageReactions.md)
+  : UpdateMessageReactions
+- [`UpdateMonoForumNoPaidException`](https://romankyrychenko.github.io/telegramR/reference/UpdateMonoForumNoPaidException.md)
+  : UpdateMonoForumNoPaidException
+- [`UpdateMoveStickerSetToTop`](https://romankyrychenko.github.io/telegramR/reference/UpdateMoveStickerSetToTop.md)
+  : UpdateMoveStickerSetToTop
+- [`UpdateNewAuthorization`](https://romankyrychenko.github.io/telegramR/reference/UpdateNewAuthorization.md)
+  : UpdateNewAuthorization
+- [`UpdateNewChannelMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateNewChannelMessage.md)
+  : UpdateNewChannelMessage
+- [`UpdateNewEncryptedMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateNewEncryptedMessage.md)
+  : UpdateNewEncryptedMessage
+- [`UpdateNewMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateNewMessage.md)
+  : UpdateNewMessage
+- [`UpdateNewQuickReply`](https://romankyrychenko.github.io/telegramR/reference/UpdateNewQuickReply.md)
+  : UpdateNewQuickReply
+- [`UpdateNewScheduledMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateNewScheduledMessage.md)
+  : UpdateNewScheduledMessage
+- [`UpdateNewStickerSet`](https://romankyrychenko.github.io/telegramR/reference/UpdateNewStickerSet.md)
+  : UpdateNewStickerSet
+- [`UpdateNewStoryReaction`](https://romankyrychenko.github.io/telegramR/reference/UpdateNewStoryReaction.md)
+  : UpdateNewStoryReaction
+- [`UpdateNotifySettings`](https://romankyrychenko.github.io/telegramR/reference/UpdateNotifySettings.md)
+  : UpdateNotifySettings
+- [`UpdateNotifySettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateNotifySettingsRequest.md)
+  : UpdateNotifySettingsRequest
+- [`UpdatePaidMessagesPriceRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdatePaidMessagesPriceRequest.md)
+  : UpdatePaidMessagesPriceRequest
+- [`UpdatePaidReactionPrivacy`](https://romankyrychenko.github.io/telegramR/reference/UpdatePaidReactionPrivacy.md)
+  : UpdatePaidReactionPrivacy
+- [`UpdatePasswordSettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdatePasswordSettingsRequest.md)
+  : UpdatePasswordSettingsRequest
+- [`UpdatePeerBlocked`](https://romankyrychenko.github.io/telegramR/reference/UpdatePeerBlocked.md)
+  : UpdatePeerBlocked
+- [`UpdatePeerHistoryTTL`](https://romankyrychenko.github.io/telegramR/reference/UpdatePeerHistoryTTL.md)
+  : UpdatePeerHistoryTTL
+- [`UpdatePeerLocated`](https://romankyrychenko.github.io/telegramR/reference/UpdatePeerLocated.md)
+  : UpdatePeerLocated
+- [`UpdatePeerSettings`](https://romankyrychenko.github.io/telegramR/reference/UpdatePeerSettings.md)
+  : UpdatePeerSettings
+- [`UpdatePeerWallpaper`](https://romankyrychenko.github.io/telegramR/reference/UpdatePeerWallpaper.md)
+  : UpdatePeerWallpaper
+- [`UpdatePendingJoinRequests`](https://romankyrychenko.github.io/telegramR/reference/UpdatePendingJoinRequests.md)
+  : UpdatePendingJoinRequests
+- [`UpdatePersonalChannelRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdatePersonalChannelRequest.md)
+  : UpdatePersonalChannelRequest
+- [`UpdatePhoneCall`](https://romankyrychenko.github.io/telegramR/reference/UpdatePhoneCall.md)
+  : UpdatePhoneCall
+- [`UpdatePhoneCallSignalingData`](https://romankyrychenko.github.io/telegramR/reference/UpdatePhoneCallSignalingData.md)
+  : UpdatePhoneCallSignalingData
+- [`UpdatePinnedChannelMessages`](https://romankyrychenko.github.io/telegramR/reference/UpdatePinnedChannelMessages.md)
+  : UpdatePinnedChannelMessages
+- [`UpdatePinnedDialogs`](https://romankyrychenko.github.io/telegramR/reference/UpdatePinnedDialogs.md)
+  : UpdatePinnedDialogs
+- [`UpdatePinnedForumTopicRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdatePinnedForumTopicRequest.md)
+  : UpdatePinnedForumTopicRequest
+- [`UpdatePinnedMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdatePinnedMessageRequest.md)
+  : UpdatePinnedMessageRequest
+- [`UpdatePinnedMessages`](https://romankyrychenko.github.io/telegramR/reference/UpdatePinnedMessages.md)
+  : UpdatePinnedMessages
+- [`UpdatePinnedSavedDialogs`](https://romankyrychenko.github.io/telegramR/reference/UpdatePinnedSavedDialogs.md)
+  : UpdatePinnedSavedDialogs
+- [`UpdatePrivacy`](https://romankyrychenko.github.io/telegramR/reference/UpdatePrivacy.md)
+  : UpdatePrivacy
+- [`UpdateProfilePhotoRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateProfilePhotoRequest.md)
+  : UpdateProfilePhotoRequest
+- [`UpdateProfileRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateProfileRequest.md)
+  : UpdateProfileRequest
+- [`UpdatePtsChanged`](https://romankyrychenko.github.io/telegramR/reference/UpdatePtsChanged.md)
+  : UpdatePtsChanged
+- [`UpdateQuickReplies`](https://romankyrychenko.github.io/telegramR/reference/UpdateQuickReplies.md)
+  : UpdateQuickReplies
+- [`UpdateQuickReplyMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateQuickReplyMessage.md)
+  : UpdateQuickReplyMessage
+- [`UpdateReadChannelDiscussionInbox`](https://romankyrychenko.github.io/telegramR/reference/UpdateReadChannelDiscussionInbox.md)
+  : UpdateReadChannelDiscussionInbox
+- [`UpdateReadChannelDiscussionOutbox`](https://romankyrychenko.github.io/telegramR/reference/UpdateReadChannelDiscussionOutbox.md)
+  : UpdateReadChannelDiscussionOutbox
+- [`UpdateReadChannelInbox`](https://romankyrychenko.github.io/telegramR/reference/UpdateReadChannelInbox.md)
+  : UpdateReadChannelInbox
+- [`UpdateReadChannelOutbox`](https://romankyrychenko.github.io/telegramR/reference/UpdateReadChannelOutbox.md)
+  : UpdateReadChannelOutbox
+- [`UpdateReadFeaturedEmojiStickers`](https://romankyrychenko.github.io/telegramR/reference/UpdateReadFeaturedEmojiStickers.md)
+  : UpdateReadFeaturedEmojiStickers
+- [`UpdateReadFeaturedStickers`](https://romankyrychenko.github.io/telegramR/reference/UpdateReadFeaturedStickers.md)
+  : UpdateReadFeaturedStickers
+- [`UpdateReadHistoryInbox`](https://romankyrychenko.github.io/telegramR/reference/UpdateReadHistoryInbox.md)
+  : UpdateReadHistoryInbox
+- [`UpdateReadHistoryOutbox`](https://romankyrychenko.github.io/telegramR/reference/UpdateReadHistoryOutbox.md)
+  : UpdateReadHistoryOutbox
+- [`UpdateReadMessagesContents`](https://romankyrychenko.github.io/telegramR/reference/UpdateReadMessagesContents.md)
+  : UpdateReadMessagesContents
+- [`UpdateReadMonoForumInbox`](https://romankyrychenko.github.io/telegramR/reference/UpdateReadMonoForumInbox.md)
+  : UpdateReadMonoForumInbox
+- [`UpdateReadMonoForumOutbox`](https://romankyrychenko.github.io/telegramR/reference/UpdateReadMonoForumOutbox.md)
+  : UpdateReadMonoForumOutbox
+- [`UpdateReadStories`](https://romankyrychenko.github.io/telegramR/reference/UpdateReadStories.md)
+  : UpdateReadStories
+- [`UpdateRecentEmojiStatuses`](https://romankyrychenko.github.io/telegramR/reference/UpdateRecentEmojiStatuses.md)
+  : UpdateRecentEmojiStatuses
+- [`UpdateRecentReactions`](https://romankyrychenko.github.io/telegramR/reference/UpdateRecentReactions.md)
+  : UpdateRecentReactions
+- [`UpdateRecentStickers`](https://romankyrychenko.github.io/telegramR/reference/UpdateRecentStickers.md)
+  : UpdateRecentStickers
+- [`UpdateSavedDialogPinned`](https://romankyrychenko.github.io/telegramR/reference/UpdateSavedDialogPinned.md)
+  : UpdateSavedDialogPinned
+- [`UpdateSavedGifs`](https://romankyrychenko.github.io/telegramR/reference/UpdateSavedGifs.md)
+  : UpdateSavedGifs
+- [`UpdateSavedReactionTagRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateSavedReactionTagRequest.md)
+  : UpdateSavedReactionTagRequest
+- [`UpdateSavedReactionTags`](https://romankyrychenko.github.io/telegramR/reference/UpdateSavedReactionTags.md)
+  : UpdateSavedReactionTags
+- [`UpdateSavedRingtones`](https://romankyrychenko.github.io/telegramR/reference/UpdateSavedRingtones.md)
+  : UpdateSavedRingtones
+- [`UpdateSentPhoneCode`](https://romankyrychenko.github.io/telegramR/reference/UpdateSentPhoneCode.md)
+  : UpdateSentPhoneCode
+- [`UpdateSentStoryReaction`](https://romankyrychenko.github.io/telegramR/reference/UpdateSentStoryReaction.md)
+  : UpdateSentStoryReaction
+- [`UpdateServiceNotification`](https://romankyrychenko.github.io/telegramR/reference/UpdateServiceNotification.md)
+  : UpdateServiceNotification
+- [`UpdateSettingsRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateSettingsRequest.md)
+  : UpdateSettingsRequest
+- [`UpdateShort`](https://romankyrychenko.github.io/telegramR/reference/UpdateShort.md)
+  : UpdateShort
+- [`UpdateShortChatMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateShortChatMessage.md)
+  : UpdateShortChatMessage
+- [`UpdateShortMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateShortMessage.md)
+  : UpdateShortMessage
+- [`UpdateShortSentMessage`](https://romankyrychenko.github.io/telegramR/reference/UpdateShortSentMessage.md)
+  : UpdateShortSentMessage
+- [`UpdateSmsJob`](https://romankyrychenko.github.io/telegramR/reference/UpdateSmsJob.md)
+  : UpdateSmsJob
+- [`UpdateStarGiftCollectionRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateStarGiftCollectionRequest.md)
+  : UpdateStarGiftCollectionRequest
+- [`UpdateStarGiftPriceRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateStarGiftPriceRequest.md)
+  : UpdateStarGiftPriceRequest
+- [`UpdateStarRefProgramRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateStarRefProgramRequest.md)
+  : UpdateStarRefProgramRequest
+- [`UpdateStarsBalance`](https://romankyrychenko.github.io/telegramR/reference/UpdateStarsBalance.md)
+  : UpdateStarsBalance
+- [`UpdateStarsRevenueStatus`](https://romankyrychenko.github.io/telegramR/reference/UpdateStarsRevenueStatus.md)
+  : UpdateStarsRevenueStatus
+- [`UpdateStatusRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateStatusRequest.md)
+  : UpdateStatusRequest
+- [`UpdateStickerSets`](https://romankyrychenko.github.io/telegramR/reference/UpdateStickerSets.md)
+  : UpdateStickerSets
+- [`UpdateStickerSetsOrder`](https://romankyrychenko.github.io/telegramR/reference/UpdateStickerSetsOrder.md)
+  : UpdateStickerSetsOrder
+- [`UpdateStoriesStealthMode`](https://romankyrychenko.github.io/telegramR/reference/UpdateStoriesStealthMode.md)
+  : UpdateStoriesStealthMode
+- [`UpdateStory`](https://romankyrychenko.github.io/telegramR/reference/UpdateStory.md)
+  : UpdateStory
+- [`UpdateStoryID`](https://romankyrychenko.github.io/telegramR/reference/UpdateStoryID.md)
+  : UpdateStoryID
+- [`UpdateTheme`](https://romankyrychenko.github.io/telegramR/reference/UpdateTheme.md)
+  : UpdateTheme
+- [`UpdateThemeRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateThemeRequest.md)
+  : UpdateThemeRequest
+- [`UpdateTranscribedAudio`](https://romankyrychenko.github.io/telegramR/reference/UpdateTranscribedAudio.md)
+  : UpdateTranscribedAudio
+- [`UpdateUser`](https://romankyrychenko.github.io/telegramR/reference/UpdateUser.md)
+  : UpdateUser
+- [`UpdateUserEmojiStatus`](https://romankyrychenko.github.io/telegramR/reference/UpdateUserEmojiStatus.md)
+  : UpdateUserEmojiStatus
+- [`UpdateUserEmojiStatusRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateUserEmojiStatusRequest.md)
+  : UpdateUserEmojiStatusRequest
+- [`UpdateUserName`](https://romankyrychenko.github.io/telegramR/reference/UpdateUserName.md)
+  : UpdateUserName
+- [`UpdateUserPhone`](https://romankyrychenko.github.io/telegramR/reference/UpdateUserPhone.md)
+  : UpdateUserPhone
+- [`UpdateUserStatus`](https://romankyrychenko.github.io/telegramR/reference/UpdateUserStatus.md)
+  : UpdateUserStatus
+- [`UpdateUserTyping`](https://romankyrychenko.github.io/telegramR/reference/UpdateUserTyping.md)
+  : UpdateUserTyping
+- [`UpdateUsernameRequest`](https://romankyrychenko.github.io/telegramR/reference/UpdateUsernameRequest.md)
+  : UpdateUsernameRequest
+- [`UpdateWebPage`](https://romankyrychenko.github.io/telegramR/reference/UpdateWebPage.md)
+  : UpdateWebPage
+- [`UpdateWebViewResultSent`](https://romankyrychenko.github.io/telegramR/reference/UpdateWebViewResultSent.md)
+  : UpdateWebViewResultSent
+- [`Updates`](https://romankyrychenko.github.io/telegramR/reference/Updates.md)
+  : Updates
+- [`UpdatesCombined`](https://romankyrychenko.github.io/telegramR/reference/UpdatesCombined.md)
+  : UpdatesCombined
+- [`UpdatesTooLong`](https://romankyrychenko.github.io/telegramR/reference/UpdatesTooLong.md)
+  : UpdatesTooLong
+- [`UpgradeStarGiftRequest`](https://romankyrychenko.github.io/telegramR/reference/UpgradeStarGiftRequest.md)
+  : UpgradeStarGiftRequest
+- [`UploadContactProfilePhotoRequest`](https://romankyrychenko.github.io/telegramR/reference/UploadContactProfilePhotoRequest.md)
+  : UploadContactProfilePhotoRequest
+- [`UploadEncryptedFileRequest`](https://romankyrychenko.github.io/telegramR/reference/UploadEncryptedFileRequest.md)
+  : UploadEncryptedFileRequest
+- [`UploadImportedMediaRequest`](https://romankyrychenko.github.io/telegramR/reference/UploadImportedMediaRequest.md)
+  : UploadImportedMediaRequest
+- [`UploadMediaRequest`](https://romankyrychenko.github.io/telegramR/reference/UploadMediaRequest.md)
+  : UploadMediaRequest
+- [`UploadProfilePhotoRequest`](https://romankyrychenko.github.io/telegramR/reference/UploadProfilePhotoRequest.md)
+  : UploadProfilePhotoRequest
+- [`UploadRingtoneRequest`](https://romankyrychenko.github.io/telegramR/reference/UploadRingtoneRequest.md)
+  : UploadRingtoneRequest
+- [`UploadThemeRequest`](https://romankyrychenko.github.io/telegramR/reference/UploadThemeRequest.md)
+  : UploadThemeRequest
+- [`UploadWallPaperRequest`](https://romankyrychenko.github.io/telegramR/reference/UploadWallPaperRequest.md)
+  : UploadWallPaperRequest
+- [`UrlAuthResultAccepted`](https://romankyrychenko.github.io/telegramR/reference/UrlAuthResultAccepted.md)
+  : UrlAuthResultAccepted
+- [`UrlAuthResultDefault`](https://romankyrychenko.github.io/telegramR/reference/UrlAuthResultDefault.md)
+  : UrlAuthResultDefault
+- [`UrlAuthResultRequest`](https://romankyrychenko.github.io/telegramR/reference/UrlAuthResultRequest.md)
+  : UrlAuthResultRequest
+- [`User`](https://romankyrychenko.github.io/telegramR/reference/User.md)
+  : User
+- [`UserEmpty`](https://romankyrychenko.github.io/telegramR/reference/UserEmpty.md)
+  : UserEmpty
+- [`UserFull`](https://romankyrychenko.github.io/telegramR/reference/UserFull.md)
+  : UserFull
+- [`UserProfilePhoto`](https://romankyrychenko.github.io/telegramR/reference/UserProfilePhoto.md)
+  : UserProfilePhoto
+- [`UserProfilePhotoEmpty`](https://romankyrychenko.github.io/telegramR/reference/UserProfilePhotoEmpty.md)
+  : UserProfilePhotoEmpty
+- [`UserStatusEmpty`](https://romankyrychenko.github.io/telegramR/reference/UserStatusEmpty.md)
+  : UserStatusEmpty
+- [`UserStatusLastMonth`](https://romankyrychenko.github.io/telegramR/reference/UserStatusLastMonth.md)
+  : UserStatusLastMonth
+- [`UserStatusLastWeek`](https://romankyrychenko.github.io/telegramR/reference/UserStatusLastWeek.md)
+  : UserStatusLastWeek
+- [`UserStatusOffline`](https://romankyrychenko.github.io/telegramR/reference/UserStatusOffline.md)
+  : UserStatusOffline
+- [`UserStatusOnline`](https://romankyrychenko.github.io/telegramR/reference/UserStatusOnline.md)
+  : UserStatusOnline
+- [`UserStatusRecently`](https://romankyrychenko.github.io/telegramR/reference/UserStatusRecently.md)
+  : UserStatusRecently
+- [`Username`](https://romankyrychenko.github.io/telegramR/reference/Username.md)
+  : Username
+- [`VALID_USERNAME_RE`](https://romankyrychenko.github.io/telegramR/reference/VALID_USERNAME_RE.md)
+  : Valid Username Regular Expression
+- [`ValidateRequestedInfoRequest`](https://romankyrychenko.github.io/telegramR/reference/ValidateRequestedInfoRequest.md)
+  : ValidateRequestedInfoRequest
+- [`VerifyEmailRequest`](https://romankyrychenko.github.io/telegramR/reference/VerifyEmailRequest.md)
+  : VerifyEmailRequest
+- [`VerifyPhoneRequest`](https://romankyrychenko.github.io/telegramR/reference/VerifyPhoneRequest.md)
+  : VerifyPhoneRequest
+- [`VideoSize`](https://romankyrychenko.github.io/telegramR/reference/VideoSize.md)
+  : VideoSize
+- [`VideoSizeEmojiMarkup`](https://romankyrychenko.github.io/telegramR/reference/VideoSizeEmojiMarkup.md)
+  : VideoSizeEmojiMarkup
+- [`VideoSizeStickerMarkup`](https://romankyrychenko.github.io/telegramR/reference/VideoSizeStickerMarkup.md)
+  : VideoSizeStickerMarkup
+- [`ViewSponsoredMessageRequest`](https://romankyrychenko.github.io/telegramR/reference/ViewSponsoredMessageRequest.md)
+  : ViewSponsoredMessageRequest
+- [`WallPaper`](https://romankyrychenko.github.io/telegramR/reference/WallPaper.md)
+  : WallPaper
+- [`WallPaperNoFile`](https://romankyrychenko.github.io/telegramR/reference/WallPaperNoFile.md)
+  : WallPaperNoFile
+- [`WallPaperSettings`](https://romankyrychenko.github.io/telegramR/reference/WallPaperSettings.md)
+  : WallPaperSettings
+- [`WebAuthorization`](https://romankyrychenko.github.io/telegramR/reference/WebAuthorization.md)
+  : WebAuthorization
+- [`WebDocument`](https://romankyrychenko.github.io/telegramR/reference/WebDocument.md)
+  : WebDocument
+- [`WebDocumentNoProxy`](https://romankyrychenko.github.io/telegramR/reference/WebDocumentNoProxy.md)
+  : WebDocumentNoProxy
+- [`WebPage`](https://romankyrychenko.github.io/telegramR/reference/WebPage.md)
+  : WebPage
+- [`WebPageAttributeStarGiftCollection`](https://romankyrychenko.github.io/telegramR/reference/WebPageAttributeStarGiftCollection.md)
+  : WebPageAttributeStarGiftCollection
+- [`WebPageAttributeStickerSet`](https://romankyrychenko.github.io/telegramR/reference/WebPageAttributeStickerSet.md)
+  : WebPageAttributeStickerSet
+- [`WebPageAttributeStory`](https://romankyrychenko.github.io/telegramR/reference/WebPageAttributeStory.md)
+  : WebPageAttributeStory
+- [`WebPageAttributeTheme`](https://romankyrychenko.github.io/telegramR/reference/WebPageAttributeTheme.md)
+  : WebPageAttributeTheme
+- [`WebPageAttributeUniqueStarGift`](https://romankyrychenko.github.io/telegramR/reference/WebPageAttributeUniqueStarGift.md)
+  : WebPageAttributeUniqueStarGift
+- [`WebPageEmpty`](https://romankyrychenko.github.io/telegramR/reference/WebPageEmpty.md)
+  : WebPageEmpty
+- [`WebPageNotModified`](https://romankyrychenko.github.io/telegramR/reference/WebPageNotModified.md)
+  : WebPageNotModified
+- [`WebPagePending`](https://romankyrychenko.github.io/telegramR/reference/WebPagePending.md)
+  : WebPagePending
+- [`WebViewMessageSent`](https://romankyrychenko.github.io/telegramR/reference/WebViewMessageSent.md)
+  : WebViewMessageSent
+- [`WebViewResultUrl`](https://romankyrychenko.github.io/telegramR/reference/WebViewResultUrl.md)
+  : WebViewResultUrl
+- [`Writer`](https://romankyrychenko.github.io/telegramR/reference/Writer.md)
+  : Writer Class
+- [`add_key()`](https://romankyrychenko.github.io/telegramR/reference/add_key.md)
+  : Adds a new public key to the server keys.
+- [`add_surrogate()`](https://romankyrychenko.github.io/telegramR/reference/add_surrogate.md)
+  : Add surrogate pairs to text
+- [`async_open_connection()`](https://romankyrychenko.github.io/telegramR/reference/async_open_connection.md)
+  : Helper function for asynchronous open connection.
+- [`big_num_for_hash()`](https://romankyrychenko.github.io/telegramR/reference/big_num_for_hash.md)
+  : Big Num for Hash
+- [`bitwLength()`](https://romankyrychenko.github.io/telegramR/reference/bitwLength.md)
+  : Bitwise Length
+- [`cancel()`](https://romankyrychenko.github.io/telegramR/reference/cancel.md)
+  : Cancel a future
+- [`cancel_futures()`](https://romankyrychenko.github.io/telegramR/reference/cancel_futures.md)
+  : Cancel futures if they are not resolved
+- [`check_prime_and_good()`](https://romankyrychenko.github.io/telegramR/reference/check_prime_and_good.md)
+  : Check Prime and Generator
+- [`check_prime_and_good_check()`](https://romankyrychenko.github.io/telegramR/reference/check_prime_and_good_check.md)
+  : Check Prime and Generator with Detailed Checks
+- [`chunks()`](https://romankyrychenko.github.io/telegramR/reference/chunks.md)
+  : Chunks
+- [`clone_error()`](https://romankyrychenko.github.io/telegramR/reference/clone_error.md)
+  : Clone an error object
+- [`compute_check()`](https://romankyrychenko.github.io/telegramR/reference/compute_check.md)
+  : Compute check
+- [`compute_fingerprint()`](https://romankyrychenko.github.io/telegramR/reference/compute_fingerprint.md)
+  : Computes the fingerprint of an RSA key.
+- [`create_socket_connection()`](https://romankyrychenko.github.io/telegramR/reference/create_socket_connection.md)
+  : Create a socket connection.
+- [`datetime_to_timestamp()`](https://romankyrychenko.github.io/telegramR/reference/datetime_to_timestamp.md)
+  : Convert a datetime object to a timestamp.
+- [`decode_telegram_base64()`](https://romankyrychenko.github.io/telegramR/reference/decode_telegram_base64.md)
+  : Decode Telegram Base64
+- [`decode_waveform()`](https://romankyrychenko.github.io/telegramR/reference/decode_waveform.md)
+  : Decode Waveform
+- [`del_surrogate()`](https://romankyrychenko.github.io/telegramR/reference/del_surrogate.md)
+  : Remove surrogate pairs from text
+- [`deque()`](https://romankyrychenko.github.io/telegramR/reference/deque.md)
+  : Double-Ended Queue Implementation
+- [`dialog_message_key()`](https://romankyrychenko.github.io/telegramR/reference/dialog_message_key.md)
+  : Helper function to get dialog message key
+- [`do_authentication()`](https://romankyrychenko.github.io/telegramR/reference/do_authentication.md)
+  : Execute the authentication process with the Telegram servers.
+- [`.AdminLogIter`](https://romankyrychenko.github.io/telegramR/reference/dot-AdminLogIter.md)
+  : \_AdminLogIter R6 Class
+- [`.ChatAction`](https://romankyrychenko.github.io/telegramR/reference/dot-ChatAction.md)
+  : \_ChatAction R6 Class
+- [`.MAX_CHUNK_SIZE`](https://romankyrychenko.github.io/telegramR/reference/dot-MAX_CHUNK_SIZE.md)
+  : Constants
+- [`.ParticipantsIter`](https://romankyrychenko.github.io/telegramR/reference/dot-ParticipantsIter.md)
+  : \_ParticipantsIter R6 Class
+- [`.ProfilePhotoIter`](https://romankyrychenko.github.io/telegramR/reference/dot-ProfilePhotoIter.md)
+  : \_ProfilePhotoIter R6 Class
+- [`encode_telegram_base64()`](https://romankyrychenko.github.io/telegramR/reference/encode_telegram_base64.md)
+  : Encode Telegram Base64
+- [`encode_waveform()`](https://romankyrychenko.github.io/telegramR/reference/encode_waveform.md)
+  : Encode Waveform
+- [`encrypt()`](https://romankyrychenko.github.io/telegramR/reference/encrypt.md)
+  : Encrypts data using the specified RSA key fingerprint.
+- [`ensure_parent_dir_exists()`](https://romankyrychenko.github.io/telegramR/reference/ensure_parent_dir_exists.md)
+  : Ensure the parent directory exists
+- [`escape_html()`](https://romankyrychenko.github.io/telegramR/reference/escape_html.md)
+  : Escape HTML special characters.
+- [`find_ssl_lib()`](https://romankyrychenko.github.io/telegramR/reference/find_ssl_lib.md)
+  : Finds and loads the system's SSL library.
+- [`fmt_flood()`](https://romankyrychenko.github.io/telegramR/reference/fmt_flood.md)
+  : fmt_flood
+- [`generate_key_data_from_nonce()`](https://romankyrychenko.github.io/telegramR/reference/generate_key_data_from_nonce.md)
+  : Generate key data from nonce
+- [`generate_random_long()`](https://romankyrychenko.github.io/telegramR/reference/generate_random_long.md)
+  : Generate a random long integer (8 bytes), optionally signed
+- [`get_appropriated_part_size()`](https://romankyrychenko.github.io/telegramR/reference/get_appropriated_part_size.md)
+  : Get Appropriated Part Size
+- [`get_attributes()`](https://romankyrychenko.github.io/telegramR/reference/get_attributes.md)
+  : Get Attributes for File
+- [`get_byte_array()`](https://romankyrychenko.github.io/telegramR/reference/get_byte_array.md)
+  : Converts an integer to a byte array.
+- [`get_display_name()`](https://romankyrychenko.github.io/telegramR/reference/get_display_name.md)
+  : Get Display Name
+- [`get_entity_pair()`](https://romankyrychenko.github.io/telegramR/reference/get_entity_pair.md)
+  : Get Entity Pair
+- [`get_extension()`](https://romankyrychenko.github.io/telegramR/reference/get_extension.md)
+  : Get Extension
+- [`get_file_extension()`](https://romankyrychenko.github.io/telegramR/reference/get_file_extension.md)
+  : Get File Extension
+- [`get_file_info()`](https://romankyrychenko.github.io/telegramR/reference/get_file_info.md)
+  : Get File Info
+- [`get_inner_text()`](https://romankyrychenko.github.io/telegramR/reference/get_inner_text.md)
+  : Get Inner Text Surrounded by Entities
+- [`get_input_channel()`](https://romankyrychenko.github.io/telegramR/reference/get_input_channel.md)
+  : Get Input Channel
+- [`get_input_dialog()`](https://romankyrychenko.github.io/telegramR/reference/get_input_dialog.md)
+  : Get Input Dialog
+- [`get_input_document()`](https://romankyrychenko.github.io/telegramR/reference/get_input_document.md)
+  : Get Input Document
+- [`get_input_group_call()`](https://romankyrychenko.github.io/telegramR/reference/get_input_group_call.md)
+  : Get Input Group Call
+- [`get_input_location()`](https://romankyrychenko.github.io/telegramR/reference/get_input_location.md)
+  : Get Input Location
+- [`get_input_media()`](https://romankyrychenko.github.io/telegramR/reference/get_input_media.md)
+  : Get Input Media
+- [`get_input_message()`](https://romankyrychenko.github.io/telegramR/reference/get_input_message.md)
+  : Get Input Message
+- [`get_input_peer()`](https://romankyrychenko.github.io/telegramR/reference/get_input_peer.md)
+  : Get Input Peer
+- [`get_input_user()`](https://romankyrychenko.github.io/telegramR/reference/get_input_user.md)
+  : Get Input User
+- [`get_int()`](https://romankyrychenko.github.io/telegramR/reference/get_int.md)
+  : Convert a raw byte array to an integer.
+- [`get_int_little()`](https://romankyrychenko.github.io/telegramR/reference/get_int_little.md)
+  : Convert a raw byte array in little-endian order to an integer.
+- [`get_message_id()`](https://romankyrychenko.github.io/telegramR/reference/get_message_id.md)
+  : Get Message ID
+- [`get_metadata()`](https://romankyrychenko.github.io/telegramR/reference/get_metadata.md)
+  : Get Metadata from File
+- [`get_peer()`](https://romankyrychenko.github.io/telegramR/reference/get_peer.md)
+  : Get Peer Object
+- [`get_peer_id()`](https://romankyrychenko.github.io/telegramR/reference/get_peer_id.md)
+  : Get Peer ID
+- [`get_running_loop()`](https://romankyrychenko.github.io/telegramR/reference/get_running_loop.md)
+  : get_running_loop function Get or create a running event loop
+  (cluster) for asynchronous operations.
+- [`get_traceback()`](https://romankyrychenko.github.io/telegramR/reference/get_traceback.md)
+  : Extract traceback information from an error
+- [`int_from_bytes()`](https://romankyrychenko.github.io/telegramR/reference/int_from_bytes.md)
+  : Convert Bytes to Bigz Integer
+- [`int_to_bytes()`](https://romankyrychenko.github.io/telegramR/reference/int_to_bytes.md)
+  : Convert Bigz Integer/Numeric to Bytes
+- [`is_audio()`](https://romankyrychenko.github.io/telegramR/reference/is_audio.md)
+  : Check if File is Audio
+- [`is_gif()`](https://romankyrychenko.github.io/telegramR/reference/is_gif.md)
+  : Check if File is a GIF
+- [`is_good_large()`](https://romankyrychenko.github.io/telegramR/reference/is_good_large.md)
+  : Is Good Large
+- [`is_good_mod_exp_first()`](https://romankyrychenko.github.io/telegramR/reference/is_good_mod_exp_first.md)
+  : Is Good Mod Exp First
+- [`is_image()`](https://romankyrychenko.github.io/telegramR/reference/is_image.md)
+  : Check if File is an Image
+- [`is_list_like()`](https://romankyrychenko.github.io/telegramR/reference/is_list_like.md)
+  : Check if an object is list-like (list, vector, etc.)
+- [`is_video()`](https://romankyrychenko.github.io/telegramR/reference/is_video.md)
+  : Check if File is Video
+- [`json_default()`](https://romankyrychenko.github.io/telegramR/reference/json_default.md)
+  : Default JSON serialization function.
+- [`logg()`](https://romankyrychenko.github.io/telegramR/reference/logg.md)
+  : Logging setup A simple logging function that prints formatted
+  messages to the console.
+- [`make_entity()`](https://romankyrychenko.github.io/telegramR/reference/make_entity.md)
+  : Construct a formatted entity descriptor for Telegram messages.
+- [`maybe_async()`](https://romankyrychenko.github.io/telegramR/reference/maybe_async.md)
+  : Maybe Async Utility Function
+- [`mimetypes`](https://romankyrychenko.github.io/telegramR/reference/mimetypes.md)
+  : Register some of the most common mime-types to avoid any issues.
+- [`modexp()`](https://romankyrychenko.github.io/telegramR/reference/modexp.md)
+  : Modular exponentiation.
+- [`` `%||%` ``](https://romankyrychenko.github.io/telegramR/reference/null-coalesce.md)
+  : Null coalescing operator
+- [`num_bytes_for_hash()`](https://romankyrychenko.github.io/telegramR/reference/num_bytes_for_hash.md)
+  : Num Bytes for Hash
+- [`odcstring()`](https://romankyrychenko.github.io/telegramR/reference/odcstring.md)
+  : Converts a raw vector to an odd-length string.
+- [`pack()`](https://romankyrychenko.github.io/telegramR/reference/pack.md)
+  : Pack data into binary format
+- [`packInt32()`](https://romankyrychenko.github.io/telegramR/reference/packInt32.md)
+  : Pack a 32-bit integer into a raw vector (little-endian)
+- [`packInt64()`](https://romankyrychenko.github.io/telegramR/reference/packInt64.md)
+  : Pack a 64-bit integer into a raw vector (little-endian)
+- [`packRandomBytes()`](https://romankyrychenko.github.io/telegramR/reference/packRandomBytes.md)
+  : Pack random bytes into a raw vector
+- [`packRandomLong()`](https://romankyrychenko.github.io/telegramR/reference/packRandomLong.md)
+  : Generate random 64-bit value bytes (little-endian)
+- [`pack_bot_file_id()`](https://romankyrychenko.github.io/telegramR/reference/pack_bot_file_id.md)
+  : Pack Bot File ID
+- [`parse()`](https://romankyrychenko.github.io/telegramR/reference/parse.md)
+  : Parse a text string into plain message text and entities.
+- [`parse_html_to_telegram()`](https://romankyrychenko.github.io/telegramR/reference/parse_html_to_telegram.md)
+  : Parse HTML into plain text and telegram-style entities
+- [`parse_phone()`](https://romankyrychenko.github.io/telegramR/reference/parse_phone.md)
+  : Check if Object is List-Like
+- [`parse_username()`](https://romankyrychenko.github.io/telegramR/reference/parse_username.md)
+  : Parse Username
+- [`photo_size_byte_count()`](https://romankyrychenko.github.io/telegramR/reference/photo_size_byte_count.md)
+  : Calculate Byte Count for Photo Size
+- [`` `+`( ``*`<raw>`*`)`](https://romankyrychenko.github.io/telegramR/reference/plus-.raw.md)
+  : Addition operator for raw (fallback)
+- [`` `+`( ``*`<raw_bytes>`*`)`](https://romankyrychenko.github.io/telegramR/reference/plus-.raw_bytes.md)
+  : Addition operator for raw_bytes
+- [`pow()`](https://romankyrychenko.github.io/telegramR/reference/pow.md)
+  : Modular Exponentiation (Alias)
+- [`powmod()`](https://romankyrychenko.github.io/telegramR/reference/powmod.md)
+  : Modular Exponentiation
+- [`pretty_format()`](https://romankyrychenko.github.io/telegramR/reference/pretty_format.md)
+  : Pretty format a TL object.
+- [`raise_cast_fail()`](https://romankyrychenko.github.io/telegramR/reference/raise_cast_fail.md)
+  : Raise Cast Fail
+- [`resolve_bot_file_id()`](https://romankyrychenko.github.io/telegramR/reference/resolve_bot_file_id.md)
+  : Resolve Bot File ID
+- [`resolve_id()`](https://romankyrychenko.github.io/telegramR/reference/resolve_id.md)
+  : Resolve Marked ID
+- [`resolve_inline_message_id()`](https://romankyrychenko.github.io/telegramR/reference/resolve_inline_message_id.md)
+  : Resolve Inline Message ID
+- [`resolve_invite_link()`](https://romankyrychenko.github.io/telegramR/reference/resolve_invite_link.md)
+  : Resolve Invite Link
+- [`retry_range()`](https://romankyrychenko.github.io/telegramR/reference/retry_range.md)
+  : Generate a sequence for retry attempts
+- [`rle_decode()`](https://romankyrychenko.github.io/telegramR/reference/rle_decode.md)
+  : Decode Run-Length-Encoded Data
+- [`rle_encode()`](https://romankyrychenko.github.io/telegramR/reference/rle_encode.md)
+  : Encode Data with Run-Length Encoding
+- [`sanitize_parse_mode()`](https://romankyrychenko.github.io/telegramR/reference/sanitize_parse_mode.md)
+  : Sanitize Parse Mode
+- [`serialize_bytes()`](https://romankyrychenko.github.io/telegramR/reference/serialize_bytes.md)
+  : Serialize data to bytes.
+- [`serialize_datetime()`](https://romankyrychenko.github.io/telegramR/reference/serialize_datetime.md)
+  : Serialize a datetime object to bytes.
+- [`server_keys`](https://romankyrychenko.github.io/telegramR/reference/server_keys.md)
+  : RSA Utilities
+- [`sha1()`](https://romankyrychenko.github.io/telegramR/reference/sha1.md)
+  : SHA1 Hash
+- [`sha256()`](https://romankyrychenko.github.io/telegramR/reference/sha256.md)
+  : SHA256 Hash
+- [`split_text()`](https://romankyrychenko.github.io/telegramR/reference/split_text.md)
+  : Split Text and Entities into Multiple Messages
+- [`strip_text()`](https://romankyrychenko.github.io/telegramR/reference/strip_text.md)
+  : Strip text and adjust entities
+- [`stripped_photo_to_jpg()`](https://romankyrychenko.github.io/telegramR/reference/stripped_photo_to_jpg.md)
+  : Add JPG Header and Footer to Stripped Image
+- [`unpack()`](https://romankyrychenko.github.io/telegramR/reference/unpack.md)
+  : Unpack data from binary format
+- [`unpackInt64()`](https://romankyrychenko.github.io/telegramR/reference/unpackInt64.md)
+  : Unpack a 64-bit integer from a raw vector (little-endian)
+- [`unparse()`](https://romankyrychenko.github.io/telegramR/reference/unparse.md)
+  : Convert text and entities back to a delimited markdown-like string.
+- [`unparse_telegram_to_html()`](https://romankyrychenko.github.io/telegramR/reference/unparse_telegram_to_html.md)
+  : Unparse plain text and entities back to HTML
+- [`within_surrogate()`](https://romankyrychenko.github.io/telegramR/reference/within_surrogate.md)
+  : Check if index is within a surrogate pair
+- [`xor_bytes()`](https://romankyrychenko.github.io/telegramR/reference/xor_bytes.md)
+  : XOR two raw vectors
