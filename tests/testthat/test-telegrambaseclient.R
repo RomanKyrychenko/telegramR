@@ -1,4 +1,5 @@
 test_that("TelegramBaseClient initializes with valid parameters", {
+  skip_on_ci()
   session <- "test_session"
   api_id <- 3611613
   api_hash <- "41d882999e5db5a653359a6b2ddb907f"
@@ -30,6 +31,7 @@ test_that("TelegramBaseClient throws error when API ID or hash is missing", {
 })
 
 test_that("TelegramBaseClient connects to Telegram successfully", {
+  skip_on_ci()
   session <- "test_session"
   api_id <- 12345
   api_hash <- "test_api_hash"
@@ -46,6 +48,7 @@ test_that("TelegramBaseClient connects to Telegram successfully", {
 })
 
 test_that("TelegramBaseClient disconnects from Telegram successfully", {
+  skip_on_ci()
   session <- "test_session"
   api_id <- 12345
   api_hash <- "test_api_hash"
@@ -63,6 +66,7 @@ test_that("TelegramBaseClient disconnects from Telegram successfully", {
 })
 
 test_that("TelegramBaseClient sets and gets proxy configuration", {
+  skip_on_ci()
   session <- "test_session"
   api_id <- 12345
   api_hash <- "test_api_hash"
@@ -79,6 +83,7 @@ test_that("TelegramBaseClient sets and gets proxy configuration", {
 })
 
 test_that("TelegramBaseClient handles invalid disconnect call", {
+  skip_on_ci()
   session <- "test_session"
   api_id <- 12345
   api_hash <- "test_api_hash"

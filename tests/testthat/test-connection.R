@@ -12,6 +12,7 @@ test_that("initializes connection with valid parameters", {
 })
 
 test_that("connects to server successfully", {
+  skip_on_ci()
   connection <- Connection$new(ip = ip, port = port, dc_id = 1)
 
   #result <- value(connection$connect())
@@ -30,6 +31,7 @@ test_that("throws error when sending data while disconnected", {
 })
 
 test_that("disconnects successfully", {
+  skip_on_ci()
   connection <- Connection$new(ip = ip, port = port, dc_id = 1)
 
   connection$connect()
@@ -39,6 +41,7 @@ test_that("disconnects successfully", {
 })
 
 test_that("handles proxy configuration correctly", {
+  skip_on_ci()
   proxy <- list(proxy_type = "socks5", addr = ip, port = 443)
   connection <- Connection$new(ip = ip, port = port, dc_id = 1, proxy = proxy)
 
@@ -47,6 +50,7 @@ test_that("handles proxy configuration correctly", {
 })
 
 test_that("receives data successfully", {
+  skip_on_ci()
   connection <- Connection$new(ip = ip, port = port, dc_id = 1)
 
   connection$connect()
@@ -61,6 +65,7 @@ test_that("throws error when receiving data while disconnected", {
 })
 
 test_that("handles SSL configuration correctly", {
+  skip_on_ci()
   connection <- Connection$new(ip = ip, port = port, dc_id = 1)
 
   result <- value(connection$connect(ssl = TRUE))
