@@ -211,6 +211,16 @@ BinaryReader <- R6::R6Class(
     #' @return A TL object or raw bytes if type unknown.
     tgread_object = function() {
       constructor_id <- self$read_int(signed = FALSE)
+      if (!is.null(constructor_id) && constructor_id == 481674261) { # Vector (0x1cb5c415)
+        count <- self$read_int()
+        res <- list()
+        if (count > 0) {
+          for (i in seq_len(count)) {
+            res[[i]] <- self$tgread_object()
+          }
+        }
+        return(res)
+      }
       ctor_key <- .telegramR_norm_ctor_id(constructor_id)
       ctor_map <- .telegramR_get_ctor_map()
       cls <- ctor_map[[ctor_key]]
