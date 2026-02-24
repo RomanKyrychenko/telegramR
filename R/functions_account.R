@@ -4680,7 +4680,7 @@ SetPrivacyRequest <- R6::R6Class(
         as.raw(c(0xe8, 0x1c, 0xf8, 0xc9)),
         self$key$bytes(),
         as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
-        packBits(length(self$rules), type = "integer"),
+        writeBin(as.integer(length(self$rules)), raw(), size = 4, endian = "little"),
         do.call(c, lapply(self$rules, function(x) x$bytes()))
       )
     },
@@ -5067,7 +5067,7 @@ UpdateBirthdayRequest <- R6::R6Class(
       flags <- if (is.null(self$birthday)) 0 else 1
       c(
         as.raw(c(0x11, 0x0c, 0x6e, 0xcc)),
-        packBits(as.integer(flags), type = "integer"),
+        writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
         if (!is.null(self$birthday)) self$birthday$bytes() else raw()
       )
     },
@@ -5749,7 +5749,7 @@ UpdateProfileRequest <- R6::R6Class(
         (if (is.null(self$about) || !nzchar(self$about)) 0 else 4)
       c(
         as.raw(c(0x75, 0x57, 0x51, 0x78)),
-        packBits(as.integer(flags), type = "integer"),
+        writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
         if (!is.null(self$firstName) && nzchar(self$firstName)) self$serialize_bytes(self$firstName) else raw(),
         if (!is.null(self$lastName) && nzchar(self$lastName)) self$serialize_bytes(self$lastName) else raw(),
         if (!is.null(self$about) && nzchar(self$about)) self$serialize_bytes(self$about) else raw()
@@ -5872,13 +5872,13 @@ UpdateThemeRequest <- R6::R6Class(
         (if (is.null(self$document)) 0 else 4) |
         (if (is.null(self$settings)) 0 else 8)
       settingsBytes <- if (!is.null(self$settings)) {
-        c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), packBits(length(self$settings), type = "integer"), do.call(c, lapply(self$settings, function(x) x$bytes())))
+        c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), writeBin(as.integer(length(self$settings)), raw(), size = 4, endian = "little"), do.call(c, lapply(self$settings, function(x) x$bytes())))
       } else {
         raw()
       }
       c(
         as.raw(c(0xcc, 0x0c, 0xf4, 0x2b)),
-        packBits(as.integer(flags), type = "integer"),
+        writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
         self$serialize_bytes(self$format),
         self$theme$bytes(),
         if (!is.null(self$slug) && nzchar(self$slug)) self$serialize_bytes(self$slug) else raw(),
@@ -6051,7 +6051,7 @@ UploadThemeRequest <- R6::R6Class(
       flags <- if (is.null(self$thumb) || !self$thumb) 0 else 1
       c(
         as.raw(c(0x1c, 0x3d, 0xb3, 0x33)),
-        packBits(as.integer(flags), type = "integer"),
+        writeBin(as.integer(flags), raw(), size = 4, endian = "little"),
         self$file$bytes(),
         if (!is.null(self$thumb) && self$thumb) self$thumb$bytes() else raw(),
         self$serialize_bytes(self$fileName),
@@ -6114,7 +6114,7 @@ UploadWallPaperRequest <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x03, 0x8f, 0x9a, 0xe3)),
-        packBits(as.integer(c(0, if (is.null(self$forChat) || !self$forChat) 0 else 1)), type = "integer"),
+        writeBin(as.integer(if (is.null(self$forChat) || !self$forChat) 0 else 1), raw(), size = 4, endian = "little"),
         self$file$bytes(),
         self$serialize_bytes(self$mimeType),
         self$settings$bytes()
