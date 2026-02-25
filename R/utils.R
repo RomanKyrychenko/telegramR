@@ -532,6 +532,50 @@ get_input_peer <- function(entity, allow_self = TRUE, check_hash = TRUE) {
   raise_cast_fail(entity, "InputPeer")
 }
 
+#' Helper to convert integer to little-endian raw vector of given width (bytes)
+#' @param x integer or numeric
+#' @param width number of bytes (default 4)
+#' @return raw vector
+#' @export
+int_to_raw_le <- function(x, width = 4L) {
+  stopifnot(is.numeric(x), length(x) == 1L, width >= 1L)
+  if (!is.na(x) && x > 2147483647 && width == 4L) {
+    x <- x - 4294967296
+  }
+  writeBin(as.integer(x), con = raw(), size = width, endian = "little")
+}
+
+#' Serialize an integer to 4 bytes little-endian.
+#' @param x integer
+#' @return raw vector
+#' @export
+serialize_int <- function(x) {
+  int_to_raw_le(x, 4L)
+}
+
+#' Serialize a string to Telegram bytes format.
+#' @param s string
+#' @return raw vector
+#' @export
+serialize_string <- function(s) {
+  if (is.null(s)) s <- ""
+  # Ensure character and encoding
+  s <- as.character(s)
+  b <- charToRaw(enc2utf8(s))
+  l <- length(b)
+  if (l <= 253) {
+    res <- c(as.raw(l), b)
+    padding <- (4 - (l + 1) %% 4) %% 4
+    if (padding > 0) res <- c(res, raw(padding))
+    return(res)
+  } else {
+    res <- c(as.raw(254), writeBin(as.integer(l), raw(), size = 3, endian = "little"), b)
+    padding <- (4 - (l + 4) %% 4) %% 4
+    if (padding > 0) res <- c(res, raw(padding))
+    return(res)
+  }
+}
+
 #' Get Input Channel
 #'
 #' Similar to `get_input_peer`, but for `InputChannel`'s alone.
