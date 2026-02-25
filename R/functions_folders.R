@@ -62,6 +62,9 @@ EditPeerFoldersRequest <- R6::R6Class(
   ),
   private = list(
     int_to_raw_le = function(x) {
+      if (!is.null(x) && x > 2147483647) {
+        x <- x - 4294967296
+      }
       writeBin(as.integer(x), con = raw(), size = 4, endian = "little")
     }
   )

@@ -65,18 +65,13 @@ GetCollectibleInfoRequest <- R6::R6Class(
 
       c(constructor_raw, collectible_bytes)
     }
-  ),
-  active = list(
-    # factory to create instance from a reader
-    from_reader = function(value) {
-      if (missing(value)) {
-        function(reader) {
-          collectible_obj <- reader$tgread_object()
-          GetCollectibleInfoRequest$new(collectible = collectible_obj)
-        }
-      } else {
-        stop("from_reader is read-only")
-      }
-    }
   )
 )
+
+#' from_reader for GetCollectibleInfoRequest
+#' @param reader reader
+#' @export
+GetCollectibleInfoRequest$from_reader <- function(reader) {
+  collectible_obj <- reader$tgread_object()
+  GetCollectibleInfoRequest$new(collectible = collectible_obj)
+}

@@ -9,6 +9,12 @@ AcceptEncryptionRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x3dbc0415,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x6d28a37a,
+    #' @field peer Field.
+    peer = NULL,
+    #' @field gB Field.
+    gB = NULL,
+    #' @field keyFingerprint Field.
+    keyFingerprint = NULL,
 
     #' @description Initialize the AcceptEncryptionRequest object.
     #' @param peer The input encrypted chat.
@@ -67,6 +73,16 @@ AcceptUrlAuthRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xb12c7125,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x7765cb1e,
+    #' @field writeAllowed Field.
+    writeAllowed = NULL,
+    #' @field peer Field.
+    peer = NULL,
+    #' @field msgId Field.
+    msgId = NULL,
+    #' @field buttonId Field.
+    buttonId = NULL,
+    #' @field url Field.
+    url = NULL,
 
     #' @description Initialize the AcceptUrlAuthRequest object.
     #' @param writeAllowed Whether write is allowed (optional).
@@ -150,6 +166,12 @@ AddChatUserRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0xcbc6d107,
     #' @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x3dbe90a1,
+    #' @field chatId Field.
+    chatId = NULL,
+    #' @field userId Field.
+    userId = NULL,
+    #' @field fwdLimit Field.
+    fwdLimit = NULL,
 
     #' @description Initialize the AddChatUserRequest object.
     #' @param chatId The chat ID.

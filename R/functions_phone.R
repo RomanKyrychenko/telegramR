@@ -3603,12 +3603,10 @@ ToggleGroupCallRecordRequest$set("public", "from_reader", function(reader) {
 # Helper to convert integer to little-endian raw vector of given width (bytes)
 int_to_raw_le <- function(x, width = 4L) {
   stopifnot(is.numeric(x), length(x) == 1L, width >= 1L)
-  x <- as.integer(x)
-  b <- raw(width)
-  for (i in seq_len(width)) {
-    b[i] <- as.raw(bitwAnd(bitwShiftR(x, 8 * (i - 1L)), 0xffL))
+  if (x > 2147483647 && width == 4L) {
+    x <- x - 4294967296
   }
-  b
+  writeBin(as.integer(x), con = raw(), size = width, endian = "little")
 }
 
 # Telegram boolean encoding tokens used in the original implementation
