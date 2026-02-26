@@ -1143,8 +1143,12 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
               message("[pump] Send completed OK")
             },
             error = function(e) {
-              message(sprintf("[pump] Send error: %s", conditionMessage(e)))
-              if (grepl("Not connected", conditionMessage(e), fixed = TRUE)) {
+              msg <- conditionMessage(e)
+              message(sprintf("[pump] Send error: %s", msg))
+              if (grepl("Not connected", msg, fixed = TRUE) ||
+                grepl("invalid connection", msg, ignore.case = TRUE) ||
+                grepl("cannot read from this connection", msg, ignore.case = TRUE)) {
+                tryCatch(await_promise(private$connection$disconnect()), error = function(e2) NULL)
                 private$._ensure_transport_connected()
                 await_promise(private$connection$send(data), timeout = timeout_sec)
               } else {
@@ -1204,7 +1208,19 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             tryCatch(
               await_promise(private$connection$send(data), timeout = remaining),
               error = function(e) {
-                message(sprintf("[pump] Re-send error: %s", conditionMessage(e)))
+                msg <- conditionMessage(e)
+                message(sprintf("[pump] Re-send error: %s", msg))
+                if (grepl("Not connected", msg, fixed = TRUE) ||
+                  grepl("invalid connection", msg, ignore.case = TRUE) ||
+                  grepl("cannot read from this connection", msg, ignore.case = TRUE) ||
+                  grepl("cannot write to this connection", msg, ignore.case = TRUE) ||
+                  grepl("Error writing to socket", msg, ignore.case = TRUE)) {
+                  tryCatch(await_promise(private$connection$disconnect()), error = function(e2) NULL)
+                  private$._ensure_transport_connected()
+                  await_promise(private$connection$send(data), timeout = remaining)
+                } else {
+                  stop(e)
+                }
               }
             )
           }
@@ -1215,8 +1231,13 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             await_promise(private$connection$recv(), timeout = remaining)
           },
           error = function(e) {
-            message(sprintf("[pump] recv error: %s", conditionMessage(e)))
-            if (grepl("Not connected", conditionMessage(e), fixed = TRUE)) {
+            msg <- conditionMessage(e)
+            message(sprintf("[pump] recv error: %s", msg))
+            if (grepl("Not connected", msg, fixed = TRUE) ||
+              grepl("invalid connection", msg, ignore.case = TRUE) ||
+              grepl("cannot read from this connection", msg, ignore.case = TRUE) ||
+              grepl("ReadTimeoutError", msg, fixed = TRUE)) {
+              tryCatch(await_promise(private$connection$disconnect()), error = function(e2) NULL)
               private$._ensure_transport_connected()
               await_promise(private$connection$recv(), timeout = remaining)
             } else {
