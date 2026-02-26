@@ -2278,28 +2278,138 @@ TelegramClient <- R6::R6Class(
                              #' @field reply_to Field.
                              reply_to = NULL,
                              scheduled = FALSE) {
-      # NOTE: This is a placeholder that should delegate to the underlying client implementation.
-      # If your client exposes iter_messages, delegate to it:
-      if (!is.null(self$client) && !is.null(self$client$iter_messages)) {
-        return(self$client$iter_messages(
+      if (!is.null(ids)) {
+        return(IDsIter$new(
+          client = self,
           entity = entity,
-          limit = limit,
-          offset_date = offset_date,
-          offset_id = offset_id,
-          max_id = max_id,
-          min_id = min_id,
-          add_offset = add_offset,
-          search = search,
-          filter = filter,
-          from_user = from_user,
-          wait_time = wait_time,
           ids = ids,
           reverse = reverse,
-          reply_to = reply_to,
-          scheduled = scheduled
+          wait_time = wait_time,
+          limit = limit %||% Inf
         ))
       }
-      stop("iter_messages is not implemented in the provided client.")
+
+      return(MessagesIter$new(
+        client = self,
+        entity = entity,
+        limit = limit %||% Inf,
+        offset_date = offset_date,
+        offset_id = offset_id,
+        max_id = max_id,
+        min_id = min_id,
+        add_offset = add_offset,
+        search = search,
+        filter = filter,
+        from_user = from_user,
+        reply_to = reply_to,
+        scheduled = scheduled,
+        reverse = reverse,
+        wait_time = wait_time
+      ))
+    },
+
+    #' @description
+    #' Fetch a single page of messages for use by MessagesIter.
+    #' This is a low-level helper and does not paginate by itself.
+    iter_messages_page = function(entity,
+                                  limit = NULL,
+                                  offset_date = NULL,
+                                  offset_id = 0L,
+                                  max_id = 0L,
+                                  min_id = 0L,
+                                  add_offset = 0L,
+                                  search = NULL,
+                                  filter = NULL,
+                                  from_user = NULL,
+                                  wait_time = NULL,
+                                  reverse = FALSE,
+                                  reply_to = NULL,
+                                  scheduled = FALSE) {
+      # Optional wait to reduce flood waits
+      if (!is.null(wait_time) && wait_time > 0) {
+        Sys.sleep(wait_time)
+      }
+
+      # Normalize inputs
+      limit <- if (is.null(limit)) 0L else as.integer(limit)
+      offset_id <- as.integer(offset_id %||% 0L)
+      max_id <- as.integer(max_id %||% 0L)
+      min_id <- as.integer(min_id %||% 0L)
+      add_offset <- as.integer(add_offset %||% 0L)
+
+      # Pick request type
+      request <- NULL
+      if (is.null(entity)) {
+        # Global search
+        filter <- filter %||% InputMessagesFilterEmpty$new()
+        request <- SearchGlobalRequest$new(
+          q = search %||% "",
+          filter = filter,
+          min_date = NULL,
+          max_date = offset_date,
+          offset_rate = 0L,
+          offset_peer = InputPeerEmpty$new(),
+          offset_id = offset_id,
+          limit = limit,
+          broadcasts_only = NULL,
+          groups_only = NULL,
+          users_only = NULL,
+          folder_id = NULL
+        )
+      } else if (isTRUE(scheduled)) {
+        request <- GetScheduledHistoryRequest$new(peer = entity, hash = 0L)
+      } else if (!is.null(reply_to)) {
+        request <- GetRepliesRequest$new(
+          peer = entity,
+          msgId = as.integer(reply_to),
+          offsetId = offset_id,
+          offsetDate = offset_date,
+          addOffset = add_offset,
+          limit = limit,
+          maxId = max_id,
+          minId = min_id,
+          hash = 0L
+        )
+      } else if (!is.null(search) || !is.null(filter) || !is.null(from_user)) {
+        filter <- filter %||% InputMessagesFilterEmpty$new()
+        request <- SearchRequest$new(
+          peer = entity,
+          q = search %||% "",
+          filter = filter,
+          min_date = NULL,
+          max_date = offset_date,
+          offset_id = offset_id,
+          add_offset = add_offset,
+          limit = limit,
+          max_id = max_id,
+          min_id = min_id,
+          hash = 0L,
+          from_id = from_user
+        )
+      } else {
+        request <- GetHistoryRequest$new(
+          peer = entity,
+          offsetId = offset_id,
+          offsetDate = offset_date,
+          addOffset = add_offset,
+          limit = limit,
+          maxId = max_id,
+          minId = min_id,
+          hash = 0L
+        )
+      }
+
+      res <- self$invoke(request)
+      if (is.list(res)) {
+        if (!is.null(res$users) || !is.null(res$chats)) {
+          self$mb_entity_cache$extend(res$users, res$chats)
+        }
+      }
+      if (inherits(res, "messages.MessagesNotModified")) {
+        return(list())
+      }
+      msgs <- if (is.list(res) && !is.null(res$messages)) res$messages else res
+      msgs %||% list()
     },
 
     #' Get messages
@@ -2321,14 +2431,33 @@ TelegramClient <- R6::R6Class(
       it <- do.call(self$iter_messages, args)
       if (!is.null(args$ids) && length(args$ids) == 1L) {
         # Expect a single message
-        if (!is.null(self$client) && !is.null(self$client$collect_one)) {
-          return(self$client$collect_one(it))
-        }
+        return(self$collect_one(it))
       }
-      if (!is.null(self$client) && !is.null(self$client$collect)) {
-        return(self$client$collect(it))
+      return(self$collect(it))
+    },
+
+    #' @description Collect all items from an iterator-like object.
+    #' @param it Iterator or list.
+    #' @return A list of collected items.
+    collect = function(it) {
+      if (is.null(it)) {
+        return(list())
       }
-      stop("Collection helpers are not available in the provided client.")
+      if (is.list(it) && !inherits(it, "R6")) {
+        return(it)
+      }
+      if (!is.null(it$collect) && is.function(it$collect)) {
+        return(it$collect())
+      }
+      stop("Collection helpers are not available for this iterator.")
+    },
+
+    #' @description Collect a single item from an iterator-like object.
+    #' @param it Iterator or list.
+    #' @return A single item or NULL.
+    collect_one = function(it) {
+      res <- self$collect(it)
+      if (length(res)) res[[1]] else NULL
     },
 
     #' Send a message
@@ -3957,6 +4086,24 @@ TelegramClient <- R6::R6Class(
           {
             me <- future::value(self$call(GetUsersRequest$new(list(InputUserSelf$new()))))[[1]]
 
+            # If we got a fallback list, try to parse it into a proper TLObject
+            if (is.list(me) && !inherits(me, "R6") && !is.null(me$CONSTRUCTOR_ID) &&
+              !is.null(me$data) && is.raw(me$data)) {
+              tryCatch(
+                {
+                  options(telegramR.ctor_map = NULL)
+                  raw_obj <- c(pack("<I", as.integer(me$CONSTRUCTOR_ID)), me$data)
+                  reader <- BinaryReader$new(raw_obj)
+                  parsed <- reader$tgread_object()
+                  try(reader$close(), silent = TRUE)
+                  if (!is.null(parsed)) {
+                    me <- parsed
+                  }
+                },
+                error = function(e) NULL
+              )
+            }
+
             if (!is.null(private$mb_entity_cache) && is.null(private$mb_entity_cache$self_id)) {
               private$mb_entity_cache$set_self_user(me$id, me$bot, me$access_hash)
             }
@@ -4209,6 +4356,58 @@ TelegramClient <- R6::R6Class(
       })
     },
 
+    #' @description CamelCase alias for get_input_entity (used by generated code).
+    getInputEntity = function(peer) {
+      future::value(self$get_input_entity(peer))
+    },
+
+    #' @description CamelCase alias for get_input_peer (used by generated code).
+    getInputPeer = function(peer, allow_self = TRUE, check_hash = TRUE) {
+      get_input_peer(peer, allow_self = allow_self, check_hash = check_hash)
+    },
+
+    #' @description CamelCase alias for get_input_user (used by generated code).
+    getInputUser = function(entity) {
+      get_input_user(entity)
+    },
+
+    #' @description CamelCase alias for get_input_channel (used by generated code).
+    getInputChannel = function(entity) {
+      get_input_channel(entity)
+    },
+
+    #' @description CamelCase alias for get_input_message (used by generated code).
+    getInputMessage = function(message) {
+      get_input_message(message)
+    },
+
+    #' @description CamelCase alias for get_input_media (used by generated code).
+    getInputMedia = function(media, is_photo = FALSE, attributes = NULL, force_document = FALSE,
+                             file_size = NULL, progress_callback = NULL) {
+      get_input_media(media, is_photo = is_photo, attributes = attributes, force_document = force_document,
+        file_size = file_size, progress_callback = progress_callback)
+    },
+
+    #' @description CamelCase alias for get_input_document (used by generated code).
+    getInputDocument = function(document) {
+      get_input_document(document)
+    },
+
+    #' @description CamelCase alias for get_input_photo (used by generated code).
+    getInputPhoto = function(photo) {
+      get_input_photo(photo)
+    },
+
+    #' @description CamelCase alias for get_input_chat_photo (used by generated code).
+    getInputChatPhoto = function(photo) {
+      get_input_chat_photo(photo)
+    },
+
+    #' @description CamelCase alias for get_input_group_call (used by generated code).
+    getInputGroupCall = function(call) {
+      get_input_group_call(call)
+    },
+
     #' @description
     #' Get the peer for a given input entity.
     #' @param peer The input entity to get the peer for.
@@ -4305,13 +4504,14 @@ TelegramClient <- R6::R6Class(
 
                 if (inherits(result$peer, "PeerUser")) {
                   for (x in result$users) {
-                    if (x$id == pid) {
+                    if (!is.null(x$id) && as.character(x$id) == as.character(pid)) {
                       return(x)
                     }
                   }
                 } else {
-                  for (x in result$chats) {
-                    if (x$id == pid) {
+                  # Some layers may return channels in users list; check both.
+                  for (x in c(result$chats, result$users)) {
+                    if (!is.null(x$id) && as.character(x$id) == as.character(pid)) {
                       return(x)
                     }
                   }
