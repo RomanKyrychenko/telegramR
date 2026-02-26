@@ -6145,8 +6145,135 @@ Channel <- R6::R6Class("Channel",
       as.raw(c(0xfe, 0x68, 0x53, 0x55)) # CONSTRUCTOR_ID
     }
   ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+
+      creator <- bitwAnd(flags, 1) != 0
+      left <- bitwAnd(flags, 4) != 0
+      broadcast <- bitwAnd(flags, 32) != 0
+      verified <- bitwAnd(flags, 128) != 0
+      megagroup <- bitwAnd(flags, 256) != 0
+      restricted <- bitwAnd(flags, 512) != 0
+      signatures <- bitwAnd(flags, 2048) != 0
+      min <- bitwAnd(flags, 4096) != 0
+      scam <- bitwAnd(flags, 524288) != 0
+      has_link <- bitwAnd(flags, 1048576) != 0
+      has_geo <- bitwAnd(flags, 2097152) != 0
+      slowmode_enabled <- bitwAnd(flags, 4194304) != 0
+      call_active <- bitwAnd(flags, 8388608) != 0
+      call_not_empty <- bitwAnd(flags, 16777216) != 0
+      fake <- bitwAnd(flags, 33554432) != 0
+      gigagroup <- bitwAnd(flags, 67108864) != 0
+      noforwards <- bitwAnd(flags, 134217728) != 0
+      join_to_send <- bitwAnd(flags, 268435456) != 0
+      join_request <- bitwAnd(flags, 536870912) != 0
+      forum <- bitwAnd(flags, 1073741824) != 0
+
+      flags2 <- reader$read_int()
+      stories_hidden <- bitwAnd(flags2, 2) != 0
+      stories_hidden_min <- bitwAnd(flags2, 4) != 0
+      stories_unavailable <- bitwAnd(flags2, 8) != 0
+      signature_profiles <- bitwAnd(flags2, 4096) != 0
+      autotranslation <- bitwAnd(flags2, 32768) != 0
+      broadcast_messages_allowed <- bitwAnd(flags2, 65536) != 0
+      monoforum <- bitwAnd(flags2, 131072) != 0
+      forum_tabs <- bitwAnd(flags2, 524288) != 0
+
+      id <- reader$read_long()
+      access_hash <- if (bitwAnd(flags, 8192) != 0) reader$read_long() else NULL
+      title <- reader$tgread_string()
+      username <- if (bitwAnd(flags, 64) != 0) reader$tgread_string() else NULL
+      photo <- reader$tgread_object()
+      date <- reader$tgread_date()
+
+      restriction_reason <- if (bitwAnd(flags, 512) != 0) {
+        reader$read_int() # vector ctor
+        n <- reader$read_int()
+        if (n > 0) lapply(seq_len(n), function(i) reader$tgread_object()) else list()
+      } else {
+        NULL
+      }
+
+      admin_rights <- if (bitwAnd(flags, 16384) != 0) reader$tgread_object() else NULL
+      banned_rights <- if (bitwAnd(flags, 32768) != 0) reader$tgread_object() else NULL
+      default_banned_rights <- if (bitwAnd(flags, 262144) != 0) reader$tgread_object() else NULL
+      participants_count <- if (bitwAnd(flags, 131072) != 0) reader$read_int() else NULL
+
+      usernames <- if (bitwAnd(flags2, 1) != 0) {
+        reader$read_int() # vector ctor
+        n <- reader$read_int()
+        if (n > 0) lapply(seq_len(n), function(i) reader$tgread_object()) else list()
+      } else {
+        NULL
+      }
+
+      stories_max_id <- if (bitwAnd(flags2, 16) != 0) reader$read_int() else NULL
+      color <- if (bitwAnd(flags2, 128) != 0) reader$tgread_object() else NULL
+      profile_color <- if (bitwAnd(flags2, 256) != 0) reader$tgread_object() else NULL
+      emoji_status <- if (bitwAnd(flags2, 512) != 0) reader$tgread_object() else NULL
+      level <- if (bitwAnd(flags2, 1024) != 0) reader$read_int() else NULL
+      subscription_until_date <- if (bitwAnd(flags2, 2048) != 0) reader$tgread_date() else NULL
+      bot_verification_icon <- if (bitwAnd(flags2, 8192) != 0) reader$read_long() else NULL
+      send_paid_messages_stars <- if (bitwAnd(flags2, 16384) != 0) reader$read_long() else NULL
+      linked_monoforum_id <- if (bitwAnd(flags2, 262144) != 0) reader$read_long() else NULL
+
+      list(
+        id = id,
+        title = title,
+        photo = photo,
+        date = date,
+        creator = creator,
+        left = left,
+        broadcast = broadcast,
+        verified = verified,
+        megagroup = megagroup,
+        restricted = restricted,
+        signatures = signatures,
+        min = min,
+        scam = scam,
+        has_link = has_link,
+        has_geo = has_geo,
+        slowmode_enabled = slowmode_enabled,
+        call_active = call_active,
+        call_not_empty = call_not_empty,
+        fake = fake,
+        gigagroup = gigagroup,
+        noforwards = noforwards,
+        join_to_send = join_to_send,
+        join_request = join_request,
+        forum = forum,
+        stories_hidden = stories_hidden,
+        stories_hidden_min = stories_hidden_min,
+        stories_unavailable = stories_unavailable,
+        signature_profiles = signature_profiles,
+        autotranslation = autotranslation,
+        broadcast_messages_allowed = broadcast_messages_allowed,
+        monoforum = monoforum,
+        forum_tabs = forum_tabs,
+        access_hash = access_hash,
+        username = username,
+        restriction_reason = restriction_reason,
+        admin_rights = admin_rights,
+        banned_rights = banned_rights,
+        default_banned_rights = default_banned_rights,
+        participants_count = participants_count,
+        usernames = usernames,
+        stories_max_id = stories_max_id,
+        color = color,
+        profile_color = profile_color,
+        emoji_status = emoji_status,
+        level = level,
+        subscription_until_date = subscription_until_date,
+        bot_verification_icon = bot_verification_icon,
+        send_paid_messages_stars = send_paid_messages_stars,
+        linked_monoforum_id = linked_monoforum_id
+      )
+    }
+  ),
   #' @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
 #' @title ChannelAdminLogEvent
@@ -6188,7 +6315,8 @@ ChannelAdminLogEvent <- R6::R6Class("ChannelAdminLogEvent",
     }
   ),
   #' @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
 #' @title ChannelAdminLogEventActionChangeAbout
@@ -6222,7 +6350,8 @@ ChannelAdminLogEventActionChangeAbout <- R6::R6Class("ChannelAdminLogEventAction
     }
   ),
   #' @field class Field.
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
 #' @title ChannelAdminLogEventActionChangeAvailableReactions
@@ -9315,7 +9444,8 @@ ChannelLocationEmpty <- R6::R6Class("ChannelLocationEmpty",
       self$initialize()
     }
   ),
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
 #' @title ChannelMessagesFilter
@@ -9362,7 +9492,8 @@ ChannelMessagesFilter <- R6::R6Class("ChannelMessagesFilter",
       self$initialize(ranges = ranges, exclude_new_messages = exclude_new_messages)
     }
   ),
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
 #' @title ChannelMessagesFilterEmpty
@@ -9391,7 +9522,8 @@ ChannelMessagesFilterEmpty <- R6::R6Class("ChannelMessagesFilterEmpty",
       self$initialize()
     }
   ),
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
 #' @title ChannelParticipant
@@ -11128,6 +11260,16 @@ ChatPhoto <- R6::R6Class(
         if (!is.null(self$stripped_thumb)) self$stripped_thumb else raw(),
         writeBin(as.integer(self$dc_id), raw(), size = 4)
       )
+    }
+  ),
+  private = list(
+    from_reader = function(reader) {
+      flags <- reader$read_int()
+      has_video <- bitwAnd(flags, 1) != 0
+      photo_id <- reader$read_long()
+      stripped_thumb <- if (bitwAnd(flags, 2) != 0) reader$tgread_bytes() else NULL
+      dc_id <- reader$read_int()
+      list(photo_id = photo_id, dc_id = dc_id, has_video = has_video, stripped_thumb = stripped_thumb)
     }
   )
 )
@@ -20850,22 +20992,8 @@ InputPeerChannel <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(0xfc), as.raw(0xbb), as.raw(0xbc), as.raw(0x27),
-        as.raw(bitwAnd(self$channel_id, 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$channel_id, 8), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$channel_id, 16), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$channel_id, 24), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$channel_id, 32), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$channel_id, 40), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$channel_id, 48), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$channel_id, 56), 0xFF)),
-        as.raw(bitwAnd(self$access_hash, 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 8), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 16), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 24), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 32), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 40), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 48), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 56), 0xFF))
+        pack("<q", self$channel_id),
+        pack("<q", self$access_hash)
       )
     }
   ),
@@ -20942,17 +21070,10 @@ InputPeerChat <- R6::R6Class(
       list("_" = "InputPeerChat", chat_id = self$chat_id)
     },
     bytes = function() {
-      rawToBits(as.raw(c(
-        0xb9, 0x5c, 0xa9, 0x35,
-        as.integer(self$chat_id %% 256),
-        as.integer((self$chat_id %/% 256) %% 256),
-        as.integer((self$chat_id %/% 65536) %% 256),
-        as.integer((self$chat_id %/% 16777216) %% 256),
-        as.integer((self$chat_id %/% 4294967296) %% 256),
-        as.integer((self$chat_id %/% 1099511627776) %% 256),
-        as.integer((self$chat_id %/% 281474976710656) %% 256),
-        as.integer((self$chat_id %/% 72057594037927936) %% 256)
-      )))
+      c(
+        as.raw(0xb9), as.raw(0x5c), as.raw(0xa9), as.raw(0x35),
+        pack("<q", self$chat_id)
+      )
     }
   ),
   private = list(
@@ -21179,22 +21300,8 @@ InputPeerUser <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(0xdd), as.raw(0xe8), as.raw(0xa5), as.raw(0x4c),
-        as.raw(bitwAnd(self$user_id, 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$user_id, 8), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$user_id, 16), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$user_id, 24), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$user_id, 32), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$user_id, 40), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$user_id, 48), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$user_id, 56), 0xFF)),
-        as.raw(bitwAnd(self$access_hash, 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 8), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 16), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 24), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 32), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 40), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 48), 0xFF)),
-        as.raw(bitwAnd(bitwShiftR(self$access_hash, 56), 0xFF))
+        pack("<q", self$user_id),
+        pack("<q", self$access_hash)
       )
     }
   ),
@@ -26896,61 +27003,108 @@ Message <- R6::R6Class(
       flags <- reader$read_int()
       flags2 <- reader$read_int()
 
-      Message$new(
-        id = reader$read_int(),
-        peer_id = reader$tgread_object(),
-        date = reader$tgread_date(),
-        message = reader$tgread_string(),
-        out = bitwAnd(flags, 2) != 0,
-        mentioned = bitwAnd(flags, 16) != 0,
-        media_unread = bitwAnd(flags, 32) != 0,
-        silent = bitwAnd(flags, 8192) != 0,
-        post = bitwAnd(flags, 16384) != 0,
-        from_scheduled = bitwAnd(flags, 262144) != 0,
-        legacy = bitwAnd(flags, 524288) != 0,
-        edit_hide = bitwAnd(flags, 2097152) != 0,
-        pinned = bitwAnd(flags, 16777216) != 0,
-        noforwards = bitwAnd(flags, 67108864) != 0,
-        invert_media = bitwAnd(flags, 134217728) != 0,
-        offline = bitwAnd(flags2, 2) != 0,
-        video_processing_pending = bitwAnd(flags2, 16) != 0,
-        paid_suggested_post_stars = bitwAnd(flags2, 256) != 0,
-        paid_suggested_post_ton = bitwAnd(flags2, 512) != 0,
-        from_id = if (bitwAnd(flags, 256) != 0) reader$tgread_object() else NULL,
-        from_boosts_applied = if (bitwAnd(flags, 536870912) != 0) reader$read_int() else NULL,
-        saved_peer_id = if (bitwAnd(flags, 268435456) != 0) reader$tgread_object() else NULL,
-        fwd_from = if (bitwAnd(flags, 4) != 0) reader$tgread_object() else NULL,
-        via_bot_id = if (bitwAnd(flags, 2048) != 0) reader$read_long() else NULL,
-        via_business_bot_id = if (bitwAnd(flags2, 1) != 0) reader$read_long() else NULL,
-        reply_to = if (bitwAnd(flags, 8) != 0) reader$tgread_object() else NULL,
-        media = if (bitwAnd(flags, 512) != 0) reader$tgread_object() else NULL,
-        reply_markup = if (bitwAnd(flags, 64) != 0) reader$tgread_object() else NULL,
-        entities = if (bitwAnd(flags, 128) != 0) {
-          reader$read_int()
-          lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-        } else {
-          NULL
-        },
-        views = if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL,
-        forwards = if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL,
-        replies = if (bitwAnd(flags, 8388608) != 0) reader$tgread_object() else NULL,
-        edit_date = if (bitwAnd(flags, 32768) != 0) reader$tgread_date() else NULL,
-        post_author = if (bitwAnd(flags, 65536) != 0) reader$tgread_string() else NULL,
-        grouped_id = if (bitwAnd(flags, 131072) != 0) reader$read_long() else NULL,
-        reactions = if (bitwAnd(flags, 1048576) != 0) reader$tgread_object() else NULL,
-        restriction_reason = if (bitwAnd(flags, 4194304) != 0) {
-          reader$read_int()
-          lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-        } else {
-          NULL
-        },
-        ttl_period = if (bitwAnd(flags, 33554432) != 0) reader$read_int() else NULL,
-        quick_reply_shortcut_id = if (bitwAnd(flags, 1073741824) != 0) reader$read_int() else NULL,
-        effect = if (bitwAnd(flags2, 4) != 0) reader$read_long() else NULL,
-        factcheck = if (bitwAnd(flags2, 8) != 0) reader$tgread_object() else NULL,
-        report_delivery_until_date = if (bitwAnd(flags2, 32) != 0) reader$tgread_date() else NULL,
-        paid_message_stars = if (bitwAnd(flags2, 64) != 0) reader$read_long() else NULL,
-        suggested_post = if (bitwAnd(flags2, 128) != 0) reader$tgread_object() else NULL
+      out <- bitwAnd(flags, 2) != 0
+      mentioned <- bitwAnd(flags, 16) != 0
+      media_unread <- bitwAnd(flags, 32) != 0
+      silent <- bitwAnd(flags, 8192) != 0
+      post <- bitwAnd(flags, 16384) != 0
+      from_scheduled <- bitwAnd(flags, 262144) != 0
+      legacy <- bitwAnd(flags, 524288) != 0
+      edit_hide <- bitwAnd(flags, 2097152) != 0
+      pinned <- bitwAnd(flags, 16777216) != 0
+      noforwards <- bitwAnd(flags, 67108864) != 0
+      invert_media <- bitwAnd(flags, 134217728) != 0
+
+      offline <- bitwAnd(flags2, 2) != 0
+      video_processing_pending <- bitwAnd(flags2, 16) != 0
+      paid_suggested_post_stars <- bitwAnd(flags2, 256) != 0
+      paid_suggested_post_ton <- bitwAnd(flags2, 512) != 0
+
+      id <- reader$read_int()
+      from_id <- if (bitwAnd(flags, 256) != 0) reader$tgread_object() else NULL
+      from_boosts_applied <- if (bitwAnd(flags, 536870912) != 0) reader$read_int() else NULL
+      peer_id <- reader$tgread_object()
+      saved_peer_id <- if (bitwAnd(flags, 268435456) != 0) reader$tgread_object() else NULL
+      fwd_from <- if (bitwAnd(flags, 4) != 0) reader$tgread_object() else NULL
+      via_bot_id <- if (bitwAnd(flags, 2048) != 0) reader$read_long() else NULL
+      via_business_bot_id <- if (bitwAnd(flags2, 1) != 0) reader$read_long() else NULL
+      reply_to <- if (bitwAnd(flags, 8) != 0) reader$tgread_object() else NULL
+      date <- reader$tgread_date()
+      message <- reader$tgread_string()
+      media <- if (bitwAnd(flags, 512) != 0) reader$tgread_object() else NULL
+      reply_markup <- if (bitwAnd(flags, 64) != 0) reader$tgread_object() else NULL
+      entities <- if (bitwAnd(flags, 128) != 0) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      } else {
+        NULL
+      }
+      views <- if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL
+      forwards <- if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL
+      replies <- if (bitwAnd(flags, 8388608) != 0) reader$tgread_object() else NULL
+      edit_date <- if (bitwAnd(flags, 32768) != 0) reader$tgread_date() else NULL
+      post_author <- if (bitwAnd(flags, 65536) != 0) reader$tgread_string() else NULL
+      grouped_id <- if (bitwAnd(flags, 131072) != 0) reader$read_long() else NULL
+      reactions <- if (bitwAnd(flags, 1048576) != 0) reader$tgread_object() else NULL
+      restriction_reason <- if (bitwAnd(flags, 4194304) != 0) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      } else {
+        NULL
+      }
+      ttl_period <- if (bitwAnd(flags, 33554432) != 0) reader$read_int() else NULL
+      quick_reply_shortcut_id <- if (bitwAnd(flags, 1073741824) != 0) reader$read_int() else NULL
+      effect <- if (bitwAnd(flags2, 4) != 0) reader$read_long() else NULL
+      factcheck <- if (bitwAnd(flags2, 8) != 0) reader$tgread_object() else NULL
+      report_delivery_until_date <- if (bitwAnd(flags2, 32) != 0) reader$tgread_date() else NULL
+      paid_message_stars <- if (bitwAnd(flags2, 64) != 0) reader$read_long() else NULL
+      suggested_post <- if (bitwAnd(flags2, 128) != 0) reader$tgread_object() else NULL
+
+      list(
+        id = id,
+        peer_id = peer_id,
+        date = date,
+        message = message,
+        out = out,
+        mentioned = mentioned,
+        media_unread = media_unread,
+        silent = silent,
+        post = post,
+        from_scheduled = from_scheduled,
+        legacy = legacy,
+        edit_hide = edit_hide,
+        pinned = pinned,
+        noforwards = noforwards,
+        invert_media = invert_media,
+        offline = offline,
+        video_processing_pending = video_processing_pending,
+        paid_suggested_post_stars = paid_suggested_post_stars,
+        paid_suggested_post_ton = paid_suggested_post_ton,
+        from_id = from_id,
+        from_boosts_applied = from_boosts_applied,
+        saved_peer_id = saved_peer_id,
+        fwd_from = fwd_from,
+        via_bot_id = via_bot_id,
+        via_business_bot_id = via_business_bot_id,
+        reply_to = reply_to,
+        media = media,
+        reply_markup = reply_markup,
+        entities = entities,
+        views = views,
+        forwards = forwards,
+        replies = replies,
+        edit_date = edit_date,
+        post_author = post_author,
+        grouped_id = grouped_id,
+        reactions = reactions,
+        restriction_reason = restriction_reason,
+        ttl_period = ttl_period,
+        quick_reply_shortcut_id = quick_reply_shortcut_id,
+        effect = effect,
+        factcheck = factcheck,
+        report_delivery_until_date = report_delivery_until_date,
+        paid_message_stars = paid_message_stars,
+        suggested_post = suggested_post
       )
     }
   )
@@ -27994,7 +28148,9 @@ MessageActionContactSignUp <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      value <- reader$read_int()
+      emoticon <- reader$tgread_string()
+      self$new(value, emoticon)
     }
   ),
   class = TRUE
@@ -28047,7 +28203,34 @@ MessageActionEmpty <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      flags <- reader$read_int()
+      nopremium <- bitwAnd(flags, 8) != 0
+      spoiler <- bitwAnd(flags, 16) != 0
+      video <- bitwAnd(flags, 64) != 0
+      round <- bitwAnd(flags, 128) != 0
+      voice <- bitwAnd(flags, 256) != 0
+      document <- if (bitwAnd(flags, 1) != 0) reader$tgread_object() else NULL
+      alt_documents <- if (bitwAnd(flags, 32) != 0) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      } else {
+        NULL
+      }
+      video_cover <- if (bitwAnd(flags, 512) != 0) reader$tgread_object() else NULL
+      video_timestamp <- if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL
+      ttl_seconds <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
+      self$new(
+        nopremium = nopremium,
+        spoiler = spoiler,
+        video = video,
+        round = round,
+        voice = voice,
+        document = document,
+        alt_documents = alt_documents,
+        video_cover = video_cover,
+        video_timestamp = video_timestamp,
+        ttl_seconds = ttl_seconds
+      )
     }
   ),
   class = TRUE
@@ -31535,7 +31718,11 @@ MessageMediaPhoto <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new(FALSE, NULL, NULL)
+      flags <- reader$read_int()
+      spoiler <- bitwAnd(flags, 8) != 0
+      photo <- if (bitwAnd(flags, 1) != 0) reader$tgread_object() else NULL
+      ttl_seconds <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
+      self$new(spoiler = spoiler, photo = photo, ttl_seconds = ttl_seconds)
     }
   ),
   class = TRUE
@@ -31774,7 +31961,19 @@ MessageMediaWebPage <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new(reader$tgread_object())
+      flags <- reader$read_int()
+      force_large_media <- bitwAnd(flags, 1) != 0
+      force_small_media <- bitwAnd(flags, 2) != 0
+      manual <- bitwAnd(flags, 8) != 0
+      safe <- bitwAnd(flags, 16) != 0
+      webpage <- reader$tgread_object()
+      self$new(
+        webpage = webpage,
+        force_large_media = force_large_media,
+        force_small_media = force_small_media,
+        manual = manual,
+        safe = safe
+      )
     }
   ),
   class = TRUE
@@ -43492,7 +43691,33 @@ StarsSubscription <- R6::R6Class("StarsSubscription",
       pricing <- reader$tgread_object()
       chat_invite_hash <- if (bitwAnd(flags, 8) != 0) reader$tgread_string() else NULL
       title <- if (bitwAnd(flags, 16) != 0) reader$tgread_string() else NULL
-      photo <- if (bitwAnd(flags, 32) != 0) reader$tgread_object() else NULL
+      photo <- NULL
+      if (bitwAnd(flags, 32) != 0) {
+        # Parse UserProfilePhoto safely (some constructor mappings may be missing)
+        ctor <- reader$read_int(signed = FALSE)
+        parse_with_class <- function(cls, reader) {
+          fr <- cls$private_methods$from_reader
+          fn_env <- new.env(parent = environment(fr))
+          self_proxy <- new.env(parent = emptyenv())
+          self_proxy$initialize <- function(...) cls$new(...)
+          self_proxy$new <- function(...) cls$new(...)
+          fn_env$self <- self_proxy
+          environment(fr) <- fn_env
+          fr(reader)
+        }
+        ctor_key <- .telegramR_norm_ctor_id(ctor)
+        if (!is.null(UserProfilePhoto) &&
+          identical(ctor_key, .telegramR_norm_ctor_id(UserProfilePhoto$public_fields$CONSTRUCTOR_ID))) {
+          photo <- parse_with_class(UserProfilePhoto, reader)
+        } else if (!is.null(UserProfilePhotoEmpty) &&
+          identical(ctor_key, .telegramR_norm_ctor_id(UserProfilePhotoEmpty$public_fields$CONSTRUCTOR_ID))) {
+          photo <- UserProfilePhotoEmpty$new()
+        } else {
+          # Fallback to generic parsing
+          reader$set_position(reader$tell_position() - 4)
+          photo <- reader$tgread_object()
+        }
+      }
       invoice_slug <- if (bitwAnd(flags, 64) != 0) reader$tgread_string() else NULL
       self$initialize(id, peer, until_date, pricing, canceled, can_refulfill, missing_balance, bot_canceled, chat_invite_hash, title, photo, invoice_slug)
     }
@@ -53060,7 +53285,7 @@ User <- R6::R6Class("User",
     CONSTRUCTOR_ID = 0x20b1422,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2da17977,
-    initialize = function(id, is_self = NULL, contact = NULL, mutual_contact = NULL, deleted = NULL, bot = NULL, bot_chat_history = NULL, bot_nochats = NULL, verified = NULL, restricted = NULL, min = NULL, bot_inline_geo = NULL, support = NULL, scam = NULL, apply_min_photo = NULL, fake = NULL, bot_attach_menu = NULL, premium = NULL, attach_menu_enabled = NULL, bot_can_edit = NULL, close_friend = NULL, stories_hidden = NULL, stories_unavailable = NULL, contact_require_premium = NULL, bot_business = NULL, bot_has_main_app = NULL, access_hash = NULL, first_name = NULL, last_name = NULL, username = NULL, phone = NULL, photo = NULL, status = NULL, bot_info_version = NULL, restriction_reason = NULL, bot_inline_placeholder = NULL, lang_code = NULL, emoji_status = NULL, usernames = NULL, stories_max_id = NULL, color = NULL, profile_color = NULL, bot_active_users = NULL, bot_verification_icon = NULL, send_paid_messages_stars = NULL) {
+    initialize = function(id, is_self = NULL, contact = NULL, mutual_contact = NULL, deleted = NULL, bot = NULL, bot_chat_history = NULL, bot_nochats = NULL, verified = NULL, restricted = NULL, min = NULL, bot_inline_geo = NULL, support = NULL, scam = NULL, apply_min_photo = NULL, fake = NULL, bot_attach_menu = NULL, premium = NULL, attach_menu_enabled = NULL, bot_can_edit = NULL, close_friend = NULL, stories_hidden = NULL, stories_unavailable = NULL, contact_require_premium = NULL, bot_business = NULL, bot_has_main_app = NULL, bot_forum_view = NULL, access_hash = NULL, first_name = NULL, last_name = NULL, username = NULL, phone = NULL, photo = NULL, status = NULL, bot_info_version = NULL, restriction_reason = NULL, bot_inline_placeholder = NULL, lang_code = NULL, emoji_status = NULL, usernames = NULL, stories_max_id = NULL, color = NULL, profile_color = NULL, bot_active_users = NULL, bot_verification_icon = NULL, send_paid_messages_stars = NULL) {
       self$id <- id
       self$is_self <- is_self
       self$contact <- contact
@@ -53087,6 +53312,7 @@ User <- R6::R6Class("User",
       self$contact_require_premium <- contact_require_premium
       self$bot_business <- bot_business
       self$bot_has_main_app <- bot_has_main_app
+      self$bot_forum_view <- bot_forum_view
       self$access_hash <- access_hash
       self$first_name <- first_name
       self$last_name <- last_name
@@ -53136,6 +53362,7 @@ User <- R6::R6Class("User",
         contact_require_premium = self$contact_require_premium,
         bot_business = self$bot_business,
         bot_has_main_app = self$bot_has_main_app,
+        bot_forum_view = self$bot_forum_view,
         access_hash = self$access_hash,
         first_name = self$first_name,
         last_name = self$last_name,
@@ -53158,98 +53385,108 @@ User <- R6::R6Class("User",
       )
     },
     bytes = function() {
-      stopifnot((!is.null(self$bot) && !is.null(self$bot_info_version)) || (is.null(self$bot) && is.null(self$bot_info_version)))
-      stopifnot((!is.null(self$restricted) && !is.null(self$restriction_reason)) || (is.null(self$restricted) && is.null(self$restriction_reason)))
-      c(
-        as.raw(c(0x22, 0x14, 0x0b, 0x02)),
-        pack("I", (if (is.null(self$is_self) || !self$is_self) 0 else 1024) | (if (is.null(self$contact) || !self$contact) 0 else 2048) | (if (is.null(self$mutual_contact) || !self$mutual_contact) 0 else 4096) | (if (is.null(self$deleted) || !self$deleted) 0 else 8192) | (if (is.null(self$bot) || !self$bot) 0 else 16384) | (if (is.null(self$bot_chat_history) || !self$bot_chat_history) 0 else 32768) | (if (is.null(self$bot_nochats) || !self$bot_nochats) 0 else 65536) | (if (is.null(self$verified) || !self$verified) 0 else 131072) | (if (is.null(self$restricted) || !self$restricted) 0 else 262144) | (if (is.null(self$min) || !self$min) 0 else 1048576) | (if (is.null(self$bot_inline_geo) || !self$bot_inline_geo) 0 else 2097152) | (if (is.null(self$support) || !self$support) 0 else 8388608) | (if (is.null(self$scam) || !self$scam) 0 else 16777216) | (if (is.null(self$apply_min_photo) || !self$apply_min_photo) 0 else 33554432) | (if (is.null(self$fake) || !self$fake) 0 else 67108864) | (if (is.null(self$bot_attach_menu) || !self$bot_attach_menu) 0 else 134217728) | (if (is.null(self$premium) || !self$premium) 0 else 268435456) | (if (is.null(self$attach_menu_enabled) || !self$attach_menu_enabled) 0 else 536870912) | (if (is.null(self$access_hash)) 0 else 1) | (if (is.null(self$first_name)) 0 else 2) | (if (is.null(self$last_name)) 0 else 4) | (if (is.null(self$username)) 0 else 8) | (if (is.null(self$phone)) 0 else 16) | (if (is.null(self$photo)) 0 else 32) | (if (is.null(self$status)) 0 else 64) | (if (is.null(self$bot_info_version)) 0 else 16384) | (if (is.null(self$restriction_reason)) 0 else 262144) | (if (is.null(self$bot_inline_placeholder)) 0 else 524288) | (if (is.null(self$lang_code)) 0 else 4194304) | (if (is.null(self$emoji_status)) 0 else 1073741824)),
-        pack("I", (if (is.null(self$bot_can_edit) || !self$bot_can_edit) 0 else 2) | (if (is.null(self$close_friend) || !self$close_friend) 0 else 4) | (if (is.null(self$stories_hidden) || !self$stories_hidden) 0 else 8) | (if (is.null(self$stories_unavailable) || !self$stories_unavailable) 0 else 16) | (if (is.null(self$contact_require_premium) || !self$contact_require_premium) 0 else 1024) | (if (is.null(self$bot_business) || !self$bot_business) 0 else 2048) | (if (is.null(self$bot_has_main_app) || !self$bot_has_main_app) 0 else 8192) | (if (is.null(self$usernames)) 0 else 1) | (if (is.null(self$stories_max_id)) 0 else 32) | (if (is.null(self$color)) 0 else 256) | (if (is.null(self$profile_color)) 0 else 512) | (if (is.null(self$bot_active_users)) 0 else 4096) | (if (is.null(self$bot_verification_icon)) 0 else 16384) | (if (is.null(self$send_paid_messages_stars)) 0 else 32768)),
-        pack("q", self$id),
-        if (is.null(self$access_hash)) raw(0) else pack("q", self$access_hash),
-        if (is.null(self$first_name)) raw(0) else self$serializebytes(self$first_name),
-        if (is.null(self$last_name)) raw(0) else self$serializebytes(self$last_name),
-        if (is.null(self$username)) raw(0) else self$serializebytes(self$username),
-        if (is.null(self$phone)) raw(0) else self$serializebytes(self$phone),
-        if (is.null(self$photo)) raw(0) else self$photo$bytes(),
-        if (is.null(self$status)) raw(0) else self$status$bytes(),
-        if (is.null(self$bot_info_version)) raw(0) else pack("i", self$bot_info_version),
-        if (is.null(self$restriction_reason)) raw(0) else c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("i", length(self$restriction_reason)), do.call(c, lapply(self$restriction_reason, function(x) x$bytes()))),
-        if (is.null(self$bot_inline_placeholder)) raw(0) else self$serializebytes(self$bot_inline_placeholder),
-        if (is.null(self$lang_code)) raw(0) else self$serializebytes(self$lang_code),
-        if (is.null(self$emoji_status)) raw(0) else self$emoji_status$bytes(),
-        if (is.null(self$usernames)) raw(0) else c(as.raw(c(0x15, 0xc4, 0xb5, 0x1c)), pack("i", length(self$usernames)), do.call(c, lapply(self$usernames, function(x) x$bytes()))),
-        if (is.null(self$stories_max_id)) raw(0) else pack("i", self$stories_max_id),
-        if (is.null(self$color)) raw(0) else self$color$bytes(),
-        if (is.null(self$profile_color)) raw(0) else self$profile_color$bytes(),
-        if (is.null(self$bot_active_users)) raw(0) else pack("i", self$bot_active_users),
-        if (is.null(self$bot_verification_icon)) raw(0) else pack("q", self$bot_verification_icon),
-        if (is.null(self$send_paid_messages_stars)) raw(0) else pack("q", self$send_paid_messages_stars)
-      )
+      stop("Not implemented")
     }
   ),
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
-      is_self <- (flags & 1024) != 0
-      contact <- (flags & 2048) != 0
-      mutual_contact <- (flags & 4096) != 0
-      deleted <- (flags & 8192) != 0
-      bot <- (flags & 16384) != 0
-      bot_chat_history <- (flags & 32768) != 0
-      bot_nochats <- (flags & 65536) != 0
-      verified <- (flags & 131072) != 0
-      restricted <- (flags & 262144) != 0
-      min <- (flags & 1048576) != 0
-      bot_inline_geo <- (flags & 2097152) != 0
-      support <- (flags & 8388608) != 0
-      scam <- (flags & 16777216) != 0
-      apply_min_photo <- (flags & 33554432) != 0
-      fake <- (flags & 67108864) != 0
-      bot_attach_menu <- (flags & 134217728) != 0
-      premium <- (flags & 268435456) != 0
-      attach_menu_enabled <- (flags & 536870912) != 0
+      is_self <- bitwAnd(flags, 1024) != 0
+      contact <- bitwAnd(flags, 2048) != 0
+      mutual_contact <- bitwAnd(flags, 4096) != 0
+      deleted <- bitwAnd(flags, 8192) != 0
+      bot <- bitwAnd(flags, 16384) != 0
+      bot_chat_history <- bitwAnd(flags, 32768) != 0
+      bot_nochats <- bitwAnd(flags, 65536) != 0
+      verified <- bitwAnd(flags, 131072) != 0
+      restricted <- bitwAnd(flags, 262144) != 0
+      min <- bitwAnd(flags, 1048576) != 0
+      bot_inline_geo <- bitwAnd(flags, 2097152) != 0
+      support <- bitwAnd(flags, 8388608) != 0
+      scam <- bitwAnd(flags, 16777216) != 0
+      apply_min_photo <- bitwAnd(flags, 33554432) != 0
+      fake <- bitwAnd(flags, 67108864) != 0
+      bot_attach_menu <- bitwAnd(flags, 134217728) != 0
+      premium <- bitwAnd(flags, 268435456) != 0
+      attach_menu_enabled <- bitwAnd(flags, 536870912) != 0
+      
       flags2 <- reader$read_int()
-      bot_can_edit <- (flags2 & 2) != 0
-      close_friend <- (flags2 & 4) != 0
-      stories_hidden <- (flags2 & 8) != 0
-      stories_unavailable <- (flags2 & 16) != 0
-      contact_require_premium <- (flags2 & 1024) != 0
-      bot_business <- (flags2 & 2048) != 0
-      bot_has_main_app <- (flags2 & 8192) != 0
+      bot_can_edit <- bitwAnd(flags2, 2) != 0
+      close_friend <- bitwAnd(flags2, 4) != 0
+      stories_hidden <- bitwAnd(flags2, 8) != 0
+      stories_unavailable <- bitwAnd(flags2, 16) != 0
+      contact_require_premium <- bitwAnd(flags2, 1024) != 0
+      bot_business <- bitwAnd(flags2, 2048) != 0
+      bot_has_main_app <- bitwAnd(flags2, 8192) != 0
+      bot_forum_view <- bitwAnd(flags2, 65536) != 0
+
       id <- reader$read_long()
-      access_hash <- if (flags & 1) reader$read_long() else NULL
-      first_name <- if (flags & 2) reader$tgread_string() else NULL
-      last_name <- if (flags & 4) reader$tgread_string() else NULL
-      username <- if (flags & 8) reader$tgread_string() else NULL
-      phone <- if (flags & 16) reader$tgread_string() else NULL
-      photo <- if (flags & 32) reader$tgread_object() else NULL
-      status <- if (flags & 64) reader$tgread_object() else NULL
-      bot_info_version <- if (flags & 16384) reader$read_int() else NULL
-      restriction_reason <- if (flags & 262144) {
-        reader$read_int()
-        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      access_hash <- if (bitwAnd(flags, 1) != 0) reader$read_long() else NULL
+      first_name <- if (bitwAnd(flags, 2) != 0) reader$tgread_string() else NULL
+      last_name <- if (bitwAnd(flags, 4) != 0) reader$tgread_string() else NULL
+      username <- if (bitwAnd(flags, 8) != 0) reader$tgread_string() else NULL
+      phone <- if (bitwAnd(flags, 16) != 0) reader$tgread_string() else NULL
+      photo <- if (bitwAnd(flags, 32) != 0) reader$tgread_object() else NULL
+      status <- NULL
+      if (bitwAnd(flags, 64) != 0) {
+        status <- tryCatch(reader$tgread_object(), error = function(e) NULL)
+      }
+      bot_info_version <- if (bitwAnd(flags, 16384) != 0) reader$read_int() else NULL
+      
+      restriction_reason <- if (bitwAnd(flags, 262144) != 0) {
+        # Vector<RestrictionReason>
+        reader$read_int() # constructor
+        sapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
       } else {
         NULL
       }
-      bot_inline_placeholder <- if (flags & 524288) reader$tgread_string() else NULL
-      lang_code <- if (flags & 4194304) reader$tgread_string() else NULL
-      emoji_status <- if (flags & 1073741824) reader$tgread_object() else NULL
-      usernames <- if (flags2 & 1) {
-        reader$read_int()
-        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      
+      bot_inline_placeholder <- if (bitwAnd(flags, 524288) != 0) reader$tgread_string() else NULL
+      lang_code <- if (bitwAnd(flags, 4194304) != 0) reader$tgread_string() else NULL
+      emoji_status <- if (bitwAnd(flags, 1073741824) != 0) reader$tgread_object() else NULL
+      
+      usernames <- if (bitwAnd(flags2, 1) != 0) {
+        # Vector<Username>
+        reader$read_int() # constructor
+        sapply(seq_len(reader$read_int()), function(i) reader$tgread_object())
       } else {
         NULL
       }
-      stories_max_id <- if (flags2 & 32) reader$read_int() else NULL
-      color <- if (flags2 & 256) reader$tgread_object() else NULL
-      profile_color <- if (flags2 & 512) reader$tgread_object() else NULL
-      bot_active_users <- if (flags2 & 4096) reader$read_int() else NULL
-      bot_verification_icon <- if (flags2 & 16384) reader$read_long() else NULL
-      send_paid_messages_stars <- if (flags2 & 32768) reader$read_long() else NULL
-      list(id = id, is_self = is_self, contact = contact, mutual_contact = mutual_contact, deleted = deleted, bot = bot, bot_chat_history = bot_chat_history, bot_nochats = bot_nochats, verified = verified, restricted = restricted, min = min, bot_inline_geo = bot_inline_geo, support = support, scam = scam, apply_min_photo = apply_min_photo, fake = fake, bot_attach_menu = bot_attach_menu, premium = premium, attach_menu_enabled = attach_menu_enabled, bot_can_edit = bot_can_edit, close_friend = close_friend, stories_hidden = stories_hidden, stories_unavailable = stories_unavailable, contact_require_premium = contact_require_premium, bot_business = bot_business, bot_has_main_app = bot_has_main_app, access_hash = access_hash, first_name = first_name, last_name = last_name, username = username, phone = phone, photo = photo, status = status, bot_info_version = bot_info_version, restriction_reason = restriction_reason, bot_inline_placeholder = bot_inline_placeholder, lang_code = lang_code, emoji_status = emoji_status, usernames = usernames, stories_max_id = stories_max_id, color = color, profile_color = profile_color, bot_active_users = bot_active_users, bot_verification_icon = bot_verification_icon, send_paid_messages_stars = send_paid_messages_stars)
+      
+      stories_max_id <- if (bitwAnd(flags2, 32) != 0) reader$read_int() else NULL
+      color <- if (bitwAnd(flags2, 256) != 0) reader$tgread_object() else NULL
+      profile_color <- if (bitwAnd(flags2, 512) != 0) reader$tgread_object() else NULL
+      bot_active_users <- if (bitwAnd(flags2, 4096) != 0) reader$read_int() else NULL
+      bot_verification_icon <- if (bitwAnd(flags2, 16384) != 0) reader$read_long() else NULL
+      send_paid_messages_stars <- if (bitwAnd(flags2, 32768) != 0) reader$read_long() else NULL
+      
+      # For simplicity, returning a list of fields.
+      # The caller in tgread_object will use do.call(cls$new, ...)
+      list(
+        id = id, is_self = is_self, contact = contact, mutual_contact = mutual_contact,
+        deleted = deleted, bot = bot, bot_chat_history = bot_chat_history,
+        bot_nochats = bot_nochats, verified = verified, restricted = restricted,
+        min = min, bot_inline_geo = bot_inline_geo, support = support, scam = scam,
+        apply_min_photo = apply_min_photo, fake = fake, bot_attach_menu = bot_attach_menu,
+        premium = premium, attach_menu_enabled = attach_menu_enabled,
+        bot_can_edit = bot_can_edit, close_friend = close_friend,
+        stories_hidden = stories_hidden, stories_unavailable = stories_unavailable,
+        contact_require_premium = contact_require_premium, bot_business = bot_business,
+        bot_has_main_app = bot_has_main_app, bot_forum_view = bot_forum_view, access_hash = access_hash,
+        first_name = first_name, last_name = last_name, username = username,
+        phone = phone, photo = photo, status = status,
+        bot_info_version = bot_info_version,
+        restriction_reason = restriction_reason,
+        bot_inline_placeholder = bot_inline_placeholder, lang_code = lang_code,
+        emoji_status = emoji_status, usernames = usernames,
+        stories_max_id = stories_max_id, color = color, profile_color = profile_color,
+        bot_active_users = bot_active_users, bot_verification_icon = bot_verification_icon,
+        send_paid_messages_stars = send_paid_messages_stars
+      )
     }
   ),
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
 #' @title UserEmpty
@@ -53283,7 +53520,8 @@ UserEmpty <- R6::R6Class("UserEmpty",
       list(id = reader$read_long())
     }
   ),
-  class = TRUE
+  class = TRUE,
+  lock_objects = FALSE
 )
 
 #' @title UserFull
@@ -53528,6 +53766,16 @@ UserProfilePhoto <- R6::R6Class("UserProfilePhoto",
     CONSTRUCTOR_ID = 0x82d1f706,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc6338f7d,
+    #' @field photo_id Field.
+    photo_id = NULL,
+    #' @field dc_id Field.
+    dc_id = NULL,
+    #' @field has_video Field.
+    has_video = NULL,
+    #' @field personal Field.
+    personal = NULL,
+    #' @field stripped_thumb Field.
+    stripped_thumb = NULL,
     initialize = function(photo_id, dc_id, has_video = NULL, personal = NULL, stripped_thumb = NULL) {
       self$photo_id <- photo_id
       self$dc_id <- dc_id
@@ -54978,7 +55226,7 @@ ContactsResolvedPeer <- R6::R6Class("ContactsResolvedPeer",
   inherit = TLObject,
   public = list(
     #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
-    CONSTRUCTOR_ID = 0x7f077635,
+    CONSTRUCTOR_ID = 0x7f077ad9,
     #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x0,
     #' @field peer The resolved peer (Peer).
