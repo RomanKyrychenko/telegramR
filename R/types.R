@@ -12916,6 +12916,9 @@ Document <- R6::R6Class(
         video_thumbs = if (is.null(self$video_thumbs)) list() else lapply(self$video_thumbs, function(x) if (inherits(x, "TLObject")) x$to_list() else x)
       )
     },
+    to_dict = function() {
+      self$to_list()
+    },
     bytes = function() {
       c(
         as.raw(c(0xd8, 0xc4, 0xd4, 0x8f)),
@@ -17247,8 +17250,8 @@ InputChannel <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x28, 0xec, 0x5a, 0xf3)),
-        writeBin(self$channel_id, raw(), size = 8, endian = "little"),
-        writeBin(self$access_hash, raw(), size = 8, endian = "little")
+        pack("q", self$channel_id),
+        pack("q", self$access_hash)
       )
     }
   )
@@ -29409,9 +29412,17 @@ MessageActionGroupCall <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
+      remaining <- function() length(reader$get_bytes()) - reader$tell_position()
+      if (remaining() < 4) {
+        return(list(call = NULL, duration = NULL))
+      }
       flags <- reader$read_int()
-      call <- reader$tgread_object()
-      duration <- if (bitwAnd(flags, 1) != 0) reader$read_int() else NULL
+      call <- if (remaining() >= 4) {
+        tryCatch(reader$tgread_object(), error = function(e) NULL)
+      } else {
+        NULL
+      }
+      duration <- if (bitwAnd(flags, 1) != 0 && remaining() >= 4) reader$read_int() else NULL
       list(call = call, duration = duration)
     }
   ),
