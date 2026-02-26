@@ -1792,10 +1792,9 @@ parse_phone <- function(phone) {
 #' }
 parse_username <- function(username) {
   username <- trimws(username)
-  # Quick early check: require an explicit mention or URL-like token
-  if (!grepl("@|t\\.me|telegram\\.|tg://", username, ignore.case = TRUE)) {
-    return(list(username = NULL, is_join_chat = FALSE))
-  }
+  # Allow plain usernames (without @ or URL) if they match the valid pattern.
+  # This mirrors Telethon's behavior for resolving usernames from plain strings.
+  has_explicit_prefix <- grepl("@|t\\.me|telegram\\.|tg://", username, ignore.case = TRUE)
   # Define regex patterns (translated from Python)
   username_re <- "@|(?:https?://)?(?:www\\.)?(?:telegram\\.(?:me|dog)|t\\.me)/(@|\\+|joinchat/)?"
   tg_join_re <- "tg://(join)\\?invite="
@@ -1819,8 +1818,10 @@ parse_username <- function(username) {
     }
   }
 
-  # Do NOT accept plain usernames without '@' or URL prefix — require explicit @ or URL
-  # Previous behavior allowed plain words like 'invalid' to be treated as usernames.
+  # If there's no explicit prefix, accept plain usernames that match the pattern.
+  if (!has_explicit_prefix && grepl(valid_username_re, username, ignore.case = TRUE)) {
+    return(list(username = tolower(username), is_join_chat = FALSE))
+  }
 
   # Check TG_JOIN_RE
   m <- regexpr(tg_join_re, username, perl = TRUE)
