@@ -81,6 +81,9 @@ CheckUsernameRequest <- R6::R6Class(
     #' @param client The client object.
     #' @param utils The utilities object.
     resolve = function(client, utils) {
+      if (inherits(self$channel, "InputChannel")) {
+        return(invisible(NULL))
+      }
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
