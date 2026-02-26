@@ -29,7 +29,8 @@ Imports:
     bitops,
     gmp,
     xml2,
-    mime
+    mime,
+    tibble
 Suggests:
     testthat (>= 3.0.0),
     withr,
@@ -52,6 +53,7 @@ Collate:
     'tlobject.R'
     'types.R'
     'chats.R'
+    'channel_downloads.R'
     'common.R'
     'connection.R'
     'dialogs.R'
