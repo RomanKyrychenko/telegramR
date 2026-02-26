@@ -14,9 +14,10 @@ BinaryReader <- R6::R6Class(
     #' Initializes the BinaryReader with the given binary data.
     #' @param data A raw vector representing the binary data to read.
     initialize = function(data) {
-      private$stream <- rawConnection(data, "rb")
+      private$stream <- NULL
       private$.last <- NULL
       private$.data <- data
+      private$.pos <- 0L
     },
 
     #' @description
@@ -71,7 +72,25 @@ BinaryReader <- R6::R6Class(
     #' @param length An integer specifying the number of bytes to read.
     #' @return A raw vector of the read bytes.
     read = function(length = -1) {
-      result <- readBin(private$stream, "raw", n = length)
+      if (length == 0) {
+        result <- raw(0)
+        private$.last <- result
+        return(result)
+      }
+      if (length < 0) {
+        result <- private$.data[(private$.pos + 1L):length(private$.data)]
+        private$.pos <- length(private$.data)
+        private$.last <- result
+        return(result)
+      }
+      start <- private$.pos + 1L
+      end <- private$.pos + length
+      if (start > length(private$.data)) {
+        result <- raw(0)
+      } else {
+        end <- min(end, length(private$.data))
+        result <- private$.data[start:end]
+      }
       if (length >= 0 && length(result) != length) {
         stop(sprintf(
           "No more data left to read (need %d, got %d); last read: %s",
@@ -79,6 +98,7 @@ BinaryReader <- R6::R6Class(
         ))
       }
       private$.last <- result
+      private$.pos <- private$.pos + length
       return(result)
     },
 
@@ -92,28 +112,32 @@ BinaryReader <- R6::R6Class(
     #' @description
     #' Closes the reader, freeing the raw connection.
     close = function() {
-      close(private$stream)
+      invisible(NULL)
+    },
+
+    finalize = function() {
+      invisible(NULL)
     },
 
     #' @description
     #' Tells the current position in the stream.
     #' @return An integer representing the current position.
     tell_position = function() {
-      return(seek(private$stream, origin = "current"))
+      return(private$.pos)
     },
 
     #' @description
     #' Sets the current position in the stream.
     #' @param position An integer specifying the position to set.
     set_position = function(position) {
-      seek(private$stream, position, origin = "start")
+      private$.pos <- as.integer(position)
     },
 
     #' @description
     #' Seeks the stream position by a given offset.
     #' @param offset An integer specifying the offset to seek.
     seek = function(offset) {
-      seek(private$stream, offset, origin = "current")
+      private$.pos <- private$.pos + as.integer(offset)
     },
 
     #' @description
@@ -211,6 +235,18 @@ BinaryReader <- R6::R6Class(
     #' @return A TL object or raw bytes if type unknown.
     tgread_object = function() {
       constructor_id <- self$read_int(signed = FALSE)
+      if (!is.null(constructor_id) &&
+        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(0x3072cfa1))) {
+        # GzipPacked: decompress and parse inner object
+        packed <- self$tgread_bytes()
+        inner <- tryCatch(memDecompress(packed, type = "gzip"), error = function(e) NULL)
+        if (is.null(inner)) {
+          return(list(CONSTRUCTOR_ID = constructor_id, data = packed))
+        }
+        inner_reader <- BinaryReader$new(inner)
+        on.exit(tryCatch(inner_reader$close(), error = function(e) NULL), add = TRUE)
+        return(inner_reader$tgread_object())
+      }
       if (!is.null(constructor_id) && constructor_id == 481674261) { # Vector (0x1cb5c415)
         count <- self$read_int()
         res <- list()
@@ -237,11 +273,38 @@ BinaryReader <- R6::R6Class(
         identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(3346446926))) {
         return(.telegramR_read_channel_messages(self))
       }
+      # Special-case messages.Messages
+      if (!is.null(constructor_id) &&
+        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(494135274))) {
+        return(.telegramR_read_messages(self))
+      }
+      # Special-case messages.MessagesSlice
+      if (!is.null(constructor_id) &&
+        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(1595959062))) {
+        return(.telegramR_read_messages_slice(self))
+      }
+      # Special-case messages.MessagesNotModified
+      if (!is.null(constructor_id) &&
+        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(1951620897))) {
+        return(.telegramR_read_messages_not_modified(self))
+      }
+      # Special-case MessageService to avoid stale R6 from_reader
+      if (!is.null(constructor_id) &&
+        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(0x7a800e0a))) {
+        return(.telegramR_read_message_service(self))
+      }
       ctor_key <- .telegramR_norm_ctor_id(constructor_id)
       ctor_map <- .telegramR_get_ctor_map()
       cls <- ctor_map[[ctor_key]]
 
       if (is.null(cls)) {
+        if (isTRUE(getOption("telegramR.debug_parse"))) {
+          message(sprintf(
+            "[tgread_object] unknown ctor=%s at pos=%s",
+            as.character(constructor_id),
+            as.character(self$tell_position())
+          ))
+        }
         cur <- self$tell_position()
         remaining <- length(private$.data) - cur
         if (remaining <= 0) {
@@ -259,15 +322,10 @@ BinaryReader <- R6::R6Class(
       # a zero-arg tryCatch and fall back to using the class generator directly.
       obj <- tryCatch(cls$new(), error = function(e) NULL)
 
-      # Try to get from_reader from private methods on the instance or generator
+      # Prefer class-level from_reader to avoid relying on instance methods
+      # (some classes lack a working self$new on instances).
       from_reader_fn <- NULL
-      if (!is.null(obj)) {
-        private_env <- obj$.__enclos_env__$private
-        if (is.environment(private_env) && is.function(private_env$from_reader)) {
-          from_reader_fn <- private_env$from_reader
-        }
-      }
-      if (is.null(from_reader_fn) && !is.null(cls$private_methods) && is.function(cls$private_methods$from_reader)) {
+      if (!is.null(cls$private_methods) && is.function(cls$private_methods$from_reader)) {
         from_reader_fn <- cls$private_methods$from_reader
         # Fix the function's environment so it can find the class it needs
         # to construct (e.g. BadServerSalt$new inside from_reader).
@@ -282,10 +340,25 @@ BinaryReader <- R6::R6Class(
         self_proxy$new <- function(...) cls$new(...)
         fn_env$self <- self_proxy
         environment(from_reader_fn) <- fn_env
+      } else if (!is.null(obj)) {
+        private_env <- obj$.__enclos_env__$private
+        if (is.environment(private_env) && is.function(private_env$from_reader)) {
+          from_reader_fn <- private_env$from_reader
+        }
       }
 
       if (!is.null(from_reader_fn)) {
         parsed <- tryCatch(from_reader_fn(self), error = function(e) {
+          if (isTRUE(getOption("telegramR.debug_parse"))) {
+            msg <- sprintf(
+              "[tgread_object] from_reader failed for ctor=%s class=%s at pos=%s: %s",
+              as.character(constructor_id),
+              if (!is.null(cls$classname)) cls$classname else "unknown",
+              as.character(self$tell_position()),
+              conditionMessage(e)
+            )
+            message(msg)
+          }
           # Rewind reader to position right after constructor_id so the
           # fallback data contains ALL the object bytes.
           tryCatch(self$set_position(pos_after_ctor), error = function(e2) NULL)
@@ -329,7 +402,8 @@ BinaryReader <- R6::R6Class(
   private = list(
     stream = NULL,
     .last = NULL,
-    .data = NULL
+    .data = NULL,
+    .pos = 0L
   )
 )
 
@@ -344,7 +418,8 @@ BinaryReader <- R6::R6Class(
 
 .telegramR_get_ctor_map <- function() {
   cache <- getOption("telegramR.ctor_map")
-  if (is.list(cache) && length(cache) > 0) {
+  if (!isTRUE(getOption("telegramR.debug_parse")) &&
+    is.list(cache) && length(cache) > 0) {
     return(cache)
   }
 
@@ -371,6 +446,10 @@ BinaryReader <- R6::R6Class(
   )
   # Also search the global environment (for source()'d code)
   envs_to_search <- c(envs_to_search, list(.GlobalEnv))
+  if (isTRUE(getOption("telegramR.debug_parse"))) {
+    # Prefer freshly loaded classes in the global environment
+    envs_to_search <- c(list(.GlobalEnv), envs_to_search)
+  }
 
   out <- list()
   seen_names <- character(0)
@@ -519,12 +598,41 @@ BinaryReader <- R6::R6Class(
   offset_id_offset <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
 
   # Vector<Message>
-  reader$read_int() # vector ctor
+  vec_ctor <- reader$read_int() # vector ctor
   n_messages <- reader$read_int()
+  if (isTRUE(getOption("telegramR.debug_parse"))) {
+    message(sprintf(
+      "[channel_messages] flags=%s pts=%s count=%s offset_id_offset=%s vec_ctor=%s n_messages=%s",
+      as.character(flags), as.character(pts), as.character(count),
+      if (is.null(offset_id_offset)) "NULL" else as.character(offset_id_offset),
+      as.character(vec_ctor), as.character(n_messages)
+    ))
+  }
   messages <- list()
   if (n_messages > 0) {
     for (i in seq_len(n_messages)) {
-      obj <- tryCatch(reader$tgread_object(), error = function(e) NULL)
+      if (isTRUE(getOption("telegramR.debug_parse"))) {
+        pos <- tryCatch(reader$tell_position(), error = function(e) NA)
+        ctor <- tryCatch({
+          peek_pos <- reader$tell_position()
+          v <- reader$read_int(signed = FALSE)
+          reader$set_position(peek_pos)
+          v
+        }, error = function(e) NA)
+        message(sprintf("[channel_messages] message[%d] pos=%s ctor=%s", i, as.character(pos), as.character(ctor)))
+      }
+      obj <- tryCatch(
+        reader$tgread_object(),
+        error = function(e) {
+          if (isTRUE(getOption("telegramR.debug_parse"))) {
+            message(sprintf(
+              "[channel_messages] message[%d] parse error: %s",
+              i, conditionMessage(e)
+            ))
+          }
+          NULL
+        }
+      )
       if (is.null(obj)) break
       messages[[length(messages) + 1L]] <- obj
     }
@@ -601,6 +709,133 @@ BinaryReader <- R6::R6Class(
     users = users,
     inexact = inexact,
     offset_id_offset = offset_id_offset
+  )
+}
+
+.telegramR_read_messages <- function(reader) {
+  # Vector<Message>
+  reader$read_int()
+  n_messages <- reader$read_int()
+  messages <- if (n_messages > 0) lapply(seq_len(n_messages), function(i) reader$tgread_object()) else list()
+
+  # Vector<ForumTopic>
+  reader$read_int()
+  n_topics <- reader$read_int()
+  topics <- if (n_topics > 0) lapply(seq_len(n_topics), function(i) reader$tgread_object()) else list()
+
+  # Vector<Chat>
+  reader$read_int()
+  n_chats <- reader$read_int()
+  chats <- if (n_chats > 0) lapply(seq_len(n_chats), function(i) reader$tgread_object()) else list()
+
+  # Vector<User>
+  reader$read_int()
+  n_users <- reader$read_int()
+  users <- if (n_users > 0) lapply(seq_len(n_users), function(i) reader$tgread_object()) else list()
+
+  list(
+    messages = messages,
+    topics = topics,
+    chats = chats,
+    users = users
+  )
+}
+
+.telegramR_read_messages_slice <- function(reader) {
+  flags <- reader$read_int()
+  inexact <- bitwAnd(flags, 2) != 0
+  count <- reader$read_int()
+  next_rate <- if (bitwAnd(flags, 1) != 0) reader$read_int() else NULL
+  offset_id_offset <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
+  search_flood <- if (bitwAnd(flags, 8) != 0) reader$tgread_object() else NULL
+
+  # Vector<Message>
+  reader$read_int()
+  n_messages <- reader$read_int()
+  messages <- if (n_messages > 0) lapply(seq_len(n_messages), function(i) reader$tgread_object()) else list()
+
+  # Vector<ForumTopic>
+  reader$read_int()
+  n_topics <- reader$read_int()
+  topics <- if (n_topics > 0) lapply(seq_len(n_topics), function(i) reader$tgread_object()) else list()
+
+  # Vector<Chat>
+  reader$read_int()
+  n_chats <- reader$read_int()
+  chats <- if (n_chats > 0) lapply(seq_len(n_chats), function(i) reader$tgread_object()) else list()
+
+  # Vector<User>
+  reader$read_int()
+  n_users <- reader$read_int()
+  users <- if (n_users > 0) lapply(seq_len(n_users), function(i) reader$tgread_object()) else list()
+
+  list(
+    count = count,
+    messages = messages,
+    topics = topics,
+    chats = chats,
+    users = users,
+    inexact = inexact,
+    next_rate = next_rate,
+    offset_id_offset = offset_id_offset,
+    search_flood = search_flood
+  )
+}
+
+.telegramR_read_messages_not_modified <- function(reader) {
+  count <- reader$read_int()
+  list(CONSTRUCTOR_ID = 1951620897, `_` = "MessagesNotModified", count = count)
+}
+
+.telegramR_read_message_service <- function(reader) {
+  remaining <- function() length(reader$get_bytes()) - reader$tell_position()
+  dbg <- isTRUE(getOption("telegramR.debug_parse"))
+  flags <- reader$read_int()
+
+  out <- bitwAnd(flags, 2) != 0
+  mentioned <- bitwAnd(flags, 16) != 0
+  media_unread <- bitwAnd(flags, 32) != 0
+  reactions_are_possible <- bitwAnd(flags, 512) != 0
+  silent <- bitwAnd(flags, 8192) != 0
+  post <- bitwAnd(flags, 16384) != 0
+  legacy <- bitwAnd(flags, 524288) != 0
+
+  if (dbg) message(sprintf("[message_service] flags=%s rem=%s", as.character(flags), as.character(remaining())))
+  id <- reader$read_int()
+  if (dbg) message(sprintf("[message_service] id=%s rem=%s", as.character(id), as.character(remaining())))
+  from_id <- if (bitwAnd(flags, 256) != 0 && remaining() >= 4) reader$tgread_object() else NULL
+  if (dbg) message(sprintf("[message_service] from_id=%s rem=%s", if (is.null(from_id)) "NULL" else class(from_id)[1], as.character(remaining())))
+  peer_id <- if (remaining() >= 4) reader$tgread_object() else NULL
+  if (dbg) message(sprintf("[message_service] peer_id=%s rem=%s", if (is.null(peer_id)) "NULL" else class(peer_id)[1], as.character(remaining())))
+  savedpeer_id <- if (bitwAnd(flags, 268435456) != 0 && remaining() >= 4) reader$tgread_object() else NULL
+  if (dbg) message(sprintf("[message_service] savedpeer_id=%s rem=%s", if (is.null(savedpeer_id)) "NULL" else class(savedpeer_id)[1], as.character(remaining())))
+  reply_to <- if (bitwAnd(flags, 8) != 0 && remaining() >= 4) reader$tgread_object() else NULL
+  if (dbg) message(sprintf("[message_service] reply_to=%s rem=%s", if (is.null(reply_to)) "NULL" else class(reply_to)[1], as.character(remaining())))
+  date <- if (remaining() >= 4) reader$tgread_date() else NULL
+  if (dbg) message(sprintf("[message_service] date=%s rem=%s", if (is.null(date)) "NULL" else as.character(date), as.character(remaining())))
+  action <- if (remaining() >= 4) reader$tgread_object() else NULL
+  if (dbg) message(sprintf("[message_service] action=%s rem=%s", if (is.null(action)) "NULL" else class(action)[1], as.character(remaining())))
+  reactions <- if (bitwAnd(flags, 1048576) != 0 && remaining() >= 4) reader$tgread_object() else NULL
+  ttl_period <- if (bitwAnd(flags, 33554432) != 0 && remaining() >= 4) reader$read_int() else NULL
+
+  list(
+    "_" = "MessageService",
+    id = id,
+    peer_id = peer_id,
+    date = date,
+    action = action,
+    out = out,
+    mentioned = mentioned,
+    media_unread = media_unread,
+    reactions_are_possible = reactions_are_possible,
+    silent = silent,
+    post = post,
+    legacy = legacy,
+    from_id = from_id,
+    savedpeer_id = savedpeer_id,
+    reply_to = reply_to,
+    reactions = reactions,
+    ttl_period = ttl_period
   )
 }
 
