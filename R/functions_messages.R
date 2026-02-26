@@ -47,7 +47,8 @@ AcceptEncryptionRequest <- R6::R6Class(
         pack("<q", self$keyFingerprint)
       )
     }
-  )
+  ),
+  lock_objects = FALSE
 )
 
 # @title fromReader
@@ -137,7 +138,8 @@ AcceptUrlAuthRequest <- R6::R6Class(
         if (is.null(self$url)) raw(0) else self$serialize_bytes(self$url)
       )
     }
-  )
+  ),
+  lock_objects = FALSE
 )
 
 # @title fromReader
@@ -2740,7 +2742,8 @@ GetAllStickersRequest <- R6::R6Class(
         pack("<q", self$hash)
       )
     }
-  )
+  ),
+  lock_objects = FALSE
 )
 
 # @title fromReader
@@ -2909,7 +2912,8 @@ GetAttachMenuBotsRequest <- R6::R6Class(
         pack("<q", self$hash)
       )
     }
-  )
+  ),
+  lock_objects = FALSE
 )
 
 # @title fromReader
@@ -4971,7 +4975,8 @@ GetHistoryRequest <- R6::R6Class(
         pack("<q", self$hash)
       )
     }
-  )
+  ),
+  lock_objects = FALSE
 )
 
 # @title fromReader
@@ -6624,7 +6629,8 @@ GetRepliesRequest <- R6::R6Class(
         pack("<q", self$hash)
       )
     }
-  )
+  ),
+  lock_objects = FALSE
 )
 
 # @title fromReader
@@ -7071,7 +7077,8 @@ GetScheduledHistoryRequest <- R6::R6Class(
         pack("<q", self$hash)
       )
     }
-  )
+  ),
+  lock_objects = FALSE
 )
 
 # @title fromReader
@@ -10979,7 +10986,8 @@ SearchRequest <- R6::R6Class(
         writeBin(self$hash, raw(), size = 8, endian = "little")
       )
     }
-  )
+  ),
+  lock_objects = FALSE
 )
 
 # @title from_reader
@@ -11051,7 +11059,8 @@ SearchCustomEmojiRequest <- R6::R6Class(
         writeBin(self$hash, raw(), size = 8, endian = "little")
       )
     }
-  )
+  ),
+  lock_objects = FALSE
 )
 
 # @title from_reader
@@ -11216,7 +11225,8 @@ SearchGlobalRequest <- R6::R6Class(
         writeBin(self$limit, raw(), size = 4, endian = "little")
       )
     }
-  )
+  ),
+  lock_objects = FALSE
 )
 
 # @title from_reader
@@ -11284,7 +11294,8 @@ SearchSentMediaRequest <- R6::R6Class(
         writeBin(self$limit, raw(), size = 4, endian = "little")
       )
     }
-  )
+  ),
+  lock_objects = FALSE
 )
 
 # @title from_reader
