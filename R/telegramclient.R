@@ -2278,6 +2278,16 @@ TelegramClient <- R6::R6Class(
                              #' @field reply_to Field.
                              reply_to = NULL,
                              scheduled = FALSE) {
+      resolve_future <- function(x) {
+        if (inherits(x, "Future")) {
+          return(future::value(x))
+        }
+        x
+      }
+      entity <- resolve_future(entity)
+      if (!is.null(from_user)) {
+        from_user <- resolve_future(from_user)
+      }
       if (!is.null(ids)) {
         return(IDsIter$new(
           client = self,
@@ -2325,6 +2335,16 @@ TelegramClient <- R6::R6Class(
                                   reverse = FALSE,
                                   reply_to = NULL,
                                   scheduled = FALSE) {
+      resolve_future <- function(x) {
+        if (inherits(x, "Future")) {
+          return(future::value(x))
+        }
+        x
+      }
+      entity <- resolve_future(entity)
+      if (!is.null(from_user)) {
+        from_user <- resolve_future(from_user)
+      }
       # Optional wait to reduce flood waits
       if (!is.null(wait_time) && wait_time > 0) {
         Sys.sleep(wait_time)
@@ -2402,13 +2422,29 @@ TelegramClient <- R6::R6Class(
       res <- self$invoke(request)
       if (is.list(res)) {
         if (!is.null(res$users) || !is.null(res$chats)) {
-          self$mb_entity_cache$extend(res$users, res$chats)
+          if (!is.null(private$mb_entity_cache) && is.function(private$mb_entity_cache$extend)) {
+            private$mb_entity_cache$extend(res$users, res$chats)
+          }
         }
       }
       if (inherits(res, "messages.MessagesNotModified")) {
         return(list())
       }
-      msgs <- if (is.list(res) && !is.null(res$messages)) res$messages else res
+      if (is.list(res) && is.null(res$messages)) {
+        # Handle list-based MessagesNotModified fallback
+        if (!is.null(res$CONSTRUCTOR_ID) &&
+          identical(.telegramR_norm_ctor_id(res$CONSTRUCTOR_ID), .telegramR_norm_ctor_id(1951620897))) {
+          return(list())
+        }
+      }
+      msgs <- NULL
+      if (is.list(res) && !is.null(res$messages)) {
+        msgs <- res$messages
+      } else if (inherits(res, "TLObject") && !is.null(res$messages)) {
+        msgs <- res$messages
+      } else {
+        msgs <- res
+      }
       msgs %||% list()
     },
 
@@ -3905,9 +3941,13 @@ TelegramClient <- R6::R6Class(
     #' @param flood_sleep_threshold The threshold for flood sleep.
     #' @return A future object representing the result of the API call.
     call = function(request, ordered = FALSE, flood_sleep_threshold = NULL) {
-      future::future({
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        future::future({
+          self$call_internal(private$sender, request, ordered, flood_sleep_threshold)
+        })
+      } else {
         self$call_internal(private$sender, request, ordered, flood_sleep_threshold)
-      })
+      }
     },
 
     #' @description
@@ -4074,7 +4114,13 @@ TelegramClient <- R6::R6Class(
     #' @param input_peer Boolean indicating if the result should be an InputPeer.
     #' @return A future object representing the current user.
     get_me = function(input_peer = FALSE) {
-      future::future({
+      resolve_future <- function(x) {
+        if (inherits(x, "Future")) {
+          return(future::value(x))
+        }
+        x
+      }
+      run <- function() {
         if (input_peer && !is.null(private$mb_entity_cache) && !is.null(private$mb_entity_cache$self_id)) {
           cached <- private$mb_entity_cache$get(private$mb_entity_cache$self_id)
           if (!is.null(cached) && is.function(cached$as_input_peer)) {
@@ -4084,7 +4130,7 @@ TelegramClient <- R6::R6Class(
 
         tryCatch(
           {
-            me <- future::value(self$call(GetUsersRequest$new(list(InputUserSelf$new()))))[[1]]
+            me <- resolve_future(self$call(GetUsersRequest$new(list(InputUserSelf$new()))))[[1]]
 
             # If we got a fallback list, try to parse it into a proper TLObject
             if (is.list(me) && !inherits(me, "R6") && !is.null(me$CONSTRUCTOR_ID) &&
@@ -4117,7 +4163,11 @@ TelegramClient <- R6::R6Class(
             stop(e)
           }
         )
-      })
+      }
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future::future(run()))
+      }
+      run()
     },
 
     #' @description
@@ -4131,13 +4181,20 @@ TelegramClient <- R6::R6Class(
     #' Check if the current user is a bot.
     #' @return A future object indicating if the user is a bot.
     is_bot = function() {
-      future::future({
+      run <- function() {
         if (!is.null(private$mb_entity_cache) && is.null(private$mb_entity_cache$self_bot)) {
-          future::value(self$get_me(input_peer = TRUE))
+          me <- self$get_me(input_peer = TRUE)
+          if (inherits(me, "Future")) {
+            future::value(me)
+          }
         }
 
         return(if (!is.null(private$mb_entity_cache)) private$mb_entity_cache$self_bot else NULL)
-      })
+      }
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future::future(run()))
+      }
+      run()
     },
 
     #' @description
@@ -4169,9 +4226,15 @@ TelegramClient <- R6::R6Class(
     #' @description
     #' Get an entity from a given input.
     #' @param entity The input entity (user, chat, or channel).
-    #' @return A future object representing the entity.
+    #' @return An entity or a future if async is enabled.
     get_entity = function(entity) {
-      future::future({
+      resolve_future <- function(x) {
+        if (inherits(x, "Future")) {
+          return(future::value(x))
+        }
+        x
+      }
+      run <- function() {
         single <- !is_list_like(entity)
         if (single) {
           entity <- list(entity)
@@ -4186,7 +4249,7 @@ TelegramClient <- R6::R6Class(
           if (is.character(x)) {
             inputs <- c(inputs, list(x))
           } else {
-            inputs <- c(inputs, list(future::value(self$get_input_entity(x))))
+            inputs <- c(inputs, list(resolve_future(self$get_input_entity(x))))
           }
         }
 
@@ -4218,18 +4281,18 @@ TelegramClient <- R6::R6Class(
           while (length(users) > 0) {
             curr <- users[seq_len(min(200, length(users)))]
             users <- users[-seq_len(min(200, length(users)))]
-            tmp <- c(tmp, future::value(self$call(GetUsersRequest$new(curr))))
+            tmp <- c(tmp, resolve_future(self$call(GetUsersRequest$new(curr))))
           }
           users <- tmp
         }
 
         if (length(chats) > 0) {
           chat_ids <- lapply(chats, function(x) x$chat_id)
-          chats <- future::value(self$call(GetChatsRequest$new(chat_ids)))$chats
+          chats <- resolve_future(self$call(GetChatsRequest$new(chat_ids)))$chats
         }
 
         if (length(channels) > 0) {
-          channels <- future::value(self$call(GetChannelsRequest$new(channels)))$chats
+          channels <- resolve_future(self$call(GetChannelsRequest$new(channels)))$chats
         }
 
         # Merge users, chats and channels into a single dictionary
@@ -4246,7 +4309,7 @@ TelegramClient <- R6::R6Class(
         result <- list()
         for (x in inputs) {
           if (is.character(x)) {
-            result <- c(result, list(future::value(self$get_entity_from_string(x))))
+            result <- c(result, list(resolve_future(self$get_entity_from_string(x))))
           } else if (!inherits(x, "InputPeerSelf")) {
             id <- get_peer_id(x, add_mark = FALSE)
             result <- c(result, list(id_entity[[as.character(id)]]))
@@ -4262,15 +4325,25 @@ TelegramClient <- R6::R6Class(
         }
 
         if (single) result[[1]] else result
-      })
+      }
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future::future(run()))
+      }
+      run()
     },
 
     #' @description
     #' Get the input entity for a given peer.
     #' @param peer The peer to get the input entity for.
-    #' @return A future object representing the input entity.
+    #' @return An input entity or a future if async is enabled.
     get_input_entity = function(peer) {
-      future::future({
+      resolve_future <- function(x) {
+        if (inherits(x, "Future")) {
+          return(future::value(x))
+        }
+        x
+      }
+      run <- function() {
         # Short-circuit if the input parameter directly maps to an InputPeer
         tryCatch(
           {
@@ -4312,7 +4385,7 @@ TelegramClient <- R6::R6Class(
 
         # Only network left to try
         if (is.character(peer)) {
-          entity <- future::value(self$get_entity_from_string(peer))
+          entity <- resolve_future(self$get_entity_from_string(peer))
           return(get_input_peer(entity))
         }
 
@@ -4322,7 +4395,7 @@ TelegramClient <- R6::R6Class(
         # regardless. These are the only two special-cased requests.
         peer <- get_peer(peer)
         if (inherits(peer, "PeerUser")) {
-          users <- future::value(self$call(GetUsersRequest$new(list(
+          users <- resolve_future(self$call(GetUsersRequest$new(list(
             InputUser$new(user_id = peer$user_id, access_hash = 0)
           ))))
           if (length(users) > 0 && !inherits(users[[1]], "UserEmpty")) {
@@ -4333,7 +4406,7 @@ TelegramClient <- R6::R6Class(
         } else if (inherits(peer, "PeerChannel")) {
           tryCatch(
             {
-              channels <- future::value(self$call(GetChannelsRequest$new(list(
+              channels <- resolve_future(self$call(GetChannelsRequest$new(list(
                 InputChannel$new(channel_id = peer$channel_id, access_hash = 0)
               ))))
               return(get_input_peer(channels$chats[[1]]))
@@ -4353,12 +4426,20 @@ TelegramClient <- R6::R6Class(
           peer,
           class(peer)[1]
         ))
-      })
+      }
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future::future(run()))
+      }
+      run()
     },
 
     #' @description CamelCase alias for get_input_entity (used by generated code).
     getInputEntity = function(peer) {
-      future::value(self$get_input_entity(peer))
+      res <- self$get_input_entity(peer)
+      if (inherits(res, "Future")) {
+        return(future::value(res))
+      }
+      res
     },
 
     #' @description CamelCase alias for get_input_peer (used by generated code).
@@ -4461,12 +4542,18 @@ TelegramClient <- R6::R6Class(
     #' @param string The string to get the entity from.
     #' @return A future object representing the entity.
     get_entity_from_string = function(string) {
-      future::future({
+      resolve_future <- function(x) {
+        if (inherits(x, "Future")) {
+          return(future::value(x))
+        }
+        x
+      }
+      run <- function() {
         phone <- parse_phone(string)
         if (!is.null(phone)) {
           tryCatch(
             {
-              contacts <- future::value(self$call(GetContactsRequest$new(0)))
+              contacts <- resolve_future(self$call(GetContactsRequest$new(0)))
               for (user in contacts$users) {
                 if (user$phone == phone) {
                   return(user)
@@ -4482,14 +4569,14 @@ TelegramClient <- R6::R6Class(
             }
           )
         } else if (tolower(string) %in% c("me", "self")) {
-          return(future::value(self$get_me()))
+          return(resolve_future(self$get_me()))
         } else {
           parsed <- parse_username(string)
           username <- parsed$username
           is_join_chat <- parsed$is_join_chat
 
           if (is_join_chat) {
-            invite <- future::value(self$call(CheckChatInviteRequest$new(username)))
+            invite <- resolve_future(self$call(CheckChatInviteRequest$new(username)))
 
             if (inherits(invite, "ChatInvite")) {
               stop("Cannot get entity from a channel (or group) that you are not part of. Join the group and retry")
@@ -4499,7 +4586,7 @@ TelegramClient <- R6::R6Class(
           } else if (!is.null(username)) {
             tryCatch(
               {
-                result <- future::value(self$call(ResolveUsernameRequest$new(username)))
+                result <- resolve_future(self$call(ResolveUsernameRequest$new(username)))
                 pid <- get_peer_id(result$peer, add_mark = FALSE)
 
                 if (inherits(result$peer, "PeerUser")) {
@@ -4531,7 +4618,7 @@ TelegramClient <- R6::R6Class(
           tryCatch(
             {
               input_entity <- self$client$session$get_input_entity(string)
-              return(future::value(self$get_entity(input_entity)))
+              return(resolve_future(self$get_entity(input_entity)))
             },
             error = function(e) {
               # Continue to final error
@@ -4540,7 +4627,11 @@ TelegramClient <- R6::R6Class(
         }
 
         stop(sprintf('Cannot find any entity corresponding to "%s"', string))
-      })
+      }
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future::future(run()))
+      }
+      run()
     },
 
     #' @description
@@ -4548,11 +4639,17 @@ TelegramClient <- R6::R6Class(
     #' @param dialog The dialog to get the input dialog for.
     #' @return A future object representing the input dialog.
     get_input_dialog = function(dialog) {
-      future::future({
+      resolve_future <- function(x) {
+        if (inherits(x, "Future")) {
+          return(future::value(x))
+        }
+        x
+      }
+      run <- function() {
         tryCatch(
           {
             if (dialog$SUBCLASS_OF_ID == 0xa21c9795) { # crc32(b'InputDialogPeer')
-              dialog$peer <- future::value(self$get_input_entity(dialog$peer))
+              dialog$peer <- resolve_future(self$get_input_entity(dialog$peer))
               return(dialog)
             } else if (dialog$SUBCLASS_OF_ID == 0xc91c90b6) { # crc32(b'InputPeer')
               return(InputDialogPeer(dialog))
@@ -4563,9 +4660,13 @@ TelegramClient <- R6::R6Class(
           }
         )
 
-        input_entity <- future::value(self$get_input_entity(dialog))
+        input_entity <- resolve_future(self$get_input_entity(dialog))
         return(InputDialogPeer(input_entity))
-      })
+      }
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future::future(run()))
+      }
+      run()
     },
 
     #' @description
@@ -4573,12 +4674,18 @@ TelegramClient <- R6::R6Class(
     #' @param notify The notify to get the input notify for.
     #' @return A future object representing the input notify.
     get_input_notify = function(notify) {
-      future::future({
+      resolve_future <- function(x) {
+        if (inherits(x, "Future")) {
+          return(future::value(x))
+        }
+        x
+      }
+      run <- function() {
         tryCatch(
           {
             if (notify$SUBCLASS_OF_ID == 0x58981615) {
               if (inherits(notify, "InputNotifyPeer")) {
-                notify$peer <- future::value(self$get_input_entity(notify$peer))
+                notify$peer <- resolve_future(self$get_input_entity(notify$peer))
               }
               return(notify)
             }
@@ -4588,9 +4695,13 @@ TelegramClient <- R6::R6Class(
           }
         )
 
-        input_entity <- future::value(self$get_input_entity(notify))
+        input_entity <- resolve_future(self$get_input_entity(notify))
         return(InputNotifyPeer(input_entity))
-      })
+      }
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future::future(run()))
+      }
+      run()
     },
 
     #' @description Create a new TelegramClient instance
