@@ -56,11 +56,8 @@ RequestState <- R6::R6Class("RequestState",
         }
         self$data <- raw_out
       }
-      # Create a future-like holder that MTProto sender can complete later via
-      # set_result / set_exception.
-      f <- future::future({
-        NULL
-      })
+      # Create a lightweight future-like holder without spawning futures.
+      f <- new.env(parent = emptyenv())
       f$.__req_done__ <- FALSE
       f$.__req_value__ <- NULL
       f$.__req_error__ <- NULL
@@ -80,7 +77,7 @@ RequestState <- R6::R6Class("RequestState",
         f$.__req_done__ <<- TRUE
         promises::promise_resolve(TRUE)
       }
-      class(f) <- c("RequestFuture", class(f))
+      class(f) <- "RequestFuture"
       self$future <- f
       self$after <- after
     }
