@@ -268,6 +268,35 @@ get_display_name <- function(entity) {
   return("")
 }
 
+#' Entity Type
+#'
+#' Returns EntityType$USER, $CHAT, or $CHANNEL for known entity/peer/input types.
+#'
+#' @param entity Telegram entity or peer/input peer object.
+#' @return One of EntityType$USER, EntityType$CHAT, EntityType$CHANNEL.
+#' @keywords internal
+entity_type <- function(entity) {
+  if (inherits(entity, c(
+    "User", "UserEmpty", "InputUser", "InputPeerUser", "PeerUser",
+    "InputPeerUserFromMessage", "InputUserFromMessage"
+  ))) {
+    return(EntityType$USER)
+  }
+  if (inherits(entity, c(
+    "Chat", "ChatForbidden", "ChatEmpty", "InputPeerChat", "PeerChat",
+    "InputChat", "InputPeerChatFromMessage"
+  ))) {
+    return(EntityType$CHAT)
+  }
+  if (inherits(entity, c(
+    "Channel", "ChannelForbidden", "ChannelEmpty", "InputPeerChannel", "PeerChannel",
+    "InputChannel", "InputPeerChannelFromMessage"
+  ))) {
+    return(EntityType$CHANNEL)
+  }
+  stop("Unknown entity type: ", class(entity)[1])
+}
+
 #' Get Input Photo
 #'
 #' Converts a photo-like object to an InputPhoto for API calls.
@@ -296,6 +325,26 @@ get_input_photo <- function(photo) {
     return(get_input_photo(photo$photo))
   }
   stop("Cannot convert ", class(photo)[1], " to InputPhoto")
+}
+
+#' Get Input Chat Photo
+#'
+#' Converts a photo-like object to an InputChatPhoto for API calls.
+#'
+#' @param photo The chat photo object to convert.
+#' @return An InputChatPhoto object.
+#' @keywords internal
+get_input_chat_photo <- function(photo) {
+  if (inherits(photo, c("InputChatPhoto", "InputChatPhotoEmpty", "InputChatUploadedPhoto"))) {
+    return(photo)
+  }
+  if (inherits(photo, c("Photo", "Message", "MessageMediaPhoto"))) {
+    return(InputChatPhoto$new(get_input_photo(photo)))
+  }
+  if (inherits(photo, c("PhotoEmpty", "ChatPhotoEmpty")) || is.null(photo)) {
+    return(InputChatPhotoEmpty$new())
+  }
+  stop("Cannot convert ", class(photo)[1], " to InputChatPhoto")
 }
 
 #' Get Input Geo
@@ -1764,6 +1813,11 @@ parse_username <- function(username) {
         return(list(username = tolower(username_part), is_join_chat = FALSE))
       }
     }
+  }
+
+  # Accept plain usernames without '@' or URL prefix
+  if (grepl(valid_username_re, username, ignore.case = TRUE)) {
+    return(list(username = tolower(username), is_join_chat = FALSE))
   }
 
   # Check TG_JOIN_RE
