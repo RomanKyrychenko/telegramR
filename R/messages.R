@@ -156,7 +156,7 @@ MessagesIter <- R6::R6Class(
         }
       } else if (is.null(self$offset_date)) {
         # offset_id has priority over offset_date
-        if (off_id == 0L) off_id <- 1L
+        # Keep 0 to let Telegram return the latest messages.
       }
 
       # Resolve from_user -> from_id for local validation if needed
