@@ -115,7 +115,13 @@ Connection <- R6Class(
           # Avoid blocking when future plan is sequential
           bg_plan <- future::plan()
           if (inherits(bg_plan, "sequential") || identical(bg_plan, future::sequential)) {
-            bg_plan <- future::multisession
+            # Prefer multicore (fork) so the socket is inherited on Unix/macOS.
+            # Fall back to multisession on Windows where multicore is unavailable.
+            if (!identical(.Platform$OS.type, "windows") && future::supportsMulticore()) {
+              bg_plan <- future::multicore
+            } else {
+              bg_plan <- future::multisession
+            }
           }
           old_plan <- future::plan(bg_plan)
           on.exit(future::plan(old_plan), add = TRUE)
@@ -130,9 +136,9 @@ Connection <- R6Class(
       }
 
       if (inherits(conn_res, "promise")) {
-        conn_res %...>% handle_connected
+        return(conn_res %...>% handle_connected)
       } else {
-        promise_resolve(handle_connected(conn_res))
+        return(promise_resolve(handle_connected(conn_res)))
       }
     },
 
@@ -209,7 +215,7 @@ Connection <- R6Class(
     #' Return transport connectivity state.
     #' @return TRUE if underlying transport is marked connected.
     is_connected = function() {
-      isTRUE(private$._connected)
+      isTRUE(private$._connected) && isTRUE(private$._socket_is_open())
     }
   ),
   private = list(
@@ -398,6 +404,18 @@ Connection <- R6Class(
     },
     ._recv = function() {
       private$._codec$read_packet(private$._reader)
+    },
+    ._socket_is_open = function() {
+      sock <- NULL
+      if (!is.null(private$._reader) && !is.null(private$._reader$socket)) {
+        sock <- private$._reader$socket
+      } else if (!is.null(private$._writer) && !is.null(private$._writer$socket)) {
+        sock <- private$._writer$socket
+      }
+      if (is.null(sock)) {
+        return(FALSE)
+      }
+      isTRUE(tryCatch(isOpen(sock), error = function(e) FALSE))
     },
     ._send_loop = function() {
       while (private$._connected) {
@@ -743,7 +761,7 @@ Writer <- R6Class(
             private$.write_to_socket()
           },
           error = function(e) {
-            warning(sprintf("Error writing to socket: %s", e$message))
+            stop(simpleError(sprintf("Error writing to socket: %s", e$message)))
           }
         )
       }
