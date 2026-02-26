@@ -110,5 +110,6 @@ Collate:
     'tlmessage.R'
     'updates.R'
     'utils.R'
+    'utils_bridge.R'
 URL: https://romankyrychenko.github.io/telegramR/
 VignetteBuilder: knitr
