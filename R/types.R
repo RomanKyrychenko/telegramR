@@ -12518,6 +12518,10 @@ DialogFilter <- R6::R6Class(
   "DialogFilter",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    CONSTRUCTOR_ID = 0xaa472651,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    SUBCLASS_OF_ID = 0x692bc457,
     #' @field id Field.
     id = NULL,
     #' @field title Field.
@@ -12861,6 +12865,10 @@ Document <- R6::R6Class(
   "Document",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    CONSTRUCTOR_ID = 0x8fd4c4d8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    SUBCLASS_OF_ID = 0x211fe820,
     #' @field id Field.
     id = NULL,
     #' @field access_hash Field.
@@ -13030,7 +13038,13 @@ DocumentAttributeAudio <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      NULL
+      flags <- reader$read_int()
+      voice <- bitwAnd(flags, 1024) != 0
+      duration <- reader$read_int()
+      title <- if (bitwAnd(flags, 1) != 0) reader$tgread_string() else NULL
+      performer <- if (bitwAnd(flags, 2) != 0) reader$tgread_string() else NULL
+      waveform <- if (bitwAnd(flags, 4) != 0) reader$tgread_bytes() else NULL
+      self$new(duration = duration, voice = voice, title = title, performer = performer, waveform = waveform)
     }
   )
 )
@@ -13075,7 +13089,12 @@ DocumentAttributeCustomEmoji <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      NULL
+      flags <- reader$read_int()
+      free <- bitwAnd(flags, 1) != 0
+      text_color <- bitwAnd(flags, 2) != 0
+      alt <- reader$tgread_string()
+      stickerset <- reader$tgread_object()
+      self$new(alt = alt, stickerset = stickerset, free = free, text_color = text_color)
     }
   )
 )
@@ -13108,7 +13127,8 @@ DocumentAttributeFilename <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      NULL
+      file_name <- reader$tgread_string()
+      self$new(file_name = file_name)
     }
   )
 )
@@ -13133,7 +13153,7 @@ DocumentAttributeHasStickers <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      NULL
+      self$new()
     }
   )
 )
@@ -13170,7 +13190,9 @@ DocumentAttributeImageSize <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      NULL
+      w <- reader$read_int()
+      h <- reader$read_int()
+      self$new(w = w, h = h)
     }
   )
 )
@@ -13215,7 +13237,12 @@ DocumentAttributeSticker <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      NULL
+      flags <- reader$read_int()
+      mask <- bitwAnd(flags, 2) != 0
+      alt <- reader$tgread_string()
+      stickerset <- reader$tgread_object()
+      mask_coords <- if (bitwAnd(flags, 1) != 0) reader$tgread_object() else NULL
+      self$new(alt = alt, stickerset = stickerset, mask = mask, mask_coords = mask_coords)
     }
   )
 )
@@ -13280,7 +13307,27 @@ DocumentAttributeVideo <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      NULL
+      flags <- reader$read_int()
+      round_message <- bitwAnd(flags, 1) != 0
+      supports_streaming <- bitwAnd(flags, 2) != 0
+      nosound <- bitwAnd(flags, 8) != 0
+      duration <- reader$read_double()
+      w <- reader$read_int()
+      h <- reader$read_int()
+      preload_prefix_size <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
+      video_start_ts <- if (bitwAnd(flags, 16) != 0) reader$read_double() else NULL
+      video_codec <- if (bitwAnd(flags, 32) != 0) reader$tgread_string() else NULL
+      self$new(
+        duration = duration,
+        w = w,
+        h = h,
+        round_message = round_message,
+        supports_streaming = supports_streaming,
+        nosound = nosound,
+        preload_prefix_size = preload_prefix_size,
+        video_start_ts = video_start_ts,
+        video_codec = video_codec
+      )
     }
   )
 )
@@ -13313,7 +13360,8 @@ DocumentEmpty <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      NULL
+      id <- reader$read_long()
+      self$new(id = id)
     }
   )
 )
@@ -26802,6 +26850,10 @@ Message <- R6::R6Class(
   "Message",
   inherit = TLObject,
   public = list(
+    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    CONSTRUCTOR_ID = 0x9815cec8,
+    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    SUBCLASS_OF_ID = 0x790009e3,
     #' @field id Field.
     id = NULL,
     #' @field peer_id Field.
@@ -27000,6 +27052,10 @@ Message <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
+      remaining <- function() {
+        length(reader$get_bytes()) - reader$tell_position()
+      }
+      can_read <- function(n) remaining() >= n
       flags <- reader$read_int()
       flags2 <- reader$read_int()
 
@@ -27031,34 +27087,52 @@ Message <- R6::R6Class(
       reply_to <- if (bitwAnd(flags, 8) != 0) reader$tgread_object() else NULL
       date <- reader$tgread_date()
       message <- reader$tgread_string()
-      media <- if (bitwAnd(flags, 512) != 0) reader$tgread_object() else NULL
-      reply_markup <- if (bitwAnd(flags, 64) != 0) reader$tgread_object() else NULL
-      entities <- if (bitwAnd(flags, 128) != 0) {
-        reader$read_int()
-        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-      } else {
-        NULL
+      media <- if (bitwAnd(flags, 512) != 0 && can_read(4)) reader$tgread_object() else NULL
+      reply_markup <- NULL
+      entities <- NULL
+      views <- NULL
+      forwards <- NULL
+      replies <- NULL
+      edit_date <- NULL
+      post_author <- NULL
+      grouped_id <- NULL
+      reactions <- NULL
+      restriction_reason <- NULL
+      ttl_period <- NULL
+      quick_reply_shortcut_id <- NULL
+      effect <- NULL
+      factcheck <- NULL
+      report_delivery_until_date <- NULL
+      paid_message_stars <- NULL
+      suggested_post <- NULL
+
+      if (remaining() > 0) {
+        reply_markup <- if (bitwAnd(flags, 64) != 0 && can_read(4)) reader$tgread_object() else NULL
+        if (bitwAnd(flags, 128) != 0 && can_read(8)) {
+          reader$read_int()
+          n_entities <- reader$read_int()
+          entities <- if (n_entities > 0) lapply(seq_len(n_entities), function(x) reader$tgread_object()) else list()
+        }
+        if (bitwAnd(flags, 1024) != 0 && can_read(4)) views <- reader$read_int()
+        if (bitwAnd(flags, 1024) != 0 && can_read(4)) forwards <- reader$read_int()
+        if (bitwAnd(flags, 8388608) != 0 && can_read(4)) replies <- reader$tgread_object()
+        if (bitwAnd(flags, 32768) != 0 && can_read(4)) edit_date <- reader$tgread_date()
+        if (bitwAnd(flags, 65536) != 0 && can_read(1)) post_author <- reader$tgread_string()
+        if (bitwAnd(flags, 131072) != 0 && can_read(8)) grouped_id <- reader$read_long()
+        if (bitwAnd(flags, 1048576) != 0 && can_read(4)) reactions <- reader$tgread_object()
+        if (bitwAnd(flags, 4194304) != 0 && can_read(8)) {
+          reader$read_int()
+          n_restrict <- reader$read_int()
+          restriction_reason <- if (n_restrict > 0) lapply(seq_len(n_restrict), function(x) reader$tgread_object()) else list()
+        }
+        if (bitwAnd(flags, 33554432) != 0 && can_read(4)) ttl_period <- reader$read_int()
+        if (bitwAnd(flags, 1073741824) != 0 && can_read(4)) quick_reply_shortcut_id <- reader$read_int()
+        if (bitwAnd(flags2, 4) != 0 && can_read(8)) effect <- reader$read_long()
+        if (bitwAnd(flags2, 8) != 0 && can_read(4)) factcheck <- reader$tgread_object()
+        if (bitwAnd(flags2, 32) != 0 && can_read(4)) report_delivery_until_date <- reader$tgread_date()
+        if (bitwAnd(flags2, 64) != 0 && can_read(8)) paid_message_stars <- reader$read_long()
+        if (bitwAnd(flags2, 128) != 0 && can_read(4)) suggested_post <- reader$tgread_object()
       }
-      views <- if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL
-      forwards <- if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL
-      replies <- if (bitwAnd(flags, 8388608) != 0) reader$tgread_object() else NULL
-      edit_date <- if (bitwAnd(flags, 32768) != 0) reader$tgread_date() else NULL
-      post_author <- if (bitwAnd(flags, 65536) != 0) reader$tgread_string() else NULL
-      grouped_id <- if (bitwAnd(flags, 131072) != 0) reader$read_long() else NULL
-      reactions <- if (bitwAnd(flags, 1048576) != 0) reader$tgread_object() else NULL
-      restriction_reason <- if (bitwAnd(flags, 4194304) != 0) {
-        reader$read_int()
-        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
-      } else {
-        NULL
-      }
-      ttl_period <- if (bitwAnd(flags, 33554432) != 0) reader$read_int() else NULL
-      quick_reply_shortcut_id <- if (bitwAnd(flags, 1073741824) != 0) reader$read_int() else NULL
-      effect <- if (bitwAnd(flags2, 4) != 0) reader$read_long() else NULL
-      factcheck <- if (bitwAnd(flags2, 8) != 0) reader$tgread_object() else NULL
-      report_delivery_until_date <- if (bitwAnd(flags2, 32) != 0) reader$tgread_date() else NULL
-      paid_message_stars <- if (bitwAnd(flags2, 64) != 0) reader$read_long() else NULL
-      suggested_post <- if (bitwAnd(flags2, 128) != 0) reader$tgread_object() else NULL
 
       list(
         id = id,
@@ -28219,7 +28293,7 @@ MessageActionEmpty <- R6::R6Class(
       video_cover <- if (bitwAnd(flags, 512) != 0) reader$tgread_object() else NULL
       video_timestamp <- if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL
       ttl_seconds <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
-      self$new(
+      list(
         nopremium = nopremium,
         spoiler = spoiler,
         video = video,
@@ -28388,7 +28462,10 @@ MessageActionChatJoinedByRequest <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      flags <- reader$read_int()
+      id <- reader$read_int()
+      peer_id <- if (bitwAnd(flags, 1) != 0) reader$tgread_object() else NULL
+      self$new(id = id, peer_id = peer_id)
     }
   ),
   class = TRUE
@@ -28566,7 +28643,43 @@ MessageActionEmpty <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      flags <- reader$read_int()
+      out <- bitwAnd(flags, 2) != 0
+      mentioned <- bitwAnd(flags, 16) != 0
+      media_unread <- bitwAnd(flags, 32) != 0
+      reactions_are_possible <- bitwAnd(flags, 512) != 0
+      silent <- bitwAnd(flags, 8192) != 0
+      post <- bitwAnd(flags, 16384) != 0
+      legacy <- bitwAnd(flags, 524288) != 0
+
+      id <- reader$read_int()
+      from_id <- if (bitwAnd(flags, 256) != 0) reader$tgread_object() else NULL
+      peer_id <- reader$tgread_object()
+      savedpeer_id <- if (bitwAnd(flags, 268435456) != 0) reader$tgread_object() else NULL
+      reply_to <- if (bitwAnd(flags, 8) != 0) reader$tgread_object() else NULL
+      date <- reader$tgread_date()
+      action <- reader$tgread_object()
+      reactions <- if (bitwAnd(flags, 1048576) != 0) reader$tgread_object() else NULL
+      ttl_period <- if (bitwAnd(flags, 33554432) != 0) reader$read_int() else NULL
+
+      self$new(
+        id = id,
+        peer_id = peer_id,
+        date = date,
+        action = action,
+        out = out,
+        mentioned = mentioned,
+        media_unread = media_unread,
+        reactions_are_possible = reactions_are_possible,
+        silent = silent,
+        post = post,
+        legacy = legacy,
+        from_id = from_id,
+        savedpeer_id = savedpeer_id,
+        reply_to = reply_to,
+        reactions = reactions,
+        ttl_period = ttl_period
+      )
     }
   ),
   class = TRUE
@@ -30280,7 +30393,18 @@ MessageActionTodoAppendTasks <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      phone_number <- reader$tgread_string()
+      first_name <- reader$tgread_string()
+      last_name <- reader$tgread_string()
+      vcard <- reader$tgread_string()
+      user_id <- reader$read_long()
+      list(
+        phone_number = phone_number,
+        first_name = first_name,
+        last_name = last_name,
+        vcard = vcard,
+        user_id = user_id
+      )
     }
   ),
   class = TRUE
@@ -30316,7 +30440,35 @@ MessageActionTodoCompletions <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      flags <- reader$read_int()
+      imported <- bitwAnd(flags, 128) != 0
+      saved_out <- bitwAnd(flags, 2048) != 0
+      from_id <- if (bitwAnd(flags, 1) != 0) reader$tgread_object() else NULL
+      from_name <- if (bitwAnd(flags, 32) != 0) reader$tgread_string() else NULL
+      date <- reader$tgread_date()
+      channel_post <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
+      post_author <- if (bitwAnd(flags, 8) != 0) reader$tgread_string() else NULL
+      saved_frompeer <- if (bitwAnd(flags, 16) != 0) reader$tgread_object() else NULL
+      saved_from_msg_id <- if (bitwAnd(flags, 16) != 0) reader$read_int() else NULL
+      saved_from_id <- if (bitwAnd(flags, 256) != 0) reader$tgread_object() else NULL
+      saved_from_name <- if (bitwAnd(flags, 512) != 0) reader$tgread_string() else NULL
+      saved_date <- if (bitwAnd(flags, 1024) != 0) reader$tgread_date() else NULL
+      psa_type <- if (bitwAnd(flags, 64) != 0) reader$tgread_string() else NULL
+      list(
+        date = date,
+        imported = imported,
+        saved_out = saved_out,
+        from_id = from_id,
+        from_name = from_name,
+        channel_post = channel_post,
+        post_author = post_author,
+        saved_frompeer = saved_frompeer,
+        saved_from_msg_id = saved_from_msg_id,
+        saved_from_id = saved_from_id,
+        saved_from_name = saved_from_name,
+        saved_date = saved_date,
+        psa_type = psa_type
+      )
     }
   ),
   class = TRUE
@@ -30354,7 +30506,34 @@ MessageActionTopicCreate <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      flags <- reader$read_int()
+      nopremium <- bitwAnd(flags, 8) != 0
+      spoiler <- bitwAnd(flags, 16) != 0
+      video <- bitwAnd(flags, 64) != 0
+      round <- bitwAnd(flags, 128) != 0
+      voice <- bitwAnd(flags, 256) != 0
+      document <- if (bitwAnd(flags, 1) != 0) reader$tgread_object() else NULL
+      alt_documents <- if (bitwAnd(flags, 32) != 0) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      } else {
+        NULL
+      }
+      video_cover <- if (bitwAnd(flags, 512) != 0) reader$tgread_object() else NULL
+      video_timestamp <- if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL
+      ttl_seconds <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
+      list(
+        nopremium = nopremium,
+        spoiler = spoiler,
+        video = video,
+        round = round,
+        voice = voice,
+        document = document,
+        alt_documents = alt_documents,
+        video_cover = video_cover,
+        video_timestamp = video_timestamp,
+        ttl_seconds = ttl_seconds
+      )
     }
   ),
   class = TRUE
@@ -30395,7 +30574,44 @@ MessageActionTopicEdit <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      flags <- reader$read_int()
+
+      out <- bitwAnd(flags, 2) != 0
+      mentioned <- bitwAnd(flags, 16) != 0
+      media_unread <- bitwAnd(flags, 32) != 0
+      reactions_are_possible <- bitwAnd(flags, 512) != 0
+      silent <- bitwAnd(flags, 8192) != 0
+      post <- bitwAnd(flags, 16384) != 0
+      legacy <- bitwAnd(flags, 524288) != 0
+
+      id <- reader$read_int()
+      from_id <- if (bitwAnd(flags, 256) != 0) reader$tgread_object() else NULL
+      peer_id <- reader$tgread_object()
+      savedpeer_id <- if (bitwAnd(flags, 268435456) != 0) reader$tgread_object() else NULL
+      reply_to <- if (bitwAnd(flags, 8) != 0) reader$tgread_object() else NULL
+      date <- reader$tgread_date()
+      action <- reader$tgread_object()
+      reactions <- if (bitwAnd(flags, 1048576) != 0) reader$tgread_object() else NULL
+      ttl_period <- if (bitwAnd(flags, 33554432) != 0) reader$read_int() else NULL
+
+      list(
+        id = id,
+        peer_id = peer_id,
+        date = date,
+        action = action,
+        out = out,
+        mentioned = mentioned,
+        media_unread = media_unread,
+        reactions_are_possible = reactions_are_possible,
+        silent = silent,
+        post = post,
+        legacy = legacy,
+        from_id = from_id,
+        savedpeer_id = savedpeer_id,
+        reply_to = reply_to,
+        reactions = reactions,
+        ttl_period = ttl_period
+      )
     }
   ),
   class = TRUE
@@ -30422,7 +30638,29 @@ MessageActionWebViewDataSent <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      flags <- reader$read_int()
+      shipping_address_requested <- bitwAnd(flags, 2) != 0
+      test <- bitwAnd(flags, 8) != 0
+      title <- reader$tgread_string()
+      description <- reader$tgread_string()
+      photo <- if (bitwAnd(flags, 1) != 0) reader$tgread_object() else NULL
+      receipt_msg_id <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
+      currency <- reader$tgread_string()
+      total_amount <- reader$read_long()
+      start_param <- reader$tgread_string()
+      extended_media <- if (bitwAnd(flags, 16) != 0) reader$tgread_object() else NULL
+      list(
+        title = title,
+        description = description,
+        currency = currency,
+        total_amount = total_amount,
+        start_param = start_param,
+        shipping_address_requested = shipping_address_requested,
+        test = test,
+        photo = photo,
+        receipt_msg_id = receipt_msg_id,
+        extended_media = extended_media
+      )
     }
   ),
   class = TRUE
@@ -30452,7 +30690,34 @@ MessageActionWebViewDataSentMe <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      flags <- reader$read_int()
+      nopremium <- bitwAnd(flags, 8) != 0
+      spoiler <- bitwAnd(flags, 16) != 0
+      video <- bitwAnd(flags, 64) != 0
+      round <- bitwAnd(flags, 128) != 0
+      voice <- bitwAnd(flags, 256) != 0
+      document <- if (bitwAnd(flags, 1) != 0) reader$tgread_object() else NULL
+      alt_documents <- if (bitwAnd(flags, 32) != 0) {
+        reader$read_int()
+        lapply(seq_len(reader$read_int()), function(x) reader$tgread_object())
+      } else {
+        NULL
+      }
+      video_cover <- if (bitwAnd(flags, 512) != 0) reader$tgread_object() else NULL
+      video_timestamp <- if (bitwAnd(flags, 1024) != 0) reader$read_int() else NULL
+      ttl_seconds <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
+      list(
+        nopremium = nopremium,
+        spoiler = spoiler,
+        video = video,
+        round = round,
+        voice = voice,
+        document = document,
+        alt_documents = alt_documents,
+        video_cover = video_cover,
+        video_timestamp = video_timestamp,
+        ttl_seconds = ttl_seconds
+      )
     }
   ),
   class = TRUE
@@ -30482,7 +30747,18 @@ MessageEmpty <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      phone_number <- reader$tgread_string()
+      first_name <- reader$tgread_string()
+      last_name <- reader$tgread_string()
+      vcard <- reader$tgread_string()
+      user_id <- reader$read_long()
+      list(
+        phone_number = phone_number,
+        first_name = first_name,
+        last_name = last_name,
+        vcard = vcard,
+        user_id = user_id
+      )
     }
   ),
   class = TRUE
@@ -30511,7 +30787,9 @@ MessageEntityBankCard <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    list(offset = offset, length = length)
   }),
   class = TRUE
 )
@@ -30537,7 +30815,11 @@ MessageEntityBlockquote <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    flags <- reader$read_int()
+    collapsed <- bitwAnd(flags, 1) != 0
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    list(offset = offset, length = length, collapsed = collapsed)
   }),
   class = TRUE
 )
@@ -30562,7 +30844,9 @@ MessageEntityBold <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    list(offset = offset, length = length)
   }),
   class = TRUE
 )
@@ -30587,7 +30871,9 @@ MessageEntityBotCommand <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    list(offset = offset, length = length)
   }),
   class = TRUE
 )
@@ -30612,7 +30898,9 @@ MessageEntityCashtag <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    list(offset = offset, length = length)
   }),
   class = TRUE
 )
@@ -30637,7 +30925,9 @@ MessageEntityCode <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    list(offset = offset, length = length)
   }),
   class = TRUE
 )
@@ -30663,7 +30953,10 @@ MessageEntityCustomEmoji <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    document_id <- reader$read_long()
+    list(offset = offset, length = length, document_id = document_id)
   }),
   class = TRUE
 )
@@ -30688,7 +30981,9 @@ MessageEntityEmail <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    list(offset = offset, length = length)
   }),
   class = TRUE
 )
@@ -30713,7 +31008,9 @@ MessageEntityHashtag <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    list(offset = offset, length = length)
   }),
   class = TRUE
 )
@@ -30738,7 +31035,9 @@ MessageEntityItalic <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    list(offset = offset, length = length)
   }),
   class = TRUE
 )
@@ -30763,7 +31062,9 @@ MessageEntityMention <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    list(offset = offset, length = length)
   }),
   class = TRUE
 )
@@ -30789,7 +31090,10 @@ MessageEntityMentionName <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    user_id <- reader$read_long()
+    list(offset = offset, length = length, user_id = user_id)
   }),
   class = TRUE
 )
@@ -30814,7 +31118,9 @@ MessageEntityPhone <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    list(offset = offset, length = length)
   }),
   class = TRUE
 )
@@ -30840,7 +31146,10 @@ MessageEntityPre <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    language <- reader$tgread_string()
+    list(offset = offset, length = length, language = language)
   }),
   class = TRUE
 )
@@ -30865,7 +31174,9 @@ MessageEntitySpoiler <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    list(offset = offset, length = length)
   }),
   class = TRUE
 )
@@ -30890,7 +31201,9 @@ MessageEntityStrike <- R6::R6Class(
     bytes = function() raw(0)
   ),
   private = list(from_reader = function(reader) {
-    self$new()
+    offset <- reader$read_int()
+    length <- reader$read_int()
+    list(offset = offset, length = length)
   }),
   class = TRUE
 )
@@ -30922,7 +31235,10 @@ MessageEntityTextUrl <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      offset <- reader$read_int()
+      length <- reader$read_int()
+      url <- reader$tgread_string()
+      list(offset = offset, length = length, url = url)
     }
   ),
   class = TRUE
@@ -30952,7 +31268,9 @@ MessageEntityUnderline <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      offset <- reader$read_int()
+      length <- reader$read_int()
+      list(offset = offset, length = length)
     }
   ),
   class = TRUE
@@ -30982,7 +31300,9 @@ MessageEntityUnknown <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      offset <- reader$read_int()
+      length <- reader$read_int()
+      list(offset = offset, length = length)
     }
   ),
   class = TRUE
@@ -31012,7 +31332,9 @@ MessageEntityUrl <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      offset <- reader$read_int()
+      length <- reader$read_int()
+      list(offset = offset, length = length)
     }
   ),
   class = TRUE
@@ -31039,7 +31361,8 @@ MessageExtendedMedia <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      media <- reader$tgread_object()
+      list(media = media)
     }
   ),
   class = TRUE
@@ -31083,7 +31406,12 @@ MessageExtendedMediaPreview <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      flags <- reader$read_int()
+      w <- if (bitwAnd(flags, 1) != 0) reader$read_int() else NULL
+      h <- if (bitwAnd(flags, 1) != 0) reader$read_int() else NULL
+      thumb <- if (bitwAnd(flags, 2) != 0) reader$tgread_object() else NULL
+      video_duration <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
+      list(w = w, h = h, thumb = thumb, video_duration = video_duration)
     }
   ),
   class = TRUE
@@ -31165,7 +31493,35 @@ MessageFwdHeader <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      flags <- reader$read_int()
+      imported <- bitwAnd(flags, 128) != 0
+      saved_out <- bitwAnd(flags, 2048) != 0
+      from_id <- if (bitwAnd(flags, 1) != 0) reader$tgread_object() else NULL
+      from_name <- if (bitwAnd(flags, 32) != 0) reader$tgread_string() else NULL
+      date <- reader$tgread_date()
+      channel_post <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
+      post_author <- if (bitwAnd(flags, 8) != 0) reader$tgread_string() else NULL
+      saved_frompeer <- if (bitwAnd(flags, 16) != 0) reader$tgread_object() else NULL
+      saved_from_msg_id <- if (bitwAnd(flags, 16) != 0) reader$read_int() else NULL
+      saved_from_id <- if (bitwAnd(flags, 256) != 0) reader$tgread_object() else NULL
+      saved_from_name <- if (bitwAnd(flags, 512) != 0) reader$tgread_string() else NULL
+      saved_date <- if (bitwAnd(flags, 1024) != 0) reader$tgread_date() else NULL
+      psa_type <- if (bitwAnd(flags, 64) != 0) reader$tgread_string() else NULL
+      list(
+        date = date,
+        imported = imported,
+        saved_out = saved_out,
+        from_id = from_id,
+        from_name = from_name,
+        channel_post = channel_post,
+        post_author = post_author,
+        saved_frompeer = saved_frompeer,
+        saved_from_msg_id = saved_from_msg_id,
+        saved_from_id = saved_from_id,
+        saved_from_name = saved_from_name,
+        saved_date = saved_date,
+        psa_type = psa_type
+      )
     }
   ),
   class = TRUE
@@ -31213,7 +31569,18 @@ MessageMediaContact <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      phone_number <- reader$tgread_string()
+      first_name <- reader$tgread_string()
+      last_name <- reader$tgread_string()
+      vcard <- reader$tgread_string()
+      user_id <- reader$read_long()
+      list(
+        phone_number = phone_number,
+        first_name = first_name,
+        last_name = last_name,
+        vcard = vcard,
+        user_id = user_id
+      )
     }
   ),
   class = TRUE
@@ -31243,7 +31610,9 @@ MessageMediaDice <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      value <- reader$read_int()
+      emoticon <- reader$tgread_string()
+      list(value = value, emoticon = emoticon)
     }
   ),
   class = TRUE
@@ -31313,7 +31682,67 @@ MessageMediaDocument <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      remaining <- function() {
+        length(reader$get_bytes()) - reader$tell_position()
+      }
+      flags <- reader$read_int()
+      nopremium <- bitwAnd(flags, 8) != 0
+      spoiler <- bitwAnd(flags, 16) != 0
+      video <- bitwAnd(flags, 64) != 0
+      round <- bitwAnd(flags, 128) != 0
+      voice <- bitwAnd(flags, 256) != 0
+      document <- if (bitwAnd(flags, 1) != 0) reader$tgread_object() else NULL
+      if (bitwAnd(flags, 32) != 0) {
+        if (remaining() < 8) {
+          return(list(
+            nopremium = nopremium,
+            spoiler = spoiler,
+            video = video,
+            round = round,
+            voice = voice,
+            document = document,
+            alt_documents = NULL,
+            video_cover = NULL,
+            video_timestamp = NULL,
+            ttl_seconds = NULL
+          ))
+        }
+        reader$read_int()
+        n <- reader$read_int()
+        alt_documents <- list()
+        if (n > 0) {
+          for (i in seq_len(n)) alt_documents[[i]] <- reader$tgread_object()
+        }
+      } else {
+        alt_documents <- NULL
+      }
+      if (bitwAnd(flags, 512) != 0) {
+        video_cover <- if (remaining() >= 4) reader$tgread_object() else NULL
+      } else {
+        video_cover <- NULL
+      }
+      if (bitwAnd(flags, 1024) != 0) {
+        video_timestamp <- if (remaining() >= 4) reader$read_int() else NULL
+      } else {
+        video_timestamp <- NULL
+      }
+      if (bitwAnd(flags, 4) != 0) {
+        ttl_seconds <- if (remaining() >= 4) reader$read_int() else NULL
+      } else {
+        ttl_seconds <- NULL
+      }
+      list(
+        nopremium = nopremium,
+        spoiler = spoiler,
+        video = video,
+        round = round,
+        voice = voice,
+        document = document,
+        alt_documents = alt_documents,
+        video_cover = video_cover,
+        video_timestamp = video_timestamp,
+        ttl_seconds = ttl_seconds
+      )
     }
   ),
   class = TRUE
@@ -31363,7 +31792,8 @@ MessageMediaGame <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new()
+      game <- reader$tgread_object()
+      list(game = game)
     }
   ),
   class = TRUE
@@ -31434,7 +31864,17 @@ MessageMediaGeoLive <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new(reader$tgread_object(), reader$read_int())
+      flags <- reader$read_int()
+      geo <- reader$tgread_object()
+      heading <- if (bitwAnd(flags, 1) != 0) reader$read_int() else NULL
+      period <- reader$read_int()
+      proximity_notification_radius <- if (bitwAnd(flags, 2) != 0) reader$read_int() else NULL
+      list(
+        geo = geo,
+        period = period,
+        heading = heading,
+        proximity_notification_radius = proximity_notification_radius
+      )
     }
   ),
   class = TRUE
@@ -31498,7 +31938,41 @@ MessageMediaGiveaway <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new(list(), 0)
+      flags <- reader$read_int()
+      only_new_subscribers <- bitwAnd(flags, 1) != 0
+      winners_are_visible <- bitwAnd(flags, 4) != 0
+      reader$read_int()
+      n_channels <- reader$read_int()
+      channels <- list()
+      if (n_channels > 0) {
+        for (i in seq_len(n_channels)) channels[[i]] <- reader$read_long()
+      }
+      if (bitwAnd(flags, 2) != 0) {
+        reader$read_int()
+        n_countries <- reader$read_int()
+        countries_iso2 <- list()
+        if (n_countries > 0) {
+          for (i in seq_len(n_countries)) countries_iso2[[i]] <- reader$tgread_string()
+        }
+      } else {
+        countries_iso2 <- NULL
+      }
+      prize_description <- if (bitwAnd(flags, 8) != 0) reader$tgread_string() else NULL
+      quantity <- reader$read_int()
+      months <- if (bitwAnd(flags, 16) != 0) reader$read_int() else NULL
+      stars <- if (bitwAnd(flags, 32) != 0) reader$read_long() else NULL
+      until_date <- reader$tgread_date()
+      list(
+        channels = channels,
+        quantity = quantity,
+        until_date = until_date,
+        only_new_subscribers = only_new_subscribers,
+        winners_are_visible = winners_are_visible,
+        countries_iso2 = countries_iso2,
+        prize_description = prize_description,
+        months = months,
+        stars = stars
+      )
     }
   ),
   class = TRUE
@@ -31574,7 +32048,38 @@ MessageMediaGiveawayResults <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new(0, 0, 0, 0, list())
+      flags <- reader$read_int()
+      only_new_subscribers <- bitwAnd(flags, 1) != 0
+      refunded <- bitwAnd(flags, 4) != 0
+      channel_id <- reader$read_long()
+      additionalpeers_count <- if (bitwAnd(flags, 8) != 0) reader$read_int() else NULL
+      launch_msg_id <- reader$read_int()
+      winners_count <- reader$read_int()
+      unclaimed_count <- reader$read_int()
+      reader$read_int()
+      n_winners <- reader$read_int()
+      winners <- list()
+      if (n_winners > 0) {
+        for (i in seq_len(n_winners)) winners[[i]] <- reader$read_long()
+      }
+      months <- if (bitwAnd(flags, 16) != 0) reader$read_int() else NULL
+      stars <- if (bitwAnd(flags, 32) != 0) reader$read_long() else NULL
+      prize_description <- if (bitwAnd(flags, 2) != 0) reader$tgread_string() else NULL
+      until_date <- reader$tgread_date()
+      list(
+        channel_id = channel_id,
+        launch_msg_id = launch_msg_id,
+        winners_count = winners_count,
+        unclaimed_count = unclaimed_count,
+        winners = winners,
+        until_date = until_date,
+        only_new_subscribers = only_new_subscribers,
+        refunded = refunded,
+        additionalpeers_count = additionalpeers_count,
+        months = months,
+        stars = stars,
+        prize_description = prize_description
+      )
     }
   ),
   class = TRUE
@@ -31642,7 +32147,29 @@ MessageMediaInvoice <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new("", "", "", 0, "")
+      flags <- reader$read_int()
+      shipping_address_requested <- bitwAnd(flags, 2) != 0
+      test <- bitwAnd(flags, 8) != 0
+      title <- reader$tgread_string()
+      description <- reader$tgread_string()
+      photo <- if (bitwAnd(flags, 1) != 0) reader$tgread_object() else NULL
+      receipt_msg_id <- if (bitwAnd(flags, 4) != 0) reader$read_int() else NULL
+      currency <- reader$tgread_string()
+      total_amount <- reader$read_long()
+      start_param <- reader$tgread_string()
+      extended_media <- if (bitwAnd(flags, 16) != 0) reader$tgread_object() else NULL
+      list(
+        title = title,
+        description = description,
+        currency = currency,
+        total_amount = total_amount,
+        start_param = start_param,
+        shipping_address_requested = shipping_address_requested,
+        test = test,
+        photo = photo,
+        receipt_msg_id = receipt_msg_id,
+        extended_media = extended_media
+      )
     }
   ),
   class = TRUE
@@ -31678,7 +32205,14 @@ MessageMediaPaidMedia <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new(0, list())
+      stars_amount <- reader$read_long()
+      reader$read_int()
+      n <- reader$read_int()
+      extended_media <- list()
+      if (n > 0) {
+        for (i in seq_len(n)) extended_media[[i]] <- reader$tgread_object()
+      }
+      list(stars_amount = stars_amount, extended_media = extended_media)
     }
   ),
   class = TRUE
@@ -31802,7 +32336,12 @@ MessageMediaStory <- R6::R6Class(
   ),
   private = list(
     from_reader = function(reader) {
-      self$new(reader$tgread_object(), reader$read_int())
+      flags <- reader$read_int()
+      via_mention <- bitwAnd(flags, 2) != 0
+      peer <- reader$tgread_object()
+      id <- reader$read_int()
+      story <- if (bitwAnd(flags, 1) != 0) reader$tgread_object() else NULL
+      list(peer = peer, id = id, via_mention = via_mention, story = story)
     }
   ),
   class = TRUE
@@ -36836,27 +37375,32 @@ Photo <- R6::R6Class("Photo",
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
-      self$has_stickers <- bitwAnd(flags, 1) != 0
-      self$id <- reader$read_long()
-      self$access_hash <- reader$read_long()
-      self$file_reference <- reader$tgreadbytes()
-      self$date <- reader$tgread_date()
+      has_stickers <- bitwAnd(flags, 1) != 0
+      id <- reader$read_long()
+      access_hash <- reader$read_long()
+      file_reference <- reader$tgreadbytes()
+      date <- reader$tgread_date()
       reader$read_int()
-      self$sizes <- list()
-      for (i in 1:reader$read_int()) {
-        self$sizes[[i]] <- reader$tgread_object()
-      }
+      n_sizes <- reader$read_int()
+      sizes <- if (n_sizes > 0) lapply(seq_len(n_sizes), function(i) reader$tgread_object()) else list()
       if (bitwAnd(flags, 2)) {
         reader$read_int()
-        self$video_sizes <- list()
-        for (i in 1:reader$read_int()) {
-          self$video_sizes[[i]] <- reader$tgread_object()
-        }
+        n_video <- reader$read_int()
+        video_sizes <- if (n_video > 0) lapply(seq_len(n_video), function(i) reader$tgread_object()) else list()
       } else {
-        self$video_sizes <- NULL
+        video_sizes <- NULL
       }
-      self$dc_id <- reader$read_int()
-      self
+      dc_id <- reader$read_int()
+      list(
+        id = id,
+        access_hash = access_hash,
+        file_reference = file_reference,
+        date = date,
+        sizes = sizes,
+        dc_id = dc_id,
+        has_stickers = has_stickers,
+        video_sizes = video_sizes
+      )
     }
   ),
   class = TRUE
@@ -36890,11 +37434,12 @@ PhotoCachedSize <- R6::R6Class("PhotoCachedSize",
   ),
   private = list(
     from_reader = function(reader) {
-      self$type <- reader$tgread_string()
-      self$w <- reader$read_int()
-      self$h <- reader$read_int()
-      self$bytes <- reader$tgreadbytes()
-      self
+      list(
+        type = reader$tgread_string(),
+        w = reader$read_int(),
+        h = reader$read_int(),
+        bytes = reader$tgreadbytes()
+      )
     }
   ),
   class = TRUE
@@ -37065,8 +37610,11 @@ PhotoSizeProgressive <- R6::R6Class("PhotoSizeProgressive",
       h <- reader$read_int()
       reader$read_int()
       sizes <- list()
-      for (i in 1:reader$read_int()) {
-        sizes <- c(sizes, reader$read_int())
+      n_sizes <- reader$read_int()
+      if (n_sizes > 0) {
+        for (i in seq_len(n_sizes)) {
+          sizes <- c(sizes, reader$read_int())
+        }
       }
       list(type = type, w = w, h = h, sizes = sizes)
     }
@@ -38599,13 +39147,10 @@ ReactionCount <- R6::R6Class("ReactionCount",
   private = list(
     from_reader = function(reader) {
       flags <- reader$read_int()
-      if (bitwAnd(flags, 1) != 0) {
-        self$chosen_order <- reader$read_int()
-      } else {
-        self$chosen_order <- NULL
-      }
-      self$reaction <- reader$tgread_object()
-      self$count <- reader$read_int()
+      chosen_order <- if (bitwAnd(flags, 1) != 0) reader$read_int() else NULL
+      reaction <- reader$tgread_object()
+      count <- reader$read_int()
+      list(reaction = reaction, count = count, chosen_order = chosen_order)
     }
   ),
   class = TRUE
@@ -38636,7 +39181,8 @@ ReactionCustomEmoji <- R6::R6Class("ReactionCustomEmoji",
   ),
   private = list(
     from_reader = function(reader) {
-      self$document_id <- reader$read_long()
+      document_id <- reader$read_long()
+      list(document_id = document_id)
     }
   ),
   class = TRUE
@@ -38667,7 +39213,8 @@ ReactionEmoji <- R6::R6Class("ReactionEmoji",
   ),
   private = list(
     from_reader = function(reader) {
-      self$emoticon <- reader$tgread_string()
+      emoticon <- reader$tgread_string()
+      list(emoticon = emoticon)
     }
   ),
   class = TRUE
@@ -52059,7 +52606,7 @@ UpdateShort <- R6::R6Class("UpdateShort",
     from_reader = function(reader) {
       update <- reader$tgread_object()
       date <- reader$tgread_date()
-      self$initialize(update, date)
+      list(update = update, date = date)
     }
   ),
   class = TRUE
@@ -52163,7 +52710,24 @@ UpdateShortChatMessage <- R6::R6Class("UpdateShortChatMessage",
         NULL
       }
       ttl_period <- if (flags & 33554432) reader$read_int() else NULL
-      self$initialize(id, from_id, chat_id, message, pts, pts_count, date, out, mentioned, media_unread, silent, fwd_from, via_bot_id, reply_to, entities, ttl_period)
+      list(
+        id = id,
+        from_id = from_id,
+        chat_id = chat_id,
+        message = message,
+        pts = pts,
+        pts_count = pts_count,
+        date = date,
+        out = out,
+        mentioned = mentioned,
+        media_unread = media_unread,
+        silent = silent,
+        fwd_from = fwd_from,
+        via_bot_id = via_bot_id,
+        reply_to = reply_to,
+        entities = entities,
+        ttl_period = ttl_period
+      )
     }
   ),
   class = TRUE
