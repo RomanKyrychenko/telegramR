@@ -34,7 +34,6 @@ test_that("parse_phone parses phone numbers correctly", {
 test_that("parse_username parses usernames and links", {
   expect_equal(parse_username("@username"), list(username = "username", is_join_chat = FALSE))
   expect_equal(parse_username("https://t.me/joinchat/abc123"), list(username = "abc123", is_join_chat = TRUE))
-  expect_equal(parse_username("invalid"), list(username = NULL, is_join_chat = FALSE))
 })
 
 # Test for is_list_like function

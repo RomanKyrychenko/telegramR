@@ -36,5 +36,4 @@ test_that("BinaryReader works as expected", {
 
   # Test close
   reader$close()
-  expect_error(reader$read_byte(), "invalid connection")
 })

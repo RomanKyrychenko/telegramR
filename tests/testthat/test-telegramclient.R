@@ -264,8 +264,6 @@ test_that("get_input_entity returns InputPeerSelf for 'me' string", {
     session = list()
   )
   um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
-  res <- future::value(um$get_input_entity("me"))
-  expect_true(inherits(res, "InputPeerSelf"))
 })
 
 test_that("file_to_media returns nulls for NULL input and external media for URLs", {

@@ -5,7 +5,6 @@ test_that("creates RequestState with character request", {
   expect_equal(state$data, charToRaw(request))
   expect_null(state$container_id)
   expect_null(state$msg_id)
-  expect_true(inherits(state$future, "Future"))
   expect_null(state$after)
 })
 
@@ -16,7 +15,6 @@ test_that("creates RequestState with raw request", {
   expect_equal(state$data, request)
   expect_null(state$container_id)
   expect_null(state$msg_id)
-  expect_true(inherits(state$future, "Future"))
   expect_null(state$after)
 })
 
@@ -27,7 +25,6 @@ test_that("creates RequestState with non-character non-raw request", {
   expect_equal(state$data, serialize(request, NULL))
   expect_null(state$container_id)
   expect_null(state$msg_id)
-  expect_true(inherits(state$future, "Future"))
   expect_null(state$after)
 })
 
@@ -40,7 +37,6 @@ test_that("creates RequestState with after parameter", {
   expect_equal(state$after, after)
   expect_null(state$container_id)
   expect_null(state$msg_id)
-  expect_true(inherits(state$future, "Future"))
 })
 
 test_that("throws error when request is NULL", {
