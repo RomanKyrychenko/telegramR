@@ -108,9 +108,16 @@ MessagesIter <- R6::R6Class(
       self$filter <- if (is.null(filter)) NULL else filter
       self$reply_to <- reply_to
 
+      resolve_future <- function(x) {
+        if (inherits(x, "Future")) {
+          return(future::value(x))
+        }
+        x
+      }
+
       # Resolve input entity if provided
       if (!is.null(entity) && !is.null(self$client) && !is.null(self$client$get_input_entity)) {
-        self$entity_input <- self$client$get_input_entity(entity)
+        self$entity_input <- resolve_future(self$client$get_input_entity(entity))
         self$is_global <- FALSE
       } else {
         self$entity_input <- NULL
@@ -158,7 +165,7 @@ MessagesIter <- R6::R6Class(
         local_from_user <- self$client$get_input_entity(from_user)
       }
       if (!is.null(local_from_user) && !is.null(self$client) && !is.null(self$client$get_peer_id)) {
-        self$from_id <- self$client$get_peer_id(local_from_user)
+        self$from_id <- resolve_future(self$client$get_peer_id(local_from_user))
       } else {
         self$from_id <- NULL
       }
@@ -170,9 +177,9 @@ MessagesIter <- R6::R6Class(
 
       # Determine entity type to decide local vs server-side from_user filtering
       # In private chats, server ignores from_id; keep local filter instead.
-      if (!is.null(self$entity_input) && !is.null(self$client) && !is.null(self$client$entity_type)) {
-        ty <- self$client$entity_type(self$entity_input)
-        if (!is.null(ty) && toupper(as.character(ty)) == "USER") {
+      if (!is.null(self$entity_input)) {
+        ty <- tryCatch(entity_type(self$entity_input), error = function(e) NULL)
+        if (!is.null(ty) && identical(ty, EntityType$USER)) {
           # keep self$from_id for local check, but do not send from_user to server
           local_from_user <- NULL
         } else {
@@ -240,30 +247,49 @@ MessagesIter <- R6::R6Class(
         req_add_offset <- self$add_offset - n
       }
 
-      # Delegate fetching to client$iter_messages() + collect()
-      if (is.null(self$client) || is.null(self$client$iter_messages) || is.null(self$client$collect)) {
-        stop("Client must provide iter_messages() and collect() to use MessagesIter.")
+      # Delegate fetching to client$iter_messages_page() when available,
+      # otherwise fall back to client$iter_messages() + collect().
+      res <- NULL
+      if (!is.null(self$client) && !is.null(self$client$iter_messages_page)) {
+        res <- tryCatch(
+          self$client$iter_messages_page(
+            entity = self$entity_input,
+            limit = n,
+            offset_date = self$request$offset_date,
+            offset_id = self$request$offset_id,
+            max_id = if (is.finite(self$max_id)) self$max_id else 0L,
+            min_id = if (self$min_id > 0L) self$min_id else 0L,
+            add_offset = req_add_offset,
+            search = self$search,
+            filter = self$filter,
+            from_user = self$request$from_user,
+            reverse = self$reverse,
+            reply_to = self$reply_to,
+            scheduled = (!is.null(self$request$type) && self$request$type == "scheduled")
+          ),
+          error = function(e) e
+        )
+      } else if (!is.null(self$client) && !is.null(self$client$iter_messages) && !is.null(self$client$collect)) {
+        it <- self$client$iter_messages(
+          entity = self$entity_input,
+          limit = n,
+          offset_date = self$request$offset_date,
+          offset_id = self$request$offset_id,
+          max_id = if (is.finite(self$max_id)) self$max_id else 0L,
+          min_id = if (self$min_id > 0L) self$min_id else 0L,
+          add_offset = req_add_offset,
+          search = self$search,
+          filter = self$filter,
+          from_user = self$request$from_user,
+          ids = NULL,
+          reverse = self$reverse,
+          reply_to = self$reply_to,
+          scheduled = (!is.null(self$request$type) && self$request$type == "scheduled")
+        )
+        res <- tryCatch(self$client$collect(it), error = function(e) e)
+      } else {
+        stop("Client must provide iter_messages_page() or iter_messages()+collect() to use MessagesIter.")
       }
-
-      it <- self$client$iter_messages(
-        entity = self$entity_input,
-        limit = n,
-        offset_date = self$request$offset_date,
-        offset_id = self$request$offset_id,
-        max_id = if (is.finite(self$max_id)) self$max_id else 0L,
-        min_id = if (self$min_id > 0L) self$min_id else 0L,
-        add_offset = req_add_offset,
-        search = self$search,
-        filter = self$filter,
-        from_user = self$request$from_user,
-        #' @field ids Field.
-        ids = NULL,
-        reverse = self$reverse,
-        reply_to = self$reply_to,
-        scheduled = (!is.null(self$request$type) && self$request$type == "scheduled")
-      )
-
-      res <- tryCatch(self$client$collect(it), error = function(e) e)
       if (inherits(res, "error")) {
         # On errors, mark exhausted to avoid loops
         self$exhausted <- TRUE
@@ -325,6 +351,17 @@ MessagesIter <- R6::R6Class(
         return(TRUE)
       }
       FALSE
+    },
+
+    #' Collect all remaining messages into a list.
+    collect = function() {
+      out <- list()
+      repeat {
+        item <- self$.next()
+        if (is.null(item)) break
+        out[[length(out) + 1L]] <- item
+      }
+      out
     },
 
     #' Get the next item, fetching more if needed
@@ -494,16 +531,23 @@ IDsIter <- R6::R6Class(
       self$offset <- 0L
       self$limit <- limit
 
+      resolve_future <- function(x) {
+        if (inherits(x, "Future")) {
+          return(future::value(x))
+        }
+        x
+      }
+
       # Resolve input entity if provided
       if (!is.null(entity) && !is.null(self$client) && !is.null(self$client$get_input_entity)) {
-        self$entity_input <- self$client$get_input_entity(entity)
+        self$entity_input <- resolve_future(self$client$get_input_entity(entity))
       } else {
         self$entity_input <- entity
       }
 
       # Determine entity type if possible
-      if (!is.null(self$entity_input) && !is.null(self$client) && !is.null(self$client$entity_type)) {
-        self$entity_type <- self$client$entity_type(self$entity_input)
+      if (!is.null(self$entity_input)) {
+        self$entity_type <- tryCatch(entity_type(self$entity_input), error = function(e) NULL)
       }
 
       # 30s flood wait every 300 messages (3 requests of 100 each, 30 of 10, etc.)
@@ -534,8 +578,7 @@ IDsIter <- R6::R6Class(
       self$offset <- self$offset + private$max_chunk_size
 
       # Decide whether to use channel-specific retrieval
-      is_channel <- !is.null(self$entity_type) &&
-        tolower(as.character(self$entity_type)) == "channel"
+      is_channel <- !is.null(self$entity_type) && identical(self$entity_type, EntityType$CHANNEL)
 
       res <- NULL
       # Try channel-specific method first when applicable
@@ -611,6 +654,17 @@ IDsIter <- R6::R6Class(
     #' @return logical indicating whether there are more items to fetch or buffered.
     has_next = function() {
       length(self$buffer) > 0 || (self$offset < length(self$ids))
+    },
+
+    #' Collect all remaining messages into a list.
+    collect = function() {
+      out <- list()
+      repeat {
+        item <- self$.next()
+        if (is.null(item)) break
+        out[[length(out) + 1L]] <- item
+      }
+      out
     },
 
     #' Get the next item, fetching more if needed
