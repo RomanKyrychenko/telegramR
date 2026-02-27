@@ -41,12 +41,12 @@ client$connect()
 ```
 
 If not authorized:
-```{r}
+```{r coderequest, eval=FALSE}
 client$send_code_request("your_phone_number")
 ```
 
 After recieving code in Telegram app:
-```{r}
+```{r code, eval=FALSE}
 client$sign_in(phone = "your_phone_number", code = "code")
 ```
 
