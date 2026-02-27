@@ -56,6 +56,7 @@ Collate:
     'authkey.R'
     'binaryreader.R'
     'channel_downloads.R'
+    'compat_promises.R'
     'tlobject.R'
     'types.R'
     'chats.R'
