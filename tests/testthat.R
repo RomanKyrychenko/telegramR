@@ -9,4 +9,6 @@
 library(testthat)
 library(telegramR)
 
+options(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE)
+
 test_check("telegramR")
