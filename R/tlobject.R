@@ -42,7 +42,7 @@ datetime_to_timestamp <- function(dt) {
 #  @export
 json_default <- function(value) {
   if (is.raw(value)) {
-    return(base64encode(value))
+    return(base64enc::base64encode(value))
   } else if (inherits(value, "POSIXt")) {
     return(format(value, "%Y-%m-%dT%H:%M:%S"))
   } else {
