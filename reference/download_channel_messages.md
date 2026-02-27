@@ -1,14 +1,14 @@
-# Download Channel Messages By Username
+# Download Channel Messages By Channel
 
-Fetches messages for a channel by username and returns a tibble with
-message fields and nested structures as list columns.
+Fetches messages for a channel by username or numeric id and returns a
+tibble with message fields and nested structures as list columns.
 
 ## Usage
 
 ``` r
 download_channel_messages(
   client,
-  username,
+  channel,
   limit = Inf,
   include_channel = TRUE,
   start_date = NULL,
@@ -24,9 +24,10 @@ download_channel_messages(
 
   TelegramClient instance.
 
-- username:
+- channel:
 
-  character. Channel username (with or without "@").
+  character or numeric. Channel username (with or without "@") or
+  numeric id.
 
 - limit:
 

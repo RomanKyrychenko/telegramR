@@ -1,12 +1,12 @@
-# Download Full Channel Info By Username
+# Download Full Channel Info By Channel
 
-Fetches channel entity and full channel info by username and returns a
-tibble.
+Fetches channel entity and full channel info by username or numeric id
+and returns a tibble.
 
 ## Usage
 
 ``` r
-download_channel_info(client, username, region = NULL, include_raw = FALSE)
+download_channel_info(client, channel, region = NULL, include_raw = FALSE)
 ```
 
 ## Arguments
@@ -15,9 +15,10 @@ download_channel_info(client, username, region = NULL, include_raw = FALSE)
 
   TelegramClient instance.
 
-- username:
+- channel:
 
-  character. Channel username (with or without "@").
+  character or numeric. Channel username (with or without "@") or
+  numeric id.
 
 - region:
 

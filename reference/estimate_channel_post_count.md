@@ -7,7 +7,7 @@ IDs.
 ## Usage
 
 ``` r
-estimate_channel_post_count(client, username)
+estimate_channel_post_count(client, channel)
 ```
 
 ## Arguments
@@ -16,9 +16,10 @@ estimate_channel_post_count(client, username)
 
   TelegramClient instance.
 
-- username:
+- channel:
 
-  character. Channel username (with or without "@").
+  character or numeric. Channel username (with or without "@") or
+  numeric id.
 
 ## Value
 
