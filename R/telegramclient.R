@@ -531,7 +531,10 @@ TelegramClient <- R6::R6Class(
     start_impl = function(phone, password, bot_token, force_sms, code_callback,
                           first_name, last_name, max_attempts) {
       if (!self$is_connected()) {
-        future::value(self$connect())
+        res <- self$connect()
+        if (inherits(res, "Future")) {
+          future::value(res)
+        }
       }
 
       me <- NULL
@@ -566,7 +569,10 @@ TelegramClient <- R6::R6Class(
           private$sender$auth_key <- AuthKey$new(NULL)
           tryCatch(private$sender$disconnect(), error = function(e) NULL)
         }
-        future::value(self$connect())
+        res <- self$connect()
+        if (inherits(res, "Future")) {
+          future::value(res)
+        }
       }
 
       if (is.null(bot_token)) {
