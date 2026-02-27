@@ -65,17 +65,12 @@
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>This vignette demonstrates how to download data from Telegram
-channels using the <code>telegramR</code> package. The
-<code>telegramR</code> package provides an R6 client interface similar
-to Python’s Telethon.</p>
+<p>This vignette demonstrates how to download channel data with
+<code>telegramR</code> using the high‑level helpers.</p>
 </div>
 <div class="section level2">
 <h2 id="setup-and-authentication">Setup and Authentication<a class="anchor" aria-label="anchor" href="#setup-and-authentication"></a>
 </h2>
-<p>First, you need to load the package and instantiate a
-<code>TelegramClient</code>. You will need your <code>api_id</code> and
-<code>api_hash</code> which you can get from <a href="https://my.telegram.org" class="external-link">my.telegram.org</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://romankyrychenko.github.io/telegramR/">telegramR</a></span><span class="op">)</span></span>
 <span></span>
@@ -83,89 +78,87 @@ to Python’s Telethon.</p>
 <span><span class="va">api_id</span> <span class="op">&lt;-</span> <span class="fl">123456</span></span>
 <span><span class="va">api_hash</span> <span class="op">&lt;-</span> <span class="st">"0123456789abcdef0123456789abcdef"</span></span>
 <span></span>
-<span><span class="co"># Create a client instance</span></span>
 <span><span class="va">client</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/TelegramClient.html">TelegramClient</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"my_session"</span>, <span class="va">api_id</span>, <span class="va">api_hash</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Start the client (this will prompt for your phone number and login code if not already authorized)</span></span>
 <span><span class="va">client</span><span class="op">$</span><span class="fu">start</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="getting-the-channel-entity">Getting the Channel Entity<a class="anchor" aria-label="anchor" href="#getting-the-channel-entity"></a>
+<h2 id="download-messages">Download Messages<a class="anchor" aria-label="anchor" href="#download-messages"></a>
 </h2>
-<p>Before downloading messages, you need to resolve the channel entity.
-You can do this using the channel’s username (e.g., <code>@RData</code>)
-or invite link.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Resolve the channel entity</span></span>
-<span><span class="va">channel</span> <span class="op">&lt;-</span> <span class="va">client</span><span class="op">$</span><span class="fu">get_entity</span><span class="op">(</span><span class="st">"telegram"</span><span class="op">)</span> </span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="downloading-messages">Downloading Messages<a class="anchor" aria-label="anchor" href="#downloading-messages"></a>
-</h2>
-<p>To download messages from the channel, you can use the
-<code>get_messages</code> or <code>iter_messages</code> methods.</p>
-<div class="section level3">
-<h3 id="getting-recent-messages">Getting Recent Messages<a class="anchor" aria-label="anchor" href="#getting-recent-messages"></a>
-</h3>
-<p>If you just want a specific number of recent messages, use
-<code>get_messages</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Get the 100 most recent messages from the channel</span></span>
-<span><span class="va">messages</span> <span class="op">&lt;-</span> <span class="va">client</span><span class="op">$</span><span class="fu">get_messages</span><span class="op">(</span><span class="va">channel</span>, limit <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># The result is a list of message objects</span></span>
-<span><span class="co"># You can extract text from them:</span></span>
-<span><span class="va">texts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">messages</span>, <span class="kw">function</span><span class="op">(</span><span class="va">msg</span><span class="op">)</span> <span class="va">msg</span><span class="op">$</span><span class="va">message</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">texts</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="iterating-over-all-messages">Iterating Over All Messages<a class="anchor" aria-label="anchor" href="#iterating-over-all-messages"></a>
-</h3>
-<p>If you want to download the entire history of a channel, it is
-recommended to use <code>iter_messages</code>. Note that downloading
-thousands of messages might take time due to Telegram’s API limits.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Iterate and collect messages (requires implementing a custom loop or using do.call)</span></span>
-<span><span class="va">history</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">iterator</span> <span class="op">&lt;-</span> <span class="va">client</span><span class="op">$</span><span class="fu">iter_messages</span><span class="op">(</span><span class="va">channel</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Collect messages in chunks</span></span>
-<span><span class="va">messages</span> <span class="op">&lt;-</span> <span class="va">client</span><span class="op">$</span><span class="fu">get_messages</span><span class="op">(</span><span class="va">channel</span>, limit <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Create a data frame summarizing the downloaded messages</span></span>
-<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
-<span>  id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">messages</span>, <span class="kw">function</span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="va">m</span><span class="op">$</span><span class="va">id</span><span class="op">)</span>,</span>
-<span>  date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">messages</span>, <span class="kw">function</span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="va">m</span><span class="op">$</span><span class="va">date</span>, origin<span class="op">=</span><span class="st">"1970-01-01"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>  text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">messages</span>, <span class="kw">function</span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="va">m</span><span class="op">$</span><span class="va">message</span><span class="op">)</span>,</span>
-<span>  views <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">messages</span>, <span class="kw">function</span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">m</span><span class="op">$</span><span class="va">views</span><span class="op">)</span><span class="op">)</span> <span class="va">m</span><span class="op">$</span><span class="va">views</span> <span class="kw">else</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>  stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span></span>
+<code class="sourceCode R"><span><span class="co"># Download the most recent 200 messages from a channel</span></span>
+<span><span class="va">msgs</span> <span class="op">&lt;-</span> <span class="fu">download_channel_messages</span><span class="op">(</span></span>
+<span>  <span class="va">client</span>,</span>
+<span>  <span class="st">"telegram"</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fl">200</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code></pre></div>
-</div>
+<span><span class="va">msgs</span></span></code></pre></div>
+<p>The returned tibble includes a compact, analysis‑ready schema:</p>
+<ul>
+<li>
+<code>message_id</code>, <code>date</code>, <code>text</code>
+</li>
+<li>
+<code>views</code>, <code>forwards</code>, <code>replies</code>
+</li>
+<li>
+<code>reactions_total</code>, <code>reactions_json</code>
+</li>
+<li>
+<code>media_type</code>, <code>is_forward</code>,
+<code>forward_from_id</code>, <code>forward_from_name</code>
+</li>
+<li>
+<code>reply_to_msg_id</code>, <code>edit_date</code>,
+<code>post_author</code>
+</li>
+<li>
+<code>channel_id</code>, <code>channel_username</code>,
+<code>channel_title</code>
+</li>
+</ul>
 </div>
 <div class="section level2">
-<h2 id="downloading-media">Downloading Media<a class="anchor" aria-label="anchor" href="#downloading-media"></a>
+<h2 id="download-channel-info">Download Channel Info<a class="anchor" aria-label="anchor" href="#download-channel-info"></a>
 </h2>
-<p>If the messages contain media (such as photos or documents), you can
-download them using <code>download_media</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu">download_channel_info</span><span class="op">(</span><span class="va">client</span>, <span class="st">"telegram"</span><span class="op">)</span></span>
+<span><span class="va">info</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="estimate-total-posts-approx-">Estimate Total Posts (Approx.)<a class="anchor" aria-label="anchor" href="#estimate-total-posts-approx-"></a>
+</h2>
+<p>This returns the latest message id as an <strong>upper‑bound
+estimate</strong>.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">estimate_channel_post_count</span><span class="op">(</span><span class="va">client</span>, <span class="st">"telegram"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="download-media">Download Media<a class="anchor" aria-label="anchor" href="#download-media"></a>
+</h2>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Find the first message with media</span></span>
-<span><span class="va">msgs_with_media</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/funprog.html" class="external-link">Filter</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">m</span><span class="op">$</span><span class="va">media</span><span class="op">)</span>, <span class="va">messages</span><span class="op">)</span></span>
+<span><span class="va">first_media</span> <span class="op">&lt;-</span> <span class="va">msgs</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">msgs</span><span class="op">$</span><span class="va">media_type</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">msgs</span><span class="op">$</span><span class="va">media_type</span> <span class="op">!=</span> <span class="st">""</span><span class="op">)</span>, <span class="op">]</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span>
 <span></span>
-<span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">msgs_with_media</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="co"># Download the media from the first message</span></span>
-<span>  <span class="va">file_path</span> <span class="op">&lt;-</span> <span class="va">client</span><span class="op">$</span><span class="fu">download_media</span><span class="op">(</span><span class="va">msgs_with_media</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Media downloaded to:"</span>, <span class="va">file_path</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">first_media</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="co"># You can still use download_media on the underlying message object</span></span>
+<span>  <span class="co"># if you need the original media data.</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="disconnecting">Disconnecting<a class="anchor" aria-label="anchor" href="#disconnecting"></a>
+<h2 id="disconnect">Disconnect<a class="anchor" aria-label="anchor" href="#disconnect"></a>
 </h2>
-<p>Once you have finished downloading the data, ensure that you
-disconnect the client to safely close the session:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">client</span><span class="op">$</span><span class="fu">disconnect</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Download a date range (UTC)</span></span>
+<span><span class="va">msgs_range</span> <span class="op">&lt;-</span> <span class="fu">download_channel_messages</span><span class="op">(</span></span>
+<span>  <span class="va">client</span>,</span>
+<span>  <span class="st">"telegram"</span>,</span>
+<span>  start_date <span class="op">=</span> <span class="st">"2025-01-01"</span>,</span>
+<span>  end_date   <span class="op">=</span> <span class="st">"2025-02-01"</span>,</span>
+<span>  limit      <span class="op">=</span> <span class="cn">Inf</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

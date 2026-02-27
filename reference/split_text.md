@@ -50,3 +50,17 @@ split_text(
 A list of lists, where each sublist contains a pair of (split_text,
 split_entities). Each pair represents a portion of the original text and
 its corresponding entities.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+# Assuming entities are lists like list(offset = 0, length = 5, ...)
+text <- "This is a very long message that needs to be split."
+entities <- list(list(offset = 0, length = 4)) # Example entity
+splits <- split_text(text, entities, limit = 20)
+for (split in splits) {
+  # Send split[[1]] (text) with split[[2]] (entities)
+}
+} # }
+```

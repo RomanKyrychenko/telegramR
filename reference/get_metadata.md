@@ -23,3 +23,15 @@ get_metadata(file)
 ## Value
 
 A list containing metadata if extraction succeeds, otherwise NULL.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+# Assuming exiftoolr is installed and file exists
+metadata <- get_metadata("example.mp3")
+if (!is.null(metadata)) {
+  print(metadata)
+}
+} # }
+```

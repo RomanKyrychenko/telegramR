@@ -77,82 +77,55 @@ client$send_code_request("+15551234567")
 client$sign_in("+15551234567", code = "12345")
 ```
 
-**Fetch all posts from a channel**
+**Download messages from a channel**
 
-Once logged in you can call any Telegram API method via
-`client$invoke()`. The example below fetches messages from a public
-channel by username:
+Use high‑level helpers to fetch channel data as tibbles:
 
 ``` r
 library(telegramR)
 
-# Resolve the channel username to an InputPeer
-resolved <- client$invoke(
-  ResolveUsernameRequest$new("telegram")
-)
-channel  <- resolved$chats[[1]]
-input_peer <- InputPeerChannel$new(
-  channel_id  = channel$id,
-  access_hash = channel$access_hash
+msgs <- download_channel_messages(
+  client,
+  "telegram",
+  limit = 200
 )
 
-# Fetch the most recent 100 messages
-history <- client$invoke(
-  GetHistoryRequest$new(
-    peer       = input_peer,
-    offsetId   = 0L,
-    offsetDate = as.integer(0),
-    addOffset  = 0L,
-    limit      = 100L,
-    maxId      = 0L,
-    minId      = 0L,
-    hash       = 0L
-  )
-)
-
-messages <- history$messages
-cat("Fetched", length(messages), "messages\n")
-
-# Print each message text
-for (m in messages) {
-  if (!is.null(m$message) && nzchar(m$message)) {
-    cat(sprintf("[%s] %s\n", m$date, m$message))
-  }
-}
+msgs
 ```
 
-To page through the full history, keep calling `GetHistoryRequest` with
-`offsetId` set to the ID of the last message you received until no more
-messages are returned:
+The result contains a compact schema:
+
+- `message_id`, `date`, `text`
+- `views`, `forwards`, `replies`
+- `reactions_total`, `reactions_json`
+- `media_type`, `is_forward`, `forward_from_id`, `forward_from_name`
+- `reply_to_msg_id`, `edit_date`, `post_author`
+- `channel_id`, `channel_username`, `channel_title`
+
+You can also fetch channel info:
 
 ``` r
-all_messages <- list()
-offset_id    <- 0L
+info <- download_channel_info(client, "telegram")
+info
+```
 
-repeat {
-  history <- client$invoke(
-    GetHistoryRequest$new(
-      peer       = input_peer,
-      offsetId   = offset_id,
-      offsetDate = as.integer(0),
-      addOffset  = 0L,
-      limit      = 100L,
-      maxId      = 0L,
-      minId      = 0L,
-      hash       = 0L
-    )
-  )
+Filter by date range:
 
-  batch <- history$messages
-  if (length(batch) == 0) break
+``` r
+msgs <- download_channel_messages(
+  client,
+  "telegram",
+  start_date = "2025-01-01",
+  end_date   = "2025-02-01",
+  limit      = Inf
+)
+```
 
-  all_messages <- c(all_messages, batch)
-  offset_id    <- batch[[length(batch)]]$id
+And get an approximate post count (upper bound) without downloading
+everything:
 
-  Sys.sleep(1)   # respect rate limits
-}
-
-cat("Total messages:", length(all_messages), "\n")
+``` r
+estimate_channel_post_count(client, "telegram")
 ```
 
 **Download media**
@@ -179,3 +152,5 @@ for (m in messages) {
   [future](https://cran.r-project.org/package=future) objects. Unwrap
   them with
   [`future::value()`](https://future.futureverse.org/reference/value.html).
+- To silence pump/process debug messages, keep these options disabled:
+  `options(telegramR.debug_pump = FALSE, telegramR.debug_process = FALSE, telegramR.debug_parse = FALSE)`.

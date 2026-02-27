@@ -13,7 +13,9 @@ get_input_media(
   voice_note = FALSE,
   video_note = FALSE,
   supports_streaming = FALSE,
-  ttl = NULL
+  ttl = NULL,
+  file_size = NULL,
+  progress_callback = NULL
 )
 ```
 
@@ -50,6 +52,14 @@ get_input_media(
 - ttl:
 
   The time-to-live in seconds. Default is `NULL`.
+
+- file_size:
+
+  Optional file size hint (unused, for compatibility).
+
+- progress_callback:
+
+  Optional progress callback (unused, for compatibility).
 
 ## Value
 

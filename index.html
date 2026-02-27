@@ -113,75 +113,57 @@
 <span></span>
 <span><span class="co"># Sign in with the code you received</span></span>
 <span><span class="va">client</span><span class="op">$</span><span class="fu">sign_in</span><span class="op">(</span><span class="st">"+15551234567"</span>, code <span class="op">=</span> <span class="st">"12345"</span><span class="op">)</span></span></code></pre></div>
-<p><strong>Fetch all posts from a channel</strong></p>
-<p>Once logged in you can call any Telegram API method via <code>client$invoke()</code>. The example below fetches messages from a public channel by username:</p>
+<p><strong>Download messages from a channel</strong></p>
+<p>Use high‑level helpers to fetch channel data as tibbles:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://romankyrychenko.github.io/telegramR/">telegramR</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Resolve the channel username to an InputPeer</span></span>
-<span><span class="va">resolved</span> <span class="op">&lt;-</span> <span class="va">client</span><span class="op">$</span><span class="fu">invoke</span><span class="op">(</span></span>
-<span>  <span class="va"><a href="reference/ResolveUsernameRequest.html">ResolveUsernameRequest</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"telegram"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span><span class="va">channel</span>  <span class="op">&lt;-</span> <span class="va">resolved</span><span class="op">$</span><span class="va">chats</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
-<span><span class="va">input_peer</span> <span class="op">&lt;-</span> <span class="va"><a href="reference/InputPeerChannel.html">InputPeerChannel</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
-<span>  channel_id  <span class="op">=</span> <span class="va">channel</span><span class="op">$</span><span class="va">id</span>,</span>
-<span>  access_hash <span class="op">=</span> <span class="va">channel</span><span class="op">$</span><span class="va">access_hash</span></span>
+<span><span class="va">msgs</span> <span class="op">&lt;-</span> <span class="fu">download_channel_messages</span><span class="op">(</span></span>
+<span>  <span class="va">client</span>,</span>
+<span>  <span class="st">"telegram"</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fl">200</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Fetch the most recent 100 messages</span></span>
-<span><span class="va">history</span> <span class="op">&lt;-</span> <span class="va">client</span><span class="op">$</span><span class="fu">invoke</span><span class="op">(</span></span>
-<span>  <span class="va"><a href="reference/GetHistoryRequest.html">GetHistoryRequest</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
-<span>    peer       <span class="op">=</span> <span class="va">input_peer</span>,</span>
-<span>    offsetId   <span class="op">=</span> <span class="fl">0L</span>,</span>
-<span>    offsetDate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,</span>
-<span>    addOffset  <span class="op">=</span> <span class="fl">0L</span>,</span>
-<span>    limit      <span class="op">=</span> <span class="fl">100L</span>,</span>
-<span>    maxId      <span class="op">=</span> <span class="fl">0L</span>,</span>
-<span>    minId      <span class="op">=</span> <span class="fl">0L</span>,</span>
-<span>    hash       <span class="op">=</span> <span class="fl">0L</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">messages</span> <span class="op">&lt;-</span> <span class="va">history</span><span class="op">$</span><span class="va">messages</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">"Fetched"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">messages</span><span class="op">)</span>, <span class="st">"messages\n"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Print each message text</span></span>
-<span><span class="kw">for</span> <span class="op">(</span><span class="va">m</span> <span class="kw">in</span> <span class="va">messages</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">m</span><span class="op">$</span><span class="va">message</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nzchar</a></span><span class="op">(</span><span class="va">m</span><span class="op">$</span><span class="va">message</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"[%s] %s\n"</span>, <span class="va">m</span><span class="op">$</span><span class="va">date</span>, <span class="va">m</span><span class="op">$</span><span class="va">message</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="op">}</span></span></code></pre></div>
-<p>To page through the full history, keep calling <code>GetHistoryRequest</code> with <code>offsetId</code> set to the ID of the last message you received until no more messages are returned:</p>
+<span><span class="va">msgs</span></span></code></pre></div>
+<p>The result contains a compact schema:</p>
+<ul>
+<li>
+<code>message_id</code>, <code>date</code>, <code>text</code>
+</li>
+<li>
+<code>views</code>, <code>forwards</code>, <code>replies</code>
+</li>
+<li>
+<code>reactions_total</code>, <code>reactions_json</code>
+</li>
+<li>
+<code>media_type</code>, <code>is_forward</code>, <code>forward_from_id</code>, <code>forward_from_name</code>
+</li>
+<li>
+<code>reply_to_msg_id</code>, <code>edit_date</code>, <code>post_author</code>
+</li>
+<li>
+<code>channel_id</code>, <code>channel_username</code>, <code>channel_title</code>
+</li>
+</ul>
+<p>You can also fetch channel info:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">all_messages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">offset_id</span>    <span class="op">&lt;-</span> <span class="fl">0L</span></span>
-<span></span>
-<span><span class="kw">repeat</span> <span class="op">{</span></span>
-<span>  <span class="va">history</span> <span class="op">&lt;-</span> <span class="va">client</span><span class="op">$</span><span class="fu">invoke</span><span class="op">(</span></span>
-<span>    <span class="va"><a href="reference/GetHistoryRequest.html">GetHistoryRequest</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
-<span>      peer       <span class="op">=</span> <span class="va">input_peer</span>,</span>
-<span>      offsetId   <span class="op">=</span> <span class="va">offset_id</span>,</span>
-<span>      offsetDate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,</span>
-<span>      addOffset  <span class="op">=</span> <span class="fl">0L</span>,</span>
-<span>      limit      <span class="op">=</span> <span class="fl">100L</span>,</span>
-<span>      maxId      <span class="op">=</span> <span class="fl">0L</span>,</span>
-<span>      minId      <span class="op">=</span> <span class="fl">0L</span>,</span>
-<span>      hash       <span class="op">=</span> <span class="fl">0L</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span></span>
-<span>  <span class="va">batch</span> <span class="op">&lt;-</span> <span class="va">history</span><span class="op">$</span><span class="va">messages</span></span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">batch</span><span class="op">)</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="kw">break</span></span>
-<span></span>
-<span>  <span class="va">all_messages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">all_messages</span>, <span class="va">batch</span><span class="op">)</span></span>
-<span>  <span class="va">offset_id</span>    <span class="op">&lt;-</span> <span class="va">batch</span><span class="op">[[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">batch</span><span class="op">)</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
-<span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/Sys.sleep.html" class="external-link">Sys.sleep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>   <span class="co"># respect rate limits</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">"Total messages:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">all_messages</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span></code></pre></div>
-<p><strong>Download media</strong></p>
+<code class="sourceCode R"><span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu">download_channel_info</span><span class="op">(</span><span class="va">client</span>, <span class="st">"telegram"</span><span class="op">)</span></span>
+<span><span class="va">info</span></span></code></pre></div>
+<p>Filter by date range:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">msgs</span> <span class="op">&lt;-</span> <span class="fu">download_channel_messages</span><span class="op">(</span></span>
+<span>  <span class="va">client</span>,</span>
+<span>  <span class="st">"telegram"</span>,</span>
+<span>  start_date <span class="op">=</span> <span class="st">"2025-01-01"</span>,</span>
+<span>  end_date   <span class="op">=</span> <span class="st">"2025-02-01"</span>,</span>
+<span>  limit      <span class="op">=</span> <span class="cn">Inf</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>And get an approximate post count (upper bound) without downloading everything:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">estimate_channel_post_count</span><span class="op">(</span><span class="va">client</span>, <span class="st">"telegram"</span><span class="op">)</span></span></code></pre></div>
+<p><strong>Download media</strong></p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"downloads"</span>, showWarnings <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">m</span> <span class="kw">in</span> <span class="va">messages</span><span class="op">)</span> <span class="op">{</span></span>
@@ -194,6 +176,7 @@
 <li>Sessions are persisted to the file you pass to <code>TelegramClient$new()</code>. Remove that file to force a fresh login.</li>
 <li>Be mindful of Telegram rate limits when downloading large histories or media collections. Add <code><a href="https://rdrr.io/r/base/Sys.sleep.html" class="external-link">Sys.sleep()</a></code> between requests.</li>
 <li>Most high-level methods (like <code>get_entity</code>, <code>download_media</code>) return <a href="https://cran.r-project.org/package=future" class="external-link">future</a> objects. Unwrap them with <code><a href="https://future.futureverse.org/reference/value.html" class="external-link">future::value()</a></code>.</li>
+<li>To silence pump/process debug messages, keep these options disabled: <code>options(telegramR.debug_pump = FALSE, telegramR.debug_process = FALSE, telegramR.debug_parse = FALSE)</code>.</li>
 </ul>
 </div>
   </main><aside class="col-md-3"><div class="license">

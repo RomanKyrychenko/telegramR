@@ -93,6 +93,19 @@ The last expression should match a character to ensure splitting.</p></dd>
   Each pair represents a portion of the original text and its corresponding entities.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="co"># Assuming entities are lists like list(offset = 0, length = 5, ...)</span></span></span>
+<span class="r-in"><span><span class="va">text</span> <span class="op">&lt;-</span> <span class="st">"This is a very long message that needs to be split."</span></span></span>
+<span class="r-in"><span><span class="va">entities</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>offset <span class="op">=</span> <span class="fl">0</span>, length <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="co"># Example entity</span></span></span>
+<span class="r-in"><span><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu">split_text</span><span class="op">(</span><span class="va">text</span>, <span class="va">entities</span>, limit <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw">for</span> <span class="op">(</span><span class="va">split</span> <span class="kw">in</span> <span class="va">splits</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="co"># Send split[[1]] (text) with split[[2]] (entities)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 
