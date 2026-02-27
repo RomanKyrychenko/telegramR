@@ -12,6 +12,10 @@ Telegram API type Document
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
+
+\item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
 \item{\code{id}}{Field.}
 
 \item{\code{access_hash}}{Field.}
@@ -39,6 +43,7 @@ Telegram API type Document
 \itemize{
 \item \href{#method-Document-new}{\code{Document$new()}}
 \item \href{#method-Document-to_list}{\code{Document$to_list()}}
+\item \href{#method-Document-to_dict}{\code{Document$to_dict()}}
 \item \href{#method-Document-bytes}{\code{Document$bytes()}}
 \item \href{#method-Document-clone}{\code{Document$clone()}}
 }
@@ -55,7 +60,6 @@ Telegram API type Document
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id="serialize_bytes"><a href='../../telegramR/html/TLObject.html#method-TLObject-serialize_bytes'><code>telegramR::TLObject$serialize_bytes()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id="serialize_datetime"><a href='../../telegramR/html/TLObject.html#method-TLObject-serialize_datetime'><code>telegramR::TLObject$serialize_datetime()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id="stringify"><a href='../../telegramR/html/TLObject.html#method-TLObject-stringify'><code>telegramR::TLObject$stringify()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id="to_dict"><a href='../../telegramR/html/TLObject.html#method-TLObject-to_dict'><code>telegramR::TLObject$to_dict()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="telegramR" data-topic="TLObject" data-id="to_json"><a href='../../telegramR/html/TLObject.html#method-TLObject-to_json'><code>telegramR::TLObject$to_json()</code></a></span></li>
 </ul>
 </details>
@@ -86,6 +90,15 @@ Telegram API type Document
 \subsection{Method \code{to_list()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Document$to_list()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Document-to_dict"></a>}}
+\if{latex}{\out{\hypertarget{method-Document-to_dict}{}}}
+\subsection{Method \code{to_dict()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Document$to_dict()}\if{html}{\out{</div>}}
 }
 
 }

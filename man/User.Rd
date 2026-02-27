@@ -75,6 +75,7 @@ Telegram API type User
   contact_require_premium = NULL,
   bot_business = NULL,
   bot_has_main_app = NULL,
+  bot_forum_view = NULL,
   access_hash = NULL,
   first_name = NULL,
   last_name = NULL,

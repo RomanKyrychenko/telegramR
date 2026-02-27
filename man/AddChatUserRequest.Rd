@@ -15,6 +15,12 @@ Represents a request to add a chat user. This class inherits from TLRequest.
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+
+\item{\code{chatId}}{Field.}
+
+\item{\code{userId}}{Field.}
+
+\item{\code{fwdLimit}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

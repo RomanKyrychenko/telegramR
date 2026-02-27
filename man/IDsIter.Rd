@@ -48,6 +48,7 @@ it <- IDsIter$new(client, entity = NULL, ids, reverse = FALSE, wait_time = NULL,
 \item \href{#method-IDsIter-new}{\code{IDsIter$new()}}
 \item \href{#method-IDsIter-load_next_chunk}{\code{IDsIter$load_next_chunk()}}
 \item \href{#method-IDsIter-has_next}{\code{IDsIter$has_next()}}
+\item \href{#method-IDsIter-collect}{\code{IDsIter$collect()}}
 \item \href{#method-IDsIter-.next}{\code{IDsIter$.next()}}
 \item \href{#method-IDsIter-clone}{\code{IDsIter$clone()}}
 }
@@ -113,8 +114,18 @@ Check if there are more items to retrieve
 
 \subsection{Returns}{
 logical indicating whether there are more items to fetch or buffered.
+Collect all remaining messages into a list.
 Get the next item, fetching more if needed
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-IDsIter-collect"></a>}}
+\if{latex}{\out{\hypertarget{method-IDsIter-collect}{}}}
+\subsection{Method \code{collect()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{IDsIter$collect()}\if{html}{\out{</div>}}
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-IDsIter-.next"></a>}}

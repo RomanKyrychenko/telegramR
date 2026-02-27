@@ -15,6 +15,16 @@ Represents a request to accept URL auth. This class inherits from TLRequest.
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+
+\item{\code{writeAllowed}}{Field.}
+
+\item{\code{peer}}{Field.}
+
+\item{\code{msgId}}{Field.}
+
+\item{\code{buttonId}}{Field.}
+
+\item{\code{url}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

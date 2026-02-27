@@ -396,7 +396,35 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       }
 
       logger::log_info("Connected to Telegram!")
-      future::future(TRUE)
+
+      if (isTRUE(getOption("telegramR.auth_status_message", TRUE)) &&
+          is.function(self$is_user_authorized)) {
+        auth_val <- tryCatch(
+          {
+            res <- self$is_user_authorized()
+            if (inherits(res, "Future")) {
+              future::value(res)
+            } else {
+              res
+            }
+          },
+          error = function(e) NULL
+        )
+        if (isTRUE(auth_val)) {
+          logger::log_info("Authorized session detected. No login required.")
+        } else if (identical(auth_val, FALSE)) {
+          logger::log_info("Not authorized. Request a login code with `client$send_code_request()`.")
+        } else if (!is.null(private$session$auth_key)) {
+          logger::log_info("Session auth key found. You are likely authorized; no login should be required.")
+        } else {
+          logger::log_info("Authorization status unknown. If needed, request a login code with `client$send_code_request()`.")
+        }
+      }
+
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future::future(TRUE))
+      }
+      invisible(TRUE)
     },
 
     #' Check if client is connected

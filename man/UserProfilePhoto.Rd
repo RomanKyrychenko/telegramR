@@ -15,6 +15,16 @@ Telegram API type UserProfilePhoto
 \item{\code{CONSTRUCTOR_ID}}{Constructor identifier for this TL object.}
 
 \item{\code{SUBCLASS_OF_ID}}{Subclass identifier for this TL object.}
+
+\item{\code{photo_id}}{Field.}
+
+\item{\code{dc_id}}{Field.}
+
+\item{\code{has_video}}{Field.}
+
+\item{\code{personal}}{Field.}
+
+\item{\code{stripped_thumb}}{Field.}
 }
 \if{html}{\out{</div>}}
 }

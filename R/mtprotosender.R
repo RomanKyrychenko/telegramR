@@ -644,6 +644,8 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     # Convert a fallback list (with CONSTRUCTOR_ID + raw data) into a proper
     # R6 object for critical MTProto types that handlers depend on.
     ._parse_fallback_obj = function(obj) {
+      dbg_parse <- isTRUE(getOption("telegramR.debug_parse", FALSE))
+      log_parse <- function(fmt, ...) if (dbg_parse) message(sprintf(fmt, ...))
       ctor <- as.numeric(obj$CONSTRUCTOR_ID)
       if (is.na(ctor)) {
         return(obj)
@@ -659,10 +661,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         return(obj)
       }
 
-      message(sprintf(
+      log_parse(
         "[parse_fallback] ctor=%.0f, class=%s, data_len=%d",
         ctor, class(ctor), length(data)
-      ))
+      )
 
       # Use plain lists with the correct field names to avoid R6 inheritance
       # conflicts (TLObject defines CONSTRUCTOR_ID as a public field, but some
@@ -675,11 +677,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             bad_msg_seqno <- reader$read_int()
             error_code <- reader$read_int()
             new_server_salt <- reader$read_long(signed = FALSE)
-            message(sprintf(
+            log_parse(
               "[parse_fallback] BadServerSalt: bad_msg_id=%s, error=%s, new_salt=%s",
               as.character(bad_msg_id), as.character(error_code),
               as.character(new_server_salt)
-            ))
+            )
             list(
               CONSTRUCTOR_ID = ctor, bad_msg_id = bad_msg_id,
               bad_msg_seqno = bad_msg_seqno, error_code = error_code,
@@ -695,7 +697,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             if (isTRUE(abs(as.numeric(inner_code) - rpc_error_ctor) < 1)) {
               error_code <- reader$read_int()
               error_message <- reader$tgread_string()
-              message(sprintf("[parse_fallback] RpcResult error: %d %s", error_code, error_message))
+              log_parse("[parse_fallback] RpcResult error: %d %s", error_code, error_message)
               list(
                 CONSTRUCTOR_ID = ctor, req_msg_id = msg_id, body = NULL,
                 error = list(error_code = error_code, error_message = error_message)
@@ -717,7 +719,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             first_msg_id <- reader$read_long()
             unique_id <- reader$read_long()
             server_salt <- reader$read_long(signed = FALSE)
-            message(sprintf("[parse_fallback] NewSessionCreated: salt=%s", as.character(server_salt)))
+            log_parse("[parse_fallback] NewSessionCreated: salt=%s", as.character(server_salt))
             list(
               CONSTRUCTOR_ID = ctor, first_msg_id = first_msg_id,
               unique_id = unique_id, server_salt = server_salt
@@ -777,7 +779,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           }
         },
         error = function(e) {
-          message(sprintf("[parse_fallback] ERROR parsing ctor %.0f: %s", ctor, conditionMessage(e)))
+          log_parse("[parse_fallback] ERROR parsing ctor %.0f: %s", ctor, conditionMessage(e))
           obj
         }
       )
@@ -1094,6 +1096,8 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
 
       dbg <- isTRUE(getOption("telegramR.debug_pump", FALSE))
+      log_pump <- function(fmt, ...) if (dbg) message(sprintf(fmt, ...))
+      log_pump_raw <- function(msg) if (dbg) message(msg)
 
       private$._ensure_transport_connected()
 
@@ -1121,10 +1125,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           for (st in batch) {
             if (!is.list(st)) {
               key <- msg_id_key(st$msg_id)
-              message(sprintf(
+              log_pump(
                 "[pump] batch item: class=%s, msg_id_key=%s",
                 paste(class(st$request), collapse = ","), key
-              ))
+              )
               private$pending_state[[key]] <- st
             } else {
               for (s in st) {
@@ -1133,18 +1137,18 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             }
           }
 
-          message(sprintf(
+          log_pump(
             "[pump] Sending %d encrypted bytes, pending_keys=%s",
             length(data), paste(names(private$pending_state), collapse = ",")
-          ))
+          )
           tryCatch(
             {
               await_promise(private$connection$send(data), timeout = timeout_sec)
-              message("[pump] Send completed OK")
+              log_pump_raw("[pump] Send completed OK")
             },
             error = function(e) {
               msg <- conditionMessage(e)
-              message(sprintf("[pump] Send error: %s", msg))
+              log_pump("[pump] Send error: %s", msg)
               if (grepl("Not connected", msg, fixed = TRUE) ||
                 grepl("invalid connection", msg, ignore.case = TRUE) ||
                 grepl("cannot read from this connection", msg, ignore.case = TRUE)) {
@@ -1160,10 +1164,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
 
       # Now receive responses until all states are resolved
-      message(sprintf(
+      log_pump(
         "[pump] Entering recv loop, %d state(s) to resolve, pending_state keys: %s",
         length(states), paste(names(private$pending_state), collapse = ",")
-      ))
+      )
       while (!all(vapply(states, state_done, logical(1)))) {
         elapsed <- proc.time()[["elapsed"]] - started_at
         remaining <- timeout_sec - elapsed
@@ -1189,10 +1193,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             for (st in batch) {
               if (!is.list(st)) {
                 key <- msg_id_key(st$msg_id)
-                message(sprintf(
+                log_pump(
                   "[pump] re-queue batch item: class=%s, msg_id_key=%s",
                   paste(class(st$request), collapse = ","), key
-                ))
+                )
                 private$pending_state[[key]] <- st
               } else {
                 for (s in st) {
@@ -1200,16 +1204,16 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
                 }
               }
             }
-            message(sprintf(
+            log_pump(
               "[pump] Re-sending %d encrypted bytes (%d items), pending_keys=%s",
               length(data), length(batch),
               paste(names(private$pending_state), collapse = ",")
-            ))
+            )
             tryCatch(
               await_promise(private$connection$send(data), timeout = remaining),
               error = function(e) {
                 msg <- conditionMessage(e)
-                message(sprintf("[pump] Re-send error: %s", msg))
+                log_pump("[pump] Re-send error: %s", msg)
                 if (grepl("Not connected", msg, fixed = TRUE) ||
                   grepl("invalid connection", msg, ignore.case = TRUE) ||
                   grepl("cannot read from this connection", msg, ignore.case = TRUE) ||
@@ -1232,7 +1236,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           },
           error = function(e) {
             msg <- conditionMessage(e)
-            message(sprintf("[pump] recv error: %s", msg))
+            log_pump("[pump] recv error: %s", msg)
             if (grepl("Not connected", msg, fixed = TRUE) ||
               grepl("invalid connection", msg, ignore.case = TRUE) ||
               grepl("cannot read from this connection", msg, ignore.case = TRUE) ||
@@ -1248,24 +1252,24 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         if (is.null(body)) {
           next
         }
-        message(sprintf("[pump] Received %d bytes", length(body)))
+        log_pump("[pump] Received %d bytes", length(body))
 
         tryCatch(
           {
             message <- private$state$decrypt_message_data(body)
             if (!is.null(message)) {
-              message(sprintf(
+              log_pump(
                 "[pump] Decrypted OK, obj class: %s, CTOR: %s",
                 paste(class(message$obj), collapse = ","),
                 as.character(message$obj$CONSTRUCTOR_ID)
-              ))
+              )
               private$process_message(message)
             } else {
-              message("[pump] decrypt returned NULL")
+              log_pump_raw("[pump] decrypt returned NULL")
             }
           },
           error = function(e) {
-            message(sprintf("[pump] Decrypt/process error: %s", conditionMessage(e)))
+            log_pump("[pump] Decrypt/process error: %s", conditionMessage(e))
           }
         )
       }
@@ -1429,6 +1433,8 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     # Message handlers
 
     process_message = function(message) {
+      dbg <- isTRUE(getOption("telegramR.debug_process", FALSE))
+      log_proc <- function(fmt, ...) if (dbg) message(sprintf(fmt, ...))
       # Add to pending acknowledgments
       private$pending_ack$add(message$msg_id)
 
@@ -1439,12 +1445,12 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       # If obj is a fallback list (from tgread_object failing to find the class),
       # try to convert it to a proper R6 object for critical MTProto types.
       if (is_fallback) {
-        message(sprintf(
+        log_proc(
           "[process] Got fallback list, CTOR=%.0f, data_len=%d, attempting parse",
           as.numeric(message$obj$CONSTRUCTOR_ID), length(message$obj$data)
-        ))
+        )
         message$obj <- private$._parse_fallback_obj(message$obj)
-        message(sprintf("[process] After parse: obj_class=%s", paste(class(message$obj), collapse = ",")))
+        log_proc("[process] After parse: obj_class=%s", paste(class(message$obj), collapse = ","))
       }
 
       # Find appropriate handler using normalized constructor ID key
@@ -1454,11 +1460,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       ctor_str <- sprintf("%.0f", v)
       handler <- private$handlers[[ctor_str]]
 
-      message(sprintf(
+      log_proc(
         "[process] ctor_id=%s, handler_found=%s, obj_class=%s",
         ctor_str, !is.null(handler),
         paste(class(message$obj), collapse = ",")
-      ))
+      )
 
       # Default to update handler if not found
       if (is.null(handler)) {
@@ -1469,7 +1475,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       tryCatch(
         handler(message),
         error = function(e) {
-          message(sprintf("[process] Handler error: %s", conditionMessage(e)))
+          log_proc("[process] Handler error: %s", conditionMessage(e))
         }
       )
     },
@@ -1510,14 +1516,16 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       return(list())
     },
     handle_rpc_result = function(message) {
+      dbg <- isTRUE(getOption("telegramR.debug_process", FALSE))
+      log_proc <- function(fmt, ...) if (dbg) message(sprintf(fmt, ...))
       rpc_result <- message$obj
       req_key <- msg_id_key(rpc_result$req_msg_id)
-      message(sprintf(
+      log_proc(
         "[handle_rpc_result] req_msg_id=%s, key=%s, pending_keys=%s, has_error=%s",
         as.character(rpc_result$req_msg_id), req_key,
         paste(names(private$pending_state), collapse = ","),
         !is.null(rpc_result$error)
-      ))
+      )
       state <- private$pending_state[[req_key]]
       private$pending_state[[req_key]] <- NULL
 
@@ -1656,16 +1664,18 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
     handle_bad_server_salt = function(message) {
+      dbg_parse <- isTRUE(getOption("telegramR.debug_parse", FALSE))
+      log_parse <- function(fmt, ...) if (dbg_parse) message(sprintf(fmt, ...))
       bad_salt <- message$obj
-      message(sprintf(
+      log_parse(
         "[handle_bad_salt] bad_msg_id=%s, new_salt=%s, pending_keys=%s",
         as.character(bad_salt$bad_msg_id),
         as.character(bad_salt$new_server_salt),
         paste(names(private$pending_state), collapse = ",")
-      ))
+      )
       private$state$salt <- bad_salt$new_server_salt
       states <- private$pop_states(bad_salt$bad_msg_id)
-      message(sprintf("[handle_bad_salt] popped %d state(s)", length(states)))
+      log_parse("[handle_bad_salt] popped %d state(s)", length(states))
       private$send_queue$extend(states)
     },
     handle_bad_notification = function(message) {

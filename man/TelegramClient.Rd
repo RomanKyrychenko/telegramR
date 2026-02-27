@@ -87,11 +87,7 @@ An R6 class that combines functionality from multiple method classes to interact
 
 \item{\code{reverse}}{Field.}
 
-\item{\code{reply_to}}{Field.
-Get messages
-
-Same as iter_messages(), but returns a collected list/vector.
-If limit is missing, defaults to 1 unless both min_id and max_id are set.}
+\item{\code{reply_to}}{Field.}
 
 \item{\code{message}}{Field.}
 
@@ -270,11 +266,7 @@ Extract the response message based on the request and result.}
 
 \item{\code{reverse}}{Field.}
 
-\item{\code{reply_to}}{Field.
-Get messages
-
-Same as iter_messages(), but returns a collected list/vector.
-If limit is missing, defaults to 1 unless both min_id and max_id are set.}
+\item{\code{reply_to}}{Field.}
 
 \item{\code{message}}{Field.}
 
@@ -441,7 +433,10 @@ Extract the response message based on the request and result.}
 \item \href{#method-TelegramClient-invoke_function}{\code{TelegramClient$invoke_function()}}
 \item \href{#method-TelegramClient-custom_inline_results}{\code{TelegramClient$custom_inline_results()}}
 \item \href{#method-TelegramClient-iter_messages}{\code{TelegramClient$iter_messages()}}
+\item \href{#method-TelegramClient-iter_messages_page}{\code{TelegramClient$iter_messages_page()}}
 \item \href{#method-TelegramClient-get_messages}{\code{TelegramClient$get_messages()}}
+\item \href{#method-TelegramClient-collect}{\code{TelegramClient$collect()}}
+\item \href{#method-TelegramClient-collect_one}{\code{TelegramClient$collect_one()}}
 \item \href{#method-TelegramClient-send_message}{\code{TelegramClient$send_message()}}
 \item \href{#method-TelegramClient-forward_messages}{\code{TelegramClient$forward_messages()}}
 \item \href{#method-TelegramClient-edit_message}{\code{TelegramClient$edit_message()}}
@@ -485,6 +480,16 @@ Extract the response message based on the request and result.}
 \item \href{#method-TelegramClient-is_user_authorized}{\code{TelegramClient$is_user_authorized()}}
 \item \href{#method-TelegramClient-get_entity}{\code{TelegramClient$get_entity()}}
 \item \href{#method-TelegramClient-get_input_entity}{\code{TelegramClient$get_input_entity()}}
+\item \href{#method-TelegramClient-getInputEntity}{\code{TelegramClient$getInputEntity()}}
+\item \href{#method-TelegramClient-getInputPeer}{\code{TelegramClient$getInputPeer()}}
+\item \href{#method-TelegramClient-getInputUser}{\code{TelegramClient$getInputUser()}}
+\item \href{#method-TelegramClient-getInputChannel}{\code{TelegramClient$getInputChannel()}}
+\item \href{#method-TelegramClient-getInputMessage}{\code{TelegramClient$getInputMessage()}}
+\item \href{#method-TelegramClient-getInputMedia}{\code{TelegramClient$getInputMedia()}}
+\item \href{#method-TelegramClient-getInputDocument}{\code{TelegramClient$getInputDocument()}}
+\item \href{#method-TelegramClient-getInputPhoto}{\code{TelegramClient$getInputPhoto()}}
+\item \href{#method-TelegramClient-getInputChatPhoto}{\code{TelegramClient$getInputChatPhoto()}}
+\item \href{#method-TelegramClient-getInputGroupCall}{\code{TelegramClient$getInputGroupCall()}}
 \item \href{#method-TelegramClient-get_peer}{\code{TelegramClient$get_peer()}}
 \item \href{#method-TelegramClient-get_peer_id}{\code{TelegramClient$get_peer_id()}}
 \item \href{#method-TelegramClient-get_entity_from_string}{\code{TelegramClient$get_entity_from_string()}}
@@ -2091,6 +2096,36 @@ An iterator-like object or list depending on implementation.
 }
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramClient-iter_messages_page"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramClient-iter_messages_page}{}}}
+\subsection{Method \code{iter_messages_page()}}{
+Fetch a single page of messages for use by MessagesIter.
+This is a low-level helper and does not paginate by itself.
+Get messages
+
+Same as iter_messages(), but returns a collected list/vector.
+If limit is missing, defaults to 1 unless both min_id and max_id are set.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$iter_messages_page(
+  entity,
+  limit = NULL,
+  offset_date = NULL,
+  offset_id = 0L,
+  max_id = 0L,
+  min_id = 0L,
+  add_offset = 0L,
+  search = NULL,
+  filter = NULL,
+  from_user = NULL,
+  wait_time = NULL,
+  reverse = FALSE,
+  reply_to = NULL,
+  scheduled = FALSE
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-get_messages"></a>}}
 \if{latex}{\out{\hypertarget{method-TelegramClient-get_messages}{}}}
 \subsection{Method \code{get_messages()}}{
@@ -2107,6 +2142,46 @@ An iterator-like object or list depending on implementation.
 }
 \subsection{Returns}{
 A list of messages or a single message if ids is a scalar.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramClient-collect"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramClient-collect}{}}}
+\subsection{Method \code{collect()}}{
+Collect all items from an iterator-like object.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$collect(it)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{it}}{Iterator or list.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A list of collected items.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramClient-collect_one"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramClient-collect_one}{}}}
+\subsection{Method \code{collect_one()}}{
+Collect a single item from an iterator-like object.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$collect_one(it)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{it}}{Iterator or list.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A single item or NULL.
 Send a message
 
 Sends a message to the specified user, chat or channel. Supports text, media, buttons,
@@ -3127,7 +3202,7 @@ Get an entity from a given input.
 \if{html}{\out{</div>}}
 }
 \subsection{Returns}{
-A future object representing the entity.
+An entity or a future if async is enabled.
 }
 }
 \if{html}{\out{<hr>}}
@@ -3147,8 +3222,115 @@ Get the input entity for a given peer.
 \if{html}{\out{</div>}}
 }
 \subsection{Returns}{
-A future object representing the input entity.
+An input entity or a future if async is enabled.
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramClient-getInputEntity"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramClient-getInputEntity}{}}}
+\subsection{Method \code{getInputEntity()}}{
+CamelCase alias for get_input_entity (used by generated code).
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$getInputEntity(peer)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramClient-getInputPeer"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramClient-getInputPeer}{}}}
+\subsection{Method \code{getInputPeer()}}{
+CamelCase alias for get_input_peer (used by generated code).
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$getInputPeer(peer, allow_self = TRUE, check_hash = TRUE)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramClient-getInputUser"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramClient-getInputUser}{}}}
+\subsection{Method \code{getInputUser()}}{
+CamelCase alias for get_input_user (used by generated code).
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$getInputUser(entity)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramClient-getInputChannel"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramClient-getInputChannel}{}}}
+\subsection{Method \code{getInputChannel()}}{
+CamelCase alias for get_input_channel (used by generated code).
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$getInputChannel(entity)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramClient-getInputMessage"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramClient-getInputMessage}{}}}
+\subsection{Method \code{getInputMessage()}}{
+CamelCase alias for get_input_message (used by generated code).
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$getInputMessage(message)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramClient-getInputMedia"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramClient-getInputMedia}{}}}
+\subsection{Method \code{getInputMedia()}}{
+CamelCase alias for get_input_media (used by generated code).
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$getInputMedia(
+  media,
+  is_photo = FALSE,
+  attributes = NULL,
+  force_document = FALSE,
+  file_size = NULL,
+  progress_callback = NULL
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramClient-getInputDocument"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramClient-getInputDocument}{}}}
+\subsection{Method \code{getInputDocument()}}{
+CamelCase alias for get_input_document (used by generated code).
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$getInputDocument(document)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramClient-getInputPhoto"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramClient-getInputPhoto}{}}}
+\subsection{Method \code{getInputPhoto()}}{
+CamelCase alias for get_input_photo (used by generated code).
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$getInputPhoto(photo)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramClient-getInputChatPhoto"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramClient-getInputChatPhoto}{}}}
+\subsection{Method \code{getInputChatPhoto()}}{
+CamelCase alias for get_input_chat_photo (used by generated code).
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$getInputChatPhoto(photo)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TelegramClient-getInputGroupCall"></a>}}
+\if{latex}{\out{\hypertarget{method-TelegramClient-getInputGroupCall}{}}}
+\subsection{Method \code{getInputGroupCall()}}{
+CamelCase alias for get_input_group_call (used by generated code).
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TelegramClient$getInputGroupCall(call)}\if{html}{\out{</div>}}
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TelegramClient-get_peer"></a>}}

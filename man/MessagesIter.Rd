@@ -77,9 +77,6 @@ It delegates fetching to the provided client via iter_messages().
 Load next chunk
 
 Fetches the next chunk of messages and appends them to the internal buffer.}
-
-\item{\code{ids}}{Field.
-Check if there are more items to retrieve}
 }
 \if{html}{\out{</div>}}
 }
@@ -91,9 +88,6 @@ Check if there are more items to retrieve}
 \item{\code{from_user}}{Field.}
 
 \item{\code{scheduled}}{Field.}
-
-\item{\code{ids}}{Field.
-Check if there are more items to retrieve}
 }
 \if{html}{\out{</div>}}
 }
@@ -103,6 +97,7 @@ Check if there are more items to retrieve}
 \item \href{#method-MessagesIter-new}{\code{MessagesIter$new()}}
 \item \href{#method-MessagesIter-load_next_chunk}{\code{MessagesIter$load_next_chunk()}}
 \item \href{#method-MessagesIter-has_next}{\code{MessagesIter$has_next()}}
+\item \href{#method-MessagesIter-collect}{\code{MessagesIter$collect()}}
 \item \href{#method-MessagesIter-.next}{\code{MessagesIter$.next()}}
 \item \href{#method-MessagesIter-clone}{\code{MessagesIter$clone()}}
 }
@@ -178,6 +173,7 @@ Initialize the iterator with query parameters.
 
 \subsection{Returns}{
 A list of messages for this chunk or NULL if exhausted.
+Check if there are more items to retrieve
 }
 }
 \if{html}{\out{<hr>}}
@@ -190,8 +186,18 @@ A list of messages for this chunk or NULL if exhausted.
 
 \subsection{Returns}{
 logical indicating whether there are more items to fetch or buffered.
+Collect all remaining messages into a list.
 Get the next item, fetching more if needed
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-MessagesIter-collect"></a>}}
+\if{latex}{\out{\hypertarget{method-MessagesIter-collect}{}}}
+\subsection{Method \code{collect()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{MessagesIter$collect()}\if{html}{\out{</div>}}
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-MessagesIter-.next"></a>}}

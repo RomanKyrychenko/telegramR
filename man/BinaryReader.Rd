@@ -24,6 +24,7 @@ Provides methods to read various data types and handle stream positions.
 \item \href{#method-BinaryReader-read}{\code{BinaryReader$read()}}
 \item \href{#method-BinaryReader-get_bytes}{\code{BinaryReader$get_bytes()}}
 \item \href{#method-BinaryReader-close}{\code{BinaryReader$close()}}
+\item \href{#method-BinaryReader-finalize}{\code{BinaryReader$finalize()}}
 \item \href{#method-BinaryReader-tell_position}{\code{BinaryReader$tell_position()}}
 \item \href{#method-BinaryReader-set_position}{\code{BinaryReader$set_position()}}
 \item \href{#method-BinaryReader-seek}{\code{BinaryReader$seek()}}
@@ -173,6 +174,15 @@ A raw vector of the entire buffer.
 Closes the reader, freeing the raw connection.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{BinaryReader$close()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-BinaryReader-finalize"></a>}}
+\if{latex}{\out{\hypertarget{method-BinaryReader-finalize}{}}}
+\subsection{Method \code{finalize()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{BinaryReader$finalize()}\if{html}{\out{</div>}}
 }
 
 }

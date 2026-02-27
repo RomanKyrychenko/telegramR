@@ -15,6 +15,12 @@ Represents a request to accept encryption. This class inherits from TLRequest.
 \item{\code{CONSTRUCTOR_ID}}{The constructor ID.}
 
 \item{\code{SUBCLASS_OF_ID}}{The subclass ID.}
+
+\item{\code{peer}}{Field.}
+
+\item{\code{gB}}{Field.}
+
+\item{\code{keyFingerprint}}{Field.}
 }
 \if{html}{\out{</div>}}
 }
