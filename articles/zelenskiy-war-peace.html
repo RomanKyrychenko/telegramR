@@ -33,7 +33,8 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/download-data.html">Downloading Channel Data</a></li>
+<li><a class="dropdown-item" href="../articles/channel-interactions.html">Channel Interactions: Members, Replies, and Reactions</a></li>
+    <li><a class="dropdown-item" href="../articles/download-data.html">Downloading Channel Data</a></li>
     <li><a class="dropdown-item" href="../articles/zelenskiy-war-peace.html">Studying Zelenskiy / Official: War, Peace, and Language</a></li>
   </ul>
 </li>
@@ -87,18 +88,25 @@ before “peace”).</li>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># your </span></span>
 <span><span class="va">api_id</span> <span class="op">&lt;-</span> <span class="fl">123456</span></span>
 <span><span class="va">api_hash</span> <span class="op">&lt;-</span> <span class="st">"0123456789abcdef0123456789abcdef"</span></span>
 <span></span>
 <span><span class="va">client</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/TelegramClient.html">TelegramClient</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"my_session"</span>, <span class="va">api_id</span>, <span class="va">api_hash</span><span class="op">)</span></span>
-<span><span class="va">client</span><span class="op">$</span><span class="fu">start</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">client</span><span class="op">$</span><span class="fu">connect</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>If not authorized:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">client</span><span class="op">$</span><span class="fu">send_code_request</span><span class="op">(</span><span class="st">"your_phone_number"</span><span class="op">)</span></span></code></pre></div>
+<p>After recieving code in Telegram app:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">client</span><span class="op">$</span><span class="fu">sign_in</span><span class="op">(</span>phone <span class="op">=</span> <span class="st">"your_phone_number"</span>, code <span class="op">=</span> <span class="st">"code"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="download-messages">Download Messages<a class="anchor" aria-label="anchor" href="#download-messages"></a>
 </h2>
 <p>You can download a fixed number of recent posts or the full
 history.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">msgs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/download_channel_messages.html">download_channel_messages</a></span><span class="op">(</span></span>
 <span>  <span class="va">client</span>,</span>
 <span>  <span class="st">"V_Zelenskiy_official"</span>,</span>
@@ -107,9 +115,28 @@ history.</p>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="optional-reactions-and-replies">Optional: Reactions and Replies<a class="anchor" aria-label="anchor" href="#optional-reactions-and-replies"></a>
+</h2>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Reactions per post</span></span>
+<span><span class="va">reactions</span> <span class="op">&lt;-</span> <span class="fu">download_channel_reactions</span><span class="op">(</span></span>
+<span>  <span class="va">client</span>,</span>
+<span>  <span class="st">"V_Zelenskiy_official"</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fl">1000</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Replies to the latest 50 posts (if comments are enabled)</span></span>
+<span><span class="va">replies</span> <span class="op">&lt;-</span> <span class="fu">download_channel_replies</span><span class="op">(</span></span>
+<span>  <span class="va">client</span>,</span>
+<span>  <span class="st">"V_Zelenskiy_official"</span>,</span>
+<span>  message_limit <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>  reply_limit <span class="op">=</span> <span class="cn">Inf</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
 <h2 id="preprocess">Preprocess<a class="anchor" aria-label="anchor" href="#preprocess"></a>
 </h2>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Basic cleanup</span></span>
 <span><span class="va">msgs</span> <span class="op">&lt;-</span> <span class="va">msgs</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">text</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -119,14 +146,14 @@ history.</p>
 <span>  <span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="war-vs--peace-over-time">1) War vs. Peace Over Time<a class="anchor" aria-label="anchor" href="#war-vs--peace-over-time"></a>
+<h2 id="war-vs--peace-over-time-weekly-dynamics">1) War vs. Peace Over Time (weekly dynamics)<a class="anchor" aria-label="anchor" href="#war-vs--peace-over-time-weekly-dynamics"></a>
 </h2>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Count mentions per day (simple word match)</span></span>
 <span><span class="va">war_peace</span> <span class="op">&lt;-</span> <span class="va">msgs</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
-<span>    war_mentions <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_count.html" class="external-link">str_count</a></span><span class="op">(</span><span class="va">text_lower</span>, <span class="st">"\\bwar\\b"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_count.html" class="external-link">str_count</a></span><span class="op">(</span><span class="va">text_lower</span>, <span class="st">"\\bвійн.\\b"</span><span class="op">)</span>,</span>
-<span>    peace_mentions <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_count.html" class="external-link">str_count</a></span><span class="op">(</span><span class="va">text_lower</span>, <span class="st">"\\bpeace\\b"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_count.html" class="external-link">str_count</a></span><span class="op">(</span><span class="va">text_lower</span>, <span class="st">"\\bмир\\b"</span><span class="op">)</span></span>
+<span>    war_mentions <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_count.html" class="external-link">str_count</a></span><span class="op">(</span><span class="va">text_lower</span>, <span class="st">"\\bwar\\b"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_count.html" class="external-link">str_count</a></span><span class="op">(</span><span class="va">text_lower</span>, <span class="st">"\\bвійн.(.||)\\b"</span><span class="op">)</span>,</span>
+<span>    peace_mentions <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_count.html" class="external-link">str_count</a></span><span class="op">(</span><span class="va">text_lower</span>, <span class="st">"\\bpeace\\b"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_count.html" class="external-link">str_count</a></span><span class="op">(</span><span class="va">text_lower</span>, <span class="st">"\\bмир(.||)(.||)\\b"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>day <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/round_date.html" class="external-link">round_date</a></span><span class="op">(</span><span class="va">day</span>, unit <span class="op">=</span> <span class="st">"week"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">day</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -141,15 +168,20 @@ history.</p>
 <span><span class="va">war_peace</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">day</span>, <span class="va">count</span>, fill <span class="op">=</span> <span class="va">term</span>, group<span class="op">=</span><span class="va">term</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html" class="external-link">geom_area</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="va"><a href="https://scales.r-lib.org/reference/percent_format.html" class="external-link">percent</a></span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Mentions of war and peace"</span>, x <span class="op">=</span> <span class="cn">NULL</span>, y <span class="op">=</span> <span class="st">"Count"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html" class="external-link">scale_x_date</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="va"><a href="https://scales.r-lib.org/reference/percent_format.html" class="external-link">percent</a></span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lightblue"</span>, <span class="st">"red"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html" class="external-link">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd.html" class="external-link">ymd</a></span><span class="op">(</span><span class="st">"2025-05-01"</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">0.9</span>, label <span class="op">=</span> <span class="st">"PEACE"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html" class="external-link">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd.html" class="external-link">ymd</a></span><span class="op">(</span><span class="st">"2025-05-01"</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">0.1</span>, label <span class="op">=</span> <span class="st">"WAR"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="adjectives-before-peace">2) Adjectives Before “Peace”<a class="anchor" aria-label="anchor" href="#adjectives-before-peace"></a>
 </h2>
 <p>We extract the token immediately preceding “peace”.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># =========================</span></span>
 <span><span class="co"># Peace/Mир adjective mining + stopword filtering + EN/UKR unification + monthly dynamics</span></span>
 <span><span class="co"># =========================</span></span>
@@ -334,19 +366,22 @@ history.</p>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">monthly_adj_merged</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">month</span>, y <span class="op">=</span> <span class="va">n</span>, color <span class="op">=</span> <span class="va">adj_group</span>, group <span class="op">=</span> <span class="va">adj_group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_path</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html" class="external-link">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set3"</span><span class="op">)</span> <span class="op">+</span>   <span class="co"># You can change palette here</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html" class="external-link">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span> <span class="op">+</span>   <span class="co"># You can change palette here</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Proportional Monthly Dynamics (Merged EN/UKR Equivalents)"</span>,</span>
 <span>    x <span class="op">=</span> <span class="st">"Month"</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">"Count"</span>,</span>
 <span>    color <span class="op">=</span> <span class="st">"Adjective (merged)"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
+<span>    panel.grid.minor <span class="op">=</span> </span>
+<span>  <span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="powerful-over-time">3) “Powerful” Over Time<a class="anchor" aria-label="anchor" href="#powerful-over-time"></a>
 </h2>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">powerful</span> <span class="op">&lt;-</span> <span class="va">msgs</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>powerful_mentions <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_count.html" class="external-link">str_count</a></span><span class="op">(</span><span class="va">text_lower</span>, <span class="st">"\\bpowerful\\b"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_count.html" class="external-link">str_count</a></span><span class="op">(</span><span class="va">text_lower</span>, <span class="st">"\\bпотужн.(|.)\\b"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>day <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/round_date.html" class="external-link">round_date</a></span><span class="op">(</span><span class="va">day</span>, unit <span class="op">=</span> <span class="st">"week"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
@@ -358,16 +393,6 @@ history.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Usage of the word 'powerful'"</span>, x <span class="op">=</span> <span class="cn">NULL</span>, y <span class="op">=</span> <span class="st">"Count"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="notes">Notes<a class="anchor" aria-label="anchor" href="#notes"></a>
-</h2>
-<ul>
-<li>These are simple text heuristics. You can refine with stemming,
-multilingual variants, or topic modeling.</li>
-<li>For more robust language handling, consider language detection and
-per‑language tokenization.</li>
-</ul>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

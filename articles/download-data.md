@@ -83,3 +83,50 @@ msgs_range <- download_channel_messages(
   limit      = Inf
 )
 ```
+
+## Download Reactions
+
+``` r
+reactions <- download_channel_reactions(
+  client,
+  "telegram",
+  limit = 500
+)
+
+reactions
+```
+
+## Download Replies (Comments)
+
+``` r
+# Fetch replies for the latest 20 posts
+replies <- download_channel_replies(
+  client,
+  "telegram",
+  message_limit = 20,
+  reply_limit = Inf
+)
+
+replies
+```
+
+## Download Members
+
+``` r
+members <- download_channel_members(
+  client,
+  "telegram",
+  limit = 500
+)
+
+members
+```
+
+## Numeric Channel IDs
+
+All helpers accept a numeric channel id if it is available in your
+session cache:
+
+``` r
+msgs_by_id <- download_channel_messages(client, 1234567890, limit = 100)
+```

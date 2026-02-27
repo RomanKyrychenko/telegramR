@@ -19,11 +19,24 @@ library(lubridate)
 library(tidyr)
 library(ggplot2)
 
+# your 
 api_id <- 123456
 api_hash <- "0123456789abcdef0123456789abcdef"
 
 client <- TelegramClient$new("my_session", api_id, api_hash)
-client$start()
+client$connect()
+```
+
+If not authorized:
+
+``` r
+client$send_code_request("your_phone_number")
+```
+
+After recieving code in Telegram app:
+
+``` r
+client$sign_in(phone = "your_phone_number", code = "code")
 ```
 
 ## Download Messages
@@ -39,6 +52,25 @@ msgs <- download_channel_messages(
 )
 ```
 
+## Optional: Reactions and Replies
+
+``` r
+# Reactions per post
+reactions <- download_channel_reactions(
+  client,
+  "V_Zelenskiy_official",
+  limit = 1000
+)
+
+# Replies to the latest 50 posts (if comments are enabled)
+replies <- download_channel_replies(
+  client,
+  "V_Zelenskiy_official",
+  message_limit = 50,
+  reply_limit = Inf
+)
+```
+
 ## Preprocess
 
 ``` r
@@ -51,14 +83,14 @@ msgs <- msgs %>%
   )
 ```
 
-## 1) War vs. Peace Over Time
+## 1) War vs. Peace Over Time (weekly dynamics)
 
 ``` r
 # Count mentions per day (simple word match)
 war_peace <- msgs %>%
   mutate(
-    war_mentions = str_count(text_lower, "\\bwar\\b") + str_count(text_lower, "\\bвійн.\\b"),
-    peace_mentions = str_count(text_lower, "\\bpeace\\b") + str_count(text_lower, "\\bмир\\b")
+    war_mentions = str_count(text_lower, "\\bwar\\b") + str_count(text_lower, "\\bвійн.(.||)\\b"),
+    peace_mentions = str_count(text_lower, "\\bpeace\\b") + str_count(text_lower, "\\bмир(.||)(.||)\\b")
   ) %>%
   mutate(day = lubridate::round_date(day, unit = "week")) %>% 
   group_by(day) %>%
@@ -73,9 +105,14 @@ war_peace <- msgs %>%
 war_peace %>%
   ggplot(aes(day, count, fill = term, group=term)) +
   geom_area(position = "fill") +
-  scale_y_continuous(labels = scales::percent) +
   labs(title = "Mentions of war and peace", x = NULL, y = "Count") +
-  theme_minimal()
+  scale_x_date(expand = c(0, 0, 0, 0)) +
+  scale_y_continuous(expand = c(0, 0, 0, 0), labels = scales::percent) +
+  scale_fill_manual(values = c("lightblue", "red")) +
+  annotate("text", x = ymd("2025-05-01"), y = 0.9, label = "PEACE") +
+  annotate("text", x = ymd("2025-05-01"), y = 0.1, label = "WAR") +
+  theme_minimal() +
+  theme(legend.position = "none")
 ```
 
 ## 2) Adjectives Before “Peace”
@@ -267,14 +304,17 @@ monthly_adj_merged <- adj_long2 %>%
 ggplot(monthly_adj_merged, aes(x = month, y = n, color = adj_group, group = adj_group)) +
   geom_path() +
   scale_y_continuous() +
-  scale_color_brewer(palette = "Set3") +   # You can change palette here
+  scale_color_brewer(palette = "Set1") +   # You can change palette here
   labs(
     title = "Proportional Monthly Dynamics (Merged EN/UKR Equivalents)",
     x = "Month",
     y = "Count",
     color = "Adjective (merged)"
   ) +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    panel.grid.minor = 
+  )
 ```
 
 ## 3) “Powerful” Over Time
@@ -292,10 +332,3 @@ powerful %>%
   labs(title = "Usage of the word 'powerful'", x = NULL, y = "Count") +
   theme_minimal()
 ```
-
-## Notes
-
-- These are simple text heuristics. You can refine with stemming,
-  multilingual variants, or topic modeling.
-- For more robust language handling, consider language detection and
-  per‑language tokenization.

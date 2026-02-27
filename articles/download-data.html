@@ -33,7 +33,8 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/download-data.html">Downloading Channel Data</a></li>
+<li><a class="dropdown-item" href="../articles/channel-interactions.html">Channel Interactions: Members, Replies, and Reactions</a></li>
+    <li><a class="dropdown-item" href="../articles/download-data.html">Downloading Channel Data</a></li>
     <li><a class="dropdown-item" href="../articles/zelenskiy-war-peace.html">Studying Zelenskiy / Official: War, Peace, and Language</a></li>
   </ul>
 </li>
@@ -160,6 +161,52 @@ estimate</strong>.</p>
 <span>  end_date   <span class="op">=</span> <span class="st">"2025-02-01"</span>,</span>
 <span>  limit      <span class="op">=</span> <span class="cn">Inf</span></span>
 <span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="download-reactions">Download Reactions<a class="anchor" aria-label="anchor" href="#download-reactions"></a>
+</h2>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">reactions</span> <span class="op">&lt;-</span> <span class="fu">download_channel_reactions</span><span class="op">(</span></span>
+<span>  <span class="va">client</span>,</span>
+<span>  <span class="st">"telegram"</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fl">500</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">reactions</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="download-replies-comments">Download Replies (Comments)<a class="anchor" aria-label="anchor" href="#download-replies-comments"></a>
+</h2>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Fetch replies for the latest 20 posts</span></span>
+<span><span class="va">replies</span> <span class="op">&lt;-</span> <span class="fu">download_channel_replies</span><span class="op">(</span></span>
+<span>  <span class="va">client</span>,</span>
+<span>  <span class="st">"telegram"</span>,</span>
+<span>  message_limit <span class="op">=</span> <span class="fl">20</span>,</span>
+<span>  reply_limit <span class="op">=</span> <span class="cn">Inf</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">replies</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="download-members">Download Members<a class="anchor" aria-label="anchor" href="#download-members"></a>
+</h2>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">members</span> <span class="op">&lt;-</span> <span class="fu">download_channel_members</span><span class="op">(</span></span>
+<span>  <span class="va">client</span>,</span>
+<span>  <span class="st">"telegram"</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fl">500</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">members</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="numeric-channel-ids">Numeric Channel IDs<a class="anchor" aria-label="anchor" href="#numeric-channel-ids"></a>
+</h2>
+<p>All helpers accept a numeric channel id if it is available in your
+session cache:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">msgs_by_id</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/download_channel_messages.html">download_channel_messages</a></span><span class="op">(</span><span class="va">client</span>, <span class="fl">1234567890</span>, limit <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
