@@ -1,23 +1,25 @@
-#' MessageParseMethods R6 class
-#'
-#' Lightweight helpers for parsing messages and handling response mapping.
-#' @title MessageParseMethods
-#' @description Telegram API type MessageParseMethods
-#' @export
+#  MessageParseMethods R6 class
+# 
+#  Lightweight helpers for parsing messages and handling response mapping.
+#  @title MessageParseMethods
+#  @description Telegram API type MessageParseMethods
+#  @export
+#  @noRd
+#  @noRd
 MessageParseMethods <- R6::R6Class(
   "MessageParseMethods",
   public = list(
-    #' @field parse_mode Field.
+    #  @field parse_mode Field.
     parse_mode = NULL,
 
-    #' @description Initialize with an optional parse mode.
-    #' @param mode Parse mode (e.g., "md", "markdown", "html", "htm") or NULL.
+    #  @description Initialize with an optional parse mode.
+    #  @param mode Parse mode (e.g., "md", "markdown", "html", "htm") or NULL.
     initialize = function(mode = NULL) {
       self$set_parse_mode(mode)
     },
 
-    #' @description Sanitize the parse mode input.
-    #' @param mode The parse mode to sanitize.
+    #  @description Sanitize the parse mode input.
+    #  @param mode The parse mode to sanitize.
     sanitize_parse_mode = function(mode) {
       if (is.null(mode)) {
         return(NULL)
@@ -28,20 +30,20 @@ MessageParseMethods <- R6::R6Class(
       stop("Invalid parse mode")
     },
 
-    #' @description Set the default parse mode.
-    #' @param mode The parse mode to set.
+    #  @description Set the default parse mode.
+    #  @param mode The parse mode to set.
     set_parse_mode = function(mode) {
       self$parse_mode <- self$sanitize_parse_mode(mode)
     },
 
-    #' @description Get the current parse mode.
+    #  @description Get the current parse mode.
     get_parse_mode = function() {
       self$parse_mode
     },
 
-    #' @description Parse a message text based on the parse mode.
-    #' @param message The message text to parse.
-    #' @param parse_mode Optional override parse mode.
+    #  @description Parse a message text based on the parse mode.
+    #  @param message The message text to parse.
+    #  @param parse_mode Optional override parse mode.
     parse_message_text = function(message, parse_mode = NULL) {
       if (is.null(parse_mode)) {
         parse_mode <- self$parse_mode
@@ -63,15 +65,15 @@ MessageParseMethods <- R6::R6Class(
       list(message = parsed_message, entities = entities)
     },
 
-    #' @description Replace an entity with a mention of a user.
-    #' @param entities The list of entities.
-    #' @param i The index of the entity to replace.
-    #' @param user The user to mention.
+    #  @description Replace an entity with a mention of a user.
+    #  @param entities The list of entities.
+    #  @param i The index of the entity to replace.
+    #  @param user The user to mention.
     replace_with_mention = function(entities, i, user) {
       tryCatch(
         {
           entities[[i]] <- list(
-            #' @field type Field.
+            #  @field type Field.
             type = "mention",
             offset = entities[[i]]$offset,
             length = entities[[i]]$length,
@@ -83,10 +85,10 @@ MessageParseMethods <- R6::R6Class(
       )
     },
 
-    #' @description Extract the response message based on the request and result.
-    #' @param request The original request.
-    #' @param result The result from the API.
-    #' @param input_chat The input chat entity (unused but kept for signature compatibility).
+    #  @description Extract the response message based on the request and result.
+    #  @param request The original request.
+    #  @param result The result from the API.
+    #  @param input_chat The input chat entity (unused but kept for signature compatibility).
     get_response_message = function(request, result, input_chat) {
       updates <- list()
 

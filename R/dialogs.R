@@ -1,14 +1,14 @@
-#' Import required packages
+#  Import required packages
 NULL
 
-#' Constants
+#  Constants
 .MAX_CHUNK_SIZE <- 100
 
-#' Helper function to get dialog message key
-#' @param peer The peer object
-#' @param message_id The message ID
-#' @return A list containing the channel ID and message ID
-#' @export
+#  Helper function to get dialog message key
+#  @param peer The peer object
+#  @param message_id The message ID
+#  @return A list containing the channel ID and message ID
+#  @export
 dialog_message_key <- function(peer, message_id) {
   # Get the key to get messages from a dialog.
   #
@@ -20,41 +20,43 @@ dialog_message_key <- function(peer, message_id) {
   return(list(channel_id = channel_id, message_id = message_id))
 }
 
-#' DialogsIter class
-#'
-#'
-#' @details
-#' This class is used to iterate over Telegram dialogs (open conversations/subscribed channels).
-#' The order is the same as the one seen in official applications (first pinned, then from those with the most recent message to those with the oldest message).
-#'
-#' @title DialogsIter
-#' @description Telegram API type DialogsIter
-#' @export
+#  DialogsIter class
+# 
+# 
+#  @details
+#  This class is used to iterate over Telegram dialogs (open conversations/subscribed channels).
+#  The order is the same as the one seen in official applications (first pinned, then from those with the most recent message to those with the oldest message).
+# 
+#  @title DialogsIter
+#  @description Telegram API type DialogsIter
+#  @export
+#  @noRd
+#  @noRd
 DialogsIter <- R6::R6Class("DialogsIter",
   inherit = RequestIter,
   public = list(
     # Added fields to avoid adding bindings at runtime
-    #' @field request Field.
+    #  @field request Field.
     request = NULL,
-    #' @field seen Field.
+    #  @field seen Field.
     seen = NULL,
-    #' @field offset_date Field.
+    #  @field offset_date Field.
     offset_date = NULL,
-    #' @field ignore_migrated Field.
+    #  @field ignore_migrated Field.
     ignore_migrated = NULL,
 
-    #' @description
-    #' Constructor for the DialogsIter class.
-    #' @param client The Telegram client.
-    #' @param limit The maximum number of dialogs to retrieve.
-    #' @param offset_date The offset date to be used.
-    #' @param offset_id The message ID to be used as an offset.
-    #' @param offset_peer The peer to be used as an offset.
-    #' @param ignore_pinned Whether pinned dialogs should be ignored or not.
-    #' @param ignore_migrated Whether Chat that have "migrated_to" a Channel should be included or not.
-    #' @param folder The folder from which the dialogs should be retrieved.
-    #' @return A new DialogsIter object.
-    #' @export
+    #  @description
+    #  Constructor for the DialogsIter class.
+    #  @param client The Telegram client.
+    #  @param limit The maximum number of dialogs to retrieve.
+    #  @param offset_date The offset date to be used.
+    #  @param offset_id The message ID to be used as an offset.
+    #  @param offset_peer The peer to be used as an offset.
+    #  @param ignore_pinned Whether pinned dialogs should be ignored or not.
+    #  @param ignore_migrated Whether Chat that have "migrated_to" a Channel should be included or not.
+    #  @param folder The folder from which the dialogs should be retrieved.
+    #  @return A new DialogsIter object.
+    #  @export
     initialize = function(client, limit, offset_date = NULL, offset_id = 0,
                           offset_peer = new("InputPeerEmpty"), ignore_pinned = FALSE,
                           ignore_migrated = FALSE, folder = NULL) {
@@ -67,9 +69,9 @@ DialogsIter <- R6::R6Class("DialogsIter",
             offset_date = offset_date,
             offset_id = offset_id,
             offset_peer = offset_peer,
-            #' @field limit Field.
+            #  @field limit Field.
             limit = 1,
-            #' @field hash Field.
+            #  @field hash Field.
             hash = 0,
             exclude_pinned = ignore_pinned,
             folder_id = folder
@@ -90,9 +92,9 @@ DialogsIter <- R6::R6Class("DialogsIter",
       )
     },
 
-    #' @description
-    #' Loads the next chunk of dialogs.
-    #' @return A future that resolves to a list of dialogs.
+    #  @description
+    #  Loads the next chunk of dialogs.
+    #  @return A future that resolves to a list of dialogs.
     load_next_chunk = function() {
       return(
         future({
@@ -194,9 +196,9 @@ DialogsIter <- R6::R6Class("DialogsIter",
       )
     },
 
-    #' @description
-    #' Gets the initialization future.
-    #' @return A future that resolves to the initialization result.
+    #  @description
+    #  Gets the initialization future.
+    #  @return A future that resolves to the initialization result.
     get_init_future = function() {
       return(private$init_future)
     }
@@ -206,19 +208,21 @@ DialogsIter <- R6::R6Class("DialogsIter",
   )
 )
 
-#' DraftsIter class
-#' @title DraftsIter
-#' @description Telegram API type DraftsIter
-#' @export
+#  DraftsIter class
+#  @title DraftsIter
+#  @description Telegram API type DraftsIter
+#  @export
+#  @noRd
+#  @noRd
 DraftsIter <- R6::R6Class("DraftsIter",
   inherit = RequestIter,
   public = list(
-    #' @description
-    #' Constructor for the DraftsIter class.
-    #' @param client The Telegram client.
-    #' @param limit The maximum number of drafts to retrieve.
-    #' @param entities The list of entities for which to fetch the drafts.
-    #' @return A new DraftsIter object.
+    #  @description
+    #  Constructor for the DraftsIter class.
+    #  @param client The Telegram client.
+    #  @param limit The maximum number of drafts to retrieve.
+    #  @param entities The list of entities for which to fetch the drafts.
+    #  @return A new DraftsIter object.
     initialize = function(client, limit, entities = NULL) {
       super$initialize(client, limit)
 
@@ -257,18 +261,18 @@ DraftsIter <- R6::R6Class("DraftsIter",
       )
     },
 
-    #' @description
-    #' Loads the next chunk of drafts.
-    #' @return A future that resolves to a list of drafts.
+    #  @description
+    #  Loads the next chunk of drafts.
+    #  @return A future that resolves to a list of drafts.
     load_next_chunk = function() {
       return(future({
         return(list())
       }))
     },
 
-    #' @description
-    #' Gets the initialization future.
-    #' @return A future that resolves to the initialization result.
+    #  @description
+    #  Gets the initialization future.
+    #  @return A future that resolves to the initialization result.
     get_init_future = function() {
       return(private$init_future)
     }

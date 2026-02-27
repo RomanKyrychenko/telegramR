@@ -1,9 +1,9 @@
-#' Cancel a future
-#'
-#' Attempts to safely cancel a running future task.
-#' @param future The future object to cancel
-#' @return Invisible NULL
-#' @export
+#  Cancel a future
+#
+#  Attempts to safely cancel a running future task.
+#  @param future The future object to cancel
+#  @return Invisible NULL
+#  @export
 cancel <- function(future) {
   if (requireNamespace("future", quietly = TRUE)) {
     # Try to halt the future if it's still running
@@ -33,39 +33,41 @@ cancel <- function(future) {
   invisible(NULL)
 }
 
-#' Connection Module
-#'
-#' This module provides connection handling for Telegram API communications.
-#' It relies on the future package for asynchronous operations and R6 for
-#' object-oriented programming.
-#' @import R6
-#' @import promises
-#' @import stringr
-#' @import later
-#' @title Connection Class
-#' @description
-#' The Connection class wraps asynchronous socket connections.
-#' Subclasses implement different transport modes by exposing a simple
-#' interface for sending and receiving complete data payloads.
-#'
-#' The only error raised from send and receive methods is ConnectionError,
-#' thrown when attempting to send on a disconnected client.
-#'
-#' @export
-Connection <- R6Class(
+#  Connection Module
+#
+#  This module provides connection handling for Telegram API communications.
+#  It relies on the future package for asynchronous operations and R6 for
+#  object-oriented programming.
+#  @import R6
+#  @import promises
+#  @import stringr
+#  @import later
+#  @title Connection Class
+#  @description
+#  The Connection class wraps asynchronous socket connections.
+#  Subclasses implement different transport modes by exposing a simple
+#  interface for sending and receiving complete data payloads.
+#
+#  The only error raised from send and receive methods is ConnectionError,
+#  thrown when attempting to send on a disconnected client.
+#
+#  @export
+#  @noRd
+#  @noRd
+Connection <- R6::R6Class(
   "Connection",
   public = list(
-    #' @field packet_codec The packet codec class to use for this connection.
+    #  @field packet_codec The packet codec class to use for this connection.
     packet_codec = NULL,
 
-    #' @description
-    #' Initialize a new Connection instance.
-    #' @param ip A character string with the IP address.
-    #' @param port A numeric port number.
-    #' @param dc_id A numeric data center ID.
-    #' @param loggers A list of logger objects.
-    #' @param proxy Optional proxy configuration.
-    #' @param local_addr Optional local address as character or vector.
+    #  @description
+    #  Initialize a new Connection instance.
+    #  @param ip A character string with the IP address.
+    #  @param port A numeric port number.
+    #  @param dc_id A numeric data center ID.
+    #  @param loggers A list of logger objects.
+    #  @param proxy Optional proxy configuration.
+    #  @param local_addr Optional local address as character or vector.
     initialize = function(ip, port, dc_id, proxy = NULL, local_addr = NULL, loggers = NULL) {
       private$._ip <- ip
       private$._port <- port
@@ -88,18 +90,18 @@ Connection <- R6Class(
       }
     },
 
-    #' @description
-    #' Human-readable connection descriptor.
-    #' @return Character string with endpoint and DC id.
+    #  @description
+    #  Human-readable connection descriptor.
+    #  @return Character string with endpoint and DC id.
     to_string = function() {
       sprintf("%s:%s (dc %s)", private$._ip, private$._port, private$._dc_id)
     },
 
-    #' @description
-    #' Connect to the server.
-    #' @param timeout Connection timeout in seconds.
-    #' @param ssl SSL configuration.
-    #' @return A promise resolving when connected.
+    #  @description
+    #  Connect to the server.
+    #  @param timeout Connection timeout in seconds.
+    #  @param ssl SSL configuration.
+    #  @return A promise resolving when connected.
     connect = function(timeout = NULL, ssl = NULL) {
       if (private$._is_test_mode()) {
         private$._connect(timeout = timeout, ssl = ssl)
@@ -142,9 +144,9 @@ Connection <- R6Class(
       }
     },
 
-    #' @description
-    #' Disconnect from the server and clear pending messages.
-    #' @return A promise resolving when disconnected.
+    #  @description
+    #  Disconnect from the server and clear pending messages.
+    #  @return A promise resolving when disconnected.
     disconnect = function() {
       if (!private$._connected) {
         return(promise_resolve(NULL))
@@ -171,10 +173,10 @@ Connection <- R6Class(
       }
     },
 
-    #' @description
-    #' Send data through the connection.
-    #' @param data The data to be sent.
-    #' @return A promise that resolves when data is queued.
+    #  @description
+    #  Send data through the connection.
+    #  @param data The data to be sent.
+    #  @return A promise that resolves when data is queued.
     send = function(data) {
       if (!private$._connected) stop("ConnectionError: Not connected")
       if (private$._skip_background_tasks()) {
@@ -185,9 +187,9 @@ Connection <- R6Class(
       private$._send_queue$put(data)
     },
 
-    #' @description
-    #' Receive data from the connection.
-    #' @return A promise resolving with the received data.
+    #  @description
+    #  Receive data from the connection.
+    #  @return A promise resolving with the received data.
     recv = function() {
       # Throw immediately when disconnected so tests using future::value(...) see the intended error
       if (!private$._connected) {
@@ -211,9 +213,9 @@ Connection <- R6Class(
       })
     },
 
-    #' @description
-    #' Return transport connectivity state.
-    #' @return TRUE if underlying transport is marked connected.
+    #  @description
+    #  Return transport connectivity state.
+    #  @return TRUE if underlying transport is marked connected.
     is_connected = function() {
       isTRUE(private$._connected) && isTRUE(private$._socket_is_open())
     }
@@ -464,16 +466,18 @@ Connection <- R6Class(
   )
 )
 
-#' ObfuscatedConnection Class
-#'
-#' @description
-#' Base class for obfuscated connections (e.g., obfuscated2, mtproto proxy).
-#' @export
-ObfuscatedConnection <- R6Class(
+#  ObfuscatedConnection Class
+#
+#  @description
+#  Base class for obfuscated connections (e.g., obfuscated2, mtproto proxy).
+#  @export
+#  @noRd
+#  @noRd
+ObfuscatedConnection <- R6::R6Class(
   "ObfuscatedConnection",
   inherit = Connection,
   public = list(
-    #' @field obfuscated_io The obfuscation class to use.
+    #  @field obfuscated_io The obfuscation class to use.
     obfuscated_io = NULL
   ),
   private = list(
@@ -490,28 +494,30 @@ ObfuscatedConnection <- R6Class(
   )
 )
 
-#' PacketCodec Class
-#'
-#' @description
-#' Abstract base class for packet codecs.
-#' @export
-PacketCodec <- R6Class(
+#  PacketCodec Class
+#
+#  @description
+#  Abstract base class for packet codecs.
+#  @export
+#  @noRd
+#  @noRd
+PacketCodec <- R6::R6Class(
   "PacketCodec",
   public = list(
-    #' @field tag Optional initial bytes to send upon connection.
+    #  @field tag Optional initial bytes to send upon connection.
     tag = NULL,
 
-    #' @description
-    #' Initialize a PacketCodec instance.
-    #' @param connection The associated Connection object.
+    #  @description
+    #  Initialize a PacketCodec instance.
+    #  @param connection The associated Connection object.
     initialize = function(connection) {
       private$._conn <- connection
     },
 
-    #' @description
-    #' Encode a packet.
-    #' @param data The data to encode.
-    #' @return Encoded bytes.
+    #  @description
+    #  Encode a packet.
+    #  @param data The data to encode.
+    #  @return Encoded bytes.
     encode_packet = function(data) {
       serialized <- serialize(data, NULL)
       packet_length <- length(serialized)
@@ -519,10 +525,10 @@ PacketCodec <- R6Class(
       c(length_bytes, serialized)
     },
 
-    #' @description
-    #' Read a packet.
-    #' @param reader An object with a readexactly method.
-    #' @return A promise resolving with the packet.
+    #  @description
+    #  Read a packet.
+    #  @param reader An object with a readexactly method.
+    #  @return A promise resolving with the packet.
     read_packet = function(reader) {
       promise(function(resolve, reject) {
         reader$readexactly(4)$then(function(length_bytes) {
@@ -540,26 +546,28 @@ PacketCodec <- R6Class(
   )
 )
 
-#' AsyncQueue Class
-#'
-#' @description
-#' Implements an asynchronous queue.
-#' @export
-AsyncQueue <- R6Class(
+#  AsyncQueue Class
+#
+#  @description
+#  Implements an asynchronous queue.
+#  @export
+#  @noRd
+#  @noRd
+AsyncQueue <- R6::R6Class(
   "AsyncQueue",
   public = list(
-    #' @description
-    #' Create a new AsyncQueue.
-    #' @param maxsize Maximum size of the queue.
+    #  @description
+    #  Create a new AsyncQueue.
+    #  @param maxsize Maximum size of the queue.
     initialize = function(maxsize = NULL) {
       private$.queue <- list()
       private$.maxsize <- maxsize
     },
 
-    #' @description
-    #' Add an item to the queue.
-    #' @param item The item to add.
-    #' @return A promise that resolves when the item is added.
+    #  @description
+    #  Add an item to the queue.
+    #  @param item The item to add.
+    #  @return A promise that resolves when the item is added.
     put = function(item) {
       if (!is.null(private$.maxsize) && length(private$.queue) >= private$.maxsize) {
         promise(function(resolve, reject) {
@@ -579,9 +587,9 @@ AsyncQueue <- R6Class(
       }
     },
 
-    #' @description
-    #' Retrieve an item from the queue.
-    #' @return A promise that resolves with the item.
+    #  @description
+    #  Retrieve an item from the queue.
+    #  @return A promise that resolves with the item.
     get = function() {
       promise(function(resolve, reject) {
         waitForItem <- function() {
@@ -603,15 +611,15 @@ AsyncQueue <- R6Class(
   )
 )
 
-#' Helper function for asynchronous open connection.
-#'
-#' @param host Hostname.
-#' @param port Port number.
-#' @param ssl Optional SSL configuration.
-#' @param local_addr Optional local address.
-#' @param sock Optional socket.
-#' @param timeout Optional timeout.
-#' @return A promise resolving with a list containing reader and writer.
+#  Helper function for asynchronous open connection.
+#
+#  @param host Hostname.
+#  @param port Port number.
+#  @param ssl Optional SSL configuration.
+#  @param local_addr Optional local address.
+#  @param sock Optional socket.
+#  @param timeout Optional timeout.
+#  @return A promise resolving with a list containing reader and writer.
 async_open_connection <- function(host = NULL, port = NULL, ssl = NULL, local_addr = NULL, sock = NULL, timeout = NULL) {
   promise(function(resolve, reject) {
     tryCatch(
@@ -655,24 +663,26 @@ async_open_connection <- function(host = NULL, port = NULL, ssl = NULL, local_ad
   })
 }
 
-#' Reader Class
-#'
-#' @description
-#' Implements a simple reader.
-#' @export
-Reader <- R6Class(
+#  Reader Class
+#
+#  @description
+#  Implements a simple reader.
+#  @export
+#  @noRd
+#  @noRd
+Reader <- R6::R6Class(
   "Reader",
   public = list(
     # Added: predeclare socket to avoid adding bindings to locked env
-    #' @field socket Field.
+    #  @field socket Field.
     socket = NULL,
-    #' @field timeout Field.
+    #  @field timeout Field.
     timeout = 10,
 
-    #' @description
-    #' Read a fixed number of bytes.
-    #' @param n Number of bytes to read.
-    #' @return A promise resolving with raw data.
+    #  @description
+    #  Read a fixed number of bytes.
+    #  @param n Number of bytes to read.
+    #  @return A promise resolving with raw data.
     readexactly = function(n) {
       # Replaced placeholder with non-blocking, exact-length read
       promise(function(resolve, reject) {
@@ -735,21 +745,23 @@ Reader <- R6Class(
   )
 )
 
-#' Writer Class
-#'
-#' @description
-#' Implements a simple writer.
-#' @export
-Writer <- R6Class(
+#  Writer Class
+#
+#  @description
+#  Implements a simple writer.
+#  @export
+#  @noRd
+#  @noRd
+Writer <- R6::R6Class(
   "Writer",
   public = list(
     # Added: predeclare socket to avoid adding bindings to locked env
-    #' @field socket Field.
+    #  @field socket Field.
     socket = NULL,
 
-    #' @description
-    #' Write data.
-    #' @param data Data to write.
+    #  @description
+    #  Write data.
+    #  @param data Data to write.
     write = function(data) {
       # Ensure buffer is predeclared; push to buffer
       private$.buffer[[length(private$.buffer) + 1]] <- data
@@ -767,9 +779,9 @@ Writer <- R6Class(
       }
     },
 
-    #' @description
-    #' Drain the write buffer.
-    #' @return A promise that resolves when drained.
+    #  @description
+    #  Drain the write buffer.
+    #  @return A promise that resolves when drained.
     drain = function() {
       promise(function(resolve, reject) {
         wait <- function() {
@@ -787,8 +799,8 @@ Writer <- R6Class(
       })
     },
 
-    #' @description
-    #' Close the writer.
+    #  @description
+    #  Close the writer.
     close = function() {
       if (!is.null(self$socket) && isOpen(self$socket)) {
         close(self$socket)
@@ -837,16 +849,16 @@ Writer <- R6Class(
   )
 )
 
-#' Create a socket connection.
-#'
-#' @description
-#' Placeholder function. In practice, use proper R networking packages.
-#' @param host Hostname.
-#' @param port Port number.
-#' @param proxy Parsed proxy settings.
-#' @param local_addr Local address.
-#' @param timeout Connection timeout.
-#' @return A socket object.
+#  Create a socket connection.
+#
+#  @description
+#  Placeholder function. In practice, use proper R networking packages.
+#  @param host Hostname.
+#  @param port Port number.
+#  @param proxy Parsed proxy settings.
+#  @param local_addr Local address.
+#  @param timeout Connection timeout.
+#  @return A socket object.
 create_socket_connection <- function(host, port, proxy = NULL, local_addr = NULL, timeout = NULL) {
   if (!is.null(proxy)) {
     if (TRUE) { # HTTP proxy proxy$protocol == 3
@@ -874,6 +886,9 @@ create_socket_connection <- function(host, port, proxy = NULL, local_addr = NULL
   socketConnection(host = host, port = port, blocking = TRUE, open = "r+b", timeout = timeout)
 }
 
+#  @method value promise
+#  @export
+#  @noRd
 # S3 method to make future::value() work with promises::promise objects used here.
 # This lets tests call future::value(promise) and block until the promise resolves.
 value.promise <- function(x, ...) {

@@ -1,9 +1,9 @@
-#' @import logger
-#' @import jsonlite
-#' @import httr
-#' @import R6
+#  @import logger
+#  @import jsonlite
+#  @import httr
+#  @import R6
 NULL
-#' Constants
+#  Constants
 DEFAULT_DC_ID <- 2
 DEFAULT_IPV4_IP <- "149.154.167.51"
 DEFAULT_IPV6_IP <- "2001:67c:4e8:f002::a"
@@ -15,37 +15,39 @@ LAYER <- 216 # Telegram API layer (aligned with recent Telethon layer)
 # Time in seconds before disconnecting exported senders
 DISCONNECT_EXPORTED_AFTER <- 60
 
-#' Export State Class
-#'
-#' Tracks the state of exported MTProto senders
-#'
-#' @description
-#' This class manages the state of exported MTProto senders, including
-#' tracking the number of borrowed senders and the time since the last
-#' borrowed sender was returned.
-#' @export
-ExportState <- R6Class("ExportState",
+#  Export State Class
+# 
+#  Tracks the state of exported MTProto senders
+# 
+#  @description
+#  This class manages the state of exported MTProto senders, including
+#  tracking the number of borrowed senders and the time since the last
+#  borrowed sender was returned.
+#  @export
+#  @noRd
+#  @noRd
+ExportState <- R6::R6Class("ExportState",
   public = list(
-    #' @description
-    #' Constructor for the ExportState class
-    #' @return None.
+    #  @description
+    #  Constructor for the ExportState class
+    #  @return None.
     initialize = function() {
       private$n <- 0
       private$zero_ts <- 0
       private$connected <- FALSE
     },
 
-    #' @description
-    #' Add a borrowed sender
-    #' @return None.
+    #  @description
+    #  Add a borrowed sender
+    #  @return None.
     add_borrow = function() {
       private$n <- private$n + 1
       private$connected <- TRUE
     },
 
-    #' @description
-    #' Return a borrowed sender
-    #' @return None.
+    #  @description
+    #  Return a borrowed sender
+    #  @return None.
     add_return = function() {
       private$n <- private$n - 1
       stopifnot("Returned sender more than it was borrowed" = private$n >= 0)
@@ -54,25 +56,25 @@ ExportState <- R6Class("ExportState",
       }
     },
 
-    #' @description
-    #' Check if the sender should be disconnected
-    #' @return TRUE if should disconnect, FALSE otherwise.
+    #  @description
+    #  Check if the sender should be disconnected
+    #  @return TRUE if should disconnect, FALSE otherwise.
     should_disconnect = function() {
       return(private$n == 0 &&
         private$connected &&
         (as.numeric(Sys.time()) - private$zero_ts) > DISCONNECT_EXPORTED_AFTER)
     },
 
-    #' @description
-    #' Check if the sender needs to connect
-    #' @return TRUE if needs to connect, FALSE otherwise.
+    #  @description
+    #  Check if the sender needs to connect
+    #  @return TRUE if needs to connect, FALSE otherwise.
     need_connect = function() {
       return(!private$connected)
     },
 
-    #' @description
-    #' Mark the sender as disconnected
-    #' @return None.
+    #  @description
+    #  Mark the sender as disconnected
+    #  @return None.
     mark_disconnected = function() {
       stopifnot("Marked as disconnected when it was borrowed" = self$should_disconnect())
       private$connected <- FALSE
@@ -85,84 +87,86 @@ ExportState <- R6Class("ExportState",
   )
 )
 
-#' Telegram Base Client
-#'
-#' Abstract base class for telegram client implementation
-#'
-#' @description
-#' This class provides the core functionality for a Telegram client,
-#' including connection management, session handling, and
-#' message processing.
-#' @export
-TelegramBaseClient <- R6Class("TelegramBaseClient",
+#  Telegram Base Client
+# 
+#  Abstract base class for telegram client implementation
+# 
+#  @description
+#  This class provides the core functionality for a Telegram client,
+#  including connection management, session handling, and
+#  message processing.
+#  @export
+#  @noRd
+#  @noRd
+TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
   public = list(
-    #' @description Initialize a new Telegram client
-    #'
-    #' @param session Session object or path to session file
-    #' @param api_id API ID from my.telegram.org
-    #' @param api_hash API hash from my.telegram.org
-    #' @param connection Connection class to use
-    #' @param use_ipv6 Whether to connect through IPv6
-    #' @param proxy Proxy settings
-    #' @param local_addr Local address to bind to
-    #' @param timeout Connection timeout
-    #' @param request_retries How many times to retry requests
-    #' @param connection_retries How many times to retry connections
-    #' @param retry_delay Delay between retries
-    #' @param auto_reconnect Whether to automatically reconnect
-    #' @param sequential_updates Whether to process updates sequentially
-    #' @param flood_sleep_threshold Time in seconds to automatically sleep on flood wait errors
-    #' @param raise_last_call_error Whether to raise the last call error
-    #' @param device_model Device model to report
-    #' @param system_version System version to report
-    #' @param app_version App version to report
-    #' @param lang_code Language code
-    #' @param system_lang_code System language code
-    #' @param base_logger Base logger to use
-    #' @param receive_updates Whether to receive updates
-    #' @param catch_up Whether to catch up on missed updates
-    #' @param entity_cache_limit Maximum number of entities to keep in cache
+    #  @description Initialize a new Telegram client
+    # 
+    #  @param session Session object or path to session file
+    #  @param api_id API ID from my.telegram.org
+    #  @param api_hash API hash from my.telegram.org
+    #  @param connection Connection class to use
+    #  @param use_ipv6 Whether to connect through IPv6
+    #  @param proxy Proxy settings
+    #  @param local_addr Local address to bind to
+    #  @param timeout Connection timeout
+    #  @param request_retries How many times to retry requests
+    #  @param connection_retries How many times to retry connections
+    #  @param retry_delay Delay between retries
+    #  @param auto_reconnect Whether to automatically reconnect
+    #  @param sequential_updates Whether to process updates sequentially
+    #  @param flood_sleep_threshold Time in seconds to automatically sleep on flood wait errors
+    #  @param raise_last_call_error Whether to raise the last call error
+    #  @param device_model Device model to report
+    #  @param system_version System version to report
+    #  @param app_version App version to report
+    #  @param lang_code Language code
+    #  @param system_lang_code System language code
+    #  @param base_logger Base logger to use
+    #  @param receive_updates Whether to receive updates
+    #  @param catch_up Whether to catch up on missed updates
+    #  @param entity_cache_limit Maximum number of entities to keep in cache
     initialize = function(session,
                           api_id,
                           api_hash,
                           connection = NULL, # ConnectionTcpFull in Python
-                          #' @field use_ipv6 Field.
+                          #  @field use_ipv6 Field.
                           use_ipv6 = FALSE,
-                          #' @field proxy Field.
+                          #  @field proxy Field.
                           proxy = NULL,
-                          #' @field local_addr Field.
+                          #  @field local_addr Field.
                           local_addr = NULL,
-                          #' @field timeout Field.
+                          #  @field timeout Field.
                           timeout = 10,
-                          #' @field request_retries Field.
+                          #  @field request_retries Field.
                           request_retries = 5,
-                          #' @field connection_retries Field.
+                          #  @field connection_retries Field.
                           connection_retries = 5,
-                          #' @field retry_delay Field.
+                          #  @field retry_delay Field.
                           retry_delay = 1,
-                          #' @field auto_reconnect Field.
+                          #  @field auto_reconnect Field.
                           auto_reconnect = TRUE,
-                          #' @field sequential_updates Field.
+                          #  @field sequential_updates Field.
                           sequential_updates = FALSE,
-                          #' @field flood_sleep_threshold Field.
+                          #  @field flood_sleep_threshold Field.
                           flood_sleep_threshold = 60,
-                          #' @field raise_last_call_error Field.
+                          #  @field raise_last_call_error Field.
                           raise_last_call_error = FALSE,
-                          #' @field device_model Field.
+                          #  @field device_model Field.
                           device_model = NULL,
-                          #' @field system_version Field.
+                          #  @field system_version Field.
                           system_version = NULL,
-                          #' @field app_version Field.
+                          #  @field app_version Field.
                           app_version = NULL,
-                          #' @field lang_code Field.
+                          #  @field lang_code Field.
                           lang_code = "en",
-                          #' @field system_lang_code Field.
+                          #  @field system_lang_code Field.
                           system_lang_code = "en",
-                          #' @field base_logger Field.
+                          #  @field base_logger Field.
                           base_logger = NULL,
-                          #' @field receive_updates Field.
+                          #  @field receive_updates Field.
                           receive_updates = TRUE,
-                          #' @field catch_up Field.
+                          #  @field catch_up Field.
                           catch_up = FALSE,
                           entity_cache_limit = 5000) {
       if (is.null(api_id) || is.null(api_hash) || api_id == "" || api_hash == "") {
@@ -231,7 +235,7 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         lang_code = lang_code,
         system_lang_code = system_lang_code,
         lang_pack = "", # "langPacks are for official apps only"
-        #' @field query Field.
+        #  @field query Field.
         query = NULL,
         proxy = NULL # init_proxy would be set here in the Python version
       )
@@ -274,13 +278,13 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
         }
       }
       private$sender <- MTProtoSender$new(
-        #' @field auth_key_callback Field.
+        #  @field auth_key_callback Field.
         auth_key_callback = NULL,
         retries = private$connection_retries,
         delay = private$retry_delay,
         auto_reconnect = private$auto_reconnect,
         connect_timeout = private$timeout,
-        #' @field auto_reconnect_callback Field.
+        #  @field auto_reconnect_callback Field.
         auto_reconnect_callback = NULL
       )
 
@@ -301,11 +305,11 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       private$version <- "1.0.0" # Version of the R client
     },
 
-    #' Connect to Telegram
-    #'
-    #' Establishes a connection to Telegram servers
-    #'
-    #' @return A future that resolves when connected
+    #  Connect to Telegram
+    # 
+    #  Establishes a connection to Telegram servers
+    # 
+    #  @return A future that resolves when connected
     connect = function() {
       if (is.null(private$session)) {
         stop("TelegramClient instance cannot be reused after logging out")
@@ -427,9 +431,9 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       invisible(TRUE)
     },
 
-    #' Check if client is connected
-    #'
-    #' @return TRUE if connected, FALSE otherwise
+    #  Check if client is connected
+    # 
+    #  @return TRUE if connected, FALSE otherwise
     is_connected = function() {
       if (!is.null(private$sender) && is.function(private$sender$is_connected)) {
         return(isTRUE(private$sender$is_connected()))
@@ -437,11 +441,11 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       return(FALSE)
     },
 
-    #' Disconnect from Telegram
-    #'
-    #' Closes the connection to Telegram servers
-    #'
-    #' @return A future that resolves when disconnected
+    #  Disconnect from Telegram
+    # 
+    #  Closes the connection to Telegram servers
+    # 
+    #  @return A future that resolves when disconnected
     disconnect = function() {
       # If session is gone, behave as tests expect
       if (is.null(private$session)) {
@@ -451,9 +455,9 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       future::future(TRUE)
     },
 
-    #' Set proxy for the connection
-    #'
-    #' @param proxy Proxy configuration
+    #  Set proxy for the connection
+    # 
+    #  @param proxy Proxy configuration
     set_proxy = function(proxy) {
       private$proxy <- proxy
 
@@ -463,23 +467,23 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       logger::log_info("Proxy updated. Will take effect on reconnection.")
     },
 
-    #' Get client version
-    #'
-    #' @return Current client version
+    #  Get client version
+    # 
+    #  @return Current client version
     get_version = function() {
       return(private$version)
     },
 
-    #' Get the flood sleep threshold
-    #'
-    #' @return Current flood sleep threshold in seconds
+    #  Get the flood sleep threshold
+    # 
+    #  @return Current flood sleep threshold in seconds
     get_flood_sleep_threshold = function() {
       return(private$flood_sleep_threshold)
     },
 
-    #' Set the flood sleep threshold
-    #'
-    #' @param value New threshold in seconds
+    #  Set the flood sleep threshold
+    # 
+    #  @param value New threshold in seconds
     set_flood_sleep_threshold = function(value) {
       private$flood_sleep_threshold <- min(value %||% 0, 24 * 60 * 60)
     },
@@ -489,9 +493,9 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
       return(private$proxy)
     },
 
-    #' @description
-    #' Switch the client to a different data center.
-    #' @param new_dc The new DC ID.
+    #  @description
+    #  Switch the client to a different data center.
+    #  @param new_dc The new DC ID.
     switch_dc = function(new_dc) {
       dc <- future::value(private$get_dc(new_dc))
 
@@ -892,10 +896,12 @@ TelegramBaseClient <- R6Class("TelegramBaseClient",
 )
 
 if (!exists("Queue", inherits = FALSE)) {
+#  @noRd
+#  @noRd
   Queue <- R6::R6Class(
     "Queue",
     public = list(
-      #' @field items Field.
+      #  @field items Field.
       items = NULL,
       initialize = function() {
         self$items <- list()
@@ -908,12 +914,12 @@ if (!exists("Queue", inherits = FALSE)) {
   )
 }
 
-#' Null coalescing operator
-#' @name null-coalesce
-#' @param x The first value
-#' @param y The second value
-#' @return The first value if not NULL, otherwise the second value
-#' @export
+#  Null coalescing operator
+#  @name null-coalesce
+#  @param x The first value
+#  @param y The second value
+#  @return The first value if not NULL, otherwise the second value
+#  @export
 `%||%` <- function(x, y) {
   if (is.null(x)) y else x
 }

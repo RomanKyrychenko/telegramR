@@ -1,26 +1,28 @@
-#' @importFrom openssl rand_bytes
-#' @title ObfuscatedIO
-#' @description Handles obfuscated I/O operations for Telegram obfuscation.
-#' @export
+#  @importFrom openssl rand_bytes
+#  @title ObfuscatedIO
+#  @description Handles obfuscated I/O operations for Telegram obfuscation.
+#  @export
+#  @noRd
+#  @noRd
 ObfuscatedIO <- R6::R6Class("ObfuscatedIO",
   public = list(
-    #' @field header The obfuscation header as a raw vector.
+    #  @field header The obfuscation header as a raw vector.
     header = NULL,
 
-    #' @field .encrypt The AESModeCTR encryptor object.
+    #  @field .encrypt The AESModeCTR encryptor object.
     .encrypt = NULL,
 
-    #' @field .decrypt The AESModeCTR decryptor object.
+    #  @field .decrypt The AESModeCTR decryptor object.
     .decrypt = NULL,
 
-    #' @field .reader The reader connection object.
+    #  @field .reader The reader connection object.
     .reader = NULL,
 
-    #' @field .writer The writer connection object.
+    #  @field .writer The writer connection object.
     .writer = NULL,
 
-    #' @description Initialize ObfuscatedIO.
-    #' @param connection A connection object with `.reader`, `.writer`, and `packet_codec` fields.
+    #  @description Initialize ObfuscatedIO.
+    #  @param connection A connection object with `.reader`, `.writer`, and `packet_codec` fields.
     initialize = function(connection) {
       self$.reader <- connection$`_reader`
       self$.writer <- connection$`_writer`
@@ -30,23 +32,23 @@ ObfuscatedIO <- R6::R6Class("ObfuscatedIO",
       self$.decrypt <- res$decryptor
     },
 
-    #' @description Reads exactly n bytes and decrypts them.
-    #' @param n Number of bytes to read.
-    #' @return A raw vector of decrypted bytes.
+    #  @description Reads exactly n bytes and decrypts them.
+    #  @param n Number of bytes to read.
+    #  @return A raw vector of decrypted bytes.
     readexactly = function(n) {
       data <- self$.reader$readexactly(n)
       self$.decrypt$encrypt(data)
     },
 
-    #' @description Encrypts and writes data.
-    #' @param data A raw vector of data.
+    #  @description Encrypts and writes data.
+    #  @param data A raw vector of data.
     write = function(data) {
       self$.writer$write(self$.encrypt$encrypt(data))
     },
 
-    #' @description Initializes the header, encryption, and decryption objects.
-    #' @param packet_codec A packet codec object with an `obfuscate_tag` field.
-    #' @return A list containing the header, encryptor, and decryptor.
+    #  @description Initializes the header, encryption, and decryption objects.
+    #  @param packet_codec A packet codec object with an `obfuscate_tag` field.
+    #  @return A list containing the header, encryptor, and decryptor.
     init_header = function(packet_codec) {
       # Define keywords that obfuscated messages cannot start with.
       keywords <- list(
@@ -91,15 +93,17 @@ ObfuscatedIO <- R6::R6Class("ObfuscatedIO",
   )
 )
 
-#' @title ConnectionTcpObfuscated
-#' @description Telegram obfuscated2 connection that encrypts every message with a randomly generated key using AES-CTR.
-#' @export
+#  @title ConnectionTcpObfuscated
+#  @description Telegram obfuscated2 connection that encrypts every message with a randomly generated key using AES-CTR.
+#  @export
+#  @noRd
+#  @noRd
 ConnectionTcpObfuscated <- R6::R6Class("ConnectionTcpObfuscated",
   inherit = ObfuscatedConnection,
   public = list(
-    #' @field obfuscated_io ObfuscatedIO class for handling obfuscated I/O operations.
+    #  @field obfuscated_io ObfuscatedIO class for handling obfuscated I/O operations.
     obfuscated_io = ObfuscatedIO,
-    #' @field packet_codec Packet codec set to AbridgedPacketCodec.
+    #  @field packet_codec Packet codec set to AbridgedPacketCodec.
     packet_codec = AbridgedPacketCodec
   )
 )

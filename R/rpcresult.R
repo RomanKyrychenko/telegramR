@@ -1,44 +1,46 @@
-#' RpcResult Class
-#'
-#'
-#' @details
-#' The `RpcResult` class encapsulates the response of an RPC call, including the request message ID, the body of the response, and any error that occurred.
-#'
-#'
-#' @title RpcResult
-#' @description Telegram API type RpcResult
-#' @export
+#  RpcResult Class
+# 
+# 
+#  @details
+#  The `RpcResult` class encapsulates the response of an RPC call, including the request message ID, the body of the response, and any error that occurred.
+# 
+# 
+#  @title RpcResult
+#  @description Telegram API type RpcResult
+#  @export
+#  @noRd
+#  @noRd
 RpcResult <- R6::R6Class(
   "RpcResult",
   inherit = TLObject,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID for RpcResult (0xf35c6d01).
+    #  @field CONSTRUCTOR_ID The constructor ID for RpcResult (0xf35c6d01).
     CONSTRUCTOR_ID = 0xf35c6d01,
-    #' @field SUBCLASS_OF_ID The subclass ID for RpcResult.
+    #  @field SUBCLASS_OF_ID The subclass ID for RpcResult.
     SUBCLASS_OF_ID = 0xf35c6d01,
 
-    #' @field req_msg_id Field.
+    #  @field req_msg_id Field.
     req_msg_id = NULL,
-    #' @field body Field.
+    #  @field body Field.
     body = NULL,
-    #' @field error Field.
+    #  @field error Field.
     error = NULL,
 
-    #' @description
-    #' Initializes the `RpcResult` object with the given request message ID, body, and error.
-    #' @param req_msg_id \code{numeric} The ID of the request message.
-    #' @param body \code{ANY} The body of the RPC result.
-    #' @param error \code{ANY} The error object, if any.
-    #' @return A new `RpcResult` object.
+    #  @description
+    #  Initializes the `RpcResult` object with the given request message ID, body, and error.
+    #  @param req_msg_id \code{numeric} The ID of the request message.
+    #  @param body \code{ANY} The body of the RPC result.
+    #  @param error \code{ANY} The error object, if any.
+    #  @return A new `RpcResult` object.
     initialize = function(req_msg_id = NULL, body = NULL, error = NULL) {
       self$req_msg_id <- req_msg_id
       self$body <- body
       self$error <- error
     },
 
-    #' @description
-    #' Converts the `RpcResult` object to a dictionary representation.
-    #' @return A named list representing the `RpcResult` object.
+    #  @description
+    #  Converts the `RpcResult` object to a dictionary representation.
+    #  @return A named list representing the `RpcResult` object.
     to_dict = function() {
       return(
         list(

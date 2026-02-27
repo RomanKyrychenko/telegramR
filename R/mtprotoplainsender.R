@@ -1,22 +1,24 @@
-#' This module contains the class used to communicate with Telegram's servers
-#' in plain text, when no authorization key has been created yet.
-#' @title MTProtoPlainSender
-#' @description Telegram API type MTProtoPlainSender
-#' @export
+#  This module contains the class used to communicate with Telegram's servers
+#  in plain text, when no authorization key has been created yet.
+#  @title MTProtoPlainSender
+#  @description Telegram API type MTProtoPlainSender
+#  @export
+#  @noRd
+#  @noRd
 MTProtoPlainSender <- R6::R6Class("MTProtoPlainSender",
   public = list(
-    #' @description Initializes the MTProto plain sender.
-    #' @param connection the Connection to be used.
-    #' @param loggers Optional loggers map.
+    #  @description Initializes the MTProto plain sender.
+    #  @param connection the Connection to be used.
+    #  @param loggers Optional loggers map.
     initialize = function(connection, loggers = NULL) {
       private$state <- MTProtoState$new(auth_key = NULL, loggers = NULL)
       private$connection <- connection
       private$loggers <- loggers
     },
 
-    #' @description Sends and receives the result for the given request.
-    #' @param request The request to send.
-    #' @return The response object.
+    #  @description Sends and receives the result for the given request.
+    #  @param request The request to send.
+    #  @return The response object.
     send = function(request) {
       promise(function(resolve, reject) {
         tryCatch(
@@ -114,10 +116,10 @@ MTProtoPlainSender <- R6::R6Class("MTProtoPlainSender",
   )
 )
 
-#' Pack a 64-bit integer into a raw vector (little-endian)
-#' @param value The integer value to pack
-#' @return A raw vector representation of the integer
-#' @export
+#  Pack a 64-bit integer into a raw vector (little-endian)
+#  @param value The integer value to pack
+#  @return A raw vector representation of the integer
+#  @export
 packInt64 <- function(value) {
   if (is.raw(value)) {
     if (length(value) == 8) {
@@ -131,10 +133,10 @@ packInt64 <- function(value) {
   int_to_bytes(value, length = 8, endian = "little")
 }
 
-#' Pack a 32-bit integer into a raw vector (little-endian)
-#' @param value The integer value to pack
-#' @return A raw vector representation of the integer
-#' @export
+#  Pack a 32-bit integer into a raw vector (little-endian)
+#  @param value The integer value to pack
+#  @return A raw vector representation of the integer
+#  @export
 packInt32 <- function(value) {
   if (length(value) != 1 || is.na(value)) {
     stop("Invalid input: value must be a single, non-NA number")

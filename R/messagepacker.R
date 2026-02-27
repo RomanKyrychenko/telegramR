@@ -1,28 +1,30 @@
-#' MessagePacker R6 class
-#'
-#'
-#'   bytes and generate message ids via `write_data_as_message`.
-#' @title MessagePacker
-#' @description Telegram API type MessagePacker
-#' @export
+#  MessagePacker R6 class
+# 
+# 
+#    bytes and generate message ids via `write_data_as_message`.
+#  @title MessagePacker
+#  @description Telegram API type MessagePacker
+#  @export
+#  @noRd
+#  @noRd
 MessagePacker <- R6::R6Class("MessagePacker",
   public = list(
-    #' @field state Field.
+    #  @field state Field.
     state = NULL,
-    #' @field deque Field.
+    #  @field deque Field.
     deque = NULL,
-    #' @field ready Field.
+    #  @field ready Field.
     ready = FALSE,
-    #' @field log Field.
+    #  @field log Field.
     log = NULL,
 
-    #' @description Initialize a MessagePacker
-    #'
-    #' @param state An object implementing `write_data_as_message(buffer_con, data, ...)`
-    #'   used to serialize individual messages and return their `msg_id`.
-    #' @param loggers Optional list of logger instances. If a `"messagepacker"`
-    #'   entry exists it will be used; otherwise the first logger in the list
-    #'   will be used as a fallback.
+    #  @description Initialize a MessagePacker
+    # 
+    #  @param state An object implementing `write_data_as_message(buffer_con, data, ...)`
+    #    used to serialize individual messages and return their `msg_id`.
+    #  @param loggers Optional list of logger instances. If a `"messagepacker"`
+    #    entry exists it will be used; otherwise the first logger in the list
+    #    will be used as a fallback.
     initialize = function(state, loggers = list()) {
       self$state <- state
       self$deque <- list()
@@ -58,22 +60,22 @@ MessagePacker <- R6::R6Class("MessagePacker",
       )
     },
 
-    #' @description Append a single state item to the queue
-    #'
-    #' @param state_item A list-like object representing a request payload and
-    #'   associated metadata. Items are appended to the right (tail) of the deque.
-    #' @details This method also sets `ready` to \code{TRUE} to notify any
-    #'   waiting `get` calls that new data is available.
+    #  @description Append a single state item to the queue
+    # 
+    #  @param state_item A list-like object representing a request payload and
+    #    associated metadata. Items are appended to the right (tail) of the deque.
+    #  @details This method also sets `ready` to \code{TRUE} to notify any
+    #    waiting `get` calls that new data is available.
     append = function(state_item) {
       self$deque[[length(self$deque) + 1]] <- state_item
       self$ready <- TRUE
     },
 
-    #' @description Extend the queue with multiple state items
-    #'
-    #' @param states An iterable (e.g. list) of state items to append to the queue.
-    #' @details Each element in `states` is appended in order. `ready` is set to
-    #'   \code{TRUE} after extension.
+    #  @description Extend the queue with multiple state items
+    # 
+    #  @param states An iterable (e.g. list) of state items to append to the queue.
+    #  @details Each element in `states` is appended in order. `ready` is set to
+    #    \code{TRUE} after extension.
     extend = function(states) {
       for (s in states) {
         self$deque[[length(self$deque) + 1]] <- s
@@ -81,25 +83,25 @@ MessagePacker <- R6::R6Class("MessagePacker",
       self$ready <- TRUE
     },
 
-    #' @description
-    #' This method blocks (simple polling) until at least one item is available.
-    #' It then accumulates items from the deque into a batch while respecting
-    #' `MessageContainer$MAXIMUM_LENGTH` and `MessageContainer$MAXIMUM_SIZE`.
-    #' For each included state item it calls `self$state$write_data_as_message`
-    #' to serialize the message into a temporary raw connection and obtain a
-    #' `msg_id`. If multiple messages are batched they are wrapped into a
-    #' container and a single container message is produced; otherwise the single
-    #' message bytes are returned.
-    #'
-    #' @return A list of two elements:
-    #'   - `batch`: a list of state items that were included (or NULL if none),
-    #'   - `bytes`: raw vector with serialized bytes ready to send (or NULL if none).
-    #' @details
-    #' - If an individual message exceeds the maximum allowed size it will be
-    #'   skipped and, if present, `state_item$future$set_exception` will be
-    #'   called with a simple error. A warning is logged when a payload is too large.
-    #' - Logging calls are guarded so that failures in logger methods do not
-    #'   interrupt packing.
+    #  @description
+    #  This method blocks (simple polling) until at least one item is available.
+    #  It then accumulates items from the deque into a batch while respecting
+    #  `MessageContainer$MAXIMUM_LENGTH` and `MessageContainer$MAXIMUM_SIZE`.
+    #  For each included state item it calls `self$state$write_data_as_message`
+    #  to serialize the message into a temporary raw connection and obtain a
+    #  `msg_id`. If multiple messages are batched they are wrapped into a
+    #  container and a single container message is produced; otherwise the single
+    #  message bytes are returned.
+    # 
+    #  @return A list of two elements:
+    #    - `batch`: a list of state items that were included (or NULL if none),
+    #    - `bytes`: raw vector with serialized bytes ready to send (or NULL if none).
+    #  @details
+    #  - If an individual message exceeds the maximum allowed size it will be
+    #    skipped and, if present, `state_item$future$set_exception` will be
+    #    called with a simple error. A warning is logged when a payload is too large.
+    #  - Logging calls are guarded so that failures in logger methods do not
+    #    interrupt packing.
     get = function() {
       # Wait until there is something in the queue (simple polling).
       while (!self$ready || length(self$deque) == 0) {
@@ -218,7 +220,7 @@ MessagePacker <- R6::R6Class("MessagePacker",
         {
           try(close(buffer_con), silent = TRUE)
         },
-        #' @field add Field.
+        #  @field add Field.
         add = TRUE
       )
 
@@ -241,12 +243,12 @@ MessagePacker <- R6::R6Class("MessagePacker",
           {
             try(close(final_buffer_con), silent = TRUE)
           },
-          #' @field add Field.
+          #  @field add Field.
           add = TRUE
         )
         container_id <- self$state$write_data_as_message(
           final_buffer_con, container_bytes,
-          #' @field content_related Field.
+          #  @field content_related Field.
           content_related = FALSE
         )
         for (s in batch) {

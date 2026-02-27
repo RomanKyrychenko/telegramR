@@ -1,7 +1,8 @@
-#' @description
-#' Build a tibble from a list of dict-like lists, keeping nested data as list columns.
-#' @param rows list. Each element should be a named list.
-#' @return A tibble.
+#  @noRd
+#  @description
+#  Build a tibble from a list of dict-like lists, keeping nested data as list columns.
+#  @param rows list. Each element should be a named list.
+#  @return A tibble.
 .telegramR_safe_to_dict <- function(x) {
   if (inherits(x, "TLObject")) {
     # Avoid calling to_dict on Message/MessageService to prevent noisy failures
@@ -252,7 +253,6 @@
 #' @param show_progress logical. If TRUE, display a progress bar.
 #' @param ... Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).
 #' @return A tibble.
-#' @export
 download_channel_messages <- function(client, username, limit = Inf, include_channel = TRUE, start_date = NULL, end_date = NULL, show_progress = TRUE, ...) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
@@ -330,7 +330,6 @@ download_channel_messages <- function(client, username, limit = Inf, include_cha
 #' @param client TelegramClient instance.
 #' @param username character. Channel username (with or without "@").
 #' @return A tibble with last_message_id, approx_total_posts, and note.
-#' @export
 estimate_channel_post_count <- function(client, username) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
@@ -357,9 +356,8 @@ estimate_channel_post_count <- function(client, username) {
 #' @param client TelegramClient instance.
 #' @param username character. Channel username (with or without "@").
 #' @param region character or NULL. Optional region tag to attach.
-#' @param total_posts_downloaded numeric or NULL. Optional count of downloaded posts.
-#' @return A tibble with flattened channel info and list columns for raw objects.
-#' @export
+#' @param include_raw logical. If TRUE, include raw Telegram objects as list columns.
+#' @return A tibble with flattened channel info and optional list columns for raw objects.
 download_channel_info <- function(client, username, region = NULL, include_raw = FALSE) {
   if (missing(client) || is.null(client)) {
     stop("client is required")

@@ -1,5 +1,6 @@
 test_that("TelegramBaseClient initializes with valid parameters", {
-  skip_on_ci()
+  skip_on_cran()
+  skip_if_no_integration()
   session <- "test_session"
   api_id <- 3611613
   api_hash <- "41d882999e5db5a653359a6b2ddb907f"
@@ -31,7 +32,8 @@ test_that("TelegramBaseClient throws error when API ID or hash is missing", {
 })
 
 test_that("TelegramBaseClient connects to Telegram successfully", {
-  skip_on_ci()
+  skip_on_cran()
+  skip_if_no_integration()
   session <- "test_session"
   api_id <- 12345
   api_hash <- "test_api_hash"
@@ -42,13 +44,15 @@ test_that("TelegramBaseClient connects to Telegram successfully", {
     api_hash = api_hash
   )
 
-  result <- value(client$connect())
+  res <- client$connect()
+  result <- if (inherits(res, "Future")) value(res) else res
   expect_true(result)
   expect_true(client$is_connected())
 })
 
 test_that("TelegramBaseClient disconnects from Telegram successfully", {
-  skip_on_ci()
+  skip_on_cran()
+  skip_if_no_integration()
   session <- "test_session"
   api_id <- 12345
   api_hash <- "test_api_hash"
@@ -60,13 +64,15 @@ test_that("TelegramBaseClient disconnects from Telegram successfully", {
   )
 
   client$connect()
-  result <- value(client$disconnect())
+  res <- client$disconnect()
+  result <- if (inherits(res, "Future")) value(res) else res
   expect_true(result)
   expect_false(client$is_connected())
 })
 
 test_that("TelegramBaseClient sets and gets proxy configuration", {
-  skip_on_ci()
+  skip_on_cran()
+  skip_if_no_integration()
   session <- "test_session"
   api_id <- 12345
   api_hash <- "test_api_hash"
@@ -83,7 +89,8 @@ test_that("TelegramBaseClient sets and gets proxy configuration", {
 })
 
 test_that("TelegramBaseClient handles invalid disconnect call", {
-  skip_on_ci()
+  skip_on_cran()
+  skip_if_no_integration()
   session <- "test_session"
   api_id <- 12345
   api_hash <- "test_api_hash"

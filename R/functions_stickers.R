@@ -1,36 +1,38 @@
-#' AddStickerToSetRequest R6 class
-#'
-#' Represents a request to add a sticker to a sticker set.
-#'
-#'
-#' @section Methods:
-#' - initialize(stickerset, sticker): create instance.
-#' - resolve(client, utils): resolve friendly references to TL inputs (optional helper).
-#' - to_list(): returns a list representation suitable for JSON/inspection.
-#' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#' - from_reader(reader): reads a request from a reader object and returns a new instance.
-#'
-#' All methods are exported as part of the R6 object.
-#'
-#' @title AddStickerToSetRequest
-#' @description Telegram API type AddStickerToSetRequest
-#' @export
+#  AddStickerToSetRequest R6 class
+# 
+#  Represents a request to add a sticker to a sticker set.
+# 
+# 
+#  @section Methods:
+#  - initialize(stickerset, sticker): create instance.
+#  - resolve(client, utils): resolve friendly references to TL inputs (optional helper).
+#  - to_list(): returns a list representation suitable for JSON/inspection.
+#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
+#  - from_reader(reader): reads a request from a reader object and returns a new instance.
+# 
+#  All methods are exported as part of the R6 object.
+# 
+#  @title AddStickerToSetRequest
+#  @description Telegram API type AddStickerToSetRequest
+#  @export
+#  @noRd
+#  @noRd
 AddStickerToSetRequest <- R6::R6Class(
   "AddStickerToSetRequest",
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8653febe,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
-    #' @field stickerset Field.
+    #  @field stickerset Field.
     stickerset = NULL,
-    #' @field sticker Field.
+    #  @field sticker Field.
     sticker = NULL,
 
-    #' @description Initialize AddStickerToSetRequest
-    #'
-    #' @param stickerset InputStickerSet (TL object or representation)
-    #' @param sticker InputStickerSetItem (TL object or representation)
+    #  @description Initialize AddStickerToSetRequest
+    # 
+    #  @param stickerset InputStickerSet (TL object or representation)
+    #  @param sticker InputStickerSetItem (TL object or representation)
     initialize = function(stickerset, sticker) {
       if (missing(stickerset)) stop("stickerset is required")
       if (missing(sticker)) stop("sticker is required")
@@ -39,10 +41,10 @@ AddStickerToSetRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Optionally resolve friendly inputs to TL input objects
-    #'
-    #' @param client client object (used for entity resolution if needed)
-    #' @param utils utilities object with helper conversions (may implement get_input_document / get_input_user)
+    #  @description Optionally resolve friendly inputs to TL input objects
+    # 
+    #  @param client client object (used for entity resolution if needed)
+    #  @param utils utilities object with helper conversions (may implement get_input_document / get_input_user)
     resolve = function(client, utils) {
       # If utilities provide resolution functions, apply them (no-op otherwise)
       if (!is.null(utils) && is.function(utils$get_input_document)) {
@@ -53,9 +55,9 @@ AddStickerToSetRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to an R list
-    #'
-    #' @return list representation
+    #  @description Convert to an R list
+    # 
+    #  @return list representation
     to_list = function() {
       list(
         `_` = "AddStickerToSetRequest",
@@ -64,9 +66,9 @@ AddStickerToSetRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes (TL-like approximation)
-    #'
-    #' @return raw vector
+    #  @description Serialize to raw bytes (TL-like approximation)
+    # 
+    #  @return raw vector
     to_bytes = function() {
       constructor_bytes <- as.raw(c(
         bitwAnd(self$CONSTRUCTOR_ID, 0xFF),
@@ -96,13 +98,13 @@ AddStickerToSetRequest <- R6::R6Class(
   )
 )
 
-#' Create AddStickerToSetRequest from a reader
-#'
-#' The reader object is expected to provide method tgread_object().
-#'
-#' @param reader Reader object
-#' @return AddStickerToSetRequest instance
-#' @export
+#  Create AddStickerToSetRequest from a reader
+# 
+#  The reader object is expected to provide method tgread_object().
+# 
+#  @param reader Reader object
+#  @return AddStickerToSetRequest instance
+#  @export
 AddStickerToSetRequest$set("public", "from_reader", function(reader) {
   stickerset_obj <- reader$tgread_object()
   sticker_obj <- reader$tgread_object()
@@ -110,45 +112,47 @@ AddStickerToSetRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' ChangeStickerRequest R6 class
-#'
-#' Represents a request to change sticker attributes (emoji, mask coordinates, keywords).
-#'
-#'
-#' @section Methods:
-#' - initialize(sticker, emoji = NULL, mask_coords = NULL, keywords = NULL): create instance.
-#' - resolve(client, utils): resolve friendly references to TL inputs (documents).
-#' - to_list(): returns a list representation suitable for JSON/inspection.
-#' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#' - from_reader(reader): reads a request from a reader object and returns a new instance.
-#'
-#' All methods are exported as part of the R6 object.
-#'
-#' @title ChangeStickerRequest
-#' @description Telegram API type ChangeStickerRequest
-#' @export
+#  ChangeStickerRequest R6 class
+# 
+#  Represents a request to change sticker attributes (emoji, mask coordinates, keywords).
+# 
+# 
+#  @section Methods:
+#  - initialize(sticker, emoji = NULL, mask_coords = NULL, keywords = NULL): create instance.
+#  - resolve(client, utils): resolve friendly references to TL inputs (documents).
+#  - to_list(): returns a list representation suitable for JSON/inspection.
+#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
+#  - from_reader(reader): reads a request from a reader object and returns a new instance.
+# 
+#  All methods are exported as part of the R6 object.
+# 
+#  @title ChangeStickerRequest
+#  @description Telegram API type ChangeStickerRequest
+#  @export
+#  @noRd
+#  @noRd
 ChangeStickerRequest <- R6::R6Class(
   "ChangeStickerRequest",
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf5537ebc,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
-    #' @field sticker Field.
+    #  @field sticker Field.
     sticker = NULL,
-    #' @field emoji Field.
+    #  @field emoji Field.
     emoji = NULL,
-    #' @field mask_coords Field.
+    #  @field mask_coords Field.
     mask_coords = NULL,
-    #' @field keywords Field.
+    #  @field keywords Field.
     keywords = NULL,
 
-    #' @description Initialize a ChangeStickerRequest
-    #'
-    #' @param sticker InputDocument (TL object or representation)
-    #' @param emoji optional character emoji string
-    #' @param mask_coords optional MaskCoords TL object (or raw representation)
-    #' @param keywords optional character keywords string
+    #  @description Initialize a ChangeStickerRequest
+    # 
+    #  @param sticker InputDocument (TL object or representation)
+    #  @param emoji optional character emoji string
+    #  @param mask_coords optional MaskCoords TL object (or raw representation)
+    #  @param keywords optional character keywords string
     initialize = function(sticker, emoji = NULL, mask_coords = NULL, keywords = NULL) {
       if (missing(sticker)) stop("sticker is required")
       self$sticker <- sticker
@@ -158,19 +162,19 @@ ChangeStickerRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Resolve friendly inputs to TL input objects
-    #'
-    #' @param client client object (used for entity resolution if needed)
-    #' @param utils utilities object with helper conversions (must implement get_input_document)
+    #  @description Resolve friendly inputs to TL input objects
+    # 
+    #  @param client client object (used for entity resolution if needed)
+    #  @param utils utilities object with helper conversions (must implement get_input_document)
     resolve = function(client, utils) {
       # convert user-friendly sticker references to an InputDocument TL object
       self$sticker <- utils$get_input_document(self$sticker)
       invisible(self)
     },
 
-    #' @description Convert to an R list
-    #'
-    #' @return list representation
+    #  @description Convert to an R list
+    # 
+    #  @return list representation
     to_list = function() {
       list(
         `_` = "ChangeStickerRequest",
@@ -181,9 +185,9 @@ ChangeStickerRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes (TL-like approximation)
-    #'
-    #' @return raw vector
+    #  @description Serialize to raw bytes (TL-like approximation)
+    # 
+    #  @return raw vector
     to_bytes = function() {
       int32_to_raw_le <- function(x) {
         x <- as.integer(x)
@@ -237,16 +241,16 @@ ChangeStickerRequest <- R6::R6Class(
   )
 )
 
-#' Create ChangeStickerRequest from a reader
-#'
-#' The reader object is expected to provide methods:
-#' - read_int() -> integer (32-bit)
-#' - tgread_object() -> returns a TL object
-#' - tgread_string() -> returns a string
-#'
-#' @param reader Reader object
-#' @return ChangeStickerRequest instance
-#' @export
+#  Create ChangeStickerRequest from a reader
+# 
+#  The reader object is expected to provide methods:
+#  - read_int() -> integer (32-bit)
+#  - tgread_object() -> returns a TL object
+#  - tgread_string() -> returns a string
+# 
+#  @param reader Reader object
+#  @return ChangeStickerRequest instance
+#  @export
 ChangeStickerRequest$set("public", "from_reader", function(reader) {
   flags_val <- reader$read_int()
   sticker_obj <- reader$tgread_object()
@@ -263,39 +267,41 @@ ChangeStickerRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' ChangeStickerPositionRequest R6 class
-#'
-#' Represents a request to change a sticker's position within a sticker set.
-#'
-#'
-#' @section Methods:
-#' - initialize(sticker, position): create instance.
-#' - resolve(client, utils): resolve friendly references to TL inputs (documents).
-#' - to_list(): returns a list representation suitable for JSON/inspection.
-#' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#' - from_reader(reader): reads a request from a reader object and returns a new instance.
-#'
-#' All methods are exported as part of the R6 object.
-#'
-#' @title ChangeStickerPositionRequest
-#' @description Telegram API type ChangeStickerPositionRequest
-#' @export
+#  ChangeStickerPositionRequest R6 class
+# 
+#  Represents a request to change a sticker's position within a sticker set.
+# 
+# 
+#  @section Methods:
+#  - initialize(sticker, position): create instance.
+#  - resolve(client, utils): resolve friendly references to TL inputs (documents).
+#  - to_list(): returns a list representation suitable for JSON/inspection.
+#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
+#  - from_reader(reader): reads a request from a reader object and returns a new instance.
+# 
+#  All methods are exported as part of the R6 object.
+# 
+#  @title ChangeStickerPositionRequest
+#  @description Telegram API type ChangeStickerPositionRequest
+#  @export
+#  @noRd
+#  @noRd
 ChangeStickerPositionRequest <- R6::R6Class(
   "ChangeStickerPositionRequest",
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xffb6d4ca,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
-    #' @field sticker Field.
+    #  @field sticker Field.
     sticker = NULL,
-    #' @field position Field.
+    #  @field position Field.
     position = NULL,
 
-    #' @description Initialize a ChangeStickerPositionRequest
-    #'
-    #' @param sticker InputDocument (TL object or representation)
-    #' @param position integer new position
+    #  @description Initialize a ChangeStickerPositionRequest
+    # 
+    #  @param sticker InputDocument (TL object or representation)
+    #  @param position integer new position
     initialize = function(sticker, position) {
       if (missing(sticker)) stop("sticker is required")
       if (missing(position) || !is.numeric(position) || length(position) != 1) stop("position must be a single numeric value")
@@ -304,19 +310,19 @@ ChangeStickerPositionRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Resolve friendly inputs to TL input objects
-    #'
-    #' @param client client object (used for entity resolution if needed)
-    #' @param utils utilities object with helper conversions (must implement get_input_document)
+    #  @description Resolve friendly inputs to TL input objects
+    # 
+    #  @param client client object (used for entity resolution if needed)
+    #  @param utils utilities object with helper conversions (must implement get_input_document)
     resolve = function(client, utils) {
       # convert user-friendly sticker references to an InputDocument TL object
       self$sticker <- utils$get_input_document(self$sticker)
       invisible(self)
     },
 
-    #' @description Convert to an R list
-    #'
-    #' @return list representation
+    #  @description Convert to an R list
+    # 
+    #  @return list representation
     to_list = function() {
       list(
         `_` = "ChangeStickerPositionRequest",
@@ -325,9 +331,9 @@ ChangeStickerPositionRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes (TL-like approximation)
-    #'
-    #' @return raw vector
+    #  @description Serialize to raw bytes (TL-like approximation)
+    # 
+    #  @return raw vector
     to_bytes = function() {
       int32_to_raw_le <- function(x) {
         x <- as.integer(x)
@@ -361,15 +367,15 @@ ChangeStickerPositionRequest <- R6::R6Class(
   )
 )
 
-#' Create ChangeStickerPositionRequest from a reader
-#'
-#' The reader object is expected to provide methods:
-#' - tgread_object() -> returns a TL object
-#' - read_int() -> integer (32-bit)
-#'
-#' @param reader Reader object
-#' @return ChangeStickerPositionRequest instance
-#' @export
+#  Create ChangeStickerPositionRequest from a reader
+# 
+#  The reader object is expected to provide methods:
+#  - tgread_object() -> returns a TL object
+#  - read_int() -> integer (32-bit)
+# 
+#  @param reader Reader object
+#  @return ChangeStickerPositionRequest instance
+#  @export
 ChangeStickerPositionRequest$set("public", "from_reader", function(reader) {
   sticker_obj <- reader$tgread_object()
   position_val <- reader$read_int()
@@ -377,42 +383,44 @@ ChangeStickerPositionRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' CheckShortNameRequest R6 class
-#'
-#' Represents a request to check whether a short name is available/valid.
-#'
-#'
-#' @section Methods:
-#' - initialize(short_name): create instance.
-#' - to_list(): returns a list representation suitable for JSON/inspection.
-#' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#' - from_reader(reader): reads a request from a reader object and returns a new instance.
-#'
-#' @title CheckShortNameRequest
-#' @description Telegram API type CheckShortNameRequest
-#' @export
+#  CheckShortNameRequest R6 class
+# 
+#  Represents a request to check whether a short name is available/valid.
+# 
+# 
+#  @section Methods:
+#  - initialize(short_name): create instance.
+#  - to_list(): returns a list representation suitable for JSON/inspection.
+#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
+#  - from_reader(reader): reads a request from a reader object and returns a new instance.
+# 
+#  @title CheckShortNameRequest
+#  @description Telegram API type CheckShortNameRequest
+#  @export
+#  @noRd
+#  @noRd
 CheckShortNameRequest <- R6::R6Class(
   "CheckShortNameRequest",
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x284b3639,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field short_name Field.
+    #  @field short_name Field.
     short_name = NULL,
 
-    #' @description Initialize a CheckShortNameRequest
-    #'
-    #' @param short_name character short name string
+    #  @description Initialize a CheckShortNameRequest
+    # 
+    #  @param short_name character short name string
     initialize = function(short_name) {
       if (missing(short_name) || !is.character(short_name) || length(short_name) != 1) stop("short_name must be a single string")
       self$short_name <- short_name
       invisible(self)
     },
 
-    #' @description Convert to an R list
-    #'
-    #' @return list representation
+    #  @description Convert to an R list
+    # 
+    #  @return list representation
     to_list = function() {
       list(
         `_` = "CheckShortNameRequest",
@@ -420,9 +428,9 @@ CheckShortNameRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes (TL-like approximation)
-    #'
-    #' @return raw vector
+    #  @description Serialize to raw bytes (TL-like approximation)
+    # 
+    #  @return raw vector
     to_bytes = function() {
       # constructor bytes (little endian)
       constructor_bytes <- as.raw(c(
@@ -448,73 +456,75 @@ CheckShortNameRequest <- R6::R6Class(
   )
 )
 
-#' Create CheckShortNameRequest from a reader
-#'
-#' Reader must implement tgread_string() returning a single string.
-#'
-#' @param reader Reader object
-#' @return CheckShortNameRequest instance
-#' @export
+#  Create CheckShortNameRequest from a reader
+# 
+#  Reader must implement tgread_string() returning a single string.
+# 
+#  @param reader Reader object
+#  @return CheckShortNameRequest instance
+#  @export
 CheckShortNameRequest$set("public", "from_reader", function(reader) {
   short_name_val <- reader$tgread_string()
   CheckShortNameRequest$new(short_name = short_name_val)
 })
 
 
-#' CreateStickerSetRequest R6 class
-#'
-#' Represents a request to create a sticker set.
-#'
-#'
-#' @section Methods:
-#' - initialize(user_id, title, short_name, stickers, masks = NULL, emojis = NULL, text_color = NULL, thumb = NULL, software = NULL): create instance.
-#' - resolve(client, utils): resolve friendly references to TL inputs (documents / users).
-#' - to_list(): returns a list representation suitable for inspection/JSON.
-#' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#' - from_reader(reader): static-style constructor that reads values from a reader object.
-#'
-#' All methods are exported as part of the R6 object.
-#'
-#' @title CreateStickerSetRequest
-#' @description Telegram API type CreateStickerSetRequest
-#' @export
+#  CreateStickerSetRequest R6 class
+# 
+#  Represents a request to create a sticker set.
+# 
+# 
+#  @section Methods:
+#  - initialize(user_id, title, short_name, stickers, masks = NULL, emojis = NULL, text_color = NULL, thumb = NULL, software = NULL): create instance.
+#  - resolve(client, utils): resolve friendly references to TL inputs (documents / users).
+#  - to_list(): returns a list representation suitable for inspection/JSON.
+#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
+#  - from_reader(reader): static-style constructor that reads values from a reader object.
+# 
+#  All methods are exported as part of the R6 object.
+# 
+#  @title CreateStickerSetRequest
+#  @description Telegram API type CreateStickerSetRequest
+#  @export
+#  @noRd
+#  @noRd
 CreateStickerSetRequest <- R6::R6Class(
   "CreateStickerSetRequest",
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9021ab67,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
-    #' @field user_id Field.
+    #  @field user_id Field.
     user_id = NULL,
-    #' @field title Field.
+    #  @field title Field.
     title = NULL,
-    #' @field short_name Field.
+    #  @field short_name Field.
     short_name = NULL,
-    #' @field stickers Field.
+    #  @field stickers Field.
     stickers = NULL,
-    #' @field masks Field.
+    #  @field masks Field.
     masks = NULL,
-    #' @field emojis Field.
+    #  @field emojis Field.
     emojis = NULL,
-    #' @field text_color Field.
+    #  @field text_color Field.
     text_color = NULL,
-    #' @field thumb Field.
+    #  @field thumb Field.
     thumb = NULL,
-    #' @field software Field.
+    #  @field software Field.
     software = NULL,
 
-    #' @description Initialize a CreateStickerSetRequest
-    #'
-    #' @param user_id InputUser (TL object or representation)
-    #' @param title character Title string
-    #' @param short_name character Short name string
-    #' @param stickers list of InputStickerSetItem TL objects (or raw representations)
-    #' @param masks logical optional
-    #' @param emojis logical optional
-    #' @param text_color logical optional
-    #' @param thumb optional InputDocument TL object (or raw)
-    #' @param software optional character string
+    #  @description Initialize a CreateStickerSetRequest
+    # 
+    #  @param user_id InputUser (TL object or representation)
+    #  @param title character Title string
+    #  @param short_name character Short name string
+    #  @param stickers list of InputStickerSetItem TL objects (or raw representations)
+    #  @param masks logical optional
+    #  @param emojis logical optional
+    #  @param text_color logical optional
+    #  @param thumb optional InputDocument TL object (or raw)
+    #  @param software optional character string
     initialize = function(user_id, title, short_name, stickers, masks = NULL, emojis = NULL, text_color = NULL, thumb = NULL, software = NULL) {
       if (missing(user_id)) stop("user_id is required")
       if (missing(title) || !is.character(title) || length(title) != 1) stop("title must be a single string")
@@ -532,10 +542,10 @@ CreateStickerSetRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Resolve friendly inputs to TL input objects
-    #'
-    #' @param client client object (used for entity resolution if needed)
-    #' @param utils utilities object with helper conversions (must implement get_input_user and get_input_document)
+    #  @description Resolve friendly inputs to TL input objects
+    # 
+    #  @param client client object (used for entity resolution if needed)
+    #  @param utils utilities object with helper conversions (must implement get_input_user and get_input_document)
     resolve = function(client, utils) {
       # resolve user_id via client/utils
       self$user_id <- utils$get_input_user(client$get_input_entity(self$user_id))
@@ -545,9 +555,9 @@ CreateStickerSetRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to an R list
-    #'
-    #' @return list representation
+    #  @description Convert to an R list
+    # 
+    #  @return list representation
     to_list = function() {
       list(
         `_` = "CreateStickerSetRequest",
@@ -563,9 +573,9 @@ CreateStickerSetRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes (TL-like approximation)
-    #'
-    #' @return raw vector
+    #  @description Serialize to raw bytes (TL-like approximation)
+    # 
+    #  @return raw vector
     to_bytes = function() {
       int32_to_raw_le <- function(x) {
         x <- as.integer(x)
@@ -644,16 +654,16 @@ CreateStickerSetRequest <- R6::R6Class(
 )
 
 # Create from_reader as a public function similar to other classes
-#' Create CreateStickerSetRequest from a reader
-#'
-#' The reader object is expected to provide methods:
-#' - read_int() -> integer (32-bit)
-#' - tgread_object() -> returns a TL object
-#' - tgread_string() -> returns a string
-#'
-#' @param reader Reader object
-#' @return CreateStickerSetRequest instance
-#' @export
+#  Create CreateStickerSetRequest from a reader
+# 
+#  The reader object is expected to provide methods:
+#  - read_int() -> integer (32-bit)
+#  - tgread_object() -> returns a TL object
+#  - tgread_string() -> returns a string
+# 
+#  @param reader Reader object
+#  @return CreateStickerSetRequest instance
+#  @export
 CreateStickerSetRequest$set("public", "from_reader", function(reader) {
   flags <- reader$read_int()
   masks_val <- bitwAnd(flags, 1L) != 0L
@@ -692,42 +702,44 @@ CreateStickerSetRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' DeleteStickerSetRequest R6 class
-#'
-#' Represents a request to delete a sticker set.
-#'
-#'
-#' @section Methods:
-#' - initialize(stickerset): create instance.
-#' - to_list(): returns a list representation suitable for JSON/inspection.
-#' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#' - from_reader(reader): reads a request from a reader object and returns a new instance.
-#'
-#' @title DeleteStickerSetRequest
-#' @description Telegram API type DeleteStickerSetRequest
-#' @export
+#  DeleteStickerSetRequest R6 class
+# 
+#  Represents a request to delete a sticker set.
+# 
+# 
+#  @section Methods:
+#  - initialize(stickerset): create instance.
+#  - to_list(): returns a list representation suitable for JSON/inspection.
+#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
+#  - from_reader(reader): reads a request from a reader object and returns a new instance.
+# 
+#  @title DeleteStickerSetRequest
+#  @description Telegram API type DeleteStickerSetRequest
+#  @export
+#  @noRd
+#  @noRd
 DeleteStickerSetRequest <- R6::R6Class(
   "DeleteStickerSetRequest",
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x87704394,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field stickerset Field.
+    #  @field stickerset Field.
     stickerset = NULL,
 
-    #' @description Initialize a DeleteStickerSetRequest
-    #'
-    #' @param stickerset InputStickerSet (TL object or representation)
+    #  @description Initialize a DeleteStickerSetRequest
+    # 
+    #  @param stickerset InputStickerSet (TL object or representation)
     initialize = function(stickerset) {
       if (missing(stickerset)) stop("stickerset is required")
       self$stickerset <- stickerset
       invisible(self)
     },
 
-    #' @description Convert to an R list (dictionary-like)
-    #'
-    #' @return list representation of the request
+    #  @description Convert to an R list (dictionary-like)
+    # 
+    #  @return list representation of the request
     to_list = function() {
       list(
         `_` = "DeleteStickerSetRequest",
@@ -735,9 +747,9 @@ DeleteStickerSetRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes (simple TL-like approximation)
-    #'
-    #' @return raw vector
+    #  @description Serialize to raw bytes (simple TL-like approximation)
+    # 
+    #  @return raw vector
     to_bytes = function() {
       constructor_bytes <- as.raw(c(
         bitwAnd(self$CONSTRUCTOR_ID, 0xFF),
@@ -759,66 +771,68 @@ DeleteStickerSetRequest <- R6::R6Class(
   )
 )
 
-#' Create DeleteStickerSetRequest from a reader
-#'
-#' The reader object is expected to provide method tgread_object().
-#'
-#' @param reader Reader object
-#' @return DeleteStickerSetRequest instance
-#' @export
+#  Create DeleteStickerSetRequest from a reader
+# 
+#  The reader object is expected to provide method tgread_object().
+# 
+#  @param reader Reader object
+#  @return DeleteStickerSetRequest instance
+#  @export
 DeleteStickerSetRequest$set("public", "from_reader", function(reader) {
   stickerset_obj <- reader$tgread_object()
   DeleteStickerSetRequest$new(stickerset = stickerset_obj)
 })
 
 
-#' RemoveStickerFromSetRequest R6 class
-#'
-#' Represents a request to remove a sticker from a set.
-#'
-#'
-#' @section Methods:
-#' - initialize(sticker): create instance.
-#' - resolve(client, utils): resolves the sticker to an InputDocument using utils.
-#' - to_list(): returns a list representation suitable for JSON/inspection.
-#' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#' - from_reader(reader): reads a request from a reader object and returns a new instance.
-#'
-#' @title RemoveStickerFromSetRequest
-#' @description Telegram API type RemoveStickerFromSetRequest
-#' @export
+#  RemoveStickerFromSetRequest R6 class
+# 
+#  Represents a request to remove a sticker from a set.
+# 
+# 
+#  @section Methods:
+#  - initialize(sticker): create instance.
+#  - resolve(client, utils): resolves the sticker to an InputDocument using utils.
+#  - to_list(): returns a list representation suitable for JSON/inspection.
+#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
+#  - from_reader(reader): reads a request from a reader object and returns a new instance.
+# 
+#  @title RemoveStickerFromSetRequest
+#  @description Telegram API type RemoveStickerFromSetRequest
+#  @export
+#  @noRd
+#  @noRd
 RemoveStickerFromSetRequest <- R6::R6Class(
   "RemoveStickerFromSetRequest",
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf7760f51,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
-    #' @field sticker Field.
+    #  @field sticker Field.
     sticker = NULL,
 
-    #' @description Initialize a RemoveStickerFromSetRequest
-    #'
-    #' @param sticker InputDocument (TL object or representation)
+    #  @description Initialize a RemoveStickerFromSetRequest
+    # 
+    #  @param sticker InputDocument (TL object or representation)
     initialize = function(sticker) {
       if (missing(sticker)) stop("sticker is required")
       self$sticker <- sticker
       invisible(self)
     },
 
-    #' @description Resolve references (e.g. convert user-friendly inputs to TL inputs)
-    #'
-    #' @param client client object (used for entity resolution if needed)
-    #' @param utils utilities object with helper conversions (must implement get_input_document)
+    #  @description Resolve references (e.g. convert user-friendly inputs to TL inputs)
+    # 
+    #  @param client client object (used for entity resolution if needed)
+    #  @param utils utilities object with helper conversions (must implement get_input_document)
     resolve = function(client, utils) {
       # utils$get_input_document should return an InputDocument TL object
       self$sticker <- utils$get_input_document(self$sticker)
       invisible(self)
     },
 
-    #' @description Convert to an R list (dictionary-like)
-    #'
-    #' @return list representation of the request
+    #  @description Convert to an R list (dictionary-like)
+    # 
+    #  @return list representation of the request
     to_list = function() {
       list(
         `_` = "RemoveStickerFromSetRequest",
@@ -826,9 +840,9 @@ RemoveStickerFromSetRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes (simple TL-like approximation)
-    #'
-    #' @return raw vector
+    #  @description Serialize to raw bytes (simple TL-like approximation)
+    # 
+    #  @return raw vector
     to_bytes = function() {
       constructor_bytes <- as.raw(c(
         bitwAnd(self$CONSTRUCTOR_ID, 0xFF),
@@ -850,49 +864,51 @@ RemoveStickerFromSetRequest <- R6::R6Class(
   )
 )
 
-#' Create RemoveStickerFromSetRequest from a reader
-#'
-#' The reader object is expected to provide method tgread_object().
-#'
-#' @param reader Reader object
-#' @return RemoveStickerFromSetRequest instance
-#' @export
+#  Create RemoveStickerFromSetRequest from a reader
+# 
+#  The reader object is expected to provide method tgread_object().
+# 
+#  @param reader Reader object
+#  @return RemoveStickerFromSetRequest instance
+#  @export
 RemoveStickerFromSetRequest$set("public", "from_reader", function(reader) {
   sticker_obj <- reader$tgread_object()
   RemoveStickerFromSetRequest$new(sticker = sticker_obj)
 })
 
 
-#' RenameStickerSetRequest R6 class
-#'
-#' Represents a request to rename a sticker set.
-#'
-#'
-#' @section Methods:
-#' - initialize(stickerset, title): create instance.
-#' - to_list(): returns a list representation suitable for JSON/inspection.
-#' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#' - from_reader(reader): reads a request from a reader object and returns a new instance.
-#'
-#' @title RenameStickerSetRequest
-#' @description Telegram API type RenameStickerSetRequest
-#' @export
+#  RenameStickerSetRequest R6 class
+# 
+#  Represents a request to rename a sticker set.
+# 
+# 
+#  @section Methods:
+#  - initialize(stickerset, title): create instance.
+#  - to_list(): returns a list representation suitable for JSON/inspection.
+#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
+#  - from_reader(reader): reads a request from a reader object and returns a new instance.
+# 
+#  @title RenameStickerSetRequest
+#  @description Telegram API type RenameStickerSetRequest
+#  @export
+#  @noRd
+#  @noRd
 RenameStickerSetRequest <- R6::R6Class(
   "RenameStickerSetRequest",
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x124b1c00,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
-    #' @field stickerset Field.
+    #  @field stickerset Field.
     stickerset = NULL,
-    #' @field title Field.
+    #  @field title Field.
     title = NULL,
 
-    #' @description Initialize a RenameStickerSetRequest
-    #'
-    #' @param stickerset InputStickerSet (TL object or representation)
-    #' @param title character Title string
+    #  @description Initialize a RenameStickerSetRequest
+    # 
+    #  @param stickerset InputStickerSet (TL object or representation)
+    #  @param title character Title string
     initialize = function(stickerset, title) {
       if (missing(stickerset)) stop("stickerset is required")
       if (missing(title) || !is.character(title) || length(title) != 1) stop("title must be a single string")
@@ -901,9 +917,9 @@ RenameStickerSetRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to an R list (dictionary-like)
-    #'
-    #' @return list representation of the request
+    #  @description Convert to an R list (dictionary-like)
+    # 
+    #  @return list representation of the request
     to_list = function() {
       list(
         `_` = "RenameStickerSetRequest",
@@ -912,9 +928,9 @@ RenameStickerSetRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes (simple TL-like approximation)
-    #'
-    #' @return raw vector
+    #  @description Serialize to raw bytes (simple TL-like approximation)
+    # 
+    #  @return raw vector
     to_bytes = function() {
       int32_to_raw_le <- function(x) {
         x <- as.integer(x)
@@ -951,15 +967,15 @@ RenameStickerSetRequest <- R6::R6Class(
   )
 )
 
-#' Create RenameStickerSetRequest from a reader
-#'
-#' The reader object is expected to provide methods:
-#' - tgread_object() -> returns a TL object
-#' - tgread_string() -> returns a string
-#'
-#' @param reader Reader object
-#' @return RenameStickerSetRequest instance
-#' @export
+#  Create RenameStickerSetRequest from a reader
+# 
+#  The reader object is expected to provide methods:
+#  - tgread_object() -> returns a TL object
+#  - tgread_string() -> returns a string
+# 
+#  @param reader Reader object
+#  @return RenameStickerSetRequest instance
+#  @export
 RenameStickerSetRequest$set("public", "from_reader", function(reader) {
   stickerset_obj <- reader$tgread_object()
   title_val <- reader$tgread_string()
@@ -967,37 +983,39 @@ RenameStickerSetRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' ReplaceStickerRequest R6 class
-#'
-#' Represents a request to replace a sticker with a new sticker item.
-#'
-#'
-#' @section Methods:
-#' - initialize(sticker, new_sticker): create instance.
-#' - resolve(client, utils): resolves references (e.g. ensure sticker is InputDocument).
-#' - to_list(): returns a list representation suitable for JSON/inspection.
-#' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#' - from_reader(reader): reads a request from a reader object and returns a new instance.
-#'
-#' @title ReplaceStickerRequest
-#' @description Telegram API type ReplaceStickerRequest
-#' @export
+#  ReplaceStickerRequest R6 class
+# 
+#  Represents a request to replace a sticker with a new sticker item.
+# 
+# 
+#  @section Methods:
+#  - initialize(sticker, new_sticker): create instance.
+#  - resolve(client, utils): resolves references (e.g. ensure sticker is InputDocument).
+#  - to_list(): returns a list representation suitable for JSON/inspection.
+#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
+#  - from_reader(reader): reads a request from a reader object and returns a new instance.
+# 
+#  @title ReplaceStickerRequest
+#  @description Telegram API type ReplaceStickerRequest
+#  @export
+#  @noRd
+#  @noRd
 ReplaceStickerRequest <- R6::R6Class(
   "ReplaceStickerRequest",
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4696459a,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
-    #' @field sticker Field.
+    #  @field sticker Field.
     sticker = NULL,
-    #' @field new_sticker Field.
+    #  @field new_sticker Field.
     new_sticker = NULL,
 
-    #' @description Initialize a ReplaceStickerRequest
-    #'
-    #' @param sticker InputDocument (TL object or representation)
-    #' @param new_sticker InputStickerSetItem (TL object or representation)
+    #  @description Initialize a ReplaceStickerRequest
+    # 
+    #  @param sticker InputDocument (TL object or representation)
+    #  @param new_sticker InputStickerSetItem (TL object or representation)
     initialize = function(sticker, new_sticker) {
       if (missing(sticker)) stop("sticker is required")
       if (missing(new_sticker)) stop("new_sticker is required")
@@ -1006,19 +1024,19 @@ ReplaceStickerRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Resolve references (e.g. convert user-friendly inputs to TL inputs)
-    #'
-    #' @param client client object (used for entity resolution if needed)
-    #' @param utils utilities object with helper conversions (must implement get_input_document)
+    #  @description Resolve references (e.g. convert user-friendly inputs to TL inputs)
+    # 
+    #  @param client client object (used for entity resolution if needed)
+    #  @param utils utilities object with helper conversions (must implement get_input_document)
     resolve = function(client, utils) {
       # utils$get_input_document should return an InputDocument TL object
       self$sticker <- utils$get_input_document(self$sticker)
       invisible(self)
     },
 
-    #' @description Convert to an R list (dictionary-like)
-    #'
-    #' @return list representation of the request
+    #  @description Convert to an R list (dictionary-like)
+    # 
+    #  @return list representation of the request
     to_list = function() {
       list(
         `_` = "ReplaceStickerRequest",
@@ -1027,9 +1045,9 @@ ReplaceStickerRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes (simple TL-like approximation)
-    #'
-    #' @return raw vector
+    #  @description Serialize to raw bytes (simple TL-like approximation)
+    # 
+    #  @return raw vector
     to_bytes = function() {
       constructor_bytes <- as.raw(c(
         bitwAnd(self$CONSTRUCTOR_ID, 0xFF),
@@ -1059,13 +1077,13 @@ ReplaceStickerRequest <- R6::R6Class(
   )
 )
 
-#' Create ReplaceStickerRequest from a reader
-#'
-#' The reader object is expected to provide method tgread_object().
-#'
-#' @param reader Reader object
-#' @return ReplaceStickerRequest instance
-#' @export
+#  Create ReplaceStickerRequest from a reader
+# 
+#  The reader object is expected to provide method tgread_object().
+# 
+#  @param reader Reader object
+#  @return ReplaceStickerRequest instance
+#  @export
 ReplaceStickerRequest$set("public", "from_reader", function(reader) {
   sticker_obj <- reader$tgread_object()
   new_sticker_obj <- reader$tgread_object()
@@ -1073,40 +1091,42 @@ ReplaceStickerRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' SetStickerSetThumbRequest R6 class
-#'
-#' Represents a request to set a thumbnail for a sticker set.
-#'
-#'
-#' @section Methods:
-#' - initialize(stickerset, thumb = NULL, thumb_document_id = NULL): create instance.
-#' - resolve(client, utils): resolves references (e.g. ensure thumb is InputDocument).
-#' - to_list(): returns a list representation suitable for JSON/inspection.
-#' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#' - from_reader(reader): reads a request from a reader object and returns a new instance.
-#'
-#' @title SetStickerSetThumbRequest
-#' @description Telegram API type SetStickerSetThumbRequest
-#' @export
+#  SetStickerSetThumbRequest R6 class
+# 
+#  Represents a request to set a thumbnail for a sticker set.
+# 
+# 
+#  @section Methods:
+#  - initialize(stickerset, thumb = NULL, thumb_document_id = NULL): create instance.
+#  - resolve(client, utils): resolves references (e.g. ensure thumb is InputDocument).
+#  - to_list(): returns a list representation suitable for JSON/inspection.
+#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
+#  - from_reader(reader): reads a request from a reader object and returns a new instance.
+# 
+#  @title SetStickerSetThumbRequest
+#  @description Telegram API type SetStickerSetThumbRequest
+#  @export
+#  @noRd
+#  @noRd
 SetStickerSetThumbRequest <- R6::R6Class(
   "SetStickerSetThumbRequest",
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa76a5392,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9b704a5a,
-    #' @field stickerset Field.
+    #  @field stickerset Field.
     stickerset = NULL,
-    #' @field thumb Field.
+    #  @field thumb Field.
     thumb = NULL,
-    #' @field thumb_document_id Field.
+    #  @field thumb_document_id Field.
     thumb_document_id = NULL,
 
-    #' @description Initialize a SetStickerSetThumbRequest
-    #'
-    #' @param stickerset InputStickerSet (TL object or representation)
-    #' @param thumb Optional InputDocument (TL object or representation)
-    #' @param thumb_document_id Optional integer identifier for thumb document
+    #  @description Initialize a SetStickerSetThumbRequest
+    # 
+    #  @param stickerset InputStickerSet (TL object or representation)
+    #  @param thumb Optional InputDocument (TL object or representation)
+    #  @param thumb_document_id Optional integer identifier for thumb document
     initialize = function(stickerset, thumb = NULL, thumb_document_id = NULL) {
       if (missing(stickerset)) stop("stickerset is required")
       self$stickerset <- stickerset
@@ -1115,10 +1135,10 @@ SetStickerSetThumbRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Resolve references (e.g. convert user-friendly inputs to TL inputs)
-    #'
-    #' @param client client object (used for entity resolution if needed)
-    #' @param utils utilities object with helper conversions (must implement get_input_document)
+    #  @description Resolve references (e.g. convert user-friendly inputs to TL inputs)
+    # 
+    #  @param client client object (used for entity resolution if needed)
+    #  @param utils utilities object with helper conversions (must implement get_input_document)
     resolve = function(client, utils) {
       if (!is.null(self$thumb)) {
         # utils$get_input_document should return an InputDocument TL object
@@ -1127,9 +1147,9 @@ SetStickerSetThumbRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to an R list (dictionary-like)
-    #'
-    #' @return list representation of the request
+    #  @description Convert to an R list (dictionary-like)
+    # 
+    #  @return list representation of the request
     to_list = function() {
       list(
         `_` = "SetStickerSetThumbRequest",
@@ -1139,9 +1159,9 @@ SetStickerSetThumbRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes (simple TL-like approximation)
-    #'
-    #' @return raw vector
+    #  @description Serialize to raw bytes (simple TL-like approximation)
+    # 
+    #  @return raw vector
     to_bytes = function() {
       # helper: little-endian 32-bit int
       int32_to_raw_le <- function(x) {
@@ -1202,16 +1222,16 @@ SetStickerSetThumbRequest <- R6::R6Class(
   )
 )
 
-#' Create SetStickerSetThumbRequest from a reader
-#'
-#' The reader object is expected to provide methods:
-#' - read_int() -> integer (32-bit)
-#' - tgread_object() -> returns a TL object
-#' - read_long() -> numeric/integer64 (64-bit)
-#'
-#' @param reader Reader object
-#' @return SetStickerSetThumbRequest instance
-#' @export
+#  Create SetStickerSetThumbRequest from a reader
+# 
+#  The reader object is expected to provide methods:
+#  - read_int() -> integer (32-bit)
+#  - tgread_object() -> returns a TL object
+#  - read_long() -> numeric/integer64 (64-bit)
+# 
+#  @param reader Reader object
+#  @return SetStickerSetThumbRequest instance
+#  @export
 SetStickerSetThumbRequest$set("public", "from_reader", function(reader) {
   flags <- reader$read_int()
   stickerset_obj <- reader$tgread_object()
@@ -1221,42 +1241,44 @@ SetStickerSetThumbRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' SuggestShortNameRequest R6 class
-#'
-#' Represents a request to suggest a short name for a sticker set.
-#'
-#'
-#' @section Methods:
-#' - initialize(title): create instance.
-#' - to_list(): returns a list representation suitable for JSON/inspection.
-#' - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
-#' - from_reader(reader): reads a request from a reader object and returns a new instance.
-#'
-#' @title SuggestShortNameRequest
-#' @description Telegram API type SuggestShortNameRequest
-#' @export
+#  SuggestShortNameRequest R6 class
+# 
+#  Represents a request to suggest a short name for a sticker set.
+# 
+# 
+#  @section Methods:
+#  - initialize(title): create instance.
+#  - to_list(): returns a list representation suitable for JSON/inspection.
+#  - to_bytes(): returns a raw vector representing serialized bytes (TL-like).
+#  - from_reader(reader): reads a request from a reader object and returns a new instance.
+# 
+#  @title SuggestShortNameRequest
+#  @description Telegram API type SuggestShortNameRequest
+#  @export
+#  @noRd
+#  @noRd
 SuggestShortNameRequest <- R6::R6Class(
   "SuggestShortNameRequest",
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4dafc503,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc44a4b21,
-    #' @field title Field.
+    #  @field title Field.
     title = NULL,
 
-    #' @description Initialize a SuggestShortNameRequest
-    #'
-    #' @param title character Title string
+    #  @description Initialize a SuggestShortNameRequest
+    # 
+    #  @param title character Title string
     initialize = function(title) {
       if (missing(title) || !is.character(title) || length(title) != 1) stop("title must be a single string")
       self$title <- title
       invisible(self)
     },
 
-    #' @description Convert to an R list (dictionary-like)
-    #'
-    #' @return list representation
+    #  @description Convert to an R list (dictionary-like)
+    # 
+    #  @return list representation
     to_list = function() {
       list(
         `_` = "SuggestShortNameRequest",
@@ -1264,9 +1286,9 @@ SuggestShortNameRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes (simple TL-like approximation)
-    #'
-    #' @return raw vector
+    #  @description Serialize to raw bytes (simple TL-like approximation)
+    # 
+    #  @return raw vector
     to_bytes = function() {
       # constructor bytes
       constructor_bytes <- as.raw(c(
@@ -1288,13 +1310,13 @@ SuggestShortNameRequest <- R6::R6Class(
   )
 )
 
-#' Create SuggestShortNameRequest from a reader
-#'
-#' Reader must implement tgread_string() returning a single string.
-#'
-#' @param reader Reader object
-#' @return SuggestShortNameRequest instance
-#' @export
+#  Create SuggestShortNameRequest from a reader
+# 
+#  Reader must implement tgread_string() returning a single string.
+# 
+#  @param reader Reader object
+#  @return SuggestShortNameRequest instance
+#  @export
 SuggestShortNameRequest$set("public", "from_reader", function(reader) {
   title_val <- reader$tgread_string()
   SuggestShortNameRequest$new(title = title_val)

@@ -1,27 +1,29 @@
 # Import methods from . (equivalent to importing in Python)
 # In R6, we'll integrate these methods directly into the class
 
-#' TelegramClient Class
-#'
-#' An R6 class that combines functionality from multiple method classes to interact with Telegram API
-#'
-#' @title TelegramClient
-#' @description Telegram API type TelegramClient
-#' @export
+#  TelegramClient Class
+# 
+#  An R6 class that combines functionality from multiple method classes to interact with Telegram API
+# 
+#  @title TelegramClient
+#  @description Telegram API type TelegramClient
+#  @export
+#  @noRd
+#  @noRd
 TelegramClient <- R6::R6Class(
   "TelegramClient",
   inherit = TelegramBaseClient,
   public = list(
-    #' @description Initialize a new `AccountMethods` object.
-    #' @param finalize A logical indicating whether to finalize the takeout session.
-    #' @param contacts A logical indicating whether to include contacts in the takeout session.
-    #' @param users A logical indicating whether to include users in the takeout session.
-    #' @param chats A logical indicating whether to include chats in the takeout session.
-    #' @param megagroups A logical indicating whether to include megagroups in the takeout session.
-    #' @param channels A logical indicating whether to include channels in the takeout session.
-    #' @param files A logical indicating whether to include files in the takeout session.
-    #' @param max_file_size The maximum file size to include in the takeout session.
-    #' @return A new `AccountMethods` object.
+    #  @description Initialize a new `AccountMethods` object.
+    #  @param finalize A logical indicating whether to finalize the takeout session.
+    #  @param contacts A logical indicating whether to include contacts in the takeout session.
+    #  @param users A logical indicating whether to include users in the takeout session.
+    #  @param chats A logical indicating whether to include chats in the takeout session.
+    #  @param megagroups A logical indicating whether to include megagroups in the takeout session.
+    #  @param channels A logical indicating whether to include channels in the takeout session.
+    #  @param files A logical indicating whether to include files in the takeout session.
+    #  @param max_file_size The maximum file size to include in the takeout session.
+    #  @return A new `AccountMethods` object.
     takeout = function(finalize = TRUE, contacts = NULL, users = NULL, chats = NULL,
                        megagroups = NULL, channels = NULL, files = NULL, max_file_size = NULL) {
       request_kwargs <- list(
@@ -44,9 +46,9 @@ TelegramClient <- R6::R6Class(
       TakeoutClient$new(finalize, self, request)
     },
 
-    #' @description Finalize the takeout session.
-    #' @param success A logical indicating whether the takeout session was successful.
-    #' @return A logical indicating whether the takeout session was finalized successfully.
+    #  @description Finalize the takeout session.
+    #  @param success A logical indicating whether the takeout session was successful.
+    #  @return A logical indicating whether the takeout session was finalized successfully.
     end_takeout = function(success) {
       tryCatch(
         {
@@ -60,19 +62,19 @@ TelegramClient <- R6::R6Class(
       return(TRUE)
     },
 
-    #' @description
-    #' Starts the client (connects and logs in if necessary).
-    #' @param phone Function or string representing the phone number or bot token
-    #' @param password Function or string to provide 2FA password if needed
-    #' @param bot_token Bot token for logging in as a bot
-    #' @param force_sms Whether to force sending the code request as SMS
-    #' @param code_callback Function to retrieve login code
-    #' @param first_name First name for new accounts
-    #' @param last_name Last name for new accounts
-    #' @param max_attempts Maximum number of attempts for code/password verification
-    #' @return The client instance
+    #  @description
+    #  Starts the client (connects and logs in if necessary).
+    #  @param phone Function or string representing the phone number or bot token
+    #  @param password Function or string to provide 2FA password if needed
+    #  @param bot_token Bot token for logging in as a bot
+    #  @param force_sms Whether to force sending the code request as SMS
+    #  @param code_callback Function to retrieve login code
+    #  @param first_name First name for new accounts
+    #  @param last_name Last name for new accounts
+    #  @param max_attempts Maximum number of attempts for code/password verification
+    #  @return The client instance
     start = function(phone = NULL,
-                     #' @field password Field.
+                     #  @field password Field.
                      password = NULL,
                      bot_token = NULL, force_sms = FALSE, code_callback = NULL,
                      first_name = "New User", last_name = "", max_attempts = 3) {
@@ -114,14 +116,14 @@ TelegramClient <- R6::R6Class(
       return(result)
     },
 
-    #' @description
-    #' Signs in to an existing user or bot account.
-    #' @param phone Phone number
-    #' @param code The verification code sent by Telegram
-    #' @param password 2FA password if enabled
-    #' @param bot_token Bot token for logging in as a bot
-    #' @param phone_code_hash Hash returned by send_code_request
-    #' @return The signed in user or information about send_code_request
+    #  @description
+    #  Signs in to an existing user or bot account.
+    #  @param phone Phone number
+    #  @param code The verification code sent by Telegram
+    #  @param password 2FA password if enabled
+    #  @param bot_token Bot token for logging in as a bot
+    #  @param phone_code_hash Hash returned by send_code_request
+    #  @return The signed in user or information about send_code_request
     sign_in = function(phone = NULL, code = NULL, password = NULL,
                        bot_token = NULL, phone_code_hash = NULL) {
       ctor_key <- function(obj) {
@@ -220,23 +222,23 @@ TelegramClient <- R6::R6Class(
       return(self$on_login(user))
     },
 
-    #' @description
-    #' This method can no longer be used due to Telegram's restrictions.
-    #' @param code The verification code
-    #' @param first_name First name for the new user
-    #' @param last_name Last name for the new user
-    #' @param phone Phone number
-    #' @param phone_code_hash Hash returned by send_code_request
+    #  @description
+    #  This method can no longer be used due to Telegram's restrictions.
+    #  @param code The verification code
+    #  @param first_name First name for the new user
+    #  @param last_name Last name for the new user
+    #  @param phone Phone number
+    #  @param phone_code_hash Hash returned by send_code_request
     sign_up = function(code, first_name, last_name = "", phone = NULL, phone_code_hash = NULL) {
       stop("Third-party applications cannot sign up for Telegram. See https://github.com/LonamiWebs/Telethon/issues/4050 for details")
     },
 
-    #' @description
-    #' Sends the verification code to the given phone number
-    #' @param phone Phone number to send the code to
-    #' @param force_sms Whether to force sending as SMS
-    #' @param retry_count Internal parameter for recursion, do not set
-    #' @return The sent code information
+    #  @description
+    #  Sends the verification code to the given phone number
+    #  @param phone Phone number to send the code to
+    #  @param force_sms Whether to force sending as SMS
+    #  @param retry_count Internal parameter for recursion, do not set
+    #  @return The sent code information
     send_code_request = function(phone, force_sms = FALSE, retry_count = 0) {
       parse_sent_code_fallback <- function(res) {
         ctor_key <- function(obj) {
@@ -377,19 +379,19 @@ TelegramClient <- R6::R6Class(
       return(result)
     },
 
-    #' @description
-    #' Initiates the QR login procedure
-    #' @param ignored_ids List of already logged-in user IDs
-    #' @return QR login object
+    #  @description
+    #  Initiates the QR login procedure
+    #  @param ignored_ids List of already logged-in user IDs
+    #  @return QR login object
     qr_login = function(ignored_ids = NULL) {
       qr_login <- custom$QRLogin$new(self, ignored_ids %||% list())
       qr_login$recreate()
       return(qr_login)
     },
 
-    #' @description
-    #' Logs out of Telegram and deletes the current session file
-    #' @return TRUE if successful, FALSE otherwise
+    #  @description
+    #  Logs out of Telegram and deletes the current session file
+    #  @return TRUE if successful, FALSE otherwise
     log_out = function() {
       tryCatch(
         {
@@ -411,14 +413,14 @@ TelegramClient <- R6::R6Class(
       return(TRUE)
     },
 
-    #' @description
-    #' Changes the 2FA settings of the logged in user
-    #' @param current_password Current password
-    #' @param new_password New password to set
-    #' @param hint Hint to display when prompting for 2FA
-    #' @param email Recovery email address
-    #' @param email_code_callback Function to retrieve email verification code
-    #' @return TRUE if successful, FALSE otherwise
+    #  @description
+    #  Changes the 2FA settings of the logged in user
+    #  @param current_password Current password
+    #  @param new_password New password to set
+    #  @param hint Hint to display when prompting for 2FA
+    #  @param email Recovery email address
+    #  @param email_code_callback Function to retrieve email verification code
+    #  @return TRUE if successful, FALSE otherwise
     edit_2fa = function(current_password = NULL, new_password = NULL,
                         hint = "", email = NULL, email_code_callback = NULL) {
       if (is.null(new_password) && is.null(current_password)) {
@@ -457,7 +459,7 @@ TelegramClient <- R6::R6Class(
               new_password_hash = new_password_hash,
               hint = hint,
               email = email,
-              #' @field new_secure_settings Field.
+              #  @field new_secure_settings Field.
               new_secure_settings = NULL
             )
           ))
@@ -476,14 +478,14 @@ TelegramClient <- R6::R6Class(
       return(TRUE)
     },
 
-    #' @field client Field.
+    #  @field client Field.
     client = NULL,
-    #' @field phone Field.
+    #  @field phone Field.
     phone = NULL,
     phone_code_hash = list(),
-    #' @field tos Field.
+    #  @field tos Field.
     tos = NULL,
-    #' @field authorized Field.
+    #  @field authorized Field.
     authorized = FALSE,
     parse_phone_and_hash = function(phone, phone_hash) {
       phone <- self$parse_phone(phone) %||% self$phone
@@ -700,11 +702,11 @@ TelegramClient <- R6::R6Class(
       return(user$username %||% as.character(user$id))
     },
 
-    #' @description Download a profile photo
-    #' @param entity The entity to download the profile photo from
-    #' @param file Output file path or NULL for auto-naming
-    #' @param download_big Whether to download the big version of the photo
-    #' @return Path to the downloaded file or NULL if no photo
+    #  @description Download a profile photo
+    #  @param entity The entity to download the profile photo from
+    #  @param file Output file path or NULL for auto-naming
+    #  @param download_big Whether to download the big version of the photo
+    #  @return Path to the downloaded file or NULL if no photo
     download_profile_photo = function(entity, file = NULL, download_big = TRUE) {
       future({
         # hex(crc32(x.encode('ascii'))) for x in
@@ -732,7 +734,7 @@ TelegramClient <- R6::R6Class(
 
             return(self$download_photo(
               entity$chat_photo, file,
-              #' @field date Field.
+              #  @field date Field.
               date = NULL,
               thumb = thumb, progress_callback = NULL
             ))
@@ -750,7 +752,7 @@ TelegramClient <- R6::R6Class(
         if (inherits(photo, c("UserProfilePhoto", "ChatPhoto"))) {
           dc_id <- photo$dc_id
           loc <- list(
-            #' @field type Field.
+            #  @field type Field.
             type = "InputPeerPhotoFileLocation",
             # min users can be used to download profile photos
             # self.get_input_entity would otherwise not accept those
@@ -784,7 +786,7 @@ TelegramClient <- R6::R6Class(
               ty <- entity_type(ie)
               if (ty == EntityType$CHANNEL) {
                 full <- self$call(list(
-                  #' @field type Field.
+                  #  @field type Field.
                   type = "GetFullChannelRequest",
                   channel = ie
                 ))
@@ -804,12 +806,12 @@ TelegramClient <- R6::R6Class(
       }) %...>% return()
     },
 
-    #' @description Download media from a message
-    #' @param message The message or media to download
-    #' @param file Output file path or NULL for auto-naming
-    #' @param thumb Which thumbnail to download (if any)
-    #' @param progress_callback Function called with progress updates
-    #' @return Path to the downloaded file or NULL if no media
+    #  @description Download media from a message
+    #  @param message The message or media to download
+    #  @param file Output file path or NULL for auto-naming
+    #  @param thumb Which thumbnail to download (if any)
+    #  @param progress_callback Function called with progress updates
+    #  @return Path to the downloaded file or NULL if no media
     download_media = function(message, file = NULL, thumb = NULL, progress_callback = NULL) {
       future({
         # Downloading large documents may be slow enough to require a new file reference
@@ -862,16 +864,16 @@ TelegramClient <- R6::R6Class(
       }) %...>% return()
     },
 
-    #' @description Download a file from its input location
-    #' @param input_location The file location
-    #' @param file Output file path or NULL for auto-naming
-    #' @param part_size_kb Chunk size when downloading files
-    #' @param file_size The file size if known
-    #' @param progress_callback Function called with progress updates
-    #' @param dc_id Data center ID
-    #' @param key Encryption key if needed
-    #' @param iv Encryption IV if needed
-    #' @return Downloaded file data or path
+    #  @description Download a file from its input location
+    #  @param input_location The file location
+    #  @param file Output file path or NULL for auto-naming
+    #  @param part_size_kb Chunk size when downloading files
+    #  @param file_size The file size if known
+    #  @param progress_callback Function called with progress updates
+    #  @param dc_id Data center ID
+    #  @param key Encryption key if needed
+    #  @param iv Encryption IV if needed
+    #  @return Downloaded file data or path
     download_file = function(input_location, file = NULL, part_size_kb = NULL,
                              file_size = NULL, progress_callback = NULL,
                              dc_id = NULL, key = NULL, iv = NULL) {
@@ -889,18 +891,18 @@ TelegramClient <- R6::R6Class(
       }) %...>% return()
     },
 
-    #' @description Internal method to download a file
-    #' @param input_location The file location
-    #' @param file Output file path or NULL for auto-naming
-    #' @param part_size_kb Chunk size when downloading files
-    #' @param file_size The file size if known
-    #' @param progress_callback Function called with progress updates
-    #' @param dc_id Data center ID
-    #' @param key Encryption key if needed
-    #' @param iv Encryption IV if needed
-    #' @param msg_data Message data if applicable
-    #' @param cdn_redirect CDN redirect if applicable
-    #' @return Downloaded file data or path
+    #  @description Internal method to download a file
+    #  @param input_location The file location
+    #  @param file Output file path or NULL for auto-naming
+    #  @param part_size_kb Chunk size when downloading files
+    #  @param file_size The file size if known
+    #  @param progress_callback Function called with progress updates
+    #  @param dc_id Data center ID
+    #  @param key Encryption key if needed
+    #  @param iv Encryption IV if needed
+    #  @param msg_data Message data if applicable
+    #  @param cdn_redirect CDN redirect if applicable
+    #  @return Downloaded file data or path
     .download_file = function(input_location, file = NULL, part_size_kb = NULL,
                               file_size = NULL, progress_callback = NULL,
                               dc_id = NULL, key = NULL, iv = NULL,
@@ -998,16 +1000,16 @@ TelegramClient <- R6::R6Class(
       }) %...>% return()
     },
 
-    #' @description Iterate over a file download
-    #' @param file The file to download
-    #' @param offset Starting offset
-    #' @param stride Stride between chunks
-    #' @param limit Maximum number of chunks to download
-    #' @param chunk_size Size of each chunk
-    #' @param request_size Size of each request
-    #' @param file_size Total file size if known
-    #' @param dc_id Data center ID
-    #' @return Iterator for file chunks
+    #  @description Iterate over a file download
+    #  @param file The file to download
+    #  @param offset Starting offset
+    #  @param stride Stride between chunks
+    #  @param limit Maximum number of chunks to download
+    #  @param chunk_size Size of each chunk
+    #  @param request_size Size of each request
+    #  @param file_size Total file size if known
+    #  @param dc_id Data center ID
+    #  @return Iterator for file chunks
     iter_download = function(file, offset = 0, stride = NULL, limit = NULL,
                              chunk_size = NULL, request_size = MAX_CHUNK_SIZE,
                              file_size = NULL, dc_id = NULL) {
@@ -1025,18 +1027,18 @@ TelegramClient <- R6::R6Class(
       }) %...>% return()
     },
 
-    #' @description Internal implementation of iter_download
-    #' @param file The file to download
-    #' @param offset Starting offset
-    #' @param stride Stride between chunks
-    #' @param limit Maximum number of chunks to download
-    #' @param chunk_size Size of each chunk
-    #' @param request_size Size of each request
-    #' @param file_size Total file size if known
-    #' @param dc_id Data center ID
-    #' @param msg_data Message data if applicable
-    #' @param cdn_redirect CDN redirect if applicable
-    #' @return Iterator for file chunks
+    #  @description Internal implementation of iter_download
+    #  @param file The file to download
+    #  @param offset Starting offset
+    #  @param stride Stride between chunks
+    #  @param limit Maximum number of chunks to download
+    #  @param chunk_size Size of each chunk
+    #  @param request_size Size of each request
+    #  @param file_size Total file size if known
+    #  @param dc_id Data center ID
+    #  @param msg_data Message data if applicable
+    #  @param cdn_redirect CDN redirect if applicable
+    #  @return Iterator for file chunks
     .iter_download = function(file, offset = 0, stride = NULL, limit = NULL,
                               chunk_size = NULL, request_size = MAX_CHUNK_SIZE,
                               file_size = NULL, dc_id = NULL,
@@ -1114,11 +1116,11 @@ TelegramClient <- R6::R6Class(
       }) %...>% return()
     },
 
-    #' @description Get the appropriate thumbnail from thumbs
-    #' @param thumbs List of available thumbnails
-    #' @param thumb Which thumbnail to get (NULL for largest, integer index,
-    #'              string type, or PhotoSize/VideoSize object)
-    #' @return The selected thumbnail or NULL if none found
+    #  @description Get the appropriate thumbnail from thumbs
+    #  @param thumbs List of available thumbnails
+    #  @param thumb Which thumbnail to get (NULL for largest, integer index,
+    #               string type, or PhotoSize/VideoSize object)
+    #  @return The selected thumbnail or NULL if none found
     get_thumb = function(thumbs, thumb) {
       if (length(thumbs) == 0) {
         return(NULL)
@@ -1183,11 +1185,11 @@ TelegramClient <- R6::R6Class(
       }
     },
 
-    #' @description
-    #' Download cached photo size
-    #' @param size The photo size to download
-    #' @param file Output file path or NULL for auto-naming
-    #' @return Downloaded file data or path
+    #  @description
+    #  Download cached photo size
+    #  @param size The photo size to download
+    #  @param file Output file path or NULL for auto-naming
+    #  @return Downloaded file data or path
     download_cached_photo_size = function(size, file) {
       # No need to download anything, simply write the bytes
       if (inherits(size, "PhotoStrippedSize")) {
@@ -1215,14 +1217,14 @@ TelegramClient <- R6::R6Class(
       return(file)
     },
 
-    #' @description
-    #' Download a photo
-    #' @param photo The photo to download
-    #' @param file Output file path or NULL for auto-naming
-    #' @param date The date the photo was sent
-    #' @param thumb Which thumbnail to download
-    #' @param progress_callback Function called with progress updates
-    #' @return Path to the downloaded file
+    #  @description
+    #  Download a photo
+    #  @param photo The photo to download
+    #  @param file Output file path or NULL for auto-naming
+    #  @param date The date the photo was sent
+    #  @param thumb Which thumbnail to download
+    #  @param progress_callback Function called with progress updates
+    #  @return Path to the downloaded file
     download_photo = function(photo, file, date, thumb, progress_callback) {
       future({
         # Determine the photo and its largest size
@@ -1258,7 +1260,7 @@ TelegramClient <- R6::R6Class(
 
         result <- await(self$download_file(
           list(
-            #' @field type Field.
+            #  @field type Field.
             type = "InputPhotoFileLocation",
             id = photo$id,
             access_hash = photo$access_hash,
@@ -1273,10 +1275,10 @@ TelegramClient <- R6::R6Class(
       }) %...>% return()
     },
 
-    #' @description
-    #' Get kind and possible names for DocumentAttribute
-    #' @param attributes The document attributes
-    #' @return List with kind and possible names
+    #  @description
+    #  Get kind and possible names for DocumentAttribute
+    #  @param attributes The document attributes
+    #  @return List with kind and possible names
     get_kind_and_names = function(attributes) {
       kind <- "document"
       possible_names <- list()
@@ -1301,15 +1303,15 @@ TelegramClient <- R6::R6Class(
       return(list(kind = kind, possible_names = possible_names))
     },
 
-    #' @description
-    #' Download a document
-    #' @param document The document to download
-    #' @param file Output file path or NULL for auto-naming
-    #' @param date The date the document was sent
-    #' @param thumb Which thumbnail to download
-    #' @param progress_callback Function called with progress updates
-    #' @param msg_data Message data for reference if needed
-    #' @return Path to the downloaded file
+    #  @description
+    #  Download a document
+    #  @param document The document to download
+    #  @param file Output file path or NULL for auto-naming
+    #  @param date The date the document was sent
+    #  @param thumb Which thumbnail to download
+    #  @param progress_callback Function called with progress updates
+    #  @param msg_data Message data for reference if needed
+    #  @return Path to the downloaded file
     download_document = function(document, file, date, thumb, progress_callback, msg_data) {
       future({
         if (inherits(document, "MessageMediaDocument")) {
@@ -1343,7 +1345,7 @@ TelegramClient <- R6::R6Class(
 
         result <- await(self$download_file(
           list(
-            #' @field type Field.
+            #  @field type Field.
             type = "InputDocumentFileLocation",
             id = document$id,
             access_hash = document$access_hash,
@@ -1360,11 +1362,11 @@ TelegramClient <- R6::R6Class(
       }) %...>% return()
     },
 
-    #' @description
-    #' Download a contact as vCard
-    #' @param mm_contact The contact to download
-    #' @param file Output file path or NULL for auto-naming
-    #' @return Path to the downloaded file
+    #  @description
+    #  Download a contact as vCard
+    #  @param mm_contact The contact to download
+    #  @param file Output file path or NULL for auto-naming
+    #  @return Path to the downloaded file
     download_contact = function(mm_contact, file) {
       first_name <- mm_contact$first_name
       last_name <- mm_contact$last_name
@@ -1406,12 +1408,12 @@ TelegramClient <- R6::R6Class(
       return(file)
     },
 
-    #' @description
-    #' Download a web document
-    #' @param web The web document to download
-    #' @param file Output file path or NULL for auto-naming
-    #' @param progress_callback Function called with progress updates
-    #' @return Path to the downloaded file
+    #  @description
+    #  Download a web document
+    #  @param web The web document to download
+    #  @param file Output file path or NULL for auto-naming
+    #  @param progress_callback Function called with progress updates
+    #  @return Path to the downloaded file
     download_web_document = function(web, file, progress_callback) {
       future({
         if (!requireNamespace("httr", quietly = TRUE)) {
@@ -1458,14 +1460,14 @@ TelegramClient <- R6::R6Class(
       }) %...>% return()
     },
 
-    #' @description
-    #' Get a proper filename for the download
-    #' @param file The file path or NULL for auto-naming
-    #' @param kind The kind of file (photo, document, etc.)
-    #' @param extension The file extension
-    #' @param date The date the file was sent
-    #' @param possible_names List of possible names
-    #' @return A proper filename
+    #  @description
+    #  Get a proper filename for the download
+    #  @param file The file path or NULL for auto-naming
+    #  @param kind The kind of file (photo, document, etc.)
+    #  @param extension The file extension
+    #  @param date The date the file was sent
+    #  @param possible_names List of possible names
+    #  @return A proper filename
     get_proper_filename = function(file, kind, extension, date = NULL, possible_names = NULL) {
       if (inherits(file, "path")) {
         file <- as.character(file)
@@ -1537,29 +1539,29 @@ TelegramClient <- R6::R6Class(
       }
     },
 
-    #' @description
-    #' Gets an iterator over dialogs.
-    #' @param limit The maximum number of dialogs to retrieve.
-    #' @param offset_date The offset date to be used.
-    #' @param offset_id The message ID to be used as an offset.
-    #' @param offset_peer The peer to be used as an offset.
-    #' @param ignore_pinned Whether pinned dialogs should be ignored or not.
-    #' @param ignore_migrated Whether Chat that have "migrated_to" a Channel should be included or not.
-    #' @param folder The folder from which the dialogs should be retrieved.
-    #' @param archived Alias for folder. If unspecified, all will be returned,
-    #'          FALSE implies folder=0 and TRUE implies folder=1.
-    #' @return An iterator over dialogs.
+    #  @description
+    #  Gets an iterator over dialogs.
+    #  @param limit The maximum number of dialogs to retrieve.
+    #  @param offset_date The offset date to be used.
+    #  @param offset_id The message ID to be used as an offset.
+    #  @param offset_peer The peer to be used as an offset.
+    #  @param ignore_pinned Whether pinned dialogs should be ignored or not.
+    #  @param ignore_migrated Whether Chat that have "migrated_to" a Channel should be included or not.
+    #  @param folder The folder from which the dialogs should be retrieved.
+    #  @param archived Alias for folder. If unspecified, all will be returned,
+    #           FALSE implies folder=0 and TRUE implies folder=1.
+    #  @return An iterator over dialogs.
     iter_dialogs = function(limit = NULL,
-                            #' @field offset_date Field.
+                            #  @field offset_date Field.
                             offset_date = NULL,
-                            #' @field offset_id Field.
+                            #  @field offset_id Field.
                             offset_id = 0,
                             offset_peer = InputPeerEmpty$new(),
-                            #' @field ignore_pinned Field.
+                            #  @field ignore_pinned Field.
                             ignore_pinned = FALSE,
-                            #' @field ignore_migrated Field.
+                            #  @field ignore_migrated Field.
                             ignore_migrated = FALSE,
-                            #' @field folder Field.
+                            #  @field folder Field.
                             folder = NULL,
                             archived = NULL) {
       if (!is.null(archived)) {
@@ -1578,36 +1580,36 @@ TelegramClient <- R6::R6Class(
       ))
     },
 
-    #' @description
-    #' Gets the dialogs (open conversations/subscribed channels).
-    #' @param limit How many dialogs to be retrieved as maximum. Can be set to
-    #'        NULL to retrieve all dialogs. Note that this may take
-    #'        whole minutes if you have hundreds of dialogs, as Telegram
-    #'        will tell the library to slow down through a
-    #'        "FloodWaitError".
-    #' @param offset_date The offset date to be used.
-    #' @param offset_id The message ID to be used as an offset.
-    #' @param offset_peer The peer to be used as an offset.
-    #' @param ignore_pinned Whether pinned dialogs should be ignored or not.
-    #' @param ignore_migrated Whether Chat that have "migrated_to" a Channel
-    #'                   should be included or not. By default all the chats in your
-    #'                   dialogs are returned, but setting this to TRUE will ignore
-    #'                   (i.e. skip) them in the same way official applications do.
-    #' @param folder The folder from which the dialogs should be retrieved.
-    #' @param archived Alias for folder. If unspecified, all will be returned,
-    #'           FALSE implies folder=0 and TRUE implies folder=1.
-    #' @return A list of dialogs.
+    #  @description
+    #  Gets the dialogs (open conversations/subscribed channels).
+    #  @param limit How many dialogs to be retrieved as maximum. Can be set to
+    #         NULL to retrieve all dialogs. Note that this may take
+    #         whole minutes if you have hundreds of dialogs, as Telegram
+    #         will tell the library to slow down through a
+    #         "FloodWaitError".
+    #  @param offset_date The offset date to be used.
+    #  @param offset_id The message ID to be used as an offset.
+    #  @param offset_peer The peer to be used as an offset.
+    #  @param ignore_pinned Whether pinned dialogs should be ignored or not.
+    #  @param ignore_migrated Whether Chat that have "migrated_to" a Channel
+    #                    should be included or not. By default all the chats in your
+    #                    dialogs are returned, but setting this to TRUE will ignore
+    #                    (i.e. skip) them in the same way official applications do.
+    #  @param folder The folder from which the dialogs should be retrieved.
+    #  @param archived Alias for folder. If unspecified, all will be returned,
+    #            FALSE implies folder=0 and TRUE implies folder=1.
+    #  @return A list of dialogs.
     get_dialogs = function(limit = NULL,
-                           #' @field offset_date Field.
+                           #  @field offset_date Field.
                            offset_date = NULL,
-                           #' @field offset_id Field.
+                           #  @field offset_id Field.
                            offset_id = 0,
                            offset_peer = InputPeerEmpty$new(),
-                           #' @field ignore_pinned Field.
+                           #  @field ignore_pinned Field.
                            ignore_pinned = FALSE,
-                           #' @field ignore_migrated Field.
+                           #  @field ignore_migrated Field.
                            ignore_migrated = FALSE,
-                           #' @field folder Field.
+                           #  @field folder Field.
                            folder = NULL,
                            archived = NULL) {
       return(future({
@@ -1626,10 +1628,10 @@ TelegramClient <- R6::R6Class(
       }))
     },
 
-    #' @description
-    #' Gets the draft messages.
-    #' @param entity The entity or list of entities for which to fetch the draft messages.
-    #' @return An iterator over draft messages.
+    #  @description
+    #  Gets the draft messages.
+    #  @param entity The entity or list of entities for which to fetch the draft messages.
+    #  @return An iterator over draft messages.
     iter_drafts = function(entity = NULL) {
       if (!is.null(entity) && !is_list_like(entity)) {
         entity <- list(entity)
@@ -1639,11 +1641,11 @@ TelegramClient <- R6::R6Class(
       return(DraftsIter$new(self$self, NULL, entities = entity))
     },
 
-    #' @description
-    #' Gets the draft messages.
-    #' @param entity The entity or list of entities for which to fetch the draft messages.
-    #' @return A list of draft messages.
-    #' @export
+    #  @description
+    #  Gets the draft messages.
+    #  @param entity The entity or list of entities for which to fetch the draft messages.
+    #  @return A list of draft messages.
+    #  @export
     get_drafts = function(entity = NULL) {
       return(future({
         iter <- self$self$iter_drafts(entity)
@@ -1658,14 +1660,14 @@ TelegramClient <- R6::R6Class(
       }))
     },
 
-    #' @description
-    #' Edits the folder used by one or more dialogs to archive them.
-    #' @param entity The entity or list of entities to move to the desired archive folder.
-    #' @param folder The folder to which the dialog should be archived to.
-    #' @param unpack If you want to unpack an archived folder, set this
-    #'          parameter to the folder number that you want to delete.
-    #' @return The Updates object that the request produces.
-    #' @export
+    #  @description
+    #  Edits the folder used by one or more dialogs to archive them.
+    #  @param entity The entity or list of entities to move to the desired archive folder.
+    #  @param folder The folder to which the dialog should be archived to.
+    #  @param unpack If you want to unpack an archived folder, set this
+    #           parameter to the folder number that you want to delete.
+    #  @return The Updates object that the request produces.
+    #  @export
     edit_folder = function(entity = NULL, folder = NULL, unpack = NULL) {
       return(future({
         if ((is.null(entity)) == (is.null(unpack))) {
@@ -1707,12 +1709,12 @@ TelegramClient <- R6::R6Class(
       }))
     },
 
-    #' @description
-    #' Deletes a dialog (leaves a chat or channel).
-    #' @param entity The entity of the dialog to delete.
-    #' @param revoke Whether to revoke the messages from the other peer.
-    #' @return The Updates object that the request produces, or nothing for private conversations.
-    #' @export
+    #  @description
+    #  Deletes a dialog (leaves a chat or channel).
+    #  @param entity The entity of the dialog to delete.
+    #  @param revoke Whether to revoke the messages from the other peer.
+    #  @return The Updates object that the request produces, or nothing for private conversations.
+    #  @export
     delete_dialog = function(entity, revoke = FALSE) {
       return(future({
         # If we have enough information (`Dialog.delete` gives it to us),
@@ -1758,24 +1760,24 @@ TelegramClient <- R6::R6Class(
       }))
     },
 
-    #' @description
-    #' Creates a new conversation with the given entity.
-    #' @param entity The entity with which a new conversation should be opened.
-    #' @param timeout The default timeout (in seconds) per action to be used.
-    #' @param total_timeout The total timeout (in seconds) to use for the whole conversation.
-    #' @param max_messages The maximum amount of messages this conversation will remember.
-    #' @param exclusive Whether the conversation should be exclusive within a single chat.
-    #' @param replies_are_responses Whether replies should be treated as responses or not.
-    #' @return A new Conversation object.
-    #' @export
+    #  @description
+    #  Creates a new conversation with the given entity.
+    #  @param entity The entity with which a new conversation should be opened.
+    #  @param timeout The default timeout (in seconds) per action to be used.
+    #  @param total_timeout The total timeout (in seconds) to use for the whole conversation.
+    #  @param max_messages The maximum amount of messages this conversation will remember.
+    #  @param exclusive Whether the conversation should be exclusive within a single chat.
+    #  @param replies_are_responses Whether replies should be treated as responses or not.
+    #  @return A new Conversation object.
+    #  @export
     conversation = function(entity,
-                            #' @field timeout Field.
+                            #  @field timeout Field.
                             timeout = 60,
-                            #' @field total_timeout Field.
+                            #  @field total_timeout Field.
                             total_timeout = NULL,
-                            #' @field max_messages Field.
+                            #  @field max_messages Field.
                             max_messages = 100,
-                            #' @field exclusive Field.
+                            #  @field exclusive Field.
                             exclusive = TRUE,
                             replies_are_responses = TRUE) {
       return(custom$Conversation(
@@ -1789,16 +1791,16 @@ TelegramClient <- R6::R6Class(
       ))
     },
 
-    #' @description Iterator over the participants belonging to the specified chat.
-    #'
-    #' The order is unspecified.
-    #'
-    #' @param entity The entity from which to retrieve the participants list.
-    #' @param limit Limits amount of participants fetched. Default is NULL.
-    #' @param search Look for participants with this string in name/username. Default is ''.
-    #' @param filter The filter to be used, if you want e.g. only admins. Default is NULL.
-    #' @param aggressive Does nothing. Kept for backwards-compatibility. Default is FALSE.
-    #' @return A _ParticipantsIter object.
+    #  @description Iterator over the participants belonging to the specified chat.
+    # 
+    #  The order is unspecified.
+    # 
+    #  @param entity The entity from which to retrieve the participants list.
+    #  @param limit Limits amount of participants fetched. Default is NULL.
+    #  @param search Look for participants with this string in name/username. Default is ''.
+    #  @param filter The filter to be used, if you want e.g. only admins. Default is NULL.
+    #  @param aggressive Does nothing. Kept for backwards-compatibility. Default is FALSE.
+    #  @return A _ParticipantsIter object.
     iter_participants = function(entity, limit = NULL, search = "", filter = NULL, aggressive = FALSE) {
       return(.ParticipantsIter$new(
         client = self$client,
@@ -1809,41 +1811,41 @@ TelegramClient <- R6::R6Class(
       ))
     },
 
-    #' @description Same as iter_participants(), but returns a TotalList instead.
-    #'
-    #' @param ... Arguments passed to iter_participants.
-    #' @return A TotalList of participants.
+    #  @description Same as iter_participants(), but returns a TotalList instead.
+    # 
+    #  @param ... Arguments passed to iter_participants.
+    #  @return A TotalList of participants.
     get_participants = function(...) {
       iter <- self$iter_participants(...)
       return(iter$collect())
     },
 
-    #' @description Iterator over the admin log for the specified channel.
-    #'
-    #' The default order is from the most recent event to the oldest.
-    #'
-    #' @param entity The channel entity from which to get its admin log.
-    #' @param limit Number of events to be retrieved. Default is NULL.
-    #' @param max_id All events with a higher (newer) ID or equal to this will be excluded. Default is 0.
-    #' @param min_id All events with a lower (older) ID or equal to this will be excluded. Default is 0.
-    #' @param search The string to be used as a search query. Default is NULL.
-    #' @param admins If present, filter by these admins. Default is NULL.
-    #' @param join If TRUE, events for when a user joined will be returned. Default is NULL.
-    #' @param leave If TRUE, events for when a user leaves will be returned. Default is NULL.
-    #' @param invite If TRUE, events for when a user joins through an invite link will be returned. Default is NULL.
-    #' @param restrict If TRUE, events with partial restrictions will be returned. Default is NULL.
-    #' @param unrestrict If TRUE, events removing restrictions will be returned. Default is NULL.
-    #' @param ban If TRUE, events applying or removing all restrictions will be returned. Default is NULL.
-    #' @param unban If TRUE, events removing all restrictions will be returned. Default is NULL.
-    #' @param promote If TRUE, events with admin promotions will be returned. Default is NULL.
-    #' @param demote If TRUE, events with admin demotions will be returned. Default is NULL.
-    #' @param info If TRUE, events changing the group info will be returned. Default is NULL.
-    #' @param settings If TRUE, events changing the group settings will be returned. Default is NULL.
-    #' @param pinned If TRUE, events of new pinned messages will be returned. Default is NULL.
-    #' @param edit If TRUE, events of message edits will be returned. Default is NULL.
-    #' @param delete If TRUE, events of message deletions will be returned. Default is NULL.
-    #' @param group_call If TRUE, events related to group calls will be returned. Default is NULL.
-    #' @return An _AdminLogIter object.
+    #  @description Iterator over the admin log for the specified channel.
+    # 
+    #  The default order is from the most recent event to the oldest.
+    # 
+    #  @param entity The channel entity from which to get its admin log.
+    #  @param limit Number of events to be retrieved. Default is NULL.
+    #  @param max_id All events with a higher (newer) ID or equal to this will be excluded. Default is 0.
+    #  @param min_id All events with a lower (older) ID or equal to this will be excluded. Default is 0.
+    #  @param search The string to be used as a search query. Default is NULL.
+    #  @param admins If present, filter by these admins. Default is NULL.
+    #  @param join If TRUE, events for when a user joined will be returned. Default is NULL.
+    #  @param leave If TRUE, events for when a user leaves will be returned. Default is NULL.
+    #  @param invite If TRUE, events for when a user joins through an invite link will be returned. Default is NULL.
+    #  @param restrict If TRUE, events with partial restrictions will be returned. Default is NULL.
+    #  @param unrestrict If TRUE, events removing restrictions will be returned. Default is NULL.
+    #  @param ban If TRUE, events applying or removing all restrictions will be returned. Default is NULL.
+    #  @param unban If TRUE, events removing all restrictions will be returned. Default is NULL.
+    #  @param promote If TRUE, events with admin promotions will be returned. Default is NULL.
+    #  @param demote If TRUE, events with admin demotions will be returned. Default is NULL.
+    #  @param info If TRUE, events changing the group info will be returned. Default is NULL.
+    #  @param settings If TRUE, events changing the group settings will be returned. Default is NULL.
+    #  @param pinned If TRUE, events of new pinned messages will be returned. Default is NULL.
+    #  @param edit If TRUE, events of message edits will be returned. Default is NULL.
+    #  @param delete If TRUE, events of message deletions will be returned. Default is NULL.
+    #  @param group_call If TRUE, events related to group calls will be returned. Default is NULL.
+    #  @return An _AdminLogIter object.
     iter_admin_log = function(entity, limit = NULL, max_id = 0, min_id = 0, search = NULL, admins = NULL,
                               join = NULL, leave = NULL, invite = NULL, restrict = NULL, unrestrict = NULL,
                               ban = NULL, unban = NULL, promote = NULL, demote = NULL, info = NULL,
@@ -1874,24 +1876,24 @@ TelegramClient <- R6::R6Class(
       ))
     },
 
-    #' @description Same as iter_admin_log(), but returns a list instead.
-    #'
-    #' @param ... Arguments passed to iter_admin_log.
-    #' @return A list of admin log events.
+    #  @description Same as iter_admin_log(), but returns a list instead.
+    # 
+    #  @param ... Arguments passed to iter_admin_log.
+    #  @return A list of admin log events.
     get_admin_log = function(...) {
       iter <- self$iter_admin_log(...)
       return(iter$collect())
     },
 
-    #' @description Iterator over a user's profile photos or a chat's photos.
-    #'
-    #' The order is from the most recent photo to the oldest.
-    #'
-    #' @param entity The entity from which to get the profile or chat photos.
-    #' @param limit Number of photos to be retrieved. Default is NULL.
-    #' @param offset How many photos should be skipped before returning the first one. Default is 0.
-    #' @param max_id The maximum ID allowed when fetching photos. Default is 0.
-    #' @return A _ProfilePhotoIter object.
+    #  @description Iterator over a user's profile photos or a chat's photos.
+    # 
+    #  The order is from the most recent photo to the oldest.
+    # 
+    #  @param entity The entity from which to get the profile or chat photos.
+    #  @param limit Number of photos to be retrieved. Default is NULL.
+    #  @param offset How many photos should be skipped before returning the first one. Default is 0.
+    #  @param max_id The maximum ID allowed when fetching photos. Default is 0.
+    #  @return A _ProfilePhotoIter object.
     iter_profile_photos = function(entity, limit = NULL, offset = 0, max_id = 0) {
       return(.ProfilePhotoIter$new(
         client = self$client,
@@ -1902,24 +1904,24 @@ TelegramClient <- R6::R6Class(
       ))
     },
 
-    #' @description Same as iter_profile_photos(), but returns a TotalList instead.
-    #'
-    #' @param ... Arguments passed to iter_profile_photos.
-    #' @return A TotalList of photos.
+    #  @description Same as iter_profile_photos(), but returns a TotalList instead.
+    # 
+    #  @param ... Arguments passed to iter_profile_photos.
+    #  @return A TotalList of photos.
     get_profile_photos = function(...) {
       iter <- self$iter_profile_photos(...)
       return(iter$collect())
     },
 
-    #' @description Returns a context-manager object to represent a "chat action".
-    #'
-    #' Chat actions indicate things like "user is typing", etc.
-    #'
-    #' @param entity The entity where the action should be showed in.
-    #' @param action The action to show (string or SendMessageAction).
-    #' @param delay The delay in seconds between sending actions. Default is 4.
-    #' @param auto_cancel Whether to cancel the action automatically. Default is TRUE.
-    #' @return A _ChatAction object or a coroutine.
+    #  @description Returns a context-manager object to represent a "chat action".
+    # 
+    #  Chat actions indicate things like "user is typing", etc.
+    # 
+    #  @param entity The entity where the action should be showed in.
+    #  @param action The action to show (string or SendMessageAction).
+    #  @param delay The delay in seconds between sending actions. Default is 4.
+    #  @param auto_cancel Whether to cancel the action automatically. Default is TRUE.
+    #  @return A _ChatAction object or a coroutine.
     action = function(entity, action, delay = 4, auto_cancel = TRUE) {
       if (is.character(action)) {
         action <- .ChatAction$.str_mapping[[tolower(action)]]
@@ -1941,23 +1943,23 @@ TelegramClient <- R6::R6Class(
       return(.ChatAction$new(self$client, entity, action, delay = delay, auto_cancel = auto_cancel))
     },
 
-    #' @description Edits admin permissions for someone in a chat.
-    #'
-    #' @param entity The channel, megagroup or chat where the promotion should happen.
-    #' @param user The user to be promoted.
-    #' @param change_info Whether the user can change info. Default is NULL.
-    #' @param post_messages Whether the user can post in the channel. Default is NULL.
-    #' @param edit_messages Whether the user can edit messages. Default is NULL.
-    #' @param delete_messages Whether the user can delete messages. Default is NULL.
-    #' @param ban_users Whether the user can ban users. Default is NULL.
-    #' @param invite_users Whether the user can invite users. Default is NULL.
-    #' @param pin_messages Whether the user can pin messages. Default is NULL.
-    #' @param add_admins Whether the user can add admins. Default is NULL.
-    #' @param manage_call Whether the user can manage group calls. Default is NULL.
-    #' @param anonymous Whether the user remains anonymous. Default is NULL.
-    #' @param is_admin Whether the user is an admin. Default is NULL.
-    #' @param title The custom title for the admin. Default is NULL.
-    #' @return The resulting Updates object.
+    #  @description Edits admin permissions for someone in a chat.
+    # 
+    #  @param entity The channel, megagroup or chat where the promotion should happen.
+    #  @param user The user to be promoted.
+    #  @param change_info Whether the user can change info. Default is NULL.
+    #  @param post_messages Whether the user can post in the channel. Default is NULL.
+    #  @param edit_messages Whether the user can edit messages. Default is NULL.
+    #  @param delete_messages Whether the user can delete messages. Default is NULL.
+    #  @param ban_users Whether the user can ban users. Default is NULL.
+    #  @param invite_users Whether the user can invite users. Default is NULL.
+    #  @param pin_messages Whether the user can pin messages. Default is NULL.
+    #  @param add_admins Whether the user can add admins. Default is NULL.
+    #  @param manage_call Whether the user can manage group calls. Default is NULL.
+    #  @param anonymous Whether the user remains anonymous. Default is NULL.
+    #  @param is_admin Whether the user is an admin. Default is NULL.
+    #  @param title The custom title for the admin. Default is NULL.
+    #  @return The resulting Updates object.
     edit_admin = function(entity, user, change_info = NULL, post_messages = NULL, edit_messages = NULL,
                           delete_messages = NULL, ban_users = NULL, invite_users = NULL, pin_messages = NULL,
                           add_admins = NULL, manage_call = NULL, anonymous = NULL, is_admin = NULL, title = NULL) {
@@ -2002,24 +2004,24 @@ TelegramClient <- R6::R6Class(
       }
     },
 
-    #' @description Edits user restrictions in a chat.
-    #'
-    #' @param entity The channel or megagroup where the restriction should happen.
-    #' @param user The user to restrict. Default is NULL.
-    #' @param until_date When the user will be unbanned. Default is NULL.
-    #' @param view_messages Whether the user can view messages. Default is TRUE.
-    #' @param send_messages Whether the user can send messages. Default is TRUE.
-    #' @param send_media Whether the user can send media. Default is TRUE.
-    #' @param send_stickers Whether the user can send stickers. Default is TRUE.
-    #' @param send_gifs Whether the user can send gifs. Default is TRUE.
-    #' @param send_games Whether the user can send games. Default is TRUE.
-    #' @param send_inline Whether the user can use inline bots. Default is TRUE.
-    #' @param embed_link_previews Whether the user can embed link previews. Default is TRUE.
-    #' @param send_polls Whether the user can send polls. Default is TRUE.
-    #' @param change_info Whether the user can change info. Default is TRUE.
-    #' @param invite_users Whether the user can invite users. Default is TRUE.
-    #' @param pin_messages Whether the user can pin messages. Default is TRUE.
-    #' @return The resulting Updates object.
+    #  @description Edits user restrictions in a chat.
+    # 
+    #  @param entity The channel or megagroup where the restriction should happen.
+    #  @param user The user to restrict. Default is NULL.
+    #  @param until_date When the user will be unbanned. Default is NULL.
+    #  @param view_messages Whether the user can view messages. Default is TRUE.
+    #  @param send_messages Whether the user can send messages. Default is TRUE.
+    #  @param send_media Whether the user can send media. Default is TRUE.
+    #  @param send_stickers Whether the user can send stickers. Default is TRUE.
+    #  @param send_gifs Whether the user can send gifs. Default is TRUE.
+    #  @param send_games Whether the user can send games. Default is TRUE.
+    #  @param send_inline Whether the user can use inline bots. Default is TRUE.
+    #  @param embed_link_previews Whether the user can embed link previews. Default is TRUE.
+    #  @param send_polls Whether the user can send polls. Default is TRUE.
+    #  @param change_info Whether the user can change info. Default is TRUE.
+    #  @param invite_users Whether the user can invite users. Default is TRUE.
+    #  @param pin_messages Whether the user can pin messages. Default is TRUE.
+    #  @return The resulting Updates object.
     edit_permissions = function(entity, user = NULL, until_date = NULL, view_messages = TRUE,
                                 send_messages = TRUE, send_media = TRUE, send_stickers = TRUE,
                                 send_gifs = TRUE, send_games = TRUE, send_inline = TRUE,
@@ -2055,11 +2057,11 @@ TelegramClient <- R6::R6Class(
       return(self$client(EditBannedRequest(channel = entity, participant = user, banned_rights = rights)))
     },
 
-    #' @description Kicks a user from a chat.
-    #'
-    #' @param entity The channel or chat where the user should be kicked from.
-    #' @param user The user to kick.
-    #' @return The service message produced about a user being kicked, if any.
+    #  @description Kicks a user from a chat.
+    # 
+    #  @param entity The channel or chat where the user should be kicked from.
+    #  @param user The user to kick.
+    #  @return The service message produced about a user being kicked, if any.
     kick_participant = function(entity, user) {
       entity <- self$client$get_input_entity(entity)
       user <- self$client$get_input_entity(user)
@@ -2090,11 +2092,11 @@ TelegramClient <- R6::R6Class(
       return(self$client$`_get_response_message`(NULL, resp, entity))
     },
 
-    #' @description Fetches the permissions of a user in a specific chat or channel.
-    #'
-    #' @param entity The channel or chat the user is participant of.
-    #' @param user Target user. Default is NULL.
-    #' @return A ParticipantPermissions instance or NULL.
+    #  @description Fetches the permissions of a user in a specific chat or channel.
+    # 
+    #  @param entity The channel or chat the user is participant of.
+    #  @param user Target user. Default is NULL.
+    #  @return A ParticipantPermissions instance or NULL.
     get_permissions = function(entity, user = NULL) {
       entity <- self$client$get_entity(entity)
 
@@ -2130,11 +2132,11 @@ TelegramClient <- R6::R6Class(
       stop("You must pass either a channel or a chat")
     },
 
-    #' @description Retrieves statistics from the given megagroup or broadcast channel.
-    #'
-    #' @param entity The channel from which to get statistics.
-    #' @param message The message ID from which to get statistics. Default is NULL.
-    #' @return BroadcastStats, MegagroupStats, or MessageStats.
+    #  @description Retrieves statistics from the given megagroup or broadcast channel.
+    # 
+    #  @param entity The channel from which to get statistics.
+    #  @param message The message ID from which to get statistics. Default is NULL.
+    #  @return BroadcastStats, MegagroupStats, or MessageStats.
     get_stats = function(entity, message = NULL) {
       entity <- self$client$get_input_entity(entity)
       if (entity_type(entity) != EntityType$CHANNEL) {
@@ -2183,15 +2185,15 @@ TelegramClient <- R6::R6Class(
       })
     },
 
-    #' @description Makes an inline query to the specified bot (e.g., "@vote New Poll").
-    #'
-    #' @param bot The bot entity to which the inline query should be made.
-    #' @param query The query string to send to the bot.
-    #' @param entity (Optional) The entity where the inline query is being made from.
-    #' @param offset (Optional) The string offset to use for the bot.
-    #' @param geo_point (Optional) Geo point location information for localized results.
-    #'
-    #' @return A list of inline results.
+    #  @description Makes an inline query to the specified bot (e.g., "@vote New Poll").
+    # 
+    #  @param bot The bot entity to which the inline query should be made.
+    #  @param query The query string to send to the bot.
+    #  @param entity (Optional) The entity where the inline query is being made from.
+    #  @param offset (Optional) The string offset to use for the bot.
+    #  @param geo_point (Optional) Geo point location information for localized results.
+    # 
+    #  @return A list of inline results.
     inline_query = function(bot, query, entity = NULL, offset = NULL, geo_point = NULL) {
       bot <- self$get_input_entity(bot)
 
@@ -2215,67 +2217,67 @@ TelegramClient <- R6::R6Class(
       return(self$custom_inline_results(result, if (!is.null(entity)) peer else NULL))
     },
 
-    #' Placeholder for invoking Telegram API functions.
-    #' @param function_name The name of the function to invoke.
-    #' @param params The parameters for the function.
-    #' @return API response.
+    #  Placeholder for invoking Telegram API functions.
+    #  @param function_name The name of the function to invoke.
+    #  @param params The parameters for the function.
+    #  @return API response.
     invoke_function = function(function_name, params) {
       stop("invoke_function function must be implemented.")
     },
 
-    #' Placeholder for processing inline results.
-    #' @param result The raw result from the API.
-    #' @param peer The peer entity.
-    #' @return Processed inline results.
+    #  Placeholder for processing inline results.
+    #  @param result The raw result from the API.
+    #  @param peer The peer entity.
+    #  @return Processed inline results.
     custom_inline_results = function(result, peer) {
       stop("custom_inline_results function must be implemented.")
     },
 
-    #' @description Iterate over messages
-    #'
-    #' Iterator over the messages for the given chat. The default order is newest to oldest,
-    #' set reverse = TRUE to iterate oldest to newest.
-    #'
-    #' If either search, filter or from_user are provided, server-side search will be used.
-    #'
-    #' @param entity Entity to retrieve the message history from (can be NULL for global search).
-    #' @param limit integer or NULL. Number of messages to retrieve; NULL fetches all.
-    #' @param offset_date POSIXct or Date. Only messages previous to this date are returned.
-    #' @param offset_id integer. Only messages previous to this id are returned.
-    #' @param max_id integer. Exclude messages with id >= this value.
-    #' @param min_id integer. Exclude messages with id <= this value.
-    #' @param add_offset integer. Additional message offset.
-    #' @param search character. Text query for server-side search.
-    #' @param filter A filter object or constructor for server-side filtering.
-    #' @param from_user Entity. Only messages from this user will be returned.
-    #' @param wait_time numeric. Seconds to sleep between requests to avoid flood waits.
-    #' @param ids integer or integer vector. If set, return these ids instead of iterating.
-    #' @param reverse logical. If TRUE, iterate oldest to newest.
-    #' @param reply_to integer. If set, iterate replies to this message id.
-    #' @param scheduled logical. If TRUE, return scheduled messages (ignores other params except entity).
-    #' @return An iterator-like object or list depending on implementation.
+    #  @description Iterate over messages
+    # 
+    #  Iterator over the messages for the given chat. The default order is newest to oldest,
+    #  set reverse = TRUE to iterate oldest to newest.
+    # 
+    #  If either search, filter or from_user are provided, server-side search will be used.
+    # 
+    #  @param entity Entity to retrieve the message history from (can be NULL for global search).
+    #  @param limit integer or NULL. Number of messages to retrieve; NULL fetches all.
+    #  @param offset_date POSIXct or Date. Only messages previous to this date are returned.
+    #  @param offset_id integer. Only messages previous to this id are returned.
+    #  @param max_id integer. Exclude messages with id >= this value.
+    #  @param min_id integer. Exclude messages with id <= this value.
+    #  @param add_offset integer. Additional message offset.
+    #  @param search character. Text query for server-side search.
+    #  @param filter A filter object or constructor for server-side filtering.
+    #  @param from_user Entity. Only messages from this user will be returned.
+    #  @param wait_time numeric. Seconds to sleep between requests to avoid flood waits.
+    #  @param ids integer or integer vector. If set, return these ids instead of iterating.
+    #  @param reverse logical. If TRUE, iterate oldest to newest.
+    #  @param reply_to integer. If set, iterate replies to this message id.
+    #  @param scheduled logical. If TRUE, return scheduled messages (ignores other params except entity).
+    #  @return An iterator-like object or list depending on implementation.
     iter_messages = function(entity,
-                             #' @field limit Field.
+                             #  @field limit Field.
                              limit = NULL,
-                             #' @field offset_date Field.
+                             #  @field offset_date Field.
                              offset_date = NULL,
                              offset_id = 0L,
                              max_id = 0L,
                              min_id = 0L,
                              add_offset = 0L,
-                             #' @field search Field.
+                             #  @field search Field.
                              search = NULL,
-                             #' @field filter Field.
+                             #  @field filter Field.
                              filter = NULL,
-                             #' @field from_user Field.
+                             #  @field from_user Field.
                              from_user = NULL,
-                             #' @field wait_time Field.
+                             #  @field wait_time Field.
                              wait_time = NULL,
-                             #' @field ids Field.
+                             #  @field ids Field.
                              ids = NULL,
-                             #' @field reverse Field.
+                             #  @field reverse Field.
                              reverse = FALSE,
-                             #' @field reply_to Field.
+                             #  @field reply_to Field.
                              reply_to = NULL,
                              scheduled = FALSE) {
       resolve_future <- function(x) {
@@ -2318,9 +2320,9 @@ TelegramClient <- R6::R6Class(
       ))
     },
 
-    #' @description
-    #' Fetch a single page of messages for use by MessagesIter.
-    #' This is a low-level helper and does not paginate by itself.
+    #  @description
+    #  Fetch a single page of messages for use by MessagesIter.
+    #  This is a low-level helper and does not paginate by itself.
     iter_messages_page = function(entity,
                                   limit = NULL,
                                   offset_date = NULL,
@@ -2448,13 +2450,13 @@ TelegramClient <- R6::R6Class(
       msgs %||% list()
     },
 
-    #' Get messages
-    #'
-    #' Same as iter_messages(), but returns a collected list/vector.
-    #' If limit is missing, defaults to 1 unless both min_id and max_id are set.
-    #'
-    #' @param ... Passed through to iter_messages().
-    #' @return A list of messages or a single message if ids is a scalar.
+    #  Get messages
+    # 
+    #  Same as iter_messages(), but returns a collected list/vector.
+    #  If limit is missing, defaults to 1 unless both min_id and max_id are set.
+    # 
+    #  @param ... Passed through to iter_messages().
+    #  @return A list of messages or a single message if ids is a scalar.
     get_messages = function(...) {
       args <- list(...)
       if (is.null(args$limit)) {
@@ -2472,9 +2474,9 @@ TelegramClient <- R6::R6Class(
       return(self$collect(it))
     },
 
-    #' @description Collect all items from an iterator-like object.
-    #' @param it Iterator or list.
-    #' @return A list of collected items.
+    #  @description Collect all items from an iterator-like object.
+    #  @param it Iterator or list.
+    #  @return A list of collected items.
     collect = function(it) {
       if (is.null(it)) {
         return(list())
@@ -2488,76 +2490,76 @@ TelegramClient <- R6::R6Class(
       stop("Collection helpers are not available for this iterator.")
     },
 
-    #' @description Collect a single item from an iterator-like object.
-    #' @param it Iterator or list.
-    #' @return A single item or NULL.
+    #  @description Collect a single item from an iterator-like object.
+    #  @param it Iterator or list.
+    #  @return A single item or NULL.
     collect_one = function(it) {
       res <- self$collect(it)
       if (length(res)) res[[1]] else NULL
     },
 
-    #' Send a message
-    #'
-    #' Sends a message to the specified user, chat or channel. Supports text, media, buttons,
-    #' scheduling, and other options.
-    #'
-    #' @param entity Target entity.
-    #' @param message Text or message-like object.
-    #' @param reply_to Message id or message object to reply to.
-    #' @param attributes Optional media attributes.
-    #' @param parse_mode Parse mode for text (e.g., 'md', 'html'); NULL to disable.
-    #' @param formatting_entities Message entities; overrides parse_mode if provided.
-    #' @param link_preview logical. Whether to show link previews for URLs in text.
-    #' @param file File-like object or vector of file-like objects to send.
-    #' @param thumb Optional JPEG thumbnail for documents.
-    #' @param force_document logical. Force sending file as document.
-    #' @param clear_draft logical. Clear existing draft before sending.
-    #' @param buttons Inline or reply keyboard markup.
-    #' @param silent logical. Send without notification sounds.
-    #' @param background logical. Send in background.
-    #' @param supports_streaming logical. Mark video as streamable.
-    #' @param schedule POSIXct/Date. Schedule time.
-    #' @param comment_to Message id or message object to comment to (linked group).
-    #' @param nosound_video logical. Treat video without audio accordingly.
-    #' @param send_as Entity to send the message as (channels/chats).
-    #' @param message_effect_id integer. Effect id (private chats only).
-    #' @return The sent message object.
+    #  Send a message
+    # 
+    #  Sends a message to the specified user, chat or channel. Supports text, media, buttons,
+    #  scheduling, and other options.
+    # 
+    #  @param entity Target entity.
+    #  @param message Text or message-like object.
+    #  @param reply_to Message id or message object to reply to.
+    #  @param attributes Optional media attributes.
+    #  @param parse_mode Parse mode for text (e.g., 'md', 'html'); NULL to disable.
+    #  @param formatting_entities Message entities; overrides parse_mode if provided.
+    #  @param link_preview logical. Whether to show link previews for URLs in text.
+    #  @param file File-like object or vector of file-like objects to send.
+    #  @param thumb Optional JPEG thumbnail for documents.
+    #  @param force_document logical. Force sending file as document.
+    #  @param clear_draft logical. Clear existing draft before sending.
+    #  @param buttons Inline or reply keyboard markup.
+    #  @param silent logical. Send without notification sounds.
+    #  @param background logical. Send in background.
+    #  @param supports_streaming logical. Mark video as streamable.
+    #  @param schedule POSIXct/Date. Schedule time.
+    #  @param comment_to Message id or message object to comment to (linked group).
+    #  @param nosound_video logical. Treat video without audio accordingly.
+    #  @param send_as Entity to send the message as (channels/chats).
+    #  @param message_effect_id integer. Effect id (private chats only).
+    #  @return The sent message object.
     send_message = function(entity,
-                            #' @field message Field.
+                            #  @field message Field.
                             message = "",
-                            #' @field reply_to Field.
+                            #  @field reply_to Field.
                             reply_to = NULL,
-                            #' @field attributes Field.
+                            #  @field attributes Field.
                             attributes = NULL,
-                            #' @field parse_mode Field.
+                            #  @field parse_mode Field.
                             parse_mode = NULL,
-                            #' @field formatting_entities Field.
+                            #  @field formatting_entities Field.
                             formatting_entities = NULL,
-                            #' @field link_preview Field.
+                            #  @field link_preview Field.
                             link_preview = TRUE,
-                            #' @field file Field.
+                            #  @field file Field.
                             file = NULL,
-                            #' @field thumb Field.
+                            #  @field thumb Field.
                             thumb = NULL,
-                            #' @field force_document Field.
+                            #  @field force_document Field.
                             force_document = FALSE,
-                            #' @field clear_draft Field.
+                            #  @field clear_draft Field.
                             clear_draft = FALSE,
-                            #' @field buttons Field.
+                            #  @field buttons Field.
                             buttons = NULL,
-                            #' @field silent Field.
+                            #  @field silent Field.
                             silent = NULL,
-                            #' @field background Field.
+                            #  @field background Field.
                             background = NULL,
-                            #' @field supports_streaming Field.
+                            #  @field supports_streaming Field.
                             supports_streaming = FALSE,
-                            #' @field schedule Field.
+                            #  @field schedule Field.
                             schedule = NULL,
-                            #' @field comment_to Field.
+                            #  @field comment_to Field.
                             comment_to = NULL,
-                            #' @field nosound_video Field.
+                            #  @field nosound_video Field.
                             nosound_video = NULL,
-                            #' @field send_as Field.
+                            #  @field send_as Field.
                             send_as = NULL,
                             message_effect_id = NULL) {
       future::future({
@@ -2653,36 +2655,36 @@ TelegramClient <- R6::R6Class(
 
     },
 
-    #' Forward messages
-    #'
-    #' Forwards one or more messages to the specified entity.
-    #'
-    #' @param entity Destination entity.
-    #' @param messages Message ids or message objects to forward.
-    #' @param from_peer Source entity if messages are ids.
-    #' @param background logical. Forward in background.
-    #' @param with_my_score logical. Include game score.
-    #' @param silent logical. No notification sounds.
-    #' @param as_album logical. Deprecated; no effect.
-    #' @param schedule POSIXct/Date. Schedule time.
-    #' @param drop_author logical. Forward without quoting original author.
-    #' @param drop_media_captions logical. Strip captions (requires drop_author = TRUE).
-    #' @return A list of forwarded message objects (or single if input wasn't a list).
+    #  Forward messages
+    # 
+    #  Forwards one or more messages to the specified entity.
+    # 
+    #  @param entity Destination entity.
+    #  @param messages Message ids or message objects to forward.
+    #  @param from_peer Source entity if messages are ids.
+    #  @param background logical. Forward in background.
+    #  @param with_my_score logical. Include game score.
+    #  @param silent logical. No notification sounds.
+    #  @param as_album logical. Deprecated; no effect.
+    #  @param schedule POSIXct/Date. Schedule time.
+    #  @param drop_author logical. Forward without quoting original author.
+    #  @param drop_media_captions logical. Strip captions (requires drop_author = TRUE).
+    #  @return A list of forwarded message objects (or single if input wasn't a list).
     forward_messages = function(entity,
                                 messages,
-                                #' @field from_peer Field.
+                                #  @field from_peer Field.
                                 from_peer = NULL,
-                                #' @field background Field.
+                                #  @field background Field.
                                 background = NULL,
-                                #' @field with_my_score Field.
+                                #  @field with_my_score Field.
                                 with_my_score = NULL,
-                                #' @field silent Field.
+                                #  @field silent Field.
                                 silent = NULL,
-                                #' @field as_album Field.
+                                #  @field as_album Field.
                                 as_album = NULL,
-                                #' @field schedule Field.
+                                #  @field schedule Field.
                                 schedule = NULL,
-                                #' @field drop_author Field.
+                                #  @field drop_author Field.
                                 drop_author = NULL,
                                 drop_media_captions = NULL) {
       if (!is.null(as_album)) {
@@ -2704,46 +2706,46 @@ TelegramClient <- R6::R6Class(
       stop("forward_messages is not implemented in the provided client.")
     },
 
-    #' Edit a message
-    #'
-    #' Edits a message to change its text or media.
-    #'
-    #' @param entity Chat entity or the message itself.
-    #' @param message Message id, message object, input message id, or new text if entity is a message.
-    #' @param text New text for the message (optional).
-    #' @param parse_mode Parse mode for text.
-    #' @param attributes Media attributes.
-    #' @param formatting_entities Explicit entities (overrides parse_mode).
-    #' @param link_preview logical. Whether to show link previews for URLs in text.
-    #' @param file File-like object to replace existing media.
-    #' @param thumb Optional JPEG thumbnail for documents.
-    #' @param force_document logical. Force sending file as document.
-    #' @param buttons Inline or reply keyboard markup.
-    #' @param supports_streaming logical. Mark video as streamable.
-    #' @param schedule POSIXct/Date. Schedule time.
-    #' @return The edited message (or logical for inline bot messages depending on API).
+    #  Edit a message
+    # 
+    #  Edits a message to change its text or media.
+    # 
+    #  @param entity Chat entity or the message itself.
+    #  @param message Message id, message object, input message id, or new text if entity is a message.
+    #  @param text New text for the message (optional).
+    #  @param parse_mode Parse mode for text.
+    #  @param attributes Media attributes.
+    #  @param formatting_entities Explicit entities (overrides parse_mode).
+    #  @param link_preview logical. Whether to show link previews for URLs in text.
+    #  @param file File-like object to replace existing media.
+    #  @param thumb Optional JPEG thumbnail for documents.
+    #  @param force_document logical. Force sending file as document.
+    #  @param buttons Inline or reply keyboard markup.
+    #  @param supports_streaming logical. Mark video as streamable.
+    #  @param schedule POSIXct/Date. Schedule time.
+    #  @return The edited message (or logical for inline bot messages depending on API).
     edit_message = function(entity,
-                            #' @field message Field.
+                            #  @field message Field.
                             message = NULL,
-                            #' @field text Field.
+                            #  @field text Field.
                             text = NULL,
-                            #' @field parse_mode Field.
+                            #  @field parse_mode Field.
                             parse_mode = NULL,
-                            #' @field attributes Field.
+                            #  @field attributes Field.
                             attributes = NULL,
-                            #' @field formatting_entities Field.
+                            #  @field formatting_entities Field.
                             formatting_entities = NULL,
-                            #' @field link_preview Field.
+                            #  @field link_preview Field.
                             link_preview = TRUE,
-                            #' @field file Field.
+                            #  @field file Field.
                             file = NULL,
-                            #' @field thumb Field.
+                            #  @field thumb Field.
                             thumb = NULL,
-                            #' @field force_document Field.
+                            #  @field force_document Field.
                             force_document = FALSE,
-                            #' @field buttons Field.
+                            #  @field buttons Field.
                             buttons = NULL,
-                            #' @field supports_streaming Field.
+                            #  @field supports_streaming Field.
                             supports_streaming = FALSE,
                             schedule = NULL) {
       if (!is.null(self$client) && !is.null(self$client$edit_message)) {
@@ -2766,14 +2768,14 @@ TelegramClient <- R6::R6Class(
       stop("edit_message is not implemented in the provided client.")
     },
 
-    #' Delete messages
-    #'
-    #' Deletes the given messages, optionally for everyone (revoke).
-    #'
-    #' @param entity Entity the messages belong to (may be NULL for some chats).
-    #' @param message_ids Integer id, vector of ids, or message objects.
-    #' @param revoke logical. If TRUE, delete for everyone where applicable.
-    #' @return A list of results (AffectedMessages per chunk) depending on API.
+    #  Delete messages
+    # 
+    #  Deletes the given messages, optionally for everyone (revoke).
+    # 
+    #  @param entity Entity the messages belong to (may be NULL for some chats).
+    #  @param message_ids Integer id, vector of ids, or message objects.
+    #  @param revoke logical. If TRUE, delete for everyone where applicable.
+    #  @return A list of results (AffectedMessages per chunk) depending on API.
     delete_messages = function(entity,
                                message_ids,
                                revoke = TRUE) {
@@ -2787,22 +2789,22 @@ TelegramClient <- R6::R6Class(
       stop("delete_messages is not implemented in the provided client.")
     },
 
-    #' Send read acknowledge
-    #'
-    #' Marks messages as read and optionally clears mentions/reactions.
-    #'
-    #' @param entity Target entity.
-    #' @param message Message or vector of messages to derive max_id when max_id is NULL.
-    #' @param max_id Integer max id up to which messages will be marked read.
-    #' @param clear_mentions logical. Clear mention badge.
-    #' @param clear_reactions logical. Clear reactions badge.
-    #' @return logical indicating success depending on API.
+    #  Send read acknowledge
+    # 
+    #  Marks messages as read and optionally clears mentions/reactions.
+    # 
+    #  @param entity Target entity.
+    #  @param message Message or vector of messages to derive max_id when max_id is NULL.
+    #  @param max_id Integer max id up to which messages will be marked read.
+    #  @param clear_mentions logical. Clear mention badge.
+    #  @param clear_reactions logical. Clear reactions badge.
+    #  @return logical indicating success depending on API.
     send_read_acknowledge = function(entity,
-                                     #' @field message Field.
+                                     #  @field message Field.
                                      message = NULL,
-                                     #' @field max_id Field.
+                                     #  @field max_id Field.
                                      max_id = NULL,
-                                     #' @field clear_mentions Field.
+                                     #  @field clear_mentions Field.
                                      clear_mentions = FALSE,
                                      clear_reactions = FALSE) {
       if (!is.null(self$client) && !is.null(self$client$send_read_acknowledge)) {
@@ -2817,40 +2819,40 @@ TelegramClient <- R6::R6Class(
       stop("send_read_acknowledge is not implemented in the provided client.")
     },
 
-    #' Pin a message
-    #'
-    #' Pins a message in a chat.
-    #'
-    #' @param entity Target entity.
-    #' @param message Message id or message object to pin; if NULL, unpins all.
-    #' @param notify logical. Notify members about the pin.
-    #' @param pm_oneside logical. Pin just for you in private chats (opposite of official by default).
-    #' @return API-dependent result or pinned service message.
+    #  Pin a message
+    # 
+    #  Pins a message in a chat.
+    # 
+    #  @param entity Target entity.
+    #  @param message Message id or message object to pin; if NULL, unpins all.
+    #  @param notify logical. Notify members about the pin.
+    #  @param pm_oneside logical. Pin just for you in private chats (opposite of official by default).
+    #  @return API-dependent result or pinned service message.
     pin_message = function(entity,
                            message,
-                           #' @field notify Field.
+                           #  @field notify Field.
                            notify = FALSE,
                            pm_oneside = FALSE) {
       self$pin_internal(entity = entity, message = message, unpin = FALSE, notify = notify, pm_oneside = pm_oneside)
     },
 
-    #' Unpin a message
-    #'
-    #' Unpins a message in a chat. If message is NULL, unpins all.
-    #'
-    #' @param entity Target entity.
-    #' @param message Message id or message object to unpin; NULL to unpin all.
-    #' @param notify logical. Notify members about the unpin.
-    #' @return API-dependent result.
+    #  Unpin a message
+    # 
+    #  Unpins a message in a chat. If message is NULL, unpins all.
+    # 
+    #  @param entity Target entity.
+    #  @param message Message id or message object to unpin; NULL to unpin all.
+    #  @param notify logical. Notify members about the unpin.
+    #  @return API-dependent result.
     unpin_message = function(entity,
-                             #' @field message Field.
+                             #  @field message Field.
                              message = NULL,
                              notify = FALSE) {
       self$pin_internal(entity = entity, message = message, unpin = TRUE, notify = notify, pm_oneside = FALSE)
     },
 
-    #' Resolve comment target for sending comments (linked discussion)
-    #' @keywords internal
+    #  Resolve comment target for sending comments (linked discussion)
+    #  @keywords internal
     get_comment_data = function(entity, message) {
       if (!is.null(self$client) && !is.null(self$client$get_comment_data)) {
         return(self$client$get_comment_data(entity = entity, message = message))
@@ -2858,8 +2860,8 @@ TelegramClient <- R6::R6Class(
       stop("get_comment_data is not implemented in the provided client.")
     },
 
-    #' Internal pin/unpin helper
-    #' @keywords internal
+    #  Internal pin/unpin helper
+    #  @keywords internal
     pin_internal = function(entity, message, unpin, notify = FALSE, pm_oneside = FALSE) {
       if (!is.null(self$client) && !is.null(self$client$pin_internal)) {
         return(self$client$pin_internal(
@@ -2883,15 +2885,15 @@ TelegramClient <- R6::R6Class(
       stop("Pin/unpin is not implemented in the provided client.")
     },
 
-    #' @description Sends a file to a specified entity.
-    #' @param entity The entity to send the file to.
-    #' @param file The file to send (path, raw bytes, or URL).
-    #' @param caption Optional caption for the media.
-    #' @param force_document Whether to force sending the file as a document.
-    #' @param file_size Optional size of the file in bytes.
-    #' @param progress_callback Optional callback to track upload progress.
-    #' @param ... Additional parameters.
-    #' @return A future object representing the result of the operation.
+    #  @description Sends a file to a specified entity.
+    #  @param entity The entity to send the file to.
+    #  @param file The file to send (path, raw bytes, or URL).
+    #  @param caption Optional caption for the media.
+    #  @param force_document Whether to force sending the file as a document.
+    #  @param file_size Optional size of the file in bytes.
+    #  @param progress_callback Optional callback to track upload progress.
+    #  @param ... Additional parameters.
+    #  @return A future object representing the result of the operation.
     send_file = function(entity, file, caption = NULL, force_document = FALSE,
                          file_size = NULL, progress_callback = NULL, ...) {
       future({
@@ -2922,13 +2924,13 @@ TelegramClient <- R6::R6Class(
       })
     },
 
-    #' @description Uploads a file to Telegram's servers without sending it.
-    #' @param file The file to upload.
-    #' @param part_size_kb The size of chunks in KB.
-    #' @param file_size Optional size of the file in bytes.
-    #' @param progress_callback Optional callback to track upload progress.
-    #' @param ... Additional parameters.
-    #' @return A future object representing the uploaded file details.
+    #  @description Uploads a file to Telegram's servers without sending it.
+    #  @param file The file to upload.
+    #  @param part_size_kb The size of chunks in KB.
+    #  @param file_size Optional size of the file in bytes.
+    #  @param progress_callback Optional callback to track upload progress.
+    #  @param ... Additional parameters.
+    #  @return A future object representing the uploaded file details.
     upload_file = function(file, part_size_kb = NULL, file_size = NULL,
                            progress_callback = NULL, ...) {
       future::future({
@@ -2961,7 +2963,7 @@ TelegramClient <- R6::R6Class(
 
           if (is_big) {
             request <- list(
-              #' @field method Field.
+              #  @field method Field.
               method = "upload.saveBigFilePart",
               file_id = file_id,
               file_part = part_index,
@@ -2970,7 +2972,7 @@ TelegramClient <- R6::R6Class(
             )
           } else {
             request <- list(
-              #' @field method Field.
+              #  @field method Field.
               method = "upload.saveFilePart",
               file_id = file_id,
               file_part = part_index,
@@ -2991,7 +2993,7 @@ TelegramClient <- R6::R6Class(
 
         if (is_big) {
           list(
-            #' @field type Field.
+            #  @field type Field.
             type = "InputFileBig",
             id = file_id,
             parts = part_count,
@@ -2999,7 +3001,7 @@ TelegramClient <- R6::R6Class(
           )
         } else {
           list(
-            #' @field type Field.
+            #  @field type Field.
             type = "InputFile",
             id = file_id,
             parts = part_count,
@@ -3011,16 +3013,16 @@ TelegramClient <- R6::R6Class(
       })
     },
 
-    #' @description Converts a file to a media format.
-    #' @param file The file to convert.
-    #' @param force_document Whether to force sending the file as a document.
-    #' @param file_size Optional size of the file in bytes.
-    #' @param progress_callback Optional callback to track upload progress.
-    #' @param attributes Optional attributes for the media.
-    #' @param thumb Optional thumbnail for the media.
-    #' @param allow_cache Whether to allow caching of the media.
-    #' @param ... Additional parameters.
-    #' @return A list containing the file handle, media, and whether it is an image.
+    #  @description Converts a file to a media format.
+    #  @param file The file to convert.
+    #  @param force_document Whether to force sending the file as a document.
+    #  @param file_size Optional size of the file in bytes.
+    #  @param progress_callback Optional callback to track upload progress.
+    #  @param attributes Optional attributes for the media.
+    #  @param thumb Optional thumbnail for the media.
+    #  @param allow_cache Whether to allow caching of the media.
+    #  @param ... Additional parameters.
+    #  @return A list containing the file handle, media, and whether it is an image.
     file_to_media = function(file, force_document = FALSE, file_size = NULL,
                              progress_callback = NULL, attributes = NULL,
                              thumb = NULL, allow_cache = TRUE, voice_note = FALSE,
@@ -3065,7 +3067,7 @@ TelegramClient <- R6::R6Class(
           }
 
           media <- list(
-            #' @field type Field.
+            #  @field type Field.
             type = "InputMediaUploadedDocument",
             file = file_handle_result,
             mime_type = mime_type,
@@ -3082,12 +3084,12 @@ TelegramClient <- R6::R6Class(
       }
     },
 
-    #' @description Resizes a photo if needed to meet Telegram's requirements.
-    #' @param file The file to resize.
-    #' @param is_image Whether the file is an image.
-    #' @param width The maximum width of the image.
-    #' @param height The maximum height of the image.
-    #' @return The resized file or the original file if no resizing is needed.
+    #  @description Resizes a photo if needed to meet Telegram's requirements.
+    #  @param file The file to resize.
+    #  @param is_image Whether the file is an image.
+    #  @param width The maximum width of the image.
+    #  @param height The maximum height of the image.
+    #  @return The resized file or the original file if no resizing is needed.
     resize_photo_if_needed = function(file, is_image, width = 2560, height = 2560) {
       if (!is_image || !requireNamespace("magick", quietly = TRUE)) {
         return(file)
@@ -3139,9 +3141,9 @@ TelegramClient <- R6::R6Class(
       return(file)
     },
 
-    #' @description Checks if a file is an image.
-    #' @param file The file to check.
-    #' @return TRUE if the file is an image, FALSE otherwise.
+    #  @description Checks if a file is an image.
+    #  @param file The file to check.
+    #  @return TRUE if the file is an image, FALSE otherwise.
     is_image = function(file) {
       if (is.character(file) && file.exists(file)) {
         ext <- tolower(tools::file_ext(file))
@@ -3150,9 +3152,9 @@ TelegramClient <- R6::R6Class(
       return(FALSE)
     },
 
-    #' @description Determines the appropriate part size for file uploads.
-    #' @param file_size The size of the file in bytes.
-    #' @return The part size in KB.
+    #  @description Determines the appropriate part size for file uploads.
+    #  @param file_size The size of the file in bytes.
+    #  @return The part size in KB.
     get_appropriated_part_size = function(file_size) {
       if (file_size <= 104857600) { # 100MB
         return(64)
@@ -3163,9 +3165,9 @@ TelegramClient <- R6::R6Class(
       }
     },
 
-    #' @description Invokes an API request.
-    #' @param request The request to invoke.
-    #' @return The result of the API call.
+    #  @description Invokes an API request.
+    #  @param request The request to invoke.
+    #  @return The result of the API call.
     invoke = function(request) {
       if (isTRUE(getOption("telegramR.test_mode")) || identical(Sys.getenv("TESTTHAT"), "true")) {
         return(TRUE)
@@ -3174,18 +3176,18 @@ TelegramClient <- R6::R6Class(
     },
 
 
-    #' @description
-    #' Builds a ReplyInlineMarkup or ReplyKeyboardMarkup for the given buttons.
-    #'
-    #' Does nothing if either no buttons are provided or the provided
-    #' argument is already a reply markup.
-    #'
-    #' This method is not asynchronous.
-    #'
-    #' @param buttons The button, list of buttons, array of buttons or markup
-    #' to convert into a markup.
-    #' @param inline_only Whether the buttons must be inline buttons only or not.
-    #' @return A ReplyInlineMarkup or ReplyKeyboardMarkup object.
+    #  @description
+    #  Builds a ReplyInlineMarkup or ReplyKeyboardMarkup for the given buttons.
+    # 
+    #  Does nothing if either no buttons are provided or the provided
+    #  argument is already a reply markup.
+    # 
+    #  This method is not asynchronous.
+    # 
+    #  @param buttons The button, list of buttons, array of buttons or markup
+    #  to convert into a markup.
+    #  @param inline_only Whether the buttons must be inline buttons only or not.
+    #  @return A ReplyInlineMarkup or ReplyKeyboardMarkup object.
     build_reply_markup = function(buttons = NULL, inline_only = FALSE) {
       if (is.null(buttons)) {
         return(NULL)
@@ -3280,9 +3282,9 @@ TelegramClient <- R6::R6Class(
       ))
     },
 
-    #' @description
-    #' Runs the update loop until disconnected.
-    #' @return A promise that resolves when disconnected.
+    #  @description
+    #  Runs the update loop until disconnected.
+    #  @return A promise that resolves when disconnected.
     run_until_disconnected = function() {
       return(
         future::future({
@@ -3304,10 +3306,10 @@ TelegramClient <- R6::R6Class(
       )
     },
 
-    #' @description
-    #' Sets whether to receive updates.
-    #' @param receive_updates A logical value indicating whether to receive updates.
-    #' @return A promise that resolves when the updates are set.
+    #  @description
+    #  Sets whether to receive updates.
+    #  @param receive_updates A logical value indicating whether to receive updates.
+    #  @return A promise that resolves when the updates are set.
     set_receive_updates = function(receive_updates) {
       return(
         future::future({
@@ -3319,10 +3321,10 @@ TelegramClient <- R6::R6Class(
       )
     },
 
-    #' @description
-    #' Adds an event handler for a specific event.
-    #' @param event The event type to handle.
-    #' @return A decorator function that wraps the event handler.
+    #  @description
+    #  Adds an event handler for a specific event.
+    #  @param event The event type to handle.
+    #  @return A decorator function that wraps the event handler.
     on = function(event) {
       decorator <- function(f) {
         self$client$add_event_handler(f, event)
@@ -3331,11 +3333,11 @@ TelegramClient <- R6::R6Class(
       return(decorator)
     },
 
-    #' @description
-    #' Adds an event handler for a specific event.
-    #' @param callback The callback function to handle the event.
-    #' @param event The event type to handle.
-    #' @return NULL or an error if the event is not found.
+    #  @description
+    #  Adds an event handler for a specific event.
+    #  @param callback The callback function to handle the event.
+    #  @param event The event type to handle.
+    #  @return NULL or an error if the event is not found.
     add_event_handler = function(callback, event = NULL) {
       builders <- events$get_handlers(callback)
       if (!is.null(builders)) {
@@ -3354,11 +3356,11 @@ TelegramClient <- R6::R6Class(
       self$client$event_builders <- c(self$client$event_builders, list(list(event, callback)))
     },
 
-    #' @description
-    #' Removes an event handler for a specific event.
-    #' @param callback The callback function to remove.
-    #' @param event The event type to remove.
-    #' @return The number of handlers removed.
+    #  @description
+    #  Removes an event handler for a specific event.
+    #  @param callback The callback function to remove.
+    #  @param event The event type to remove.
+    #  @return The number of handlers removed.
     remove_event_handler = function(callback, event = NULL) {
       found <- 0
       if (!is.null(event) && !is.function(event)) {
@@ -3381,9 +3383,9 @@ TelegramClient <- R6::R6Class(
       return(found)
     },
 
-    #' @description
-    #' Lists all event handlers.
-    #' @return A list of event handlers with their callbacks and events.
+    #  @description
+    #  Lists all event handlers.
+    #  @return A list of event handlers with their callbacks and events.
     list_event_handlers = function() {
       result <- list()
       for (i in seq_along(self$client$event_builders)) {
@@ -3393,9 +3395,9 @@ TelegramClient <- R6::R6Class(
       return(result)
     },
 
-    #' @description
-    #' Catches up on updates.
-    #' @return A promise that resolves when caught up.
+    #  @description
+    #  Catches up on updates.
+    #  @return A promise that resolves when caught up.
     catch_up = function() {
       return(
         future::future({
@@ -3406,9 +3408,9 @@ TelegramClient <- R6::R6Class(
 
     # Region Private methods
 
-    #' @description
-    #' Handles the update loop.
-    #' @return A promise that resolves when the loop is finished.
+    #  @description
+    #  Handles the update loop.
+    #  @return A promise that resolves when the loop is finished.
     update_loop = function() {
       return(
         future::future({
@@ -3601,12 +3603,12 @@ TelegramClient <- R6::R6Class(
       )
     },
 
-    #' @description
-    #' Preprocesses updates before dispatching.
-    #' @param updates A list of updates to preprocess.
-    #' @param users A list of user entities.
-    #' @param chats A list of chat entities.
-    #' @return A list of preprocessed updates.
+    #  @description
+    #  Preprocesses updates before dispatching.
+    #  @param updates A list of updates to preprocess.
+    #  @param users A list of user entities.
+    #  @param chats A list of chat entities.
+    #  @return A list of preprocessed updates.
     preprocess_updates = function(updates, users, chats) {
       self$client$mb_entity_cache$extend(users, chats)
       entities <- list()
@@ -3623,9 +3625,9 @@ TelegramClient <- R6::R6Class(
       return(updates)
     },
 
-    #' @description
-    #' Sends a keepalive ping to the server.
-    #' @return A promise that resolves when the ping is sent.
+    #  @description
+    #  Sends a keepalive ping to the server.
+    #  @return A promise that resolves when the ping is sent.
     keepalive_loop = function() {
       return(
         future::future({
@@ -3682,10 +3684,10 @@ TelegramClient <- R6::R6Class(
       )
     },
 
-    #' @description
-    #' Dispatches an update to the appropriate event handlers.
-    #' @param update The update to dispatch.
-    #' @return A promise that resolves when the update is dispatched.
+    #  @description
+    #  Dispatches an update to the appropriate event handlers.
+    #  @param update The update to dispatch.
+    #  @return A promise that resolves when the update is dispatched.
     dispatch_update = function(update) {
       return(
         future::future({
@@ -3788,9 +3790,9 @@ TelegramClient <- R6::R6Class(
       )
     },
 
-    #' @description
-    #' Handles auto-reconnect after a disconnection.
-    #' @return A promise that resolves when the auto-reconnect is handled.
+    #  @description
+    #  Handles auto-reconnect after a disconnection.
+    #  @return A promise that resolves when the auto-reconnect is handled.
     handle_auto_reconnect = function() {
       return(
         future::future({
@@ -3810,25 +3812,25 @@ TelegramClient <- R6::R6Class(
       )
     },
 
-    #' @field parse_mode The default parse mode for parsing messages.
+    #  @field parse_mode The default parse mode for parsing messages.
     parse_mode = NULL,
 
-    #' Set the default parse mode.
-    #' @param mode The parse mode to set (e.g., "markdown", "html").
-    #' @return None.
+    #  Set the default parse mode.
+    #  @param mode The parse mode to set (e.g., "markdown", "html").
+    #  @return None.
     set_parse_mode = function(mode) {
       self$parse_mode <- self$sanitize_parse_mode(mode)
     },
 
-    #' Get the current parse mode.
-    #' @return The current parse mode.
+    #  Get the current parse mode.
+    #  @return The current parse mode.
     get_parse_mode = function() {
       return(self$parse_mode)
     },
 
-    #' Sanitize the parse mode input.
-    #' @param mode The parse mode to sanitize.
-    #' @return Sanitized parse mode.
+    #  Sanitize the parse mode input.
+    #  @param mode The parse mode to sanitize.
+    #  @return Sanitized parse mode.
     sanitize_parse_mode = function(mode) {
       if (is.null(mode)) {
         return(NULL)
@@ -3839,10 +3841,10 @@ TelegramClient <- R6::R6Class(
       stop("Invalid parse mode")
     },
 
-    #' Parse a message text based on the parse mode.
-    #' @param message The message text to parse.
-    #' @param parse_mode The parse mode to use (optional).
-    #' @return A list with parsed message and entities.
+    #  Parse a message text based on the parse mode.
+    #  @param message The message text to parse.
+    #  @param parse_mode The parse mode to use (optional).
+    #  @return A list with parsed message and entities.
     parse_message_text = function(message, parse_mode = NULL) {
       if (is.null(parse_mode)) {
         parse_mode <- self$parse_mode
@@ -3865,16 +3867,16 @@ TelegramClient <- R6::R6Class(
       return(list(message = parsed_message, entities = entities))
     },
 
-    #' Replace an entity with a mention of a user.
-    #' @param entities The list of entities.
-    #' @param i The index of the entity to replace.
-    #' @param user The user to mention.
-    #' @return TRUE if replaced successfully, FALSE otherwise.
+    #  Replace an entity with a mention of a user.
+    #  @param entities The list of entities.
+    #  @param i The index of the entity to replace.
+    #  @param user The user to mention.
+    #  @return TRUE if replaced successfully, FALSE otherwise.
     replace_with_mention = function(entities, i, user) {
       tryCatch(
         {
           entities[[i]] <- list(
-            #' @field type Field.
+            #  @field type Field.
             type = "mention",
             offset = entities[[i]]$offset,
             length = entities[[i]]$length,
@@ -3888,11 +3890,11 @@ TelegramClient <- R6::R6Class(
       )
     },
 
-    #' Extract the response message based on the request and result.
-    #' @param request The original request.
-    #' @param result The result from the API.
-    #' @param input_chat The input chat entity.
-    #' @return The response message or NULL.
+    #  Extract the response message based on the request and result.
+    #  @param request The original request.
+    #  @param result The result from the API.
+    #  @param input_chat The input chat entity.
+    #  @return The response message or NULL.
     get_response_message = function(request, result, input_chat) {
       updates <- list()
       entities <- list()
@@ -3934,12 +3936,12 @@ TelegramClient <- R6::R6Class(
       return(lapply(random_id, function(rnd) id_to_message[[as.character(random_to_id[[as.character(rnd)]])]]))
     },
 
-    #' @description
-    #' Make a call to the Telegram API.
-    #' @param request The request object.
-    #' @param ordered Boolean indicating if the call is ordered.
-    #' @param flood_sleep_threshold The threshold for flood sleep.
-    #' @return A future object representing the result of the API call.
+    #  @description
+    #  Make a call to the Telegram API.
+    #  @param request The request object.
+    #  @param ordered Boolean indicating if the call is ordered.
+    #  @param flood_sleep_threshold The threshold for flood sleep.
+    #  @return A future object representing the result of the API call.
     call = function(request, ordered = FALSE, flood_sleep_threshold = NULL) {
       if (isTRUE(getOption("telegramR.async", FALSE))) {
         future::future({
@@ -3950,13 +3952,13 @@ TelegramClient <- R6::R6Class(
       }
     },
 
-    #' @description
-    #' Make an internal call to the Telegram API.
-    #' @param sender The sender object.
-    #' @param request The request object.
-    #' @param ordered Boolean indicating if the call is ordered.
-    #' @param flood_sleep_threshold The threshold for flood sleep.
-    #' @return The result of the API call.
+    #  @description
+    #  Make an internal call to the Telegram API.
+    #  @param sender The sender object.
+    #  @param request The request object.
+    #  @param ordered Boolean indicating if the call is ordered.
+    #  @param flood_sleep_threshold The threshold for flood sleep.
+    #  @return The result of the API call.
     call_internal = function(sender, request, ordered = FALSE, flood_sleep_threshold = NULL) {
       if (is.null(flood_sleep_threshold)) {
         flood_sleep_threshold <- private$flood_sleep_threshold
@@ -4109,10 +4111,10 @@ TelegramClient <- R6::R6Class(
 
     # Public methods
 
-    #' @description
-    #' Get the current user.
-    #' @param input_peer Boolean indicating if the result should be an InputPeer.
-    #' @return A future object representing the current user.
+    #  @description
+    #  Get the current user.
+    #  @param input_peer Boolean indicating if the result should be an InputPeer.
+    #  @return A future object representing the current user.
     get_me = function(input_peer = FALSE) {
       resolve_future <- function(x) {
         if (inherits(x, "Future")) {
@@ -4170,16 +4172,16 @@ TelegramClient <- R6::R6Class(
       run()
     },
 
-    #' @description
-    #' Get the ID of the current user.
-    #' @return The ID of the current user.
+    #  @description
+    #  Get the ID of the current user.
+    #  @return The ID of the current user.
     self_id = function() {
       return(if (!is.null(private$mb_entity_cache)) private$mb_entity_cache$self_id else NULL)
     },
 
-    #' @description
-    #' Check if the current user is a bot.
-    #' @return A future object indicating if the user is a bot.
+    #  @description
+    #  Check if the current user is a bot.
+    #  @return A future object indicating if the user is a bot.
     is_bot = function() {
       run <- function() {
         if (!is.null(private$mb_entity_cache) && is.null(private$mb_entity_cache$self_bot)) {
@@ -4197,9 +4199,9 @@ TelegramClient <- R6::R6Class(
       run()
     },
 
-    #' @description
-    #' Check if the current user is authorized.
-    #' @return A future object indicating if the user is authorized.
+    #  @description
+    #  Check if the current user is authorized.
+    #  @return A future object indicating if the user is authorized.
     is_user_authorized = function() {
       future::future({
         if (is.null(private$authorized)) {
@@ -4223,10 +4225,10 @@ TelegramClient <- R6::R6Class(
       })
     },
 
-    #' @description
-    #' Get an entity from a given input.
-    #' @param entity The input entity (user, chat, or channel).
-    #' @return An entity or a future if async is enabled.
+    #  @description
+    #  Get an entity from a given input.
+    #  @param entity The input entity (user, chat, or channel).
+    #  @return An entity or a future if async is enabled.
     get_entity = function(entity) {
       resolve_future <- function(x) {
         if (inherits(x, "Future")) {
@@ -4332,10 +4334,10 @@ TelegramClient <- R6::R6Class(
       run()
     },
 
-    #' @description
-    #' Get the input entity for a given peer.
-    #' @param peer The peer to get the input entity for.
-    #' @return An input entity or a future if async is enabled.
+    #  @description
+    #  Get the input entity for a given peer.
+    #  @param peer The peer to get the input entity for.
+    #  @return An input entity or a future if async is enabled.
     get_input_entity = function(peer) {
       resolve_future <- function(x) {
         if (inherits(x, "Future")) {
@@ -4433,7 +4435,7 @@ TelegramClient <- R6::R6Class(
       run()
     },
 
-    #' @description CamelCase alias for get_input_entity (used by generated code).
+    #  @description CamelCase alias for get_input_entity (used by generated code).
     getInputEntity = function(peer) {
       res <- self$get_input_entity(peer)
       if (inherits(res, "Future")) {
@@ -4442,57 +4444,57 @@ TelegramClient <- R6::R6Class(
       res
     },
 
-    #' @description CamelCase alias for get_input_peer (used by generated code).
+    #  @description CamelCase alias for get_input_peer (used by generated code).
     getInputPeer = function(peer, allow_self = TRUE, check_hash = TRUE) {
       get_input_peer(peer, allow_self = allow_self, check_hash = check_hash)
     },
 
-    #' @description CamelCase alias for get_input_user (used by generated code).
+    #  @description CamelCase alias for get_input_user (used by generated code).
     getInputUser = function(entity) {
       get_input_user(entity)
     },
 
-    #' @description CamelCase alias for get_input_channel (used by generated code).
+    #  @description CamelCase alias for get_input_channel (used by generated code).
     getInputChannel = function(entity) {
       get_input_channel(entity)
     },
 
-    #' @description CamelCase alias for get_input_message (used by generated code).
+    #  @description CamelCase alias for get_input_message (used by generated code).
     getInputMessage = function(message) {
       get_input_message(message)
     },
 
-    #' @description CamelCase alias for get_input_media (used by generated code).
+    #  @description CamelCase alias for get_input_media (used by generated code).
     getInputMedia = function(media, is_photo = FALSE, attributes = NULL, force_document = FALSE,
                              file_size = NULL, progress_callback = NULL) {
       get_input_media(media, is_photo = is_photo, attributes = attributes, force_document = force_document,
         file_size = file_size, progress_callback = progress_callback)
     },
 
-    #' @description CamelCase alias for get_input_document (used by generated code).
+    #  @description CamelCase alias for get_input_document (used by generated code).
     getInputDocument = function(document) {
       get_input_document(document)
     },
 
-    #' @description CamelCase alias for get_input_photo (used by generated code).
+    #  @description CamelCase alias for get_input_photo (used by generated code).
     getInputPhoto = function(photo) {
       get_input_photo(photo)
     },
 
-    #' @description CamelCase alias for get_input_chat_photo (used by generated code).
+    #  @description CamelCase alias for get_input_chat_photo (used by generated code).
     getInputChatPhoto = function(photo) {
       get_input_chat_photo(photo)
     },
 
-    #' @description CamelCase alias for get_input_group_call (used by generated code).
+    #  @description CamelCase alias for get_input_group_call (used by generated code).
     getInputGroupCall = function(call) {
       get_input_group_call(call)
     },
 
-    #' @description
-    #' Get the peer for a given input entity.
-    #' @param peer The input entity to get the peer for.
-    #' @return A future object representing the peer.
+    #  @description
+    #  Get the peer for a given input entity.
+    #  @param peer The input entity to get the peer for.
+    #  @return A future object representing the peer.
     get_peer = function(peer) {
       future::future({
         result <- resolve_id(future::value(self$get_peer_id(peer)))
@@ -4502,11 +4504,11 @@ TelegramClient <- R6::R6Class(
       })
     },
 
-    #' @description
-    #' Get the ID of a given peer.
-    #' @param peer The input entity to get the ID for.
-    #' @param add_mark Boolean indicating if the ID should be marked.
-    #' @return The ID of the peer.
+    #  @description
+    #  Get the ID of a given peer.
+    #  @param peer The input entity to get the ID for.
+    #  @param add_mark Boolean indicating if the ID should be marked.
+    #  @return The ID of the peer.
     get_peer_id = function(peer, add_mark = TRUE) {
       future::future({
         if (is.numeric(peer)) {
@@ -4537,10 +4539,10 @@ TelegramClient <- R6::R6Class(
 
     # Private methods
 
-    #' @description
-    #' Get an entity from a string.
-    #' @param string The string to get the entity from.
-    #' @return A future object representing the entity.
+    #  @description
+    #  Get an entity from a string.
+    #  @param string The string to get the entity from.
+    #  @return A future object representing the entity.
     get_entity_from_string = function(string) {
       resolve_future <- function(x) {
         if (inherits(x, "Future")) {
@@ -4634,10 +4636,10 @@ TelegramClient <- R6::R6Class(
       run()
     },
 
-    #' @description
-    #' Get the input dialog for a given dialog.
-    #' @param dialog The dialog to get the input dialog for.
-    #' @return A future object representing the input dialog.
+    #  @description
+    #  Get the input dialog for a given dialog.
+    #  @param dialog The dialog to get the input dialog for.
+    #  @return A future object representing the input dialog.
     get_input_dialog = function(dialog) {
       resolve_future <- function(x) {
         if (inherits(x, "Future")) {
@@ -4669,10 +4671,10 @@ TelegramClient <- R6::R6Class(
       run()
     },
 
-    #' @description
-    #' Get the input notify for a given notify.
-    #' @param notify The notify to get the input notify for.
-    #' @return A future object representing the input notify.
+    #  @description
+    #  Get the input notify for a given notify.
+    #  @param notify The notify to get the input notify for.
+    #  @return A future object representing the input notify.
     get_input_notify = function(notify) {
       resolve_future <- function(x) {
         if (inherits(x, "Future")) {
@@ -4704,8 +4706,8 @@ TelegramClient <- R6::R6Class(
       run()
     },
 
-    #' @description Create a new TelegramClient instance
-    #' @param ... Arguments passed to the parent class
+    #  @description Create a new TelegramClient instance
+    #  @param ... Arguments passed to the parent class
     initialize = function(...) {
       super$initialize(...)
       self$client <- self

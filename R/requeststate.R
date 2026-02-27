@@ -1,25 +1,27 @@
-#' @title RequestState
-#' @description Holds information relevant to sent messages, including the message ID assigned to the request,
-#' the container ID to which it belongs, the request itself, the request as raw bytes, and a future result.
-#' @export
+#  @title RequestState
+#  @description Holds information relevant to sent messages, including the message ID assigned to the request,
+#  the container ID to which it belongs, the request itself, the request as raw bytes, and a future result.
+#  @export
+#  @noRd
+#  @noRd
 RequestState <- R6::R6Class("RequestState",
   public = list(
-    #' @field container_id Field.
+    #  @field container_id Field.
     container_id = NULL,
-    #' @field msg_id Field.
+    #  @field msg_id Field.
     msg_id = NULL,
-    #' @field request Field.
+    #  @field request Field.
     request = NULL,
-    #' @field data Field.
+    #  @field data Field.
     data = NULL,
-    #' @field future Field.
+    #  @field future Field.
     future = NULL,
-    #' @field after Field.
+    #  @field after Field.
     after = NULL,
 
-    #' @description Creates a new RequestState instance.
-    #' @param request The request object.
-    #' @param after Optional additional parameter. Defaults to NULL.
+    #  @description Creates a new RequestState instance.
+    #  @param request The request object.
+    #  @param after Optional additional parameter. Defaults to NULL.
     initialize = function(request, after = NULL) {
       if (is.null(request)) {
         stop("argument \"request\" is missing, with no default")
@@ -84,7 +86,7 @@ RequestState <- R6::R6Class("RequestState",
   )
 )
 
-#' @exportS3Method future::value
+#  @exportS3Method future::value
 value.RequestFuture <- function(x, ...) {
   done <- isTRUE(x$.__req_done__)
   started_at <- proc.time()[["elapsed"]]
@@ -109,7 +111,7 @@ value.RequestFuture <- function(x, ...) {
   x$.__req_value__
 }
 
-#' @exportS3Method future::resolved
+#  @exportS3Method future::resolved
 resolved.RequestFuture <- function(x, ...) {
   isTRUE(x$.__req_done__)
 }

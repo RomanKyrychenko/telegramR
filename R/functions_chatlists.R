@@ -1,27 +1,29 @@
-#' CheckChatlistInviteRequest R6 class
-#'
-#' Request to check a chatlist invite by slug.
-#'
-#' @title CheckChatlistInviteRequest
-#' @description Telegram API type CheckChatlistInviteRequest
-#' @export
+#  CheckChatlistInviteRequest R6 class
+# 
+#  Request to check a chatlist invite by slug.
+# 
+#  @title CheckChatlistInviteRequest
+#  @description Telegram API type CheckChatlistInviteRequest
+#  @export
+#  @noRd
+#  @noRd
 CheckChatlistInviteRequest <- R6::R6Class(
   "CheckChatlistInviteRequest",
   public = list(
     CONSTRUCTOR_ID = 0x41c10fff,
     SUBCLASS_OF_ID = 0x41720e75,
-    #' @field slug Field.
+    #  @field slug Field.
     slug = NULL,
 
-    #' @description Initialize CheckChatlistInviteRequest
-    #' @param slug Invite slug (string)
+    #  @description Initialize CheckChatlistInviteRequest
+    #  @param slug Invite slug (string)
     initialize = function(slug = NULL) {
       self$slug <- slug
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #' @return A named list representation
+    #  Convert to list (dictionary-like)
+    #  @return A named list representation
     to_list = function() {
       list(
         `_` = "CheckChatlistInviteRequest",
@@ -29,9 +31,9 @@ CheckChatlistInviteRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes
-    #' @details Serializes constructor id followed by TL-string encoded slug.
-    #' @return raw vector with serialized bytes
+    #  Serialize to raw bytes
+    #  @details Serializes constructor id followed by TL-string encoded slug.
+    #  @return raw vector with serialized bytes
     bytes = function() {
       tl_serialize_string <- function(s) {
         if (is.null(s)) {
@@ -63,46 +65,48 @@ CheckChatlistInviteRequest <- R6::R6Class(
   )
 )
 
-#' Construct CheckChatlistInviteRequest from reader
-#'
-#' Reads slug from a reader and returns a new instance.
-#' @param reader Reader object providing tgread_string
-#' @return CheckChatlistInviteRequest instance
-#' @export
+#  Construct CheckChatlistInviteRequest from reader
+# 
+#  Reads slug from a reader and returns a new instance.
+#  @param reader Reader object providing tgread_string
+#  @return CheckChatlistInviteRequest instance
+#  @export
 CheckChatlistInviteRequest$set("public", "from_reader", function(reader) {
   slug_val <- reader$tgread_string()
   CheckChatlistInviteRequest$new(slug = slug_val)
 })
 
 
-#' DeleteExportedInviteRequest R6 class
-#'
-#' Request to delete an exported invite for a chatlist.
-#'
-#' @title DeleteExportedInviteRequest
-#' @description Telegram API type DeleteExportedInviteRequest
-#' @export
+#  DeleteExportedInviteRequest R6 class
+# 
+#  Request to delete an exported invite for a chatlist.
+# 
+#  @title DeleteExportedInviteRequest
+#  @description Telegram API type DeleteExportedInviteRequest
+#  @export
+#  @noRd
+#  @noRd
 DeleteExportedInviteRequest <- R6::R6Class(
   "DeleteExportedInviteRequest",
   public = list(
     CONSTRUCTOR_ID = 0x719c5c5e,
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field chatlist Field.
+    #  @field chatlist Field.
     chatlist = NULL,
-    #' @field slug Field.
+    #  @field slug Field.
     slug = NULL,
 
-    #' @description Initialize DeleteExportedInviteRequest
-    #' @param chatlist Input chatlist object
-    #' @param slug Invite slug (string)
+    #  @description Initialize DeleteExportedInviteRequest
+    #  @param chatlist Input chatlist object
+    #  @param slug Invite slug (string)
     initialize = function(chatlist = NULL, slug = NULL) {
       self$chatlist <- chatlist
       self$slug <- slug
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #' @return A named list representation
+    #  Convert to list (dictionary-like)
+    #  @return A named list representation
     to_list = function() {
       list(
         `_` = "DeleteExportedInviteRequest",
@@ -111,9 +115,9 @@ DeleteExportedInviteRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes
-    #' @details Serializes constructor id, chatlist bytes, then TL-string encoded slug.
-    #' @return raw vector with serialized bytes
+    #  Serialize to raw bytes
+    #  @details Serializes constructor id, chatlist bytes, then TL-string encoded slug.
+    #  @return raw vector with serialized bytes
     bytes = function() {
       tl_serialize_string <- function(s) {
         if (is.null(s)) {
@@ -150,12 +154,12 @@ DeleteExportedInviteRequest <- R6::R6Class(
   )
 )
 
-#' Construct DeleteExportedInviteRequest from reader
-#'
-#' Reads chatlist and slug from a reader and returns a new instance.
-#' @param reader Reader object providing tgread_object and tgread_string
-#' @return DeleteExportedInviteRequest instance
-#' @export
+#  Construct DeleteExportedInviteRequest from reader
+# 
+#  Reads chatlist and slug from a reader and returns a new instance.
+#  @param reader Reader object providing tgread_object and tgread_string
+#  @return DeleteExportedInviteRequest instance
+#  @export
 DeleteExportedInviteRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   slug_val <- reader$tgread_string()
@@ -163,32 +167,34 @@ DeleteExportedInviteRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' EditExportedInviteRequest R6 class
-#'
-#' Request to edit an exported invite for a chatlist (optional title and peers).
-#'
-#' @title EditExportedInviteRequest
-#' @description Telegram API type EditExportedInviteRequest
-#' @export
+#  EditExportedInviteRequest R6 class
+# 
+#  Request to edit an exported invite for a chatlist (optional title and peers).
+# 
+#  @title EditExportedInviteRequest
+#  @description Telegram API type EditExportedInviteRequest
+#  @export
+#  @noRd
+#  @noRd
 EditExportedInviteRequest <- R6::R6Class(
   "EditExportedInviteRequest",
   public = list(
     CONSTRUCTOR_ID = 0x653db63d,
     SUBCLASS_OF_ID = 0x7711f8ff,
-    #' @field chatlist Field.
+    #  @field chatlist Field.
     chatlist = NULL,
-    #' @field slug Field.
+    #  @field slug Field.
     slug = NULL,
-    #' @field title Field.
+    #  @field title Field.
     title = NULL,
-    #' @field peers Field.
+    #  @field peers Field.
     peers = NULL,
 
-    #' @description Initialize EditExportedInviteRequest
-    #' @param chatlist Input chatlist object
-    #' @param slug Invite slug (string)
-    #' @param title Optional invite title (string)
-    #' @param peers Optional list of input peers
+    #  @description Initialize EditExportedInviteRequest
+    #  @param chatlist Input chatlist object
+    #  @param slug Invite slug (string)
+    #  @param title Optional invite title (string)
+    #  @param peers Optional list of input peers
     initialize = function(chatlist = NULL, slug = NULL, title = NULL, peers = NULL) {
       self$chatlist <- chatlist
       self$slug <- slug
@@ -197,13 +203,13 @@ EditExportedInviteRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve peer entities to input peers
-    #'
-    #' Iterates over peers, resolves each via client and utils and replaces
-    #' the peers field with input_peer objects.
-    #' @param client Client object that provides get_input_entity
-    #' @param utils Utilities that provide get_input_peer
-    #' @return Invisible self
+    #  Resolve peer entities to input peers
+    # 
+    #  Iterates over peers, resolves each via client and utils and replaces
+    #  the peers field with input_peer objects.
+    #  @param client Client object that provides get_input_entity
+    #  @param utils Utilities that provide get_input_peer
+    #  @return Invisible self
     resolve = function(client, utils) {
       tmp_list <- list()
       if (!is.null(self$peers)) {
@@ -217,8 +223,8 @@ EditExportedInviteRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #' @return A named list representation
+    #  Convert to list (dictionary-like)
+    #  @return A named list representation
     to_list = function() {
       list(
         `_` = "EditExportedInviteRequest",
@@ -229,10 +235,10 @@ EditExportedInviteRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes
-    #'
-    #' Serializes constructor id, flags, chatlist, slug, optional title and optional peers vector.
-    #' @return raw vector with serialized bytes
+    #  Serialize to raw bytes
+    # 
+    #  Serializes constructor id, flags, chatlist, slug, optional title and optional peers vector.
+    #  @return raw vector with serialized bytes
     bytes = function() {
       pack_int32 <- function(i) writeBin(as.integer(i), raw(), size = 4, endian = "little")
 
@@ -301,12 +307,12 @@ EditExportedInviteRequest <- R6::R6Class(
   class = FALSE
 )
 
-#' Construct EditExportedInviteRequest from reader
-#'
-#' Reads flags, chatlist, slug, optional title and optional peers from a reader and returns a new instance.
-#' @param reader Reader object providing read_int, tgread_object and tgread_string
-#' @return EditExportedInviteRequest instance
-#' @export
+#  Construct EditExportedInviteRequest from reader
+# 
+#  Reads flags, chatlist, slug, optional title and optional peers from a reader and returns a new instance.
+#  @param reader Reader object providing read_int, tgread_object and tgread_string
+#  @return EditExportedInviteRequest instance
+#  @export
 EditExportedInviteRequest$set("public", "from_reader", function(reader) {
   flags <- reader$read_int()
   has_title <- bitwAnd(flags, 2L) != 0L
@@ -339,29 +345,31 @@ EditExportedInviteRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' ExportChatlistInviteRequest R6 class
-#'
-#' Request to export an invite for a chatlist with a title and list of peers.
-#'
-#' @title ExportChatlistInviteRequest
-#' @description Telegram API type ExportChatlistInviteRequest
-#' @export
+#  ExportChatlistInviteRequest R6 class
+# 
+#  Request to export an invite for a chatlist with a title and list of peers.
+# 
+#  @title ExportChatlistInviteRequest
+#  @description Telegram API type ExportChatlistInviteRequest
+#  @export
+#  @noRd
+#  @noRd
 ExportChatlistInviteRequest <- R6::R6Class(
   "ExportChatlistInviteRequest",
   public = list(
     CONSTRUCTOR_ID = 0x8472478e,
     SUBCLASS_OF_ID = 0xc2694ee9,
-    #' @field chatlist Field.
+    #  @field chatlist Field.
     chatlist = NULL,
-    #' @field title Field.
+    #  @field title Field.
     title = NULL,
-    #' @field peers Field.
+    #  @field peers Field.
     peers = NULL,
 
-    #' @description Initialize ExportChatlistInviteRequest
-    #' @param chatlist Input chatlist object
-    #' @param title Invite title (string)
-    #' @param peers List of input peers
+    #  @description Initialize ExportChatlistInviteRequest
+    #  @param chatlist Input chatlist object
+    #  @param title Invite title (string)
+    #  @param peers List of input peers
     initialize = function(chatlist = NULL, title = NULL, peers = NULL) {
       self$chatlist <- chatlist
       self$title <- title
@@ -369,13 +377,13 @@ ExportChatlistInviteRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve peer entities to input peers
-    #'
-    #' Iterates over peers, resolves each via client and utils and replaces
-    #' the peers field with input_peer objects.
-    #' @param client Client object that provides get_input_entity
-    #' @param utils Utilities that provide get_input_peer
-    #' @return Invisible self
+    #  Resolve peer entities to input peers
+    # 
+    #  Iterates over peers, resolves each via client and utils and replaces
+    #  the peers field with input_peer objects.
+    #  @param client Client object that provides get_input_entity
+    #  @param utils Utilities that provide get_input_peer
+    #  @return Invisible self
     resolve = function(client, utils) {
       tmp_list <- list()
       if (!is.null(self$peers)) {
@@ -389,8 +397,8 @@ ExportChatlistInviteRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #' @return A named list representation
+    #  Convert to list (dictionary-like)
+    #  @return A named list representation
     to_list = function() {
       list(
         `_` = "ExportChatlistInviteRequest",
@@ -400,9 +408,9 @@ ExportChatlistInviteRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes
-    #' @details Serializes constructor id, chatlist bytes, title (TL-string), then peers vector.
-    #' @return raw vector with serialized bytes
+    #  Serialize to raw bytes
+    #  @details Serializes constructor id, chatlist bytes, title (TL-string), then peers vector.
+    #  @return raw vector with serialized bytes
     bytes = function() {
       pack_int32 <- function(i) writeBin(as.integer(i), raw(), size = 4, endian = "little")
 
@@ -456,12 +464,12 @@ ExportChatlistInviteRequest <- R6::R6Class(
   )
 )
 
-#' Construct ExportChatlistInviteRequest from reader
-#'
-#' Reads chatlist, title and peers from a reader and returns a new instance.
-#' @param reader Reader object providing tgread_object, tgread_string and read_int
-#' @return ExportChatlistInviteRequest instance
-#' @export
+#  Construct ExportChatlistInviteRequest from reader
+# 
+#  Reads chatlist, title and peers from a reader and returns a new instance.
+#  @param reader Reader object providing tgread_object, tgread_string and read_int
+#  @return ExportChatlistInviteRequest instance
+#  @export
 ExportChatlistInviteRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   title_val <- reader$tgread_string()
@@ -479,30 +487,32 @@ ExportChatlistInviteRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' GetChatlistUpdatesRequest R6 class
-#'
-#' Request to get updates for a chatlist.
-#'
-#' @title GetChatlistUpdatesRequest
-#' @description Telegram API type GetChatlistUpdatesRequest
-#' @export
+#  GetChatlistUpdatesRequest R6 class
+# 
+#  Request to get updates for a chatlist.
+# 
+#  @title GetChatlistUpdatesRequest
+#  @description Telegram API type GetChatlistUpdatesRequest
+#  @export
+#  @noRd
+#  @noRd
 GetChatlistUpdatesRequest <- R6::R6Class(
   "GetChatlistUpdatesRequest",
   public = list(
     CONSTRUCTOR_ID = 0x89419521,
     SUBCLASS_OF_ID = 0x7d1641ea,
-    #' @field chatlist Field.
+    #  @field chatlist Field.
     chatlist = NULL,
 
-    #' @description Initialize GetChatlistUpdatesRequest
-    #' @param chatlist Input chatlist object
+    #  @description Initialize GetChatlistUpdatesRequest
+    #  @param chatlist Input chatlist object
     initialize = function(chatlist = NULL) {
       self$chatlist <- chatlist
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #' @return A named list representation
+    #  Convert to list (dictionary-like)
+    #  @return A named list representation
     to_list = function() {
       list(
         `_` = "GetChatlistUpdatesRequest",
@@ -510,9 +520,9 @@ GetChatlistUpdatesRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes
-    #' @details Serializes the constructor id followed by chatlist bytes.
-    #' @return raw vector with serialized bytes
+    #  Serialize to raw bytes
+    #  @details Serializes the constructor id followed by chatlist bytes.
+    #  @return raw vector with serialized bytes
     bytes = function() {
       parts <- list()
       # constructor id bytes (little-endian)
@@ -528,42 +538,44 @@ GetChatlistUpdatesRequest <- R6::R6Class(
   )
 )
 
-#' Construct GetChatlistUpdatesRequest from reader
-#'
-#' Reads chatlist from a reader and returns a new instance.
-#' @param reader Reader object providing tgread_object
-#' @return GetChatlistUpdatesRequest instance
-#' @export
+#  Construct GetChatlistUpdatesRequest from reader
+# 
+#  Reads chatlist from a reader and returns a new instance.
+#  @param reader Reader object providing tgread_object
+#  @return GetChatlistUpdatesRequest instance
+#  @export
 GetChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   GetChatlistUpdatesRequest$new(chatlist = chatlist_obj)
 })
 
 
-#' GetExportedInvitesRequest R6 class
-#'
-#' Request to get exported invites for a chatlist.
-#'
-#' @title GetExportedInvitesRequest
-#' @description Telegram API type GetExportedInvitesRequest
-#' @export
+#  GetExportedInvitesRequest R6 class
+# 
+#  Request to get exported invites for a chatlist.
+# 
+#  @title GetExportedInvitesRequest
+#  @description Telegram API type GetExportedInvitesRequest
+#  @export
+#  @noRd
+#  @noRd
 GetExportedInvitesRequest <- R6::R6Class(
   "GetExportedInvitesRequest",
   public = list(
     CONSTRUCTOR_ID = 0xce03da83,
     SUBCLASS_OF_ID = 0xe6c209c0,
-    #' @field chatlist Field.
+    #  @field chatlist Field.
     chatlist = NULL,
 
-    #' @description Initialize GetExportedInvitesRequest
-    #' @param chatlist Input chatlist object
+    #  @description Initialize GetExportedInvitesRequest
+    #  @param chatlist Input chatlist object
     initialize = function(chatlist = NULL) {
       self$chatlist <- chatlist
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #' @return A named list representation
+    #  Convert to list (dictionary-like)
+    #  @return A named list representation
     to_list = function() {
       list(
         `_` = "GetExportedInvitesRequest",
@@ -571,9 +583,9 @@ GetExportedInvitesRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes
-    #' @details Serializes the constructor id followed by chatlist bytes.
-    #' @return raw vector with serialized bytes
+    #  Serialize to raw bytes
+    #  @details Serializes the constructor id followed by chatlist bytes.
+    #  @return raw vector with serialized bytes
     bytes = function() {
       parts <- list()
       # constructor id bytes (little-endian)
@@ -589,42 +601,44 @@ GetExportedInvitesRequest <- R6::R6Class(
   )
 )
 
-#' Construct GetExportedInvitesRequest from reader
-#'
-#' Reads chatlist from a reader and returns a new instance.
-#' @param reader Reader object providing tgread_object
-#' @return GetExportedInvitesRequest instance
-#' @export
+#  Construct GetExportedInvitesRequest from reader
+# 
+#  Reads chatlist from a reader and returns a new instance.
+#  @param reader Reader object providing tgread_object
+#  @return GetExportedInvitesRequest instance
+#  @export
 GetExportedInvitesRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   GetExportedInvitesRequest$new(chatlist = chatlist_obj)
 })
 
 
-#' GetLeaveChatlistSuggestionsRequest R6 class
-#'
-#' Request to get suggestions of peers to leave from a chatlist.
-#'
-#' @title GetLeaveChatlistSuggestionsRequest
-#' @description Telegram API type GetLeaveChatlistSuggestionsRequest
-#' @export
+#  GetLeaveChatlistSuggestionsRequest R6 class
+# 
+#  Request to get suggestions of peers to leave from a chatlist.
+# 
+#  @title GetLeaveChatlistSuggestionsRequest
+#  @description Telegram API type GetLeaveChatlistSuggestionsRequest
+#  @export
+#  @noRd
+#  @noRd
 GetLeaveChatlistSuggestionsRequest <- R6::R6Class(
   "GetLeaveChatlistSuggestionsRequest",
   public = list(
     CONSTRUCTOR_ID = 0xfdbcd714,
     SUBCLASS_OF_ID = 0xb9945d7e,
-    #' @field chatlist Field.
+    #  @field chatlist Field.
     chatlist = NULL,
 
-    #' @description Initialize GetLeaveChatlistSuggestionsRequest
-    #' @param chatlist Input chatlist object
+    #  @description Initialize GetLeaveChatlistSuggestionsRequest
+    #  @param chatlist Input chatlist object
     initialize = function(chatlist = NULL) {
       self$chatlist <- chatlist
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #' @return A named list representation
+    #  Convert to list (dictionary-like)
+    #  @return A named list representation
     to_list = function() {
       list(
         `_` = "GetLeaveChatlistSuggestionsRequest",
@@ -632,9 +646,9 @@ GetLeaveChatlistSuggestionsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes
-    #' @details Serializes the constructor id followed by chatlist bytes.
-    #' @return raw vector with serialized bytes
+    #  Serialize to raw bytes
+    #  @details Serializes the constructor id followed by chatlist bytes.
+    #  @return raw vector with serialized bytes
     bytes = function() {
       parts <- list()
       # constructor id bytes (little-endian)
@@ -650,42 +664,44 @@ GetLeaveChatlistSuggestionsRequest <- R6::R6Class(
   )
 )
 
-#' Construct GetLeaveChatlistSuggestionsRequest from reader
-#'
-#' Reads chatlist from a reader and returns a new instance.
-#' @param reader Reader object providing tgread_object
-#' @return GetLeaveChatlistSuggestionsRequest instance
-#' @export
+#  Construct GetLeaveChatlistSuggestionsRequest from reader
+# 
+#  Reads chatlist from a reader and returns a new instance.
+#  @param reader Reader object providing tgread_object
+#  @return GetLeaveChatlistSuggestionsRequest instance
+#  @export
 GetLeaveChatlistSuggestionsRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   GetLeaveChatlistSuggestionsRequest$new(chatlist = chatlist_obj)
 })
 
 
-#' HideChatlistUpdatesRequest R6 class
-#'
-#' Request to hide updates for a chatlist.
-#'
-#' @title HideChatlistUpdatesRequest
-#' @description Telegram API type HideChatlistUpdatesRequest
-#' @export
+#  HideChatlistUpdatesRequest R6 class
+# 
+#  Request to hide updates for a chatlist.
+# 
+#  @title HideChatlistUpdatesRequest
+#  @description Telegram API type HideChatlistUpdatesRequest
+#  @export
+#  @noRd
+#  @noRd
 HideChatlistUpdatesRequest <- R6::R6Class(
   "HideChatlistUpdatesRequest",
   public = list(
     CONSTRUCTOR_ID = 0x66e486fb,
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field chatlist Field.
+    #  @field chatlist Field.
     chatlist = NULL,
 
-    #' @description Initialize HideChatlistUpdatesRequest
-    #' @param chatlist Input chatlist object
+    #  @description Initialize HideChatlistUpdatesRequest
+    #  @param chatlist Input chatlist object
     initialize = function(chatlist = NULL) {
       self$chatlist <- chatlist
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #' @return A named list representation
+    #  Convert to list (dictionary-like)
+    #  @return A named list representation
     to_list = function() {
       list(
         `_` = "HideChatlistUpdatesRequest",
@@ -693,9 +709,9 @@ HideChatlistUpdatesRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes
-    #' @details Serializes the constructor id followed by chatlist bytes.
-    #' @return raw vector with serialized bytes
+    #  Serialize to raw bytes
+    #  @details Serializes the constructor id followed by chatlist bytes.
+    #  @return raw vector with serialized bytes
     bytes = function() {
       pack_int32 <- function(i) writeBin(as.integer(i), raw(), size = 4, endian = "little")
       parts <- list()
@@ -712,51 +728,53 @@ HideChatlistUpdatesRequest <- R6::R6Class(
   )
 )
 
-#' Construct HideChatlistUpdatesRequest from reader
-#'
-#' Reads chatlist from a reader and returns a new instance.
-#' @param reader Reader object providing tgread_object
-#' @return HideChatlistUpdatesRequest instance
-#' @export
+#  Construct HideChatlistUpdatesRequest from reader
+# 
+#  Reads chatlist from a reader and returns a new instance.
+#  @param reader Reader object providing tgread_object
+#  @return HideChatlistUpdatesRequest instance
+#  @export
 HideChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   HideChatlistUpdatesRequest$new(chatlist = chatlist_obj)
 })
 
 
-#' JoinChatlistInviteRequest R6 class
-#'
-#' Request to join a chatlist invite (by slug) with specific peers.
-#'
-#' @title JoinChatlistInviteRequest
-#' @description Telegram API type JoinChatlistInviteRequest
-#' @export
+#  JoinChatlistInviteRequest R6 class
+# 
+#  Request to join a chatlist invite (by slug) with specific peers.
+# 
+#  @title JoinChatlistInviteRequest
+#  @description Telegram API type JoinChatlistInviteRequest
+#  @export
+#  @noRd
+#  @noRd
 JoinChatlistInviteRequest <- R6::R6Class(
   "JoinChatlistInviteRequest",
   public = list(
     CONSTRUCTOR_ID = 0xa6b1e39a,
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field slug Field.
+    #  @field slug Field.
     slug = NULL,
-    #' @field peers Field.
+    #  @field peers Field.
     peers = NULL,
 
-    #' @description Initialize JoinChatlistInviteRequest
-    #' @param slug Invite slug string
-    #' @param peers List of input peers
+    #  @description Initialize JoinChatlistInviteRequest
+    #  @param slug Invite slug string
+    #  @param peers List of input peers
     initialize = function(slug = NULL, peers = NULL) {
       self$slug <- slug
       self$peers <- peers
       invisible(self)
     },
 
-    #' Resolve peer entities to input peers
-    #'
-    #' Iterates over peers, resolves each via client and utils and replaces
-    #' the peers field with input_peer objects.
-    #' @param client Client object that provides get_input_entity
-    #' @param utils Utilities that provide get_input_peer
-    #' @return Invisible self
+    #  Resolve peer entities to input peers
+    # 
+    #  Iterates over peers, resolves each via client and utils and replaces
+    #  the peers field with input_peer objects.
+    #  @param client Client object that provides get_input_entity
+    #  @param utils Utilities that provide get_input_peer
+    #  @return Invisible self
     resolve = function(client, utils) {
       tmp_list <- list()
       if (!is.null(self$peers)) {
@@ -770,8 +788,8 @@ JoinChatlistInviteRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #' @return A named list representation
+    #  Convert to list (dictionary-like)
+    #  @return A named list representation
     to_list = function() {
       list(
         `_` = "JoinChatlistInviteRequest",
@@ -780,9 +798,9 @@ JoinChatlistInviteRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes
-    #' @details Serializes constructor id, slug (TL-string encoding), then peers vector.
-    #' @return raw vector with serialized bytes
+    #  Serialize to raw bytes
+    #  @details Serializes constructor id, slug (TL-string encoding), then peers vector.
+    #  @return raw vector with serialized bytes
     bytes = function() {
       pack_int32 <- function(i) writeBin(as.integer(i), raw(), size = 4, endian = "little")
 
@@ -836,12 +854,12 @@ JoinChatlistInviteRequest <- R6::R6Class(
   class = FALSE
 )
 
-#' Construct JoinChatlistInviteRequest from reader
-#'
-#' Reads slug and peers from a reader and returns a new instance.
-#' @param reader Reader object providing tgread_string, read_int and tgread_object
-#' @return JoinChatlistInviteRequest instance
-#' @export
+#  Construct JoinChatlistInviteRequest from reader
+# 
+#  Reads slug and peers from a reader and returns a new instance.
+#  @param reader Reader object providing tgread_string, read_int and tgread_object
+#  @return JoinChatlistInviteRequest instance
+#  @export
 JoinChatlistInviteRequest$set("public", "from_reader", function(reader) {
   slug_val <- reader$tgread_string()
   # read and ignore an int (vector marker)
@@ -858,39 +876,41 @@ JoinChatlistInviteRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' JoinChatlistUpdatesRequest R6 class
-#'
-#' Request to join a chatlist with specific peers.
-#'
-#' @title JoinChatlistUpdatesRequest
-#' @description Telegram API type JoinChatlistUpdatesRequest
-#' @export
+#  JoinChatlistUpdatesRequest R6 class
+# 
+#  Request to join a chatlist with specific peers.
+# 
+#  @title JoinChatlistUpdatesRequest
+#  @description Telegram API type JoinChatlistUpdatesRequest
+#  @export
+#  @noRd
+#  @noRd
 JoinChatlistUpdatesRequest <- R6::R6Class(
   "JoinChatlistUpdatesRequest",
   public = list(
     CONSTRUCTOR_ID = 0xe089f8f5,
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field chatlist Field.
+    #  @field chatlist Field.
     chatlist = NULL,
-    #' @field peers Field.
+    #  @field peers Field.
     peers = NULL,
 
-    #' @description Initialize JoinChatlistUpdatesRequest
-    #' @param chatlist Input chatlist object
-    #' @param peers List of input peers
+    #  @description Initialize JoinChatlistUpdatesRequest
+    #  @param chatlist Input chatlist object
+    #  @param peers List of input peers
     initialize = function(chatlist = NULL, peers = NULL) {
       self$chatlist <- chatlist
       self$peers <- peers
       invisible(self)
     },
 
-    #' Resolve peer entities to input peers
-    #'
-    #' Iterates over peers, resolves each via client and utils and replaces
-    #' the peers field with input_peer objects.
-    #' @param client Client object that provides get_input_entity
-    #' @param utils Utilities that provide get_input_peer
-    #' @return Invisible self
+    #  Resolve peer entities to input peers
+    # 
+    #  Iterates over peers, resolves each via client and utils and replaces
+    #  the peers field with input_peer objects.
+    #  @param client Client object that provides get_input_entity
+    #  @param utils Utilities that provide get_input_peer
+    #  @return Invisible self
     resolve = function(client, utils) {
       tmp_list <- list()
       if (!is.null(self$peers)) {
@@ -904,8 +924,8 @@ JoinChatlistUpdatesRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #' @return A named list representation
+    #  Convert to list (dictionary-like)
+    #  @return A named list representation
     to_list = function() {
       list(
         `_` = "JoinChatlistUpdatesRequest",
@@ -914,8 +934,8 @@ JoinChatlistUpdatesRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes
-    #' @return raw vector with serialized bytes
+    #  Serialize to raw bytes
+    #  @return raw vector with serialized bytes
     bytes = function() {
       pack_int32 <- function(i) writeBin(as.integer(i), raw(), size = 4, endian = "little")
       parts <- list()
@@ -947,12 +967,12 @@ JoinChatlistUpdatesRequest <- R6::R6Class(
   class = FALSE
 )
 
-#' Construct JoinChatlistUpdatesRequest from reader
-#'
-#' Reads chatlist and peers from a reader and returns a new instance.
-#' @param reader Reader object providing tgread_object and read_int
-#' @return JoinChatlistUpdatesRequest instance
-#' @export
+#  Construct JoinChatlistUpdatesRequest from reader
+# 
+#  Reads chatlist and peers from a reader and returns a new instance.
+#  @param reader Reader object providing tgread_object and read_int
+#  @return JoinChatlistUpdatesRequest instance
+#  @export
 JoinChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   # read and ignore an int (as per original structure)
@@ -969,37 +989,39 @@ JoinChatlistUpdatesRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' LeaveChatlistRequest R6 class
-#'
-#' Request to leave a chatlist for specific peers.
-#'
-#' @title LeaveChatlistRequest
-#' @description Telegram API type LeaveChatlistRequest
-#' @export
+#  LeaveChatlistRequest R6 class
+# 
+#  Request to leave a chatlist for specific peers.
+# 
+#  @title LeaveChatlistRequest
+#  @description Telegram API type LeaveChatlistRequest
+#  @export
+#  @noRd
+#  @noRd
 LeaveChatlistRequest <- R6::R6Class(
   "LeaveChatlistRequest",
   public = list(
     CONSTRUCTOR_ID = 0x74fae13a,
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field chatlist Field.
+    #  @field chatlist Field.
     chatlist = NULL,
-    #' @field peers Field.
+    #  @field peers Field.
     peers = NULL,
 
-    #' @description Initialize LeaveChatlistRequest
-    #' @param chatlist Input chatlist object
-    #' @param peers List of input peers
+    #  @description Initialize LeaveChatlistRequest
+    #  @param chatlist Input chatlist object
+    #  @param peers List of input peers
     initialize = function(chatlist = NULL, peers = NULL) {
       self$chatlist <- chatlist
       self$peers <- peers
       invisible(self)
     },
 
-    #' Resolve peer entities to input peers
-    #'
-    #' @param client Client object that provides get_input_entity
-    #' @param utils Utilities that provide get_input_peer
-    #' @return Invisible self
+    #  Resolve peer entities to input peers
+    # 
+    #  @param client Client object that provides get_input_entity
+    #  @param utils Utilities that provide get_input_peer
+    #  @return Invisible self
     resolve = function(client, utils) {
       tmp_list <- list()
       if (!is.null(self$peers)) {
@@ -1013,8 +1035,8 @@ LeaveChatlistRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #' @return A named list representation
+    #  Convert to list (dictionary-like)
+    #  @return A named list representation
     to_list = function() {
       list(
         `_` = "LeaveChatlistRequest",
@@ -1023,8 +1045,8 @@ LeaveChatlistRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw bytes
-    #' @return raw vector with serialized bytes
+    #  Serialize to raw bytes
+    #  @return raw vector with serialized bytes
     bytes = function() {
       pack_int32 <- function(i) writeBin(as.integer(i), raw(), size = 4, endian = "little")
       parts <- list()
@@ -1050,12 +1072,12 @@ LeaveChatlistRequest <- R6::R6Class(
   )
 )
 
-#' Construct LeaveChatlistRequest from reader
-#'
-#' Reads chatlist and peers from a reader and returns a new instance.
-#' @param reader Reader object providing tgread_object and read_int
-#' @return LeaveChatlistRequest instance
-#' @export
+#  Construct LeaveChatlistRequest from reader
+# 
+#  Reads chatlist and peers from a reader and returns a new instance.
+#  @param reader Reader object providing tgread_object and read_int
+#  @return LeaveChatlistRequest instance
+#  @export
 LeaveChatlistRequest$set("public", "from_reader", function(reader) {
   chatlist_obj <- reader$tgread_object()
   # read and ignore an int (as per original structure)

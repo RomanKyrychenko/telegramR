@@ -1,20 +1,22 @@
-#' @details
-#' This class implements the Pollard's Rho-Brent Integer Factorization algorithm
-#' to efficiently factorize large integers into their prime components.
-#' @title Factorization
-#' @description Telegram API type Factorization
-#' @export
+#  @details
+#  This class implements the Pollard's Rho-Brent Integer Factorization algorithm
+#  to efficiently factorize large integers into their prime components.
+#  @title Factorization
+#  @description Telegram API type Factorization
+#  @export
+#  @noRd
+#  @noRd
 Factorization <- R6::R6Class(
   "Factorization",
   public = list(
-    #' @description
-    #' Factorizes the given large integer.
-    #'
-    #' @details
-    #' Implementation based on Pollard's Rho-Brent Integer Factorization algorithm.
-    #'
-    #' @param pq An integer representing the product of two primes.
-    #' @return A numeric vector containing the two factors `p` and `q`.
+    #  @description
+    #  Factorizes the given large integer.
+    # 
+    #  @details
+    #  Implementation based on Pollard's Rho-Brent Integer Factorization algorithm.
+    # 
+    #  @param pq An integer representing the product of two primes.
+    #  @return A numeric vector containing the two factors `p` and `q`.
     factorize = function(pq) {
       pq <- gmp::as.bigz(pq)
       if (gmp::mod.bigz(pq, 2) == 0) {
@@ -66,12 +68,12 @@ Factorization <- R6::R6Class(
       }
     },
 
-    #' @description
-    #' Calculates the Greatest Common Divisor (GCD).
-    #'
-    #' @param a An integer.
-    #' @param b Another integer.
-    #' @return The GCD of `a` and `b`.
+    #  @description
+    #  Calculates the Greatest Common Divisor (GCD).
+    # 
+    #  @param a An integer.
+    #  @param b Another integer.
+    #  @return The GCD of `a` and `b`.
     gcd = function(a, b) {
       return(gmp::gcd.bigz(gmp::as.bigz(a), gmp::as.bigz(b)))
     }

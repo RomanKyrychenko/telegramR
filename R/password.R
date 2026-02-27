@@ -1,7 +1,7 @@
-#' @title Check Prime and Generator with Detailed Checks
-#' @description Checks if the prime and generator are good with detailed validation, including bit length, primality, and specific modular conditions.
-#' @param prime An integer representing the prime number.
-#' @param g An integer representing the generator.
+#  @title Check Prime and Generator with Detailed Checks
+#  @description Checks if the prime and generator are good with detailed validation, including bit length, primality, and specific modular conditions.
+#  @param prime An integer representing the prime number.
+#  @param g An integer representing the generator.
 check_prime_and_good_check <- function(prime, g) {
   good_prime_bits_count <- 2048
   prime_big <- gmp::as.bigz(prime)
@@ -51,8 +51,8 @@ check_prime_and_good_check <- function(prime, g) {
   # Else it's good
 }
 
-#' Known good prime constant for Telegram cryptographic operations
-#' @keywords internal
+#  Known good prime constant for Telegram cryptographic operations
+#  @keywords internal
 good_prime <- as.raw(c(
   0xC7, 0x1C, 0xAE, 0xB9, 0xC6, 0xB1, 0xC9, 0x04, 0x8E, 0x6C, 0x52, 0x2F, 0x70, 0xF1, 0x3F, 0x73,
   0x98, 0x0D, 0x40, 0x23, 0x8E, 0x3E, 0x21, 0xC1, 0x49, 0x34, 0xD0, 0x37, 0x56, 0x3D, 0x93, 0x0F,
@@ -72,10 +72,10 @@ good_prime <- as.raw(c(
   0x6F, 0x4F, 0xAD, 0xF0, 0x34, 0xB1, 0x04, 0x03, 0x11, 0x9C, 0xD8, 0xE3, 0xB9, 0x2F, 0xCC, 0x5B
 ))
 
-#' @title Check Prime and Generator
-#' @description Checks if the prime bytes match a known good prime and validates the generator, or performs detailed checks if not matching.
-#' @param prime_bytes A raw vector representing the prime in bytes.
-#' @param g An integer representing the generator.
+#  @title Check Prime and Generator
+#  @description Checks if the prime bytes match a known good prime and validates the generator, or performs detailed checks if not matching.
+#  @param prime_bytes A raw vector representing the prime in bytes.
+#  @param g An integer representing the generator.
 check_prime_and_good <- function(prime_bytes, g) {
   if (identical(good_prime, prime_bytes)) {
     if (g %in% c(3, 4, 5, 7)) {
@@ -85,18 +85,20 @@ check_prime_and_good <- function(prime_bytes, g) {
   check_prime_and_good_check(openssl::bignum(prime_bytes, hex = FALSE), g)
 }
 
-#' @title PasswordKdf Class
-#' @description An R6 class for handling password key derivation functions (KDF) as per Telegram's specifications.
-#' This class provides utility methods for checking modular exponentiation, XOR operations, PBKDF2 hashing,
-#' and computing password hashes and digests.
-#' @export
+#  @title PasswordKdf Class
+#  @description An R6 class for handling password key derivation functions (KDF) as per Telegram's specifications.
+#  This class provides utility methods for checking modular exponentiation, XOR operations, PBKDF2 hashing,
+#  and computing password hashes and digests.
+#  @export
+#  @noRd
+#  @noRd
 PasswordKdf <- R6::R6Class(
   "PasswordKdf",
   public = list(
-    #' @description Check if a modular exponentiation result is good for the first check.
-    #' @param modexp A big integer representing the modular exponentiation result.
-    #' @param prime A big integer representing the prime modulus.
-    #' @return A logical value indicating if the check passes.
+    #  @description Check if a modular exponentiation result is good for the first check.
+    #  @param modexp A big integer representing the modular exponentiation result.
+    #  @param prime A big integer representing the prime modulus.
+    #  @return A logical value indicating if the check passes.
     is_good_mod_exp_first = function(modexp, prime) {
       diff <- prime - modexp
       min_diff_bits_count <- 2048 - 64
@@ -136,10 +138,10 @@ PasswordKdf <- R6::R6Class(
       return(TRUE)
     },
 
-    #' @description Perform XOR operation on two byte vectors.
-    #' @param a A raw vector (bytes).
-    #' @param b A raw vector (bytes).
-    #' @return A raw vector of the XOR result.
+    #  @description Perform XOR operation on two byte vectors.
+    #  @param a A raw vector (bytes).
+    #  @param b A raw vector (bytes).
+    #  @return A raw vector of the XOR result.
     xor = function(a, b) {
       # Ensure both are raw vectors of the same length
       len <- min(length(a), length(b))
@@ -150,19 +152,19 @@ PasswordKdf <- R6::R6Class(
       return(result)
     },
 
-    #' @description Compute PBKDF2 with SHA512.
-    #' @param password A raw vector representing the password.
-    #' @param salt A raw vector representing the salt.
-    #' @param iterations An integer for the number of iterations.
-    #' @return A raw vector of the derived key.
+    #  @description Compute PBKDF2 with SHA512.
+    #  @param password A raw vector representing the password.
+    #  @param salt A raw vector representing the salt.
+    #  @param iterations An integer for the number of iterations.
+    #  @return A raw vector of the derived key.
     pbkdf2sha512 = function(password, salt, iterations) {
       return(openssl::bcrypt_pbkdf(password, salt, size = 64L))
     },
 
-    #' @description Compute the hash for the password KDF algorithm.
-    #' @param algo An object of type PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow.
-    #' @param password A string representing the password.
-    #' @return A raw vector of the computed hash.
+    #  @description Compute the hash for the password KDF algorithm.
+    #  @param algo An object of type PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow.
+    #  @param password A string representing the password.
+    #  @return A raw vector of the computed hash.
     compute_hash = function(algo, password) {
       hash1 <- openssl::sha256(c(algo$salt1, charToRaw(password), algo$salt1))
       hash2 <- openssl::sha256(c(algo$salt2, hash1, algo$salt2))
@@ -170,10 +172,10 @@ PasswordKdf <- R6::R6Class(
       return(openssl::sha256(c(algo$salt2, hash3, algo$salt2)))
     },
 
-    #' @description Compute the digest for the password KDF algorithm.
-    #' @param algo An object of type PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow.
-    #' @param password A string representing the password.
-    #' @return A raw vector of the computed digest.
+    #  @description Compute the digest for the password KDF algorithm.
+    #  @param algo An object of type PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow.
+    #  @param password A string representing the password.
+    #  @return A raw vector of the computed digest.
     compute_digest = function(algo, password) {
       if (isTRUE(getOption("telegramR.test_mode")) || identical(Sys.getenv("TESTTHAT"), "true")) {
         return(raw(256))
@@ -199,9 +201,9 @@ PasswordKdf <- R6::R6Class(
       return(self$big_num_for_hash(gmp::as.integer(value)))
     },
 
-    #' @description Check if the prime and generator are good.
-    #' @param prime_bytes A raw vector representing the prime in bytes.
-    #' @param g An integer representing the generator.
+    #  @description Check if the prime and generator are good.
+    #  @param prime_bytes A raw vector representing the prime in bytes.
+    #  @param g An integer representing the generator.
     check_prime_and_good = function(prime_bytes, g) {
       if (identical(good_prime, prime_bytes)) {
         if (g %in% c(3, 4, 5, 7)) {
@@ -211,41 +213,41 @@ PasswordKdf <- R6::R6Class(
       self$check_prime_and_good_check(openssl::bignum(prime_bytes, hex = FALSE), g)
     },
 
-    #' @description Check if the prime and generator are good with detailed checks.
-    #' @param prime An integer representing the prime.
-    #' @param g An integer representing the generator.
+    #  @description Check if the prime and generator are good with detailed checks.
+    #  @param prime An integer representing the prime.
+    #  @param g An integer representing the generator.
     check_prime_and_good_check = function(prime, g) {
       check_prime_and_good_check(prime, g)
     },
 
-    #' @description Check if a number is good and large.
-    #' @param number An integer representing the number to check.
-    #' @param p An integer representing the prime modulus.
-    #' @return A logical value indicating if the check passes.
+    #  @description Check if a number is good and large.
+    #  @param number An integer representing the number to check.
+    #  @param p An integer representing the prime modulus.
+    #  @return A logical value indicating if the check passes.
     is_good_large = function(number, p) {
       return(number > 0 && p - number > 0)
     },
 
-    #' @description Prepare bytes for hashing by padding.
-    #' @param number A raw vector representing the number in bytes.
-    #' @return A raw vector padded to SIZE_FOR_HASH bytes.
+    #  @description Prepare bytes for hashing by padding.
+    #  @param number A raw vector representing the number in bytes.
+    #  @return A raw vector padded to SIZE_FOR_HASH bytes.
     num_bytes_for_hash = function(number) {
       size_for_hash <- 256
       padding <- raw(size_for_hash - length(number))
       return(c(padding, number))
     },
 
-    #' @description Convert a big integer to bytes for hashing.
-    #' @param g An integer to convert.
-    #' @return A raw vector of the big-endian bytes.
+    #  @description Convert a big integer to bytes for hashing.
+    #  @param g An integer to convert.
+    #  @return A raw vector of the big-endian bytes.
     big_num_for_hash = function(g) {
       size_for_hash <- 256
       return(openssl::bignum(g)$to_bytes(size_for_hash, "big"))
     },
 
-    #' @description Compute SHA256 hash of concatenated inputs.
-    #' @param ... Raw vectors to hash.
-    #' @return A raw vector of the SHA256 digest.
+    #  @description Compute SHA256 hash of concatenated inputs.
+    #  @param ... Raw vectors to hash.
+    #  @return A raw vector of the SHA256 digest.
     sha256 = function(...) {
       inputs <- list(...)
       hash <- openssl::sha256()
@@ -258,10 +260,10 @@ PasswordKdf <- R6::R6Class(
 )
 
 
-#' Compute check
-#' @param request An object of type ReqPqMulti or ReqPq.
-#' @param password A string representing the password.
-#' @return An object of type InputCheckPasswordSRP.
+#  Compute check
+#  @param request An object of type ReqPqMulti or ReqPq.
+#  @param password A string representing the password.
+#  @return An object of type InputCheckPasswordSRP.
 compute_check <- function(request, password) {
   algo <- request$current_algo
   if (!inherits(algo, "PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow")) {

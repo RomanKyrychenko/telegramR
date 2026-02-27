@@ -36,6 +36,8 @@ test_that("reads packet successfully with valid content length", {
 })
 
 test_that("connects using SSL when port is SSL_PORT", {
+  skip_on_cran()
+  skip_if_no_integration()
   # logger stub: a list with common logging methods used by ConnectionHttp
   logger_stub <- list(
     debug = function(...) NULL,
@@ -49,6 +51,8 @@ test_that("connects using SSL when port is SSL_PORT", {
 })
 
 test_that("connects without SSL when port is not SSL_PORT", {
+  skip_on_cran()
+  skip_if_no_integration()
   logger_stub <- list(
     debug = function(...) NULL,
     info  = function(...) NULL,

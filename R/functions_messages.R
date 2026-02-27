@@ -1,33 +1,35 @@
-#' @title AcceptEncryptionRequest
-#' @description Represents a request to accept encryption. This class inherits from TLRequest.
-#' @export
+#  @title AcceptEncryptionRequest
+#  @description Represents a request to accept encryption. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 AcceptEncryptionRequest <- R6::R6Class(
   "AcceptEncryptionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x3dbc0415,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x6d28a37a,
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field gB Field.
+    #  @field gB Field.
     gB = NULL,
-    #' @field keyFingerprint Field.
+    #  @field keyFingerprint Field.
     keyFingerprint = NULL,
 
-    #' @description Initialize the AcceptEncryptionRequest object.
-    #' @param peer The input encrypted chat.
-    #' @param gB The g_b bytes.
-    #' @param keyFingerprint The key fingerprint.
+    #  @description Initialize the AcceptEncryptionRequest object.
+    #  @param peer The input encrypted chat.
+    #  @param gB The g_b bytes.
+    #  @param keyFingerprint The key fingerprint.
     initialize = function(peer, gB, keyFingerprint) {
       self$peer <- peer
       self$gB <- gB
       self$keyFingerprint <- keyFingerprint
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "AcceptEncryptionRequest",
@@ -37,8 +39,8 @@ AcceptEncryptionRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x15, 0x04, 0xbc, 0x3d)),
@@ -63,34 +65,36 @@ AcceptEncryptionRequest$fromReader <- function(reader) {
   AcceptEncryptionRequest$new(peer = peer, gB = gB, keyFingerprint = keyFingerprint)
 }
 
-#' @title AcceptUrlAuthRequest
-#' @description Represents a request to accept URL auth. This class inherits from TLRequest.
-#' @export
+#  @title AcceptUrlAuthRequest
+#  @description Represents a request to accept URL auth. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 AcceptUrlAuthRequest <- R6::R6Class(
   "AcceptUrlAuthRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xb12c7125,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x7765cb1e,
-    #' @field writeAllowed Field.
+    #  @field writeAllowed Field.
     writeAllowed = NULL,
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field msgId Field.
+    #  @field msgId Field.
     msgId = NULL,
-    #' @field buttonId Field.
+    #  @field buttonId Field.
     buttonId = NULL,
-    #' @field url Field.
+    #  @field url Field.
     url = NULL,
 
-    #' @description Initialize the AcceptUrlAuthRequest object.
-    #' @param writeAllowed Whether write is allowed (optional).
-    #' @param peer The input peer (optional).
-    #' @param msgId The message ID (optional).
-    #' @param buttonId The button ID (optional).
-    #' @param url The URL (optional).
+    #  @description Initialize the AcceptUrlAuthRequest object.
+    #  @param writeAllowed Whether write is allowed (optional).
+    #  @param peer The input peer (optional).
+    #  @param msgId The message ID (optional).
+    #  @param buttonId The button ID (optional).
+    #  @param url The URL (optional).
     initialize = function(writeAllowed = NULL, peer = NULL, msgId = NULL, buttonId = NULL, url = NULL) {
       self$writeAllowed <- writeAllowed
       self$peer <- peer
@@ -99,17 +103,17 @@ AcceptUrlAuthRequest <- R6::R6Class(
       self$url <- url
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       if (!is.null(self$peer)) {
         self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "AcceptUrlAuthRequest",
@@ -121,8 +125,8 @@ AcceptUrlAuthRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$writeAllowed) || !self$writeAllowed) 0 else 1) |
         (if (is.null(self$peer)) 0 else 2) |
@@ -157,43 +161,45 @@ AcceptUrlAuthRequest$fromReader <- function(reader) {
   AcceptUrlAuthRequest$new(writeAllowed = writeAllowed, peer = peer, msgId = msgId, buttonId = buttonId, url = url)
 }
 
-#' @title AddChatUserRequest
-#' @description Represents a request to add a chat user. This class inherits from TLRequest.
-#' @export
+#  @title AddChatUserRequest
+#  @description Represents a request to add a chat user. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 AddChatUserRequest <- R6::R6Class(
   "AddChatUserRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xcbc6d107,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x3dbe90a1,
-    #' @field chatId Field.
+    #  @field chatId Field.
     chatId = NULL,
-    #' @field userId Field.
+    #  @field userId Field.
     userId = NULL,
-    #' @field fwdLimit Field.
+    #  @field fwdLimit Field.
     fwdLimit = NULL,
 
-    #' @description Initialize the AddChatUserRequest object.
-    #' @param chatId The chat ID.
-    #' @param userId The input user ID.
-    #' @param fwdLimit The forward limit.
+    #  @description Initialize the AddChatUserRequest object.
+    #  @param chatId The chat ID.
+    #  @param userId The input user ID.
+    #  @param fwdLimit The forward limit.
     initialize = function(chatId, userId, fwdLimit) {
       self$chatId <- chatId
       self$userId <- userId
       self$fwdLimit <- fwdLimit
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$userId <- utils$getInputUser(client$getInputEntity(self$userId))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "AddChatUserRequest",
@@ -203,8 +209,8 @@ AddChatUserRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x07, 0xd1, 0xc6, 0xcb)),
@@ -229,37 +235,39 @@ AddChatUserRequest$fromReader <- function(reader) {
 }
 
 
-#' @title AppendTodoListRequest
-#' @description Represents a request to append a todo list. This class inherits from TLRequest.
-#' @export
+#  @title AppendTodoListRequest
+#  @description Represents a request to append a todo list. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 AppendTodoListRequest <- R6::R6Class(
   "AppendTodoListRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x21a61057,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the AppendTodoListRequest object.
-    #' @param peer The input peer.
-    #' @param msgId The message ID.
-    #' @param list The list of todo items.
+    #  @description Initialize the AppendTodoListRequest object.
+    #  @param peer The input peer.
+    #  @param msgId The message ID.
+    #  @param list The list of todo items.
     initialize = function(peer, msgId, list) {
       self$peer <- peer
       self$msgId <- msgId
       self$list <- list
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "AppendTodoListRequest",
@@ -269,8 +277,8 @@ AppendTodoListRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x57, 0x10, 0xa6, 0x21)),
@@ -299,26 +307,28 @@ AppendTodoListRequest$fromReader <- function(reader) {
   AppendTodoListRequest$new(peer = peer, msgId = msgId, list = list)
 }
 
-#' @title CheckChatInviteRequest
-#' @description Represents a request to check a chat invite. This class inherits from TLRequest.
-#' @export
+#  @title CheckChatInviteRequest
+#  @description Represents a request to check a chat invite. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 CheckChatInviteRequest <- R6::R6Class(
   "CheckChatInviteRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x3eadb1bb,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x4561736,
 
-    #' @description Initialize the CheckChatInviteRequest object.
-    #' @param hash The invite hash.
+    #  @description Initialize the CheckChatInviteRequest object.
+    #  @param hash The invite hash.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "CheckChatInviteRequest",
@@ -326,8 +336,8 @@ CheckChatInviteRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xbb, 0xb1, 0xad, 0x3e)),
@@ -347,26 +357,28 @@ CheckChatInviteRequest$fromReader <- function(reader) {
   CheckChatInviteRequest$new(hash = hash)
 }
 
-#' @title CheckHistoryImportRequest
-#' @description Represents a request to check history import. This class inherits from TLRequest.
-#' @export
+#  @title CheckHistoryImportRequest
+#  @description Represents a request to check history import. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 CheckHistoryImportRequest <- R6::R6Class(
   "CheckHistoryImportRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x43fe19f3,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x5bb2720b,
 
-    #' @description Initialize the CheckHistoryImportRequest object.
-    #' @param importHead The import head string.
+    #  @description Initialize the CheckHistoryImportRequest object.
+    #  @param importHead The import head string.
     initialize = function(importHead) {
       self$importHead <- importHead
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "CheckHistoryImportRequest",
@@ -374,8 +386,8 @@ CheckHistoryImportRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xf3, 0x19, 0xfe, 0x43)),
@@ -396,33 +408,35 @@ CheckHistoryImportRequest$fromReader <- function(reader) {
 }
 
 
-#' @title CheckHistoryImportPeerRequest
-#' @description Represents a request to check history import peer. This class inherits from TLRequest.
-#' @export
+#  @title CheckHistoryImportPeerRequest
+#  @description Represents a request to check history import peer. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 CheckHistoryImportPeerRequest <- R6::R6Class(
   "CheckHistoryImportPeerRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x5dc60f03,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xb84bb337,
 
-    #' @description Initialize the CheckHistoryImportPeerRequest object.
-    #' @param peer The input peer.
+    #  @description Initialize the CheckHistoryImportPeerRequest object.
+    #  @param peer The input peer.
     initialize = function(peer) {
       self$peer <- peer
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "CheckHistoryImportPeerRequest",
@@ -430,8 +444,8 @@ CheckHistoryImportPeerRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x03, 0x0f, 0xc6, 0x5d)),
@@ -451,26 +465,28 @@ CheckHistoryImportPeerRequest$fromReader <- function(reader) {
   CheckHistoryImportPeerRequest$new(peer = peer)
 }
 
-#' @title CheckQuickReplyShortcutRequest
-#' @description Represents a request to check quick reply shortcut. This class inherits from TLRequest.
-#' @export
+#  @title CheckQuickReplyShortcutRequest
+#  @description Represents a request to check quick reply shortcut. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 CheckQuickReplyShortcutRequest <- R6::R6Class(
   "CheckQuickReplyShortcutRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xf1d0fbd3,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the CheckQuickReplyShortcutRequest object.
-    #' @param shortcut The shortcut string.
+    #  @description Initialize the CheckQuickReplyShortcutRequest object.
+    #  @param shortcut The shortcut string.
     initialize = function(shortcut) {
       self$shortcut <- shortcut
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "CheckQuickReplyShortcutRequest",
@@ -478,8 +494,8 @@ CheckQuickReplyShortcutRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xd3, 0xfb, 0xd0, 0xf1)),
@@ -499,26 +515,28 @@ CheckQuickReplyShortcutRequest$fromReader <- function(reader) {
   CheckQuickReplyShortcutRequest$new(shortcut = shortcut)
 }
 
-#' @title ClearAllDraftsRequest
-#' @description Represents a request to clear all drafts. This class inherits from TLRequest.
-#' @export
+#  @title ClearAllDraftsRequest
+#  @description Represents a request to clear all drafts. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ClearAllDraftsRequest <- R6::R6Class(
   "ClearAllDraftsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x7e58ee9c,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list("_" = "ClearAllDraftsRequest")
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       as.raw(c(0x9c, 0xee, 0x58, 0x7e))
     }
@@ -535,26 +553,28 @@ ClearAllDraftsRequest$fromReader <- function(reader) {
 }
 
 
-#' @title ClearRecentReactionsRequest
-#' @description Represents a request to clear recent reactions. This class inherits from TLRequest.
-#' @export
+#  @title ClearRecentReactionsRequest
+#  @description Represents a request to clear recent reactions. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ClearRecentReactionsRequest <- R6::R6Class(
   "ClearRecentReactionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x9dfeefb4,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list("_" = "ClearRecentReactionsRequest")
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       as.raw(c(0xb4, 0xef, 0xfe, 0x9d))
     }
@@ -570,26 +590,28 @@ ClearRecentReactionsRequest$fromReader <- function(reader) {
   ClearRecentReactionsRequest$new()
 }
 
-#' @title ClearRecentStickersRequest
-#' @description Represents a request to clear recent stickers. This class inherits from TLRequest.
-#' @export
+#  @title ClearRecentStickersRequest
+#  @description Represents a request to clear recent stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ClearRecentStickersRequest <- R6::R6Class(
   "ClearRecentStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x8999602d,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ClearRecentStickersRequest object.
-    #' @param attached Whether to clear attached stickers (optional).
+    #  @description Initialize the ClearRecentStickersRequest object.
+    #  @param attached Whether to clear attached stickers (optional).
     initialize = function(attached = NULL) {
       self$attached <- attached
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ClearRecentStickersRequest",
@@ -597,8 +619,8 @@ ClearRecentStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (0L | (if (is.null(self$attached) || !self$attached) 0L else 1L))
       c(
@@ -620,22 +642,24 @@ ClearRecentStickersRequest$fromReader <- function(reader) {
   ClearRecentStickersRequest$new(attached = attached)
 }
 
-#' @title ClickSponsoredMessageRequest
-#' @description Represents a request to click a sponsored message. This class inherits from TLRequest.
-#' @export
+#  @title ClickSponsoredMessageRequest
+#  @description Represents a request to click a sponsored message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ClickSponsoredMessageRequest <- R6::R6Class(
   "ClickSponsoredMessageRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x8235057e,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ClickSponsoredMessageRequest object.
-    #' @param media Whether media was clicked (optional).
-    #' @param fullscreen Whether fullscreen was used (optional).
-    #' @param randomId The random ID (optional, generated if not provided).
+    #  @description Initialize the ClickSponsoredMessageRequest object.
+    #  @param media Whether media was clicked (optional).
+    #  @param fullscreen Whether fullscreen was used (optional).
+    #  @param randomId The random ID (optional, generated if not provided).
     initialize = function(media = NULL, fullscreen = NULL, randomId = NULL) {
       self$media <- media
       self$fullscreen <- fullscreen
@@ -647,8 +671,8 @@ ClickSponsoredMessageRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ClickSponsoredMessageRequest",
@@ -658,8 +682,8 @@ ClickSponsoredMessageRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$media) || !self$media) 0 else 1) |
         (if (is.null(self$fullscreen) || !self$fullscreen) 0 else 2)
@@ -686,31 +710,33 @@ ClickSponsoredMessageRequest$fromReader <- function(reader) {
 }
 
 
-#' @title CreateChatRequest
-#' @description Represents a request to create a chat. This class inherits from TLRequest.
-#' @export
+#  @title CreateChatRequest
+#  @description Represents a request to create a chat. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 CreateChatRequest <- R6::R6Class(
   "CreateChatRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x92ceddd4,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x3dbe90a1,
 
-    #' @description Initialize the CreateChatRequest object.
-    #' @param users The list of input users.
-    #' @param title The chat title.
-    #' @param ttlPeriod The optional TTL period.
+    #  @description Initialize the CreateChatRequest object.
+    #  @param users The list of input users.
+    #  @param title The chat title.
+    #  @param ttlPeriod The optional TTL period.
     initialize = function(users, title, ttlPeriod = NULL) {
       self$users <- users
       self$title <- title
       self$ttlPeriod <- ttlPeriod
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       tmp <- list()
       for (x in self$users) {
@@ -719,8 +745,8 @@ CreateChatRequest <- R6::R6Class(
       self$users <- tmp
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "CreateChatRequest",
@@ -730,8 +756,8 @@ CreateChatRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$ttlPeriod)) 0 else 1
       c(
@@ -763,26 +789,28 @@ CreateChatRequest$fromReader <- function(reader) {
   CreateChatRequest$new(users = users, title = title, ttlPeriod = ttlPeriod)
 }
 
-#' @title DeleteChatRequest
-#' @description Represents a request to delete a chat. This class inherits from TLRequest.
-#' @export
+#  @title DeleteChatRequest
+#  @description Represents a request to delete a chat. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 DeleteChatRequest <- R6::R6Class(
   "DeleteChatRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x5bd0ee50,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the DeleteChatRequest object.
-    #' @param chatId The chat ID.
+    #  @description Initialize the DeleteChatRequest object.
+    #  @param chatId The chat ID.
     initialize = function(chatId) {
       self$chatId <- chatId
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "DeleteChatRequest",
@@ -790,8 +818,8 @@ DeleteChatRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x50, 0xee, 0xd0, 0x5b)),
@@ -811,37 +839,39 @@ DeleteChatRequest$fromReader <- function(reader) {
   DeleteChatRequest$new(chatId = chatId)
 }
 
-#' @title DeleteChatUserRequest
-#' @description Represents a request to delete a user from a chat. This class inherits from TLRequest.
-#' @export
+#  @title DeleteChatUserRequest
+#  @description Represents a request to delete a user from a chat. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 DeleteChatUserRequest <- R6::R6Class(
   "DeleteChatUserRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xa2185cab,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the DeleteChatUserRequest object.
-    #' @param chatId The chat ID.
-    #' @param userId The input user ID.
-    #' @param revokeHistory Whether to revoke history (optional).
+    #  @description Initialize the DeleteChatUserRequest object.
+    #  @param chatId The chat ID.
+    #  @param userId The input user ID.
+    #  @param revokeHistory Whether to revoke history (optional).
     initialize = function(chatId, userId, revokeHistory = NULL) {
       self$chatId <- chatId
       self$userId <- userId
       self$revokeHistory <- revokeHistory
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$userId <- utils$getInputUser(client$getInputEntity(self$userId))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "DeleteChatUserRequest",
@@ -851,8 +881,8 @@ DeleteChatUserRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xab, 0x5c, 0x18, 0xa2)),
@@ -878,35 +908,37 @@ DeleteChatUserRequest$fromReader <- function(reader) {
 }
 
 
-#' @title DeleteExportedChatInviteRequest
-#' @description Represents a request to delete an exported chat invite. This class inherits from TLRequest.
-#' @export
+#  @title DeleteExportedChatInviteRequest
+#  @description Represents a request to delete an exported chat invite. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 DeleteExportedChatInviteRequest <- R6::R6Class(
   "DeleteExportedChatInviteRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xd464a42b,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the DeleteExportedChatInviteRequest object.
-    #' @param peer The input peer.
-    #' @param link The invite link.
+    #  @description Initialize the DeleteExportedChatInviteRequest object.
+    #  @param peer The input peer.
+    #  @param link The invite link.
     initialize = function(peer, link) {
       self$peer <- peer
       self$link <- link
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "DeleteExportedChatInviteRequest",
@@ -915,8 +947,8 @@ DeleteExportedChatInviteRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x2b, 0xa4, 0x64, 0xd4)),
@@ -938,35 +970,37 @@ DeleteExportedChatInviteRequest$fromReader <- function(reader) {
   DeleteExportedChatInviteRequest$new(peer = peer, link = link)
 }
 
-#' @title DeleteFactCheckRequest
-#' @description Represents a request to delete a fact check. This class inherits from TLRequest.
-#' @export
+#  @title DeleteFactCheckRequest
+#  @description Represents a request to delete a fact check. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 DeleteFactCheckRequest <- R6::R6Class(
   "DeleteFactCheckRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xd1da940c,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the DeleteFactCheckRequest object.
-    #' @param peer The input peer.
-    #' @param msgId The message ID.
+    #  @description Initialize the DeleteFactCheckRequest object.
+    #  @param peer The input peer.
+    #  @param msgId The message ID.
     initialize = function(peer, msgId) {
       self$peer <- peer
       self$msgId <- msgId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "DeleteFactCheckRequest",
@@ -975,8 +1009,8 @@ DeleteFactCheckRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x0c, 0x94, 0xda, 0xd1)),
@@ -998,25 +1032,27 @@ DeleteFactCheckRequest$fromReader <- function(reader) {
   DeleteFactCheckRequest$new(peer = peer, msgId = msgId)
 }
 
-#' @title DeleteHistoryRequest
-#' @description Represents a request to delete history. This class inherits from TLRequest.
-#' @export
+#  @title DeleteHistoryRequest
+#  @description Represents a request to delete history. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 DeleteHistoryRequest <- R6::R6Class(
   "DeleteHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xb08f922a,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x2c49c116,
 
-    #' @description Initialize the DeleteHistoryRequest object.
-    #' @param peer The input peer.
-    #' @param maxId The maximum ID.
-    #' @param justClear Whether to just clear (optional).
-    #' @param revoke Whether to revoke (optional).
-    #' @param minDate The minimum date (optional).
-    #' @param maxDate The maximum date (optional).
+    #  @description Initialize the DeleteHistoryRequest object.
+    #  @param peer The input peer.
+    #  @param maxId The maximum ID.
+    #  @param justClear Whether to just clear (optional).
+    #  @param revoke Whether to revoke (optional).
+    #  @param minDate The minimum date (optional).
+    #  @param maxDate The maximum date (optional).
     initialize = function(peer, maxId, justClear = NULL, revoke = NULL, minDate = NULL, maxDate = NULL) {
       self$peer <- peer
       self$maxId <- maxId
@@ -1026,15 +1062,15 @@ DeleteHistoryRequest <- R6::R6Class(
       self$maxDate <- maxDate
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "DeleteHistoryRequest",
@@ -1047,8 +1083,8 @@ DeleteHistoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$justClear) || !self$justClear) 0 else 1) |
         (if (is.null(self$revoke) || !self$revoke) 0 else 2) |
@@ -1083,28 +1119,30 @@ DeleteHistoryRequest$fromReader <- function(reader) {
 }
 
 
-#' @title DeleteMessagesRequest
-#' @description Represents a request to delete messages. This class inherits from TLRequest.
-#' @export
+#  @title DeleteMessagesRequest
+#  @description Represents a request to delete messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 DeleteMessagesRequest <- R6::R6Class(
   "DeleteMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xe58e95d2,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xced3c06e,
 
-    #' @description Initialize the DeleteMessagesRequest object.
-    #' @param id The list of message IDs.
-    #' @param revoke Whether to revoke the messages (optional).
+    #  @description Initialize the DeleteMessagesRequest object.
+    #  @param id The list of message IDs.
+    #  @param revoke Whether to revoke the messages (optional).
     initialize = function(id, revoke = NULL) {
       self$id <- id
       self$revoke <- revoke
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "DeleteMessagesRequest",
@@ -1113,8 +1151,8 @@ DeleteMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (0L | (if (is.null(self$revoke) || !self$revoke) 0L else 1L))
       c(
@@ -1143,26 +1181,28 @@ DeleteMessagesRequest$fromReader <- function(reader) {
   DeleteMessagesRequest$new(id = id, revoke = revoke)
 }
 
-#' @title DeletePhoneCallHistoryRequest
-#' @description Represents a request to delete phone call history. This class inherits from TLRequest.
-#' @export
+#  @title DeletePhoneCallHistoryRequest
+#  @description Represents a request to delete phone call history. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 DeletePhoneCallHistoryRequest <- R6::R6Class(
   "DeletePhoneCallHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xf9cbe409,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf817652e,
 
-    #' @description Initialize the DeletePhoneCallHistoryRequest object.
-    #' @param revoke Whether to revoke the history (optional).
+    #  @description Initialize the DeletePhoneCallHistoryRequest object.
+    #  @param revoke Whether to revoke the history (optional).
     initialize = function(revoke = NULL) {
       self$revoke <- revoke
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "DeletePhoneCallHistoryRequest",
@@ -1170,8 +1210,8 @@ DeletePhoneCallHistoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (0L | (if (is.null(self$revoke) || !self$revoke) 0L else 1L))
       c(
@@ -1193,28 +1233,30 @@ DeletePhoneCallHistoryRequest$fromReader <- function(reader) {
   DeletePhoneCallHistoryRequest$new(revoke = revoke)
 }
 
-#' @title DeleteQuickReplyMessagesRequest
-#' @description Represents a request to delete quick reply messages. This class inherits from TLRequest.
-#' @export
+#  @title DeleteQuickReplyMessagesRequest
+#  @description Represents a request to delete quick reply messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 DeleteQuickReplyMessagesRequest <- R6::R6Class(
   "DeleteQuickReplyMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xe105e910,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the DeleteQuickReplyMessagesRequest object.
-    #' @param shortcutId The shortcut ID.
-    #' @param id The list of message IDs.
+    #  @description Initialize the DeleteQuickReplyMessagesRequest object.
+    #  @param shortcutId The shortcut ID.
+    #  @param id The list of message IDs.
     initialize = function(shortcutId, id) {
       self$shortcutId <- shortcutId
       self$id <- id
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "DeleteQuickReplyMessagesRequest",
@@ -1223,8 +1265,8 @@ DeleteQuickReplyMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x10, 0xe9, 0x05, 0xe1)),
@@ -1252,26 +1294,28 @@ DeleteQuickReplyMessagesRequest$fromReader <- function(reader) {
 }
 
 
-#' @title DeleteQuickReplyShortcutRequest
-#' @description Represents a request to delete a quick reply shortcut. This class inherits from TLRequest.
-#' @export
+#  @title DeleteQuickReplyShortcutRequest
+#  @description Represents a request to delete a quick reply shortcut. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 DeleteQuickReplyShortcutRequest <- R6::R6Class(
   "DeleteQuickReplyShortcutRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x3cc04740,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the DeleteQuickReplyShortcutRequest object.
-    #' @param shortcutId The shortcut ID.
+    #  @description Initialize the DeleteQuickReplyShortcutRequest object.
+    #  @param shortcutId The shortcut ID.
     initialize = function(shortcutId) {
       self$shortcutId <- shortcutId
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "DeleteQuickReplyShortcutRequest",
@@ -1279,8 +1323,8 @@ DeleteQuickReplyShortcutRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x40, 0x47, 0xc0, 0x3c)),
@@ -1300,36 +1344,38 @@ DeleteQuickReplyShortcutRequest$fromReader <- function(reader) {
   DeleteQuickReplyShortcutRequest$new(shortcutId = shortcutId)
 }
 
-#' @title DeleteRevokedExportedChatInvitesRequest
-#' @description Represents a request to delete revoked exported chat invites. This class inherits from TLRequest.
-#' @export
+#  @title DeleteRevokedExportedChatInvitesRequest
+#  @description Represents a request to delete revoked exported chat invites. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 DeleteRevokedExportedChatInvitesRequest <- R6::R6Class(
   "DeleteRevokedExportedChatInvitesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x56987bd5,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the DeleteRevokedExportedChatInvitesRequest object.
-    #' @param peer The input peer.
-    #' @param adminId The input admin user.
+    #  @description Initialize the DeleteRevokedExportedChatInvitesRequest object.
+    #  @param peer The input peer.
+    #  @param adminId The input admin user.
     initialize = function(peer, adminId) {
       self$peer <- peer
       self$adminId <- adminId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       self$adminId <- utils$getInputUser(client$getInputEntity(self$adminId))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "DeleteRevokedExportedChatInvitesRequest",
@@ -1338,8 +1384,8 @@ DeleteRevokedExportedChatInvitesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xd5, 0x7b, 0x98, 0x56)),
@@ -1361,24 +1407,26 @@ DeleteRevokedExportedChatInvitesRequest$fromReader <- function(reader) {
   DeleteRevokedExportedChatInvitesRequest$new(peer = peer, adminId = adminId)
 }
 
-#' @title DeleteSavedHistoryRequest
-#' @description Represents a request to delete saved history. This class inherits from TLRequest.
-#' @export
+#  @title DeleteSavedHistoryRequest
+#  @description Represents a request to delete saved history. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 DeleteSavedHistoryRequest <- R6::R6Class(
   "DeleteSavedHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x4dc5085f,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x2c49c116,
 
-    #' @description Initialize the DeleteSavedHistoryRequest object.
-    #' @param peer The input peer.
-    #' @param maxId The maximum ID.
-    #' @param parentPeer The optional input peer.
-    #' @param minDate The optional minimum date.
-    #' @param maxDate The optional maximum date.
+    #  @description Initialize the DeleteSavedHistoryRequest object.
+    #  @param peer The input peer.
+    #  @param maxId The maximum ID.
+    #  @param parentPeer The optional input peer.
+    #  @param minDate The optional minimum date.
+    #  @param maxDate The optional maximum date.
     initialize = function(peer, maxId, parentPeer = NULL, minDate = NULL, maxDate = NULL) {
       self$peer <- peer
       self$maxId <- maxId
@@ -1387,9 +1435,9 @@ DeleteSavedHistoryRequest <- R6::R6Class(
       self$maxDate <- maxDate
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       if (!is.null(self$parentPeer)) {
@@ -1397,8 +1445,8 @@ DeleteSavedHistoryRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "DeleteSavedHistoryRequest",
@@ -1410,8 +1458,8 @@ DeleteSavedHistoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$parentPeer)) 0 else 1) |
         (if (is.null(self$minDate)) 0 else 4) |
@@ -1445,35 +1493,37 @@ DeleteSavedHistoryRequest$fromReader <- function(reader) {
 }
 
 
-#' @title DeleteScheduledMessagesRequest
-#' @description Represents a request to delete scheduled messages. This class inherits from TLRequest.
-#' @export
+#  @title DeleteScheduledMessagesRequest
+#  @description Represents a request to delete scheduled messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 DeleteScheduledMessagesRequest <- R6::R6Class(
   "DeleteScheduledMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x59ae2b16,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the DeleteScheduledMessagesRequest object.
-    #' @param peer The input peer.
-    #' @param id The list of message IDs.
+    #  @description Initialize the DeleteScheduledMessagesRequest object.
+    #  @param peer The input peer.
+    #  @param id The list of message IDs.
     initialize = function(peer, id) {
       self$peer <- peer
       self$id <- id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "DeleteScheduledMessagesRequest",
@@ -1482,8 +1532,8 @@ DeleteScheduledMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x16, 0x2b, 0xae, 0x59)),
@@ -1510,28 +1560,30 @@ DeleteScheduledMessagesRequest$fromReader <- function(reader) {
   DeleteScheduledMessagesRequest$new(peer = peer, id = id)
 }
 
-#' @title DiscardEncryptionRequest
-#' @description Represents a request to discard encryption. This class inherits from TLRequest.
-#' @export
+#  @title DiscardEncryptionRequest
+#  @description Represents a request to discard encryption. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 DiscardEncryptionRequest <- R6::R6Class(
   "DiscardEncryptionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xf393aea0,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the DiscardEncryptionRequest object.
-    #' @param chatId The chat ID.
-    #' @param deleteHistory Whether to delete history (optional).
+    #  @description Initialize the DiscardEncryptionRequest object.
+    #  @param chatId The chat ID.
+    #  @param deleteHistory Whether to delete history (optional).
     initialize = function(chatId, deleteHistory = NULL) {
       self$chatId <- chatId
       self$deleteHistory <- deleteHistory
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "DiscardEncryptionRequest",
@@ -1540,8 +1592,8 @@ DiscardEncryptionRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xa0, 0xae, 0x93, 0xf3)),
@@ -1564,35 +1616,37 @@ DiscardEncryptionRequest$fromReader <- function(reader) {
   DiscardEncryptionRequest$new(chatId = chatId, deleteHistory = deleteHistory)
 }
 
-#' @title EditChatAboutRequest
-#' @description Represents a request to edit chat about. This class inherits from TLRequest.
-#' @export
+#  @title EditChatAboutRequest
+#  @description Represents a request to edit chat about. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 EditChatAboutRequest <- R6::R6Class(
   "EditChatAboutRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xdef60797,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the EditChatAboutRequest object.
-    #' @param peer The input peer.
-    #' @param about The about text.
+    #  @description Initialize the EditChatAboutRequest object.
+    #  @param peer The input peer.
+    #  @param about The about text.
     initialize = function(peer, about) {
       self$peer <- peer
       self$about <- about
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "EditChatAboutRequest",
@@ -1601,8 +1655,8 @@ EditChatAboutRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x97, 0x07, 0xf6, 0xde)),
@@ -1625,37 +1679,39 @@ EditChatAboutRequest$fromReader <- function(reader) {
 }
 
 
-#' @title EditChatAdminRequest
-#' @description Represents a request to edit chat admin. This class inherits from TLRequest.
-#' @export
+#  @title EditChatAdminRequest
+#  @description Represents a request to edit chat admin. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 EditChatAdminRequest <- R6::R6Class(
   "EditChatAdminRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xa85bd1c2,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the EditChatAdminRequest object.
-    #' @param chatId The chat ID.
-    #' @param userId The input user ID.
-    #' @param isAdmin Whether the user is admin.
+    #  @description Initialize the EditChatAdminRequest object.
+    #  @param chatId The chat ID.
+    #  @param userId The input user ID.
+    #  @param isAdmin Whether the user is admin.
     initialize = function(chatId, userId, isAdmin) {
       self$chatId <- chatId
       self$userId <- userId
       self$isAdmin <- isAdmin
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$userId <- utils$getInputUser(client$getInputEntity(self$userId))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "EditChatAdminRequest",
@@ -1665,8 +1721,8 @@ EditChatAdminRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xc2, 0xd1, 0x5b, 0xa8)),
@@ -1690,35 +1746,37 @@ EditChatAdminRequest$fromReader <- function(reader) {
   EditChatAdminRequest$new(chatId = chatId, userId = userId, isAdmin = isAdmin)
 }
 
-#' @title EditChatDefaultBannedRightsRequest
-#' @description Represents a request to edit chat default banned rights. This class inherits from TLRequest.
-#' @export
+#  @title EditChatDefaultBannedRightsRequest
+#  @description Represents a request to edit chat default banned rights. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 EditChatDefaultBannedRightsRequest <- R6::R6Class(
   "EditChatDefaultBannedRightsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xa5866b41,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the EditChatDefaultBannedRightsRequest object.
-    #' @param peer The input peer.
-    #' @param bannedRights The chat banned rights.
+    #  @description Initialize the EditChatDefaultBannedRightsRequest object.
+    #  @param peer The input peer.
+    #  @param bannedRights The chat banned rights.
     initialize = function(peer, bannedRights) {
       self$peer <- peer
       self$bannedRights <- bannedRights
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "EditChatDefaultBannedRightsRequest",
@@ -1727,8 +1785,8 @@ EditChatDefaultBannedRightsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x41, 0x6b, 0x86, 0xa5)),
@@ -1750,35 +1808,37 @@ EditChatDefaultBannedRightsRequest$fromReader <- function(reader) {
   EditChatDefaultBannedRightsRequest$new(peer = peer, bannedRights = bannedRights)
 }
 
-#' @title EditChatPhotoRequest
-#' @description Represents a request to edit chat photo. This class inherits from TLRequest.
-#' @export
+#  @title EditChatPhotoRequest
+#  @description Represents a request to edit chat photo. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 EditChatPhotoRequest <- R6::R6Class(
   "EditChatPhotoRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x35ddd674,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the EditChatPhotoRequest object.
-    #' @param chatId The chat ID.
-    #' @param photo The input chat photo.
+    #  @description Initialize the EditChatPhotoRequest object.
+    #  @param chatId The chat ID.
+    #  @param photo The input chat photo.
     initialize = function(chatId, photo) {
       self$chatId <- chatId
       self$photo <- photo
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$photo <- utils$getInputChatPhoto(self$photo)
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "EditChatPhotoRequest",
@@ -1787,8 +1847,8 @@ EditChatPhotoRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x74, 0xd6, 0xdd, 0x35)),
@@ -1811,28 +1871,30 @@ EditChatPhotoRequest$fromReader <- function(reader) {
 }
 
 
-#' @title EditChatTitleRequest
-#' @description Represents a request to edit a chat title. This class inherits from TLRequest.
-#' @export
+#  @title EditChatTitleRequest
+#  @description Represents a request to edit a chat title. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 EditChatTitleRequest <- R6::R6Class(
   "EditChatTitleRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x73783ffd,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the EditChatTitleRequest object.
-    #' @param chatId The chat ID.
-    #' @param title The new title.
+    #  @description Initialize the EditChatTitleRequest object.
+    #  @param chatId The chat ID.
+    #  @param title The new title.
     initialize = function(chatId, title) {
       self$chatId <- chatId
       self$title <- title
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "EditChatTitleRequest",
@@ -1841,8 +1903,8 @@ EditChatTitleRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xfd, 0x3f, 0x78, 0x73)),
@@ -1864,26 +1926,28 @@ EditChatTitleRequest$fromReader <- function(reader) {
   EditChatTitleRequest$new(chatId = chatId, title = title)
 }
 
-#' @title EditExportedChatInviteRequest
-#' @description Represents a request to edit an exported chat invite. This class inherits from TLRequest.
-#' @export
+#  @title EditExportedChatInviteRequest
+#  @description Represents a request to edit an exported chat invite. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 EditExportedChatInviteRequest <- R6::R6Class(
   "EditExportedChatInviteRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xbdca2f75,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x82dcd4ca,
 
-    #' @description Initialize the EditExportedChatInviteRequest object.
-    #' @param peer The input peer.
-    #' @param link The invite link.
-    #' @param revoked Whether the invite is revoked (optional).
-    #' @param expireDate The expiration date (optional).
-    #' @param usageLimit The usage limit (optional).
-    #' @param requestNeeded Whether request is needed (optional).
-    #' @param title The title (optional).
+    #  @description Initialize the EditExportedChatInviteRequest object.
+    #  @param peer The input peer.
+    #  @param link The invite link.
+    #  @param revoked Whether the invite is revoked (optional).
+    #  @param expireDate The expiration date (optional).
+    #  @param usageLimit The usage limit (optional).
+    #  @param requestNeeded Whether request is needed (optional).
+    #  @param title The title (optional).
     initialize = function(peer, link, revoked = NULL, expireDate = NULL, usageLimit = NULL, requestNeeded = NULL, title = NULL) {
       self$peer <- peer
       self$link <- link
@@ -1894,15 +1958,15 @@ EditExportedChatInviteRequest <- R6::R6Class(
       self$title <- title
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "EditExportedChatInviteRequest",
@@ -1916,8 +1980,8 @@ EditExportedChatInviteRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$revoked) || !self$revoked) 0 else 4) |
         (if (is.null(self$expireDate)) 0 else 1) |
@@ -1955,37 +2019,39 @@ EditExportedChatInviteRequest$fromReader <- function(reader) {
   EditExportedChatInviteRequest$new(peer = peer, link = link, revoked = revoked, expireDate = expireDate, usageLimit = usageLimit, requestNeeded = requestNeeded, title = title)
 }
 
-#' @title EditFactCheckRequest
-#' @description Represents a request to edit a fact check. This class inherits from TLRequest.
-#' @export
+#  @title EditFactCheckRequest
+#  @description Represents a request to edit a fact check. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 EditFactCheckRequest <- R6::R6Class(
   "EditFactCheckRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x589ee75,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the EditFactCheckRequest object.
-    #' @param peer The input peer.
-    #' @param msgId The message ID.
-    #' @param text The text with entities.
+    #  @description Initialize the EditFactCheckRequest object.
+    #  @param peer The input peer.
+    #  @param msgId The message ID.
+    #  @param text The text with entities.
     initialize = function(peer, msgId, text) {
       self$peer <- peer
       self$msgId <- msgId
       self$text <- text
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "EditFactCheckRequest",
@@ -1995,8 +2061,8 @@ EditFactCheckRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x75, 0xee, 0x89, 0x05)),
@@ -2021,26 +2087,28 @@ EditFactCheckRequest$fromReader <- function(reader) {
 }
 
 
-#' @title EditInlineBotMessageRequest
-#' @description Represents a request to edit an inline bot message. This class inherits from TLRequest.
-#' @export
+#  @title EditInlineBotMessageRequest
+#  @description Represents a request to edit an inline bot message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 EditInlineBotMessageRequest <- R6::R6Class(
   "EditInlineBotMessageRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x83557dba,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the EditInlineBotMessageRequest object.
-    #' @param id The input bot inline message ID.
-    #' @param noWebpage Whether to disable webpage preview (optional).
-    #' @param invertMedia Whether to invert media (optional).
-    #' @param message The message text (optional).
-    #' @param media The input media (optional).
-    #' @param replyMarkup The reply markup (optional).
-    #' @param entities The message entities (optional).
+    #  @description Initialize the EditInlineBotMessageRequest object.
+    #  @param id The input bot inline message ID.
+    #  @param noWebpage Whether to disable webpage preview (optional).
+    #  @param invertMedia Whether to invert media (optional).
+    #  @param message The message text (optional).
+    #  @param media The input media (optional).
+    #  @param replyMarkup The reply markup (optional).
+    #  @param entities The message entities (optional).
     initialize = function(id, noWebpage = NULL, invertMedia = NULL, message = NULL, media = NULL, replyMarkup = NULL, entities = NULL) {
       self$id <- id
       self$noWebpage <- noWebpage
@@ -2051,17 +2119,17 @@ EditInlineBotMessageRequest <- R6::R6Class(
       self$entities <- entities
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       if (!is.null(self$media)) {
         self$media <- utils$getInputMedia(self$media)
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "EditInlineBotMessageRequest",
@@ -2075,8 +2143,8 @@ EditInlineBotMessageRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$noWebpage) || !self$noWebpage) 0 else 2) |
         (if (is.null(self$invertMedia) || !self$invertMedia) 0 else 65536) |
@@ -2119,29 +2187,31 @@ EditInlineBotMessageRequest$fromReader <- function(reader) {
   EditInlineBotMessageRequest$new(id = id, noWebpage = noWebpage, invertMedia = invertMedia, message = message, media = media, replyMarkup = replyMarkup, entities = entities)
 }
 
-#' @title EditMessageRequest
-#' @description Represents a request to edit a message. This class inherits from TLRequest.
-#' @export
+#  @title EditMessageRequest
+#  @description Represents a request to edit a message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 EditMessageRequest <- R6::R6Class(
   "EditMessageRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xdfd14005,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the EditMessageRequest object.
-    #' @param peer The input peer.
-    #' @param id The message ID.
-    #' @param noWebpage Whether to disable webpage preview (optional).
-    #' @param invertMedia Whether to invert media (optional).
-    #' @param message The message text (optional).
-    #' @param media The input media (optional).
-    #' @param replyMarkup The reply markup (optional).
-    #' @param entities The message entities (optional).
-    #' @param scheduleDate The schedule date (optional).
-    #' @param quickReplyShortcutId The quick reply shortcut ID (optional).
+    #  @description Initialize the EditMessageRequest object.
+    #  @param peer The input peer.
+    #  @param id The message ID.
+    #  @param noWebpage Whether to disable webpage preview (optional).
+    #  @param invertMedia Whether to invert media (optional).
+    #  @param message The message text (optional).
+    #  @param media The input media (optional).
+    #  @param replyMarkup The reply markup (optional).
+    #  @param entities The message entities (optional).
+    #  @param scheduleDate The schedule date (optional).
+    #  @param quickReplyShortcutId The quick reply shortcut ID (optional).
     initialize = function(peer, id, noWebpage = NULL, invertMedia = NULL, message = NULL, media = NULL, replyMarkup = NULL, entities = NULL, scheduleDate = NULL, quickReplyShortcutId = NULL) {
       self$peer <- peer
       self$id <- id
@@ -2155,9 +2225,9 @@ EditMessageRequest <- R6::R6Class(
       self$quickReplyShortcutId <- quickReplyShortcutId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       if (!is.null(self$media)) {
@@ -2165,8 +2235,8 @@ EditMessageRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "EditMessageRequest",
@@ -2183,8 +2253,8 @@ EditMessageRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$noWebpage) || !self$noWebpage) 0 else 2) |
         (if (is.null(self$invertMedia) || !self$invertMedia) 0 else 65536) |
@@ -2236,28 +2306,30 @@ EditMessageRequest$fromReader <- function(reader) {
 }
 
 
-#' @title EditQuickReplyShortcutRequest
-#' @description Represents a request to edit a quick reply shortcut. This class inherits from TLRequest.
-#' @export
+#  @title EditQuickReplyShortcutRequest
+#  @description Represents a request to edit a quick reply shortcut. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 EditQuickReplyShortcutRequest <- R6::R6Class(
   "EditQuickReplyShortcutRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x5c003cef,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the EditQuickReplyShortcutRequest object.
-    #' @param shortcutId The shortcut ID.
-    #' @param shortcut The shortcut string.
+    #  @description Initialize the EditQuickReplyShortcutRequest object.
+    #  @param shortcutId The shortcut ID.
+    #  @param shortcut The shortcut string.
     initialize = function(shortcutId, shortcut) {
       self$shortcutId <- shortcutId
       self$shortcut <- shortcut
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "EditQuickReplyShortcutRequest",
@@ -2266,8 +2338,8 @@ EditQuickReplyShortcutRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xef, 0x3c, 0x00, 0x5c)),
@@ -2289,26 +2361,28 @@ EditQuickReplyShortcutRequest$fromReader <- function(reader) {
   EditQuickReplyShortcutRequest$new(shortcutId = shortcutId, shortcut = shortcut)
 }
 
-#' @title ExportChatInviteRequest
-#' @description Represents a request to export a chat invite. This class inherits from TLRequest.
-#' @export
+#  @title ExportChatInviteRequest
+#  @description Represents a request to export a chat invite. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ExportChatInviteRequest <- R6::R6Class(
   "ExportChatInviteRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xa455de90,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xb4748a58,
 
-    #' @description Initialize the ExportChatInviteRequest object.
-    #' @param peer The input peer.
-    #' @param legacyRevokePermanent Whether to revoke permanently (legacy).
-    #' @param requestNeeded Whether request is needed.
-    #' @param expireDate The expiration date.
-    #' @param usageLimit The usage limit.
-    #' @param title The title.
-    #' @param subscriptionPricing The subscription pricing.
+    #  @description Initialize the ExportChatInviteRequest object.
+    #  @param peer The input peer.
+    #  @param legacyRevokePermanent Whether to revoke permanently (legacy).
+    #  @param requestNeeded Whether request is needed.
+    #  @param expireDate The expiration date.
+    #  @param usageLimit The usage limit.
+    #  @param title The title.
+    #  @param subscriptionPricing The subscription pricing.
     initialize = function(peer, legacyRevokePermanent = NULL, requestNeeded = NULL, expireDate = NULL, usageLimit = NULL, title = NULL, subscriptionPricing = NULL) {
       self$peer <- peer
       self$legacyRevokePermanent <- legacyRevokePermanent
@@ -2319,15 +2393,15 @@ ExportChatInviteRequest <- R6::R6Class(
       self$subscriptionPricing <- subscriptionPricing
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ExportChatInviteRequest",
@@ -2341,8 +2415,8 @@ ExportChatInviteRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$legacyRevokePermanent) || !self$legacyRevokePermanent) 0 else 4) |
         (if (is.null(self$requestNeeded) || !self$requestNeeded) 0 else 8) |
@@ -2381,35 +2455,37 @@ ExportChatInviteRequest$fromReader <- function(reader) {
 }
 
 
-#' @title FaveStickerRequest
-#' @description Represents a request to fave or unfave a sticker. This class inherits from TLRequest.
-#' @export
+#  @title FaveStickerRequest
+#  @description Represents a request to fave or unfave a sticker. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 FaveStickerRequest <- R6::R6Class(
   "FaveStickerRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xb9ffc55b,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the FaveStickerRequest object.
-    #' @param id The input document.
-    #' @param unfave Whether to unfave the sticker.
+    #  @description Initialize the FaveStickerRequest object.
+    #  @param id The input document.
+    #  @param unfave Whether to unfave the sticker.
     initialize = function(id, unfave) {
       self$id <- id
       self$unfave <- unfave
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$id <- utils$getInputDocument(self$id)
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "FaveStickerRequest",
@@ -2418,8 +2494,8 @@ FaveStickerRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x5b, 0xc5, 0xff, 0xb9)),
@@ -2441,38 +2517,40 @@ FaveStickerRequest$fromReader <- function(reader) {
   FaveStickerRequest$new(id = id, unfave = unfave)
 }
 
-#' @title ForwardMessagesRequest
-#' @description Represents a request to forward messages. This class inherits from TLRequest.
-#' @export
+#  @title ForwardMessagesRequest
+#  @description Represents a request to forward messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ForwardMessagesRequest <- R6::R6Class(
   "ForwardMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x978928ca,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the ForwardMessagesRequest object.
-    #' @param fromPeer The input peer to forward from.
-    #' @param id The list of message IDs.
-    #' @param toPeer The input peer to forward to.
-    #' @param silent Whether to send silently (optional).
-    #' @param background Whether to send in background (optional).
-    #' @param withMyScore Whether to include my score (optional).
-    #' @param dropAuthor Whether to drop author (optional).
-    #' @param dropMediaCaptions Whether to drop media captions (optional).
-    #' @param noforwards Whether to disable forwards (optional).
-    #' @param allowPaidFloodskip Whether to allow paid flood skip (optional).
-    #' @param randomId The list of random IDs (optional).
-    #' @param topMsgId The top message ID (optional).
-    #' @param replyTo The reply to (optional).
-    #' @param scheduleDate The schedule date (optional).
-    #' @param sendAs The send as peer (optional).
-    #' @param quickReplyShortcut The quick reply shortcut (optional).
-    #' @param videoTimestamp The video timestamp (optional).
-    #' @param allowPaidStars The allow paid stars (optional).
-    #' @param suggestedPost The suggested post (optional).
+    #  @description Initialize the ForwardMessagesRequest object.
+    #  @param fromPeer The input peer to forward from.
+    #  @param id The list of message IDs.
+    #  @param toPeer The input peer to forward to.
+    #  @param silent Whether to send silently (optional).
+    #  @param background Whether to send in background (optional).
+    #  @param withMyScore Whether to include my score (optional).
+    #  @param dropAuthor Whether to drop author (optional).
+    #  @param dropMediaCaptions Whether to drop media captions (optional).
+    #  @param noforwards Whether to disable forwards (optional).
+    #  @param allowPaidFloodskip Whether to allow paid flood skip (optional).
+    #  @param randomId The list of random IDs (optional).
+    #  @param topMsgId The top message ID (optional).
+    #  @param replyTo The reply to (optional).
+    #  @param scheduleDate The schedule date (optional).
+    #  @param sendAs The send as peer (optional).
+    #  @param quickReplyShortcut The quick reply shortcut (optional).
+    #  @param videoTimestamp The video timestamp (optional).
+    #  @param allowPaidStars The allow paid stars (optional).
+    #  @param suggestedPost The suggested post (optional).
     initialize = function(fromPeer, id, toPeer, silent = NULL, background = NULL, withMyScore = NULL, dropAuthor = NULL, dropMediaCaptions = NULL, noforwards = NULL, allowPaidFloodskip = NULL, randomId = NULL, topMsgId = NULL, replyTo = NULL, scheduleDate = NULL, sendAs = NULL, quickReplyShortcut = NULL, videoTimestamp = NULL, allowPaidStars = NULL, suggestedPost = NULL) {
       self$fromPeer <- fromPeer
       self$id <- id
@@ -2502,9 +2580,9 @@ ForwardMessagesRequest <- R6::R6Class(
       self$suggestedPost <- suggestedPost
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$fromPeer <- utils$getInputPeer(client$getInputEntity(self$fromPeer))
       self$toPeer <- utils$getInputPeer(client$getInputEntity(self$toPeer))
@@ -2513,8 +2591,8 @@ ForwardMessagesRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ForwardMessagesRequest",
@@ -2540,8 +2618,8 @@ ForwardMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$silent) || !self$silent) 0 else 32) |
         (if (is.null(self$background) || !self$background) 0 else 64) |
@@ -2617,33 +2695,35 @@ ForwardMessagesRequest$fromReader <- function(reader) {
   ForwardMessagesRequest$new(fromPeer = fromPeer, id = id, toPeer = toPeer, silent = silent, background = background, withMyScore = withMyScore, dropAuthor = dropAuthor, dropMediaCaptions = dropMediaCaptions, noforwards = noforwards, allowPaidFloodskip = allowPaidFloodskip, randomId = randomId, topMsgId = topMsgId, replyTo = replyTo, scheduleDate = scheduleDate, sendAs = sendAs, quickReplyShortcut = quickReplyShortcut, videoTimestamp = videoTimestamp, allowPaidStars = allowPaidStars, suggestedPost = suggestedPost)
 }
 
-#' @title GetAdminsWithInvitesRequest
-#' @description Represents a request to get admins with invites. This class inherits from TLRequest.
-#' @export
+#  @title GetAdminsWithInvitesRequest
+#  @description Represents a request to get admins with invites. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetAdminsWithInvitesRequest <- R6::R6Class(
   "GetAdminsWithInvitesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x3920e6ef,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8f5bad2b,
 
-    #' @description Initialize the GetAdminsWithInvitesRequest object.
-    #' @param peer The input peer.
+    #  @description Initialize the GetAdminsWithInvitesRequest object.
+    #  @param peer The input peer.
     initialize = function(peer) {
       self$peer <- peer
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetAdminsWithInvitesRequest",
@@ -2651,8 +2731,8 @@ GetAdminsWithInvitesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xef, 0xe6, 0x20, 0x39)),
@@ -2672,26 +2752,28 @@ GetAdminsWithInvitesRequest$fromReader <- function(reader) {
   GetAdminsWithInvitesRequest$new(peer = peer)
 }
 
-#' @title GetAllDraftsRequest
-#' @description Represents a request to get all drafts. This class inherits from TLRequest.
-#' @export
+#  @title GetAllDraftsRequest
+#  @description Represents a request to get all drafts. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetAllDraftsRequest <- R6::R6Class(
   "GetAllDraftsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x6a3f8d65,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list("_" = "GetAllDraftsRequest")
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       as.raw(c(0x65, 0x8d, 0x3f, 0x6a))
     }
@@ -2707,26 +2789,28 @@ GetAllDraftsRequest$fromReader <- function(reader) {
   GetAllDraftsRequest$new()
 }
 
-#' @title GetAllStickersRequest
-#' @description Represents a request to get all stickers. This class inherits from TLRequest.
-#' @export
+#  @title GetAllStickersRequest
+#  @description Represents a request to get all stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetAllStickersRequest <- R6::R6Class(
   "GetAllStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xb8a0a1a8,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x45834829,
 
-    #' @description Initialize the GetAllStickersRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetAllStickersRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetAllStickersRequest",
@@ -2734,8 +2818,8 @@ GetAllStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xa8, 0xa1, 0xa0, 0xb8)),
@@ -2757,23 +2841,25 @@ GetAllStickersRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetArchivedStickersRequest
-#' @description Represents a request to get archived stickers. This class inherits from TLRequest.
-#' @export
+#  @title GetArchivedStickersRequest
+#  @description Represents a request to get archived stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetArchivedStickersRequest <- R6::R6Class(
   "GetArchivedStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x57f17692,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x7296d771,
 
-    #' @description Initialize the GetArchivedStickersRequest object.
-    #' @param offsetId The offset ID.
-    #' @param limit The limit value.
-    #' @param masks Whether to include masks (optional).
-    #' @param emojis Whether to include emojis (optional).
+    #  @description Initialize the GetArchivedStickersRequest object.
+    #  @param offsetId The offset ID.
+    #  @param limit The limit value.
+    #  @param masks Whether to include masks (optional).
+    #  @param emojis Whether to include emojis (optional).
     initialize = function(offsetId, limit, masks = NULL, emojis = NULL) {
       self$offsetId <- offsetId
       self$limit <- limit
@@ -2781,8 +2867,8 @@ GetArchivedStickersRequest <- R6::R6Class(
       self$emojis <- emojis
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetArchivedStickersRequest",
@@ -2793,8 +2879,8 @@ GetArchivedStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$masks) || !self$masks) 0 else 1) |
         (if (is.null(self$emojis) || !self$emojis) 0 else 2)
@@ -2822,33 +2908,35 @@ GetArchivedStickersRequest$fromReader <- function(reader) {
   GetArchivedStickersRequest$new(offsetId = offsetId, limit = limit, masks = masks, emojis = emojis)
 }
 
-#' @title GetAttachMenuBotRequest
-#' @description Represents a request to get attach menu bot. This class inherits from TLRequest.
-#' @export
+#  @title GetAttachMenuBotRequest
+#  @description Represents a request to get attach menu bot. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetAttachMenuBotRequest <- R6::R6Class(
   "GetAttachMenuBotRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x77216192,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xdb33883d,
 
-    #' @description Initialize the GetAttachMenuBotRequest object.
-    #' @param bot The input bot user.
+    #  @description Initialize the GetAttachMenuBotRequest object.
+    #  @param bot The input bot user.
     initialize = function(bot) {
       self$bot <- bot
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$bot <- utils$getInputUser(client$getInputEntity(self$bot))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetAttachMenuBotRequest",
@@ -2856,8 +2944,8 @@ GetAttachMenuBotRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x92, 0x61, 0x21, 0x77)),
@@ -2877,26 +2965,28 @@ GetAttachMenuBotRequest$fromReader <- function(reader) {
   GetAttachMenuBotRequest$new(bot = bot)
 }
 
-#' @title GetAttachMenuBotsRequest
-#' @description Represents a request to get attach menu bots. This class inherits from TLRequest.
-#' @export
+#  @title GetAttachMenuBotsRequest
+#  @description Represents a request to get attach menu bots. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetAttachMenuBotsRequest <- R6::R6Class(
   "GetAttachMenuBotsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x16fcc2cb,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x842e23da,
 
-    #' @description Initialize the GetAttachMenuBotsRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetAttachMenuBotsRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetAttachMenuBotsRequest",
@@ -2904,8 +2994,8 @@ GetAttachMenuBotsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xcb, 0xc2, 0xfc, 0x16)),
@@ -2926,26 +3016,28 @@ GetAttachMenuBotsRequest$fromReader <- function(reader) {
   GetAttachMenuBotsRequest$new(hash = hash)
 }
 
-#' @title GetAttachedStickersRequest
-#' @description Represents a request to get attached stickers. This class inherits from TLRequest.
-#' @export
+#  @title GetAttachedStickersRequest
+#  @description Represents a request to get attached stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetAttachedStickersRequest <- R6::R6Class(
   "GetAttachedStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xcc5b67cc,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xcc125f6b,
 
-    #' @description Initialize the GetAttachedStickersRequest object.
-    #' @param media The input stickered media.
+    #  @description Initialize the GetAttachedStickersRequest object.
+    #  @param media The input stickered media.
     initialize = function(media) {
       self$media <- media
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetAttachedStickersRequest",
@@ -2953,8 +3045,8 @@ GetAttachedStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xcc, 0x67, 0x5b, 0xcc)),
@@ -2975,26 +3067,28 @@ GetAttachedStickersRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetAvailableEffectsRequest
-#' @description Represents a request to get available effects. This class inherits from TLRequest.
-#' @export
+#  @title GetAvailableEffectsRequest
+#  @description Represents a request to get available effects. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetAvailableEffectsRequest <- R6::R6Class(
   "GetAvailableEffectsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xdea20a39,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x4470d5bd,
 
-    #' @description Initialize the GetAvailableEffectsRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetAvailableEffectsRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetAvailableEffectsRequest",
@@ -3002,8 +3096,8 @@ GetAvailableEffectsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xde, 0xa2, 0x0a, 0x39)),
@@ -3023,26 +3117,28 @@ GetAvailableEffectsRequest$fromReader <- function(reader) {
   GetAvailableEffectsRequest$new(hash = hash)
 }
 
-#' @title GetAvailableReactionsRequest
-#' @description Represents a request to get available reactions. This class inherits from TLRequest.
-#' @export
+#  @title GetAvailableReactionsRequest
+#  @description Represents a request to get available reactions. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetAvailableReactionsRequest <- R6::R6Class(
   "GetAvailableReactionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x18dea0ac,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xe426ad82,
 
-    #' @description Initialize the GetAvailableReactionsRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetAvailableReactionsRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetAvailableReactionsRequest",
@@ -3050,8 +3146,8 @@ GetAvailableReactionsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x18, 0xde, 0xa0, 0xac)),
@@ -3071,28 +3167,30 @@ GetAvailableReactionsRequest$fromReader <- function(reader) {
   GetAvailableReactionsRequest$new(hash = hash)
 }
 
-#' @title GetBotAppRequest
-#' @description Represents a request to get bot app. This class inherits from TLRequest.
-#' @export
+#  @title GetBotAppRequest
+#  @description Represents a request to get bot app. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetBotAppRequest <- R6::R6Class(
   "GetBotAppRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x34fdc5c3,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8f7243a7,
 
-    #' @description Initialize the GetBotAppRequest object.
-    #' @param app The input bot app.
-    #' @param hash The hash value.
+    #  @description Initialize the GetBotAppRequest object.
+    #  @param app The input bot app.
+    #  @param hash The hash value.
     initialize = function(app, hash) {
       self$app <- app
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetBotAppRequest",
@@ -3101,8 +3199,8 @@ GetBotAppRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x34, 0xfd, 0xc5, 0xc3)),
@@ -3124,24 +3222,26 @@ GetBotAppRequest$fromReader <- function(reader) {
   GetBotAppRequest$new(app = app, hash = hash)
 }
 
-#' @title GetBotCallbackAnswerRequest
-#' @description Represents a request to get bot callback answer. This class inherits from TLRequest.
-#' @export
+#  @title GetBotCallbackAnswerRequest
+#  @description Represents a request to get bot callback answer. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetBotCallbackAnswerRequest <- R6::R6Class(
   "GetBotCallbackAnswerRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x9342ca07,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x6c4dd18c,
 
-    #' @description Initialize the GetBotCallbackAnswerRequest object.
-    #' @param peer The input peer.
-    #' @param msgId The message ID.
-    #' @param game Whether it's a game (optional).
-    #' @param data The data bytes (optional).
-    #' @param password The input check password SRP (optional).
+    #  @description Initialize the GetBotCallbackAnswerRequest object.
+    #  @param peer The input peer.
+    #  @param msgId The message ID.
+    #  @param game Whether it's a game (optional).
+    #  @param data The data bytes (optional).
+    #  @param password The input check password SRP (optional).
     initialize = function(peer, msgId, game = NULL, data = NULL, password = NULL) {
       self$peer <- peer
       self$msgId <- msgId
@@ -3150,15 +3250,15 @@ GetBotCallbackAnswerRequest <- R6::R6Class(
       self$password <- password
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetBotCallbackAnswerRequest",
@@ -3170,8 +3270,8 @@ GetBotCallbackAnswerRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$game) || !self$game) 0 else 2) |
         (if (is.null(self$data) || !length(self$data)) 0 else 1) |
@@ -3204,27 +3304,29 @@ GetBotCallbackAnswerRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetChatInviteImportersRequest
-#' @description Represents a request to get chat invite importers. This class inherits from TLRequest.
-#' @export
+#  @title GetChatInviteImportersRequest
+#  @description Represents a request to get chat invite importers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetChatInviteImportersRequest <- R6::R6Class(
   "GetChatInviteImportersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xdf04dd4e,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd9bc8aa6,
 
-    #' @description Initialize the GetChatInviteImportersRequest object.
-    #' @param peer The input peer.
-    #' @param offsetDate The offset date (optional).
-    #' @param offsetUser The offset user.
-    #' @param limit The limit value.
-    #' @param requested Whether requested (optional).
-    #' @param subscriptionExpired Whether subscription expired (optional).
-    #' @param link The link string (optional).
-    #' @param q The query string (optional).
+    #  @description Initialize the GetChatInviteImportersRequest object.
+    #  @param peer The input peer.
+    #  @param offsetDate The offset date (optional).
+    #  @param offsetUser The offset user.
+    #  @param limit The limit value.
+    #  @param requested Whether requested (optional).
+    #  @param subscriptionExpired Whether subscription expired (optional).
+    #  @param link The link string (optional).
+    #  @param q The query string (optional).
     initialize = function(peer, offsetDate = NULL, offsetUser, limit, requested = NULL, subscriptionExpired = NULL, link = NULL, q = NULL) {
       self$peer <- peer
       self$offsetDate <- offsetDate
@@ -3236,16 +3338,16 @@ GetChatInviteImportersRequest <- R6::R6Class(
       self$q <- q
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       self$offsetUser <- utils$getInputUser(client$getInputEntity(self$offsetUser))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetChatInviteImportersRequest",
@@ -3260,8 +3362,8 @@ GetChatInviteImportersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$requested) || !self$requested) 0 else 1) |
         (if (is.null(self$subscriptionExpired) || !self$subscriptionExpired) 0 else 8) |
@@ -3299,26 +3401,28 @@ GetChatInviteImportersRequest$fromReader <- function(reader) {
   GetChatInviteImportersRequest$new(peer = peer, offsetDate = offsetDate, offsetUser = offsetUser, limit = limit, requested = requested, subscriptionExpired = subscriptionExpired, link = link, q = q)
 }
 
-#' @title GetChatsRequest
-#' @description Represents a request to get chats. This class inherits from TLRequest.
-#' @export
+#  @title GetChatsRequest
+#  @description Represents a request to get chats. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetChatsRequest <- R6::R6Class(
   "GetChatsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x49e9528f,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x99d5cb14,
 
-    #' @description Initialize the GetChatsRequest object.
-    #' @param id The list of chat IDs.
+    #  @description Initialize the GetChatsRequest object.
+    #  @param id The list of chat IDs.
     initialize = function(id) {
       self$id <- id
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetChatsRequest",
@@ -3326,8 +3430,8 @@ GetChatsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x49, 0xe9, 0x52, 0x8f)),
@@ -3354,37 +3458,39 @@ GetChatsRequest$fromReader <- function(reader) {
   GetChatsRequest$new(id = id)
 }
 
-#' @title GetCommonChatsRequest
-#' @description Represents a request to get common chats. This class inherits from TLRequest.
-#' @export
+#  @title GetCommonChatsRequest
+#  @description Represents a request to get common chats. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetCommonChatsRequest <- R6::R6Class(
   "GetCommonChatsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xe40ca104,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x99d5cb14,
 
-    #' @description Initialize the GetCommonChatsRequest object.
-    #' @param userId The input user ID.
-    #' @param maxId The maximum ID.
-    #' @param limit The limit value.
+    #  @description Initialize the GetCommonChatsRequest object.
+    #  @param userId The input user ID.
+    #  @param maxId The maximum ID.
+    #  @param limit The limit value.
     initialize = function(userId, maxId, limit) {
       self$userId <- userId
       self$maxId <- maxId
       self$limit <- limit
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$userId <- utils$getInputUser(client$getInputEntity(self$userId))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetCommonChatsRequest",
@@ -3394,8 +3500,8 @@ GetCommonChatsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xe4, 0x0c, 0xa1, 0x04)),
@@ -3420,26 +3526,28 @@ GetCommonChatsRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetCustomEmojiDocumentsRequest
-#' @description Represents a request to get custom emoji documents. This class inherits from TLRequest.
-#' @export
+#  @title GetCustomEmojiDocumentsRequest
+#  @description Represents a request to get custom emoji documents. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetCustomEmojiDocumentsRequest <- R6::R6Class(
   "GetCustomEmojiDocumentsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xd9ab0f54,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xcc590e08,
 
-    #' @description Initialize the GetCustomEmojiDocumentsRequest object.
-    #' @param documentId The list of document IDs.
+    #  @description Initialize the GetCustomEmojiDocumentsRequest object.
+    #  @param documentId The list of document IDs.
     initialize = function(documentId) {
       self$documentId <- documentId
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetCustomEmojiDocumentsRequest",
@@ -3447,8 +3555,8 @@ GetCustomEmojiDocumentsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xd9, 0xab, 0x0f, 0x54)),
@@ -3475,26 +3583,28 @@ GetCustomEmojiDocumentsRequest$fromReader <- function(reader) {
   GetCustomEmojiDocumentsRequest$new(documentId = documentId)
 }
 
-#' @title GetDefaultHistoryTTLRequest
-#' @description Represents a request to get default history TTL. This class inherits from TLRequest.
-#' @export
+#  @title GetDefaultHistoryTTLRequest
+#  @description Represents a request to get default history TTL. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetDefaultHistoryTTLRequest <- R6::R6Class(
   "GetDefaultHistoryTTLRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x658b7188,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf00d3367,
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list("_" = "GetDefaultHistoryTTLRequest")
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       as.raw(c(0x65, 0x8b, 0x71, 0x88))
     }
@@ -3510,26 +3620,28 @@ GetDefaultHistoryTTLRequest$fromReader <- function(reader) {
   GetDefaultHistoryTTLRequest$new()
 }
 
-#' @title GetDefaultTagReactionsRequest
-#' @description Represents a request to get default tag reactions. This class inherits from TLRequest.
-#' @export
+#  @title GetDefaultTagReactionsRequest
+#  @description Represents a request to get default tag reactions. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetDefaultTagReactionsRequest <- R6::R6Class(
   "GetDefaultTagReactionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xbdf93428,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xadc38324,
 
-    #' @description Initialize the GetDefaultTagReactionsRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetDefaultTagReactionsRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetDefaultTagReactionsRequest",
@@ -3537,8 +3649,8 @@ GetDefaultTagReactionsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xbd, 0xf9, 0x34, 0x28)),
@@ -3558,28 +3670,30 @@ GetDefaultTagReactionsRequest$fromReader <- function(reader) {
   GetDefaultTagReactionsRequest$new(hash = hash)
 }
 
-#' @title GetDhConfigRequest
-#' @description Represents a request to get DH config. This class inherits from TLRequest.
-#' @export
+#  @title GetDhConfigRequest
+#  @description Represents a request to get DH config. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetDhConfigRequest <- R6::R6Class(
   "GetDhConfigRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x26cf8950,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xe488ed8b,
 
-    #' @description Initialize the GetDhConfigRequest object.
-    #' @param version The version.
-    #' @param randomLength The random length.
+    #  @description Initialize the GetDhConfigRequest object.
+    #  @param version The version.
+    #  @param randomLength The random length.
     initialize = function(version, randomLength) {
       self$version <- version
       self$randomLength <- randomLength
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetDhConfigRequest",
@@ -3588,8 +3702,8 @@ GetDhConfigRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x26, 0xcf, 0x89, 0x50)),
@@ -3612,26 +3726,28 @@ GetDhConfigRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetDialogFiltersRequest
-#' @description Represents a request to get dialog filters. This class inherits from TLRequest.
-#' @export
+#  @title GetDialogFiltersRequest
+#  @description Represents a request to get dialog filters. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetDialogFiltersRequest <- R6::R6Class(
   "GetDialogFiltersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xefd48c89,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xa5fff1b7,
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list("_" = "GetDialogFiltersRequest")
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       as.raw(c(0xef, 0xd4, 0x8c, 0x89))
     }
@@ -3647,35 +3763,37 @@ GetDialogFiltersRequest$fromReader <- function(reader) {
   GetDialogFiltersRequest$new()
 }
 
-#' @title GetDialogUnreadMarksRequest
-#' @description Represents a request to get dialog unread marks. This class inherits from TLRequest.
-#' @export
+#  @title GetDialogUnreadMarksRequest
+#  @description Represents a request to get dialog unread marks. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetDialogUnreadMarksRequest <- R6::R6Class(
   "GetDialogUnreadMarksRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x21202222,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xbec64ad9,
 
-    #' @description Initialize the GetDialogUnreadMarksRequest object.
-    #' @param parentPeer The optional input peer.
+    #  @description Initialize the GetDialogUnreadMarksRequest object.
+    #  @param parentPeer The optional input peer.
     initialize = function(parentPeer = NULL) {
       self$parentPeer <- parentPeer
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       if (!is.null(self$parentPeer)) {
         self$parentPeer <- utils$getInputPeer(client$getInputEntity(self$parentPeer))
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetDialogUnreadMarksRequest",
@@ -3683,8 +3801,8 @@ GetDialogUnreadMarksRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$parentPeer)) 0 else 1
       c(
@@ -3707,26 +3825,28 @@ GetDialogUnreadMarksRequest$fromReader <- function(reader) {
   GetDialogUnreadMarksRequest$new(parentPeer = parentPeer)
 }
 
-#' @title GetDialogsRequest
-#' @description Represents a request to get dialogs. This class inherits from TLRequest.
-#' @export
+#  @title GetDialogsRequest
+#  @description Represents a request to get dialogs. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetDialogsRequest <- R6::R6Class(
   "GetDialogsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xa0f4cb4f,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xe1b52ee,
 
-    #' @description Initialize the GetDialogsRequest object.
-    #' @param offsetDate The offset date.
-    #' @param offsetId The offset ID.
-    #' @param offsetPeer The offset peer.
-    #' @param limit The limit value.
-    #' @param hash The hash value.
-    #' @param excludePinned Whether to exclude pinned dialogs.
-    #' @param folderId The folder ID.
+    #  @description Initialize the GetDialogsRequest object.
+    #  @param offsetDate The offset date.
+    #  @param offsetId The offset ID.
+    #  @param offsetPeer The offset peer.
+    #  @param limit The limit value.
+    #  @param hash The hash value.
+    #  @param excludePinned Whether to exclude pinned dialogs.
+    #  @param folderId The folder ID.
     initialize = function(offsetDate, offsetId, offsetPeer, limit, hash, excludePinned = NULL, folderId = NULL) {
       self$offsetDate <- offsetDate
       self$offsetId <- offsetId
@@ -3737,15 +3857,15 @@ GetDialogsRequest <- R6::R6Class(
       self$folderId <- folderId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$offsetPeer <- utils$getInputPeer(client$getInputEntity(self$offsetPeer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetDialogsRequest",
@@ -3759,8 +3879,8 @@ GetDialogsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$excludePinned) || !self$excludePinned) 0 else 1) |
         (if (is.null(self$folderId)) 0 else 2)
@@ -3796,35 +3916,37 @@ GetDialogsRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetDiscussionMessageRequest
-#' @description Represents a request to get discussion message. This class inherits from TLRequest.
-#' @export
+#  @title GetDiscussionMessageRequest
+#  @description Represents a request to get discussion message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetDiscussionMessageRequest <- R6::R6Class(
   "GetDiscussionMessageRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x446972fd,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x53f8e3e8,
 
-    #' @description Initialize the GetDiscussionMessageRequest object.
-    #' @param peer The input peer.
-    #' @param msgId The message ID.
+    #  @description Initialize the GetDiscussionMessageRequest object.
+    #  @param peer The input peer.
+    #  @param msgId The message ID.
     initialize = function(peer, msgId) {
       self$peer <- peer
       self$msgId <- msgId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetDiscussionMessageRequest",
@@ -3833,8 +3955,8 @@ GetDiscussionMessageRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xfd, 0x72, 0x69, 0x44)),
@@ -3856,30 +3978,32 @@ GetDiscussionMessageRequest$fromReader <- function(reader) {
   GetDiscussionMessageRequest$new(peer = peer, msgId = msgId)
 }
 
-#' @title GetDocumentByHashRequest
-#' @description Represents a request to get document by hash. This class inherits from TLRequest.
-#' @export
+#  @title GetDocumentByHashRequest
+#  @description Represents a request to get document by hash. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetDocumentByHashRequest <- R6::R6Class(
   "GetDocumentByHashRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xb1f2061f,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x211fe820,
 
-    #' @description Initialize the GetDocumentByHashRequest object.
-    #' @param sha256 The SHA256 hash bytes.
-    #' @param size The size.
-    #' @param mimeType The MIME type.
+    #  @description Initialize the GetDocumentByHashRequest object.
+    #  @param sha256 The SHA256 hash bytes.
+    #  @param size The size.
+    #  @param mimeType The MIME type.
     initialize = function(sha256, size, mimeType) {
       self$sha256 <- sha256
       self$size <- size
       self$mimeType <- mimeType
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetDocumentByHashRequest",
@@ -3889,8 +4013,8 @@ GetDocumentByHashRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x1f, 0x06, 0xf2, 0xb1)),
@@ -3914,26 +4038,28 @@ GetDocumentByHashRequest$fromReader <- function(reader) {
   GetDocumentByHashRequest$new(sha256 = sha256, size = size, mimeType = mimeType)
 }
 
-#' @title GetEmojiGroupsRequest
-#' @description Represents a request to get emoji groups. This class inherits from TLRequest.
-#' @export
+#  @title GetEmojiGroupsRequest
+#  @description Represents a request to get emoji groups. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetEmojiGroupsRequest <- R6::R6Class(
   "GetEmojiGroupsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x7488ce5b,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x7eca55d9,
 
-    #' @description Initialize the GetEmojiGroupsRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetEmojiGroupsRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetEmojiGroupsRequest",
@@ -3941,8 +4067,8 @@ GetEmojiGroupsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x5b, 0xce, 0x88, 0x74)),
@@ -3962,26 +4088,28 @@ GetEmojiGroupsRequest$fromReader <- function(reader) {
   GetEmojiGroupsRequest$new(hash = hash)
 }
 
-#' @title GetEmojiKeywordsRequest
-#' @description Represents a request to get emoji keywords. This class inherits from TLRequest.
-#' @export
+#  @title GetEmojiKeywordsRequest
+#  @description Represents a request to get emoji keywords. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetEmojiKeywordsRequest <- R6::R6Class(
   "GetEmojiKeywordsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x35a0e062,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd279c672,
 
-    #' @description Initialize the GetEmojiKeywordsRequest object.
-    #' @param langCode The language code.
+    #  @description Initialize the GetEmojiKeywordsRequest object.
+    #  @param langCode The language code.
     initialize = function(langCode) {
       self$langCode <- langCode
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetEmojiKeywordsRequest",
@@ -3989,8 +4117,8 @@ GetEmojiKeywordsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x62, 0xe0, 0xa0, 0x35)),
@@ -4011,28 +4139,30 @@ GetEmojiKeywordsRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetEmojiKeywordsDifferenceRequest
-#' @description Represents a request to get emoji keywords difference. This class inherits from TLRequest.
-#' @export
+#  @title GetEmojiKeywordsDifferenceRequest
+#  @description Represents a request to get emoji keywords difference. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetEmojiKeywordsDifferenceRequest <- R6::R6Class(
   "GetEmojiKeywordsDifferenceRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x1508b6af,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd279c672,
 
-    #' @description Initialize the GetEmojiKeywordsDifferenceRequest object.
-    #' @param langCode The language code.
-    #' @param fromVersion The version to get difference from.
+    #  @description Initialize the GetEmojiKeywordsDifferenceRequest object.
+    #  @param langCode The language code.
+    #  @param fromVersion The version to get difference from.
     initialize = function(langCode, fromVersion) {
       self$langCode <- langCode
       self$fromVersion <- fromVersion
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetEmojiKeywordsDifferenceRequest",
@@ -4041,8 +4171,8 @@ GetEmojiKeywordsDifferenceRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xaf, 0xb6, 0x08, 0x15)),
@@ -4064,26 +4194,28 @@ GetEmojiKeywordsDifferenceRequest$fromReader <- function(reader) {
   GetEmojiKeywordsDifferenceRequest$new(langCode = langCode, fromVersion = fromVersion)
 }
 
-#' @title GetEmojiKeywordsLanguagesRequest
-#' @description Represents a request to get emoji keywords languages. This class inherits from TLRequest.
-#' @export
+#  @title GetEmojiKeywordsLanguagesRequest
+#  @description Represents a request to get emoji keywords languages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetEmojiKeywordsLanguagesRequest <- R6::R6Class(
   "GetEmojiKeywordsLanguagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x4e9963b2,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xe795d387,
 
-    #' @description Initialize the GetEmojiKeywordsLanguagesRequest object.
-    #' @param langCodes The list of language codes.
+    #  @description Initialize the GetEmojiKeywordsLanguagesRequest object.
+    #  @param langCodes The list of language codes.
     initialize = function(langCodes) {
       self$langCodes <- langCodes
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetEmojiKeywordsLanguagesRequest",
@@ -4091,8 +4223,8 @@ GetEmojiKeywordsLanguagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xb2, 0x63, 0x99, 0x4e)),
@@ -4119,26 +4251,28 @@ GetEmojiKeywordsLanguagesRequest$fromReader <- function(reader) {
   GetEmojiKeywordsLanguagesRequest$new(langCodes = langCodes)
 }
 
-#' @title GetEmojiProfilePhotoGroupsRequest
-#' @description Represents a request to get emoji profile photo groups. This class inherits from TLRequest.
-#' @export
+#  @title GetEmojiProfilePhotoGroupsRequest
+#  @description Represents a request to get emoji profile photo groups. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetEmojiProfilePhotoGroupsRequest <- R6::R6Class(
   "GetEmojiProfilePhotoGroupsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x21a548f3,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x7eca55d9,
 
-    #' @description Initialize the GetEmojiProfilePhotoGroupsRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetEmojiProfilePhotoGroupsRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetEmojiProfilePhotoGroupsRequest",
@@ -4146,8 +4280,8 @@ GetEmojiProfilePhotoGroupsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xf3, 0x48, 0xa5, 0x21)),
@@ -4167,26 +4301,28 @@ GetEmojiProfilePhotoGroupsRequest$fromReader <- function(reader) {
   GetEmojiProfilePhotoGroupsRequest$new(hash = hash)
 }
 
-#' @title GetEmojiStatusGroupsRequest
-#' @description Represents a request to get emoji status groups. This class inherits from TLRequest.
-#' @export
+#  @title GetEmojiStatusGroupsRequest
+#  @description Represents a request to get emoji status groups. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetEmojiStatusGroupsRequest <- R6::R6Class(
   "GetEmojiStatusGroupsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x2ecd56cd,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x7eca55d9,
 
-    #' @description Initialize the GetEmojiStatusGroupsRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetEmojiStatusGroupsRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetEmojiStatusGroupsRequest",
@@ -4194,8 +4330,8 @@ GetEmojiStatusGroupsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xcd, 0x56, 0xcd, 0x2e)),
@@ -4216,26 +4352,28 @@ GetEmojiStatusGroupsRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetEmojiStickerGroupsRequest
-#' @description Represents a request to get emoji sticker groups. This class inherits from TLRequest.
-#' @export
+#  @title GetEmojiStickerGroupsRequest
+#  @description Represents a request to get emoji sticker groups. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetEmojiStickerGroupsRequest <- R6::R6Class(
   "GetEmojiStickerGroupsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x1dd840f5,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x7eca55d9,
 
-    #' @description Initialize the GetEmojiStickerGroupsRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetEmojiStickerGroupsRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetEmojiStickerGroupsRequest",
@@ -4243,8 +4381,8 @@ GetEmojiStickerGroupsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xf5, 0x40, 0xd8, 0x1d)),
@@ -4264,26 +4402,28 @@ GetEmojiStickerGroupsRequest$fromReader <- function(reader) {
   GetEmojiStickerGroupsRequest$new(hash = hash)
 }
 
-#' @title GetEmojiStickersRequest
-#' @description Represents a request to get emoji stickers. This class inherits from TLRequest.
-#' @export
+#  @title GetEmojiStickersRequest
+#  @description Represents a request to get emoji stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetEmojiStickersRequest <- R6::R6Class(
   "GetEmojiStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xfbfca18f,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x45834829,
 
-    #' @description Initialize the GetEmojiStickersRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetEmojiStickersRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetEmojiStickersRequest",
@@ -4291,8 +4431,8 @@ GetEmojiStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x8f, 0xa1, 0xfc, 0xfb)),
@@ -4312,26 +4452,28 @@ GetEmojiStickersRequest$fromReader <- function(reader) {
   GetEmojiStickersRequest$new(hash = hash)
 }
 
-#' @title GetEmojiURLRequest
-#' @description Represents a request to get emoji URL. This class inherits from TLRequest.
-#' @export
+#  @title GetEmojiURLRequest
+#  @description Represents a request to get emoji URL. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetEmojiURLRequest <- R6::R6Class(
   "GetEmojiURLRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xd5b10c26,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x1fa08a19,
 
-    #' @description Initialize the GetEmojiURLRequest object.
-    #' @param langCode The language code.
+    #  @description Initialize the GetEmojiURLRequest object.
+    #  @param langCode The language code.
     initialize = function(langCode) {
       self$langCode <- langCode
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetEmojiURLRequest",
@@ -4339,8 +4481,8 @@ GetEmojiURLRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x26, 0x0c, 0xb1, 0xd5)),
@@ -4360,35 +4502,37 @@ GetEmojiURLRequest$fromReader <- function(reader) {
   GetEmojiURLRequest$new(langCode = langCode)
 }
 
-#' @title GetExportedChatInviteRequest
-#' @description Represents a request to get exported chat invite. This class inherits from TLRequest.
-#' @export
+#  @title GetExportedChatInviteRequest
+#  @description Represents a request to get exported chat invite. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetExportedChatInviteRequest <- R6::R6Class(
   "GetExportedChatInviteRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x73746f5c,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x82dcd4ca,
 
-    #' @description Initialize the GetExportedChatInviteRequest object.
-    #' @param peer The input peer.
-    #' @param link The link string.
+    #  @description Initialize the GetExportedChatInviteRequest object.
+    #  @param peer The input peer.
+    #  @param link The link string.
     initialize = function(peer, link) {
       self$peer <- peer
       self$link <- link
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetExportedChatInviteRequest",
@@ -4397,8 +4541,8 @@ GetExportedChatInviteRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x5c, 0x6f, 0x74, 0x73)),
@@ -4421,25 +4565,27 @@ GetExportedChatInviteRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetExportedChatInvitesRequest
-#' @description Represents a request to get exported chat invites. This class inherits from TLRequest.
-#' @export
+#  @title GetExportedChatInvitesRequest
+#  @description Represents a request to get exported chat invites. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetExportedChatInvitesRequest <- R6::R6Class(
   "GetExportedChatInvitesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xa2b5a3f6,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x603d3871,
 
-    #' @description Initialize the GetExportedChatInvitesRequest object.
-    #' @param peer The input peer.
-    #' @param adminId The input admin user.
-    #' @param limit The limit value.
-    #' @param revoked Whether revoked.
-    #' @param offsetDate The offset date.
-    #' @param offsetLink The offset link.
+    #  @description Initialize the GetExportedChatInvitesRequest object.
+    #  @param peer The input peer.
+    #  @param adminId The input admin user.
+    #  @param limit The limit value.
+    #  @param revoked Whether revoked.
+    #  @param offsetDate The offset date.
+    #  @param offsetLink The offset link.
     initialize = function(peer, adminId, limit, revoked = NULL, offsetDate = NULL, offsetLink = NULL) {
       self$peer <- peer
       self$adminId <- adminId
@@ -4449,16 +4595,16 @@ GetExportedChatInvitesRequest <- R6::R6Class(
       self$offsetLink <- offsetLink
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       self$adminId <- utils$getInputUser(client$getInputEntity(self$adminId))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetExportedChatInvitesRequest",
@@ -4471,8 +4617,8 @@ GetExportedChatInvitesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       stopifnot(
         ((self$offsetDate || !is.null(self$offsetDate)) && (self$offsetLink || !is.null(self$offsetLink))) ||
@@ -4511,35 +4657,37 @@ GetExportedChatInvitesRequest$fromReader <- function(reader) {
   GetExportedChatInvitesRequest$new(peer = peer, adminId = adminId, limit = limit, revoked = revoked, offsetDate = offsetDate, offsetLink = offsetLink)
 }
 
-#' @title GetExtendedMediaRequest
-#' @description Represents a request to get extended media. This class inherits from TLRequest.
-#' @export
+#  @title GetExtendedMediaRequest
+#  @description Represents a request to get extended media. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetExtendedMediaRequest <- R6::R6Class(
   "GetExtendedMediaRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x84f80814,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the GetExtendedMediaRequest object.
-    #' @param peer The input peer.
-    #' @param id The list of message IDs.
+    #  @description Initialize the GetExtendedMediaRequest object.
+    #  @param peer The input peer.
+    #  @param id The list of message IDs.
     initialize = function(peer, id) {
       self$peer <- peer
       self$id <- id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetExtendedMediaRequest",
@@ -4548,8 +4696,8 @@ GetExtendedMediaRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x14, 0x08, 0xf8, 0x84)),
@@ -4578,35 +4726,37 @@ GetExtendedMediaRequest$fromReader <- function(reader) {
   GetExtendedMediaRequest$new(peer = peer, id = id)
 }
 
-#' @title GetFactCheckRequest
-#' @description Represents a request to get fact check. This class inherits from TLRequest.
-#' @export
+#  @title GetFactCheckRequest
+#  @description Represents a request to get fact check. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetFactCheckRequest <- R6::R6Class(
   "GetFactCheckRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xb9cdc5ee,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xbba61813,
 
-    #' @description Initialize the GetFactCheckRequest object.
-    #' @param peer The input peer.
-    #' @param msgId The list of message IDs.
+    #  @description Initialize the GetFactCheckRequest object.
+    #  @param peer The input peer.
+    #  @param msgId The list of message IDs.
     initialize = function(peer, msgId) {
       self$peer <- peer
       self$msgId <- msgId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetFactCheckRequest",
@@ -4615,8 +4765,8 @@ GetFactCheckRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xee, 0xc5, 0xcd, 0xb9)),
@@ -4646,26 +4796,28 @@ GetFactCheckRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetFavedStickersRequest
-#' @description Represents a request to get faved stickers. This class inherits from TLRequest.
-#' @export
+#  @title GetFavedStickersRequest
+#  @description Represents a request to get faved stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetFavedStickersRequest <- R6::R6Class(
   "GetFavedStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x4f1aaa9,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8e736fb9,
 
-    #' @description Initialize the GetFavedStickersRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetFavedStickersRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetFavedStickersRequest",
@@ -4673,8 +4825,8 @@ GetFavedStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xa9, 0xaa, 0xf1, 0x04)),
@@ -4694,26 +4846,28 @@ GetFavedStickersRequest$fromReader <- function(reader) {
   GetFavedStickersRequest$new(hash = hash)
 }
 
-#' @title GetFeaturedEmojiStickersRequest
-#' @description Represents a request to get featured emoji stickers. This class inherits from TLRequest.
-#' @export
+#  @title GetFeaturedEmojiStickersRequest
+#  @description Represents a request to get featured emoji stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetFeaturedEmojiStickersRequest <- R6::R6Class(
   "GetFeaturedEmojiStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xecf6736,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x2614b722,
 
-    #' @description Initialize the GetFeaturedEmojiStickersRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetFeaturedEmojiStickersRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetFeaturedEmojiStickersRequest",
@@ -4721,8 +4875,8 @@ GetFeaturedEmojiStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x36, 0x67, 0xcf, 0x0e)),
@@ -4742,26 +4896,28 @@ GetFeaturedEmojiStickersRequest$fromReader <- function(reader) {
   GetFeaturedEmojiStickersRequest$new(hash = hash)
 }
 
-#' @title GetFeaturedStickersRequest
-#' @description Represents a request to get featured stickers. This class inherits from TLRequest.
-#' @export
+#  @title GetFeaturedStickersRequest
+#  @description Represents a request to get featured stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetFeaturedStickersRequest <- R6::R6Class(
   "GetFeaturedStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x64780b14,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x2614b722,
 
-    #' @description Initialize the GetFeaturedStickersRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetFeaturedStickersRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetFeaturedStickersRequest",
@@ -4769,8 +4925,8 @@ GetFeaturedStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x14, 0x0b, 0x78, 0x64)),
@@ -4790,26 +4946,28 @@ GetFeaturedStickersRequest$fromReader <- function(reader) {
   GetFeaturedStickersRequest$new(hash = hash)
 }
 
-#' @title GetFullChatRequest
-#' @description Represents a request to get full chat information. This class inherits from TLRequest.
-#' @export
+#  @title GetFullChatRequest
+#  @description Represents a request to get full chat information. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetFullChatRequest <- R6::R6Class(
   "GetFullChatRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xaeb00b34,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x225a5109,
 
-    #' @description Initialize the GetFullChatRequest object.
-    #' @param chatId The chat ID.
+    #  @description Initialize the GetFullChatRequest object.
+    #  @param chatId The chat ID.
     initialize = function(chatId) {
       self$chatId <- chatId
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetFullChatRequest",
@@ -4817,8 +4975,8 @@ GetFullChatRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x34, 0x0b, 0xb0, 0xae)),
@@ -4839,38 +4997,40 @@ GetFullChatRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetGameHighScoresRequest
-#' @description Represents a request to get game high scores. This class inherits from TLRequest.
-#' @export
+#  @title GetGameHighScoresRequest
+#  @description Represents a request to get game high scores. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetGameHighScoresRequest <- R6::R6Class(
   "GetGameHighScoresRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xe822649d,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x6ccd95fd,
 
-    #' @description Initialize the GetGameHighScoresRequest object.
-    #' @param peer The input peer.
-    #' @param id The message ID.
-    #' @param userId The input user ID.
+    #  @description Initialize the GetGameHighScoresRequest object.
+    #  @param peer The input peer.
+    #  @param id The message ID.
+    #  @param userId The input user ID.
     initialize = function(peer, id, userId) {
       self$peer <- peer
       self$id <- id
       self$userId <- userId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       self$userId <- utils$getInputUser(client$getInputEntity(self$userId))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetGameHighScoresRequest",
@@ -4880,8 +5040,8 @@ GetGameHighScoresRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x9d, 0xd2, 0x22, 0xe8)),
@@ -4905,27 +5065,29 @@ GetGameHighScoresRequest$fromReader <- function(reader) {
   GetGameHighScoresRequest$new(peer = peer, id = id, userId = userId)
 }
 
-#' @title GetHistoryRequest
-#' @description Represents a request to get history. This class inherits from TLRequest.
-#' @export
+#  @title GetHistoryRequest
+#  @description Represents a request to get history. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetHistoryRequest <- R6::R6Class(
   "GetHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x4423e6c5,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd4b40b5e,
 
-    #' @description Initialize the GetHistoryRequest object.
-    #' @param peer The input peer.
-    #' @param offsetId The offset ID.
-    #' @param offsetDate The offset date.
-    #' @param addOffset The add offset.
-    #' @param limit The limit.
-    #' @param maxId The maximum ID.
-    #' @param minId The minimum ID.
-    #' @param hash The hash value.
+    #  @description Initialize the GetHistoryRequest object.
+    #  @param peer The input peer.
+    #  @param offsetId The offset ID.
+    #  @param offsetDate The offset date.
+    #  @param addOffset The add offset.
+    #  @param limit The limit.
+    #  @param maxId The maximum ID.
+    #  @param minId The minimum ID.
+    #  @param hash The hash value.
     initialize = function(peer, offsetId, offsetDate, addOffset, limit, maxId, minId, hash) {
       self$peer <- peer
       self$offsetId <- offsetId
@@ -4937,15 +5099,15 @@ GetHistoryRequest <- R6::R6Class(
       self$hash <- hash
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetHistoryRequest",
@@ -4960,8 +5122,8 @@ GetHistoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xc5, 0xe6, 0x23, 0x44)),
@@ -4996,24 +5158,26 @@ GetHistoryRequest$fromReader <- function(reader) {
   GetHistoryRequest$new(peer = peer, offsetId = offsetId, offsetDate = offsetDate, addOffset = addOffset, limit = limit, maxId = maxId, minId = minId, hash = hash)
 }
 
-#' @title GetInlineBotResultsRequest
-#' @description Represents a request to get inline bot results. This class inherits from TLRequest.
-#' @export
+#  @title GetInlineBotResultsRequest
+#  @description Represents a request to get inline bot results. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetInlineBotResultsRequest <- R6::R6Class(
   "GetInlineBotResultsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x514e999d,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x3ed4d9c9,
 
-    #' @description Initialize the GetInlineBotResultsRequest object.
-    #' @param bot The input bot user.
-    #' @param peer The input peer.
-    #' @param query The query string.
-    #' @param offset The offset string.
-    #' @param geoPoint Optional geo point.
+    #  @description Initialize the GetInlineBotResultsRequest object.
+    #  @param bot The input bot user.
+    #  @param peer The input peer.
+    #  @param query The query string.
+    #  @param offset The offset string.
+    #  @param geoPoint Optional geo point.
     initialize = function(bot, peer, query, offset, geoPoint = NULL) {
       self$bot <- bot
       self$peer <- peer
@@ -5022,16 +5186,16 @@ GetInlineBotResultsRequest <- R6::R6Class(
       self$geoPoint <- geoPoint
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$bot <- utils$getInputUser(client$getInputEntity(self$bot))
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetInlineBotResultsRequest",
@@ -5043,8 +5207,8 @@ GetInlineBotResultsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$geoPoint) || !length(self$geoPoint)) 0L else 1L
       c(
@@ -5076,35 +5240,37 @@ GetInlineBotResultsRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetInlineGameHighScoresRequest
-#' @description Represents a request to get inline game high scores. This class inherits from TLRequest.
-#' @export
+#  @title GetInlineGameHighScoresRequest
+#  @description Represents a request to get inline game high scores. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetInlineGameHighScoresRequest <- R6::R6Class(
   "GetInlineGameHighScoresRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xf635e1b,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x6ccd95fd,
 
-    #' @description Initialize the GetInlineGameHighScoresRequest object.
-    #' @param id The input bot inline message ID.
-    #' @param userId The input user ID.
+    #  @description Initialize the GetInlineGameHighScoresRequest object.
+    #  @param id The input bot inline message ID.
+    #  @param userId The input user ID.
     initialize = function(id, userId) {
       self$id <- id
       self$userId <- userId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$userId <- utils$getInputUser(client$getInputEntity(self$userId))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetInlineGameHighScoresRequest",
@@ -5113,8 +5279,8 @@ GetInlineGameHighScoresRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x1b, 0x5e, 0x63, 0x0f)),
@@ -5136,26 +5302,28 @@ GetInlineGameHighScoresRequest$fromReader <- function(reader) {
   GetInlineGameHighScoresRequest$new(id = id, userId = userId)
 }
 
-#' @title GetMaskStickersRequest
-#' @description Represents a request to get mask stickers. This class inherits from TLRequest.
-#' @export
+#  @title GetMaskStickersRequest
+#  @description Represents a request to get mask stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetMaskStickersRequest <- R6::R6Class(
   "GetMaskStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x640f82b8,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x45834829,
 
-    #' @description Initialize the GetMaskStickersRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetMaskStickersRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetMaskStickersRequest",
@@ -5163,8 +5331,8 @@ GetMaskStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xb8, 0x82, 0x0f, 0x64)),
@@ -5184,35 +5352,37 @@ GetMaskStickersRequest$fromReader <- function(reader) {
   GetMaskStickersRequest$new(hash = hash)
 }
 
-#' @title GetMessageEditDataRequest
-#' @description Represents a request to get message edit data. This class inherits from TLRequest.
-#' @export
+#  @title GetMessageEditDataRequest
+#  @description Represents a request to get message edit data. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetMessageEditDataRequest <- R6::R6Class(
   "GetMessageEditDataRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xfda68d36,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xfb47949d,
 
-    #' @description Initialize the GetMessageEditDataRequest object.
-    #' @param peer The input peer.
-    #' @param id The message ID.
+    #  @description Initialize the GetMessageEditDataRequest object.
+    #  @param peer The input peer.
+    #  @param id The message ID.
     initialize = function(peer, id) {
       self$peer <- peer
       self$id <- id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetMessageEditDataRequest",
@@ -5221,8 +5391,8 @@ GetMessageEditDataRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x36, 0x8d, 0xa6, 0xfd)),
@@ -5245,24 +5415,26 @@ GetMessageEditDataRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetMessageReactionsListRequest
-#' @description Represents a request to get message reactions list. This class inherits from TLRequest.
-#' @export
+#  @title GetMessageReactionsListRequest
+#  @description Represents a request to get message reactions list. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetMessageReactionsListRequest <- R6::R6Class(
   "GetMessageReactionsListRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x461b3f48,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x60fce5e6,
 
-    #' @description Initialize the GetMessageReactionsListRequest object.
-    #' @param peer The input peer.
-    #' @param id The message ID.
-    #' @param limit The limit value.
-    #' @param reaction Optional reaction.
-    #' @param offset Optional offset string.
+    #  @description Initialize the GetMessageReactionsListRequest object.
+    #  @param peer The input peer.
+    #  @param id The message ID.
+    #  @param limit The limit value.
+    #  @param reaction Optional reaction.
+    #  @param offset Optional offset string.
     initialize = function(peer, id, limit, reaction = NULL, offset = NULL) {
       self$peer <- peer
       self$id <- id
@@ -5271,15 +5443,15 @@ GetMessageReactionsListRequest <- R6::R6Class(
       self$offset <- offset
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetMessageReactionsListRequest",
@@ -5291,8 +5463,8 @@ GetMessageReactionsListRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$reaction) || !length(self$reaction)) 0L else 1L) | (if (is.null(self$offset) || !nchar(self$offset)) 0L else 2L)
       c(
@@ -5323,35 +5495,37 @@ GetMessageReactionsListRequest$fromReader <- function(reader) {
   GetMessageReactionsListRequest$new(peer = peer, id = id, limit = limit, reaction = reaction, offset = offset)
 }
 
-#' @title GetMessageReadParticipantsRequest
-#' @description Represents a request to get message read participants. This class inherits from TLRequest.
-#' @export
+#  @title GetMessageReadParticipantsRequest
+#  @description Represents a request to get message read participants. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetMessageReadParticipantsRequest <- R6::R6Class(
   "GetMessageReadParticipantsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x31c1c44f,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x21ca455b,
 
-    #' @description Initialize the GetMessageReadParticipantsRequest object.
-    #' @param peer The input peer.
-    #' @param msgId The message ID.
+    #  @description Initialize the GetMessageReadParticipantsRequest object.
+    #  @param peer The input peer.
+    #  @param msgId The message ID.
     initialize = function(peer, msgId) {
       self$peer <- peer
       self$msgId <- msgId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetMessageReadParticipantsRequest",
@@ -5360,8 +5534,8 @@ GetMessageReadParticipantsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x4f, 0xc4, 0xc1, 0x31)),
@@ -5383,27 +5557,29 @@ GetMessageReadParticipantsRequest$fromReader <- function(reader) {
   GetMessageReadParticipantsRequest$new(peer = peer, msgId = msgId)
 }
 
-#' @title GetMessagesRequest
-#' @description Represents a request to get messages. This class inherits from TLRequest.
-#' @export
+#  @title GetMessagesRequest
+#  @description Represents a request to get messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetMessagesRequest <- R6::R6Class(
   "GetMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x63c66506,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd4b40b5e,
 
-    #' @description Initialize the GetMessagesRequest object.
-    #' @param id The list of input messages.
+    #  @description Initialize the GetMessagesRequest object.
+    #  @param id The list of input messages.
     initialize = function(id) {
       self$id <- id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       tmp <- list()
       for (x in self$id) {
@@ -5412,8 +5588,8 @@ GetMessagesRequest <- R6::R6Class(
       self$id <- tmp
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetMessagesRequest",
@@ -5421,8 +5597,8 @@ GetMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x06, 0x65, 0xc6, 0x63)),
@@ -5450,35 +5626,37 @@ GetMessagesRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetMessagesReactionsRequest
-#' @description Represents a request to get messages reactions. This class inherits from TLRequest.
-#' @export
+#  @title GetMessagesReactionsRequest
+#  @description Represents a request to get messages reactions. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetMessagesReactionsRequest <- R6::R6Class(
   "GetMessagesReactionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x8bba90e6,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the GetMessagesReactionsRequest object.
-    #' @param peer The input peer.
-    #' @param id The list of message IDs.
+    #  @description Initialize the GetMessagesReactionsRequest object.
+    #  @param peer The input peer.
+    #  @param id The list of message IDs.
     initialize = function(peer, id) {
       self$peer <- peer
       self$id <- id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetMessagesReactionsRequest",
@@ -5487,8 +5665,8 @@ GetMessagesReactionsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xe6, 0x90, 0xba, 0x8b)),
@@ -5517,37 +5695,39 @@ GetMessagesReactionsRequest$fromReader <- function(reader) {
   GetMessagesReactionsRequest$new(peer = peer, id = id)
 }
 
-#' @title GetMessagesViewsRequest
-#' @description Represents a request to get messages views. This class inherits from TLRequest.
-#' @export
+#  @title GetMessagesViewsRequest
+#  @description Represents a request to get messages views. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetMessagesViewsRequest <- R6::R6Class(
   "GetMessagesViewsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x5784d3e1,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xafb5eb9c,
 
-    #' @description Initialize the GetMessagesViewsRequest object.
-    #' @param peer The input peer.
-    #' @param id The list of message IDs.
-    #' @param increment Whether to increment views.
+    #  @description Initialize the GetMessagesViewsRequest object.
+    #  @param peer The input peer.
+    #  @param id The list of message IDs.
+    #  @param increment Whether to increment views.
     initialize = function(peer, id, increment) {
       self$peer <- peer
       self$id <- id
       self$increment <- increment
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetMessagesViewsRequest",
@@ -5557,8 +5737,8 @@ GetMessagesViewsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xe1, 0xd3, 0x84, 0x57)),
@@ -5589,28 +5769,30 @@ GetMessagesViewsRequest$fromReader <- function(reader) {
   GetMessagesViewsRequest$new(peer = peer, id = id, increment = increment)
 }
 
-#' @title GetMyStickersRequest
-#' @description Represents a request to get my stickers. This class inherits from TLRequest.
-#' @export
+#  @title GetMyStickersRequest
+#  @description Represents a request to get my stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetMyStickersRequest <- R6::R6Class(
   "GetMyStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xd0b5e1fc,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xb1b4350a,
 
-    #' @description Initialize the GetMyStickersRequest object.
-    #' @param offsetId The offset ID.
-    #' @param limit The limit value.
+    #  @description Initialize the GetMyStickersRequest object.
+    #  @param offsetId The offset ID.
+    #  @param limit The limit value.
     initialize = function(offsetId, limit) {
       self$offsetId <- offsetId
       self$limit <- limit
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetMyStickersRequest",
@@ -5619,8 +5801,8 @@ GetMyStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xfc, 0xe1, 0xb5, 0xd0)),
@@ -5643,30 +5825,32 @@ GetMyStickersRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetOldFeaturedStickersRequest
-#' @description Represents a request to get old featured stickers. This class inherits from TLRequest.
-#' @export
+#  @title GetOldFeaturedStickersRequest
+#  @description Represents a request to get old featured stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetOldFeaturedStickersRequest <- R6::R6Class(
   "GetOldFeaturedStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x7ed094a1,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x2614b722,
 
-    #' @description Initialize the GetOldFeaturedStickersRequest object.
-    #' @param offset The offset value.
-    #' @param limit The limit value.
-    #' @param hash The hash value.
+    #  @description Initialize the GetOldFeaturedStickersRequest object.
+    #  @param offset The offset value.
+    #  @param limit The limit value.
+    #  @param hash The hash value.
     initialize = function(offset, limit, hash) {
       self$offset <- offset
       self$limit <- limit
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetOldFeaturedStickersRequest",
@@ -5676,8 +5860,8 @@ GetOldFeaturedStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xa1, 0x94, 0xd0, 0x7e)),
@@ -5701,33 +5885,35 @@ GetOldFeaturedStickersRequest$fromReader <- function(reader) {
   GetOldFeaturedStickersRequest$new(offset = offset, limit = limit, hash = hash)
 }
 
-#' @title GetOnlinesRequest
-#' @description Represents a request to get onlines. This class inherits from TLRequest.
-#' @export
+#  @title GetOnlinesRequest
+#  @description Represents a request to get onlines. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetOnlinesRequest <- R6::R6Class(
   "GetOnlinesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x6e2be050,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8c81903a,
 
-    #' @description Initialize the GetOnlinesRequest object.
-    #' @param peer The input peer.
+    #  @description Initialize the GetOnlinesRequest object.
+    #  @param peer The input peer.
     initialize = function(peer) {
       self$peer <- peer
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetOnlinesRequest",
@@ -5735,8 +5921,8 @@ GetOnlinesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x50, 0xe0, 0x2b, 0x6e)),
@@ -5756,35 +5942,37 @@ GetOnlinesRequest$fromReader <- function(reader) {
   GetOnlinesRequest$new(peer = peer)
 }
 
-#' @title GetOutboxReadDateRequest
-#' @description Represents a request to get outbox read date. This class inherits from TLRequest.
-#' @export
+#  @title GetOutboxReadDateRequest
+#  @description Represents a request to get outbox read date. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetOutboxReadDateRequest <- R6::R6Class(
   "GetOutboxReadDateRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x8c4bfe5d,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x6f5183c6,
 
-    #' @description Initialize the GetOutboxReadDateRequest object.
-    #' @param peer The input peer.
-    #' @param msgId The message ID.
+    #  @description Initialize the GetOutboxReadDateRequest object.
+    #  @param peer The input peer.
+    #  @param msgId The message ID.
     initialize = function(peer, msgId) {
       self$peer <- peer
       self$msgId <- msgId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetOutboxReadDateRequest",
@@ -5793,8 +5981,8 @@ GetOutboxReadDateRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x5d, 0xfe, 0x4b, 0x8c)),
@@ -5816,28 +6004,30 @@ GetOutboxReadDateRequest$fromReader <- function(reader) {
   GetOutboxReadDateRequest$new(peer = peer, msgId = msgId)
 }
 
-#' @title GetPaidReactionPrivacyRequest
-#' @description Represents a request to get paid reaction privacy. This class inherits from TLRequest.
-#' @export
+#  @title GetPaidReactionPrivacyRequest
+#  @description Represents a request to get paid reaction privacy. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetPaidReactionPrivacyRequest <- R6::R6Class(
   "GetPaidReactionPrivacyRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x472455aa,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetPaidReactionPrivacyRequest"
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       as.raw(c(0xaa, 0x55, 0x24, 0x47))
     }
@@ -5854,27 +6044,29 @@ GetPaidReactionPrivacyRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetPeerDialogsRequest
-#' @description Represents a request to get peer dialogs. This class inherits from TLRequest.
-#' @export
+#  @title GetPeerDialogsRequest
+#  @description Represents a request to get peer dialogs. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetPeerDialogsRequest <- R6::R6Class(
   "GetPeerDialogsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xe470bcfd,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x3ac70132,
 
-    #' @description Initialize the GetPeerDialogsRequest object.
-    #' @param peers The list of input dialog peers.
+    #  @description Initialize the GetPeerDialogsRequest object.
+    #  @param peers The list of input dialog peers.
     initialize = function(peers) {
       self$peers <- peers
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       tmp <- list()
       for (x in self$peers) {
@@ -5883,8 +6075,8 @@ GetPeerDialogsRequest <- R6::R6Class(
       self$peers <- tmp
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetPeerDialogsRequest",
@@ -5892,8 +6084,8 @@ GetPeerDialogsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xfd, 0xbc, 0x70, 0xe4)),
@@ -5920,33 +6112,35 @@ GetPeerDialogsRequest$fromReader <- function(reader) {
   GetPeerDialogsRequest$new(peers = peers)
 }
 
-#' @title GetPeerSettingsRequest
-#' @description Represents a request to get peer settings. This class inherits from TLRequest.
-#' @export
+#  @title GetPeerSettingsRequest
+#  @description Represents a request to get peer settings. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetPeerSettingsRequest <- R6::R6Class(
   "GetPeerSettingsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xefd9a6a2,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x65a2f7a1,
 
-    #' @description Initialize the GetPeerSettingsRequest object.
-    #' @param peer The input peer.
+    #  @description Initialize the GetPeerSettingsRequest object.
+    #  @param peer The input peer.
     initialize = function(peer) {
       self$peer <- peer
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetPeerSettingsRequest",
@@ -5954,8 +6148,8 @@ GetPeerSettingsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xa2, 0xa6, 0xd9, 0xef)),
@@ -5975,26 +6169,28 @@ GetPeerSettingsRequest$fromReader <- function(reader) {
   GetPeerSettingsRequest$new(peer = peer)
 }
 
-#' @title GetPinnedDialogsRequest
-#' @description Represents a request to get pinned dialogs. This class inherits from TLRequest.
-#' @export
+#  @title GetPinnedDialogsRequest
+#  @description Represents a request to get pinned dialogs. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetPinnedDialogsRequest <- R6::R6Class(
   "GetPinnedDialogsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xd6b94df2,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x3ac70132,
 
-    #' @description Initialize the GetPinnedDialogsRequest object.
-    #' @param folderId The folder ID.
+    #  @description Initialize the GetPinnedDialogsRequest object.
+    #  @param folderId The folder ID.
     initialize = function(folderId) {
       self$folderId <- folderId
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetPinnedDialogsRequest",
@@ -6002,8 +6198,8 @@ GetPinnedDialogsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xf2, 0x4d, 0xb9, 0xd6)),
@@ -6023,31 +6219,33 @@ GetPinnedDialogsRequest$fromReader <- function(reader) {
   GetPinnedDialogsRequest$new(folderId = folderId)
 }
 
-#' @title GetPinnedSavedDialogsRequest
-#' @description Represents a request to get pinned saved dialogs. This class inherits from TLRequest.
-#' @export
+#  @title GetPinnedSavedDialogsRequest
+#  @description Represents a request to get pinned saved dialogs. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetPinnedSavedDialogsRequest <- R6::R6Class(
   "GetPinnedSavedDialogsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xd63d94e0,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x614bb87e,
 
-    #' @description Initialize the GetPinnedSavedDialogsRequest object.
+    #  @description Initialize the GetPinnedSavedDialogsRequest object.
     initialize = function() {},
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetPinnedSavedDialogsRequest"
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       as.raw(c(0xe0, 0x94, 0x3d, 0xd6))
     }
@@ -6064,35 +6262,37 @@ GetPinnedSavedDialogsRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetPollResultsRequest
-#' @description Represents a request to get poll results. This class inherits from TLRequest.
-#' @export
+#  @title GetPollResultsRequest
+#  @description Represents a request to get poll results. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetPollResultsRequest <- R6::R6Class(
   "GetPollResultsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x73bb643b,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the GetPollResultsRequest object.
-    #' @param peer The input peer.
-    #' @param msgId The message ID.
+    #  @description Initialize the GetPollResultsRequest object.
+    #  @param peer The input peer.
+    #  @param msgId The message ID.
     initialize = function(peer, msgId) {
       self$peer <- peer
       self$msgId <- msgId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetPollResultsRequest",
@@ -6101,8 +6301,8 @@ GetPollResultsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x3b, 0x64, 0xbb, 0x73)),
@@ -6124,24 +6324,26 @@ GetPollResultsRequest$fromReader <- function(reader) {
   GetPollResultsRequest$new(peer = peer, msgId = msgId)
 }
 
-#' @title GetPollVotesRequest
-#' @description Represents a request to get poll votes. This class inherits from TLRequest.
-#' @export
+#  @title GetPollVotesRequest
+#  @description Represents a request to get poll votes. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetPollVotesRequest <- R6::R6Class(
   "GetPollVotesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xb86e380e,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xc2199885,
 
-    #' @description Initialize the GetPollVotesRequest object.
-    #' @param peer The input peer.
-    #' @param id The poll ID.
-    #' @param limit The limit value.
-    #' @param option Optional option bytes.
-    #' @param offset Optional offset string.
+    #  @description Initialize the GetPollVotesRequest object.
+    #  @param peer The input peer.
+    #  @param id The poll ID.
+    #  @param limit The limit value.
+    #  @param option Optional option bytes.
+    #  @param offset Optional offset string.
     initialize = function(peer, id, limit, option = NULL, offset = NULL) {
       self$peer <- peer
       self$id <- id
@@ -6150,15 +6352,15 @@ GetPollVotesRequest <- R6::R6Class(
       self$offset <- offset
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetPollVotesRequest",
@@ -6170,8 +6372,8 @@ GetPollVotesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$option) || !length(self$option)) 0L else 1L) | (if (is.null(self$offset) || !nchar(self$offset)) 0L else 2L)
       c(
@@ -6202,35 +6404,37 @@ GetPollVotesRequest$fromReader <- function(reader) {
   GetPollVotesRequest$new(peer = peer, id = id, limit = limit, option = option, offset = offset)
 }
 
-#' @title GetPreparedInlineMessageRequest
-#' @description Represents a request to get a prepared inline message. This class inherits from TLRequest.
-#' @export
+#  @title GetPreparedInlineMessageRequest
+#  @description Represents a request to get a prepared inline message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetPreparedInlineMessageRequest <- R6::R6Class(
   "GetPreparedInlineMessageRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x857ebdb8,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x490ddf4d,
 
-    #' @description Initialize the GetPreparedInlineMessageRequest object.
-    #' @param bot The input bot user.
-    #' @param id The message ID string.
+    #  @description Initialize the GetPreparedInlineMessageRequest object.
+    #  @param bot The input bot user.
+    #  @param id The message ID string.
     initialize = function(bot, id) {
       self$bot <- bot
       self$id <- id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$bot <- utils$getInputUser(client$getInputEntity(self$bot))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetPreparedInlineMessageRequest",
@@ -6239,8 +6443,8 @@ GetPreparedInlineMessageRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xb8, 0xbd, 0x7e, 0x85)),
@@ -6263,26 +6467,28 @@ GetPreparedInlineMessageRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetQuickRepliesRequest
-#' @description Represents a request to get quick replies. This class inherits from TLRequest.
-#' @export
+#  @title GetQuickRepliesRequest
+#  @description Represents a request to get quick replies. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetQuickRepliesRequest <- R6::R6Class(
   "GetQuickRepliesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xd483f2a8,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf737e966,
 
-    #' @description Initialize the GetQuickRepliesRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetQuickRepliesRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetQuickRepliesRequest",
@@ -6290,8 +6496,8 @@ GetQuickRepliesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xa8, 0xf2, 0x83, 0xd4)),
@@ -6311,30 +6517,32 @@ GetQuickRepliesRequest$fromReader <- function(reader) {
   GetQuickRepliesRequest$new(hash = hash)
 }
 
-#' @title GetQuickReplyMessagesRequest
-#' @description Represents a request to get quick reply messages. This class inherits from TLRequest.
-#' @export
+#  @title GetQuickReplyMessagesRequest
+#  @description Represents a request to get quick reply messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetQuickReplyMessagesRequest <- R6::R6Class(
   "GetQuickReplyMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x94a495c3,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd4b40b5e,
 
-    #' @description Initialize the GetQuickReplyMessagesRequest object.
-    #' @param shortcutId The shortcut ID.
-    #' @param hash The hash value.
-    #' @param id Optional list of message IDs.
+    #  @description Initialize the GetQuickReplyMessagesRequest object.
+    #  @param shortcutId The shortcut ID.
+    #  @param hash The hash value.
+    #  @param id Optional list of message IDs.
     initialize = function(shortcutId, hash, id = NULL) {
       self$shortcutId <- shortcutId
       self$hash <- hash
       self$id <- id
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetQuickReplyMessagesRequest",
@@ -6344,8 +6552,8 @@ GetQuickReplyMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$id) || !length(self$id)) 0L else 1L
       c(
@@ -6381,37 +6589,39 @@ GetQuickReplyMessagesRequest$fromReader <- function(reader) {
   GetQuickReplyMessagesRequest$new(shortcutId = shortcutId, hash = hash, id = id)
 }
 
-#' @title GetRecentLocationsRequest
-#' @description Represents a request to get recent locations. This class inherits from TLRequest.
-#' @export
+#  @title GetRecentLocationsRequest
+#  @description Represents a request to get recent locations. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetRecentLocationsRequest <- R6::R6Class(
   "GetRecentLocationsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x702a40e0,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd4b40b5e,
 
-    #' @description Initialize the GetRecentLocationsRequest object.
-    #' @param peer The input peer.
-    #' @param limit The limit value.
-    #' @param hash The hash value.
+    #  @description Initialize the GetRecentLocationsRequest object.
+    #  @param peer The input peer.
+    #  @param limit The limit value.
+    #  @param hash The hash value.
     initialize = function(peer, limit, hash) {
       self$peer <- peer
       self$limit <- limit
       self$hash <- hash
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetRecentLocationsRequest",
@@ -6421,8 +6631,8 @@ GetRecentLocationsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xe0, 0x40, 0x2a, 0x70)),
@@ -6447,28 +6657,30 @@ GetRecentLocationsRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetRecentReactionsRequest
-#' @description Represents a request to get recent reactions. This class inherits from TLRequest.
-#' @export
+#  @title GetRecentReactionsRequest
+#  @description Represents a request to get recent reactions. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetRecentReactionsRequest <- R6::R6Class(
   "GetRecentReactionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x39461db2,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xadc38324,
 
-    #' @description Initialize the GetRecentReactionsRequest object.
-    #' @param limit The limit value.
-    #' @param hash The hash value.
+    #  @description Initialize the GetRecentReactionsRequest object.
+    #  @param limit The limit value.
+    #  @param hash The hash value.
     initialize = function(limit, hash) {
       self$limit <- limit
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetRecentReactionsRequest",
@@ -6477,8 +6689,8 @@ GetRecentReactionsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xb2, 0x1d, 0x46, 0x39)),
@@ -6500,28 +6712,30 @@ GetRecentReactionsRequest$fromReader <- function(reader) {
   GetRecentReactionsRequest$new(limit = limit, hash = hash)
 }
 
-#' @title GetRecentStickersRequest
-#' @description Represents a request to get recent stickers. This class inherits from TLRequest.
-#' @export
+#  @title GetRecentStickersRequest
+#  @description Represents a request to get recent stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetRecentStickersRequest <- R6::R6Class(
   "GetRecentStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x9da9403b,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf76f8683,
 
-    #' @description Initialize the GetRecentStickersRequest object.
-    #' @param hash The hash value.
-    #' @param attached Whether attached.
+    #  @description Initialize the GetRecentStickersRequest object.
+    #  @param hash The hash value.
+    #  @param attached Whether attached.
     initialize = function(hash, attached = NULL) {
       self$hash <- hash
       self$attached <- attached
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetRecentStickersRequest",
@@ -6530,8 +6744,8 @@ GetRecentStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$attached) || !self$attached) 0L else 1L
       c(
@@ -6555,28 +6769,30 @@ GetRecentStickersRequest$fromReader <- function(reader) {
   GetRecentStickersRequest$new(hash = hash, attached = attached)
 }
 
-#' @title GetRepliesRequest
-#' @description Represents a request to get replies. This class inherits from TLRequest.
-#' @export
+#  @title GetRepliesRequest
+#  @description Represents a request to get replies. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetRepliesRequest <- R6::R6Class(
   "GetRepliesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x22ddd30c,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd4b40b5e,
 
-    #' @description Initialize the GetRepliesRequest object.
-    #' @param peer The input peer.
-    #' @param msgId The message ID.
-    #' @param offsetId The offset ID.
-    #' @param offsetDate The offset date.
-    #' @param addOffset The add offset.
-    #' @param limit The limit.
-    #' @param maxId The maximum ID.
-    #' @param minId The minimum ID.
-    #' @param hash The hash value.
+    #  @description Initialize the GetRepliesRequest object.
+    #  @param peer The input peer.
+    #  @param msgId The message ID.
+    #  @param offsetId The offset ID.
+    #  @param offsetDate The offset date.
+    #  @param addOffset The add offset.
+    #  @param limit The limit.
+    #  @param maxId The maximum ID.
+    #  @param minId The minimum ID.
+    #  @param hash The hash value.
     initialize = function(peer, msgId, offsetId, offsetDate, addOffset, limit, maxId, minId, hash) {
       self$peer <- peer
       self$msgId <- msgId
@@ -6589,15 +6805,15 @@ GetRepliesRequest <- R6::R6Class(
       self$hash <- hash
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetRepliesRequest",
@@ -6613,8 +6829,8 @@ GetRepliesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x0c, 0xd3, 0xdd, 0x22)),
@@ -6651,26 +6867,28 @@ GetRepliesRequest$fromReader <- function(reader) {
   GetRepliesRequest$new(peer = peer, msgId = msgId, offsetId = offsetId, offsetDate = offsetDate, addOffset = addOffset, limit = limit, maxId = maxId, minId = minId, hash = hash)
 }
 
-#' @title GetSavedDialogsRequest
-#' @description Represents a request to get saved dialogs. This class inherits from TLRequest.
-#' @export
+#  @title GetSavedDialogsRequest
+#  @description Represents a request to get saved dialogs. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetSavedDialogsRequest <- R6::R6Class(
   "GetSavedDialogsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x1e91fc99,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x614bb87e,
 
-    #' @description Initialize the GetSavedDialogsRequest object.
-    #' @param offsetDate The offset date.
-    #' @param offsetId The offset ID.
-    #' @param offsetPeer The offset peer.
-    #' @param limit The limit.
-    #' @param hash The hash value.
-    #' @param excludePinned Whether to exclude pinned dialogs.
-    #' @param parentPeer Optional parent peer.
+    #  @description Initialize the GetSavedDialogsRequest object.
+    #  @param offsetDate The offset date.
+    #  @param offsetId The offset ID.
+    #  @param offsetPeer The offset peer.
+    #  @param limit The limit.
+    #  @param hash The hash value.
+    #  @param excludePinned Whether to exclude pinned dialogs.
+    #  @param parentPeer Optional parent peer.
     initialize = function(offsetDate, offsetId, offsetPeer, limit, hash, excludePinned = NULL, parentPeer = NULL) {
       self$offsetDate <- offsetDate
       self$offsetId <- offsetId
@@ -6681,9 +6899,9 @@ GetSavedDialogsRequest <- R6::R6Class(
       self$parentPeer <- parentPeer
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$offsetPeer <- utils$getInputPeer(client$getInputEntity(self$offsetPeer))
       if (!is.null(self$parentPeer)) {
@@ -6691,8 +6909,8 @@ GetSavedDialogsRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetSavedDialogsRequest",
@@ -6706,8 +6924,8 @@ GetSavedDialogsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$excludePinned) || !self$excludePinned) 0L else 1L) | (if (is.null(self$parentPeer) || !self$parentPeer) 0L else 2L)
       c(
@@ -6741,29 +6959,31 @@ GetSavedDialogsRequest$fromReader <- function(reader) {
   GetSavedDialogsRequest$new(offsetDate = offsetDate, offsetId = offsetId, offsetPeer = offsetPeer, limit = limit, hash = hash, excludePinned = excludePinned, parentPeer = parentPeer)
 }
 
-#' @title GetSavedDialogsByIDRequest
-#' @description Represents a request to get saved dialogs by ID. This class inherits from TLRequest.
-#' @export
+#  @title GetSavedDialogsByIDRequest
+#  @description Represents a request to get saved dialogs by ID. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetSavedDialogsByIDRequest <- R6::R6Class(
   "GetSavedDialogsByIDRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x6f6f9c96,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x614bb87e,
 
-    #' @description Initialize the GetSavedDialogsByIDRequest object.
-    #' @param ids The list of IDs.
-    #' @param parentPeer Optional parent peer.
+    #  @description Initialize the GetSavedDialogsByIDRequest object.
+    #  @param ids The list of IDs.
+    #  @param parentPeer Optional parent peer.
     initialize = function(ids, parentPeer = NULL) {
       self$ids <- ids
       self$parentPeer <- parentPeer
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       tmp <- list()
       for (x in self$ids) {
@@ -6775,8 +6995,8 @@ GetSavedDialogsByIDRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetSavedDialogsByIDRequest",
@@ -6785,8 +7005,8 @@ GetSavedDialogsByIDRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$parentPeer) || !self$parentPeer) 0L else 2L
       c(
@@ -6816,26 +7036,28 @@ GetSavedDialogsByIDRequest$fromReader <- function(reader) {
   GetSavedDialogsByIDRequest$new(ids = ids, parentPeer = parentPeer)
 }
 
-#' @title GetSavedGifsRequest
-#' @description Represents a request to get saved GIFs. This class inherits from TLRequest.
-#' @export
+#  @title GetSavedGifsRequest
+#  @description Represents a request to get saved GIFs. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetSavedGifsRequest <- R6::R6Class(
   "GetSavedGifsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x5cf09635,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xa68b61f5,
 
-    #' @description Initialize the GetSavedGifsRequest object.
-    #' @param hash The hash value.
+    #  @description Initialize the GetSavedGifsRequest object.
+    #  @param hash The hash value.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetSavedGifsRequest",
@@ -6843,8 +7065,8 @@ GetSavedGifsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x35, 0x96, 0xf0, 0x5c)),
@@ -6865,28 +7087,30 @@ GetSavedGifsRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetSavedHistoryRequest
-#' @description Represents a request to get saved history. This class inherits from TLRequest.
-#' @export
+#  @title GetSavedHistoryRequest
+#  @description Represents a request to get saved history. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetSavedHistoryRequest <- R6::R6Class(
   "GetSavedHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x998ab009,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd4b40b5e,
 
-    #' @description Initialize the GetSavedHistoryRequest object.
-    #' @param peer The input peer.
-    #' @param offset_id The offset ID.
-    #' @param offset_date The offset date.
-    #' @param add_offset The add offset.
-    #' @param limit The limit.
-    #' @param max_id The maximum ID.
-    #' @param min_id The minimum ID.
-    #' @param hash The hash value.
-    #' @param parent_peer Optional parent peer.
+    #  @description Initialize the GetSavedHistoryRequest object.
+    #  @param peer The input peer.
+    #  @param offset_id The offset ID.
+    #  @param offset_date The offset date.
+    #  @param add_offset The add offset.
+    #  @param limit The limit.
+    #  @param max_id The maximum ID.
+    #  @param min_id The minimum ID.
+    #  @param hash The hash value.
+    #  @param parent_peer Optional parent peer.
     initialize = function(peer, offset_id, offset_date, add_offset, limit, max_id, min_id, hash, parent_peer = NULL) {
       self$peer <- peer
       self$offset_id <- offset_id
@@ -6899,9 +7123,9 @@ GetSavedHistoryRequest <- R6::R6Class(
       self$parent_peer <- parent_peer
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       if (!is.null(self$parent_peer)) {
@@ -6909,8 +7133,8 @@ GetSavedHistoryRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetSavedHistoryRequest",
@@ -6926,8 +7150,8 @@ GetSavedHistoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$parent_peer) || !self$parent_peer) 0L else 1L
       c(
@@ -6966,37 +7190,39 @@ GetSavedHistoryRequest$fromReader <- function(reader) {
   GetSavedHistoryRequest$new(peer = peer, offset_id = offset_id, offset_date = offset_date, add_offset = add_offset, limit = limit, max_id = max_id, min_id = min_id, hash = hash, parent_peer = parent_peer)
 }
 
-#' @title GetSavedReactionTagsRequest
-#' @description Represents a request to get saved reaction tags. This class inherits from TLRequest.
-#' @export
+#  @title GetSavedReactionTagsRequest
+#  @description Represents a request to get saved reaction tags. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetSavedReactionTagsRequest <- R6::R6Class(
   "GetSavedReactionTagsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x3637e05b,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xa39b5be3,
 
-    #' @description Initialize the GetSavedReactionTagsRequest object.
-    #' @param hash The hash value.
-    #' @param peer Optional peer.
+    #  @description Initialize the GetSavedReactionTagsRequest object.
+    #  @param hash The hash value.
+    #  @param peer Optional peer.
     initialize = function(hash, peer = NULL) {
       self$hash <- hash
       self$peer <- peer
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       if (!is.null(self$peer)) {
         self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetSavedReactionTagsRequest",
@@ -7005,8 +7231,8 @@ GetSavedReactionTagsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$peer) || !self$peer) 0L else 1L
       c(
@@ -7031,35 +7257,37 @@ GetSavedReactionTagsRequest$fromReader <- function(reader) {
   GetSavedReactionTagsRequest$new(hash = hash, peer = peer)
 }
 
-#' @title GetScheduledHistoryRequest
-#' @description Represents a request to get scheduled history. This class inherits from TLRequest.
-#' @export
+#  @title GetScheduledHistoryRequest
+#  @description Represents a request to get scheduled history. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetScheduledHistoryRequest <- R6::R6Class(
   "GetScheduledHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xf516760b,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd4b40b5e,
 
-    #' @description Initialize the GetScheduledHistoryRequest object.
-    #' @param peer The input peer.
-    #' @param hash The hash value.
+    #  @description Initialize the GetScheduledHistoryRequest object.
+    #  @param peer The input peer.
+    #  @param hash The hash value.
     initialize = function(peer, hash) {
       self$peer <- peer
       self$hash <- hash
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetScheduledHistoryRequest",
@@ -7068,8 +7296,8 @@ GetScheduledHistoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x0b, 0x76, 0x16, 0xf5)),
@@ -7093,35 +7321,37 @@ GetScheduledHistoryRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetScheduledMessagesRequest
-#' @description Represents a request to get scheduled messages. This class inherits from TLRequest.
-#' @export
+#  @title GetScheduledMessagesRequest
+#  @description Represents a request to get scheduled messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetScheduledMessagesRequest <- R6::R6Class(
   "GetScheduledMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xbdbb0464,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd4b40b5e,
 
-    #' @description Initialize the GetScheduledMessagesRequest object.
-    #' @param peer The input peer.
-    #' @param id The list of message IDs.
+    #  @description Initialize the GetScheduledMessagesRequest object.
+    #  @param peer The input peer.
+    #  @param id The list of message IDs.
     initialize = function(peer, id) {
       self$peer <- peer
       self$id <- id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetScheduledMessagesRequest",
@@ -7130,8 +7360,8 @@ GetScheduledMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xbd, 0xbb, 0x04, 0x64)),
@@ -7158,23 +7388,25 @@ GetScheduledMessagesRequest$fromReader <- function(reader) {
   GetScheduledMessagesRequest$new(peer = peer, id = id)
 }
 
-#' @title GetSearchCountersRequest
-#' @description Represents a request to get search counters. This class inherits from TLRequest.
-#' @export
+#  @title GetSearchCountersRequest
+#  @description Represents a request to get search counters. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetSearchCountersRequest <- R6::R6Class(
   "GetSearchCountersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x1bbcf300,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x6bde3c6e,
 
-    #' @description Initialize the GetSearchCountersRequest object.
-    #' @param peer The input peer.
-    #' @param filters The list of message filters.
-    #' @param savedPeerId Optional saved peer ID.
-    #' @param topMsgId Optional top message ID.
+    #  @description Initialize the GetSearchCountersRequest object.
+    #  @param peer The input peer.
+    #  @param filters The list of message filters.
+    #  @param savedPeerId Optional saved peer ID.
+    #  @param topMsgId Optional top message ID.
     initialize = function(peer, filters, savedPeerId = NULL, topMsgId = NULL) {
       self$peer <- peer
       self$filters <- filters
@@ -7182,9 +7414,9 @@ GetSearchCountersRequest <- R6::R6Class(
       self$topMsgId <- topMsgId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       if (!is.null(self$savedPeerId)) {
@@ -7192,8 +7424,8 @@ GetSearchCountersRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetSearchCountersRequest",
@@ -7204,8 +7436,8 @@ GetSearchCountersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$savedPeerId) || !self$savedPeerId) 0L else 4L) | (if (is.null(self$topMsgId) || !self$topMsgId) 0L else 1L)
       c(
@@ -7239,24 +7471,26 @@ GetSearchCountersRequest$fromReader <- function(reader) {
   GetSearchCountersRequest$new(peer = peer, filters = filters, savedPeerId = savedPeerId, topMsgId = topMsgId)
 }
 
-#' @title GetSearchResultsCalendarRequest
-#' @description Represents a request to get search results calendar. This class inherits from TLRequest.
-#' @export
+#  @title GetSearchResultsCalendarRequest
+#  @description Represents a request to get search results calendar. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetSearchResultsCalendarRequest <- R6::R6Class(
   "GetSearchResultsCalendarRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x6aa3f6bd,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x92c5640f,
 
-    #' @description Initialize the GetSearchResultsCalendarRequest object.
-    #' @param peer The input peer.
-    #' @param filter The message filter.
-    #' @param offsetId The offset ID.
-    #' @param offsetDate The offset date.
-    #' @param savedPeerId Optional saved peer ID.
+    #  @description Initialize the GetSearchResultsCalendarRequest object.
+    #  @param peer The input peer.
+    #  @param filter The message filter.
+    #  @param offsetId The offset ID.
+    #  @param offsetDate The offset date.
+    #  @param savedPeerId Optional saved peer ID.
     initialize = function(peer, filter, offsetId, offsetDate, savedPeerId = NULL) {
       self$peer <- peer
       self$filter <- filter
@@ -7265,9 +7499,9 @@ GetSearchResultsCalendarRequest <- R6::R6Class(
       self$savedPeerId <- savedPeerId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       if (!is.null(self$savedPeerId)) {
@@ -7275,8 +7509,8 @@ GetSearchResultsCalendarRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetSearchResultsCalendarRequest",
@@ -7288,8 +7522,8 @@ GetSearchResultsCalendarRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$savedPeerId) || !self$savedPeerId) 0L else 4L
       c(
@@ -7321,24 +7555,26 @@ GetSearchResultsCalendarRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetSearchResultsPositionsRequest
-#' @description Represents a request to get search results positions. This class inherits from TLRequest.
-#' @export
+#  @title GetSearchResultsPositionsRequest
+#  @description Represents a request to get search results positions. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetSearchResultsPositionsRequest <- R6::R6Class(
   "GetSearchResultsPositionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x9c7f2f10,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd963708d,
 
-    #' @description Initialize the GetSearchResultsPositionsRequest object.
-    #' @param peer The input peer.
-    #' @param filter The messages filter.
-    #' @param offset_id The offset ID.
-    #' @param limit The limit.
-    #' @param saved_peer_id Optional saved peer ID.
+    #  @description Initialize the GetSearchResultsPositionsRequest object.
+    #  @param peer The input peer.
+    #  @param filter The messages filter.
+    #  @param offset_id The offset ID.
+    #  @param limit The limit.
+    #  @param saved_peer_id Optional saved peer ID.
     initialize = function(peer, filter, offset_id, limit, saved_peer_id = NULL) {
       self$peer <- peer
       self$filter <- filter
@@ -7347,9 +7583,9 @@ GetSearchResultsPositionsRequest <- R6::R6Class(
       self$saved_peer_id <- saved_peer_id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       if (!is.null(self$saved_peer_id)) {
@@ -7357,8 +7593,8 @@ GetSearchResultsPositionsRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetSearchResultsPositionsRequest",
@@ -7370,8 +7606,8 @@ GetSearchResultsPositionsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$saved_peer_id) || !self$saved_peer_id) 0L else 4L
       c(
@@ -7402,28 +7638,30 @@ GetSearchResultsPositionsRequest$fromReader <- function(reader) {
   GetSearchResultsPositionsRequest$new(peer = peer, filter = filter, offset_id = offsetId, limit = limit, saved_peer_id = savedPeerId)
 }
 
-#' @title GetSplitRangesRequest
-#' @description Represents a request to get split ranges. This class inherits from TLRequest.
-#' @export
+#  @title GetSplitRangesRequest
+#  @description Represents a request to get split ranges. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetSplitRangesRequest <- R6::R6Class(
   "GetSplitRangesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x1cff7e08,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x5ba52504,
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetSplitRangesRequest"
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       as.raw(c(0x1c, 0xff, 0x7e, 0x08))
     }
@@ -7439,35 +7677,37 @@ GetSplitRangesRequest$fromReader <- function(reader) {
   GetSplitRangesRequest$new()
 }
 
-#' @title GetSponsoredMessagesRequest
-#' @description Represents a request to get sponsored messages. This class inherits from TLRequest.
-#' @export
+#  @title GetSponsoredMessagesRequest
+#  @description Represents a request to get sponsored messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetSponsoredMessagesRequest <- R6::R6Class(
   "GetSponsoredMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x3d6ce850,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x7f4169e0,
 
-    #' @description Initialize the GetSponsoredMessagesRequest object.
-    #' @param peer The input peer.
-    #' @param msg_id Optional message ID.
+    #  @description Initialize the GetSponsoredMessagesRequest object.
+    #  @param peer The input peer.
+    #  @param msg_id Optional message ID.
     initialize = function(peer, msg_id = NULL) {
       self$peer <- peer
       self$msg_id <- msg_id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetSponsoredMessagesRequest",
@@ -7476,8 +7716,8 @@ GetSponsoredMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$msg_id) || !self$msg_id) 0L else 1L
       c(
@@ -7503,28 +7743,30 @@ GetSponsoredMessagesRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetStickerSetRequest
-#' @description Represents a request to get a sticker set. This class inherits from TLRequest.
-#' @export
+#  @title GetStickerSetRequest
+#  @description Represents a request to get a sticker set. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetStickerSetRequest <- R6::R6Class(
   "GetStickerSetRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xc8a0ec74,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x9b704a5a,
 
-    #' @description Initialize the GetStickerSetRequest object.
-    #' @param stickerset The input sticker set.
-    #' @param hash The hash value.
+    #  @description Initialize the GetStickerSetRequest object.
+    #  @param stickerset The input sticker set.
+    #  @param hash The hash value.
     initialize = function(stickerset, hash) {
       self$stickerset <- stickerset
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetStickerSetRequest",
@@ -7533,8 +7775,8 @@ GetStickerSetRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xc8, 0xa0, 0xec, 0x74)),
@@ -7556,28 +7798,30 @@ GetStickerSetRequest$fromReader <- function(reader) {
   GetStickerSetRequest$new(stickerset = stickerset, hash = hash)
 }
 
-#' @title GetStickersRequest
-#' @description Represents a request to get stickers. This class inherits from TLRequest.
-#' @export
+#  @title GetStickersRequest
+#  @description Represents a request to get stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetStickersRequest <- R6::R6Class(
   "GetStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xd5a5d3a1,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd73bb9de,
 
-    #' @description Initialize the GetStickersRequest object.
-    #' @param emoticon The emoticon string.
-    #' @param hash The hash value.
+    #  @description Initialize the GetStickersRequest object.
+    #  @param emoticon The emoticon string.
+    #  @param hash The hash value.
     initialize = function(emoticon, hash) {
       self$emoticon <- emoticon
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetStickersRequest",
@@ -7586,8 +7830,8 @@ GetStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xd5, 0xa5, 0xd3, 0xa1)),
@@ -7609,28 +7853,30 @@ GetStickersRequest$fromReader <- function(reader) {
   GetStickersRequest$new(emoticon = emoticon, hash = hash)
 }
 
-#' @title GetSuggestedDialogFiltersRequest
-#' @description Represents a request to get suggested dialog filters. This class inherits from TLRequest.
-#' @export
+#  @title GetSuggestedDialogFiltersRequest
+#  @description Represents a request to get suggested dialog filters. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetSuggestedDialogFiltersRequest <- R6::R6Class(
   "GetSuggestedDialogFiltersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xa29cd42c,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x7b296c39,
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetSuggestedDialogFiltersRequest"
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       as.raw(c(0xa2, 0x9c, 0xd4, 0x2c))
     }
@@ -7646,28 +7892,30 @@ GetSuggestedDialogFiltersRequest$fromReader <- function(reader) {
   GetSuggestedDialogFiltersRequest$new()
 }
 
-#' @title GetTopReactionsRequest
-#' @description Represents a request to get top reactions. This class inherits from TLRequest.
-#' @export
+#  @title GetTopReactionsRequest
+#  @description Represents a request to get top reactions. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetTopReactionsRequest <- R6::R6Class(
   "GetTopReactionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xbb8125ba,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xadc38324,
 
-    #' @description Initialize the GetTopReactionsRequest object.
-    #' @param limit The limit value.
-    #' @param hash The hash value.
+    #  @description Initialize the GetTopReactionsRequest object.
+    #  @param limit The limit value.
+    #  @param hash The hash value.
     initialize = function(limit, hash) {
       self$limit <- limit
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetTopReactionsRequest",
@@ -7676,8 +7924,8 @@ GetTopReactionsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xbb, 0x81, 0x25, 0xba)),
@@ -7700,26 +7948,28 @@ GetTopReactionsRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetUnreadMentionsRequest
-#' @description Represents a request to get unread mentions. This class inherits from TLRequest.
-#' @export
+#  @title GetUnreadMentionsRequest
+#  @description Represents a request to get unread mentions. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetUnreadMentionsRequest <- R6::R6Class(
   "GetUnreadMentionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xf107e790,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd4b40b5e,
 
-    #' @description Initialize the GetUnreadMentionsRequest object.
-    #' @param peer The input peer.
-    #' @param offsetId The offset ID.
-    #' @param addOffset The add offset.
-    #' @param limit The limit.
-    #' @param maxId The maximum ID.
-    #' @param minId The minimum ID.
-    #' @param topMsgId Optional top message ID.
+    #  @description Initialize the GetUnreadMentionsRequest object.
+    #  @param peer The input peer.
+    #  @param offsetId The offset ID.
+    #  @param addOffset The add offset.
+    #  @param limit The limit.
+    #  @param maxId The maximum ID.
+    #  @param minId The minimum ID.
+    #  @param topMsgId Optional top message ID.
     initialize = function(peer, offsetId, addOffset, limit, maxId, minId, topMsgId = NULL) {
       self$peer <- peer
       self$offsetId <- offsetId
@@ -7730,15 +7980,15 @@ GetUnreadMentionsRequest <- R6::R6Class(
       self$topMsgId <- topMsgId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetUnreadMentionsRequest",
@@ -7752,8 +8002,8 @@ GetUnreadMentionsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$topMsgId) || !self$topMsgId) 0L else 1L
       c(
@@ -7788,27 +8038,29 @@ GetUnreadMentionsRequest$fromReader <- function(reader) {
   GetUnreadMentionsRequest$new(peer = peer, offsetId = offsetId, addOffset = addOffset, limit = limit, maxId = maxId, minId = minId, topMsgId = topMsgId)
 }
 
-#' @title GetUnreadReactionsRequest
-#' @description Represents a request to get unread reactions. This class inherits from TLRequest.
-#' @export
+#  @title GetUnreadReactionsRequest
+#  @description Represents a request to get unread reactions. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetUnreadReactionsRequest <- R6::R6Class(
   "GetUnreadReactionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xbd7f90ac,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd4b40b5e,
 
-    #' @description Initialize the GetUnreadReactionsRequest object.
-    #' @param peer The input peer.
-    #' @param offsetId The offset ID.
-    #' @param addOffset The add offset.
-    #' @param limit The limit.
-    #' @param maxId The maximum ID.
-    #' @param minId The minimum ID.
-    #' @param topMsgId Optional top message ID.
-    #' @param savedPeerId Optional saved peer ID.
+    #  @description Initialize the GetUnreadReactionsRequest object.
+    #  @param peer The input peer.
+    #  @param offsetId The offset ID.
+    #  @param addOffset The add offset.
+    #  @param limit The limit.
+    #  @param maxId The maximum ID.
+    #  @param minId The minimum ID.
+    #  @param topMsgId Optional top message ID.
+    #  @param savedPeerId Optional saved peer ID.
     initialize = function(peer, offsetId, addOffset, limit, maxId, minId, topMsgId = NULL, savedPeerId = NULL) {
       self$peer <- peer
       self$offsetId <- offsetId
@@ -7820,9 +8072,9 @@ GetUnreadReactionsRequest <- R6::R6Class(
       self$savedPeerId <- savedPeerId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       if (!is.null(self$savedPeerId)) {
@@ -7830,8 +8082,8 @@ GetUnreadReactionsRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetUnreadReactionsRequest",
@@ -7846,8 +8098,8 @@ GetUnreadReactionsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$topMsgId) || !self$topMsgId) 0L else 1L) | (if (is.null(self$savedPeerId) || !self$savedPeerId) 0L else 2L)
       c(
@@ -7884,28 +8136,30 @@ GetUnreadReactionsRequest$fromReader <- function(reader) {
   GetUnreadReactionsRequest$new(peer = peer, offsetId = offsetId, addOffset = addOffset, limit = limit, maxId = maxId, minId = minId, topMsgId = topMsgId, savedPeerId = savedPeerId)
 }
 
-#' @title GetWebPageRequest
-#' @description Represents a request to get a web page. This class inherits from TLRequest.
-#' @export
+#  @title GetWebPageRequest
+#  @description Represents a request to get a web page. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetWebPageRequest <- R6::R6Class(
   "GetWebPageRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x8d9692a3,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x2cf8b154,
 
-    #' @description Initialize the GetWebPageRequest object.
-    #' @param url The URL string.
-    #' @param hash The hash value.
+    #  @description Initialize the GetWebPageRequest object.
+    #  @param url The URL string.
+    #  @param hash The hash value.
     initialize = function(url, hash) {
       self$url <- url
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetWebPageRequest",
@@ -7914,8 +8168,8 @@ GetWebPageRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xa3, 0x92, 0x96, 0x8d)),
@@ -7938,28 +8192,30 @@ GetWebPageRequest$fromReader <- function(reader) {
 }
 
 
-#' @title GetWebPagePreviewRequest
-#' @description Represents a request to get a web page preview. This class inherits from TLRequest.
-#' @export
+#  @title GetWebPagePreviewRequest
+#  @description Represents a request to get a web page preview. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 GetWebPagePreviewRequest <- R6::R6Class(
   "GetWebPagePreviewRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x570d6f6f,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xe29410c2,
 
-    #' @description Initialize the GetWebPagePreviewRequest object.
-    #' @param message The message string.
-    #' @param entities Optional list of message entities.
+    #  @description Initialize the GetWebPagePreviewRequest object.
+    #  @param message The message string.
+    #  @param entities Optional list of message entities.
     initialize = function(message, entities = NULL) {
       self$message <- message
       self$entities <- entities
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "GetWebPagePreviewRequest",
@@ -7968,8 +8224,8 @@ GetWebPagePreviewRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$entities) || !self$entities) 0L else 8L
       c(
@@ -8003,37 +8259,39 @@ GetWebPagePreviewRequest$fromReader <- function(reader) {
   GetWebPagePreviewRequest$new(message = message, entities = entities)
 }
 
-#' @title HideAllChatJoinRequestsRequest
-#' @description Represents a request to hide all chat join requests. This class inherits from TLRequest.
-#' @export
+#  @title HideAllChatJoinRequestsRequest
+#  @description Represents a request to hide all chat join requests. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 HideAllChatJoinRequestsRequest <- R6::R6Class(
   "HideAllChatJoinRequestsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xe085f4ea,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the HideAllChatJoinRequestsRequest object.
-    #' @param peer The input peer.
-    #' @param approved Optional approved flag.
-    #' @param link Optional link string.
+    #  @description Initialize the HideAllChatJoinRequestsRequest object.
+    #  @param peer The input peer.
+    #  @param approved Optional approved flag.
+    #  @param link Optional link string.
     initialize = function(peer, approved = NULL, link = NULL) {
       self$peer <- peer
       self$approved <- approved
       self$link <- link
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "HideAllChatJoinRequestsRequest",
@@ -8043,8 +8301,8 @@ HideAllChatJoinRequestsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$approved) || !self$approved) 0L else 1L) | (if (is.null(self$link) || !self$link) 0L else 2L)
       c(
@@ -8070,38 +8328,40 @@ HideAllChatJoinRequestsRequest$fromReader <- function(reader) {
   HideAllChatJoinRequestsRequest$new(peer = peer, approved = approved, link = link)
 }
 
-#' @title HideChatJoinRequestRequest
-#' @description Represents a request to hide a chat join request. This class inherits from TLRequest.
-#' @export
+#  @title HideChatJoinRequestRequest
+#  @description Represents a request to hide a chat join request. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 HideChatJoinRequestRequest <- R6::R6Class(
   "HideChatJoinRequestRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x7fe7e815,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the HideChatJoinRequestRequest object.
-    #' @param peer The input peer.
-    #' @param userId The input user ID.
-    #' @param approved Optional approved flag.
+    #  @description Initialize the HideChatJoinRequestRequest object.
+    #  @param peer The input peer.
+    #  @param userId The input user ID.
+    #  @param approved Optional approved flag.
     initialize = function(peer, userId, approved = NULL) {
       self$peer <- peer
       self$userId <- userId
       self$approved <- approved
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       self$userId <- utils$getInputUser(client$getInputEntity(self$userId))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "HideChatJoinRequestRequest",
@@ -8111,8 +8371,8 @@ HideChatJoinRequestRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$approved) || !self$approved) 0L else 1L
       c(
@@ -8139,33 +8399,35 @@ HideChatJoinRequestRequest$fromReader <- function(reader) {
 }
 
 
-#' @title HidePeerSettingsBarRequest
-#' @description Represents a request to hide peer settings bar. This class inherits from TLRequest.
-#' @export
+#  @title HidePeerSettingsBarRequest
+#  @description Represents a request to hide peer settings bar. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 HidePeerSettingsBarRequest <- R6::R6Class(
   "HidePeerSettingsBarRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x4facb138,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the HidePeerSettingsBarRequest object.
-    #' @param peer The input peer.
+    #  @description Initialize the HidePeerSettingsBarRequest object.
+    #  @param peer The input peer.
     initialize = function(peer) {
       self$peer <- peer
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "HidePeerSettingsBarRequest",
@@ -8173,8 +8435,8 @@ HidePeerSettingsBarRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x38, 0xb1, 0xac, 0x4f)),
@@ -8194,26 +8456,28 @@ HidePeerSettingsBarRequest$fromReader <- function(reader) {
   HidePeerSettingsBarRequest$new(peer = peer)
 }
 
-#' @title ImportChatInviteRequest
-#' @description Represents a request to import a chat invite. This class inherits from TLRequest.
-#' @export
+#  @title ImportChatInviteRequest
+#  @description Represents a request to import a chat invite. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ImportChatInviteRequest <- R6::R6Class(
   "ImportChatInviteRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x6c50051c,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the ImportChatInviteRequest object.
-    #' @param hash The invite hash.
+    #  @description Initialize the ImportChatInviteRequest object.
+    #  @param hash The invite hash.
     initialize = function(hash) {
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ImportChatInviteRequest",
@@ -8221,8 +8485,8 @@ ImportChatInviteRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x1c, 0x05, 0x50, 0x6c)),
@@ -8242,37 +8506,39 @@ ImportChatInviteRequest$fromReader <- function(reader) {
   ImportChatInviteRequest$new(hash = hash)
 }
 
-#' @title InitHistoryImportRequest
-#' @description Represents a request to initialize history import. This class inherits from TLRequest.
-#' @export
+#  @title InitHistoryImportRequest
+#  @description Represents a request to initialize history import. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 InitHistoryImportRequest <- R6::R6Class(
   "InitHistoryImportRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x34090c3b,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xb18bb50a,
 
-    #' @description Initialize the InitHistoryImportRequest object.
-    #' @param peer The input peer.
-    #' @param file The input file.
-    #' @param mediaCount The media count.
+    #  @description Initialize the InitHistoryImportRequest object.
+    #  @param peer The input peer.
+    #  @param file The input file.
+    #  @param mediaCount The media count.
     initialize = function(peer, file, mediaCount) {
       self$peer <- peer
       self$file <- file
       self$mediaCount <- mediaCount
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "InitHistoryImportRequest",
@@ -8282,8 +8548,8 @@ InitHistoryImportRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x3b, 0x0c, 0x09, 0x34)),
@@ -8308,28 +8574,30 @@ InitHistoryImportRequest$fromReader <- function(reader) {
 }
 
 
-#' @title InstallStickerSetRequest
-#' @description Represents a request to install a sticker set. This class inherits from TLRequest.
-#' @export
+#  @title InstallStickerSetRequest
+#  @description Represents a request to install a sticker set. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 InstallStickerSetRequest <- R6::R6Class(
   "InstallStickerSetRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xc78fe460,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x67cb3fe8,
 
-    #' @description Initialize the InstallStickerSetRequest object.
-    #' @param stickerset The input sticker set.
-    #' @param archived Whether the sticker set is archived.
+    #  @description Initialize the InstallStickerSetRequest object.
+    #  @param stickerset The input sticker set.
+    #  @param archived Whether the sticker set is archived.
     initialize = function(stickerset, archived) {
       self$stickerset <- stickerset
       self$archived <- archived
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "InstallStickerSetRequest",
@@ -8338,8 +8606,8 @@ InstallStickerSetRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x60, 0xe4, 0x8f, 0xc7)),
@@ -8361,31 +8629,33 @@ InstallStickerSetRequest$fromReader <- function(reader) {
   InstallStickerSetRequest$new(stickerset = stickerset, archived = archived)
 }
 
-#' @title MarkDialogUnreadRequest
-#' @description Represents a request to mark a dialog as unread. This class inherits from TLRequest.
-#' @export
+#  @title MarkDialogUnreadRequest
+#  @description Represents a request to mark a dialog as unread. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 MarkDialogUnreadRequest <- R6::R6Class(
   "MarkDialogUnreadRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x8c5006f8,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the MarkDialogUnreadRequest object.
-    #' @param peer The input dialog peer.
-    #' @param unread Optional unread flag.
-    #' @param parentPeer Optional parent peer.
+    #  @description Initialize the MarkDialogUnreadRequest object.
+    #  @param peer The input dialog peer.
+    #  @param unread Optional unread flag.
+    #  @param parentPeer Optional parent peer.
     initialize = function(peer, unread = NULL, parentPeer = NULL) {
       self$peer <- peer
       self$unread <- unread
       self$parentPeer <- parentPeer
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- client$getInputDialog(self$peer)
       if (!is.null(self$parentPeer)) {
@@ -8393,8 +8663,8 @@ MarkDialogUnreadRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "MarkDialogUnreadRequest",
@@ -8404,8 +8674,8 @@ MarkDialogUnreadRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$unread) && self$unread) flags <- bitwOr(flags, 1L)
@@ -8433,26 +8703,28 @@ MarkDialogUnreadRequest$fromReader <- function(reader) {
   MarkDialogUnreadRequest$new(peer = peer, unread = unread, parentPeer = parentPeer)
 }
 
-#' @title MigrateChatRequest
-#' @description Represents a request to migrate a chat. This class inherits from TLRequest.
-#' @export
+#  @title MigrateChatRequest
+#  @description Represents a request to migrate a chat. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 MigrateChatRequest <- R6::R6Class(
   "MigrateChatRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xa2875319,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the MigrateChatRequest object.
-    #' @param chatId The chat ID.
+    #  @description Initialize the MigrateChatRequest object.
+    #  @param chatId The chat ID.
     initialize = function(chatId) {
       self$chatId <- chatId
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "MigrateChatRequest",
@@ -8460,8 +8732,8 @@ MigrateChatRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x19, 0x53, 0x87, 0xa2)),
@@ -8482,25 +8754,27 @@ MigrateChatRequest$fromReader <- function(reader) {
 }
 
 
-#' @title ProlongWebViewRequest
-#' @description Represents a request to prolong a web view. This class inherits from TLRequest.
-#' @export
+#  @title ProlongWebViewRequest
+#  @description Represents a request to prolong a web view. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ProlongWebViewRequest <- R6::R6Class(
   "ProlongWebViewRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xb0d81a83,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ProlongWebViewRequest object.
-    #' @param peer The input peer.
-    #' @param bot The input bot user.
-    #' @param queryId The query ID.
-    #' @param silent Optional silent flag.
-    #' @param replyTo Optional reply to.
-    #' @param sendAs Optional send as peer.
+    #  @description Initialize the ProlongWebViewRequest object.
+    #  @param peer The input peer.
+    #  @param bot The input bot user.
+    #  @param queryId The query ID.
+    #  @param silent Optional silent flag.
+    #  @param replyTo Optional reply to.
+    #  @param sendAs Optional send as peer.
     initialize = function(peer, bot, queryId, silent = NULL, replyTo = NULL, sendAs = NULL) {
       self$peer <- peer
       self$bot <- bot
@@ -8510,9 +8784,9 @@ ProlongWebViewRequest <- R6::R6Class(
       self$sendAs <- sendAs
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       self$bot <- utils$getInputUser(client$getInputEntity(self$bot))
@@ -8521,8 +8795,8 @@ ProlongWebViewRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ProlongWebViewRequest",
@@ -8535,8 +8809,8 @@ ProlongWebViewRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$silent) && self$silent) flags <- bitwOr(flags, 32L)
@@ -8571,23 +8845,25 @@ ProlongWebViewRequest$fromReader <- function(reader) {
   ProlongWebViewRequest$new(peer = peer, bot = bot, queryId = queryId, silent = silent, replyTo = replyTo, sendAs = sendAs)
 }
 
-#' @title RateTranscribedAudioRequest
-#' @description Represents a request to rate transcribed audio. This class inherits from TLRequest.
-#' @export
+#  @title RateTranscribedAudioRequest
+#  @description Represents a request to rate transcribed audio. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 RateTranscribedAudioRequest <- R6::R6Class(
   "RateTranscribedAudioRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x7f1d072f,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the RateTranscribedAudioRequest object.
-    #' @param peer The input peer.
-    #' @param msgId The message ID.
-    #' @param transcriptionId The transcription ID.
-    #' @param good The good flag.
+    #  @description Initialize the RateTranscribedAudioRequest object.
+    #  @param peer The input peer.
+    #  @param msgId The message ID.
+    #  @param transcriptionId The transcription ID.
+    #  @param good The good flag.
     initialize = function(peer, msgId, transcriptionId, good) {
       self$peer <- peer
       self$msgId <- msgId
@@ -8595,15 +8871,15 @@ RateTranscribedAudioRequest <- R6::R6Class(
       self$good <- good
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "RateTranscribedAudioRequest",
@@ -8614,8 +8890,8 @@ RateTranscribedAudioRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x2f, 0x07, 0x1d, 0x7f)),
@@ -8641,37 +8917,39 @@ RateTranscribedAudioRequest$fromReader <- function(reader) {
   RateTranscribedAudioRequest$new(peer = peer, msgId = msgId, transcriptionId = transcriptionId, good = good)
 }
 
-#' @title ReadDiscussionRequest
-#' @description Represents a request to read discussion. This class inherits from TLRequest.
-#' @export
+#  @title ReadDiscussionRequest
+#  @description Represents a request to read discussion. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReadDiscussionRequest <- R6::R6Class(
   "ReadDiscussionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xf731a9f4,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ReadDiscussionRequest object.
-    #' @param peer The input peer.
-    #' @param msgId The message ID.
-    #' @param readMaxId The read max ID.
+    #  @description Initialize the ReadDiscussionRequest object.
+    #  @param peer The input peer.
+    #  @param msgId The message ID.
+    #  @param readMaxId The read max ID.
     initialize = function(peer, msgId, readMaxId) {
       self$peer <- peer
       self$msgId <- msgId
       self$readMaxId <- readMaxId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ReadDiscussionRequest",
@@ -8681,8 +8959,8 @@ ReadDiscussionRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xf4, 0xa9, 0x31, 0xf7)),
@@ -8707,28 +8985,30 @@ ReadDiscussionRequest$fromReader <- function(reader) {
 }
 
 
-#' @title ReadEncryptedHistoryRequest
-#' @description Represents a request to read encrypted history. This class inherits from TLRequest.
-#' @export
+#  @title ReadEncryptedHistoryRequest
+#  @description Represents a request to read encrypted history. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReadEncryptedHistoryRequest <- R6::R6Class(
   "ReadEncryptedHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x7f4b690a,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ReadEncryptedHistoryRequest object.
-    #' @param peer The input encrypted chat peer.
-    #' @param maxDate Optional maximum date.
+    #  @description Initialize the ReadEncryptedHistoryRequest object.
+    #  @param peer The input encrypted chat peer.
+    #  @param maxDate Optional maximum date.
     initialize = function(peer, maxDate = NULL) {
       self$peer <- peer
       self$maxDate <- maxDate
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ReadEncryptedHistoryRequest",
@@ -8737,8 +9017,8 @@ ReadEncryptedHistoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x0a, 0x69, 0x4b, 0x7f)),
@@ -8760,26 +9040,28 @@ ReadEncryptedHistoryRequest$fromReader <- function(reader) {
   ReadEncryptedHistoryRequest$new(peer = peer, maxDate = maxDate)
 }
 
-#' @title ReadFeaturedStickersRequest
-#' @description Represents a request to read featured stickers. This class inherits from TLRequest.
-#' @export
+#  @title ReadFeaturedStickersRequest
+#  @description Represents a request to read featured stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReadFeaturedStickersRequest <- R6::R6Class(
   "ReadFeaturedStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x5b118126,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ReadFeaturedStickersRequest object.
-    #' @param id The list of sticker IDs.
+    #  @description Initialize the ReadFeaturedStickersRequest object.
+    #  @param id The list of sticker IDs.
     initialize = function(id) {
       self$id <- id
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ReadFeaturedStickersRequest",
@@ -8787,8 +9069,8 @@ ReadFeaturedStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x26, 0x81, 0x11, 0x5b)),
@@ -8815,35 +9097,37 @@ ReadFeaturedStickersRequest$fromReader <- function(reader) {
   ReadFeaturedStickersRequest$new(id = id)
 }
 
-#' @title ReadHistoryRequest
-#' @description Represents a request to read history. This class inherits from TLRequest.
-#' @export
+#  @title ReadHistoryRequest
+#  @description Represents a request to read history. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReadHistoryRequest <- R6::R6Class(
   "ReadHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xe306d3a,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xced3c06e,
 
-    #' @description Initialize the ReadHistoryRequest object.
-    #' @param peer The input peer.
-    #' @param maxId The maximum ID.
+    #  @description Initialize the ReadHistoryRequest object.
+    #  @param peer The input peer.
+    #  @param maxId The maximum ID.
     initialize = function(peer, maxId) {
       self$peer <- peer
       self$maxId <- maxId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ReadHistoryRequest",
@@ -8852,8 +9136,8 @@ ReadHistoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x3a, 0x6d, 0x30, 0x0e)),
@@ -8876,35 +9160,37 @@ ReadHistoryRequest$fromReader <- function(reader) {
 }
 
 
-#' @title ReadMentionsRequest
-#' @description Represents a request to read mentions. This class inherits from TLRequest.
-#' @export
+#  @title ReadMentionsRequest
+#  @description Represents a request to read mentions. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReadMentionsRequest <- R6::R6Class(
   "ReadMentionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x36e5bf4d,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x2c49c116,
 
-    #' @description Initialize the ReadMentionsRequest object.
-    #' @param peer The input peer.
-    #' @param topMsgId Optional top message ID.
+    #  @description Initialize the ReadMentionsRequest object.
+    #  @param peer The input peer.
+    #  @param topMsgId Optional top message ID.
     initialize = function(peer, topMsgId = NULL) {
       self$peer <- peer
       self$topMsgId <- topMsgId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ReadMentionsRequest",
@@ -8913,8 +9199,8 @@ ReadMentionsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$topMsgId) || !self$topMsgId) 0L else 1L
       c(
@@ -8939,26 +9225,28 @@ ReadMentionsRequest$fromReader <- function(reader) {
   ReadMentionsRequest$new(peer = peer, topMsgId = topMsgId)
 }
 
-#' @title ReadMessageContentsRequest
-#' @description Represents a request to read message contents. This class inherits from TLRequest.
-#' @export
+#  @title ReadMessageContentsRequest
+#  @description Represents a request to read message contents. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReadMessageContentsRequest <- R6::R6Class(
   "ReadMessageContentsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x36a73f77,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xced3c06e,
 
-    #' @description Initialize the ReadMessageContentsRequest object.
-    #' @param id The list of message IDs.
+    #  @description Initialize the ReadMessageContentsRequest object.
+    #  @param id The list of message IDs.
     initialize = function(id) {
       self$id <- id
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ReadMessageContentsRequest",
@@ -8966,8 +9254,8 @@ ReadMessageContentsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x36, 0xa7, 0x3f, 0x77)),
@@ -8994,31 +9282,33 @@ ReadMessageContentsRequest$fromReader <- function(reader) {
   ReadMessageContentsRequest$new(id = id)
 }
 
-#' @title ReadReactionsRequest
-#' @description Represents a request to read reactions. This class inherits from TLRequest.
-#' @export
+#  @title ReadReactionsRequest
+#  @description Represents a request to read reactions. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReadReactionsRequest <- R6::R6Class(
   "ReadReactionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x9ec44f93,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x2c49c116,
 
-    #' @description Initialize the ReadReactionsRequest object.
-    #' @param peer The input peer.
-    #' @param topMsgId Optional top message ID.
-    #' @param savedPeerId Optional saved peer ID.
+    #  @description Initialize the ReadReactionsRequest object.
+    #  @param peer The input peer.
+    #  @param topMsgId Optional top message ID.
+    #  @param savedPeerId Optional saved peer ID.
     initialize = function(peer, topMsgId = NULL, savedPeerId = NULL) {
       self$peer <- peer
       self$topMsgId <- topMsgId
       self$savedPeerId <- savedPeerId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
       if (!is.null(self$savedPeerId)) {
@@ -9026,8 +9316,8 @@ ReadReactionsRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ReadReactionsRequest",
@@ -9037,8 +9327,8 @@ ReadReactionsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$topMsgId) && self$topMsgId) flags <- bitwOr(flags, 1L)
@@ -9068,38 +9358,40 @@ ReadReactionsRequest$fromReader <- function(reader) {
 }
 
 
-#' @title ReadSavedHistoryRequest
-#' @description Represents a request to read saved history. This class inherits from TLRequest.
-#' @export
+#  @title ReadSavedHistoryRequest
+#  @description Represents a request to read saved history. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReadSavedHistoryRequest <- R6::R6Class(
   "ReadSavedHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xba4a3b5b,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ReadSavedHistoryRequest object.
-    #' @param parentPeer The input peer for the parent.
-    #' @param peer The input peer.
-    #' @param maxId The maximum ID.
+    #  @description Initialize the ReadSavedHistoryRequest object.
+    #  @param parentPeer The input peer for the parent.
+    #  @param peer The input peer.
+    #  @param maxId The maximum ID.
     initialize = function(parentPeer, peer, maxId) {
       self$parentPeer <- parentPeer
       self$peer <- peer
       self$maxId <- maxId
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$parentPeer <- utils$getInputPeer(client$getInputEntity(self$parentPeer))
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ReadSavedHistoryRequest",
@@ -9109,8 +9401,8 @@ ReadSavedHistoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xba, 0x4a, 0x3b, 0x5b)),
@@ -9134,26 +9426,28 @@ ReadSavedHistoryRequest$fromReader <- function(reader) {
   ReadSavedHistoryRequest$new(parentPeer = parentPeer, peer = peer, maxId = maxId)
 }
 
-#' @title ReceivedMessagesRequest
-#' @description Represents a request to receive messages. This class inherits from TLRequest.
-#' @export
+#  @title ReceivedMessagesRequest
+#  @description Represents a request to receive messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReceivedMessagesRequest <- R6::R6Class(
   "ReceivedMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x5a954c0,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8565f897,
 
-    #' @description Initialize the ReceivedMessagesRequest object.
-    #' @param maxId The maximum ID.
+    #  @description Initialize the ReceivedMessagesRequest object.
+    #  @param maxId The maximum ID.
     initialize = function(maxId) {
       self$maxId <- maxId
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ReceivedMessagesRequest",
@@ -9161,8 +9455,8 @@ ReceivedMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xc0, 0x54, 0xa9, 0x05)),
@@ -9182,26 +9476,28 @@ ReceivedMessagesRequest$fromReader <- function(reader) {
   ReceivedMessagesRequest$new(maxId = maxId)
 }
 
-#' @title ReceivedQueueRequest
-#' @description Represents a request to receive queue. This class inherits from TLRequest.
-#' @export
+#  @title ReceivedQueueRequest
+#  @description Represents a request to receive queue. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReceivedQueueRequest <- R6::R6Class(
   "ReceivedQueueRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x55a5bb66,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8918e168,
 
-    #' @description Initialize the ReceivedQueueRequest object.
-    #' @param maxQts The maximum QTS.
+    #  @description Initialize the ReceivedQueueRequest object.
+    #  @param maxQts The maximum QTS.
     initialize = function(maxQts) {
       self$maxQts <- maxQts
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ReceivedQueueRequest",
@@ -9209,8 +9505,8 @@ ReceivedQueueRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x66, 0xbb, 0xa5, 0x55)),
@@ -9241,31 +9537,33 @@ ReceivedQueueRequest$readResult <- function(reader) {
 }
 
 
-#' @title ReorderPinnedDialogsRequest
-#' @description Represents a request to reorder pinned dialogs. This class inherits from TLRequest.
-#' @export
+#  @title ReorderPinnedDialogsRequest
+#  @description Represents a request to reorder pinned dialogs. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReorderPinnedDialogsRequest <- R6::R6Class(
   "ReorderPinnedDialogsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x3b1adf37,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ReorderPinnedDialogsRequest object.
-    #' @param folder_id The folder ID.
-    #' @param order The list of input dialog peers.
-    #' @param force Optional force flag.
+    #  @description Initialize the ReorderPinnedDialogsRequest object.
+    #  @param folder_id The folder ID.
+    #  @param order The list of input dialog peers.
+    #  @param force Optional force flag.
     initialize = function(folder_id, order, force = NULL) {
       self$folder_id <- folder_id
       self$order <- order
       self$force <- force
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       tmp <- list()
       for (x in self$order) {
@@ -9274,8 +9572,8 @@ ReorderPinnedDialogsRequest <- R6::R6Class(
       self$order <- tmp
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ReorderPinnedDialogsRequest",
@@ -9285,8 +9583,8 @@ ReorderPinnedDialogsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$force) || !self$force) 0L else 1L
       c(
@@ -9319,29 +9617,31 @@ ReorderPinnedDialogsRequest$from_reader <- function(reader) {
   ReorderPinnedDialogsRequest$new(folder_id = folder_id, order = order, force = force)
 }
 
-#' @title ReorderPinnedSavedDialogsRequest
-#' @description Represents a request to reorder pinned saved dialogs. This class inherits from TLRequest.
-#' @export
+#  @title ReorderPinnedSavedDialogsRequest
+#  @description Represents a request to reorder pinned saved dialogs. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReorderPinnedSavedDialogsRequest <- R6::R6Class(
   "ReorderPinnedSavedDialogsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x8b716587,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ReorderPinnedSavedDialogsRequest object.
-    #' @param order The list of input dialog peers.
-    #' @param force Optional force flag.
+    #  @description Initialize the ReorderPinnedSavedDialogsRequest object.
+    #  @param order The list of input dialog peers.
+    #  @param force Optional force flag.
     initialize = function(order, force = NULL) {
       self$order <- order
       self$force <- force
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       tmp <- list()
       for (x in self$order) {
@@ -9350,8 +9650,8 @@ ReorderPinnedSavedDialogsRequest <- R6::R6Class(
       self$order <- tmp
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ReorderPinnedSavedDialogsRequest",
@@ -9360,8 +9660,8 @@ ReorderPinnedSavedDialogsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$force) || !self$force) 0L else 1L
       c(
@@ -9392,26 +9692,28 @@ ReorderPinnedSavedDialogsRequest$from_reader <- function(reader) {
   ReorderPinnedSavedDialogsRequest$new(order = order, force = force)
 }
 
-#' @title ReorderQuickRepliesRequest
-#' @description Represents a request to reorder quick replies. This class inherits from TLRequest.
-#' @export
+#  @title ReorderQuickRepliesRequest
+#  @description Represents a request to reorder quick replies. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReorderQuickRepliesRequest <- R6::R6Class(
   "ReorderQuickRepliesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x60331907,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ReorderQuickRepliesRequest object.
-    #' @param order The list of order IDs.
+    #  @description Initialize the ReorderQuickRepliesRequest object.
+    #  @param order The list of order IDs.
     initialize = function(order) {
       self$order <- order
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ReorderQuickRepliesRequest",
@@ -9419,8 +9721,8 @@ ReorderQuickRepliesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x07, 0x19, 0x33, 0x60)),
@@ -9448,30 +9750,32 @@ ReorderQuickRepliesRequest$from_reader <- function(reader) {
 }
 
 
-#' @title ReorderStickerSetsRequest
-#' @description Represents a request to reorder sticker sets. This class inherits from TLRequest.
-#' @export
+#  @title ReorderStickerSetsRequest
+#  @description Represents a request to reorder sticker sets. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReorderStickerSetsRequest <- R6::R6Class(
   "ReorderStickerSetsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x78337739,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ReorderStickerSetsRequest object.
-    #' @param order The list of sticker set IDs.
-    #' @param masks Optional masks flag.
-    #' @param emojis Optional emojis flag.
+    #  @description Initialize the ReorderStickerSetsRequest object.
+    #  @param order The list of sticker set IDs.
+    #  @param masks Optional masks flag.
+    #  @param emojis Optional emojis flag.
     initialize = function(order, masks = NULL, emojis = NULL) {
       self$order <- order
       self$masks <- masks
       self$emojis <- emojis
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ReorderStickerSetsRequest",
@@ -9481,8 +9785,8 @@ ReorderStickerSetsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$masks) && self$masks) flags <- bitwOr(flags, 1L)
@@ -9516,23 +9820,25 @@ ReorderStickerSetsRequest$fromReader <- function(reader) {
   ReorderStickerSetsRequest$new(order = order, masks = masks, emojis = emojis)
 }
 
-#' @title ReportRequest
-#' @description Represents a request to report messages. This class inherits from TLRequest.
-#' @export
+#  @title ReportRequest
+#  @description Represents a request to report messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReportRequest <- R6::R6Class(
   "ReportRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xfc78af9b,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xacd3f438,
 
-    #' @description Initialize the ReportRequest object.
-    #' @param peer The input peer.
-    #' @param id The list of message IDs.
-    #' @param option The option bytes.
-    #' @param message The report message.
+    #  @description Initialize the ReportRequest object.
+    #  @param peer The input peer.
+    #  @param id The list of message IDs.
+    #  @param option The option bytes.
+    #  @param message The report message.
     initialize = function(peer, id, option, message) {
       self$peer <- peer
       self$id <- id
@@ -9540,15 +9846,15 @@ ReportRequest <- R6::R6Class(
       self$message <- message
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$getInputPeer(client$getInputEntity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ReportRequest",
@@ -9559,8 +9865,8 @@ ReportRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x9b, 0xaf, 0x78, 0xfc)),
@@ -9593,26 +9899,28 @@ ReportRequest$fromReader <- function(reader) {
   ReportRequest$new(peer = peer, id = id, option = option, message = message)
 }
 
-#' @title ReportEncryptedSpamRequest
-#' @description Represents a request to report encrypted spam. This class inherits from TLRequest.
-#' @export
+#  @title ReportEncryptedSpamRequest
+#  @description Represents a request to report encrypted spam. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReportEncryptedSpamRequest <- R6::R6Class(
   "ReportEncryptedSpamRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x4b0c8c0f,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ReportEncryptedSpamRequest object.
-    #' @param peer The input encrypted chat peer.
+    #  @description Initialize the ReportEncryptedSpamRequest object.
+    #  @param peer The input encrypted chat peer.
     initialize = function(peer) {
       self$peer <- peer
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     toDict = function() {
       list(
         "_" = "ReportEncryptedSpamRequest",
@@ -9620,8 +9928,8 @@ ReportEncryptedSpamRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x0f, 0x8c, 0x0c, 0x4b)),
@@ -9642,37 +9950,39 @@ ReportEncryptedSpamRequest$fromReader <- function(reader) {
 }
 
 
-#' @title ReportMessagesDeliveryRequest
-#' @description Represents a request to report messages delivery. This class inherits from TLRequest.
-#' @export
+#  @title ReportMessagesDeliveryRequest
+#  @description Represents a request to report messages delivery. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReportMessagesDeliveryRequest <- R6::R6Class(
   "ReportMessagesDeliveryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x5a6d7395,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ReportMessagesDeliveryRequest object.
-    #' @param peer The input peer.
-    #' @param id The list of message IDs.
-    #' @param push Optional push flag.
+    #  @description Initialize the ReportMessagesDeliveryRequest object.
+    #  @param peer The input peer.
+    #  @param id The list of message IDs.
+    #  @param push Optional push flag.
     initialize = function(peer, id, push = NULL) {
       self$peer <- peer
       self$id <- id
       self$push <- push
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ReportMessagesDeliveryRequest",
@@ -9682,8 +9992,8 @@ ReportMessagesDeliveryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$push) && self$push) flags <- bitwOr(flags, 1L)
@@ -9717,38 +10027,40 @@ ReportMessagesDeliveryRequest$from_reader <- function(reader) {
   ReportMessagesDeliveryRequest$new(peer = peer, id = id, push = push)
 }
 
-#' @title ReportReactionRequest
-#' @description Represents a request to report a reaction. This class inherits from TLRequest.
-#' @export
+#  @title ReportReactionRequest
+#  @description Represents a request to report a reaction. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReportReactionRequest <- R6::R6Class(
   "ReportReactionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x3f64c076,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ReportReactionRequest object.
-    #' @param peer The input peer.
-    #' @param id The message ID.
-    #' @param reaction_peer The reaction peer.
+    #  @description Initialize the ReportReactionRequest object.
+    #  @param peer The input peer.
+    #  @param id The message ID.
+    #  @param reaction_peer The reaction peer.
     initialize = function(peer, id, reaction_peer) {
       self$peer <- peer
       self$id <- id
       self$reaction_peer <- reaction_peer
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       self$reaction_peer <- utils$get_input_peer(client$get_input_entity(self$reaction_peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ReportReactionRequest",
@@ -9758,8 +10070,8 @@ ReportReactionRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x76, 0xc0, 0x64, 0x3f)),
@@ -9783,33 +10095,35 @@ ReportReactionRequest$from_reader <- function(reader) {
   ReportReactionRequest$new(peer = peer, id = id, reaction_peer = reaction_peer)
 }
 
-#' @title ReportSpamRequest
-#' @description Represents a request to report spam. This class inherits from TLRequest.
-#' @export
+#  @title ReportSpamRequest
+#  @description Represents a request to report spam. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReportSpamRequest <- R6::R6Class(
   "ReportSpamRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xcf1592db,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ReportSpamRequest object.
-    #' @param peer The input peer.
+    #  @description Initialize the ReportSpamRequest object.
+    #  @param peer The input peer.
     initialize = function(peer) {
       self$peer <- peer
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ReportSpamRequest",
@@ -9817,8 +10131,8 @@ ReportSpamRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xdb, 0x92, 0x15, 0xcf)),
@@ -9838,21 +10152,23 @@ ReportSpamRequest$from_reader <- function(reader) {
   ReportSpamRequest$new(peer = peer)
 }
 
-#' @title ReportSponsoredMessageRequest
-#' @description Represents a request to report a sponsored message. This class inherits from TLRequest.
-#' @export
+#  @title ReportSponsoredMessageRequest
+#  @description Represents a request to report a sponsored message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ReportSponsoredMessageRequest <- R6::R6Class(
   "ReportSponsoredMessageRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x12cbf0c4,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x26231822,
 
-    #' @description Initialize the ReportSponsoredMessageRequest object.
-    #' @param option The option bytes.
-    #' @param randomId The random ID (optional, defaults to generated value).
+    #  @description Initialize the ReportSponsoredMessageRequest object.
+    #  @param option The option bytes.
+    #  @param randomId The random ID (optional, defaults to generated value).
     initialize = function(option, randomId = NULL) {
       self$option <- option
       self$randomId <- if (is.null(randomId)) {
@@ -9863,8 +10179,8 @@ ReportSponsoredMessageRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ReportSponsoredMessageRequest",
@@ -9873,8 +10189,8 @@ ReportSponsoredMessageRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       # Assuming serialize_bytes is a method or function that serializes bytes
       c(
@@ -9897,27 +10213,29 @@ ReportSponsoredMessageRequest$from_reader <- function(reader) {
   ReportSponsoredMessageRequest$new(option = option, randomId = randomId)
 }
 
-#' @title RequestAppWebViewRequest
-#' @description Represents a request to request an app web view. This class inherits from TLRequest.
-#' @export
+#  @title RequestAppWebViewRequest
+#  @description Represents a request to request an app web view. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 RequestAppWebViewRequest <- R6::R6Class(
   "RequestAppWebViewRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x53618bce,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x93cea746,
 
-    #' @description Initialize the RequestAppWebViewRequest object.
-    #' @param peer The input peer.
-    #' @param app The input bot app.
-    #' @param platform The platform string.
-    #' @param writeAllowed Optional write allowed flag.
-    #' @param compact Optional compact flag.
-    #' @param fullscreen Optional fullscreen flag.
-    #' @param startParam Optional start parameter.
-    #' @param themeParams Optional theme parameters.
+    #  @description Initialize the RequestAppWebViewRequest object.
+    #  @param peer The input peer.
+    #  @param app The input bot app.
+    #  @param platform The platform string.
+    #  @param writeAllowed Optional write allowed flag.
+    #  @param compact Optional compact flag.
+    #  @param fullscreen Optional fullscreen flag.
+    #  @param startParam Optional start parameter.
+    #  @param themeParams Optional theme parameters.
     initialize = function(peer, app, platform, writeAllowed = NULL, compact = NULL, fullscreen = NULL, startParam = NULL, themeParams = NULL) {
       self$peer <- peer
       self$app <- app
@@ -9929,15 +10247,15 @@ RequestAppWebViewRequest <- R6::R6Class(
       self$themeParams <- themeParams
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "RequestAppWebViewRequest",
@@ -9952,8 +10270,8 @@ RequestAppWebViewRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$writeAllowed) && self$writeAllowed) flags <- bitwOr(flags, 1L)
@@ -9992,22 +10310,24 @@ RequestAppWebViewRequest$from_reader <- function(reader) {
   RequestAppWebViewRequest$new(peer = peer, app = app, platform = platform, writeAllowed = writeAllowed, compact = compact, fullscreen = fullscreen, startParam = startParam, themeParams = themeParams)
 }
 
-#' @title RequestEncryptionRequest
-#' @description Represents a request to request encryption. This class inherits from TLRequest.
-#' @export
+#  @title RequestEncryptionRequest
+#  @description Represents a request to request encryption. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 RequestEncryptionRequest <- R6::R6Class(
   "RequestEncryptionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xf64daf43,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x6d28a37a,
 
-    #' @description Initialize the RequestEncryptionRequest object.
-    #' @param userId The input user.
-    #' @param gA The g_a bytes.
-    #' @param randomId The random ID (optional, defaults to generated value).
+    #  @description Initialize the RequestEncryptionRequest object.
+    #  @param userId The input user.
+    #  @param gA The g_a bytes.
+    #  @param randomId The random ID (optional, defaults to generated value).
     initialize = function(userId, gA, randomId = NULL) {
       self$userId <- userId
       self$gA <- gA
@@ -10019,15 +10339,15 @@ RequestEncryptionRequest <- R6::R6Class(
       }
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$userId <- utils$get_input_user(client$get_input_entity(self$userId))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "RequestEncryptionRequest",
@@ -10037,8 +10357,8 @@ RequestEncryptionRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x43, 0xaf, 0x4d, 0xf6)),
@@ -10063,26 +10383,28 @@ RequestEncryptionRequest$from_reader <- function(reader) {
 }
 
 
-#' @title RequestMainWebViewRequest
-#' @description Represents a request to request the main web view for a bot. This class inherits from TLRequest.
-#' @export
+#  @title RequestMainWebViewRequest
+#  @description Represents a request to request the main web view for a bot. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 RequestMainWebViewRequest <- R6::R6Class(
   "RequestMainWebViewRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xc9e01e7b,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x93cea746,
 
-    #' @description Initialize the RequestMainWebViewRequest object.
-    #' @param peer The input peer.
-    #' @param bot The input user (bot).
-    #' @param platform The platform string.
-    #' @param compact Optional compact flag.
-    #' @param fullscreen Optional fullscreen flag.
-    #' @param start_param Optional start parameter.
-    #' @param theme_params Optional theme parameters.
+    #  @description Initialize the RequestMainWebViewRequest object.
+    #  @param peer The input peer.
+    #  @param bot The input user (bot).
+    #  @param platform The platform string.
+    #  @param compact Optional compact flag.
+    #  @param fullscreen Optional fullscreen flag.
+    #  @param start_param Optional start parameter.
+    #  @param theme_params Optional theme parameters.
     initialize = function(peer, bot, platform, compact = NULL, fullscreen = NULL, start_param = NULL, theme_params = NULL) {
       self$peer <- peer
       self$bot <- bot
@@ -10093,16 +10415,16 @@ RequestMainWebViewRequest <- R6::R6Class(
       self$theme_params <- theme_params
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       self$bot <- utils$get_input_user(client$get_input_entity(self$bot))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "RequestMainWebViewRequest",
@@ -10116,8 +10438,8 @@ RequestMainWebViewRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$compact) && self$compact) flags <- bitwOr(flags, 128L)
@@ -10154,28 +10476,30 @@ RequestMainWebViewRequest$from_reader <- function(reader) {
   RequestMainWebViewRequest$new(peer = peer, bot = bot, platform = platform, compact = compact, fullscreen = fullscreen, start_param = start_param, theme_params = theme_params)
 }
 
-#' @title RequestSimpleWebViewRequest
-#' @description Represents a request to request a simple web view for a bot. This class inherits from TLRequest.
-#' @export
+#  @title RequestSimpleWebViewRequest
+#  @description Represents a request to request a simple web view for a bot. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 RequestSimpleWebViewRequest <- R6::R6Class(
   "RequestSimpleWebViewRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x413a3e73,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x93cea746,
 
-    #' @description Initialize the RequestSimpleWebViewRequest object.
-    #' @param bot The input user (bot).
-    #' @param platform The platform string.
-    #' @param from_switch_webview Optional from switch webview flag.
-    #' @param from_side_menu Optional from side menu flag.
-    #' @param compact Optional compact flag.
-    #' @param fullscreen Optional fullscreen flag.
-    #' @param url Optional URL.
-    #' @param start_param Optional start parameter.
-    #' @param theme_params Optional theme parameters.
+    #  @description Initialize the RequestSimpleWebViewRequest object.
+    #  @param bot The input user (bot).
+    #  @param platform The platform string.
+    #  @param from_switch_webview Optional from switch webview flag.
+    #  @param from_side_menu Optional from side menu flag.
+    #  @param compact Optional compact flag.
+    #  @param fullscreen Optional fullscreen flag.
+    #  @param url Optional URL.
+    #  @param start_param Optional start parameter.
+    #  @param theme_params Optional theme parameters.
     initialize = function(bot, platform, from_switch_webview = NULL, from_side_menu = NULL, compact = NULL, fullscreen = NULL, url = NULL, start_param = NULL, theme_params = NULL) {
       self$bot <- bot
       self$platform <- platform
@@ -10188,15 +10512,15 @@ RequestSimpleWebViewRequest <- R6::R6Class(
       self$theme_params <- theme_params
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$bot <- utils$get_input_user(client$get_input_entity(self$bot))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "RequestSimpleWebViewRequest",
@@ -10212,8 +10536,8 @@ RequestSimpleWebViewRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$from_switch_webview) && self$from_switch_webview) flags <- bitwOr(flags, 2L)
@@ -10255,23 +10579,25 @@ RequestSimpleWebViewRequest$from_reader <- function(reader) {
   RequestSimpleWebViewRequest$new(bot = bot, platform = platform, from_switch_webview = from_switch_webview, from_side_menu = from_side_menu, compact = compact, fullscreen = fullscreen, url = url, start_param = start_param, theme_params = theme_params)
 }
 
-#' @title RequestUrlAuthRequest
-#' @description Represents a request to request URL auth. This class inherits from TLRequest.
-#' @export
+#  @title RequestUrlAuthRequest
+#  @description Represents a request to request URL auth. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 RequestUrlAuthRequest <- R6::R6Class(
   "RequestUrlAuthRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x198fb446,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x7765cb1e,
 
-    #' @description Initialize the RequestUrlAuthRequest object.
-    #' @param peer Optional input peer.
-    #' @param msg_id Optional message ID.
-    #' @param button_id Optional button ID.
-    #' @param url Optional URL.
+    #  @description Initialize the RequestUrlAuthRequest object.
+    #  @param peer Optional input peer.
+    #  @param msg_id Optional message ID.
+    #  @param button_id Optional button ID.
+    #  @param url Optional URL.
     initialize = function(peer = NULL, msg_id = NULL, button_id = NULL, url = NULL) {
       self$peer <- peer
       self$msg_id <- msg_id
@@ -10279,17 +10605,17 @@ RequestUrlAuthRequest <- R6::R6Class(
       self$url <- url
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       if (!is.null(self$peer)) {
         self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "RequestUrlAuthRequest",
@@ -10300,8 +10626,8 @@ RequestUrlAuthRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       stopifnot(
         ((!is.null(self$peer)) && (!is.null(self$msg_id)) && (!is.null(self$button_id))) ||
@@ -10347,31 +10673,33 @@ RequestUrlAuthRequest$from_reader <- function(reader) {
   RequestUrlAuthRequest$new(peer = peer, msg_id = msg_id, button_id = button_id, url = url)
 }
 
-#' @title RequestWebViewRequest
-#' @description Represents a request to request a web view. This class inherits from TLRequest.
-#' @export
+#  @title RequestWebViewRequest
+#  @description Represents a request to request a web view. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 RequestWebViewRequest <- R6::R6Class(
   "RequestWebViewRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x269dc2c1,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x93cea746,
 
-    #' @description Initialize the RequestWebViewRequest object.
-    #' @param peer The input peer.
-    #' @param bot The input user (bot).
-    #' @param platform The platform string.
-    #' @param from_bot_menu Optional from bot menu flag.
-    #' @param silent Optional silent flag.
-    #' @param compact Optional compact flag.
-    #' @param fullscreen Optional fullscreen flag.
-    #' @param url Optional URL.
-    #' @param start_param Optional start parameter.
-    #' @param theme_params Optional theme parameters.
-    #' @param reply_to Optional input reply to.
-    #' @param send_as Optional input peer to send as.
+    #  @description Initialize the RequestWebViewRequest object.
+    #  @param peer The input peer.
+    #  @param bot The input user (bot).
+    #  @param platform The platform string.
+    #  @param from_bot_menu Optional from bot menu flag.
+    #  @param silent Optional silent flag.
+    #  @param compact Optional compact flag.
+    #  @param fullscreen Optional fullscreen flag.
+    #  @param url Optional URL.
+    #  @param start_param Optional start parameter.
+    #  @param theme_params Optional theme parameters.
+    #  @param reply_to Optional input reply to.
+    #  @param send_as Optional input peer to send as.
     initialize = function(peer, bot, platform, from_bot_menu = NULL, silent = NULL, compact = NULL, fullscreen = NULL, url = NULL, start_param = NULL, theme_params = NULL, reply_to = NULL, send_as = NULL) {
       self$peer <- peer
       self$bot <- bot
@@ -10387,9 +10715,9 @@ RequestWebViewRequest <- R6::R6Class(
       self$send_as <- send_as
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       self$bot <- utils$get_input_user(client$get_input_entity(self$bot))
@@ -10398,8 +10726,8 @@ RequestWebViewRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "RequestWebViewRequest",
@@ -10418,8 +10746,8 @@ RequestWebViewRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$from_bot_menu) && self$from_bot_menu) flags <- bitwOr(flags, 16L)
@@ -10489,36 +10817,38 @@ RequestWebViewRequest$from_reader <- function(reader) {
   RequestWebViewRequest$new(peer = peer, bot = bot, platform = platform, from_bot_menu = from_bot_menu, silent = silent, compact = compact, fullscreen = fullscreen, url = url, start_param = start_param, theme_params = theme_params, reply_to = reply_to, send_as = send_as)
 }
 
-#' @title SaveDefaultSendAsRequest
-#' @description Represents a request to save the default send-as peer for a chat. This class inherits from TLRequest.
-#' @export
+#  @title SaveDefaultSendAsRequest
+#  @description Represents a request to save the default send-as peer for a chat. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SaveDefaultSendAsRequest <- R6::R6Class(
   "SaveDefaultSendAsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xccfddf96,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the SaveDefaultSendAsRequest object.
-    #' @param peer The input peer.
-    #' @param send_as The send-as input peer.
+    #  @description Initialize the SaveDefaultSendAsRequest object.
+    #  @param peer The input peer.
+    #  @param send_as The send-as input peer.
     initialize = function(peer, send_as) {
       self$peer <- peer
       self$send_as <- send_as
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       self$send_as <- utils$get_input_peer(client$get_input_entity(self$send_as))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SaveDefaultSendAsRequest",
@@ -10527,8 +10857,8 @@ SaveDefaultSendAsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x96, 0xdf, 0xfd, 0xcc)),
@@ -10550,28 +10880,30 @@ SaveDefaultSendAsRequest$from_reader <- function(reader) {
   SaveDefaultSendAsRequest$new(peer = peer, send_as = send_as)
 }
 
-#' @title SaveDraftRequest
-#' @description Represents a request to save a draft message. This class inherits from TLRequest.
-#' @export
+#  @title SaveDraftRequest
+#  @description Represents a request to save a draft message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SaveDraftRequest <- R6::R6Class(
   "SaveDraftRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x54ae308e,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the SaveDraftRequest object.
-    #' @param peer The input peer.
-    #' @param message The message string.
-    #' @param no_webpage Optional no webpage flag.
-    #' @param invert_media Optional invert media flag.
-    #' @param reply_to Optional input reply to.
-    #' @param entities Optional list of message entities.
-    #' @param media Optional input media.
-    #' @param effect Optional effect ID.
-    #' @param suggested_post Optional suggested post.
+    #  @description Initialize the SaveDraftRequest object.
+    #  @param peer The input peer.
+    #  @param message The message string.
+    #  @param no_webpage Optional no webpage flag.
+    #  @param invert_media Optional invert media flag.
+    #  @param reply_to Optional input reply to.
+    #  @param entities Optional list of message entities.
+    #  @param media Optional input media.
+    #  @param effect Optional effect ID.
+    #  @param suggested_post Optional suggested post.
     initialize = function(peer, message, no_webpage = NULL, invert_media = NULL, reply_to = NULL, entities = NULL, media = NULL, effect = NULL, suggested_post = NULL) {
       self$peer <- peer
       self$message <- message
@@ -10584,9 +10916,9 @@ SaveDraftRequest <- R6::R6Class(
       self$suggested_post <- suggested_post
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       if (!is.null(self$media)) {
@@ -10594,8 +10926,8 @@ SaveDraftRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SaveDraftRequest",
@@ -10611,8 +10943,8 @@ SaveDraftRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$no_webpage) && self$no_webpage) flags <- bitwOr(flags, 2L)
@@ -10662,35 +10994,37 @@ SaveDraftRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SaveGifRequest
-#' @description Represents a request to save or unsave a GIF. This class inherits from TLRequest.
-#' @export
+#  @title SaveGifRequest
+#  @description Represents a request to save or unsave a GIF. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SaveGifRequest <- R6::R6Class(
   "SaveGifRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x327a30cb,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the SaveGifRequest object.
-    #' @param id The input document.
-    #' @param unsave The unsave flag.
+    #  @description Initialize the SaveGifRequest object.
+    #  @param id The input document.
+    #  @param unsave The unsave flag.
     initialize = function(id, unsave) {
       self$id <- id
       self$unsave <- unsave
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$id <- utils$get_input_document(self$id)
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SaveGifRequest",
@@ -10699,8 +11033,8 @@ SaveGifRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xcb, 0x30, 0x7a, 0x32)),
@@ -10722,37 +11056,39 @@ SaveGifRequest$from_reader <- function(reader) {
   SaveGifRequest$new(id = id, unsave = unsave)
 }
 
-#' @title SavePreparedInlineMessageRequest
-#' @description Represents a request to save a prepared inline message. This class inherits from TLRequest.
-#' @export
+#  @title SavePreparedInlineMessageRequest
+#  @description Represents a request to save a prepared inline message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SavePreparedInlineMessageRequest <- R6::R6Class(
   "SavePreparedInlineMessageRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xf21f7f2f,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xef9119bb,
 
-    #' @description Initialize the SavePreparedInlineMessageRequest object.
-    #' @param result The input bot inline result.
-    #' @param user_id The input user.
-    #' @param peer_types Optional list of inline query peer types.
+    #  @description Initialize the SavePreparedInlineMessageRequest object.
+    #  @param result The input bot inline result.
+    #  @param user_id The input user.
+    #  @param peer_types Optional list of inline query peer types.
     initialize = function(result, user_id, peer_types = NULL) {
       self$result <- result
       self$user_id <- user_id
       self$peer_types <- peer_types
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$user_id <- utils$get_input_user(client$get_input_entity(self$user_id))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SavePreparedInlineMessageRequest",
@@ -10762,8 +11098,8 @@ SavePreparedInlineMessageRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$peer_types)) flags <- bitwOr(flags, 1L)
@@ -10807,37 +11143,39 @@ SavePreparedInlineMessageRequest$from_reader <- function(reader) {
   SavePreparedInlineMessageRequest$new(result = result, user_id = user_id, peer_types = peer_types)
 }
 
-#' @title SaveRecentStickerRequest
-#' @description Represents a request to save or unsave a recent sticker. This class inherits from TLRequest.
-#' @export
+#  @title SaveRecentStickerRequest
+#  @description Represents a request to save or unsave a recent sticker. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SaveRecentStickerRequest <- R6::R6Class(
   "SaveRecentStickerRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x392718f8,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the SaveRecentStickerRequest object.
-    #' @param id The input document.
-    #' @param unsave The unsave flag.
-    #' @param attached Optional attached flag.
+    #  @description Initialize the SaveRecentStickerRequest object.
+    #  @param id The input document.
+    #  @param unsave The unsave flag.
+    #  @param attached Optional attached flag.
     initialize = function(id, unsave, attached = NULL) {
       self$id <- id
       self$unsave <- unsave
       self$attached <- attached
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$id <- utils$get_input_document(self$id)
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SaveRecentStickerRequest",
@@ -10847,8 +11185,8 @@ SaveRecentStickerRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$attached) && self$attached) flags <- bitwOr(flags, 1L)
@@ -10876,34 +11214,36 @@ SaveRecentStickerRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SearchRequest
-#' @description Represents a request to search messages. This class inherits from TLRequest.
-#' @export
+#  @title SearchRequest
+#  @description Represents a request to search messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SearchRequest <- R6::R6Class(
   "SearchRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x29ee847a,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd4b40b5e,
 
-    #' @description Initialize the SearchRequest object.
-    #' @param peer The input peer.
-    #' @param q The search query string.
-    #' @param filter The messages filter.
-    #' @param min_date Optional minimum date.
-    #' @param max_date Optional maximum date.
-    #' @param offset_id The offset ID.
-    #' @param add_offset The additional offset.
-    #' @param limit The limit for results.
-    #' @param max_id The maximum ID.
-    #' @param min_id The minimum ID.
-    #' @param hash The hash for caching.
-    #' @param from_id Optional input peer for from ID.
-    #' @param saved_peer_id Optional input peer for saved peer ID.
-    #' @param saved_reaction Optional list of reactions.
-    #' @param top_msg_id Optional top message ID.
+    #  @description Initialize the SearchRequest object.
+    #  @param peer The input peer.
+    #  @param q The search query string.
+    #  @param filter The messages filter.
+    #  @param min_date Optional minimum date.
+    #  @param max_date Optional maximum date.
+    #  @param offset_id The offset ID.
+    #  @param add_offset The additional offset.
+    #  @param limit The limit for results.
+    #  @param max_id The maximum ID.
+    #  @param min_id The minimum ID.
+    #  @param hash The hash for caching.
+    #  @param from_id Optional input peer for from ID.
+    #  @param saved_peer_id Optional input peer for saved peer ID.
+    #  @param saved_reaction Optional list of reactions.
+    #  @param top_msg_id Optional top message ID.
     initialize = function(peer, q, filter, min_date = NULL, max_date = NULL, offset_id, add_offset, limit, max_id, min_id, hash, from_id = NULL, saved_peer_id = NULL, saved_reaction = NULL, top_msg_id = NULL) {
       self$peer <- peer
       self$q <- q
@@ -10922,9 +11262,9 @@ SearchRequest <- R6::R6Class(
       self$top_msg_id <- top_msg_id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       if (!is.null(self$from_id)) {
@@ -10935,8 +11275,8 @@ SearchRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SearchRequest",
@@ -10958,8 +11298,8 @@ SearchRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$from_id)) flags <- bitwOr(flags, 1L)
@@ -11020,28 +11360,30 @@ SearchRequest$from_reader <- function(reader) {
   SearchRequest$new(peer = peer, q = q, filter = filter, min_date = min_date, max_date = max_date, offset_id = offset_id, add_offset = add_offset, limit = limit, max_id = max_id, min_id = min_id, hash = hash, from_id = from_id, saved_peer_id = saved_peer_id, saved_reaction = saved_reaction, top_msg_id = top_msg_id)
 }
 
-#' @title SearchCustomEmojiRequest
-#' @description Represents a request to search custom emoji. This class inherits from TLRequest.
-#' @export
+#  @title SearchCustomEmojiRequest
+#  @description Represents a request to search custom emoji. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SearchCustomEmojiRequest <- R6::R6Class(
   "SearchCustomEmojiRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x2c11c0d7,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xbcef6aba,
 
-    #' @description Initialize the SearchCustomEmojiRequest object.
-    #' @param emoticon The emoticon string.
-    #' @param hash The hash for caching.
+    #  @description Initialize the SearchCustomEmojiRequest object.
+    #  @param emoticon The emoticon string.
+    #  @param hash The hash for caching.
     initialize = function(emoticon, hash) {
       self$emoticon <- emoticon
       self$hash <- hash
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SearchCustomEmojiRequest",
@@ -11050,8 +11392,8 @@ SearchCustomEmojiRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xd7, 0xc0, 0x11, 0x2c)),
@@ -11074,30 +11416,32 @@ SearchCustomEmojiRequest$from_reader <- function(reader) {
   SearchCustomEmojiRequest$new(emoticon = emoticon, hash = hash)
 }
 
-#' @title SearchEmojiStickerSetsRequest
-#' @description Represents a request to search emoji sticker sets. This class inherits from TLRequest.
-#' @export
+#  @title SearchEmojiStickerSetsRequest
+#  @description Represents a request to search emoji sticker sets. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SearchEmojiStickerSetsRequest <- R6::R6Class(
   "SearchEmojiStickerSetsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x92b4494c,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x40df361,
 
-    #' @description Initialize the SearchEmojiStickerSetsRequest object.
-    #' @param q The search query string.
-    #' @param hash The hash for caching.
-    #' @param exclude_featured Optional exclude featured flag.
+    #  @description Initialize the SearchEmojiStickerSetsRequest object.
+    #  @param q The search query string.
+    #  @param hash The hash for caching.
+    #  @param exclude_featured Optional exclude featured flag.
     initialize = function(q, hash, exclude_featured = NULL) {
       self$q <- q
       self$hash <- hash
       self$exclude_featured <- exclude_featured
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SearchEmojiStickerSetsRequest",
@@ -11107,8 +11451,8 @@ SearchEmojiStickerSetsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$exclude_featured) && self$exclude_featured) flags <- bitwOr(flags, 1L)
@@ -11136,31 +11480,33 @@ SearchEmojiStickerSetsRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SearchGlobalRequest
-#' @description Represents a request to search globally. This class inherits from TLRequest.
-#' @export
+#  @title SearchGlobalRequest
+#  @description Represents a request to search globally. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SearchGlobalRequest <- R6::R6Class(
   "SearchGlobalRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x4bc6589a,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd4b40b5e,
 
-    #' @description Initialize the SearchGlobalRequest object.
-    #' @param q The search query string.
-    #' @param filter The messages filter.
-    #' @param min_date Optional minimum date.
-    #' @param max_date Optional maximum date.
-    #' @param offset_rate The offset rate.
-    #' @param offset_peer The offset peer.
-    #' @param offset_id The offset ID.
-    #' @param limit The limit for results.
-    #' @param broadcasts_only Optional broadcasts only flag.
-    #' @param groups_only Optional groups only flag.
-    #' @param users_only Optional users only flag.
-    #' @param folder_id Optional folder ID.
+    #  @description Initialize the SearchGlobalRequest object.
+    #  @param q The search query string.
+    #  @param filter The messages filter.
+    #  @param min_date Optional minimum date.
+    #  @param max_date Optional maximum date.
+    #  @param offset_rate The offset rate.
+    #  @param offset_peer The offset peer.
+    #  @param offset_id The offset ID.
+    #  @param limit The limit for results.
+    #  @param broadcasts_only Optional broadcasts only flag.
+    #  @param groups_only Optional groups only flag.
+    #  @param users_only Optional users only flag.
+    #  @param folder_id Optional folder ID.
     initialize = function(q, filter, min_date = NULL, max_date = NULL, offset_rate, offset_peer, offset_id, limit, broadcasts_only = NULL, groups_only = NULL, users_only = NULL, folder_id = NULL) {
       self$q <- q
       self$filter <- filter
@@ -11176,15 +11522,15 @@ SearchGlobalRequest <- R6::R6Class(
       self$folder_id <- folder_id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$offset_peer <- utils$get_input_peer(client$get_input_entity(self$offset_peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SearchGlobalRequest",
@@ -11203,8 +11549,8 @@ SearchGlobalRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$broadcasts_only) && self$broadcasts_only) flags <- bitwOr(flags, 2L)
@@ -11251,30 +11597,32 @@ SearchGlobalRequest$from_reader <- function(reader) {
   SearchGlobalRequest$new(q = q, filter = filter, min_date = min_date, max_date = max_date, offset_rate = offset_rate, offset_peer = offset_peer, offset_id = offset_id, limit = limit, broadcasts_only = broadcasts_only, groups_only = groups_only, users_only = users_only, folder_id = folder_id)
 }
 
-#' @title SearchSentMediaRequest
-#' @description Represents a request to search sent media. This class inherits from TLRequest.
-#' @export
+#  @title SearchSentMediaRequest
+#  @description Represents a request to search sent media. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SearchSentMediaRequest <- R6::R6Class(
   "SearchSentMediaRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x107e31a0,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xd4b40b5e,
 
-    #' @description Initialize the SearchSentMediaRequest object.
-    #' @param q The search query string.
-    #' @param filter The messages filter.
-    #' @param limit The limit for results.
+    #  @description Initialize the SearchSentMediaRequest object.
+    #  @param q The search query string.
+    #  @param filter The messages filter.
+    #  @param limit The limit for results.
     initialize = function(q, filter, limit) {
       self$q <- q
       self$filter <- filter
       self$limit <- limit
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SearchSentMediaRequest",
@@ -11284,8 +11632,8 @@ SearchSentMediaRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xa0, 0x31, 0x7e, 0x10)),
@@ -11310,30 +11658,32 @@ SearchSentMediaRequest$from_reader <- function(reader) {
   SearchSentMediaRequest$new(q = q, filter = filter, limit = limit)
 }
 
-#' @title SearchStickerSetsRequest
-#' @description Represents a request to search sticker sets. This class inherits from TLRequest.
-#' @export
+#  @title SearchStickerSetsRequest
+#  @description Represents a request to search sticker sets. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SearchStickerSetsRequest <- R6::R6Class(
   "SearchStickerSetsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x35705b8a,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x40df361,
 
-    #' @description Initialize the SearchStickerSetsRequest object.
-    #' @param q The search query string.
-    #' @param hash The hash for caching.
-    #' @param exclude_featured Optional exclude featured flag.
+    #  @description Initialize the SearchStickerSetsRequest object.
+    #  @param q The search query string.
+    #  @param hash The hash for caching.
+    #  @param exclude_featured Optional exclude featured flag.
     initialize = function(q, hash, exclude_featured = NULL) {
       self$q <- q
       self$hash <- hash
       self$exclude_featured <- exclude_featured
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SearchStickerSetsRequest",
@@ -11343,8 +11693,8 @@ SearchStickerSetsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$exclude_featured) && self$exclude_featured) flags <- bitwOr(flags, 1L)
@@ -11371,26 +11721,28 @@ SearchStickerSetsRequest$from_reader <- function(reader) {
   SearchStickerSetsRequest$new(q = q, hash = hash, exclude_featured = exclude_featured)
 }
 
-#' @title SearchStickersRequest
-#' @description Represents a request to search for stickers. This class inherits from TLRequest.
-#' @export
+#  @title SearchStickersRequest
+#  @description Represents a request to search for stickers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SearchStickersRequest <- R6::R6Class(
   "SearchStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x29b1c66a,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x6402151,
 
-    #' @description Initialize the SearchStickersRequest object.
-    #' @param q The search query string.
-    #' @param emoticon The emoticon string.
-    #' @param lang_code List of language codes.
-    #' @param offset The offset for pagination.
-    #' @param limit The limit for results.
-    #' @param hash The hash for caching.
-    #' @param emojis Optional emojis flag.
+    #  @description Initialize the SearchStickersRequest object.
+    #  @param q The search query string.
+    #  @param emoticon The emoticon string.
+    #  @param lang_code List of language codes.
+    #  @param offset The offset for pagination.
+    #  @param limit The limit for results.
+    #  @param hash The hash for caching.
+    #  @param emojis Optional emojis flag.
     initialize = function(q, emoticon, lang_code, offset, limit, hash, emojis = NULL) {
       self$q <- q
       self$emoticon <- emoticon
@@ -11401,8 +11753,8 @@ SearchStickersRequest <- R6::R6Class(
       self$emojis <- emojis
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SearchStickersRequest",
@@ -11416,8 +11768,8 @@ SearchStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$emojis) && self$emojis) flags <- bitwOr(flags, 1L)
@@ -11457,23 +11809,25 @@ SearchStickersRequest$from_reader <- function(reader) {
   SearchStickersRequest$new(q = q, emoticon = emoticon, lang_code = lang_code, offset = offset, limit = limit, hash = hash, emojis = emojis)
 }
 
-#' @title SendBotRequestedPeerRequest
-#' @description Represents a request to send bot requested peers. This class inherits from TLRequest.
-#' @export
+#  @title SendBotRequestedPeerRequest
+#  @description Represents a request to send bot requested peers. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendBotRequestedPeerRequest <- R6::R6Class(
   "SendBotRequestedPeerRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x91b2d060,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SendBotRequestedPeerRequest object.
-    #' @param peer The input peer.
-    #' @param msg_id The message ID.
-    #' @param button_id The button ID.
-    #' @param requested_peers List of requested peers.
+    #  @description Initialize the SendBotRequestedPeerRequest object.
+    #  @param peer The input peer.
+    #  @param msg_id The message ID.
+    #  @param button_id The button ID.
+    #  @param requested_peers List of requested peers.
     initialize = function(peer, msg_id, button_id, requested_peers) {
       self$peer <- peer
       self$msg_id <- msg_id
@@ -11481,9 +11835,9 @@ SendBotRequestedPeerRequest <- R6::R6Class(
       self$requested_peers <- requested_peers
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       tmp <- list()
@@ -11493,8 +11847,8 @@ SendBotRequestedPeerRequest <- R6::R6Class(
       self$requested_peers <- tmp
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendBotRequestedPeerRequest",
@@ -11505,8 +11859,8 @@ SendBotRequestedPeerRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x60, 0xd0, 0xb2, 0x91)),
@@ -11538,23 +11892,25 @@ SendBotRequestedPeerRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SendEncryptedRequest
-#' @description Represents a request to send an encrypted message. This class inherits from TLRequest.
-#' @export
+#  @title SendEncryptedRequest
+#  @description Represents a request to send an encrypted message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendEncryptedRequest <- R6::R6Class(
   "SendEncryptedRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x44fa7a15,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xc99e3e50,
 
-    #' @description Initialize the SendEncryptedRequest object.
-    #' @param peer The input encrypted chat peer.
-    #' @param data The data bytes.
-    #' @param silent Optional silent flag.
-    #' @param random_id Optional random ID, defaults to a generated 64-bit signed integer.
+    #  @description Initialize the SendEncryptedRequest object.
+    #  @param peer The input encrypted chat peer.
+    #  @param data The data bytes.
+    #  @param silent Optional silent flag.
+    #  @param random_id Optional random ID, defaults to a generated 64-bit signed integer.
     initialize = function(peer, data, silent = NULL, random_id = NULL) {
       self$peer <- peer
       self$data <- data
@@ -11562,8 +11918,8 @@ SendEncryptedRequest <- R6::R6Class(
       self$random_id <- if (is.null(random_id)) as.integer(runif(1, min = -2^63, max = 2^63 - 1)) else random_id
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendEncryptedRequest",
@@ -11574,8 +11930,8 @@ SendEncryptedRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$silent) && self$silent) flags <- bitwOr(flags, 1L)
@@ -11604,24 +11960,26 @@ SendEncryptedRequest$from_reader <- function(reader) {
   SendEncryptedRequest$new(peer = peer, data = data, silent = silent, random_id = random_id)
 }
 
-#' @title SendEncryptedFileRequest
-#' @description Represents a request to send an encrypted file. This class inherits from TLRequest.
-#' @export
+#  @title SendEncryptedFileRequest
+#  @description Represents a request to send an encrypted file. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendEncryptedFileRequest <- R6::R6Class(
   "SendEncryptedFileRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x5559481d,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xc99e3e50,
 
-    #' @description Initialize the SendEncryptedFileRequest object.
-    #' @param peer The input encrypted chat peer.
-    #' @param data The data bytes.
-    #' @param file The input encrypted file.
-    #' @param silent Optional silent flag.
-    #' @param random_id Optional random ID, defaults to a generated 64-bit signed integer.
+    #  @description Initialize the SendEncryptedFileRequest object.
+    #  @param peer The input encrypted chat peer.
+    #  @param data The data bytes.
+    #  @param file The input encrypted file.
+    #  @param silent Optional silent flag.
+    #  @param random_id Optional random ID, defaults to a generated 64-bit signed integer.
     initialize = function(peer, data, file, silent = NULL, random_id = NULL) {
       self$peer <- peer
       self$data <- data
@@ -11630,8 +11988,8 @@ SendEncryptedFileRequest <- R6::R6Class(
       self$random_id <- if (is.null(random_id)) as.integer(runif(1, min = -2^63, max = 2^63 - 1)) else random_id
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendEncryptedFileRequest",
@@ -11643,8 +12001,8 @@ SendEncryptedFileRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$silent) && self$silent) flags <- bitwOr(flags, 1L)
@@ -11676,37 +12034,39 @@ SendEncryptedFileRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SendEncryptedServiceRequest
-#' @description Represents a request to send an encrypted service message. This class inherits from TLRequest.
-#' @export
+#  @title SendEncryptedServiceRequest
+#  @description Represents a request to send an encrypted service message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendEncryptedServiceRequest <- R6::R6Class(
   "SendEncryptedServiceRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x32d439a4,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xc99e3e50,
 
-    #' @description Initialize the SendEncryptedServiceRequest object.
-    #' @param peer The input encrypted chat peer.
-    #' @param data The data bytes.
-    #' @param random_id Optional random ID, defaults to a generated 64-bit integer.
+    #  @description Initialize the SendEncryptedServiceRequest object.
+    #  @param peer The input encrypted chat peer.
+    #  @param data The data bytes.
+    #  @param random_id Optional random ID, defaults to a generated 64-bit integer.
     initialize = function(peer, data, random_id = NULL) {
       self$peer <- peer
       self$data <- data
       self$random_id <- if (is.null(random_id)) as.integer(runif(1, min = -2^63, max = 2^63 - 1)) else random_id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       # No resolution needed for this request
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendEncryptedServiceRequest",
@@ -11716,8 +12076,8 @@ SendEncryptedServiceRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xa4, 0x39, 0xd4, 0x32)),
@@ -11741,32 +12101,34 @@ SendEncryptedServiceRequest$from_reader <- function(reader) {
   SendEncryptedServiceRequest$new(peer = peer, data = data, random_id = random_id)
 }
 
-#' @title SendInlineBotResultRequest
-#' @description Represents a request to send an inline bot result. This class inherits from TLRequest.
-#' @export
+#  @title SendInlineBotResultRequest
+#  @description Represents a request to send an inline bot result. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendInlineBotResultRequest <- R6::R6Class(
   "SendInlineBotResultRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xc0cf7646,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SendInlineBotResultRequest object.
-    #' @param peer The input peer.
-    #' @param query_id The query ID.
-    #' @param id The result ID string.
-    #' @param silent Optional silent flag.
-    #' @param background Optional background flag.
-    #' @param clear_draft Optional clear draft flag.
-    #' @param hide_via Optional hide via flag.
-    #' @param reply_to Optional input reply to.
-    #' @param random_id Optional random ID, defaults to a generated 64-bit integer.
-    #' @param schedule_date Optional schedule date.
-    #' @param send_as Optional input peer to send as.
-    #' @param quick_reply_shortcut Optional input quick reply shortcut.
-    #' @param allow_paid_stars Optional allow paid stars count.
+    #  @description Initialize the SendInlineBotResultRequest object.
+    #  @param peer The input peer.
+    #  @param query_id The query ID.
+    #  @param id The result ID string.
+    #  @param silent Optional silent flag.
+    #  @param background Optional background flag.
+    #  @param clear_draft Optional clear draft flag.
+    #  @param hide_via Optional hide via flag.
+    #  @param reply_to Optional input reply to.
+    #  @param random_id Optional random ID, defaults to a generated 64-bit integer.
+    #  @param schedule_date Optional schedule date.
+    #  @param send_as Optional input peer to send as.
+    #  @param quick_reply_shortcut Optional input quick reply shortcut.
+    #  @param allow_paid_stars Optional allow paid stars count.
     initialize = function(peer, query_id, id, silent = NULL, background = NULL, clear_draft = NULL, hide_via = NULL, reply_to = NULL, random_id = NULL, schedule_date = NULL, send_as = NULL, quick_reply_shortcut = NULL, allow_paid_stars = NULL) {
       self$peer <- peer
       self$query_id <- query_id
@@ -11783,9 +12145,9 @@ SendInlineBotResultRequest <- R6::R6Class(
       self$allow_paid_stars <- allow_paid_stars
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       if (!is.null(self$send_as)) {
@@ -11793,8 +12155,8 @@ SendInlineBotResultRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendInlineBotResultRequest",
@@ -11814,8 +12176,8 @@ SendInlineBotResultRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$silent) && self$silent) flags <- bitwOr(flags, 32L)
@@ -11868,39 +12230,41 @@ SendInlineBotResultRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SendMediaRequest
-#' @description Represents a request to send media. This class inherits from TLRequest.
-#' @export
+#  @title SendMediaRequest
+#  @description Represents a request to send media. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendMediaRequest <- R6::R6Class(
   "SendMediaRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xac55d9c1,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SendMediaRequest object.
-    #' @param peer The input peer.
-    #' @param media The input media.
-    #' @param message The message string.
-    #' @param silent Optional silent flag.
-    #' @param background Optional background flag.
-    #' @param clear_draft Optional clear draft flag.
-    #' @param noforwards Optional no forwards flag.
-    #' @param update_stickersets_order Optional update stickersets order flag.
-    #' @param invert_media Optional invert media flag.
-    #' @param allow_paid_floodskip Optional allow paid floodskip flag.
-    #' @param reply_to Optional input reply to.
-    #' @param random_id Optional random ID, defaults to a generated 64-bit integer.
-    #' @param reply_markup Optional reply markup.
-    #' @param entities Optional list of message entities.
-    #' @param schedule_date Optional schedule date.
-    #' @param send_as Optional input peer to send as.
-    #' @param quick_reply_shortcut Optional input quick reply shortcut.
-    #' @param effect Optional effect ID.
-    #' @param allow_paid_stars Optional allow paid stars count.
-    #' @param suggested_post Optional suggested post.
+    #  @description Initialize the SendMediaRequest object.
+    #  @param peer The input peer.
+    #  @param media The input media.
+    #  @param message The message string.
+    #  @param silent Optional silent flag.
+    #  @param background Optional background flag.
+    #  @param clear_draft Optional clear draft flag.
+    #  @param noforwards Optional no forwards flag.
+    #  @param update_stickersets_order Optional update stickersets order flag.
+    #  @param invert_media Optional invert media flag.
+    #  @param allow_paid_floodskip Optional allow paid floodskip flag.
+    #  @param reply_to Optional input reply to.
+    #  @param random_id Optional random ID, defaults to a generated 64-bit integer.
+    #  @param reply_markup Optional reply markup.
+    #  @param entities Optional list of message entities.
+    #  @param schedule_date Optional schedule date.
+    #  @param send_as Optional input peer to send as.
+    #  @param quick_reply_shortcut Optional input quick reply shortcut.
+    #  @param effect Optional effect ID.
+    #  @param allow_paid_stars Optional allow paid stars count.
+    #  @param suggested_post Optional suggested post.
     initialize = function(peer, media, message, silent = NULL, background = NULL, clear_draft = NULL, noforwards = NULL, update_stickersets_order = NULL, invert_media = NULL, allow_paid_floodskip = NULL, reply_to = NULL, random_id = NULL, reply_markup = NULL, entities = NULL, schedule_date = NULL, send_as = NULL, quick_reply_shortcut = NULL, effect = NULL, allow_paid_stars = NULL, suggested_post = NULL) {
       self$peer <- peer
       self$media <- media
@@ -11924,9 +12288,9 @@ SendMediaRequest <- R6::R6Class(
       self$suggested_post <- suggested_post
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       self$media <- utils$get_input_media(self$media)
@@ -11935,8 +12299,8 @@ SendMediaRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendMediaRequest",
@@ -11963,8 +12327,8 @@ SendMediaRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$silent) && self$silent) flags <- bitwOr(flags, 32L)
@@ -12039,39 +12403,41 @@ SendMediaRequest$from_reader <- function(reader) {
   SendMediaRequest$new(peer = peer, media = media, message = message, silent = silent, background = background, clear_draft = clear_draft, noforwards = noforwards, update_stickersets_order = update_stickersets_order, invert_media = invert_media, allow_paid_floodskip = allow_paid_floodskip, reply_to = reply_to, random_id = random_id, reply_markup = reply_markup, entities = entities, schedule_date = schedule_date, send_as = send_as, quick_reply_shortcut = quick_reply_shortcut, effect = effect, allow_paid_stars = allow_paid_stars, suggested_post = suggested_post)
 }
 
-#' @title SendMessageRequest
-#' @description Represents a request to send a message. This class inherits from TLRequest.
-#' @export
+#  @title SendMessageRequest
+#  @description Represents a request to send a message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendMessageRequest <- R6::R6Class(
   "SendMessageRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xfe05dc9a,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SendMessageRequest object.
-    #' @param peer The input peer.
-    #' @param message The message string.
-    #' @param no_webpage Optional no webpage flag.
-    #' @param silent Optional silent flag.
-    #' @param background Optional background flag.
-    #' @param clear_draft Optional clear draft flag.
-    #' @param noforwards Optional no forwards flag.
-    #' @param update_stickersets_order Optional update stickersets order flag.
-    #' @param invert_media Optional invert media flag.
-    #' @param allow_paid_floodskip Optional allow paid floodskip flag.
-    #' @param reply_to Optional input reply to.
-    #' @param random_id Optional random ID, defaults to a generated 64-bit integer.
-    #' @param reply_markup Optional reply markup.
-    #' @param entities Optional list of message entities.
-    #' @param schedule_date Optional schedule date.
-    #' @param send_as Optional input peer to send as.
-    #' @param quick_reply_shortcut Optional input quick reply shortcut.
-    #' @param effect Optional effect ID.
-    #' @param allow_paid_stars Optional allow paid stars count.
-    #' @param suggested_post Optional suggested post.
+    #  @description Initialize the SendMessageRequest object.
+    #  @param peer The input peer.
+    #  @param message The message string.
+    #  @param no_webpage Optional no webpage flag.
+    #  @param silent Optional silent flag.
+    #  @param background Optional background flag.
+    #  @param clear_draft Optional clear draft flag.
+    #  @param noforwards Optional no forwards flag.
+    #  @param update_stickersets_order Optional update stickersets order flag.
+    #  @param invert_media Optional invert media flag.
+    #  @param allow_paid_floodskip Optional allow paid floodskip flag.
+    #  @param reply_to Optional input reply to.
+    #  @param random_id Optional random ID, defaults to a generated 64-bit integer.
+    #  @param reply_markup Optional reply markup.
+    #  @param entities Optional list of message entities.
+    #  @param schedule_date Optional schedule date.
+    #  @param send_as Optional input peer to send as.
+    #  @param quick_reply_shortcut Optional input quick reply shortcut.
+    #  @param effect Optional effect ID.
+    #  @param allow_paid_stars Optional allow paid stars count.
+    #  @param suggested_post Optional suggested post.
     initialize = function(peer, message, no_webpage = NULL, silent = NULL, background = NULL, clear_draft = NULL, noforwards = NULL, update_stickersets_order = NULL, invert_media = NULL, allow_paid_floodskip = NULL, reply_to = NULL, random_id = NULL, reply_markup = NULL, entities = NULL, schedule_date = NULL, send_as = NULL, quick_reply_shortcut = NULL, effect = NULL, allow_paid_stars = NULL, suggested_post = NULL) {
       self$peer <- peer
       self$message <- message
@@ -12095,9 +12461,9 @@ SendMessageRequest <- R6::R6Class(
       self$suggested_post <- suggested_post
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       if (!is.null(self$send_as)) {
@@ -12105,8 +12471,8 @@ SendMessageRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendMessageRequest",
@@ -12133,8 +12499,8 @@ SendMessageRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$no_webpage) && self$no_webpage) flags <- bitwOr(flags, 2L)
@@ -12210,34 +12576,36 @@ SendMessageRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SendMultiMediaRequest
-#' @description Represents a request to send multi media. This class inherits from TLRequest.
-#' @export
+#  @title SendMultiMediaRequest
+#  @description Represents a request to send multi media. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendMultiMediaRequest <- R6::R6Class(
   "SendMultiMediaRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x1bf89d74,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SendMultiMediaRequest object.
-    #' @param peer The input peer.
-    #' @param multi_media List of input single media.
-    #' @param silent Optional silent flag.
-    #' @param background Optional background flag.
-    #' @param clear_draft Optional clear draft flag.
-    #' @param noforwards Optional no forwards flag.
-    #' @param update_stickersets_order Optional update stickersets order flag.
-    #' @param invert_media Optional invert media flag.
-    #' @param allow_paid_floodskip Optional allow paid floodskip flag.
-    #' @param reply_to Optional input reply to.
-    #' @param schedule_date Optional schedule date.
-    #' @param send_as Optional input peer to send as.
-    #' @param quick_reply_shortcut Optional input quick reply shortcut.
-    #' @param effect Optional effect ID.
-    #' @param allow_paid_stars Optional allow paid stars count.
+    #  @description Initialize the SendMultiMediaRequest object.
+    #  @param peer The input peer.
+    #  @param multi_media List of input single media.
+    #  @param silent Optional silent flag.
+    #  @param background Optional background flag.
+    #  @param clear_draft Optional clear draft flag.
+    #  @param noforwards Optional no forwards flag.
+    #  @param update_stickersets_order Optional update stickersets order flag.
+    #  @param invert_media Optional invert media flag.
+    #  @param allow_paid_floodskip Optional allow paid floodskip flag.
+    #  @param reply_to Optional input reply to.
+    #  @param schedule_date Optional schedule date.
+    #  @param send_as Optional input peer to send as.
+    #  @param quick_reply_shortcut Optional input quick reply shortcut.
+    #  @param effect Optional effect ID.
+    #  @param allow_paid_stars Optional allow paid stars count.
     initialize = function(peer, multi_media, silent = NULL, background = NULL, clear_draft = NULL, noforwards = NULL, update_stickersets_order = NULL, invert_media = NULL, allow_paid_floodskip = NULL, reply_to = NULL, schedule_date = NULL, send_as = NULL, quick_reply_shortcut = NULL, effect = NULL, allow_paid_stars = NULL) {
       self$peer <- peer
       self$multi_media <- multi_media
@@ -12256,9 +12624,9 @@ SendMultiMediaRequest <- R6::R6Class(
       self$allow_paid_stars <- allow_paid_stars
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       if (!is.null(self$send_as)) {
@@ -12266,8 +12634,8 @@ SendMultiMediaRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendMultiMediaRequest",
@@ -12289,8 +12657,8 @@ SendMultiMediaRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$silent) && self$silent) flags <- bitwOr(flags, 32L)
@@ -12354,24 +12722,26 @@ SendMultiMediaRequest$from_reader <- function(reader) {
   SendMultiMediaRequest$new(peer = peer, multi_media = multi_media, silent = silent, background = background, clear_draft = clear_draft, noforwards = noforwards, update_stickersets_order = update_stickersets_order, invert_media = invert_media, allow_paid_floodskip = allow_paid_floodskip, reply_to = reply_to, schedule_date = schedule_date, send_as = send_as, quick_reply_shortcut = quick_reply_shortcut, effect = effect, allow_paid_stars = allow_paid_stars)
 }
 
-#' @title SendPaidReactionRequest
-#' @description Represents a request to send a paid reaction. This class inherits from TLRequest.
-#' @export
+#  @title SendPaidReactionRequest
+#  @description Represents a request to send a paid reaction. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendPaidReactionRequest <- R6::R6Class(
   "SendPaidReactionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x58bbcb50,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SendPaidReactionRequest object.
-    #' @param peer The input peer.
-    #' @param msg_id The message ID.
-    #' @param count The count.
-    #' @param random_id Optional random ID, defaults to a generated 64-bit integer.
-    #' @param private Optional paid reaction privacy.
+    #  @description Initialize the SendPaidReactionRequest object.
+    #  @param peer The input peer.
+    #  @param msg_id The message ID.
+    #  @param count The count.
+    #  @param random_id Optional random ID, defaults to a generated 64-bit integer.
+    #  @param private Optional paid reaction privacy.
     initialize = function(peer, msg_id, count, random_id = NULL, private = NULL) {
       self$peer <- peer
       self$msg_id <- msg_id
@@ -12380,15 +12750,15 @@ SendPaidReactionRequest <- R6::R6Class(
       self$private <- private
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendPaidReactionRequest",
@@ -12400,8 +12770,8 @@ SendPaidReactionRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$private)) flags <- bitwOr(flags, 1L)
@@ -12434,23 +12804,25 @@ SendPaidReactionRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SendQuickReplyMessagesRequest
-#' @description Represents a request to send quick reply messages. This class inherits from TLRequest.
-#' @export
+#  @title SendQuickReplyMessagesRequest
+#  @description Represents a request to send quick reply messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendQuickReplyMessagesRequest <- R6::R6Class(
   "SendQuickReplyMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x6c750de1,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SendQuickReplyMessagesRequest object.
-    #' @param peer The input peer.
-    #' @param shortcut_id The shortcut ID.
-    #' @param id List of message IDs.
-    #' @param random_id Optional list of random IDs, defaults to generated random 64-bit integers.
+    #  @description Initialize the SendQuickReplyMessagesRequest object.
+    #  @param peer The input peer.
+    #  @param shortcut_id The shortcut ID.
+    #  @param id List of message IDs.
+    #  @param random_id Optional list of random IDs, defaults to generated random 64-bit integers.
     initialize = function(peer, shortcut_id, id, random_id = NULL) {
       self$peer <- peer
       self$shortcut_id <- shortcut_id
@@ -12462,15 +12834,15 @@ SendQuickReplyMessagesRequest <- R6::R6Class(
       }
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendQuickReplyMessagesRequest",
@@ -12481,8 +12853,8 @@ SendQuickReplyMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xe1, 0x0d, 0x75, 0x6c)),
@@ -12520,24 +12892,26 @@ SendQuickReplyMessagesRequest$from_reader <- function(reader) {
   SendQuickReplyMessagesRequest$new(peer = peer, shortcut_id = shortcut_id, id = id, random_id = random_id)
 }
 
-#' @title SendReactionRequest
-#' @description Represents a request to send a reaction. This class inherits from TLRequest.
-#' @export
+#  @title SendReactionRequest
+#  @description Represents a request to send a reaction. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendReactionRequest <- R6::R6Class(
   "SendReactionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xd30d78d4,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SendReactionRequest object.
-    #' @param peer The input peer.
-    #' @param msg_id The message ID.
-    #' @param big Optional big flag.
-    #' @param add_to_recent Optional add to recent flag.
-    #' @param reaction Optional list of reactions.
+    #  @description Initialize the SendReactionRequest object.
+    #  @param peer The input peer.
+    #  @param msg_id The message ID.
+    #  @param big Optional big flag.
+    #  @param add_to_recent Optional add to recent flag.
+    #  @param reaction Optional list of reactions.
     initialize = function(peer, msg_id, big = NULL, add_to_recent = NULL, reaction = NULL) {
       self$peer <- peer
       self$msg_id <- msg_id
@@ -12546,15 +12920,15 @@ SendReactionRequest <- R6::R6Class(
       self$reaction <- reaction
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendReactionRequest",
@@ -12566,8 +12940,8 @@ SendReactionRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$big) && self$big) flags <- bitwOr(flags, 2L)
@@ -12612,35 +12986,37 @@ SendReactionRequest$from_reader <- function(reader) {
   SendReactionRequest$new(peer = peer, msg_id = msg_id, big = big, add_to_recent = add_to_recent, reaction = reaction)
 }
 
-#' @title SendScheduledMessagesRequest
-#' @description Represents a request to send scheduled messages. This class inherits from TLRequest.
-#' @export
+#  @title SendScheduledMessagesRequest
+#  @description Represents a request to send scheduled messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendScheduledMessagesRequest <- R6::R6Class(
   "SendScheduledMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xbd38850a,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SendScheduledMessagesRequest object.
-    #' @param peer The input peer.
-    #' @param id List of message IDs.
+    #  @description Initialize the SendScheduledMessagesRequest object.
+    #  @param peer The input peer.
+    #  @param id List of message IDs.
     initialize = function(peer, id) {
       self$peer <- peer
       self$id <- id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendScheduledMessagesRequest",
@@ -12649,8 +13025,8 @@ SendScheduledMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x0a, 0x85, 0x38, 0xbd)),
@@ -12679,37 +13055,39 @@ SendScheduledMessagesRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SendScreenshotNotificationRequest
-#' @description Represents a request to send a screenshot notification. This class inherits from TLRequest.
-#' @export
+#  @title SendScreenshotNotificationRequest
+#  @description Represents a request to send a screenshot notification. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendScreenshotNotificationRequest <- R6::R6Class(
   "SendScreenshotNotificationRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xa1405817,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SendScreenshotNotificationRequest object.
-    #' @param peer The input peer.
-    #' @param reply_to The input reply to.
-    #' @param random_id Optional random ID, defaults to a generated 64-bit integer.
+    #  @description Initialize the SendScreenshotNotificationRequest object.
+    #  @param peer The input peer.
+    #  @param reply_to The input reply to.
+    #  @param random_id Optional random ID, defaults to a generated 64-bit integer.
     initialize = function(peer, reply_to, random_id = NULL) {
       self$peer <- peer
       self$reply_to <- reply_to
       self$random_id <- if (is.null(random_id)) as.integer(runif(1, min = 0, max = 2^64 - 1)) else random_id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendScreenshotNotificationRequest",
@@ -12719,8 +13097,8 @@ SendScreenshotNotificationRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x17, 0x58, 0x40, 0xa1)),
@@ -12744,37 +13122,39 @@ SendScreenshotNotificationRequest$from_reader <- function(reader) {
   SendScreenshotNotificationRequest$new(peer = peer, reply_to = reply_to, random_id = random_id)
 }
 
-#' @title SendVoteRequest
-#' @description Represents a request to send a vote. This class inherits from TLRequest.
-#' @export
+#  @title SendVoteRequest
+#  @description Represents a request to send a vote. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendVoteRequest <- R6::R6Class(
   "SendVoteRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x10ea6184,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SendVoteRequest object.
-    #' @param peer The input peer.
-    #' @param msg_id The message ID.
-    #' @param options List of vote options as bytes.
+    #  @description Initialize the SendVoteRequest object.
+    #  @param peer The input peer.
+    #  @param msg_id The message ID.
+    #  @param options List of vote options as bytes.
     initialize = function(peer, msg_id, options) {
       self$peer <- peer
       self$msg_id <- msg_id
       self$options <- options
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendVoteRequest",
@@ -12784,8 +13164,8 @@ SendVoteRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x84, 0x61, 0xea, 0x10)),
@@ -12815,23 +13195,25 @@ SendVoteRequest$from_reader <- function(reader) {
   SendVoteRequest$new(peer = peer, msg_id = msg_id, options = options)
 }
 
-#' @title SendWebViewDataRequest
-#' @description Represents a request to send web view data. This class inherits from TLRequest.
-#' @export
+#  @title SendWebViewDataRequest
+#  @description Represents a request to send web view data. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendWebViewDataRequest <- R6::R6Class(
   "SendWebViewDataRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xdc0242c8,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SendWebViewDataRequest object.
-    #' @param bot The input user (bot).
-    #' @param button_text The button text.
-    #' @param data The data string.
-    #' @param random_id Optional random ID, defaults to a generated 64-bit integer.
+    #  @description Initialize the SendWebViewDataRequest object.
+    #  @param bot The input user (bot).
+    #  @param button_text The button text.
+    #  @param data The data string.
+    #  @param random_id Optional random ID, defaults to a generated 64-bit integer.
     initialize = function(bot, button_text, data, random_id = NULL) {
       self$bot <- bot
       self$button_text <- button_text
@@ -12839,15 +13221,15 @@ SendWebViewDataRequest <- R6::R6Class(
       self$random_id <- if (is.null(random_id)) as.integer(runif(1, min = 0, max = 2^64 - 1)) else random_id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$bot <- utils$get_input_user(client$get_input_entity(self$bot))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendWebViewDataRequest",
@@ -12858,8 +13240,8 @@ SendWebViewDataRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xc8, 0x42, 0x02, 0xdc)),
@@ -12886,28 +13268,30 @@ SendWebViewDataRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SendWebViewResultMessageRequest
-#' @description Represents a request to send a web view result message. This class inherits from TLRequest.
-#' @export
+#  @title SendWebViewResultMessageRequest
+#  @description Represents a request to send a web view result message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SendWebViewResultMessageRequest <- R6::R6Class(
   "SendWebViewResultMessageRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xa4314f5,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x75e49312,
 
-    #' @description Initialize the SendWebViewResultMessageRequest object.
-    #' @param bot_query_id The bot query ID as a string.
-    #' @param result The input bot inline result.
+    #  @description Initialize the SendWebViewResultMessageRequest object.
+    #  @param bot_query_id The bot query ID as a string.
+    #  @param result The input bot inline result.
     initialize = function(bot_query_id, result) {
       self$bot_query_id <- bot_query_id
       self$result <- result
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SendWebViewResultMessageRequest",
@@ -12916,8 +13300,8 @@ SendWebViewResultMessageRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xf5, 0x14, 0x43, 0x0a)),
@@ -12939,24 +13323,26 @@ SendWebViewResultMessageRequest$from_reader <- function(reader) {
   SendWebViewResultMessageRequest$new(bot_query_id = bot_query_id, result = result)
 }
 
-#' @title SetBotCallbackAnswerRequest
-#' @description Represents a request to set bot callback answer. This class inherits from TLRequest.
-#' @export
+#  @title SetBotCallbackAnswerRequest
+#  @description Represents a request to set bot callback answer. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetBotCallbackAnswerRequest <- R6::R6Class(
   "SetBotCallbackAnswerRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xd58f130a,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the SetBotCallbackAnswerRequest object.
-    #' @param query_id The query ID.
-    #' @param cache_time The cache time.
-    #' @param alert Optional alert flag.
-    #' @param message Optional message string.
-    #' @param url Optional URL string.
+    #  @description Initialize the SetBotCallbackAnswerRequest object.
+    #  @param query_id The query ID.
+    #  @param cache_time The cache time.
+    #  @param alert Optional alert flag.
+    #  @param message Optional message string.
+    #  @param url Optional URL string.
     initialize = function(query_id, cache_time, alert = NULL, message = NULL, url = NULL) {
       self$query_id <- query_id
       self$cache_time <- cache_time
@@ -12965,8 +13351,8 @@ SetBotCallbackAnswerRequest <- R6::R6Class(
       self$url <- url
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetBotCallbackAnswerRequest",
@@ -12978,8 +13364,8 @@ SetBotCallbackAnswerRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$alert) && self$alert != FALSE) flags <- bitwOr(flags, 2L)
@@ -13012,30 +13398,32 @@ SetBotCallbackAnswerRequest$from_reader <- function(reader) {
   SetBotCallbackAnswerRequest$new(query_id = query_id, cache_time = cache_time, alert = alert, message = message, url = url)
 }
 
-#' @title SetBotPrecheckoutResultsRequest
-#' @description Represents a request to set bot precheckout results. This class inherits from TLRequest.
-#' @export
+#  @title SetBotPrecheckoutResultsRequest
+#  @description Represents a request to set bot precheckout results. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetBotPrecheckoutResultsRequest <- R6::R6Class(
   "SetBotPrecheckoutResultsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x9c2dd95,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the SetBotPrecheckoutResultsRequest object.
-    #' @param query_id The query ID.
-    #' @param success Optional success flag.
-    #' @param error Optional error message.
+    #  @description Initialize the SetBotPrecheckoutResultsRequest object.
+    #  @param query_id The query ID.
+    #  @param success Optional success flag.
+    #  @param error Optional error message.
     initialize = function(query_id, success = NULL, error = NULL) {
       self$query_id <- query_id
       self$success <- success
       self$error <- error
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetBotPrecheckoutResultsRequest",
@@ -13045,8 +13433,8 @@ SetBotPrecheckoutResultsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$success) && self$success != FALSE) flags <- bitwOr(flags, 2L)
@@ -13075,30 +13463,32 @@ SetBotPrecheckoutResultsRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SetBotShippingResultsRequest
-#' @description Represents a request to set bot shipping results. This class inherits from TLRequest.
-#' @export
+#  @title SetBotShippingResultsRequest
+#  @description Represents a request to set bot shipping results. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetBotShippingResultsRequest <- R6::R6Class(
   "SetBotShippingResultsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xe5f672fa,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the SetBotShippingResultsRequest object.
-    #' @param query_id The query ID.
-    #' @param error Optional error message.
-    #' @param shipping_options Optional list of shipping options.
+    #  @description Initialize the SetBotShippingResultsRequest object.
+    #  @param query_id The query ID.
+    #  @param error Optional error message.
+    #  @param shipping_options Optional list of shipping options.
     initialize = function(query_id, error = NULL, shipping_options = NULL) {
       self$query_id <- query_id
       self$error <- error
       self$shipping_options <- shipping_options
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetBotShippingResultsRequest",
@@ -13108,8 +13498,8 @@ SetBotShippingResultsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$error) && self$error != FALSE) flags <- bitwOr(flags, 1L)
@@ -13143,23 +13533,25 @@ SetBotShippingResultsRequest$from_reader <- function(reader) {
   SetBotShippingResultsRequest$new(query_id = query_id, error = error, shipping_options = shipping_options)
 }
 
-#' @title SetChatAvailableReactionsRequest
-#' @description Represents a request to set chat available reactions. This class inherits from TLRequest.
-#' @export
+#  @title SetChatAvailableReactionsRequest
+#  @description Represents a request to set chat available reactions. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetChatAvailableReactionsRequest <- R6::R6Class(
   "SetChatAvailableReactionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x864b2581,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SetChatAvailableReactionsRequest object.
-    #' @param peer The input peer.
-    #' @param available_reactions The available reactions.
-    #' @param reactions_limit Optional reactions limit.
-    #' @param paid_enabled Optional paid enabled flag.
+    #  @description Initialize the SetChatAvailableReactionsRequest object.
+    #  @param peer The input peer.
+    #  @param available_reactions The available reactions.
+    #  @param reactions_limit Optional reactions limit.
+    #  @param paid_enabled Optional paid enabled flag.
     initialize = function(peer, available_reactions, reactions_limit = NULL, paid_enabled = NULL) {
       self$peer <- peer
       self$available_reactions <- available_reactions
@@ -13167,15 +13559,15 @@ SetChatAvailableReactionsRequest <- R6::R6Class(
       self$paid_enabled <- paid_enabled
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetChatAvailableReactionsRequest",
@@ -13186,8 +13578,8 @@ SetChatAvailableReactionsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$reactions_limit) && self$reactions_limit != FALSE) flags <- bitwOr(flags, 1L)
@@ -13218,35 +13610,37 @@ SetChatAvailableReactionsRequest$from_reader <- function(reader) {
   SetChatAvailableReactionsRequest$new(peer = peer, available_reactions = available_reactions, reactions_limit = reactions_limit, paid_enabled = paid_enabled)
 }
 
-#' @title SetChatThemeRequest
-#' @description Represents a request to set chat theme. This class inherits from TLRequest.
-#' @export
+#  @title SetChatThemeRequest
+#  @description Represents a request to set chat theme. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetChatThemeRequest <- R6::R6Class(
   "SetChatThemeRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x81202c9,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SetChatThemeRequest object.
-    #' @param peer The input peer.
-    #' @param theme The input chat theme.
+    #  @description Initialize the SetChatThemeRequest object.
+    #  @param peer The input peer.
+    #  @param theme The input chat theme.
     initialize = function(peer, theme) {
       self$peer <- peer
       self$theme <- theme
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetChatThemeRequest",
@@ -13255,8 +13649,8 @@ SetChatThemeRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xc9, 0x02, 0x12, 0x08)),
@@ -13279,25 +13673,27 @@ SetChatThemeRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SetChatWallPaperRequest
-#' @description Represents a request to set chat wallpaper. This class inherits from TLRequest.
-#' @export
+#  @title SetChatWallPaperRequest
+#  @description Represents a request to set chat wallpaper. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetChatWallPaperRequest <- R6::R6Class(
   "SetChatWallPaperRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x8ffacae1,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SetChatWallPaperRequest object.
-    #' @param peer The input peer.
-    #' @param for_both Optional flag for both.
-    #' @param revert Optional revert flag.
-    #' @param wallpaper Optional input wallpaper.
-    #' @param settings Optional wallpaper settings.
-    #' @param id Optional ID.
+    #  @description Initialize the SetChatWallPaperRequest object.
+    #  @param peer The input peer.
+    #  @param for_both Optional flag for both.
+    #  @param revert Optional revert flag.
+    #  @param wallpaper Optional input wallpaper.
+    #  @param settings Optional wallpaper settings.
+    #  @param id Optional ID.
     initialize = function(peer, for_both = NULL, revert = NULL, wallpaper = NULL, settings = NULL, id = NULL) {
       self$peer <- peer
       self$for_both <- for_both
@@ -13307,15 +13703,15 @@ SetChatWallPaperRequest <- R6::R6Class(
       self$id <- id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetChatWallPaperRequest",
@@ -13328,8 +13724,8 @@ SetChatWallPaperRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$for_both) && self$for_both != FALSE) flags <- bitwOr(flags, 8L)
@@ -13365,26 +13761,28 @@ SetChatWallPaperRequest$from_reader <- function(reader) {
   SetChatWallPaperRequest$new(peer = peer, for_both = for_both, revert = revert, wallpaper = wallpaper, settings = settings, id = id)
 }
 
-#' @title SetDefaultHistoryTTLRequest
-#' @description Represents a request to set default history TTL. This class inherits from TLRequest.
-#' @export
+#  @title SetDefaultHistoryTTLRequest
+#  @description Represents a request to set default history TTL. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetDefaultHistoryTTLRequest <- R6::R6Class(
   "SetDefaultHistoryTTLRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x9eb51445,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the SetDefaultHistoryTTLRequest object.
-    #' @param period The TTL period.
+    #  @description Initialize the SetDefaultHistoryTTLRequest object.
+    #  @param period The TTL period.
     initialize = function(period) {
       self$period <- period
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetDefaultHistoryTTLRequest",
@@ -13392,8 +13790,8 @@ SetDefaultHistoryTTLRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x45, 0x14, 0xb5, 0x9e)),
@@ -13413,26 +13811,28 @@ SetDefaultHistoryTTLRequest$from_reader <- function(reader) {
   SetDefaultHistoryTTLRequest$new(period = period)
 }
 
-#' @title SetDefaultReactionRequest
-#' @description Represents a request to set default reaction. This class inherits from TLRequest.
-#' @export
+#  @title SetDefaultReactionRequest
+#  @description Represents a request to set default reaction. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetDefaultReactionRequest <- R6::R6Class(
   "SetDefaultReactionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x4f47a016,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the SetDefaultReactionRequest object.
-    #' @param reaction The reaction.
+    #  @description Initialize the SetDefaultReactionRequest object.
+    #  @param reaction The reaction.
     initialize = function(reaction) {
       self$reaction <- reaction
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetDefaultReactionRequest",
@@ -13440,8 +13840,8 @@ SetDefaultReactionRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x16, 0xa0, 0x47, 0x4f)),
@@ -13462,28 +13862,30 @@ SetDefaultReactionRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SetEncryptedTypingRequest
-#' @description Represents a request to set encrypted typing. This class inherits from TLRequest.
-#' @export
+#  @title SetEncryptedTypingRequest
+#  @description Represents a request to set encrypted typing. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetEncryptedTypingRequest <- R6::R6Class(
   "SetEncryptedTypingRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x791451ed,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the SetEncryptedTypingRequest object.
-    #' @param peer The input encrypted chat peer.
-    #' @param typing Whether typing is enabled.
+    #  @description Initialize the SetEncryptedTypingRequest object.
+    #  @param peer The input encrypted chat peer.
+    #  @param typing Whether typing is enabled.
     initialize = function(peer, typing) {
       self$peer <- peer
       self$typing <- typing
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetEncryptedTypingRequest",
@@ -13492,8 +13894,8 @@ SetEncryptedTypingRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xed, 0x51, 0x14, 0x79)),
@@ -13515,25 +13917,27 @@ SetEncryptedTypingRequest$from_reader <- function(reader) {
   SetEncryptedTypingRequest$new(peer = peer, typing = typing)
 }
 
-#' @title SetGameScoreRequest
-#' @description Represents a request to set game score. This class inherits from TLRequest.
-#' @export
+#  @title SetGameScoreRequest
+#  @description Represents a request to set game score. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetGameScoreRequest <- R6::R6Class(
   "SetGameScoreRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x8ef8ecc0,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SetGameScoreRequest object.
-    #' @param peer The input peer.
-    #' @param id The message ID.
-    #' @param user_id The input user.
-    #' @param score The score.
-    #' @param edit_message Optional edit message flag.
-    #' @param force Optional force flag.
+    #  @description Initialize the SetGameScoreRequest object.
+    #  @param peer The input peer.
+    #  @param id The message ID.
+    #  @param user_id The input user.
+    #  @param score The score.
+    #  @param edit_message Optional edit message flag.
+    #  @param force Optional force flag.
     initialize = function(peer, id, user_id, score, edit_message = NULL, force = NULL) {
       self$peer <- peer
       self$id <- id
@@ -13543,16 +13947,16 @@ SetGameScoreRequest <- R6::R6Class(
       self$force <- force
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       self$user_id <- utils$get_input_user(client$get_input_entity(self$user_id))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetGameScoreRequest",
@@ -13565,8 +13969,8 @@ SetGameScoreRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$edit_message) && self$edit_message != FALSE) flags <- bitwOr(flags, 1L)
@@ -13599,35 +14003,37 @@ SetGameScoreRequest$from_reader <- function(reader) {
   SetGameScoreRequest$new(peer = peer, id = id, user_id = user_id, score = score, edit_message = edit_message, force = force)
 }
 
-#' @title SetHistoryTTLRequest
-#' @description Represents a request to set history TTL. This class inherits from TLRequest.
-#' @export
+#  @title SetHistoryTTLRequest
+#  @description Represents a request to set history TTL. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetHistoryTTLRequest <- R6::R6Class(
   "SetHistoryTTLRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xb80e5fe4,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the SetHistoryTTLRequest object.
-    #' @param peer The input peer.
-    #' @param period The TTL period.
+    #  @description Initialize the SetHistoryTTLRequest object.
+    #  @param peer The input peer.
+    #  @param period The TTL period.
     initialize = function(peer, period) {
       self$peer <- peer
       self$period <- period
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetHistoryTTLRequest",
@@ -13636,8 +14042,8 @@ SetHistoryTTLRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xe4, 0x5f, 0x0e, 0xb8)),
@@ -13660,27 +14066,29 @@ SetHistoryTTLRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SetInlineBotResultsRequest
-#' @description Represents a request to set inline bot results. This class inherits from TLRequest.
-#' @export
+#  @title SetInlineBotResultsRequest
+#  @description Represents a request to set inline bot results. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetInlineBotResultsRequest <- R6::R6Class(
   "SetInlineBotResultsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xbb12a419,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the SetInlineBotResultsRequest object.
-    #' @param query_id The query ID.
-    #' @param results The list of results.
-    #' @param cache_time The cache time.
-    #' @param gallery Optional gallery flag.
-    #' @param private Optional private flag.
-    #' @param next_offset Optional next offset.
-    #' @param switch_pm Optional switch PM.
-    #' @param switch_webview Optional switch webview.
+    #  @description Initialize the SetInlineBotResultsRequest object.
+    #  @param query_id The query ID.
+    #  @param results The list of results.
+    #  @param cache_time The cache time.
+    #  @param gallery Optional gallery flag.
+    #  @param private Optional private flag.
+    #  @param next_offset Optional next offset.
+    #  @param switch_pm Optional switch PM.
+    #  @param switch_webview Optional switch webview.
     initialize = function(query_id, results, cache_time, gallery = NULL, private = NULL, next_offset = NULL, switch_pm = NULL, switch_webview = NULL) {
       self$query_id <- query_id
       self$results <- results
@@ -13692,8 +14100,8 @@ SetInlineBotResultsRequest <- R6::R6Class(
       self$switch_webview <- switch_webview
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetInlineBotResultsRequest",
@@ -13708,8 +14116,8 @@ SetInlineBotResultsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$gallery) && self$gallery != FALSE) flags <- bitwOr(flags, 1L)
@@ -13755,24 +14163,26 @@ SetInlineBotResultsRequest$from_reader <- function(reader) {
   SetInlineBotResultsRequest$new(query_id = query_id, results = results, cache_time = cache_time, gallery = gallery, private = private, next_offset = next_offset, switch_pm = switch_pm, switch_webview = switch_webview)
 }
 
-#' @title SetInlineGameScoreRequest
-#' @description Represents a request to set inline game score. This class inherits from TLRequest.
-#' @export
+#  @title SetInlineGameScoreRequest
+#  @description Represents a request to set inline game score. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetInlineGameScoreRequest <- R6::R6Class(
   "SetInlineGameScoreRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x15ad9f64,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the SetInlineGameScoreRequest object.
-    #' @param id The input bot inline message ID.
-    #' @param user_id The input user.
-    #' @param score The score.
-    #' @param edit_message Optional edit message flag.
-    #' @param force Optional force flag.
+    #  @description Initialize the SetInlineGameScoreRequest object.
+    #  @param id The input bot inline message ID.
+    #  @param user_id The input user.
+    #  @param score The score.
+    #  @param edit_message Optional edit message flag.
+    #  @param force Optional force flag.
     initialize = function(id, user_id, score, edit_message = NULL, force = NULL) {
       self$id <- id
       self$user_id <- user_id
@@ -13781,15 +14191,15 @@ SetInlineGameScoreRequest <- R6::R6Class(
       self$force <- force
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$user_id <- utils$get_input_user(client$get_input_entity(self$user_id))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetInlineGameScoreRequest",
@@ -13801,8 +14211,8 @@ SetInlineGameScoreRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$edit_message) && self$edit_message != FALSE) flags <- bitwOr(flags, 1L)
@@ -13833,37 +14243,39 @@ SetInlineGameScoreRequest$from_reader <- function(reader) {
   SetInlineGameScoreRequest$new(id = id, user_id = user_id, score = score, edit_message = edit_message, force = force)
 }
 
-#' @title SetTypingRequest
-#' @description Represents a request to set typing. This class inherits from TLRequest.
-#' @export
+#  @title SetTypingRequest
+#  @description Represents a request to set typing. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 SetTypingRequest <- R6::R6Class(
   "SetTypingRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x58943ee2,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the SetTypingRequest object.
-    #' @param peer The input peer.
-    #' @param action The send message action.
-    #' @param top_msg_id Optional top message ID.
+    #  @description Initialize the SetTypingRequest object.
+    #  @param peer The input peer.
+    #  @param action The send message action.
+    #  @param top_msg_id Optional top message ID.
     initialize = function(peer, action, top_msg_id = NULL) {
       self$peer <- peer
       self$action <- action
       self$top_msg_id <- top_msg_id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetTypingRequest",
@@ -13873,8 +14285,8 @@ SetTypingRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$top_msg_id) && self$top_msg_id != FALSE) flags <- bitwOr(flags, 1L)
@@ -13903,23 +14315,25 @@ SetTypingRequest$from_reader <- function(reader) {
 }
 
 
-#' @title StartBotRequest
-#' @description Represents a request to start a bot. This class inherits from TLRequest.
-#' @export
+#  @title StartBotRequest
+#  @description Represents a request to start a bot. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 StartBotRequest <- R6::R6Class(
   "StartBotRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xe6df7378,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the StartBotRequest object.
-    #' @param bot The input user (bot).
-    #' @param peer The input peer.
-    #' @param start_param The start parameter.
-    #' @param random_id Optional random ID, defaults to a generated value.
+    #  @description Initialize the StartBotRequest object.
+    #  @param bot The input user (bot).
+    #  @param peer The input peer.
+    #  @param start_param The start parameter.
+    #  @param random_id Optional random ID, defaults to a generated value.
     initialize = function(bot, peer, start_param, random_id = NULL) {
       self$bot <- bot
       self$peer <- peer
@@ -13931,16 +14345,16 @@ StartBotRequest <- R6::R6Class(
       }
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$bot <- utils$get_input_user(client$get_input_entity(self$bot))
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "StartBotRequest",
@@ -13951,8 +14365,8 @@ StartBotRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x78, 0x73, 0xdf, 0xe6)),
@@ -13978,35 +14392,37 @@ StartBotRequest$from_reader <- function(reader) {
   StartBotRequest$new(bot = bot, peer = peer, start_param = start_param, random_id = random_id)
 }
 
-#' @title StartHistoryImportRequest
-#' @description Represents a request to start history import. This class inherits from TLRequest.
-#' @export
+#  @title StartHistoryImportRequest
+#  @description Represents a request to start history import. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 StartHistoryImportRequest <- R6::R6Class(
   "StartHistoryImportRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xb43df344,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the StartHistoryImportRequest object.
-    #' @param peer The input peer.
-    #' @param import_id The import ID.
+    #  @description Initialize the StartHistoryImportRequest object.
+    #  @param peer The input peer.
+    #  @param import_id The import ID.
     initialize = function(peer, import_id) {
       self$peer <- peer
       self$import_id <- import_id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "StartHistoryImportRequest",
@@ -14015,8 +14431,8 @@ StartHistoryImportRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x44, 0xf3, 0x3d, 0xb4)),
@@ -14038,37 +14454,39 @@ StartHistoryImportRequest$from_reader <- function(reader) {
   StartHistoryImportRequest$new(peer = peer, import_id = import_id)
 }
 
-#' @title ToggleBotInAttachMenuRequest
-#' @description Represents a request to toggle bot in attach menu. This class inherits from TLRequest.
-#' @export
+#  @title ToggleBotInAttachMenuRequest
+#  @description Represents a request to toggle bot in attach menu. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ToggleBotInAttachMenuRequest <- R6::R6Class(
   "ToggleBotInAttachMenuRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x69f59d69,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ToggleBotInAttachMenuRequest object.
-    #' @param bot The input user (bot).
-    #' @param enabled Whether the bot is enabled.
-    #' @param write_allowed Optional write allowed flag.
+    #  @description Initialize the ToggleBotInAttachMenuRequest object.
+    #  @param bot The input user (bot).
+    #  @param enabled Whether the bot is enabled.
+    #  @param write_allowed Optional write allowed flag.
     initialize = function(bot, enabled, write_allowed = NULL) {
       self$bot <- bot
       self$enabled <- enabled
       self$write_allowed <- write_allowed
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$bot <- utils$get_input_user(client$get_input_entity(self$bot))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleBotInAttachMenuRequest",
@@ -14078,8 +14496,8 @@ ToggleBotInAttachMenuRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$write_allowed) && self$write_allowed != FALSE) flags <- bitwOr(flags, 1L)
@@ -14107,26 +14525,28 @@ ToggleBotInAttachMenuRequest$from_reader <- function(reader) {
 }
 
 
-#' @title ToggleDialogFilterTagsRequest
-#' @description Represents a request to toggle dialog filter tags. This class inherits from TLRequest.
-#' @export
+#  @title ToggleDialogFilterTagsRequest
+#  @description Represents a request to toggle dialog filter tags. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ToggleDialogFilterTagsRequest <- R6::R6Class(
   "ToggleDialogFilterTagsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xfd2dda49,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ToggleDialogFilterTagsRequest object.
-    #' @param enabled Whether the dialog filter tags are enabled.
+    #  @description Initialize the ToggleDialogFilterTagsRequest object.
+    #  @param enabled Whether the dialog filter tags are enabled.
     initialize = function(enabled) {
       self$enabled <- enabled
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleDialogFilterTagsRequest",
@@ -14134,8 +14554,8 @@ ToggleDialogFilterTagsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x49, 0xda, 0x2d, 0xfd)),
@@ -14155,35 +14575,37 @@ ToggleDialogFilterTagsRequest$from_reader <- function(reader) {
   ToggleDialogFilterTagsRequest$new(enabled = enabled)
 }
 
-#' @title ToggleDialogPinRequest
-#' @description Represents a request to toggle dialog pin. This class inherits from TLRequest.
-#' @export
+#  @title ToggleDialogPinRequest
+#  @description Represents a request to toggle dialog pin. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ToggleDialogPinRequest <- R6::R6Class(
   "ToggleDialogPinRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xa731e257,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ToggleDialogPinRequest object.
-    #' @param peer The input dialog peer.
-    #' @param pinned Optional pinned flag.
+    #  @description Initialize the ToggleDialogPinRequest object.
+    #  @param peer The input dialog peer.
+    #  @param pinned Optional pinned flag.
     initialize = function(peer, pinned = NULL) {
       self$peer <- peer
       self$pinned <- pinned
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- client$get_input_dialog(self$peer)
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleDialogPinRequest",
@@ -14192,8 +14614,8 @@ ToggleDialogPinRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$pinned) && self$pinned != FALSE) flags <- bitwOr(flags, 1L)
@@ -14218,35 +14640,37 @@ ToggleDialogPinRequest$from_reader <- function(reader) {
   ToggleDialogPinRequest$new(peer = peer, pinned = pinned)
 }
 
-#' @title ToggleNoForwardsRequest
-#' @description Represents a request to toggle no forwards. This class inherits from TLRequest.
-#' @export
+#  @title ToggleNoForwardsRequest
+#  @description Represents a request to toggle no forwards. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ToggleNoForwardsRequest <- R6::R6Class(
   "ToggleNoForwardsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xb11eafa2,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the ToggleNoForwardsRequest object.
-    #' @param peer The input peer.
-    #' @param enabled Whether no forwards is enabled.
+    #  @description Initialize the ToggleNoForwardsRequest object.
+    #  @param peer The input peer.
+    #  @param enabled Whether no forwards is enabled.
     initialize = function(peer, enabled) {
       self$peer <- peer
       self$enabled <- enabled
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleNoForwardsRequest",
@@ -14255,8 +14679,8 @@ ToggleNoForwardsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xa2, 0xaf, 0x1e, 0xb1)),
@@ -14279,37 +14703,39 @@ ToggleNoForwardsRequest$from_reader <- function(reader) {
 }
 
 
-#' @title TogglePaidReactionPrivacyRequest
-#' @description Represents a request to toggle paid reaction privacy. This class inherits from TLRequest.
-#' @export
+#  @title TogglePaidReactionPrivacyRequest
+#  @description Represents a request to toggle paid reaction privacy. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 TogglePaidReactionPrivacyRequest <- R6::R6Class(
   "TogglePaidReactionPrivacyRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x435885b5,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the TogglePaidReactionPrivacyRequest object.
-    #' @param peer The input peer.
-    #' @param msg_id The message ID.
-    #' @param private The paid reaction privacy.
+    #  @description Initialize the TogglePaidReactionPrivacyRequest object.
+    #  @param peer The input peer.
+    #  @param msg_id The message ID.
+    #  @param private The paid reaction privacy.
     initialize = function(peer, msg_id, private) {
       self$peer <- peer
       self$msg_id <- msg_id
       self$private <- private
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "TogglePaidReactionPrivacyRequest",
@@ -14319,8 +14745,8 @@ TogglePaidReactionPrivacyRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xb5, 0x85, 0x58, 0x43)),
@@ -14344,35 +14770,37 @@ TogglePaidReactionPrivacyRequest$from_reader <- function(reader) {
   TogglePaidReactionPrivacyRequest$new(peer = peer, msg_id = msg_id, private = private)
 }
 
-#' @title TogglePeerTranslationsRequest
-#' @description Represents a request to toggle peer translations. This class inherits from TLRequest.
-#' @export
+#  @title TogglePeerTranslationsRequest
+#  @description Represents a request to toggle peer translations. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 TogglePeerTranslationsRequest <- R6::R6Class(
   "TogglePeerTranslationsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xe47cb579,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the TogglePeerTranslationsRequest object.
-    #' @param peer The input peer.
-    #' @param disabled Optional disabled flag.
+    #  @description Initialize the TogglePeerTranslationsRequest object.
+    #  @param peer The input peer.
+    #  @param disabled Optional disabled flag.
     initialize = function(peer, disabled = NULL) {
       self$peer <- peer
       self$disabled <- disabled
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "TogglePeerTranslationsRequest",
@@ -14381,8 +14809,8 @@ TogglePeerTranslationsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$disabled) && self$disabled != FALSE) flags <- bitwOr(flags, 1L)
@@ -14407,35 +14835,37 @@ TogglePeerTranslationsRequest$from_reader <- function(reader) {
   TogglePeerTranslationsRequest$new(peer = peer, disabled = disabled)
 }
 
-#' @title ToggleSavedDialogPinRequest
-#' @description Represents a request to toggle saved dialog pin. This class inherits from TLRequest.
-#' @export
+#  @title ToggleSavedDialogPinRequest
+#  @description Represents a request to toggle saved dialog pin. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ToggleSavedDialogPinRequest <- R6::R6Class(
   "ToggleSavedDialogPinRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xac81bbde,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ToggleSavedDialogPinRequest object.
-    #' @param peer The input dialog peer.
-    #' @param pinned Optional pinned flag.
+    #  @description Initialize the ToggleSavedDialogPinRequest object.
+    #  @param peer The input dialog peer.
+    #  @param pinned Optional pinned flag.
     initialize = function(peer, pinned = NULL) {
       self$peer <- peer
       self$pinned <- pinned
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- client$get_input_dialog(self$peer)
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleSavedDialogPinRequest",
@@ -14444,8 +14874,8 @@ ToggleSavedDialogPinRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$pinned) && self$pinned != FALSE) flags <- bitwOr(flags, 1L)
@@ -14471,23 +14901,25 @@ ToggleSavedDialogPinRequest$from_reader <- function(reader) {
 }
 
 
-#' @title ToggleStickerSetsRequest
-#' @description Represents a request to toggle sticker sets. This class inherits from TLRequest.
-#' @export
+#  @title ToggleStickerSetsRequest
+#  @description Represents a request to toggle sticker sets. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ToggleStickerSetsRequest <- R6::R6Class(
   "ToggleStickerSetsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xb5052fea,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ToggleStickerSetsRequest object.
-    #' @param stickersets The list of input sticker sets.
-    #' @param uninstall Optional uninstall flag.
-    #' @param archive Optional archive flag.
-    #' @param unarchive Optional unarchive flag.
+    #  @description Initialize the ToggleStickerSetsRequest object.
+    #  @param stickersets The list of input sticker sets.
+    #  @param uninstall Optional uninstall flag.
+    #  @param archive Optional archive flag.
+    #  @param unarchive Optional unarchive flag.
     initialize = function(stickersets, uninstall = NULL, archive = NULL, unarchive = NULL) {
       self$stickersets <- stickersets
       self$uninstall <- uninstall
@@ -14495,8 +14927,8 @@ ToggleStickerSetsRequest <- R6::R6Class(
       self$unarchive <- unarchive
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleStickerSetsRequest",
@@ -14507,8 +14939,8 @@ ToggleStickerSetsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$uninstall) && self$uninstall != FALSE) flags <- bitwOr(flags, 1L)
@@ -14543,24 +14975,26 @@ ToggleStickerSetsRequest$from_reader <- function(reader) {
   ToggleStickerSetsRequest$new(stickersets = stickersets, uninstall = uninstall, archive = archive, unarchive = unarchive)
 }
 
-#' @title ToggleSuggestedPostApprovalRequest
-#' @description Represents a request to toggle suggested post approval. This class inherits from TLRequest.
-#' @export
+#  @title ToggleSuggestedPostApprovalRequest
+#  @description Represents a request to toggle suggested post approval. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ToggleSuggestedPostApprovalRequest <- R6::R6Class(
   "ToggleSuggestedPostApprovalRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x8107455c,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the ToggleSuggestedPostApprovalRequest object.
-    #' @param peer The input peer.
-    #' @param msg_id The message ID.
-    #' @param reject Optional reject flag.
-    #' @param schedule_date Optional schedule date.
-    #' @param reject_comment Optional reject comment.
+    #  @description Initialize the ToggleSuggestedPostApprovalRequest object.
+    #  @param peer The input peer.
+    #  @param msg_id The message ID.
+    #  @param reject Optional reject flag.
+    #  @param schedule_date Optional schedule date.
+    #  @param reject_comment Optional reject comment.
     initialize = function(peer, msg_id, reject = NULL, schedule_date = NULL, reject_comment = NULL) {
       self$peer <- peer
       self$msg_id <- msg_id
@@ -14569,15 +15003,15 @@ ToggleSuggestedPostApprovalRequest <- R6::R6Class(
       self$reject_comment <- reject_comment
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleSuggestedPostApprovalRequest",
@@ -14589,8 +15023,8 @@ ToggleSuggestedPostApprovalRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$reject) && self$reject != FALSE) flags <- bitwOr(flags, 2L)
@@ -14623,23 +15057,25 @@ ToggleSuggestedPostApprovalRequest$from_reader <- function(reader) {
   ToggleSuggestedPostApprovalRequest$new(peer = peer, msg_id = msg_id, reject = reject, schedule_date = schedule_date, reject_comment = reject_comment)
 }
 
-#' @title ToggleTodoCompletedRequest
-#' @description Represents a request to toggle todo completed status. This class inherits from TLRequest.
-#' @export
+#  @title ToggleTodoCompletedRequest
+#  @description Represents a request to toggle todo completed status. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ToggleTodoCompletedRequest <- R6::R6Class(
   "ToggleTodoCompletedRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xd3e03124,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the ToggleTodoCompletedRequest object.
-    #' @param peer The input peer.
-    #' @param msg_id The message ID.
-    #' @param completed The list of completed IDs.
-    #' @param incompleted The list of incompleted IDs.
+    #  @description Initialize the ToggleTodoCompletedRequest object.
+    #  @param peer The input peer.
+    #  @param msg_id The message ID.
+    #  @param completed The list of completed IDs.
+    #  @param incompleted The list of incompleted IDs.
     initialize = function(peer, msg_id, completed, incompleted) {
       self$peer <- peer
       self$msg_id <- msg_id
@@ -14647,15 +15083,15 @@ ToggleTodoCompletedRequest <- R6::R6Class(
       self$incompleted <- incompleted
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleTodoCompletedRequest",
@@ -14666,8 +15102,8 @@ ToggleTodoCompletedRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x24, 0x31, 0xe0, 0xd3)),
@@ -14706,35 +15142,37 @@ ToggleTodoCompletedRequest$from_reader <- function(reader) {
 }
 
 
-#' @title TranscribeAudioRequest
-#' @description Represents a request to transcribe audio. This class inherits from TLRequest.
-#' @export
+#  @title TranscribeAudioRequest
+#  @description Represents a request to transcribe audio. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 TranscribeAudioRequest <- R6::R6Class(
   "TranscribeAudioRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x269e9a49,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x21b24936,
 
-    #' @description Initialize the TranscribeAudioRequest object.
-    #' @param peer The input peer.
-    #' @param msg_id The message ID.
+    #  @description Initialize the TranscribeAudioRequest object.
+    #  @param peer The input peer.
+    #  @param msg_id The message ID.
     initialize = function(peer, msg_id) {
       self$peer <- peer
       self$msg_id <- msg_id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "TranscribeAudioRequest",
@@ -14743,8 +15181,8 @@ TranscribeAudioRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x49, 0x9a, 0x9e, 0x26)),
@@ -14766,23 +15204,25 @@ TranscribeAudioRequest$from_reader <- function(reader) {
   TranscribeAudioRequest$new(peer = peer, msg_id = msg_id)
 }
 
-#' @title TranslateTextRequest
-#' @description Represents a request to translate text. This class inherits from TLRequest.
-#' @export
+#  @title TranslateTextRequest
+#  @description Represents a request to translate text. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 TranslateTextRequest <- R6::R6Class(
   "TranslateTextRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x63183030,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x24243e8,
 
-    #' @description Initialize the TranslateTextRequest object.
-    #' @param to_lang The target language.
-    #' @param peer Optional input peer.
-    #' @param id Optional list of IDs.
-    #' @param text Optional list of text with entities.
+    #  @description Initialize the TranslateTextRequest object.
+    #  @param to_lang The target language.
+    #  @param peer Optional input peer.
+    #  @param id Optional list of IDs.
+    #  @param text Optional list of text with entities.
     initialize = function(to_lang, peer = NULL, id = NULL, text = NULL) {
       self$to_lang <- to_lang
       self$peer <- peer
@@ -14790,17 +15230,17 @@ TranslateTextRequest <- R6::R6Class(
       self$text <- text
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       if (!is.null(self$peer)) {
         self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "TranslateTextRequest",
@@ -14811,8 +15251,8 @@ TranslateTextRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       if (!((!is.null(self$peer) && self$peer != FALSE) && (!is.null(self$id) && self$id != FALSE)) &&
         ((is.null(self$peer) || self$peer == FALSE) && (is.null(self$id) || self$id == FALSE))) {
@@ -14868,26 +15308,28 @@ TranslateTextRequest$from_reader <- function(reader) {
   TranslateTextRequest$new(to_lang = to_lang, peer = peer, id = id, text = text)
 }
 
-#' @title UninstallStickerSetRequest
-#' @description Represents a request to uninstall a sticker set. This class inherits from TLRequest.
-#' @export
+#  @title UninstallStickerSetRequest
+#  @description Represents a request to uninstall a sticker set. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 UninstallStickerSetRequest <- R6::R6Class(
   "UninstallStickerSetRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xf96e55de,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the UninstallStickerSetRequest object.
-    #' @param stickerset The input sticker set.
+    #  @description Initialize the UninstallStickerSetRequest object.
+    #  @param stickerset The input sticker set.
     initialize = function(stickerset) {
       self$stickerset <- stickerset
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UninstallStickerSetRequest",
@@ -14895,8 +15337,8 @@ UninstallStickerSetRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xde, 0x55, 0x6e, 0xf9)),
@@ -14917,31 +15359,33 @@ UninstallStickerSetRequest$from_reader <- function(reader) {
 }
 
 
-#' @title UnpinAllMessagesRequest
-#' @description Represents a request to unpin all messages. This class inherits from TLRequest.
-#' @export
+#  @title UnpinAllMessagesRequest
+#  @description Represents a request to unpin all messages. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 UnpinAllMessagesRequest <- R6::R6Class(
   "UnpinAllMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x62dd747,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x2c49c116,
 
-    #' @description Initialize the UnpinAllMessagesRequest object.
-    #' @param peer The input peer.
-    #' @param top_msg_id Optional top message ID.
-    #' @param saved_peer_id Optional saved peer ID.
+    #  @description Initialize the UnpinAllMessagesRequest object.
+    #  @param peer The input peer.
+    #  @param top_msg_id Optional top message ID.
+    #  @param saved_peer_id Optional saved peer ID.
     initialize = function(peer, top_msg_id = NULL, saved_peer_id = NULL) {
       self$peer <- peer
       self$top_msg_id <- top_msg_id
       self$saved_peer_id <- saved_peer_id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       if (!is.null(self$saved_peer_id)) {
@@ -14949,8 +15393,8 @@ UnpinAllMessagesRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UnpinAllMessagesRequest",
@@ -14960,8 +15404,8 @@ UnpinAllMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$top_msg_id) && self$top_msg_id != FALSE) flags <- bitwOr(flags, 1L)
@@ -14990,28 +15434,30 @@ UnpinAllMessagesRequest$from_reader <- function(reader) {
   UnpinAllMessagesRequest$new(peer = peer, top_msg_id = top_msg_id, saved_peer_id = saved_peer_id)
 }
 
-#' @title UpdateDialogFilterRequest
-#' @description Represents a request to update a dialog filter. This class inherits from TLRequest.
-#' @export
+#  @title UpdateDialogFilterRequest
+#  @description Represents a request to update a dialog filter. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 UpdateDialogFilterRequest <- R6::R6Class(
   "UpdateDialogFilterRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x1ad4a04a,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the UpdateDialogFilterRequest object.
-    #' @param id The filter ID.
-    #' @param filter Optional dialog filter.
+    #  @description Initialize the UpdateDialogFilterRequest object.
+    #  @param id The filter ID.
+    #  @param filter Optional dialog filter.
     initialize = function(id, filter = NULL) {
       self$id <- id
       self$filter <- filter
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UpdateDialogFilterRequest",
@@ -15020,8 +15466,8 @@ UpdateDialogFilterRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$filter) && self$filter != FALSE) flags <- bitwOr(flags, 1L)
@@ -15047,26 +15493,28 @@ UpdateDialogFilterRequest$from_reader <- function(reader) {
   UpdateDialogFilterRequest$new(id = id, filter = filter)
 }
 
-#' @title UpdateDialogFiltersOrderRequest
-#' @description Represents a request to update the order of dialog filters. This class inherits from TLRequest.
-#' @export
+#  @title UpdateDialogFiltersOrderRequest
+#  @description Represents a request to update the order of dialog filters. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 UpdateDialogFiltersOrderRequest <- R6::R6Class(
   "UpdateDialogFiltersOrderRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xc563c1e4,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the UpdateDialogFiltersOrderRequest object.
-    #' @param order The list of order IDs.
+    #  @description Initialize the UpdateDialogFiltersOrderRequest object.
+    #  @param order The list of order IDs.
     initialize = function(order) {
       self$order <- order
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UpdateDialogFiltersOrderRequest",
@@ -15074,8 +15522,8 @@ UpdateDialogFiltersOrderRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xe4, 0xc1, 0x63, 0xc5)),
@@ -15102,24 +15550,26 @@ UpdateDialogFiltersOrderRequest$from_reader <- function(reader) {
 }
 
 
-#' @title UpdatePinnedMessageRequest
-#' @description Represents a request to update a pinned message. This class inherits from TLRequest.
-#' @export
+#  @title UpdatePinnedMessageRequest
+#  @description Represents a request to update a pinned message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 UpdatePinnedMessageRequest <- R6::R6Class(
   "UpdatePinnedMessageRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0xd2aaf7ec,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @description Initialize the UpdatePinnedMessageRequest object.
-    #' @param peer The input peer.
-    #' @param id The message ID.
-    #' @param silent Optional silent flag.
-    #' @param unpin Optional unpin flag.
-    #' @param pm_oneside Optional pm_oneside flag.
+    #  @description Initialize the UpdatePinnedMessageRequest object.
+    #  @param peer The input peer.
+    #  @param id The message ID.
+    #  @param silent Optional silent flag.
+    #  @param unpin Optional unpin flag.
+    #  @param pm_oneside Optional pm_oneside flag.
     initialize = function(peer, id, silent = NULL, unpin = NULL, pm_oneside = NULL) {
       self$peer <- peer
       self$id <- id
@@ -15128,15 +15578,15 @@ UpdatePinnedMessageRequest <- R6::R6Class(
       self$pm_oneside <- pm_oneside
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UpdatePinnedMessageRequest",
@@ -15148,8 +15598,8 @@ UpdatePinnedMessageRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$silent) && self$silent != FALSE) flags <- bitwOr(flags, 1L)
@@ -15180,28 +15630,30 @@ UpdatePinnedMessageRequest$from_reader <- function(reader) {
   UpdatePinnedMessageRequest$new(peer = peer, id = id, silent = silent, unpin = unpin, pm_oneside = pm_oneside)
 }
 
-#' @title UpdateSavedReactionTagRequest
-#' @description Represents a request to update a saved reaction tag. This class inherits from TLRequest.
-#' @export
+#  @title UpdateSavedReactionTagRequest
+#  @description Represents a request to update a saved reaction tag. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 UpdateSavedReactionTagRequest <- R6::R6Class(
   "UpdateSavedReactionTagRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x60297dec,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the UpdateSavedReactionTagRequest object.
-    #' @param reaction The reaction.
-    #' @param title Optional title.
+    #  @description Initialize the UpdateSavedReactionTagRequest object.
+    #  @param reaction The reaction.
+    #  @param title Optional title.
     initialize = function(reaction, title = NULL) {
       self$reaction <- reaction
       self$title <- title
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UpdateSavedReactionTagRequest",
@@ -15210,8 +15662,8 @@ UpdateSavedReactionTagRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$title) && self$title != FALSE) flags <- bitwOr(flags, 1L)
@@ -15237,28 +15689,30 @@ UpdateSavedReactionTagRequest$from_reader <- function(reader) {
   UpdateSavedReactionTagRequest$new(reaction = reaction, title = title)
 }
 
-#' @title UploadEncryptedFileRequest
-#' @description Represents a request to upload an encrypted file. This class inherits from TLRequest.
-#' @export
+#  @title UploadEncryptedFileRequest
+#  @description Represents a request to upload an encrypted file. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 UploadEncryptedFileRequest <- R6::R6Class(
   "UploadEncryptedFileRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x5057c497,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x842a67c0,
 
-    #' @description Initialize the UploadEncryptedFileRequest object.
-    #' @param peer The input encrypted chat peer.
-    #' @param file The input encrypted file.
+    #  @description Initialize the UploadEncryptedFileRequest object.
+    #  @param peer The input encrypted chat peer.
+    #  @param file The input encrypted file.
     initialize = function(peer, file) {
       self$peer <- peer
       self$file <- file
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UploadEncryptedFileRequest",
@@ -15267,8 +15721,8 @@ UploadEncryptedFileRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x97, 0xc4, 0x57, 0x50)),
@@ -15291,23 +15745,25 @@ UploadEncryptedFileRequest$from_reader <- function(reader) {
 }
 
 
-#' @title UploadImportedMediaRequest
-#' @description Represents a request to upload imported media. This class inherits from TLRequest.
-#' @export
+#  @title UploadImportedMediaRequest
+#  @description Represents a request to upload imported media. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 UploadImportedMediaRequest <- R6::R6Class(
   "UploadImportedMediaRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x2a862092,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x476cbe32,
 
-    #' @description Initialize the UploadImportedMediaRequest object.
-    #' @param peer The input peer.
-    #' @param import_id The import ID.
-    #' @param file_name The file name.
-    #' @param media The input media.
+    #  @description Initialize the UploadImportedMediaRequest object.
+    #  @param peer The input peer.
+    #  @param import_id The import ID.
+    #  @param file_name The file name.
+    #  @param media The input media.
     initialize = function(peer, import_id, file_name, media) {
       self$peer <- peer
       self$import_id <- import_id
@@ -15315,16 +15771,16 @@ UploadImportedMediaRequest <- R6::R6Class(
       self$media <- media
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       self$media <- utils$get_input_media(self$media)
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UploadImportedMediaRequest",
@@ -15335,8 +15791,8 @@ UploadImportedMediaRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x92, 0x20, 0x86, 0x2a)),
@@ -15362,38 +15818,40 @@ UploadImportedMediaRequest$from_reader <- function(reader) {
   UploadImportedMediaRequest$new(peer = peer, import_id = import_id, file_name = file_name, media = media)
 }
 
-#' @title UploadMediaRequest
-#' @description Represents a request to upload media. This class inherits from TLRequest.
-#' @export
+#  @title UploadMediaRequest
+#  @description Represents a request to upload media. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 UploadMediaRequest <- R6::R6Class(
   "UploadMediaRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x14967978,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x476cbe32,
 
-    #' @description Initialize the UploadMediaRequest object.
-    #' @param peer The input peer.
-    #' @param media The input media.
-    #' @param business_connection_id Optional business connection ID.
+    #  @description Initialize the UploadMediaRequest object.
+    #  @param peer The input peer.
+    #  @param media The input media.
+    #  @param business_connection_id Optional business connection ID.
     initialize = function(peer, media, business_connection_id = NULL) {
       self$peer <- peer
       self$media <- media
       self$business_connection_id <- business_connection_id
     },
 
-    #' @description Resolve the request using client and utils.
-    #' @param client The client object.
-    #' @param utils The utils object.
+    #  @description Resolve the request using client and utils.
+    #  @param client The client object.
+    #  @param utils The utils object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
       self$media <- utils$get_input_media(self$media)
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UploadMediaRequest",
@@ -15403,8 +15861,8 @@ UploadMediaRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- 0L
       if (!is.null(self$business_connection_id) && self$business_connection_id != FALSE) flags <- bitwOr(flags, 1L)
@@ -15432,20 +15890,22 @@ UploadMediaRequest$from_reader <- function(reader) {
   UploadMediaRequest$new(peer = peer, media = media, business_connection_id = business_connection_id)
 }
 
-#' @title ViewSponsoredMessageRequest
-#' @description Represents a request to view a sponsored message. This class inherits from TLRequest.
-#' @export
+#  @title ViewSponsoredMessageRequest
+#  @description Represents a request to view a sponsored message. This class inherits from TLRequest.
+#  @export
+#  @noRd
+#  @noRd
 ViewSponsoredMessageRequest <- R6::R6Class(
   "ViewSponsoredMessageRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID The constructor ID.
+    #  @field CONSTRUCTOR_ID The constructor ID.
     CONSTRUCTOR_ID = 0x269e3643,
-    #' @field SUBCLASS_OF_ID The subclass ID.
+    #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @description Initialize the ViewSponsoredMessageRequest object.
-    #' @param random_id Optional random ID, defaults to a generated value.
+    #  @description Initialize the ViewSponsoredMessageRequest object.
+    #  @param random_id Optional random ID, defaults to a generated value.
     initialize = function(random_id = NULL) {
       if (is.null(random_id)) {
         self$random_id <- int_to_bytes(sample(.Machine$integer.max, 1), 4, "big")
@@ -15454,8 +15914,8 @@ ViewSponsoredMessageRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ViewSponsoredMessageRequest",
@@ -15463,8 +15923,8 @@ ViewSponsoredMessageRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x43, 0x36, 0x9e, 0x26)),

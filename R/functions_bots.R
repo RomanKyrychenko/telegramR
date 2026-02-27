@@ -1,29 +1,31 @@
-#' AddPreviewMediaRequest R6 class
-#'
-#' Represents the AddPreviewMediaRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title AddPreviewMediaRequest
-#' @description Telegram API type AddPreviewMediaRequest
-#' @export
+#  AddPreviewMediaRequest R6 class
+# 
+#  Represents the AddPreviewMediaRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title AddPreviewMediaRequest
+#  @description Telegram API type AddPreviewMediaRequest
+#  @export
+#  @noRd
+#  @noRd
 AddPreviewMediaRequest <- R6::R6Class(
   "AddPreviewMediaRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
-    #' @field lang_code Field.
+    #  @field lang_code Field.
     lang_code = NULL,
-    #' @field media Field.
+    #  @field media Field.
     media = NULL,
 
-    #' @description Initialize AddPreviewMediaRequest
-    #'
-    #' @param bot TypeInputUser or identifier
-    #' @param lang_code character
-    #' @param media TypeInputMedia or object
+    #  @description Initialize AddPreviewMediaRequest
+    # 
+    #  @param bot TypeInputUser or identifier
+    #  @param lang_code character
+    #  @param media TypeInputMedia or object
     initialize = function(bot, lang_code, media) {
       self$bot <- bot
       self$lang_code <- as.character(lang_code)
@@ -31,14 +33,14 @@ AddPreviewMediaRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' Resolves bot via client$get_input_entity and utils$get_input_user,
-    #' resolves media via utils$get_input_media if available.
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user and get_input_media
-    #' @return invisible(self)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  Resolves bot via client$get_input_entity and utils$get_input_user,
+    #  resolves media via utils$get_input_media if available.
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user and get_input_media
+    #  @return invisible(self)
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- utils$get_input_user(input_entity)
@@ -48,9 +50,9 @@ AddPreviewMediaRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -70,9 +72,9 @@ AddPreviewMediaRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -133,47 +135,49 @@ AddPreviewMediaRequest$from_reader <- function(reader) {
 }
 
 
-#' AllowSendMessageRequest R6 class
-#'
-#' Represents the AllowSendMessageRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title AllowSendMessageRequest
-#' @description Telegram API type AllowSendMessageRequest
-#' @export
+#  AllowSendMessageRequest R6 class
+# 
+#  Represents the AllowSendMessageRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title AllowSendMessageRequest
+#  @description Telegram API type AllowSendMessageRequest
+#  @export
+#  @noRd
+#  @noRd
 AllowSendMessageRequest <- R6::R6Class(
   "AllowSendMessageRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
 
-    #' @description Initialize AllowSendMessageRequest
-    #'
-    #' @param bot TypeInputUser or identifier
+    #  @description Initialize AllowSendMessageRequest
+    # 
+    #  @param bot TypeInputUser or identifier
     initialize = function(bot) {
       self$bot <- bot
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' Resolves bot via client$get_input_entity and utils$get_input_user.
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
-    #' @return invisible(self)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  Resolves bot via client$get_input_entity and utils$get_input_user.
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
+    #  @return invisible(self)
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- utils$get_input_user(input_entity)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -186,9 +190,9 @@ AllowSendMessageRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -232,38 +236,40 @@ AllowSendMessageRequest$from_reader <- function(reader) {
 }
 
 
-#' AnswerWebhookJSONQueryRequest R6 class
-#'
-#' Represents the AnswerWebhookJSONQueryRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title AnswerWebhookJSONQueryRequest
-#' @description Telegram API type AnswerWebhookJSONQueryRequest
-#' @export
+#  AnswerWebhookJSONQueryRequest R6 class
+# 
+#  Represents the AnswerWebhookJSONQueryRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title AnswerWebhookJSONQueryRequest
+#  @description Telegram API type AnswerWebhookJSONQueryRequest
+#  @export
+#  @noRd
+#  @noRd
 AnswerWebhookJSONQueryRequest <- R6::R6Class(
   "AnswerWebhookJSONQueryRequest",
   public = list(
-    #' @field query_id Field.
+    #  @field query_id Field.
     query_id = NULL,
-    #' @field data Field.
+    #  @field data Field.
     data = NULL,
 
-    #' @description Initialize AnswerWebhookJSONQueryRequest
-    #'
-    #' @param query_id numeric/integer (64-bit)
-    #' @param data TypeDataJSON or representation
+    #  @description Initialize AnswerWebhookJSONQueryRequest
+    # 
+    #  @param query_id numeric/integer (64-bit)
+    #  @param data TypeDataJSON or representation
     initialize = function(query_id, data) {
       self$query_id <- as.numeric(query_id)
       self$data <- data
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       data_val <- if (inherits(self$data, "R6") && "to_list" %in% names(self$data)) {
         self$data$to_list()
@@ -277,9 +283,9 @@ AnswerWebhookJSONQueryRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       # pack 64-bit little-endian integer (uses numeric arithmetic; precise up to 2^53)
       pack_int64_le <- function(x) {
@@ -333,47 +339,49 @@ AnswerWebhookJSONQueryRequest$from_reader <- function(reader) {
 }
 
 
-#' CanSendMessageRequest R6 class
-#'
-#' Represents the CanSendMessageRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title CanSendMessageRequest
-#' @description Telegram API type CanSendMessageRequest
-#' @export
+#  CanSendMessageRequest R6 class
+# 
+#  Represents the CanSendMessageRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title CanSendMessageRequest
+#  @description Telegram API type CanSendMessageRequest
+#  @export
+#  @noRd
+#  @noRd
 CanSendMessageRequest <- R6::R6Class(
   "CanSendMessageRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
 
-    #' @description Initialize CanSendMessageRequest
-    #'
-    #' @param bot TypeInputUser or identifier
+    #  @description Initialize CanSendMessageRequest
+    # 
+    #  @param bot TypeInputUser or identifier
     initialize = function(bot) {
       self$bot <- bot
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' Resolves bot via client$get_input_entity and utils$get_input_user.
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
-    #' @return invisible(self)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  Resolves bot via client$get_input_entity and utils$get_input_user.
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
+    #  @return invisible(self)
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- utils$get_input_user(input_entity)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -386,9 +394,9 @@ CanSendMessageRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -432,32 +440,34 @@ CanSendMessageRequest$from_reader <- function(reader) {
 }
 
 
-#' CheckDownloadFileParamsRequest R6 class
-#'
-#' Represents the CheckDownloadFileParamsRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title CheckDownloadFileParamsRequest
-#' @description Telegram API type CheckDownloadFileParamsRequest
-#' @export
+#  CheckDownloadFileParamsRequest R6 class
+# 
+#  Represents the CheckDownloadFileParamsRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title CheckDownloadFileParamsRequest
+#  @description Telegram API type CheckDownloadFileParamsRequest
+#  @export
+#  @noRd
+#  @noRd
 CheckDownloadFileParamsRequest <- R6::R6Class(
   "CheckDownloadFileParamsRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
-    #' @field file_name Field.
+    #  @field file_name Field.
     file_name = NULL,
-    #' @field url Field.
+    #  @field url Field.
     url = NULL,
 
-    #' @description Initialize CheckDownloadFileParamsRequest
-    #'
-    #' @param bot TypeInputUser or identifier
-    #' @param file_name character
-    #' @param url character
+    #  @description Initialize CheckDownloadFileParamsRequest
+    # 
+    #  @param bot TypeInputUser or identifier
+    #  @param file_name character
+    #  @param url character
     initialize = function(bot, file_name, url) {
       self$bot <- bot
       self$file_name <- as.character(file_name)
@@ -465,22 +475,22 @@ CheckDownloadFileParamsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' Resolves bot via client$get_input_entity and utils$get_input_user.
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
-    #' @return invisible(self)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  Resolves bot via client$get_input_entity and utils$get_input_user.
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
+    #  @return invisible(self)
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- utils$get_input_user(input_entity)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -495,9 +505,9 @@ CheckDownloadFileParamsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -546,32 +556,34 @@ CheckDownloadFileParamsRequest$from_reader <- function(reader) {
 }
 
 
-#' DeletePreviewMediaRequest R6 class
-#'
-#' Represents the DeletePreviewMediaRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title DeletePreviewMediaRequest
-#' @description Telegram API type DeletePreviewMediaRequest
-#' @export
+#  DeletePreviewMediaRequest R6 class
+# 
+#  Represents the DeletePreviewMediaRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title DeletePreviewMediaRequest
+#  @description Telegram API type DeletePreviewMediaRequest
+#  @export
+#  @noRd
+#  @noRd
 DeletePreviewMediaRequest <- R6::R6Class(
   "DeletePreviewMediaRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
-    #' @field lang_code Field.
+    #  @field lang_code Field.
     lang_code = NULL,
-    #' @field media Field.
+    #  @field media Field.
     media = NULL,
 
-    #' @description Initialize DeletePreviewMediaRequest
-    #'
-    #' @param bot TypeInputUser or identifier
-    #' @param lang_code character
-    #' @param media list of TypeInputMedia or objects
+    #  @description Initialize DeletePreviewMediaRequest
+    # 
+    #  @param bot TypeInputUser or identifier
+    #  @param lang_code character
+    #  @param media list of TypeInputMedia or objects
     initialize = function(bot, lang_code, media) {
       self$bot <- bot
       self$lang_code <- as.character(lang_code)
@@ -579,14 +591,14 @@ DeletePreviewMediaRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' Resolves bot via client$get_input_entity and utils$get_input_user.
-    #' Resolves each media entry via utils$get_input_media.
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user and get_input_media
-    #' @return invisible(self)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  Resolves bot via client$get_input_entity and utils$get_input_user.
+    #  Resolves each media entry via utils$get_input_media.
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user and get_input_media
+    #  @return invisible(self)
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- utils$get_input_user(input_entity)
@@ -603,9 +615,9 @@ DeletePreviewMediaRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -627,9 +639,9 @@ DeletePreviewMediaRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -706,35 +718,37 @@ DeletePreviewMediaRequest$from_reader <- function(reader) {
 }
 
 
-#' EditPreviewMediaRequest R6 class
-#'
-#' Represents the EditPreviewMediaRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title EditPreviewMediaRequest
-#' @description Telegram API type EditPreviewMediaRequest
-#' @export
+#  EditPreviewMediaRequest R6 class
+# 
+#  Represents the EditPreviewMediaRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title EditPreviewMediaRequest
+#  @description Telegram API type EditPreviewMediaRequest
+#  @export
+#  @noRd
+#  @noRd
 EditPreviewMediaRequest <- R6::R6Class(
   "EditPreviewMediaRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
-    #' @field lang_code Field.
+    #  @field lang_code Field.
     lang_code = NULL,
-    #' @field media Field.
+    #  @field media Field.
     media = NULL,
-    #' @field new_media Field.
+    #  @field new_media Field.
     new_media = NULL,
 
-    #' @description Initialize EditPreviewMediaRequest
-    #'
-    #' @param bot TypeInputUser or identifier
-    #' @param lang_code character
-    #' @param media TypeInputMedia or object
-    #' @param new_media TypeInputMedia or object
+    #  @description Initialize EditPreviewMediaRequest
+    # 
+    #  @param bot TypeInputUser or identifier
+    #  @param lang_code character
+    #  @param media TypeInputMedia or object
+    #  @param new_media TypeInputMedia or object
     initialize = function(bot, lang_code, media, new_media) {
       self$bot <- bot
       self$lang_code <- as.character(lang_code)
@@ -743,14 +757,14 @@ EditPreviewMediaRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' Resolves bot via client$get_input_entity and utils$get_input_user;
-    #' resolves media and new_media via utils$get_input_media.
-    #'
-    #' @param client client with get_input_entity method (synchronous)
-    #' @param utils utils with get_input_user and get_input_media
-    #' @return invisible(self)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  Resolves bot via client$get_input_entity and utils$get_input_user;
+    #  resolves media and new_media via utils$get_input_media.
+    # 
+    #  @param client client with get_input_entity method (synchronous)
+    #  @param utils utils with get_input_user and get_input_media
+    #  @return invisible(self)
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- utils$get_input_user(input_entity)
@@ -763,9 +777,9 @@ EditPreviewMediaRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -791,9 +805,9 @@ EditPreviewMediaRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -869,25 +883,27 @@ EditPreviewMediaRequest$from_reader <- function(reader) {
 }
 
 
-#' @title GetAdminedBotsRequest R6 class
-#' @description Represents the GetAdminedBotsRequest TL request.
-#' @export
+#  @title GetAdminedBotsRequest R6 class
+#  @description Represents the GetAdminedBotsRequest TL request.
+#  @export
+#  @noRd
+#  @noRd
 GetAdminedBotsRequest <- R6::R6Class(
   "GetAdminedBotsRequest",
   public = list(
-    #' @description Initialize GetAdminedBotsRequest
+    #  @description Initialize GetAdminedBotsRequest
     initialize = function() {
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(`_` = "GetAdminedBotsRequest")
     },
 
-    #' @description Serialize to bytes (raw vector)
-    #' @return raw
+    #  @description Serialize to bytes (raw vector)
+    #  @return raw
     to_bytes = function() {
       # constructor id bytes (from Python: b'\x83\x1dq\xb0')
       ctor <- as.raw(c(0x83, 0x1D, 0x71, 0xB0))
@@ -902,38 +918,40 @@ GetAdminedBotsRequest$from_reader <- function(reader) {
 }
 
 
-#' GetBotCommandsRequest R6 class
-#'
-#' Represents the GetBotCommandsRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title GetBotCommandsRequest
-#' @description Telegram API type GetBotCommandsRequest
-#' @export
+#  GetBotCommandsRequest R6 class
+# 
+#  Represents the GetBotCommandsRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title GetBotCommandsRequest
+#  @description Telegram API type GetBotCommandsRequest
+#  @export
+#  @noRd
+#  @noRd
 GetBotCommandsRequest <- R6::R6Class(
   "GetBotCommandsRequest",
   public = list(
-    #' @field scope Field.
+    #  @field scope Field.
     scope = NULL,
-    #' @field lang_code Field.
+    #  @field lang_code Field.
     lang_code = NULL,
 
-    #' @description Initialize GetBotCommandsRequest
-    #'
-    #' @param scope TypeBotCommandScope or object
-    #' @param lang_code character
+    #  @description Initialize GetBotCommandsRequest
+    # 
+    #  @param scope TypeBotCommandScope or object
+    #  @param lang_code character
     initialize = function(scope, lang_code) {
       self$scope <- scope
       self$lang_code <- as.character(lang_code)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       scope_val <- if (inherits(self$scope, "R6") && "to_list" %in% names(self$scope)) {
         self$scope$to_list()
@@ -947,9 +965,9 @@ GetBotCommandsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -996,42 +1014,44 @@ GetBotCommandsRequest$from_reader <- function(reader) {
 }
 
 
-#' GetBotInfoRequest R6 class
-#'
-#' Represents the GetBotInfoRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title GetBotInfoRequest
-#' @description Telegram API type GetBotInfoRequest
-#' @export
+#  GetBotInfoRequest R6 class
+# 
+#  Represents the GetBotInfoRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title GetBotInfoRequest
+#  @description Telegram API type GetBotInfoRequest
+#  @export
+#  @noRd
+#  @noRd
 GetBotInfoRequest <- R6::R6Class(
   "GetBotInfoRequest",
   public = list(
-    #' @field lang_code Field.
+    #  @field lang_code Field.
     lang_code = NULL,
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
 
-    #' @description Initialize GetBotInfoRequest
-    #'
-    #' @param lang_code character
-    #' @param bot TypeInputUser or identifier (optional)
+    #  @description Initialize GetBotInfoRequest
+    # 
+    #  @param lang_code character
+    #  @param bot TypeInputUser or identifier (optional)
     initialize = function(lang_code, bot = NULL) {
       self$lang_code <- as.character(lang_code)
       self$bot <- if (!is.null(bot)) bot else NULL
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' If bot is provided, resolves it via client$get_input_entity and utils$get_input_user.
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
-    #' @return invisible(self)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  If bot is provided, resolves it via client$get_input_entity and utils$get_input_user.
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
+    #  @return invisible(self)
     resolve = function(client, utils) {
       if (!is.null(self$bot)) {
         input_entity <- client$get_input_entity(self$bot)
@@ -1040,9 +1060,9 @@ GetBotInfoRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -1056,11 +1076,11 @@ GetBotInfoRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' Writes flags (uint32) indicating presence of bot, optional bot bytes, then lang_code.
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  Writes flags (uint32) indicating presence of bot, optional bot bytes, then lang_code.
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -1113,47 +1133,49 @@ GetBotInfoRequest$from_reader <- function(reader) {
 }
 
 
-#' GetBotMenuButtonRequest R6 class
-#'
-#' Represents the GetBotMenuButtonRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title GetBotMenuButtonRequest
-#' @description Telegram API type GetBotMenuButtonRequest
-#' @export
+#  GetBotMenuButtonRequest R6 class
+# 
+#  Represents the GetBotMenuButtonRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title GetBotMenuButtonRequest
+#  @description Telegram API type GetBotMenuButtonRequest
+#  @export
+#  @noRd
+#  @noRd
 GetBotMenuButtonRequest <- R6::R6Class(
   "GetBotMenuButtonRequest",
   public = list(
-    #' @field user_id Field.
+    #  @field user_id Field.
     user_id = NULL,
 
-    #' @description Initialize GetBotMenuButtonRequest
-    #'
-    #' @param user_id TypeInputUser or identifier
+    #  @description Initialize GetBotMenuButtonRequest
+    # 
+    #  @param user_id TypeInputUser or identifier
     initialize = function(user_id) {
       self$user_id <- user_id
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' Converts user_id via client$get_input_entity and utils$get_input_user.
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
-    #' @return invisible(self)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  Converts user_id via client$get_input_entity and utils$get_input_user.
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
+    #  @return invisible(self)
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$user_id)
       self$user_id <- utils$get_input_user(input_entity)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       user_val <- if (inherits(self$user_id, "R6") && "to_list" %in% names(self$user_id)) {
         self$user_id$to_list()
@@ -1166,9 +1188,9 @@ GetBotMenuButtonRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       # helper to pack 4-byte little-endian integers
       pack_int32 <- function(x) {
@@ -1213,47 +1235,49 @@ GetBotMenuButtonRequest$from_reader <- function(reader) {
 }
 
 
-#' GetBotRecommendationsRequest R6 class
-#'
-#' Represents the GetBotRecommendationsRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title GetBotRecommendationsRequest
-#' @description Telegram API type GetBotRecommendationsRequest
-#' @export
+#  GetBotRecommendationsRequest R6 class
+# 
+#  Represents the GetBotRecommendationsRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title GetBotRecommendationsRequest
+#  @description Telegram API type GetBotRecommendationsRequest
+#  @export
+#  @noRd
+#  @noRd
 GetBotRecommendationsRequest <- R6::R6Class(
   "GetBotRecommendationsRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
 
-    #' @description Initialize GetBotRecommendationsRequest
-    #'
-    #' @param bot TypeInputUser or identifier
+    #  @description Initialize GetBotRecommendationsRequest
+    # 
+    #  @param bot TypeInputUser or identifier
     initialize = function(bot) {
       self$bot <- bot
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' Resolves bot via client$get_input_entity and utils$get_input_user.
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
-    #' @return invisible(self)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  Resolves bot via client$get_input_entity and utils$get_input_user.
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
+    #  @return invisible(self)
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- utils$get_input_user(input_entity)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -1266,9 +1290,9 @@ GetBotRecommendationsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -1312,47 +1336,49 @@ GetBotRecommendationsRequest$from_reader <- function(reader) {
 }
 
 
-#' GetPopularAppBotsRequest R6 class
-#'
-#' Represents the GetPopularAppBotsRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title GetPopularAppBotsRequest
-#' @description Telegram API type GetPopularAppBotsRequest
-#' @export
+#  GetPopularAppBotsRequest R6 class
+# 
+#  Represents the GetPopularAppBotsRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title GetPopularAppBotsRequest
+#  @description Telegram API type GetPopularAppBotsRequest
+#  @export
+#  @noRd
+#  @noRd
 GetPopularAppBotsRequest <- R6::R6Class(
   "GetPopularAppBotsRequest",
   public = list(
-    #' @field offset Field.
+    #  @field offset Field.
     offset = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
 
-    #' @description Initialize GetPopularAppBotsRequest
-    #'
-    #' @param offset character offset
-    #' @param limit integer
+    #  @description Initialize GetPopularAppBotsRequest
+    # 
+    #  @param offset character offset
+    #  @param limit integer
     initialize = function(offset, limit) {
       self$offset <- if (!is.null(offset)) as.character(offset) else NULL
       self$limit <- as.integer(limit)
       invisible(self)
     },
 
-    #' Resolve references (no-op for this request)
-    #'
-    #' @param client unused
-    #' @param utils unused
-    #' @return invisible(self)
+    #  Resolve references (no-op for this request)
+    # 
+    #  @param client unused
+    #  @param utils unused
+    #  @return invisible(self)
     resolve = function(client = NULL, utils = NULL) {
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetPopularAppBotsRequest",
@@ -1361,9 +1387,9 @@ GetPopularAppBotsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -1398,51 +1424,53 @@ GetPopularAppBotsRequest$from_reader <- function(reader) {
 }
 
 
-#' GetPreviewInfoRequest R6 class
-#'
-#' Represents the GetPreviewInfoRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title GetPreviewInfoRequest
-#' @description Telegram API type GetPreviewInfoRequest
-#' @export
+#  GetPreviewInfoRequest R6 class
+# 
+#  Represents the GetPreviewInfoRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title GetPreviewInfoRequest
+#  @description Telegram API type GetPreviewInfoRequest
+#  @export
+#  @noRd
+#  @noRd
 GetPreviewInfoRequest <- R6::R6Class(
   "GetPreviewInfoRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
-    #' @field lang_code Field.
+    #  @field lang_code Field.
     lang_code = NULL,
 
-    #' @description Initialize GetPreviewInfoRequest
-    #'
-    #' @param bot TypeInputUser or identifier
-    #' @param lang_code character
+    #  @description Initialize GetPreviewInfoRequest
+    # 
+    #  @param bot TypeInputUser or identifier
+    #  @param lang_code character
     initialize = function(bot, lang_code) {
       self$bot <- bot
       self$lang_code <- as.character(lang_code)
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' Resolves bot using client$get_input_entity and utils$get_input_user.
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
-    #' @return invisible(self)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  Resolves bot using client$get_input_entity and utils$get_input_user.
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
+    #  @return invisible(self)
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- utils$get_input_user(input_entity)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -1456,9 +1484,9 @@ GetPreviewInfoRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -1506,47 +1534,49 @@ GetPreviewInfoRequest$from_reader <- function(reader) {
 }
 
 
-#' GetPreviewMediasRequest R6 class
-#'
-#' Represents the GetPreviewMediasRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title GetPreviewMediasRequest
-#' @description Telegram API type GetPreviewMediasRequest
-#' @export
+#  GetPreviewMediasRequest R6 class
+# 
+#  Represents the GetPreviewMediasRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title GetPreviewMediasRequest
+#  @description Telegram API type GetPreviewMediasRequest
+#  @export
+#  @noRd
+#  @noRd
 GetPreviewMediasRequest <- R6::R6Class(
   "GetPreviewMediasRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
 
-    #' @description Initialize GetPreviewMediasRequest
-    #'
-    #' @param bot TypeInputUser or identifier
+    #  @description Initialize GetPreviewMediasRequest
+    # 
+    #  @param bot TypeInputUser or identifier
     initialize = function(bot) {
       self$bot <- bot
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' Uses client$get_input_entity and utils$get_input_user to convert bot.
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
-    #' @return invisible(self)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  Uses client$get_input_entity and utils$get_input_user to convert bot.
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
+    #  @return invisible(self)
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- utils$get_input_user(input_entity)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -1559,9 +1589,9 @@ GetPreviewMediasRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -1605,32 +1635,34 @@ GetPreviewMediasRequest$from_reader <- function(reader) {
 }
 
 
-#' InvokeWebViewCustomMethodRequest R6 class
-#'
-#' Represents the InvokeWebViewCustomMethodRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title InvokeWebViewCustomMethodRequest
-#' @description Telegram API type InvokeWebViewCustomMethodRequest
-#' @export
+#  InvokeWebViewCustomMethodRequest R6 class
+# 
+#  Represents the InvokeWebViewCustomMethodRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title InvokeWebViewCustomMethodRequest
+#  @description Telegram API type InvokeWebViewCustomMethodRequest
+#  @export
+#  @noRd
+#  @noRd
 InvokeWebViewCustomMethodRequest <- R6::R6Class(
   "InvokeWebViewCustomMethodRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
-    #' @field custom_method Field.
+    #  @field custom_method Field.
     custom_method = NULL,
-    #' @field params Field.
+    #  @field params Field.
     params = NULL,
 
-    #' @description Initialize InvokeWebViewCustomMethodRequest
-    #'
-    #' @param bot TypeInputUser or identifier
-    #' @param custom_method character
-    #' @param params TypeDataJSON or object
+    #  @description Initialize InvokeWebViewCustomMethodRequest
+    # 
+    #  @param bot TypeInputUser or identifier
+    #  @param custom_method character
+    #  @param params TypeDataJSON or object
     initialize = function(bot, custom_method, params) {
       self$bot <- bot
       self$custom_method <- as.character(custom_method)
@@ -1638,22 +1670,22 @@ InvokeWebViewCustomMethodRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' Resolves bot via client$get_input_entity and utils$get_input_user.
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
-    #' @return invisible(self)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  Resolves bot via client$get_input_entity and utils$get_input_user.
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
+    #  @return invisible(self)
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- utils$get_input_user(input_entity)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -1673,9 +1705,9 @@ InvokeWebViewCustomMethodRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -1736,32 +1768,34 @@ InvokeWebViewCustomMethodRequest$from_reader <- function(reader) {
 }
 
 
-#' ReorderPreviewMediasRequest R6 class
-#'
-#' Represents the ReorderPreviewMediasRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title ReorderPreviewMediasRequest
-#' @description Telegram API type ReorderPreviewMediasRequest
-#' @export
+#  ReorderPreviewMediasRequest R6 class
+# 
+#  Represents the ReorderPreviewMediasRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title ReorderPreviewMediasRequest
+#  @description Telegram API type ReorderPreviewMediasRequest
+#  @export
+#  @noRd
+#  @noRd
 ReorderPreviewMediasRequest <- R6::R6Class(
   "ReorderPreviewMediasRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
-    #' @field lang_code Field.
+    #  @field lang_code Field.
     lang_code = NULL,
-    #' @field order Field.
+    #  @field order Field.
     order = NULL,
 
-    #' @description Initialize ReorderPreviewMediasRequest
-    #'
-    #' @param bot TypeInputUser or identifier
-    #' @param lang_code character
-    #' @param order list of TypeInputMedia or objects
+    #  @description Initialize ReorderPreviewMediasRequest
+    # 
+    #  @param bot TypeInputUser or identifier
+    #  @param lang_code character
+    #  @param order list of TypeInputMedia or objects
     initialize = function(bot, lang_code, order) {
       self$bot <- bot
       self$lang_code <- as.character(lang_code)
@@ -1769,11 +1803,11 @@ ReorderPreviewMediasRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user / get_input_media
-    #' @return invisible(self)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user / get_input_media
+    #  @return invisible(self)
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- utils$get_input_user(input_entity)
@@ -1791,9 +1825,9 @@ ReorderPreviewMediasRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -1815,9 +1849,9 @@ ReorderPreviewMediasRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -1896,42 +1930,44 @@ ReorderPreviewMediasRequest$from_reader <- function(reader) {
 }
 
 
-#' ReorderUsernamesRequest R6 class
-#'
-#' @title ReorderUsernamesRequest
-#' @description Telegram API type ReorderUsernamesRequest
-#' @export
+#  ReorderUsernamesRequest R6 class
+# 
+#  @title ReorderUsernamesRequest
+#  @description Telegram API type ReorderUsernamesRequest
+#  @export
+#  @noRd
+#  @noRd
 ReorderUsernamesRequest <- R6::R6Class(
   "ReorderUsernamesRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
-    #' @field order Field.
+    #  @field order Field.
     order = NULL,
 
-    #' @description Initialize ReorderUsernamesRequest
-    #'
-    #' @param bot TypeInputUser or identifier
-    #' @param order list of character
+    #  @description Initialize ReorderUsernamesRequest
+    # 
+    #  @param bot TypeInputUser or identifier
+    #  @param order list of character
     initialize = function(bot, order) {
       self$bot <- bot
       self$order <- if (is.null(order)) list() else order
       invisible(self)
     },
 
-    #' @description Resolve references (convert entities via client/utils)
-    #'
-    #' @param client client with get_input_entity method
-    #' @return invisible(self)
+    #  @description Resolve references (convert entities via client/utils)
+    # 
+    #  @param client client with get_input_entity method
+    #  @return invisible(self)
     resolve = function(client) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- get_input_user(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -1945,9 +1981,9 @@ ReorderUsernamesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  @description Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -2012,50 +2048,52 @@ ReorderUsernamesRequest$from_reader <- function(reader) {
 }
 
 
-#' ResetBotCommandsRequest R6 class
-#'
-#' Represents the ResetBotCommandsRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title ResetBotCommandsRequest
-#' @description Telegram API type ResetBotCommandsRequest
-#' @export
+#  ResetBotCommandsRequest R6 class
+# 
+#  Represents the ResetBotCommandsRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title ResetBotCommandsRequest
+#  @description Telegram API type ResetBotCommandsRequest
+#  @export
+#  @noRd
+#  @noRd
 ResetBotCommandsRequest <- R6::R6Class(
   "ResetBotCommandsRequest",
   public = list(
-    #' @field scope Field.
+    #  @field scope Field.
     scope = NULL,
-    #' @field lang_code Field.
+    #  @field lang_code Field.
     lang_code = NULL,
 
-    #' @description Initialize ResetBotCommandsRequest
-    #'
-    #' @param scope TypeBotCommandScope or object
-    #' @param lang_code character
+    #  @description Initialize ResetBotCommandsRequest
+    # 
+    #  @param scope TypeBotCommandScope or object
+    #  @param lang_code character
     initialize = function(scope, lang_code) {
       self$scope <- scope
       self$lang_code <- as.character(lang_code)
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' Some request types require resolving entities via client/utils.
-    #' For this request there is no standard entity resolution required,
-    #' so this is a no-op but kept for API consistency.
-    #'
-    #' @param client client (unused)
-    #' @param utils utils (unused)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  Some request types require resolving entities via client/utils.
+    #  For this request there is no standard entity resolution required,
+    #  so this is a no-op but kept for API consistency.
+    # 
+    #  @param client client (unused)
+    #  @param utils utils (unused)
     resolve = function(client = NULL, utils = NULL) {
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       scope_val <- if (inherits(self$scope, "R6") && "to_list" %in% names(self$scope)) {
         self$scope$to_list()
@@ -2069,9 +2107,9 @@ ResetBotCommandsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -2119,48 +2157,50 @@ ResetBotCommandsRequest$from_reader <- function(reader) {
 }
 
 
-#' SendCustomRequestRequest R6 class
-#'
-#' Represents the SendCustomRequestRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title SendCustomRequestRequest
-#' @description Telegram API type SendCustomRequestRequest
-#' @export
+#  SendCustomRequestRequest R6 class
+# 
+#  Represents the SendCustomRequestRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title SendCustomRequestRequest
+#  @description Telegram API type SendCustomRequestRequest
+#  @export
+#  @noRd
+#  @noRd
 SendCustomRequestRequest <- R6::R6Class(
   "SendCustomRequestRequest",
   public = list(
-    #' @field custom_method Field.
+    #  @field custom_method Field.
     custom_method = NULL,
-    #' @field params Field.
+    #  @field params Field.
     params = NULL,
 
-    #' @description Initialize SendCustomRequestRequest
-    #'
-    #' @param custom_method character
-    #' @param params TypeDataJSON or object
+    #  @description Initialize SendCustomRequestRequest
+    # 
+    #  @param custom_method character
+    #  @param params TypeDataJSON or object
     initialize = function(custom_method, params) {
       self$custom_method <- as.character(custom_method)
       self$params <- params
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' For this request no entity resolution is required; kept for API consistency.
-    #'
-    #' @param client client (unused)
-    #' @param utils utils (unused)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  For this request no entity resolution is required; kept for API consistency.
+    # 
+    #  @param client client (unused)
+    #  @param utils utils (unused)
     resolve = function(client = NULL, utils = NULL) {
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       params_val <- if (inherits(self$params, "R6") && "to_list" %in% names(self$params)) {
         self$params$to_list()
@@ -2174,9 +2214,9 @@ SendCustomRequestRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -2224,34 +2264,36 @@ SendCustomRequestRequest$from_reader <- function(reader) {
 }
 
 
-#' SetBotBroadcastDefaultAdminRightsRequest R6 class
-#'
-#' Represents the SetBotBroadcastDefaultAdminRightsRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title SetBotBroadcastDefaultAdminRightsRequest
-#' @description Telegram API type SetBotBroadcastDefaultAdminRightsRequest
-#' @export
+#  SetBotBroadcastDefaultAdminRightsRequest R6 class
+# 
+#  Represents the SetBotBroadcastDefaultAdminRightsRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title SetBotBroadcastDefaultAdminRightsRequest
+#  @description Telegram API type SetBotBroadcastDefaultAdminRightsRequest
+#  @export
+#  @noRd
+#  @noRd
 SetBotBroadcastDefaultAdminRightsRequest <- R6::R6Class(
   "SetBotBroadcastDefaultAdminRightsRequest",
   public = list(
-    #' @field admin_rights Field.
+    #  @field admin_rights Field.
     admin_rights = NULL,
 
-    #' @description Initialize SetBotBroadcastDefaultAdminRightsRequest
-    #'
-    #' @param admin_rights TypeChatAdminRights or object
+    #  @description Initialize SetBotBroadcastDefaultAdminRightsRequest
+    # 
+    #  @param admin_rights TypeChatAdminRights or object
     initialize = function(admin_rights) {
       self$admin_rights <- admin_rights
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       admin_val <- if (inherits(self$admin_rights, "R6") && "to_list" %in% names(self$admin_rights)) {
         self$admin_rights$to_list()
@@ -2264,9 +2306,9 @@ SetBotBroadcastDefaultAdminRightsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -2304,32 +2346,34 @@ SetBotBroadcastDefaultAdminRightsRequest$from_reader <- function(reader) {
 }
 
 
-#' SetBotCommandsRequest R6 class
-#'
-#' Represents the SetBotCommandsRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title SetBotCommandsRequest
-#' @description Telegram API type SetBotCommandsRequest
-#' @export
+#  SetBotCommandsRequest R6 class
+# 
+#  Represents the SetBotCommandsRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title SetBotCommandsRequest
+#  @description Telegram API type SetBotCommandsRequest
+#  @export
+#  @noRd
+#  @noRd
 SetBotCommandsRequest <- R6::R6Class(
   "SetBotCommandsRequest",
   public = list(
-    #' @field scope Field.
+    #  @field scope Field.
     scope = NULL,
-    #' @field lang_code Field.
+    #  @field lang_code Field.
     lang_code = NULL,
-    #' @field commands Field.
+    #  @field commands Field.
     commands = NULL,
 
-    #' @description Initialize SetBotCommandsRequest
-    #'
-    #' @param scope TypeBotCommandScope or object
-    #' @param lang_code character
-    #' @param commands list of TypeBotCommand or objects
+    #  @description Initialize SetBotCommandsRequest
+    # 
+    #  @param scope TypeBotCommandScope or object
+    #  @param lang_code character
+    #  @param commands list of TypeBotCommand or objects
     initialize = function(scope, lang_code, commands) {
       self$scope <- scope
       self$lang_code <- as.character(lang_code)
@@ -2337,21 +2381,21 @@ SetBotCommandsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' Some request types require resolving entities via client/utils.
-    #' For this request there is no standard entity resolution required,
-    #' so this is a no-op but kept for API consistency.
-    #'
-    #' @param client client (unused)
-    #' @param utils utils (unused)
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  Some request types require resolving entities via client/utils.
+    #  For this request there is no standard entity resolution required,
+    #  so this is a no-op but kept for API consistency.
+    # 
+    #  @param client client (unused)
+    #  @param utils utils (unused)
     resolve = function(client = NULL, utils = NULL) {
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       scope_val <- if (inherits(self$scope, "R6") && "to_list" %in% names(self$scope)) {
         self$scope$to_list()
@@ -2373,9 +2417,9 @@ SetBotCommandsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -2454,34 +2498,36 @@ SetBotCommandsRequest$from_reader <- function(reader) {
 }
 
 
-#' SetBotGroupDefaultAdminRightsRequest R6 class
-#'
-#' Represents the SetBotGroupDefaultAdminRightsRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title SetBotGroupDefaultAdminRightsRequest
-#' @description Telegram API type SetBotGroupDefaultAdminRightsRequest
-#' @export
+#  SetBotGroupDefaultAdminRightsRequest R6 class
+# 
+#  Represents the SetBotGroupDefaultAdminRightsRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title SetBotGroupDefaultAdminRightsRequest
+#  @description Telegram API type SetBotGroupDefaultAdminRightsRequest
+#  @export
+#  @noRd
+#  @noRd
 SetBotGroupDefaultAdminRightsRequest <- R6::R6Class(
   "SetBotGroupDefaultAdminRightsRequest",
   public = list(
-    #' @field admin_rights Field.
+    #  @field admin_rights Field.
     admin_rights = NULL,
 
-    #' @description Initialize SetBotGroupDefaultAdminRightsRequest
-    #'
-    #' @param admin_rights TypeChatAdminRights or object
+    #  @description Initialize SetBotGroupDefaultAdminRightsRequest
+    # 
+    #  @param admin_rights TypeChatAdminRights or object
     initialize = function(admin_rights) {
       self$admin_rights <- admin_rights
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       admin_val <- if (inherits(self$admin_rights, "R6") && "to_list" %in% names(self$admin_rights)) {
         self$admin_rights$to_list()
@@ -2494,9 +2540,9 @@ SetBotGroupDefaultAdminRightsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -2534,38 +2580,40 @@ SetBotGroupDefaultAdminRightsRequest$from_reader <- function(reader) {
 }
 
 
-#' SetBotInfoRequest R6 class
-#'
-#' Represents the SetBotInfoRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title SetBotInfoRequest
-#' @description Telegram API type SetBotInfoRequest
-#' @export
+#  SetBotInfoRequest R6 class
+# 
+#  Represents the SetBotInfoRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title SetBotInfoRequest
+#  @description Telegram API type SetBotInfoRequest
+#  @export
+#  @noRd
+#  @noRd
 SetBotInfoRequest <- R6::R6Class(
   "SetBotInfoRequest",
   public = list(
-    #' @field lang_code Field.
+    #  @field lang_code Field.
     lang_code = NULL,
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
-    #' @field name Field.
+    #  @field name Field.
     name = NULL,
-    #' @field about Field.
+    #  @field about Field.
     about = NULL,
-    #' @field description Field.
+    #  @field description Field.
     description = NULL,
 
-    #' @description Initialize SetBotInfoRequest
-    #'
-    #' @param lang_code character
-    #' @param bot TypeInputUser or identifier (optional)
-    #' @param name character (optional)
-    #' @param about character (optional)
-    #' @param description character (optional)
+    #  @description Initialize SetBotInfoRequest
+    # 
+    #  @param lang_code character
+    #  @param bot TypeInputUser or identifier (optional)
+    #  @param name character (optional)
+    #  @param about character (optional)
+    #  @param description character (optional)
     initialize = function(lang_code, bot = NULL, name = NULL, about = NULL, description = NULL) {
       self$lang_code <- as.character(lang_code)
       self$bot <- if (!is.null(bot)) bot else NULL
@@ -2575,10 +2623,10 @@ SetBotInfoRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
     resolve = function(client, utils) {
       if (!is.null(self$bot)) {
         input_entity <- client$get_input_entity(self$bot)
@@ -2587,9 +2635,9 @@ SetBotInfoRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -2606,9 +2654,9 @@ SetBotInfoRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -2669,48 +2717,50 @@ SetBotInfoRequest$from_reader <- function(reader) {
 }
 
 
-#' SetBotMenuButtonRequest R6 class
-#'
-#' Represents the SetBotMenuButtonRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title SetBotMenuButtonRequest
-#' @description Telegram API type SetBotMenuButtonRequest
-#' @export
+#  SetBotMenuButtonRequest R6 class
+# 
+#  Represents the SetBotMenuButtonRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title SetBotMenuButtonRequest
+#  @description Telegram API type SetBotMenuButtonRequest
+#  @export
+#  @noRd
+#  @noRd
 SetBotMenuButtonRequest <- R6::R6Class(
   "SetBotMenuButtonRequest",
   public = list(
-    #' @field user_id Field.
+    #  @field user_id Field.
     user_id = NULL,
-    #' @field button Field.
+    #  @field button Field.
     button = NULL,
 
-    #' @description Initialize SetBotMenuButtonRequest
-    #'
-    #' @param user_id TypeInputUser or identifier
-    #' @param button TypeBotMenuButton or object
+    #  @description Initialize SetBotMenuButtonRequest
+    # 
+    #  @param user_id TypeInputUser or identifier
+    #  @param button TypeBotMenuButton or object
     initialize = function(user_id, button) {
       self$user_id <- user_id
       self$button <- button
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$user_id)
       self$user_id <- utils$get_input_user(input_entity)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       user_val <- if (inherits(self$user_id, "R6") && "to_list" %in% names(self$user_id)) {
         self$user_id$to_list()
@@ -2729,9 +2779,9 @@ SetBotMenuButtonRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -2791,33 +2841,35 @@ SetBotMenuButtonRequest$from_reader <- function(reader) {
 }
 
 
-#' SetCustomVerificationRequest R6 class
-#'
-#' Represents the SetCustomVerificationRequest TL request.
-#'
-#'
-#'
-#' @title SetCustomVerificationRequest
-#' @description Telegram API type SetCustomVerificationRequest
-#' @export
+#  SetCustomVerificationRequest R6 class
+# 
+#  Represents the SetCustomVerificationRequest TL request.
+# 
+# 
+# 
+#  @title SetCustomVerificationRequest
+#  @description Telegram API type SetCustomVerificationRequest
+#  @export
+#  @noRd
+#  @noRd
 SetCustomVerificationRequest <- R6::R6Class(
   "SetCustomVerificationRequest",
   public = list(
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field enabled Field.
+    #  @field enabled Field.
     enabled = NULL,
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
-    #' @field custom_description Field.
+    #  @field custom_description Field.
     custom_description = NULL,
 
-    #' @description Initialize SetCustomVerificationRequest
-    #'
-    #' @param peer TypeInputPeer or identifier
-    #' @param enabled logical|null
-    #' @param bot TypeInputUser or identifier|null
-    #' @param custom_description character|null
+    #  @description Initialize SetCustomVerificationRequest
+    # 
+    #  @param peer TypeInputPeer or identifier
+    #  @param enabled logical|null
+    #  @param bot TypeInputUser or identifier|null
+    #  @param custom_description character|null
     initialize = function(peer, enabled = NULL, bot = NULL, custom_description = NULL) {
       self$peer <- peer
       if (!is.null(enabled)) self$enabled <- as.logical(enabled)
@@ -2826,10 +2878,10 @@ SetCustomVerificationRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user / get_input_peer
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user / get_input_peer
     resolve = function(client, utils) {
       input_peer <- client$get_input_entity(self$peer)
       self$peer <- utils$get_input_peer(input_peer)
@@ -2840,9 +2892,9 @@ SetCustomVerificationRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       peer_val <- if (inherits(self$peer, "R6") && "to_list" %in% names(self$peer)) {
         self$peer$to_list()
@@ -2863,9 +2915,9 @@ SetCustomVerificationRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -2938,48 +2990,50 @@ SetCustomVerificationRequest$from_reader <- function(reader) {
   SetCustomVerificationRequest$new(peer = peer_obj, enabled = enabled_val, bot = bot_obj, custom_description = custom_description)
 }
 
-#' ToggleUserEmojiStatusPermissionRequest R6 class
-#'
-#' Represents the ToggleUserEmojiStatusPermissionRequest TL request.
-#'
-#'
-#'
-#' Each method is documented inline below.
-#'
-#' @title ToggleUserEmojiStatusPermissionRequest
-#' @description Telegram API type ToggleUserEmojiStatusPermissionRequest
-#' @export
+#  ToggleUserEmojiStatusPermissionRequest R6 class
+# 
+#  Represents the ToggleUserEmojiStatusPermissionRequest TL request.
+# 
+# 
+# 
+#  Each method is documented inline below.
+# 
+#  @title ToggleUserEmojiStatusPermissionRequest
+#  @description Telegram API type ToggleUserEmojiStatusPermissionRequest
+#  @export
+#  @noRd
+#  @noRd
 ToggleUserEmojiStatusPermissionRequest <- R6::R6Class(
   "ToggleUserEmojiStatusPermissionRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
-    #' @field enabled Field.
+    #  @field enabled Field.
     enabled = NULL,
 
-    #' @description Initialize ToggleUserEmojiStatusPermissionRequest
-    #'
-    #' @param bot TypeInputUser or identifier
-    #' @param enabled logical
+    #  @description Initialize ToggleUserEmojiStatusPermissionRequest
+    # 
+    #  @param bot TypeInputUser or identifier
+    #  @param enabled logical
     initialize = function(bot, enabled) {
       self$bot <- bot
       self$enabled <- as.logical(enabled)
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- utils$get_input_user(input_entity)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -2993,9 +3047,9 @@ ToggleUserEmojiStatusPermissionRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -3048,30 +3102,32 @@ ToggleUserEmojiStatusPermissionRequest$from_reader <- function(reader) {
 }
 
 
-#' ToggleUsernameRequest R6 class
-#'
-#' Represents the ToggleUsernameRequest TL request.
-#'
-#'
-#'
-#' @title ToggleUsernameRequest
-#' @description Telegram API type ToggleUsernameRequest
-#' @export
+#  ToggleUsernameRequest R6 class
+# 
+#  Represents the ToggleUsernameRequest TL request.
+# 
+# 
+# 
+#  @title ToggleUsernameRequest
+#  @description Telegram API type ToggleUsernameRequest
+#  @export
+#  @noRd
+#  @noRd
 ToggleUsernameRequest <- R6::R6Class(
   "ToggleUsernameRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
-    #' @field username Field.
+    #  @field username Field.
     username = NULL,
-    #' @field active Field.
+    #  @field active Field.
     active = NULL,
 
-    #' @description Initialize ToggleUsernameRequest
-    #'
-    #' @param bot TypeInputUser or identifier
-    #' @param username character
-    #' @param active logical
+    #  @description Initialize ToggleUsernameRequest
+    # 
+    #  @param bot TypeInputUser or identifier
+    #  @param username character
+    #  @param active logical
     initialize = function(bot, username, active) {
       self$bot <- bot
       self$username <- as.character(username)
@@ -3079,19 +3135,19 @@ ToggleUsernameRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$bot)
       self$bot <- utils$get_input_user(input_entity)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -3106,9 +3162,9 @@ ToggleUsernameRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
@@ -3163,30 +3219,32 @@ ToggleUsernameRequest$from_reader <- function(reader) {
 }
 
 
-#' UpdateStarRefProgramRequest R6 class
-#'
-#' Represents the UpdateStarRefProgramRequest TL request.
-#'
-#'
-#'
-#' @title UpdateStarRefProgramRequest
-#' @description Telegram API type UpdateStarRefProgramRequest
-#' @export
+#  UpdateStarRefProgramRequest R6 class
+# 
+#  Represents the UpdateStarRefProgramRequest TL request.
+# 
+# 
+# 
+#  @title UpdateStarRefProgramRequest
+#  @description Telegram API type UpdateStarRefProgramRequest
+#  @export
+#  @noRd
+#  @noRd
 UpdateStarRefProgramRequest <- R6::R6Class(
   "UpdateStarRefProgramRequest",
   public = list(
-    #' @field bot Field.
+    #  @field bot Field.
     bot = NULL,
-    #' @field commission_permille Field.
+    #  @field commission_permille Field.
     commission_permille = NULL,
-    #' @field duration_months Field.
+    #  @field duration_months Field.
     duration_months = NULL,
 
-    #' @description Initialize UpdateStarRefProgramRequest
-    #'
-    #' @param bot TypeInputUser or identifier
-    #' @param commission_permille integer
-    #' @param duration_months integer|null
+    #  @description Initialize UpdateStarRefProgramRequest
+    # 
+    #  @param bot TypeInputUser or identifier
+    #  @param commission_permille integer
+    #  @param duration_months integer|null
     initialize = function(bot, commission_permille, duration_months = NULL) {
       self$bot <- bot
       self$commission_permille <- as.integer(commission_permille)
@@ -3194,10 +3252,10 @@ UpdateStarRefProgramRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user
     resolve = function(client, utils) {
       # assumes client$get_input_entity and utils$get_input_user are synchronous functions
       input_entity <- client$get_input_entity(self$bot)
@@ -3205,9 +3263,9 @@ UpdateStarRefProgramRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       bot_val <- if (inherits(self$bot, "R6") && "to_list" %in% names(self$bot)) {
         self$bot$to_list()
@@ -3222,9 +3280,9 @@ UpdateStarRefProgramRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       # helpers
       pack_int32 <- function(x) {
@@ -3281,46 +3339,48 @@ UpdateStarRefProgramRequest$from_reader <- function(reader) {
 }
 
 
-#' UpdateUserEmojiStatusRequest R6 class
-#'
-#' Represents the UpdateUserEmojiStatusRequest TL request.
-#'
-#'
-#'
-#' @title UpdateUserEmojiStatusRequest
-#' @description Telegram API type UpdateUserEmojiStatusRequest
-#' @export
+#  UpdateUserEmojiStatusRequest R6 class
+# 
+#  Represents the UpdateUserEmojiStatusRequest TL request.
+# 
+# 
+# 
+#  @title UpdateUserEmojiStatusRequest
+#  @description Telegram API type UpdateUserEmojiStatusRequest
+#  @export
+#  @noRd
+#  @noRd
 UpdateUserEmojiStatusRequest <- R6::R6Class(
   "UpdateUserEmojiStatusRequest",
   public = list(
-    #' @field user_id Field.
+    #  @field user_id Field.
     user_id = NULL,
-    #' @field emoji_status Field.
+    #  @field emoji_status Field.
     emoji_status = NULL,
 
-    #' @description Initialize UpdateUserEmojiStatusRequest
-    #'
-    #' @param user_id TypeInputUser or identifier
-    #' @param emoji_status TypeEmojiStatus object
+    #  @description Initialize UpdateUserEmojiStatusRequest
+    # 
+    #  @param user_id TypeInputUser or identifier
+    #  @param emoji_status TypeEmojiStatus object
     initialize = function(user_id, emoji_status) {
       self$user_id <- user_id
       self$emoji_status <- emoji_status
       invisible(self)
     },
 
-    #' Resolve references (convert entities via client/utils)
-    #'
-    #' @param client client with get_input_entity method
-    #' @param utils utils with get_input_user / get_input_media etc
+    #  Resolve references (convert entities via client/utils)
+    # 
+    #  @param client client with get_input_entity method
+    #  @param utils utils with get_input_user / get_input_media etc
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$user_id)
       self$user_id <- utils$get_input_user(input_entity)
       invisible(self)
     },
 
-    #' Convert to list (dictionary-like)
-    #'
-    #' @return list
+    #  Convert to list (dictionary-like)
+    # 
+    #  @return list
     to_list = function() {
       user_val <- if (inherits(self$user_id, "R6") && "to_list" %in% names(self$user_id)) {
         self$user_id$to_list()
@@ -3339,9 +3399,9 @@ UpdateUserEmojiStatusRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #'
-    #' @return raw
+    #  Serialize to bytes (raw vector)
+    # 
+    #  @return raw
     to_bytes = function() {
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")

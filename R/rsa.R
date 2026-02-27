@@ -1,9 +1,9 @@
-#' RSA Utilities
-#'
-#' This module holds several utilities regarding RSA and server fingerprints.
-#'
-#' @importFrom digest digest
-#' @importFrom openssl read_pubkey
+#  RSA Utilities
+# 
+#  This module holds several utilities regarding RSA and server fingerprints.
+# 
+#  @importFrom digest digest
+#  @importFrom openssl read_pubkey
 
 # Global dictionary to store server keys
 server_keys <- list()
@@ -59,11 +59,11 @@ server_keys <- list()
   gmp::as.bigz(paste0("0x", hex))
 }
 
-#' Converts an integer to a byte array.
-#'
-#' @param integer The integer to convert.
-#' @return A raw vector representing the byte array.
-#' @export
+#  Converts an integer to a byte array.
+# 
+#  @param integer The integer to convert.
+#  @return A raw vector representing the byte array.
+#  @export
 get_byte_array <- function(integer) {
   # Handle empty/NULL early
   if (is.null(integer) || length(integer) == 0) {
@@ -108,10 +108,10 @@ get_byte_array <- function(integer) {
   stop("Unsupported type for get_byte_array")
 }
 
-#' Computes the fingerprint of an RSA key.
-#'
-#' @param key The RSA key as a list with `n` and `e` components, a PEM string, or an openssl pubkey.
-#' @return The 8-byte fingerprint as a positive numeric.
+#  Computes the fingerprint of an RSA key.
+# 
+#  @param key The RSA key as a list with `n` and `e` components, a PEM string, or an openssl pubkey.
+#  @return The 8-byte fingerprint as a positive numeric.
 compute_fingerprint <- function(key) {
   comps <- .coerce_key_components(key)
   tail8 <- .fingerprint_raw_from_components(comps$n, comps$e)
@@ -120,10 +120,10 @@ compute_fingerprint <- function(key) {
   as.numeric(if (val > gmp::as.bigz(2^63 - 1)) val - gmp::as.bigz(2^64) else val)
 }
 
-#' Adds a new public key to the server keys.
-#'
-#' @param pub The public key in PEM format.
-#' @param old Logical indicating if the key is old.
+#  Adds a new public key to the server keys.
+# 
+#  @param pub The public key in PEM format.
+#  @param old Logical indicating if the key is old.
 add_key <- function(pub, old = FALSE) {
   comps <- .coerce_key_components(pub)
   key <- if (is.null(comps$pubkey)) openssl::read_pubkey(pub) else comps$pubkey
@@ -162,12 +162,12 @@ add_key <- function(pub, old = FALSE) {
   invisible(fingerprint)
 }
 
-#' Encrypts data using the specified RSA key fingerprint.
-#'
-#' @param fingerprint The fingerprint of the RSA key.
-#' @param data The data to encrypt as a raw vector (or coercible).
-#' @param use_old Logical indicating if old keys should be used.
-#' @return The encrypted data as a raw vector, or NULL if no matching key is found.
+#  Encrypts data using the specified RSA key fingerprint.
+# 
+#  @param fingerprint The fingerprint of the RSA key.
+#  @param data The data to encrypt as a raw vector (or coercible).
+#  @param use_old Logical indicating if old keys should be used.
+#  @return The encrypted data as a raw vector, or NULL if no matching key is found.
 encrypt <- function(fingerprint, data, use_old = FALSE) {
   key_info <- server_keys[[as.character(fingerprint)]]
   if (is.null(key_info) || (key_info$old && !use_old)) {
@@ -189,10 +189,10 @@ encrypt <- function(fingerprint, data, use_old = FALSE) {
   openssl::rsa_encrypt(data_raw, key_info$key)
 }
 
-#' Converts a raw vector to an odd-length string.
-#'
-#' @param raw_data The raw vector to convert.
-#' @return A string with odd-length characters.
+#  Converts a raw vector to an odd-length string.
+# 
+#  @param raw_data The raw vector to convert.
+#  @return A string with odd-length characters.
 odcstring <- function(raw_data) {
   # Coerce to integer vector for sprintf %02x
   bytes <- if (is.raw(raw_data)) {

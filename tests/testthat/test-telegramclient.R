@@ -343,7 +343,7 @@ test_that("get_running_loop returns POSIXct", {
 
 test_that("EventBuilderDict builds, caches and sets client for EventCommon", {
   # Define an R6 EventCommon to mimic behavior
-  EventCommonClass <- R6Class("EventCommon",
+  EventCommonClass <- R6::R6Class("EventCommon",
     public = list(
       client = NULL,
       original_update = NULL,

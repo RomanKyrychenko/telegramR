@@ -1,40 +1,42 @@
-#' ActivateStealthModeRequest R6 class
-#'
-#' Request to activate stealth mode with optional past/future flags.
-#' Returns Updates.
-#' @param past logical or NULL
-#' @param future logical or NULL
-#' @title ActivateStealthModeRequest
-#' @description Telegram API type ActivateStealthModeRequest
-#' @export
+#  ActivateStealthModeRequest R6 class
+# 
+#  Request to activate stealth mode with optional past/future flags.
+#  Returns Updates.
+#  @param past logical or NULL
+#  @param future logical or NULL
+#  @title ActivateStealthModeRequest
+#  @description Telegram API type ActivateStealthModeRequest
+#  @export
+#  @noRd
+#  @noRd
 ActivateStealthModeRequest <- R6::R6Class(
   "ActivateStealthModeRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x57bbd166,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @field past Field.
+    #  @field past Field.
     past = NULL,
-    #' @field future Field.
+    #  @field future Field.
     future = NULL,
 
-    #' @description Initialize ActivateStealthModeRequest
-    #'
-    #' @param past logical or NULL
-    #' @param future logical or NULL
-    #' @return invisible self
+    #  @description Initialize ActivateStealthModeRequest
+    # 
+    #  @param past logical or NULL
+    #  @param future logical or NULL
+    #  @return invisible self
     initialize = function(past = NULL, future = NULL) {
       self$past <- if (!is.null(past)) as.logical(past) else NULL
       self$future <- if (!is.null(future)) as.logical(future) else NULL
       invisible(self)
     },
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "ActivateStealthModeRequest",
@@ -43,9 +45,9 @@ ActivateStealthModeRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #'
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    # 
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0x57bbd166 -> 0x66 0xd1 0xbb 0x57
@@ -62,11 +64,11 @@ ActivateStealthModeRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read an ActivateStealthModeRequest instance from a reader
-    #'
-    #' reader expected to implement: read_int()
-    #' @param reader reader object
-    #' @return ActivateStealthModeRequest
+    #  @description Read an ActivateStealthModeRequest instance from a reader
+    # 
+    #  reader expected to implement: read_int()
+    #  @param reader reader object
+    #  @return ActivateStealthModeRequest
     from_reader = function(reader) {
       flagsVal <- reader$read_int()
       pastFlag <- bitwAnd(flagsVal, 1L) != 0L
@@ -81,49 +83,51 @@ ActivateStealthModeRequest <- R6::R6Class(
 )
 
 
-#' CanSendStoryRequest R6 class
-#'
-#' Request to check whether a story can be sent to a given peer.
-#' Returns stories.CanSendStoryCount.
-#' @param peer TypeInputPeer
-#' @title CanSendStoryRequest
-#' @description Telegram API type CanSendStoryRequest
-#' @export
+#  CanSendStoryRequest R6 class
+# 
+#  Request to check whether a story can be sent to a given peer.
+#  Returns stories.CanSendStoryCount.
+#  @param peer TypeInputPeer
+#  @title CanSendStoryRequest
+#  @description Telegram API type CanSendStoryRequest
+#  @export
+#  @noRd
+#  @noRd
 CanSendStoryRequest <- R6::R6Class(
   "CanSendStoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x30eb63f0,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xcb53a298,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
 
-    #' @description Initialize CanSendStoryRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @return invisible self
+    #  @description Initialize CanSendStoryRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @return invisible self
     initialize = function(peer) {
       self$peer <- peer
       invisible(self)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer reference to an input peer using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer reference to an input peer using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "CanSendStoryRequest",
@@ -131,9 +135,9 @@ CanSendStoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #'
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    # 
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0x30eb63f0 -> f0 63 eb 30
@@ -154,11 +158,11 @@ CanSendStoryRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a CanSendStoryRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object()
-    #' @param reader reader object
-    #' @return CanSendStoryRequest
+    #  @description Read a CanSendStoryRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object()
+    #  @param reader reader object
+    #  @return CanSendStoryRequest
     from_reader = function(reader) {
       peerObj <- reader$tgread_object()
       CanSendStoryRequest$new(peer = peerObj)
@@ -167,38 +171,40 @@ CanSendStoryRequest <- R6::R6Class(
 )
 
 
-#' CreateAlbumRequest R6 class
-#'
-#' Request to create a story album for a given peer with a title and list of story ids.
-#' Returns StoryAlbum.
-#' @param peer TypeInputPeer
-#' @param title character album title
-#' @param stories integer vector of story ids
-#' @title CreateAlbumRequest
-#' @description Telegram API type CreateAlbumRequest
-#' @export
+#  CreateAlbumRequest R6 class
+# 
+#  Request to create a story album for a given peer with a title and list of story ids.
+#  Returns StoryAlbum.
+#  @param peer TypeInputPeer
+#  @param title character album title
+#  @param stories integer vector of story ids
+#  @title CreateAlbumRequest
+#  @description Telegram API type CreateAlbumRequest
+#  @export
+#  @noRd
+#  @noRd
 CreateAlbumRequest <- R6::R6Class(
   "CreateAlbumRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa36396e5,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7c8c5ea2,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field title Field.
+    #  @field title Field.
     title = NULL,
-    #' @field stories Field.
+    #  @field stories Field.
     stories = NULL,
 
-    #' @description Initialize CreateAlbumRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param title character
-    #' @param stories integer vector
-    #' @return invisible self
+    #  @description Initialize CreateAlbumRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param title character
+    #  @param stories integer vector
+    #  @return invisible self
     initialize = function(peer, title, stories) {
       self$peer <- peer
       self$title <- as.character(title)
@@ -206,20 +212,20 @@ CreateAlbumRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer reference to an input peer using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer reference to an input peer using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "CreateAlbumRequest",
@@ -229,9 +235,9 @@ CreateAlbumRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #'
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    # 
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0xa36396e5 -> e5 96 63 a3
@@ -272,11 +278,11 @@ CreateAlbumRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a CreateAlbumRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object(), tgread_string(), read_int()
-    #' @param reader reader object
-    #' @return CreateAlbumRequest
+    #  @description Read a CreateAlbumRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object(), tgread_string(), read_int()
+    #  @param reader reader object
+    #  @return CreateAlbumRequest
     from_reader = function(reader) {
       peerObj <- reader$tgread_object()
       titleVal <- reader$tgread_string()
@@ -296,52 +302,54 @@ CreateAlbumRequest <- R6::R6Class(
 )
 
 
-#' DeleteAlbumRequest R6 class
-#'
-#' Request to delete an album for a given peer. Returns Bool.
-#' @param peer TypeInputPeer
-#' @param album_id integer album id
-#' @title DeleteAlbumRequest
-#' @description Telegram API type DeleteAlbumRequest
-#' @export
+#  DeleteAlbumRequest R6 class
+# 
+#  Request to delete an album for a given peer. Returns Bool.
+#  @param peer TypeInputPeer
+#  @param album_id integer album id
+#  @title DeleteAlbumRequest
+#  @description Telegram API type DeleteAlbumRequest
+#  @export
+#  @noRd
+#  @noRd
 DeleteAlbumRequest <- R6::R6Class(
   "DeleteAlbumRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8d3456d0,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field album_id Field.
+    #  @field album_id Field.
     album_id = NULL,
 
-    #' @description Initialize DeleteAlbumRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param album_id integer
+    #  @description Initialize DeleteAlbumRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param album_id integer
     initialize = function(peer, album_id) {
       self$peer <- peer
       self$album_id <- as.integer(album_id)
       invisible(self)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert a high-level peer reference to an input peer using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
+    #  @description Resolve peer references
+    # 
+    #  Convert a high-level peer reference to an input peer using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "DeleteAlbumRequest",
@@ -350,9 +358,9 @@ DeleteAlbumRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #'
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    # 
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0x8d3456d0 -> d0 56 34 8d
@@ -376,11 +384,11 @@ DeleteAlbumRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a DeleteAlbumRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object(), read_int()
-    #' @param reader reader object
-    #' @return DeleteAlbumRequest
+    #  @description Read a DeleteAlbumRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object(), read_int()
+    #  @param reader reader object
+    #  @return DeleteAlbumRequest
     from_reader = function(reader) {
       peer_obj <- reader$tgread_object()
       album_id_val <- reader$read_int()
@@ -390,52 +398,54 @@ DeleteAlbumRequest <- R6::R6Class(
 )
 
 
-#' DeleteStoriesRequest R6 class
-#'
-#' Request to delete one or more stories for a given peer. Returns Vector<int>.
-#' @param peer TypeInputPeer
-#' @param id integer vector of story ids
-#' @title DeleteStoriesRequest
-#' @description Telegram API type DeleteStoriesRequest
-#' @export
+#  DeleteStoriesRequest R6 class
+# 
+#  Request to delete one or more stories for a given peer. Returns Vector<int>.
+#  @param peer TypeInputPeer
+#  @param id integer vector of story ids
+#  @title DeleteStoriesRequest
+#  @description Telegram API type DeleteStoriesRequest
+#  @export
+#  @noRd
+#  @noRd
 DeleteStoriesRequest <- R6::R6Class(
   "DeleteStoriesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xae59db5f,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5026710f,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize DeleteStoriesRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param id integer vector of story ids
+    #  @description Initialize DeleteStoriesRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param id integer vector of story ids
     initialize = function(peer, id) {
       self$peer <- peer
       self$id <- if (!is.null(id)) as.integer(id) else integer(0)
       invisible(self)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert a high-level peer reference to an input peer using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
+    #  @description Resolve peer references
+    # 
+    #  Convert a high-level peer reference to an input peer using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "DeleteStoriesRequest",
@@ -444,9 +454,9 @@ DeleteStoriesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #'
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    # 
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0xae59db5f -> 5f db 59 ae
@@ -477,11 +487,11 @@ DeleteStoriesRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a DeleteStoriesRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object(), read_int()
-    #' @param reader reader object
-    #' @return DeleteStoriesRequest
+    #  @description Read a DeleteStoriesRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object(), read_int()
+    #  @param reader reader object
+    #  @return DeleteStoriesRequest
     from_reader = function(reader) {
       peer_obj <- reader$tgread_object()
 
@@ -498,10 +508,10 @@ DeleteStoriesRequest <- R6::R6Class(
       DeleteStoriesRequest$new(peer = peer_obj, id = ids_vec)
     },
 
-    #' @description Read result (Vector<int>) from reader
-    #'
-    #' @param reader reader with read_int method
-    #' @return integer vector
+    #  @description Read result (Vector<int>) from reader
+    # 
+    #  @param reader reader with read_int method
+    #  @return integer vector
     read_result = function(reader) {
       # read vector constructor id (ignored)
       n_val <- reader$read_int()
@@ -516,54 +526,56 @@ DeleteStoriesRequest <- R6::R6Class(
 )
 
 
-#' EditStoryRequest R6 class
-#'
-#' Request to edit an existing story. Depending on flags this may include media,
-#' media areas, caption+entities (both must be provided together) and privacy rules.
-#' Returns Updates.
-#' @param peer TypeInputPeer
-#' @param id integer story id
-#' @param media TypeInputMedia or NULL
-#' @param media_areas list of TypeMediaArea or NULL
-#' @param caption character or NULL (must be provided together with entities)
-#' @param entities list of TypeMessageEntity or NULL (must be provided together with caption)
-#' @param privacy_rules list of TypeInputPrivacyRule or NULL
-#' @title EditStoryRequest
-#' @description Telegram API type EditStoryRequest
-#' @export
+#  EditStoryRequest R6 class
+# 
+#  Request to edit an existing story. Depending on flags this may include media,
+#  media areas, caption+entities (both must be provided together) and privacy rules.
+#  Returns Updates.
+#  @param peer TypeInputPeer
+#  @param id integer story id
+#  @param media TypeInputMedia or NULL
+#  @param media_areas list of TypeMediaArea or NULL
+#  @param caption character or NULL (must be provided together with entities)
+#  @param entities list of TypeMessageEntity or NULL (must be provided together with caption)
+#  @param privacy_rules list of TypeInputPrivacyRule or NULL
+#  @title EditStoryRequest
+#  @description Telegram API type EditStoryRequest
+#  @export
+#  @noRd
+#  @noRd
 EditStoryRequest <- R6::R6Class(
   "EditStoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb583ba46,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
-    #' @field media Field.
+    #  @field media Field.
     media = NULL,
-    #' @field media_areas Field.
+    #  @field media_areas Field.
     media_areas = NULL,
-    #' @field caption Field.
+    #  @field caption Field.
     caption = NULL,
-    #' @field entities Field.
+    #  @field entities Field.
     entities = NULL,
-    #' @field privacy_rules Field.
+    #  @field privacy_rules Field.
     privacy_rules = NULL,
 
-    #' @description Initialize EditStoryRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param id integer
-    #' @param media TypeInputMedia or NULL
-    #' @param media_areas list or NULL
-    #' @param caption character or NULL (must be provided together with entities)
-    #' @param entities list or NULL (must be provided together with caption)
-    #' @param privacy_rules list or NULL
+    #  @description Initialize EditStoryRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param id integer
+    #  @param media TypeInputMedia or NULL
+    #  @param media_areas list or NULL
+    #  @param caption character or NULL (must be provided together with entities)
+    #  @param entities list or NULL (must be provided together with caption)
+    #  @param privacy_rules list or NULL
     initialize = function(peer, id, media = NULL, media_areas = NULL, caption = NULL, entities = NULL, privacy_rules = NULL) {
       self$peer <- peer
       self$id <- as.integer(id)
@@ -581,11 +593,11 @@ EditStoryRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Resolve peer/media references
-    #'
-    #' Convert high-level references to input forms using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer and get_input_media
+    #  @description Resolve peer/media references
+    # 
+    #  Convert high-level references to input forms using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer and get_input_media
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
@@ -595,8 +607,8 @@ EditStoryRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to list
-    #' @return list
+    #  @description Convert to list
+    #  @return list
     to_list = function() {
       list(
         `_` = "EditStoryRequest",
@@ -610,9 +622,9 @@ EditStoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #'
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    # 
+    #  @return raw
     to_bytes = function() {
       # constructor bytes little-endian for 0xb583ba46 -> 0x46 0xba 0x83 0xb5
       parts <- list()
@@ -720,11 +732,11 @@ EditStoryRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read an EditStoryRequest instance from a reader
-    #'
-    #' reader expected to implement: read_int(), tgread_object(), tgread_string()
-    #' @param reader reader object
-    #' @return EditStoryRequest
+    #  @description Read an EditStoryRequest instance from a reader
+    # 
+    #  reader expected to implement: read_int(), tgread_object(), tgread_string()
+    #  @param reader reader object
+    #  @return EditStoryRequest
     from_reader = function(reader) {
       flagsVal <- reader$read_int()
 
@@ -790,53 +802,55 @@ EditStoryRequest <- R6::R6Class(
 )
 
 
-#' ExportStoryLinkRequest R6 class
-#'
-#' Request to export a story link for a given peer and story id.
-#' Returns stories.ExportedStoryLink.
-#' @param peer TypeInputPeer
-#' @param id integer story id
-#' @title ExportStoryLinkRequest
-#' @description Telegram API type ExportStoryLinkRequest
-#' @export
+#  ExportStoryLinkRequest R6 class
+# 
+#  Request to export a story link for a given peer and story id.
+#  Returns stories.ExportedStoryLink.
+#  @param peer TypeInputPeer
+#  @param id integer story id
+#  @title ExportStoryLinkRequest
+#  @description Telegram API type ExportStoryLinkRequest
+#  @export
+#  @noRd
+#  @noRd
 ExportStoryLinkRequest <- R6::R6Class(
   "ExportStoryLinkRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7b8def20,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x0fc541a6,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize ExportStoryLinkRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param id integer story id
+    #  @description Initialize ExportStoryLinkRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param id integer story id
     initialize = function(peer, id) {
       self$peer <- peer
       self$id <- as.integer(id)
       invisible(self)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer reference to input peer using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer reference to input peer using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "ExportStoryLinkRequest",
@@ -845,8 +859,8 @@ ExportStoryLinkRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0x7b8def20 -> 0x20 0xef 0x8d 0x7b
@@ -870,11 +884,11 @@ ExportStoryLinkRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read an ExportStoryLinkRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object(), read_int()
-    #' @param reader reader object
-    #' @return ExportStoryLinkRequest
+    #  @description Read an ExportStoryLinkRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object(), read_int()
+    #  @param reader reader object
+    #  @return ExportStoryLinkRequest
     from_reader = function(reader) {
       peerObj <- reader$tgread_object()
       idVal <- reader$read_int()
@@ -884,41 +898,43 @@ ExportStoryLinkRequest <- R6::R6Class(
 )
 
 
-#' GetAlbumStoriesRequest R6 class
-#'
-#' Request to get stories from an album for a given peer with paging (offset, limit).
-#' Returns stories.Stories.
-#' @param peer TypeInputPeer
-#' @param album_id integer album id
-#' @param offset integer offset id
-#' @param limit integer limit
-#' @title GetAlbumStoriesRequest
-#' @description Telegram API type GetAlbumStoriesRequest
-#' @export
+#  GetAlbumStoriesRequest R6 class
+# 
+#  Request to get stories from an album for a given peer with paging (offset, limit).
+#  Returns stories.Stories.
+#  @param peer TypeInputPeer
+#  @param album_id integer album id
+#  @param offset integer offset id
+#  @param limit integer limit
+#  @title GetAlbumStoriesRequest
+#  @description Telegram API type GetAlbumStoriesRequest
+#  @export
+#  @noRd
+#  @noRd
 GetAlbumStoriesRequest <- R6::R6Class(
   "GetAlbumStoriesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xac806d61,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x251c0c2c,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field album_id Field.
+    #  @field album_id Field.
     album_id = NULL,
-    #' @field offset Field.
+    #  @field offset Field.
     offset = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
 
-    #' @description Initialize GetAlbumStoriesRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param album_id integer
-    #' @param offset integer
-    #' @param limit integer
+    #  @description Initialize GetAlbumStoriesRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param album_id integer
+    #  @param offset integer
+    #  @param limit integer
     initialize = function(peer, album_id, offset, limit) {
       self$peer <- peer
       self$album_id <- as.integer(album_id)
@@ -927,20 +943,20 @@ GetAlbumStoriesRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer reference to input peer using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer reference to input peer using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetAlbumStoriesRequest",
@@ -951,8 +967,8 @@ GetAlbumStoriesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0xac806d61 -> 0x61 0x6d 0x80 0xac
@@ -978,11 +994,11 @@ GetAlbumStoriesRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a GetAlbumStoriesRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object(), read_int()
-    #' @param reader reader object
-    #' @return GetAlbumStoriesRequest
+    #  @description Read a GetAlbumStoriesRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object(), read_int()
+    #  @param reader reader object
+    #  @return GetAlbumStoriesRequest
     from_reader = function(reader) {
       peerObj <- reader$tgread_object()
       albumIdVal <- reader$read_int()
@@ -994,32 +1010,34 @@ GetAlbumStoriesRequest <- R6::R6Class(
 )
 
 
-#' GetAlbumsRequest R6 class
-#'
-#' Request to get albums for a peer. Returns stories.Albums (or AlbumsNotModified).
-#' @param peer TypeInputPeer
-#' @param hash numeric/int64 hash value
-#' @title GetAlbumsRequest
-#' @description Telegram API type GetAlbumsRequest
-#' @export
+#  GetAlbumsRequest R6 class
+# 
+#  Request to get albums for a peer. Returns stories.Albums (or AlbumsNotModified).
+#  @param peer TypeInputPeer
+#  @param hash numeric/int64 hash value
+#  @title GetAlbumsRequest
+#  @description Telegram API type GetAlbumsRequest
+#  @export
+#  @noRd
+#  @noRd
 GetAlbumsRequest <- R6::R6Class(
   "GetAlbumsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x25b3eac7,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x05a73d39,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field hash Field.
+    #  @field hash Field.
     hash = NULL,
 
-    #' @description Initialize GetAlbumsRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param hash numeric/integer (64-bit)
+    #  @description Initialize GetAlbumsRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param hash numeric/integer (64-bit)
     initialize = function(peer, hash) {
       self$peer <- peer
       # store hash as numeric (may represent 64-bit value)
@@ -1027,19 +1045,19 @@ GetAlbumsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
+    #  @description Resolve peer references
+    # 
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetAlbumsRequest",
@@ -1048,8 +1066,8 @@ GetAlbumsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0x25b3eac7 -> 0xc7 0xea 0xb3 0x25
@@ -1073,11 +1091,11 @@ GetAlbumsRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a GetAlbumsRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object(), read_long()
-    #' @param reader reader object
-    #' @return GetAlbumsRequest
+    #  @description Read a GetAlbumsRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object(), read_long()
+    #  @param reader reader object
+    #  @return GetAlbumsRequest
     from_reader = function(reader) {
       peerObj <- reader$tgread_object()
       hashVal <- reader$read_long()
@@ -1087,43 +1105,45 @@ GetAlbumsRequest <- R6::R6Class(
 )
 
 
-#' GetAllReadPeerStoriesRequest R6 class
-#'
-#' Request without parameters; returns all read peer stories.
-#' @title GetAllReadPeerStoriesRequest
-#' @description Telegram API type GetAllReadPeerStoriesRequest
-#' @export
+#  GetAllReadPeerStoriesRequest R6 class
+# 
+#  Request without parameters; returns all read peer stories.
+#  @title GetAllReadPeerStoriesRequest
+#  @description Telegram API type GetAllReadPeerStoriesRequest
+#  @export
+#  @noRd
+#  @noRd
 GetAllReadPeerStoriesRequest <- R6::R6Class(
   "GetAllReadPeerStoriesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9b5ae7f9,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
 
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(`_` = "GetAllReadPeerStoriesRequest")
     },
 
-    #' @description Serialize to raw TL bytes
-    #'
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    # 
+    #  @return raw
     to_bytes = function() {
       # constructor bytes little-endian for 0x9b5ae7f9 -> f9 e7 5a 9b
       as.raw(c(0xf9, 0xe7, 0x5a, 0x9b))
     }
   ),
   class = list(
-    #' @description Read a GetAllReadPeerStoriesRequest instance from a reader
-    #'
-    #' reader expected to implement nothing special for this class
-    #' @param reader reader object (ignored)
-    #' @return GetAllReadPeerStoriesRequest
+    #  @description Read a GetAllReadPeerStoriesRequest instance from a reader
+    # 
+    #  reader expected to implement nothing special for this class
+    #  @param reader reader object (ignored)
+    #  @return GetAllReadPeerStoriesRequest
     from_reader = function(reader) {
       GetAllReadPeerStoriesRequest$new()
     }
@@ -1131,36 +1151,38 @@ GetAllReadPeerStoriesRequest <- R6::R6Class(
 )
 
 
-#' GetAllStoriesRequest R6 class
-#'
-#' Request to get all stories with optional pagination/visibility/state.
-#' Returns stories.AllStories (or AllStoriesNotModified).
-#' @param next logical or NULL (controls paging)
-#' @param hidden logical or NULL (include hidden)
-#' @param state character or NULL state cursor
-#' @title GetAllStoriesRequest
-#' @description Telegram API type GetAllStoriesRequest
-#' @export
+#  GetAllStoriesRequest R6 class
+# 
+#  Request to get all stories with optional pagination/visibility/state.
+#  Returns stories.AllStories (or AllStoriesNotModified).
+#  @param next logical or NULL (controls paging)
+#  @param hidden logical or NULL (include hidden)
+#  @param state character or NULL state cursor
+#  @title GetAllStoriesRequest
+#  @description Telegram API type GetAllStoriesRequest
+#  @export
+#  @noRd
+#  @noRd
 GetAllStoriesRequest <- R6::R6Class(
   "GetAllStoriesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xeeb0d625,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7e60d0cd,
     .next = NULL,
-    #' @field hidden Field.
+    #  @field hidden Field.
     hidden = NULL,
-    #' @field state Field.
+    #  @field state Field.
     state = NULL,
 
-    #' @description Initialize GetAllStoriesRequest
-    #'
-    #' @param next logical or NULL
-    #' @param hidden logical or NULL
-    #' @param state character or NULL
-    #' @return invisible self
+    #  @description Initialize GetAllStoriesRequest
+    # 
+    #  @param next logical or NULL
+    #  @param hidden logical or NULL
+    #  @param state character or NULL
+    #  @return invisible self
     initialize = function(.next = NULL, hidden = NULL, state = NULL) {
       self$.next <- if (!is.null(.next)) as.logical(.next) else NULL
       self$hidden <- if (!is.null(hidden)) as.logical(hidden) else NULL
@@ -1168,9 +1190,9 @@ GetAllStoriesRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetAllStoriesRequest",
@@ -1180,9 +1202,9 @@ GetAllStoriesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #'
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    # 
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0xeeb0d625 -> 0x25 0xd6 0xb0 0xee
@@ -1212,11 +1234,11 @@ GetAllStoriesRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a GetAllStoriesRequest instance from a reader
-    #'
-    #' reader expected to implement: read_int(), tgread_string()
-    #' @param reader reader object
-    #' @return GetAllStoriesRequest
+    #  @description Read a GetAllStoriesRequest instance from a reader
+    # 
+    #  reader expected to implement: read_int(), tgread_string()
+    #  @param reader reader object
+    #  @return GetAllStoriesRequest
     from_reader = function(reader) {
       flagsVal <- reader$read_int()
       nextFlag <- bitwAnd(flagsVal, 2L) != 0L
@@ -1233,43 +1255,45 @@ GetAllStoriesRequest <- R6::R6Class(
 )
 
 
-#' GetChatsToSendRequest R6 class
-#'
-#' Request without parameters; returns chats to send.
-#' @title GetChatsToSendRequest
-#' @description Telegram API type GetChatsToSendRequest
-#' @export
+#  GetChatsToSendRequest R6 class
+# 
+#  Request without parameters; returns chats to send.
+#  @title GetChatsToSendRequest
+#  @description Telegram API type GetChatsToSendRequest
+#  @export
+#  @noRd
+#  @noRd
 GetChatsToSendRequest <- R6::R6Class(
   "GetChatsToSendRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa56a8b60,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x99d5cb14,
 
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(`_` = "GetChatsToSendRequest")
     },
 
-    #' @description Serialize to raw TL bytes
-    #'
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    # 
+    #  @return raw
     to_bytes = function() {
       # constructor bytes little-endian for 0xa56a8b60 -> 0x60 0x8b 0x6a 0xa5
       as.raw(c(0x60, 0x8b, 0x6a, 0xa5))
     }
   ),
   class = list(
-    #' @description Read a GetChatsToSendRequest instance from a reader
-    #'
-    #' reader expected to implement nothing special for this class
-    #' @param reader reader object (ignored)
-    #' @return GetChatsToSendRequest
+    #  @description Read a GetChatsToSendRequest instance from a reader
+    # 
+    #  reader expected to implement nothing special for this class
+    #  @param reader reader object (ignored)
+    #  @return GetChatsToSendRequest
     from_reader = function(reader) {
       GetChatsToSendRequest$new()
     }
@@ -1277,38 +1301,40 @@ GetChatsToSendRequest <- R6::R6Class(
 )
 
 
-#' GetPeerMaxIDsRequest R6 class
-#'
-#' Request to get maximum IDs for a vector of input peers. Returns Vector<int>.
-#' @param id list of TypeInputPeer
-#' @title GetPeerMaxIDsRequest
-#' @description Telegram API type GetPeerMaxIDsRequest
-#' @export
+#  GetPeerMaxIDsRequest R6 class
+# 
+#  Request to get maximum IDs for a vector of input peers. Returns Vector<int>.
+#  @param id list of TypeInputPeer
+#  @title GetPeerMaxIDsRequest
+#  @description Telegram API type GetPeerMaxIDsRequest
+#  @export
+#  @noRd
+#  @noRd
 GetPeerMaxIDsRequest <- R6::R6Class(
   "GetPeerMaxIDsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x535983c3,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5026710f,
 
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize GetPeerMaxIDsRequest
-    #'
-    #' @param id list of TypeInputPeer
+    #  @description Initialize GetPeerMaxIDsRequest
+    # 
+    #  @param id list of TypeInputPeer
     initialize = function(id) {
       self$id <- if (!is.null(id)) id else list()
       invisible(self)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer references to input peers using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer references to input peers using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
       resolved_list <- list()
       if (length(self$id) > 0) {
@@ -1321,9 +1347,9 @@ GetPeerMaxIDsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetPeerMaxIDsRequest",
@@ -1331,9 +1357,9 @@ GetPeerMaxIDsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #'
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    # 
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0x535983c3 -> 0xc3 0x83 0x59 0x53
@@ -1362,11 +1388,11 @@ GetPeerMaxIDsRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a GetPeerMaxIDsRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object(), read_int()
-    #' @param reader reader object
-    #' @return GetPeerMaxIDsRequest
+    #  @description Read a GetPeerMaxIDsRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object(), read_int()
+    #  @param reader reader object
+    #  @return GetPeerMaxIDsRequest
     from_reader = function(reader) {
       # read and ignore vector constructor id
       .vec_tag <- reader$read_int()
@@ -1380,10 +1406,10 @@ GetPeerMaxIDsRequest <- R6::R6Class(
       GetPeerMaxIDsRequest$new(id = id_list)
     },
 
-    #' @description Read result (Vector<int>) from reader
-    #'
-    #' @param reader reader with read_int method
-    #' @return integer vector
+    #  @description Read result (Vector<int>) from reader
+    # 
+    #  @param reader reader with read_int method
+    #  @return integer vector
     read_result = function(reader) {
       # read vector constructor id (ignored)
 
@@ -1399,45 +1425,47 @@ GetPeerMaxIDsRequest <- R6::R6Class(
 )
 
 
-#' GetPeerStoriesRequest R6 class
-#'
-#' Request to get stories for a given peer. Returns stories.PeerStories.
-#' @export
+#  GetPeerStoriesRequest R6 class
+# 
+#  Request to get stories for a given peer. Returns stories.PeerStories.
+#  @export
+#  @noRd
+#  @noRd
 GetPeerStoriesRequest <- R6::R6Class(
   "GetPeerStoriesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2c4ada50,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x9d56cfd0,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
 
-    #' @description Initialize GetPeerStoriesRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @return invisible self
+    #  @description Initialize GetPeerStoriesRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @return invisible self
     initialize = function(peer) {
       self$peer <- peer
       invisible(self)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer reference to input peer using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
-    #' @return invisible self
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer reference to input peer using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
+    #  @return invisible self
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #' @return list
+    #  @description Convert to list
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetPeerStoriesRequest",
@@ -1445,8 +1473,8 @@ GetPeerStoriesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0x2c4ada50 -> 0x50 0xda 0x4a 0x2c
@@ -1467,11 +1495,11 @@ GetPeerStoriesRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a GetPeerStoriesRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object()
-    #' @param reader reader object
-    #' @return GetPeerStoriesRequest
+    #  @description Read a GetPeerStoriesRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object()
+    #  @param reader reader object
+    #  @return GetPeerStoriesRequest
     from_reader = function(reader) {
       peerObj <- reader$tgread_object()
       GetPeerStoriesRequest$new(peer = peerObj)
@@ -1480,33 +1508,35 @@ GetPeerStoriesRequest <- R6::R6Class(
 )
 
 
-#' GetPinnedStoriesRequest R6 class
-#'
-#' Request to get pinned stories for a peer with pagination (offset_id, limit).
-#' Returns stories.Stories.
-#' @export
+#  GetPinnedStoriesRequest R6 class
+# 
+#  Request to get pinned stories for a peer with pagination (offset_id, limit).
+#  Returns stories.Stories.
+#  @export
+#  @noRd
+#  @noRd
 GetPinnedStoriesRequest <- R6::R6Class(
   "GetPinnedStoriesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5821a5dc,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x251c0c2c,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field offset_id Field.
+    #  @field offset_id Field.
     offset_id = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
 
-    #' @description Initialize GetPinnedStoriesRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param offset_id integer offset id
-    #' @param limit integer limit
-    #' @return invisible self
+    #  @description Initialize GetPinnedStoriesRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param offset_id integer offset id
+    #  @param limit integer limit
+    #  @return invisible self
     initialize = function(peer, offset_id, limit) {
       self$peer <- peer
       self$offset_id <- as.integer(offset_id)
@@ -1514,20 +1544,20 @@ GetPinnedStoriesRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer reference to input peer using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
-    #' @return invisible self
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer reference to input peer using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
+    #  @return invisible self
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #' @return list
+    #  @description Convert to list
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetPinnedStoriesRequest",
@@ -1537,8 +1567,8 @@ GetPinnedStoriesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0x5821a5dc -> 0xdc 0xa5 0x21 0x58
@@ -1564,11 +1594,11 @@ GetPinnedStoriesRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a GetPinnedStoriesRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object(), read_int()
-    #' @param reader reader object
-    #' @return GetPinnedStoriesRequest
+    #  @description Read a GetPinnedStoriesRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object(), read_int()
+    #  @param reader reader object
+    #  @return GetPinnedStoriesRequest
     from_reader = function(reader) {
       peerObj <- reader$tgread_object()
       offsetIdVal <- reader$read_int()
@@ -1579,33 +1609,35 @@ GetPinnedStoriesRequest <- R6::R6Class(
 )
 
 
-#' GetStoriesArchiveRequest R6 class
-#'
-#' Request to get archived stories for a peer with pagination (offset_id, limit).
-#' Returns stories.Stories.
-#' @export
+#  GetStoriesArchiveRequest R6 class
+# 
+#  Request to get archived stories for a peer with pagination (offset_id, limit).
+#  Returns stories.Stories.
+#  @export
+#  @noRd
+#  @noRd
 GetStoriesArchiveRequest <- R6::R6Class(
   "GetStoriesArchiveRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb4352016,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x251c0c2c,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field offset_id Field.
+    #  @field offset_id Field.
     offset_id = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
 
-    #' @description Initialize GetStoriesArchiveRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param offset_id integer offset id
-    #' @param limit integer limit
-    #' @return invisible self
+    #  @description Initialize GetStoriesArchiveRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param offset_id integer offset id
+    #  @param limit integer limit
+    #  @return invisible self
     initialize = function(peer, offset_id, limit) {
       self$peer <- peer
       self$offset_id <- as.integer(offset_id)
@@ -1613,20 +1645,20 @@ GetStoriesArchiveRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer reference to input peer using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
-    #' @return invisible self
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer reference to input peer using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
+    #  @return invisible self
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #' @return list
+    #  @description Convert to list
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetStoriesArchiveRequest",
@@ -1636,8 +1668,8 @@ GetStoriesArchiveRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes (little-endian of 0xb4352016 -> 0x16 0x20 0x35 0xb4)
@@ -1663,11 +1695,11 @@ GetStoriesArchiveRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a GetStoriesArchiveRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object(), read_int()
-    #' @param reader reader object
-    #' @return GetStoriesArchiveRequest
+    #  @description Read a GetStoriesArchiveRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object(), read_int()
+    #  @param reader reader object
+    #  @return GetStoriesArchiveRequest
     from_reader = function(reader) {
       peer_obj <- reader$tgread_object()
       offset_id_val <- reader$read_int()
@@ -1678,50 +1710,52 @@ GetStoriesArchiveRequest <- R6::R6Class(
 )
 
 
-#' GetStoriesByIDRequest R6 class
-#'
-#' Request to get stories by explicit ids for a given peer.
-#' Returns stories.Stories.
-#' @export
+#  GetStoriesByIDRequest R6 class
+# 
+#  Request to get stories by explicit ids for a given peer.
+#  Returns stories.Stories.
+#  @export
+#  @noRd
+#  @noRd
 GetStoriesByIDRequest <- R6::R6Class(
   "GetStoriesByIDRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5774ca74,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x251c0c2c,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize GetStoriesByIDRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param id integer vector of story ids
-    #' @return invisible self
+    #  @description Initialize GetStoriesByIDRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param id integer vector of story ids
+    #  @return invisible self
     initialize = function(peer, id) {
       self$peer <- peer
       self$id <- if (!is.null(id)) as.integer(id) else integer(0)
       invisible(self)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer reference to input peer using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
-    #' @return invisible self
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer reference to input peer using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
+    #  @return invisible self
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #' @return list
+    #  @description Convert to list
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetStoriesByIDRequest",
@@ -1730,8 +1764,8 @@ GetStoriesByIDRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes (little-endian of 0x5774ca74 -> 0x74 0xca 0x74 0x57)
@@ -1760,11 +1794,11 @@ GetStoriesByIDRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a GetStoriesByIDRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object(), read_int()
-    #' @param reader reader object
-    #' @return GetStoriesByIDRequest
+    #  @description Read a GetStoriesByIDRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object(), read_int()
+    #  @param reader reader object
+    #  @return GetStoriesByIDRequest
     from_reader = function(reader) {
       peer_obj <- reader$tgread_object()
 
@@ -1784,47 +1818,49 @@ GetStoriesByIDRequest <- R6::R6Class(
 )
 
 
-#' GetStoriesViewsRequest R6 class
-#'
-#' Request to get story views for a peer and a vector of story ids.
-#' Returns stories.StoryViews.
-#' @export
+#  GetStoriesViewsRequest R6 class
+# 
+#  Request to get story views for a peer and a vector of story ids.
+#  Returns stories.StoryViews.
+#  @export
+#  @noRd
+#  @noRd
 GetStoriesViewsRequest <- R6::R6Class(
   "GetStoriesViewsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x28e16cc8,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x4b3fc4ba,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize GetStoriesViewsRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param id integer vector of story ids
+    #  @description Initialize GetStoriesViewsRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param id integer vector of story ids
     initialize = function(peer, id) {
       self$peer <- peer
       self$id <- if (!is.null(id)) as.integer(id) else integer(0)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer reference to input peer using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer reference to input peer using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #' @return list
+    #  @description Convert to list
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetStoriesViewsRequest",
@@ -1833,8 +1869,8 @@ GetStoriesViewsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0x28e16cc8 -> c8 6c e1 28
@@ -1863,11 +1899,11 @@ GetStoriesViewsRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a GetStoriesViewsRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object(), read_int()
-    #' @param reader reader object
-    #' @return GetStoriesViewsRequest
+    #  @description Read a GetStoriesViewsRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object(), read_int()
+    #  @param reader reader object
+    #  @return GetStoriesViewsRequest
     from_reader = function(reader) {
       peerObj <- reader$tgread_object()
 
@@ -1887,41 +1923,43 @@ GetStoriesViewsRequest <- R6::R6Class(
 )
 
 
-#' GetStoryReactionsListRequest R6 class
-#'
-#' Request to get a list of story reactions with optional filters.
-#' Returns stories.StoryReactionsList.
-#' @export
+#  GetStoryReactionsListRequest R6 class
+# 
+#  Request to get a list of story reactions with optional filters.
+#  Returns stories.StoryReactionsList.
+#  @export
+#  @noRd
+#  @noRd
 GetStoryReactionsListRequest <- R6::R6Class(
   "GetStoryReactionsListRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb9b2881f,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x046f91e3,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
-    #' @field forwards_first Field.
+    #  @field forwards_first Field.
     forwards_first = NULL,
-    #' @field reaction Field.
+    #  @field reaction Field.
     reaction = NULL,
-    #' @field offset Field.
+    #  @field offset Field.
     offset = NULL,
 
-    #' @description Initialize GetStoryReactionsListRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param id integer story id
-    #' @param limit integer limit
-    #' @param forwards_first logical or NULL
-    #' @param reaction TypeReaction or NULL
-    #' @param offset character or NULL
+    #  @description Initialize GetStoryReactionsListRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param id integer story id
+    #  @param limit integer limit
+    #  @param forwards_first logical or NULL
+    #  @param reaction TypeReaction or NULL
+    #  @param offset character or NULL
     initialize = function(peer, id, limit, forwards_first = NULL, reaction = NULL, offset = NULL) {
       self$peer <- peer
       self$id <- as.integer(id)
@@ -1931,19 +1969,19 @@ GetStoryReactionsListRequest <- R6::R6Class(
       self$offset <- if (!is.null(offset)) as.character(offset) else NULL
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer reference to input peer using client/utils.
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer reference to input peer using client/utils.
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #' @return list
+    #  @description Convert to list
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetStoryReactionsListRequest",
@@ -1956,8 +1994,8 @@ GetStoryReactionsListRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0xb9b2881f -> 1f 88 b2 b9
@@ -2015,11 +2053,11 @@ GetStoryReactionsListRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a GetStoryReactionsListRequest instance from a reader
-    #'
-    #' reader expected to implement: read_int(), tgread_object(), tgread_string()
-    #' @param reader reader object
-    #' @return GetStoryReactionsListRequest
+    #  @description Read a GetStoryReactionsListRequest instance from a reader
+    # 
+    #  reader expected to implement: read_int(), tgread_object(), tgread_string()
+    #  @param reader reader object
+    #  @return GetStoryReactionsListRequest
     from_reader = function(reader) {
       flagsVal <- reader$read_int()
       forwardsFirstVal <- bitwAnd(flagsVal, 4L) != 0L
@@ -2045,47 +2083,49 @@ GetStoryReactionsListRequest <- R6::R6Class(
 )
 
 
-#' GetStoryViewsListRequest R6 class
-#'
-#' Request to get a list of story views with optional filters (just_contacts,
-#' reactions_first, forwards_first, q). Returns a stories.StoryViewsList.
-#' @export
+#  GetStoryViewsListRequest R6 class
+# 
+#  Request to get a list of story views with optional filters (just_contacts,
+#  reactions_first, forwards_first, q). Returns a stories.StoryViewsList.
+#  @export
+#  @noRd
+#  @noRd
 GetStoryViewsListRequest <- R6::R6Class(
   "GetStoryViewsListRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7ed23c57,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xb9437560,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
-    #' @field offset Field.
+    #  @field offset Field.
     offset = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
-    #' @field just_contacts Field.
+    #  @field just_contacts Field.
     just_contacts = NULL,
-    #' @field reactions_first Field.
+    #  @field reactions_first Field.
     reactions_first = NULL,
-    #' @field forwards_first Field.
+    #  @field forwards_first Field.
     forwards_first = NULL,
-    #' @field q Field.
+    #  @field q Field.
     q = NULL,
 
-    #' @description Initialize GetStoryViewsListRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param id integer story id
-    #' @param offset character offset cursor
-    #' @param limit integer limit
-    #' @param just_contacts logical or NULL
-    #' @param reactions_first logical or NULL
-    #' @param forwards_first logical or NULL
-    #' @param q character or NULL search query
+    #  @description Initialize GetStoryViewsListRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param id integer story id
+    #  @param offset character offset cursor
+    #  @param limit integer limit
+    #  @param just_contacts logical or NULL
+    #  @param reactions_first logical or NULL
+    #  @param forwards_first logical or NULL
+    #  @param q character or NULL search query
     initialize = function(peer, id, offset, limit, just_contacts = NULL, reactions_first = NULL, forwards_first = NULL, q = NULL) {
       self$peer <- peer
       self$id <- as.integer(id)
@@ -2097,18 +2137,18 @@ GetStoryViewsListRequest <- R6::R6Class(
       self$q <- if (!is.null(q)) as.character(q) else NULL
     },
 
-    #' @description Resolve peer references
-    #'
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
+    #  @description Resolve peer references
+    # 
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #' @return list
+    #  @description Convert to list
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetStoryViewsListRequest",
@@ -2123,8 +2163,8 @@ GetStoryViewsListRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0x7ed23c57
@@ -2179,11 +2219,11 @@ GetStoryViewsListRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a GetStoryViewsListRequest instance from a reader
-    #'
-    #' reader expected to implement: read_int(), tgread_object(), tgread_string()
-    #' @param reader reader object
-    #' @return GetStoryViewsListRequest
+    #  @description Read a GetStoryViewsListRequest instance from a reader
+    # 
+    #  reader expected to implement: read_int(), tgread_object(), tgread_string()
+    #  @param reader reader object
+    #  @return GetStoryViewsListRequest
     from_reader = function(reader) {
       flagsVal <- reader$read_int()
       justContactsVal <- bitwAnd(flagsVal, 1L) != 0L
@@ -2212,46 +2252,48 @@ GetStoryViewsListRequest <- R6::R6Class(
 )
 
 
-#' IncrementStoryViewsRequest R6 class
-#'
-#' Request to increment story views for a peer and a vector of ids.
-#' Returns Bool.
-#' @export
+#  IncrementStoryViewsRequest R6 class
+# 
+#  Request to increment story views for a peer and a vector of ids.
+#  Returns Bool.
+#  @export
+#  @noRd
+#  @noRd
 IncrementStoryViewsRequest <- R6::R6Class(
   "IncrementStoryViewsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb2028afb,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize IncrementStoryViewsRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param id integer vector of story ids
+    #  @description Initialize IncrementStoryViewsRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param id integer vector of story ids
     initialize = function(peer, id) {
       self$peer <- peer
       self$id <- if (!is.null(id)) as.integer(id) else integer(0)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
+    #  @description Resolve peer references
+    # 
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #' @return list
+    #  @description Convert to list
+    #  @return list
     to_list = function() {
       list(
         `_` = "IncrementStoryViewsRequest",
@@ -2260,8 +2302,8 @@ IncrementStoryViewsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes little-endian for 0xb2028afb
@@ -2290,11 +2332,11 @@ IncrementStoryViewsRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read an IncrementStoryViewsRequest instance from a reader
-    #'
-    #' reader expected to implement: tgread_object(), read_int()
-    #' @param reader reader object
-    #' @return IncrementStoryViewsRequest
+    #  @description Read an IncrementStoryViewsRequest instance from a reader
+    # 
+    #  reader expected to implement: tgread_object(), read_int()
+    #  @param reader reader object
+    #  @return IncrementStoryViewsRequest
     from_reader = function(reader) {
       peerObj <- reader$tgread_object()
 
@@ -2314,50 +2356,52 @@ IncrementStoryViewsRequest <- R6::R6Class(
 )
 
 
-#' ReadStoriesRequest R6 class
-#'
-#' Represents a TL request that reads stories up to a given max_id and
-#' returns a Vector<int> result.
-#'
-#' @docType class
-#' @name ReadStoriesRequest
-#' @export
+#  ReadStoriesRequest R6 class
+# 
+#  Represents a TL request that reads stories up to a given max_id and
+#  returns a Vector<int> result.
+# 
+#  @docType class
+#  @name ReadStoriesRequest
+#  @export
+#  @noRd
+#  @noRd
 ReadStoriesRequest <- R6::R6Class(
   "ReadStoriesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa556dac8,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5026710f,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field max_id Field.
+    #  @field max_id Field.
     max_id = NULL,
 
-    #' @description Initialize ReadStoriesRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param max_id integer
+    #  @description Initialize ReadStoriesRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param max_id integer
     initialize = function(peer, max_id) {
       self$peer <- peer
       self$max_id <- as.integer(max_id)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert a high-level peer reference to an input peer using client/utils.
-    #' @param client client object with get_input_entity method
-    #' @param utils utils object with get_input_peer method
+    #  @description Resolve peer references
+    # 
+    #  Convert a high-level peer reference to an input peer using client/utils.
+    #  @param client client object with get_input_entity method
+    #  @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #' @return list
+    #  @description Convert to list
+    #  @return list
     to_list = function() {
       list(
         `_` = "ReadStoriesRequest",
@@ -2366,8 +2410,8 @@ ReadStoriesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes: b'\xc8\xdaV\xa5'
@@ -2391,21 +2435,21 @@ ReadStoriesRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a ReadStoriesRequest instance from a reader
-    #'
-    #' reader is expected to implement: tgread_object(), read_int()
-    #' @param reader reader object
-    #' @return ReadStoriesRequest
+    #  @description Read a ReadStoriesRequest instance from a reader
+    # 
+    #  reader is expected to implement: tgread_object(), read_int()
+    #  @param reader reader object
+    #  @return ReadStoriesRequest
     from_reader = function(reader) {
       peerObj <- reader$tgread_object()
       maxIdVal <- reader$read_int()
       ReadStoriesRequest$new(peer = peerObj, max_id = maxIdVal)
     },
 
-    #' @description Read result (Vector<int>) from reader
-    #'
-    #' @param reader reader with read_int method
-    #' @return integer vector
+    #  @description Read result (Vector<int>) from reader
+    # 
+    #  @param reader reader with read_int method
+    #  @return integer vector
     read_result = function(reader) {
       # read vector constructor id (ignored)
 
@@ -2421,49 +2465,51 @@ ReadStoriesRequest <- R6::R6Class(
 )
 
 
-#' ReorderAlbumsRequest R6 class
-#'
-#' Represents a TL request to reorder albums for a peer; returns Bool.
-#'
-#' @docType class
-#' @name ReorderAlbumsRequest
-#' @export
+#  ReorderAlbumsRequest R6 class
+# 
+#  Represents a TL request to reorder albums for a peer; returns Bool.
+# 
+#  @docType class
+#  @name ReorderAlbumsRequest
+#  @export
+#  @noRd
+#  @noRd
 ReorderAlbumsRequest <- R6::R6Class(
   "ReorderAlbumsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8535fbd9,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field order Field.
+    #  @field order Field.
     order = NULL,
 
-    #' @description Initialize ReorderAlbumsRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param order integer vector
+    #  @description Initialize ReorderAlbumsRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param order integer vector
     initialize = function(peer, order) {
       self$peer <- peer
       self$order <- if (!is.null(order)) as.integer(order) else integer(0)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert a high-level peer reference to an input peer using client/utils.
-    #' @param client client object with get_input_entity method
-    #' @param utils utils object with get_input_peer method
+    #  @description Resolve peer references
+    # 
+    #  Convert a high-level peer reference to an input peer using client/utils.
+    #  @param client client object with get_input_entity method
+    #  @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #' @return list
+    #  @description Convert to list
+    #  @return list
     to_list = function() {
       list(
         `_` = "ReorderAlbumsRequest",
@@ -2472,8 +2518,8 @@ ReorderAlbumsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes: b'\xd9\xfb5\x85'
@@ -2502,11 +2548,11 @@ ReorderAlbumsRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a ReorderAlbumsRequest instance from a reader
-    #'
-    #' reader is expected to implement: tgread_object(), read_int()
-    #' @param reader reader object
-    #' @return ReorderAlbumsRequest
+    #  @description Read a ReorderAlbumsRequest instance from a reader
+    # 
+    #  reader is expected to implement: tgread_object(), read_int()
+    #  @param reader reader object
+    #  @return ReorderAlbumsRequest
     from_reader = function(reader) {
       peerObj <- reader$tgread_object()
 
@@ -2526,37 +2572,39 @@ ReorderAlbumsRequest <- R6::R6Class(
 )
 
 
-#' ReportRequest R6 class
-#'
-#' Represents a TL request to report stories.
-#'
-#' @docType class
-#' @name ReportRequest
-#' @export
+#  ReportRequest R6 class
+# 
+#  Represents a TL request to report stories.
+# 
+#  @docType class
+#  @name ReportRequest
+#  @export
+#  @noRd
+#  @noRd
 ReportRequest <- R6::R6Class(
   "ReportRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x19d8eb45,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xacd3f438,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
-    #' @field option Field.
+    #  @field option Field.
     option = NULL,
-    #' @field message Field.
+    #  @field message Field.
     message = NULL,
 
-    #' @description Initialize ReportRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param id integer vector
-    #' @param option raw or raw-like bytes
-    #' @param message character
+    #  @description Initialize ReportRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param id integer vector
+    #  @param option raw or raw-like bytes
+    #  @param message character
     initialize = function(peer, id, option, message) {
       self$peer <- peer
       self$id <- if (!is.null(id)) as.integer(id) else integer(0)
@@ -2569,19 +2617,19 @@ ReportRequest <- R6::R6Class(
       self$message <- if (!is.null(message)) as.character(message) else ""
     },
 
-    #' @description Resolve peer references
-    #'
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer
+    #  @description Resolve peer references
+    # 
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "ReportRequest",
@@ -2592,9 +2640,9 @@ ReportRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #'
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    # 
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes (0x19d8eb45 little-endian)
@@ -2641,11 +2689,11 @@ ReportRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a ReportRequest instance from reader
-    #'
-    #' reader is expected to implement: tgread_object(), read_int(), tgread_bytes(), tgread_string()
-    #' @param reader reader object
-    #' @return ReportRequest
+    #  @description Read a ReportRequest instance from reader
+    # 
+    #  reader is expected to implement: tgread_object(), read_int(), tgread_bytes(), tgread_string()
+    #  @param reader reader object
+    #  @return ReportRequest
     from_reader = function(reader) {
       peerObj <- reader$tgread_object()
 
@@ -2666,40 +2714,42 @@ ReportRequest <- R6::R6Class(
 )
 
 
-#' SearchPostsRequest R6 class
-#'
-#' Represents a TL request to search posts/stories (by hashtag/area/peer).
-#'
-#' @docType class
-#' @name SearchPostsRequest
-#' @export
+#  SearchPostsRequest R6 class
+# 
+#  Represents a TL request to search posts/stories (by hashtag/area/peer).
+# 
+#  @docType class
+#  @name SearchPostsRequest
+#  @export
+#  @noRd
+#  @noRd
 SearchPostsRequest <- R6::R6Class(
   "SearchPostsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd1810907,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x17790b35,
 
-    #' @field offset Field.
+    #  @field offset Field.
     offset = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
-    #' @field hashtag Field.
+    #  @field hashtag Field.
     hashtag = NULL,
-    #' @field area Field.
+    #  @field area Field.
     area = NULL,
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
 
-    #' @description Initialize SearchPostsRequest
-    #'
-    #' @param offset character
-    #' @param limit integer
-    #' @param hashtag character or NULL
-    #' @param area TypeMediaArea or NULL
-    #' @param peer TypeInputPeer or NULL
+    #  @description Initialize SearchPostsRequest
+    # 
+    #  @param offset character
+    #  @param limit integer
+    #  @param hashtag character or NULL
+    #  @param area TypeMediaArea or NULL
+    #  @param peer TypeInputPeer or NULL
     initialize = function(offset, limit, hashtag = NULL, area = NULL, peer = NULL) {
       self$offset <- as.character(offset)
       self$limit <- as.integer(limit)
@@ -2708,10 +2758,10 @@ SearchPostsRequest <- R6::R6Class(
       self$peer <- if (!is.null(peer)) peer else NULL
     },
 
-    #' @description Resolve peer/area references
-    #'
-    #' @param client client with get_input_entity
-    #' @param utils utils with get_input_peer/get_input_media_area (area expected as TL object normally)
+    #  @description Resolve peer/area references
+    # 
+    #  @param client client with get_input_entity
+    #  @param utils utils with get_input_peer/get_input_media_area (area expected as TL object normally)
     resolve = function(client, utils) {
       if (!is.null(self$peer)) {
         input_entity <- client$get_input_entity(self$peer)
@@ -2720,9 +2770,9 @@ SearchPostsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to list
-    #'
-    #' @return list
+    #  @description Convert to list
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "SearchPostsRequest",
@@ -2734,9 +2784,9 @@ SearchPostsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw TL bytes
-    #'
-    #' @return raw
+    #  @description Serialize to raw TL bytes
+    # 
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes (0xd1810907 little-endian)
@@ -2800,11 +2850,11 @@ SearchPostsRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a SearchPostsRequest instance from reader
-    #'
-    #' reader is expected to implement: read_int(), tgread_object(), tgread_string(), tgread_bytes()
-    #' @param reader reader object
-    #' @return SearchPostsRequest
+    #  @description Read a SearchPostsRequest instance from reader
+    # 
+    #  reader is expected to implement: read_int(), tgread_object(), tgread_string(), tgread_bytes()
+    #  @param reader reader object
+    #  @return SearchPostsRequest
     from_reader = function(reader) {
       flagsVal <- reader$read_int()
       hashtagVal <- if (bitwAnd(flagsVal, 1L) != 0L) reader$tgread_string() else NULL
@@ -2820,37 +2870,39 @@ SearchPostsRequest <- R6::R6Class(
 )
 
 
-#' SendReactionRequest R6 class
-#'
-#' Represents a TL request to send a reaction to a story.
-#'
-#' @docType class
-#' @name SendReactionRequest
-#' @export
+#  SendReactionRequest R6 class
+# 
+#  Represents a TL request to send a reaction to a story.
+# 
+#  @docType class
+#  @name SendReactionRequest
+#  @export
+#  @noRd
+#  @noRd
 SendReactionRequest <- R6::R6Class(
   "SendReactionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7fd736b2,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field story_id Field.
+    #  @field story_id Field.
     story_id = NULL,
-    #' @field reaction Field.
+    #  @field reaction Field.
     reaction = NULL,
-    #' @field add_to_recent Field.
+    #  @field add_to_recent Field.
     add_to_recent = NULL,
 
-    #' @description Initialize SendReactionRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param story_id integer
-    #' @param reaction TypeReaction
-    #' @param add_to_recent logical or NULL
+    #  @description Initialize SendReactionRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param story_id integer
+    #  @param reaction TypeReaction
+    #  @param add_to_recent logical or NULL
     initialize = function(peer, story_id, reaction, add_to_recent = NULL) {
       self$peer <- peer
       self$story_id <- as.integer(story_id)
@@ -2858,20 +2910,20 @@ SendReactionRequest <- R6::R6Class(
       self$add_to_recent <- if (!is.null(add_to_recent)) as.logical(add_to_recent) else NULL
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer references to input peers using provided client/utils.
-    #' @param client client object with get_input_entity method
-    #' @param utils utils object with get_input_peer method
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer references to input peers using provided client/utils.
+    #  @param client client object with get_input_entity method
+    #  @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list (similar to to_dict)
-    #'
-    #' @return list
+    #  @description Convert to list (similar to to_dict)
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "SendReactionRequest",
@@ -2882,11 +2934,11 @@ SendReactionRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes
-    #'
-    #' Produces a raw vector matching TL binary layout for this request.
-    #' Expects helper serialization methods on peer and reaction (to_bytes/bytes/_bytes).
-    #' @return raw
+    #  @description Serialize to raw bytes
+    # 
+    #  Produces a raw vector matching TL binary layout for this request.
+    #  Expects helper serialization methods on peer and reaction (to_bytes/bytes/_bytes).
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes (little-endian representation of 0x7fd736b2)
@@ -2926,11 +2978,11 @@ SendReactionRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a SendReactionRequest instance from a reader
-    #'
-    #' reader is expected to implement: read_int(), tgread_object()
-    #' @param reader an object with read_int and tgread_object methods
-    #' @return SendReactionRequest
+    #  @description Read a SendReactionRequest instance from a reader
+    # 
+    #  reader is expected to implement: read_int(), tgread_object()
+    #  @param reader an object with read_int and tgread_object methods
+    #  @return SendReactionRequest
     from_reader = function(reader) {
       flagsVal <- reader$read_int()
       addToRecentVal <- bitwAnd(flagsVal, 1L) != 0L
@@ -2950,67 +3002,69 @@ SendReactionRequest <- R6::R6Class(
 )
 
 
-#' SendStoryRequest R6 class
-#'
-#' Represents a TL request to send a story.
-#'
-#' @docType class
-#' @name SendStoryRequest
-#' @export
+#  SendStoryRequest R6 class
+# 
+#  Represents a TL request to send a story.
+# 
+#  @docType class
+#  @name SendStoryRequest
+#  @export
+#  @noRd
+#  @noRd
 SendStoryRequest <- R6::R6Class(
   "SendStoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x737fc2ec,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field media Field.
+    #  @field media Field.
     media = NULL,
-    #' @field privacy_rules Field.
+    #  @field privacy_rules Field.
     privacy_rules = NULL,
-    #' @field pinned Field.
+    #  @field pinned Field.
     pinned = NULL,
-    #' @field noforwards Field.
+    #  @field noforwards Field.
     noforwards = NULL,
-    #' @field fwd_modified Field.
+    #  @field fwd_modified Field.
     fwd_modified = NULL,
-    #' @field media_areas Field.
+    #  @field media_areas Field.
     media_areas = NULL,
-    #' @field caption Field.
+    #  @field caption Field.
     caption = NULL,
-    #' @field entities Field.
+    #  @field entities Field.
     entities = NULL,
-    #' @field random_id Field.
+    #  @field random_id Field.
     random_id = NULL,
-    #' @field period Field.
+    #  @field period Field.
     period = NULL,
-    #' @field fwd_from_id Field.
+    #  @field fwd_from_id Field.
     fwd_from_id = NULL,
-    #' @field fwd_from_story Field.
+    #  @field fwd_from_story Field.
     fwd_from_story = NULL,
-    #' @field albums Field.
+    #  @field albums Field.
     albums = NULL,
 
-    #' @description Initialize SendStoryRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param media TypeInputMedia
-    #' @param privacy_rules list
-    #' @param pinned logical or NULL
-    #' @param noforwards logical or NULL
-    #' @param fwd_modified logical or NULL
-    #' @param media_areas list or NULL
-    #' @param caption character or NULL
-    #' @param entities list or NULL
-    #' @param random_id numeric/integer or NULL (auto-generated when NULL)
-    #' @param period integer or NULL
-    #' @param fwd_from_id TypeInputPeer or NULL
-    #' @param fwd_from_story integer or NULL
-    #' @param albums integer vector or NULL
+    #  @description Initialize SendStoryRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param media TypeInputMedia
+    #  @param privacy_rules list
+    #  @param pinned logical or NULL
+    #  @param noforwards logical or NULL
+    #  @param fwd_modified logical or NULL
+    #  @param media_areas list or NULL
+    #  @param caption character or NULL
+    #  @param entities list or NULL
+    #  @param random_id numeric/integer or NULL (auto-generated when NULL)
+    #  @param period integer or NULL
+    #  @param fwd_from_id TypeInputPeer or NULL
+    #  @param fwd_from_story integer or NULL
+    #  @param albums integer vector or NULL
     initialize = function(peer, media, privacy_rules, pinned = NULL, noforwards = NULL,
                           fwd_modified = NULL, media_areas = NULL, caption = NULL,
                           entities = NULL, random_id = NULL, period = NULL,
@@ -3041,10 +3095,10 @@ SendStoryRequest <- R6::R6Class(
       self$albums <- if (!is.null(albums)) as.integer(albums) else NULL
     },
 
-    #' @description Resolve peer and forward references
-    #'
-    #' @param client client object with get_input_entity
-    #' @param utils utils object with get_input_peer / get_input_media
+    #  @description Resolve peer and forward references
+    # 
+    #  @param client client object with get_input_entity
+    #  @param utils utils object with get_input_peer / get_input_media
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
@@ -3056,9 +3110,9 @@ SendStoryRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to list (similar to to_dict)
-    #'
-    #' @return list
+    #  @description Convert to list (similar to to_dict)
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "SendStoryRequest",
@@ -3079,12 +3133,12 @@ SendStoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes
-    #'
-    #' Produces a raw vector matching TL binary layout for this request.
-    #' Expects helper serialization methods on peer/media/privacy_rules/media_areas/entities/fwd_from_id.
-    #'
-    #' @return raw
+    #  @description Serialize to raw bytes
+    # 
+    #  Produces a raw vector matching TL binary layout for this request.
+    #  Expects helper serialization methods on peer/media/privacy_rules/media_areas/entities/fwd_from_id.
+    # 
+    #  @return raw
     to_bytes = function() {
       # compute flags as in original spec
       flags <- 0L
@@ -3229,11 +3283,11 @@ SendStoryRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a SendStoryRequest instance from a reader
-    #'
-    #' reader is expected to implement: read_int(), tgread_object(), tgread_string(), read_long()
-    #' @param reader an object with read_int, tgread_object, tgread_string, read_long methods
-    #' @return SendStoryRequest
+    #  @description Read a SendStoryRequest instance from a reader
+    # 
+    #  reader is expected to implement: read_int(), tgread_object(), tgread_string(), read_long()
+    #  @param reader an object with read_int, tgread_object, tgread_string, read_long methods
+    #  @return SendStoryRequest
     from_reader = function(reader) {
       flagsVal <- reader$read_int()
       pinnedVal <- bitwAnd(flagsVal, 4L) != 0L
@@ -3319,35 +3373,37 @@ SendStoryRequest <- R6::R6Class(
 )
 
 
-#' ToggleAllStoriesHiddenRequest R6 class
-#'
-#' Represents a TL request to toggle the "all stories hidden" flag.
-#'
-#' @docType class
-#' @name ToggleAllStoriesHiddenRequest
-#' @export
+#  ToggleAllStoriesHiddenRequest R6 class
+# 
+#  Represents a TL request to toggle the "all stories hidden" flag.
+# 
+#  @docType class
+#  @name ToggleAllStoriesHiddenRequest
+#  @export
+#  @noRd
+#  @noRd
 ToggleAllStoriesHiddenRequest <- R6::R6Class(
   "ToggleAllStoriesHiddenRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7c2557c4,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @field hidden Field.
+    #  @field hidden Field.
     hidden = NULL,
 
-    #' @description Initialize ToggleAllStoriesHiddenRequest
-    #'
-    #' @param hidden logical
+    #  @description Initialize ToggleAllStoriesHiddenRequest
+    # 
+    #  @param hidden logical
     initialize = function(hidden) {
       self$hidden <- as.logical(hidden)
     },
 
-    #' @description Convert to list (similar to to_dict)
-    #'
-    #' @return list
+    #  @description Convert to list (similar to to_dict)
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "ToggleAllStoriesHiddenRequest",
@@ -3355,10 +3411,10 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes
-    #'
-    #' Produces a raw vector matching TL binary layout for this request.
-    #' @return raw
+    #  @description Serialize to raw bytes
+    # 
+    #  Produces a raw vector matching TL binary layout for this request.
+    #  @return raw
     to_bytes = function() {
       # constructor bytes: b'\xc4W%|' (0xc4 0x57 0x25 0x7c)
       parts <- list(as.raw(c(0xc4, 0x57, 0x25, 0x7c)))
@@ -3372,11 +3428,11 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a ToggleAllStoriesHiddenRequest instance from a reader
-    #'
-    #' reader is expected to implement: tgread_bool()
-    #' @param reader an object with tgread_bool method
-    #' @return ToggleAllStoriesHiddenRequest
+    #  @description Read a ToggleAllStoriesHiddenRequest instance from a reader
+    # 
+    #  reader is expected to implement: tgread_bool()
+    #  @param reader an object with tgread_bool method
+    #  @return ToggleAllStoriesHiddenRequest
     from_reader = function(reader) {
       hidden_flag <- reader$tgread_bool()
       ToggleAllStoriesHiddenRequest$new(hidden = hidden_flag)
@@ -3385,50 +3441,52 @@ ToggleAllStoriesHiddenRequest <- R6::R6Class(
 )
 
 
-#' TogglePeerStoriesHiddenRequest R6 class
-#'
-#' Represents a TL request to toggle hidden state for stories of a particular peer.
-#'
-#' @docType class
-#' @name TogglePeerStoriesHiddenRequest
-#' @export
+#  TogglePeerStoriesHiddenRequest R6 class
+# 
+#  Represents a TL request to toggle hidden state for stories of a particular peer.
+# 
+#  @docType class
+#  @name TogglePeerStoriesHiddenRequest
+#  @export
+#  @noRd
+#  @noRd
 TogglePeerStoriesHiddenRequest <- R6::R6Class(
   "TogglePeerStoriesHiddenRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xbd0415c4,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field hidden Field.
+    #  @field hidden Field.
     hidden = NULL,
 
-    #' @description Initialize TogglePeerStoriesHiddenRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param hidden logical
+    #  @description Initialize TogglePeerStoriesHiddenRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param hidden logical
     initialize = function(peer, hidden) {
       self$peer <- peer
       self$hidden <- as.logical(hidden)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer references to input peers using provided client/utils.
-    #' @param client client object with get_input_entity method
-    #' @param utils utils object with get_input_peer method
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer references to input peers using provided client/utils.
+    #  @param client client object with get_input_entity method
+    #  @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list (similar to to_dict)
-    #'
-    #' @return list
+    #  @description Convert to list (similar to to_dict)
+    # 
+    #  @return list
     to_list = function() {
       list(
         `_` = "TogglePeerStoriesHiddenRequest",
@@ -3437,11 +3495,11 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes
-    #'
-    #' Produces a raw vector matching TL binary layout.
-    #' Expects helper serialization methods on peer (to_bytes/bytes/_bytes).
-    #' @return raw
+    #  @description Serialize to raw bytes
+    # 
+    #  Produces a raw vector matching TL binary layout.
+    #  Expects helper serialization methods on peer (to_bytes/bytes/_bytes).
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes: b'\xc4\x15\x04\xbd' (0xc4 0x15 0x04 0xbd)
@@ -3467,11 +3525,11 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a TogglePeerStoriesHiddenRequest instance from a reader
-    #'
-    #' reader is expected to implement: tgread_object(), tgread_bool()
-    #' @param reader an object with tgread_object and tgread_bool methods
-    #' @return TogglePeerStoriesHiddenRequest
+    #  @description Read a TogglePeerStoriesHiddenRequest instance from a reader
+    # 
+    #  reader is expected to implement: tgread_object(), tgread_bool()
+    #  @param reader an object with tgread_object and tgread_bool methods
+    #  @return TogglePeerStoriesHiddenRequest
     from_reader = function(reader) {
       peer_obj <- reader$tgread_object()
       hidden_flag <- reader$tgread_bool()
@@ -3481,55 +3539,57 @@ TogglePeerStoriesHiddenRequest <- R6::R6Class(
 )
 
 
-#' TogglePinnedRequest R6 class
-#'
-#' Represents a TL request to toggle pinned state for stories.
-#'
-#' @docType class
-#' @name TogglePinnedRequest
-#' @export
+#  TogglePinnedRequest R6 class
+# 
+#  Represents a TL request to toggle pinned state for stories.
+# 
+#  @docType class
+#  @name TogglePinnedRequest
+#  @export
+#  @noRd
+#  @noRd
 TogglePinnedRequest <- R6::R6Class(
   "TogglePinnedRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9a75a1ef,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x5026710f,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
-    #' @field pinned Field.
+    #  @field pinned Field.
     pinned = NULL,
 
-    #' @description Initialize TogglePinnedRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param id integer vector of story ids
-    #' @param pinned logical
+    #  @description Initialize TogglePinnedRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param id integer vector of story ids
+    #  @param pinned logical
     initialize = function(peer, id, pinned) {
       self$peer <- peer
       self$id <- if (!is.null(id)) as.integer(id) else integer(0)
       self$pinned <- as.logical(pinned)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer references to input peers using provided client/utils.
-    #' @param client client object with get_input_entity method
-    #' @param utils utils object with get_input_peer method
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer references to input peers using provided client/utils.
+    #  @param client client object with get_input_entity method
+    #  @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list (similar to to_dict)
-    #'
-    #' Prepare a pure R list representation suitable for inspection or JSON.
-    #' @return list
+    #  @description Convert to list (similar to to_dict)
+    # 
+    #  Prepare a pure R list representation suitable for inspection or JSON.
+    #  @return list
     to_list = function() {
       list(
         `_` = "TogglePinnedRequest",
@@ -3539,11 +3599,11 @@ TogglePinnedRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes
-    #'
-    #' Produces a raw vector matching TL binary layout.
-    #' Expects helper serialization methods on peer (to_bytes/bytes/_bytes) and writeBin available.
-    #' @return raw
+    #  @description Serialize to raw bytes
+    # 
+    #  Produces a raw vector matching TL binary layout.
+    #  Expects helper serialization methods on peer (to_bytes/bytes/_bytes) and writeBin available.
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes from original spec: b'\xef\xa1u\x9a'
@@ -3577,11 +3637,11 @@ TogglePinnedRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a TogglePinnedRequest instance from a reader
-    #'
-    #' reader is expected to implement: read_int(), tgread_object(), tgread_bool()
-    #' @param reader an object with read_int, tgread_object, tgread_bool methods
-    #' @return TogglePinnedRequest
+    #  @description Read a TogglePinnedRequest instance from a reader
+    # 
+    #  reader is expected to implement: read_int(), tgread_object(), tgread_bool()
+    #  @param reader an object with read_int, tgread_object, tgread_bool methods
+    #  @return TogglePinnedRequest
     from_reader = function(reader) {
       peer_obj <- reader$tgread_object()
 
@@ -3597,10 +3657,10 @@ TogglePinnedRequest <- R6::R6Class(
       TogglePinnedRequest$new(peer = peer_obj, id = ids, pinned = pinned_flag)
     },
 
-    #' @description Read result (Vector<int>) from reader
-    #'
-    #' @param reader reader with read_int method
-    #' @return integer vector
+    #  @description Read result (Vector<int>) from reader
+    # 
+    #  @param reader reader with read_int method
+    #  @return integer vector
     read_result = function(reader) {
       # read vector constructor id
 
@@ -3616,51 +3676,53 @@ TogglePinnedRequest <- R6::R6Class(
 )
 
 
-#' TogglePinnedToTopRequest R6 class
-#'
-#' Represents a TL request to toggle pinned-to-top state for stories.
-#'
-#' @docType class
-#' @name TogglePinnedToTopRequest
-#' @export
+#  TogglePinnedToTopRequest R6 class
+# 
+#  Represents a TL request to toggle pinned-to-top state for stories.
+# 
+#  @docType class
+#  @name TogglePinnedToTopRequest
+#  @export
+#  @noRd
+#  @noRd
 TogglePinnedToTopRequest <- R6::R6Class(
   "TogglePinnedToTopRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x0b297e9b,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
 
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize TogglePinnedToTopRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param id integer vector of story ids
+    #  @description Initialize TogglePinnedToTopRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param id integer vector of story ids
     initialize = function(peer, id) {
       self$peer <- peer
       self$id <- if (!is.null(id)) as.integer(id) else integer(0)
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer references to input peers using provided client/utils.
-    #' @param client client object with get_input_entity method
-    #' @param utils utils object with get_input_peer method
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer references to input peers using provided client/utils.
+    #  @param client client object with get_input_entity method
+    #  @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
       input_entity <- client$get_input_entity(self$peer)
       self$peer <- get_input_peer(input_entity)
       invisible(self)
     },
 
-    #' @description Convert to list (similar to to_dict)
-    #'
-    #' Prepare a pure R list representation suitable for inspection or JSON.
-    #' @return list
+    #  @description Convert to list (similar to to_dict)
+    # 
+    #  Prepare a pure R list representation suitable for inspection or JSON.
+    #  @return list
     to_list = function() {
       list(
         `_` = "TogglePinnedToTopRequest",
@@ -3669,11 +3731,11 @@ TogglePinnedToTopRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes
-    #'
-    #' Produces a raw vector matching TL binary layout.
-    #' Expects helper serialization methods on peer (to_bytes/bytes/_bytes) and writeBin available.
-    #' @return raw
+    #  @description Serialize to raw bytes
+    # 
+    #  Produces a raw vector matching TL binary layout.
+    #  Expects helper serialization methods on peer (to_bytes/bytes/_bytes) and writeBin available.
+    #  @return raw
     to_bytes = function() {
       parts <- list()
       # constructor bytes from original spec: b'\x9b~)\x0b'
@@ -3702,11 +3764,11 @@ TogglePinnedToTopRequest <- R6::R6Class(
     }
   ),
   class = list(
-    #' @description Read a TogglePinnedToTopRequest instance from a reader
-    #'
-    #' reader is expected to implement: read_int(), tgread_object()
-    #' @param reader an object with read_int, tgread_object methods
-    #' @return TogglePinnedToTopRequest
+    #  @description Read a TogglePinnedToTopRequest instance from a reader
+    # 
+    #  reader is expected to implement: read_int(), tgread_object()
+    #  @param reader an object with read_int, tgread_object methods
+    #  @return TogglePinnedToTopRequest
     from_reader = function(reader) {
       peer_obj <- reader$tgread_object()
 
@@ -3724,42 +3786,44 @@ TogglePinnedToTopRequest <- R6::R6Class(
 )
 
 
-#' UpdateAlbumRequest R6 class
-#'
-#' Represents a TL request to update a story album.
-#'
-#' @docType class
-#' @name UpdateAlbumRequest
-#' @export
+#  UpdateAlbumRequest R6 class
+# 
+#  Represents a TL request to update a story album.
+# 
+#  @docType class
+#  @name UpdateAlbumRequest
+#  @export
+#  @noRd
+#  @noRd
 UpdateAlbumRequest <- R6::R6Class(
   "UpdateAlbumRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x5e5259b6,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x7c8c5ea2,
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field album_id Field.
+    #  @field album_id Field.
     album_id = NULL,
-    #' @field title Field.
+    #  @field title Field.
     title = NULL,
-    #' @field delete_stories Field.
+    #  @field delete_stories Field.
     delete_stories = NULL,
-    #' @field add_stories Field.
+    #  @field add_stories Field.
     add_stories = NULL,
-    #' @field order Field.
+    #  @field order Field.
     order = NULL,
 
-    #' @description Initialize UpdateAlbumRequest
-    #'
-    #' @param peer TypeInputPeer
-    #' @param album_id integer
-    #' @param title character or NULL
-    #' @param delete_stories integer vector or NULL
-    #' @param add_stories integer vector or NULL
-    #' @param order integer vector or NULL
+    #  @description Initialize UpdateAlbumRequest
+    # 
+    #  @param peer TypeInputPeer
+    #  @param album_id integer
+    #  @param title character or NULL
+    #  @param delete_stories integer vector or NULL
+    #  @param add_stories integer vector or NULL
+    #  @param order integer vector or NULL
     initialize = function(peer, album_id, title = NULL, delete_stories = NULL, add_stories = NULL, order = NULL) {
       self$peer <- peer
       self$album_id <- as.integer(album_id)
@@ -3769,11 +3833,11 @@ UpdateAlbumRequest <- R6::R6Class(
       self$order <- if (!is.null(order)) as.integer(order) else NULL
     },
 
-    #' @description Resolve peer references
-    #'
-    #' Convert high-level peer references to input peers using provided client/utils.
-    #' @param client client object with get_input_entity method
-    #' @param utils utils object with get_input_peer method
+    #  @description Resolve peer references
+    # 
+    #  Convert high-level peer references to input peers using provided client/utils.
+    #  @param client client object with get_input_entity method
+    #  @param utils utils object with get_input_peer method
     resolve = function(client, utils) {
       # synchronous style: client$get_input_entity and get_input_peer expected to be available
       input_entity <- client$get_input_entity(self$peer)
@@ -3781,10 +3845,10 @@ UpdateAlbumRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to list (similar to to_dict)
-    #'
-    #' Prepare a pure R list representation suitable for inspection or JSON.
-    #' @return list
+    #  @description Convert to list (similar to to_dict)
+    # 
+    #  Prepare a pure R list representation suitable for inspection or JSON.
+    #  @return list
     to_list = function() {
       list(
         `_` = "UpdateAlbumRequest",
@@ -3797,12 +3861,12 @@ UpdateAlbumRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes
-    #'
-    #' This produces a raw vector intended to match the TL binary layout used in the original implementation.
-    #' It expects helper serialization methods available on the peer object (peer$to_bytes / peer$bytes),
-    #' and a serialize_bytes(self, string) method on the TLRequest base or in scope.
-    #' @return raw
+    #  @description Serialize to raw bytes
+    # 
+    #  This produces a raw vector intended to match the TL binary layout used in the original implementation.
+    #  It expects helper serialization methods available on the peer object (peer$to_bytes / peer$bytes),
+    #  and a serialize_bytes(self, string) method on the TLRequest base or in scope.
+    #  @return raw
     to_bytes = function() {
       # compute flags
       flags <- 0L
@@ -3873,11 +3937,11 @@ UpdateAlbumRequest <- R6::R6Class(
 
   # class method implemented as public so it can be called like UpdateAlbumRequest$from_reader(reader)
   class = list(
-    #' @description Read an UpdateAlbumRequest instance from a reader
-    #'
-    #' reader is expected to implement: read_int(), tgread_object(), tgread_string()
-    #' @param reader an object with read_int, tgread_object, tgread_string methods
-    #' @return UpdateAlbumRequest
+    #  @description Read an UpdateAlbumRequest instance from a reader
+    # 
+    #  reader is expected to implement: read_int(), tgread_object(), tgread_string()
+    #  @param reader an object with read_int, tgread_object, tgread_string methods
+    #  @return UpdateAlbumRequest
     from_reader = function(reader) {
       flags <- reader$read_int()
       peer_obj <- reader$tgread_object()

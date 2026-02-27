@@ -1,12 +1,12 @@
-#' Check if an object is list-like (list, vector, etc.)
-#'
-#' Determines whether an object can be treated like a list or collection
-#' in the context of MTProto requests.
-#'
-#' @param obj The object to check
-#' @param allow_data_frames Whether to consider data frames as list-like (default: FALSE)
-#' @return TRUE if the object is list-like, FALSE otherwise
-#' @export
+#  Check if an object is list-like (list, vector, etc.)
+# 
+#  Determines whether an object can be treated like a list or collection
+#  in the context of MTProto requests.
+# 
+#  @param obj The object to check
+#  @param allow_data_frames Whether to consider data frames as list-like (default: FALSE)
+#  @return TRUE if the object is list-like, FALSE otherwise
+#  @export
 is_list_like <- function(obj, allow_data_frames = FALSE) {
   # NULL is not list-like
   if (is.null(obj)) {
@@ -38,14 +38,14 @@ is_list_like <- function(obj, allow_data_frames = FALSE) {
   return(FALSE)
 }
 
-#' Generate a sequence for retry attempts
-#'
-#' Creates a sequence from 1 to n for retry attempts with optional forcing of at least one retry
-#'
-#' @param n Number of retries to perform
-#' @param force_retry Whether to force at least one retry attempt even if n is 0 (default: FALSE)
-#' @return An integer sequence to iterate over for retry attempts
-#' @export
+#  Generate a sequence for retry attempts
+# 
+#  Creates a sequence from 1 to n for retry attempts with optional forcing of at least one retry
+# 
+#  @param n Number of retries to perform
+#  @param force_retry Whether to force at least one retry attempt even if n is 0 (default: FALSE)
+#  @return An integer sequence to iterate over for retry attempts
+#  @export
 retry_range <- function(n, force_retry = FALSE) {
   # Ensure n is a non-negative integer
   n <- as.integer(n)
@@ -62,14 +62,14 @@ retry_range <- function(n, force_retry = FALSE) {
   return(seq_len(max(1, n)))
 }
 
-#' Normalize a message ID to a consistent string key.
-#'
-#' Handles bigz, numeric (double), and character inputs to always produce
-#' the same decimal string representation for the same underlying value.
-#'
-#' @param msg_id Message ID (bigz, numeric, or character)
-#' @return Character string key
-#' @keywords internal
+#  Normalize a message ID to a consistent string key.
+# 
+#  Handles bigz, numeric (double), and character inputs to always produce
+#  the same decimal string representation for the same underlying value.
+# 
+#  @param msg_id Message ID (bigz, numeric, or character)
+#  @return Character string key
+#  @keywords internal
 msg_id_key <- function(msg_id) {
   # Always normalize to sprintf("%.0f", numeric) so that both bigz (from
 
@@ -82,21 +82,21 @@ msg_id_key <- function(msg_id) {
   sprintf("%.0f", as.numeric(msg_id))
 }
 
-#' Synchronously resolve a promise by pumping the later event loop.
-#'
-#' R promises schedule their callbacks via `later::later()`.  When running
-#' inside a tight synchronous loop (no Shiny / httpuv reactor) those callbacks
-#' never fire unless we explicitly call `later::run_now()`.  This helper does
-#' exactly that: it installs fulfillment/rejection handlers and then pumps
-#' `later::run_now()` in a busy-wait until the promise settles.
-#'
-#' If the input is NOT a promise it is returned as-is, so this is safe to call
-#' on any value.
-#'
-#' @param p A promise (or plain value).
-#' @param timeout Maximum seconds to wait before raising an error.
-#' @return The fulfilled value, or stops with the rejection reason.
-#' @keywords internal
+#  Synchronously resolve a promise by pumping the later event loop.
+# 
+#  R promises schedule their callbacks via `later::later()`.  When running
+#  inside a tight synchronous loop (no Shiny / httpuv reactor) those callbacks
+#  never fire unless we explicitly call `later::run_now()`.  This helper does
+#  exactly that: it installs fulfillment/rejection handlers and then pumps
+#  `later::run_now()` in a busy-wait until the promise settles.
+# 
+#  If the input is NOT a promise it is returned as-is, so this is safe to call
+#  on any value.
+# 
+#  @param p A promise (or plain value).
+#  @param timeout Maximum seconds to wait before raising an error.
+#  @return The fulfilled value, or stops with the rejection reason.
+#  @keywords internal
 await_promise <- function(p, timeout = 30) {
   if (!inherits(p, "promise")) {
     return(p)
@@ -133,11 +133,11 @@ await_promise <- function(p, timeout = 30) {
   result
 }
 
-#' Cancel futures if they are not resolved
-#'
-#' @param log Logger object for logging messages
-#' @param ... Named future objects to cancel
-#' @export
+#  Cancel futures if they are not resolved
+# 
+#  @param log Logger object for logging messages
+#  @param ... Named future objects to cancel
+#  @export
 cancel_futures <- function(log, ...) {
   # Get named arguments
   futures <- list(...)
@@ -159,13 +159,13 @@ cancel_futures <- function(log, ...) {
   }
 }
 
-#' Extract traceback information from an error
-#'
-#' Formats an error's traceback into a readable string for logging
-#'
-#' @param error The error object to extract the traceback from
-#' @return A formatted string containing the traceback
-#' @export
+#  Extract traceback information from an error
+# 
+#  Formats an error's traceback into a readable string for logging
+# 
+#  @param error The error object to extract the traceback from
+#  @return A formatted string containing the traceback
+#  @export
 get_traceback <- function(error) {
   # Get the traceback if available
   tb <- if (inherits(error, "error") && !is.null(attr(error, "traceback"))) {
@@ -184,13 +184,13 @@ get_traceback <- function(error) {
   ))
 }
 
-#' Clone an error object
-#'
-#' Creates a copy of an error object preserving its class, message and other attributes
-#'
-#' @param error The error object to clone
-#' @return A new error object with the same properties
-#' @export
+#  Clone an error object
+# 
+#  Creates a copy of an error object preserving its class, message and other attributes
+# 
+#  @param error The error object to clone
+#  @return A new error object with the same properties
+#  @export
 clone_error <- function(error) {
   if (!inherits(error, "error")) {
     stop("Input must be an error object")
@@ -213,38 +213,40 @@ clone_error <- function(error) {
   return(new_error)
 }
 
-#' MTProto Mobile Protocol sender
-#'
-#' This class is responsible for wrapping requests into TLMessage objects,
-#' sending them over the network and receiving them in a safe manner.
-#' Automatic reconnection due to temporary network issues is handled by this class,
-#' including retry of messages that could not be sent successfully.
-#' A new authorization key will be generated on connection if no other key exists yet.
-#' @importFrom R6 R6Class
-#' @importFrom future plan multisession resolved value
-#' @title MTProtoSender
-#' @description Telegram API type MTProtoSender
-#' @export
+#  MTProto Mobile Protocol sender
+# 
+#  This class is responsible for wrapping requests into TLMessage objects,
+#  sending them over the network and receiving them in a safe manner.
+#  Automatic reconnection due to temporary network issues is handled by this class,
+#  including retry of messages that could not be sent successfully.
+#  A new authorization key will be generated on connection if no other key exists yet.
+#  @importFrom R6 R6Class
+#  @importFrom future plan multisession resolved value
+#  @title MTProtoSender
+#  @description Telegram API type MTProtoSender
+#  @export
+#  @noRd
+#  @noRd
 MTProtoSender <- R6::R6Class("MTProtoSender",
   public = list(
-    #' @field auth_key Authentication key
+    #  @field auth_key Authentication key
     auth_key = NULL,
 
-    #' @field time_offset Time offset with server
+    #  @field time_offset Time offset with server
     time_offset = NULL,
 
     # disconnected = future::future(NULL, seed = TRUE),
 
-    #' @description
-    #' Initialize a new MTProtoSender
-    #' @param auth_key Authentication key
-    #' @param retries Number of retries for failed operations
-    #' @param delay Delay between retries in seconds
-    #' @param auto_reconnect Whether to automatically reconnect
-    #' @param connect_timeout Connection timeout in seconds
-    #' @param auth_key_callback Callback for auth key updates
-    #' @param updates_queue Queue for updates
-    #' @param auto_reconnect_callback Callback after reconnection
+    #  @description
+    #  Initialize a new MTProtoSender
+    #  @param auth_key Authentication key
+    #  @param retries Number of retries for failed operations
+    #  @param delay Delay between retries in seconds
+    #  @param auto_reconnect Whether to automatically reconnect
+    #  @param connect_timeout Connection timeout in seconds
+    #  @param auth_key_callback Callback for auth key updates
+    #  @param updates_queue Queue for updates
+    #  @param auto_reconnect_callback Callback after reconnection
     initialize = function(auth_key = NULL,
                           retries = 5, delay = 1, auto_reconnect = TRUE,
                           connect_timeout = NULL, auth_key_callback = NULL,
@@ -269,9 +271,9 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$auto_reconnect_callback <- auto_reconnect_callback
       private$connect_lock <- {
         lock <- NULL
-        list(lock = \() {
+        list(lock = function() {
           lock <<- TRUE
-        }, unlock = \() {
+        }, unlock = function() {
           lock <<- NULL
         })
       }
@@ -280,7 +282,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       # Connection state
       private$user_connected <- FALSE
       private$reconnecting <- FALSE
-      private$disconnected_future <- future::future(NULL, seed = FALSE)
+      if (isTRUE(getOption("telegramR.skip_background", FALSE)) || isTRUE(getOption("telegramR.test_mode", FALSE))) {
+        private$disconnected_future <- NULL
+      } else {
+        private$disconnected_future <- future::future(NULL, seed = FALSE)
+      }
 
       # Loop handles
       private$send_loop_handle <- NULL
@@ -403,10 +409,10 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #' @description
-    #' Connects to the specified given connection using the given auth key.
-    #' @param connection Connection object to use
-    #' @return TRUE if connected successfully, FALSE otherwise
+    #  @description
+    #  Connects to the specified given connection using the given auth key.
+    #  @param connection Connection object to use
+    #  @return TRUE if connected successfully, FALSE otherwise
     connect = function(connection) {
       if (private$._is_test_mode()) {
         private$connection <- connection
@@ -438,16 +444,16 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       return(TRUE)
     },
 
-    #' @description
-    #' Check if user is connected
-    #' @return TRUE if connected, FALSE otherwise
+    #  @description
+    #  Check if user is connected
+    #  @return TRUE if connected, FALSE otherwise
     is_connected = function() {
       return(private$user_connected)
     },
 
-    #' @description
-    #' Check if transport layer is connected
-    #' @return TRUE if transport connected, FALSE otherwise
+    #  @description
+    #  Check if transport layer is connected
+    #  @return TRUE if transport connected, FALSE otherwise
     transport_connected = function() {
       return(
         !private$reconnecting &&
@@ -456,9 +462,9 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       )
     },
 
-    #' @description
-    #' Cleanly disconnects the instance from the network, cancels
-    #' all pending requests, and closes the send and receive loops.
+    #  @description
+    #  Cleanly disconnects the instance from the network, cancels
+    #  all pending requests, and closes the send and receive loops.
     disconnect = function() {
       if (isTRUE(getOption("telegramR.test_mode")) || identical(Sys.getenv("TESTTHAT"), "true")) {
         private$user_connected <- FALSE
@@ -468,14 +474,14 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       return(result)
     },
 
-    #' @description
-    #' Enqueues the given request to be sent. Its send state will
-    #' be saved until a response arrives, and a future that will be
-    #' resolved when the response arrives will be returned.
-    #'
-    #' @param request Request or list of requests to send
-    #' @param ordered Whether requests should be executed in order
-    #' @return Future or list of futures that will resolve with the response
+    #  @description
+    #  Enqueues the given request to be sent. Its send state will
+    #  be saved until a response arrives, and a future that will be
+    #  resolved when the response arrives will be returned.
+    # 
+    #  @param request Request or list of requests to send
+    #  @param ordered Whether requests should be executed in order
+    #  @return Future or list of futures that will resolve with the response
     send = function(request, ordered = FALSE) {
       if (!private$user_connected) {
         stop("ConnectionError: Cannot send requests while disconnected")
@@ -521,16 +527,19 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #' @description
-    #' Get future that resolves when connection to Telegram ends
-    #' @return Future that resolves on disconnection
+    #  @description
+    #  Get future that resolves when connection to Telegram ends
+    #  @return Future that resolves on disconnection
     disconnected = function() {
+      if (is.null(private$disconnected_future)) {
+        return(promises::promise_resolve(NULL))
+      }
       return(future::future_promise(private$disconnected_future))
     },
 
-    #' @description
-    #' Generate a new unique message ID
-    #' @return New message ID
+    #  @description
+    #  Generate a new unique message ID
+    #  @return New message ID
     get_new_msg_id = function() {
       now <- as.numeric(Sys.time()) + self$time_offset
       sec <- floor(now)
@@ -551,24 +560,24 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       return(new_msg_id)
     },
 
-    #' @description
-    #' Set the callback invoked when the auth key changes
-    #' @param callback Function accepting an AuthKey object
+    #  @description
+    #  Set the callback invoked when the auth key changes
+    #  @param callback Function accepting an AuthKey object
     set_auth_key_callback = function(callback) {
       private$auth_key_callback <- callback
     },
 
-    #' @description
-    #' Set the callback invoked when updates are received
-    #' @param callback Function accepting an update object
+    #  @description
+    #  Set the callback invoked when updates are received
+    #  @param callback Function accepting an update object
     set_update_callback = function(callback) {
       private$update_callback <- callback
     },
 
-    #' @description
-    #' Update time offset based on a correct message ID
-    #' @param correct_msg_id Known valid message ID
-    #' @return Updated time offset
+    #  @description
+    #  Update time offset based on a correct message ID
+    #  @param correct_msg_id Known valid message ID
+    #  @return Updated time offset
     update_time_offset = function(correct_msg_id) {
       bad <- self$get_new_msg_id()
       old <- self$time_offset
@@ -892,7 +901,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
 
       # Reset disconnected future if already completed
       if (!is.null(private$disconnected_future) && future::resolved(private$disconnected_future)) {
-        private$disconnected_future <- future::future(NULL, seed = FALSE)
+        if (isTRUE(getOption("telegramR.skip_background", FALSE)) || isTRUE(getOption("telegramR.test_mode", FALSE))) {
+          private$disconnected_future <- NULL
+        } else {
+          private$disconnected_future <- future::future(NULL, seed = FALSE)
+        }
       }
 
       private$log$info("Connection to %s complete!", private$connection$to_string())
@@ -995,7 +1008,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       if (!is.null(private$disconnected_future) && !future::resolved(private$disconnected_future)) {
         # Keep this as a plain future marker; base Future objects do not
         # expose set_result/set_exception APIs.
-        private$disconnected_future <- future::future(NULL, seed = FALSE)
+        if (isTRUE(getOption("telegramR.skip_background", FALSE)) || isTRUE(getOption("telegramR.test_mode", FALSE))) {
+          private$disconnected_future <- NULL
+        } else {
+          private$disconnected_future <- future::future(NULL, seed = FALSE)
+        }
       }
     },
     .reconnect = function(last_error) {
@@ -1743,7 +1760,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #' Handle future salts
+    #  Handle future salts
     handle_future_salts = function(message) {
       # TODO save these salts and automatically adjust to the
       # correct one whenever the salt in use expires.
@@ -1755,7 +1772,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #' Handle state forgotten (MsgsStateReq and MsgResendReq)
+    #  Handle state forgotten (MsgsStateReq and MsgResendReq)
     handle_state_forgotten = function(message) {
       private$send_queue$append(
         RequestState$new(
@@ -1767,12 +1784,12 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       )
     },
 
-    #' Handle MsgsAllInfo
+    #  Handle MsgsAllInfo
     handle_msg_all = function(message) {
       # Currently does nothing
     },
 
-    #' Handle destroy session responses
+    #  Handle destroy session responses
     handle_destroy_session = function(message) {
       msg_id <- NULL
       state <- NULL
@@ -1797,7 +1814,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #' Handle destroy auth key responses
+    #  Handle destroy auth key responses
     handle_destroy_auth_key = function(message) {
       private$log$debug("Handling destroy auth key %s", message$obj)
 

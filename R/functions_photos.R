@@ -1,50 +1,52 @@
-#' DeletePhotosRequest
-#'
-#' R6 translation of the TLRequest DeletePhotosRequest.
-#'
-#'
-#' @format A R6 object inheriting from TLRequest.
-#' @section Methods:
-#' - new(id = NULL):
-#'   Create a new DeletePhotosRequest object.
-#' - resolve(client, utils):
-#'   Resolve references (convert each provided id to input photo via utils).
-#' - to_list():
-#'   Return a list representation suitable for JSON / introspection.
-#' - to_bytes():
-#'   Serialize the object to a raw vector (little-endian packing). Writes vector constructor and elements.
-#' - from_reader(reader):
-#'   Class method: read fields from a reader and construct an instance.
-#'
-#' @name DeletePhotosRequest
-#' @title DeletePhotosRequest
-#' @description Telegram API type DeletePhotosRequest
-#' @export
+#  DeletePhotosRequest
+# 
+#  R6 translation of the TLRequest DeletePhotosRequest.
+# 
+# 
+#  @format A R6 object inheriting from TLRequest.
+#  @section Methods:
+#  - new(id = NULL):
+#    Create a new DeletePhotosRequest object.
+#  - resolve(client, utils):
+#    Resolve references (convert each provided id to input photo via utils).
+#  - to_list():
+#    Return a list representation suitable for JSON / introspection.
+#  - to_bytes():
+#    Serialize the object to a raw vector (little-endian packing). Writes vector constructor and elements.
+#  - from_reader(reader):
+#    Class method: read fields from a reader and construct an instance.
+# 
+#  @name DeletePhotosRequest
+#  @title DeletePhotosRequest
+#  @description Telegram API type DeletePhotosRequest
+#  @export
+#  @noRd
+#  @noRd
 DeletePhotosRequest <- R6::R6Class(
   "DeletePhotosRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID integer
+    #  @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0x87cf7f2f,
 
-    #' @field SUBCLASS_OF_ID integer
+    #  @field SUBCLASS_OF_ID integer
     SUBCLASS_OF_ID = 0x8918e168,
 
-    #' @field id list of TLObject or NULL
+    #  @field id list of TLObject or NULL
     id = NULL,
 
-    #' @description Initialize a new DeletePhotosRequest
-    #'
-    #' @param id list of TLObject or identifiers for input photos
+    #  @description Initialize a new DeletePhotosRequest
+    # 
+    #  @param id list of TLObject or identifiers for input photos
     initialize = function(id = NULL) {
       self$id <- id
     },
 
-    #' @description Resolve references (client + utils)
-    #'
-    #' Convert each provided id into an input photo using utils.
-    #' @param client client (not used here, included for API symmetry)
-    #' @param utils helper with get_input_photo method
+    #  @description Resolve references (client + utils)
+    # 
+    #  Convert each provided id into an input photo using utils.
+    #  @param client client (not used here, included for API symmetry)
+    #  @param utils helper with get_input_photo method
     resolve = function(client, utils) {
       if (!is.null(self$id)) {
         resolved <- lapply(self$id, function(x) utils$get_input_photo(x))
@@ -53,9 +55,9 @@ DeletePhotosRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert object to a list
-    #'
-    #' @return list representation of the request
+    #  @description Convert object to a list
+    # 
+    #  @return list representation of the request
     to_list = function() {
       list(
         `_` = "DeletePhotosRequest",
@@ -63,11 +65,11 @@ DeletePhotosRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to bytes (raw vector)
-    #'
-    #' Packs constructor id, vector constructor id, length and elements in little-endian order.
-    #' Each element must implement to_bytes().
-    #' @return raw vector
+    #  @description Serialize to bytes (raw vector)
+    # 
+    #  Packs constructor id, vector constructor id, length and elements in little-endian order.
+    #  Each element must implement to_bytes().
+    #  @return raw vector
     to_bytes = function() {
       con <- rawConnection(raw(), "r+")
       on.exit(close(con))
@@ -97,7 +99,7 @@ DeletePhotosRequest <- R6::R6Class(
   active = list(
     # nothing active
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE,
   private = list(
     from_reader_impl = function(reader) {
@@ -144,53 +146,55 @@ DeletePhotosRequest$read_result <- function(reader) {
 }
 
 
-#' GetUserPhotosRequest
-#'
-#' R6 translation of the TLRequest GetUserPhotosRequest.
-#'
-#'
-#' @format A R6 object inheriting from TLRequest.
-#' @section Methods:
-#' - new(user_id = NULL, offset = 0L, max_id = 0, limit = 0L):
-#'   Create a new GetUserPhotosRequest object.
-#' - resolve(client, utils):
-#'   Resolve references (convert user identifier to input user via client + utils).
-#' - to_list():
-#'   Return a list representation suitable for JSON / introspection.
-#' - to_bytes():
-#'   Serialize the object to a raw vector (little-endian packing).
-#' - from_reader(reader):
-#'   Class method: read fields from a reader and construct an instance.
-#'
-#' @name GetUserPhotosRequest
-#' @title GetUserPhotosRequest
-#' @description Telegram API type GetUserPhotosRequest
-#' @export
+#  GetUserPhotosRequest
+# 
+#  R6 translation of the TLRequest GetUserPhotosRequest.
+# 
+# 
+#  @format A R6 object inheriting from TLRequest.
+#  @section Methods:
+#  - new(user_id = NULL, offset = 0L, max_id = 0, limit = 0L):
+#    Create a new GetUserPhotosRequest object.
+#  - resolve(client, utils):
+#    Resolve references (convert user identifier to input user via client + utils).
+#  - to_list():
+#    Return a list representation suitable for JSON / introspection.
+#  - to_bytes():
+#    Serialize the object to a raw vector (little-endian packing).
+#  - from_reader(reader):
+#    Class method: read fields from a reader and construct an instance.
+# 
+#  @name GetUserPhotosRequest
+#  @title GetUserPhotosRequest
+#  @description Telegram API type GetUserPhotosRequest
+#  @export
+#  @noRd
+#  @noRd
 GetUserPhotosRequest <- R6::R6Class(
   "GetUserPhotosRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID integer
+    #  @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0x91cd32a8,
 
-    #' @field SUBCLASS_OF_ID integer
+    #  @field SUBCLASS_OF_ID integer
     SUBCLASS_OF_ID = 0x27cfb967,
 
-    #' @field user_id TLObject or NULL
+    #  @field user_id TLObject or NULL
     user_id = NULL,
-    #' @field offset integer
+    #  @field offset integer
     offset = NULL,
-    #' @field max_id numeric (64-bit representation)
+    #  @field max_id numeric (64-bit representation)
     max_id = NULL,
-    #' @field limit integer
+    #  @field limit integer
     limit = NULL,
 
-    #' @description Initialize a new GetUserPhotosRequest
-    #'
-    #' @param user_id TLObject or identifier for input user
-    #' @param offset integer
-    #' @param max_id numeric (64-bit)
-    #' @param limit integer
+    #  @description Initialize a new GetUserPhotosRequest
+    # 
+    #  @param user_id TLObject or identifier for input user
+    #  @param offset integer
+    #  @param max_id numeric (64-bit)
+    #  @param limit integer
     initialize = function(user_id = NULL, offset = 0L, max_id = 0, limit = 0L) {
       self$user_id <- user_id
       self$offset <- as.integer(offset)
@@ -198,11 +202,11 @@ GetUserPhotosRequest <- R6::R6Class(
       self$limit <- as.integer(limit)
     },
 
-    #' @description Resolve references (client + utils)
-    #'
-    #' Convert provided user identifier into an input user using client and utils.
-    #' @param client client with get_input_entity method
-    #' @param utils helper with get_input_user method
+    #  @description Resolve references (client + utils)
+    # 
+    #  Convert provided user identifier into an input user using client and utils.
+    #  @param client client with get_input_entity method
+    #  @param utils helper with get_input_user method
     resolve = function(client, utils) {
       if (!is.null(self$user_id)) {
         entity <- client$get_input_entity(self$user_id)
@@ -211,9 +215,9 @@ GetUserPhotosRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert object to a list
-    #'
-    #' @return list representation of the request
+    #  @description Convert object to a list
+    # 
+    #  @return list representation of the request
     to_list = function() {
       list(
         `_` = "GetUserPhotosRequest",
@@ -224,11 +228,11 @@ GetUserPhotosRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to bytes (raw vector)
-    #'
-    #' Packs constructor id and fields in little-endian order.
-    #' Relies on user_id implementing to_bytes(). max_id is written as 8 bytes (numeric).
-    #' @return raw vector
+    #  @description Serialize to bytes (raw vector)
+    # 
+    #  Packs constructor id and fields in little-endian order.
+    #  Relies on user_id implementing to_bytes(). max_id is written as 8 bytes (numeric).
+    #  @return raw vector
     to_bytes = function() {
       con <- rawConnection(raw(), "r+")
       on.exit(close(con))
@@ -253,7 +257,7 @@ GetUserPhotosRequest <- R6::R6Class(
   active = list(
     # nothing active
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE,
   private = list(
     from_reader_impl = function(reader) {
@@ -284,61 +288,63 @@ GetUserPhotosRequest$from_reader <- function(reader) {
 }
 
 
-#' UpdateProfilePhotoRequest
-#'
-#' R6 translation of the TLRequest UpdateProfilePhotoRequest.
-#'
-#'
-#' @format A R6 object inheriting from TLRequest.
-#' @section Methods:
-#' - new(id = NULL, fallback = NULL, bot = NULL):
-#'   Create a new UpdateProfilePhotoRequest object.
-#' - resolve(client, utils):
-#'   Resolve references (convert provided id to input photo and bot to input user).
-#' - to_list():
-#'   Return a list representation suitable for JSON / introspection.
-#' - to_bytes():
-#'   Serialize the object to a raw vector (little-endian packing).
-#' - from_reader(reader):
-#'   Class method: read fields from a reader and construct an instance.
-#'
-#' @name UpdateProfilePhotoRequest
-#' @title UpdateProfilePhotoRequest
-#' @description Telegram API type UpdateProfilePhotoRequest
-#' @export
+#  UpdateProfilePhotoRequest
+# 
+#  R6 translation of the TLRequest UpdateProfilePhotoRequest.
+# 
+# 
+#  @format A R6 object inheriting from TLRequest.
+#  @section Methods:
+#  - new(id = NULL, fallback = NULL, bot = NULL):
+#    Create a new UpdateProfilePhotoRequest object.
+#  - resolve(client, utils):
+#    Resolve references (convert provided id to input photo and bot to input user).
+#  - to_list():
+#    Return a list representation suitable for JSON / introspection.
+#  - to_bytes():
+#    Serialize the object to a raw vector (little-endian packing).
+#  - from_reader(reader):
+#    Class method: read fields from a reader and construct an instance.
+# 
+#  @name UpdateProfilePhotoRequest
+#  @title UpdateProfilePhotoRequest
+#  @description Telegram API type UpdateProfilePhotoRequest
+#  @export
+#  @noRd
+#  @noRd
 UpdateProfilePhotoRequest <- R6::R6Class(
   "UpdateProfilePhotoRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID integer
+    #  @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0x09e82039,
 
-    #' @field SUBCLASS_OF_ID integer
+    #  @field SUBCLASS_OF_ID integer
     SUBCLASS_OF_ID = 0xc292bd24,
 
-    #' @field id TLObject or NULL
+    #  @field id TLObject or NULL
     id = NULL,
-    #' @field fallback logical or NULL
+    #  @field fallback logical or NULL
     fallback = NULL,
-    #' @field bot TLObject or NULL
+    #  @field bot TLObject or NULL
     bot = NULL,
 
-    #' @description Initialize a new UpdateProfilePhotoRequest
-    #'
-    #' @param id TLObject or identifier for input photo
-    #' @param fallback logical or NULL
-    #' @param bot TLObject or identifier for input user or NULL
+    #  @description Initialize a new UpdateProfilePhotoRequest
+    # 
+    #  @param id TLObject or identifier for input photo
+    #  @param fallback logical or NULL
+    #  @param bot TLObject or identifier for input user or NULL
     initialize = function(id = NULL, fallback = NULL, bot = NULL) {
       self$id <- id
       self$fallback <- fallback
       self$bot <- bot
     },
 
-    #' @description Resolve references (client + utils)
-    #'
-    #' Convert provided id into an input photo and bot into an input user using client and utils.
-    #' @param client client with get_input_entity method
-    #' @param utils helper with get_input_photo and get_input_user methods
+    #  @description Resolve references (client + utils)
+    # 
+    #  Convert provided id into an input photo and bot into an input user using client and utils.
+    #  @param client client with get_input_entity method
+    #  @param utils helper with get_input_photo and get_input_user methods
     resolve = function(client, utils) {
       if (!is.null(self$id)) {
         self$id <- utils$get_input_photo(self$id)
@@ -353,9 +359,9 @@ UpdateProfilePhotoRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert object to a list
-    #'
-    #' @return list representation of the request
+    #  @description Convert object to a list
+    # 
+    #  @return list representation of the request
     to_list = function() {
       list(
         `_` = "UpdateProfilePhotoRequest",
@@ -365,11 +371,11 @@ UpdateProfilePhotoRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to bytes (raw vector)
-    #'
-    #' Packs constructor id, flags and present fields in little-endian order.
-    #' Relies on contained TLObject instances implementing to_bytes().
-    #' @return raw vector
+    #  @description Serialize to bytes (raw vector)
+    # 
+    #  Packs constructor id, flags and present fields in little-endian order.
+    #  Relies on contained TLObject instances implementing to_bytes().
+    #  @return raw vector
     to_bytes = function() {
       con <- rawConnection(raw(), "r+")
       on.exit(close(con))
@@ -404,7 +410,7 @@ UpdateProfilePhotoRequest <- R6::R6Class(
   active = list(
     # nothing active
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE,
   private = list(
     # class-level helper to construct from reader
@@ -442,62 +448,64 @@ UpdateProfilePhotoRequest$from_reader <- function(reader) {
 }
 
 
-#' UploadContactProfilePhotoRequest
-#'
-#' R6 translation of the TLRequest UploadContactProfilePhotoRequest.
-#'
-#'
-#' @format A R6 object inheriting from TLRequest.
-#' @section Methods:
-#' - new(user_id = NULL, suggest = NULL, save = NULL, file = NULL, video = NULL, video_start_ts = NULL, video_emoji_markup = NULL):
-#'   Create a new UploadContactProfilePhotoRequest object.
-#' - resolve(client, utils):
-#'   Resolve references (convert a user identifier to input user via utils).
-#' - to_list():
-#'   Return a list representation suitable for JSON / introspection.
-#' - to_bytes():
-#'   Serialize the object to a raw vector (little-endian packing).
-#' - from_reader(reader):
-#'   Class method: read fields from a reader and construct an instance.
-#'
-#' @name UploadContactProfilePhotoRequest
-#' @title UploadContactProfilePhotoRequest
-#' @description Telegram API type UploadContactProfilePhotoRequest
-#' @export
+#  UploadContactProfilePhotoRequest
+# 
+#  R6 translation of the TLRequest UploadContactProfilePhotoRequest.
+# 
+# 
+#  @format A R6 object inheriting from TLRequest.
+#  @section Methods:
+#  - new(user_id = NULL, suggest = NULL, save = NULL, file = NULL, video = NULL, video_start_ts = NULL, video_emoji_markup = NULL):
+#    Create a new UploadContactProfilePhotoRequest object.
+#  - resolve(client, utils):
+#    Resolve references (convert a user identifier to input user via utils).
+#  - to_list():
+#    Return a list representation suitable for JSON / introspection.
+#  - to_bytes():
+#    Serialize the object to a raw vector (little-endian packing).
+#  - from_reader(reader):
+#    Class method: read fields from a reader and construct an instance.
+# 
+#  @name UploadContactProfilePhotoRequest
+#  @title UploadContactProfilePhotoRequest
+#  @description Telegram API type UploadContactProfilePhotoRequest
+#  @export
+#  @noRd
+#  @noRd
 UploadContactProfilePhotoRequest <- R6::R6Class(
   "UploadContactProfilePhotoRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID integer
+    #  @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0xe14c4a71,
 
-    #' @field SUBCLASS_OF_ID integer
+    #  @field SUBCLASS_OF_ID integer
     SUBCLASS_OF_ID = 0xc292bd24,
 
-    #' @field user_id TLObject or NULL
+    #  @field user_id TLObject or NULL
     user_id = NULL,
-    #' @field suggest logical (optional)
+    #  @field suggest logical (optional)
     suggest = NULL,
-    #' @field save logical (optional)
+    #  @field save logical (optional)
     save = NULL,
-    #' @field file TLObject or NULL
+    #  @field file TLObject or NULL
     file = NULL,
-    #' @field video TLObject or NULL
+    #  @field video TLObject or NULL
     video = NULL,
-    #' @field video_start_ts numeric or NULL
+    #  @field video_start_ts numeric or NULL
     video_start_ts = NULL,
-    #' @field video_emoji_markup TLObject or NULL
+    #  @field video_emoji_markup TLObject or NULL
     video_emoji_markup = NULL,
 
-    #' @description Initialize a new UploadContactProfilePhotoRequest
-    #'
-    #' @param user_id TLObject or identifier for user
-    #' @param suggest logical or NULL
-    #' @param save logical or NULL
-    #' @param file TLObject or NULL
-    #' @param video TLObject or NULL
-    #' @param video_start_ts numeric or NULL
-    #' @param video_emoji_markup TLObject or NULL
+    #  @description Initialize a new UploadContactProfilePhotoRequest
+    # 
+    #  @param user_id TLObject or identifier for user
+    #  @param suggest logical or NULL
+    #  @param save logical or NULL
+    #  @param file TLObject or NULL
+    #  @param video TLObject or NULL
+    #  @param video_start_ts numeric or NULL
+    #  @param video_emoji_markup TLObject or NULL
     initialize = function(user_id = NULL, suggest = NULL, save = NULL, file = NULL,
                           video = NULL, video_start_ts = NULL, video_emoji_markup = NULL) {
       self$user_id <- user_id
@@ -509,11 +517,11 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
       self$video_emoji_markup <- video_emoji_markup
     },
 
-    #' @description Resolve references (client + utils)
-    #'
-    #' Convert provided user identifier into an input user using client and utils.
-    #' @param client client with get_input_entity method
-    #' @param utils helper with get_input_user method
+    #  @description Resolve references (client + utils)
+    # 
+    #  Convert provided user identifier into an input user using client and utils.
+    #  @param client client with get_input_entity method
+    #  @param utils helper with get_input_user method
     resolve = function(client, utils) {
       if (!is.null(self$user_id)) {
         # client$get_input_entity may be synchronous in this R binding
@@ -523,9 +531,9 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert object to a list
-    #'
-    #' @return list representation of the request
+    #  @description Convert object to a list
+    # 
+    #  @return list representation of the request
     to_list = function() {
       list(
         `_` = "UploadContactProfilePhotoRequest",
@@ -539,11 +547,11 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to bytes (raw vector)
-    #'
-    #' Packs constructor id, flags and present fields in little-endian order.
-    #' Relies on contained TLObject instances implementing to_bytes().
-    #' @return raw vector
+    #  @description Serialize to bytes (raw vector)
+    # 
+    #  Packs constructor id, flags and present fields in little-endian order.
+    #  Relies on contained TLObject instances implementing to_bytes().
+    #  @return raw vector
     to_bytes = function() {
       con <- rawConnection(raw(), "r+")
       on.exit(close(con))
@@ -584,7 +592,7 @@ UploadContactProfilePhotoRequest <- R6::R6Class(
   active = list(
     # nothing active
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE,
   private = list(
     # class-level helper to construct from reader
@@ -644,59 +652,61 @@ UploadContactProfilePhotoRequest$from_reader <- function(reader) {
 }
 
 
-#' UploadProfilePhotoRequest
-#'
-#' R6 translation of the TLRequest UploadProfilePhotoRequest.
-#'
-#'
-#' @format A R6 object inheriting from TLRequest.
-#' @section Methods:
-#' - new(fallback = NULL, bot = NULL, file = NULL, video = NULL, video_start_ts = NULL, video_emoji_markup = NULL):
-#'   Create a new UploadProfilePhotoRequest object.
-#' - resolve(client, utils):
-#'   Resolve references (e.g. convert a bot entity to input user via utils).
-#' - to_list():
-#'   Return a list representation suitable for JSON / introspection.
-#' - to_bytes():
-#'   Serialize the object to a raw vector (little-endian packing).
-#' - from_reader(reader):
-#'   Class method: read fields from a reader and construct an instance.
-#'
-#' @name UploadProfilePhotoRequest
-#' @title UploadProfilePhotoRequest
-#' @description Telegram API type UploadProfilePhotoRequest
-#' @export
+#  UploadProfilePhotoRequest
+# 
+#  R6 translation of the TLRequest UploadProfilePhotoRequest.
+# 
+# 
+#  @format A R6 object inheriting from TLRequest.
+#  @section Methods:
+#  - new(fallback = NULL, bot = NULL, file = NULL, video = NULL, video_start_ts = NULL, video_emoji_markup = NULL):
+#    Create a new UploadProfilePhotoRequest object.
+#  - resolve(client, utils):
+#    Resolve references (e.g. convert a bot entity to input user via utils).
+#  - to_list():
+#    Return a list representation suitable for JSON / introspection.
+#  - to_bytes():
+#    Serialize the object to a raw vector (little-endian packing).
+#  - from_reader(reader):
+#    Class method: read fields from a reader and construct an instance.
+# 
+#  @name UploadProfilePhotoRequest
+#  @title UploadProfilePhotoRequest
+#  @description Telegram API type UploadProfilePhotoRequest
+#  @export
+#  @noRd
+#  @noRd
 UploadProfilePhotoRequest <- R6::R6Class(
   "UploadProfilePhotoRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID integer
+    #  @field CONSTRUCTOR_ID integer
     CONSTRUCTOR_ID = 0x0388a3b5,
 
-    #' @field SUBCLASS_OF_ID integer
+    #  @field SUBCLASS_OF_ID integer
     SUBCLASS_OF_ID = 0xc292bd24,
 
-    #' @field fallback logical (optional)
+    #  @field fallback logical (optional)
     fallback = NULL,
-    #' @field bot TLObject or NULL
+    #  @field bot TLObject or NULL
     bot = NULL,
-    #' @field file TLObject or NULL
+    #  @field file TLObject or NULL
     file = NULL,
-    #' @field video TLObject or NULL
+    #  @field video TLObject or NULL
     video = NULL,
-    #' @field video_start_ts numeric or NULL
+    #  @field video_start_ts numeric or NULL
     video_start_ts = NULL,
-    #' @field video_emoji_markup TLObject or NULL
+    #  @field video_emoji_markup TLObject or NULL
     video_emoji_markup = NULL,
 
-    #' @description Initialize a new UploadProfilePhotoRequest
-    #'
-    #' @param fallback logical or NULL
-    #' @param bot TLObject or identifier for bot or NULL
-    #' @param file TLObject or NULL
-    #' @param video TLObject or NULL
-    #' @param video_start_ts numeric or NULL
-    #' @param video_emoji_markup TLObject or NULL
+    #  @description Initialize a new UploadProfilePhotoRequest
+    # 
+    #  @param fallback logical or NULL
+    #  @param bot TLObject or identifier for bot or NULL
+    #  @param file TLObject or NULL
+    #  @param video TLObject or NULL
+    #  @param video_start_ts numeric or NULL
+    #  @param video_emoji_markup TLObject or NULL
     initialize = function(fallback = NULL, bot = NULL, file = NULL, video = NULL,
                           video_start_ts = NULL, video_emoji_markup = NULL) {
       self$fallback <- fallback
@@ -707,11 +717,11 @@ UploadProfilePhotoRequest <- R6::R6Class(
       self$video_emoji_markup <- video_emoji_markup
     },
 
-    #' @description Resolve references (client + utils)
-    #'
-    #' Convert provided bot identifier into an input user using client and utils.
-    #' @param client client with get_input_entity method
-    #' @param utils helper with get_input_user method
+    #  @description Resolve references (client + utils)
+    # 
+    #  Convert provided bot identifier into an input user using client and utils.
+    #  @param client client with get_input_entity method
+    #  @param utils helper with get_input_user method
     resolve = function(client, utils) {
       if (!is.null(self$bot) && !identical(self$bot, FALSE)) {
         # client$get_input_entity may be synchronous in this R binding
@@ -721,9 +731,9 @@ UploadProfilePhotoRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert object to a list
-    #'
-    #' @return list representation of the request
+    #  @description Convert object to a list
+    # 
+    #  @return list representation of the request
     to_list = function() {
       list(
         `_` = "UploadProfilePhotoRequest",
@@ -736,11 +746,11 @@ UploadProfilePhotoRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to bytes (raw vector)
-    #'
-    #' Packs constructor id, flags and present fields in little-endian order.
-    #' Relies on contained TLObject instances implementing to_bytes().
-    #' @return raw vector
+    #  @description Serialize to bytes (raw vector)
+    # 
+    #  Packs constructor id, flags and present fields in little-endian order.
+    #  Relies on contained TLObject instances implementing to_bytes().
+    #  @return raw vector
     to_bytes = function() {
       con <- rawConnection(raw(), "r+")
       on.exit(close(con))
@@ -782,7 +792,7 @@ UploadProfilePhotoRequest <- R6::R6Class(
   active = list(
     # nothing active
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE,
   private = list(
     # class-level helper to construct from reader

@@ -1,18 +1,20 @@
-#' BinaryReader Class
-#'
-#'
-#' @details
-#' Provides methods to read various data types and handle stream positions.
-#'
-#' @title BinaryReader
-#' @description Telegram API type BinaryReader
-#' @export
+#  BinaryReader Class
+# 
+# 
+#  @details
+#  Provides methods to read various data types and handle stream positions.
+# 
+#  @title BinaryReader
+#  @description Telegram API type BinaryReader
+#  @export
+#  @noRd
+#  @noRd
 BinaryReader <- R6::R6Class(
   "BinaryReader",
   public = list(
-    #' @description
-    #' Initializes the BinaryReader with the given binary data.
-    #' @param data A raw vector representing the binary data to read.
+    #  @description
+    #  Initializes the BinaryReader with the given binary data.
+    #  @param data A raw vector representing the binary data to read.
     initialize = function(data) {
       private$stream <- NULL
       private$.last <- NULL
@@ -20,34 +22,34 @@ BinaryReader <- R6::R6Class(
       private$.pos <- 0L
     },
 
-    #' @description
-    #' Reads a single byte value.
-    #' @return A single byte as an integer.
+    #  @description
+    #  Reads a single byte value.
+    #  @return A single byte as an integer.
     read_byte = function() {
       return(as.integer(self$read(1L)[1]))
     },
 
-    #' @description
-    #' Reads a 4-byte integer value.
-    #' @param signed A logical indicating whether the integer is signed.
-    #' @return An integer value.
+    #  @description
+    #  Reads a 4-byte integer value.
+    #  @param signed A logical indicating whether the integer is signed.
+    #  @return An integer value.
     read_int = function(signed = TRUE) {
       bytes <- self$read(4)
       return(self$bytes_to_int(bytes, signed))
     },
 
-    #' @description
-    #' Reads an 8-byte long integer value.
-    #' @param signed A logical indicating whether the integer is signed.
-    #' @return A long integer value.
+    #  @description
+    #  Reads an 8-byte long integer value.
+    #  @param signed A logical indicating whether the integer is signed.
+    #  @return A long integer value.
     read_long = function(signed = TRUE) {
       bytes <- self$read(8)
       return(self$bytes_to_int(bytes, signed))
     },
 
-    #' @description
-    #' Reads a 4-byte floating-point value.
-    #' @return A numeric value.
+    #  @description
+    #  Reads a 4-byte floating-point value.
+    #  @return A numeric value.
     read_float = function() {
       bytes <- self$read(4L)
       con <- rawConnection(bytes, "rb")
@@ -56,9 +58,9 @@ BinaryReader <- R6::R6Class(
       return(val)
     },
 
-    #' @description
-    #' Reads an 8-byte floating-point value.
-    #' @return A numeric value.
+    #  @description
+    #  Reads an 8-byte floating-point value.
+    #  @return A numeric value.
     read_double = function() {
       bytes <- self$read(8L)
       con <- rawConnection(bytes, "rb")
@@ -67,10 +69,10 @@ BinaryReader <- R6::R6Class(
       return(val)
     },
 
-    #' @description
-    #' Reads a specified number of bytes.
-    #' @param length An integer specifying the number of bytes to read.
-    #' @return A raw vector of the read bytes.
+    #  @description
+    #  Reads a specified number of bytes.
+    #  @param length An integer specifying the number of bytes to read.
+    #  @return A raw vector of the read bytes.
     read = function(length = -1) {
       if (length == 0) {
         result <- raw(0)
@@ -102,49 +104,46 @@ BinaryReader <- R6::R6Class(
       return(result)
     },
 
-    #' @description
-    #' Gets the byte array representing the current buffer as a whole.
-    #' @return A raw vector of the entire buffer.
+    #  @description
+    #  Gets the byte array representing the current buffer as a whole.
+    #  @return A raw vector of the entire buffer.
     get_bytes = function() {
       return(private$.data)
     },
 
-    #' @description
-    #' Closes the reader, freeing the raw connection.
+    #  @description
+    #  Closes the reader, freeing the raw connection.
     close = function() {
       invisible(NULL)
     },
 
-    finalize = function() {
-      invisible(NULL)
-    },
 
-    #' @description
-    #' Tells the current position in the stream.
-    #' @return An integer representing the current position.
+    #  @description
+    #  Tells the current position in the stream.
+    #  @return An integer representing the current position.
     tell_position = function() {
       return(private$.pos)
     },
 
-    #' @description
-    #' Sets the current position in the stream.
-    #' @param position An integer specifying the position to set.
+    #  @description
+    #  Sets the current position in the stream.
+    #  @param position An integer specifying the position to set.
     set_position = function(position) {
       private$.pos <- as.integer(position)
     },
 
-    #' @description
-    #' Seeks the stream position by a given offset.
-    #' @param offset An integer specifying the offset to seek.
+    #  @description
+    #  Seeks the stream position by a given offset.
+    #  @param offset An integer specifying the offset to seek.
     seek = function(offset) {
       private$.pos <- private$.pos + as.integer(offset)
     },
 
-    #' @description
-    #' Converts a byte vector to an integer.
-    #' @param bytes A raw vector representing the bytes.
-    #' @param signed A logical indicating whether the integer is signed.
-    #' @return An integer value.
+    #  @description
+    #  Converts a byte vector to an integer.
+    #  @param bytes A raw vector representing the bytes.
+    #  @param signed A logical indicating whether the integer is signed.
+    #  @return An integer value.
     bytes_to_int = function(bytes, signed = TRUE) {
       if (length(bytes) > 4) {
         # Use big integer arithmetic and return bigz to preserve
@@ -174,19 +173,19 @@ BinaryReader <- R6::R6Class(
       }
     },
 
-    #' @description
-    #' Reads a large integer (128, 256, etc bits).
-    #' @param bits Number of bits to read.
-    #' @return A bigz value.
+    #  @description
+    #  Reads a large integer (128, 256, etc bits).
+    #  @param bits Number of bits to read.
+    #  @return A bigz value.
     read_large_int = function(bits) {
       bytes <- self$read(bits / 8)
       hex <- paste(sprintf("%02x", as.integer(rev(bytes))), collapse = "")
       return(gmp::as.bigz(paste0("0x", hex)))
     },
 
-    #' @description
-    #' Reads a Telegram-encoded byte array.
-    #' @return A raw vector.
+    #  @description
+    #  Reads a Telegram-encoded byte array.
+    #  @return A raw vector.
     tgread_bytes = function() {
       first_byte <- as.integer(self$read(1))
       if (first_byte == 254) {
@@ -205,23 +204,23 @@ BinaryReader <- R6::R6Class(
       return(data)
     },
 
-    #' @description
-    #' Alias for tgread_bytes (some generated code uses this name).
-    #' @return A raw vector.
+    #  @description
+    #  Alias for tgread_bytes (some generated code uses this name).
+    #  @return A raw vector.
     tgreadbytes = function() {
       self$tgread_bytes()
     },
 
-    #' @description
-    #' Reads a Telegram-encoded string.
-    #' @return A character string.
+    #  @description
+    #  Reads a Telegram-encoded string.
+    #  @return A character string.
     tgread_string = function() {
       return(rawToChar(self$tgread_bytes()))
     },
 
-    #' @description
-    #' Reads a 32-bit Unix timestamp and returns it as a POSIXct datetime.
-    #' @return A POSIXct datetime or NULL if the timestamp is 0.
+    #  @description
+    #  Reads a 32-bit Unix timestamp and returns it as a POSIXct datetime.
+    #  @return A POSIXct datetime or NULL if the timestamp is 0.
     tgread_date = function() {
       value <- self$read_int(signed = FALSE)
       if (is.null(value) || value == 0) {
@@ -230,9 +229,9 @@ BinaryReader <- R6::R6Class(
       as.POSIXct(as.numeric(value), origin = "1970-01-01", tz = "UTC")
     },
 
-    #' @description
-    #' Reads a TL object.
-    #' @return A TL object or raw bytes if type unknown.
+    #  @description
+    #  Reads a TL object.
+    #  @return A TL object or raw bytes if type unknown.
     tgread_object = function() {
       constructor_id <- self$read_int(signed = FALSE)
       if (!is.null(constructor_id) &&
@@ -415,6 +414,9 @@ BinaryReader <- R6::R6Class(
     }
   ),
   private = list(
+    finalize = function() {
+      invisible(NULL)
+    },
     stream = NULL,
     .last = NULL,
     .data = NULL,

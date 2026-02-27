@@ -1,27 +1,29 @@
-#' @include types.R
+#  @include types.R
 NULL
 
 .MAX_PARTICIPANTS_CHUNK_SIZE <- 200
 .MAX_ADMIN_LOG_CHUNK_SIZE <- 100
 .MAX_PROFILE_PHOTO_CHUNK_SIZE <- 100
 
-#' _ChatAction R6 Class
-#'
-#' A context manager-like class for representing a "chat action" in Telegram,
-#' such as "user is typing" or uploading a file with progress.
-#' This class handles sending the appropriate action to the chat and optionally
-#' cancelling it when done. It is designed to be used synchronously in R.
-#'
-#' @export
+#  _ChatAction R6 Class
+# 
+#  A context manager-like class for representing a "chat action" in Telegram,
+#  such as "user is typing" or uploading a file with progress.
+#  This class handles sending the appropriate action to the chat and optionally
+#  cancelling it when done. It is designed to be used synchronously in R.
+# 
+#  @export
+#  @noRd
+#  @noRd
 .ChatAction <- R6::R6Class(
   "_ChatAction",
   public = list(
-    #' @description Initialize the _ChatAction object.
-    #' @param client The TelegramClient instance.
-    #' @param chat The chat entity.
-    #' @param action The action to show (string or SendMessageAction object).
-    #' @param delay The delay in seconds (reserved for future async implementation).
-    #' @param auto_cancel Whether to auto-cancel on exit.
+    #  @description Initialize the _ChatAction object.
+    #  @param client The TelegramClient instance.
+    #  @param chat The chat entity.
+    #  @param action The action to show (string or SendMessageAction object).
+    #  @param delay The delay in seconds (reserved for future async implementation).
+    #  @param auto_cancel Whether to auto-cancel on exit.
     initialize = function(client, chat, action, delay = 4, auto_cancel = TRUE) {
       self$client <- client
       self$chat <- chat
@@ -32,8 +34,8 @@ NULL
       self$running <- FALSE
     },
 
-    #' @description Enter the context (start the action).
-    #' Sends the initial action request to the chat.
+    #  @description Enter the context (start the action).
+    #  Sends the initial action request to the chat.
     enter = function() {
       self$chat <- self$client$get_input_entity(self$chat)
       self$request <- SetTypingRequest(self$chat, self$action)
@@ -42,9 +44,9 @@ NULL
       self$client(self$request)
     },
 
-    #' @description Exit the context (stop the action).
-    #' Cancels the action if auto_cancel is TRUE.
-    #' @param ... Ignored (for compatibility with context managers).
+    #  @description Exit the context (stop the action).
+    #  Cancels the action if auto_cancel is TRUE.
+    #  @param ... Ignored (for compatibility with context managers).
     exit = function(...) {
       self$running <- FALSE
       if (self$auto_cancel) {
@@ -53,9 +55,9 @@ NULL
       }
     },
 
-    #' @description Update the progress of the action (for upload actions).
-    #' @param current The current progress value.
-    #' @param total The total progress value.
+    #  @description Update the progress of the action (for upload actions).
+    #  @param current The current progress value.
+    #  @param total The total progress value.
     progress = function(current, total) {
       if ("progress" %in% names(self$action)) {
         self$action$progress <- 100 * round(current / total)
@@ -63,7 +65,7 @@ NULL
     }
   ),
   private = list(
-    #' @field _str_mapping A named list mapping string action names to SendMessageAction objects.
+    #  @field _str_mapping A named list mapping string action names to SendMessageAction objects.
     .str_mapping = list(
       "typing" = SendMessageTypingAction$new(),
       "contact" = SendMessageChooseContactAction$new(),
@@ -88,21 +90,23 @@ NULL
 )
 
 
-#' _ParticipantsIter R6 Class
-#'
-#' An iterator over the participants belonging to the specified chat.
-#' The order is unspecified.
-#' Inherits from RequestIter.
-#'
-#' @export
+#  _ParticipantsIter R6 Class
+# 
+#  An iterator over the participants belonging to the specified chat.
+#  The order is unspecified.
+#  Inherits from RequestIter.
+# 
+#  @export
+#  @noRd
+#  @noRd
 .ParticipantsIter <- R6::R6Class(
   "_ParticipantsIter",
   inherit = RequestIter,
   public = list(
-    #' @description Initialize the iterator.
-    #' @param entity The entity from which to retrieve the participants list.
-    #' @param filter The filter to be used, if you want e.g. only admins. Default is NULL.
-    #' @param search Look for participants with this string in name/username. Default is ''.
+    #  @description Initialize the iterator.
+    #  @param entity The entity from which to retrieve the participants list.
+    #  @param filter The filter to be used, if you want e.g. only admins. Default is NULL.
+    #  @param search Look for participants with this string in name/username. Default is ''.
     initialize = function(entity, filter = NULL, search = "") {
       if (!is.null(filter) && is.function(filter)) {
         if (inherits(filter, "ChannelParticipantsBanned") ||
@@ -146,10 +150,10 @@ NULL
         self$requests <- GetParticipantsRequest(
           channel = entity,
           filter = filter %||% ChannelParticipantsSearch(search),
-          #' @field offset Field.
+          #  @field offset Field.
           offset = 0,
           limit = .MAX_PARTICIPANTS_CHUNK_SIZE,
-          #' @field hash Field.
+          #  @field hash Field.
           hash = 0
         )
       } else if (ty == helpers$`_EntityType`$CHAT) {
@@ -196,7 +200,7 @@ NULL
       }
     },
 
-    #' @description Load the next chunk of participants.
+    #  @description Load the next chunk of participants.
     .load_next_chunk = function() {
       if (is.null(self$requests)) {
         return(TRUE)
@@ -218,11 +222,11 @@ NULL
           self$total <- self$client(GetParticipantsRequest(
             channel = self$requests$channel,
             filter = ChannelParticipantsRecent(),
-            #' @field offset Field.
+            #  @field offset Field.
             offset = 0,
-            #' @field limit Field.
+            #  @field limit Field.
             limit = 1,
-            #' @field hash Field.
+            #  @field hash Field.
             hash = 0
           ))$count
         }
@@ -267,38 +271,40 @@ NULL
 )
 
 
-#' _AdminLogIter R6 Class
-#'
-#' An iterator over the admin log for the specified channel.
-#' The default order is from the most recent event to the oldest.
-#' Inherits from RequestIter.
-#'
-#' @export
+#  _AdminLogIter R6 Class
+# 
+#  An iterator over the admin log for the specified channel.
+#  The default order is from the most recent event to the oldest.
+#  Inherits from RequestIter.
+# 
+#  @export
+#  @noRd
+#  @noRd
 .AdminLogIter <- R6::R6Class(
   "_AdminLogIter",
   inherit = RequestIter,
   public = list(
-    #' @description Initialize the iterator.
-    #' @param entity The channel entity from which to get its admin log.
-    #' @param admins If present, filter by these admins. Default is NULL.
-    #' @param search The string to be used as a search query. Default is NULL.
-    #' @param min_id All events with a lower (older) ID or equal to this will be excluded. Default is 0.
-    #' @param max_id All events with a higher (newer) ID or equal to this will be excluded. Default is 0.
-    #' @param join If TRUE, events for when a user joined will be returned. Default is NULL.
-    #' @param leave If TRUE, events for when a user leaves will be returned. Default is NULL.
-    #' @param invite If TRUE, events for when a user joins through an invite link will be returned. Default is NULL.
-    #' @param restrict If TRUE, events with partial restrictions will be returned. Default is NULL.
-    #' @param unrestrict If TRUE, events removing restrictions will be returned. Default is NULL.
-    #' @param ban If TRUE, events applying or removing all restrictions will be returned. Default is NULL.
-    #' @param unban If TRUE, events removing all restrictions will be returned. Default is NULL.
-    #' @param promote If TRUE, events with admin promotions will be returned. Default is NULL.
-    #' @param demote If TRUE, events with admin demotions will be returned. Default is NULL.
-    #' @param info If TRUE, events changing the group info will be returned. Default is NULL.
-    #' @param settings If TRUE, events changing the group settings will be returned. Default is NULL.
-    #' @param pinned If TRUE, events of new pinned messages will be returned. Default is NULL.
-    #' @param edit If TRUE, events of message edits will be returned. Default is NULL.
-    #' @param delete If TRUE, events of message deletions will be returned. Default is NULL.
-    #' @param group_call If TRUE, events related to group calls will be returned. Default is NULL.
+    #  @description Initialize the iterator.
+    #  @param entity The channel entity from which to get its admin log.
+    #  @param admins If present, filter by these admins. Default is NULL.
+    #  @param search The string to be used as a search query. Default is NULL.
+    #  @param min_id All events with a lower (older) ID or equal to this will be excluded. Default is 0.
+    #  @param max_id All events with a higher (newer) ID or equal to this will be excluded. Default is 0.
+    #  @param join If TRUE, events for when a user joined will be returned. Default is NULL.
+    #  @param leave If TRUE, events for when a user leaves will be returned. Default is NULL.
+    #  @param invite If TRUE, events for when a user joins through an invite link will be returned. Default is NULL.
+    #  @param restrict If TRUE, events with partial restrictions will be returned. Default is NULL.
+    #  @param unrestrict If TRUE, events removing restrictions will be returned. Default is NULL.
+    #  @param ban If TRUE, events applying or removing all restrictions will be returned. Default is NULL.
+    #  @param unban If TRUE, events removing all restrictions will be returned. Default is NULL.
+    #  @param promote If TRUE, events with admin promotions will be returned. Default is NULL.
+    #  @param demote If TRUE, events with admin demotions will be returned. Default is NULL.
+    #  @param info If TRUE, events changing the group info will be returned. Default is NULL.
+    #  @param settings If TRUE, events changing the group settings will be returned. Default is NULL.
+    #  @param pinned If TRUE, events of new pinned messages will be returned. Default is NULL.
+    #  @param edit If TRUE, events of message edits will be returned. Default is NULL.
+    #  @param delete If TRUE, events of message deletions will be returned. Default is NULL.
+    #  @param group_call If TRUE, events related to group calls will be returned. Default is NULL.
     .init = function(entity, admins = NULL, search = NULL, min_id = 0, max_id = 0,
                      join = NULL, leave = NULL, invite = NULL, restrict = NULL, unrestrict = NULL,
                      ban = NULL, unban = NULL, promote = NULL, demote = NULL, info = NULL,
@@ -337,7 +343,7 @@ NULL
       )
     },
 
-    #' @description Load the next chunk of admin log events.
+    #  @description Load the next chunk of admin log events.
     .load_next_chunk = function() {
       self$request$limit <- min(self$left, .MAX_ADMIN_LOG_CHUNK_SIZE)
       r <- self$client(self$request)
@@ -365,21 +371,23 @@ NULL
 )
 
 
-#' _ProfilePhotoIter R6 Class
-#'
-#' An iterator over a user's profile photos or a chat's photos.
-#' The order is from the most recent photo to the oldest.
-#' Inherits from RequestIter.
-#'
-#' @export
+#  _ProfilePhotoIter R6 Class
+# 
+#  An iterator over a user's profile photos or a chat's photos.
+#  The order is from the most recent photo to the oldest.
+#  Inherits from RequestIter.
+# 
+#  @export
+#  @noRd
+#  @noRd
 .ProfilePhotoIter <- R6::R6Class(
   "_ProfilePhotoIter",
   inherit = RequestIter,
   public = list(
-    #' @description Initialize the iterator.
-    #' @param entity The entity from which to get the profile or chat photos.
-    #' @param offset How many photos should be skipped before returning the first one.
-    #' @param max_id The maximum ID allowed when fetching photos.
+    #  @description Initialize the iterator.
+    #  @param entity The entity from which to get the profile or chat photos.
+    #  @param offset How many photos should be skipped before returning the first one.
+    #  @param max_id The maximum ID allowed when fetching photos.
     .init = function(entity, offset, max_id) {
       entity <- self$client$get_input_entity(entity)
       ty <- helpers$`_entity_type`(entity)
@@ -388,7 +396,7 @@ NULL
           entity,
           offset = offset,
           max_id = max_id,
-          #' @field limit Field.
+          #  @field limit Field.
           limit = 1
         )
       } else {
@@ -396,19 +404,19 @@ NULL
           peer = entity,
           q = "",
           filter = InputMessagesFilterChatPhotos(),
-          #' @field min_date Field.
+          #  @field min_date Field.
           min_date = NULL,
-          #' @field max_date Field.
+          #  @field max_date Field.
           max_date = NULL,
-          #' @field offset_id Field.
+          #  @field offset_id Field.
           offset_id = 0,
           add_offset = offset,
-          #' @field limit Field.
+          #  @field limit Field.
           limit = 1,
           max_id = max_id,
-          #' @field min_id Field.
+          #  @field min_id Field.
           min_id = 0,
-          #' @field hash Field.
+          #  @field hash Field.
           hash = 0
         )
       }
@@ -426,7 +434,7 @@ NULL
       }
     },
 
-    #' @description Load the next chunk of photos.
+    #  @description Load the next chunk of photos.
     .load_next_chunk = function() {
       self$request$limit <- min(self$left, .MAX_PROFILE_PHOTO_CHUNK_SIZE)
       result <- self$client(self$request)

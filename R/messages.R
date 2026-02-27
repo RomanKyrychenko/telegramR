@@ -1,99 +1,101 @@
 .MAX_CHUNK_SIZE <- 100
 
 
-#' MessagesIter R6 class
-#'
-#' Iterator over messages with support for search, filters, reply threads,
-#' scheduled history, ranges (min_id/max_id), and reverse iteration.
-#' This is a translation of the original async RequestIter-based logic into R6.
-#' It delegates fetching to the provided client via iter_messages().
-#'
-#' @title MessagesIter
-#' @description Telegram API type MessagesIter
-#' @export
+#  MessagesIter R6 class
+# 
+#  Iterator over messages with support for search, filters, reply threads,
+#  scheduled history, ranges (min_id/max_id), and reverse iteration.
+#  This is a translation of the original async RequestIter-based logic into R6.
+#  It delegates fetching to the provided client via iter_messages().
+# 
+#  @title MessagesIter
+#  @description Telegram API type MessagesIter
+#  @export
+#  @noRd
+#  @noRd
 MessagesIter <- R6::R6Class(
   "MessagesIter",
   public = list(
-    #' @field client Client used to perform requests
+    #  @field client Client used to perform requests
     client = NULL,
-    #' @field entity_input Input entity (resolved via client get_input_entity if available)
+    #  @field entity_input Input entity (resolved via client get_input_entity if available)
     entity_input = NULL,
-    #' @field is_global Whether this is a global search (entity is NULL)
+    #  @field is_global Whether this is a global search (entity is NULL)
     is_global = FALSE,
-    #' @field reverse Whether to iterate in reverse
+    #  @field reverse Whether to iterate in reverse
     reverse = FALSE,
-    #' @field limit Hard limit of messages to retrieve
+    #  @field limit Hard limit of messages to retrieve
     limit = Inf,
-    #' @field left Remaining messages to retrieve
+    #  @field left Remaining messages to retrieve
     left = Inf,
-    #' @field wait_time Optional per-request wait time (seconds)
+    #  @field wait_time Optional per-request wait time (seconds)
     wait_time = NULL,
-    #' @field add_offset Add offset used by server requests
+    #  @field add_offset Add offset used by server requests
     add_offset = 0L,
-    #' @field max_id Upper bound for message id (exclusive)
+    #  @field max_id Upper bound for message id (exclusive)
     max_id = Inf,
-    #' @field min_id Lower bound for message id (exclusive)
+    #  @field min_id Lower bound for message id (exclusive)
     min_id = 0L,
-    #' @field last_id Last seen message id (used to avoid duplicates/order issues)
+    #  @field last_id Last seen message id (used to avoid duplicates/order issues)
     last_id = Inf,
-    #' @field total Total messages reported by the server (when available)
+    #  @field total Total messages reported by the server (when available)
     total = 0L,
-    #' @field request Request parameters tracked between chunks
+    #  @field request Request parameters tracked between chunks
     request = NULL,
-    #' @field buffer Internal buffer of fetched messages
+    #  @field buffer Internal buffer of fetched messages
     buffer = list(),
-    #' @field exhausted Exhausted flag
+    #  @field exhausted Exhausted flag
     exhausted = FALSE,
-    #' @field from_id From-user peer id for local filtering when needed
+    #  @field from_id From-user peer id for local filtering when needed
     from_id = NULL,
-    #' @field search Optional search query
+    #  @field search Optional search query
     search = NULL,
-    #' @field filter Optional filter object
+    #  @field filter Optional filter object
     filter = NULL,
-    #' @field reply_to Optional reply thread id
+    #  @field reply_to Optional reply thread id
     reply_to = NULL,
-    #' @field offset_date Optional offset date
+    #  @field offset_date Optional offset date
     offset_date = NULL,
 
-    #' @description Initialize the iterator with query parameters.
-    #'
-    #' @param client Telegram client object that provides iter_messages(), collect(), collect_one().
-    #' @param entity Optional entity to iterate (NULL for global search).
-    #' @param offset_id Integer offset id start.
-    #' @param min_id Integer minimum id (exclusive).
-    #' @param max_id Integer maximum id (exclusive).
-    #' @param from_user Optional user entity to filter from.
-    #' @param offset_date POSIXct or Date to offset by date.
-    #' @param add_offset Integer additional offset.
-    #' @param filter Optional filter object or constructor.
-    #' @param search Optional text query.
-    #' @param reply_to Optional message id to iterate replies to.
-    #' @param scheduled Logical; if TRUE, scheduled messages history is used.
-    #' @param reverse Logical; if TRUE, oldest to newest.
-    #' @param wait_time Optional per-request sleep in seconds.
-    #' @param limit Integer or Inf, maximum messages to yield.
+    #  @description Initialize the iterator with query parameters.
+    # 
+    #  @param client Telegram client object that provides iter_messages(), collect(), collect_one().
+    #  @param entity Optional entity to iterate (NULL for global search).
+    #  @param offset_id Integer offset id start.
+    #  @param min_id Integer minimum id (exclusive).
+    #  @param max_id Integer maximum id (exclusive).
+    #  @param from_user Optional user entity to filter from.
+    #  @param offset_date POSIXct or Date to offset by date.
+    #  @param add_offset Integer additional offset.
+    #  @param filter Optional filter object or constructor.
+    #  @param search Optional text query.
+    #  @param reply_to Optional message id to iterate replies to.
+    #  @param scheduled Logical; if TRUE, scheduled messages history is used.
+    #  @param reverse Logical; if TRUE, oldest to newest.
+    #  @param wait_time Optional per-request sleep in seconds.
+    #  @param limit Integer or Inf, maximum messages to yield.
     initialize = function(client,
-                          #' @field entity Field.
+                          #  @field entity Field.
                           entity = NULL,
                           offset_id = 0L,
                           min_id = 0L,
                           max_id = 0L,
-                          #' @field from_user Field.
+                          #  @field from_user Field.
                           from_user = NULL,
-                          #' @field offset_date Field.
+                          #  @field offset_date Field.
                           offset_date = NULL,
                           add_offset = 0L,
-                          #' @field filter Field.
+                          #  @field filter Field.
                           filter = NULL,
-                          #' @field search Field.
+                          #  @field search Field.
                           search = NULL,
-                          #' @field reply_to Field.
+                          #  @field reply_to Field.
                           reply_to = NULL,
-                          #' @field scheduled Field.
+                          #  @field scheduled Field.
                           scheduled = FALSE,
-                          #' @field reverse Field.
+                          #  @field reverse Field.
                           reverse = FALSE,
-                          #' @field wait_time Field.
+                          #  @field wait_time Field.
                           wait_time = NULL,
                           limit = Inf) {
       self$client <- client
@@ -224,11 +226,11 @@ MessagesIter <- R6::R6Class(
       self$last_id <- if (self$reverse) 0L else Inf
     },
 
-    #' Load next chunk
-    #'
-    #' Fetches the next chunk of messages and appends them to the internal buffer.
-    #'
-    #' @return A list of messages for this chunk or NULL if exhausted.
+    #  Load next chunk
+    # 
+    #  Fetches the next chunk of messages and appends them to the internal buffer.
+    # 
+    #  @return A list of messages for this chunk or NULL if exhausted.
     load_next_chunk = function() {
       if (self$exhausted) {
         return(NULL)
@@ -340,9 +342,9 @@ MessagesIter <- R6::R6Class(
       out
     },
 
-    #' Check if there are more items to retrieve
-    #'
-    #' @return logical indicating whether there are more items to fetch or buffered.
+    #  Check if there are more items to retrieve
+    # 
+    #  @return logical indicating whether there are more items to fetch or buffered.
     has_next = function() {
       if (length(self$buffer) > 0) {
         return(TRUE)
@@ -353,7 +355,7 @@ MessagesIter <- R6::R6Class(
       FALSE
     },
 
-    #' Collect all remaining messages into a list.
+    #  Collect all remaining messages into a list.
     collect = function() {
       out <- list()
       repeat {
@@ -364,9 +366,9 @@ MessagesIter <- R6::R6Class(
       out
     },
 
-    #' Get the next item, fetching more if needed
-    #'
-    #' @return A single message object or NULL if exhausted.
+    #  Get the next item, fetching more if needed
+    # 
+    #  @return A single message object or NULL if exhausted.
     .next = function() {
       if (length(self$buffer) == 0) {
         chunk <- self$load_next_chunk()
@@ -480,49 +482,51 @@ MessagesIter <- R6::R6Class(
 `%||%` <- function(a, b) if (is.null(a)) b else a
 
 
-#' IDsIter R6 class
-#'
-#' Iterator over explicit message IDs, fetching results in chunks.
-#' It optionally validates that returned messages belong to a given entity.
-#'
-#' @section Initialization:
-#' it <- IDsIter$new(client, entity = NULL, ids, reverse = FALSE, wait_time = NULL, limit = Inf)
-#'
-#' @title IDsIter
-#' @description Telegram API type IDsIter
-#' @export
+#  IDsIter R6 class
+# 
+#  Iterator over explicit message IDs, fetching results in chunks.
+#  It optionally validates that returned messages belong to a given entity.
+# 
+#  @section Initialization:
+#  it <- IDsIter$new(client, entity = NULL, ids, reverse = FALSE, wait_time = NULL, limit = Inf)
+# 
+#  @title IDsIter
+#  @description Telegram API type IDsIter
+#  @export
+#  @noRd
+#  @noRd
 IDsIter <- R6::R6Class(
   "IDsIter",
   public = list(
-    #' @field client Client used to perform requests
+    #  @field client Client used to perform requests
     client = NULL,
-    #' @field entity_input Input entity (resolved via client get_input_entity if available)
+    #  @field entity_input Input entity (resolved via client get_input_entity if available)
     entity_input = NULL,
-    #' @field entity_type Entity type as reported by the client (e.g., CHANNEL)
+    #  @field entity_type Entity type as reported by the client (e.g., CHANNEL)
     entity_type = NULL,
-    #' @field ids Vector of IDs to fetch (possibly reversed)
+    #  @field ids Vector of IDs to fetch (possibly reversed)
     ids = NULL,
-    #' @field offset Current offset over ids
+    #  @field offset Current offset over ids
     offset = 0L,
-    #' @field reverse Whether to iterate in reverse order
+    #  @field reverse Whether to iterate in reverse order
     reverse = FALSE,
-    #' @field wait_time Optional per-request wait time in seconds
+    #  @field wait_time Optional per-request wait time in seconds
     wait_time = NULL,
-    #' @field limit Hard limit on how many items to consider
+    #  @field limit Hard limit on how many items to consider
     limit = Inf,
-    #' @field total Total number of requested ids
+    #  @field total Total number of requested ids
     total = 0L,
-    #' @field buffer Internal buffer of fetched items aligned with requested ids
+    #  @field buffer Internal buffer of fetched items aligned with requested ids
     buffer = list(),
 
-    #' @description Initialize the iterator
-    #'
-    #' @param client Telegram client object.
-    #' @param entity Optional entity to validate messages against (can be NULL).
-    #' @param ids Integer vector of message IDs to fetch.
-    #' @param reverse logical. If TRUE, process ids in reverse order.
-    #' @param wait_time numeric or NULL. If NULL, set heuristically based on limit.
-    #' @param limit integer or Inf. Used only for wait_time heuristic here.
+    #  @description Initialize the iterator
+    # 
+    #  @param client Telegram client object.
+    #  @param entity Optional entity to validate messages against (can be NULL).
+    #  @param ids Integer vector of message IDs to fetch.
+    #  @param reverse logical. If TRUE, process ids in reverse order.
+    #  @param wait_time numeric or NULL. If NULL, set heuristically based on limit.
+    #  @param limit integer or Inf. Used only for wait_time heuristic here.
     initialize = function(client, entity = NULL, ids, reverse = FALSE, wait_time = NULL, limit = Inf) {
       self$client <- client
       self$reverse <- isTRUE(reverse)
@@ -558,12 +562,12 @@ IDsIter <- R6::R6Class(
       }
     },
 
-    #' Load the next chunk of results into the buffer
-    #'
-    #' Fetches up to the internal chunk size worth of messages for the next slice of ids.
-    #'
-    #' @return A list of messages or NULLs aligned with the requested chunk of ids;
-    #'         NULL if there are no more ids to process.
+    #  Load the next chunk of results into the buffer
+    # 
+    #  Fetches up to the internal chunk size worth of messages for the next slice of ids.
+    # 
+    #  @return A list of messages or NULLs aligned with the requested chunk of ids;
+    #          NULL if there are no more ids to process.
     load_next_chunk = function() {
       if (self$offset >= length(self$ids)) {
         return(NULL)
@@ -649,14 +653,14 @@ IDsIter <- R6::R6Class(
       out
     },
 
-    #' Check if there are more items to retrieve
-    #'
-    #' @return logical indicating whether there are more items to fetch or buffered.
+    #  Check if there are more items to retrieve
+    # 
+    #  @return logical indicating whether there are more items to fetch or buffered.
     has_next = function() {
       length(self$buffer) > 0 || (self$offset < length(self$ids))
     },
 
-    #' Collect all remaining messages into a list.
+    #  Collect all remaining messages into a list.
     collect = function() {
       out <- list()
       repeat {
@@ -667,9 +671,9 @@ IDsIter <- R6::R6Class(
       out
     },
 
-    #' Get the next item, fetching more if needed
-    #'
-    #' @return A single message object or NULL if exhausted.
+    #  Get the next item, fetching more if needed
+    # 
+    #  @return A single message object or NULL if exhausted.
     .next = function() {
       if (length(self$buffer) == 0) {
         chunk <- self$load_next_chunk()

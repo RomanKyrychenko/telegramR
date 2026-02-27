@@ -1,23 +1,25 @@
-#' GetCdnFileRequest R6 class
-#'
-#' Represents the TL request upload.GetCdnFileRequest.
-#' @title GetCdnFileRequest
-#' @description Telegram API type GetCdnFileRequest
-#' @export
+#  GetCdnFileRequest R6 class
+# 
+#  Represents the TL request upload.GetCdnFileRequest.
+#  @title GetCdnFileRequest
+#  @description Telegram API type GetCdnFileRequest
+#  @export
+#  @noRd
+#  @noRd
 GetCdnFileRequest <- R6::R6Class(
   "GetCdnFileRequest",
   public = list(
-    #' @field file_token Field.
+    #  @field file_token Field.
     file_token = NULL,
-    #' @field offset Field.
+    #  @field offset Field.
     offset = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
 
-    #' @description Initialize a GetCdnFileRequest
-    #' @param file_token raw|integer|character
-    #' @param offset numeric (64-bit)
-    #' @param limit integer
+    #  @description Initialize a GetCdnFileRequest
+    #  @param file_token raw|integer|character
+    #  @param offset numeric (64-bit)
+    #  @param limit integer
     initialize = function(file_token, offset, limit) {
       self$file_token <- file_token
       self$offset <- offset
@@ -25,8 +27,8 @@ GetCdnFileRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetCdnFileRequest",
@@ -36,8 +38,8 @@ GetCdnFileRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw vector
-    #' @return raw
+    #  @description Serialize to raw vector
+    #  @return raw
     to_bytes = function() {
       c(
         private$constructor_id,
@@ -47,9 +49,9 @@ GetCdnFileRequest <- R6::R6Class(
       )
     },
 
-    #' @description Read GetCdnFileRequest from a reader
-    #' @param reader an object providing tgread_bytes(), read_long(), read_int()
-    #' @return GetCdnFileRequest
+    #  @description Read GetCdnFileRequest from a reader
+    #  @param reader an object providing tgread_bytes(), read_long(), read_int()
+    #  @return GetCdnFileRequest
     from_reader = function(reader) {
       file_token_val <- reader$tgread_bytes()
       offset_val <- reader$read_long()
@@ -95,31 +97,33 @@ GetCdnFileRequest <- R6::R6Class(
 )
 
 
-#' GetCdnFileHashesRequest R6 class
-#'
-#' Represents the TL request upload.GetCdnFileHashesRequest.
-#' @title GetCdnFileHashesRequest
-#' @description Telegram API type GetCdnFileHashesRequest
-#' @export
+#  GetCdnFileHashesRequest R6 class
+# 
+#  Represents the TL request upload.GetCdnFileHashesRequest.
+#  @title GetCdnFileHashesRequest
+#  @description Telegram API type GetCdnFileHashesRequest
+#  @export
+#  @noRd
+#  @noRd
 GetCdnFileHashesRequest <- R6::R6Class(
   "GetCdnFileHashesRequest",
   public = list(
-    #' @field file_token Field.
+    #  @field file_token Field.
     file_token = NULL,
-    #' @field offset Field.
+    #  @field offset Field.
     offset = NULL,
 
-    #' @description Initialize a GetCdnFileHashesRequest
-    #' @param file_token raw|integer|character
-    #' @param offset numeric (64-bit)
+    #  @description Initialize a GetCdnFileHashesRequest
+    #  @param file_token raw|integer|character
+    #  @param offset numeric (64-bit)
     initialize = function(file_token, offset) {
       self$file_token <- file_token
       self$offset <- offset
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetCdnFileHashesRequest",
@@ -128,8 +132,8 @@ GetCdnFileHashesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw vector
-    #' @return raw
+    #  @description Serialize to raw vector
+    #  @return raw
     to_bytes = function() {
       c(
         private$constructor_id,
@@ -138,9 +142,9 @@ GetCdnFileHashesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Read GetCdnFileHashesRequest from a reader
-    #' @param reader an object providing tgread_bytes() and read_long()
-    #' @return GetCdnFileHashesRequest
+    #  @description Read GetCdnFileHashesRequest from a reader
+    #  @param reader an object providing tgread_bytes() and read_long()
+    #  @return GetCdnFileHashesRequest
     from_reader = function(reader) {
       file_token_val <- reader$tgread_bytes()
       offset_val <- reader$read_long()
@@ -179,32 +183,34 @@ GetCdnFileHashesRequest <- R6::R6Class(
 )
 
 
-#' GetFileRequest R6 class
-#'
-#' Represents the TL request upload.GetFileRequest.
-#' @title GetFileRequest
-#' @description Telegram API type GetFileRequest
-#' @export
+#  GetFileRequest R6 class
+# 
+#  Represents the TL request upload.GetFileRequest.
+#  @title GetFileRequest
+#  @description Telegram API type GetFileRequest
+#  @export
+#  @noRd
+#  @noRd
 GetFileRequest <- R6::R6Class(
   "GetFileRequest",
   public = list(
-    #' @field location Field.
+    #  @field location Field.
     location = NULL,
-    #' @field offset Field.
+    #  @field offset Field.
     offset = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
-    #' @field precise Field.
+    #  @field precise Field.
     precise = NULL,
-    #' @field cdn_supported Field.
+    #  @field cdn_supported Field.
     cdn_supported = NULL,
 
-    #' @description Initialize a GetFileRequest
-    #' @param location TLObject-like
-    #' @param offset numeric (64-bit)
-    #' @param limit integer
-    #' @param precise logical or NULL
-    #' @param cdn_supported logical or NULL
+    #  @description Initialize a GetFileRequest
+    #  @param location TLObject-like
+    #  @param offset numeric (64-bit)
+    #  @param limit integer
+    #  @param precise logical or NULL
+    #  @param cdn_supported logical or NULL
     initialize = function(location, offset, limit, precise = NULL, cdn_supported = NULL) {
       self$location <- location
       self$offset <- offset
@@ -214,8 +220,8 @@ GetFileRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetFileRequest",
@@ -227,8 +233,8 @@ GetFileRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw vector
-    #' @return raw
+    #  @description Serialize to raw vector
+    #  @return raw
     to_bytes = function() {
       flags <- 0L
       if (!is.null(self$precise) && isTRUE(self$precise)) flags <- bitwOr(flags, 1L)
@@ -243,9 +249,9 @@ GetFileRequest <- R6::R6Class(
       )
     },
 
-    #' @description Read GetFileRequest from a reader
-    #' @param reader an object providing read_int(), tgread_object(), read_long(), read_int()
-    #' @return GetFileRequest
+    #  @description Read GetFileRequest from a reader
+    #  @param reader an object providing read_int(), tgread_object(), read_long(), read_int()
+    #  @return GetFileRequest
     from_reader = function(reader) {
       flags_val <- reader$read_int()
       precise_val <- bitwAnd(flags_val, 1L) != 0L
@@ -274,31 +280,33 @@ GetFileRequest <- R6::R6Class(
 )
 
 
-#' GetFileHashesRequest R6 class
-#'
-#' Represents the TL request upload.GetFileHashesRequest.
-#' @title GetFileHashesRequest
-#' @description Telegram API type GetFileHashesRequest
-#' @export
+#  GetFileHashesRequest R6 class
+# 
+#  Represents the TL request upload.GetFileHashesRequest.
+#  @title GetFileHashesRequest
+#  @description Telegram API type GetFileHashesRequest
+#  @export
+#  @noRd
+#  @noRd
 GetFileHashesRequest <- R6::R6Class(
   "GetFileHashesRequest",
   public = list(
-    #' @field location Field.
+    #  @field location Field.
     location = NULL,
-    #' @field offset Field.
+    #  @field offset Field.
     offset = NULL,
 
-    #' @description Initialize a GetFileHashesRequest
-    #' @param location TLObject-like
-    #' @param offset numeric (64-bit)
+    #  @description Initialize a GetFileHashesRequest
+    #  @param location TLObject-like
+    #  @param offset numeric (64-bit)
     initialize = function(location, offset) {
       self$location <- location
       self$offset <- offset
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetFileHashesRequest",
@@ -307,8 +315,8 @@ GetFileHashesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw vector
-    #' @return raw
+    #  @description Serialize to raw vector
+    #  @return raw
     to_bytes = function() {
       c(
         private$constructor_id,
@@ -317,9 +325,9 @@ GetFileHashesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Read GetFileHashesRequest from a reader
-    #' @param reader an object providing read_long() and tgread_object()
-    #' @return GetFileHashesRequest
+    #  @description Read GetFileHashesRequest from a reader
+    #  @param reader an object providing read_long() and tgread_object()
+    #  @return GetFileHashesRequest
     from_reader = function(reader) {
       location_val <- reader$tgread_object()
       offset_val <- reader$read_long()
@@ -364,26 +372,28 @@ GetFileHashesRequest <- R6::R6Class(
 )
 
 
-#' GetWebFileRequest R6 class
-#'
-#' Represents the TL request upload.GetWebFileRequest.
-#' @title GetWebFileRequest
-#' @description Telegram API type GetWebFileRequest
-#' @export
+#  GetWebFileRequest R6 class
+# 
+#  Represents the TL request upload.GetWebFileRequest.
+#  @title GetWebFileRequest
+#  @description Telegram API type GetWebFileRequest
+#  @export
+#  @noRd
+#  @noRd
 GetWebFileRequest <- R6::R6Class(
   "GetWebFileRequest",
   public = list(
-    #' @field location Field.
+    #  @field location Field.
     location = NULL,
-    #' @field offset Field.
+    #  @field offset Field.
     offset = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
 
-    #' @description Initialize a GetWebFileRequest
-    #' @param location TLObject-like
-    #' @param offset integer
-    #' @param limit integer
+    #  @description Initialize a GetWebFileRequest
+    #  @param location TLObject-like
+    #  @param offset integer
+    #  @param limit integer
     initialize = function(location, offset, limit) {
       self$location <- location
       self$offset <- as.integer(offset)
@@ -391,8 +401,8 @@ GetWebFileRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetWebFileRequest",
@@ -402,8 +412,8 @@ GetWebFileRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw vector
-    #' @return raw
+    #  @description Serialize to raw vector
+    #  @return raw
     to_bytes = function() {
       c(
         private$constructor_id,
@@ -413,9 +423,9 @@ GetWebFileRequest <- R6::R6Class(
       )
     },
 
-    #' @description Read GetWebFileRequest from a reader
-    #' @param reader an object providing tgread_object(), read_int()
-    #' @return GetWebFileRequest
+    #  @description Read GetWebFileRequest from a reader
+    #  @param reader an object providing tgread_object(), read_int()
+    #  @return GetWebFileRequest
     from_reader = function(reader) {
       location_val <- reader$tgread_object()
       offset_val <- reader$read_int()
@@ -461,31 +471,33 @@ GetWebFileRequest <- R6::R6Class(
 )
 
 
-#' ReuploadCdnFileRequest R6 class
-#'
-#' Represents the TL request upload.ReuploadCdnFileRequest.
-#' @title ReuploadCdnFileRequest
-#' @description Telegram API type ReuploadCdnFileRequest
-#' @export
+#  ReuploadCdnFileRequest R6 class
+# 
+#  Represents the TL request upload.ReuploadCdnFileRequest.
+#  @title ReuploadCdnFileRequest
+#  @description Telegram API type ReuploadCdnFileRequest
+#  @export
+#  @noRd
+#  @noRd
 ReuploadCdnFileRequest <- R6::R6Class(
   "ReuploadCdnFileRequest",
   public = list(
-    #' @field file_token Field.
+    #  @field file_token Field.
     file_token = NULL,
-    #' @field request_token Field.
+    #  @field request_token Field.
     request_token = NULL,
 
-    #' @description Initialize a ReuploadCdnFileRequest
-    #' @param file_token raw|integer|character
-    #' @param request_token raw|integer|character
+    #  @description Initialize a ReuploadCdnFileRequest
+    #  @param file_token raw|integer|character
+    #  @param request_token raw|integer|character
     initialize = function(file_token, request_token) {
       self$file_token <- file_token
       self$request_token <- request_token
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(
         `_` = "ReuploadCdnFileRequest",
@@ -494,8 +506,8 @@ ReuploadCdnFileRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw vector
-    #' @return raw
+    #  @description Serialize to raw vector
+    #  @return raw
     to_bytes = function() {
       c(
         private$constructor_id,
@@ -504,9 +516,9 @@ ReuploadCdnFileRequest <- R6::R6Class(
       )
     },
 
-    #' @description Read ReuploadCdnFileRequest from a reader
-    #' @param reader an object providing tgread_bytes()
-    #' @return ReuploadCdnFileRequest
+    #  @description Read ReuploadCdnFileRequest from a reader
+    #  @param reader an object providing tgread_bytes()
+    #  @return ReuploadCdnFileRequest
     from_reader = function(reader) {
       file_token_val <- reader$tgread_bytes()
       request_token_val <- reader$tgread_bytes()
@@ -551,29 +563,31 @@ ReuploadCdnFileRequest <- R6::R6Class(
 )
 
 
-#' SaveBigFilePartRequest R6 class
-#'
-#' Represents the TL request upload.SaveBigFilePartRequest.
-#' @title SaveBigFilePartRequest
-#' @description Telegram API type SaveBigFilePartRequest
-#' @export
+#  SaveBigFilePartRequest R6 class
+# 
+#  Represents the TL request upload.SaveBigFilePartRequest.
+#  @title SaveBigFilePartRequest
+#  @description Telegram API type SaveBigFilePartRequest
+#  @export
+#  @noRd
+#  @noRd
 SaveBigFilePartRequest <- R6::R6Class(
   "SaveBigFilePartRequest",
   public = list(
-    #' @field file_id Field.
+    #  @field file_id Field.
     file_id = NULL,
-    #' @field file_part Field.
+    #  @field file_part Field.
     file_part = NULL,
-    #' @field file_total_parts Field.
+    #  @field file_total_parts Field.
     file_total_parts = NULL,
-    #' @field bytes_data Field.
+    #  @field bytes_data Field.
     bytes_data = NULL,
 
-    #' @description Initialize a SaveBigFilePartRequest
-    #' @param file_id numeric (64-bit)
-    #' @param file_part integer
-    #' @param file_total_parts integer
-    #' @param bytes_data raw|integer|character
+    #  @description Initialize a SaveBigFilePartRequest
+    #  @param file_id numeric (64-bit)
+    #  @param file_part integer
+    #  @param file_total_parts integer
+    #  @param bytes_data raw|integer|character
     initialize = function(file_id, file_part, file_total_parts, bytes_data) {
       self$file_id <- file_id
       self$file_part <- as.integer(file_part)
@@ -582,8 +596,8 @@ SaveBigFilePartRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(
         `_` = "SaveBigFilePartRequest",
@@ -594,8 +608,8 @@ SaveBigFilePartRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw vector
-    #' @return raw
+    #  @description Serialize to raw vector
+    #  @return raw
     to_bytes = function() {
       c(
         private$constructor_id,
@@ -606,9 +620,9 @@ SaveBigFilePartRequest <- R6::R6Class(
       )
     },
 
-    #' @description Read SaveBigFilePartRequest from a reader
-    #' @param reader an object providing read_long(), read_int() and tgread_bytes()
-    #' @return SaveBigFilePartRequest
+    #  @description Read SaveBigFilePartRequest from a reader
+    #  @param reader an object providing read_long(), read_int() and tgread_bytes()
+    #  @return SaveBigFilePartRequest
     from_reader = function(reader) {
       file_id_val <- reader$read_long()
       file_part_val <- reader$read_int()
@@ -660,27 +674,29 @@ SaveBigFilePartRequest <- R6::R6Class(
 )
 
 
-#' SaveFilePartRequest R6 class
-#'
-#' R6 representation of the Telegram TL request upload.SaveFilePartRequest.
-#' @title SaveFilePartRequest
-#' @description Telegram API type SaveFilePartRequest
-#' @export
+#  SaveFilePartRequest R6 class
+# 
+#  R6 representation of the Telegram TL request upload.SaveFilePartRequest.
+#  @title SaveFilePartRequest
+#  @description Telegram API type SaveFilePartRequest
+#  @export
+#  @noRd
+#  @noRd
 SaveFilePartRequest <- R6::R6Class(
   "SaveFilePartRequest",
   public = list(
-    #' @field file_id Field.
+    #  @field file_id Field.
     file_id = NULL,
-    #' @field file_part Field.
+    #  @field file_part Field.
     file_part = NULL,
-    #' @field bytes_data Field.
+    #  @field bytes_data Field.
     bytes_data = NULL,
 
-    #' @description Initialize a new SaveFilePartRequest instance.
-    #' @param file_id numeric (64-bit) Unique file identifier.
-    #' @param file_part integer Zero-based index of this part.
-    #' @param bytes_data raw|integer|character Payload bytes for this part.
-    #' @return SaveFilePartRequest (invisibly) for chaining.
+    #  @description Initialize a new SaveFilePartRequest instance.
+    #  @param file_id numeric (64-bit) Unique file identifier.
+    #  @param file_part integer Zero-based index of this part.
+    #  @param bytes_data raw|integer|character Payload bytes for this part.
+    #  @return SaveFilePartRequest (invisibly) for chaining.
     initialize = function(file_id, file_part, bytes_data) {
       self$file_id <- file_id
       self$file_part <- as.integer(file_part)
@@ -688,8 +704,8 @@ SaveFilePartRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert the request to a plain list (for inspection or JSON).
-    #' @return list A named list with class tag and fields.
+    #  @description Convert the request to a plain list (for inspection or JSON).
+    #  @return list A named list with class tag and fields.
     to_list = function() {
       list(
         `_` = "SaveFilePartRequest",
@@ -699,8 +715,8 @@ SaveFilePartRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the request into TL-compliant raw bytes.
-    #' @return raw Serialized byte vector.
+    #  @description Serialize the request into TL-compliant raw bytes.
+    #  @return raw Serialized byte vector.
     to_bytes = function() {
       c(
         private$constructor_id,
@@ -710,9 +726,9 @@ SaveFilePartRequest <- R6::R6Class(
       )
     },
 
-    #' @description Read SaveFilePartRequest from a reader
-    #' @param reader an object providing read_long(), read_int() and tgread_bytes()
-    #' @return SaveFilePartRequest
+    #  @description Read SaveFilePartRequest from a reader
+    #  @param reader an object providing read_long(), read_int() and tgread_bytes()
+    #  @return SaveFilePartRequest
     from_reader = function(reader) {
       file_id_val <- reader$read_long()
       file_part_val <- reader$read_int()

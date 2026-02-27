@@ -12,7 +12,9 @@ get_input_media(
   voice_note = FALSE,
   video_note = FALSE,
   supports_streaming = FALSE,
-  ttl = NULL
+  ttl = NULL,
+  file_size = NULL,
+  progress_callback = NULL
 )
 }
 \arguments{
@@ -31,6 +33,10 @@ get_input_media(
 \item{supports_streaming}{Logical, whether the video supports streaming. Default is \code{FALSE}.}
 
 \item{ttl}{The time-to-live in seconds. Default is \code{NULL}.}
+
+\item{file_size}{Optional file size hint (unused, for compatibility).}
+
+\item{progress_callback}{Optional progress callback (unused, for compatibility).}
 }
 \value{
 An InputMedia object.

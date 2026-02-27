@@ -1,33 +1,35 @@
-#' DestroyAuthKeyRequest R6 class
-#'
-#' Represents the TL request `DestroyAuthKeyRequest`.
-#'
-#' Fields:
-#' - (no fields)
-#'
-#' Methods:
-#' - new(): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#  DestroyAuthKeyRequest R6 class
+# 
+#  Represents the TL request `DestroyAuthKeyRequest`.
+# 
+#  Fields:
+#  - (no fields)
+# 
+#  Methods:
+#  - new(): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#  @noRd
+#  @noRd
 DestroyAuthKeyRequest <- R6::R6Class(
   classname = "DestroyAuthKeyRequest",
   public = list(
-    #' Initialize a DestroyAuthKeyRequest
+    #  Initialize a DestroyAuthKeyRequest
     initialize = function() {
       # no fields to initialize
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       list(
         `_` = "DestroyAuthKeyRequest"
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
-    #' @details Writes constructor id 0xd1435160 as little-endian bytes: 0x60 0x51 0x43 0xD1
+    #  Serialize to raw (bytes)
+    #  @return raw vector
+    #  @details Writes constructor id 0xd1435160 as little-endian bytes: 0x60 0x51 0x43 0xD1
     to_raw = function() {
       constructor_bytes <- as.raw(c(0x60, 0x51, 0x43, 0xD1))
       conn <- rawConnection(raw(), "wb")
@@ -37,7 +39,7 @@ DestroyAuthKeyRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -52,32 +54,34 @@ DestroyAuthKeyRequest$from_reader <- function(reader) {
 }
 
 
-#' DestroySessionRequest R6 class
-#'
-#' Represents the TL request `DestroySessionRequest`.
-#'
-#' Fields:
-#' - session_id: numeric/integer (64-bit placeholder)
-#'
-#' Methods:
-#' - new(session_id): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#  DestroySessionRequest R6 class
+# 
+#  Represents the TL request `DestroySessionRequest`.
+# 
+#  Fields:
+#  - session_id: numeric/integer (64-bit placeholder)
+# 
+#  Methods:
+#  - new(session_id): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#  @noRd
+#  @noRd
 DestroySessionRequest <- R6::R6Class(
   classname = "DestroySessionRequest",
   public = list(
-    #' @field session_id Field.
+    #  @field session_id Field.
     session_id = NULL,
 
-    #' Initialize a DestroySessionRequest
-    #' @param session_id numeric/integer 64-bit
+    #  Initialize a DestroySessionRequest
+    #  @param session_id numeric/integer 64-bit
     initialize = function(session_id) {
       if (missing(session_id)) stop("session_id is required")
       self$session_id <- session_id
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       list(
         `_` = "DestroySessionRequest",
@@ -85,10 +89,10 @@ DestroySessionRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
-    #' @details Writes constructor id 0xe7512126 as little-endian bytes: 0x26 0x21 0x51 0xE7,
-    #' then writes session_id as 8-byte little-endian (placeholder via numeric).
+    #  Serialize to raw (bytes)
+    #  @return raw vector
+    #  @details Writes constructor id 0xe7512126 as little-endian bytes: 0x26 0x21 0x51 0xE7,
+    #  then writes session_id as 8-byte little-endian (placeholder via numeric).
     to_raw = function() {
       constructor_bytes <- as.raw(c(0x26, 0x21, 0x51, 0xE7))
       conn <- rawConnection(raw(), "wb")
@@ -101,7 +105,7 @@ DestroySessionRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -120,32 +124,34 @@ DestroySessionRequest$from_reader <- function(reader) {
 }
 
 
-#' GetFutureSaltsRequest R6 class
-#'
-#' Represents the TL request `GetFutureSaltsRequest`.
-#'
-#' Fields:
-#' - num: integer (32-bit)
-#'
-#' Methods:
-#' - new(num): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#  GetFutureSaltsRequest R6 class
+# 
+#  Represents the TL request `GetFutureSaltsRequest`.
+# 
+#  Fields:
+#  - num: integer (32-bit)
+# 
+#  Methods:
+#  - new(num): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#  @noRd
+#  @noRd
 GetFutureSaltsRequest <- R6::R6Class(
   classname = "GetFutureSaltsRequest",
   public = list(
-    #' @field num Field.
+    #  @field num Field.
     num = NULL,
 
-    #' Initialize a GetFutureSaltsRequest
-    #' @param num integer 32-bit
+    #  Initialize a GetFutureSaltsRequest
+    #  @param num integer 32-bit
     initialize = function(num) {
       if (missing(num)) stop("num is required")
       self$num <- as.integer(num)
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       list(
         `_` = "GetFutureSaltsRequest",
@@ -153,10 +159,10 @@ GetFutureSaltsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
-    #' @details Writes constructor id 0xb921bd04 as little-endian bytes: 0x04 0xBD 0x21 0xB9,
-    #' then writes num as 4-byte little-endian integer.
+    #  Serialize to raw (bytes)
+    #  @return raw vector
+    #  @details Writes constructor id 0xb921bd04 as little-endian bytes: 0x04 0xBD 0x21 0xB9,
+    #  then writes num as 4-byte little-endian integer.
     to_raw = function() {
       constructor_bytes <- as.raw(c(0x04, 0xBD, 0x21, 0xB9))
       conn <- rawConnection(raw(), "wb")
@@ -167,7 +173,7 @@ GetFutureSaltsRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -186,64 +192,66 @@ GetFutureSaltsRequest$from_reader <- function(reader) {
 }
 
 
-#' InitConnectionRequest R6 class
-#'
-#' Represents the TL request `InitConnectionRequest`.
-#'
-#' Fields:
-#' - api_id: integer (32-bit)
-#' - device_model: character
-#' - system_version: character
-#' - app_version: character
-#' - system_lang_code: character
-#' - lang_pack: character
-#' - lang_code: character
-#' - query: TypeX (an object providing to_raw()/to_list() or a raw vector/character)
-#' - proxy: optional TypeInputClientProxy (object with to_raw()/to_list(), raw, or character)
-#' - params: optional TypeJSONValue (object with to_raw()/to_list(), raw, or character)
-#'
-#' Methods:
-#' - new(api_id, device_model, system_version, app_version, system_lang_code, lang_pack, lang_code, query, proxy = NULL, params = NULL)
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' Note: string and object serialization is simplified (charToRaw, nested to_raw()). For
-#' exact TL compact string encoding or precise integer widths replace with correct utilities.
+#  InitConnectionRequest R6 class
+# 
+#  Represents the TL request `InitConnectionRequest`.
+# 
+#  Fields:
+#  - api_id: integer (32-bit)
+#  - device_model: character
+#  - system_version: character
+#  - app_version: character
+#  - system_lang_code: character
+#  - lang_pack: character
+#  - lang_code: character
+#  - query: TypeX (an object providing to_raw()/to_list() or a raw vector/character)
+#  - proxy: optional TypeInputClientProxy (object with to_raw()/to_list(), raw, or character)
+#  - params: optional TypeJSONValue (object with to_raw()/to_list(), raw, or character)
+# 
+#  Methods:
+#  - new(api_id, device_model, system_version, app_version, system_lang_code, lang_pack, lang_code, query, proxy = NULL, params = NULL)
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  Note: string and object serialization is simplified (charToRaw, nested to_raw()). For
+#  exact TL compact string encoding or precise integer widths replace with correct utilities.
+#  @noRd
+#  @noRd
 InitConnectionRequest <- R6::R6Class(
   classname = "InitConnectionRequest",
   public = list(
-    #' @field api_id Field.
+    #  @field api_id Field.
     api_id = NULL,
-    #' @field device_model Field.
+    #  @field device_model Field.
     device_model = NULL,
-    #' @field system_version Field.
+    #  @field system_version Field.
     system_version = NULL,
-    #' @field app_version Field.
+    #  @field app_version Field.
     app_version = NULL,
-    #' @field system_lang_code Field.
+    #  @field system_lang_code Field.
     system_lang_code = NULL,
-    #' @field lang_pack Field.
+    #  @field lang_pack Field.
     lang_pack = NULL,
-    #' @field lang_code Field.
+    #  @field lang_code Field.
     lang_code = NULL,
-    #' @field query Field.
+    #  @field query Field.
     query = NULL,
-    #' @field proxy Field.
+    #  @field proxy Field.
     proxy = NULL,
-    #' @field params Field.
+    #  @field params Field.
     params = NULL,
 
-    #' Initialize an InitConnectionRequest
-    #' @param api_id integer
-    #' @param device_model character
-    #' @param system_version character
-    #' @param app_version character
-    #' @param system_lang_code character
-    #' @param lang_pack character
-    #' @param lang_code character
-    #' @param query nested query object (required)
-    #' @param proxy optional proxy object
-    #' @param params optional params object
+    #  Initialize an InitConnectionRequest
+    #  @param api_id integer
+    #  @param device_model character
+    #  @param system_version character
+    #  @param app_version character
+    #  @param system_lang_code character
+    #  @param lang_pack character
+    #  @param lang_code character
+    #  @param query nested query object (required)
+    #  @param proxy optional proxy object
+    #  @param params optional params object
     initialize = function(api_id, device_model, system_version, app_version,
                           system_lang_code, lang_pack, lang_code,
                           query, proxy = NULL, params = NULL) {
@@ -264,9 +272,9 @@ InitConnectionRequest <- R6::R6Class(
       self$params <- params
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
-    #' @details to_list will call nested object's to_list() if available.
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
+    #  @details to_list will call nested object's to_list() if available.
     to_list = function() {
       proxy_out <- NULL
       if (!is.null(self$proxy)) {
@@ -307,14 +315,14 @@ InitConnectionRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
-    #' @details
-    #' Writes constructor id 0xa95ecd c1 (bytes: 0xA9 0x5E 0xCD 0xC1),
-    #' then flags (4 bytes little-endian), api_id (4 bytes little-endian),
-    #' then simple string bytes for device_model, system_version, app_version,
-    #' system_lang_code, lang_pack, lang_code, then optional proxy and params bytes,
-    #' and finally nested query bytes.
+    #  Serialize to raw (bytes)
+    #  @return raw vector
+    #  @details
+    #  Writes constructor id 0xa95ecd c1 (bytes: 0xA9 0x5E 0xCD 0xC1),
+    #  then flags (4 bytes little-endian), api_id (4 bytes little-endian),
+    #  then simple string bytes for device_model, system_version, app_version,
+    #  system_lang_code, lang_pack, lang_code, then optional proxy and params bytes,
+    #  and finally nested query bytes.
     to_raw = function() {
       # CONSTRUCTOR_ID bytes: 0xA9 0x5E 0xCD 0xC1
       constructor_bytes <- as.raw(c(0xA9, 0x5E, 0xCD, 0xC1))
@@ -383,7 +391,7 @@ InitConnectionRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -440,45 +448,47 @@ InitConnectionRequest$from_reader <- function(reader) {
 }
 
 
-#' InvokeAfterMsgRequest R6 class
-#'
-#' Represents the TL request `InvokeAfterMsgRequest`.
-#'
-#' Fields:
-#' - msg_id: numeric/integer (64-bit placeholder)
-#' - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
-#'
-#' Methods:
-#' - new(msg_id, query): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' @details
-#' to_raw() writes the constructor id (0xcb9f372d) in little-endian (bytes: 0x2D 0x37 0x9F 0xCB),
-#' then msg_id as 8-byte little-endian value, followed by nested query bytes.
-#' Note: writeBin on numeric with size=8 uses IEEE754 double; for exact 64-bit two's-complement
-#' preservation, replace with a dedicated 64-bit writer.
+#  InvokeAfterMsgRequest R6 class
+# 
+#  Represents the TL request `InvokeAfterMsgRequest`.
+# 
+#  Fields:
+#  - msg_id: numeric/integer (64-bit placeholder)
+#  - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
+# 
+#  Methods:
+#  - new(msg_id, query): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  @details
+#  to_raw() writes the constructor id (0xcb9f372d) in little-endian (bytes: 0x2D 0x37 0x9F 0xCB),
+#  then msg_id as 8-byte little-endian value, followed by nested query bytes.
+#  Note: writeBin on numeric with size=8 uses IEEE754 double; for exact 64-bit two's-complement
+#  preservation, replace with a dedicated 64-bit writer.
+#  @noRd
+#  @noRd
 InvokeAfterMsgRequest <- R6::R6Class(
   classname = "InvokeAfterMsgRequest",
   public = list(
-    #' @field msg_id Field.
+    #  @field msg_id Field.
     msg_id = NULL,
-    #' @field query Field.
+    #  @field query Field.
     query = NULL,
 
-    #' Initialize an InvokeAfterMsgRequest
-    #' @param msg_id numeric/integer 64-bit
-    #' @param query TypeX object or raw vector representing the inner query
+    #  Initialize an InvokeAfterMsgRequest
+    #  @param msg_id numeric/integer 64-bit
+    #  @param query TypeX object or raw vector representing the inner query
     initialize = function(msg_id, query) {
       if (missing(msg_id) || missing(query)) stop("msg_id and query are required")
       self$msg_id <- msg_id
       self$query <- query
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
-    #' @description
-    #' to_list will call query$to_list() if available to produce a nested list.
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
+    #  @description
+    #  to_list will call query$to_list() if available to produce a nested list.
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
@@ -495,11 +505,11 @@ InvokeAfterMsgRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
-    #' @description
-    #' Writes constructor id 0xcb9f372d as little-endian (bytes: 0x2D 0x37 0x9F 0xCB),
-    #' then writes msg_id as 8-byte little-endian, then nested query bytes.
+    #  Serialize to raw (bytes)
+    #  @return raw vector
+    #  @description
+    #  Writes constructor id 0xcb9f372d as little-endian (bytes: 0x2D 0x37 0x9F 0xCB),
+    #  then writes msg_id as 8-byte little-endian, then nested query bytes.
     to_raw = function() {
       # CONSTRUCTOR_ID 0xcb9f372d little endian bytes: b'-7\x9f\xcb' => 0x2D 0x37 0x9F 0xCB
       constructor_bytes <- as.raw(c(0x2D, 0x37, 0x9F, 0xCB))
@@ -526,7 +536,7 @@ InvokeAfterMsgRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -548,34 +558,36 @@ InvokeAfterMsgRequest$from_reader <- function(reader) {
 }
 
 
-#' InvokeAfterMsgsRequest R6 class
-#'
-#' Represents the TL request `InvokeAfterMsgsRequest`.
-#'
-#' Fields:
-#' - msg_ids: numeric/integer vector (64-bit ids; numeric placeholders are used)
-#' - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
-#'
-#' Methods:
-#' - new(msg_ids, query): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' @details
-#' to_raw() writes the constructor id (0x3dc4b4f0) in little-endian, then the TL-vector
-#' constructor id (0x1cb5c415) and the vector length, then each msg_id as 8-byte
-#' little-endian values, followed by nested query bytes.
+#  InvokeAfterMsgsRequest R6 class
+# 
+#  Represents the TL request `InvokeAfterMsgsRequest`.
+# 
+#  Fields:
+#  - msg_ids: numeric/integer vector (64-bit ids; numeric placeholders are used)
+#  - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
+# 
+#  Methods:
+#  - new(msg_ids, query): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  @details
+#  to_raw() writes the constructor id (0x3dc4b4f0) in little-endian, then the TL-vector
+#  constructor id (0x1cb5c415) and the vector length, then each msg_id as 8-byte
+#  little-endian values, followed by nested query bytes.
+#  @noRd
+#  @noRd
 InvokeAfterMsgsRequest <- R6::R6Class(
   classname = "InvokeAfterMsgsRequest",
   public = list(
-    #' @field msg_ids Field.
+    #  @field msg_ids Field.
     msg_ids = NULL,
-    #' @field query Field.
+    #  @field query Field.
     query = NULL,
 
-    #' Initialize an InvokeAfterMsgsRequest
-    #' @param msg_ids numeric/integer vector of message ids (64-bit placeholders)
-    #' @param query TypeX object or raw vector representing the inner query
+    #  Initialize an InvokeAfterMsgsRequest
+    #  @param msg_ids numeric/integer vector of message ids (64-bit placeholders)
+    #  @param query TypeX object or raw vector representing the inner query
     initialize = function(msg_ids, query) {
       if (missing(msg_ids) || missing(query)) stop("msg_ids and query are required")
       if (!is.numeric(msg_ids)) stop("msg_ids must be numeric/integer vector")
@@ -583,8 +595,8 @@ InvokeAfterMsgsRequest <- R6::R6Class(
       self$query <- query
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
@@ -601,8 +613,8 @@ InvokeAfterMsgsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0x3dc4b4f0 little endian bytes: b'\xf0\xb4\xc4='
       constructor_bytes <- as.raw(c(0xF0, 0xB4, 0xC4, 0x3D))
@@ -640,7 +652,7 @@ InvokeAfterMsgsRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -675,38 +687,40 @@ InvokeAfterMsgsRequest$from_reader <- function(reader) {
 }
 
 
-#' InvokeWithApnsSecretRequest R6 class
-#'
-#' Represents the TL request `InvokeWithApnsSecretRequest`.
-#'
-#' Fields:
-#' - nonce: character string
-#' - secret: character string
-#' - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
-#'
-#' Methods:
-#' - new(nonce, secret, query): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' @details
-#' to_raw() writes constructor id 0x0dae54f8 (little-endian bytes: 0xf8 0x54 0xae 0x0d),
-#' then nonce and secret as TL strings (here serialized via charToRaw for simplicity),
-#' then nested query bytes.
+#  InvokeWithApnsSecretRequest R6 class
+# 
+#  Represents the TL request `InvokeWithApnsSecretRequest`.
+# 
+#  Fields:
+#  - nonce: character string
+#  - secret: character string
+#  - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
+# 
+#  Methods:
+#  - new(nonce, secret, query): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  @details
+#  to_raw() writes constructor id 0x0dae54f8 (little-endian bytes: 0xf8 0x54 0xae 0x0d),
+#  then nonce and secret as TL strings (here serialized via charToRaw for simplicity),
+#  then nested query bytes.
+#  @noRd
+#  @noRd
 InvokeWithApnsSecretRequest <- R6::R6Class(
   classname = "InvokeWithApnsSecretRequest",
   public = list(
-    #' @field nonce Field.
+    #  @field nonce Field.
     nonce = NULL,
-    #' @field secret Field.
+    #  @field secret Field.
     secret = NULL,
-    #' @field query Field.
+    #  @field query Field.
     query = NULL,
 
-    #' Initialize an InvokeWithApnsSecretRequest
-    #' @param nonce character string
-    #' @param secret character string
-    #' @param query TypeX object or raw vector representing the inner query
+    #  Initialize an InvokeWithApnsSecretRequest
+    #  @param nonce character string
+    #  @param secret character string
+    #  @param query TypeX object or raw vector representing the inner query
     initialize = function(nonce, secret, query) {
       if (missing(nonce) || missing(secret) || missing(query)) stop("nonce, secret and query are required")
       if (!is.character(nonce) || length(nonce) != 1) stop("nonce must be a single string")
@@ -716,8 +730,8 @@ InvokeWithApnsSecretRequest <- R6::R6Class(
       self$query <- query
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
@@ -735,8 +749,8 @@ InvokeWithApnsSecretRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0x0dae54f8 little endian bytes: b'\xf8T\xae\r'
       constructor_bytes <- as.raw(c(0xF8, 0x54, 0xAE, 0x0D))
@@ -763,7 +777,7 @@ InvokeWithApnsSecretRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -786,35 +800,37 @@ InvokeWithApnsSecretRequest$from_reader <- function(reader) {
 }
 
 
-#' InvokeWithBusinessConnectionRequest R6 class
-#'
-#' Represents the TL request `InvokeWithBusinessConnectionRequest`.
-#'
-#' Fields:
-#' - connection_id: character string
-#' - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
-#'
-#' Methods:
-#' - new(connection_id, query): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' @details
-#' to_raw() writes the constructor id (0xdd289f8e) in little-endian, then the
-#' connection_id bytes (here via charToRaw) and then the nested query bytes.
-#' The nested query is expected to provide a to_raw() method returning a raw vector,
-#' or to already be a raw vector. If the query is a character, it will be converted using charToRaw().
+#  InvokeWithBusinessConnectionRequest R6 class
+# 
+#  Represents the TL request `InvokeWithBusinessConnectionRequest`.
+# 
+#  Fields:
+#  - connection_id: character string
+#  - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
+# 
+#  Methods:
+#  - new(connection_id, query): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  @details
+#  to_raw() writes the constructor id (0xdd289f8e) in little-endian, then the
+#  connection_id bytes (here via charToRaw) and then the nested query bytes.
+#  The nested query is expected to provide a to_raw() method returning a raw vector,
+#  or to already be a raw vector. If the query is a character, it will be converted using charToRaw().
+#  @noRd
+#  @noRd
 InvokeWithBusinessConnectionRequest <- R6::R6Class(
   classname = "InvokeWithBusinessConnectionRequest",
   public = list(
-    #' @field connection_id Field.
+    #  @field connection_id Field.
     connection_id = NULL,
-    #' @field query Field.
+    #  @field query Field.
     query = NULL,
 
-    #' Initialize an InvokeWithBusinessConnectionRequest
-    #' @param connection_id character string
-    #' @param query TypeX object or raw vector representing the inner query
+    #  Initialize an InvokeWithBusinessConnectionRequest
+    #  @param connection_id character string
+    #  @param query TypeX object or raw vector representing the inner query
     initialize = function(connection_id, query) {
       if (missing(connection_id) || missing(query)) stop("connection_id and query are required")
       if (!is.character(connection_id) || length(connection_id) != 1) stop("connection_id must be a single string")
@@ -822,8 +838,8 @@ InvokeWithBusinessConnectionRequest <- R6::R6Class(
       self$query <- query
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
@@ -840,11 +856,11 @@ InvokeWithBusinessConnectionRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
-    #' @details
-    #' Writes constructor id 0xdd289f8e as little-endian (bytes: 0x8E 0x9F 0x28 0xDD),
-    #' then writes connection_id as raw bytes (charToRaw), then nested query bytes.
+    #  Serialize to raw (bytes)
+    #  @return raw vector
+    #  @details
+    #  Writes constructor id 0xdd289f8e as little-endian (bytes: 0x8E 0x9F 0x28 0xDD),
+    #  then writes connection_id as raw bytes (charToRaw), then nested query bytes.
     to_raw = function() {
       # CONSTRUCTOR_ID 0xdd289f8e little endian bytes: b'\x8e\x9f(\xdd'
       constructor_bytes <- as.raw(c(0x8E, 0x9F, 0x28, 0xDD))
@@ -870,7 +886,7 @@ InvokeWithBusinessConnectionRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -892,39 +908,41 @@ InvokeWithBusinessConnectionRequest$from_reader <- function(reader) {
 }
 
 
-#' InvokeWithGooglePlayIntegrityRequest R6 class
-#'
-#' Represents the TL request `InvokeWithGooglePlayIntegrityRequest`.
-#'
-#' Fields:
-#' - nonce: character string
-#' - token: character string
-#' - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
-#'
-#' Methods:
-#' - new(nonce, token, query): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' @details
-#' to_raw() writes the constructor id (0x1df92984) in little-endian, then nonce,
-#' token as raw bytes and then the nested query bytes. The nested query is expected
-#' to provide a to_raw() method or be a raw vector.
+#  InvokeWithGooglePlayIntegrityRequest R6 class
+# 
+#  Represents the TL request `InvokeWithGooglePlayIntegrityRequest`.
+# 
+#  Fields:
+#  - nonce: character string
+#  - token: character string
+#  - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
+# 
+#  Methods:
+#  - new(nonce, token, query): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  @details
+#  to_raw() writes the constructor id (0x1df92984) in little-endian, then nonce,
+#  token as raw bytes and then the nested query bytes. The nested query is expected
+#  to provide a to_raw() method or be a raw vector.
+#  @noRd
+#  @noRd
 InvokeWithGooglePlayIntegrityRequest <- R6::R6Class(
-  #' @field classname Field.
+  #  @field classname Field.
   classname = "InvokeWithGooglePlayIntegrityRequest",
   public = list(
-    #' @field nonce Field.
+    #  @field nonce Field.
     nonce = NULL,
-    #' @field token Field.
+    #  @field token Field.
     token = NULL,
-    #' @field query Field.
+    #  @field query Field.
     query = NULL,
 
-    #' Initialize an InvokeWithGooglePlayIntegrityRequest
-    #' @param nonce character string
-    #' @param token character string
-    #' @param query TypeX object or raw vector representing the inner query
+    #  Initialize an InvokeWithGooglePlayIntegrityRequest
+    #  @param nonce character string
+    #  @param token character string
+    #  @param query TypeX object or raw vector representing the inner query
     initialize = function(nonce, token, query) {
       if (missing(nonce) || missing(token) || missing(query)) stop("nonce, token and query are required")
       if (!is.character(nonce) || length(nonce) != 1) stop("nonce must be a single string")
@@ -934,8 +952,8 @@ InvokeWithGooglePlayIntegrityRequest <- R6::R6Class(
       self$query <- query
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
@@ -953,11 +971,11 @@ InvokeWithGooglePlayIntegrityRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
-    #' @details
-    #' Writes constructor id 0x1df92984 as little-endian (bytes: 0x84 0x29 0xF9 0x1D),
-    #' then nonce and token bytes, then nested query bytes.
+    #  Serialize to raw (bytes)
+    #  @return raw vector
+    #  @details
+    #  Writes constructor id 0x1df92984 as little-endian (bytes: 0x84 0x29 0xF9 0x1D),
+    #  then nonce and token bytes, then nested query bytes.
     to_raw = function() {
       # CONSTRUCTOR_ID 0x1df92984 little endian bytes: b'\x84)\xf9\x1d'
       constructor_bytes <- as.raw(c(0x84, 0x29, 0xF9, 0x1D))
@@ -1006,43 +1024,45 @@ InvokeWithGooglePlayIntegrityRequest$from_reader <- function(reader) {
 }
 
 
-#' InvokeWithLayerRequest R6 class
-#'
-#' Represents the TL request `InvokeWithLayerRequest`.
-#'
-#' Fields:
-#' - layer: integer (32-bit)
-#' - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
-#'
-#' Methods:
-#' - new(layer, query): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' @details
-#' to_raw() writes the constructor id (0xda9b0d0d) in little-endian, then a 4-byte
-#' integer for layer, then the nested query bytes. The nested query is expected to
-#' provide a to_raw() method returning a raw vector, or to already be a raw vector.
-#' If the query is a character, it will be converted using charToRaw().
+#  InvokeWithLayerRequest R6 class
+# 
+#  Represents the TL request `InvokeWithLayerRequest`.
+# 
+#  Fields:
+#  - layer: integer (32-bit)
+#  - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
+# 
+#  Methods:
+#  - new(layer, query): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  @details
+#  to_raw() writes the constructor id (0xda9b0d0d) in little-endian, then a 4-byte
+#  integer for layer, then the nested query bytes. The nested query is expected to
+#  provide a to_raw() method returning a raw vector, or to already be a raw vector.
+#  If the query is a character, it will be converted using charToRaw().
+#  @noRd
+#  @noRd
 InvokeWithLayerRequest <- R6::R6Class(
   classname = "InvokeWithLayerRequest",
   public = list(
-    #' @field layer Field.
+    #  @field layer Field.
     layer = NULL,
-    #' @field query Field.
+    #  @field query Field.
     query = NULL,
 
-    #' Initialize an InvokeWithLayerRequest
-    #' @param layer integer 32-bit
-    #' @param query TypeX object or raw vector representing the inner query
+    #  Initialize an InvokeWithLayerRequest
+    #  @param layer integer 32-bit
+    #  @param query TypeX object or raw vector representing the inner query
     initialize = function(layer, query) {
       if (missing(layer) || missing(query)) stop("layer and query are required")
       self$layer <- as.integer(layer)
       self$query <- query
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
@@ -1059,8 +1079,8 @@ InvokeWithLayerRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0xda9b0d0d little endian bytes: b'\r\r\x9b\xda'
       constructor_bytes <- as.raw(c(0x0D, 0x0D, 0x9B, 0xDA))
@@ -1090,7 +1110,7 @@ InvokeWithLayerRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1112,41 +1132,43 @@ InvokeWithLayerRequest$from_reader <- function(reader) {
 }
 
 
-#' InvokeWithMessagesRangeRequest R6 class
-#'
-#' Represents the TL request `InvokeWithMessagesRangeRequest`.
-#'
-#' Fields:
-#' - range: TypeMessageRange (an object representing a message range). May be an R6 TL object with to_raw()/to_list().
-#' - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
-#'
-#' Methods:
-#' - new(range, query): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' @details
-#' to_raw() writes the constructor id (0x365275f2) in little-endian, then the
-#' serialized bytes for the range, then the serialized bytes for the nested query.
+#  InvokeWithMessagesRangeRequest R6 class
+# 
+#  Represents the TL request `InvokeWithMessagesRangeRequest`.
+# 
+#  Fields:
+#  - range: TypeMessageRange (an object representing a message range). May be an R6 TL object with to_raw()/to_list().
+#  - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
+# 
+#  Methods:
+#  - new(range, query): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  @details
+#  to_raw() writes the constructor id (0x365275f2) in little-endian, then the
+#  serialized bytes for the range, then the serialized bytes for the nested query.
+#  @noRd
+#  @noRd
 InvokeWithMessagesRangeRequest <- R6::R6Class(
   classname = "InvokeWithMessagesRangeRequest",
   public = list(
-    #' @field range Field.
+    #  @field range Field.
     range = NULL,
-    #' @field query Field.
+    #  @field query Field.
     query = NULL,
 
-    #' Initialize an InvokeWithMessagesRangeRequest
-    #' @param range TypeMessageRange object or raw vector representing the range
-    #' @param query TypeX object or raw vector representing the inner query
+    #  Initialize an InvokeWithMessagesRangeRequest
+    #  @param range TypeMessageRange object or raw vector representing the range
+    #  @param query TypeX object or raw vector representing the inner query
     initialize = function(range, query) {
       if (missing(range) || missing(query)) stop("range and query are required")
       self$range <- range
       self$query <- query
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       range_out <- NULL
       if (!is.null(self$range)) {
@@ -1171,8 +1193,8 @@ InvokeWithMessagesRangeRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0x365275f2 little endian bytes: b'\xf2uR6'
       constructor_bytes <- as.raw(c(0xF2, 0x75, 0x52, 0x36))
@@ -1205,7 +1227,7 @@ InvokeWithMessagesRangeRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1227,34 +1249,36 @@ InvokeWithMessagesRangeRequest$from_reader <- function(reader) {
 }
 
 
-#' InvokeWithReCaptchaRequest R6 class
-#'
-#' Represents the TL request `InvokeWithReCaptchaRequest`.
-#'
-#' Fields:
-#' - token: character string
-#' - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
-#'
-#' Methods:
-#' - new(token, query): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' @details
-#' to_raw() expects the query to provide a to_raw() method returning a raw vector,
-#' or to already be a raw vector. If neither is true and query is character, it will
-#' be coerced with charToRaw().
+#  InvokeWithReCaptchaRequest R6 class
+# 
+#  Represents the TL request `InvokeWithReCaptchaRequest`.
+# 
+#  Fields:
+#  - token: character string
+#  - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
+# 
+#  Methods:
+#  - new(token, query): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  @details
+#  to_raw() expects the query to provide a to_raw() method returning a raw vector,
+#  or to already be a raw vector. If neither is true and query is character, it will
+#  be coerced with charToRaw().
+#  @noRd
+#  @noRd
 InvokeWithReCaptchaRequest <- R6::R6Class(
   classname = "InvokeWithReCaptchaRequest",
   public = list(
-    #' @field token Field.
+    #  @field token Field.
     token = NULL,
-    #' @field query Field.
+    #  @field query Field.
     query = NULL,
 
-    #' Initialize an InvokeWithReCaptchaRequest
-    #' @param token character token
-    #' @param query TypeX object or raw vector representing the inner query
+    #  Initialize an InvokeWithReCaptchaRequest
+    #  @param token character token
+    #  @param query TypeX object or raw vector representing the inner query
     initialize = function(token, query) {
       if (missing(token) || missing(query)) stop("token and query are required")
       if (!is.character(token) || length(token) != 1) stop("token must be a single string")
@@ -1262,8 +1286,8 @@ InvokeWithReCaptchaRequest <- R6::R6Class(
       self$query <- query
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
@@ -1280,8 +1304,8 @@ InvokeWithReCaptchaRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0xadbb0f94 little endian bytes: b'\x94\x0f\xbb\xad'
       constructor_bytes <- as.raw(c(0x94, 0x0F, 0xBB, 0xAD))
@@ -1308,7 +1332,7 @@ InvokeWithReCaptchaRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1330,41 +1354,43 @@ InvokeWithReCaptchaRequest$from_reader <- function(reader) {
 }
 
 
-#' InvokeWithTakeoutRequest R6 class
-#'
-#' Represents the TL request `InvokeWithTakeoutRequest`.
-#'
-#' Fields:
-#' - takeout_id: numeric/integer (64-bit placeholder)
-#' - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
-#'
-#' Methods:
-#' - new(takeout_id, query): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' @details
-#' to_raw() writes takeout_id as an 8-byte little-endian value using writeBin(as.numeric(...), size=8).
-#' For exact two's-complement 64-bit preservation, replace with a dedicated 64-bit serializer.
+#  InvokeWithTakeoutRequest R6 class
+# 
+#  Represents the TL request `InvokeWithTakeoutRequest`.
+# 
+#  Fields:
+#  - takeout_id: numeric/integer (64-bit placeholder)
+#  - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
+# 
+#  Methods:
+#  - new(takeout_id, query): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  @details
+#  to_raw() writes takeout_id as an 8-byte little-endian value using writeBin(as.numeric(...), size=8).
+#  For exact two's-complement 64-bit preservation, replace with a dedicated 64-bit serializer.
+#  @noRd
+#  @noRd
 InvokeWithTakeoutRequest <- R6::R6Class(
   classname = "InvokeWithTakeoutRequest",
   public = list(
-    #' @field takeout_id Field.
+    #  @field takeout_id Field.
     takeout_id = NULL,
-    #' @field query Field.
+    #  @field query Field.
     query = NULL,
 
-    #' Initialize an InvokeWithTakeoutRequest
-    #' @param takeout_id numeric/integer 64-bit
-    #' @param query TypeX object or raw vector representing the inner query
+    #  Initialize an InvokeWithTakeoutRequest
+    #  @param takeout_id numeric/integer 64-bit
+    #  @param query TypeX object or raw vector representing the inner query
     initialize = function(takeout_id, query) {
       if (missing(takeout_id) || missing(query)) stop("takeout_id and query are required")
       self$takeout_id <- takeout_id
       self$query <- query
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
@@ -1381,8 +1407,8 @@ InvokeWithTakeoutRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0xaca9fd2e little endian bytes: b'.\xfd\xa9\xac'
       constructor_bytes <- as.raw(c(0x2E, 0xFD, 0xA9, 0xAC))
@@ -1408,7 +1434,7 @@ InvokeWithTakeoutRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1430,36 +1456,38 @@ InvokeWithTakeoutRequest$from_reader <- function(reader) {
 }
 
 
-#' InvokeWithoutUpdatesRequest R6 class
-#'
-#' Represents the TL request `InvokeWithoutUpdatesRequest`.
-#'
-#' Fields:
-#' - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
-#'
-#' Methods:
-#' - new(query): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' Note: to_raw() expects the query to provide a to_raw() method returning a raw vector,
-#' or to already be a raw vector. If neither is true, the query is written via as.raw
-#' of its serialized form where appropriate.
+#  InvokeWithoutUpdatesRequest R6 class
+# 
+#  Represents the TL request `InvokeWithoutUpdatesRequest`.
+# 
+#  Fields:
+#  - query: TypeX (an object representing a TL query). May be an R6 TL object with to_raw()/to_list().
+# 
+#  Methods:
+#  - new(query): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  Note: to_raw() expects the query to provide a to_raw() method returning a raw vector,
+#  or to already be a raw vector. If neither is true, the query is written via as.raw
+#  of its serialized form where appropriate.
+#  @noRd
+#  @noRd
 InvokeWithoutUpdatesRequest <- R6::R6Class(
   classname = "InvokeWithoutUpdatesRequest",
   public = list(
-    #' @field query Field.
+    #  @field query Field.
     query = NULL,
 
-    #' Initialize an InvokeWithoutUpdatesRequest
-    #' @param query TypeX object or raw vector representing the inner query
+    #  Initialize an InvokeWithoutUpdatesRequest
+    #  @param query TypeX object or raw vector representing the inner query
     initialize = function(query) {
       if (missing(query)) stop("query is required")
       self$query <- query
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       query_out <- NULL
       if (!is.null(self$query)) {
@@ -1475,8 +1503,8 @@ InvokeWithoutUpdatesRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0xbf9459b7 little endian bytes: b'\xb7Y\x94\xbf'
       constructor_bytes <- as.raw(c(0xB7, 0x59, 0x94, 0xBF))
@@ -1504,7 +1532,7 @@ InvokeWithoutUpdatesRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1524,35 +1552,37 @@ InvokeWithoutUpdatesRequest$from_reader <- function(reader) {
 }
 
 
-#' PingRequest R6 class
-#'
-#' Represents the TL request `PingRequest`.
-#'
-#' Fields:
-#' - ping_id: numeric/integer (64-bit placeholder)
-#'
-#' Methods:
-#' - new(ping_id): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#' - from_reader(reader): construct instance from a reader with read_long().
-#'
-#' Note: 64-bit integer handling uses numeric placeholders via writeBin.
+#  PingRequest R6 class
+# 
+#  Represents the TL request `PingRequest`.
+# 
+#  Fields:
+#  - ping_id: numeric/integer (64-bit placeholder)
+# 
+#  Methods:
+#  - new(ping_id): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#  - from_reader(reader): construct instance from a reader with read_long().
+# 
+#  Note: 64-bit integer handling uses numeric placeholders via writeBin.
+#  @noRd
+#  @noRd
 PingRequest <- R6::R6Class(
   classname = "PingRequest",
   public = list(
-    #' @field ping_id Field.
+    #  @field ping_id Field.
     ping_id = NULL,
 
-    #' Initialize a PingRequest
-    #' @param ping_id numeric/integer 64-bit
+    #  Initialize a PingRequest
+    #  @param ping_id numeric/integer 64-bit
     initialize = function(ping_id) {
       if (missing(ping_id)) stop("ping_id is required")
       self$ping_id <- ping_id
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       list(
         `_` = "PingRequest",
@@ -1560,8 +1590,8 @@ PingRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0x7abe77ec little endian bytes: b'\xecw\xbez'
       constructor_bytes <- as.raw(c(0xEC, 0x77, 0xBE, 0x7A))
@@ -1575,7 +1605,7 @@ PingRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1594,31 +1624,33 @@ PingRequest$from_reader <- function(reader) {
 }
 
 
-#' PingDelayDisconnectRequest R6 class
-#'
-#' Represents the TL request `PingDelayDisconnectRequest`.
-#'
-#' Fields:
-#' - ping_id: numeric/integer (64-bit placeholder)
-#' - disconnect_delay: integer (32-bit)
-#'
-#' Methods:
-#' - new(ping_id, disconnect_delay): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' Note: 64-bit integer handling uses numeric placeholders via writeBin.
+#  PingDelayDisconnectRequest R6 class
+# 
+#  Represents the TL request `PingDelayDisconnectRequest`.
+# 
+#  Fields:
+#  - ping_id: numeric/integer (64-bit placeholder)
+#  - disconnect_delay: integer (32-bit)
+# 
+#  Methods:
+#  - new(ping_id, disconnect_delay): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  Note: 64-bit integer handling uses numeric placeholders via writeBin.
+#  @noRd
+#  @noRd
 PingDelayDisconnectRequest <- R6::R6Class(
   classname = "PingDelayDisconnectRequest",
   public = list(
-    #' @field ping_id Field.
+    #  @field ping_id Field.
     ping_id = NULL,
-    #' @field disconnect_delay Field.
+    #  @field disconnect_delay Field.
     disconnect_delay = NULL,
 
-    #' Initialize a PingDelayDisconnectRequest
-    #' @param ping_id numeric/integer 64-bit
-    #' @param disconnect_delay integer 32-bit
+    #  Initialize a PingDelayDisconnectRequest
+    #  @param ping_id numeric/integer 64-bit
+    #  @param disconnect_delay integer 32-bit
     initialize = function(ping_id, disconnect_delay) {
       if (missing(ping_id) || missing(disconnect_delay)) {
         stop("ping_id and disconnect_delay are required")
@@ -1627,8 +1659,8 @@ PingDelayDisconnectRequest <- R6::R6Class(
       self$disconnect_delay <- disconnect_delay
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       list(
         `_` = "PingDelayDisconnectRequest",
@@ -1637,8 +1669,8 @@ PingDelayDisconnectRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0xf3427b8c little endian bytes: b'\x8c{B\xf3'
       constructor_bytes <- as.raw(c(0x8C, 0x7B, 0x42, 0xF3))
@@ -1654,7 +1686,7 @@ PingDelayDisconnectRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1676,49 +1708,51 @@ PingDelayDisconnectRequest$from_reader <- function(reader) {
 }
 
 
-#' ReqDHParamsRequest R6 class
-#'
-#' Represents the TL request `ReqDHParamsRequest`.
-#'
-#' Fields:
-#' - nonce: numeric/integer 128-bit nonce (placeholder representation)
-#' - server_nonce: numeric/integer 128-bit server nonce (placeholder)
-#' - p: raw, bytes
-#' - q: raw, bytes
-#' - public_key_fingerprint: numeric/integer 64-bit
-#' - encrypted_data: raw, bytes
-#'
-#' Methods:
-#' - new(nonce, server_nonce, p, q, public_key_fingerprint, encrypted_data): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' Note: 128-bit integer handling is represented as numeric/double placeholders.
-#' For precise 128-bit two's-complement behavior, use a big-integer library and
-#' implement a precise serializer.
+#  ReqDHParamsRequest R6 class
+# 
+#  Represents the TL request `ReqDHParamsRequest`.
+# 
+#  Fields:
+#  - nonce: numeric/integer 128-bit nonce (placeholder representation)
+#  - server_nonce: numeric/integer 128-bit server nonce (placeholder)
+#  - p: raw, bytes
+#  - q: raw, bytes
+#  - public_key_fingerprint: numeric/integer 64-bit
+#  - encrypted_data: raw, bytes
+# 
+#  Methods:
+#  - new(nonce, server_nonce, p, q, public_key_fingerprint, encrypted_data): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  Note: 128-bit integer handling is represented as numeric/double placeholders.
+#  For precise 128-bit two's-complement behavior, use a big-integer library and
+#  implement a precise serializer.
+#  @noRd
+#  @noRd
 ReqDHParamsRequest <- R6::R6Class(
   classname = "ReqDHParamsRequest",
   public = list(
-    #' @field nonce Field.
+    #  @field nonce Field.
     nonce = NULL,
-    #' @field server_nonce Field.
+    #  @field server_nonce Field.
     server_nonce = NULL,
-    #' @field p Field.
+    #  @field p Field.
     p = NULL,
-    #' @field q Field.
+    #  @field q Field.
     q = NULL,
-    #' @field public_key_fingerprint Field.
+    #  @field public_key_fingerprint Field.
     public_key_fingerprint = NULL,
-    #' @field encrypted_data Field.
+    #  @field encrypted_data Field.
     encrypted_data = NULL,
 
-    #' Initialize a ReqDHParamsRequest
-    #' @param nonce numeric/integer 128-bit nonce (placeholder)
-    #' @param server_nonce numeric/integer 128-bit server nonce (placeholder)
-    #' @param p raw or character convertible to raw
-    #' @param q raw or character convertible to raw
-    #' @param public_key_fingerprint numeric/integer 64-bit
-    #' @param encrypted_data raw or character convertible to raw
+    #  Initialize a ReqDHParamsRequest
+    #  @param nonce numeric/integer 128-bit nonce (placeholder)
+    #  @param server_nonce numeric/integer 128-bit server nonce (placeholder)
+    #  @param p raw or character convertible to raw
+    #  @param q raw or character convertible to raw
+    #  @param public_key_fingerprint numeric/integer 64-bit
+    #  @param encrypted_data raw or character convertible to raw
     initialize = function(nonce, server_nonce, p, q, public_key_fingerprint, encrypted_data) {
       if (missing(nonce) || missing(server_nonce) || missing(p) || missing(q) ||
         missing(public_key_fingerprint) || missing(encrypted_data)) {
@@ -1743,8 +1777,8 @@ ReqDHParamsRequest <- R6::R6Class(
       self$encrypted_data <- to_raw_field(encrypted_data)
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       list(
         `_` = "ReqDHParamsRequest",
@@ -1757,8 +1791,8 @@ ReqDHParamsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0xd712e4be little endian bytes: b'\xbe\xe4\x12\xd7'
       constructor_bytes <- as.raw(c(0xBE, 0xE4, 0x12, 0xD7))
@@ -1823,35 +1857,37 @@ ReqDHParamsRequest$from_reader <- function(reader) {
 }
 
 
-#' ReqPqRequest R6 class
-#'
-#' Represents the TL request `ReqPqRequest`.
-#'
-#'
-#' @description
-#' Methods:
-#' - new(nonce): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' Note: 128-bit integer handling is represented here as numeric/double placeholders.
-#' For precise 128-bit two's-complement behavior, use a big-integer library and
-#' implement a precise serializer.
+#  ReqPqRequest R6 class
+# 
+#  Represents the TL request `ReqPqRequest`.
+# 
+# 
+#  @description
+#  Methods:
+#  - new(nonce): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  Note: 128-bit integer handling is represented here as numeric/double placeholders.
+#  For precise 128-bit two's-complement behavior, use a big-integer library and
+#  implement a precise serializer.
+#  @noRd
+#  @noRd
 ReqPqRequest <- R6::R6Class(
   classname = "ReqPqRequest",
   public = list(
-    #' @field nonce Field.
+    #  @field nonce Field.
     nonce = NULL,
 
-    #' Initialize a ReqPqRequest
-    #' @param nonce numeric/integer 128-bit nonce
+    #  Initialize a ReqPqRequest
+    #  @param nonce numeric/integer 128-bit nonce
     initialize = function(nonce) {
       if (missing(nonce)) stop("nonce is required")
       self$nonce <- nonce
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       list(
         `_` = "ReqPqRequest",
@@ -1859,8 +1895,8 @@ ReqPqRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0x60469778 little endian bytes: b'x\x97F`'
       constructor_bytes <- as.raw(c(0x78, 0x97, 0x46, 0x60))
@@ -1875,7 +1911,7 @@ ReqPqRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1894,35 +1930,37 @@ ReqPqRequest$from_reader <- function(reader) {
 }
 
 
-#' ReqPqMultiRequest R6 class
-#'
-#' Represents the TL request `ReqPqMultiRequest`.
-#'
-#'
-#' @description
-#' Methods:
-#' - new(nonce): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#'
-#' Note: 128-bit integer handling is represented here as numeric/double placeholders.
-#' For precise 128-bit two's-complement behavior, use a big-integer library and
-#' implement a precise serializer.
+#  ReqPqMultiRequest R6 class
+# 
+#  Represents the TL request `ReqPqMultiRequest`.
+# 
+# 
+#  @description
+#  Methods:
+#  - new(nonce): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+# 
+#  Note: 128-bit integer handling is represented here as numeric/double placeholders.
+#  For precise 128-bit two's-complement behavior, use a big-integer library and
+#  implement a precise serializer.
+#  @noRd
+#  @noRd
 ReqPqMultiRequest <- R6::R6Class(
   classname = "ReqPqMultiRequest",
   public = list(
-    #' @field nonce Field.
+    #  @field nonce Field.
     nonce = NULL,
 
-    #' Initialize a ReqPqMultiRequest
-    #' @param nonce numeric/integer 128-bit nonce
+    #  Initialize a ReqPqMultiRequest
+    #  @param nonce numeric/integer 128-bit nonce
     initialize = function(nonce) {
       if (missing(nonce)) stop("nonce is required")
       self$nonce <- nonce
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       list(
         `_` = "ReqPqMultiRequest",
@@ -1930,8 +1968,8 @@ ReqPqMultiRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0xbe7e8ef1 little endian bytes: b'\xf1\x8e~\xbe'
       constructor_bytes <- as.raw(c(0xF1, 0x8E, 0x7E, 0xBE))
@@ -1946,7 +1984,7 @@ ReqPqMultiRequest <- R6::R6Class(
     }
   ),
   active = list(),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1965,38 +2003,40 @@ ReqPqMultiRequest$from_reader <- function(reader) {
 }
 
 
-#' RpcDropAnswerRequest R6 class
-#'
-#' Represents the TL request `RpcDropAnswerRequest`.
-#'
-#'
-#' @description
-#' Methods:
-#' - new(req_msg_id): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#' - from_reader(reader): class method, construct instance from a `reader` object
-#'   that exposes `read_long()` (returns numeric/integer) and similar methods.
-#'
-#' Note: to_raw() uses writeBin on numeric for 8-byte values. If exact 64-bit
-#' two's-complement preservation is required, replace with a dedicated 64-bit
-#' integer serialization utility.
-#'
+#  RpcDropAnswerRequest R6 class
+# 
+#  Represents the TL request `RpcDropAnswerRequest`.
+# 
+# 
+#  @description
+#  Methods:
+#  - new(req_msg_id): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#  - from_reader(reader): class method, construct instance from a `reader` object
+#    that exposes `read_long()` (returns numeric/integer) and similar methods.
+# 
+#  Note: to_raw() uses writeBin on numeric for 8-byte values. If exact 64-bit
+#  two's-complement preservation is required, replace with a dedicated 64-bit
+#  integer serialization utility.
+# 
+#  @noRd
+#  @noRd
 RpcDropAnswerRequest <- R6::R6Class(
   classname = "RpcDropAnswerRequest",
   public = list(
-    #' @field req_msg_id Field.
+    #  @field req_msg_id Field.
     req_msg_id = NULL,
 
-    #' Initialize a RpcDropAnswerRequest
-    #' @param req_msg_id numeric/integer Request message id (64-bit)
+    #  Initialize a RpcDropAnswerRequest
+    #  @param req_msg_id numeric/integer Request message id (64-bit)
     initialize = function(req_msg_id) {
       if (missing(req_msg_id)) stop("req_msg_id is required")
       self$req_msg_id <- req_msg_id
     },
 
-    #' Convert object to a simple list (dictionary-like)
-    #' @return list with fields
+    #  Convert object to a simple list (dictionary-like)
+    #  @return list with fields
     to_list = function() {
       list(
         `_` = "RpcDropAnswerRequest",
@@ -2004,8 +2044,8 @@ RpcDropAnswerRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0x58e4a740 little endian bytes: b'@\xa7\xe4X'
       constructor_bytes <- as.raw(c(0x40, 0xA7, 0xE4, 0x58))
@@ -2022,7 +2062,7 @@ RpcDropAnswerRequest <- R6::R6Class(
   active = list(
     # no active bindings
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2041,37 +2081,39 @@ RpcDropAnswerRequest$from_reader <- function(reader) {
 }
 
 
-#' SetClientDHParamsRequest R6 class
-#'
-#' Represents the TL request `SetClientDHParamsRequest`.
-#'
-#'
-#' @description
-#' Methods:
-#' - new(nonce, server_nonce, encrypted_data): create new instance.
-#' - to_list(): return an R list representation.
-#' - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
-#' - from_reader(reader): class method, construct instance from a `reader` object
-#'   that exposes `read_large_int(bits = 128)` and `tgread_bytes()`.
-#'
-#' Note: 128-bit integer handling is represented here as numeric/double placeholders.
-#' For precise 128-bit two's-complement behavior, use a big-integer library and
-#' implement a precise serializer.
-#'
+#  SetClientDHParamsRequest R6 class
+# 
+#  Represents the TL request `SetClientDHParamsRequest`.
+# 
+# 
+#  @description
+#  Methods:
+#  - new(nonce, server_nonce, encrypted_data): create new instance.
+#  - to_list(): return an R list representation.
+#  - to_raw(): serialize to raw vector (bytes) in little endian as used in TL.
+#  - from_reader(reader): class method, construct instance from a `reader` object
+#    that exposes `read_large_int(bits = 128)` and `tgread_bytes()`.
+# 
+#  Note: 128-bit integer handling is represented here as numeric/double placeholders.
+#  For precise 128-bit two's-complement behavior, use a big-integer library and
+#  implement a precise serializer.
+# 
+#  @noRd
+#  @noRd
 SetClientDHParamsRequest <- R6::R6Class(
   classname = "SetClientDHParamsRequest",
   public = list(
-    #' @field nonce Field.
+    #  @field nonce Field.
     nonce = NULL,
-    #' @field server_nonce Field.
+    #  @field server_nonce Field.
     server_nonce = NULL,
-    #' @field encrypted_data Field.
+    #  @field encrypted_data Field.
     encrypted_data = NULL,
 
-    #' Initialize a SetClientDHParamsRequest
-    #' @param nonce numeric/integer 128-bit nonce
-    #' @param server_nonce numeric/integer 128-bit server nonce
-    #' @param encrypted_data raw or raw-like encrypted payload
+    #  Initialize a SetClientDHParamsRequest
+    #  @param nonce numeric/integer 128-bit nonce
+    #  @param server_nonce numeric/integer 128-bit server nonce
+    #  @param encrypted_data raw or raw-like encrypted payload
     initialize = function(nonce, server_nonce, encrypted_data) {
       if (missing(nonce) || missing(server_nonce) || missing(encrypted_data)) {
         stop("nonce, server_nonce and encrypted_data are required")
@@ -2089,8 +2131,8 @@ SetClientDHParamsRequest <- R6::R6Class(
       self$encrypted_data <- encrypted_data
     },
 
-    #' Convert to list
-    #' @return list representation
+    #  Convert to list
+    #  @return list representation
     to_list = function() {
       list(
         `_` = "SetClientDHParamsRequest",
@@ -2100,8 +2142,8 @@ SetClientDHParamsRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to raw (bytes)
-    #' @return raw vector
+    #  Serialize to raw (bytes)
+    #  @return raw vector
     to_raw = function() {
       # CONSTRUCTOR_ID 0xf5045f1f little endian bytes: b'\x1f_\x04\xf5'
       constructor_bytes <- as.raw(c(0x1F, 0x5F, 0x04, 0xF5))

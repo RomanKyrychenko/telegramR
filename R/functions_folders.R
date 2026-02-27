@@ -1,31 +1,33 @@
-#' EditPeerFoldersRequest R6 class
-#'
-#' Represents the TL request EditPeerFoldersRequest.
-#'
-#' @return An R6 object of class EditPeerFoldersRequest
-#' @title EditPeerFoldersRequest
-#' @description Telegram API type EditPeerFoldersRequest
-#' @export
+#  EditPeerFoldersRequest R6 class
+# 
+#  Represents the TL request EditPeerFoldersRequest.
+# 
+#  @return An R6 object of class EditPeerFoldersRequest
+#  @title EditPeerFoldersRequest
+#  @description Telegram API type EditPeerFoldersRequest
+#  @export
+#  @noRd
+#  @noRd
 EditPeerFoldersRequest <- R6::R6Class(
   "EditPeerFoldersRequest",
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6847d0ab,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field folder_peers Field.
+    #  @field folder_peers Field.
     folder_peers = NULL,
 
-    #' @description Initialize EditPeerFoldersRequest
-    #' @param folder_peers list List of InputFolderPeer objects
+    #  @description Initialize EditPeerFoldersRequest
+    #  @param folder_peers list List of InputFolderPeer objects
     initialize = function(folder_peers = list()) {
       if (is.null(folder_peers)) folder_peers <- list()
       if (!is.list(folder_peers)) stop("folder_peers must be a list")
       self$folder_peers <- folder_peers
     },
 
-    #' @description Convert to a serializable R list (similar to to_dict)
-    #' @return list
+    #  @description Convert to a serializable R list (similar to to_dict)
+    #  @return list
     to_list = function() {
       list(
         `_` = "EditPeerFoldersRequest",
@@ -39,8 +41,8 @@ EditPeerFoldersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize to raw bytes. Expects folder_peers elements to provide to_raw()
-    #' @return raw vector
+    #  @description Serialize to raw bytes. Expects folder_peers elements to provide to_raw()
+    #  @return raw vector
     to_raw = function() {
       parts <- list()
       parts[[1]] <- private$int_to_raw_le(self$CONSTRUCTOR_ID)

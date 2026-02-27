@@ -1,21 +1,23 @@
-#' FinishJobRequest R6 class
-#'
-#' Representation of the FinishJobRequest TLRequest.
-#' @title FinishJobRequest
-#' @description Telegram API type FinishJobRequest
-#' @export
+#  FinishJobRequest R6 class
+# 
+#  Representation of the FinishJobRequest TLRequest.
+#  @title FinishJobRequest
+#  @description Telegram API type FinishJobRequest
+#  @export
+#  @noRd
+#  @noRd
 FinishJobRequest <- R6::R6Class(
   "FinishJobRequest",
   public = list(
-    #' @field job_id Field.
+    #  @field job_id Field.
     job_id = NULL,
-    #' @field error Field.
+    #  @field error Field.
     error = NULL,
 
-    #' @description Initialize a FinishJobRequest
-    #' @param job_id character
-    #' @param error character or NULL
-    #' @return self
+    #  @description Initialize a FinishJobRequest
+    #  @param job_id character
+    #  @param error character or NULL
+    #  @return self
     initialize = function(job_id, error = NULL) {
       if (!missing(job_id) && !is.null(job_id)) {
         job_id <- as.character(job_id)
@@ -28,8 +30,8 @@ FinishJobRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(
         `_` = "FinishJobRequest",
@@ -38,9 +40,9 @@ FinishJobRequest <- R6::R6Class(
       )
     },
 
-    #' @description Get raw bytes for this constructor
-    #' @return raw vector
-    #' @details Encodes constructor id, flags (bit 0 for error), job_id and optional error.
+    #  @description Get raw bytes for this constructor
+    #  @return raw vector
+    #  @details Encodes constructor id, flags (bit 0 for error), job_id and optional error.
     bytes = function() {
       # constructor id bytes as in Python: b'$\xbf\x1eO' -> 0x24 0xbf 0x1e 0x4f
       ctor <- as.raw(c(0x24, 0xbf, 0x1e, 0x4f))
@@ -53,7 +55,7 @@ FinishJobRequest <- R6::R6Class(
       do.call(c, parts)
     }
   ),
-  #' @field lock_class Field.
+  #  @field lock_class Field.
   lock_class = FALSE
 )
 
@@ -71,21 +73,23 @@ FinishJobRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' GetSmsJobRequest R6 class
-#'
-#' Representation of the GetSmsJobRequest TLRequest.
-#' @title GetSmsJobRequest
-#' @description Telegram API type GetSmsJobRequest
-#' @export
+#  GetSmsJobRequest R6 class
+# 
+#  Representation of the GetSmsJobRequest TLRequest.
+#  @title GetSmsJobRequest
+#  @description Telegram API type GetSmsJobRequest
+#  @export
+#  @noRd
+#  @noRd
 GetSmsJobRequest <- R6::R6Class(
   "GetSmsJobRequest",
   public = list(
-    #' @field job_id Field.
+    #  @field job_id Field.
     job_id = NULL,
 
-    #' @description Initialize a GetSmsJobRequest
-    #' @param job_id character
-    #' @return self
+    #  @description Initialize a GetSmsJobRequest
+    #  @param job_id character
+    #  @return self
     initialize = function(job_id) {
       if (!missing(job_id) && !is.null(job_id)) {
         job_id <- as.character(job_id)
@@ -94,8 +98,8 @@ GetSmsJobRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(
         `_` = "GetSmsJobRequest",
@@ -103,16 +107,16 @@ GetSmsJobRequest <- R6::R6Class(
       )
     },
 
-    #' @description Get raw bytes for this constructor
-    #' @return raw vector
-    #' @details This calls a helper serialize_bytes() to encode the job_id.
+    #  @description Get raw bytes for this constructor
+    #  @return raw vector
+    #  @details This calls a helper serialize_bytes() to encode the job_id.
     bytes = function() {
       ctor <- as.raw(c(0x2f, 0x90, 0x8d, 0x77))
       # serialize_bytes() is expected to be available in the package context
       c(ctor, serialize_bytes(self$job_id))
     }
   ),
-  #' @field lock_class Field.
+  #  @field lock_class Field.
   lock_class = FALSE
 )
 
@@ -124,34 +128,36 @@ GetSmsJobRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' GetStatusRequest R6 class
-#'
-#' Representation of the GetStatusRequest TLRequest.
-#' @title GetStatusRequest
-#' @description Telegram API type GetStatusRequest
-#' @export
+#  GetStatusRequest R6 class
+# 
+#  Representation of the GetStatusRequest TLRequest.
+#  @title GetStatusRequest
+#  @description Telegram API type GetStatusRequest
+#  @export
+#  @noRd
+#  @noRd
 GetStatusRequest <- R6::R6Class(
   "GetStatusRequest",
   public = list(
-    #' @description Initialize a GetStatusRequest
-    #' @return self
+    #  @description Initialize a GetStatusRequest
+    #  @return self
     initialize = function() {
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(`_` = "GetStatusRequest")
     },
 
-    #' @description Get raw bytes for this constructor
-    #' @return raw vector
+    #  @description Get raw bytes for this constructor
+    #  @return raw vector
     bytes = function() {
       as.raw(c(0xe8, 0x98, 0xa6, 0x10))
     }
   ),
-  #' @field lock_class Field.
+  #  @field lock_class Field.
   lock_class = FALSE
 )
 
@@ -162,34 +168,36 @@ GetStatusRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' IsEligibleToJoinRequest R6 class
-#'
-#' Representation of the IsEligibleToJoinRequest TLRequest.
-#' @title IsEligibleToJoinRequest
-#' @description Telegram API type IsEligibleToJoinRequest
-#' @export
+#  IsEligibleToJoinRequest R6 class
+# 
+#  Representation of the IsEligibleToJoinRequest TLRequest.
+#  @title IsEligibleToJoinRequest
+#  @description Telegram API type IsEligibleToJoinRequest
+#  @export
+#  @noRd
+#  @noRd
 IsEligibleToJoinRequest <- R6::R6Class(
   "IsEligibleToJoinRequest",
   public = list(
-    #' @description Initialize an IsEligibleToJoinRequest
-    #' @return self
+    #  @description Initialize an IsEligibleToJoinRequest
+    #  @return self
     initialize = function() {
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(`_` = "IsEligibleToJoinRequest")
     },
 
-    #' @description Get raw bytes for this constructor
-    #' @return raw vector
+    #  @description Get raw bytes for this constructor
+    #  @return raw vector
     bytes = function() {
       as.raw(c(0xd0, 0x39, 0xdc, 0x0e))
     }
   ),
-  #' @field lock_class Field.
+  #  @field lock_class Field.
   lock_class = FALSE
 )
 
@@ -208,34 +216,36 @@ write_uint32_le <- function(x) {
   rawConnectionValue(con)
 }
 
-#' JoinRequest R6 class
-#'
-#' Representation of the JoinRequest TLRequest.
-#' @title JoinRequest
-#' @description Telegram API type JoinRequest
-#' @export
+#  JoinRequest R6 class
+# 
+#  Representation of the JoinRequest TLRequest.
+#  @title JoinRequest
+#  @description Telegram API type JoinRequest
+#  @export
+#  @noRd
+#  @noRd
 JoinRequest <- R6::R6Class(
   "JoinRequest",
   public = list(
-    #' @description Initialize a JoinRequest
-    #' @return self
+    #  @description Initialize a JoinRequest
+    #  @return self
     initialize = function() {
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(`_` = "JoinRequest")
     },
 
-    #' @description Get raw bytes for this constructor
-    #' @return raw vector
+    #  @description Get raw bytes for this constructor
+    #  @return raw vector
     bytes = function() {
       as.raw(c(0x2d, 0xce, 0x4e, 0xa7))
     }
   ),
-  #' @field lock_class Field.
+  #  @field lock_class Field.
   lock_class = FALSE
 )
 
@@ -246,34 +256,36 @@ JoinRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' LeaveRequest R6 class
-#'
-#' Representation of the LeaveRequest TLRequest.
-#' @title LeaveRequest
-#' @description Telegram API type LeaveRequest
-#' @export
+#  LeaveRequest R6 class
+# 
+#  Representation of the LeaveRequest TLRequest.
+#  @title LeaveRequest
+#  @description Telegram API type LeaveRequest
+#  @export
+#  @noRd
+#  @noRd
 LeaveRequest <- R6::R6Class(
   "LeaveRequest",
   public = list(
-    #' @description Initialize a LeaveRequest
-    #' @return self
+    #  @description Initialize a LeaveRequest
+    #  @return self
     initialize = function() {
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(`_` = "LeaveRequest")
     },
 
-    #' @description Get raw bytes for this constructor
-    #' @return raw vector
+    #  @description Get raw bytes for this constructor
+    #  @return raw vector
     bytes = function() {
       as.raw(c(0x73, 0xad, 0x98, 0x98))
     }
   ),
-  #' @field lock_class Field.
+  #  @field lock_class Field.
   lock_class = FALSE
 )
 
@@ -283,20 +295,22 @@ LeaveRequest$set("public", "from_reader", function(reader) {
 })
 
 
-#' UpdateSettingsRequest R6 class
-#'
-#' Representation of the UpdateSettingsRequest TLRequest.
-#' @title UpdateSettingsRequest
-#' @description Telegram API type UpdateSettingsRequest
-#' @export
+#  UpdateSettingsRequest R6 class
+# 
+#  Representation of the UpdateSettingsRequest TLRequest.
+#  @title UpdateSettingsRequest
+#  @description Telegram API type UpdateSettingsRequest
+#  @export
+#  @noRd
+#  @noRd
 UpdateSettingsRequest <- R6::R6Class(
   "UpdateSettingsRequest",
   public = list(
-    #' @field allow_international Field.
+    #  @field allow_international Field.
     allow_international = NULL,
 
-    #' @description Initialize UpdateSettingsRequest
-    #' @param allow_international logical or NULL
+    #  @description Initialize UpdateSettingsRequest
+    #  @param allow_international logical or NULL
     initialize = function(allow_international = NULL) {
       if (!is.null(allow_international)) {
         allow_international <- as.logical(allow_international)
@@ -305,8 +319,8 @@ UpdateSettingsRequest <- R6::R6Class(
       invisible(self)
     },
 
-    #' @description Convert to list (dictionary-like)
-    #' @return list
+    #  @description Convert to list (dictionary-like)
+    #  @return list
     to_list = function() {
       list(
         `_` = "UpdateSettingsRequest",
@@ -314,8 +328,8 @@ UpdateSettingsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Get raw bytes for this constructor
-    #' @return raw vector
+    #  @description Get raw bytes for this constructor
+    #  @return raw vector
     bytes = function() {
       # constructor id bytes: b'\xbf\xa0?\t' -> 0xbf 0xa0 0x3f 0x09
       ctor <- as.raw(c(0xbf, 0xa0, 0x3f, 0x09))
@@ -324,7 +338,7 @@ UpdateSettingsRequest <- R6::R6Class(
       c(ctor, flags_bytes)
     }
   ),
-  #' @field lock_class Field.
+  #  @field lock_class Field.
   lock_class = FALSE
 )
 

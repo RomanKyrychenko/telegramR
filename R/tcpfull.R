@@ -1,23 +1,25 @@
-#' @title FullPacketCodec
-#' @description A codec for full TCP packets for Telegram.
-#' @param connection A connection object.
-#' @export
+#  @title FullPacketCodec
+#  @description A codec for full TCP packets for Telegram.
+#  @param connection A connection object.
+#  @export
+#  @noRd
+#  @noRd
 FullPacketCodec <- R6::R6Class("FullPacketCodec",
   inherit = PacketCodec,
   public = list(
-    #' @field .send_counter Counter for sent packets.
+    #  @field .send_counter Counter for sent packets.
     .send_counter = NULL,
 
-    #' @description Initialize a new FullPacketCodec.
-    #' @param connection A connection object.
+    #  @description Initialize a new FullPacketCodec.
+    #  @param connection A connection object.
     initialize = function(connection) {
       super$initialize(connection)
       self$.send_counter <- 0L
     },
 
-    #' @description Encode a packet.
-    #' @param data A raw vector containing the packet data.
-    #' @return A raw vector representing the full packet.
+    #  @description Encode a packet.
+    #  @param data A raw vector containing the packet data.
+    #  @return A raw vector representing the full packet.
     encode_packet = function(data) {
       if (is.null(data)) {
         stop("invalid 'length' argument")
@@ -34,9 +36,9 @@ FullPacketCodec <- R6::R6Class("FullPacketCodec",
       c(packet, crc_raw)
     },
 
-    #' @description Read a packet.
-    #' @param reader An object with a `readexactly` method.
-    #' @return A raw vector representing the packet body.
+    #  @description Read a packet.
+    #  @param reader An object with a `readexactly` method.
+    #  @return A raw vector representing the packet body.
     read_packet = function(reader) {
       promise(function(resolve, reject) {
         tryCatch(
@@ -68,15 +70,17 @@ FullPacketCodec <- R6::R6Class("FullPacketCodec",
   )
 )
 
-#' @title ConnectionTcpFull
-#' @description Default Telegram mode. Sends 12 additional bytes and calculates the CRC for each packet.
-#' @param ... Additional parameters passed to the parent connection.
-#' @export
+#  @title ConnectionTcpFull
+#  @description Default Telegram mode. Sends 12 additional bytes and calculates the CRC for each packet.
+#  @param ... Additional parameters passed to the parent connection.
+#  @export
+#  @noRd
+#  @noRd
 ConnectionTcpFull <- R6::R6Class("ConnectionTcpFull",
   inherit = Connection,
   public = list(
-    #' @description Initialize the TCP full connection.
-    #' @param ... Additional parameters.
+    #  @description Initialize the TCP full connection.
+    #  @param ... Additional parameters.
     initialize = function(...) {
       super$initialize(...)
       # Store the codec class; Connection will instantiate it with this connection.

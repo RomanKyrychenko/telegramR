@@ -1,26 +1,28 @@
-#' AcceptTermsOfServiceRequest R6 class
-#'
-#' Accept terms of service (help.TermsOfService). Serializes a DataJSON id.
-#'
-#' @title AcceptTermsOfServiceRequest
-#' @description Telegram API type AcceptTermsOfServiceRequest
-#' @export
+#  AcceptTermsOfServiceRequest R6 class
+# 
+#  Accept terms of service (help.TermsOfService). Serializes a DataJSON id.
+# 
+#  @title AcceptTermsOfServiceRequest
+#  @description Telegram API type AcceptTermsOfServiceRequest
+#  @export
+#  @noRd
+#  @noRd
 AcceptTermsOfServiceRequest <- R6::R6Class(
   "AcceptTermsOfServiceRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0xee72f79a),
     SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize AcceptTermsOfServiceRequest
-    #' @param id TLObject-like or raw
+    #  @description Initialize AcceptTermsOfServiceRequest
+    #  @param id TLObject-like or raw
     initialize = function(id = NULL) {
       self$id <- id
     },
 
-    #' Convert to list
-    #' @return list with `_` discriminator and id as list (if possible)
+    #  Convert to list
+    #  @return list with `_` discriminator and id as list (if possible)
     to_list = function() {
       list(
         `_` = "AcceptTermsOfServiceRequest",
@@ -32,8 +34,8 @@ AcceptTermsOfServiceRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
@@ -62,41 +64,43 @@ AcceptTermsOfServiceRequest$from_reader <- function(reader) {
 }
 
 
-#' DismissSuggestionRequest R6 class
-#'
-#' Dismiss a suggestion for a peer with an associated suggestion string.
-#'
-#' @title DismissSuggestionRequest
-#' @description Telegram API type DismissSuggestionRequest
-#' @export
+#  DismissSuggestionRequest R6 class
+# 
+#  Dismiss a suggestion for a peer with an associated suggestion string.
+# 
+#  @title DismissSuggestionRequest
+#  @description Telegram API type DismissSuggestionRequest
+#  @export
+#  @noRd
+#  @noRd
 DismissSuggestionRequest <- R6::R6Class(
   "DismissSuggestionRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0xf50dbaa1),
     SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field suggestion Field.
+    #  @field suggestion Field.
     suggestion = "",
 
-    #' @description Initialize DismissSuggestionRequest
-    #' @param peer TLObject-like or raw
-    #' @param suggestion character
+    #  @description Initialize DismissSuggestionRequest
+    #  @param peer TLObject-like or raw
+    #  @param suggestion character
     initialize = function(peer = NULL, suggestion = "") {
       self$peer <- peer
       self$suggestion <- as.character(suggestion)
     },
 
-    #' Resolve peer using client and utils
-    #' @param client client object providing get_input_entity()
-    #' @param utils utils providing get_input_peer()
+    #  Resolve peer using client and utils
+    #  @param client client object providing get_input_entity()
+    #  @param utils utils providing get_input_peer()
     resolve = function(client, utils) {
       # replace peer with resolved input peer if helpers are provided
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' Convert to list
-    #' @return list with `_` discriminator, peer and suggestion
+    #  Convert to list
+    #  @return list with `_` discriminator, peer and suggestion
     to_list = function() {
       list(
         `_` = "DismissSuggestionRequest",
@@ -109,8 +113,8 @@ DismissSuggestionRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
@@ -156,29 +160,31 @@ DismissSuggestionRequest$from_reader <- function(reader) {
 }
 
 
-#' EditUserInfoRequest R6 class
-#'
-#' Edit user info (help.UserInfo). Serializes an input user, a message and a list
-#' of message entities.
-#'
-#' @title EditUserInfoRequest
-#' @description Telegram API type EditUserInfoRequest
-#' @export
+#  EditUserInfoRequest R6 class
+# 
+#  Edit user info (help.UserInfo). Serializes an input user, a message and a list
+#  of message entities.
+# 
+#  @title EditUserInfoRequest
+#  @description Telegram API type EditUserInfoRequest
+#  @export
+#  @noRd
+#  @noRd
 EditUserInfoRequest <- R6::R6Class(
   "EditUserInfoRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x66b91b70),
     SUBCLASS_OF_ID = as.numeric(0x5c53d7d8),
-    #' @field userId Field.
+    #  @field userId Field.
     userId = NULL,
-    #' @field message Field.
+    #  @field message Field.
     message = "",
     entities = list(),
 
-    #' @description Initialize EditUserInfoRequest
-    #' @param userId TLObject-like or raw
-    #' @param message character
-    #' @param entities list of TLObject-like entities
+    #  @description Initialize EditUserInfoRequest
+    #  @param userId TLObject-like or raw
+    #  @param message character
+    #  @param entities list of TLObject-like entities
     initialize = function(userId = NULL, message = "", entities = list()) {
       self$userId <- userId
       self$message <- as.character(message)
@@ -189,16 +195,16 @@ EditUserInfoRequest <- R6::R6Class(
       }
     },
 
-    #' Resolve userId using client and utils
-    #' @param client client object providing get_input_entity()
-    #' @param utils utils providing get_input_user()
+    #  Resolve userId using client and utils
+    #  @param client client object providing get_input_entity()
+    #  @param utils utils providing get_input_user()
     resolve = function(client, utils) {
       # replace userId with resolved input user if helpers are provided
       self$userId <- utils$get_input_user(client$get_input_entity(self$userId))
     },
 
-    #' Convert to list
-    #' @return list with `_` discriminator, user_id, message and entities as lists (if possible)
+    #  Convert to list
+    #  @return list with `_` discriminator, user_id, message and entities as lists (if possible)
     to_list = function() {
       list(
         `_` = "EditUserInfoRequest",
@@ -218,8 +224,8 @@ EditUserInfoRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
@@ -290,13 +296,15 @@ EditUserInfoRequest$from_reader <- function(reader) {
 }
 
 
-#' GetAppConfigRequest R6 class
-#'
-#' Request to get app configuration (possibly not modified).
-#'
-#' @title GetAppConfigRequest
-#' @description Telegram API type GetAppConfigRequest
-#' @export
+#  GetAppConfigRequest R6 class
+# 
+#  Request to get app configuration (possibly not modified).
+# 
+#  @title GetAppConfigRequest
+#  @description Telegram API type GetAppConfigRequest
+#  @export
+#  @noRd
+#  @noRd
 GetAppConfigRequest <- R6::R6Class(
   "GetAppConfigRequest",
   public = list(
@@ -304,14 +312,14 @@ GetAppConfigRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.numeric(0x14381c9a),
     hash = 0L,
 
-    #' @description Initialize GetAppConfigRequest
-    #' @param hash integer
+    #  @description Initialize GetAppConfigRequest
+    #  @param hash integer
     initialize = function(hash = 0L) {
       self$hash <- as.integer(hash)
     },
 
-    #' Convert to list
-    #' @return list with `_` discriminator and hash
+    #  Convert to list
+    #  @return list with `_` discriminator and hash
     to_list = function() {
       list(
         `_` = "GetAppConfigRequest",
@@ -319,8 +327,8 @@ GetAppConfigRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
@@ -343,29 +351,31 @@ GetAppConfigRequest$from_reader <- function(reader) {
 }
 
 
-#' GetAppUpdateRequest R6 class
-#'
-#' Request to get app update info.
-#'
-#' @title GetAppUpdateRequest
-#' @description Telegram API type GetAppUpdateRequest
-#' @export
+#  GetAppUpdateRequest R6 class
+# 
+#  Request to get app update info.
+# 
+#  @title GetAppUpdateRequest
+#  @description Telegram API type GetAppUpdateRequest
+#  @export
+#  @noRd
+#  @noRd
 GetAppUpdateRequest <- R6::R6Class(
   "GetAppUpdateRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x522d5a7d),
     SUBCLASS_OF_ID = as.numeric(0x5897069e),
-    #' @field source Field.
+    #  @field source Field.
     source = "",
 
-    #' @description Initialize GetAppUpdateRequest
-    #' @param source character
+    #  @description Initialize GetAppUpdateRequest
+    #  @param source character
     initialize = function(source = "") {
       self$source <- as.character(source)
     },
 
-    #' Convert to list
-    #' @return list with `_` discriminator and source
+    #  Convert to list
+    #  @return list with `_` discriminator and source
     to_list = function() {
       list(
         `_` = "GetAppUpdateRequest",
@@ -373,8 +383,8 @@ GetAppUpdateRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
@@ -411,35 +421,37 @@ GetAppUpdateRequest$from_reader <- function(reader) {
 }
 
 
-#' GetCdnConfigRequest R6 class
-#'
-#' Request to get CDN configuration.
-#'
-#' @title GetCdnConfigRequest
-#' @description Telegram API type GetCdnConfigRequest
-#' @export
+#  GetCdnConfigRequest R6 class
+# 
+#  Request to get CDN configuration.
+# 
+#  @title GetCdnConfigRequest
+#  @description Telegram API type GetCdnConfigRequest
+#  @export
+#  @noRd
+#  @noRd
 GetCdnConfigRequest <- R6::R6Class(
   "GetCdnConfigRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x52029342),
     SUBCLASS_OF_ID = as.numeric(0xecda397c),
 
-    #' @description Initialize GetCdnConfigRequest
-    #' @return invisible NULL
+    #  @description Initialize GetCdnConfigRequest
+    #  @return invisible NULL
     initialize = function() {
       invisible(NULL)
     },
 
-    #' Convert to list
-    #' @return list with `_` discriminator
+    #  Convert to list
+    #  @return list with `_` discriminator
     to_list = function() {
       list(
         `_` = "GetCdnConfigRequest"
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       packInt32(self$CONSTRUCTOR_ID)
     }
@@ -458,35 +470,37 @@ GetCdnConfigRequest$from_reader <- function(reader) {
 }
 
 
-#' GetConfigRequest R6 class
-#'
-#' Request to get configuration.
-#'
-#' @title GetConfigRequest
-#' @description Telegram API type GetConfigRequest
-#' @export
+#  GetConfigRequest R6 class
+# 
+#  Request to get configuration.
+# 
+#  @title GetConfigRequest
+#  @description Telegram API type GetConfigRequest
+#  @export
+#  @noRd
+#  @noRd
 GetConfigRequest <- R6::R6Class(
   "GetConfigRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0xc4f9186b),
     SUBCLASS_OF_ID = as.numeric(0xd3262a4a),
 
-    #' @description Initialize GetConfigRequest
-    #' @return invisible NULL
+    #  @description Initialize GetConfigRequest
+    #  @return invisible NULL
     initialize = function() {
       invisible(NULL)
     },
 
-    #' Convert to list
-    #' @return list with type discriminator
+    #  Convert to list
+    #  @return list with type discriminator
     to_list = function() {
       list(
         `_` = "GetConfigRequest"
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       # constructor id (little-endian 4 bytes)
       packInt32(self$CONSTRUCTOR_ID)
@@ -506,32 +520,34 @@ GetConfigRequest$from_reader <- function(reader) {
 }
 
 
-#' GetCountriesListRequest R6 class
-#'
-#' Request to get the list of countries (possibly not modified).
-#'
-#' @title GetCountriesListRequest
-#' @description Telegram API type GetCountriesListRequest
-#' @export
+#  GetCountriesListRequest R6 class
+# 
+#  Request to get the list of countries (possibly not modified).
+# 
+#  @title GetCountriesListRequest
+#  @description Telegram API type GetCountriesListRequest
+#  @export
+#  @noRd
+#  @noRd
 GetCountriesListRequest <- R6::R6Class(
   "GetCountriesListRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x735787a8),
     SUBCLASS_OF_ID = as.numeric(0xea31fe88),
-    #' @field langCode Field.
+    #  @field langCode Field.
     langCode = "",
     hash = 0L,
 
-    #' @description Initialize GetCountriesListRequest
-    #' @param langCode character
-    #' @param hash integer
+    #  @description Initialize GetCountriesListRequest
+    #  @param langCode character
+    #  @param hash integer
     initialize = function(langCode = "", hash = 0L) {
       self$langCode <- as.character(langCode)
       self$hash <- as.integer(hash)
     },
 
-    #' Convert to list
-    #' @return list with `_` discriminator, lang_code and hash
+    #  Convert to list
+    #  @return list with `_` discriminator, lang_code and hash
     to_list = function() {
       list(
         `_` = "GetCountriesListRequest",
@@ -540,8 +556,8 @@ GetCountriesListRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
@@ -581,29 +597,31 @@ GetCountriesListRequest$from_reader <- function(reader) {
 }
 
 
-#' GetDeepLinkInfoRequest R6 class
-#'
-#' Request to get deep link info.
-#'
-#' @title GetDeepLinkInfoRequest
-#' @description Telegram API type GetDeepLinkInfoRequest
-#' @export
+#  GetDeepLinkInfoRequest R6 class
+# 
+#  Request to get deep link info.
+# 
+#  @title GetDeepLinkInfoRequest
+#  @description Telegram API type GetDeepLinkInfoRequest
+#  @export
+#  @noRd
+#  @noRd
 GetDeepLinkInfoRequest <- R6::R6Class(
   "GetDeepLinkInfoRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x3fedc75f),
     SUBCLASS_OF_ID = as.numeric(0x984aac38),
-    #' @field path Field.
+    #  @field path Field.
     path = "",
 
-    #' @description Initialize GetDeepLinkInfoRequest
-    #' @param path character
+    #  @description Initialize GetDeepLinkInfoRequest
+    #  @param path character
     initialize = function(path = "") {
       self$path <- as.character(path)
     },
 
-    #' Convert to list
-    #' @return list with `_` discriminator and path
+    #  Convert to list
+    #  @return list with `_` discriminator and path
     to_list = function() {
       list(
         `_` = "GetDeepLinkInfoRequest",
@@ -611,8 +629,8 @@ GetDeepLinkInfoRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
@@ -649,36 +667,38 @@ GetDeepLinkInfoRequest$from_reader <- function(reader) {
 }
 
 
-#' GetInviteTextRequest R6 class
-#'
-#' Request to get invite text.
-#'
-#' @title GetInviteTextRequest
-#' @description Telegram API type GetInviteTextRequest
-#' @export
+#  GetInviteTextRequest R6 class
+# 
+#  Request to get invite text.
+# 
+#  @title GetInviteTextRequest
+#  @description Telegram API type GetInviteTextRequest
+#  @export
+#  @noRd
+#  @noRd
 GetInviteTextRequest <- R6::R6Class(
   "GetInviteTextRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x4d392343),
     SUBCLASS_OF_ID = as.numeric(0xcf70aa35),
 
-    #' @description Initialize GetInviteTextRequest
-    #' @return invisible NULL
+    #  @description Initialize GetInviteTextRequest
+    #  @return invisible NULL
     initialize = function() {
       invisible(NULL)
     },
 
-    #' Convert to list
-    #' @return list with type discriminator
+    #  Convert to list
+    #  @return list with type discriminator
     to_list = function() {
       list(
-        #' @field type Field.
+        #  @field type Field.
         type = "GetInviteTextRequest"
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       packInt32(self$CONSTRUCTOR_ID)
     }
@@ -697,36 +717,38 @@ GetInviteTextRequest$from_reader <- function(reader) {
 }
 
 
-#' GetNearestDcRequest R6 class
-#'
-#' Request to get the nearest data-center info.
-#'
-#' @title GetNearestDcRequest
-#' @description Telegram API type GetNearestDcRequest
-#' @export
+#  GetNearestDcRequest R6 class
+# 
+#  Request to get the nearest data-center info.
+# 
+#  @title GetNearestDcRequest
+#  @description Telegram API type GetNearestDcRequest
+#  @export
+#  @noRd
+#  @noRd
 GetNearestDcRequest <- R6::R6Class(
   "GetNearestDcRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x1fb33026),
     SUBCLASS_OF_ID = as.numeric(0x3877045f),
 
-    #' @description Initialize GetNearestDcRequest
-    #' @return invisible NULL
+    #  @description Initialize GetNearestDcRequest
+    #  @return invisible NULL
     initialize = function() {
       invisible(NULL)
     },
 
-    #' Convert to list
-    #' @return list with type discriminator
+    #  Convert to list
+    #  @return list with type discriminator
     to_list = function() {
       list(
-        #' @field type Field.
+        #  @field type Field.
         type = "GetNearestDcRequest"
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       packInt32(self$CONSTRUCTOR_ID)
     }
@@ -744,13 +766,15 @@ GetNearestDcRequest$from_reader <- function(reader) {
 }
 
 
-#' GetPassportConfigRequest R6 class
-#'
-#' Request to get passport configuration (possibly not modified).
-#'
-#' @title GetPassportConfigRequest
-#' @description Telegram API type GetPassportConfigRequest
-#' @export
+#  GetPassportConfigRequest R6 class
+# 
+#  Request to get passport configuration (possibly not modified).
+# 
+#  @title GetPassportConfigRequest
+#  @description Telegram API type GetPassportConfigRequest
+#  @export
+#  @noRd
+#  @noRd
 GetPassportConfigRequest <- R6::R6Class(
   "GetPassportConfigRequest",
   public = list(
@@ -758,24 +782,24 @@ GetPassportConfigRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.numeric(0xc666c0ad),
     hash = 0L,
 
-    #' @description Initialize GetPassportConfigRequest
-    #' @param hash integer
+    #  @description Initialize GetPassportConfigRequest
+    #  @param hash integer
     initialize = function(hash = 0L) {
       self$hash <- as.integer(hash)
     },
 
-    #' Convert to list
-    #' @return list with type discriminator and hash
+    #  Convert to list
+    #  @return list with type discriminator and hash
     to_list = function() {
       list(
-        #' @field type Field.
+        #  @field type Field.
         type = "GetPassportConfigRequest",
         hash = self$hash
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
@@ -798,13 +822,15 @@ GetPassportConfigRequest$from_reader <- function(reader) {
 }
 
 
-#' GetPeerColorsRequest R6 class
-#'
-#' Request to get peer colors (possibly not modified).
-#'
-#' @title GetPeerColorsRequest
-#' @description Telegram API type GetPeerColorsRequest
-#' @export
+#  GetPeerColorsRequest R6 class
+# 
+#  Request to get peer colors (possibly not modified).
+# 
+#  @title GetPeerColorsRequest
+#  @description Telegram API type GetPeerColorsRequest
+#  @export
+#  @noRd
+#  @noRd
 GetPeerColorsRequest <- R6::R6Class(
   "GetPeerColorsRequest",
   public = list(
@@ -812,24 +838,24 @@ GetPeerColorsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.numeric(0x0e3f6733),
     hash = 0L,
 
-    #' @description Initialize GetPeerColorsRequest
-    #' @param hash integer
+    #  @description Initialize GetPeerColorsRequest
+    #  @param hash integer
     initialize = function(hash = 0L) {
       self$hash <- as.integer(hash)
     },
 
-    #' Convert to list
-    #' @return list with `type` discriminator and hash
+    #  Convert to list
+    #  @return list with `type` discriminator and hash
     to_list = function() {
       list(
-        #' @field type Field.
+        #  @field type Field.
         type = "GetPeerColorsRequest",
         hash = self$hash
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
@@ -851,13 +877,15 @@ GetPeerColorsRequest$from_reader <- function(reader) {
 }
 
 
-#' GetPeerProfileColorsRequest R6 class
-#'
-#' Request to get peer profile colors (possibly not modified).
-#'
-#' @title GetPeerProfileColorsRequest
-#' @description Telegram API type GetPeerProfileColorsRequest
-#' @export
+#  GetPeerProfileColorsRequest R6 class
+# 
+#  Request to get peer profile colors (possibly not modified).
+# 
+#  @title GetPeerProfileColorsRequest
+#  @description Telegram API type GetPeerProfileColorsRequest
+#  @export
+#  @noRd
+#  @noRd
 GetPeerProfileColorsRequest <- R6::R6Class(
   "GetPeerProfileColorsRequest",
   public = list(
@@ -865,24 +893,24 @@ GetPeerProfileColorsRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.numeric(0x0e3f6733),
     hash = 0L,
 
-    #' @description Initialize GetPeerProfileColorsRequest
-    #' @param hash integer
+    #  @description Initialize GetPeerProfileColorsRequest
+    #  @param hash integer
     initialize = function(hash = 0L) {
       self$hash <- as.integer(hash)
     },
 
-    #' Convert to list
-    #' @return list with `type` discriminator and hash
+    #  Convert to list
+    #  @return list with `type` discriminator and hash
     to_list = function() {
       list(
-        #' @field type Field.
+        #  @field type Field.
         type = "GetPeerProfileColorsRequest",
         hash = self$hash
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
@@ -904,36 +932,38 @@ GetPeerProfileColorsRequest$from_reader <- function(reader) {
 }
 
 
-#' GetPremiumPromoRequest R6 class
-#'
-#' Request to get premium promotion info.
-#'
-#' @title GetPremiumPromoRequest
-#' @description Telegram API type GetPremiumPromoRequest
-#' @export
+#  GetPremiumPromoRequest R6 class
+# 
+#  Request to get premium promotion info.
+# 
+#  @title GetPremiumPromoRequest
+#  @description Telegram API type GetPremiumPromoRequest
+#  @export
+#  @noRd
+#  @noRd
 GetPremiumPromoRequest <- R6::R6Class(
   "GetPremiumPromoRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0xb81b93d4),
     SUBCLASS_OF_ID = as.numeric(0xc987a338),
 
-    #' @description Initialize GetPremiumPromoRequest
-    #' @return invisible NULL
+    #  @description Initialize GetPremiumPromoRequest
+    #  @return invisible NULL
     initialize = function() {
       invisible(NULL)
     },
 
-    #' Convert to list
-    #' @return list with type discriminator
+    #  Convert to list
+    #  @return list with type discriminator
     to_list = function() {
       list(
-        #' @field type Field.
+        #  @field type Field.
         type = "GetPremiumPromoRequest"
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       packInt32(self$CONSTRUCTOR_ID)
     }
@@ -952,36 +982,38 @@ GetPremiumPromoRequest$from_reader <- function(reader) {
 }
 
 
-#' GetPromoDataRequest R6 class
-#'
-#' Request to get promo data.
-#'
-#' @title GetPromoDataRequest
-#' @description Telegram API type GetPromoDataRequest
-#' @export
+#  GetPromoDataRequest R6 class
+# 
+#  Request to get promo data.
+# 
+#  @title GetPromoDataRequest
+#  @description Telegram API type GetPromoDataRequest
+#  @export
+#  @noRd
+#  @noRd
 GetPromoDataRequest <- R6::R6Class(
   "GetPromoDataRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0xc0977421),
     SUBCLASS_OF_ID = as.numeric(0x9d595542),
 
-    #' @description Initialize GetPromoDataRequest
-    #' @return invisible NULL
+    #  @description Initialize GetPromoDataRequest
+    #  @return invisible NULL
     initialize = function() {
       invisible(NULL)
     },
 
-    #' Convert to list
-    #' @return list with type discriminator
+    #  Convert to list
+    #  @return list with type discriminator
     to_list = function() {
       list(
-        #' @field type Field.
+        #  @field type Field.
         type = "GetPromoDataRequest"
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       packInt32(self$CONSTRUCTOR_ID)
     }
@@ -1000,39 +1032,41 @@ GetPromoDataRequest$from_reader <- function(reader) {
 }
 
 
-#' GetRecentMeUrlsRequest R6 class
-#'
-#' Request to get recent "me" URLs with a referer string.
-#'
-#' @title GetRecentMeUrlsRequest
-#' @description Telegram API type GetRecentMeUrlsRequest
-#' @export
+#  GetRecentMeUrlsRequest R6 class
+# 
+#  Request to get recent "me" URLs with a referer string.
+# 
+#  @title GetRecentMeUrlsRequest
+#  @description Telegram API type GetRecentMeUrlsRequest
+#  @export
+#  @noRd
+#  @noRd
 GetRecentMeUrlsRequest <- R6::R6Class(
   "GetRecentMeUrlsRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x3dc0f114),
     SUBCLASS_OF_ID = as.numeric(0xf269c477),
-    #' @field referer Field.
+    #  @field referer Field.
     referer = "",
 
-    #' @description Initialize GetRecentMeUrlsRequest
-    #' @param referer character
+    #  @description Initialize GetRecentMeUrlsRequest
+    #  @param referer character
     initialize = function(referer = "") {
       self$referer <- as.character(referer)
     },
 
-    #' Convert to list
-    #' @return list with type discriminator and referer
+    #  Convert to list
+    #  @return list with type discriminator and referer
     to_list = function() {
       list(
-        #' @field type Field.
+        #  @field type Field.
         type = "GetRecentMeUrlsRequest",
         referer = self$referer
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
@@ -1069,36 +1103,38 @@ GetRecentMeUrlsRequest$from_reader <- function(reader) {
 }
 
 
-#' GetSupportRequest R6 class
-#'
-#' Request to get support information.
-#'
-#' @title GetSupportRequest
-#' @description Telegram API type GetSupportRequest
-#' @export
+#  GetSupportRequest R6 class
+# 
+#  Request to get support information.
+# 
+#  @title GetSupportRequest
+#  @description Telegram API type GetSupportRequest
+#  @export
+#  @noRd
+#  @noRd
 GetSupportRequest <- R6::R6Class(
   "GetSupportRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x9cdf08cd),
     SUBCLASS_OF_ID = as.numeric(0x7159bceb),
 
-    #' @description Initialize GetSupportRequest
-    #' @return invisible NULL
+    #  @description Initialize GetSupportRequest
+    #  @return invisible NULL
     initialize = function() {
       invisible(NULL)
     },
 
-    #' Convert to list
-    #' @return list with type discriminator
+    #  Convert to list
+    #  @return list with type discriminator
     to_list = function() {
       list(
-        #' @field type Field.
+        #  @field type Field.
         type = "GetSupportRequest"
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       packInt32(self$CONSTRUCTOR_ID)
     }
@@ -1117,36 +1153,38 @@ GetSupportRequest$from_reader <- function(reader) {
 }
 
 
-#' GetSupportNameRequest R6 class
-#'
-#' Request to get support name.
-#'
-#' @title GetSupportNameRequest
-#' @description Telegram API type GetSupportNameRequest
-#' @export
+#  GetSupportNameRequest R6 class
+# 
+#  Request to get support name.
+# 
+#  @title GetSupportNameRequest
+#  @description Telegram API type GetSupportNameRequest
+#  @export
+#  @noRd
+#  @noRd
 GetSupportNameRequest <- R6::R6Class(
   "GetSupportNameRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0xd360e72c),
     SUBCLASS_OF_ID = as.numeric(0x7f50b7c2),
 
-    #' @description Initialize GetSupportNameRequest
-    #' @return invisible NULL
+    #  @description Initialize GetSupportNameRequest
+    #  @return invisible NULL
     initialize = function() {
       invisible(NULL)
     },
 
-    #' Convert to list
-    #' @return list with `type` discriminator
+    #  Convert to list
+    #  @return list with `type` discriminator
     to_list = function() {
       list(
-        #' @field type Field.
+        #  @field type Field.
         type = "GetSupportNameRequest"
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       # constructor id (little-endian 4 bytes)
       packInt32(self$CONSTRUCTOR_ID)
@@ -1166,36 +1204,38 @@ GetSupportNameRequest$from_reader <- function(reader) {
 }
 
 
-#' GetTermsOfServiceUpdateRequest R6 class
-#'
-#' Request to get terms of service update.
-#'
-#' @title GetTermsOfServiceUpdateRequest
-#' @description Telegram API type GetTermsOfServiceUpdateRequest
-#' @export
+#  GetTermsOfServiceUpdateRequest R6 class
+# 
+#  Request to get terms of service update.
+# 
+#  @title GetTermsOfServiceUpdateRequest
+#  @description Telegram API type GetTermsOfServiceUpdateRequest
+#  @export
+#  @noRd
+#  @noRd
 GetTermsOfServiceUpdateRequest <- R6::R6Class(
   "GetTermsOfServiceUpdateRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x2ca51fd1),
     SUBCLASS_OF_ID = as.numeric(0x293c2977),
 
-    #' @description Initialize GetTermsOfServiceUpdateRequest
-    #' @return invisible NULL
+    #  @description Initialize GetTermsOfServiceUpdateRequest
+    #  @return invisible NULL
     initialize = function() {
       invisible(NULL)
     },
 
-    #' Convert to list
-    #' @return list with `type` discriminator
+    #  Convert to list
+    #  @return list with `type` discriminator
     to_list = function() {
       list(
-        #' @field type Field.
+        #  @field type Field.
         type = "GetTermsOfServiceUpdateRequest"
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       packInt32(self$CONSTRUCTOR_ID)
     }
@@ -1214,13 +1254,15 @@ GetTermsOfServiceUpdateRequest$from_reader <- function(reader) {
 }
 
 
-#' GetTimezonesListRequest R6 class
-#'
-#' Request to get timezones list (possibly not modified).
-#'
-#' @title GetTimezonesListRequest
-#' @description Telegram API type GetTimezonesListRequest
-#' @export
+#  GetTimezonesListRequest R6 class
+# 
+#  Request to get timezones list (possibly not modified).
+# 
+#  @title GetTimezonesListRequest
+#  @description Telegram API type GetTimezonesListRequest
+#  @export
+#  @noRd
+#  @noRd
 GetTimezonesListRequest <- R6::R6Class(
   "GetTimezonesListRequest",
   public = list(
@@ -1228,24 +1270,24 @@ GetTimezonesListRequest <- R6::R6Class(
     SUBCLASS_OF_ID = as.numeric(0xca76e475),
     hash = 0L,
 
-    #' @description Initialize GetTimezonesListRequest
-    #' @param hash integer
+    #  @description Initialize GetTimezonesListRequest
+    #  @param hash integer
     initialize = function(hash = 0L) {
       self$hash <- as.integer(hash)
     },
 
-    #' Convert to list
-    #' @return list with `type` discriminator and hash
+    #  Convert to list
+    #  @return list with `type` discriminator and hash
     to_list = function() {
       list(
-        #' @field type Field.
+        #  @field type Field.
         type = "GetTimezonesListRequest",
         hash = self$hash
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
@@ -1268,37 +1310,39 @@ GetTimezonesListRequest$from_reader <- function(reader) {
 }
 
 
-#' GetUserInfoRequest R6 class
-#'
-#' Request to get user info (help.UserInfo).
-#'
-#' @title GetUserInfoRequest
-#' @description Telegram API type GetUserInfoRequest
-#' @export
+#  GetUserInfoRequest R6 class
+# 
+#  Request to get user info (help.UserInfo).
+# 
+#  @title GetUserInfoRequest
+#  @description Telegram API type GetUserInfoRequest
+#  @export
+#  @noRd
+#  @noRd
 GetUserInfoRequest <- R6::R6Class(
   "GetUserInfoRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x038a08d3),
     SUBCLASS_OF_ID = as.numeric(0x5c53d7d8),
-    #' @field userId Field.
+    #  @field userId Field.
     userId = NULL,
 
-    #' @description Initialize GetUserInfoRequest
-    #' @param userId TLObject-like or raw
+    #  @description Initialize GetUserInfoRequest
+    #  @param userId TLObject-like or raw
     initialize = function(userId = NULL) {
       self$userId <- userId
     },
 
-    #' Resolve userId using client and utils
-    #' @param client client object providing get_input_entity()
-    #' @param utils utils providing get_input_user()
+    #  Resolve userId using client and utils
+    #  @param client client object providing get_input_entity()
+    #  @param utils utils providing get_input_user()
     resolve = function(client, utils) {
       # replace userId with resolved input user if helpers are provided
       self$userId <- utils$get_input_user(client$get_input_entity(self$userId))
     },
 
-    #' Convert to list
-    #' @return list with `_` discriminator and user_id as list (if possible)
+    #  Convert to list
+    #  @return list with `_` discriminator and user_id as list (if possible)
     to_list = function() {
       list(
         `_` = "GetUserInfoRequest",
@@ -1310,8 +1354,8 @@ GetUserInfoRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       # constructor id (little-endian 4 bytes)
@@ -1342,36 +1386,38 @@ GetUserInfoRequest$from_reader <- function(reader) {
 }
 
 
-#' HidePromoDataRequest R6 class
-#'
-#' Request to hide promo data for a peer.
-#'
-#' @title HidePromoDataRequest
-#' @description Telegram API type HidePromoDataRequest
-#' @export
+#  HidePromoDataRequest R6 class
+# 
+#  Request to hide promo data for a peer.
+# 
+#  @title HidePromoDataRequest
+#  @description Telegram API type HidePromoDataRequest
+#  @export
+#  @noRd
+#  @noRd
 HidePromoDataRequest <- R6::R6Class(
   "HidePromoDataRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x1e251c95),
     SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
 
-    #' @description Initialize HidePromoDataRequest
-    #' @param peer TLObject-like or raw
+    #  @description Initialize HidePromoDataRequest
+    #  @param peer TLObject-like or raw
     initialize = function(peer = NULL) {
       self$peer <- peer
     },
 
-    #' Resolve peer using client and utils
-    #' @param client client object providing get_input_entity()
-    #' @param utils utils providing get_input_peer()
+    #  Resolve peer using client and utils
+    #  @param client client object providing get_input_entity()
+    #  @param utils utils providing get_input_peer()
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' Convert to list
-    #' @return list with `_` discriminator and peer as list (if possible)
+    #  Convert to list
+    #  @return list with `_` discriminator and peer as list (if possible)
     to_list = function() {
       list(
         `_` = "HidePromoDataRequest",
@@ -1383,8 +1429,8 @@ HidePromoDataRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)
@@ -1413,29 +1459,31 @@ HidePromoDataRequest$from_reader <- function(reader) {
 }
 
 
-#' SaveAppLogRequest R6 class
-#'
-#' Request to save application log events.
-#'
-#' @title SaveAppLogRequest
-#' @description Telegram API type SaveAppLogRequest
-#' @export
+#  SaveAppLogRequest R6 class
+# 
+#  Request to save application log events.
+# 
+#  @title SaveAppLogRequest
+#  @description Telegram API type SaveAppLogRequest
+#  @export
+#  @noRd
+#  @noRd
 SaveAppLogRequest <- R6::R6Class(
   "SaveAppLogRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0x6f02f748),
     SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
-    #' @field events Field.
+    #  @field events Field.
     events = NULL,
 
-    #' @description Initialize SaveAppLogRequest
-    #' @param events list of TLObject-like events
+    #  @description Initialize SaveAppLogRequest
+    #  @param events list of TLObject-like events
     initialize = function(events = list()) {
       self$events <- events
     },
 
-    #' Convert to list
-    #' @return list with a `_` discriminator and events as lists (if possible)
+    #  Convert to list
+    #  @return list with a `_` discriminator and events as lists (if possible)
     to_list = function() {
       list(
         `_` = "SaveAppLogRequest",
@@ -1449,8 +1497,8 @@ SaveAppLogRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       # constructor id (little-endian 4 bytes)
@@ -1495,32 +1543,34 @@ SaveAppLogRequest$from_reader <- function(reader) {
 }
 
 
-#' SetBotUpdatesStatusRequest R6 class
-#'
-#' Notify server of bot updates status.
-#'
-#' @title SetBotUpdatesStatusRequest
-#' @description Telegram API type SetBotUpdatesStatusRequest
-#' @export
+#  SetBotUpdatesStatusRequest R6 class
+# 
+#  Notify server of bot updates status.
+# 
+#  @title SetBotUpdatesStatusRequest
+#  @description Telegram API type SetBotUpdatesStatusRequest
+#  @export
+#  @noRd
+#  @noRd
 SetBotUpdatesStatusRequest <- R6::R6Class(
   "SetBotUpdatesStatusRequest",
   public = list(
     CONSTRUCTOR_ID = as.numeric(0xec22cfcd),
     SUBCLASS_OF_ID = as.numeric(0xf5b399ac),
     pendingUpdatesCount = 0L,
-    #' @field message Field.
+    #  @field message Field.
     message = "",
 
-    #' @description Initialize SetBotUpdatesStatusRequest
-    #' @param pendingUpdatesCount integer
-    #' @param message character
+    #  @description Initialize SetBotUpdatesStatusRequest
+    #  @param pendingUpdatesCount integer
+    #  @param message character
     initialize = function(pendingUpdatesCount = 0L, message = "") {
       self$pendingUpdatesCount <- as.integer(pendingUpdatesCount)
       self$message <- as.character(message)
     },
 
-    #' Convert to list
-    #' @return list representation
+    #  Convert to list
+    #  @return list representation
     to_list = function() {
       list(
         `_` = "SetBotUpdatesStatusRequest",
@@ -1529,8 +1579,8 @@ SetBotUpdatesStatusRequest <- R6::R6Class(
       )
     },
 
-    #' Serialize to bytes (raw vector)
-    #' @return raw vector
+    #  Serialize to bytes (raw vector)
+    #  @return raw vector
     to_bytes = function() {
       parts <- list()
       parts[[1]] <- packInt32(self$CONSTRUCTOR_ID)

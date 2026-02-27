@@ -1,25 +1,27 @@
-#' @title CheckSearchPostsFloodRequest
-#' @description Represents a request to check search posts flood.
-#' @export
+#  @title CheckSearchPostsFloodRequest
+#  @description Represents a request to check search posts flood.
+#  @export
+#  @noRd
+#  @noRd
 CheckSearchPostsFloodRequest <- R6::R6Class(
   "CheckSearchPostsFloodRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x22567115,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xc2c0ccc1,
-    #' @field query Field.
+    #  @field query Field.
     query = NULL,
 
-    #' @description Initialize the CheckSearchPostsFloodRequest.
-    #' @param query The query string (optional).
+    #  @description Initialize the CheckSearchPostsFloodRequest.
+    #  @param query The query string (optional).
     initialize = function(query = NULL) {
       self$query <- query
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "CheckSearchPostsFloodRequest",
@@ -27,8 +29,8 @@ CheckSearchPostsFloodRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$query) || !self$query) 0 else 1
       c(
@@ -38,7 +40,7 @@ CheckSearchPostsFloodRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -53,33 +55,35 @@ CheckSearchPostsFloodRequest$from_reader <- function(reader) {
   CheckSearchPostsFloodRequest$new(query = query)
 }
 
-#' @title CheckUsernameRequest
-#' @description Represents a request to check a username in a channel.
-#' @export
+#  @title CheckUsernameRequest
+#  @description Represents a request to check a username in a channel.
+#  @export
+#  @noRd
+#  @noRd
 CheckUsernameRequest <- R6::R6Class(
   "CheckUsernameRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x10e6bd2c,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field username Field.
+    #  @field username Field.
     username = NULL,
 
-    #' @description Initialize the CheckUsernameRequest.
-    #' @param channel The input channel.
-    #' @param username The username.
+    #  @description Initialize the CheckUsernameRequest.
+    #  @param channel The input channel.
+    #  @param username The username.
     initialize = function(channel, username) {
       self$channel <- channel
       self$username <- username
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       if (inherits(self$channel, "InputChannel")) {
         return(invisible(NULL))
@@ -87,8 +91,8 @@ CheckUsernameRequest <- R6::R6Class(
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "CheckUsernameRequest",
@@ -97,8 +101,8 @@ CheckUsernameRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x2c, 0xbd, 0xe6, 0x10)),
@@ -107,7 +111,7 @@ CheckUsernameRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -121,35 +125,37 @@ CheckUsernameRequest$from_reader <- function(reader) {
   CheckUsernameRequest$new(channel = channel, username = username)
 }
 
-#' @title ConvertToGigagroupRequest
-#' @description Represents a request to convert a channel to a gigagroup.
-#' @export
+#  @title ConvertToGigagroupRequest
+#  @description Represents a request to convert a channel to a gigagroup.
+#  @export
+#  @noRd
+#  @noRd
 ConvertToGigagroupRequest <- R6::R6Class(
   "ConvertToGigagroupRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb290c69,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
 
-    #' @description Initialize the ConvertToGigagroupRequest.
-    #' @param channel The input channel.
+    #  @description Initialize the ConvertToGigagroupRequest.
+    #  @param channel The input channel.
     initialize = function(channel) {
       self$channel <- channel
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ConvertToGigagroupRequest",
@@ -157,8 +163,8 @@ ConvertToGigagroupRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x69, 0x0c, 0x29, 0x0b)),
@@ -166,7 +172,7 @@ ConvertToGigagroupRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -180,46 +186,48 @@ ConvertToGigagroupRequest$from_reader <- function(reader) {
   ConvertToGigagroupRequest$new(channel = channel)
 }
 
-#' @title CreateChannelRequest
-#' @description Represents a request to create a new channel.
-#' @export
+#  @title CreateChannelRequest
+#  @description Represents a request to create a new channel.
+#  @export
+#  @noRd
+#  @noRd
 CreateChannelRequest <- R6::R6Class(
   "CreateChannelRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x91006707,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field title Field.
+    #  @field title Field.
     title = NULL,
-    #' @field about Field.
+    #  @field about Field.
     about = NULL,
-    #' @field broadcast Field.
+    #  @field broadcast Field.
     broadcast = NULL,
-    #' @field megagroup Field.
+    #  @field megagroup Field.
     megagroup = NULL,
-    #' @field for_import Field.
+    #  @field for_import Field.
     for_import = NULL,
-    #' @field forum Field.
+    #  @field forum Field.
     forum = NULL,
-    #' @field geo_point Field.
+    #  @field geo_point Field.
     geo_point = NULL,
-    #' @field address Field.
+    #  @field address Field.
     address = NULL,
-    #' @field ttl_period Field.
+    #  @field ttl_period Field.
     ttl_period = NULL,
 
-    #' @description Initialize the CreateChannelRequest.
-    #' @param title The title of the channel.
-    #' @param about The description of the channel.
-    #' @param broadcast Whether the channel is a broadcast channel.
-    #' @param megagroup Whether the channel is a megagroup.
-    #' @param for_import Whether the channel is for import.
-    #' @param forum Whether the channel is a forum.
-    #' @param geo_point The geo point for the channel.
-    #' @param address The address for the channel.
-    #' @param ttl_period The TTL period for the channel.
+    #  @description Initialize the CreateChannelRequest.
+    #  @param title The title of the channel.
+    #  @param about The description of the channel.
+    #  @param broadcast Whether the channel is a broadcast channel.
+    #  @param megagroup Whether the channel is a megagroup.
+    #  @param for_import Whether the channel is for import.
+    #  @param forum Whether the channel is a forum.
+    #  @param geo_point The geo point for the channel.
+    #  @param address The address for the channel.
+    #  @param ttl_period The TTL period for the channel.
     initialize = function(title, about, broadcast = NULL, megagroup = NULL, for_import = NULL, forum = NULL, geo_point = NULL, address = NULL, ttl_period = NULL) {
       self$title <- title
       self$about <- about
@@ -232,8 +240,8 @@ CreateChannelRequest <- R6::R6Class(
       self$ttl_period <- ttl_period
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "CreateChannelRequest",
@@ -249,8 +257,8 @@ CreateChannelRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$broadcast) || !self$broadcast) 0 else 1) |
         (if (is.null(self$megagroup) || !self$megagroup) 0 else 2) |
@@ -270,7 +278,7 @@ CreateChannelRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -293,37 +301,39 @@ CreateChannelRequest$from_reader <- function(reader) {
 }
 
 
-#' @title CreateForumTopicRequest
-#' @description Represents a request to create a forum topic in a channel.
-#' @export
+#  @title CreateForumTopicRequest
+#  @description Represents a request to create a forum topic in a channel.
+#  @export
+#  @noRd
+#  @noRd
 CreateForumTopicRequest <- R6::R6Class(
   "CreateForumTopicRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf40c0224,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field title Field.
+    #  @field title Field.
     title = NULL,
-    #' @field icon_color Field.
+    #  @field icon_color Field.
     icon_color = NULL,
-    #' @field icon_emoji_id Field.
+    #  @field icon_emoji_id Field.
     icon_emoji_id = NULL,
-    #' @field random_id Field.
+    #  @field random_id Field.
     random_id = NULL,
-    #' @field send_as Field.
+    #  @field send_as Field.
     send_as = NULL,
 
-    #' @description Initialize the CreateForumTopicRequest.
-    #' @param channel The input channel.
-    #' @param title The title of the topic.
-    #' @param icon_color The icon color (optional).
-    #' @param icon_emoji_id The icon emoji ID (optional).
-    #' @param random_id The random ID (optional).
-    #' @param send_as The send as peer (optional).
+    #  @description Initialize the CreateForumTopicRequest.
+    #  @param channel The input channel.
+    #  @param title The title of the topic.
+    #  @param icon_color The icon color (optional).
+    #  @param icon_emoji_id The icon emoji ID (optional).
+    #  @param random_id The random ID (optional).
+    #  @param send_as The send as peer (optional).
     initialize = function(channel, title, icon_color = NULL, icon_emoji_id = NULL, random_id = NULL, send_as = NULL) {
       self$channel <- channel
       self$title <- title
@@ -333,9 +343,9 @@ CreateForumTopicRequest <- R6::R6Class(
       self$send_as <- send_as
     },
 
-    #' @description Resolve the channel and send_as entities.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel and send_as entities.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       if (!is.null(self$send_as)) {
@@ -343,8 +353,8 @@ CreateForumTopicRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "CreateForumTopicRequest",
@@ -357,8 +367,8 @@ CreateForumTopicRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$icon_color) || !self$icon_color) 0 else 1) |
         (if (is.null(self$icon_emoji_id) || !self$icon_emoji_id) 0 else 8) |
@@ -375,7 +385,7 @@ CreateForumTopicRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -395,35 +405,37 @@ CreateForumTopicRequest$from_reader <- function(reader) {
   CreateForumTopicRequest$new(channel = channel, title = title, icon_color = icon_color, icon_emoji_id = icon_emoji_id, random_id = random_id, send_as = send_as)
 }
 
-#' @title DeactivateAllUsernamesRequest
-#' @description Represents a request to deactivate all usernames in a channel.
-#' @export
+#  @title DeactivateAllUsernamesRequest
+#  @description Represents a request to deactivate all usernames in a channel.
+#  @export
+#  @noRd
+#  @noRd
 DeactivateAllUsernamesRequest <- R6::R6Class(
   "DeactivateAllUsernamesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa245dd3,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
 
-    #' @description Initialize the DeactivateAllUsernamesRequest.
-    #' @param channel The input channel.
+    #  @description Initialize the DeactivateAllUsernamesRequest.
+    #  @param channel The input channel.
     initialize = function(channel) {
       self$channel <- channel
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "DeactivateAllUsernamesRequest",
@@ -431,8 +443,8 @@ DeactivateAllUsernamesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xd3, 0x5d, 0x24, 0x0a)),
@@ -440,7 +452,7 @@ DeactivateAllUsernamesRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -454,35 +466,37 @@ DeactivateAllUsernamesRequest$from_reader <- function(reader) {
   DeactivateAllUsernamesRequest$new(channel = channel)
 }
 
-#' @title DeleteChannelRequest
-#' @description Represents a request to delete a channel.
-#' @export
+#  @title DeleteChannelRequest
+#  @description Represents a request to delete a channel.
+#  @export
+#  @noRd
+#  @noRd
 DeleteChannelRequest <- R6::R6Class(
   "DeleteChannelRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc0111fe3,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
 
-    #' @description Initialize the DeleteChannelRequest.
-    #' @param channel The input channel.
+    #  @description Initialize the DeleteChannelRequest.
+    #  @param channel The input channel.
     initialize = function(channel) {
       self$channel <- channel
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "DeleteChannelRequest",
@@ -490,8 +504,8 @@ DeleteChannelRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xe3, 0x1f, 0x11, 0xc0)),
@@ -499,7 +513,7 @@ DeleteChannelRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -514,43 +528,45 @@ DeleteChannelRequest$from_reader <- function(reader) {
 }
 
 
-#' @title DeleteHistoryRequest
-#' @description Represents a request to delete the history of a channel.
-#' @export
+#  @title DeleteHistoryRequest
+#  @description Represents a request to delete the history of a channel.
+#  @export
+#  @noRd
+#  @noRd
 DeleteHistoryRequest <- R6::R6Class(
   "DeleteHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9baa9647,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field max_id Field.
+    #  @field max_id Field.
     max_id = NULL,
-    #' @field for_everyone Field.
+    #  @field for_everyone Field.
     for_everyone = NULL,
 
-    #' @description Initialize the DeleteHistoryRequest.
-    #' @param channel The input channel.
-    #' @param max_id The maximum message ID to delete up to.
-    #' @param for_everyone Whether to delete for everyone.
+    #  @description Initialize the DeleteHistoryRequest.
+    #  @param channel The input channel.
+    #  @param max_id The maximum message ID to delete up to.
+    #  @param for_everyone Whether to delete for everyone.
     initialize = function(channel, max_id, for_everyone = NULL) {
       self$channel <- channel
       self$max_id <- max_id
       self$for_everyone <- for_everyone
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "DeleteHistoryRequest",
@@ -560,8 +576,8 @@ DeleteHistoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$for_everyone) || !self$for_everyone) 0 else 1
       c(
@@ -572,7 +588,7 @@ DeleteHistoryRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -589,39 +605,41 @@ DeleteHistoryRequest$from_reader <- function(reader) {
   DeleteHistoryRequest$new(channel = channel, max_id = max_id, for_everyone = for_everyone)
 }
 
-#' @title DeleteMessagesRequest
-#' @description Represents a request to delete messages in a channel.
-#' @export
+#  @title DeleteMessagesRequest
+#  @description Represents a request to delete messages in a channel.
+#  @export
+#  @noRd
+#  @noRd
 DeleteMessagesRequest <- R6::R6Class(
   "DeleteMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x84c1fd4e,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xced3c06e,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize the DeleteMessagesRequest.
-    #' @param channel The input channel.
-    #' @param id The list of message IDs to delete.
+    #  @description Initialize the DeleteMessagesRequest.
+    #  @param channel The input channel.
+    #  @param id The list of message IDs to delete.
     initialize = function(channel, id) {
       self$channel <- channel
       self$id <- id
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "DeleteMessagesRequest",
@@ -630,8 +648,8 @@ DeleteMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x4e, 0xfd, 0xc1, 0x84)),
@@ -642,7 +660,7 @@ DeleteMessagesRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -662,40 +680,42 @@ DeleteMessagesRequest$from_reader <- function(reader) {
   DeleteMessagesRequest$new(channel = channel, id = id)
 }
 
-#' @title DeleteParticipantHistoryRequest
-#' @description Represents a request to delete the history of a participant in a channel.
-#' @export
+#  @title DeleteParticipantHistoryRequest
+#  @description Represents a request to delete the history of a participant in a channel.
+#  @export
+#  @noRd
+#  @noRd
 DeleteParticipantHistoryRequest <- R6::R6Class(
   "DeleteParticipantHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x367544db,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2c49c116,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field participant Field.
+    #  @field participant Field.
     participant = NULL,
 
-    #' @description Initialize the DeleteParticipantHistoryRequest.
-    #' @param channel The input channel.
-    #' @param participant The input participant.
+    #  @description Initialize the DeleteParticipantHistoryRequest.
+    #  @param channel The input channel.
+    #  @param participant The input participant.
     initialize = function(channel, participant) {
       self$channel <- channel
       self$participant <- participant
     },
 
-    #' @description Resolve the channel and participant entities.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel and participant entities.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       self$participant <- utils$get_input_peer(client$get_input_entity(self$participant))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "DeleteParticipantHistoryRequest",
@@ -704,8 +724,8 @@ DeleteParticipantHistoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xdb, 0x44, 0x75, 0x36)),
@@ -714,7 +734,7 @@ DeleteParticipantHistoryRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -730,39 +750,41 @@ DeleteParticipantHistoryRequest$from_reader <- function(reader) {
 }
 
 
-#' @title DeleteTopicHistoryRequest
-#' @description Represents a request to delete the history of a topic in a channel.
-#' @export
+#  @title DeleteTopicHistoryRequest
+#  @description Represents a request to delete the history of a topic in a channel.
+#  @export
+#  @noRd
+#  @noRd
 DeleteTopicHistoryRequest <- R6::R6Class(
   "DeleteTopicHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x34435f2d,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2c49c116,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field top_msg_id Field.
+    #  @field top_msg_id Field.
     top_msg_id = NULL,
 
-    #' @description Initialize the DeleteTopicHistoryRequest.
-    #' @param channel The input channel.
-    #' @param top_msg_id The top message ID.
+    #  @description Initialize the DeleteTopicHistoryRequest.
+    #  @param channel The input channel.
+    #  @param top_msg_id The top message ID.
     initialize = function(channel, top_msg_id) {
       self$channel <- channel
       self$top_msg_id <- top_msg_id
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "DeleteTopicHistoryRequest",
@@ -771,8 +793,8 @@ DeleteTopicHistoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x2d, 0x5f, 0x43, 0x34)),
@@ -781,7 +803,7 @@ DeleteTopicHistoryRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -796,31 +818,33 @@ DeleteTopicHistoryRequest$from_reader <- function(reader) {
   DeleteTopicHistoryRequest$new(channel = channel, top_msg_id = top_msg_id)
 }
 
-#' @title EditAdminRequest
-#' @description Represents a request to edit admin rights for a user in a channel.
-#' @export
+#  @title EditAdminRequest
+#  @description Represents a request to edit admin rights for a user in a channel.
+#  @export
+#  @noRd
+#  @noRd
 EditAdminRequest <- R6::R6Class(
   "EditAdminRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd33c8902,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field user_id Field.
+    #  @field user_id Field.
     user_id = NULL,
-    #' @field admin_rights Field.
+    #  @field admin_rights Field.
     admin_rights = NULL,
-    #' @field rank Field.
+    #  @field rank Field.
     rank = NULL,
 
-    #' @description Initialize the EditAdminRequest.
-    #' @param channel The input channel.
-    #' @param user_id The input user ID.
-    #' @param admin_rights The chat admin rights.
-    #' @param rank The rank string.
+    #  @description Initialize the EditAdminRequest.
+    #  @param channel The input channel.
+    #  @param user_id The input user ID.
+    #  @param admin_rights The chat admin rights.
+    #  @param rank The rank string.
     initialize = function(channel, user_id, admin_rights, rank) {
       self$channel <- channel
       self$user_id <- user_id
@@ -828,16 +852,16 @@ EditAdminRequest <- R6::R6Class(
       self$rank <- rank
     },
 
-    #' @description Resolve the channel and user_id entities.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel and user_id entities.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       self$user_id <- utils$get_input_user(client$get_input_entity(self$user_id))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "EditAdminRequest",
@@ -848,8 +872,8 @@ EditAdminRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x02, 0x89, 0x3c, 0xd3)),
@@ -860,7 +884,7 @@ EditAdminRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -876,44 +900,46 @@ EditAdminRequest$from_reader <- function(reader) {
   EditAdminRequest$new(channel = channel, user_id = user_id, admin_rights = admin_rights, rank = rank)
 }
 
-#' @title EditBannedRequest
-#' @description Represents a request to edit banned rights for a participant in a channel.
-#' @export
+#  @title EditBannedRequest
+#  @description Represents a request to edit banned rights for a participant in a channel.
+#  @export
+#  @noRd
+#  @noRd
 EditBannedRequest <- R6::R6Class(
   "EditBannedRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x96e6cd81,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field participant Field.
+    #  @field participant Field.
     participant = NULL,
-    #' @field banned_rights Field.
+    #  @field banned_rights Field.
     banned_rights = NULL,
 
-    #' @description Initialize the EditBannedRequest.
-    #' @param channel The input channel.
-    #' @param participant The input participant.
-    #' @param banned_rights The chat banned rights.
+    #  @description Initialize the EditBannedRequest.
+    #  @param channel The input channel.
+    #  @param participant The input participant.
+    #  @param banned_rights The chat banned rights.
     initialize = function(channel, participant, banned_rights) {
       self$channel <- channel
       self$participant <- participant
       self$banned_rights <- banned_rights
     },
 
-    #' @description Resolve the channel and participant entities.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel and participant entities.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       self$participant <- utils$get_input_peer(client$get_input_entity(self$participant))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "EditBannedRequest",
@@ -923,8 +949,8 @@ EditBannedRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x81, 0xcd, 0xe6, 0x96)),
@@ -934,7 +960,7 @@ EditBannedRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -950,44 +976,46 @@ EditBannedRequest$from_reader <- function(reader) {
 }
 
 
-#' @title EditCreatorRequest
-#' @description Represents a request to edit the creator of a channel.
-#' @export
+#  @title EditCreatorRequest
+#  @description Represents a request to edit the creator of a channel.
+#  @export
+#  @noRd
+#  @noRd
 EditCreatorRequest <- R6::R6Class(
   "EditCreatorRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8f38cd1f,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field user_id Field.
+    #  @field user_id Field.
     user_id = NULL,
-    #' @field password Field.
+    #  @field password Field.
     password = NULL,
 
-    #' @description Initialize the EditCreatorRequest.
-    #' @param channel The input channel.
-    #' @param user_id The input user ID.
-    #' @param password The input check password SRP.
+    #  @description Initialize the EditCreatorRequest.
+    #  @param channel The input channel.
+    #  @param user_id The input user ID.
+    #  @param password The input check password SRP.
     initialize = function(channel, user_id, password) {
       self$channel <- channel
       self$user_id <- user_id
       self$password <- password
     },
 
-    #' @description Resolve the channel and user_id entities.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel and user_id entities.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       self$user_id <- utils$get_input_user(client$get_input_entity(self$user_id))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "EditCreatorRequest",
@@ -997,8 +1025,8 @@ EditCreatorRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x1f, 0xcd, 0x38, 0x8f)),
@@ -1008,7 +1036,7 @@ EditCreatorRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1023,37 +1051,39 @@ EditCreatorRequest$from_reader <- function(reader) {
   EditCreatorRequest$new(channel = channel, user_id = user_id, password = password)
 }
 
-#' @title EditForumTopicRequest
-#' @description Represents a request to edit a forum topic in a channel.
-#' @export
+#  @title EditForumTopicRequest
+#  @description Represents a request to edit a forum topic in a channel.
+#  @export
+#  @noRd
+#  @noRd
 EditForumTopicRequest <- R6::R6Class(
   "EditForumTopicRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf4dfa185,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field topic_id Field.
+    #  @field topic_id Field.
     topic_id = NULL,
-    #' @field title Field.
+    #  @field title Field.
     title = NULL,
-    #' @field icon_emoji_id Field.
+    #  @field icon_emoji_id Field.
     icon_emoji_id = NULL,
-    #' @field closed Field.
+    #  @field closed Field.
     closed = NULL,
-    #' @field hidden Field.
+    #  @field hidden Field.
     hidden = NULL,
 
-    #' @description Initialize the EditForumTopicRequest.
-    #' @param channel The input channel.
-    #' @param topic_id The topic ID.
-    #' @param title The title (optional).
-    #' @param icon_emoji_id The icon emoji ID (optional).
-    #' @param closed Whether the topic is closed (optional).
-    #' @param hidden Whether the topic is hidden (optional).
+    #  @description Initialize the EditForumTopicRequest.
+    #  @param channel The input channel.
+    #  @param topic_id The topic ID.
+    #  @param title The title (optional).
+    #  @param icon_emoji_id The icon emoji ID (optional).
+    #  @param closed Whether the topic is closed (optional).
+    #  @param hidden Whether the topic is hidden (optional).
     initialize = function(channel, topic_id, title = NULL, icon_emoji_id = NULL, closed = NULL, hidden = NULL) {
       self$channel <- channel
       self$topic_id <- topic_id
@@ -1063,15 +1093,15 @@ EditForumTopicRequest <- R6::R6Class(
       self$hidden <- hidden
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "EditForumTopicRequest",
@@ -1084,8 +1114,8 @@ EditForumTopicRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$title) || !self$title) 0 else 1) |
         (if (is.null(self$icon_emoji_id) || !self$icon_emoji_id) 0 else 2) |
@@ -1103,7 +1133,7 @@ EditForumTopicRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1122,43 +1152,45 @@ EditForumTopicRequest$from_reader <- function(reader) {
   EditForumTopicRequest$new(channel = channel, topic_id = topic_id, title = title, icon_emoji_id = icon_emoji_id, closed = closed, hidden = hidden)
 }
 
-#' @title EditLocationRequest
-#' @description Represents a request to edit the location of a channel.
-#' @export
+#  @title EditLocationRequest
+#  @description Represents a request to edit the location of a channel.
+#  @export
+#  @noRd
+#  @noRd
 EditLocationRequest <- R6::R6Class(
   "EditLocationRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x58e63f6d,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field geo_point Field.
+    #  @field geo_point Field.
     geo_point = NULL,
-    #' @field address Field.
+    #  @field address Field.
     address = NULL,
 
-    #' @description Initialize the EditLocationRequest.
-    #' @param channel The input channel.
-    #' @param geo_point The input geo point.
-    #' @param address The address.
+    #  @description Initialize the EditLocationRequest.
+    #  @param channel The input channel.
+    #  @param geo_point The input geo point.
+    #  @param address The address.
     initialize = function(channel, geo_point, address) {
       self$channel <- channel
       self$geo_point <- geo_point
       self$address <- address
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "EditLocationRequest",
@@ -1168,8 +1200,8 @@ EditLocationRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x6d, 0x3f, 0xe6, 0x58)),
@@ -1179,7 +1211,7 @@ EditLocationRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1195,40 +1227,42 @@ EditLocationRequest$from_reader <- function(reader) {
 }
 
 
-#' @title EditPhotoRequest
-#' @description Represents a request to edit the photo of a channel.
-#' @export
+#  @title EditPhotoRequest
+#  @description Represents a request to edit the photo of a channel.
+#  @export
+#  @noRd
+#  @noRd
 EditPhotoRequest <- R6::R6Class(
   "EditPhotoRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf12e57c9,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field photo Field.
+    #  @field photo Field.
     photo = NULL,
 
-    #' @description Initialize the EditPhotoRequest.
-    #' @param channel The input channel.
-    #' @param photo The input chat photo.
+    #  @description Initialize the EditPhotoRequest.
+    #  @param channel The input channel.
+    #  @param photo The input chat photo.
     initialize = function(channel, photo) {
       self$channel <- channel
       self$photo <- photo
     },
 
-    #' @description Resolve the channel and photo entities.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel and photo entities.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       self$photo <- utils$get_input_chat_photo(self$photo)
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "EditPhotoRequest",
@@ -1237,8 +1271,8 @@ EditPhotoRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xc9, 0x57, 0x2e, 0xf1)),
@@ -1247,7 +1281,7 @@ EditPhotoRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1261,39 +1295,41 @@ EditPhotoRequest$from_reader <- function(reader) {
   EditPhotoRequest$new(channel = channel, photo = photo)
 }
 
-#' @title EditTitleRequest
-#' @description Represents a request to edit the title of a channel.
-#' @export
+#  @title EditTitleRequest
+#  @description Represents a request to edit the title of a channel.
+#  @export
+#  @noRd
+#  @noRd
 EditTitleRequest <- R6::R6Class(
   "EditTitleRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x566decd0,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field title Field.
+    #  @field title Field.
     title = NULL,
 
-    #' @description Initialize the EditTitleRequest.
-    #' @param channel The input channel.
-    #' @param title The new title.
+    #  @description Initialize the EditTitleRequest.
+    #  @param channel The input channel.
+    #  @param title The new title.
     initialize = function(channel, title) {
       self$channel <- channel
       self$title <- title
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "EditTitleRequest",
@@ -1302,8 +1338,8 @@ EditTitleRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xd0, 0xec, 0x6d, 0x56)),
@@ -1312,7 +1348,7 @@ EditTitleRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1326,31 +1362,33 @@ EditTitleRequest$from_reader <- function(reader) {
   EditTitleRequest$new(channel = channel, title = title)
 }
 
-#' @title ExportMessageLinkRequest
-#' @description Represents a request to export a message link from a channel.
-#' @export
+#  @title ExportMessageLinkRequest
+#  @description Represents a request to export a message link from a channel.
+#  @export
+#  @noRd
+#  @noRd
 ExportMessageLinkRequest <- R6::R6Class(
   "ExportMessageLinkRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe63fadeb,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xdee644cc,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
-    #' @field grouped Field.
+    #  @field grouped Field.
     grouped = NULL,
-    #' @field thread Field.
+    #  @field thread Field.
     thread = NULL,
 
-    #' @description Initialize the ExportMessageLinkRequest.
-    #' @param channel The input channel.
-    #' @param id The message ID.
-    #' @param grouped Whether to include grouped messages.
-    #' @param thread Whether to include thread.
+    #  @description Initialize the ExportMessageLinkRequest.
+    #  @param channel The input channel.
+    #  @param id The message ID.
+    #  @param grouped Whether to include grouped messages.
+    #  @param thread Whether to include thread.
     initialize = function(channel, id, grouped = NULL, thread = NULL) {
       self$channel <- channel
       self$id <- id
@@ -1358,15 +1396,15 @@ ExportMessageLinkRequest <- R6::R6Class(
       self$thread <- thread
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ExportMessageLinkRequest",
@@ -1377,8 +1415,8 @@ ExportMessageLinkRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$grouped) || !self$grouped) 0 else 1) |
         (if (is.null(self$thread) || !self$thread) 0 else 2)
@@ -1390,7 +1428,7 @@ ExportMessageLinkRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1408,40 +1446,42 @@ ExportMessageLinkRequest$from_reader <- function(reader) {
 }
 
 
-#' @title GetAdminLogRequest
-#' @description Represents a request to get the admin log for a channel.
-#' @export
+#  @title GetAdminLogRequest
+#  @description Represents a request to get the admin log for a channel.
+#  @export
+#  @noRd
+#  @noRd
 GetAdminLogRequest <- R6::R6Class(
   "GetAdminLogRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x33ddf480,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x51f076bc,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field q Field.
+    #  @field q Field.
     q = NULL,
-    #' @field max_id Field.
+    #  @field max_id Field.
     max_id = NULL,
-    #' @field min_id Field.
+    #  @field min_id Field.
     min_id = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
-    #' @field events_filter Field.
+    #  @field events_filter Field.
     events_filter = NULL,
-    #' @field admins Field.
+    #  @field admins Field.
     admins = NULL,
 
-    #' @description Initialize the GetAdminLogRequest.
-    #' @param channel The input channel.
-    #' @param q The query string.
-    #' @param max_id The maximum ID.
-    #' @param min_id The minimum ID.
-    #' @param limit The limit on the number of results.
-    #' @param events_filter The events filter (optional).
-    #' @param admins The list of admin users (optional).
+    #  @description Initialize the GetAdminLogRequest.
+    #  @param channel The input channel.
+    #  @param q The query string.
+    #  @param max_id The maximum ID.
+    #  @param min_id The minimum ID.
+    #  @param limit The limit on the number of results.
+    #  @param events_filter The events filter (optional).
+    #  @param admins The list of admin users (optional).
     initialize = function(channel, q, max_id, min_id, limit, events_filter = NULL, admins = NULL) {
       self$channel <- channel
       self$q <- q
@@ -1452,9 +1492,9 @@ GetAdminLogRequest <- R6::R6Class(
       self$admins <- admins
     },
 
-    #' @description Resolve the channel and admins entities.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel and admins entities.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       if (!is.null(self$admins)) {
@@ -1466,8 +1506,8 @@ GetAdminLogRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetAdminLogRequest",
@@ -1481,8 +1521,8 @@ GetAdminLogRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$events_filter) || !self$events_filter) 0 else 1) |
         (if (is.null(self$admins) || !self$admins) 0 else 2)
@@ -1499,7 +1539,7 @@ GetAdminLogRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1529,36 +1569,38 @@ GetAdminLogRequest$from_reader <- function(reader) {
   GetAdminLogRequest$new(channel = channel, q = q, max_id = max_id, min_id = min_id, limit = limit, events_filter = events_filter, admins = admins)
 }
 
-#' @title GetAdminedPublicChannelsRequest
-#' @description Represents a request to get admined public channels.
-#' @export
+#  @title GetAdminedPublicChannelsRequest
+#  @description Represents a request to get admined public channels.
+#  @export
+#  @noRd
+#  @noRd
 GetAdminedPublicChannelsRequest <- R6::R6Class(
   "GetAdminedPublicChannelsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf8b036af,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x99d5cb14,
-    #' @field by_location Field.
+    #  @field by_location Field.
     by_location = NULL,
-    #' @field check_limit Field.
+    #  @field check_limit Field.
     check_limit = NULL,
-    #' @field for_personal Field.
+    #  @field for_personal Field.
     for_personal = NULL,
 
-    #' @description Initialize the GetAdminedPublicChannelsRequest.
-    #' @param by_location Whether to filter by location.
-    #' @param check_limit Whether to check the limit.
-    #' @param for_personal Whether for personal use.
+    #  @description Initialize the GetAdminedPublicChannelsRequest.
+    #  @param by_location Whether to filter by location.
+    #  @param check_limit Whether to check the limit.
+    #  @param for_personal Whether for personal use.
     initialize = function(by_location = NULL, check_limit = NULL, for_personal = NULL) {
       self$by_location <- by_location
       self$check_limit <- check_limit
       self$for_personal <- for_personal
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetAdminedPublicChannelsRequest",
@@ -1568,8 +1610,8 @@ GetAdminedPublicChannelsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$by_location) || !self$by_location) 0 else 1) |
         (if (is.null(self$check_limit) || !self$check_limit) 0 else 2) |
@@ -1580,7 +1622,7 @@ GetAdminedPublicChannelsRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1596,37 +1638,39 @@ GetAdminedPublicChannelsRequest$from_reader <- function(reader) {
   GetAdminedPublicChannelsRequest$new(by_location = by_location, check_limit = check_limit, for_personal = for_personal)
 }
 
-#' @title GetChannelRecommendationsRequest
-#' @description Represents a request to get channel recommendations.
-#' @export
+#  @title GetChannelRecommendationsRequest
+#  @description Represents a request to get channel recommendations.
+#  @export
+#  @noRd
+#  @noRd
 GetChannelRecommendationsRequest <- R6::R6Class(
   "GetChannelRecommendationsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x25a71742,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x99d5cb14,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
 
-    #' @description Initialize the GetChannelRecommendationsRequest.
-    #' @param channel The input channel (optional).
+    #  @description Initialize the GetChannelRecommendationsRequest.
+    #  @param channel The input channel (optional).
     initialize = function(channel = NULL) {
       self$channel <- channel
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       if (!is.null(self$channel)) {
         self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       }
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetChannelRecommendationsRequest",
@@ -1634,8 +1678,8 @@ GetChannelRecommendationsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$channel) || !self$channel) 0 else 1
       c(
@@ -1645,7 +1689,7 @@ GetChannelRecommendationsRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1660,29 +1704,31 @@ GetChannelRecommendationsRequest$from_reader <- function(reader) {
 }
 
 
-#' @title GetChannelsRequest
-#' @description Represents a request to get channels by their IDs.
-#' @export
+#  @title GetChannelsRequest
+#  @description Represents a request to get channels by their IDs.
+#  @export
+#  @noRd
+#  @noRd
 GetChannelsRequest <- R6::R6Class(
   "GetChannelsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa7f6bbb,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x99d5cb14,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize the GetChannelsRequest.
-    #' @param id The list of input channels.
+    #  @description Initialize the GetChannelsRequest.
+    #  @param id The list of input channels.
     initialize = function(id) {
       self$id <- id
     },
 
-    #' @description Resolve the channel entities.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entities.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       tmp <- list()
       for (x in self$id) {
@@ -1691,8 +1737,8 @@ GetChannelsRequest <- R6::R6Class(
       self$id <- tmp
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetChannelsRequest",
@@ -1700,8 +1746,8 @@ GetChannelsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xbb, 0x6b, 0x7f, 0x0a)),
@@ -1711,7 +1757,7 @@ GetChannelsRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1729,37 +1775,39 @@ GetChannelsRequest$from_reader <- function(reader) {
   GetChannelsRequest$new(id = id)
 }
 
-#' @title GetForumTopicsRequest
-#' @description Represents a request to get forum topics from a channel.
-#' @export
+#  @title GetForumTopicsRequest
+#  @description Represents a request to get forum topics from a channel.
+#  @export
+#  @noRd
+#  @noRd
 GetForumTopicsRequest <- R6::R6Class(
   "GetForumTopicsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xde560d1,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8e1d3e1e,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field offset_date Field.
+    #  @field offset_date Field.
     offset_date = NULL,
-    #' @field offset_id Field.
+    #  @field offset_id Field.
     offset_id = NULL,
-    #' @field offset_topic Field.
+    #  @field offset_topic Field.
     offset_topic = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
-    #' @field q Field.
+    #  @field q Field.
     q = NULL,
 
-    #' @description Initialize the GetForumTopicsRequest.
-    #' @param channel The input channel.
-    #' @param offset_date The offset date for pagination.
-    #' @param offset_id The offset ID for pagination.
-    #' @param offset_topic The offset topic for pagination.
-    #' @param limit The limit on the number of results.
-    #' @param q The query string (optional).
+    #  @description Initialize the GetForumTopicsRequest.
+    #  @param channel The input channel.
+    #  @param offset_date The offset date for pagination.
+    #  @param offset_id The offset ID for pagination.
+    #  @param offset_topic The offset topic for pagination.
+    #  @param limit The limit on the number of results.
+    #  @param q The query string (optional).
     initialize = function(channel, offset_date, offset_id, offset_topic, limit, q = NULL) {
       self$channel <- channel
       self$offset_date <- offset_date
@@ -1769,15 +1817,15 @@ GetForumTopicsRequest <- R6::R6Class(
       self$q <- q
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetForumTopicsRequest",
@@ -1790,8 +1838,8 @@ GetForumTopicsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$q) || !self$q) 0 else 1
       c(
@@ -1806,7 +1854,7 @@ GetForumTopicsRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1825,39 +1873,41 @@ GetForumTopicsRequest$from_reader <- function(reader) {
   GetForumTopicsRequest$new(channel = channel, offset_date = offset_date, offset_id = offset_id, offset_topic = offset_topic, limit = limit, q = q)
 }
 
-#' @title GetForumTopicsByIDRequest
-#' @description Represents a request to get forum topics by their IDs from a channel.
-#' @export
+#  @title GetForumTopicsByIDRequest
+#  @description Represents a request to get forum topics by their IDs from a channel.
+#  @export
+#  @noRd
+#  @noRd
 GetForumTopicsByIDRequest <- R6::R6Class(
   "GetForumTopicsByIDRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb0831eb9,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8e1d3e1e,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field topics Field.
+    #  @field topics Field.
     topics = NULL,
 
-    #' @description Initialize the GetForumTopicsByIDRequest.
-    #' @param channel The input channel.
-    #' @param topics The list of topic IDs.
+    #  @description Initialize the GetForumTopicsByIDRequest.
+    #  @param channel The input channel.
+    #  @param topics The list of topic IDs.
     initialize = function(channel, topics) {
       self$channel <- channel
       self$topics <- topics
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetForumTopicsByIDRequest",
@@ -1866,8 +1916,8 @@ GetForumTopicsByIDRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xb9, 0x1e, 0x83, 0xb0)),
@@ -1878,7 +1928,7 @@ GetForumTopicsByIDRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1898,35 +1948,37 @@ GetForumTopicsByIDRequest$from_reader <- function(reader) {
 }
 
 
-#' @title GetFullChannelRequest
-#' @description Represents a request to get full information about a channel.
-#' @export
+#  @title GetFullChannelRequest
+#  @description Represents a request to get full information about a channel.
+#  @export
+#  @noRd
+#  @noRd
 GetFullChannelRequest <- R6::R6Class(
   "GetFullChannelRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8736a09,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x225a5109,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
 
-    #' @description Initialize the GetFullChannelRequest.
-    #' @param channel The input channel.
+    #  @description Initialize the GetFullChannelRequest.
+    #  @param channel The input channel.
     initialize = function(channel) {
       self$channel <- channel
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetFullChannelRequest",
@@ -1934,8 +1986,8 @@ GetFullChannelRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x09, 0x6a, 0x73, 0x08)),
@@ -1943,7 +1995,7 @@ GetFullChannelRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1956,38 +2008,40 @@ GetFullChannelRequest$from_reader <- function(reader) {
   GetFullChannelRequest$new(channel = channel)
 }
 
-#' @title GetGroupsForDiscussionRequest
-#' @description Represents a request to get groups available for discussion.
-#' @export
+#  @title GetGroupsForDiscussionRequest
+#  @description Represents a request to get groups available for discussion.
+#  @export
+#  @noRd
+#  @noRd
 GetGroupsForDiscussionRequest <- R6::R6Class(
   "GetGroupsForDiscussionRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf5dad378,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x99d5cb14,
 
-    #' @description Initialize the GetGroupsForDiscussionRequest.
+    #  @description Initialize the GetGroupsForDiscussionRequest.
     initialize = function() {
       # No parameters
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetGroupsForDiscussionRequest"
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       as.raw(c(0x78, 0xd3, 0xda, 0xf5))
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -1999,38 +2053,40 @@ GetGroupsForDiscussionRequest$from_reader <- function(reader) {
   GetGroupsForDiscussionRequest$new()
 }
 
-#' @title GetInactiveChannelsRequest
-#' @description Represents a request to get inactive channels.
-#' @export
+#  @title GetInactiveChannelsRequest
+#  @description Represents a request to get inactive channels.
+#  @export
+#  @noRd
+#  @noRd
 GetInactiveChannelsRequest <- R6::R6Class(
   "GetInactiveChannelsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x11e831ee,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8bf3d7d4,
 
-    #' @description Initialize the GetInactiveChannelsRequest.
+    #  @description Initialize the GetInactiveChannelsRequest.
     initialize = function() {
       # No parameters
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetInactiveChannelsRequest"
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       as.raw(c(0xee, 0x31, 0xe8, 0x11))
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2043,28 +2099,30 @@ GetInactiveChannelsRequest$from_reader <- function(reader) {
 }
 
 
-#' @title GetLeftChannelsRequest
-#' @description Represents a request to get left channels with an offset.
-#' @export
+#  @title GetLeftChannelsRequest
+#  @description Represents a request to get left channels with an offset.
+#  @export
+#  @noRd
+#  @noRd
 GetLeftChannelsRequest <- R6::R6Class(
   "GetLeftChannelsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x8341ecc0,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x99d5cb14,
-    #' @field offset Field.
+    #  @field offset Field.
     offset = NULL,
 
-    #' @description Initialize the GetLeftChannelsRequest.
-    #' @param offset The offset for pagination.
+    #  @description Initialize the GetLeftChannelsRequest.
+    #  @param offset The offset for pagination.
     initialize = function(offset) {
       self$offset <- offset
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetLeftChannelsRequest",
@@ -2072,8 +2130,8 @@ GetLeftChannelsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xc0, 0xec, 0x41, 0x83)),
@@ -2081,7 +2139,7 @@ GetLeftChannelsRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2094,39 +2152,41 @@ GetLeftChannelsRequest$from_reader <- function(reader) {
   GetLeftChannelsRequest$new(offset = offset)
 }
 
-#' @title GetMessageAuthorRequest
-#' @description Represents a request to get the author of a message in a channel.
-#' @export
+#  @title GetMessageAuthorRequest
+#  @description Represents a request to get the author of a message in a channel.
+#  @export
+#  @noRd
+#  @noRd
 GetMessageAuthorRequest <- R6::R6Class(
   "GetMessageAuthorRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xece2a0e6,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x2da17977,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize the GetMessageAuthorRequest.
-    #' @param channel The input channel.
-    #' @param id The message ID.
+    #  @description Initialize the GetMessageAuthorRequest.
+    #  @param channel The input channel.
+    #  @param id The message ID.
     initialize = function(channel, id) {
       self$channel <- channel
       self$id <- id
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetMessageAuthorRequest",
@@ -2135,8 +2195,8 @@ GetMessageAuthorRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xe6, 0xa0, 0xe2, 0xec)),
@@ -2145,7 +2205,7 @@ GetMessageAuthorRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2159,33 +2219,35 @@ GetMessageAuthorRequest$from_reader <- function(reader) {
   GetMessageAuthorRequest$new(channel = channel, id = id)
 }
 
-#' @title GetMessagesRequest
-#' @description Represents a request to get messages from a channel.
-#' @export
+#  @title GetMessagesRequest
+#  @description Represents a request to get messages from a channel.
+#  @export
+#  @noRd
+#  @noRd
 GetMessagesRequest <- R6::R6Class(
   "GetMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xad8c9a23,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd4b40b5e,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize the GetMessagesRequest.
-    #' @param channel The input channel.
-    #' @param id The list of input messages.
+    #  @description Initialize the GetMessagesRequest.
+    #  @param channel The input channel.
+    #  @param id The list of input messages.
     initialize = function(channel, id) {
       self$channel <- channel
       self$id <- id
     },
 
-    #' @description Resolve the channel and messages entities.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel and messages entities.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       tmp <- list()
@@ -2195,8 +2257,8 @@ GetMessagesRequest <- R6::R6Class(
       self$id <- tmp
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetMessagesRequest",
@@ -2205,8 +2267,8 @@ GetMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x23, 0x9a, 0x8c, 0xad)),
@@ -2217,7 +2279,7 @@ GetMessagesRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2237,40 +2299,42 @@ GetMessagesRequest$from_reader <- function(reader) {
 }
 
 
-#' @title GetParticipantRequest
-#' @description Represents a request to get a participant from a channel.
-#' @export
+#  @title GetParticipantRequest
+#  @description Represents a request to get a participant from a channel.
+#  @export
+#  @noRd
+#  @noRd
 GetParticipantRequest <- R6::R6Class(
   "GetParticipantRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa0ab6cc6,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x6658151a,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field participant Field.
+    #  @field participant Field.
     participant = NULL,
 
-    #' @description Initialize the GetParticipantRequest.
-    #' @param channel The input channel.
-    #' @param participant The input participant.
+    #  @description Initialize the GetParticipantRequest.
+    #  @param channel The input channel.
+    #  @param participant The input participant.
     initialize = function(channel, participant) {
       self$channel <- channel
       self$participant <- participant
     },
 
-    #' @description Resolve the channel and participant entities.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel and participant entities.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       self$participant <- utils$get_input_peer(client$get_input_entity(self$participant))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetParticipantRequest",
@@ -2279,8 +2343,8 @@ GetParticipantRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xc6, 0x6c, 0xab, 0xa0)),
@@ -2289,7 +2353,7 @@ GetParticipantRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2303,34 +2367,36 @@ GetParticipantRequest$from_reader <- function(reader) {
   GetParticipantRequest$new(channel = channel, participant = participant)
 }
 
-#' @title GetParticipantsRequest
-#' @description Represents a request to get participants from a channel with filtering.
-#' @export
+#  @title GetParticipantsRequest
+#  @description Represents a request to get participants from a channel with filtering.
+#  @export
+#  @noRd
+#  @noRd
 GetParticipantsRequest <- R6::R6Class(
   "GetParticipantsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x77ced9d0,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xe60a6e64,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field filter Field.
+    #  @field filter Field.
     filter = NULL,
-    #' @field offset Field.
+    #  @field offset Field.
     offset = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
-    #' @field hash Field.
+    #  @field hash Field.
     hash = NULL,
 
-    #' @description Initialize the GetParticipantsRequest.
-    #' @param channel The input channel.
-    #' @param filter The filter for participants.
-    #' @param offset The offset for pagination.
-    #' @param limit The limit on the number of results.
-    #' @param hash The hash for caching.
+    #  @description Initialize the GetParticipantsRequest.
+    #  @param channel The input channel.
+    #  @param filter The filter for participants.
+    #  @param offset The offset for pagination.
+    #  @param limit The limit on the number of results.
+    #  @param hash The hash for caching.
     initialize = function(channel, filter, offset, limit, hash) {
       self$channel <- channel
       self$filter <- filter
@@ -2339,15 +2405,15 @@ GetParticipantsRequest <- R6::R6Class(
       self$hash <- hash
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetParticipantsRequest",
@@ -2359,8 +2425,8 @@ GetParticipantsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xd0, 0xd9, 0xce, 0x77)),
@@ -2372,7 +2438,7 @@ GetParticipantsRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2389,39 +2455,41 @@ GetParticipantsRequest$from_reader <- function(reader) {
   GetParticipantsRequest$new(channel = channel, filter = filter, offset = offset, limit = limit, hash = hash)
 }
 
-#' @title GetSendAsRequest
-#' @description Represents a request to get send-as peers for a channel.
-#' @export
+#  @title GetSendAsRequest
+#  @description Represents a request to get send-as peers for a channel.
+#  @export
+#  @noRd
+#  @noRd
 GetSendAsRequest <- R6::R6Class(
   "GetSendAsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe785a43f,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x38cb8d21,
-    #' @field peer Field.
+    #  @field peer Field.
     peer = NULL,
-    #' @field for_paid_reactions Field.
+    #  @field for_paid_reactions Field.
     for_paid_reactions = NULL,
 
-    #' @description Initialize the GetSendAsRequest.
-    #' @param peer The input peer.
-    #' @param for_paid_reactions Whether for paid reactions.
+    #  @description Initialize the GetSendAsRequest.
+    #  @param peer The input peer.
+    #  @param for_paid_reactions Whether for paid reactions.
     initialize = function(peer, for_paid_reactions = NULL) {
       self$peer <- peer
       self$for_paid_reactions <- for_paid_reactions
     },
 
-    #' @description Resolve the peer entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the peer entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$peer <- utils$get_input_peer(client$get_input_entity(self$peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "GetSendAsRequest",
@@ -2430,8 +2498,8 @@ GetSendAsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$for_paid_reactions) || !self$for_paid_reactions) 0 else 1
       c(
@@ -2441,7 +2509,7 @@ GetSendAsRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2457,33 +2525,35 @@ GetSendAsRequest$from_reader <- function(reader) {
 }
 
 
-#' @title InviteToChannelRequest
-#' @description Represents a request to invite users to a channel.
-#' @export
+#  @title InviteToChannelRequest
+#  @description Represents a request to invite users to a channel.
+#  @export
+#  @noRd
+#  @noRd
 InviteToChannelRequest <- R6::R6Class(
   "InviteToChannelRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xc9e33d54,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x3dbe90a1,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field users Field.
+    #  @field users Field.
     users = NULL,
 
-    #' @description Initialize the InviteToChannelRequest.
-    #' @param channel The input channel.
-    #' @param users The list of input users to invite.
+    #  @description Initialize the InviteToChannelRequest.
+    #  @param channel The input channel.
+    #  @param users The list of input users to invite.
     initialize = function(channel, users) {
       self$channel <- channel
       self$users <- users
     },
 
-    #' @description Resolve the channel and users entities.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel and users entities.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       tmp <- list()
@@ -2493,8 +2563,8 @@ InviteToChannelRequest <- R6::R6Class(
       self$users <- tmp
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "InviteToChannelRequest",
@@ -2503,8 +2573,8 @@ InviteToChannelRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x54, 0x3d, 0xe3, 0xc9)),
@@ -2515,7 +2585,7 @@ InviteToChannelRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2534,35 +2604,37 @@ InviteToChannelRequest$from_reader <- function(reader) {
   InviteToChannelRequest$new(channel = channel, users = users)
 }
 
-#' @title JoinChannelRequest
-#' @description Represents a request to join a channel.
-#' @export
+#  @title JoinChannelRequest
+#  @description Represents a request to join a channel.
+#  @export
+#  @noRd
+#  @noRd
 JoinChannelRequest <- R6::R6Class(
   "JoinChannelRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x24b524c5,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
 
-    #' @description Initialize the JoinChannelRequest.
-    #' @param channel The input channel.
+    #  @description Initialize the JoinChannelRequest.
+    #  @param channel The input channel.
     initialize = function(channel) {
       self$channel <- channel
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "JoinChannelRequest",
@@ -2570,8 +2642,8 @@ JoinChannelRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xc5, 0x24, 0xb5, 0x24)),
@@ -2579,7 +2651,7 @@ JoinChannelRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2592,35 +2664,37 @@ JoinChannelRequest$from_reader <- function(reader) {
   JoinChannelRequest$new(channel = channel)
 }
 
-#' @title LeaveChannelRequest
-#' @description Represents a request to leave a channel.
-#' @export
+#  @title LeaveChannelRequest
+#  @description Represents a request to leave a channel.
+#  @export
+#  @noRd
+#  @noRd
 LeaveChannelRequest <- R6::R6Class(
   "LeaveChannelRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf836aa95,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
 
-    #' @description Initialize the LeaveChannelRequest.
-    #' @param channel The input channel.
+    #  @description Initialize the LeaveChannelRequest.
+    #  @param channel The input channel.
     initialize = function(channel) {
       self$channel <- channel
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "LeaveChannelRequest",
@@ -2628,8 +2702,8 @@ LeaveChannelRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x95, 0xaa, 0x36, 0xf8)),
@@ -2637,7 +2711,7 @@ LeaveChannelRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2651,39 +2725,41 @@ LeaveChannelRequest$from_reader <- function(reader) {
 }
 
 
-#' @title ReadHistoryRequest
-#' @description Represents a request to read the history of a channel up to a maximum ID.
-#' @export
+#  @title ReadHistoryRequest
+#  @description Represents a request to read the history of a channel up to a maximum ID.
+#  @export
+#  @noRd
+#  @noRd
 ReadHistoryRequest <- R6::R6Class(
   "ReadHistoryRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xcc104937,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field max_id Field.
+    #  @field max_id Field.
     max_id = NULL,
 
-    #' @description Initialize the ReadHistoryRequest.
-    #' @param channel The input channel.
-    #' @param max_id The maximum message ID to read up to.
+    #  @description Initialize the ReadHistoryRequest.
+    #  @param channel The input channel.
+    #  @param max_id The maximum message ID to read up to.
     initialize = function(channel, max_id) {
       self$channel <- channel
       self$max_id <- max_id
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ReadHistoryRequest",
@@ -2692,8 +2768,8 @@ ReadHistoryRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x37, 0x49, 0x10, 0xcc)),
@@ -2702,7 +2778,7 @@ ReadHistoryRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2716,39 +2792,41 @@ ReadHistoryRequest$from_reader <- function(reader) {
   ReadHistoryRequest$new(channel = channel, max_id = max_id)
 }
 
-#' @title ReadMessageContentsRequest
-#' @description Represents a request to read the contents of specific messages in a channel.
-#' @export
+#  @title ReadMessageContentsRequest
+#  @description Represents a request to read the contents of specific messages in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ReadMessageContentsRequest <- R6::R6Class(
   "ReadMessageContentsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xeab5dc38,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize the ReadMessageContentsRequest.
-    #' @param channel The input channel.
-    #' @param id The list of message IDs to read.
+    #  @description Initialize the ReadMessageContentsRequest.
+    #  @param channel The input channel.
+    #  @param id The list of message IDs to read.
     initialize = function(channel, id) {
       self$channel <- channel
       self$id <- id
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ReadMessageContentsRequest",
@@ -2757,8 +2835,8 @@ ReadMessageContentsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x38, 0xdc, 0xb5, 0xea)),
@@ -2769,7 +2847,7 @@ ReadMessageContentsRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2789,43 +2867,45 @@ ReadMessageContentsRequest$from_reader <- function(reader) {
 }
 
 
-#' @title ReorderPinnedForumTopicsRequest
-#' @description Represents a request to reorder pinned forum topics in a channel.
-#' @export
+#  @title ReorderPinnedForumTopicsRequest
+#  @description Represents a request to reorder pinned forum topics in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ReorderPinnedForumTopicsRequest <- R6::R6Class(
   "ReorderPinnedForumTopicsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x2950a18f,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field order Field.
+    #  @field order Field.
     order = NULL,
-    #' @field force Field.
+    #  @field force Field.
     force = NULL,
 
-    #' @description Initialize the ReorderPinnedForumTopicsRequest.
-    #' @param channel The input channel.
-    #' @param order The list of topic IDs in the new order.
-    #' @param force Whether to force the reorder.
+    #  @description Initialize the ReorderPinnedForumTopicsRequest.
+    #  @param channel The input channel.
+    #  @param order The list of topic IDs in the new order.
+    #  @param force Whether to force the reorder.
     initialize = function(channel, order, force = NULL) {
       self$channel <- channel
       self$order <- order
       self$force <- force
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ReorderPinnedForumTopicsRequest",
@@ -2835,8 +2915,8 @@ ReorderPinnedForumTopicsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$force) || !self$force) 0 else 1
       c(
@@ -2849,7 +2929,7 @@ ReorderPinnedForumTopicsRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2870,39 +2950,41 @@ ReorderPinnedForumTopicsRequest$from_reader <- function(reader) {
   ReorderPinnedForumTopicsRequest$new(channel = channel, order = order, force = force)
 }
 
-#' @title ReorderUsernamesRequest
-#' @description Represents a request to reorder usernames in a channel.
-#' @export
+#  @title ReorderUsernamesRequest
+#  @description Represents a request to reorder usernames in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ReorderUsernamesRequest <- R6::R6Class(
   "ReorderUsernamesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb45ced1d,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field order Field.
+    #  @field order Field.
     order = NULL,
 
-    #' @description Initialize the ReorderUsernamesRequest.
-    #' @param channel The input channel.
-    #' @param order The list of usernames in the new order.
+    #  @description Initialize the ReorderUsernamesRequest.
+    #  @param channel The input channel.
+    #  @param order The list of usernames in the new order.
     initialize = function(channel, order) {
       self$channel <- channel
       self$order <- order
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ReorderUsernamesRequest",
@@ -2911,8 +2993,8 @@ ReorderUsernamesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x1d, 0xed, 0x5c, 0xb4)),
@@ -2923,7 +3005,7 @@ ReorderUsernamesRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -2942,39 +3024,41 @@ ReorderUsernamesRequest$from_reader <- function(reader) {
   ReorderUsernamesRequest$new(channel = channel, order = order)
 }
 
-#' @title ReportAntiSpamFalsePositiveRequest
-#' @description Represents a request to report an anti-spam false positive in a channel.
-#' @export
+#  @title ReportAntiSpamFalsePositiveRequest
+#  @description Represents a request to report an anti-spam false positive in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ReportAntiSpamFalsePositiveRequest <- R6::R6Class(
   "ReportAntiSpamFalsePositiveRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xa850a693,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field msg_id Field.
+    #  @field msg_id Field.
     msg_id = NULL,
 
-    #' @description Initialize the ReportAntiSpamFalsePositiveRequest.
-    #' @param channel The input channel.
-    #' @param msg_id The message ID.
+    #  @description Initialize the ReportAntiSpamFalsePositiveRequest.
+    #  @param channel The input channel.
+    #  @param msg_id The message ID.
     initialize = function(channel, msg_id) {
       self$channel <- channel
       self$msg_id <- msg_id
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ReportAntiSpamFalsePositiveRequest",
@@ -2983,8 +3067,8 @@ ReportAntiSpamFalsePositiveRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x93, 0xa6, 0x50, 0xa8)),
@@ -2993,7 +3077,7 @@ ReportAntiSpamFalsePositiveRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3008,44 +3092,46 @@ ReportAntiSpamFalsePositiveRequest$from_reader <- function(reader) {
 }
 
 
-#' @title ReportSpamRequest
-#' @description Represents a request to report spam in a channel.
-#' @export
+#  @title ReportSpamRequest
+#  @description Represents a request to report spam in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ReportSpamRequest <- R6::R6Class(
   "ReportSpamRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf44a8315,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field participant Field.
+    #  @field participant Field.
     participant = NULL,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize the ReportSpamRequest.
-    #' @param channel The input channel.
-    #' @param participant The input participant.
-    #' @param id The list of message IDs.
+    #  @description Initialize the ReportSpamRequest.
+    #  @param channel The input channel.
+    #  @param participant The input participant.
+    #  @param id The list of message IDs.
     initialize = function(channel, participant, id) {
       self$channel <- channel
       self$participant <- participant
       self$id <- id
     },
 
-    #' @description Resolve the channel and participant entities.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel and participant entities.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
       self$participant <- utils$get_input_peer(client$get_input_entity(self$participant))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ReportSpamRequest",
@@ -3055,8 +3141,8 @@ ReportSpamRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x15, 0x83, 0x4a, 0xf4)),
@@ -3068,7 +3154,7 @@ ReportSpamRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3088,39 +3174,41 @@ ReportSpamRequest$from_reader <- function(reader) {
   ReportSpamRequest$new(channel = channel, participant = participant, id = id)
 }
 
-#' @title RestrictSponsoredMessagesRequest
-#' @description Represents a request to restrict sponsored messages in a channel.
-#' @export
+#  @title RestrictSponsoredMessagesRequest
+#  @description Represents a request to restrict sponsored messages in a channel.
+#  @export
+#  @noRd
+#  @noRd
 RestrictSponsoredMessagesRequest <- R6::R6Class(
   "RestrictSponsoredMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9ae91519,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field restricted Field.
+    #  @field restricted Field.
     restricted = NULL,
 
-    #' @description Initialize the RestrictSponsoredMessagesRequest.
-    #' @param channel The input channel.
-    #' @param restricted Whether sponsored messages are restricted.
+    #  @description Initialize the RestrictSponsoredMessagesRequest.
+    #  @param channel The input channel.
+    #  @param restricted Whether sponsored messages are restricted.
     initialize = function(channel, restricted) {
       self$channel <- channel
       self$restricted <- restricted
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "RestrictSponsoredMessagesRequest",
@@ -3129,8 +3217,8 @@ RestrictSponsoredMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x19, 0x15, 0xe9, 0x9a)),
@@ -3139,7 +3227,7 @@ RestrictSponsoredMessagesRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3154,40 +3242,42 @@ RestrictSponsoredMessagesRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SearchPostsRequest
-#' @description Represents a request to search for posts with specified parameters.
-#' @export
+#  @title SearchPostsRequest
+#  @description Represents a request to search for posts with specified parameters.
+#  @export
+#  @noRd
+#  @noRd
 SearchPostsRequest <- R6::R6Class(
   "SearchPostsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf2c4f24d,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xd4b40b5e,
-    #' @field offset_rate Field.
+    #  @field offset_rate Field.
     offset_rate = NULL,
-    #' @field offset_peer Field.
+    #  @field offset_peer Field.
     offset_peer = NULL,
-    #' @field offset_id Field.
+    #  @field offset_id Field.
     offset_id = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
-    #' @field hashtag Field.
+    #  @field hashtag Field.
     hashtag = NULL,
-    #' @field query Field.
+    #  @field query Field.
     query = NULL,
-    #' @field allow_paid_stars Field.
+    #  @field allow_paid_stars Field.
     allow_paid_stars = NULL,
 
-    #' @description Initialize the SearchPostsRequest.
-    #' @param offset_rate The offset rate for pagination.
-    #' @param offset_peer The offset peer for pagination.
-    #' @param offset_id The offset ID for pagination.
-    #' @param limit The limit on the number of results.
-    #' @param hashtag The hashtag to search for (optional).
-    #' @param query The query string to search for (optional).
-    #' @param allow_paid_stars The number of allowed paid stars (optional).
+    #  @description Initialize the SearchPostsRequest.
+    #  @param offset_rate The offset rate for pagination.
+    #  @param offset_peer The offset peer for pagination.
+    #  @param offset_id The offset ID for pagination.
+    #  @param limit The limit on the number of results.
+    #  @param hashtag The hashtag to search for (optional).
+    #  @param query The query string to search for (optional).
+    #  @param allow_paid_stars The number of allowed paid stars (optional).
     initialize = function(offset_rate, offset_peer, offset_id, limit, hashtag = NULL, query = NULL, allow_paid_stars = NULL) {
       self$offset_rate <- offset_rate
       self$offset_peer <- offset_peer
@@ -3198,15 +3288,15 @@ SearchPostsRequest <- R6::R6Class(
       self$allow_paid_stars <- allow_paid_stars
     },
 
-    #' @description Resolve the offset_peer entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the offset_peer entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$offset_peer <- utils$get_input_peer(client$get_input_entity(self$offset_peer))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SearchPostsRequest",
@@ -3220,8 +3310,8 @@ SearchPostsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$hashtag) || !self$hashtag) 0 else 1) |
         (if (is.null(self$query) || !self$query) 0 else 2) |
@@ -3239,7 +3329,7 @@ SearchPostsRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3259,39 +3349,41 @@ SearchPostsRequest$from_reader <- function(reader) {
   SearchPostsRequest$new(offset_rate = offset_rate, offset_peer = offset_peer, offset_id = offset_id, limit = limit, hashtag = hashtag, query = query, allow_paid_stars = allow_paid_stars)
 }
 
-#' @title SetBoostsToUnblockRestrictionsRequest
-#' @description Represents a request to set the number of boosts to unblock restrictions in a channel.
-#' @export
+#  @title SetBoostsToUnblockRestrictionsRequest
+#  @description Represents a request to set the number of boosts to unblock restrictions in a channel.
+#  @export
+#  @noRd
+#  @noRd
 SetBoostsToUnblockRestrictionsRequest <- R6::R6Class(
   "SetBoostsToUnblockRestrictionsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xad399cee,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field boosts Field.
+    #  @field boosts Field.
     boosts = NULL,
 
-    #' @description Initialize the SetBoostsToUnblockRestrictionsRequest.
-    #' @param channel The input channel.
-    #' @param boosts The number of boosts.
+    #  @description Initialize the SetBoostsToUnblockRestrictionsRequest.
+    #  @param channel The input channel.
+    #  @param boosts The number of boosts.
     initialize = function(channel, boosts) {
       self$channel <- channel
       self$boosts <- boosts
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetBoostsToUnblockRestrictionsRequest",
@@ -3300,8 +3392,8 @@ SetBoostsToUnblockRestrictionsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xee, 0x9c, 0x39, 0xad)),
@@ -3310,7 +3402,7 @@ SetBoostsToUnblockRestrictionsRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3325,40 +3417,42 @@ SetBoostsToUnblockRestrictionsRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SetDiscussionGroupRequest
-#' @description Represents a request to set the discussion group for a broadcast channel.
-#' @export
+#  @title SetDiscussionGroupRequest
+#  @description Represents a request to set the discussion group for a broadcast channel.
+#  @export
+#  @noRd
+#  @noRd
 SetDiscussionGroupRequest <- R6::R6Class(
   "SetDiscussionGroupRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x40582bb2,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field broadcast Field.
+    #  @field broadcast Field.
     broadcast = NULL,
-    #' @field group Field.
+    #  @field group Field.
     group = NULL,
 
-    #' @description Initialize the SetDiscussionGroupRequest.
-    #' @param broadcast The input broadcast channel.
-    #' @param group The input group channel.
+    #  @description Initialize the SetDiscussionGroupRequest.
+    #  @param broadcast The input broadcast channel.
+    #  @param group The input group channel.
     initialize = function(broadcast, group) {
       self$broadcast <- broadcast
       self$group <- group
     },
 
-    #' @description Resolve the broadcast and group entities.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the broadcast and group entities.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$broadcast <- utils$get_input_channel(client$get_input_entity(self$broadcast))
       self$group <- utils$get_input_channel(client$get_input_entity(self$group))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetDiscussionGroupRequest",
@@ -3367,8 +3461,8 @@ SetDiscussionGroupRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xb2, 0x5b, 0x58, 0x40)),
@@ -3377,7 +3471,7 @@ SetDiscussionGroupRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3391,39 +3485,41 @@ SetDiscussionGroupRequest$from_reader <- function(reader) {
   SetDiscussionGroupRequest$new(broadcast = broadcast, group = group)
 }
 
-#' @title SetEmojiStickersRequest
-#' @description Represents a request to set emoji stickers for a channel.
-#' @export
+#  @title SetEmojiStickersRequest
+#  @description Represents a request to set emoji stickers for a channel.
+#  @export
+#  @noRd
+#  @noRd
 SetEmojiStickersRequest <- R6::R6Class(
   "SetEmojiStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3cd930b7,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field stickerset Field.
+    #  @field stickerset Field.
     stickerset = NULL,
 
-    #' @description Initialize the SetEmojiStickersRequest.
-    #' @param channel The input channel.
-    #' @param stickerset The input sticker set.
+    #  @description Initialize the SetEmojiStickersRequest.
+    #  @param channel The input channel.
+    #  @param stickerset The input sticker set.
     initialize = function(channel, stickerset) {
       self$channel <- channel
       self$stickerset <- stickerset
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetEmojiStickersRequest",
@@ -3432,8 +3528,8 @@ SetEmojiStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xb7, 0x30, 0xd9, 0x3c)),
@@ -3442,7 +3538,7 @@ SetEmojiStickersRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3456,39 +3552,41 @@ SetEmojiStickersRequest$from_reader <- function(reader) {
   SetEmojiStickersRequest$new(channel = channel, stickerset = stickerset)
 }
 
-#' @title SetMainProfileTabRequest
-#' @description Represents a request to set the main profile tab for a channel.
-#' @export
+#  @title SetMainProfileTabRequest
+#  @description Represents a request to set the main profile tab for a channel.
+#  @export
+#  @noRd
+#  @noRd
 SetMainProfileTabRequest <- R6::R6Class(
   "SetMainProfileTabRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3583fcb1,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field tab Field.
+    #  @field tab Field.
     tab = NULL,
 
-    #' @description Initialize the SetMainProfileTabRequest.
-    #' @param channel The input channel.
-    #' @param tab The profile tab.
+    #  @description Initialize the SetMainProfileTabRequest.
+    #  @param channel The input channel.
+    #  @param tab The profile tab.
     initialize = function(channel, tab) {
       self$channel <- channel
       self$tab <- tab
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetMainProfileTabRequest",
@@ -3497,8 +3595,8 @@ SetMainProfileTabRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xb1, 0xfc, 0x83, 0x35)),
@@ -3507,7 +3605,7 @@ SetMainProfileTabRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3522,39 +3620,41 @@ SetMainProfileTabRequest$from_reader <- function(reader) {
 }
 
 
-#' @title SetStickersRequest
-#' @description Represents a request to set stickers for a channel.
-#' @export
+#  @title SetStickersRequest
+#  @description Represents a request to set stickers for a channel.
+#  @export
+#  @noRd
+#  @noRd
 SetStickersRequest <- R6::R6Class(
   "SetStickersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xea8ca4f9,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field stickerset Field.
+    #  @field stickerset Field.
     stickerset = NULL,
 
-    #' @description Initialize the SetStickersRequest.
-    #' @param channel The input channel.
-    #' @param stickerset The input sticker set.
+    #  @description Initialize the SetStickersRequest.
+    #  @param channel The input channel.
+    #  @param stickerset The input sticker set.
     initialize = function(channel, stickerset) {
       self$channel <- channel
       self$stickerset <- stickerset
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "SetStickersRequest",
@@ -3563,8 +3663,8 @@ SetStickersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xf9, 0xa4, 0x8c, 0xea)),
@@ -3573,7 +3673,7 @@ SetStickersRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3587,39 +3687,41 @@ SetStickersRequest$from_reader <- function(reader) {
   SetStickersRequest$new(channel = channel, stickerset = stickerset)
 }
 
-#' @title ToggleAntiSpamRequest
-#' @description Represents a request to toggle anti-spam in a channel.
-#' @export
+#  @title ToggleAntiSpamRequest
+#  @description Represents a request to toggle anti-spam in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ToggleAntiSpamRequest <- R6::R6Class(
   "ToggleAntiSpamRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x68f3e4eb,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field enabled Field.
+    #  @field enabled Field.
     enabled = NULL,
 
-    #' @description Initialize the ToggleAntiSpamRequest.
-    #' @param channel The input channel.
-    #' @param enabled Whether anti-spam is enabled.
+    #  @description Initialize the ToggleAntiSpamRequest.
+    #  @param channel The input channel.
+    #  @param enabled Whether anti-spam is enabled.
     initialize = function(channel, enabled) {
       self$channel <- channel
       self$enabled <- enabled
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleAntiSpamRequest",
@@ -3628,8 +3730,8 @@ ToggleAntiSpamRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xeb, 0xe4, 0xf3, 0x68)),
@@ -3638,7 +3740,7 @@ ToggleAntiSpamRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3652,39 +3754,41 @@ ToggleAntiSpamRequest$from_reader <- function(reader) {
   ToggleAntiSpamRequest$new(channel = channel, enabled = enabled)
 }
 
-#' @title ToggleAutotranslationRequest
-#' @description Represents a request to toggle autotranslation in a channel.
-#' @export
+#  @title ToggleAutotranslationRequest
+#  @description Represents a request to toggle autotranslation in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ToggleAutotranslationRequest <- R6::R6Class(
   "ToggleAutotranslationRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x167fc0a1,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field enabled Field.
+    #  @field enabled Field.
     enabled = NULL,
 
-    #' @description Initialize the ToggleAutotranslationRequest.
-    #' @param channel The input channel.
-    #' @param enabled Whether autotranslation is enabled.
+    #  @description Initialize the ToggleAutotranslationRequest.
+    #  @param channel The input channel.
+    #  @param enabled Whether autotranslation is enabled.
     initialize = function(channel, enabled) {
       self$channel <- channel
       self$enabled <- enabled
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleAutotranslationRequest",
@@ -3693,8 +3797,8 @@ ToggleAutotranslationRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xa1, 0xc0, 0x7f, 0x16)),
@@ -3703,7 +3807,7 @@ ToggleAutotranslationRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3718,43 +3822,45 @@ ToggleAutotranslationRequest$from_reader <- function(reader) {
 }
 
 
-#' @title ToggleForumRequest
-#' @description Represents a request to toggle the forum feature in a channel.
-#' @export
+#  @title ToggleForumRequest
+#  @description Represents a request to toggle the forum feature in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ToggleForumRequest <- R6::R6Class(
   "ToggleForumRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3ff75734,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field enabled Field.
+    #  @field enabled Field.
     enabled = NULL,
-    #' @field tabs Field.
+    #  @field tabs Field.
     tabs = NULL,
 
-    #' @description Initialize the ToggleForumRequest.
-    #' @param channel The input channel.
-    #' @param enabled Whether the forum is enabled.
-    #' @param tabs Whether tabs are enabled.
+    #  @description Initialize the ToggleForumRequest.
+    #  @param channel The input channel.
+    #  @param enabled Whether the forum is enabled.
+    #  @param tabs Whether tabs are enabled.
     initialize = function(channel, enabled, tabs) {
       self$channel <- channel
       self$enabled <- enabled
       self$tabs <- tabs
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleForumRequest",
@@ -3764,8 +3870,8 @@ ToggleForumRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x34, 0x57, 0xf7, 0x3f)),
@@ -3775,7 +3881,7 @@ ToggleForumRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3790,39 +3896,41 @@ ToggleForumRequest$from_reader <- function(reader) {
   ToggleForumRequest$new(channel = channel, enabled = enabled, tabs = tabs)
 }
 
-#' @title ToggleJoinRequestRequest
-#' @description Represents a request to toggle join requests in a channel.
-#' @export
+#  @title ToggleJoinRequestRequest
+#  @description Represents a request to toggle join requests in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ToggleJoinRequestRequest <- R6::R6Class(
   "ToggleJoinRequestRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4c2985b6,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field enabled Field.
+    #  @field enabled Field.
     enabled = NULL,
 
-    #' @description Initialize the ToggleJoinRequestRequest.
-    #' @param channel The input channel.
-    #' @param enabled Whether join requests are enabled.
+    #  @description Initialize the ToggleJoinRequestRequest.
+    #  @param channel The input channel.
+    #  @param enabled Whether join requests are enabled.
     initialize = function(channel, enabled) {
       self$channel <- channel
       self$enabled <- enabled
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleJoinRequestRequest",
@@ -3831,8 +3939,8 @@ ToggleJoinRequestRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xb6, 0x85, 0x29, 0x4c)),
@@ -3841,7 +3949,7 @@ ToggleJoinRequestRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3855,39 +3963,41 @@ ToggleJoinRequestRequest$from_reader <- function(reader) {
   ToggleJoinRequestRequest$new(channel = channel, enabled = enabled)
 }
 
-#' @title ToggleJoinToSendRequest
-#' @description Represents a request to toggle join to send in a channel.
-#' @export
+#  @title ToggleJoinToSendRequest
+#  @description Represents a request to toggle join to send in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ToggleJoinToSendRequest <- R6::R6Class(
   "ToggleJoinToSendRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xe4cb9580,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field enabled Field.
+    #  @field enabled Field.
     enabled = NULL,
 
-    #' @description Initialize the ToggleJoinToSendRequest.
-    #' @param channel The input channel.
-    #' @param enabled Whether join to send is enabled.
+    #  @description Initialize the ToggleJoinToSendRequest.
+    #  @param channel The input channel.
+    #  @param enabled Whether join to send is enabled.
     initialize = function(channel, enabled) {
       self$channel <- channel
       self$enabled <- enabled
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleJoinToSendRequest",
@@ -3896,8 +4006,8 @@ ToggleJoinToSendRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x80, 0x95, 0xcb, 0xe4)),
@@ -3906,7 +4016,7 @@ ToggleJoinToSendRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3921,39 +4031,41 @@ ToggleJoinToSendRequest$from_reader <- function(reader) {
 }
 
 
-#' @title ToggleParticipantsHiddenRequest
-#' @description Represents a request to toggle the hidden status of participants in a channel.
-#' @export
+#  @title ToggleParticipantsHiddenRequest
+#  @description Represents a request to toggle the hidden status of participants in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ToggleParticipantsHiddenRequest <- R6::R6Class(
   "ToggleParticipantsHiddenRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6a6e7854,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field enabled Field.
+    #  @field enabled Field.
     enabled = NULL,
 
-    #' @description Initialize the ToggleParticipantsHiddenRequest.
-    #' @param channel The input channel.
-    #' @param enabled Whether the feature is enabled.
+    #  @description Initialize the ToggleParticipantsHiddenRequest.
+    #  @param channel The input channel.
+    #  @param enabled Whether the feature is enabled.
     initialize = function(channel, enabled) {
       self$channel <- channel
       self$enabled <- enabled
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleParticipantsHiddenRequest",
@@ -3962,8 +4074,8 @@ ToggleParticipantsHiddenRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x54, 0x78, 0x6e, 0x6a)),
@@ -3972,7 +4084,7 @@ ToggleParticipantsHiddenRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -3986,39 +4098,41 @@ ToggleParticipantsHiddenRequest$from_reader <- function(reader) {
   ToggleParticipantsHiddenRequest$new(channel = channel, enabled = enabled)
 }
 
-#' @title TogglePreHistoryHiddenRequest
-#' @description Represents a request to toggle the hidden status of pre-history in a channel.
-#' @export
+#  @title TogglePreHistoryHiddenRequest
+#  @description Represents a request to toggle the hidden status of pre-history in a channel.
+#  @export
+#  @noRd
+#  @noRd
 TogglePreHistoryHiddenRequest <- R6::R6Class(
   "TogglePreHistoryHiddenRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xeabbb94c,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field enabled Field.
+    #  @field enabled Field.
     enabled = NULL,
 
-    #' @description Initialize the TogglePreHistoryHiddenRequest.
-    #' @param channel The input channel.
-    #' @param enabled Whether the feature is enabled.
+    #  @description Initialize the TogglePreHistoryHiddenRequest.
+    #  @param channel The input channel.
+    #  @param enabled Whether the feature is enabled.
     initialize = function(channel, enabled) {
       self$channel <- channel
       self$enabled <- enabled
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "TogglePreHistoryHiddenRequest",
@@ -4027,8 +4141,8 @@ TogglePreHistoryHiddenRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x4c, 0xb9, 0xbb, 0xea)),
@@ -4037,7 +4151,7 @@ TogglePreHistoryHiddenRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -4051,43 +4165,45 @@ TogglePreHistoryHiddenRequest$from_reader <- function(reader) {
   TogglePreHistoryHiddenRequest$new(channel = channel, enabled = enabled)
 }
 
-#' @title ToggleSignaturesRequest
-#' @description Represents a request to toggle signatures in a channel.
-#' @export
+#  @title ToggleSignaturesRequest
+#  @description Represents a request to toggle signatures in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ToggleSignaturesRequest <- R6::R6Class(
   "ToggleSignaturesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x418d549c,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field signatures_enabled Field.
+    #  @field signatures_enabled Field.
     signatures_enabled = NULL,
-    #' @field profiles_enabled Field.
+    #  @field profiles_enabled Field.
     profiles_enabled = NULL,
 
-    #' @description Initialize the ToggleSignaturesRequest.
-    #' @param channel The input channel.
-    #' @param signatures_enabled Whether signatures are enabled.
-    #' @param profiles_enabled Whether profiles are enabled.
+    #  @description Initialize the ToggleSignaturesRequest.
+    #  @param channel The input channel.
+    #  @param signatures_enabled Whether signatures are enabled.
+    #  @param profiles_enabled Whether profiles are enabled.
     initialize = function(channel, signatures_enabled = NULL, profiles_enabled = NULL) {
       self$channel <- channel
       self$signatures_enabled <- signatures_enabled
       self$profiles_enabled <- profiles_enabled
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleSignaturesRequest",
@@ -4097,8 +4213,8 @@ ToggleSignaturesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$signatures_enabled) || !self$signatures_enabled) 0 else 1) |
         (if (is.null(self$profiles_enabled) || !self$profiles_enabled) 0 else 2)
@@ -4109,7 +4225,7 @@ ToggleSignaturesRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -4126,39 +4242,41 @@ ToggleSignaturesRequest$from_reader <- function(reader) {
 }
 
 
-#' @title ToggleSlowModeRequest
-#' @description Represents a request to toggle slow mode in a channel.
-#' @export
+#  @title ToggleSlowModeRequest
+#  @description Represents a request to toggle slow mode in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ToggleSlowModeRequest <- R6::R6Class(
   "ToggleSlowModeRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xedd49ef0,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field seconds Field.
+    #  @field seconds Field.
     seconds = NULL,
 
-    #' @description Initialize the ToggleSlowModeRequest.
-    #' @param channel The input channel.
-    #' @param seconds The number of seconds for slow mode.
+    #  @description Initialize the ToggleSlowModeRequest.
+    #  @param channel The input channel.
+    #  @param seconds The number of seconds for slow mode.
     initialize = function(channel, seconds) {
       self$channel <- channel
       self$seconds <- seconds
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleSlowModeRequest",
@@ -4167,8 +4285,8 @@ ToggleSlowModeRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xf0, 0x9e, 0xd4, 0xed)),
@@ -4177,7 +4295,7 @@ ToggleSlowModeRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -4191,43 +4309,45 @@ ToggleSlowModeRequest$from_reader <- function(reader) {
   ToggleSlowModeRequest$new(channel = channel, seconds = seconds)
 }
 
-#' @title ToggleUsernameRequest
-#' @description Represents a request to toggle the active status of a username in a channel.
-#' @export
+#  @title ToggleUsernameRequest
+#  @description Represents a request to toggle the active status of a username in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ToggleUsernameRequest <- R6::R6Class(
   "ToggleUsernameRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x50f24105,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field username Field.
+    #  @field username Field.
     username = NULL,
-    #' @field active Field.
+    #  @field active Field.
     active = NULL,
 
-    #' @description Initialize the ToggleUsernameRequest.
-    #' @param channel The input channel.
-    #' @param username The username.
-    #' @param active Whether the username is active.
+    #  @description Initialize the ToggleUsernameRequest.
+    #  @param channel The input channel.
+    #  @param username The username.
+    #  @param active Whether the username is active.
     initialize = function(channel, username, active) {
       self$channel <- channel
       self$username <- username
       self$active <- active
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleUsernameRequest",
@@ -4237,8 +4357,8 @@ ToggleUsernameRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x05, 0x41, 0xf2, 0x50)),
@@ -4248,7 +4368,7 @@ ToggleUsernameRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -4263,39 +4383,41 @@ ToggleUsernameRequest$from_reader <- function(reader) {
   ToggleUsernameRequest$new(channel = channel, username = username, active = active)
 }
 
-#' @title ToggleViewForumAsMessagesRequest
-#' @description Represents a request to toggle viewing a forum as messages in a channel.
-#' @export
+#  @title ToggleViewForumAsMessagesRequest
+#  @description Represents a request to toggle viewing a forum as messages in a channel.
+#  @export
+#  @noRd
+#  @noRd
 ToggleViewForumAsMessagesRequest <- R6::R6Class(
   "ToggleViewForumAsMessagesRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x9738bb15,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field enabled Field.
+    #  @field enabled Field.
     enabled = NULL,
 
-    #' @description Initialize the ToggleViewForumAsMessagesRequest.
-    #' @param channel The input channel.
-    #' @param enabled Whether the feature is enabled.
+    #  @description Initialize the ToggleViewForumAsMessagesRequest.
+    #  @param channel The input channel.
+    #  @param enabled Whether the feature is enabled.
     initialize = function(channel, enabled) {
       self$channel <- channel
       self$enabled <- enabled
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "ToggleViewForumAsMessagesRequest",
@@ -4304,8 +4426,8 @@ ToggleViewForumAsMessagesRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x15, 0xbb, 0x38, 0x97)),
@@ -4314,7 +4436,7 @@ ToggleViewForumAsMessagesRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -4329,31 +4451,33 @@ ToggleViewForumAsMessagesRequest$from_reader <- function(reader) {
 }
 
 
-#' @title UpdateColorRequest
-#' @description Represents a request to update the color settings of a channel.
-#' @export
+#  @title UpdateColorRequest
+#  @description Represents a request to update the color settings of a channel.
+#  @export
+#  @noRd
+#  @noRd
 UpdateColorRequest <- R6::R6Class(
   "UpdateColorRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd8aa3671,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field for_profile Field.
+    #  @field for_profile Field.
     for_profile = NULL,
-    #' @field color Field.
+    #  @field color Field.
     color = NULL,
-    #' @field background_emoji_id Field.
+    #  @field background_emoji_id Field.
     background_emoji_id = NULL,
 
-    #' @description Initialize the UpdateColorRequest.
-    #' @param channel The input channel.
-    #' @param for_profile Whether the color is for the profile.
-    #' @param color The color value.
-    #' @param background_emoji_id The background emoji ID.
+    #  @description Initialize the UpdateColorRequest.
+    #  @param channel The input channel.
+    #  @param for_profile Whether the color is for the profile.
+    #  @param color The color value.
+    #  @param background_emoji_id The background emoji ID.
     initialize = function(channel, for_profile = NULL, color = NULL, background_emoji_id = NULL) {
       self$channel <- channel
       self$for_profile <- for_profile
@@ -4361,15 +4485,15 @@ UpdateColorRequest <- R6::R6Class(
       self$background_emoji_id <- background_emoji_id
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UpdateColorRequest",
@@ -4380,8 +4504,8 @@ UpdateColorRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- (if (is.null(self$for_profile) || !self$for_profile) 0 else 2) |
         (if (is.null(self$color) || !self$color) 0 else 4) |
@@ -4395,7 +4519,7 @@ UpdateColorRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -4412,39 +4536,41 @@ UpdateColorRequest$from_reader <- function(reader) {
   UpdateColorRequest$new(channel = channel, for_profile = for_profile, color = color, background_emoji_id = background_emoji_id)
 }
 
-#' @title UpdateEmojiStatusRequest
-#' @description Represents a request to update the emoji status of a channel.
-#' @export
+#  @title UpdateEmojiStatusRequest
+#  @description Represents a request to update the emoji status of a channel.
+#  @export
+#  @noRd
+#  @noRd
 UpdateEmojiStatusRequest <- R6::R6Class(
   "UpdateEmojiStatusRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xf0d3e6a8,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field emoji_status Field.
+    #  @field emoji_status Field.
     emoji_status = NULL,
 
-    #' @description Initialize the UpdateEmojiStatusRequest.
-    #' @param channel The input channel.
-    #' @param emoji_status The emoji status.
+    #  @description Initialize the UpdateEmojiStatusRequest.
+    #  @param channel The input channel.
+    #  @param emoji_status The emoji status.
     initialize = function(channel, emoji_status) {
       self$channel <- channel
       self$emoji_status <- emoji_status
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UpdateEmojiStatusRequest",
@@ -4453,8 +4579,8 @@ UpdateEmojiStatusRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xa8, 0xe6, 0xd3, 0xf0)),
@@ -4463,7 +4589,7 @@ UpdateEmojiStatusRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -4477,43 +4603,45 @@ UpdateEmojiStatusRequest$from_reader <- function(reader) {
   UpdateEmojiStatusRequest$new(channel = channel, emoji_status = emoji_status)
 }
 
-#' @title UpdatePaidMessagesPriceRequest
-#' @description Represents a request to update the paid messages price for a channel.
-#' @export
+#  @title UpdatePaidMessagesPriceRequest
+#  @description Represents a request to update the paid messages price for a channel.
+#  @export
+#  @noRd
+#  @noRd
 UpdatePaidMessagesPriceRequest <- R6::R6Class(
   "UpdatePaidMessagesPriceRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x4b12327b,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field send_paid_messages_stars Field.
+    #  @field send_paid_messages_stars Field.
     send_paid_messages_stars = NULL,
-    #' @field broadcast_messages_allowed Field.
+    #  @field broadcast_messages_allowed Field.
     broadcast_messages_allowed = NULL,
 
-    #' @description Initialize the UpdatePaidMessagesPriceRequest.
-    #' @param channel The input channel.
-    #' @param send_paid_messages_stars The number of stars for paid messages.
-    #' @param broadcast_messages_allowed Whether broadcast messages are allowed.
+    #  @description Initialize the UpdatePaidMessagesPriceRequest.
+    #  @param channel The input channel.
+    #  @param send_paid_messages_stars The number of stars for paid messages.
+    #  @param broadcast_messages_allowed Whether broadcast messages are allowed.
     initialize = function(channel, send_paid_messages_stars, broadcast_messages_allowed = NULL) {
       self$channel <- channel
       self$send_paid_messages_stars <- send_paid_messages_stars
       self$broadcast_messages_allowed <- broadcast_messages_allowed
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UpdatePaidMessagesPriceRequest",
@@ -4523,8 +4651,8 @@ UpdatePaidMessagesPriceRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       flags <- if (is.null(self$broadcast_messages_allowed) || !self$broadcast_messages_allowed) 0 else 1
       c(
@@ -4535,7 +4663,7 @@ UpdatePaidMessagesPriceRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -4552,43 +4680,45 @@ UpdatePaidMessagesPriceRequest$from_reader <- function(reader) {
 }
 
 
-#' @title UpdatePinnedForumTopicRequest
-#' @description Represents a request to update the pinned status of a forum topic in a channel.
-#' @export
+#  @title UpdatePinnedForumTopicRequest
+#  @description Represents a request to update the pinned status of a forum topic in a channel.
+#  @export
+#  @noRd
+#  @noRd
 UpdatePinnedForumTopicRequest <- R6::R6Class(
   "UpdatePinnedForumTopicRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x6c2d9026,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x8af52aac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field topic_id Field.
+    #  @field topic_id Field.
     topic_id = NULL,
-    #' @field pinned Field.
+    #  @field pinned Field.
     pinned = NULL,
 
-    #' @description Initialize the UpdatePinnedForumTopicRequest.
-    #' @param channel The input channel.
-    #' @param topic_id The ID of the topic.
-    #' @param pinned Whether the topic is pinned.
+    #  @description Initialize the UpdatePinnedForumTopicRequest.
+    #  @param channel The input channel.
+    #  @param topic_id The ID of the topic.
+    #  @param pinned Whether the topic is pinned.
     initialize = function(channel, topic_id, pinned) {
       self$channel <- channel
       self$topic_id <- topic_id
       self$pinned <- pinned
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UpdatePinnedForumTopicRequest",
@@ -4598,8 +4728,8 @@ UpdatePinnedForumTopicRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0x26, 0x90, 0x2d, 0x6c)),
@@ -4609,7 +4739,7 @@ UpdatePinnedForumTopicRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 
@@ -4624,39 +4754,41 @@ UpdatePinnedForumTopicRequest$from_reader <- function(reader) {
   UpdatePinnedForumTopicRequest$new(channel = channel, topic_id = topic_id, pinned = pinned)
 }
 
-#' @title UpdateUsernameRequest
-#' @description Represents a request to update the username of a channel.
-#' @export
+#  @title UpdateUsernameRequest
+#  @description Represents a request to update the username of a channel.
+#  @export
+#  @noRd
+#  @noRd
 UpdateUsernameRequest <- R6::R6Class(
   "UpdateUsernameRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x3514b3de,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field channel Field.
+    #  @field channel Field.
     channel = NULL,
-    #' @field username Field.
+    #  @field username Field.
     username = NULL,
 
-    #' @description Initialize the UpdateUsernameRequest.
-    #' @param channel The input channel.
-    #' @param username The new username.
+    #  @description Initialize the UpdateUsernameRequest.
+    #  @param channel The input channel.
+    #  @param username The new username.
     initialize = function(channel, username) {
       self$channel <- channel
       self$username <- username
     },
 
-    #' @description Resolve the channel entity.
-    #' @param client The client object.
-    #' @param utils The utilities object.
+    #  @description Resolve the channel entity.
+    #  @param client The client object.
+    #  @param utils The utilities object.
     resolve = function(client, utils) {
       self$channel <- utils$get_input_channel(client$get_input_entity(self$channel))
     },
 
-    #' @description Convert the object to a dictionary.
-    #' @return A list representing the object.
+    #  @description Convert the object to a dictionary.
+    #  @return A list representing the object.
     to_dict = function() {
       list(
         "_" = "UpdateUsernameRequest",
@@ -4665,8 +4797,8 @@ UpdateUsernameRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the object to bytes.
-    #' @return A raw vector of bytes.
+    #  @description Serialize the object to bytes.
+    #  @return A raw vector of bytes.
     bytes = function() {
       c(
         as.raw(c(0xde, 0xb3, 0x14, 0x35)),
@@ -4675,7 +4807,7 @@ UpdateUsernameRequest <- R6::R6Class(
       )
     }
   ),
-  #' @field class Field.
+  #  @field class Field.
   class = TRUE
 )
 

@@ -1,77 +1,81 @@
 NULL
-#' Constants for file operations
+#  Constants for file operations
 MIN_CHUNK_SIZE <- 4096
 MAX_CHUNK_SIZE <- 512 * 1024
 TIMED_OUT_SLEEP <- 1
 
-#' @title CdnRedirect class
-#' @description Class for handling CDN redirects.
+#  @title CdnRedirect class
+#  @description Class for handling CDN redirects.
+#  @noRd
+#  @noRd
 CdnRedirect <- R6::R6Class(
   "CdnRedirect",
   public = list(
-    #' @field cdn_redirect The CDN redirect object.
+    #  @field cdn_redirect The CDN redirect object.
     cdn_redirect = NULL,
 
-    #' @description Create a new CdnRedirect instance.
-    #' @param cdn_redirect The CDN redirect object.
+    #  @description Create a new CdnRedirect instance.
+    #  @param cdn_redirect The CDN redirect object.
     initialize = function(cdn_redirect = NULL) {
       self$cdn_redirect <- cdn_redirect
     }
   )
 )
 
-#' @title DirectDownloadIter class
-#' @description Class for direct file downloading iteration.
+#  @title DirectDownloadIter class
+#  @description Class for direct file downloading iteration.
+#  @noRd
+#  @noRd
 DirectDownloadIter <- R6::R6Class(
   "DirectDownloadIter",
   inherit = RequestIter,
   public = list(
-    #' @field total The total size of the file.
+    #  @field total The total size of the file.
     total = 0,
 
-    #' @field stride The stride size.
+    #  @field stride The stride size.
     stride = NULL,
 
-    #' @field chunk_size The chunk size.
+    #  @field chunk_size The chunk size.
     chunk_size = NULL,
 
-    #' @field last_part The last part of the file.
+    #  @field last_part The last part of the file.
     last_part = NULL,
 
-    #' @field msg_data Message data if applicable.
+    #  @field msg_data Message data if applicable.
     msg_data = NULL,
 
-    #' @field timed_out Whether the download timed out.
+    #  @field timed_out Whether the download timed out.
     timed_out = FALSE,
 
-    #' @field exported Whether the sender is exported.
+    #  @field exported Whether the sender is exported.
     exported = FALSE,
 
-    #' @field sender The sender object.
+    #  @field sender The sender object.
     sender = NULL,
 
-    #' @field client The TelegramClient instance.
+    #  @field client The TelegramClient instance.
     client = NULL,
 
-    #' @field cdn_redirect The CDN redirect object.
+    #  @field cdn_redirect The CDN redirect object.
     cdn_redirect = NULL,
 
-    #' @description Initialize the download iterator.
-    #' @param client The TelegramClient instance.
-    #' @param file The file to download.
-    #' @param dc_id The data center ID.
-    #' @param offset The byte offset.
-    #' @param stride The stride size.
-    #' @param chunk_size The chunk size.
-    #' @param request_size The request size.
-    #' @param file_size The file size.
-    #' @param msg_data Message data if applicable.
-    #' @param cdn_redirect CDN redirect if applicable.
+    #  @description Initialize the download iterator.
+    #  @param client The TelegramClient instance.
+    #  @param file The file to download.
+    #  @param dc_id The data center ID.
+    #  @param offset The byte offset.
+    #  @param stride The stride size.
+    #  @param chunk_size The chunk size.
+    #  @param request_size The request size.
+    #  @param file_size The file size.
+    #  @param msg_data Message data if applicable.
+    #  @param cdn_redirect CDN redirect if applicable.
     init = function(file, dc_id, offset, stride, chunk_size, request_size, file_size, msg_data, cdn_redirect = NULL) {
       future({
         if (is.null(cdn_redirect)) {
           self$request <- list(
-            #' @field type Field.
+            #  @field type Field.
             type = "GetFileRequest",
             file = file,
             offset = offset,
@@ -80,7 +84,7 @@ DirectDownloadIter <- R6::R6Class(
           self$client <- self$client
         } else {
           self$request <- list(
-            #' @field type Field.
+            #  @field type Field.
             type = "GetCdnFileRequest",
             file_token = cdn_redirect$file_token,
             offset = offset,
@@ -131,7 +135,7 @@ DirectDownloadIter <- R6::R6Class(
       }) %...>% return()
     },
 
-    #' @description Load the next chunk of data.
+    #  @description Load the next chunk of data.
     load_next_chunk = function() {
       future({
         cur <- self$request()
@@ -146,7 +150,7 @@ DirectDownloadIter <- R6::R6Class(
       }) %...>% return()
     },
 
-    #' @description Make a request to fetch data.
+    #  @description Make a request to fetch data.
     request = function() {
       future({
         tryCatch(
@@ -170,7 +174,7 @@ DirectDownloadIter <- R6::R6Class(
               self$client$call(
                 self$client$sender,
                 list(
-                  #' @field type Field.
+                  #  @field type Field.
                   type = "ReuploadCdnFileRequest",
                   file_token = self$cdn_redirect$file_token,
                   request_token = result$request_token
@@ -236,7 +240,7 @@ DirectDownloadIter <- R6::R6Class(
       }) %...>% return()
     },
 
-    #' @description Close the iterator and clean up resources.
+    #  @description Close the iterator and clean up resources.
     close = function() {
       future({
         if (is.null(self$sender)) {
@@ -259,13 +263,15 @@ DirectDownloadIter <- R6::R6Class(
   )
 )
 
-#' @title GenericDownloadIter class
-#' @description Class for generic file downloading iteration.
+#  @title GenericDownloadIter class
+#  @description Class for generic file downloading iteration.
+#  @noRd
+#  @noRd
 GenericDownloadIter <- R6::R6Class(
   "GenericDownloadIter",
   inherit = DirectDownloadIter,
   public = list(
-    #' @description Load the next chunk for generic download.
+    #  @description Load the next chunk for generic download.
     load_next_chunk = function() {
       future({
         # 1. Fetch enough for one chunk

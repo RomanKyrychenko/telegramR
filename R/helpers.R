@@ -1,34 +1,34 @@
-#' Various helpers not related to the Telegram API itself
-#' Enum for entity types
-#' @export
+#  Various helpers not related to the Telegram API itself
+#  Enum for entity types
+#  @export
 EntityType <- list(
   USER = 0,
   CHAT = 1,
   CHANNEL = 2
 )
 
-#' Logging setup
-#' A simple logging function that prints formatted messages to the console.
-#' @param ... Arguments passed to sprintf for formatting the log message.
-#' @return None. Prints the formatted message to the console.
-#' @examples
-#' \dontrun{
-#' logg("This is a log message with a number: %d", 42)
-#' }
-#' @export
+#  Logging setup
+#  A simple logging function that prints formatted messages to the console.
+#  @param ... Arguments passed to sprintf for formatting the log message.
+#  @return None. Prints the formatted message to the console.
+#  @examples
+#  \dontrun{
+#  logg("This is a log message with a number: %d", 42)
+#  }
+#  @export
 logg <- function(...) cat(sprintf(...), "\n", sep = "")
 
-#' Generate a random long integer (8 bytes), optionally signed
-#' @param signed Logical indicating if the integer should be signed (default TRUE)
-#' @return A random long integer
-#' @examples
-#' \dontrun{
-#' random_long <- generate_random_long()
-#' print(random_long)
-#' random_unsigned_long <- generate_random_long(signed = FALSE)
-#' print(random_unsigned_long)
-#' }
-#' @export
+#  Generate a random long integer (8 bytes), optionally signed
+#  @param signed Logical indicating if the integer should be signed (default TRUE)
+#  @return A random long integer
+#  @examples
+#  \dontrun{
+#  random_long <- generate_random_long()
+#  print(random_long)
+#  random_unsigned_long <- generate_random_long(signed = FALSE)
+#  print(random_unsigned_long)
+#  }
+#  @export
 generate_random_long <- function(signed = TRUE) {
   raw_bytes <- as.raw(sample(0:255, 8, replace = TRUE))
   int_value <- sum(as.integer(raw_bytes) * 256^(seq_along(raw_bytes) - 1))
@@ -38,14 +38,14 @@ generate_random_long <- function(signed = TRUE) {
   return(int_value)
 }
 
-#' Ensure the parent directory exists
-#' @param file_path The file path for which to ensure the parent directory exists.
-#' @return None. Creates the parent directory if it does not exist.
-#' @examples
-#' \dontrun{
-#' ensure_parent_dir_exists("path/to/some/file.txt")
-#' }
-#' @export
+#  Ensure the parent directory exists
+#  @param file_path The file path for which to ensure the parent directory exists.
+#  @return None. Creates the parent directory if it does not exist.
+#  @examples
+#  \dontrun{
+#  ensure_parent_dir_exists("path/to/some/file.txt")
+#  }
+#  @export
 ensure_parent_dir_exists <- function(file_path) {
   parent <- dirname(file_path)
   if (nzchar(parent)) {
@@ -53,16 +53,16 @@ ensure_parent_dir_exists <- function(file_path) {
   }
 }
 
-#' Add surrogate pairs to text
-#' @param text The input text string.
-#' @return The text string with surrogate pairs added.
-#' @examples
-#' \dontrun{
-#' text <- "Hello \U0001F600 World" # Contains a surrogate pair
-#' surrogate_text <- add_surrogate(text)
-#' print(surrogate_text) # "Hello 😀 World"
-#' }
-#' @export
+#  Add surrogate pairs to text
+#  @param text The input text string.
+#  @return The text string with surrogate pairs added.
+#  @examples
+#  \dontrun{
+#  text <- "Hello \U0001F600 World" # Contains a surrogate pair
+#  surrogate_text <- add_surrogate(text)
+#  print(surrogate_text) # "Hello 😀 World"
+#  }
+#  @export
 add_surrogate <- function(text) {
   paste0(sapply(strsplit(text, NULL)[[1]], function(x) {
     code <- utf8ToInt(x)
@@ -76,31 +76,31 @@ add_surrogate <- function(text) {
   }, USE.NAMES = FALSE), collapse = "")
 }
 
-#' Remove surrogate pairs from text
-#' @param text The input text string.
-#' @return The text string with surrogate pairs removed.
-#' @examples
-#' \dontrun{
-#' text <- "Hello \U0001F600 World" # Contains a surrogate pair
-#' cleaned_text <- del_surrogate(text)
-#' print(cleaned_text) # "Hello  World"
-#' }
-#' @export
+#  Remove surrogate pairs from text
+#  @param text The input text string.
+#  @return The text string with surrogate pairs removed.
+#  @examples
+#  \dontrun{
+#  text <- "Hello \U0001F600 World" # Contains a surrogate pair
+#  cleaned_text <- del_surrogate(text)
+#  print(cleaned_text) # "Hello  World"
+#  }
+#  @export
 del_surrogate <- function(text) {
   intToUtf8(utf8ToInt(text), multiple = TRUE)
 }
 
-#' Check if index is within a surrogate pair
-#' @param text The input text string.
-#' @param index The index to check (1-based).
-#' @param text_length Optional length of the text; if NULL, computed from text.
-#' @return Logical indicating if the index is within a surrogate pair.
-#' @examples
-#' \dontrun{
-#' text <- "\U0001F400"
-#' within_surrogate(text, 2)
-#' }
-#' @export
+#  Check if index is within a surrogate pair
+#  @param text The input text string.
+#  @param index The index to check (1-based).
+#  @param text_length Optional length of the text; if NULL, computed from text.
+#  @return Logical indicating if the index is within a surrogate pair.
+#  @examples
+#  \dontrun{
+#  text <- "\U0001F400"
+#  within_surrogate(text, 2)
+#  }
+#  @export
 within_surrogate <- function(text, index, text_length = NULL) {
   if (is.na(index)) {
     return(FALSE)
@@ -123,20 +123,20 @@ within_surrogate <- function(text, index, text_length = NULL) {
   )
 }
 
-#' Strip text and adjust entities
-#' @param text The original text string.
-#' @param entities A list of entity objects, each with 'offset' and 'length
-#' fields.
-#' @return The stripped text with adjusted entities.
-#' @examples
-#' \dontrun{
-#' text <- "  Hello, World!  "
-#' entities <- list(list(offset = 2, length = 5), list(offset = 10, length = 3))
-#' stripped_text <- strip_text(text, entities)
-#' print(stripped_text) # "Hello, World!"
-#' print(entities) # Adjusted entities
-#' }
-#' @export
+#  Strip text and adjust entities
+#  @param text The original text string.
+#  @param entities A list of entity objects, each with 'offset' and 'length
+#  fields.
+#  @return The stripped text with adjusted entities.
+#  @examples
+#  \dontrun{
+#  text <- "  Hello, World!  "
+#  entities <- list(list(offset = 2, length = 5), list(offset = 10, length = 3))
+#  stripped_text <- strip_text(text, entities)
+#  print(stripped_text) # "Hello, World!"
+#  print(entities) # Adjusted entities
+#  }
+#  @export
 strip_text <- function(text, entities) {
   if (base::length(entities) == 0) {
     return(trimws(text))
@@ -180,18 +180,18 @@ strip_text <- function(text, entities) {
   return(text)
 }
 
-#' Generate key data from nonce
-#' @param server_nonce A raw vector representing the server nonce (16 bytes).
-#' @param new_nonce A raw vector representing the new nonce (32 bytes).
-#' @return A list containing 'key' and 'iv' as raw vectors.
-#' @examples
-#' \dontrun{
-#' server_nonce <- as.raw(sample(0:255, 16, replace = TRUE))
-#' new_nonce <- as.raw(sample(0:255, 32, replace = TRUE))
-#' key_data <- generate_key_data_from_nonce(server_nonce, new_nonce)
-#' str(key_data)
-#' }
-#' @export
+#  Generate key data from nonce
+#  @param server_nonce A raw vector representing the server nonce (16 bytes).
+#  @param new_nonce A raw vector representing the new nonce (32 bytes).
+#  @return A list containing 'key' and 'iv' as raw vectors.
+#  @examples
+#  \dontrun{
+#  server_nonce <- as.raw(sample(0:255, 16, replace = TRUE))
+#  new_nonce <- as.raw(sample(0:255, 32, replace = TRUE))
+#  key_data <- generate_key_data_from_nonce(server_nonce, new_nonce)
+#  str(key_data)
+#  }
+#  @export
 generate_key_data_from_nonce <- function(server_nonce, new_nonce) {
   server_nonce <- as.raw(server_nonce)
   new_nonce <- as.raw(new_nonce)
@@ -206,77 +206,81 @@ generate_key_data_from_nonce <- function(server_nonce, new_nonce) {
   return(list(key = key, iv = iv))
 }
 
-#' TotalList R6 class
-#'
-#'
-#' @details
-#' The class keeps arbitrary R objects in the `items` field and a scalar numeric `total`
-#' initialized to 0. It provides methods to construct an instance and to obtain
-#' two textual representations: a human-readable form and a dput()-based reproducible form.
-#' @title TotalList
-#' @description Telegram API type TotalList
-#' @export
+#  TotalList R6 class
+# 
+# 
+#  @details
+#  The class keeps arbitrary R objects in the `items` field and a scalar numeric `total`
+#  initialized to 0. It provides methods to construct an instance and to obtain
+#  two textual representations: a human-readable form and a dput()-based reproducible form.
+#  @title TotalList
+#  @description Telegram API type TotalList
+#  @export
+#  @noRd
+#  @noRd
 TotalList <- R6::R6Class(
   "TotalList",
   public = list(
-    #' @field items list List of objects contained in the instance.
+    #  @field items list List of objects contained in the instance.
     items = NULL,
 
-    #' @field total numeric Numeric scalar representing the total associated with the items.
+    #  @field total numeric Numeric scalar representing the total associated with the items.
     total = 0,
 
-    #' @description Initializes a TotalList instance.
-    #' @param items (initialize) Optional list of items to store; defaults to an empty
-    #' list. The `total` field is initialized to 0.
-    #' @return A new TotalList instance.
+    #  @description Initializes a TotalList instance.
+    #  @param items (initialize) Optional list of items to store; defaults to an empty
+    #  list. The `total` field is initialized to 0.
+    #  @return A new TotalList instance.
     initialize = function(items = list()) {
       self$items <- items
       self$total <- 0
     },
 
-    #' @description Returns a human-readable string representation of the TotalList.
-    #' Each item is coerced to character and the total is appended.
-    #' @return A string representation of the TotalList.
+    #  @description Returns a human-readable string representation of the TotalList.
+    #  Each item is coerced to character and the total is appended.
+    #  @return A string representation of the TotalList.
     to_string = function() {
       paste0("[", paste(sapply(self$items, as.character), collapse = ", "), ", total=", self$total, "]")
     },
 
-    #' @description Returns a reproducible string representation of the TotalList.
-    #' Each item is represented using dput() and the total is appended.
-    #' @return A reproducible string representation of the TotalList.
+    #  @description Returns a reproducible string representation of the TotalList.
+    #  Each item is represented using dput() and the total is appended.
+    #  @return A reproducible string representation of the TotalList.
     to_repr = function() {
       paste0("[", paste(sapply(self$items, function(x) dput(x)), collapse = ", "), ", total=", self$total, "]")
     }
   )
 )
 
-#' FileStream Class
-#' A class to handle file streams from various sources.
-#' @title FileStream
-#' @description Telegram API type FileStream
-#' @export
+#  FileStream Class
+#  A class to handle file streams from various sources.
+#  @title FileStream
+#  @description Telegram API type FileStream
+#  @export
+#  @noRd
+#  @noRd
 FileStream <- R6::R6Class(
   "FileStream",
   public = list(
-    #' @field file The original file input (path, raw vector, or connection).
+    #  @field file The original file input (path, raw vector, or connection).
     file = NULL,
 
-    #' @field file_size The size of the file in bytes.
+    #  @field file_size The size of the file in bytes.
     file_size = NULL,
 
-    #' @field name The name of the file (if applicable).
+    #  @field name The name of the file (if applicable).
     name = NULL,
 
-    #' @field stream The underlying connection or raw connection.
+    #  @field stream The underlying connection or raw connection.
     stream = NULL,
 
-    #' @field close_stream Logical indicating if the stream should be closed on cleanup.
+    #  @field close_stream Logical indicating if the stream should be closed on cleanup.
     close_stream = NULL,
 
-    #' @description Initializes the FileStream.
-    #' @param file A file path (character), raw vector, or connection.
-    #' @param file_size Optional size of the file in bytes (if known).
-    #' @return A new FileStream instance.
+    #  @description Initializes the FileStream.
+    #  @param file A file path (character), raw vector, or connection.
+    #  @param file_size Optional size of the file in bytes (if known).
+    #  @return A new FileStream instance.
     initialize = function(file, file_size = NULL) {
       if (is.character(file)) {
         self$file <- normalizePath(file)
@@ -300,9 +304,9 @@ FileStream <- R6::R6Class(
       }
     },
 
-    #' @description Reads data from the stream.
-    #' @param n Number of bytes to read; defaults to -1 (read all remaining).
-    #' @return A raw vector containing the read data.
+    #  @description Reads data from the stream.
+    #  @param n Number of bytes to read; defaults to -1 (read all remaining).
+    #  @return A raw vector containing the read data.
     read = function(n = -1) {
       if (is.numeric(n) && n < 0) {
         cur <- tryCatch(seek(self$stream, where = NA), error = function(e) NA_real_)
@@ -313,22 +317,22 @@ FileStream <- R6::R6Class(
       readBin(self$stream, "raw", n = n)
     },
 
-    #' @description Closes the stream if it was opened by the class.
-    #' @return None.
+    #  @description Closes the stream if it was opened by the class.
+    #  @return None.
     close = function() {
       if (self$close_stream && !is.null(self$stream)) {
         base::close(self$stream)
       }
     },
 
-    #' @description Gets the size of the file.
-    #' @return The size of the file in bytes.
+    #  @description Gets the size of the file.
+    #  @return The size of the file in bytes.
     get_file_size = function() {
       self$file_size
     },
 
-    #' @description Gets the name of the file.
-    #' @return The name of the file.
+    #  @description Gets the name of the file.
+    #  @return The name of the file.
     get_name = function() {
       if (is.raw(self$file)) {
         return(NULL)
@@ -338,10 +342,10 @@ FileStream <- R6::R6Class(
   )
 )
 
-#' get_running_loop function
-#' Get or create a running event loop (cluster) for asynchronous operations.
-#' @return A cluster object representing the running event loop.
-#' @export
+#  get_running_loop function
+#  Get or create a running event loop (cluster) for asynchronous operations.
+#  @return A cluster object representing the running event loop.
+#  @export
 get_running_loop <- function() {
   if (getRversion() >= "3.7.0") {
     tryCatch(
@@ -357,15 +361,15 @@ get_running_loop <- function() {
   }
 }
 
-#' fmt_flood
-#'
-#' @description ftm_flood - Format flood wait message
-#' @param delay Delay time in seconds
-#' @param request The request object
-#' @param early Boolean indicating if the message is for an early flood wait
-#' @param td Function to convert delay to time difference
-#' @return Formatted flood wait message
-#' @export
+#  fmt_flood
+# 
+#  @description ftm_flood - Format flood wait message
+#  @param delay Delay time in seconds
+#  @param request The request object
+#  @param early Boolean indicating if the message is for an early flood wait
+#  @param td Function to convert delay to time difference
+#  @return Formatted flood wait message
+#  @export
 fmt_flood <- function(delay, request, early = FALSE, td = as.difftime) {
   sprintf(
     "Sleeping%s for %ds (%s) on %s flood wait",

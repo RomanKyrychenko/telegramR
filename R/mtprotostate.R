@@ -1,42 +1,44 @@
-#' @importFrom digest digest
-#' @importFrom stringr str_sub
+#  @importFrom digest digest
+#  @importFrom stringr str_sub
 NULL
-#' Constants
+#  Constants
 MAX_RECENT_MSG_IDS <- 500
 MSG_TOO_NEW_DELTA <- 30
 MSG_TOO_OLD_DELTA <- 300
 MAX_CONSECUTIVE_IGNORED <- 10
 
-#' Opaque Request Class
-#'
-#' Wraps a serialized request into a type that can be serialized again.
-#'
-#' @param data Raw vector containing the serialized request
-#' @title OpaqueRequest
-#' @description Telegram API type OpaqueRequest
-#' @export
+#  Opaque Request Class
+# 
+#  Wraps a serialized request into a type that can be serialized again.
+# 
+#  @param data Raw vector containing the serialized request
+#  @title OpaqueRequest
+#  @description Telegram API type OpaqueRequest
+#  @export
+#  @noRd
+#  @noRd
 OpaqueRequest <- R6::R6Class("OpaqueRequest",
   public = list(
-    #' @field data Raw vector of serialized request data
+    #  @field data Raw vector of serialized request data
     data = NULL,
 
-    #' @description Initialize with serialized request data
-    #' @param data Raw vector of serialized request data
+    #  @description Initialize with serialized request data
+    #  @param data Raw vector of serialized request data
     initialize = function(data) {
       self$data <- data
     },
 
-    #' @description Convert to bytes representation
-    #' @return Raw vector of the wrapped data
+    #  @description Convert to bytes representation
+    #  @return Raw vector of the wrapped data
     to_bytes = function() {
       return(self$data)
     }
   )
 )
 
-#' Unpack a 64-bit integer from a raw vector (little-endian)
-#' @param raw_vector A raw vector containing the 64-bit integer
-#' @return The unpacked 64-bit integer as a numeric value
+#  Unpack a 64-bit integer from a raw vector (little-endian)
+#  @param raw_vector A raw vector containing the 64-bit integer
+#  @return The unpacked 64-bit integer as a numeric value
 unpackInt64 <- function(raw_vector) {
   if (length(raw_vector) != 8) {
     stop("Invalid input: raw_vector must be exactly 8 bytes long")
@@ -48,10 +50,10 @@ unpackInt64 <- function(raw_vector) {
   return(value)
 }
 
-#' Pack a 64-bit integer (little-endian) into a raw vector
-#' @param value Numeric 64-bit integer (non-NA)
-#' @return Raw vector of length 8 (little-endian)
-#' @export
+#  Pack a 64-bit integer (little-endian) into a raw vector
+#  @param value Numeric 64-bit integer (non-NA)
+#  @return Raw vector of length 8 (little-endian)
+#  @export
 packInt64 <- function(value) {
   if (length(value) != 1 || is.na(value)) {
     stop("Invalid input: value must be a single, non-NA number")
@@ -79,28 +81,30 @@ packInt64 <- function(value) {
   return(out)
 }
 
-#' MTProto protocol state management
-#'
-#' @title MTProtoState
-#' @description Telegram API type MTProtoState
-#' @export
+#  MTProto protocol state management
+# 
+#  @title MTProtoState
+#  @description Telegram API type MTProtoState
+#  @export
+#  @noRd
+#  @noRd
 MTProtoState <- R6::R6Class("MTProtoState",
   public = list(
-    #' @field auth_key Authentication key for encryption
+    #  @field auth_key Authentication key for encryption
     auth_key = NULL,
 
-    #' @field time_offset Time offset between local and server time
+    #  @field time_offset Time offset between local and server time
     time_offset = 0,
 
-    #' @field salt Current server salt
+    #  @field salt Current server salt
     salt = 0,
 
-    #' @field id Current session ID
+    #  @field id Current session ID
     id = NULL,
 
-    #' @description Initialize a new MTProto state
-    #' @param auth_key Authentication key for encryption
-    #' @param loggers Logger objects
+    #  @description Initialize a new MTProto state
+    #  @param auth_key Authentication key for encryption
+    #  @param loggers Logger objects
     initialize = function(auth_key, loggers) {
       null_logger <- list(
         debug = function(...) NULL,
@@ -132,7 +136,7 @@ MTProtoState <- R6::R6Class("MTProtoState",
       self$reset()
     },
 
-    #' @description Reset the state
+    #  @description Reset the state
     reset = function() {
       # Session IDs can be random on every connection
       # Keep within 32-bit signed range to avoid precision/NA issues in tests
@@ -144,18 +148,18 @@ MTProtoState <- R6::R6Class("MTProtoState",
       private$ignore_count <- 0
     },
 
-    #' @description Update message ID when time offset changes
-    #' @param message Message object to update
+    #  @description Update message ID when time offset changes
+    #  @param message Message object to update
     update_message_id = function(message) {
       message$msg_id <- self$get_new_msg_id()
     },
 
-    #' @description Write a message containing given data into buffer
-    #' @param buffer Buffer to write to
-    #' @param data Data to include in the message
-    #' @param content_related Boolean indicating if message is content-related
-    #' @param after_id Optional message ID to invoke after
-    #' @return Message ID of the written message
+    #  @description Write a message containing given data into buffer
+    #  @param buffer Buffer to write to
+    #  @param data Data to include in the message
+    #  @param content_related Boolean indicating if message is content-related
+    #  @param after_id Optional message ID to invoke after
+    #  @return Message ID of the written message
     write_data_as_message = function(buffer, data, content_related, after_id = NULL) {
       msg_id <- self$get_new_msg_id()
       seq_no <- private$get_seq_no(content_related)
@@ -197,9 +201,9 @@ MTProtoState <- R6::R6Class("MTProtoState",
       return(msg_id)
     },
 
-    #' @description Encrypt message data using current authorization key
-    #' @param data Data to encrypt
-    #' @return Encrypted message data
+    #  @description Encrypt message data using current authorization key
+    #  @param data Data to encrypt
+    #  @return Encrypted message data
     encrypt_message_data = function(data) {
       # Combine salt, session ID and data
       salt_val <- if (is.null(self$salt) || length(self$salt) == 0) 0 else self$salt
@@ -211,11 +215,11 @@ MTProtoState <- R6::R6Class("MTProtoState",
       # Calculate message key following MTProto 2.0 guidelines
       msg_key_large <- digest::digest(
         c(self$auth_key$key[89:(88 + 32)], data, padding),
-        #' @field algo Field.
+        #  @field algo Field.
         algo = "sha256",
-        #' @field serialize Field.
+        #  @field serialize Field.
         serialize = FALSE,
-        #' @field raw Field.
+        #  @field raw Field.
         raw = TRUE
       )
 
@@ -247,9 +251,9 @@ MTProtoState <- R6::R6Class("MTProtoState",
       return(payload)
     },
 
-    #' @description Decrypt message data from server
-    #' @param body Encrypted message body
-    #' @return Decrypted message or NULL if message should be ignored
+    #  @description Decrypt message data from server
+    #  @param body Encrypted message body
+    #  @return Decrypted message or NULL if message should be ignored
     decrypt_message_data = function(body) {
       # Get current time as early as possible
       now <- as.numeric(Sys.time()) + self$time_offset
@@ -292,11 +296,11 @@ MTProtoState <- R6::R6Class("MTProtoState",
       # Verify message integrity
       our_key <- digest::digest(
         c(self$auth_key$key[97:(96 + 32)], body),
-        #' @field algo Field.
+        #  @field algo Field.
         algo = "sha256",
-        #' @field serialize Field.
+        #  @field serialize Field.
         serialize = FALSE,
-        #' @field raw Field.
+        #  @field raw Field.
         raw = TRUE
       )[9:24]
 
@@ -368,8 +372,8 @@ MTProtoState <- R6::R6Class("MTProtoState",
       return(TLMessage$new(remote_msg_id, remote_sequence, obj))
     },
 
-    #' @description Generate a new unique message ID
-    #' @return New message ID
+    #  @description Generate a new unique message ID
+    #  @return New message ID
     get_new_msg_id = function() {
       # Use gmp bigz arithmetic to avoid 53-bit precision loss in R doubles.
       now <- as.numeric(Sys.time()) + self$time_offset
@@ -392,9 +396,9 @@ MTProtoState <- R6::R6Class("MTProtoState",
       return(new_msg_id)
     },
 
-    #' @description Update time offset based on a correct message ID
-    #' @param correct_msg_id Known valid message ID
-    #' @return Updated time offset
+    #  @description Update time offset based on a correct message ID
+    #  @param correct_msg_id Known valid message ID
+    #  @return Updated time offset
     update_time_offset = function(correct_msg_id) {
       bad <- self$get_new_msg_id()
       old <- self$time_offset
@@ -468,16 +472,16 @@ MTProtoState <- R6::R6Class("MTProtoState",
   )
 )
 
-#' Double-Ended Queue Implementation
-#'
-#' @description Simple implementation of a deque with max length
-#' @param maxlen Maximum length of the deque
-#' @export
+#  Double-Ended Queue Implementation
+# 
+#  @description Simple implementation of a deque with max length
+#  @param maxlen Maximum length of the deque
+#  @export
 deque <- function(maxlen) {
   R6::R6Class("Deque",
     public = list(
       items = list(),
-      #' @field maxlen Field.
+      #  @field maxlen Field.
       maxlen = NULL,
       initialize = function(maxlen) {
         self$maxlen <- maxlen
@@ -498,18 +502,18 @@ deque <- function(maxlen) {
   )$new(maxlen)
 }
 
-#' Pack random bytes into a raw vector
-#' @param n Number of random bytes to generate
-#' @return Raw vector of random bytes
-#' @export
+#  Pack random bytes into a raw vector
+#  @param n Number of random bytes to generate
+#  @return Raw vector of random bytes
+#  @export
 packRandomBytes <- function(n) {
   # raw(x) creates a raw vector of length x; we need actual bytes
   as.raw(sample(0:255, n, replace = TRUE))
 }
 
-#' Generate random 64-bit value bytes (little-endian)
-#' @return Raw(8) random bytes
-#' @export
+#  Generate random 64-bit value bytes (little-endian)
+#  @return Raw(8) random bytes
+#  @export
 packRandomLong <- function() {
   # Return 8 random bytes directly; callers can use unpackInt64 if needed
   packRandomBytes(8)

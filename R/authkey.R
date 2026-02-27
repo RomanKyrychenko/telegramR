@@ -1,26 +1,28 @@
-#' AuthKey Class
-#'
-#'
-#' @title AuthKey
-#' @description Telegram API type AuthKey
-#' @export
+#  AuthKey Class
+# 
+# 
+#  @title AuthKey
+#  @description Telegram API type AuthKey
+#  @export
+#  @noRd
+#  @noRd
 AuthKey <- R6::R6Class(
   "AuthKey",
   public = list(
-    #' @field key_id Field.
+    #  @field key_id Field.
     key_id = NULL,
-    #' @field key_id_raw Field.
+    #  @field key_id_raw Field.
     key_id_raw = NULL,
-    #' @field aux_hash Field.
+    #  @field aux_hash Field.
     aux_hash = NULL,
-    #' @field aux_hash_raw Field.
+    #  @field aux_hash_raw Field.
     aux_hash_raw = NULL,
 
-    #' @description
-    #' Initializes a new authorization key.
-    #'
-    #' @param data A raw vector representing the authorization key data.
-    #' @return None.
+    #  @description
+    #  Initializes a new authorization key.
+    # 
+    #  @param data A raw vector representing the authorization key data.
+    #  @return None.
     initialize = function(data) {
       if (inherits(data, "AuthKey")) {
         data <- data$active_key
@@ -28,12 +30,12 @@ AuthKey <- R6::R6Class(
       self$active_key <- data
     },
 
-    #' @description
-    #' Calculates the new nonce hash based on the current attributes.
-    #'
-    #' @param new_nonce A raw vector representing the new nonce.
-    #' @param number An integer to prepend before the hash.
-    #' @return An integer representing the hash for the given new nonce.
+    #  @description
+    #  Calculates the new nonce hash based on the current attributes.
+    # 
+    #  @param new_nonce A raw vector representing the new nonce.
+    #  @param number An integer to prepend before the hash.
+    #  @return An integer representing the hash for the given new nonce.
     calc_new_nonce_hash = function(new_nonce, number) {
       stopifnot(is.raw(new_nonce), length(new_nonce) == 32)
       new_nonce <- as.raw(new_nonce)
@@ -45,26 +47,26 @@ AuthKey <- R6::R6Class(
       return(sum(as.integer(hash[5:20]) * 256^(seq_along(hash[5:20]) - 1)))
     },
 
-    #' @description
-    #' Checks if the authorization key is valid.
-    #'
-    #' @return A logical value indicating whether the key is valid.
+    #  @description
+    #  Checks if the authorization key is valid.
+    # 
+    #  @return A logical value indicating whether the key is valid.
     is_valid = function() {
       return(!is.null(private$.key))
     },
 
-    #' @description
-    #' Compares the current key with another key.
-    #'
-    #' @param other An instance of AuthKey to compare with.
-    #' @return A logical value indicating whether the keys are equal.
+    #  @description
+    #  Compares the current key with another key.
+    # 
+    #  @param other An instance of AuthKey to compare with.
+    #  @return A logical value indicating whether the keys are equal.
     equals = function(other) {
       return(inherits(other, "AuthKey") && identical(other$active_key, private$.key))
     }
   ),
   active = list(
-    #' @field key Field.
-    #' Direct accessor used across sender/state code.
+    #  @field key Field.
+    #  Direct accessor used across sender/state code.
     key = function(value) {
       if (missing(value)) {
         return(private$.key)
@@ -72,8 +74,8 @@ AuthKey <- R6::R6Class(
       self$active_key <- value
     },
 
-    #' @field active_key Field.
-    #' Gets or sets the authorization key.
+    #  @field active_key Field.
+    #  Gets or sets the authorization key.
     active_key = function(value) {
       if (missing(value)) {
         return(private$.key)
@@ -106,14 +108,14 @@ AuthKey <- R6::R6Class(
       }
     },
 
-    #' @field return_aux_hash Field.
-    #' Gets the auxiliary hash derived from the key.
+    #  @field return_aux_hash Field.
+    #  Gets the auxiliary hash derived from the key.
     return_aux_hash = function() {
       return(private$.aux_hash)
     },
 
-    #' @field return_key_id Field.
-    #' Gets the key identifier derived from the key.
+    #  @field return_key_id Field.
+    #  Gets the key identifier derived from the key.
     return_key_id = function() {
       return(private$.key_id)
     }

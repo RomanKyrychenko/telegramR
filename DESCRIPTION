@@ -13,7 +13,6 @@ Description: A package for interacting with Telegram's MTProto API in R.
     Provides tools for serialization, deserialization, and communication with Telegram servers.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Imports:
     digest (>= 0.6.37),
     openssl (>= 2.2.2),
@@ -30,7 +29,8 @@ Imports:
     gmp,
     xml2,
     mime,
-    tibble
+    tibble,
+    dplyr
 Suggests:
     testthat (>= 3.0.0),
     withr,
@@ -39,9 +39,14 @@ Suggests:
     getPass,
     magick,
     knitr,
-    rmarkdown
+    rmarkdown,
+    ggplot2,
+    lubridate,
+    tidyr,
+    covr
 Config/testthat/edition: 3
 RoxygenNote: 7.3.3
+Roxygen: list(roclets = c("collate", "namespace"))
 Collate: 
     'abstract.R'
     'account.R'
@@ -113,6 +118,7 @@ Collate:
     'updates.R'
     'utils.R'
     'utils_bridge.R'
+    'namespace.R'
     'zzz.R'
 URL: https://romankyrychenko.github.io/telegramR/
 VignetteBuilder: knitr

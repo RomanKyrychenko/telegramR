@@ -1,42 +1,44 @@
-#' GetFullUserRequest
-#'
-#' An R6 class representing a request to get full information about a user.
-#' This class inherits from TLRequest and is used to construct and serialize
-#' Telegram API requests for retrieving detailed user data.
-#'
-#'   representation accepted by get_input_user. This field is resolved
-#'   during the request preparation.
-#' @title GetFullUserRequest
-#' @description Telegram API type GetFullUserRequest
-#' @export
+#  GetFullUserRequest
+# 
+#  An R6 class representing a request to get full information about a user.
+#  This class inherits from TLRequest and is used to construct and serialize
+#  Telegram API requests for retrieving detailed user data.
+# 
+#    representation accepted by get_input_user. This field is resolved
+#    during the request preparation.
+#  @title GetFullUserRequest
+#  @description Telegram API type GetFullUserRequest
+#  @export
+#  @noRd
+#  @noRd
 GetFullUserRequest <- R6::R6Class(
   "GetFullUserRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xb60f5918,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x83df9df5,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Request to get full information about a user.
-    #' @param id TLInputUser or a representation accepted by utils$get_input_user
+    #  @description Request to get full information about a user.
+    #  @param id TLInputUser or a representation accepted by utils$get_input_user
     initialize = function(id = NULL) {
       self$id <- id
     },
 
-    #' @description Resolves the id field using the provided client and utils.
-    #' @param client A client object to resolve user references.
-    #' @param utils A utils object with methods to get input user representations.
+    #  @description Resolves the id field using the provided client and utils.
+    #  @param client A client object to resolve user references.
+    #  @param utils A utils object with methods to get input user representations.
     resolve = function(client, utils) {
       if (!is.null(self$id)) {
         self$id <- get_input_user(client$get_input_entity(self$id))
       }
     },
 
-    #' @description Converts the GetFullUserRequest to a dictionary (list).
-    #' @return A list representation of the GetFullUserRequest.
+    #  @description Converts the GetFullUserRequest to a dictionary (list).
+    #  @return A list representation of the GetFullUserRequest.
     to_dict = function() {
       list(
         `_` = "GetFullUserRequest",
@@ -44,8 +46,8 @@ GetFullUserRequest <- R6::R6Class(
       )
     },
 
-    #' @description Converts the GetFullUserRequest to raw bytes.
-    #' @return A raw vector representing the GetFullUserRequest.
+    #  @description Converts the GetFullUserRequest to raw bytes.
+    #  @return A raw vector representing the GetFullUserRequest.
     bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
@@ -63,9 +65,9 @@ GetFullUserRequest <- R6::R6Class(
       rawConnectionValue(con)
     },
 
-    #' @description Creates a GetFullUserRequest from a reader object.
-    #' @param reader A reader object to read the response.
-    #' @return A new instance of GetFullUserRequest.
+    #  @description Creates a GetFullUserRequest from a reader object.
+    #  @param reader A reader object to read the response.
+    #  @return A new instance of GetFullUserRequest.
     from_reader = function(reader) {
       id_obj <- reader$tgread_object()
       self$new(id = id_obj)
@@ -74,31 +76,33 @@ GetFullUserRequest <- R6::R6Class(
 )
 
 
-#' @title GetRequirementsToContactRequest
-#' @description R6 request class to obtain a vector of RequirementToContact objects for multiple users. It serializes the request to Telegram TL bytes and can deserialize from a TL reader. The request resolves plain user references into TLInputUser objects before serialization.
-#' @export
+#  @title GetRequirementsToContactRequest
+#  @description R6 request class to obtain a vector of RequirementToContact objects for multiple users. It serializes the request to Telegram TL bytes and can deserialize from a TL reader. The request resolves plain user references into TLInputUser objects before serialization.
+#  @export
+#  @noRd
+#  @noRd
 GetRequirementsToContactRequest <- R6::R6Class(
   "GetRequirementsToContactRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0xd89a83a3,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x322623c3,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initialize a new GetRequirementsToContactRequest.
-    #' @param id list|NULL List of user references (usernames, ids, TL objects) to be resolved to TLInputUser; NULL for an empty list.
-    #' @return A new GetRequirementsToContactRequest object.
+    #  @description Initialize a new GetRequirementsToContactRequest.
+    #  @param id list|NULL List of user references (usernames, ids, TL objects) to be resolved to TLInputUser; NULL for an empty list.
+    #  @return A new GetRequirementsToContactRequest object.
     initialize = function(id = NULL) {
       self$id <- id
     },
 
-    #' @description Resolve plain user references in id to TLInputUser objects using the provided client/utilities.
-    #' @param client An object exposing get_input_entity for resolving user references.
-    #' @param utils Auxiliary utilities object (not directly used but kept for parity with other requests).
-    #' @return NULL (modifies the object in place).
+    #  @description Resolve plain user references in id to TLInputUser objects using the provided client/utilities.
+    #  @param client An object exposing get_input_entity for resolving user references.
+    #  @param utils Auxiliary utilities object (not directly used but kept for parity with other requests).
+    #  @return NULL (modifies the object in place).
     resolve = function(client, utils) {
       if (!is.null(self$id) && length(self$id) > 0) {
         tmp_list <- list()
@@ -109,8 +113,8 @@ GetRequirementsToContactRequest <- R6::R6Class(
       }
     },
 
-    #' @description Convert the request to a plain list (dictionary style) suitable for JSON/logging.
-    #' @return list Representation with `_` discriminator and serialized id list.
+    #  @description Convert the request to a plain list (dictionary style) suitable for JSON/logging.
+    #  @return list Representation with `_` discriminator and serialized id list.
     to_dict = function() {
       list(
         `_` = "GetRequirementsToContactRequest",
@@ -118,8 +122,8 @@ GetRequirementsToContactRequest <- R6::R6Class(
       )
     },
 
-    #' @description Serialize the request into a raw vector of TL-encoded bytes.
-    #' @return raw Raw vector containing the TL serialization.
+    #  @description Serialize the request into a raw vector of TL-encoded bytes.
+    #  @return raw Raw vector containing the TL serialization.
     bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
@@ -147,9 +151,9 @@ GetRequirementsToContactRequest <- R6::R6Class(
       rawConnectionValue(con)
     },
 
-    #' @description Deserialize a GetRequirementsToContactRequest from a TL reader.
-    #' @param reader A TL reader object providing tgread_object(), read_int().
-    #' @return GetRequirementsToContactRequest A newly constructed request object populated from the reader.
+    #  @description Deserialize a GetRequirementsToContactRequest from a TL reader.
+    #  @param reader A TL reader object providing tgread_object(), read_int().
+    #  @return GetRequirementsToContactRequest A newly constructed request object populated from the reader.
     from_reader = function(reader) {
       # read and ignore the vector constructor int
       reader$read_int()
@@ -167,35 +171,37 @@ GetRequirementsToContactRequest <- R6::R6Class(
 )
 
 
-#' GetSavedMusicRequest
-#'
-#' Request to get saved music for a user.
-#'
-#' @title GetSavedMusicRequest
-#' @description Telegram API type GetSavedMusicRequest
-#' @export
+#  GetSavedMusicRequest
+# 
+#  Request to get saved music for a user.
+# 
+#  @title GetSavedMusicRequest
+#  @description Telegram API type GetSavedMusicRequest
+#  @export
+#  @noRd
+#  @noRd
 GetSavedMusicRequest <- R6::R6Class(
   "GetSavedMusicRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x788d7fe3,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf813ae37,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
-    #' @field offset Field.
+    #  @field offset Field.
     offset = NULL,
-    #' @field limit Field.
+    #  @field limit Field.
     limit = NULL,
-    #' @field hash Field.
+    #  @field hash Field.
     hash = NULL,
 
-    #' @description Request to get saved music for a user.
-    #' @param id TLInputUser or a representation accepted by get_input_user
-    #' @param offset Integer offset for pagination.
-    #' @param limit Integer limit for the number of items to retrieve.
-    #' @param hash Integer64 hash for caching purposes (may be represented as numeric in R
+    #  @description Request to get saved music for a user.
+    #  @param id TLInputUser or a representation accepted by get_input_user
+    #  @param offset Integer offset for pagination.
+    #  @param limit Integer limit for the number of items to retrieve.
+    #  @param hash Integer64 hash for caching purposes (may be represented as numeric in R
     initialize = function(id = NULL, offset = NULL, limit = NULL, hash = NULL) {
       self$id <- id
       self$offset <- offset
@@ -203,18 +209,18 @@ GetSavedMusicRequest <- R6::R6Class(
       self$hash <- hash
     },
 
-    #' @description Converts the GetSavedMusicRequest to a dictionary (list).
-    #' @param client A client object to resolve user references.
-    #' @param utils A utils object with methods to get input user representations.
-    #' @return A list representation of the GetSavedMusicRequest.
+    #  @description Converts the GetSavedMusicRequest to a dictionary (list).
+    #  @param client A client object to resolve user references.
+    #  @param utils A utils object with methods to get input user representations.
+    #  @return A list representation of the GetSavedMusicRequest.
     resolve = function(client, utils) {
       if (!is.null(self$id)) {
         self$id <- get_input_user(client$get_input_entity(self$id))
       }
     },
 
-    #' @description Resolves the id field using the provided client and utils.
-    #' @return A raw vector representing the GetSavedMusicRequest.
+    #  @description Resolves the id field using the provided client and utils.
+    #  @return A raw vector representing the GetSavedMusicRequest.
     to_dict = function() {
       list(
         `_` = "GetSavedMusicRequest",
@@ -225,8 +231,8 @@ GetSavedMusicRequest <- R6::R6Class(
       )
     },
 
-    #' @description Converts the GetSavedMusicRequest to raw bytes.
-    #' @return A raw vector representing the GetSavedMusicRequest.
+    #  @description Converts the GetSavedMusicRequest to raw bytes.
+    #  @return A raw vector representing the GetSavedMusicRequest.
     bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
@@ -253,9 +259,9 @@ GetSavedMusicRequest <- R6::R6Class(
       rawConnectionValue(con)
     },
 
-    #' @description Initializes the GetSavedMusicRequest.
-    #' @param reader A reader object to read the response.
-    #' @return A new instance of GetSavedMusicRequest.
+    #  @description Initializes the GetSavedMusicRequest.
+    #  @param reader A reader object to read the response.
+    #  @return A new instance of GetSavedMusicRequest.
     from_reader = function(reader) {
       id_obj <- reader$tgread_object()
       offset_val <- reader$read_int()
@@ -267,37 +273,39 @@ GetSavedMusicRequest <- R6::R6Class(
 )
 
 
-#' GetSavedMusicByIDRequest
-#'
-#' Request to get saved music by document IDs for a user.
-#'
-#' @title GetSavedMusicByIDRequest
-#' @description Telegram API type GetSavedMusicByIDRequest
-#' @export
+#  GetSavedMusicByIDRequest
+# 
+#  Request to get saved music by document IDs for a user.
+# 
+#  @title GetSavedMusicByIDRequest
+#  @description Telegram API type GetSavedMusicByIDRequest
+#  @export
+#  @noRd
+#  @noRd
 GetSavedMusicByIDRequest <- R6::R6Class(
   "GetSavedMusicByIDRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x7573a4e9,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf813ae37,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
-    #' @field documents Field.
+    #  @field documents Field.
     documents = NULL,
 
-    #' @description Request to get saved music by document IDs for a user.
-    #' @param id TLInputUser or a representation accepted by get_input_user
-    #' @param documents List of TLInputDocument or representations accepted by get_input_document
+    #  @description Request to get saved music by document IDs for a user.
+    #  @param id TLInputUser or a representation accepted by get_input_user
+    #  @param documents List of TLInputDocument or representations accepted by get_input_document
     initialize = function(id = NULL, documents = NULL) {
       self$id <- id
       self$documents <- documents
     },
 
-    #' @description Converts the GetSavedMusicByIDRequest to a dictionary (list).
-    #' @param client A client object to resolve user references.
-    #' @param utils A utils object with methods to get input user and document representations.
+    #  @description Converts the GetSavedMusicByIDRequest to a dictionary (list).
+    #  @param client A client object to resolve user references.
+    #  @param utils A utils object with methods to get input user and document representations.
     resolve = function(client, utils) {
       # Translate asynchronous style to synchronous calls expected in R.
       if (!is.null(self$id)) {
@@ -312,8 +320,8 @@ GetSavedMusicByIDRequest <- R6::R6Class(
       }
     },
 
-    #' @description Converts the GetSavedMusicByIDRequest to raw bytes.
-    #' @return A raw vector representing the GetSavedMusicByIDRequest.
+    #  @description Converts the GetSavedMusicByIDRequest to raw bytes.
+    #  @return A raw vector representing the GetSavedMusicByIDRequest.
     to_dict = function() {
       list(
         `_` = "GetSavedMusicByIDRequest",
@@ -322,8 +330,8 @@ GetSavedMusicByIDRequest <- R6::R6Class(
       )
     },
 
-    #' @description Initializes the GetSavedMusicByIDRequest.
-    #' @return A raw vector representing the GetSavedMusicByIDRequest.
+    #  @description Initializes the GetSavedMusicByIDRequest.
+    #  @return A raw vector representing the GetSavedMusicByIDRequest.
     bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
@@ -358,9 +366,9 @@ GetSavedMusicByIDRequest <- R6::R6Class(
       rawConnectionValue(con)
     },
 
-    #' @description Request to get saved music by document IDs for a user.
-    #' @param reader A reader object to read the response.
-    #' @return A new instance of GetSavedMusicByIDRequest.
+    #  @description Request to get saved music by document IDs for a user.
+    #  @param reader A reader object to read the response.
+    #  @return A new instance of GetSavedMusicByIDRequest.
     from_reader = function(reader) {
       id_obj <- reader$tgread_object()
       # read and ignore the vector constructor int (present in Python-generated code)
@@ -379,29 +387,31 @@ GetSavedMusicByIDRequest <- R6::R6Class(
 )
 
 
-#' @title GetUsersRequest
-#' @description Request to get a vector of users by input user references.
-#' @export
+#  @title GetUsersRequest
+#  @description Request to get a vector of users by input user references.
+#  @export
+#  @noRd
+#  @noRd
 GetUsersRequest <- R6::R6Class(
   "GetUsersRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x0d91a548,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x406da4d,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
 
-    #' @description Initializes the GetUsersRequest.
-    #' @param id List of TLInputUser or representations accepted by get_input_user
+    #  @description Initializes the GetUsersRequest.
+    #  @param id List of TLInputUser or representations accepted by get_input_user
     initialize = function(id = NULL) {
       self$id <- id
     },
 
-    #' @description Resolves the id field using the provided client and utils.
-    #' @param client A client object to resolve user references.
-    #' @param utils A utils object with methods to get input user representations.
+    #  @description Resolves the id field using the provided client and utils.
+    #  @param client A client object to resolve user references.
+    #  @param utils A utils object with methods to get input user representations.
     resolve = function(client, utils) {
       # Translate asynchronous style to synchronous calls expected in R.
       if (!is.null(self$id) && length(self$id) > 0) {
@@ -417,8 +427,8 @@ GetUsersRequest <- R6::R6Class(
       }
     },
 
-    #' @description Request to get a vector of users by input user references.
-    #' @return List of resolved id objects.
+    #  @description Request to get a vector of users by input user references.
+    #  @return List of resolved id objects.
     to_dict = function() {
       list(
         `_` = "GetUsersRequest",
@@ -426,8 +436,8 @@ GetUsersRequest <- R6::R6Class(
       )
     },
 
-    #' @description Initializes the GetUsersRequest.
-    #' @return List of resolved id objects.
+    #  @description Initializes the GetUsersRequest.
+    #  @return List of resolved id objects.
     bytes = function() {
       con <- rawConnection(raw(0), "r+")
       on.exit(close(con))
@@ -455,9 +465,9 @@ GetUsersRequest <- R6::R6Class(
       rawConnectionValue(con)
     },
 
-    #' @description Converts the GetUsersRequest to raw bytes.
-    #' @param reader A reader object to read the response.
-    #' @return A raw vector representing the GetUsersRequest.
+    #  @description Converts the GetUsersRequest to raw bytes.
+    #  @param reader A reader object to read the response.
+    #  @return A raw vector representing the GetUsersRequest.
     from_reader = function(reader) {
       # read and ignore the vector constructor int (present in Python-generated code)
       reader$read_int()
@@ -475,40 +485,42 @@ GetUsersRequest <- R6::R6Class(
 )
 
 
-#' @title SetSecureValueErrorsRequest
-#' @description Represents a request to set secure value errors for a Telegram user.
-#' @export
+#  @title SetSecureValueErrorsRequest
+#  @description Represents a request to set secure value errors for a Telegram user.
+#  @export
+#  @noRd
+#  @noRd
 SetSecureValueErrorsRequest <- R6::R6Class(
   "SetSecureValueErrorsRequest",
   inherit = TLRequest,
   public = list(
-    #' @field CONSTRUCTOR_ID Constructor identifier for this TL object.
+    #  @field CONSTRUCTOR_ID Constructor identifier for this TL object.
     CONSTRUCTOR_ID = 0x90c894b5,
-    #' @field SUBCLASS_OF_ID Subclass identifier for this TL object.
+    #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0xf5b399ac,
-    #' @field id Field.
+    #  @field id Field.
     id = NULL,
-    #' @field errors Field.
+    #  @field errors Field.
     errors = NULL,
 
-    #' @description Request to set secure value errors for a user.
-    #' @param id TLInputUser or a representation accepted by get_input_user
-    #' @param errors List of TLSecureValueError or representations accepted by get_secure_value_error
+    #  @description Request to set secure value errors for a user.
+    #  @param id TLInputUser or a representation accepted by get_input_user
+    #  @param errors List of TLSecureValueError or representations accepted by get_secure_value_error
     initialize = function(id = NULL, errors = NULL) {
       self$id <- id
       self$errors <- errors
     },
 
-    #' @description Initializes the SetSecureValueErrorsRequest.
-    #' @param id TLInputUser or a representation accepted by get_input_user
-    #' @param errors List of TLSecureValueError or representations accepted by get_secure_value
+    #  @description Initializes the SetSecureValueErrorsRequest.
+    #  @param id TLInputUser or a representation accepted by get_input_user
+    #  @param errors List of TLSecureValueError or representations accepted by get_secure_value
     resolve = function(client, utils) {
       # translate await/async style to synchronous calls expected in R
       self$id <- get_input_user(client$get_input_entity(self$id))
     },
 
-    #' @description Resolves the id and errors fields using the provided client and utils.
-    #' @return List with resolved id and errors.
+    #  @description Resolves the id and errors fields using the provided client and utils.
+    #  @return List with resolved id and errors.
     to_dict = function() {
       list(
         `_` = "SetSecureValueErrorsRequest",
@@ -517,8 +529,8 @@ SetSecureValueErrorsRequest <- R6::R6Class(
       )
     },
 
-    #' @description Converts the SetSecureValueErrorsRequest to a dictionary (list).
-    #' @return A list representation of the SetSecureValueErrorsRequest.
+    #  @description Converts the SetSecureValueErrorsRequest to a dictionary (list).
+    #  @return A list representation of the SetSecureValueErrorsRequest.
     bytes = function() {
       # build raw bytes similar to Python implementation
       con <- rawConnection(raw(0), "r+")
@@ -552,9 +564,9 @@ SetSecureValueErrorsRequest <- R6::R6Class(
       rawConnectionValue(con)
     },
 
-    #' @description Converts the SetSecureValueErrorsRequest to raw bytes.
-    #' @param reader A reader object to read the response.
-    #' @return A raw vector representing the SetSecureValueErrorsRequest.
+    #  @description Converts the SetSecureValueErrorsRequest to raw bytes.
+    #  @param reader A reader object to read the response.
+    #  @return A raw vector representing the SetSecureValueErrorsRequest.
     from_reader = function(reader) {
       id <- reader$tgread_object()
       # read and ignore the vector constructor int (Python code called reader.read_int())
