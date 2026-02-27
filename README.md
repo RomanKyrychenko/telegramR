@@ -128,6 +128,20 @@ And get an approximate post count (upper bound) without downloading everything:
 estimate_channel_post_count(client, "telegram")
 ```
 
+**Reactions, replies, and members**
+
+```r
+reactions <- download_channel_reactions(client, "telegram", limit = 500)
+replies <- download_channel_replies(client, "telegram", message_limit = 50)
+members <- download_channel_members(client, "telegram", limit = 1000)
+```
+
+All helpers accept a numeric channel id when it is available in your session cache:
+
+```r
+msgs_by_id <- download_channel_messages(client, 1234567890, limit = 100)
+```
+
 **Download media**
 
 ```r
