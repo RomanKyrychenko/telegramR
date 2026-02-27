@@ -293,6 +293,21 @@ BinaryReader <- R6::R6Class(
         identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(0x7a800e0a))) {
         return(.telegramR_read_message_service(self))
       }
+      # Special-case ChannelFull
+      if (!is.null(constructor_id) &&
+        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(0xe4e0b29d))) {
+        return(.telegramR_read_channel_full(self))
+      }
+      # Special-case Channel to avoid parse failures on newer flags
+      if (!is.null(constructor_id) &&
+        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(0xfe685355))) {
+        return(.telegramR_read_channel(self))
+      }
+      # Special-case messages.ChatFull (used by channels.getFullChannel)
+      if (!is.null(constructor_id) &&
+        identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(0xe5d7d19c))) {
+        return(.telegramR_read_messages_chat_full(self))
+      }
       ctor_key <- .telegramR_norm_ctor_id(constructor_id)
       ctor_map <- .telegramR_get_ctor_map()
       cls <- ctor_map[[ctor_key]]
@@ -508,6 +523,7 @@ BinaryReader <- R6::R6Class(
       out[[.telegramR_norm_ctor_id(2131196633)]] <- crp_cls
     }
   }
+
 
   # Only cache if we found at least some classes; otherwise retry next time
   if (length(out) > 0) {
@@ -837,6 +853,422 @@ BinaryReader <- R6::R6Class(
     reactions = reactions,
     ttl_period = ttl_period
   )
+}
+
+.telegramR_read_messages_chat_full <- function(reader) {
+  # messages.ChatFull = { full_chat:ChatFull, chats:Vector<Chat>, users:Vector<User> }
+  rem <- function() length(reader$get_bytes()) - reader$tell_position()
+  safe_read_int <- function(signed = TRUE) {
+    if (rem() < 4) return(NULL)
+    reader$read_int(signed = signed)
+  }
+  safe_read_object <- function() {
+    if (rem() < 4) return(NULL)
+    tryCatch(reader$tgread_object(), error = function(e) NULL)
+  }
+
+  full_chat <- safe_read_object()
+
+  chats <- list()
+  users <- list()
+  tryCatch({
+    vec_ctor <- safe_read_int(signed = FALSE)
+    n_chats <- safe_read_int()
+    if (!is.null(n_chats) && n_chats > 0) {
+      chats <- lapply(seq_len(n_chats), function(i) safe_read_object())
+    }
+
+    vec_ctor2 <- safe_read_int(signed = FALSE)
+    n_users <- safe_read_int()
+    if (!is.null(n_users) && n_users > 0) {
+      users <- lapply(seq_len(n_users), function(i) safe_read_object())
+    }
+  }, error = function(e) {
+    # Return partial if parsing failed mid-way
+    NULL
+  })
+
+  list(
+    "_" = "messages.ChatFull",
+    full_chat = full_chat,
+    chats = chats,
+    users = users
+  )
+}
+
+.telegramR_read_channel_full <- function(reader) {
+  rem <- function() length(reader$get_bytes()) - reader$tell_position()
+  safe_read_int <- function(signed = TRUE) {
+    if (rem() < 4) return(NULL)
+    reader$read_int(signed = signed)
+  }
+  safe_read_long <- function(signed = TRUE) {
+    if (rem() < 8) return(NULL)
+    reader$read_long(signed = signed)
+  }
+  safe_read_date <- function() {
+    if (rem() < 4) return(NULL)
+    reader$tgread_date()
+  }
+  safe_read_object <- function() {
+    if (rem() < 4) return(NULL)
+    reader$tgread_object()
+  }
+  safe_read_string <- function() {
+    if (rem() < 1) return(NULL)
+    reader$tgread_string()
+  }
+
+  # Defaults for partial parse on error
+  id <- about <- read_inbox_max_id <- read_outbox_max_id <- unread_count <- NULL
+  participants_count <- admins_count <- kicked_count <- banned_count <- online_count <- NULL
+  linked_chat_id <- NULL
+
+  tryCatch({
+    flags <- safe_read_int(signed = FALSE)
+    flags2 <- safe_read_int(signed = FALSE)
+    if (is.null(flags) || is.null(flags2)) stop("insufficient data for flags")
+
+    can_view_participants <- bitwAnd(flags, 8) != 0
+    can_set_username <- bitwAnd(flags, 64) != 0
+    can_set_stickers <- bitwAnd(flags, 128) != 0
+    hidden_prehistory <- bitwAnd(flags, 1024) != 0
+    can_set_location <- bitwAnd(flags, 65536) != 0
+    has_scheduled <- bitwAnd(flags, 524288) != 0
+    can_view_stats <- bitwAnd(flags, 1048576) != 0
+    blocked <- bitwAnd(flags, 4194304) != 0
+
+    can_delete_channel <- bitwAnd(flags2, 1) != 0
+    antispam <- bitwAnd(flags2, 2) != 0
+    participants_hidden <- bitwAnd(flags2, 4) != 0
+    translations_disabled <- bitwAnd(flags2, 8) != 0
+    stories_pinned_available <- bitwAnd(flags2, 32) != 0
+    view_forum_as_messages <- bitwAnd(flags2, 64) != 0
+    restricted_sponsored <- bitwAnd(flags2, 2048) != 0
+    can_view_revenue <- bitwAnd(flags2, 4096) != 0
+    paid_media_allowed <- bitwAnd(flags2, 16384) != 0
+    can_view_stars_revenue <- bitwAnd(flags2, 32768) != 0
+    paid_reactions_available <- bitwAnd(flags2, 65536) != 0
+    stargifts_available <- bitwAnd(flags2, 524288) != 0
+    paid_messages_available <- bitwAnd(flags2, 1048576) != 0
+
+    id <- safe_read_long()
+    about <- safe_read_string()
+
+    participants_count <- if (bitwAnd(flags, 1) != 0) safe_read_int() else NULL
+    admins_count <- if (bitwAnd(flags, 2) != 0) safe_read_int() else NULL
+    kicked_count <- if (bitwAnd(flags, 4) != 0) safe_read_int() else NULL
+    banned_count <- if (bitwAnd(flags, 4) != 0) safe_read_int() else NULL
+    online_count <- if (bitwAnd(flags, 8192) != 0) safe_read_int() else NULL
+
+    read_inbox_max_id <- safe_read_int()
+    read_outbox_max_id <- safe_read_int()
+    unread_count <- safe_read_int()
+    chat_photo <- safe_read_object()
+    notify_settings <- safe_read_object()
+    exported_invite <- if (bitwAnd(flags, 8388608) != 0) safe_read_object() else NULL
+
+    # bot_info vector
+    vec_ctor <- safe_read_int(signed = FALSE)
+    n_bot <- safe_read_int()
+    bot_info <- if (!is.null(n_bot) && n_bot > 0) lapply(seq_len(n_bot), function(i) safe_read_object()) else list()
+
+    migrated_from_chat_id <- if (bitwAnd(flags, 16) != 0) safe_read_long() else NULL
+    migrated_from_max_id <- if (bitwAnd(flags, 16) != 0) safe_read_int() else NULL
+    pinned_msg_id <- if (bitwAnd(flags, 32) != 0) safe_read_int() else NULL
+    stickerset <- if (bitwAnd(flags, 256) != 0) safe_read_object() else NULL
+    available_min_id <- if (bitwAnd(flags, 512) != 0) safe_read_int() else NULL
+    folder_id <- if (bitwAnd(flags, 2048) != 0) safe_read_int() else NULL
+    linked_chat_id <- if (bitwAnd(flags, 16384) != 0) safe_read_long() else NULL
+    location <- if (bitwAnd(flags, 32768) != 0) safe_read_object() else NULL
+    slowmode_seconds <- if (bitwAnd(flags, 131072) != 0) safe_read_int() else NULL
+    slowmode_next_send_date <- if (bitwAnd(flags, 262144) != 0) safe_read_date() else NULL
+    stats_dc <- if (bitwAnd(flags, 4096) != 0) safe_read_int() else NULL
+    pts <- safe_read_int()
+    call <- if (bitwAnd(flags, 2097152) != 0) safe_read_object() else NULL
+    ttl_period <- if (bitwAnd(flags, 16777216) != 0) safe_read_int() else NULL
+
+    pending_suggestions <- NULL
+    if (bitwAnd(flags, 33554432) != 0) {
+      safe_read_int(signed = FALSE) # vector constructor
+      n <- safe_read_int()
+      pending_suggestions <- if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_string()) else list()
+    }
+
+    groupcall_default_join_as <- if (bitwAnd(flags, 67108864) != 0) safe_read_object() else NULL
+    theme_emoticon <- if (bitwAnd(flags, 134217728) != 0) safe_read_string() else NULL
+    requests_pending <- if (bitwAnd(flags, 268435456) != 0) safe_read_int() else NULL
+
+    recent_requesters <- NULL
+    if (bitwAnd(flags, 268435456) != 0) {
+      safe_read_int(signed = FALSE) # vector constructor
+      n <- safe_read_int()
+      recent_requesters <- if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_long()) else list()
+    }
+
+    default_send_as <- if (bitwAnd(flags, 536870912) != 0) safe_read_object() else NULL
+    available_reactions <- if (bitwAnd(flags, 1073741824) != 0) safe_read_object() else NULL
+    reactions_limit <- if (bitwAnd(flags2, 8192) != 0) safe_read_int() else NULL
+    stories <- if (bitwAnd(flags2, 16) != 0) safe_read_object() else NULL
+    wallpaper <- if (bitwAnd(flags2, 128) != 0) safe_read_object() else NULL
+    boosts_applied <- if (bitwAnd(flags2, 256) != 0) safe_read_int() else NULL
+    boosts_unrestrict <- if (bitwAnd(flags2, 512) != 0) safe_read_int() else NULL
+    emojiset <- if (bitwAnd(flags2, 1024) != 0) safe_read_object() else NULL
+    bot_verification <- if (bitwAnd(flags2, 131072) != 0) safe_read_object() else NULL
+    stargifts_count <- if (bitwAnd(flags2, 262144) != 0) safe_read_int() else NULL
+    send_paid_messages_stars <- if (bitwAnd(flags2, 2097152) != 0) safe_read_long() else NULL
+    main_tab <- if (bitwAnd(flags2, 4194304) != 0) safe_read_object() else NULL
+
+    ChannelFull$new(
+    id = id,
+    about = about,
+    read_inbox_max_id = read_inbox_max_id,
+    read_outbox_max_id = read_outbox_max_id,
+    unread_count = unread_count,
+    chat_photo = chat_photo,
+    notify_settings = notify_settings,
+    bot_info = bot_info,
+    pts = pts,
+    can_view_participants = can_view_participants,
+    can_set_username = can_set_username,
+    can_set_stickers = can_set_stickers,
+    hidden_prehistory = hidden_prehistory,
+    can_set_location = can_set_location,
+    has_scheduled = has_scheduled,
+    can_view_stats = can_view_stats,
+    blocked = blocked,
+    can_delete_channel = can_delete_channel,
+    antispam = antispam,
+    participants_hidden = participants_hidden,
+    translations_disabled = translations_disabled,
+    stories_pinned_available = stories_pinned_available,
+    view_forum_as_messages = view_forum_as_messages,
+    restricted_sponsored = restricted_sponsored,
+    can_view_revenue = can_view_revenue,
+    paid_media_allowed = paid_media_allowed,
+    can_view_stars_revenue = can_view_stars_revenue,
+    paid_reactions_available = paid_reactions_available,
+    stargifts_available = stargifts_available,
+    paid_messages_available = paid_messages_available,
+    participants_count = participants_count,
+    admins_count = admins_count,
+    kicked_count = kicked_count,
+    banned_count = banned_count,
+    online_count = online_count,
+    exported_invite = exported_invite,
+    migrated_from_chat_id = migrated_from_chat_id,
+    migrated_from_max_id = migrated_from_max_id,
+    pinned_msg_id = pinned_msg_id,
+    stickerset = stickerset,
+    available_min_id = available_min_id,
+    folder_id = folder_id,
+    linked_chat_id = linked_chat_id,
+    location = location,
+    slowmode_seconds = slowmode_seconds,
+    slowmode_next_send_date = slowmode_next_send_date,
+    stats_dc = stats_dc,
+    call = call,
+    ttl_period = ttl_period,
+    pending_suggestions = pending_suggestions,
+    groupcall_default_join_as = groupcall_default_join_as,
+    theme_emoticon = theme_emoticon,
+    requests_pending = requests_pending,
+    recent_requesters = recent_requesters,
+    default_send_as = default_send_as,
+    available_reactions = available_reactions,
+    reactions_limit = reactions_limit,
+    stories = stories,
+    wallpaper = wallpaper,
+    boosts_applied = boosts_applied,
+    boosts_unrestrict = boosts_unrestrict,
+    emojiset = emojiset,
+    bot_verification = bot_verification,
+    stargifts_count = stargifts_count,
+    send_paid_messages_stars = send_paid_messages_stars,
+    main_tab = main_tab
+    )
+  }, error = function(e) {
+    if (rem() > 0) {
+      tryCatch(reader$read(rem()), error = function(e2) NULL)
+    }
+    ChannelFull$new(
+      id = id,
+      about = about %||% NA_character_,
+      read_inbox_max_id = read_inbox_max_id,
+      read_outbox_max_id = read_outbox_max_id,
+      unread_count = unread_count,
+      chat_photo = NULL,
+      notify_settings = NULL,
+      bot_info = list(),
+      pts = NULL,
+      participants_count = participants_count,
+      admins_count = admins_count,
+      kicked_count = kicked_count,
+      banned_count = banned_count,
+      online_count = online_count,
+      linked_chat_id = linked_chat_id
+    )
+  })
+}
+
+.telegramR_read_channel <- function(reader) {
+  rem <- function() length(reader$get_bytes()) - reader$tell_position()
+  safe_read_int <- function(signed = TRUE) {
+    if (rem() < 4) return(NULL)
+    reader$read_int(signed = signed)
+  }
+  safe_read_long <- function(signed = TRUE) {
+    if (rem() < 8) return(NULL)
+    reader$read_long(signed = signed)
+  }
+  safe_read_date <- function() {
+    if (rem() < 4) return(NULL)
+    reader$tgread_date()
+  }
+  safe_read_object <- function() {
+    if (rem() < 4) return(NULL)
+    tryCatch(reader$tgread_object(), error = function(e) NULL)
+  }
+  safe_read_string <- function() {
+    if (rem() < 1) return(NULL)
+    tryCatch(reader$tgread_string(), error = function(e) NA_character_)
+  }
+
+  tryCatch({
+    flags <- safe_read_int()
+    flags2 <- safe_read_int()
+    if (is.null(flags) || is.null(flags2)) stop("insufficient data for flags")
+
+    creator <- bitwAnd(flags, 1) != 0
+    left <- bitwAnd(flags, 4) != 0
+    broadcast <- bitwAnd(flags, 32) != 0
+    verified <- bitwAnd(flags, 128) != 0
+    megagroup <- bitwAnd(flags, 256) != 0
+    restricted <- bitwAnd(flags, 512) != 0
+    signatures <- bitwAnd(flags, 2048) != 0
+    min <- bitwAnd(flags, 4096) != 0
+    scam <- bitwAnd(flags, 524288) != 0
+    has_link <- bitwAnd(flags, 1048576) != 0
+    has_geo <- bitwAnd(flags, 2097152) != 0
+    slowmode_enabled <- bitwAnd(flags, 4194304) != 0
+    call_active <- bitwAnd(flags, 8388608) != 0
+    call_not_empty <- bitwAnd(flags, 16777216) != 0
+    fake <- bitwAnd(flags, 33554432) != 0
+    gigagroup <- bitwAnd(flags, 67108864) != 0
+    noforwards <- bitwAnd(flags, 134217728) != 0
+    join_to_send <- bitwAnd(flags, 268435456) != 0
+    join_request <- bitwAnd(flags, 536870912) != 0
+    forum <- bitwAnd(flags, 1073741824) != 0
+
+    stories_hidden <- bitwAnd(flags2, 2) != 0
+    stories_hidden_min <- bitwAnd(flags2, 4) != 0
+    stories_unavailable <- bitwAnd(flags2, 8) != 0
+    signature_profiles <- bitwAnd(flags2, 4096) != 0
+    autotranslation <- bitwAnd(flags2, 32768) != 0
+    broadcast_messages_allowed <- bitwAnd(flags2, 65536) != 0
+    monoforum <- bitwAnd(flags2, 131072) != 0
+    forum_tabs <- bitwAnd(flags2, 524288) != 0
+
+    id <- safe_read_long()
+    access_hash <- if (bitwAnd(flags, 8192) != 0) safe_read_long() else NULL
+    title <- safe_read_string()
+    username <- if (bitwAnd(flags, 64) != 0) safe_read_string() else NULL
+    photo <- safe_read_object()
+    date <- safe_read_date()
+
+    restriction_reason <- if (bitwAnd(flags, 512) != 0) {
+      safe_read_int(signed = FALSE) # vector ctor
+      n <- safe_read_int()
+      if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_object()) else list()
+    } else {
+      NULL
+    }
+
+    admin_rights <- if (bitwAnd(flags, 16384) != 0) safe_read_object() else NULL
+    banned_rights <- if (bitwAnd(flags, 32768) != 0) safe_read_object() else NULL
+    default_banned_rights <- if (bitwAnd(flags, 262144) != 0) safe_read_object() else NULL
+    participants_count <- if (bitwAnd(flags, 131072) != 0) safe_read_int() else NULL
+
+    usernames <- if (bitwAnd(flags2, 1) != 0) {
+      safe_read_int(signed = FALSE)
+      n <- safe_read_int()
+      if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_object()) else list()
+    } else {
+      NULL
+    }
+
+    stories_max_id <- if (bitwAnd(flags2, 16) != 0) safe_read_int() else NULL
+    color <- if (bitwAnd(flags2, 128) != 0) safe_read_object() else NULL
+    profile_color <- if (bitwAnd(flags2, 256) != 0) safe_read_object() else NULL
+    emoji_status <- if (bitwAnd(flags2, 512) != 0) safe_read_object() else NULL
+    level <- if (bitwAnd(flags2, 1024) != 0) safe_read_int() else NULL
+    subscription_until_date <- if (bitwAnd(flags2, 2048) != 0) safe_read_date() else NULL
+    bot_verification_icon <- if (bitwAnd(flags2, 8192) != 0) safe_read_long() else NULL
+    send_paid_messages_stars <- if (bitwAnd(flags2, 16384) != 0) safe_read_long() else NULL
+    linked_monoforum_id <- if (bitwAnd(flags2, 262144) != 0) safe_read_long() else NULL
+
+    Channel$new(
+      id = id,
+      title = title,
+      photo = photo,
+      date = date,
+      creator = creator,
+      left = left,
+      broadcast = broadcast,
+      verified = verified,
+      megagroup = megagroup,
+      restricted = restricted,
+      signatures = signatures,
+      min = min,
+      scam = scam,
+      has_link = has_link,
+      has_geo = has_geo,
+      slowmode_enabled = slowmode_enabled,
+      call_active = call_active,
+      call_not_empty = call_not_empty,
+      fake = fake,
+      gigagroup = gigagroup,
+      noforwards = noforwards,
+      join_to_send = join_to_send,
+      join_request = join_request,
+      forum = forum,
+      stories_hidden = stories_hidden,
+      stories_hidden_min = stories_hidden_min,
+      stories_unavailable = stories_unavailable,
+      signature_profiles = signature_profiles,
+      autotranslation = autotranslation,
+      broadcast_messages_allowed = broadcast_messages_allowed,
+      monoforum = monoforum,
+      forum_tabs = forum_tabs,
+      access_hash = access_hash,
+      username = username,
+      restriction_reason = restriction_reason,
+      admin_rights = admin_rights,
+      banned_rights = banned_rights,
+      default_banned_rights = default_banned_rights,
+      participants_count = participants_count,
+      usernames = usernames,
+      stories_max_id = stories_max_id,
+      color = color,
+      profile_color = profile_color,
+      emoji_status = emoji_status,
+      level = level,
+      subscription_until_date = subscription_until_date,
+      bot_verification_icon = bot_verification_icon,
+      send_paid_messages_stars = send_paid_messages_stars,
+      linked_monoforum_id = linked_monoforum_id
+    )
+  }, error = function(e) {
+    if (rem() > 0) {
+      tryCatch(reader$read(rem()), error = function(e2) NULL)
+    }
+    Channel$new(
+      id = NA,
+      title = NA_character_,
+      photo = NULL,
+      date = NULL
+    )
+  })
 }
 
 .telegramR_read_user <- function(reader) {
