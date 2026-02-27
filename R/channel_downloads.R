@@ -239,13 +239,146 @@
   )
 }
 
-#' Download Channel Messages By Username
+.telegramR_extract_reaction_row <- function(m, channel) {
+  md <- .telegramR_safe_to_dict(m)
+  ch <- .telegramR_safe_to_dict(channel)
+  reactions <- .telegramR_message_reactions(md)
+
+  list(
+    message_id = as.numeric(md$id %||% NA),
+    channel_id = as.numeric(ch$id %||% NA),
+    channel_username = ch$username %||% NA_character_,
+    channel_title = ch$title %||% NA_character_,
+    date = if (!is.null(md$date)) as.POSIXct(md$date, origin = "1970-01-01", tz = "UTC") else as.POSIXct(NA),
+    reactions_total = as.numeric(reactions$total),
+    reactions_json = reactions$json
+  )
+}
+
+.telegramR_extract_reply_row <- function(m, channel, root_message_id) {
+  md <- .telegramR_safe_to_dict(m)
+  ch <- .telegramR_safe_to_dict(channel)
+  reactions <- .telegramR_message_reactions(md)
+
+  from_id <- NA_real_
+  from_type <- NA_character_
+  if (is.list(md$from_id)) {
+    if (!is.null(md$from_id$user_id)) {
+      from_id <- md$from_id$user_id
+      from_type <- "user"
+    } else if (!is.null(md$from_id$channel_id)) {
+      from_id <- md$from_id$channel_id
+      from_type <- "channel"
+    } else if (!is.null(md$from_id$chat_id)) {
+      from_id <- md$from_id$chat_id
+      from_type <- "chat"
+    }
+  }
+
+  list(
+    root_message_id = as.numeric(root_message_id),
+    comment_message_id = as.numeric(md$id %||% NA),
+    channel_id = as.numeric(ch$id %||% NA),
+    channel_username = ch$username %||% NA_character_,
+    channel_title = ch$title %||% NA_character_,
+    date = if (!is.null(md$date)) as.POSIXct(md$date, origin = "1970-01-01", tz = "UTC") else as.POSIXct(NA),
+    text = md$message %||% NA_character_,
+    from_id = as.numeric(from_id),
+    from_type = from_type,
+    reactions_total = as.numeric(reactions$total),
+    reactions_json = reactions$json
+  )
+}
+
+.telegramR_extract_member_row <- function(user, channel) {
+  ud <- .telegramR_safe_to_dict(user)
+  ch <- .telegramR_safe_to_dict(channel)
+  part <- NULL
+  if (!is.null(user$participant)) {
+    part <- .telegramR_safe_to_dict(user$participant)
+  }
+  part_type <- if (!is.null(part)) part$`_` %||% NA_character_ else NA_character_
+
+  inviter_id <- NA_real_
+  if (is.list(part) && !is.null(part$inviter_id)) {
+    inviter_id <- part$inviter_id
+  }
+
+  joined_date <- if (is.list(part) && !is.null(part$date)) {
+    as.POSIXct(part$date, origin = "1970-01-01", tz = "UTC")
+  } else {
+    as.POSIXct(NA)
+  }
+
+  status <- NA_character_
+  if (is.list(ud$status) && !is.null(ud$status$`_`)) {
+    status <- ud$status$`_`
+  }
+
+  list(
+    user_id = as.numeric(ud$id %||% NA),
+    username = ud$username %||% NA_character_,
+    first_name = ud$first_name %||% NA_character_,
+    last_name = ud$last_name %||% NA_character_,
+    is_bot = isTRUE(ud$bot),
+    is_deleted = isTRUE(ud$deleted),
+    is_verified = isTRUE(ud$verified),
+    is_restricted = isTRUE(ud$restricted),
+    is_scam = isTRUE(ud$scam),
+    is_fake = isTRUE(ud$fake),
+    status = status,
+    participant_type = part_type,
+    inviter_id = as.numeric(inviter_id),
+    joined_date = joined_date,
+    channel_id = as.numeric(ch$id %||% NA),
+    channel_username = ch$username %||% NA_character_,
+    channel_title = ch$title %||% NA_character_
+  )
+}
+
+.telegramR_resolve_channel <- function(client, channel) {
+  if (missing(channel) || is.null(channel)) {
+    stop("channel is required")
+  }
+
+  ent <- NULL
+  uname <- NA_character_
+
+  if (is.character(channel)) {
+    uname <- sub("^@", "", channel)
+    ent <- client$get_entity(uname)
+  } else if (is.numeric(channel)) {
+    chan_id <- as.numeric(channel)[1]
+    peer <- PeerChannel$new(as.integer(chan_id))
+    ent <- tryCatch(client$get_entity(peer), error = function(e) NULL)
+    if (is.null(ent)) {
+      ent <- tryCatch(client$get_entity(chan_id), error = function(e) NULL)
+    }
+    if (is.null(ent)) {
+      stop("Could not resolve channel by id. Ensure the channel is in your dialogs or provide a username.")
+    }
+  } else {
+    ent <- tryCatch(client$get_entity(channel), error = function(e) NULL)
+    if (is.null(ent)) {
+      ent <- channel
+    }
+  }
+
+  if (!inherits(ent, c("Channel", "ChannelForbidden"))) {
+    stop("Resolved entity is not a channel. Provide a channel username or id.")
+  }
+
+  uname <- ent$username %||% uname
+  list(entity = ent, username = uname)
+}
+
+#' Download Channel Messages By Channel
 #'
-#' Fetches messages for a channel by username and returns a tibble with
+#' Fetches messages for a channel by username or numeric id and returns a tibble with
 #' message fields and nested structures as list columns.
 #'
 #' @param client TelegramClient instance.
-#' @param username character. Channel username (with or without "@").
+#' @param channel character or numeric. Channel username (with or without "@") or numeric id.
 #' @param limit integer or Inf. Maximum number of messages to fetch.
 #' @param include_channel logical. If TRUE, include channel fields on every row.
 #' @param start_date POSIXct/Date/character. Earliest date to include (UTC).
@@ -253,16 +386,14 @@
 #' @param show_progress logical. If TRUE, display a progress bar.
 #' @param ... Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).
 #' @return A tibble.
-download_channel_messages <- function(client, username, limit = Inf, include_channel = TRUE, start_date = NULL, end_date = NULL, show_progress = TRUE, ...) {
+download_channel_messages <- function(client, channel, limit = Inf, include_channel = TRUE, start_date = NULL, end_date = NULL, show_progress = TRUE, ...) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
   }
-  if (missing(username) || is.null(username) || !nzchar(username)) {
-    stop("username is required")
-  }
 
-  uname <- sub("^@", "", username)
-  ent <- client$get_entity(uname)
+  resolved <- .telegramR_resolve_channel(client, channel)
+  ent <- resolved$entity
+  uname <- resolved$username %||% NA_character_
   start_dt <- .telegramR_parse_datetime(start_date)
   end_dt <- .telegramR_parse_datetime(end_date)
 
@@ -279,7 +410,7 @@ download_channel_messages <- function(client, username, limit = Inf, include_cha
   if (is.finite(limit)) {
     total_est <- as.numeric(limit)
   } else {
-    est <- tryCatch(estimate_channel_post_count(client, uname), error = function(e) NULL)
+    est <- tryCatch(estimate_channel_post_count(client, channel), error = function(e) NULL)
     if (!is.null(est) && !is.na(est$last_message_id[[1]])) {
       total_est <- as.numeric(est$last_message_id[[1]])
     }
@@ -322,23 +453,217 @@ download_channel_messages <- function(client, username, limit = Inf, include_cha
   tbl
 }
 
+#' Download Channel Reactions By Channel
+#'
+#' Fetches message reactions for a channel by username or numeric id.
+#'
+#' @param client TelegramClient instance.
+#' @param channel character or numeric. Channel username (with or without "@") or numeric id.
+#' @param limit integer or Inf. Maximum number of messages to fetch.
+#' @param start_date POSIXct/Date/character. Earliest date to include (UTC).
+#' @param end_date POSIXct/Date/character. Latest date to include (UTC).
+#' @param include_channel logical. If TRUE, include channel fields on every row.
+#' @param show_progress logical. If TRUE, display a progress bar.
+#' @param ... Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).
+#' @return A tibble.
+download_channel_reactions <- function(client, channel, limit = Inf, start_date = NULL, end_date = NULL, include_channel = TRUE, show_progress = TRUE, ...) {
+  if (missing(client) || is.null(client)) {
+    stop("client is required")
+  }
+
+  resolved <- .telegramR_resolve_channel(client, channel)
+  ent <- resolved$entity
+
+  start_dt <- .telegramR_parse_datetime(start_date)
+  end_dt <- .telegramR_parse_datetime(end_date)
+
+  iter_args <- list(entity = ent, limit = limit)
+  if (!is.null(end_dt)) {
+    iter_args$offset_date <- end_dt
+  }
+  iter_args <- c(iter_args, list(...))
+
+  it <- do.call(client$iter_messages, iter_args)
+
+  total_est <- NA_real_
+  if (is.finite(limit)) {
+    total_est <- as.numeric(limit)
+  }
+
+  show_pb <- isTRUE(show_progress) && interactive() && is.finite(total_est) && total_est > 0
+  pb <- NULL
+  if (show_pb) {
+    pb <- utils::txtProgressBar(min = 0, max = total_est, style = 3)
+    on.exit(tryCatch(close(pb), error = function(e) NULL), add = TRUE)
+  }
+
+  rows <- list()
+  n <- 0L
+  repeat {
+    item <- it$.next()
+    if (is.null(item)) break
+    row <- .telegramR_extract_reaction_row(item, ent)
+    if (!is.null(row$date) && inherits(row$date, "POSIXt")) {
+      if (!is.null(end_dt) && row$date > end_dt) {
+        next
+      }
+      if (!is.null(start_dt) && row$date < start_dt) {
+        break
+      }
+    }
+    n <- n + 1L
+    rows[[n]] <- row
+    if (show_pb) utils::setTxtProgressBar(pb, n)
+  }
+
+  tbl <- if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble()
+  if (!isTRUE(include_channel)) {
+    tbl$channel_id <- NULL
+    tbl$channel_username <- NULL
+    tbl$channel_title <- NULL
+  }
+  tbl
+}
+
+#' Download Channel Replies/Comments By Channel
+#'
+#' Fetches replies (comments) to channel posts by username or numeric id.
+#'
+#' @param client TelegramClient instance.
+#' @param channel character or numeric. Channel username (with or without "@") or numeric id.
+#' @param message_ids integer vector or NULL. If NULL, replies are fetched for the most recent posts.
+#' @param message_limit integer. Number of recent posts to inspect when message_ids is NULL.
+#' @param reply_limit integer or Inf. Maximum number of replies per post.
+#' @param include_channel logical. If TRUE, include channel fields on every row.
+#' @param show_progress logical. If TRUE, display a progress bar.
+#' @param ... Passed to client$iter_messages() when fetching recent posts.
+#' @return A tibble.
+download_channel_replies <- function(client, channel, message_ids = NULL, message_limit = 100, reply_limit = Inf, include_channel = TRUE, show_progress = TRUE, ...) {
+  if (missing(client) || is.null(client)) {
+    stop("client is required")
+  }
+
+  resolved <- .telegramR_resolve_channel(client, channel)
+  ent <- resolved$entity
+
+  if (is.null(message_ids)) {
+    root_it <- do.call(client$iter_messages, c(list(entity = ent, limit = message_limit), list(...)))
+    ids <- list()
+    i <- 0L
+    repeat {
+      item <- root_it$.next()
+      if (is.null(item)) break
+      if (!is.null(item$id)) {
+        i <- i + 1L
+        ids[[i]] <- item$id
+      }
+    }
+    message_ids <- unlist(ids, use.names = FALSE)
+  }
+
+  if (length(message_ids) == 0) {
+    return(tibble::tibble())
+  }
+
+  total_est <- length(message_ids)
+  show_pb <- isTRUE(show_progress) && interactive() && total_est > 0
+  pb <- NULL
+  if (show_pb) {
+    pb <- utils::txtProgressBar(min = 0, max = total_est, style = 3)
+    on.exit(tryCatch(close(pb), error = function(e) NULL), add = TRUE)
+  }
+
+  rows <- list()
+  n <- 0L
+  for (i in seq_along(message_ids)) {
+    msg_id <- message_ids[[i]]
+    rep_it <- client$iter_messages(ent, limit = reply_limit, reply_to = msg_id)
+    repeat {
+      rep_item <- rep_it$.next()
+      if (is.null(rep_item)) break
+      n <- n + 1L
+      rows[[n]] <- .telegramR_extract_reply_row(rep_item, ent, msg_id)
+    }
+    if (show_pb) utils::setTxtProgressBar(pb, i)
+  }
+
+  tbl <- if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble()
+  if (!isTRUE(include_channel)) {
+    tbl$channel_id <- NULL
+    tbl$channel_username <- NULL
+    tbl$channel_title <- NULL
+  }
+  tbl
+}
+
+#' Download Channel Members By Channel
+#'
+#' Fetches channel members (participants) by username or numeric id.
+#'
+#' @param client TelegramClient instance.
+#' @param channel character or numeric. Channel username (with or without "@") or numeric id.
+#' @param limit integer or Inf. Maximum number of members to fetch.
+#' @param search character. Search query for participant names/usernames.
+#' @param filter A participants filter, e.g. ChannelParticipantsAdmins.
+#' @param include_channel logical. If TRUE, include channel fields on every row.
+#' @param show_progress logical. If TRUE, display a progress bar.
+#' @return A tibble.
+download_channel_members <- function(client, channel, limit = Inf, search = "", filter = NULL, include_channel = TRUE, show_progress = TRUE) {
+  if (missing(client) || is.null(client)) {
+    stop("client is required")
+  }
+
+  resolved <- .telegramR_resolve_channel(client, channel)
+  ent <- resolved$entity
+
+  it <- client$iter_participants(ent, limit = limit, search = search, filter = filter)
+
+  total_est <- NA_real_
+  if (is.finite(limit)) {
+    total_est <- as.numeric(limit)
+  }
+
+  show_pb <- isTRUE(show_progress) && interactive() && is.finite(total_est) && total_est > 0
+  pb <- NULL
+  if (show_pb) {
+    pb <- utils::txtProgressBar(min = 0, max = total_est, style = 3)
+    on.exit(tryCatch(close(pb), error = function(e) NULL), add = TRUE)
+  }
+
+  rows <- list()
+  n <- 0L
+  repeat {
+    item <- it$.next()
+    if (is.null(item)) break
+    n <- n + 1L
+    rows[[n]] <- .telegramR_extract_member_row(item, ent)
+    if (show_pb) utils::setTxtProgressBar(pb, n)
+  }
+
+  tbl <- if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble()
+  if (!isTRUE(include_channel)) {
+    tbl$channel_id <- NULL
+    tbl$channel_username <- NULL
+    tbl$channel_title <- NULL
+  }
+  tbl
+}
+
 #' Estimate Channel Post Count (Approx)
 #'
 #' Gets the latest message ID and uses it as an upper-bound estimate of total posts.
 #' This is approximate due to deletions and gaps in message IDs.
 #'
 #' @param client TelegramClient instance.
-#' @param username character. Channel username (with or without "@").
+#' @param channel character or numeric. Channel username (with or without "@") or numeric id.
 #' @return A tibble with last_message_id, approx_total_posts, and note.
-estimate_channel_post_count <- function(client, username) {
+estimate_channel_post_count <- function(client, channel) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
   }
-  if (missing(username) || is.null(username) || !nzchar(username)) {
-    stop("username is required")
-  }
-  uname <- sub("^@", "", username)
-  ent <- client$get_entity(uname)
+
+  resolved <- .telegramR_resolve_channel(client, channel)
+  ent <- resolved$entity
   it <- client$iter_messages(ent, limit = 1)
   msgs <- client$collect(it)
   last_id <- if (length(msgs) > 0 && !is.null(msgs[[1]]$id)) msgs[[1]]$id else NA_real_
@@ -349,25 +674,23 @@ estimate_channel_post_count <- function(client, username) {
   )
 }
 
-#' Download Full Channel Info By Username
+#' Download Full Channel Info By Channel
 #'
-#' Fetches channel entity and full channel info by username and returns a tibble.
+#' Fetches channel entity and full channel info by username or numeric id and returns a tibble.
 #'
 #' @param client TelegramClient instance.
-#' @param username character. Channel username (with or without "@").
+#' @param channel character or numeric. Channel username (with or without "@") or numeric id.
 #' @param region character or NULL. Optional region tag to attach.
 #' @param include_raw logical. If TRUE, include raw Telegram objects as list columns.
 #' @return A tibble with flattened channel info and optional list columns for raw objects.
-download_channel_info <- function(client, username, region = NULL, include_raw = FALSE) {
+download_channel_info <- function(client, channel, region = NULL, include_raw = FALSE) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
   }
-  if (missing(username) || is.null(username) || !nzchar(username)) {
-    stop("username is required")
-  }
 
-  uname <- sub("^@", "", username)
-  ent <- client$get_entity(uname)
+  resolved <- .telegramR_resolve_channel(client, channel)
+  ent <- resolved$entity
+  uname <- resolved$username %||% NA_character_
   input_ent <- client$get_input_entity(ent)
   input_channel <- get_input_channel(input_ent)
   # Refresh constructor map to pick up newer ChannelFull ctor IDs
@@ -407,7 +730,7 @@ download_channel_info <- function(client, username, region = NULL, include_raw =
   # Estimate post count (best-effort)
   last_message_id <- NA_real_
   tryCatch({
-    est <- estimate_channel_post_count(client, uname)
+    est <- estimate_channel_post_count(client, channel)
     last_message_id <- est$last_message_id[[1]]
   }, error = function(e) NULL)
 
