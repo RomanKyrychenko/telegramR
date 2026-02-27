@@ -113,5 +113,6 @@ Collate:
     'updates.R'
     'utils.R'
     'utils_bridge.R'
+    'zzz.R'
 URL: https://romankyrychenko.github.io/telegramR/
 VignetteBuilder: knitr
