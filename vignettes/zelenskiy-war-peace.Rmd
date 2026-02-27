@@ -40,12 +40,14 @@ client <- TelegramClient$new("my_session", api_id, api_hash)
 client$connect()
 ```
 
+If not authorized:
 ```{r}
-client$send_code_request("+380980018456")
+client$send_code_request("your_phone_number")
 ```
 
+After recieving code in Telegram app:
 ```{r}
-client$sign_in(phone = "+380980018456", code = "25521")
+client$sign_in(phone = "your_phone_number", code = "code")
 ```
 
 ## Download Messages
@@ -58,6 +60,25 @@ msgs <- download_channel_messages(
   "V_Zelenskiy_official",
   start_date = "2022-01-01",
   limit = Inf
+)
+```
+
+## Optional: Reactions and Replies
+
+```{r reactions_replies, eval=FALSE}
+# Reactions per post
+reactions <- download_channel_reactions(
+  client,
+  "V_Zelenskiy_official",
+  limit = 1000
+)
+
+# Replies to the latest 50 posts (if comments are enabled)
+replies <- download_channel_replies(
+  client,
+  "V_Zelenskiy_official",
+  message_limit = 50,
+  reply_limit = Inf
 )
 ```
 
@@ -323,7 +344,3 @@ powerful %>%
   theme_minimal()
 ```
 
-## Notes
-
-- These are simple text heuristics. You can refine with stemming, multilingual variants, or topic modeling.
-- For more robust language handling, consider language detection and per‑language tokenization.
