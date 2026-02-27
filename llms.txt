@@ -274,6 +274,10 @@ for (m in messages) {
   : Execute the authentication process with the Telegram servers.
 - [`.MAX_CHUNK_SIZE`](https://romankyrychenko.github.io/telegramR/reference/dot-MAX_CHUNK_SIZE.md)
   : Constants
+- [`download_channel_info()`](https://romankyrychenko.github.io/telegramR/reference/download_channel_info.md)
+  : Download Full Channel Info By Username
+- [`download_channel_messages()`](https://romankyrychenko.github.io/telegramR/reference/download_channel_messages.md)
+  : Download Channel Messages By Username
 - [`encode_telegram_base64()`](https://romankyrychenko.github.io/telegramR/reference/encode_telegram_base64.md)
   : Encode Telegram Base64
 - [`encode_waveform()`](https://romankyrychenko.github.io/telegramR/reference/encode_waveform.md)
@@ -284,6 +288,8 @@ for (m in messages) {
   : Ensure the parent directory exists
 - [`escape_html()`](https://romankyrychenko.github.io/telegramR/reference/escape_html.md)
   : Escape HTML special characters.
+- [`estimate_channel_post_count()`](https://romankyrychenko.github.io/telegramR/reference/estimate_channel_post_count.md)
+  : Estimate Channel Post Count (Approx)
 - [`find_ssl_lib()`](https://romankyrychenko.github.io/telegramR/reference/find_ssl_lib.md)
   : Finds and loads the system's SSL library.
 - [`fmt_flood()`](https://romankyrychenko.github.io/telegramR/reference/fmt_flood.md)
@@ -349,6 +355,9 @@ for (m in messages) {
   : Convert Bytes to Bigz Integer
 - [`int_to_bytes()`](https://romankyrychenko.github.io/telegramR/reference/int_to_bytes.md)
   : Convert Bigz Integer/Numeric to Bytes
+- [`int_to_raw_le()`](https://romankyrychenko.github.io/telegramR/reference/int_to_raw_le.md)
+  : Helper to convert integer to little-endian raw vector of given width
+  (bytes)
 - [`is_audio()`](https://romankyrychenko.github.io/telegramR/reference/is_audio.md)
   : Check if File is Audio
 - [`is_gif()`](https://romankyrychenko.github.io/telegramR/reference/is_gif.md)
@@ -436,6 +445,10 @@ for (m in messages) {
   : Serialize data to bytes.
 - [`serialize_datetime()`](https://romankyrychenko.github.io/telegramR/reference/serialize_datetime.md)
   : Serialize a datetime object to bytes.
+- [`serialize_int()`](https://romankyrychenko.github.io/telegramR/reference/serialize_int.md)
+  : Serialize an integer to 4 bytes little-endian.
+- [`serialize_string()`](https://romankyrychenko.github.io/telegramR/reference/serialize_string.md)
+  : Serialize a string to Telegram bytes format.
 - [`server_keys`](https://romankyrychenko.github.io/telegramR/reference/server_keys.md)
   : RSA Utilities
 - [`sha1()`](https://romankyrychenko.github.io/telegramR/reference/sha1.md)
@@ -467,3 +480,5 @@ for (m in messages) {
 
 - [Downloading Channel
   Data](https://romankyrychenko.github.io/telegramR/articles/download-data.md):
+- [Studying Zelenskiy / Official: War, Peace, and
+  Language](https://romankyrychenko.github.io/telegramR/articles/zelenskiy-war-peace.md):

@@ -4,6 +4,7 @@
 <url><loc>https://romankyrychenko.github.io/telegramR/LICENSE.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/articles/download-data.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/articles/index.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/articles/zelenskiy-war-peace.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/authors.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/index.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/DEFAULT_DC_ID.html</loc></url>
@@ -64,11 +65,15 @@
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/dialog_message_key.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/do_authentication.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/dot-MAX_CHUNK_SIZE.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/download_channel_info.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/download_channel_messages.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/encode_telegram_base64.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/encode_waveform.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/encrypt.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/ensure_parent_dir_exists.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/entity_type.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/escape_html.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/estimate_channel_post_count.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/find_ssl_lib.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/fmt_flood.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/generate_key_data_from_nonce.html</loc></url>
@@ -83,6 +88,7 @@
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/get_file_info.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/get_inner_text.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/get_input_channel.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/get_input_chat_photo.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/get_input_dialog.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/get_input_document.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/get_input_geo.html</loc></url>
@@ -106,6 +112,7 @@
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/index.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/int_from_bytes.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/int_to_bytes.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/int_to_raw_le.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/is_audio.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/is_gif.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/is_good_large.html</loc></url>
@@ -152,6 +159,8 @@
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/sanitize_parse_mode.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/serialize_bytes.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/serialize_datetime.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/serialize_int.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/serialize_string.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/server_keys.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/sha1.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/sha256.html</loc></url>
