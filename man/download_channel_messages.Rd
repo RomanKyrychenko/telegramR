@@ -2,11 +2,11 @@
 % Please edit documentation in R/channel_downloads.R
 \name{download_channel_messages}
 \alias{download_channel_messages}
-\title{Download Channel Messages By Username}
+\title{Download Channel Messages By Channel}
 \usage{
 download_channel_messages(
   client,
-  username,
+  channel,
   limit = Inf,
   include_channel = TRUE,
   start_date = NULL,
@@ -18,7 +18,7 @@ download_channel_messages(
 \arguments{
 \item{client}{TelegramClient instance.}
 
-\item{username}{character. Channel username (with or without "@").}
+\item{channel}{character or numeric. Channel username (with or without "@") or numeric id.}
 
 \item{limit}{integer or Inf. Maximum number of messages to fetch.}
 
@@ -36,6 +36,6 @@ download_channel_messages(
 A tibble.
 }
 \description{
-Fetches messages for a channel by username and returns a tibble with
+Fetches messages for a channel by username or numeric id and returns a tibble with
 message fields and nested structures as list columns.
 }

@@ -46,7 +46,7 @@ Suggests:
     covr
 Config/testthat/edition: 3
 RoxygenNote: 7.3.3
-Roxygen: list(roclets = c("collate", "namespace"))
+Roxygen: list(roclets = c("collate", "namespace", "rd"))
 Collate: 
     'abstract.R'
     'account.R'

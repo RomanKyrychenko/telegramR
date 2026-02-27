@@ -4,12 +4,12 @@
 \alias{estimate_channel_post_count}
 \title{Estimate Channel Post Count (Approx)}
 \usage{
-estimate_channel_post_count(client, username)
+estimate_channel_post_count(client, channel)
 }
 \arguments{
 \item{client}{TelegramClient instance.}
 
-\item{username}{character. Channel username (with or without "@").}
+\item{channel}{character or numeric. Channel username (with or without "@") or numeric id.}
 }
 \value{
 A tibble with last_message_id, approx_total_posts, and note.

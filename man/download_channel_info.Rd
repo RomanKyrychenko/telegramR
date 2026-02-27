@@ -2,14 +2,14 @@
 % Please edit documentation in R/channel_downloads.R
 \name{download_channel_info}
 \alias{download_channel_info}
-\title{Download Full Channel Info By Username}
+\title{Download Full Channel Info By Channel}
 \usage{
-download_channel_info(client, username, region = NULL, include_raw = FALSE)
+download_channel_info(client, channel, region = NULL, include_raw = FALSE)
 }
 \arguments{
 \item{client}{TelegramClient instance.}
 
-\item{username}{character. Channel username (with or without "@").}
+\item{channel}{character or numeric. Channel username (with or without "@") or numeric id.}
 
 \item{region}{character or NULL. Optional region tag to attach.}
 
@@ -19,5 +19,5 @@ download_channel_info(client, username, region = NULL, include_raw = FALSE)
 A tibble with flattened channel info and optional list columns for raw objects.
 }
 \description{
-Fetches channel entity and full channel info by username and returns a tibble.
+Fetches channel entity and full channel info by username or numeric id and returns a tibble.
 }
