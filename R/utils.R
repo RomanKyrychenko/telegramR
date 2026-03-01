@@ -413,17 +413,12 @@ guess_extension <- function(mime_type) {
 #  }
 #  @export
 get_extension <- function(media) {
-  tryCatch(
-    {
-      get_input_photo(media)
-      return(".jpg")
-    },
-    error = function(e) {
-      if (inherits(media, c("UserProfilePhoto", "ChatPhoto"))) {
-        return(".jpg")
-      }
-    }
-  )
+  if (inherits(media, c(
+    "Photo", "PhotoEmpty", "MessageMediaPhoto",
+    "UserProfilePhoto", "ChatPhoto", "ChatPhotoEmpty"
+  ))) {
+    return(".jpg")
+  }
 
   if (inherits(media, "MessageMediaDocument")) {
     media <- media$document
@@ -1355,7 +1350,7 @@ get_metadata <- function(file) {
   tryCatch({
     # Handle different input types
     if (is.character(file)) {
-      stream <- file(file, "rb")
+      stream <- base::file(file, "rb")
     } else if (is.raw(file)) {
       stream <- rawConnection(file, "rb")
     } else {
@@ -1605,12 +1600,16 @@ get_input_location <- function(location) {
 get_file_info <- function(location) {
   tryCatch(
     {
-      if (location$SUBCLASS_OF_ID == 0x1523d462) {
+      if (base::inherits(location, c("InputDocumentFileLocation", "InputPhotoFileLocation", "InputFileLocation"))) {
+        return(list(dc_id = NULL, location = location, size = NULL))
+      }
+      loc_type <- tryCatch(location$`_`, error = function(e) NULL)
+      if (identical(loc_type, "InputDocumentFileLocation") || identical(loc_type, "InputPhotoFileLocation")) {
         return(list(dc_id = NULL, location = location, size = NULL))
       }
     },
     error = function(e) {
-      raise_cast_fail(location, "InputFileLocation")
+      stop(sprintf("get_file_info failed: %s (class=%s)", conditionMessage(e), paste(class(location), collapse = ",")), call. = FALSE)
     }
   )
 
