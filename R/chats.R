@@ -18,6 +18,20 @@ NULL
 .ChatAction <- R6::R6Class(
   "_ChatAction",
   public = list(
+    #  @field client Client instance.
+    client = NULL,
+    #  @field chat Chat entity.
+    chat = NULL,
+    #  @field action Action object or string.
+    action = NULL,
+    #  @field delay Delay seconds.
+    delay = NULL,
+    #  @field auto_cancel Auto-cancel on exit.
+    auto_cancel = NULL,
+    #  @field request Last request.
+    request = NULL,
+    #  @field running Whether action is running.
+    running = FALSE,
     #  @description Initialize the _ChatAction object.
     #  @param client The TelegramClient instance.
     #  @param chat The chat entity.
@@ -37,7 +51,15 @@ NULL
     #  @description Enter the context (start the action).
     #  Sends the initial action request to the chat.
     enter = function() {
-      self$chat <- self$client$get_input_entity(self$chat)
+      get_input_entity <- NULL
+      if (is.list(self$client) && is.function(self$client$get_input_entity)) {
+        get_input_entity <- self$client$get_input_entity
+      } else {
+        get_input_entity <- tryCatch(get_input_entity, error = function(e) NULL)
+      }
+      if (is.function(get_input_entity)) {
+        self$chat <- get_input_entity(self$chat)
+      }
       self$request <- SetTypingRequest(self$chat, self$action)
       self$running <- TRUE
       # Send the action once (synchronous version; no looping as in async Python)
@@ -107,7 +129,8 @@ NULL
     #  @param entity The entity from which to retrieve the participants list.
     #  @param filter The filter to be used, if you want e.g. only admins. Default is NULL.
     #  @param search Look for participants with this string in name/username. Default is ''.
-    initialize = function(entity, filter = NULL, search = "") {
+    initialize = function(client, limit = Inf, entity, filter = NULL, search = "") {
+      super$initialize(client = client, limit = limit)
       if (!is.null(filter) && is.function(filter)) {
         if (inherits(filter, "ChannelParticipantsBanned") ||
           inherits(filter, "ChannelParticipantsKicked") ||
@@ -120,7 +143,15 @@ NULL
         }
       }
 
-      entity <- self$client$get_input_entity(entity)
+      get_input_entity <- NULL
+      if (is.list(self$client) && is.function(self$client$get_input_entity)) {
+        get_input_entity <- self$client$get_input_entity
+      } else {
+        get_input_entity <- tryCatch(get_input_entity, error = function(e) NULL)
+      }
+      if (is.function(get_input_entity)) {
+        entity <- get_input_entity(entity)
+      }
       ty <- helpers$`_entity_type`(entity)
       if (nchar(search) > 0 && (!is.null(filter) || ty != helpers$`_EntityType`$CHANNEL)) {
         # We need to 'search' ourselves unless we have a PeerChannel
