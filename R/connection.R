@@ -129,10 +129,10 @@ Connection <- R6::R6Class(
           on.exit(future::plan(old_plan), add = TRUE)
           private$._send_task <<- future::future({
             private$._send_loop()
-          })
+          }, seed = TRUE)
           private$._recv_task <<- future::future({
             private$._recv_loop()
-          })
+          }, seed = TRUE)
         }
         return(result)
       }
