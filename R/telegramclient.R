@@ -819,7 +819,7 @@ TelegramClient <- R6::R6Class(
     #  @param progress_callback Function called with progress updates
     #  @return Path to the downloaded file or NULL if no media
     download_media = function(message, file = NULL, thumb = NULL, progress_callback = NULL) {
-      future({
+      run_impl <- function() {
         # Downloading large documents may be slow enough to require a new file reference
         # to be obtained mid-download. Store (input chat, message id) so that the message
         # can be re-fetched.
@@ -830,44 +830,117 @@ TelegramClient <- R6::R6Class(
           media <- message$media
           if (!is.null(message$input_chat)) {
             msg_data <- list(message$input_chat, message$id)
+          } else if (!is.null(message$peer_id)) {
+            input_chat <- tryCatch(self$get_input_entity(message$peer_id), error = function(e) NULL)
+            if (is.null(input_chat) && inherits(message$peer_id, "PeerChannel")) {
+              if (!is.null(private$mb_entity_cache) && is.function(private$mb_entity_cache$get)) {
+                cached <- tryCatch(private$mb_entity_cache$get(message$peer_id$channel_id), error = function(e) NULL)
+                if (!is.null(cached)) {
+                  input_chat <- tryCatch(get_input_peer(cached), error = function(e) NULL)
+                }
+              }
+            }
+            if (is.null(input_chat) && inherits(message$peer_id, "PeerChannel")) {
+              input_chat <- tryCatch({
+                req <- GetChannelsRequest$new(list(InputChannel$new(channel_id = message$peer_id$channel_id, access_hash = 0)))
+                res <- self$call(req)
+                if (inherits(res, "Future")) res <- future::value(res)
+                if (is.list(res) && !is.null(res$chats) && length(res$chats) > 0) {
+                  get_input_peer(res$chats[[1]])
+                } else {
+                  NULL
+                }
+              }, error = function(e) NULL)
+            }
+            if (is.null(input_chat) && inherits(message$peer_id, "PeerChannel")) {
+              input_chat <- tryCatch(
+                InputChannel$new(channel_id = message$peer_id$channel_id, access_hash = 0),
+                error = function(e) NULL
+              )
+            }
+            if (!is.null(input_chat)) {
+              msg_data <- list(input_chat, message$id)
+            }
           }
         } else {
           date <- Sys.time()
           media <- message
         }
 
-        if (is.character(media)) {
+        if (base::is.character(media)) {
           media <- resolve_bot_file_id(media)
         }
 
-        if (inherits(media, "MessageService")) {
-          if (inherits(message$action, "MessageActionChatEditPhoto")) {
+        if (base::inherits(media, "MessageService")) {
+          if (base::inherits(message$action, "MessageActionChatEditPhoto")) {
             media <- media$photo
           }
         }
 
-        if (inherits(media, "MessageMediaWebPage")) {
-          if (inherits(media$webpage, "WebPage")) {
+        if (base::inherits(media, "MessageMediaWebPage")) {
+          if (base::inherits(media$webpage, "WebPage")) {
             media <- if (!is.null(media$webpage$document)) media$webpage$document else media$webpage$photo
           }
         }
 
-        if (inherits(media, c("MessageMediaPhoto", "Photo"))) {
-          return(self$download_photo(
-            media, file, date, thumb, progress_callback
-          ))
-        } else if (inherits(media, c("MessageMediaDocument", "Document"))) {
-          return(self$download_document(
-            media, file, date, thumb, progress_callback, msg_data
-          ))
-        } else if (inherits(media, "MessageMediaContact") && is.null(thumb)) {
-          return(self$download_contact(media, file))
-        } else if (inherits(media, c("WebDocument", "WebDocumentNoProxy")) && is.null(thumb)) {
-          return(self$download_web_document(media, file, progress_callback))
-        }
+        media_class <- paste(class(media), collapse = ",")
+        fn_info <- paste(
+          c(
+            sprintf("download_photo:%s", paste(class(self$download_photo), collapse = ",")),
+            sprintf("download_document:%s", paste(class(self$download_document), collapse = ",")),
+            sprintf("download_contact:%s", paste(class(self$download_contact), collapse = ",")),
+            sprintf("download_web_document:%s", paste(class(self$download_web_document), collapse = ",")),
+            sprintf("InputPhotoFileLocation:%s", paste(class(get0("InputPhotoFileLocation", envir = asNamespace("telegramR"))), collapse = ",")),
+            sprintf("InputDocumentFileLocation:%s", paste(class(get0("InputDocumentFileLocation", envir = asNamespace("telegramR"))), collapse = ","))
+          ),
+          collapse = "; "
+        )
 
-        return(NULL)
-      }) %...>% return()
+        tryCatch({
+          if (base::inherits(media, c("MessageMediaPhoto", "Photo"))) {
+            if (!base::is.function(self$download_photo)) {
+              stop("download_photo is not a function")
+            }
+            return(self$download_photo(
+              media, file, date, thumb, progress_callback
+            ))
+          } else if (base::inherits(media, c("MessageMediaDocument", "Document"))) {
+            fn <- self$download_document
+            if (!base::is.function(fn)) {
+              stop("download_document is not a function")
+            }
+            args <- list(media, file, date, thumb, progress_callback)
+            if ("msg_data" %in% base::names(base::formals(fn))) {
+              args <- c(args, list(msg_data))
+            }
+            return(do.call(fn, args))
+          } else if (base::inherits(media, "MessageMediaContact") && is.null(thumb)) {
+            if (!base::is.function(self$download_contact)) {
+              stop("download_contact is not a function")
+            }
+            return(self$download_contact(media, file))
+          } else if (base::inherits(media, c("WebDocument", "WebDocumentNoProxy")) && is.null(thumb)) {
+            if (!base::is.function(self$download_web_document)) {
+              stop("download_web_document is not a function")
+            }
+            return(self$download_web_document(media, file, progress_callback))
+          }
+          return(NULL)
+        }, error = function(e) {
+          calls <- sys.calls()
+          tail_calls <- tail(calls, 5)
+          call_str <- paste(vapply(tail_calls, function(x) paste(deparse(x), collapse = " "), character(1)), collapse = " | ")
+          stop(sprintf(
+            "download_media failed: %s. media_class=%s. fn_info=%s. Calls: %s",
+            conditionMessage(e), media_class, fn_info, call_str
+          ), call. = FALSE)
+        })
+      }
+
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future(run_impl()) %...>% return())
+      }
+      return(run_impl())
     },
 
     #  @description Download a file from its input location
@@ -882,8 +955,9 @@ TelegramClient <- R6::R6Class(
     #  @return Downloaded file data or path
     download_file = function(input_location, file = NULL, part_size_kb = NULL,
                              file_size = NULL, progress_callback = NULL,
-                             dc_id = NULL, key = NULL, iv = NULL) {
-      future({
+                             dc_id = NULL, key = NULL, iv = NULL,
+                             msg_data = NULL, cdn_redirect = NULL) {
+      run_impl <- function() {
         self$.download_file(
           input_location = input_location,
           file = file,
@@ -892,9 +966,16 @@ TelegramClient <- R6::R6Class(
           progress_callback = progress_callback,
           dc_id = dc_id,
           key = key,
-          iv = iv
+          iv = iv,
+          msg_data = msg_data,
+          cdn_redirect = cdn_redirect
         )
-      }) %...>% return()
+      }
+
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future(run_impl()) %...>% return())
+      }
+      return(run_impl())
     },
 
     #  @description Internal method to download a file
@@ -913,12 +994,15 @@ TelegramClient <- R6::R6Class(
                               file_size = NULL, progress_callback = NULL,
                               dc_id = NULL, key = NULL, iv = NULL,
                               msg_data = NULL, cdn_redirect = NULL) {
-      future({
+      run_impl <- function() {
+        step <- "start"
+        iter_class <- "NULL"
+        fs_num <- if (inherits(file_size, "bigz")) as.numeric(file_size) else file_size
         if (is.null(part_size_kb)) {
-          if (is.null(file_size)) {
+          if (is.null(fs_num)) {
             part_size_kb <- 64 # Reasonable default
           } else {
-            part_size_kb <- get_appropriated_part_size(file_size)
+            part_size_kb <- get_appropriated_part_size(fs_num)
           }
         }
 
@@ -928,51 +1012,286 @@ TelegramClient <- R6::R6Class(
         }
 
         in_memory <- is.null(file) || identical(file, as.raw)
-        if (in_memory) {
-          f <- raw(0)
-          is_buffer <- TRUE
-        } else if (is.character(file)) {
-          # Ensure that we'll be able to download the media
-          ensure_parent_dir_exists(file)
-          f <- file(file, "wb")
-          is_buffer <- FALSE
-        } else {
-          f <- file
-          is_buffer <- FALSE
-        }
-
         tryCatch({
-          iter <- self$iter_download(
-            input_location,
-            request_size = part_size,
-            dc_id = dc_id,
-            msg_data = msg_data,
-            cdn_redirect = cdn_redirect
-          )
+          step <- "open_file"
+          if (in_memory) {
+            f <- raw(0)
+            is_buffer <- TRUE
+          } else if (is.character(file)) {
+            # Ensure that we'll be able to download the media
+            ensure_parent_dir_exists(file)
+            f <- base::file(file, "wb")
+            is_buffer <- FALSE
+          } else {
+            f <- file
+            is_buffer <- FALSE
+          }
 
-          while (iter$has_next()) {
-            chunk <- iter$.next()
-            if (!is.null(iv) && !is.null(key)) {
-              chunk <- AES$decrypt_ige(chunk, key, iv)
+          if (!isTRUE(getOption("telegramR.async", FALSE))) {
+            step <- "sync_download"
+            sender_class <- "NULL"
+            req_class <- "NULL"
+            # Select sender (exported if needed)
+            sender <- private$sender
+            exported <- FALSE
+            dc_id_val <- if (inherits(dc_id, "bigz")) as.numeric(dc_id) else dc_id
+            if (!is.null(dc_id_val) && !is.na(dc_id_val) &&
+                (is.null(self$session$dc_id) || length(self$session$dc_id) != 1 || self$session$dc_id != dc_id_val)) {
+              step <- "borrow_sender"
+              if (is.function(self$borrow_exported_sender)) {
+                sender <- self$borrow_exported_sender(dc_id_val)
+                if (inherits(sender, "promise") || inherits(sender, "Future")) {
+                  sender <- future::value(sender)
+                }
+                exported <- TRUE
+              }
             }
 
-            if (is_buffer) {
-              f <- c(f, chunk)
-            } else {
-              writeBin(chunk, f)
-            }
-
-            if (!is.null(progress_callback) && is.function(progress_callback)) {
-              if (is_buffer) {
-                progress_callback(length(f), file_size)
+            sender_class <- paste(class(sender), collapse = ",")
+            refreshed_location <- FALSE
+            offset <- 0
+            repeat {
+              step <- "build_request"
+              req_limit <- part_size
+              req <- NULL
+              if (is.null(cdn_redirect)) {
+                req_cls <- base::get0("GetFileRequest", envir = asNamespace("telegramR"))
+                req <- req_cls$new(location = input_location, offset = offset, limit = req_limit, precise = TRUE, cdn_supported = TRUE)
               } else {
-                progress_callback(seek(f, where = NA, origin = "current"), file_size)
+                req_cls <- base::get0("GetCdnFileRequest", envir = asNamespace("telegramR"))
+                req <- req_cls$new(file_token = cdn_redirect$file_token, offset = offset, limit = req_limit)
+              }
+              req_class <- paste(class(req), collapse = ",")
+
+              step <- "call_internal"
+              res <- tryCatch(self$call_internal(sender, req), error = function(e) e)
+              if (is.list(res) && !is.null(res$data) && is.raw(res$data)) {
+                parsed_obj <- tryCatch({
+                  reader <- BinaryReader$new(res$data)
+                  reader$tgread_object()
+                }, error = function(e) NULL)
+                if (!is.null(parsed_obj)) {
+                  res <- parsed_obj
+                }
+              }
+              if (inherits(res, "error") && grepl("OFFSET_INVALID|FILE_REFERENCE_EXPIRED", conditionMessage(res))) {
+                if (!refreshed_location && !is.null(msg_data) && length(msg_data) >= 2) {
+                  step <- "refresh_location"
+                  refreshed_location <- TRUE
+                  chat <- msg_data[[1]]
+                  msg_id <- msg_data[[2]]
+                  new_loc <- tryCatch({
+                    input_channel <- tryCatch(utils$get_input_channel(chat), error = function(e) NULL)
+                    if (is.null(input_channel)) {
+                      input_channel <- tryCatch(utils$get_input_channel(self$get_input_entity(chat)), error = function(e) NULL)
+                    }
+                    if (is.null(input_channel) && inherits(chat, "InputPeerChannel") &&
+                        !is.null(private$mb_entity_cache) && is.function(private$mb_entity_cache$get)) {
+                      cached <- tryCatch(private$mb_entity_cache$get(chat$channel_id), error = function(e) NULL)
+                      if (!is.null(cached)) {
+                        input_channel <- tryCatch(utils$get_input_channel(cached), error = function(e) NULL)
+                      }
+                    }
+                    if (is.null(input_channel)) return(NULL)
+                    req_cls <- base::get0("ChannelsGetMessagesRequest", envir = asNamespace("telegramR"))
+                    if (is.null(req_cls) || !is.function(req_cls$new)) {
+                      req_cls <- base::get0("GetMessagesRequest", envir = asNamespace("telegramR"))
+                    }
+                    if (is.null(req_cls) || !is.function(req_cls$new)) return(NULL)
+                    id_obj <- InputMessageID$new(as.integer(msg_id))
+                    resm <- self$invoke(req_cls$new(channel = input_channel, id = list(id_obj)))
+                    msgs <- NULL
+                    if (is.list(resm) && !is.null(resm$messages)) msgs <- resm$messages else msgs <- resm
+                    if (is.list(msgs) && length(msgs) > 0) {
+                      m <- msgs[[1]]
+                      if (inherits(input_location, "InputDocumentFileLocation") && inherits(m$media, "MessageMediaDocument")) {
+                        doc <- m$media$document
+                        return(InputDocumentFileLocation$new(
+                          id = doc$id,
+                          access_hash = doc$access_hash,
+                          file_reference = doc$file_reference,
+                          thumb_size = input_location$thumb_size %||% ""
+                        ))
+                      }
+                      if (inherits(input_location, "InputPhotoFileLocation") && inherits(m$media, "MessageMediaPhoto")) {
+                        ph <- m$media$photo
+                        return(InputPhotoFileLocation$new(
+                          id = ph$id,
+                          access_hash = ph$access_hash,
+                          file_reference = ph$file_reference,
+                          thumb_size = input_location$thumb_size %||% ""
+                        ))
+                      }
+                    }
+                    NULL
+                  }, error = function(e) NULL)
+                  if (!is.null(new_loc)) {
+                    input_location <- new_loc
+                    offset <- 0
+                    next
+                  }
+                }
+                stop(res)
+              }
+              if (inherits(res, "error")) {
+                stop(res)
+              }
+
+              if (inherits(res, "upload.FileCdnRedirect")) {
+                step <- "cdn_redirect"
+                cdn_redirect <- res
+                cdn_client <- self$get_cdn_client(cdn_redirect)
+                sender <- cdn_client$sender
+                sender_class <- paste(class(sender), collapse = ",")
+                next
+              }
+
+              if (inherits(res, "upload.CdnFileReuploadNeeded")) {
+                step <- "cdn_reupload"
+                req_cls <- base::get0("ReuploadCdnFileRequest", envir = asNamespace("telegramR"))
+                self$call_internal(
+                  private$sender,
+                  req_cls$new(file_token = cdn_redirect$file_token, request_token = res$request_token)
+                )
+                step <- "call_internal_reupload"
+                res <- self$call_internal(sender, req)
+              }
+
+              step <- "extract_bytes"
+              if (inherits(res, "upload.File") && !is.null(res$bytes)) {
+                chunk <- res$bytes
+              } else if (is.raw(res)) {
+                chunk <- res
+              } else if (is.list(res)) {
+                if (!is.null(res$bytes) && is.raw(res$bytes)) {
+                  chunk <- res$bytes
+                } else if (!is.null(res$data) && is.raw(res$data)) {
+                  # Try to parse upload.File from raw payload
+                  parsed <- tryCatch({
+                    reader <- BinaryReader$new(res$data)
+                    reader$tgread_object()
+                  }, error = function(e) NULL)
+                  if (!is.null(parsed)) {
+                    if (!is.null(parsed$bytes) && is.raw(parsed$bytes)) {
+                      chunk <- parsed$bytes
+                    } else if (!is.null(parsed$data) && is.raw(parsed$data)) {
+                      chunk <- parsed$data
+                    } else {
+                      chunk <- res$data
+                    }
+                  } else {
+                    chunk <- res$data
+                  }
+                } else if (!is.null(res$file) && is.raw(res$file)) {
+                  chunk <- res$file
+                } else if (!is.null(res$body) && is.raw(res$body)) {
+                  chunk <- res$body
+                } else if (length(res) == 1 && is.raw(res[[1]])) {
+                  chunk <- res[[1]]
+                } else {
+                  stop(sprintf(
+                    "Unexpected response from GetFileRequest: list(names=%s classes=%s)",
+                    paste(names(res), collapse = ","),
+                    paste(class(res), collapse = ",")
+                  ))
+                }
+              } else {
+                stop(sprintf("Unexpected response from GetFileRequest: %s", paste(class(res), collapse = ",")))
+              }
+              step <- "decrypt_or_write"
+              if (!is.null(iv) && !is.null(key)) {
+                chunk <- AES$decrypt_ige(chunk, key, iv)
+              }
+
+              if (is_buffer) {
+                f <- c(f, chunk)
+              } else {
+                writeBin(chunk, f)
+              }
+
+              if (!is.null(progress_callback) && is.function(progress_callback)) {
+                if (is_buffer) {
+                  progress_callback(length(f), file_size)
+                } else {
+                  progress_callback(seek(f, where = NA, origin = "current"), file_size)
+                }
+              }
+
+              step <- "chunk_check"
+              if (!is.null(file_size)) {
+                fsn <- if (inherits(file_size, "bigz")) as.numeric(file_size) else as.numeric(file_size)
+                if (!is.na(fsn) && fsn > 0 && offset + length(chunk) >= fsn) {
+                  break
+                }
+              }
+              if (length(chunk) < req_limit) {
+                break
+              }
+              offset <- offset + req_limit
+            }
+
+            if (exported) {
+              step <- "return_sender"
+              ret <- self$return_exported_sender(sender)
+              if (inherits(ret, "promise") || inherits(ret, "Future")) {
+                ret <- future::value(ret)
+              }
+            }
+          } else {
+            step <- "iter_download"
+            if (!base::is.function(self$.iter_download)) {
+              stop(".iter_download is not a function")
+            }
+            iter <- self$.iter_download(
+              input_location,
+              request_size = part_size,
+              dc_id = dc_id,
+              msg_data = msg_data,
+              cdn_redirect = cdn_redirect
+            )
+            iter_class <- paste(class(iter), collapse = ",")
+
+            step <- "iter_loop"
+            repeat {
+              step <- "iter_next"
+              chunk <- tryCatch(
+                iter$.next(),
+                error = function(e) {
+                  if (inherits(e, "StopIteration") || identical(conditionMessage(e), "StopIteration")) {
+                    return(NULL)
+                  }
+                  buf_len <- tryCatch(length(iter$buffer), error = function(x) NA_integer_)
+                  idx <- tryCatch(iter$index, error = function(x) NA_integer_)
+                  stop(sprintf("iter_next failed: %s (index=%s buffer_len=%s)", conditionMessage(e), idx, buf_len), call. = FALSE)
+                }
+              )
+              if (is.null(chunk)) break
+              if (!is.null(iv) && !is.null(key)) {
+                step <- "decrypt"
+                chunk <- AES$decrypt_ige(chunk, key, iv)
+              }
+
+              if (is_buffer) {
+                f <- c(f, chunk)
+              } else {
+                step <- "write"
+                writeBin(chunk, f)
+              }
+
+              if (!is.null(progress_callback) && is.function(progress_callback)) {
+                step <- "progress"
+                if (is_buffer) {
+                  progress_callback(length(f), file_size)
+                } else {
+                  progress_callback(seek(f, where = NA, origin = "current"), file_size)
+                }
               }
             }
           }
 
           # Flush if the file supports it
           if (!is_buffer && methods::hasMethod("flush", class(f)[1])) {
+            step <- "flush"
             flush(f)
           }
 
@@ -997,13 +1316,23 @@ TelegramClient <- R6::R6Class(
               cdn_redirect = e$redirect
             ))
           }
-          stop(e)
+          sender_info <- if (exists("sender_class")) sender_class else "NULL"
+          req_info <- if (exists("req_class")) req_class else "NULL"
+          stop(sprintf(
+            "download_file failed at step=%s (iter_class=%s sender_class=%s req_class=%s): %s",
+            step, iter_class %||% "NULL", sender_info, req_info, conditionMessage(e)
+          ), call. = FALSE)
         }, finally = {
           if ((is.character(file) || in_memory) && !is_buffer) {
             close(f)
           }
         })
-      }) %...>% return()
+      }
+
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future(run_impl()) %...>% return())
+      }
+      return(run_impl())
     },
 
     #  @description Iterate over a file download
@@ -1018,8 +1347,9 @@ TelegramClient <- R6::R6Class(
     #  @return Iterator for file chunks
     iter_download = function(file, offset = 0, stride = NULL, limit = NULL,
                              chunk_size = NULL, request_size = MAX_CHUNK_SIZE,
-                             file_size = NULL, dc_id = NULL) {
-      future({
+                             file_size = NULL, dc_id = NULL,
+                             msg_data = NULL, cdn_redirect = NULL) {
+      run_impl <- function() {
         self$.iter_download(
           file = file,
           offset = offset,
@@ -1028,9 +1358,16 @@ TelegramClient <- R6::R6Class(
           chunk_size = chunk_size,
           request_size = request_size,
           file_size = file_size,
-          dc_id = dc_id
+          dc_id = dc_id,
+          msg_data = msg_data,
+          cdn_redirect = cdn_redirect
         )
-      }) %...>% return()
+      }
+
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future(run_impl()) %...>% return())
+      }
+      return(run_impl())
     },
 
     #  @description Internal implementation of iter_download
@@ -1049,77 +1386,110 @@ TelegramClient <- R6::R6Class(
                               chunk_size = NULL, request_size = MAX_CHUNK_SIZE,
                               file_size = NULL, dc_id = NULL,
                               msg_data = NULL, cdn_redirect = NULL) {
-      future({
-        info <- get_file_info(file)
-        if (!is.null(info$dc_id)) {
-          dc_id <- info$dc_id
-        }
+      run_impl <- function() {
+        step <- "start"
+        cls_name <- "NULL"
+        tryCatch({
+          step <- "get_file_info"
+          if (!base::is.function(get_file_info)) {
+            stop("get_file_info is not a function")
+          }
+          info <- get_file_info(file)
+          if (!is.null(info$dc_id)) {
+            dc_id <- info$dc_id
+          }
 
-        if (is.null(file_size)) {
-          file_size <- info$size
-        }
+          if (is.null(file_size)) {
+            file_size <- info$size
+          }
 
-        file <- info$location
+          file <- info$location
 
-        if (is.null(chunk_size)) {
-          chunk_size <- request_size
-        }
+          if (is.null(chunk_size)) {
+            chunk_size <- request_size
+          }
 
-        if (is.null(limit) && !is.null(file_size)) {
-          limit <- ceiling((file_size + chunk_size - 1) / chunk_size)
-        }
+          if (is.null(limit) && !is.null(file_size)) {
+            limit <- ceiling((file_size + chunk_size - 1) / chunk_size)
+          }
 
-        if (is.null(stride)) {
-          stride <- chunk_size
-        } else if (stride < chunk_size) {
-          stop("stride must be >= chunk_size")
-        }
+          if (is.null(stride)) {
+            stride <- chunk_size
+          } else if (stride < chunk_size) {
+            stop("stride must be >= chunk_size")
+          }
 
-        request_size <- request_size - (request_size %% MIN_CHUNK_SIZE)
-        if (request_size < MIN_CHUNK_SIZE) {
-          request_size <- MIN_CHUNK_SIZE
-        } else if (request_size > MAX_CHUNK_SIZE) {
-          request_size <- MAX_CHUNK_SIZE
-        }
+          request_size <- request_size - (request_size %% MIN_CHUNK_SIZE)
+          if (request_size < MIN_CHUNK_SIZE) {
+            request_size <- MIN_CHUNK_SIZE
+          } else if (request_size > MAX_CHUNK_SIZE) {
+            request_size <- MAX_CHUNK_SIZE
+          }
 
-        use_direct <- chunk_size == request_size &&
-          offset %% MIN_CHUNK_SIZE == 0 &&
-          stride %% MIN_CHUNK_SIZE == 0 &&
-          (is.null(limit) || offset %% limit == 0)
+          use_direct <- chunk_size == request_size &&
+            offset %% MIN_CHUNK_SIZE == 0 &&
+            stride %% MIN_CHUNK_SIZE == 0 &&
+            (is.null(limit) || offset %% limit == 0)
 
-        if (use_direct) {
-          cls <- DirectDownloadIter
-          self$log_info(sprintf(
-            "Starting direct file download in chunks of %d at %d, stride %d",
-            request_size, offset, stride
-          ))
-        } else {
-          cls <- GenericDownloadIter
-          self$log_info(sprintf(
-            "Starting indirect file download in chunks of %d at %d, stride %d",
-            request_size, offset, stride
-          ))
-        }
+          step <- "select_cls"
+          if (use_direct) {
+            cls <- base::get0("DirectDownloadIter", envir = asNamespace("telegramR"))
+            cls_name <- "DirectDownloadIter"
+            if (is.null(cls) || !base::is.function(cls$new)) {
+              stop("DirectDownloadIter$new is not a function")
+            }
+            if (base::is.function(self$log_info)) {
+              self$log_info(sprintf(
+                "Starting direct file download in chunks of %d at %d, stride %d",
+                request_size, offset, stride
+              ))
+            }
+          } else {
+            cls <- base::get0("GenericDownloadIter", envir = asNamespace("telegramR"))
+            cls_name <- "GenericDownloadIter"
+            if (is.null(cls) || !base::is.function(cls$new)) {
+              stop("GenericDownloadIter$new is not a function")
+            }
+            if (base::is.function(self$log_info)) {
+              self$log_info(sprintf(
+                "Starting indirect file download in chunks of %d at %d, stride %d",
+                request_size, offset, stride
+              ))
+            }
+          }
 
-        iter <- cls$new(
-          client = self,
-          limit = limit
-        )
+          step <- "iter_new"
+          iter <- cls$new(
+            client = self,
+            limit = limit
+          )
 
-        iter$init(
-          file = file,
-          dc_id = dc_id,
-          offset = offset,
-          stride = stride,
-          chunk_size = chunk_size,
-          request_size = request_size,
-          file_size = file_size,
-          msg_data = msg_data,
-          cdn_redirect = cdn_redirect
-        )
+          step <- "iter_init"
+          iter$init(
+            file = file,
+            dc_id = dc_id,
+            offset = offset,
+            stride = stride,
+            chunk_size = chunk_size,
+            request_size = request_size,
+            file_size = file_size,
+            msg_data = msg_data,
+            cdn_redirect = cdn_redirect
+          )
 
-        return(iter)
-      }) %...>% return()
+          return(iter)
+        }, error = function(e) {
+          stop(sprintf(
+            "iter_download failed at step=%s cls=%s: %s",
+            step, cls_name, conditionMessage(e)
+          ), call. = FALSE)
+        })
+      }
+
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future(run_impl()) %...>% return())
+      }
+      return(run_impl())
     },
 
     #  @description Get the appropriate thumbnail from thumbs
@@ -1208,7 +1578,7 @@ TelegramClient <- R6::R6Class(
         return(data)
       } else if (is.character(file)) {
         ensure_parent_dir_exists(file)
-        f <- file(file, "wb")
+        f <- base::file(file, "wb")
       } else {
         f <- file
       }
@@ -1232,7 +1602,22 @@ TelegramClient <- R6::R6Class(
     #  @param progress_callback Function called with progress updates
     #  @return Path to the downloaded file
     download_photo = function(photo, file, date, thumb, progress_callback) {
-      future({
+      run_impl <- function() {
+        if (!base::is.function(get_extension)) {
+          stop("get_extension is not a function")
+        }
+        if (!base::is.function(self$get_thumb)) {
+          stop("get_thumb is not a function")
+        }
+        if (!base::is.function(self$get_proper_filename)) {
+          stop("get_proper_filename is not a function")
+        }
+        if (!base::is.function(self$download_cached_photo_size)) {
+          stop("download_cached_photo_size is not a function")
+        }
+        if (!is.function(InputPhotoFileLocation$new)) {
+          stop("InputPhotoFileLocation$new is not a function")
+        }
         # Determine the photo and its largest size
         if (inherits(photo, "MessageMediaPhoto")) {
           photo <- photo$photo
@@ -1264,10 +1649,8 @@ TelegramClient <- R6::R6Class(
           file_size <- size$size
         }
 
-        result <- await(self$download_file(
-          list(
-            #  @field type Field.
-            type = "InputPhotoFileLocation",
+        result <- self$download_file(
+          InputPhotoFileLocation$new(
             id = photo$id,
             access_hash = photo$access_hash,
             file_reference = photo$file_reference,
@@ -1276,9 +1659,17 @@ TelegramClient <- R6::R6Class(
           file,
           file_size = file_size,
           progress_callback = progress_callback
-        ))
+        )
+        if (inherits(result, "promise") || inherits(result, "Future")) {
+          result <- future::value(result)
+        }
         return(if (identical(file, as.raw)) result else file)
-      }) %...>% return()
+      }
+
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future(run_impl()) %...>% return())
+      }
+      return(run_impl())
     },
 
     #  @description
@@ -1319,8 +1710,29 @@ TelegramClient <- R6::R6Class(
     #  @param msg_data Message data for reference if needed
     #  @return Path to the downloaded file
     download_document = function(document, file, date, thumb, progress_callback, msg_data) {
-      future({
+      run_impl <- function() {
+        step <- "start"
+        tryCatch({
+          if (!base::is.function(get_extension)) {
+            stop("get_extension is not a function")
+          }
+        if (!base::is.function(self$get_kind_and_names)) {
+          stop("get_kind_and_names is not a function")
+        }
+        if (!base::is.function(self$get_proper_filename)) {
+          stop("get_proper_filename is not a function")
+        }
+        if (!base::is.function(self$get_thumb)) {
+          stop("get_thumb is not a function")
+        }
+        if (!base::is.function(self$download_cached_photo_size)) {
+          stop("download_cached_photo_size is not a function")
+        }
+        if (!is.function(InputDocumentFileLocation$new)) {
+          stop("InputDocumentFileLocation$new is not a function")
+        }
         if (inherits(document, "MessageMediaDocument")) {
+          step <- "unwrap_message_media"
           document <- document$document
         }
         if (!inherits(document, "Document")) {
@@ -1328,44 +1740,157 @@ TelegramClient <- R6::R6Class(
         }
 
         if (is.null(thumb)) {
+          step <- "get_kind_and_names"
           kind_and_names <- self$get_kind_and_names(document$attributes)
           kind <- kind_and_names$kind
           possible_names <- kind_and_names$possible_names
 
+          step <- "get_proper_filename"
           file <- self$get_proper_filename(
             file, kind, get_extension(document),
             date = date, possible_names = possible_names
           )
           size <- NULL
         } else {
+          step <- "get_proper_filename_thumb"
           file <- self$get_proper_filename(file, "photo", ".jpg", date = date)
+          step <- "get_thumb"
           size <- self$get_thumb(document$thumbs, thumb)
           if (is.null(size) || inherits(size, "PhotoSizeEmpty")) {
             return(NULL)
           }
 
           if (inherits(size, c("PhotoCachedSize", "PhotoStrippedSize"))) {
+            step <- "download_cached_photo_size"
             return(self$download_cached_photo_size(size, file))
           }
         }
 
-        result <- await(self$download_file(
-          list(
-            #  @field type Field.
-            type = "InputDocumentFileLocation",
-            id = document$id,
-            access_hash = document$access_hash,
-            file_reference = document$file_reference,
-            thumb_size = if (!is.null(size)) size$type else ""
-          ),
-          file,
-          file_size = if (!is.null(size)) size$size else document$size,
-          progress_callback = progress_callback,
-          msg_data = msg_data
-        ))
+        step <- "download_file"
+        refreshed <- FALSE
+        refresh_ok <- NA
+        refresh_same <- NA
+        old_ref <- tryCatch(document$file_reference, error = function(e) NULL)
+        do_download <- function(doc_obj) {
+          self$download_file(
+            InputDocumentFileLocation$new(
+              id = doc_obj$id,
+              access_hash = doc_obj$access_hash,
+              file_reference = doc_obj$file_reference,
+              thumb_size = if (!is.null(size)) size$type else ""
+            ),
+            file,
+            file_size = if (!is.null(size)) size$size else doc_obj$size,
+            progress_callback = progress_callback,
+            msg_data = msg_data,
+            dc_id = doc_obj$dc_id
+          )
+        }
+        refresh_document <- function() {
+          if (is.null(msg_data) || length(msg_data) < 2) {
+            return(NULL)
+          }
+          chat <- msg_data[[1]]
+          msg_id <- msg_data[[2]]
+          req_cls <- base::get0("ChannelsGetMessagesRequest", envir = asNamespace("telegramR"))
+          if (is.null(req_cls) || !is.function(req_cls$new)) {
+            req_cls <- base::get0("GetMessagesRequest", envir = asNamespace("telegramR"))
+          }
+          if (is.null(req_cls) || !is.function(req_cls$new)) {
+            return(NULL)
+          }
+          input_channel <- tryCatch(utils$get_input_channel(chat), error = function(e) NULL)
+          if (is.null(input_channel)) {
+            input_channel <- tryCatch(utils$get_input_channel(self$get_input_entity(chat)), error = function(e) NULL)
+          }
+          if (is.null(input_channel) && inherits(chat, "InputPeerChannel") &&
+              !is.null(private$mb_entity_cache) && is.function(private$mb_entity_cache$get)) {
+            cached <- tryCatch(private$mb_entity_cache$get(chat$channel_id), error = function(e) NULL)
+            if (!is.null(cached)) {
+              input_channel <- tryCatch(utils$get_input_channel(cached), error = function(e) NULL)
+            }
+          }
+          if (is.null(input_channel)) {
+            return(NULL)
+          }
+          id_obj <- tryCatch(
+            InputMessageID$new(as.integer(msg_id)),
+            error = function(e) NULL
+          )
+          if (is.null(id_obj)) {
+            return(NULL)
+          }
+          res <- NULL
+          if (!is.null(self$channels_get_messages) && is.function(self$channels_get_messages)) {
+            res <- tryCatch(self$channels_get_messages(input_channel, msg_id), error = function(e) NULL)
+          }
+          if (is.null(res)) {
+            res <- self$invoke(req_cls$new(channel = input_channel, id = list(id_obj)))
+          }
+          msgs <- NULL
+          if (is.list(res) && !is.null(res$messages)) {
+            msgs <- res$messages
+          } else if (inherits(res, "TLObject") && !is.null(res$messages)) {
+            msgs <- res$messages
+          } else {
+            msgs <- res
+          }
+          if (is.list(msgs) && length(msgs) > 0 && inherits(msgs[[1]], "Message")) {
+            m <- msgs[[1]]
+            if (!is.null(m$media) && inherits(m$media, "MessageMediaDocument")) {
+              return(m$media$document)
+            }
+          }
+          return(NULL)
+        }
+
+        repeat {
+          result <- tryCatch(do_download(document), error = function(e) e)
+          if (!inherits(result, "error")) break
+
+          if (!refreshed && grepl("FILE_REFERENCE_EXPIRED|OFFSET_INVALID", conditionMessage(result))) {
+            step <- "refresh_file_reference"
+            new_doc <- tryCatch(refresh_document(), error = function(e) NULL)
+            refresh_ok <- !is.null(new_doc)
+            if (!is.null(new_doc)) {
+              new_ref <- tryCatch(new_doc$file_reference, error = function(e) NULL)
+              if (!is.null(old_ref) && !is.null(new_ref)) {
+                refresh_same <- identical(old_ref, new_ref)
+              }
+            }
+            if (!is.null(new_doc)) {
+              document <- new_doc
+              refreshed <- TRUE
+              step <- "download_file"
+              next
+            }
+          }
+          stop(result)
+        }
+        step <- "resolve_download_file"
+        if (inherits(result, "promise") || inherits(result, "Future")) {
+          result <- future::value(result)
+        }
 
         return(if (identical(file, as.raw)) result else file)
-      }) %...>% return()
+        }, error = function(e) {
+          calls <- sys.calls()
+          tail_calls <- tail(calls, 6)
+          call_str <- paste(vapply(tail_calls, function(x) paste(deparse(x), collapse = " "), character(1)), collapse = " | ")
+          doc_attrs_class <- if (!is.null(document$attributes)) paste(class(document$attributes), collapse = ",") else "NULL"
+          doc_attrs_len <- if (!is.null(document$attributes)) length(document$attributes) else 0
+          msg_data_info <- if (is.null(msg_data)) "NULL" else paste(vapply(msg_data, function(x) paste(class(x), collapse = ","), character(1)), collapse = "|")
+          stop(sprintf(
+            "download_document failed at step=%s: %s. attrs_class=%s attrs_len=%d refresh_ok=%s refresh_same=%s msg_data=%s. Calls: %s",
+            step, conditionMessage(e), doc_attrs_class, doc_attrs_len, refresh_ok, refresh_same, msg_data_info, call_str
+          ), call. = FALSE)
+        })
+      }
+
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future(run_impl()) %...>% return())
+      }
+      return(run_impl())
     },
 
     #  @description
@@ -1399,7 +1924,7 @@ TelegramClient <- R6::R6Class(
       if (methods::hasMethod("write", class(file)[1])) {
         f <- file
       } else {
-        f <- file(file, "wb")
+        f <- base::file(file, "wb")
       }
 
       tryCatch({
@@ -1421,7 +1946,7 @@ TelegramClient <- R6::R6Class(
     #  @param progress_callback Function called with progress updates
     #  @return Path to the downloaded file
     download_web_document = function(web, file, progress_callback) {
-      future({
+      run_impl <- function() {
         if (!requireNamespace("httr", quietly = TRUE)) {
           stop("Cannot download web documents without the httr package. Install it (install.packages('httr'))")
         }
@@ -1442,7 +1967,7 @@ TelegramClient <- R6::R6Class(
           f <- file
           is_buffer <- FALSE
         } else {
-          f <- file(file, "wb")
+          f <- base::file(file, "wb")
           is_buffer <- FALSE
         }
 
@@ -1463,7 +1988,12 @@ TelegramClient <- R6::R6Class(
         })
 
         return(if (is_buffer) f else file)
-      }) %...>% return()
+      }
+
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future(run_impl()) %...>% return())
+      }
+      return(run_impl())
     },
 
     #  @description
@@ -1495,7 +2025,18 @@ TelegramClient <- R6::R6Class(
         name <- NULL
         if (!is.null(possible_names) && length(possible_names) > 0) {
           for (n in possible_names) {
-            if (!is.null(n) && n != "") {
+            if (is.null(n)) next
+            if (is.list(n)) {
+              n <- unlist(n, use.names = FALSE)
+            }
+            if (length(n) == 0) next
+            if (length(n) > 1) {
+              n <- n[1]
+            }
+            if (!is.character(n)) {
+              n <- as.character(n)
+            }
+            if (!is.na(n) && nzchar(n)) {
               name <- n
               break
             }
@@ -2478,6 +3019,31 @@ TelegramClient <- R6::R6Class(
         return(self$collect_one(it))
       }
       return(self$collect(it))
+    },
+
+    #  @description
+    #  Get messages from a channel by IDs using channels.getMessages.
+    #  @param channel Channel entity or input.
+    #  @param ids Integer vector of message IDs.
+    #  @return A list of messages.
+    channels_get_messages = function(channel, ids) {
+      input_channel <- tryCatch(utils$get_input_channel(self$get_input_entity(channel)), error = function(e) NULL)
+      if (is.null(input_channel)) {
+        stop("Could not resolve input channel")
+      }
+      id_objs <- lapply(as.integer(ids), function(x) InputMessageID$new(x))
+      req_cls <- base::get0("ChannelsGetMessagesRequest", envir = asNamespace("telegramR"))
+      if (is.null(req_cls) || !is.function(req_cls$new)) {
+        req_cls <- base::get0("GetMessagesRequest", envir = asNamespace("telegramR"))
+      }
+      res <- self$invoke(req_cls$new(channel = input_channel, id = id_objs))
+      if (is.list(res) && !is.null(res$messages)) {
+        return(res$messages)
+      }
+      if (inherits(res, "TLObject") && !is.null(res$messages)) {
+        return(res$messages)
+      }
+      res
     },
 
     #  @description Collect all items from an iterator-like object.
@@ -3966,25 +4532,45 @@ TelegramClient <- R6::R6Class(
     #  @param flood_sleep_threshold The threshold for flood sleep.
     #  @return The result of the API call.
     call_internal = function(sender, request, ordered = FALSE, flood_sleep_threshold = NULL) {
-      if (is.null(flood_sleep_threshold)) {
-        flood_sleep_threshold <- private$flood_sleep_threshold
-      }
-
-      requests <- if (is_list_like(request)) as.list(request) else list(request)
-      request <- if (is_list_like(request)) as.list(request) else request
-
-      for (i in seq_along(requests)) {
-        r <- requests[[i]]
-        is_request <- inherits(r, "TLRequest") ||
-          isTRUE(grepl("Request$", class(r)[1])) ||
-          (is.environment(r) && (is.function(r$to_bytes) || is.function(r$bytes)))
-        if (!is_request) {
-          stop("You can only invoke requests, not types!")
+      step <- "start"
+      tryCatch({
+        if (is.null(flood_sleep_threshold)) {
+          flood_sleep_threshold <- private$flood_sleep_threshold
         }
-        if (is.function(r$resolve)) {
-          tryCatch(r$resolve(self, utils), error = function(e) NULL)
-        }
-        ctor_key <- as.character(r$CONSTRUCTOR_ID)
+
+        step <- "build_requests"
+        requests <- if (is_list_like(request)) as.list(request) else list(request)
+        request <- if (is_list_like(request)) as.list(request) else request
+
+        for (i in seq_along(requests)) {
+          step <- "validate_request"
+          r <- requests[[i]]
+          r_class <- class(r)
+          first_class <- if (length(r_class) > 0) r_class[1] else ""
+          is_request <- tryCatch({
+            inherits(r, "TLRequest") ||
+              isTRUE(grepl("Request$", first_class)) ||
+              (is.environment(r) && (is.function(r$to_bytes) || is.function(r$bytes)))
+          }, error = function(e) {
+            stop(sprintf(
+              "validate_request failed for class=%s env=%s: %s",
+              paste(r_class, collapse = ","), is.environment(r), conditionMessage(e)
+            ), call. = FALSE)
+          })
+          if (!is_request) {
+            stop("You can only invoke requests, not types!")
+          }
+          if (is.environment(r) && exists("resolve", envir = r, inherits = TRUE)) {
+            if (is.function(r$resolve)) {
+              tryCatch(r$resolve(self, utils), error = function(e) NULL)
+            }
+          }
+
+          ctor_id <- NULL
+          if (is.environment(r) && exists("CONSTRUCTOR_ID", envir = r, inherits = FALSE)) {
+            ctor_id <- r$CONSTRUCTOR_ID
+          }
+          ctor_key <- if (!is.null(ctor_id) && length(ctor_id) > 0) as.character(ctor_id) else "0"
 
         # Avoid making the request if it's already in a flood wait
         if (!is.null(private$flood_waited_requests[[ctor_key]])) {
@@ -4015,9 +4601,10 @@ TelegramClient <- R6::R6Class(
       last_error <- NULL
       private$last_request <- Sys.time()
 
-      for (attempt in retry_range(private$request_retries)) {
+        for (attempt in retry_range(private$request_retries)) {
         tryCatch(
           {
+            step <- "send"
             future_result <- sender$send(request, ordered = ordered)
             if (is.list(future_result)) {
               results <- list()
@@ -4025,6 +4612,7 @@ TelegramClient <- R6::R6Class(
               for (f in future_result) {
                 tryCatch(
                   {
+                    step <- "value_list"
                     result <- future::value(f)
                     if (!is.null(private$session) && is.function(private$session$process_entities)) {
                       private$session$process_entities(result)
@@ -4045,6 +4633,7 @@ TelegramClient <- R6::R6Class(
                 return(results)
               }
             } else {
+              step <- "value"
               result <- future::value(future_result)
               if (!is.null(private$session) && is.function(private$session$process_entities)) {
                 private$session$process_entities(result)
@@ -4053,6 +4642,7 @@ TelegramClient <- R6::R6Class(
             }
           },
           error = function(e) {
+            stop(sprintf("call_internal failed at step=%s: %s", step, conditionMessage(e)), call. = FALSE)
             if (inherits(e, c(
               "ServerError", "RpcCallFailError",
               "RpcMcgetFailError", "InterdcCallErrorError",
@@ -4107,12 +4697,15 @@ TelegramClient <- R6::R6Class(
             }
           }
         )
-      }
+        }
 
-      if (private$raise_last_call_error && !is.null(last_error)) {
-        stop(last_error)
-      }
-      stop(sprintf("Request was unsuccessful %d time(s)", attempt))
+        if (private$raise_last_call_error && !is.null(last_error)) {
+          stop(last_error)
+        }
+        stop(sprintf("Request was unsuccessful %d time(s)", attempt))
+      }, error = function(e) {
+        stop(sprintf("call_internal failed at step=%s: %s", step, conditionMessage(e)), call. = FALSE)
+      })
     },
 
     # Public methods
@@ -4367,8 +4960,10 @@ TelegramClient <- R6::R6Class(
           {
             # 0x2d45687 == crc32(b'Peer')
             if (is.numeric(peer) || peer$SUBCLASS_OF_ID == 0x2d45687) {
-              id <- get_peer_id(peer, add_mark = FALSE)
-              return(self$client$mb_entity_cache$get(id)$as_input_peer())
+              if (!is.null(private$mb_entity_cache) && is.function(private$mb_entity_cache$get)) {
+                id <- get_peer_id(peer, add_mark = FALSE)
+                return(private$mb_entity_cache$get(id)$as_input_peer())
+              }
             }
           },
           error = function(e) {
@@ -4379,6 +4974,21 @@ TelegramClient <- R6::R6Class(
         # Then come known strings that take precedence
         if (is.character(peer) && peer %in% c("me", "self")) {
           return(InputPeerSelf$new())
+        }
+
+        # Handle PeerChannel directly by fetching access_hash with 0-hash
+        if (inherits(peer, "PeerChannel")) {
+          tryCatch(
+            {
+              channels <- resolve_future(self$call(GetChannelsRequest$new(list(
+                InputChannel$new(channel_id = peer$channel_id, access_hash = 0)
+              ))))
+              return(get_input_peer(channels$chats[[1]]))
+            },
+            error = function(e) {
+              # Continue to other methods
+            }
+          )
         }
 
         # No InputPeer, cached peer, or known string. Fetch from disk cache

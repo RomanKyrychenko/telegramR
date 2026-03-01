@@ -169,52 +169,74 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
                           #  @field catch_up Field.
                           catch_up = FALSE,
                           entity_cache_limit = 5000) {
-      if (is.null(api_id) || is.null(api_hash) || api_id == "" || api_hash == "") {
-        stop("Your API ID or Hash cannot be empty or NULL. Refer to telethon.rtfd.io for more information.")
+      step <- "validate"
+      trace_file <- file.path(getwd(), "telegramR_init_trace.log")
+      trace_log <- function(msg) {
+        tryCatch({
+          cat(sprintf("[%s] %s\n", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), msg), file = trace_file, append = TRUE)
+        }, error = function(e) NULL)
       }
-
-      private$use_ipv6 <- use_ipv6
-
-      # Handle session object
-      if (is.character(session) || inherits(session, "Path")) {
-        session_path <- as.character(session)
-        loaded_session <- NULL
-        if (file.exists(session_path)) {
-          loaded_session <- tryCatch(readRDS(session_path), error = function(e) NULL)
+      on_error <- function(e) {
+        trace_log(sprintf("ERROR step=%s msg=%s", step, conditionMessage(e)))
+        stop(sprintf("TelegramBaseClient$initialize failed at step=%s: %s", step, conditionMessage(e)), call. = FALSE)
+      }
+      trace_log("start initialize")
+      tryCatch({
+        trace_log("step validate")
+        if (is.null(api_id) || is.null(api_hash) || api_id == "" || api_hash == "") {
+          stop("Your API ID or Hash cannot be empty or NULL. Refer to telethon.rtfd.io for more information.")
         }
-        private$session <- loaded_session %||% list()
-        private$session$path <- session_path
-        private$session$server_address <- private$session$server_address %||% if (use_ipv6) DEFAULT_IPV6_IP else DEFAULT_IPV4_IP
-        private$session$port <- private$session$port %||% DEFAULT_PORT
-        private$session$dc_id <- private$session$dc_id %||% DEFAULT_DC_ID
-      } else if (is.null(session)) {
-        # Create in-memory session
-        private$session <- list(memory = TRUE)
-        private$session$server_address <- if (use_ipv6) DEFAULT_IPV6_IP else DEFAULT_IPV4_IP
-        private$session$port <- DEFAULT_PORT
-        private$session$dc_id <- DEFAULT_DC_ID
-      } else {
-        private$session <- session
-      }
 
-      # Core attributes
-      private$api_id <- as.integer(api_id)
-      private$api_hash <- api_hash
-      private$raise_last_call_error <- raise_last_call_error
-      private$request_retries <- request_retries
-      private$connection_retries <- connection_retries
-      private$retry_delay <- retry_delay
-      private$proxy <- proxy
-      private$local_addr <- local_addr
-      private$timeout <- timeout
-      private$auto_reconnect <- auto_reconnect
-      private$connection <- connection # This would be a factory in a full implementation
+        step <- "session"
+        trace_log("step session")
+        private$use_ipv6 <- use_ipv6
 
-      # Version (set early so it's available for init_request defaults)
-      private$version <- "1.0.0"
+        # Handle session object
+        if (is.character(session) || inherits(session, "Path")) {
+          session_path <- as.character(session)
+          loaded_session <- NULL
+          if (file.exists(session_path)) {
+            loaded_session <- tryCatch(readRDS(session_path), error = function(e) NULL)
+          }
+          private$session <- loaded_session %||% list()
+          private$session$path <- session_path
+          private$session$server_address <- private$session$server_address %||% if (use_ipv6) DEFAULT_IPV6_IP else DEFAULT_IPV4_IP
+          private$session$port <- private$session$port %||% DEFAULT_PORT
+          private$session$dc_id <- private$session$dc_id %||% DEFAULT_DC_ID
+        } else if (is.null(session)) {
+          # Create in-memory session
+          private$session <- list(memory = TRUE)
+          private$session$server_address <- if (use_ipv6) DEFAULT_IPV6_IP else DEFAULT_IPV4_IP
+          private$session$port <- DEFAULT_PORT
+          private$session$dc_id <- DEFAULT_DC_ID
+        } else {
+          private$session <- session
+        }
 
-      # System info for connection initialization
-      sys_info <- Sys.info()
+        step <- "core"
+        trace_log("step core")
+        # Core attributes
+        private$api_id <- as.integer(api_id)
+        private$api_hash <- api_hash
+        private$raise_last_call_error <- raise_last_call_error
+        private$request_retries <- request_retries
+        private$connection_retries <- connection_retries
+        private$retry_delay <- retry_delay
+        private$proxy <- proxy
+        private$local_addr <- local_addr
+        private$timeout <- timeout
+        private$auto_reconnect <- auto_reconnect
+        private$connection <- connection # This would be a factory in a full implementation
+
+        step <- "version"
+        trace_log("step version")
+        # Version (set early so it's available for init_request defaults)
+        private$version <- "1.0.0"
+
+        step <- "sysinfo"
+        trace_log("step sysinfo")
+        # System info for connection initialization
+        sys_info <- Sys.info()
 
       if (grepl("64", R.version$arch)) {
         default_device_model <- "PC 64bit"
@@ -266,18 +288,32 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
       private$catch_up <- catch_up
       private$updates_queue <- NULL # Would be a queue in a full implementation
       private$message_box <- NULL # Would be a MessageBox in a full implementation
-      private$mb_entity_cache <- EntityCache$new()
+      ec_cls <- base::get0("EntityCache", envir = asNamespace("telegramR"))
+      if (is.null(ec_cls) || !base::is.function(ec_cls$new)) {
+        stop("EntityCache$new is not a function")
+      }
+        step <- "entity_cache"
+        trace_log("step entity_cache")
+        private$mb_entity_cache <- ec_cls$new()
       private$entity_cache_limit <- entity_cache_limit
 
-      # Ensure we always have a sender; connection is configured separately.
-      if (is.null(private$connection)) {
-        if (exists("ConnectionTcpAbridged", inherits = TRUE)) {
-          private$connection <- ConnectionTcpAbridged
-        } else if (exists("ConnectionTcpFull", inherits = TRUE)) {
-          private$connection <- ConnectionTcpFull
+        step <- "connection_sender"
+        trace_log("step connection_sender")
+        # Ensure we always have a sender; connection is configured separately.
+        if (is.null(private$connection)) {
+          conn_ab <- base::get0("ConnectionTcpAbridged", envir = asNamespace("telegramR"))
+          conn_full <- base::get0("ConnectionTcpFull", envir = asNamespace("telegramR"))
+          if (!is.null(conn_ab)) {
+            private$connection <- conn_ab
+          } else if (!is.null(conn_full)) {
+            private$connection <- conn_full
+          }
         }
-      }
-      private$sender <- MTProtoSender$new(
+        sender_cls <- base::get0("MTProtoSender", envir = asNamespace("telegramR"))
+        if (is.null(sender_cls) || !base::is.function(sender_cls$new)) {
+          stop("MTProtoSender$new is not a function")
+        }
+        private$sender <- sender_cls$new(
         #  @field auth_key_callback Field.
         auth_key_callback = NULL,
         retries = private$connection_retries,
@@ -286,23 +322,27 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
         connect_timeout = private$timeout,
         #  @field auto_reconnect_callback Field.
         auto_reconnect_callback = NULL
-      )
+        )
 
       # Restore auth key from persisted session when available.
       # Use the active binding to set the key data on the existing AuthKey
       # object so that the shared reference with MTProtoState is preserved.
-      if (!is.null(private$session$auth_key)) {
-        if (inherits(private$session$auth_key, "AuthKey")) {
-          private$sender$auth_key$key <- private$session$auth_key$key
-        } else {
-          private$sender$auth_key$key <- private$session$auth_key
+        step <- "restore_auth"
+        trace_log("step restore_auth")
+        if (!is.null(private$session$auth_key)) {
+          if (inherits(private$session$auth_key, "AuthKey")) {
+            private$sender$auth_key$key <- private$session$auth_key$key
+          } else {
+            private$sender$auth_key$key <- private$session$auth_key
+          }
         }
-      }
 
-      # Do not auto-connect in constructor; connection is explicit via connect().
+        # Do not auto-connect in constructor; connection is explicit via connect().
 
-      # Version
-      private$version <- "1.0.0" # Version of the R client
+        # Version
+        private$version <- "1.0.0" # Version of the R client
+        trace_log("initialize complete")
+      }, error = on_error)
     },
 
     #  Connect to Telegram
