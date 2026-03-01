@@ -18548,8 +18548,8 @@ InputDocumentFileLocation <- R6::R6Class(
     bytes = function() {
       c(
         as.raw(c(0x84, 0x75, 0xd0, 0xba)),
-        writeBin(self$id, raw(), size = 8, endian = "little"),
-        writeBin(self$access_hash, raw(), size = 8, endian = "little"),
+        pack("q", self$id),
+        pack("q", self$access_hash),
         self$serialize_bytes(self$file_reference),
         self$serialize_bytes(self$thumb_size)
       )
@@ -21011,7 +21011,10 @@ InputMessageID <- R6::R6Class("InputMessageID",
       list("_" = "InputMessageID", id = self$id)
     },
     bytes = function() {
-      NULL
+      c(
+        as.raw(c(0x22, 0xa3, 0x76, 0xa6)),
+        writeBin(as.integer(self$id), raw(), size = 4, endian = "little")
+      )
     }
   ),
   private = list(
@@ -22437,7 +22440,13 @@ InputPhotoFileLocation <- R6::R6Class(
       )
     },
     bytes = function() {
-      c(as.raw(c(0xfe, 0x1f, 0x18, 0x40)), struct$pack("<q", self$id), struct$pack("<q", self$access_hash), self$serializebytes(self$file_reference), self$serializebytes(self$thumb_size))
+      c(
+        as.raw(c(0xfe, 0x1f, 0x18, 0x40)),
+        pack("q", self$id),
+        pack("q", self$access_hash),
+        self$serialize_bytes(self$file_reference),
+        self$serialize_bytes(self$thumb_size)
+      )
     }
   ),
   private = list(
