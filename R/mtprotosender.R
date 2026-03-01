@@ -285,7 +285,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       if (isTRUE(getOption("telegramR.skip_background", FALSE)) || isTRUE(getOption("telegramR.test_mode", FALSE))) {
         private$disconnected_future <- NULL
       } else {
-        private$disconnected_future <- future::future(NULL, seed = FALSE)
+        private$disconnected_future <- future::future(NULL, seed = NULL)
       }
 
       # Loop handles
@@ -904,7 +904,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         if (isTRUE(getOption("telegramR.skip_background", FALSE)) || isTRUE(getOption("telegramR.test_mode", FALSE))) {
           private$disconnected_future <- NULL
         } else {
-          private$disconnected_future <- future::future(NULL, seed = FALSE)
+          private$disconnected_future <- future::future(NULL, seed = NULL)
         }
       }
 
@@ -1011,7 +1011,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         if (isTRUE(getOption("telegramR.skip_background", FALSE)) || isTRUE(getOption("telegramR.test_mode", FALSE))) {
           private$disconnected_future <- NULL
         } else {
-          private$disconnected_future <- future::future(NULL, seed = FALSE)
+          private$disconnected_future <- future::future(NULL, seed = NULL)
         }
       }
     },
