@@ -9,18 +9,31 @@ make_fake_iter <- function(items) {
   )
 }
 
-make_fake_client <- function(messages, channel, full_chat = NULL) {
+make_fake_client <- function(messages, channel, full_chat = NULL, replies_by_id = NULL, participants = NULL) {
   if (is.null(full_chat)) {
     full_chat <- list(about = "About text", participants_count = 123, linked_chat_id = 456)
   }
   client <- list(
-    get_entity = function(username) channel,
+    get_entity = function(username) {
+      if (is.numeric(username)) return(channel)
+      if (inherits(username, "PeerChannel")) return(channel)
+      channel
+    },
     get_input_entity = function(ent) ent,
-    iter_messages = function(entity, limit = Inf, ...) {
+    iter_messages = function(entity, limit = Inf, reply_to = NULL, ...) {
+      items <- messages
+      if (!is.null(reply_to) && !is.null(replies_by_id)) {
+        items <- replies_by_id[[as.character(reply_to)]] %||% list()
+      }
       if (is.finite(limit)) {
-        items <- messages[seq_len(min(length(messages), as.integer(limit)))]
-      } else {
-        items <- messages
+        items <- items[seq_len(min(length(items), as.integer(limit)))]
+      }
+      make_fake_iter(items)
+    },
+    iter_participants = function(entity, limit = Inf, search = "", filter = NULL, aggressive = FALSE) {
+      items <- participants %||% list()
+      if (is.finite(limit)) {
+        items <- items[seq_len(min(length(items), as.integer(limit)))]
       }
       make_fake_iter(items)
     },

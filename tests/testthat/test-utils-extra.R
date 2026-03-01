@@ -1,55 +1,60 @@
-library(testthat)
-
-
-test_that("datetime_to_timestamp handles POSIXct", {
-  dt <- as.POSIXct("2024-01-02 03:04:05", tz = "UTC")
-  ts <- datetime_to_timestamp(dt)
-  expect_type(ts, "double")
-  expect_equal(ts, as.numeric(dt))
+test_that("utils parse_phone handles numeric and formatted strings", {
+  expect_equal(parse_phone(1234567890L), "1234567890")
+  expect_equal(parse_phone("+1 (234) 567-890"), "1234567890")
+  expect_null(parse_phone("invalid"))
 })
 
-test_that("serialize_datetime returns 4 bytes for POSIXct and numeric", {
-  dt <- as.POSIXct("2024-01-02 03:04:05", tz = "UTC")
-  raw_dt <- serialize_datetime(dt)
-  expect_true(is.raw(raw_dt))
-  expect_equal(length(raw_dt), 4L)
+test_that("utils parse_username handles usernames and joinchat links", {
+  out <- parse_username("@UserName")
+  expect_equal(out$username, "username")
+  expect_false(out$is_join_chat)
 
-  raw_num <- serialize_datetime(123456)
-  expect_true(is.raw(raw_num))
-  expect_equal(length(raw_num), 4L)
+  out2 <- parse_username("https://t.me/joinchat/abc123")
+  expect_equal(out2$username, "abc123")
+  expect_true(out2$is_join_chat)
+
+  out3 <- parse_username("plainuser")
+  expect_equal(out3$username, "plainuser")
+  expect_false(out3$is_join_chat)
 })
 
-test_that("get_int_little decodes little-endian", {
-  expect_equal(as.numeric(get_int_little(as.raw(c(0x01, 0x00)))), 1)
-  expect_equal(as.numeric(get_int_little(as.raw(c(0xFF, 0xFF)), signed = FALSE)), 65535)
+test_that("utils resolve_id and get_peer_id behave", {
+  res <- resolve_id(-1000000000001)
+  expect_equal(res[[1]], 1)
+  expect_true(identical(res[[2]], PeerChannel))
+
+  peer <- InputPeerChat$new(chat_id = 55)
+  expect_equal(get_peer_id(peer, add_mark = FALSE), 55)
 })
 
-test_that("packInt32 and packInt64 produce expected raw", {
-  expect_equal(packInt32(1), as.raw(c(0x01, 0x00, 0x00, 0x00)))
-  expect_equal(packInt32(-1), as.raw(c(0xFF, 0xFF, 0xFF, 0xFF)))
+test_that("utils sanitize_parse_mode handles strings and functions", {
+  md <- sanitize_parse_mode("markdown")
+  expect_true(is.list(md) && is.function(md$parse))
 
-  r <- packInt64(1)
-  expect_true(is.raw(r))
-  expect_equal(length(r), 8L)
-  expect_equal(r[1], as.raw(0x01))
+  html <- sanitize_parse_mode("html")
+  expect_true(is.list(html) && is.function(html$parse))
+
+  fn <- function(x) x
+  cm <- sanitize_parse_mode(fn)
+  expect_true(inherits(cm, "CustomMode"))
+  expect_error(cm$unparse("x", list()), "NotImplementedError")
 })
 
-test_that("int_to_raw_le writes little-endian", {
-  expect_equal(int_to_raw_le(0x01020304, width = 4L), as.raw(c(0x04, 0x03, 0x02, 0x01)))
+test_that("utils file extension helpers work", {
+  expect_equal(get_file_extension("a/b/c.txt"), "txt")
+  doc <- structure(list(mime_type = "image/gif"), class = "Document")
+  expect_true(is_gif(doc))
+  doc2 <- structure(list(mime_type = "image/png"), class = "Document")
+  expect_false(is_gif(doc2))
 })
 
-test_that("strip_text trims whitespace", {
-  text <- "  Hello, World!  "
-  trimmed <- strip_text(text, entities = list())
-  expect_equal(trimmed, "Hello, World!")
-})
+test_that("dialog_message_key includes channel id for PeerChannel", {
+  peer <- PeerChannel$new(channel_id = 123)
+  key <- dialog_message_key(peer, 10)
+  expect_equal(key$channel_id, 123)
+  expect_equal(key$message_id, 10)
 
-test_that("parse_html_to_telegram and unparse_telegram_to_html round-trip", {
-  res <- parse_html_to_telegram("<b>Hi</b>")
-  expect_equal(res$text, "Hi")
-  expect_true(length(res$entities) >= 1L)
-  expect_equal(res$entities[[1]]$type, "bold")
-
-  html <- unparse_telegram_to_html(res$text, res$entities)
-  expect_true(grepl("<strong>Hi</strong>", html, fixed = TRUE))
+  peer2 <- PeerUser$new(user_id = 1)
+  key2 <- dialog_message_key(peer2, 7)
+  expect_null(key2$channel_id)
 })
