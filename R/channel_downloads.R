@@ -525,6 +525,148 @@ download_channel_reactions <- function(client, channel, limit = Inf, start_date 
   tbl
 }
 
+#' Download Channel Media By Channel
+#'
+#' Downloads media (photos/videos/documents) from a channel by username or numeric id
+#' and returns a tibble with file paths.
+#'
+#' @param client TelegramClient instance.
+#' @param channel character or numeric. Channel username (with or without "@") or numeric id.
+#' @param limit integer or Inf. Maximum number of messages to fetch.
+#' @param start_date POSIXct/Date/character. Earliest date to include (UTC).
+#' @param end_date POSIXct/Date/character. Latest date to include (UTC).
+#' @param media_types character vector. Media types to download (e.g. "photo", "video", "document", "image", "audio").
+#' @param out_dir character. Directory to save files into.
+#' @param show_progress logical. If TRUE, display a progress bar.
+#' @param wait_time numeric. Seconds to sleep between requests to avoid flood waits.
+#' @param retries integer. Number of retries per media download on failure.
+#' @param include_errors logical. If TRUE, include error messages per row.
+#' @param ... Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).
+#' @return A tibble with message_id, channel info, media_type and file_path.
+download_channel_media <- function(client, channel, limit = Inf, start_date = NULL, end_date = NULL,
+                                   media_types = c("photo", "video", "image", "document"), out_dir = "downloads",
+                                   show_progress = TRUE, wait_time = 0, retries = 1, include_errors = TRUE, ...) {
+  if (missing(client) || is.null(client)) {
+    stop("client is required")
+  }
+  if (missing(out_dir) || is.null(out_dir) || !nzchar(out_dir)) {
+    stop("out_dir is required")
+  }
+
+  # Force sync mode for downloads
+  old_async <- getOption("telegramR.async", FALSE)
+  on.exit(options(telegramR.async = old_async), add = TRUE)
+  options(telegramR.async = FALSE)
+
+  resolved <- .telegramR_resolve_channel(client, channel)
+  ent <- resolved$entity
+
+  start_dt <- .telegramR_parse_datetime(start_date)
+  end_dt <- .telegramR_parse_datetime(end_date)
+
+  iter_args <- list(entity = ent, limit = limit, wait_time = wait_time)
+  if (!is.null(end_dt)) {
+    iter_args$offset_date <- end_dt
+  }
+  iter_args <- c(iter_args, list(...))
+  it <- do.call(client$iter_messages, iter_args)
+
+  if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
+
+  total_est <- NA_real_
+  if (is.finite(limit)) {
+    total_est <- as.numeric(limit)
+  }
+  show_pb <- isTRUE(show_progress) && interactive() && is.finite(total_est) && total_est > 0
+  pb <- NULL
+  if (show_pb) {
+    pb <- utils::txtProgressBar(min = 0, max = total_est, style = 3)
+    on.exit(tryCatch(close(pb), error = function(e) NULL), add = TRUE)
+  }
+
+  rows <- list()
+  n <- 0L
+  i <- 0L
+  media_types <- tolower(media_types)
+  repeat {
+    item <- it$.next()
+    if (is.null(item)) break
+    i <- i + 1L
+
+    raw_msg <- item
+    if (!inherits(raw_msg, c("Message", "MessageService"))) {
+      mid <- tryCatch(item$message_id %||% item$id, error = function(e) NULL)
+      if (!is.null(mid)) {
+        id_it <- client$iter_messages(ent, ids = as.integer(mid))
+        raw_msg <- id_it$.next()
+      }
+    }
+    if (is.null(raw_msg)) {
+      if (show_pb) utils::setTxtProgressBar(pb, i)
+      next
+    }
+
+    row <- .telegramR_extract_message_row(raw_msg, ent)
+    if (!is.null(row$date) && inherits(row$date, "POSIXt")) {
+      if (!is.null(end_dt) && row$date > end_dt) {
+        next
+      }
+      if (!is.null(start_dt) && row$date < start_dt) {
+        break
+      }
+    }
+
+    mtype <- tolower(row$media_type %||% "")
+    if (!nzchar(mtype) || !(mtype %in% media_types)) {
+      if (show_pb) utils::setTxtProgressBar(pb, i)
+      next
+    }
+
+    err_msg <- NA_character_
+    file_path <- NA_character_
+    attempt <- 0L
+    while (attempt <= retries) {
+      attempt <- attempt + 1L
+      res <- tryCatch(
+        {
+          out <- client$download_media(raw_msg, file = out_dir)
+          if (inherits(out, "promise") || inherits(out, "Future")) {
+            out <- future::value(out)
+          }
+          out
+        },
+        error = function(e) {
+          err_msg <<- conditionMessage(e)
+          NULL
+        }
+      )
+      if (!is.null(res)) {
+        file_path <- res
+        break
+      }
+      if (wait_time > 0) Sys.sleep(wait_time)
+    }
+
+    n <- n + 1L
+    rows[[n]] <- list(
+      message_id = row$message_id,
+      channel_id = row$channel_id,
+      channel_username = row$channel_username,
+      channel_title = row$channel_title,
+      date = row$date,
+      media_type = row$media_type,
+      file_path = file_path
+    )
+    if (isTRUE(include_errors)) {
+      rows[[n]]$error <- err_msg
+    }
+
+    if (show_pb) utils::setTxtProgressBar(pb, i)
+  }
+
+  if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble()
+}
+
 #' Download Channel Replies/Comments By Channel
 #'
 #' Fetches replies (comments) to channel posts by username or numeric id.

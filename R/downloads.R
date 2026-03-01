@@ -4,6 +4,45 @@ MIN_CHUNK_SIZE <- 4096
 MAX_CHUNK_SIZE <- 512 * 1024
 TIMED_OUT_SLEEP <- 1
 
+#  @title upload.File class
+#  @description Minimal implementation of the upload.File TL type.
+#  @noRd
+upload.File <- R6::R6Class(
+  "upload.File",
+  public = list(
+    #  @field mtime The modification time (int).
+    mtime = NULL,
+    #  @field bytes Raw file bytes for this chunk.
+    bytes = NULL,
+    #  @field CONSTRUCTOR_ID TL constructor ID.
+    CONSTRUCTOR_ID = 1086091090L,
+
+    #  @description Initialize upload.File
+    #  @param mtime int
+    #  @param bytes raw
+    initialize = function(mtime = NULL, bytes = NULL) {
+      self$mtime <- mtime
+      self$bytes <- bytes
+      invisible(self)
+    },
+
+    #  @description Convert to list
+    to_list = function() {
+      list(`_` = "upload.File", mtime = self$mtime, bytes = self$bytes)
+    }
+  ),
+  private = list(
+    #  @description Read upload.File from a BinaryReader
+    #  @param reader BinaryReader
+    #  @return upload.File
+    from_reader = function(reader) {
+      mtime <- reader$read_int()
+      bytes <- reader$tgread_bytes()
+      upload.File$new(mtime = mtime, bytes = bytes)
+    }
+  )
+)
+
 #  @title CdnRedirect class
 #  @description Class for handling CDN redirects.
 #  @noRd
@@ -45,6 +84,9 @@ DirectDownloadIter <- R6::R6Class(
     #  @field msg_data Message data if applicable.
     msg_data = NULL,
 
+    #  @field request_data Internal request payload.
+    request_data = NULL,
+
     #  @field timed_out Whether the download timed out.
     timed_out = FALSE,
 
@@ -72,20 +114,24 @@ DirectDownloadIter <- R6::R6Class(
     #  @param msg_data Message data if applicable.
     #  @param cdn_redirect CDN redirect if applicable.
     init = function(file, dc_id, offset, stride, chunk_size, request_size, file_size, msg_data, cdn_redirect = NULL) {
-      future({
+      run_impl <- function() {
         if (is.null(cdn_redirect)) {
-          self$request <- list(
-            #  @field type Field.
-            type = "GetFileRequest",
-            file = file,
+          req_cls <- base::get0("GetFileRequest", envir = asNamespace("telegramR"))
+          if (is.null(req_cls) || !base::is.function(req_cls$new)) {
+            stop("GetFileRequest$new is not a function")
+          }
+          self$request_data <- req_cls$new(
+            location = file,
             offset = offset,
             limit = request_size
           )
           self$client <- self$client
         } else {
-          self$request <- list(
-            #  @field type Field.
-            type = "GetCdnFileRequest",
+          req_cls <- base::get0("GetCdnFileRequest", envir = asNamespace("telegramR"))
+          if (is.null(req_cls) || !base::is.function(req_cls$new)) {
+            stop("GetCdnFileRequest$new is not a function")
+          }
+          self$request_data <- req_cls$new(
             file_token = cdn_redirect$file_token,
             offset = offset,
             limit = request_size
@@ -132,30 +178,44 @@ DirectDownloadIter <- R6::R6Class(
         }
 
         return(NULL)
-      }) %...>% return()
+      }
+
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future(run_impl()) %...>% return())
+      }
+      return(run_impl())
+    },
+
+    #  @description No-op async initializer for RequestIter compatibility.
+    async_init = function(...) {
+      return(FALSE)
     },
 
     #  @description Load the next chunk of data.
     load_next_chunk = function() {
-      future({
+      run_impl <- function() {
         cur <- self$request()
-        self$buffer$append(cur)
-        if (length(cur) < self$request$limit) {
+        self$buffer <- c(self$buffer, list(cur))
+        if (length(cur) < self$request_data$limit) {
           self$left <- length(self$buffer)
           self$close()
         } else {
-          self$request$offset <- self$request$offset + self$stride
+          self$request_data$offset <- self$request_data$offset + self$stride
         }
         return(NULL)
-      }) %...>% return()
+      }
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future(run_impl()) %...>% return())
+      }
+      return(run_impl())
     },
 
     #  @description Make a request to fetch data.
     request = function() {
-      future({
+      run_impl <- function() {
         tryCatch(
           {
-            result <- self$client$call(self$sender, self$request)
+            result <- self$client$call_internal(self$sender, self$request_data)
             self$timed_out <- FALSE
 
             if (inherits(result, "upload.FileCdnRedirect")) {
@@ -171,16 +231,18 @@ DirectDownloadIter <- R6::R6Class(
             }
 
             if (inherits(result, "upload.CdnFileReuploadNeeded")) {
-              self$client$call(
+              req_cls <- base::get0("ReuploadCdnFileRequest", envir = asNamespace("telegramR"))
+              if (is.null(req_cls) || !base::is.function(req_cls$new)) {
+                stop("ReuploadCdnFileRequest$new is not a function")
+              }
+              self$client$call_internal(
                 self$client$sender,
-                list(
-                  #  @field type Field.
-                  type = "ReuploadCdnFileRequest",
+                req_cls$new(
                   file_token = self$cdn_redirect$file_token,
                   request_token = result$request_token
                 )
               )
-              result <- self$client$call(self$sender, self$request)
+              result <- self$client$call_internal(self$sender, self$request_data)
               return(result$bytes)
             } else {
               return(result$bytes)
@@ -209,8 +271,8 @@ DirectDownloadIter <- R6::R6Class(
             if (inherits(e, "FilerefUpgradeNeededError") || inherits(e, "FileReferenceExpiredError")) {
               # Only implemented for documents which are the ones that may take that long to download
               if (is.null(self$msg_data) ||
-                !inherits(self$request$location, "InputDocumentFileLocation") ||
-                self$request$location$thumb_size != "") {
+                !inherits(self$request_data$location, "InputDocumentFileLocation") ||
+                self$request_data$location$thumb_size != "") {
                 stop(e)
               }
 
@@ -226,23 +288,28 @@ DirectDownloadIter <- R6::R6Class(
               document <- msg$media$document
 
               # Message media may have been edited for something else
-              if (document$id != self$request$location$id) {
+              if (document$id != self$request_data$location$id) {
                 stop(e)
               }
 
-              self$request$location$file_reference <- document$file_reference
+              self$request_data$location$file_reference <- document$file_reference
               return(self$request())
             }
 
             stop(e)
           }
         )
-      }) %...>% return()
+      }
+
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future(run_impl()) %...>% return())
+      }
+      return(run_impl())
     },
 
     #  @description Close the iterator and clean up resources.
     close = function() {
-      future({
+      run_impl <- function() {
         if (is.null(self$sender)) {
           return(NULL)
         }
@@ -258,7 +325,11 @@ DirectDownloadIter <- R6::R6Class(
         })
 
         return(NULL)
-      }) %...>% return()
+      }
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future(run_impl()) %...>% return())
+      }
+      return(run_impl())
     }
   )
 )
@@ -273,28 +344,28 @@ GenericDownloadIter <- R6::R6Class(
   public = list(
     #  @description Load the next chunk for generic download.
     load_next_chunk = function() {
-      future({
+      run_impl <- function() {
         # 1. Fetch enough for one chunk
         data <- raw(0)
 
         # 1.1. "bad" is how much into the data we have we need to offset
-        bad <- self$request$offset %% self$request$limit
-        before <- self$request$offset
+        bad <- self$request_data$offset %% self$request_data$limit
+        before <- self$request_data$offset
 
         # 1.2. We have to fetch from a valid offset, so remove that bad part
-        self$request$offset <- self$request$offset - bad
+        self$request_data$offset <- self$request_data$offset - bad
 
         done <- FALSE
         while (!done && length(data) - bad < self$chunk_size) {
           cur <- self$request()
-          self$request$offset <- self$request$offset + self$request$limit
+          self$request_data$offset <- self$request_data$offset + self$request_data$limit
 
           data <- c(data, cur)
-          done <- length(cur) < self$request$limit
+          done <- length(cur) < self$request_data$limit
         }
 
         # 1.3 Restore our last desired offset
-        self$request$offset <- before
+        self$request_data$offset <- before
 
         # 2. Fill the buffer with the data we have
         # 2.1. In R, we don't have memoryview like Python, we'll use raw vectors
@@ -303,10 +374,10 @@ GenericDownloadIter <- R6::R6Class(
         # and each new chunk is "stride" bytes apart from the other
         for (i in seq(from = bad + 1, to = length(data), by = self$stride)) {
           end_idx <- min(i + self$chunk_size - 1, length(data))
-          self$buffer$append(data[i:end_idx])
+          self$buffer <- c(self$buffer, list(data[i:end_idx]))
 
           # 2.3. We will yield this offset, so move to the next one
-          self$request$offset <- self$request$offset + self$stride
+          self$request_data$offset <- self$request_data$offset + self$stride
         }
 
         # 2.4. If we are in the last chunk, we will return the last partial data
@@ -319,15 +390,19 @@ GenericDownloadIter <- R6::R6Class(
         # 2.5. If we are not done, we can't return incomplete chunks
         if (length(self$buffer[[length(self$buffer)]]) != self$chunk_size) {
           self$last_part <- self$buffer[[length(self$buffer)]]
-          self$buffer$pop()
+          self$buffer <- self$buffer[-length(self$buffer)]
 
           # 3. Be careful with the offsets. Re-fetching a bit of data
           # is fine, since it greatly simplifies things.
-          self$request$offset <- self$request$offset - self$stride
+          self$request_data$offset <- self$request_data$offset - self$stride
         }
 
         return(NULL)
-      }) %...>% return()
+      }
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future(run_impl()) %...>% return())
+      }
+      return(run_impl())
     }
   )
 )
