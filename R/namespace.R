@@ -9,6 +9,7 @@
 #' export(download_channel_reactions)
 #' export(download_channel_replies)
 #' export(download_channel_members)
+#' export(download_channel_media)
 #' export(download_channel_info)
 #' export(estimate_channel_post_count)
 NULL
