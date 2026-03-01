@@ -6,6 +6,13 @@ value <- function(x, ...) {
   future::value(x, ...)
 }
 
+await <- function(x) {
+  if (inherits(x, "promise") || inherits(x, "Future")) {
+    return(future::value(x))
+  }
+  x
+}
+
 skip_if_no_integration <- function() {
   if (!nzchar(Sys.getenv("TELEGRAMR_INTEGRATION"))) {
     if (requireNamespace("testthat", quietly = TRUE)) {
