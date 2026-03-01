@@ -87,7 +87,15 @@ TakeoutClient <- R6::R6Class(
       }
 
       if (!is.null(self$success)) {
-        result <- self$client$invoke(FinishTakeoutSessionRequest(self$success))
+        finish_req <- NULL
+        if (exists("FinishTakeoutSessionRequest", inherits = TRUE) && is.function(FinishTakeoutSessionRequest)) {
+          finish_req <- FinishTakeoutSessionRequest(self$success)
+        } else if (exists("FinishTakeoutSessionRequest", inherits = TRUE) && is.function(FinishTakeoutSessionRequest$new)) {
+          finish_req <- FinishTakeoutSessionRequest$new(success = self$success)
+        } else {
+          stop("FinishTakeoutSessionRequest not available")
+        }
+        result <- self$client$invoke(finish_req)
         if (!result) {
           stop("Failed to finish the takeout.")
         }
@@ -112,7 +120,13 @@ TakeoutClient <- R6::R6Class(
           stop("_NOT_A_REQUEST")
         }
         r$resolve(self, utils)
-        InvokeWithTakeoutRequest(takeout_id, r)
+        if (exists("InvokeWithTakeoutRequest", inherits = TRUE) && is.function(InvokeWithTakeoutRequest)) {
+          InvokeWithTakeoutRequest(takeout_id, r)
+        } else if (exists("InvokeWithTakeoutRequest", inherits = TRUE) && is.function(InvokeWithTakeoutRequest$new)) {
+          InvokeWithTakeoutRequest$new(takeout_id = takeout_id, query = r)
+        } else {
+          stop("InvokeWithTakeoutRequest not available")
+        }
       })
 
       self$client$invoke(if (single) wrapped[[1]] else wrapped, ordered = ordered)
