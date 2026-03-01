@@ -2283,6 +2283,10 @@ GetMessagesRequest <- R6::R6Class(
   class = TRUE
 )
 
+# Preserve channel-specific GetMessagesRequest under a distinct name to avoid
+# collisions with messages.GetMessagesRequest defined later.
+ChannelsGetMessagesRequest <- GetMessagesRequest
+
 # Deserialize from a reader.
 # @name GetMessagesRequest_from_reader
 # @param reader The reader object.

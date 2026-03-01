@@ -371,6 +371,7 @@ DropTempAuthKeysRequest <- R6::R6Class(
       pack_int32_le <- function(x) {
         con <- rawConnection(raw(), "r+")
         on.exit(close(con))
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
         writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
@@ -457,6 +458,7 @@ ExportAuthorizationRequest <- R6::R6Class(
       pack_int32_le <- function(x) {
         con <- rawConnection(raw(), "r+")
         on.exit(close(con))
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
         writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
@@ -533,6 +535,7 @@ ExportLoginTokenRequest <- R6::R6Class(
       pack_int32_le <- function(x) {
         con <- rawConnection(raw(), "r+")
         on.exit(close(con))
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
         writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
@@ -717,6 +720,7 @@ ImportBotAuthorizationRequest <- R6::R6Class(
       pack_int32_le <- function(x) {
         con <- rawConnection(raw(), "r+")
         on.exit(close(con))
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
         writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
@@ -855,6 +859,7 @@ ImportWebTokenAuthorizationRequest <- R6::R6Class(
       pack_uint32_le <- function(x) {
         con <- rawConnection(raw(), "r+")
         on.exit(close(con))
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
         writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
@@ -978,6 +983,7 @@ RecoverPasswordRequest <- R6::R6Class(
       pack_uint32_le <- function(x) {
         con <- rawConnection(raw(), "r+")
         on.exit(close(con))
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
         writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
@@ -1161,6 +1167,7 @@ RequestFirebaseSmsRequest <- R6::R6Class(
       pack_uint32_le <- function(x) {
         con <- rawConnection(raw(), "r+")
         on.exit(close(con))
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
         writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
@@ -1320,6 +1327,7 @@ ResendCodeRequest <- R6::R6Class(
       pack_uint32_le <- function(x) {
         con <- rawConnection(raw(), "r+")
         on.exit(close(con))
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
         writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
@@ -1536,6 +1544,7 @@ SendCodeRequest <- R6::R6Class(
       pack_uint32_le <- function(x) {
         con <- rawConnection(raw(), "r+")
         on.exit(close(con))
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
         writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
@@ -1668,6 +1677,7 @@ SignInRequest <- R6::R6Class(
       pack_uint32_le <- function(x) {
         con <- rawConnection(raw(), "r+")
         on.exit(close(con))
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
         writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
@@ -1797,6 +1807,7 @@ SignUpRequest <- R6::R6Class(
       pack_uint32_le <- function(x) {
         con <- rawConnection(raw(), "r+")
         on.exit(close(con))
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
         writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }

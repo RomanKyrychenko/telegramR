@@ -73,10 +73,7 @@ GetChannelDifferenceRequest <- R6::R6Class(
   active = list(),
   private = list(
     pack_int32_le = function(x) {
-      con <- rawConnection(raw(0), "wr")
-      on.exit(close(con))
-      writeBin(as.integer(x), con, size = 4L, endian = "little")
-      rawConnectionValue(con)
+      int_to_raw_le(x, 4L)
     },
     get_object_bytes = function(obj) {
       # If already raw, return as is. If R6 object with bytes() method, call it.
@@ -199,10 +196,7 @@ GetDifferenceRequest <- R6::R6Class(
   active = list(),
   private = list(
     pack_int32_le = function(x) {
-      con <- rawConnection(raw(0), "wr")
-      on.exit(close(con))
-      writeBin(as.integer(x), con, size = 4L, endian = "little")
-      rawConnectionValue(con)
+      int_to_raw_le(x, 4L)
     }
   ),
   class = TRUE
@@ -261,10 +255,7 @@ GetStateRequest <- R6::R6Class(
   ),
   private = list(
     pack_int32_le = function(x) {
-      con <- rawConnection(raw(0), "wr")
-      on.exit(close(con))
-      writeBin(as.integer(x), con, size = 4L, endian = "little")
-      rawConnectionValue(con)
+      int_to_raw_le(x, 4L)
     }
   ),
   class = TRUE

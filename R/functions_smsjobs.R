@@ -212,7 +212,8 @@ IsEligibleToJoinRequest$set("public", "from_reader", function(reader) {
 write_uint32_le <- function(x) {
   con <- rawConnection(raw(0), "r+")
   on.exit(close(con))
-  writeBin(as.integer(x), con, size = 4, endian = "little")
+  if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
   rawConnectionValue(con)
 }
 

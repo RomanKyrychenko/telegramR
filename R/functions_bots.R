@@ -79,7 +79,8 @@ AddPreviewMediaRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -197,7 +198,8 @@ AllowSendMessageRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -315,7 +317,8 @@ AnswerWebhookJSONQueryRequest <- R6::R6Class(
           pack_int32 <- function(x) {
             con <- rawConnection(raw(0), "r+")
             on.exit(close(con))
-            writeBin(as.integer(x), con, size = 4, endian = "little")
+            if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
             rawConnectionValue(con)
           }
           s_raw <- charToRaw(enc2utf8(as.character(self$data)))
@@ -401,7 +404,8 @@ CanSendMessageRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -512,7 +516,8 @@ CheckDownloadFileParamsRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -646,7 +651,8 @@ DeletePreviewMediaRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -812,7 +818,8 @@ EditPreviewMediaRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -972,7 +979,8 @@ GetBotCommandsRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -1085,7 +1093,8 @@ GetBotInfoRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       pack_uint32 <- pack_int32
@@ -1196,7 +1205,8 @@ GetBotMenuButtonRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -1297,7 +1307,8 @@ GetBotRecommendationsRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -1394,7 +1405,8 @@ GetPopularAppBotsRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -1491,7 +1503,8 @@ GetPreviewInfoRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -1596,7 +1609,8 @@ GetPreviewMediasRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -1712,7 +1726,8 @@ InvokeWebViewCustomMethodRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -1856,7 +1871,8 @@ ReorderPreviewMediasRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -1988,7 +2004,8 @@ ReorderUsernamesRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -2114,7 +2131,8 @@ ResetBotCommandsRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -2221,7 +2239,8 @@ SendCustomRequestRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -2313,7 +2332,8 @@ SetBotBroadcastDefaultAdminRightsRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
 
@@ -2424,7 +2444,8 @@ SetBotCommandsRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -2547,7 +2568,8 @@ SetBotGroupDefaultAdminRightsRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       # constructor id bytes (from Python: b'\xea\xc9^\x92')
@@ -2661,7 +2683,8 @@ SetBotInfoRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -2786,7 +2809,8 @@ SetBotMenuButtonRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -2922,7 +2946,8 @@ SetCustomVerificationRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       pack_uint32 <- pack_int32
@@ -3054,7 +3079,8 @@ ToggleUserEmojiStatusPermissionRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -3169,7 +3195,8 @@ ToggleUsernameRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       serialize_string_simple <- function(s) {
@@ -3288,7 +3315,8 @@ UpdateStarRefProgramRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
       pack_uint32 <- pack_int32
@@ -3406,7 +3434,8 @@ UpdateUserEmojiStatusRequest <- R6::R6Class(
       pack_int32 <- function(x) {
         con <- rawConnection(raw(0), "r+")
         on.exit(close(con))
-        writeBin(as.integer(x), con, size = 4, endian = "little")
+        if (!is.na(x) && x > 2147483647) x <- x - 4294967296
+        writeBin(as.integer(x), con, size = 4L, endian = "little")
         rawConnectionValue(con)
       }
 

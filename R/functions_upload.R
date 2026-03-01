@@ -1,4 +1,25 @@
 #  GetCdnFileRequest R6 class
+
+#  Internal helper to pack 64-bit integers in little-endian.
+#  Uses numeric arithmetic (good for offsets/file sizes within 2^53).
+.pack_int64_le_safe <- function(x) {
+  if (inherits(x, "bigz")) {
+    x <- as.numeric(x)
+  }
+  if (length(x) != 1 || is.na(x)) {
+    x <- 0
+  }
+  if (x < 0) {
+    x <- x + 2^64
+  }
+  low <- as.integer(x %% 2^32)
+  high <- as.integer(floor(x / 2^32))
+  con <- rawConnection(raw(), "wb")
+  on.exit(close(con))
+  writeBin(low, con, size = 4L, endian = "little")
+  writeBin(high, con, size = 4L, endian = "little")
+  rawConnectionValue(con)
+}
 # 
 #  Represents the TL request upload.GetCdnFileRequest.
 #  @title GetCdnFileRequest
@@ -61,18 +82,8 @@ GetCdnFileRequest <- R6::R6Class(
   ),
   private = list(
     constructor_id = as.raw(c(0xda, 0x69, 0x5f, 0x39)),
-    pack_int32_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(x), con, size = 4L, endian = "little")
-      rawConnectionValue(con)
-    },
-    pack_int64_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.numeric(x), con, size = 8L, endian = "little")
-      rawConnectionValue(con)
-    },
+    pack_int32_le = function(x) { int_to_raw_le(x, 4L) },
+    pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b
@@ -153,12 +164,7 @@ GetCdnFileHashesRequest <- R6::R6Class(
   ),
   private = list(
     constructor_id = as.raw(c(0x31, 0x3f, 0xdc, 0x91)),
-    pack_int64_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.numeric(x), con, size = 8L, endian = "little")
-      rawConnectionValue(con)
-    },
+    pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b
@@ -243,7 +249,17 @@ GetFileRequest <- R6::R6Class(
       c(
         private$constructor_id,
         private$pack_int32_le(flags),
-        if (inherits(self$location, "R6")) self$location$to_bytes() else stop("location must be an R6 TLObject-like with to_bytes()"),
+        if (inherits(self$location, "R6")) {
+          if (is.function(self$location$to_bytes)) {
+            self$location$to_bytes()
+          } else if (is.function(self$location$bytes)) {
+            self$location$bytes()
+          } else {
+            stop("location must be an R6 TLObject-like with to_bytes() or bytes()")
+          }
+        } else {
+          stop("location must be an R6 TLObject-like with to_bytes() or bytes()")
+        },
         private$pack_int64_le(self$offset),
         private$pack_int32_le(self$limit)
       )
@@ -264,18 +280,8 @@ GetFileRequest <- R6::R6Class(
   ),
   private = list(
     constructor_id = as.raw(c(0xbe, 0x35, 0x53, 0xbe)),
-    pack_int32_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(x), con, size = 4L, endian = "little")
-      rawConnectionValue(con)
-    },
-    pack_int64_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.numeric(x), con, size = 8L, endian = "little")
-      rawConnectionValue(con)
-    }
+    pack_int32_le = function(x) { int_to_raw_le(x, 4L) },
+    pack_int64_le = .pack_int64_le_safe
   )
 )
 
@@ -320,7 +326,17 @@ GetFileHashesRequest <- R6::R6Class(
     to_bytes = function() {
       c(
         private$constructor_id,
-        if (inherits(self$location, "R6")) self$location$to_bytes() else stop("location must be an R6 TLObject-like with to_bytes()"),
+        if (inherits(self$location, "R6")) {
+          if (is.function(self$location$to_bytes)) {
+            self$location$to_bytes()
+          } else if (is.function(self$location$bytes)) {
+            self$location$bytes()
+          } else {
+            stop("location must be an R6 TLObject-like with to_bytes() or bytes()")
+          }
+        } else {
+          stop("location must be an R6 TLObject-like with to_bytes() or bytes()")
+        },
         private$pack_int64_le(self$offset)
       )
     },
@@ -336,18 +352,8 @@ GetFileHashesRequest <- R6::R6Class(
   ),
   private = list(
     constructor_id = as.raw(c(0x2a, 0x98, 0x56, 0x91)),
-    pack_int32_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(x), con, size = 4L, endian = "little")
-      rawConnectionValue(con)
-    },
-    pack_int64_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.numeric(x), con, size = 8L, endian = "little")
-      rawConnectionValue(con)
-    },
+    pack_int32_le = function(x) { int_to_raw_le(x, 4L) },
+    pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b
@@ -417,7 +423,17 @@ GetWebFileRequest <- R6::R6Class(
     to_bytes = function() {
       c(
         private$constructor_id,
-        if (inherits(self$location, "R6")) self$location$to_bytes() else stop("location must be an R6 TLObject-like with to_bytes()"),
+        if (inherits(self$location, "R6")) {
+          if (is.function(self$location$to_bytes)) {
+            self$location$to_bytes()
+          } else if (is.function(self$location$bytes)) {
+            self$location$bytes()
+          } else {
+            stop("location must be an R6 TLObject-like with to_bytes() or bytes()")
+          }
+        } else {
+          stop("location must be an R6 TLObject-like with to_bytes() or bytes()")
+        },
         private$pack_int32_le(self$offset),
         private$pack_int32_le(self$limit)
       )
@@ -435,18 +451,8 @@ GetWebFileRequest <- R6::R6Class(
   ),
   private = list(
     constructor_id = as.raw(c(0x8d, 0x81, 0xe6, 0x24)),
-    pack_int32_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(x), con, size = 4L, endian = "little")
-      rawConnectionValue(con)
-    },
-    pack_int64_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.numeric(x), con, size = 8L, endian = "little")
-      rawConnectionValue(con)
-    },
+    pack_int32_le = function(x) { int_to_raw_le(x, 4L) },
+    pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b
@@ -527,18 +533,8 @@ ReuploadCdnFileRequest <- R6::R6Class(
   ),
   private = list(
     constructor_id = as.raw(c(0xa8, 0x54, 0x27, 0x9b)),
-    pack_int32_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(x), con, size = 4L, endian = "little")
-      rawConnectionValue(con)
-    },
-    pack_int64_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.numeric(x), con, size = 8L, endian = "little")
-      rawConnectionValue(con)
-    },
+    pack_int32_le = function(x) { int_to_raw_le(x, 4L) },
+    pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b
@@ -638,18 +634,8 @@ SaveBigFilePartRequest <- R6::R6Class(
   ),
   private = list(
     constructor_id = as.raw(c(0x3d, 0x67, 0x7b, 0xde)),
-    pack_int32_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(x), con, size = 4L, endian = "little")
-      rawConnectionValue(con)
-    },
-    pack_int64_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.numeric(x), con, size = 8L, endian = "little")
-      rawConnectionValue(con)
-    },
+    pack_int32_le = function(x) { int_to_raw_le(x, 4L) },
+    pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b
@@ -742,18 +728,8 @@ SaveFilePartRequest <- R6::R6Class(
   ),
   private = list(
     constructor_id = as.raw(c(0x21, 0xa6, 0x04, 0xb3)),
-    pack_int32_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.integer(x), con, size = 4L, endian = "little")
-      rawConnectionValue(con)
-    },
-    pack_int64_le = function(x) {
-      con <- rawConnection(raw(), "wb")
-      on.exit(close(con))
-      writeBin(as.numeric(x), con, size = 8L, endian = "little")
-      rawConnectionValue(con)
-    },
+    pack_int32_le = function(x) { int_to_raw_le(x, 4L) },
+    pack_int64_le = .pack_int64_le_safe,
     serialize_bytes = function(b) {
       if (is.raw(b)) {
         b_raw <- b
