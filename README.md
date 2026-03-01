@@ -134,6 +134,7 @@ estimate_channel_post_count(client, "telegram")
 reactions <- download_channel_reactions(client, "telegram", limit = 500)
 replies <- download_channel_replies(client, "telegram", message_limit = 50)
 members <- download_channel_members(client, "telegram", limit = 1000)
+media <- download_channel_media(client, "telegram", limit = 200, out_dir = "downloads")
 ```
 
 All helpers accept a numeric channel id when it is available in your session cache:
@@ -146,6 +147,23 @@ msgs_by_id <- download_channel_messages(client, 1234567890, limit = 100)
 
 ```r
 dir.create("downloads", showWarnings = FALSE)
+
+media <- download_channel_media(
+  client,
+  "telegram",
+  limit = 200,
+  media_types = c("photo", "video"),
+  start_date = "2025-01-01",
+  end_date = "2025-02-01",
+  out_dir = "downloads"
+)
+
+head(media)
+```
+
+You can also download directly from raw messages:
+
+```r
 
 for (m in messages) {
   if (!is.null(m$media)) {
