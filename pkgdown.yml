@@ -4,8 +4,9 @@ pkgdown_sha: ~
 articles:
   channel-interactions: channel-interactions.html
   download-data: download-data.html
+  download-media: download-media.html
   zelenskiy-war-peace: zelenskiy-war-peace.html
-last_built: 2026-02-27T21:07Z
+last_built: 2026-03-01T11:28Z
 urls:
   reference: https://romankyrychenko.github.io/telegramR/reference
   article: https://romankyrychenko.github.io/telegramR/articles
