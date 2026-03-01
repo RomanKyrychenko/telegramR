@@ -98,13 +98,20 @@ RequestIter <- R6::R6Class(
     #  Returns the next item in the iteration asynchronously.
     #  @return The next item in the iteration.
     .next = function() {
+      async_mode <- isTRUE(getOption("telegramR.async", FALSE))
       if (is.null(self$buffer)) {
         self$buffer <- list()
-        future::future({
+        if (async_mode) {
+          future::future({
+            if (self$async_init(self$kwargs)) {
+              self$left <- length(self$buffer)
+            }
+          }) %...>% identity()
+        } else {
           if (self$async_init(self$kwargs)) {
             self$left <- length(self$buffer)
           }
-        }) %...>% identity()
+        }
       }
 
       if (self$left <= 0) {
@@ -119,17 +126,39 @@ RequestIter <- R6::R6Class(
 
         self$index <- 0
         self$buffer <- list()
-        future::future({
-          if (self$load_next_chunk()) {
+        if (async_mode) {
+          future::future({
+            if (self$load_next_chunk()) {
+              self$left <- length(self$buffer)
+            }
+          }) %...>% identity()
+        } else {
+          ok <- tryCatch(
+            self$load_next_chunk(),
+            error = function(e) {
+              if (identical(conditionMessage(e), "load_next_chunk must be implemented in a subclass")) {
+                stop(structure(list(message = "StopIteration"), class = c("StopIteration", "error", "condition")))
+              }
+              stop(e)
+            }
+          )
+          if (isTRUE(ok)) {
             self$left <- length(self$buffer)
           }
-        }) %...>% identity()
+        }
       }
 
       if (length(self$buffer) == 0) {
-        stop(structure(list(message = "StopIteration"), class = c("StopIteration", "error", "condition")))
+        self$left <- 0
+        return(NULL)
       }
 
+      if (self$index < 0 || (self$index + 1) > length(self$buffer)) {
+        stop(sprintf("Iterator buffer index out of range: index=%d buffer_len=%d", self$index, length(self$buffer)))
+      }
+      if (self$index < 0 || (self$index + 1) > length(self$buffer)) {
+        stop(sprintf("Iterator buffer index out of range: index=%d buffer_len=%d", self$index, length(self$buffer)))
+      }
       result <- self$buffer[[self$index + 1]]
       self$left <- self$left - 1
       self$index <- self$index + 1
