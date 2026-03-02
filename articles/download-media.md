@@ -52,3 +52,6 @@ columns include:
 - Use `media_types` to select only photos or only videos.
 - If you hit rate limits, add a small `wait_time` (e.g.,
   `wait_time = 1`).
+- Some channels send photos as documents (`image/*`).
+  `download_channel_media()` treats `image` as a photo-type alias when
+  `photo` is requested.

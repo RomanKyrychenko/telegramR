@@ -130,6 +130,9 @@ window and speed up downloads.</li>
 videos.</li>
 <li>If you hit rate limits, add a small <code>wait_time</code> (e.g.,
 <code>wait_time = 1</code>).</li>
+<li>Some channels send photos as documents (<code>image/*</code>).
+<code>download_channel_media()</code> treats <code>image</code> as a
+photo-type alias when <code>photo</code> is requested.</li>
 </ul>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
