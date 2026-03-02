@@ -588,6 +588,9 @@ download_channel_media <- function(client, channel, limit = Inf, start_date = NU
   n <- 0L
   i <- 0L
   media_types <- tolower(media_types)
+  if ("photo" %in% media_types && !("image" %in% media_types)) {
+    media_types <- c(media_types, "image")
+  }
   repeat {
     item <- it$.next()
     if (is.null(item)) break
