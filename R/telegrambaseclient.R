@@ -359,7 +359,13 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
         private$loop <- "running" # Placeholder for the event loop
       }
 
-      logger::log_info("Connecting to Telegram...")
+      log_info <- function(msg) {
+        if (!isTRUE(getOption("telegramR.test_mode"))) {
+          logger::log_info(msg)
+        }
+      }
+
+      log_info("Connecting to Telegram...")
 
       # Configure the sender with session details
       if (!is.null(private$sender) && is.function(private$sender$is_connected) && !private$sender$is_connected()) {
@@ -398,7 +404,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
       private$save_session()
 
       if (private$catch_up && !is.null(private$message_box)) {
-        logger::log_info("Catching up on missed updates...")
+        log_info("Catching up on missed updates...")
       }
 
       # Try to send init request if supported; otherwise fall back to a default config
@@ -439,7 +445,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
         private$keepalive_handle <- "active"
       }
 
-      logger::log_info("Connected to Telegram!")
+      log_info("Connected to Telegram!")
 
       if (isTRUE(getOption("telegramR.auth_status_message", TRUE)) &&
           is.function(self$is_user_authorized)) {
@@ -455,13 +461,13 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
           error = function(e) NULL
         )
         if (isTRUE(auth_val)) {
-          logger::log_info("Authorized session detected. No login required.")
+          log_info("Authorized session detected. No login required.")
         } else if (identical(auth_val, FALSE)) {
-          logger::log_info("Not authorized. Request a login code with `client$send_code_request()`.")
+          log_info("Not authorized. Request a login code with `client$send_code_request()`.")
         } else if (!is.null(private$session$auth_key)) {
-          logger::log_info("Session auth key found. You are likely authorized; no login should be required.")
+          log_info("Session auth key found. You are likely authorized; no login should be required.")
         } else {
-          logger::log_info("Authorization status unknown. If needed, request a login code with `client$send_code_request()`.")
+          log_info("Authorization status unknown. If needed, request a login code with `client$send_code_request()`.")
         }
       }
 
@@ -607,7 +613,9 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
 
     # Methods
     disconnect_internal = function() {
-      logger::log_info("Disconnecting from Telegram")
+      if (!isTRUE(getOption("telegramR.test_mode"))) {
+        logger::log_info("Disconnecting from Telegram")
+      }
 
       # Cancel update and keepalive handles
       private$updates_handle <- NULL
@@ -681,7 +689,9 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
 
       # Clear session data
       private$session <- NULL
-      logger::log_info("Session closed")
+      if (!isTRUE(getOption("telegramR.test_mode"))) {
+        logger::log_info("Session closed")
+      }
     },
     save_states_and_entities = function() {
       # Save message box state if it exists
