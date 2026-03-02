@@ -466,6 +466,7 @@ download_channel_messages <- function(client, channel, limit = Inf, include_chan
 #' @param show_progress logical. If TRUE, display a progress bar.
 #' @param ... Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).
 #' @return A tibble.
+#' @export
 download_channel_reactions <- function(client, channel, limit = Inf, start_date = NULL, end_date = NULL, include_channel = TRUE, show_progress = TRUE, ...) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
@@ -543,6 +544,7 @@ download_channel_reactions <- function(client, channel, limit = Inf, start_date 
 #' @param include_errors logical. If TRUE, include error messages per row.
 #' @param ... Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).
 #' @return A tibble with message_id, channel info, media_type and file_path.
+#' @export
 download_channel_media <- function(client, channel, limit = Inf, start_date = NULL, end_date = NULL,
                                    media_types = c("photo", "video", "image", "document"), out_dir = "downloads",
                                    show_progress = TRUE, wait_time = 0, retries = 1, include_errors = TRUE, ...) {
@@ -683,6 +685,7 @@ download_channel_media <- function(client, channel, limit = Inf, start_date = NU
 #' @param show_progress logical. If TRUE, display a progress bar.
 #' @param ... Passed to client$iter_messages() when fetching recent posts.
 #' @return A tibble.
+#' @export
 download_channel_replies <- function(client, channel, message_ids = NULL, message_limit = 100, reply_limit = Inf, include_channel = TRUE, show_progress = TRUE, ...) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
@@ -753,6 +756,7 @@ download_channel_replies <- function(client, channel, message_ids = NULL, messag
 #' @param include_channel logical. If TRUE, include channel fields on every row.
 #' @param show_progress logical. If TRUE, display a progress bar.
 #' @return A tibble.
+#' @export
 download_channel_members <- function(client, channel, limit = Inf, search = "", filter = NULL, include_channel = TRUE, show_progress = TRUE) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
