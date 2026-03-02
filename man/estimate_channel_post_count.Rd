@@ -6,14 +6,6 @@
 \usage{
 estimate_channel_post_count(client, channel)
 }
-\arguments{
-\item{client}{TelegramClient instance.}
-
-\item{channel}{character or numeric. Channel username (with or without "@") or numeric id.}
-}
-\value{
-A tibble with last_message_id, approx_total_posts, and note.
-}
 \description{
 Gets the latest message ID and uses it as an upper-bound estimate of total posts.
 This is approximate due to deletions and gaps in message IDs.

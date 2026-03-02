@@ -15,26 +15,6 @@ download_channel_messages(
   ...
 )
 }
-\arguments{
-\item{client}{TelegramClient instance.}
-
-\item{channel}{character or numeric. Channel username (with or without "@") or numeric id.}
-
-\item{limit}{integer or Inf. Maximum number of messages to fetch.}
-
-\item{include_channel}{logical. If TRUE, include channel fields on every row.}
-
-\item{start_date}{POSIXct/Date/character. Earliest date to include (UTC).}
-
-\item{end_date}{POSIXct/Date/character. Latest date to include (UTC).}
-
-\item{show_progress}{logical. If TRUE, display a progress bar.}
-
-\item{...}{Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).}
-}
-\value{
-A tibble.
-}
 \description{
 Fetches messages for a channel by username or numeric id and returns a tibble with
 message fields and nested structures as list columns.

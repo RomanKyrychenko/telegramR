@@ -56,11 +56,11 @@ Collate:
     'authkey.R'
     'binaryreader.R'
     'channel_downloads.R'
-    'compat_promises.R'
     'tlobject.R'
     'types.R'
     'chats.R'
     'common.R'
+    'compat_promises.R'
     'connection.R'
     'dialogs.R'
     'downloads.R'
@@ -102,6 +102,7 @@ Collate:
     'mtprotoplainsender.R'
     'mtprotosender.R'
     'mtprotostate.R'
+    'namespace.R'
     'password.R'
     'requestiter.R'
     'requests.R'
@@ -119,7 +120,6 @@ Collate:
     'updates.R'
     'utils.R'
     'utils_bridge.R'
-    'namespace.R'
     'zzz.R'
 URL: https://romankyrychenko.github.io/telegramR/
 VignetteBuilder: knitr

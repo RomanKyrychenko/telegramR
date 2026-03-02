@@ -216,11 +216,11 @@ unpack <- function(format, data) {
 #'
 #' Allows using '+' to concatenate raw_bytes objects, mimicking Python's byte concatenation.
 #'
-#' @param e1 Left operand.
-#' @param e2 Right operand.
-#' @return A new raw_bytes object.
-#' @method + raw_bytes
-#' @export
+#  @param e1 Left operand.
+#  @param e2 Right operand.
+#  @return A new raw_bytes object.
+#  @method + raw_bytes
+#  @export
 `+.raw_bytes` <- function(e1, e2) {
   res <- c(as.raw(e1), as.raw(e2))
   class(res) <- c("raw_bytes", "raw")
@@ -232,11 +232,11 @@ unpack <- function(format, data) {
 #' This is tricky because we can't easily override '+' for base 'raw' type.
 #' But if the first operand is 'raw_bytes', it works.
 #' If the first operand is 'raw', we might need to cast it.
-#' @param e1 Left operand (raw vector).
-#' @param e2 Right operand (raw vector).
-#' @return A new raw_bytes object.
-#' @method + raw
-#' @export
+#  @param e1 Left operand (raw vector).
+#  @param e2 Right operand (raw vector).
+#  @return A new raw_bytes object.
+#  @method + raw
+#  @export
 `+.raw` <- function(e1, e2) {
   # This might not get called for pure raw + raw without class
   res <- c(e1, e2)
