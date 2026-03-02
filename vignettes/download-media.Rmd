@@ -62,3 +62,4 @@ The result is a tibble with one row per downloaded media item. Typical columns i
 - Use `start_date`/`end_date` to restrict the window and speed up downloads.
 - Use `media_types` to select only photos or only videos.
 - If you hit rate limits, add a small `wait_time` (e.g., `wait_time = 1`).
+- Some channels send photos as documents (`image/*`). `download_channel_media()` treats `image` as a photo-type alias when `photo` is requested.
