@@ -373,15 +373,16 @@
 #' Fetches messages for a channel by username or numeric id and returns a tibble with
 #' message fields and nested structures as list columns.
 #'
-#  @param client TelegramClient instance.
-#  @param channel character or numeric. Channel username (with or without "@") or numeric id.
-#  @param limit integer or Inf. Maximum number of messages to fetch.
-#  @param include_channel logical. If TRUE, include channel fields on every row.
-#  @param start_date POSIXct/Date/character. Earliest date to include (UTC).
-#  @param end_date POSIXct/Date/character. Latest date to include (UTC).
-#  @param show_progress logical. If TRUE, display a progress bar.
-#  @param ... Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).
-#  @return A tibble.
+#' @param client TelegramClient instance.
+#' @param channel character or numeric. Channel username (with or without "@") or numeric id.
+#' @param limit integer or Inf. Maximum number of messages to fetch.
+#' @param include_channel logical. If TRUE, include channel fields on every row.
+#' @param start_date POSIXct/Date/character. Earliest date to include (UTC).
+#' @param end_date POSIXct/Date/character. Latest date to include (UTC).
+#' @param show_progress logical. If TRUE, display a progress bar.
+#' @param ... Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).
+#' @return A tibble.
+#' @export
 download_channel_messages <- function(client, channel, limit = Inf, include_channel = TRUE, start_date = NULL, end_date = NULL, show_progress = TRUE, ...) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
@@ -799,9 +800,10 @@ download_channel_members <- function(client, channel, limit = Inf, search = "", 
 #' Gets the latest message ID and uses it as an upper-bound estimate of total posts.
 #' This is approximate due to deletions and gaps in message IDs.
 #'
-#  @param client TelegramClient instance.
-#  @param channel character or numeric. Channel username (with or without "@") or numeric id.
-#  @return A tibble with last_message_id, approx_total_posts, and note.
+#' @param client TelegramClient instance.
+#' @param channel character or numeric. Channel username (with or without "@") or numeric id.
+#' @return A tibble with last_message_id and a note.
+#' @export
 estimate_channel_post_count <- function(client, channel) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
@@ -823,11 +825,12 @@ estimate_channel_post_count <- function(client, channel) {
 #'
 #' Fetches channel entity and full channel info by username or numeric id and returns a tibble.
 #'
-#  @param client TelegramClient instance.
-#  @param channel character or numeric. Channel username (with or without "@") or numeric id.
-#  @param region character or NULL. Optional region tag to attach.
-#  @param include_raw logical. If TRUE, include raw Telegram objects as list columns.
-#  @return A tibble with flattened channel info and optional list columns for raw objects.
+#' @param client TelegramClient instance.
+#' @param channel character or numeric. Channel username (with or without "@") or numeric id.
+#' @param region character or NULL. Optional region tag to attach.
+#' @param include_raw logical. If TRUE, include raw Telegram objects as list columns.
+#' @return A tibble with flattened channel info and optional list columns for raw objects.
+#' @export
 download_channel_info <- function(client, channel, region = NULL, include_raw = FALSE) {
   if (missing(client) || is.null(client)) {
     stop("client is required")

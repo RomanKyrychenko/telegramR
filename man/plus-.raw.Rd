@@ -6,6 +6,14 @@
 \usage{
 \method{+}{raw}(e1, e2)
 }
+\arguments{
+\item{e1}{Left operand (raw vector).}
+
+\item{e2}{Right operand (raw vector).}
+}
+\value{
+A new raw_bytes object.
+}
 \description{
 This is tricky because we can't easily override '+' for base 'raw' type.
 But if the first operand is 'raw_bytes', it works.

@@ -6,6 +6,18 @@
 \usage{
 download_channel_info(client, channel, region = NULL, include_raw = FALSE)
 }
+\arguments{
+\item{client}{TelegramClient instance.}
+
+\item{channel}{character or numeric. Channel username (with or without "@") or numeric id.}
+
+\item{region}{character or NULL. Optional region tag to attach.}
+
+\item{include_raw}{logical. If TRUE, include raw Telegram objects as list columns.}
+}
+\value{
+A tibble with flattened channel info and optional list columns for raw objects.
+}
 \description{
 Fetches channel entity and full channel info by username or numeric id and returns a tibble.
 }

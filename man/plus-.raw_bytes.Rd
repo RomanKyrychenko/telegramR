@@ -6,6 +6,14 @@
 \usage{
 \method{+}{raw_bytes}(e1, e2)
 }
+\arguments{
+\item{e1}{Left operand.}
+
+\item{e2}{Right operand.}
+}
+\value{
+A new raw_bytes object.
+}
 \description{
 Allows using '+' to concatenate raw_bytes objects, mimicking Python's byte concatenation.
 }
