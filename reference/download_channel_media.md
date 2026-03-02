@@ -1,0 +1,79 @@
+# Download Channel Media By Channel
+
+Downloads media (photos/videos/documents) from a channel by username or
+numeric id and returns a tibble with file paths.
+
+## Usage
+
+``` r
+download_channel_media(
+  client,
+  channel,
+  limit = Inf,
+  start_date = NULL,
+  end_date = NULL,
+  media_types = c("photo", "video", "image", "document"),
+  out_dir = "downloads",
+  show_progress = TRUE,
+  wait_time = 0,
+  retries = 1,
+  include_errors = TRUE,
+  ...
+)
+```
+
+## Arguments
+
+- client:
+
+  TelegramClient instance.
+
+- channel:
+
+  character or numeric. Channel username (with or without "@") or
+  numeric id.
+
+- limit:
+
+  integer or Inf. Maximum number of messages to fetch.
+
+- start_date:
+
+  POSIXct/Date/character. Earliest date to include (UTC).
+
+- end_date:
+
+  POSIXct/Date/character. Latest date to include (UTC).
+
+- media_types:
+
+  character vector. Media types to download (e.g. "photo", "video",
+  "document", "image", "audio").
+
+- out_dir:
+
+  character. Directory to save files into.
+
+- show_progress:
+
+  logical. If TRUE, display a progress bar.
+
+- wait_time:
+
+  numeric. Seconds to sleep between requests to avoid flood waits.
+
+- retries:
+
+  integer. Number of retries per media download on failure.
+
+- include_errors:
+
+  logical. If TRUE, include error messages per row.
+
+- ...:
+
+  Passed to client\$iter_messages() (e.g. offset_id, max_id, min_id).
+
+## Value
+
+A tibble with message_id, channel info, media_type and file_path.

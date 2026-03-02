@@ -69,7 +69,7 @@
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <p>This vignette shows how to download media (photos/videos/documents)
-from a Telegram channel using <code>download_channel_media()</code>.</p>
+from a Telegram channel using <code><a href="../reference/download_channel_media.html">download_channel_media()</a></code>.</p>
 </div>
 <div class="section level2">
 <h2 id="setup-and-authentication">Setup and Authentication<a class="anchor" aria-label="anchor" href="#setup-and-authentication"></a>
@@ -89,7 +89,7 @@ from a Telegram channel using <code>download_channel_media()</code>.</p>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Download media into ./downloads</span></span>
-<span><span class="va">media</span> <span class="op">&lt;-</span> <span class="fu">download_channel_media</span><span class="op">(</span></span>
+<span><span class="va">media</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/download_channel_media.html">download_channel_media</a></span><span class="op">(</span></span>
 <span>  <span class="va">client</span>,</span>
 <span>  <span class="st">"telegram"</span>,</span>
 <span>  limit <span class="op">=</span> <span class="fl">200</span>,</span>
@@ -131,7 +131,7 @@ videos.</li>
 <li>If you hit rate limits, add a small <code>wait_time</code> (e.g.,
 <code>wait_time = 1</code>).</li>
 <li>Some channels send photos as documents (<code>image/*</code>).
-<code>download_channel_media()</code> treats <code>image</code> as a
+<code><a href="../reference/download_channel_media.html">download_channel_media()</a></code> treats <code>image</code> as a
 photo-type alias when <code>photo</code> is requested.</li>
 </ul>
 </div>

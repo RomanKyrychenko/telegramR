@@ -3,7 +3,8 @@
 ## Introduction
 
 This vignette shows how to download media (photos/videos/documents) from
-a Telegram channel using `download_channel_media()`.
+a Telegram channel using
+[`download_channel_media()`](https://romankyrychenko.github.io/telegramR/reference/download_channel_media.md).
 
 ## Setup and Authentication
 
@@ -53,5 +54,5 @@ columns include:
 - If you hit rate limits, add a small `wait_time` (e.g.,
   `wait_time = 1`).
 - Some channels send photos as documents (`image/*`).
-  `download_channel_media()` treats `image` as a photo-type alias when
-  `photo` is requested.
+  [`download_channel_media()`](https://romankyrychenko.github.io/telegramR/reference/download_channel_media.md)
+  treats `image` as a photo-type alias when `photo` is requested.

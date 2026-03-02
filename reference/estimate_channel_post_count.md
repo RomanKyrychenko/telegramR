@@ -23,4 +23,4 @@ estimate_channel_post_count(client, channel)
 
 ## Value
 
-A tibble with last_message_id, approx_total_posts, and note.
+A tibble with last_message_id and a note.

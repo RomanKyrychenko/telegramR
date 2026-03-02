@@ -188,5 +188,5 @@ for (m in messages) {
 - To silence pump/process debug messages, keep these options disabled:
   `options(telegramR.debug_pump = FALSE, telegramR.debug_process = FALSE, telegramR.debug_parse = FALSE)`.
 - Some channels send photos as documents with `image/*` MIME types.
-  `download_channel_media()` treats `image` as a photo-type alias when
-  `photo` is requested.
+  [`download_channel_media()`](https://romankyrychenko.github.io/telegramR/reference/download_channel_media.md)
+  treats `image` as a photo-type alias when `photo` is requested.

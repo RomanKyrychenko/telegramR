@@ -120,14 +120,14 @@ history.</p>
 </h2>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Reactions per post</span></span>
-<span><span class="va">reactions</span> <span class="op">&lt;-</span> <span class="fu">download_channel_reactions</span><span class="op">(</span></span>
+<span><span class="va">reactions</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/download_channel_reactions.html">download_channel_reactions</a></span><span class="op">(</span></span>
 <span>  <span class="va">client</span>,</span>
 <span>  <span class="st">"V_Zelenskiy_official"</span>,</span>
 <span>  limit <span class="op">=</span> <span class="fl">1000</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Replies to the latest 50 posts (if comments are enabled)</span></span>
-<span><span class="va">replies</span> <span class="op">&lt;-</span> <span class="fu">download_channel_replies</span><span class="op">(</span></span>
+<span><span class="va">replies</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/download_channel_replies.html">download_channel_replies</a></span><span class="op">(</span></span>
 <span>  <span class="va">client</span>,</span>
 <span>  <span class="st">"V_Zelenskiy_official"</span>,</span>
 <span>  message_limit <span class="op">=</span> <span class="fl">50</span>,</span>

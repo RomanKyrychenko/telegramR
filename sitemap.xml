@@ -12,7 +12,11 @@
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/TelegramBaseClient.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/TelegramClient.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/download_channel_info.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/download_channel_media.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/download_channel_members.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/download_channel_messages.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/download_channel_reactions.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/download_channel_replies.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/estimate_channel_post_count.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/index.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/plus-.raw.html</loc></url>
