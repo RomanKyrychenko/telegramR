@@ -1514,7 +1514,13 @@ TelegramClient <- R6::R6Class(
           return(list(1, thumb$size))
         }
         if (inherits(thumb, "PhotoSizeProgressive")) {
-          return(list(1, max(thumb$sizes)))
+          sizes <- thumb$sizes
+          if (is.list(sizes)) sizes <- unlist(sizes, use.names = FALSE)
+          sizes <- suppressWarnings(as.numeric(sizes))
+          if (length(sizes) == 0 || all(is.na(sizes))) {
+            return(list(1, 0))
+          }
+          return(list(1, max(sizes, na.rm = TRUE)))
         }
         if (inherits(thumb, "VideoSize")) {
           return(list(2, thumb$size))
@@ -1644,7 +1650,10 @@ TelegramClient <- R6::R6Class(
         }
 
         if (inherits(size, "PhotoSizeProgressive")) {
-          file_size <- max(size$sizes)
+          sizes <- size$sizes
+          if (is.list(sizes)) sizes <- unlist(sizes, use.names = FALSE)
+          sizes <- suppressWarnings(as.numeric(sizes))
+          file_size <- if (length(sizes) == 0 || all(is.na(sizes))) NA_real_ else max(sizes, na.rm = TRUE)
         } else {
           file_size <- size$size
         }
@@ -1771,6 +1780,18 @@ TelegramClient <- R6::R6Class(
         refresh_ok <- NA
         refresh_same <- NA
         old_ref <- tryCatch(document$file_reference, error = function(e) NULL)
+        size_size <- NULL
+        if (!is.null(size)) {
+          if (inherits(size, "PhotoSizeProgressive")) {
+            sizes <- size$sizes
+            if (is.list(sizes)) sizes <- unlist(sizes, use.names = FALSE)
+            sizes <- suppressWarnings(as.numeric(sizes))
+            size_size <- if (length(sizes) == 0 || all(is.na(sizes))) NA_real_ else max(sizes, na.rm = TRUE)
+          } else {
+            size_size <- size$size
+          }
+        }
+
         do_download <- function(doc_obj) {
           self$download_file(
             InputDocumentFileLocation$new(
@@ -1780,7 +1801,7 @@ TelegramClient <- R6::R6Class(
               thumb_size = if (!is.null(size)) size$type else ""
             ),
             file,
-            file_size = if (!is.null(size)) size$size else doc_obj$size,
+            file_size = if (!is.null(size)) size_size else doc_obj$size,
             progress_callback = progress_callback,
             msg_data = msg_data,
             dc_id = doc_obj$dc_id

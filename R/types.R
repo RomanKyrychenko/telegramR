@@ -18546,12 +18546,29 @@ InputDocumentFileLocation <- R6::R6Class(
       )
     },
     bytes = function() {
+      coerce_raw <- function(x) {
+        if (is.null(x)) return(raw(0))
+        if (inherits(x, "raw_bytes")) return(as.raw(x))
+        if (is.raw(x)) return(x)
+        if (is.list(x)) {
+          if (length(x) == 1) return(coerce_raw(x[[1]]))
+          if (all(vapply(x, is.raw, logical(1)))) return(do.call(c, x))
+          if (all(vapply(x, is.integer, logical(1)))) return(as.raw(unlist(x, use.names = FALSE)))
+          if (all(vapply(x, is.numeric, logical(1)))) return(as.raw(as.integer(unlist(x, use.names = FALSE))))
+        }
+        if (is.character(x)) return(charToRaw(x))
+        if (is.integer(x)) return(as.raw(x))
+        if (is.numeric(x)) return(as.raw(as.integer(x)))
+        stop("file_reference must be raw or character")
+      }
+      ref <- coerce_raw(self$file_reference)
+      thumb <- if (is.null(self$thumb_size)) "" else self$thumb_size
       c(
         as.raw(c(0x84, 0x75, 0xd0, 0xba)),
         pack("q", self$id),
         pack("q", self$access_hash),
-        self$serialize_bytes(self$file_reference),
-        self$serialize_bytes(self$thumb_size)
+        self$serialize_bytes(ref),
+        self$serialize_bytes(thumb)
       )
     }
   ),
@@ -22424,6 +22441,14 @@ InputPhotoFileLocation <- R6::R6Class(
     CONSTRUCTOR_ID = 0x40181ffe,
     #  @field SUBCLASS_OF_ID Subclass identifier for this TL object.
     SUBCLASS_OF_ID = 0x1523d462,
+    #  @field id Field.
+    id = NULL,
+    #  @field access_hash Field.
+    access_hash = NULL,
+    #  @field file_reference Field.
+    file_reference = NULL,
+    #  @field thumb_size Field.
+    thumb_size = NULL,
     initialize = function(id, access_hash, file_reference, thumb_size) {
       self$id <- id
       self$access_hash <- access_hash
@@ -22440,12 +22465,29 @@ InputPhotoFileLocation <- R6::R6Class(
       )
     },
     bytes = function() {
+      coerce_raw <- function(x) {
+        if (is.null(x)) return(raw(0))
+        if (inherits(x, "raw_bytes")) return(as.raw(x))
+        if (is.raw(x)) return(x)
+        if (is.list(x)) {
+          if (length(x) == 1) return(coerce_raw(x[[1]]))
+          if (all(vapply(x, is.raw, logical(1)))) return(do.call(c, x))
+          if (all(vapply(x, is.integer, logical(1)))) return(as.raw(unlist(x, use.names = FALSE)))
+          if (all(vapply(x, is.numeric, logical(1)))) return(as.raw(as.integer(unlist(x, use.names = FALSE))))
+        }
+        if (is.character(x)) return(charToRaw(x))
+        if (is.integer(x)) return(as.raw(x))
+        if (is.numeric(x)) return(as.raw(as.integer(x)))
+        stop("file_reference must be raw or character")
+      }
+      ref <- coerce_raw(self$file_reference)
+      thumb <- if (is.null(self$thumb_size)) "" else self$thumb_size
       c(
         as.raw(c(0xfe, 0x1f, 0x18, 0x40)),
         pack("q", self$id),
         pack("q", self$access_hash),
-        self$serialize_bytes(self$file_reference),
-        self$serialize_bytes(self$thumb_size)
+        self$serialize_bytes(ref),
+        self$serialize_bytes(thumb)
       )
     }
   ),

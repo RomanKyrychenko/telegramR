@@ -137,7 +137,10 @@ pack <- function(format, ...) {
     } else if (fmt == "q") { # 8-byte signed long
       # Use gmp for 64-bit if it's large, but writeBin works for numerics too
       if (inherits(v, "bigz")) {
+        # Normalize to unsigned representation for packing
+        if (v < 0) v <- v + gmp::as.bigz("18446744073709551616") # 2^64
         hex <- as.character(v, b = 16)
+        hex <- sub("^0x", "", hex)
         if (nchar(hex) %% 2 != 0) hex <- paste0("0", hex)
         bytes <- as.raw(as.hexmode(substring(hex, seq(1, nchar(hex), 2), seq(2, nchar(hex), 2))))
         bytes <- rev(bytes) # little endian
@@ -148,7 +151,9 @@ pack <- function(format, ...) {
       }
     } else if (fmt == "Q") { # 8-byte unsigned long
       if (inherits(v, "bigz")) {
+        if (v < 0) v <- v + gmp::as.bigz("18446744073709551616") # 2^64
         hex <- as.character(v, b = 16)
+        hex <- sub("^0x", "", hex)
         if (nchar(hex) %% 2 != 0) hex <- paste0("0", hex)
         bytes <- as.raw(as.hexmode(substring(hex, seq(1, nchar(hex), 2), seq(2, nchar(hex), 2))))
         bytes <- rev(bytes) # little endian

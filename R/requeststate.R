@@ -44,8 +44,12 @@ RequestState <- R6::R6Class("RequestState",
         )
 
         raw_out <- NULL
+        last_err <- NULL
         for (fn in serializers) {
-          candidate <- tryCatch(fn(request), error = function(e) NULL)
+          candidate <- tryCatch(fn(request), error = function(e) {
+            last_err <<- e
+            NULL
+          })
           if (is.raw(candidate) && length(candidate) > 0) {
             raw_out <- candidate
             break
@@ -53,6 +57,14 @@ RequestState <- R6::R6Class("RequestState",
         }
 
         if (is.null(raw_out)) {
+          # If this looks like a TL object/request, do not fall back to R serialize(),
+          # which can produce oversized payloads that Telegram rejects.
+          is_tl <- inherits(request, "TLObject") ||
+            !is.null(request$CONSTRUCTOR_ID) ||
+            isTRUE(grepl("Request$", class(request)[1]))
+          if (is_tl && !is.null(last_err)) {
+            stop(last_err)
+          }
           # Keep backward compatibility for arbitrary objects stored as requests.
           raw_out <- serialize(request, NULL)
         }
