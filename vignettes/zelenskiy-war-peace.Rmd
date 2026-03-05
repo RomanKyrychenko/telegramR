@@ -78,10 +78,13 @@ msgs <- download_channel_messages(
 )
 ```
 
+```{r smpls, include=FALSE}
+msgs <- msgs_sample
+```
+
 ### Example Output (Bundled Sample)
 
 ```{r msgs_sample_output}
-msgs <- msgs_sample
 head(msgs)
 ```
 
@@ -106,10 +109,9 @@ replies <- download_channel_replies(
 
 ## Preprocess
 
-```{r preprocess, eval=FALSE}
-# Basic cleanup
+```{r preprocess, eval=TRUE}
 msgs <- msgs %>%
-  filter(!is.na(text)) %>%
+  #filter(!is.na(text)) %>%
   mutate(
     day = as.Date(date),
     text_lower = str_to_lower(text)
@@ -118,7 +120,7 @@ msgs <- msgs %>%
 
 ## 1) War vs. Peace Over Time (weekly dynamics)
 
-```{r war_peace, eval=FALSE}
+```{r war_peace, eval=TRUE}
 # Count mentions per day (simple word match)
 war_peace <- msgs %>%
   mutate(
@@ -134,18 +136,22 @@ war_peace <- msgs %>%
   ) %>%
   pivot_longer(cols = c(war, peace), names_to = "term", values_to = "count")
 
-# Plot
-war_peace %>%
-  ggplot(aes(day, count, fill = term, group=term)) +
-  geom_area(position = "fill") +
-  labs(title = "Mentions of war and peace", x = NULL, y = "Count") +
-  scale_x_date(expand = c(0, 0, 0, 0)) +
-  scale_y_continuous(expand = c(0, 0, 0, 0), labels = scales::percent) +
-  scale_fill_manual(values = c("lightblue", "red")) +
-  annotate("text", x = ymd("2025-05-01"), y = 0.9, label = "PEACE") +
-  annotate("text", x = ymd("2025-05-01"), y = 0.1, label = "WAR") +
-  theme_minimal() +
-  theme(legend.position = "none")
+# Plot (guard against empty/NA dates)
+if (nrow(war_peace) > 0 && all(!is.na(war_peace$day))) {
+  war_peace %>%
+    ggplot(aes(day, count, fill = term, group=term)) +
+    geom_area(position = "fill") +
+    labs(title = "Mentions of war and peace", x = NULL, y = "Count") +
+    scale_x_date(expand = c(0, 0, 0, 0)) +
+    scale_y_continuous(expand = c(0, 0, 0, 0), labels = scales::percent) +
+    scale_fill_manual(values = c("lightblue", "red")) +
+    annotate("text", x = ymd("2025-05-01"), y = 0.9, label = "PEACE") +
+    annotate("text", x = ymd("2025-05-01"), y = 0.1, label = "WAR") +
+    theme_minimal() +
+    theme(legend.position = "none")
+} else {
+  tibble::tibble()
+}
 ```
 
 ### Example Output (Bundled Sample)
@@ -176,14 +182,18 @@ war_peace <- msgs %>%
   ) %>%
   pivot_longer(cols = c(war, peace), names_to = "term", values_to = "count")
 
-war_peace
+if (nrow(war_peace) == 0 || any(is.na(war_peace$day))) {
+  tibble::tibble()
+} else {
+  war_peace
+}
 ```
 
 ## 2) Adjectives Before “Peace”
 
 We extract the token immediately preceding “peace”.
 
-```{r peace_adj, eval=FALSE}
+```{r peace_adj, eval=TRUE}
 # =========================
 # Peace/Mир adjective mining + stopword filtering + EN/UKR unification + monthly dynamics
 # =========================
@@ -197,6 +207,7 @@ library(lubridate)
 library(ggplot2)
 library(stopwords)
 library(scales)
+library(RColorBrewer)
 
 # ---- stopwords: EN + UK (ISO) ----
 stop_en <- stopwords("en", source = "snowball")
@@ -341,14 +352,13 @@ monthly_adj_merged <- adj_long2 %>%
   filter(adj_group %in% target_groups) %>%
   count(month, adj_group) %>%
   arrange(month)
+```
 
+```{r plt, eval=TRUE}
 # ---- plot: proportional stacked area (100%) with ColorBrewer ----
-library(RColorBrewer)
-
-library(tidyr)
 
 # full month sequence
-all_months <- seq(
+all_months <- seq.Date(
   floor_date(min(adj_long2$date, na.rm = TRUE), "month"),
   floor_date(max(adj_long2$date, na.rm = TRUE), "month"),
   by = "1 month"
@@ -375,15 +385,12 @@ ggplot(monthly_adj_merged, aes(x = month, y = n, color = adj_group, group = adj_
     y = "Count",
     color = "Adjective (merged)"
   ) +
-  theme_minimal() +
-  theme(
-    panel.grid.minor = 
-  )
+  theme_minimal()
 ```
 
 ## 3) "Powerful" Over Time
 
-```{r powerful, eval=FALSE}
+```{r powerful, eval=TRUE}
 powerful <- msgs %>%
   mutate(powerful_mentions = str_count(text_lower, "\\bpowerful\\b") + str_count(text_lower, "\\bпотужн.(|.)\\b")) %>%
   mutate(day = lubridate::round_date(day, unit = "week")) %>% 

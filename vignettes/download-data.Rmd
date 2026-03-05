@@ -24,12 +24,12 @@ To keep the vignette reproducible, the outputs below come from a bundled sample 
 
 ```{r sample_data, include=FALSE}
 sample <- readRDS(system.file("extdata/vignettes/channel_sample.rds", package = "telegramR"))
-msgs_sample <- sample$msgs
-info_sample <- sample$info
-reactions_sample <- sample$reactions
-replies_sample <- sample$replies
-members_sample <- sample$members
-estimate_sample <- sample$estimate
+msgs <- sample$msgs
+info <- sample$info
+reactions <- sample$reactions
+replies <- sample$replies
+members <- sample$members
+estimate <- sample$estimate
 library(telegramR)
 ```
 
@@ -55,14 +55,11 @@ msgs <- download_channel_messages(
   "telegram",
   limit = 200
 )
-
-msgs
 ```
 
 ### Example Output (Bundled Sample)
 
 ```{r msgs_sample_output}
-msgs <- msgs_sample
 msgs
 ```
 
@@ -79,13 +76,9 @@ The returned tibble includes a compact, analysis‑ready schema:
 
 ```{r download_info, eval=FALSE}
 info <- download_channel_info(client, "telegram")
-info
 ```
 
-### Example Output (Bundled Sample)
-
-```{r info_sample_output}
-info <- info_sample
+```{r inf}
 info
 ```
 
@@ -94,13 +87,11 @@ info
 This returns the latest message id as an **upper‑bound estimate**.
 
 ```{r estimate, eval=FALSE}
-estimate_channel_post_count(client, "telegram")
+estimate <- estimate_channel_post_count(client, "telegram")
 ```
 
-### Example Output (Bundled Sample)
-
 ```{r estimate_sample_output}
-estimate_sample
+estimate
 ```
 
 ## Download Media
@@ -120,6 +111,7 @@ if (nrow(first_media) > 0) {
 ```{r disconnect, eval=FALSE}
 client$disconnect()
 ```
+
 ```{r download_messages_range, eval=FALSE}
 # Download a date range (UTC)
 msgs_range <- download_channel_messages(
@@ -139,14 +131,9 @@ reactions <- download_channel_reactions(
   "telegram",
   limit = 500
 )
-
-reactions
 ```
 
-### Example Output (Bundled Sample)
-
-```{r reactions_sample_output}
-reactions <- reactions_sample
+```{r}
 reactions
 ```
 
@@ -160,16 +147,12 @@ replies <- download_channel_replies(
   message_limit = 20,
   reply_limit = Inf
 )
+```
 
+```{r}
 replies
 ```
 
-### Example Output (Bundled Sample)
-
-```{r replies_sample_output}
-replies <- replies_sample
-replies
-```
 
 ## Download Members
 
@@ -179,16 +162,12 @@ members <- download_channel_members(
   "telegram",
   limit = 500
 )
+```
 
+```{r}
 members
 ```
 
-### Example Output (Bundled Sample)
-
-```{r members_sample_output}
-members <- members_sample
-members
-```
 
 ## Numeric Channel IDs
 

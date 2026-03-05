@@ -177,6 +177,22 @@
   NA_character_
 }
 
+.telegramR_extract_document_filename <- function(m) {
+  tryCatch({
+    if (!inherits(m, "Message")) return(NA_character_)
+    media <- m$media
+    if (!inherits(media, "MessageMediaDocument")) return(NA_character_)
+    doc <- media$document
+    if (is.null(doc) || is.null(doc$attributes)) return(NA_character_)
+    for (attr in doc$attributes) {
+      if (inherits(attr, "DocumentAttributeFilename") && !is.null(attr$file_name)) {
+        return(as.character(attr$file_name))
+      }
+    }
+    NA_character_
+  }, error = function(e) NA_character_)
+}
+
 .telegramR_parse_datetime <- function(x) {
   if (is.null(x)) return(NULL)
   if (inherits(x, "POSIXt")) return(as.POSIXct(x, tz = "UTC"))
@@ -539,12 +555,15 @@ download_channel_reactions <- function(client, channel, limit = Inf, start_date 
 #' @param wait_time numeric. Seconds to sleep between requests to avoid flood waits.
 #' @param retries integer. Number of retries per media download on failure.
 #' @param include_errors logical. If TRUE, include error messages per row.
+#' @param use_original_filename logical. If TRUE and a document has a filename attribute,
+#'   use it for the saved file name.
 #' @param ... Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).
-#' @return A tibble with message_id, channel info, media_type and file_path.
+#' @return A tibble with message_id, channel info, media_type, file_path, and original_filename.
 #' @export
 download_channel_media <- function(client, channel, limit = Inf, start_date = NULL, end_date = NULL,
                                    media_types = c("photo", "video", "image", "document"), out_dir = "downloads",
-                                   show_progress = TRUE, wait_time = 0, retries = 1, include_errors = TRUE, ...) {
+                                   show_progress = TRUE, wait_time = 0, retries = 1, include_errors = TRUE,
+                                   use_original_filename = FALSE, ...) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
   }
@@ -626,12 +645,17 @@ download_channel_media <- function(client, channel, limit = Inf, start_date = NU
 
     err_msg <- NA_character_
     file_path <- NA_character_
+    original_filename <- .telegramR_extract_document_filename(raw_msg)
     attempt <- 0L
     while (attempt <= retries) {
       attempt <- attempt + 1L
       res <- tryCatch(
         {
-          out <- client$download_media(raw_msg, file = out_dir)
+          file_arg <- out_dir
+          if (isTRUE(use_original_filename) && !is.na(original_filename) && nzchar(original_filename)) {
+            file_arg <- file.path(out_dir, original_filename)
+          }
+          out <- client$download_media(raw_msg, file = file_arg)
           if (inherits(out, "promise") || inherits(out, "Future")) {
             out <- future::value(out)
           }
@@ -657,7 +681,8 @@ download_channel_media <- function(client, channel, limit = Inf, start_date = NU
       channel_title = row$channel_title,
       date = row$date,
       media_type = row$media_type,
-      file_path = file_path
+      file_path = file_path,
+      original_filename = ifelse(is.na(original_filename), NA_character_, original_filename)
     )
     if (isTRUE(include_errors)) {
       rows[[n]]$error <- err_msg

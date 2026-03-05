@@ -26,12 +26,14 @@ To keep this vignette fully reproducible, the output below is generated from a s
 sample <- readRDS(system.file("extdata/vignettes/channel_sample.rds", package = "telegramR"))
 media_sample <- sample$media
 library(telegramR)
+library(dplyr)
 ```
 
 ## Setup and Authentication
 
 ```{r setup, eval=FALSE}
 library(telegramR)
+library(dplyr)
 
 # Replace these with your own API ID and Hash
 api_id <- 123456
@@ -54,16 +56,26 @@ media <- download_channel_media(
   end_date = "2025-02-01",
   out_dir = "downloads"
 )
-
-# Inspect results
-head(media)
 ```
 
-### Example Output (Bundled Sample)
-
-```{r media_sample_output}
+```{r lll, include=FALSE}
 media <- media_sample
+```
+
+```{r shows, eval=TRUE}
+# Inspect results
 media
+```
+
+```{r display, eval=TRUE}
+photo_path <- media %>% 
+  filter(media_type == "photo") %>% 
+  slice(1) %>% 
+  pull(file_path)
+
+pkg_path <- paste0("../", photo_path)
+
+knitr::include_graphics(pkg_path)
 ```
 
 ## Common Columns
