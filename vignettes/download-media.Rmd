@@ -25,6 +25,7 @@ To keep this vignette fully reproducible, the output below is generated from a s
 ```{r sample_data, include=FALSE}
 sample <- readRDS(system.file("extdata/vignettes/channel_sample.rds", package = "telegramR"))
 media_sample <- sample$media
+library(telegramR)
 ```
 
 ## Setup and Authentication

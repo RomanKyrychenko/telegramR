@@ -31,6 +31,10 @@ sample <- readRDS(system.file("extdata/vignettes/channel_sample.rds", package = 
 members_sample <- sample$members
 replies_sample <- sample$replies
 reactions_sample <- sample$reactions
+library(telegramR)
+library(dplyr)
+library(stringr)
+library(ggplot2)
 ```
 
 ## Setup

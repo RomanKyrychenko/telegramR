@@ -29,6 +29,12 @@ To keep this vignette reproducible, we load a small bundled sample dataset for t
 ```{r sample_data, include=FALSE}
 sample <- readRDS(system.file("extdata/vignettes/channel_sample.rds", package = "telegramR"))
 msgs_sample <- sample$msgs
+library(telegramR)
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(tidyr)
+library(ggplot2)
 ```
 
 ## Setup

@@ -30,6 +30,7 @@ reactions_sample <- sample$reactions
 replies_sample <- sample$replies
 members_sample <- sample$members
 estimate_sample <- sample$estimate
+library(telegramR)
 ```
 
 ## Setup and Authentication
