@@ -247,7 +247,6 @@ adj_long <- msgs2 %>%
     adj = str_to_lower(stringi::stri_trans_nfc(adj))
   ) %>%
   filter(!is.na(adj), adj != "", !(adj %in% all_stops))
-}
 
 # ---- unify EN <-> UKR equivalents (add Ukrainian where missing) ----
 # Canonical labels = Ukrainian forms (where possible)
