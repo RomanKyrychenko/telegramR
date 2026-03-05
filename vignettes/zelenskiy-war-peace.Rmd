@@ -22,10 +22,6 @@ We study:
 2. Which adjectives are used to describe **peace** (word before “peace”).
 3. The dynamics of the word **“powerful.”**
 
-## Offline Demo (No Telegram Connection)
-
-To keep this vignette reproducible, we load a small bundled sample dataset for the outputs shown below. The commands themselves are real and will work against Telegram once you configure credentials.
-
 ```{r sample_data, include=FALSE}
 sample <- readRDS(system.file("extdata/vignettes/channel_sample.rds", package = "telegramR"))
 msgs_sample <- sample$msgs
@@ -82,8 +78,6 @@ msgs <- download_channel_messages(
 msgs <- msgs_sample
 ```
 
-### Example Output (Bundled Sample)
-
 ```{r msgs_sample_output}
 head(msgs)
 ```
@@ -111,7 +105,7 @@ replies <- download_channel_replies(
 
 ```{r preprocess, eval=TRUE}
 msgs <- msgs %>%
-  #filter(!is.na(text)) %>%
+  filter(!is.na(text)) %>%
   mutate(
     day = as.Date(date),
     text_lower = str_to_lower(text)
@@ -205,8 +199,8 @@ library(stringr)
 library(stringi)
 library(lubridate)
 library(ggplot2)
-library(stopwords)
 library(scales)
+library(stopwords)
 library(RColorBrewer)
 
 # ---- stopwords: EN + UK (ISO) ----
@@ -253,6 +247,7 @@ adj_long <- msgs2 %>%
     adj = str_to_lower(stringi::stri_trans_nfc(adj))
   ) %>%
   filter(!is.na(adj), adj != "", !(adj %in% all_stops))
+}
 
 # ---- unify EN <-> UKR equivalents (add Ukrainian where missing) ----
 # Canonical labels = Ukrainian forms (where possible)

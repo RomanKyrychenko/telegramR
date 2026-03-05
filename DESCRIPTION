@@ -30,7 +30,9 @@ Imports:
     xml2,
     mime,
     tibble,
-    dplyr
+    dplyr,
+    stopwords,
+    RColorBrewer
 Suggests:
     testthat (>= 3.0.0),
     withr,
