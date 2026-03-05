@@ -184,9 +184,17 @@ NULL
         }
 
         self$seen <- list()
-        self$requests <- GetParticipantsRequest(
+        req_cls <- get0("GetParticipantsRequest", envir = asNamespace("telegramR"))
+        if (is.null(req_cls) || !is.function(req_cls$new)) {
+          stop("GetParticipantsRequest not available in namespace")
+        }
+        cps_cls <- get0("ChannelParticipantsSearch", envir = asNamespace("telegramR"))
+        if (is.null(cps_cls) || !is.function(cps_cls$new)) {
+          stop("ChannelParticipantsSearch not available in namespace")
+        }
+        self$requests <- req_cls$new(
           channel = entity,
-          filter = filter %||% ChannelParticipantsSearch(search),
+          filter = filter %||% cps_cls$new(search),
           #  @field offset Field.
           offset = 0,
           limit = .MAX_PARTICIPANTS_CHUNK_SIZE,
