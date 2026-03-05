@@ -125,6 +125,12 @@ NULL
   "_ParticipantsIter",
   inherit = RequestIter,
   public = list(
+    #  @field filter_entity Optional local filter function.
+    filter_entity = NULL,
+    #  @field requests Internal requests holder.
+    requests = NULL,
+    #  @field seen Internal seen cache.
+    seen = NULL,
     #  @description Initialize the iterator.
     #  @param entity The entity from which to retrieve the participants list.
     #  @param filter The filter to be used, if you want e.g. only admins. Default is NULL.

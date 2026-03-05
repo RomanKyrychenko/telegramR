@@ -18,6 +18,15 @@ knitr::opts_chunk$set(
 
 This vignette shows how to download media (photos/videos/documents) from a Telegram channel using `download_channel_media()`.
 
+## Offline Demo (No Telegram Connection)
+
+To keep this vignette fully reproducible, the output below is generated from a small bundled sample dataset. The commands shown are real; if you have credentials and a live session, you can run them by setting `eval=TRUE` in your environment.
+
+```{r sample_data, include=FALSE}
+sample <- readRDS(system.file("extdata/vignettes/channel_sample.rds", package = "telegramR"))
+media_sample <- sample$media
+```
+
 ## Setup and Authentication
 
 ```{r setup, eval=FALSE}
@@ -47,6 +56,13 @@ media <- download_channel_media(
 
 # Inspect results
 head(media)
+```
+
+### Example Output (Bundled Sample)
+
+```{r media_sample_output}
+media <- media_sample
+media
 ```
 
 ## Common Columns

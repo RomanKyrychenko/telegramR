@@ -29,3 +29,8 @@ utils <- list(
   getInputChatPhoto = get_input_chat_photo
 )
 
+# Minimal helpers object expected by some generated code (e.g., chats.R).
+helpers <- list(
+  `_entity_type` = entity_type,
+  `_EntityType` = EntityType
+)

@@ -18,6 +18,20 @@ knitr::opts_chunk$set(
 
 This vignette demonstrates how to download channel data with `telegramR` using the high‑level helpers.
 
+## Offline Demo (No Telegram Connection)
+
+To keep the vignette reproducible, the outputs below come from a bundled sample dataset. The commands shown are the real calls you would use against Telegram.
+
+```{r sample_data, include=FALSE}
+sample <- readRDS(system.file("extdata/vignettes/channel_sample.rds", package = "telegramR"))
+msgs_sample <- sample$msgs
+info_sample <- sample$info
+reactions_sample <- sample$reactions
+replies_sample <- sample$replies
+members_sample <- sample$members
+estimate_sample <- sample$estimate
+```
+
 ## Setup and Authentication
 
 ```{r setup, eval=FALSE}
@@ -44,6 +58,13 @@ msgs <- download_channel_messages(
 msgs
 ```
 
+### Example Output (Bundled Sample)
+
+```{r msgs_sample_output}
+msgs <- msgs_sample
+msgs
+```
+
 The returned tibble includes a compact, analysis‑ready schema:
 
 - `message_id`, `date`, `text`
@@ -60,12 +81,25 @@ info <- download_channel_info(client, "telegram")
 info
 ```
 
+### Example Output (Bundled Sample)
+
+```{r info_sample_output}
+info <- info_sample
+info
+```
+
 ## Estimate Total Posts (Approx.)
 
 This returns the latest message id as an **upper‑bound estimate**.
 
 ```{r estimate, eval=FALSE}
 estimate_channel_post_count(client, "telegram")
+```
+
+### Example Output (Bundled Sample)
+
+```{r estimate_sample_output}
+estimate_sample
 ```
 
 ## Download Media
@@ -108,6 +142,13 @@ reactions <- download_channel_reactions(
 reactions
 ```
 
+### Example Output (Bundled Sample)
+
+```{r reactions_sample_output}
+reactions <- reactions_sample
+reactions
+```
+
 ## Download Replies (Comments)
 
 ```{r download_replies, eval=FALSE}
@@ -122,6 +163,13 @@ replies <- download_channel_replies(
 replies
 ```
 
+### Example Output (Bundled Sample)
+
+```{r replies_sample_output}
+replies <- replies_sample
+replies
+```
+
 ## Download Members
 
 ```{r download_members, eval=FALSE}
@@ -131,6 +179,13 @@ members <- download_channel_members(
   limit = 500
 )
 
+members
+```
+
+### Example Output (Bundled Sample)
+
+```{r members_sample_output}
+members <- members_sample
 members
 ```
 

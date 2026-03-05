@@ -22,6 +22,15 @@ We study:
 2. Which adjectives are used to describe **peace** (word before “peace”).
 3. The dynamics of the word **“powerful.”**
 
+## Offline Demo (No Telegram Connection)
+
+To keep this vignette reproducible, we load a small bundled sample dataset for the outputs shown below. The commands themselves are real and will work against Telegram once you configure credentials.
+
+```{r sample_data, include=FALSE}
+sample <- readRDS(system.file("extdata/vignettes/channel_sample.rds", package = "telegramR"))
+msgs_sample <- sample$msgs
+```
+
 ## Setup
 
 ```{r setup, eval=FALSE}
@@ -61,6 +70,13 @@ msgs <- download_channel_messages(
   start_date = "2022-01-01",
   limit = Inf
 )
+```
+
+### Example Output (Bundled Sample)
+
+```{r msgs_sample_output}
+msgs <- msgs_sample
+head(msgs)
 ```
 
 ## Optional: Reactions and Replies
@@ -124,6 +140,37 @@ war_peace %>%
   annotate("text", x = ymd("2025-05-01"), y = 0.1, label = "WAR") +
   theme_minimal() +
   theme(legend.position = "none")
+```
+
+### Example Output (Bundled Sample)
+
+```{r war_peace_sample}
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(tidyr)
+
+msgs <- msgs_sample %>%
+  filter(!is.na(text)) %>%
+  mutate(
+    day = as.Date(date),
+    text_lower = str_to_lower(text)
+  )
+
+war_peace <- msgs %>%
+  mutate(
+    war_mentions = str_count(text_lower, "\\bwar\\b"),
+    peace_mentions = str_count(text_lower, "\\bpeace\\b")
+  ) %>%
+  group_by(day) %>%
+  summarise(
+    war = sum(war_mentions, na.rm = TRUE),
+    peace = sum(peace_mentions, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  pivot_longer(cols = c(war, peace), names_to = "term", values_to = "count")
+
+war_peace
 ```
 
 ## 2) Adjectives Before “Peace”
@@ -343,4 +390,3 @@ powerful %>%
   labs(title = "Usage of the word 'powerful'", x = NULL, y = "Count") +
   theme_minimal()
 ```
-

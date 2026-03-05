@@ -22,6 +22,17 @@ This short case study shows how to:
 2. Fetch replies (comments) to channel posts.
 3. Summarize reactions by emoji.
 
+## Offline Demo (No Telegram Connection)
+
+The outputs below are generated from a bundled sample dataset to keep the vignette reproducible.
+
+```{r sample_data, include=FALSE}
+sample <- readRDS(system.file("extdata/vignettes/channel_sample.rds", package = "telegramR"))
+members_sample <- sample$members
+replies_sample <- sample$replies
+reactions_sample <- sample$reactions
+```
+
 ## Setup
 
 ```{r setup, eval=FALSE}
@@ -50,6 +61,14 @@ members %>%
   count(is_bot, sort = TRUE)
 ```
 
+### Example Output (Bundled Sample)
+
+```{r members_sample_output}
+members <- members_sample
+members %>%
+  count(is_bot, sort = TRUE)
+```
+
 ## 2) Replies (Comments)
 
 ```{r replies, eval=FALSE}
@@ -64,6 +83,14 @@ replies %>%
   count(from_type, sort = TRUE)
 ```
 
+### Example Output (Bundled Sample)
+
+```{r replies_sample_output}
+replies <- replies_sample
+replies %>%
+  count(from_type, sort = TRUE)
+```
+
 ## 3) Reactions Breakdown
 
 ```{r reactions, eval=FALSE}
@@ -73,6 +100,18 @@ reactions <- download_channel_reactions(
   limit = 200
 )
 
+emoji_counts <- reactions %>%
+  filter(!is.na(reactions_json)) %>%
+  mutate(reactions_json = ifelse(reactions_json == "{}", NA_character_, reactions_json)) %>%
+  filter(!is.na(reactions_json))
+
+emoji_counts
+```
+
+### Example Output (Bundled Sample)
+
+```{r reactions_sample_output}
+reactions <- reactions_sample
 emoji_counts <- reactions %>%
   filter(!is.na(reactions_json)) %>%
   mutate(reactions_json = ifelse(reactions_json == "{}", NA_character_, reactions_json)) %>%
