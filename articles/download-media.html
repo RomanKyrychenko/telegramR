@@ -72,10 +72,19 @@
 from a Telegram channel using <code><a href="../reference/download_channel_media.html">download_channel_media()</a></code>.</p>
 </div>
 <div class="section level2">
+<h2 id="offline-demo-no-telegram-connection">Offline Demo (No Telegram Connection)<a class="anchor" aria-label="anchor" href="#offline-demo-no-telegram-connection"></a>
+</h2>
+<p>To keep this vignette fully reproducible, the output below is
+generated from a small bundled sample dataset. The commands shown are
+real; if you have credentials and a live session, you can run them by
+setting <code>eval=TRUE</code> in your environment.</p>
+</div>
+<div class="section level2">
 <h2 id="setup-and-authentication">Setup and Authentication<a class="anchor" aria-label="anchor" href="#setup-and-authentication"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://romankyrychenko.github.io/telegramR/">telegramR</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Replace these with your own API ID and Hash</span></span>
 <span><span class="va">api_id</span> <span class="op">&lt;-</span> <span class="fl">123456</span></span>
@@ -97,10 +106,27 @@ from a Telegram channel using <code><a href="../reference/download_channel_media
 <span>  start_date <span class="op">=</span> <span class="st">"2025-01-01"</span>,</span>
 <span>  end_date <span class="op">=</span> <span class="st">"2025-02-01"</span>,</span>
 <span>  out_dir <span class="op">=</span> <span class="st">"downloads"</span></span>
-<span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Inspect results</span></span>
+<span><span class="va">media</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 9</span></span></span>
+<span><span class="co">#&gt;   message_id channel_id channel_username channel_title date               </span></span>
+<span><span class="co">#&gt;        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>             </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>      <span style="text-decoration: underline;">28</span>473 <span style="text-decoration: underline;">1</span>149<span style="text-decoration: underline;">277</span>960 ShrikeNews       Шрайк Ньюс    2026-03-05 <span style="color: #949494;">08:47:18</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>      <span style="text-decoration: underline;">28</span>471 <span style="text-decoration: underline;">1</span>149<span style="text-decoration: underline;">277</span>960 ShrikeNews       Шрайк Ньюс    2026-03-05 <span style="color: #949494;">08:17:32</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 4 more variables: media_type &lt;chr&gt;, file_path &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   original_filename &lt;chr&gt;, error &lt;chr&gt;</span></span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">photo_path</span> <span class="op">&lt;-</span> <span class="va">media</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">media_type</span> <span class="op">==</span> <span class="st">"photo"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">file_path</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Inspect results</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">media</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">pkg_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"../"</span>, <span class="va">photo_path</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html" class="external-link">include_graphics</a></span><span class="op">(</span><span class="va">pkg_path</span><span class="op">)</span></span></code></pre></div>
+<p><img src="../inst/extdata/articles/downloads/photo_2026-03-05_08-17-32%20(2).jpg"><!-- --></p>
 </div>
 <div class="section level2">
 <h2 id="common-columns">Common Columns<a class="anchor" aria-label="anchor" href="#common-columns"></a>

@@ -52,6 +52,23 @@ msgs <- download_channel_messages(
 )
 ```
 
+``` r
+head(msgs)
+#> # A tibble: 6 × 18
+#>   message_id channel_id channel_username channel_title date                text 
+#>        <dbl>      <dbl> <chr>            <chr>         <dttm>              <chr>
+#> 1      18175 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-05 08:38:24 "Чом…
+#> 2      18174 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-05 08:33:58 "Нас…
+#> 3      18173 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-05 08:23:36 "На …
+#> 4      18172 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-05 08:16:00 "У н…
+#> 5      18171 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-05 08:06:47 "У в…
+#> 6      18170 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-04 20:01:55 "Tod…
+#> # ℹ 12 more variables: views <dbl>, forwards <dbl>, replies <dbl>,
+#> #   reactions_total <dbl>, reactions_json <chr>, media_type <chr>,
+#> #   is_forward <lgl>, forward_from_id <dbl>, forward_from_name <chr>,
+#> #   reply_to_msg_id <dbl>, edit_date <dttm>, post_author <chr>
+```
+
 ## Optional: Reactions and Replies
 
 ``` r
@@ -74,7 +91,6 @@ replies <- download_channel_replies(
 ## Preprocess
 
 ``` r
-# Basic cleanup
 msgs <- msgs %>%
   filter(!is.na(text)) %>%
   mutate(
@@ -101,18 +117,73 @@ war_peace <- msgs %>%
   ) %>%
   pivot_longer(cols = c(war, peace), names_to = "term", values_to = "count")
 
-# Plot
-war_peace %>%
-  ggplot(aes(day, count, fill = term, group=term)) +
-  geom_area(position = "fill") +
-  labs(title = "Mentions of war and peace", x = NULL, y = "Count") +
-  scale_x_date(expand = c(0, 0, 0, 0)) +
-  scale_y_continuous(expand = c(0, 0, 0, 0), labels = scales::percent) +
-  scale_fill_manual(values = c("lightblue", "red")) +
-  annotate("text", x = ymd("2025-05-01"), y = 0.9, label = "PEACE") +
-  annotate("text", x = ymd("2025-05-01"), y = 0.1, label = "WAR") +
-  theme_minimal() +
-  theme(legend.position = "none")
+# Plot (guard against empty/NA dates)
+if (nrow(war_peace) > 0 && all(!is.na(war_peace$day))) {
+  war_peace %>%
+    ggplot(aes(day, count, fill = term, group=term)) +
+    geom_area(position = "fill") +
+    labs(title = "Mentions of war and peace", x = NULL, y = "Count") +
+    scale_x_date(expand = c(0, 0, 0, 0)) +
+    scale_y_continuous(expand = c(0, 0, 0, 0), labels = scales::percent) +
+    scale_fill_manual(values = c("lightblue", "red")) +
+    annotate("text", x = ymd("2025-05-01"), y = 0.9, label = "PEACE") +
+    annotate("text", x = ymd("2025-05-01"), y = 0.1, label = "WAR") +
+    theme_minimal() +
+    theme(legend.position = "none")
+} else {
+  tibble::tibble()
+}
+```
+
+![](zelenskiy-war-peace_files/figure-html/war_peace-1.png)
+
+### Example Output (Bundled Sample)
+
+``` r
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(tidyr)
+
+msgs <- msgs_sample %>%
+  filter(!is.na(text)) %>%
+  mutate(
+    day = as.Date(date),
+    text_lower = str_to_lower(text)
+  )
+
+war_peace <- msgs %>%
+  mutate(
+    war_mentions = str_count(text_lower, "\\bwar\\b"),
+    peace_mentions = str_count(text_lower, "\\bpeace\\b")
+  ) %>%
+  group_by(day) %>%
+  summarise(
+    war = sum(war_mentions, na.rm = TRUE),
+    peace = sum(peace_mentions, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  pivot_longer(cols = c(war, peace), names_to = "term", values_to = "count")
+
+if (nrow(war_peace) == 0 || any(is.na(war_peace$day))) {
+  tibble::tibble()
+} else {
+  war_peace
+}
+#> # A tibble: 2,942 × 3
+#>    day        term  count
+#>    <date>     <chr> <int>
+#>  1 2022-02-24 war       0
+#>  2 2022-02-24 peace     0
+#>  3 2022-02-25 war       0
+#>  4 2022-02-25 peace     0
+#>  5 2022-02-26 war       0
+#>  6 2022-02-26 peace     0
+#>  7 2022-02-27 war       0
+#>  8 2022-02-27 peace     0
+#>  9 2022-02-28 war       0
+#> 10 2022-02-28 peace     0
+#> # ℹ 2,932 more rows
 ```
 
 ## 2) Adjectives Before “Peace”
@@ -131,8 +202,9 @@ library(stringr)
 library(stringi)
 library(lubridate)
 library(ggplot2)
-library(stopwords)
 library(scales)
+library(stopwords)
+library(RColorBrewer)
 
 # ---- stopwords: EN + UK (ISO) ----
 stop_en <- stopwords("en", source = "snowball")
@@ -163,6 +235,32 @@ msgs2 <- msgs2 %>%
     date = ifelse(is.na(date), suppressWarnings(lubridate::ymd(.data[[date_col]], quiet = TRUE)), date),
     date = as.POSIXct(date, origin = "1970-01-01")
   )
+```
+
+    #> Warning: There was 1 warning in `mutate()`.
+    #> ℹ In argument: `date = case_when(...)`.
+    #> Caused by warning:
+    #> ! Calling `case_when()` with size 1 LHS inputs and size >1 RHS inputs was
+    #>   deprecated in dplyr 1.2.0.
+    #> ℹ This `case_when()` statement can result in subtle silent bugs and is very inefficient.
+    #> 
+    #>   Please use a series of if statements instead:
+    #> 
+    #>   ```
+    #>   # Previously
+    #>   case_when(scalar_lhs1 ~ rhs1, scalar_lhs2 ~ rhs2, .default = default)
+    #> 
+    #>   # Now
+    #>   if (scalar_lhs1) {
+    #>     rhs1
+    #>   } else if (scalar_lhs2) {
+    #>     rhs2
+    #>   } else {
+    #>     default
+    #>   }
+    #>   ```
+
+``` r
 
 # ---- extract the word immediately before peace|мир (row-level, long) ----
 adj_long <- msgs2 %>%
@@ -268,6 +366,29 @@ peace_adjectives_merged <- adj_long2 %>%
 peace_adjectives_merged %>%
   filter(n >= 5) %>%
   head(20)
+#> # A tibble: 20 × 2
+#>    adj_group      n
+#>    <chr>      <int>
+#>  1 формули      226
+#>  2 just         210
+#>  3 lasting      169
+#>  4 до           155
+#>  5 саміту       151
+#>  6 заради        82
+#>  7 true          81
+#>  8 reliable      62
+#>  9 real          58
+#> 10 саміті        55
+#> 11 worthy        54
+#> 12 саміт         51
+#> 13 формулу       49
+#> 14 ukrainian     43
+#> 15 наближення    40
+#> 16 формула       38
+#> 17 досягнення    31
+#> 18 global        30
+#> 19 для           30
+#> 20 наблизити     29
 
 # ---- monthly dynamics (merged) ----
 target_groups <- unique(equiv_map)
@@ -277,14 +398,13 @@ monthly_adj_merged <- adj_long2 %>%
   filter(adj_group %in% target_groups) %>%
   count(month, adj_group) %>%
   arrange(month)
+```
 
+``` r
 # ---- plot: proportional stacked area (100%) with ColorBrewer ----
-library(RColorBrewer)
-
-library(tidyr)
 
 # full month sequence
-all_months <- seq(
+all_months <- seq.Date(
   floor_date(min(adj_long2$date, na.rm = TRUE), "month"),
   floor_date(max(adj_long2$date, na.rm = TRUE), "month"),
   by = "1 month"
@@ -311,11 +431,10 @@ ggplot(monthly_adj_merged, aes(x = month, y = n, color = adj_group, group = adj_
     y = "Count",
     color = "Adjective (merged)"
   ) +
-  theme_minimal() +
-  theme(
-    panel.grid.minor = 
-  )
+  theme_minimal()
 ```
+
+![](zelenskiy-war-peace_files/figure-html/plt-1.png)
 
 ## 3) “Powerful” Over Time
 
@@ -332,3 +451,5 @@ powerful %>%
   labs(title = "Usage of the word 'powerful'", x = NULL, y = "Count") +
   theme_minimal()
 ```
+
+![](zelenskiy-war-peace_files/figure-html/powerful-1.png)

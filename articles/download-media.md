@@ -6,10 +6,18 @@ This vignette shows how to download media (photos/videos/documents) from
 a Telegram channel using
 [`download_channel_media()`](https://romankyrychenko.github.io/telegramR/reference/download_channel_media.md).
 
+## Offline Demo (No Telegram Connection)
+
+To keep this vignette fully reproducible, the output below is generated
+from a small bundled sample dataset. The commands shown are real; if you
+have credentials and a live session, you can run them by setting
+`eval=TRUE` in your environment.
+
 ## Setup and Authentication
 
 ``` r
 library(telegramR)
+library(dplyr)
 
 # Replace these with your own API ID and Hash
 api_id <- 123456
@@ -32,10 +40,32 @@ media <- download_channel_media(
   end_date = "2025-02-01",
   out_dir = "downloads"
 )
-
-# Inspect results
-head(media)
 ```
+
+``` r
+# Inspect results
+media
+#> # A tibble: 2 × 9
+#>   message_id channel_id channel_username channel_title date               
+#>        <dbl>      <dbl> <chr>            <chr>         <dttm>             
+#> 1      28473 1149277960 ShrikeNews       Шрайк Ньюс    2026-03-05 08:47:18
+#> 2      28471 1149277960 ShrikeNews       Шрайк Ньюс    2026-03-05 08:17:32
+#> # ℹ 4 more variables: media_type <chr>, file_path <chr>,
+#> #   original_filename <chr>, error <chr>
+```
+
+``` r
+photo_path <- media %>% 
+  filter(media_type == "photo") %>% 
+  slice(1) %>% 
+  pull(file_path)
+
+pkg_path <- paste0("../", photo_path)
+
+knitr::include_graphics(pkg_path)
+```
+
+![](../inst/extdata/articles/downloads/photo_2026-03-05_08-17-32%20(2).jpg)
 
 ## Common Columns
 
