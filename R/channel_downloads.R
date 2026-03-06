@@ -358,7 +358,13 @@
 
   if (is.character(channel)) {
     uname <- sub("^@", "", channel)
-    ent <- client$get_entity(uname)
+    ent <- tryCatch(client$get_entity(uname), error = function(e) {
+      msg <- conditionMessage(e)
+      stop(sprintf(
+        "Could not resolve channel '%s' (it may be deleted, renamed, or inaccessible). Original error: %s",
+        uname, msg
+      ), call. = FALSE)
+    })
   } else if (is.numeric(channel)) {
     chan_id <- as.numeric(channel)[1]
     peer <- PeerChannel$new(as.integer(chan_id))
@@ -396,12 +402,24 @@
 #' @param start_date POSIXct/Date/character. Earliest date to include (UTC).
 #' @param end_date POSIXct/Date/character. Latest date to include (UTC).
 #' @param show_progress logical. If TRUE, display a progress bar.
+#' @param timeout_sec numeric. Max seconds to wait per fetch before retrying. Use 0 to disable.
+#' @param max_timeouts integer. Number of timeouts to tolerate before aborting.
+#' @param reconnect_on_timeout logical. If TRUE, reconnect client on timeout.
 #' @param ... Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).
 #' @return A tibble.
 #' @export
-download_channel_messages <- function(client, channel, limit = Inf, include_channel = TRUE, start_date = NULL, end_date = NULL, show_progress = TRUE, ...) {
+download_channel_messages <- function(client, channel, limit = Inf, include_channel = TRUE, start_date = NULL, end_date = NULL, show_progress = TRUE,
+                                      timeout_sec = getOption("telegramR.iter_timeout", 60),
+                                      max_timeouts = 3,
+                                      reconnect_on_timeout = TRUE, ...) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
+  }
+
+  old_promise_timeout <- getOption("telegramR.promise_timeout", NULL)
+  on.exit(options(telegramR.promise_timeout = old_promise_timeout), add = TRUE)
+  if (is.numeric(timeout_sec) && is.finite(timeout_sec) && timeout_sec > 0) {
+    options(telegramR.promise_timeout = timeout_sec)
   }
 
   resolved <- .telegramR_resolve_channel(client, channel)
@@ -438,8 +456,29 @@ download_channel_messages <- function(client, channel, limit = Inf, include_chan
 
   rows <- list()
   n <- 0L
+  timeouts <- 0L
   repeat {
-    item <- it$.next()
+    item <- tryCatch(
+      it$.next(),
+      error = function(e) {
+        msg <- conditionMessage(e)
+        if (grepl("PromiseTimeoutError|ReadTimeoutError", msg)) {
+          timeouts <<- timeouts + 1L
+          if (isTRUE(reconnect_on_timeout)) {
+            tryCatch(client$disconnect(), error = function(e2) NULL)
+            tryCatch(client$connect(), error = function(e2) NULL)
+          }
+          if (!is.null(max_timeouts) && is.finite(max_timeouts) && timeouts > max_timeouts) {
+            stop(sprintf("download_channel_messages aborted after %d timeouts (%.1fs each).", timeouts, timeout_sec))
+          }
+          return(structure(list(timeout = TRUE), class = "telegramR_timeout"))
+        }
+        stop(e)
+      }
+    )
+    if (inherits(item, "telegramR_timeout")) {
+      next
+    }
     if (is.null(item)) break
     row <- .telegramR_extract_message_row(item, ent)
     # Date range filter
@@ -856,9 +895,17 @@ estimate_channel_post_count <- function(client, channel) {
 #' @param include_raw logical. If TRUE, include raw Telegram objects as list columns.
 #' @return A tibble with flattened channel info and optional list columns for raw objects.
 #' @export
-download_channel_info <- function(client, channel, region = NULL, include_raw = FALSE) {
+download_channel_info <- function(client, channel, region = NULL, include_raw = FALSE,
+                                  timeout_sec = getOption("telegramR.iter_timeout", 60),
+                                  reconnect_on_timeout = TRUE) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
+  }
+
+  old_promise_timeout <- getOption("telegramR.promise_timeout", NULL)
+  on.exit(options(telegramR.promise_timeout = old_promise_timeout), add = TRUE)
+  if (is.numeric(timeout_sec) && is.finite(timeout_sec) && timeout_sec > 0) {
+    options(telegramR.promise_timeout = timeout_sec)
   }
 
   resolved <- .telegramR_resolve_channel(client, channel)
@@ -873,7 +920,15 @@ download_channel_info <- function(client, channel, region = NULL, include_raw = 
   full <- tryCatch(
     client$invoke(GetFullChannelRequest$new(input_channel)),
     error = function(e) {
-      structure(list(full_chat = NULL, chats = NULL, users = NULL, .error = conditionMessage(e)), class = "messages.ChatFull")
+      msg <- conditionMessage(e)
+      if (grepl("PromiseTimeoutError|ReadTimeoutError", msg)) {
+        if (isTRUE(reconnect_on_timeout)) {
+          tryCatch(client$disconnect(), error = function(e2) NULL)
+          tryCatch(client$connect(), error = function(e2) NULL)
+        }
+        msg <- sprintf("Timed out after %.1f seconds.", timeout_sec)
+      }
+      structure(list(full_chat = NULL, chats = NULL, users = NULL, .error = msg), class = "messages.ChatFull")
     }
   )
 
