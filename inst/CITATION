@@ -1,0 +1,11 @@
+bibentry(
+  bibtype = "Tech report",
+  title = "R client for Telegram's MTProto API",
+  author = Roman Kyrychenko,
+  journal = ,
+  year = 2026
+  volume = ,
+  number = ,
+  pages = ,
+  doi =
+)
