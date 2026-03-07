@@ -16,6 +16,7 @@ download_channel_media(
   wait_time = 0,
   retries = 1,
   include_errors = TRUE,
+  use_original_filename = FALSE,
   ...
 )
 }
@@ -42,10 +43,13 @@ download_channel_media(
 
 \item{include_errors}{logical. If TRUE, include error messages per row.}
 
+\item{use_original_filename}{logical. If TRUE and a document has a filename attribute,
+use it for the saved file name.}
+
 \item{...}{Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).}
 }
 \value{
-A tibble with message_id, channel info, media_type and file_path.
+A tibble with message_id, channel info, media_type, file_path, and original_filename.
 }
 \description{
 Downloads media (photos/videos/documents) from a channel by username or numeric id

@@ -4,12 +4,21 @@
 \alias{estimate_channel_post_count}
 \title{Estimate Channel Post Count (Approx)}
 \usage{
-estimate_channel_post_count(client, channel)
+estimate_channel_post_count(
+  client,
+  channel,
+  timeout_sec = getOption("telegramR.iter_timeout", 60),
+  reconnect_on_timeout = TRUE
+)
 }
 \arguments{
 \item{client}{TelegramClient instance.}
 
 \item{channel}{character or numeric. Channel username (with or without "@") or numeric id.}
+
+\item{timeout_sec}{numeric. Timeout in seconds for network operations.}
+
+\item{reconnect_on_timeout}{logical. Reconnect on timeout if TRUE.}
 }
 \value{
 A tibble with last_message_id and a note.
