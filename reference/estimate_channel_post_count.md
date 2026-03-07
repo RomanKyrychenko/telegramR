@@ -7,7 +7,12 @@ IDs.
 ## Usage
 
 ``` r
-estimate_channel_post_count(client, channel)
+estimate_channel_post_count(
+  client,
+  channel,
+  timeout_sec = getOption("telegramR.iter_timeout", 60),
+  reconnect_on_timeout = TRUE
+)
 ```
 
 ## Arguments
@@ -20,6 +25,14 @@ estimate_channel_post_count(client, channel)
 
   character or numeric. Channel username (with or without "@") or
   numeric id.
+
+- timeout_sec:
+
+  numeric. Timeout in seconds for network operations.
+
+- reconnect_on_timeout:
+
+  logical. Reconnect on timeout if TRUE.
 
 ## Value
 

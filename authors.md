@@ -6,13 +6,10 @@
 
 ## Citation
 
-Kyrychenko R (2026). *telegramR: MProto for R*. R package version 0.0.1,
-<https://romankyrychenko.github.io/telegramR/>.
+Kyrychenko R (2026). *telegramR: R client for Telegram's MTProto API*.
 
     @Manual{,
-      title = {telegramR: MProto for R},
+      title = {telegramR: R client for Telegram's MTProto API},
       author = {Roman Kyrychenko},
       year = {2026},
-      note = {R package version 0.0.1},
-      url = {https://romankyrychenko.github.io/telegramR/},
     }

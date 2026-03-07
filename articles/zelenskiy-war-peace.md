@@ -57,12 +57,12 @@ head(msgs)
 #> # A tibble: 6 × 18
 #>   message_id channel_id channel_username channel_title date                text 
 #>        <dbl>      <dbl> <chr>            <chr>         <dttm>              <chr>
-#> 1      18175 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-05 08:38:24 "Чом…
-#> 2      18174 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-05 08:33:58 "Нас…
-#> 3      18173 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-05 08:23:36 "На …
-#> 4      18172 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-05 08:16:00 "У н…
-#> 5      18171 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-05 08:06:47 "У в…
-#> 6      18170 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-04 20:01:55 "Tod…
+#> 1      18225 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-06 11:55:27 "Вдо…
+#> 2      18224 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-06 11:06:59 ""   
+#> 3      18223 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-06 11:06:58 ""   
+#> 4      18222 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-06 11:06:58 ""   
+#> 5      18221 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-06 11:06:58 ""   
+#> 6      18220 1463721328 V_Zelenskiy_off… Zelenskiy / … 2026-03-06 11:06:58 ""   
 #> # ℹ 12 more variables: views <dbl>, forwards <dbl>, replies <dbl>,
 #> #   reactions_total <dbl>, reactions_json <chr>, media_type <chr>,
 #> #   is_forward <lgl>, forward_from_id <dbl>, forward_from_name <chr>,
@@ -170,20 +170,20 @@ if (nrow(war_peace) == 0 || any(is.na(war_peace$day))) {
 } else {
   war_peace
 }
-#> # A tibble: 2,942 × 3
+#> # A tibble: 2,004 × 3
 #>    day        term  count
 #>    <date>     <chr> <int>
-#>  1 2022-02-24 war       0
-#>  2 2022-02-24 peace     0
-#>  3 2022-02-25 war       0
-#>  4 2022-02-25 peace     0
-#>  5 2022-02-26 war       0
-#>  6 2022-02-26 peace     0
-#>  7 2022-02-27 war       0
-#>  8 2022-02-27 peace     0
-#>  9 2022-02-28 war       0
-#> 10 2022-02-28 peace     0
-#> # ℹ 2,932 more rows
+#>  1 2023-06-09 war       0
+#>  2 2023-06-09 peace     0
+#>  3 2023-06-10 war       0
+#>  4 2023-06-10 peace     1
+#>  5 2023-06-11 war       0
+#>  6 2023-06-11 peace     1
+#>  7 2023-06-12 war       0
+#>  8 2023-06-12 peace     0
+#>  9 2023-06-13 war       2
+#> 10 2023-06-13 peace     0
+#> # ℹ 1,994 more rows
 ```
 
 ## 2) Adjectives Before “Peace”
@@ -369,26 +369,26 @@ peace_adjectives_merged %>%
 #> # A tibble: 20 × 2
 #>    adj_group      n
 #>    <chr>      <int>
-#>  1 формули      226
-#>  2 just         210
-#>  3 lasting      169
-#>  4 до           155
-#>  5 саміту       151
-#>  6 заради        82
-#>  7 true          81
-#>  8 reliable      62
-#>  9 real          58
-#> 10 саміті        55
-#> 11 worthy        54
-#> 12 саміт         51
-#> 13 формулу       49
-#> 14 ukrainian     43
-#> 15 наближення    40
-#> 16 формула       38
-#> 17 досягнення    31
-#> 18 global        30
-#> 19 для           30
-#> 20 наблизити     29
+#>  1 just         196
+#>  2 lasting      167
+#>  3 формули      164
+#>  4 саміту       148
+#>  5 до           140
+#>  6 true          77
+#>  7 заради        73
+#>  8 reliable      61
+#>  9 real          56
+#> 10 worthy        54
+#> 11 саміті        54
+#> 12 саміт         50
+#> 13 наближення    38
+#> 14 досягнення    29
+#> 15 наблизити     26
+#> 16 для           25
+#> 17 формулу       25
+#> 18 формула       24
+#> 19 global        21
+#> 20 в             21
 
 # ---- monthly dynamics (merged) ----
 target_groups <- unique(equiv_map)

@@ -54,6 +54,9 @@ message fields and nested structures as list columns.</p>
 <span>  start_date <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  end_date <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  show_progress <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  timeout_sec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"telegramR.iter_timeout"</span>, <span class="fl">60</span><span class="op">)</span>,</span>
+<span>  max_timeouts <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>  reconnect_on_timeout <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -88,6 +91,18 @@ message fields and nested structures as list columns.</p>
 
 <dt id="arg-show-progress">show_progress<a class="anchor" aria-label="anchor" href="#arg-show-progress"></a></dt>
 <dd><p>logical. If TRUE, display a progress bar.</p></dd>
+
+
+<dt id="arg-timeout-sec">timeout_sec<a class="anchor" aria-label="anchor" href="#arg-timeout-sec"></a></dt>
+<dd><p>numeric. Max seconds to wait per fetch before retrying. Use 0 to disable.</p></dd>
+
+
+<dt id="arg-max-timeouts">max_timeouts<a class="anchor" aria-label="anchor" href="#arg-max-timeouts"></a></dt>
+<dd><p>integer. Number of timeouts to tolerate before aborting.</p></dd>
+
+
+<dt id="arg-reconnect-on-timeout">reconnect_on_timeout<a class="anchor" aria-label="anchor" href="#arg-reconnect-on-timeout"></a></dt>
+<dd><p>logical. If TRUE, reconnect client on timeout.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>

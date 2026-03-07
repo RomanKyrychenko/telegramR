@@ -51,19 +51,19 @@ emoji_counts <- reactions %>%
   filter(!is.na(reactions_json))
 
 emoji_counts
-#> # A tibble: 134 × 7
+#> # A tibble: 117 × 7
 #>    message_id channel_id channel_username     channel_title  date               
 #>         <dbl>      <dbl> <chr>                <chr>          <dttm>             
-#>  1      18175 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-05 08:38:24
-#>  2      18174 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-05 08:33:58
-#>  3      18173 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-05 08:23:36
-#>  4      18172 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-05 08:16:00
-#>  5      18171 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-05 08:06:47
-#>  6      18170 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-04 20:01:55
-#>  7      18169 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-04 19:02:30
-#>  8      18168 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-04 18:44:13
-#>  9      18167 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-04 18:03:26
-#> 10      18158 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-04 17:39:29
-#> # ℹ 124 more rows
+#>  1      18225 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-06 11:55:27
+#>  2      18215 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-06 11:06:58
+#>  3      18206 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-06 10:45:49
+#>  4      18205 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-05 18:51:29
+#>  5      18204 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-05 18:08:48
+#>  6      18203 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-05 17:58:49
+#>  7      18202 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-05 17:35:52
+#>  8      18201 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-05 16:56:28
+#>  9      18200 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-05 15:51:24
+#> 10      18199 1463721328 V_Zelenskiy_official Zelenskiy / O… 2026-03-05 14:44:43
+#> # ℹ 107 more rows
 #> # ℹ 2 more variables: reactions_total <dbl>, reactions_json <chr>
 ```

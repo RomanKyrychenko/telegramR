@@ -48,8 +48,8 @@ media
 #> # A tibble: 2 × 9
 #>   message_id channel_id channel_username channel_title date               
 #>        <dbl>      <dbl> <chr>            <chr>         <dttm>             
-#> 1      28473 1149277960 ShrikeNews       Шрайк Ньюс    2026-03-05 08:47:18
-#> 2      28471 1149277960 ShrikeNews       Шрайк Ньюс    2026-03-05 08:17:32
+#> 1      28508 1149277960 ShrikeNews       Шрайк Ньюс    2026-03-06 11:22:24
+#> 2      28495 1149277960 ShrikeNews       Шрайк Ньюс    2026-03-06 08:48:16
 #> # ℹ 4 more variables: media_type <chr>, file_path <chr>,
 #> #   original_filename <chr>, error <chr>
 ```
@@ -65,7 +65,7 @@ pkg_path <- paste0("../", photo_path)
 knitr::include_graphics(pkg_path)
 ```
 
-![](../inst/extdata/articles/downloads/photo_2026-03-05_08-17-32%20(2).jpg)
+![](../inst/extdata/articles/downloads/photo_2026-03-06_11-22-24.jpg)
 
 ## Common Columns
 

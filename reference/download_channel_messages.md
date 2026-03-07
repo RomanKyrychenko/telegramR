@@ -14,6 +14,9 @@ download_channel_messages(
   start_date = NULL,
   end_date = NULL,
   show_progress = TRUE,
+  timeout_sec = getOption("telegramR.iter_timeout", 60),
+  max_timeouts = 3,
+  reconnect_on_timeout = TRUE,
   ...
 )
 ```
@@ -48,6 +51,19 @@ download_channel_messages(
 - show_progress:
 
   logical. If TRUE, display a progress bar.
+
+- timeout_sec:
+
+  numeric. Max seconds to wait per fetch before retrying. Use 0 to
+  disable.
+
+- max_timeouts:
+
+  integer. Number of timeouts to tolerate before aborting.
+
+- reconnect_on_timeout:
+
+  logical. If TRUE, reconnect client on timeout.
 
 - ...:
 

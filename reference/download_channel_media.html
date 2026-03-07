@@ -58,6 +58,7 @@ and returns a tibble with file paths.</p>
 <span>  wait_time <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  retries <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  include_errors <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  use_original_filename <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -110,13 +111,18 @@ and returns a tibble with file paths.</p>
 <dd><p>logical. If TRUE, include error messages per row.</p></dd>
 
 
+<dt id="arg-use-original-filename">use_original_filename<a class="anchor" aria-label="anchor" href="#arg-use-original-filename"></a></dt>
+<dd><p>logical. If TRUE and a document has a filename attribute,
+use it for the saved file name.</p></dd>
+
+
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A tibble with message_id, channel info, media_type and file_path.</p>
+    <p>A tibble with message_id, channel info, media_type, file_path, and original_filename.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

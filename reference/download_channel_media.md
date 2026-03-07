@@ -18,6 +18,7 @@ download_channel_media(
   wait_time = 0,
   retries = 1,
   include_errors = TRUE,
+  use_original_filename = FALSE,
   ...
 )
 ```
@@ -70,10 +71,16 @@ download_channel_media(
 
   logical. If TRUE, include error messages per row.
 
+- use_original_filename:
+
+  logical. If TRUE and a document has a filename attribute, use it for
+  the saved file name.
+
 - ...:
 
   Passed to client\$iter_messages() (e.g. offset_id, max_id, min_id).
 
 ## Value
 
-A tibble with message_id, channel info, media_type and file_path.
+A tibble with message_id, channel info, media_type, file_path, and
+original_filename.
