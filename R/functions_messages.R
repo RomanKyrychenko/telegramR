@@ -320,6 +320,8 @@ CheckChatInviteRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x3eadb1bb,
     #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x4561736,
+    #  @field hash The invite hash.
+    hash = NULL,
 
     #  @description Initialize the CheckChatInviteRequest object.
     #  @param hash The invite hash.
@@ -5708,6 +5710,12 @@ GetMessagesViewsRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x5784d3e1,
     #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0xafb5eb9c,
+    #  @field peer The input peer.
+    peer = NULL,
+    #  @field id The list of message IDs.
+    id = NULL,
+    #  @field increment Whether to increment views.
+    increment = NULL,
 
     #  @description Initialize the GetMessagesViewsRequest object.
     #  @param peer The input peer.
@@ -8469,6 +8477,8 @@ ImportChatInviteRequest <- R6::R6Class(
     CONSTRUCTOR_ID = 0x6c50051c,
     #  @field SUBCLASS_OF_ID The subclass ID.
     SUBCLASS_OF_ID = 0x8af52aac,
+    #  @field hash The invite hash.
+    hash = NULL,
 
     #  @description Initialize the ImportChatInviteRequest object.
     #  @param hash The invite hash.

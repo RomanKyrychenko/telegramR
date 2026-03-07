@@ -2092,14 +2092,21 @@ TelegramClient <- R6::R6Class(
         ext <- extension
       }
 
-      result <- file.path(directory, paste0(name, ext))
+      # Sanitize filename for portability (no spaces/parentheses)
+      safe_name <- gsub("[^A-Za-z0-9._-]+", "_", name)
+      safe_name <- gsub("^_+|_+$", "", safe_name)
+      if (!nzchar(safe_name)) {
+        safe_name <- "file"
+      }
+
+      result <- file.path(directory, paste0(safe_name, ext))
       if (!file.exists(result)) {
         return(result)
       }
 
       i <- 1
       while (TRUE) {
-        result <- file.path(directory, paste0(name, " (", i, ")", ext))
+        result <- file.path(directory, paste0(safe_name, "_", i, ext))
         if (!file.exists(result)) {
           return(result)
         }
@@ -4622,6 +4629,28 @@ TelegramClient <- R6::R6Class(
       last_error <- NULL
       private$last_request <- Sys.time()
 
+        trace_on <- isTRUE(getOption("telegramR.trace_hang", FALSE))
+        trace_log <- function(msg) {
+          if (trace_on) {
+            message(sprintf("[trace] %s", msg))
+          }
+        }
+        value_with_timeout <- function(f, label = "value") {
+          if (inherits(f, "Future")) {
+            t <- getOption("telegramR.promise_timeout", NULL)
+            if (is.numeric(t) && is.finite(t) && t > 0) {
+              trace_log(sprintf("%s start (timeout=%.1f)", label, t))
+              out <- future::value(f, timeout = t)
+              trace_log(sprintf("%s done", label))
+              return(out)
+            }
+          }
+          trace_log(sprintf("%s start (no-timeout)", label))
+          out <- future::value(f)
+          trace_log(sprintf("%s done", label))
+          out
+        }
+
         for (attempt in retry_range(private$request_retries)) {
         tryCatch(
           {
@@ -4634,7 +4663,7 @@ TelegramClient <- R6::R6Class(
                 tryCatch(
                   {
                     step <- "value_list"
-                    result <- future::value(f)
+                    result <- value_with_timeout(f, label = "future.value(list)")
                     if (!is.null(private$session) && is.function(private$session$process_entities)) {
                       private$session$process_entities(result)
                     }
@@ -4655,7 +4684,7 @@ TelegramClient <- R6::R6Class(
               }
             } else {
               step <- "value"
-              result <- future::value(future_result)
+              result <- value_with_timeout(future_result, label = "future.value")
               if (!is.null(private$session) && is.function(private$session$process_entities)) {
                 private$session$process_entities(result)
               }
@@ -4852,6 +4881,10 @@ TelegramClient <- R6::R6Class(
     get_entity = function(entity) {
       resolve_future <- function(x) {
         if (inherits(x, "Future")) {
+          t <- getOption("telegramR.promise_timeout", NULL)
+          if (is.numeric(t) && is.finite(t) && t > 0) {
+            return(future::value(x, timeout = t))
+          }
           return(future::value(x))
         }
         x
@@ -4961,6 +4994,10 @@ TelegramClient <- R6::R6Class(
     get_input_entity = function(peer) {
       resolve_future <- function(x) {
         if (inherits(x, "Future")) {
+          t <- getOption("telegramR.promise_timeout", NULL)
+          if (is.numeric(t) && is.finite(t) && t > 0) {
+            return(future::value(x, timeout = t))
+          }
           return(future::value(x))
         }
         x
@@ -5183,6 +5220,10 @@ TelegramClient <- R6::R6Class(
     get_entity_from_string = function(string) {
       resolve_future <- function(x) {
         if (inherits(x, "Future")) {
+          t <- getOption("telegramR.promise_timeout", NULL)
+          if (is.numeric(t) && is.finite(t) && t > 0) {
+            return(future::value(x, timeout = t))
+          }
           return(future::value(x))
         }
         x

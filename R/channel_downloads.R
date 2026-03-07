@@ -866,38 +866,13 @@ download_channel_members <- function(client, channel, limit = Inf, search = "", 
 #'
 #' @param client TelegramClient instance.
 #' @param channel character or numeric. Channel username (with or without "@") or numeric id.
+#' @param timeout_sec numeric. Timeout in seconds for network operations.
+#' @param reconnect_on_timeout logical. Reconnect on timeout if TRUE.
 #' @return A tibble with last_message_id and a note.
 #' @export
-estimate_channel_post_count <- function(client, channel) {
-  if (missing(client) || is.null(client)) {
-    stop("client is required")
-  }
-
-  resolved <- .telegramR_resolve_channel(client, channel)
-  ent <- resolved$entity
-  it <- client$iter_messages(ent, limit = 1)
-  msgs <- client$collect(it)
-  last_id <- if (length(msgs) > 0 && !is.null(msgs[[1]]$id)) msgs[[1]]$id else NA_real_
-
-  tibble::tibble(
-    last_message_id = as.numeric(last_id),
-    note = "Approximate: uses latest message id as upper bound; gaps/deletions mean it is not exact."
-  )
-}
-
-#' Download Full Channel Info By Channel
-#'
-#' Fetches channel entity and full channel info by username or numeric id and returns a tibble.
-#'
-#' @param client TelegramClient instance.
-#' @param channel character or numeric. Channel username (with or without "@") or numeric id.
-#' @param region character or NULL. Optional region tag to attach.
-#' @param include_raw logical. If TRUE, include raw Telegram objects as list columns.
-#' @return A tibble with flattened channel info and optional list columns for raw objects.
-#' @export
-download_channel_info <- function(client, channel, region = NULL, include_raw = FALSE,
-                                  timeout_sec = getOption("telegramR.iter_timeout", 60),
-                                  reconnect_on_timeout = TRUE) {
+estimate_channel_post_count <- function(client, channel,
+                                        timeout_sec = getOption("telegramR.iter_timeout", 60),
+                                        reconnect_on_timeout = TRUE) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
   }
@@ -910,15 +885,16 @@ download_channel_info <- function(client, channel, region = NULL, include_raw = 
 
   resolved <- .telegramR_resolve_channel(client, channel)
   ent <- resolved$entity
-  uname <- resolved$username %||% NA_character_
-  input_ent <- client$get_input_entity(ent)
-  input_channel <- get_input_channel(input_ent)
-  # Refresh constructor map to pick up newer ChannelFull ctor IDs
-  old_ctor <- getOption("telegramR.ctor_map")
-  options(telegramR.ctor_map = NULL)
-  on.exit(options(telegramR.ctor_map = old_ctor), add = TRUE)
-  full <- tryCatch(
-    client$invoke(GetFullChannelRequest$new(input_channel)),
+  last_id <- NA_real_
+  note <- "Approximate: uses latest message id as upper bound; gaps/deletions mean it is not exact."
+  tryCatch(
+    {
+      it <- client$iter_messages(ent, limit = 1)
+      msgs <- client$collect(it)
+      if (length(msgs) > 0 && !is.null(msgs[[1]]$id)) {
+        last_id <- msgs[[1]]$id
+      }
+    },
     error = function(e) {
       msg <- conditionMessage(e)
       if (grepl("PromiseTimeoutError|ReadTimeoutError", msg)) {
@@ -926,11 +902,132 @@ download_channel_info <- function(client, channel, region = NULL, include_raw = 
           tryCatch(client$disconnect(), error = function(e2) NULL)
           tryCatch(client$connect(), error = function(e2) NULL)
         }
-        msg <- sprintf("Timed out after %.1f seconds.", timeout_sec)
+        note <<- sprintf("Timed out after %.1f seconds.", timeout_sec)
+      } else {
+        note <<- sprintf("Failed to estimate: %s", msg)
       }
-      structure(list(full_chat = NULL, chats = NULL, users = NULL, .error = msg), class = "messages.ChatFull")
     }
   )
+
+  tibble::tibble(
+    last_message_id = as.numeric(last_id),
+    note = note
+  )
+}
+
+#' Download Full Channel Info By Channel
+#'
+#' Fetches channel entity and full channel info by username or numeric id and returns a tibble.
+#'
+#' @param client TelegramClient instance.
+#' @param channel character or numeric. Channel username (with or without "@") or numeric id.
+#' @param region character or NULL. Optional region tag to attach.
+#' @param include_raw logical. If TRUE, include raw Telegram objects as list columns.
+#' @param timeout_sec numeric. Timeout in seconds for network operations.
+#' @param reconnect_on_timeout logical. Reconnect on timeout if TRUE.
+#' @param max_attempts integer. Number of retry attempts for resolving and full info.
+#' @param skip_estimate logical. If TRUE, skip estimate step for last_message_id.
+#' @param hard_timeout_sec numeric or NULL. Optional hard time limit for the whole call.
+#' @return A tibble with flattened channel info and optional list columns for raw objects.
+#' @export
+download_channel_info <- function(client, channel, region = NULL, include_raw = FALSE,
+                                  timeout_sec = getOption("telegramR.iter_timeout", 60),
+                                  reconnect_on_timeout = TRUE,
+                                  max_attempts = 3,
+                                  skip_estimate = FALSE,
+                                  hard_timeout_sec = NULL) {
+  trace_on <- isTRUE(getOption("telegramR.trace_hang", FALSE))
+  trace_log <- function(msg) {
+    if (trace_on) {
+      message(sprintf("[trace] %s", msg))
+    }
+  }
+  if (missing(client) || is.null(client)) {
+    stop("client is required")
+  }
+
+  old_promise_timeout <- getOption("telegramR.promise_timeout", NULL)
+  on.exit(options(telegramR.promise_timeout = old_promise_timeout), add = TRUE)
+  if (is.numeric(timeout_sec) && is.finite(timeout_sec) && timeout_sec > 0) {
+    options(telegramR.promise_timeout = timeout_sec)
+  }
+  if (is.numeric(hard_timeout_sec) && is.finite(hard_timeout_sec) && hard_timeout_sec > 0) {
+    on.exit(setTimeLimit(cpu = Inf, elapsed = Inf, transient = FALSE), add = TRUE)
+    setTimeLimit(cpu = Inf, elapsed = hard_timeout_sec, transient = TRUE)
+  }
+
+  resolve_attempt <- 1
+  resolved <- NULL
+  ent <- NULL
+  uname <- NA_character_
+  input_channel <- NULL
+  last_resolve_err <- NULL
+  while (is.null(ent) && resolve_attempt <= max_attempts) {
+    trace_log(sprintf("resolve_channel attempt=%d", resolve_attempt))
+    resolved <- tryCatch(
+      .telegramR_resolve_channel(client, channel),
+      error = function(e) {
+        last_resolve_err <<- e
+        msg <- conditionMessage(e)
+        trace_log(sprintf("resolve_channel error: %s", msg))
+        if (grepl("PromiseTimeoutError|ReadTimeoutError", msg) && isTRUE(reconnect_on_timeout)) {
+          tryCatch(client$disconnect(), error = function(e2) NULL)
+          tryCatch(client$connect(), error = function(e2) NULL)
+        }
+        NULL
+      }
+    )
+    if (!is.null(resolved)) {
+      trace_log("resolve_channel ok")
+      ent <- resolved$entity
+      uname <- resolved$username %||% NA_character_
+      input_channel <- tryCatch({
+        trace_log("get_input_entity start")
+        input_ent <- client$get_input_entity(ent)
+        trace_log("get_input_entity done")
+        get_input_channel(input_ent)
+      }, error = function(e) {
+        last_resolve_err <<- e
+        trace_log(sprintf("get_input_entity error: %s", conditionMessage(e)))
+        NULL
+      })
+    }
+    if (is.null(ent) || is.null(input_channel)) {
+      resolve_attempt <- resolve_attempt + 1
+    }
+  }
+  if (is.null(ent) || is.null(input_channel)) {
+    stop(sprintf("download_channel_info failed to resolve channel after %d attempt(s): %s",
+                 max_attempts,
+                 if (!is.null(last_resolve_err)) conditionMessage(last_resolve_err) else "unknown error"))
+  }
+  # Refresh constructor map to pick up newer ChannelFull ctor IDs
+  old_ctor <- getOption("telegramR.ctor_map")
+  options(telegramR.ctor_map = NULL)
+  on.exit(options(telegramR.ctor_map = old_ctor), add = TRUE)
+  full <- NULL
+  last_full_err <- NULL
+  for (attempt in seq_len(max_attempts)) {
+    trace_log(sprintf("GetFullChannel attempt=%d", attempt))
+    full <- tryCatch(
+      client$invoke(GetFullChannelRequest$new(input_channel)),
+      error = function(e) {
+        last_full_err <<- e
+        msg <- conditionMessage(e)
+        trace_log(sprintf("GetFullChannel error: %s", msg))
+        if (grepl("PromiseTimeoutError|ReadTimeoutError", msg) && isTRUE(reconnect_on_timeout)) {
+          tryCatch(client$disconnect(), error = function(e2) NULL)
+          tryCatch(client$connect(), error = function(e2) NULL)
+        }
+        NULL
+      }
+    )
+    if (!is.null(full)) break
+  }
+  if (is.null(full)) {
+    msg <- if (!is.null(last_full_err)) conditionMessage(last_full_err) else "unknown error"
+    full <- structure(list(full_chat = NULL, chats = NULL, users = NULL, .error = msg), class = "messages.ChatFull")
+  }
 
   ent_dict <- .telegramR_safe_to_dict(ent)
   full_chat <- NULL
@@ -957,10 +1054,19 @@ download_channel_info <- function(client, channel, region = NULL, include_raw = 
 
   # Estimate post count (best-effort)
   last_message_id <- NA_real_
-  tryCatch({
-    est <- estimate_channel_post_count(client, channel)
-    last_message_id <- est$last_message_id[[1]]
-  }, error = function(e) NULL)
+  if (!isTRUE(skip_estimate)) {
+    trace_log("estimate_channel_post_count start")
+    tryCatch({
+      est <- estimate_channel_post_count(
+        client,
+        channel,
+        timeout_sec = timeout_sec,
+        reconnect_on_timeout = reconnect_on_timeout
+      )
+      last_message_id <- est$last_message_id[[1]]
+    }, error = function(e) NULL)
+    trace_log("estimate_channel_post_count done")
+  }
 
   rows <- list(list(
     channel_id = as.numeric(ent$id),

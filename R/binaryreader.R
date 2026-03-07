@@ -234,6 +234,14 @@ BinaryReader <- R6::R6Class(
     #  @return A TL object or raw bytes if type unknown.
     tgread_object = function() {
       constructor_id <- self$read_int(signed = FALSE)
+      if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+        message(sprintf(
+          "[trace] tgread_object ctor=%s pos=%s rem=%s",
+          as.character(constructor_id),
+          as.character(self$tell_position()),
+          as.character(length(private$.data) - self$tell_position())
+        ))
+      }
       if (!is.null(constructor_id) &&
         identical(.telegramR_norm_ctor_id(constructor_id), .telegramR_norm_ctor_id(0x3072cfa1))) {
         # GzipPacked: decompress and parse inner object
@@ -248,6 +256,19 @@ BinaryReader <- R6::R6Class(
       }
       if (!is.null(constructor_id) && constructor_id == 481674261) { # Vector (0x1cb5c415)
         count <- self$read_int()
+        if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+          message(sprintf(
+            "[trace] tgread_object vector count=%s rem=%s",
+            as.character(count),
+            as.character(length(private$.data) - self$tell_position())
+          ))
+        }
+        max_possible <- floor((length(private$.data) - self$tell_position()) / 4)
+        if (is.null(count) || count < 0 || count > max_possible) {
+          cur <- self$tell_position()
+          remaining <- length(private$.data) - cur
+          return(list(CONSTRUCTOR_ID = constructor_id, data = if (remaining > 0) self$read(remaining) else raw(0)))
+        }
         res <- list()
         if (count > 0) {
           for (i in seq_len(count)) {
@@ -310,6 +331,15 @@ BinaryReader <- R6::R6Class(
       ctor_key <- .telegramR_norm_ctor_id(constructor_id)
       ctor_map <- .telegramR_get_ctor_map()
       cls <- ctor_map[[ctor_key]]
+      if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+        message(sprintf(
+          "[trace] tgread_object ctor=%s class=%s pos=%s rem=%s",
+          as.character(constructor_id),
+          if (!is.null(cls) && !is.null(cls$classname)) cls$classname else "NULL",
+          as.character(self$tell_position()),
+          as.character(length(private$.data) - self$tell_position())
+        ))
+      }
 
       if (is.null(cls)) {
         if (isTRUE(getOption("telegramR.debug_parse"))) {
@@ -319,12 +349,27 @@ BinaryReader <- R6::R6Class(
             as.character(self$tell_position())
           ))
         }
+        if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+          message(sprintf(
+            "[trace] unknown ctor=%s pos=%s rem=%s",
+            as.character(constructor_id),
+            as.character(self$tell_position()),
+            as.character(length(private$.data) - self$tell_position())
+          ))
+        }
         cur <- self$tell_position()
         remaining <- length(private$.data) - cur
         if (remaining <= 0) {
+          if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+            message(sprintf("[trace] unknown ctor=%s return empty", as.character(constructor_id)))
+          }
           return(list(CONSTRUCTOR_ID = constructor_id, data = raw(0)))
         }
-        return(list(CONSTRUCTOR_ID = constructor_id, data = self$read(remaining)))
+        data <- self$read(remaining)
+        if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+          message(sprintf("[trace] unknown ctor=%s read remaining=%d", as.character(constructor_id), length(data)))
+        }
+        return(list(CONSTRUCTOR_ID = constructor_id, data = data))
       }
 
       # Save position right after reading constructor_id so we can rewind
@@ -362,6 +407,14 @@ BinaryReader <- R6::R6Class(
       }
 
       if (!is.null(from_reader_fn)) {
+        if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+          message(sprintf(
+            "[trace] from_reader start ctor=%s class=%s pos=%s",
+            as.character(constructor_id),
+            if (!is.null(cls) && !is.null(cls$classname)) cls$classname else "unknown",
+            as.character(self$tell_position())
+          ))
+        }
         parsed <- tryCatch(from_reader_fn(self), error = function(e) {
           if (isTRUE(getOption("telegramR.debug_parse"))) {
             msg <- sprintf(
@@ -372,6 +425,15 @@ BinaryReader <- R6::R6Class(
               conditionMessage(e)
             )
             message(msg)
+          }
+          if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+            message(sprintf(
+              "[trace] from_reader error ctor=%s class=%s pos=%s: %s",
+              as.character(constructor_id),
+              if (!is.null(cls$classname)) cls$classname else "unknown",
+              as.character(self$tell_position()),
+              conditionMessage(e)
+            ))
           }
           # Rewind reader to position right after constructor_id so the
           # fallback data contains ALL the object bytes.
@@ -384,6 +446,14 @@ BinaryReader <- R6::R6Class(
             list(CONSTRUCTOR_ID = constructor_id, data = raw(0))
           }
         })
+        if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+          message(sprintf(
+            "[trace] from_reader done ctor=%s class=%s pos=%s",
+            as.character(constructor_id),
+            if (!is.null(cls) && !is.null(cls$classname)) cls$classname else "unknown",
+            as.character(self$tell_position())
+          ))
+        }
         if (inherits(parsed, "R6")) {
           return(parsed)
         }
@@ -876,13 +946,31 @@ BinaryReader <- R6::R6Class(
   tryCatch({
     vec_ctor <- safe_read_int(signed = FALSE)
     n_chats <- safe_read_int()
-    if (!is.null(n_chats) && n_chats > 0) {
+    if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+      message(sprintf("[trace] messages.ChatFull n_chats=%s rem=%s",
+                      as.character(n_chats),
+                      as.character(rem())))
+    }
+    max_chats <- floor(rem() / 4)
+    if (is.null(n_chats) || n_chats < 0 || n_chats > max_chats) {
+      stop("invalid chats vector length")
+    }
+    if (n_chats > 0) {
       chats <- lapply(seq_len(n_chats), function(i) safe_read_object())
     }
 
     vec_ctor2 <- safe_read_int(signed = FALSE)
     n_users <- safe_read_int()
-    if (!is.null(n_users) && n_users > 0) {
+    if (isTRUE(getOption("telegramR.trace_parse", FALSE))) {
+      message(sprintf("[trace] messages.ChatFull n_users=%s rem=%s",
+                      as.character(n_users),
+                      as.character(rem())))
+    }
+    max_users <- floor(rem() / 4)
+    if (is.null(n_users) || n_users < 0 || n_users > max_users) {
+      stop("invalid users vector length")
+    }
+    if (n_users > 0) {
       users <- lapply(seq_len(n_users), function(i) safe_read_object())
     }
   }, error = function(e) {
@@ -973,6 +1061,10 @@ BinaryReader <- R6::R6Class(
     # bot_info vector
     vec_ctor <- safe_read_int(signed = FALSE)
     n_bot <- safe_read_int()
+    max_bot <- floor(rem() / 4)
+    if (!is.null(n_bot) && (n_bot < 0 || n_bot > max_bot)) {
+      stop("invalid bot_info vector length")
+    }
     bot_info <- if (!is.null(n_bot) && n_bot > 0) lapply(seq_len(n_bot), function(i) safe_read_object()) else list()
 
     migrated_from_chat_id <- if (bitwAnd(flags, 16) != 0) safe_read_long() else NULL
@@ -994,6 +1086,10 @@ BinaryReader <- R6::R6Class(
     if (bitwAnd(flags, 33554432) != 0) {
       safe_read_int(signed = FALSE) # vector constructor
       n <- safe_read_int()
+      max_sugg <- rem()
+      if (!is.null(n) && (n < 0 || n > max_sugg)) {
+        stop("invalid pending_suggestions length")
+      }
       pending_suggestions <- if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_string()) else list()
     }
 
@@ -1005,6 +1101,10 @@ BinaryReader <- R6::R6Class(
     if (bitwAnd(flags, 268435456) != 0) {
       safe_read_int(signed = FALSE) # vector constructor
       n <- safe_read_int()
+      max_req <- floor(rem() / 8)
+      if (!is.null(n) && (n < 0 || n > max_req)) {
+        stop("invalid recent_requesters length")
+      }
       recent_requesters <- if (!is.null(n) && n > 0) lapply(seq_len(n), function(i) safe_read_long()) else list()
     }
 

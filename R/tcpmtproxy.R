@@ -35,11 +35,14 @@ MTProxyIO <- R6::R6Class("MTProxyIO",
     #  @param n Number of bytes to read.
     #  @return A raw vector with decrypted data.
     readexactly = function(n) {
-      fut <- future::future({
+      run <- function() {
         data <- self$reader$readexactly(n)
         self$decryptor$encrypt(data)
-      })
-      future::value(fut)
+      }
+      if (isTRUE(getOption("telegramR.async", FALSE))) {
+        return(future::value(future::future(run())))
+      }
+      run()
     },
 
     #  @description Encrypt and write data.

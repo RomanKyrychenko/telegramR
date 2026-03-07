@@ -630,9 +630,17 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     disconnected_future = NULL,
     ._resolve = function(x) {
       if (inherits(x, "promise")) {
+        t <- getOption("telegramR.promise_timeout", NULL)
+        if (is.numeric(t) && is.finite(t) && t > 0) {
+          return(await_promise(x, timeout = t))
+        }
         return(await_promise(x))
       }
       if (inherits(x, "Future")) {
+        t <- getOption("telegramR.promise_timeout", NULL)
+        if (is.numeric(t) && is.finite(t) && t > 0) {
+          return(future::value(x, timeout = t))
+        }
         return(future::value(x))
       }
       x
@@ -1115,6 +1123,12 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       dbg <- isTRUE(getOption("telegramR.debug_pump", FALSE))
       log_pump <- function(fmt, ...) if (dbg) message(sprintf(fmt, ...))
       log_pump_raw <- function(msg) if (dbg) message(msg)
+      trace_on <- isTRUE(getOption("telegramR.trace_hang", FALSE))
+      trace_log <- function(msg) {
+        if (trace_on) {
+          message(sprintf("[trace] %s", msg))
+        }
+      }
 
       private$._ensure_transport_connected()
 
@@ -1247,6 +1261,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           }
         }
 
+        trace_log(sprintf("recv wait (remaining=%.1f)", remaining))
         body <- tryCatch(
           {
             await_promise(private$connection$recv(), timeout = remaining)
@@ -1267,20 +1282,26 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           }
         )
         if (is.null(body)) {
+          trace_log("recv returned NULL")
           next
         }
+        trace_log(sprintf("recv bytes=%d", length(body)))
         log_pump("[pump] Received %d bytes", length(body))
 
         tryCatch(
           {
+            trace_log("decrypt start")
             message <- private$state$decrypt_message_data(body)
+            trace_log("decrypt done")
             if (!is.null(message)) {
               log_pump(
                 "[pump] Decrypted OK, obj class: %s, CTOR: %s",
                 paste(class(message$obj), collapse = ","),
                 as.character(message$obj$CONSTRUCTOR_ID)
               )
+              trace_log("process_message start")
               private$process_message(message)
+              trace_log("process_message done")
             } else {
               log_pump_raw("[pump] decrypt returned NULL")
             }
@@ -1452,6 +1473,13 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     process_message = function(message) {
       dbg <- isTRUE(getOption("telegramR.debug_process", FALSE))
       log_proc <- function(fmt, ...) if (dbg) message(sprintf(fmt, ...))
+      trace_on <- isTRUE(getOption("telegramR.trace_hang", FALSE))
+      trace_log <- function(msg) {
+        if (trace_on) {
+          message(sprintf("[trace] %s", msg))
+        }
+      }
+      trace_log("process_message enter")
       # Add to pending acknowledgments
       private$pending_ack$add(message$msg_id)
 
@@ -1490,11 +1518,16 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
 
       # Execute the handler
       tryCatch(
-        handler(message),
+        {
+          trace_log(sprintf("handler start: %s", if (is.null(handler)) "NULL" else "ok"))
+          handler(message)
+          trace_log("handler done")
+        },
         error = function(e) {
           log_proc("[process] Handler error: %s", conditionMessage(e))
         }
       )
+      trace_log("process_message exit")
     },
     pop_states = function(msg_id) {
       # Look for exact match
@@ -1535,6 +1568,12 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     handle_rpc_result = function(message) {
       dbg <- isTRUE(getOption("telegramR.debug_process", FALSE))
       log_proc <- function(fmt, ...) if (dbg) message(sprintf(fmt, ...))
+      trace_on <- isTRUE(getOption("telegramR.trace_hang", FALSE))
+      trace_log <- function(msg) {
+        if (trace_on) {
+          message(sprintf("[trace] %s", msg))
+        }
+      }
       rpc_result <- message$obj
       req_key <- msg_id_key(rpc_result$req_msg_id)
       log_proc(
@@ -1543,6 +1582,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         paste(names(private$pending_state), collapse = ","),
         !is.null(rpc_result$error)
       )
+      trace_log(sprintf("handle_rpc_result start key=%s has_error=%s", req_key, !is.null(rpc_result$error)))
       state <- private$pending_state[[req_key]]
       private$pending_state[[req_key]] <- NULL
 
@@ -1564,6 +1604,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             }
           )
         }
+        trace_log("handle_rpc_result done (no state)")
         return(NULL)
       }
 
@@ -1577,9 +1618,11 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         if (!future::resolved(state$future)) {
           state$future$set_exception(error)
         }
+        trace_log("handle_rpc_result done (error)")
       } else {
         tryCatch(
           {
+            trace_log("handle_rpc_result parse start")
             reader <- BinaryReader$new(rpc_result$body)
             # Some generated request classes currently do not inherit TLRequest
             # and may miss read_result(); fall back to generic TL object parsing.
@@ -1588,21 +1631,32 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             } else {
               result <- reader$tgread_object()
             }
+            trace_log(sprintf(
+              "handle_rpc_result got result class=%s",
+              paste(class(result), collapse = ",")
+            ))
 
             # Check for updates in the result
+            trace_log("handle_rpc_result store_own_updates start")
             private$store_own_updates(result)
+            trace_log("handle_rpc_result store_own_updates done")
 
             if (!future::resolved(state$future)) {
+              trace_log("handle_rpc_result set_result start")
               state$future$set_result(result)
+              trace_log("handle_rpc_result set_result done")
             }
+            trace_log("handle_rpc_result parse done")
           },
           error = function(e) {
             if (!future::resolved(state$future)) {
               state$future$set_exception(e)
             }
+            trace_log(sprintf("handle_rpc_result parse error: %s", conditionMessage(e)))
           }
         )
       }
+      trace_log("handle_rpc_result exit")
     },
     handle_container = function(message) {
       private$log$debug("Handling container")

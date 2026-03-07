@@ -207,13 +207,13 @@ test_that("get_proper_filename builds names with extension and avoids collisions
   )
   expect_true(grepl("doc\\.pdf$", fn2))
 
-  # Create file to force collision and ensure suffix " (1)" is used
+  # Create file to force collision and ensure suffix "_1" is used
   file.create(fn2)
   fn3 <- cli$get_proper_filename(dir,
     kind = "document", extension = ".pdf",
     date = NULL, possible_names = list("doc")
   )
-  expect_true(grepl("doc \\(1\\)\\.pdf$", fn3))
+  expect_true(grepl("doc_1\\.pdf$", fn3))
 })
 
 test_that("get_thumb selects appropriate thumbnail", {
@@ -699,7 +699,7 @@ test_that("get_proper_filename generates sensible names and handles collisions",
   res2 <- dm$get_proper_filename("myfile.png", "doc", ".txt", date = date)
   expect_true(grepl("myfile\\.png$", basename(res2)))
 
-  # Collision: create a file with the default generated name and ensure next name appends (1)
+  # Collision: create a file with the default generated name and ensure next name appends _1
   tmpdir <- tempdir()
   date_str <- format(date, "%Y-%m-%d_%H-%M-%S")
   base_name <- paste0("report_", date_str)
@@ -707,8 +707,8 @@ test_that("get_proper_filename generates sensible names and handles collisions",
   writeBin(charToRaw("x"), existing) # create existing file
 
   res3 <- dm$get_proper_filename(tmpdir, "report", ".txt", date = date)
-  # Expect either base_name (if not colliding) or base_name (n) - due to existing, should be (1)
-  expect_true(grepl(paste0(base_name, " \\(1\\)\\.txt$"), res3) || grepl(paste0(base_name, "\\.txt$"), res3))
+  # Expect either base_name (if not colliding) or base_name_1 - due to existing, should be _1
+  expect_true(grepl(paste0(base_name, "_1\\.txt$"), res3) || grepl(paste0(base_name, "\\.txt$"), res3))
 })
 
 test_that("get_kind_and_names extracts kind and possible names from attributes", {
