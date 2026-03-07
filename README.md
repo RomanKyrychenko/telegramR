@@ -181,6 +181,8 @@ for (m in messages) {
 - Most high-level methods (like `get_entity`, `download_media`) return
   [future](https://cran.r-project.org/package=future) objects. Unwrap
   them with `future::value()`.
- - To silence pump/process debug messages, keep these options disabled:
-   `options(telegramR.debug_pump = FALSE, telegramR.debug_process = FALSE, telegramR.debug_parse = FALSE)`.
+- To silence pump/process debug messages, keep these options disabled:
+  `options(telegramR.debug_pump = FALSE, telegramR.debug_process = FALSE, telegramR.debug_parse = FALSE)`.
+- To trace hangs in channel info/message downloads, enable:
+  `options(telegramR.trace_hang = TRUE, telegramR.trace_parse = TRUE)` to see step-by-step parsing and network waits.
  - Some channels send photos as documents with `image/*` MIME types. `download_channel_media()` treats `image` as a photo-type alias when `photo` is requested.
