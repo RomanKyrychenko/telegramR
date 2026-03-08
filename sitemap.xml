@@ -11,6 +11,8 @@
 <url><loc>https://romankyrychenko.github.io/telegramR/index.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/TelegramBaseClient.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/TelegramClient.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/add_user_to_chat.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/check_invite_link.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/download_channel_info.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/download_channel_media.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/download_channel_members.html</loc></url>
@@ -18,8 +20,22 @@
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/download_channel_reactions.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/download_channel_replies.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/estimate_channel_post_count.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/get_full_user.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/increase_view_count.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/index.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/join_channel.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/join_private_chat.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/join_public_channel.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/plus-.raw.html</loc></url>
 <url><loc>https://romankyrychenko.github.io/telegramR/reference/plus-.raw_bytes.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/send_audio.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/send_document.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/send_file.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/send_message.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/send_photo.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/send_video.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/update_profile.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/update_profile_photo.html</loc></url>
+<url><loc>https://romankyrychenko.github.io/telegramR/reference/update_username.html</loc></url>
 </urlset>
 
