@@ -1133,7 +1133,13 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       private$._ensure_transport_connected()
 
       timeout_sec <- as.numeric(getOption("telegramR.promise_timeout", 30))
+      if (!is.finite(timeout_sec) || timeout_sec <= 0) {
+        timeout_sec <- 30
+      }
       started_at <- proc.time()[["elapsed"]]
+      recv_tries <- 0L
+      max_recv_tries <- as.integer(getOption("telegramR.recv_max_tries", 2))
+      if (is.na(max_recv_tries) || max_recv_tries < 1) max_recv_tries <- 2L
 
       state_done <- function(s) isTRUE(future::resolved(s$future))
 
@@ -1262,9 +1268,14 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         }
 
         trace_log(sprintf("recv wait (remaining=%.1f)", remaining))
+        poll_sec <- getOption("telegramR.recv_poll_sec", 5)
+        if (!is.numeric(poll_sec) || !is.finite(poll_sec) || poll_sec <= 0) {
+          poll_sec <- 5
+        }
+        poll_timeout <- min(remaining, poll_sec)
         body <- tryCatch(
           {
-            await_promise(private$connection$recv(), timeout = remaining)
+            await_promise(private$connection$recv(), timeout = poll_timeout)
           },
           error = function(e) {
             msg <- conditionMessage(e)
@@ -1272,10 +1283,15 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             if (grepl("Not connected", msg, fixed = TRUE) ||
               grepl("invalid connection", msg, ignore.case = TRUE) ||
               grepl("cannot read from this connection", msg, ignore.case = TRUE) ||
-              grepl("ReadTimeoutError", msg, fixed = TRUE)) {
+              grepl("ReadTimeoutError", msg, fixed = TRUE) ||
+              grepl("PromiseTimeoutError", msg, fixed = TRUE)) {
+              recv_tries <<- recv_tries + 1L
+              if (recv_tries > max_recv_tries) {
+                stop(sprintf("ReadTimeoutError: no response after %d attempts", max_recv_tries))
+              }
               tryCatch(await_promise(private$connection$disconnect()), error = function(e2) NULL)
               private$._ensure_transport_connected()
-              await_promise(private$connection$recv(), timeout = remaining)
+              await_promise(private$connection$recv(), timeout = poll_timeout)
             } else {
               stop(e)
             }
@@ -1283,8 +1299,13 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         )
         if (is.null(body)) {
           trace_log("recv returned NULL")
+          recv_tries <- recv_tries + 1L
+          if (recv_tries > max_recv_tries) {
+            stop(sprintf("ReadTimeoutError: no data after %d attempts", max_recv_tries))
+          }
           next
         }
+        recv_tries <- 0L
         trace_log(sprintf("recv bytes=%d", length(body)))
         log_pump("[pump] Received %d bytes", length(body))
 

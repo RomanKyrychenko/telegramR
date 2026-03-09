@@ -380,6 +380,33 @@ rpc_message_to_error <- function(rpc_error, request) {
       msg <- sprintf("%s. %s", msg, hint)
     }
   }
+  # Handle DC migration errors
+  if (is.character(msg) && grepl("^(PHONE|NETWORK|USER)_MIGRATE_\\d+$", msg)) {
+    dc_id <- as.integer(sub("^(PHONE|NETWORK|USER)_MIGRATE_", "", msg))
+    cls <- if (grepl("^PHONE_", msg)) {
+      "PhoneMigrateError"
+    } else if (grepl("^NETWORK_", msg)) {
+      "NetworkMigrateError"
+    } else {
+      "UserMigrateError"
+    }
+    return(structure(
+      class = c(cls, "RPCError", "error", "condition"),
+      list(
+        message = sprintf("RPCError %d: %s", code, msg),
+        error_code = code,
+        error_message = msg,
+        request = request,
+        new_dc = dc_id
+      )
+    ))
+  }
+  if (is.character(msg) && msg == "AUTH_KEY_UNREGISTERED") {
+    msg <- paste0(
+      msg,
+      ". Your auth key is invalid or expired. Reconnect and re-authenticate (client$connect(); client$start())."
+    )
+  }
   err <- structure(
     class = c("RPCError", "error", "condition"),
     list(

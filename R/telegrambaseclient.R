@@ -465,7 +465,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
         } else if (identical(auth_val, FALSE)) {
           log_info("Not authorized. Request a login code with `client$send_code_request()`.")
         } else if (!is.null(private$session$auth_key)) {
-          log_info("Session auth key found. You are likely authorized; no login should be required.")
+          log_info("Auth key is present. This does NOT guarantee authorization; you may still need to log in.")
         } else {
           log_info("Authorization status unknown. If needed, request a login code with `client$send_code_request()`.")
         }
@@ -549,11 +549,50 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
       private$session$server_address <- dc$ip_address
       private$session$port <- dc$port
       private$session$auth_key <- NULL
+      if (isTRUE(getOption("telegramR.trace_migrate", FALSE))) {
+        message(sprintf(
+          "[trace] switch_dc -> dc_id=%s ip=%s port=%s",
+          as.character(private$session$dc_id),
+          as.character(private$session$server_address),
+          as.character(private$session$port)
+        ))
+      }
 
       if (!is.null(private$sender)) {
         private$sender$auth_key <- AuthKey$new(NULL)
-        private$sender$disconnect()
+        tryCatch(future::value(private$sender$disconnect()), error = function(e) NULL)
         private$connect_sender()
+      }
+      invisible(TRUE)
+    }
+    ,
+    #  @description
+    #  Alias for switch_dc.
+    #  @param new_dc The new DC ID.
+    set_dc = function(new_dc) {
+      self$switch_dc(new_dc)
+    }
+    ,
+    #  @description
+    #  Get session file path (if file-backed).
+    #  @return Path or NULL.
+    get_session_path = function() {
+      private$session$path %||% NULL
+    }
+    ,
+    #  @description
+    #  Clear stored auth key (and optionally delete session file).
+    #  @param delete_file Whether to delete the session file if present.
+    #  @return TRUE if cleared.
+    clear_session_auth_key = function(delete_file = TRUE) {
+      if (!is.null(private$session)) {
+        private$session$auth_key <- NULL
+      }
+      if (!is.null(private$sender)) {
+        private$sender$auth_key <- AuthKey$new(NULL)
+      }
+      if (isTRUE(delete_file) && !is.null(private$session$path) && file.exists(private$session$path)) {
+        tryCatch(unlink(private$session$path, force = TRUE), error = function(e) NULL)
       }
       invisible(TRUE)
     }
@@ -714,15 +753,59 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
       }
     },
     get_dc = function(dc_id, cdn = FALSE) {
-      # Would get DC information in a real implementation
       future({
+        default_dc_options <- function() {
+          list(
+            list(id = 1, ip_address = "149.154.175.50", port = 443, ipv6 = FALSE, cdn = FALSE),
+            list(id = 2, ip_address = "149.154.167.50", port = 443, ipv6 = FALSE, cdn = FALSE),
+            list(id = 3, ip_address = "149.154.175.100", port = 443, ipv6 = FALSE, cdn = FALSE),
+            list(id = 4, ip_address = "149.154.167.91", port = 443, ipv6 = FALSE, cdn = FALSE),
+            list(id = 5, ip_address = "149.154.171.5", port = 443, ipv6 = FALSE, cdn = FALSE)
+          )
+        }
         if (is.null(private$config)) {
-          # Would fetch config in a real implementation
           private$config <- list(dc_options = list())
+        }
+
+        # Try to fetch config if missing dc_options
+        if (is.null(private$config$dc_options) || length(private$config$dc_options) == 0) {
+          config_result <- NULL
+          if (!is.null(private$sender) && is.function(private$sender$send)) {
+            config_result <- tryCatch({
+              if (!is.null(private$init_request)) {
+                init_query <- InitConnectionRequest$new(
+                  api_id = private$init_request$api_id,
+                  device_model = private$init_request$device_model,
+                  system_version = private$init_request$system_version,
+                  app_version = private$init_request$app_version,
+                  lang_code = private$init_request$lang_code,
+                  system_lang_code = private$init_request$system_lang_code,
+                  lang_pack = private$init_request$lang_pack,
+                  query = GetConfigRequest$new()
+                )
+                fut <- private$sender$send(
+                  InvokeWithLayerRequest$new(layer = as.integer(LAYER), query = init_query)
+                )
+                future::value(fut)
+              } else {
+                fut <- private$sender$send(GetConfigRequest$new())
+                future::value(fut)
+              }
+            }, error = function(e) NULL)
+          }
+
+          if (!is.null(config_result) && !is.null(config_result$dc_options)) {
+            private$config <- config_result
+          } else {
+            private$config$dc_options <- default_dc_options()
+          }
         }
 
         # Find matching DC
         dc_options <- private$config$dc_options
+        if (is.null(dc_options) || length(dc_options) == 0) {
+          dc_options <- default_dc_options()
+        }
         for (dc in dc_options) {
           if (dc$id == dc_id &&
             identical(isTRUE(dc$ipv6), private$use_ipv6) &&

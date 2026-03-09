@@ -240,6 +240,22 @@ TelegramClient <- R6::R6Class(
     #  @param retry_count Internal parameter for recursion, do not set
     #  @return The sent code information
     send_code_request = function(phone, force_sms = FALSE, retry_count = 0) {
+      trace_migrate <- isTRUE(getOption("telegramR.trace_migrate", FALSE))
+      log_migrate <- function(msg) {
+        if (trace_migrate) {
+          message(sprintf("[trace] %s", msg))
+        }
+      }
+      parse_migrate_dc <- function(err) {
+        msg <- NULL
+        if (!is.null(err$error_message)) msg <- err$error_message
+        if (is.null(msg)) msg <- conditionMessage(err)
+        if (!is.character(msg)) return(NULL)
+        if (grepl("^(PHONE|NETWORK|USER)_MIGRATE_\\d+$", msg)) {
+          return(as.integer(sub("^(PHONE|NETWORK|USER)_MIGRATE_", "", msg)))
+        }
+        NULL
+      }
       parse_sent_code_fallback <- function(res) {
         ctor_key <- function(obj) {
           if (!is.list(obj) || is.null(obj$CONSTRUCTOR_ID)) {
@@ -319,8 +335,12 @@ TelegramClient <- R6::R6Class(
       phone_hash <- self$phone_code_hash[[phone]]
 
       if (is.null(phone_hash)) {
+        log_migrate(sprintf("send_code_request attempt=%d dc_id=%s", retry_count, private$session$dc_id))
         tryCatch(
           {
+            old_opt <- getOption("telegramR.disable_call_internal_migrate", FALSE)
+            on.exit(options(telegramR.disable_call_internal_migrate = old_opt), add = TRUE)
+            options(telegramR.disable_call_internal_migrate = TRUE)
             result <- self$invoke(SendCodeRequest$new(
               phone, private$api_id, private$api_hash, CodeSettings$new()
             ))
@@ -329,6 +349,27 @@ TelegramClient <- R6::R6Class(
           error = function(e) {
             if (inherits(e, "AuthRestartError")) {
               if (retry_count > 2) stop(e)
+              return(self$send_code_request(phone, force_sms = force_sms, retry_count = retry_count + 1))
+            }
+            if (inherits(e, c("PhoneMigrateError", "NetworkMigrateError", "UserMigrateError"))) {
+              log_migrate(sprintf("migrate error class=%s new_dc=%s", class(e)[1], e$new_dc))
+              if (retry_count > 2) stop(e)
+              if (!is.null(private$session$dc_id) && private$session$dc_id == e$new_dc) {
+                stop(sprintf("Phone migrated to %d, but client is already on that DC. Please retry later.", e$new_dc))
+              }
+              self$switch_dc(e$new_dc)
+              log_migrate(sprintf("switched dc to %s", private$session$dc_id))
+              return(self$send_code_request(phone, force_sms = force_sms, retry_count = retry_count + 1))
+            }
+            mig_dc <- parse_migrate_dc(e)
+            if (!is.null(mig_dc)) {
+              log_migrate(sprintf("migrate error msg=%s dc=%s", conditionMessage(e), mig_dc))
+              if (retry_count > 2) stop(e)
+              if (!is.null(private$session$dc_id) && private$session$dc_id == mig_dc) {
+                stop(sprintf("Phone migrated to %d, but client is already on that DC. Please retry later.", mig_dc))
+              }
+              self$switch_dc(mig_dc)
+              log_migrate(sprintf("switched dc to %s", private$session$dc_id))
               return(self$send_code_request(phone, force_sms = force_sms, retry_count = retry_count + 1))
             }
             stop(e)
@@ -355,6 +396,9 @@ TelegramClient <- R6::R6Class(
       if (force_sms) {
         tryCatch(
           {
+            old_opt <- getOption("telegramR.disable_call_internal_migrate", FALSE)
+            on.exit(options(telegramR.disable_call_internal_migrate = old_opt), add = TRUE)
+            options(telegramR.disable_call_internal_migrate = TRUE)
             result <- self$invoke(ResendCodeRequest$new(phone, phone_hash))
             result <- parse_sent_code_fallback(result)
           },
@@ -364,6 +408,17 @@ TelegramClient <- R6::R6Class(
               self$phone_code_hash[[phone]] <- NULL
               self$log$info("Phone code expired in ResendCodeRequest, requesting a new code")
               return(self$send_code_request(phone, force_sms = FALSE, retry_count = retry_count + 1))
+            }
+            if (inherits(e, c("PhoneMigrateError", "NetworkMigrateError", "UserMigrateError"))) {
+              if (retry_count > 2) stop(e)
+              self$switch_dc(e$new_dc)
+              return(self$send_code_request(phone, force_sms = force_sms, retry_count = retry_count + 1))
+            }
+            mig_dc <- parse_migrate_dc(e)
+            if (!is.null(mig_dc)) {
+              if (retry_count > 2) stop(e)
+              self$switch_dc(mig_dc)
+              return(self$send_code_request(phone, force_sms = force_sms, retry_count = retry_count + 1))
             }
             stop(e)
           }
@@ -4692,7 +4747,6 @@ TelegramClient <- R6::R6Class(
             }
           },
           error = function(e) {
-            stop(sprintf("call_internal failed at step=%s: %s", step, conditionMessage(e)), call. = FALSE)
             if (inherits(e, c(
               "ServerError", "RpcCallFailError",
               "RpcMcgetFailError", "InterdcCallErrorError",
@@ -4734,14 +4788,32 @@ TelegramClient <- R6::R6Class(
               "PhoneMigrateError", "NetworkMigrateError",
               "UserMigrateError"
             ))) {
+              if (isTRUE(getOption("telegramR.disable_call_internal_migrate", FALSE))) {
+                stop(e)
+              }
               last_error <<- e
               message(sprintf("Phone migrated to %d", e$new_dc))
               should_raise <- inherits(e, c("PhoneMigrateError", "NetworkMigrateError"))
 
-              if (should_raise && self$is_user_authorized()) {
+              auth <- FALSE
+              tryCatch({
+                auth <- isTRUE(future::value(self$is_user_authorized()))
+              }, error = function(e) {
+                auth <<- FALSE
+              })
+              if (should_raise && auth) {
                 stop(e)
               }
               self$switch_dc(e$new_dc)
+              sender <<- private$sender
+              # Retry immediately on the new DC (avoid looping on old sender)
+              migrate_depth <- getOption("telegramR.migrate_depth", 0)
+              if (migrate_depth >= 2) {
+                stop(e)
+              }
+              on.exit(options(telegramR.migrate_depth = migrate_depth), add = TRUE)
+              options(telegramR.migrate_depth = migrate_depth + 1)
+              return(self$call_internal(sender, request, ordered = ordered, flood_sleep_threshold = flood_sleep_threshold))
             } else {
               stop(e)
             }
@@ -4754,6 +4826,9 @@ TelegramClient <- R6::R6Class(
         }
         stop(sprintf("Request was unsuccessful %d time(s)", attempt))
       }, error = function(e) {
+        if (inherits(e, c("RPCError", "PhoneMigrateError", "NetworkMigrateError", "UserMigrateError"))) {
+          stop(e)
+        }
         stop(sprintf("call_internal failed at step=%s: %s", step, conditionMessage(e)), call. = FALSE)
       })
     },
