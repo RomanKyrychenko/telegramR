@@ -355,7 +355,14 @@ TelegramClient <- R6::R6Class(
               log_migrate(sprintf("migrate error class=%s new_dc=%s", class(e)[1], e$new_dc))
               if (retry_count > 2) stop(e)
               if (!is.null(private$session$dc_id) && private$session$dc_id == e$new_dc) {
-                stop(sprintf("Phone migrated to %d, but client is already on that DC. Please retry later.", e$new_dc))
+                # Already on target DC; force reconnect and retry once
+                if (retry_count > 1) {
+                  stop(sprintf("Phone migrated to %d, but client is already on that DC. Please retry later.", e$new_dc))
+                }
+                tryCatch(self$clear_session_auth_key(delete_file = FALSE), error = function(e2) NULL)
+                tryCatch(self$disconnect(), error = function(e2) NULL)
+                tryCatch(self$connect(), error = function(e2) NULL)
+                return(self$send_code_request(phone, force_sms = force_sms, retry_count = retry_count + 1))
               }
               self$switch_dc(e$new_dc)
               log_migrate(sprintf("switched dc to %s", private$session$dc_id))
@@ -366,7 +373,13 @@ TelegramClient <- R6::R6Class(
               log_migrate(sprintf("migrate error msg=%s dc=%s", conditionMessage(e), mig_dc))
               if (retry_count > 2) stop(e)
               if (!is.null(private$session$dc_id) && private$session$dc_id == mig_dc) {
-                stop(sprintf("Phone migrated to %d, but client is already on that DC. Please retry later.", mig_dc))
+                if (retry_count > 1) {
+                  stop(sprintf("Phone migrated to %d, but client is already on that DC. Please retry later.", mig_dc))
+                }
+                tryCatch(self$clear_session_auth_key(delete_file = FALSE), error = function(e2) NULL)
+                tryCatch(self$disconnect(), error = function(e2) NULL)
+                tryCatch(self$connect(), error = function(e2) NULL)
+                return(self$send_code_request(phone, force_sms = force_sms, retry_count = retry_count + 1))
               }
               self$switch_dc(mig_dc)
               log_migrate(sprintf("switched dc to %s", private$session$dc_id))
