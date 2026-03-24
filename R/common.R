@@ -367,17 +367,23 @@ rpc_message_to_error <- function(rpc_error, request) {
   msg <- rpc_error$error_message
   if (is.null(msg)) msg <- "Unknown RPC error"
   if (is.null(code)) code <- 0L
-  # Enrich FLOOD_WAIT messages with a human-friendly wait hint
+  # FLOOD_WAIT — return a typed condition so call_internal can auto-sleep and retry
   if (is.character(msg) && grepl("^FLOOD_WAIT_\\d+$", msg)) {
     wait_sec <- as.integer(sub("^FLOOD_WAIT_", "", msg))
     if (!is.na(wait_sec)) {
-      wait_min <- wait_sec / 60
-      wait_hr <- wait_sec / 3600
-      hint <- sprintf(
-        "Wait %d seconds (~%.1f min, ~%.2f hours) before retrying. Consider logging in with a different user/account to avoid the wait.",
-        wait_sec, wait_min, wait_hr
-      )
-      msg <- sprintf("%s. %s", msg, hint)
+      return(structure(
+        class = c("FloodWaitError", "RPCError", "error", "condition"),
+        list(
+          message  = sprintf(
+            "RPCError %d: %s. Flood wait: %d seconds (~%.1f min).",
+            code, msg, wait_sec, wait_sec / 60
+          ),
+          error_code    = code,
+          error_message = msg,
+          request       = request,
+          seconds       = wait_sec
+        )
+      ))
     }
   }
   # Handle DC migration errors

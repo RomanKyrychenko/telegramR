@@ -4679,7 +4679,16 @@ TelegramClient <- R6::R6Class(
             Sys.sleep(diff)
             private$flood_waited_requests[[ctor_key]] <- NULL
           } else {
-            stop(errors$FloodWaitError(request = r, capture = diff))
+            stop(structure(
+              class = c("FloodWaitError", "RPCError", "error", "condition"),
+              list(
+                message       = sprintf("FloodWaitError: flood wait %d seconds (pre-check).", as.integer(diff)),
+                error_code    = 420L,
+                error_message = sprintf("FLOOD_WAIT_%d", as.integer(diff)),
+                request       = r,
+                seconds       = as.integer(diff)
+              )
+            ))
           }
         }
 

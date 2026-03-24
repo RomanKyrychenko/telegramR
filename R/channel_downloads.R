@@ -202,7 +202,123 @@
   NULL
 }
 
+.telegramR_resolve_future <- function(x) {
+  if (inherits(x, "Future")) {
+    return(future::value(x))
+  }
+  x
+}
+
+.telegramR_reconnect_client <- function(client) {
+  tryCatch(.telegramR_resolve_future(client$disconnect()), error = function(e) NULL)
+  tryCatch(.telegramR_resolve_future(client$connect()), error = function(e) NULL)
+  invisible(TRUE)
+}
+
+.telegramR_resolve_username_entity <- function(client, username) {
+  result <- .telegramR_resolve_future(client$call(ResolveUsernameRequest$new(username)))
+  pid <- get_peer_id(result$peer, add_mark = FALSE)
+  for (x in c(result$chats, result$users)) {
+    if (!is.null(x$id) && as.character(x$id) == as.character(pid)) {
+      return(x)
+    }
+  }
+  stop(sprintf("Could not resolve channel '%s'", username), call. = FALSE)
+}
+
+.telegramR_pluck <- function(x, ...) {
+  keys <- list(...)
+  cur <- x
+  for (key in keys) {
+    if (is.null(cur)) return(NULL)
+    cur <- tryCatch(cur[[key]], error = function(e) NULL)
+  }
+  cur
+}
+
+# Helper: convert a unix timestamp or NULL to POSIXct (UTC).
+.ts <- function(x) {
+  if (is.null(x) || length(x) == 0) return(as.POSIXct(NA_real_, origin = "1970-01-01", tz = "UTC"))
+  as.POSIXct(x, origin = "1970-01-01", tz = "UTC")
+}
+
+.telegramR_message_to_row_fast <- function(m, channel) {
+  if (!inherits(m, "Message")) return(NULL)
+
+  # Single outer tryCatch — on any unexpected field-access error, return NULL
+  # and let the caller fall back to the slow (safe_to_dict) path.
+  # R6 objects are environments; missing fields return NULL rather than
+  # throwing, so individual per-field tryCatch calls are unnecessary and add
+  # ~30 handler-setup overheads per message.
+  tryCatch({
+    # --- reactions ---
+    reactions_total <- 0L
+    reaction_counts <- list()
+    reaction_results <- m$reactions$results
+    if (length(reaction_results) > 0) {
+      for (rc in reaction_results) {
+        if (is.null(rc)) next
+        cnt <- as.numeric(rc$count %||% 0L)
+        reactions_total <- reactions_total + cnt
+        key <- rc$reaction$emoticon %||% rc$reaction$emoji %||% rc$reaction$reactions
+        if (!is.null(key) && length(key) == 1 && !is.na(key)) {
+          reaction_counts[[as.character(key)]] <- cnt
+        }
+      }
+    }
+
+    # --- media type ---
+    media <- m$media
+    media_type <- if (inherits(media, "MessageMediaPhoto")) {
+      "photo"
+    } else if (inherits(media, "MessageMediaDocument")) {
+      mt <- media$document$mime_type
+      if (is.character(mt) && length(mt) == 1 && !is.na(mt)) {
+        if      (startsWith(mt, "video/")) "video"
+        else if (startsWith(mt, "image/")) "image"
+        else if (startsWith(mt, "audio/")) "audio"
+        else mt
+      } else "document"
+    } else NA_character_
+
+    # --- forwards ---
+    fwd_from <- m$fwd_from
+    fwd_peer <- if (!is.null(fwd_from)) fwd_from$from_id else NULL
+    forward_from_id <- fwd_peer$channel_id %||% fwd_peer$user_id %||% fwd_peer$chat_id
+
+    # --- replies ---
+    reply_to  <- m$reply_to
+    replies   <- m$replies
+
+    list(
+      message_id        = as.numeric(m$id %||% NA_real_),
+      channel_id        = as.numeric(channel$id %||% NA_real_),
+      channel_username  = channel$username %||% NA_character_,
+      channel_title     = channel$title %||% NA_character_,
+      date              = .ts(m$date),
+      text              = m$message %||% NA_character_,
+      views             = as.numeric(m$views %||% NA_real_),
+      forwards          = as.numeric(m$forwards %||% NA_real_),
+      replies           = as.numeric(replies$replies %||% replies$replies_count %||% NA_real_),
+      reactions_total   = as.numeric(reactions_total),
+      reactions_json    = as.character(jsonlite::toJSON(reaction_counts, auto_unbox = TRUE, null = "null")),
+      media_type        = media_type,
+      is_forward        = !is.null(fwd_from),
+      forward_from_id   = as.numeric(forward_from_id %||% NA_real_),
+      forward_from_name = fwd_from$from_name %||% fwd_from$post_author %||% NA_character_,
+      reply_to_msg_id   = as.numeric(reply_to$reply_to_msg_id %||% NA_real_),
+      edit_date         = .ts(m$edit_date),
+      post_author       = as.character(m$post_author %||% NA_character_)
+    )
+  }, error = function(e) NULL)  # NULL triggers fallback to slow extraction path
+}
+
 .telegramR_extract_message_row <- function(m, channel) {
+  fast_row <- .telegramR_message_to_row_fast(m, channel)
+  if (!is.null(fast_row)) {
+    return(fast_row)
+  }
+
   md <- .telegramR_safe_to_dict(m)
   ch <- .telegramR_safe_to_dict(channel)
 
@@ -358,7 +474,7 @@
 
   if (is.character(channel)) {
     uname <- sub("^@", "", channel)
-    ent <- tryCatch(client$get_entity(uname), error = function(e) {
+    ent <- tryCatch(.telegramR_resolve_username_entity(client, uname), error = function(e) {
       msg <- conditionMessage(e)
       stop(sprintf(
         "Could not resolve channel '%s' (it may be deleted, renamed, or inaccessible). Original error: %s",
@@ -401,17 +517,36 @@
 #' @param include_channel logical. If TRUE, include channel fields on every row.
 #' @param start_date POSIXct/Date/character. Earliest date to include (UTC).
 #' @param end_date POSIXct/Date/character. Latest date to include (UTC).
+#' @param since_message_id integer or NULL. If set, only fetch messages with id > this value
+#'   (incremental/resume download). Maps to \code{min_id} in the API.
 #' @param show_progress logical. If TRUE, display a progress bar.
 #' @param timeout_sec numeric. Max seconds to wait per fetch before retrying. Use 0 to disable.
 #' @param max_timeouts integer. Number of timeouts to tolerate before aborting.
 #' @param reconnect_on_timeout logical. If TRUE, reconnect client on timeout.
+#' @param output_file character or NULL. When set, rows are written to this CSV file in chunks
+#'   rather than accumulated in memory. Returns the row count invisibly instead of a tibble.
+#'   Appends to the file if it already exists (adds header only on first write).
+#' @param chunk_size integer. Number of rows to buffer before each write when
+#'   \code{output_file} is set. Default 5000.
+#' @param partial_on_error logical. If TRUE (default), non-timeout errors emit a warning and
+#'   return the rows collected so far rather than throwing. If FALSE, errors propagate immediately.
 #' @param ... Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).
-#' @return A tibble.
+#' @return A tibble (or invisible row count when \code{output_file} is set).
 #' @export
-download_channel_messages <- function(client, channel, limit = Inf, include_channel = TRUE, start_date = NULL, end_date = NULL, show_progress = TRUE,
+download_channel_messages <- function(client, channel,
+                                      limit = Inf,
+                                      include_channel = TRUE,
+                                      start_date = NULL,
+                                      end_date = NULL,
+                                      since_message_id = NULL,
+                                      show_progress = TRUE,
                                       timeout_sec = getOption("telegramR.iter_timeout", 60),
                                       max_timeouts = 3,
-                                      reconnect_on_timeout = TRUE, ...) {
+                                      reconnect_on_timeout = TRUE,
+                                      output_file = NULL,
+                                      chunk_size = 5000L,
+                                      partial_on_error = TRUE,
+                                      ...) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
   }
@@ -431,6 +566,10 @@ download_channel_messages <- function(client, channel, limit = Inf, include_chan
   iter_args <- list(entity = ent, limit = limit)
   if (!is.null(end_dt)) {
     iter_args$offset_date <- end_dt
+  }
+  # since_message_id translates to min_id (server only returns messages with id > min_id)
+  if (!is.null(since_message_id) && is.numeric(since_message_id) && since_message_id > 0) {
+    iter_args$min_id <- as.integer(since_message_id)
   }
   iter_args <- c(iter_args, list(...))
 
@@ -454,55 +593,309 @@ download_channel_messages <- function(client, channel, limit = Inf, include_chan
     on.exit(tryCatch(close(pb), error = function(e) NULL), add = TRUE)
   }
 
-  rows <- list()
-  n <- 0L
+  streaming <- !is.null(output_file)
+  chunk_size <- max(1L, as.integer(chunk_size %||% 5000L))
+
+  # Helper: strip channel columns if include_channel = FALSE, then write/return
+  .strip_channel <- function(tbl) {
+    if (!isTRUE(include_channel)) {
+      tbl$channel_id       <- NULL
+      tbl$channel_username <- NULL
+      tbl$channel_title    <- NULL
+    }
+    tbl
+  }
+
+  # Helper: flush a row buffer to output_file
+  .flush <- function(buf, count) {
+    if (count == 0L || !streaming) return(invisible(NULL))
+    chunk <- .strip_channel(dplyr::bind_rows(buf[seq_len(count)]))
+    readr::write_csv(chunk, file = output_file,
+                     append     = file.exists(output_file),
+                     col_names  = !file.exists(output_file))
+    invisible(NULL)
+  }
+
+  rows  <- list()   # in-memory buffer (full accumulation OR per-chunk rolling buffer)
+  n     <- 0L       # total rows accepted
+  n_buf <- 0L       # rows in the current rolling buffer (streaming mode only)
   timeouts <- 0L
+
   repeat {
     item <- tryCatch(
       it$.next(),
       error = function(e) {
         msg <- conditionMessage(e)
-        if (grepl("PromiseTimeoutError|ReadTimeoutError", msg)) {
+        if (grepl("PromiseTimeoutError|ReadTimeoutError|No more data left to read", msg)) {
           timeouts <<- timeouts + 1L
           if (isTRUE(reconnect_on_timeout)) {
-            tryCatch(client$disconnect(), error = function(e2) NULL)
-            tryCatch(client$connect(), error = function(e2) NULL)
+            .telegramR_reconnect_client(client)
           }
           if (!is.null(max_timeouts) && is.finite(max_timeouts) && timeouts > max_timeouts) {
-            stop(sprintf("download_channel_messages aborted after %d timeouts (%.1fs each).", timeouts, timeout_sec))
+            stop(sprintf("download_channel_messages aborted after %d timeouts (%.1fs each).",
+                         timeouts, timeout_sec))
           }
           return(structure(list(timeout = TRUE), class = "telegramR_timeout"))
+        }
+        # Non-timeout error: save partial results when partial_on_error = TRUE
+        if (isTRUE(partial_on_error)) {
+          warning(sprintf(
+            "download_channel_messages: stopping after %d rows due to error: %s",
+            n, msg
+          ), call. = FALSE)
+          return(structure(list(abort = TRUE), class = "telegramR_abort"))
         }
         stop(e)
       }
     )
-    if (inherits(item, "telegramR_timeout")) {
-      next
-    }
-    if (is.null(item)) break
+    if (inherits(item, "telegramR_timeout")) next
+    if (inherits(item, "telegramR_abort"))   break
+    if (is.null(item))                       break
+
     row <- .telegramR_extract_message_row(item, ent)
     # Date range filter
     if (!is.null(row$date) && inherits(row$date, "POSIXt")) {
-      if (!is.null(end_dt) && row$date > end_dt) {
-        next
-      }
-      if (!is.null(start_dt) && row$date < start_dt) {
-        # If iterating newest->oldest, we can stop early once below start_date
-        break
-      }
+      if (!is.null(end_dt) && row$date > end_dt) next
+      if (!is.null(start_dt) && row$date < start_dt) break
     }
+
     n <- n + 1L
-    rows[[n]] <- row
+    if (streaming) {
+      n_buf <- n_buf + 1L
+      rows[[n_buf]] <- row
+      if (n_buf >= chunk_size) {
+        .flush(rows, n_buf)
+        rows  <- list()
+        n_buf <- 0L
+      }
+    } else {
+      rows[[n]] <- row
+    }
     if (show_pb) utils::setTxtProgressBar(pb, n)
   }
 
-  tbl <- if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble()
-  if (!isTRUE(include_channel)) {
-    tbl$channel_id <- NULL
-    tbl$channel_username <- NULL
-    tbl$channel_title <- NULL
+  if (n > 0) options(telegramR.needs_reconnect_after_bulk = TRUE)
+
+  if (streaming) {
+    .flush(rows, n_buf)   # flush any remaining buffer
+    return(invisible(n))
   }
-  tbl
+
+  .strip_channel(if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble())
+}
+
+#' Batch Download Multiple Telegram Channels
+#'
+#' Downloads info and messages for multiple channels in sequence, running each
+#' channel in an isolated \code{callr} subprocess so crashes cannot corrupt the
+#' parent session. Supports resume: channels already present in \code{msgs_file}
+#' are skipped when \code{skip_completed = TRUE}.
+#'
+#' @param channels character vector. Channel usernames (with or without "@") or
+#'   numeric ids.
+#' @param session character. Path to the Telegram session file (passed to
+#'   \code{TelegramClient$new()}).
+#' @param api_id integer. Telegram API id.
+#' @param api_hash character. Telegram API hash.
+#' @param info_file character. CSV file for channel info rows (appended to).
+#' @param msgs_file character. CSV file for message rows (appended to, streamed
+#'   in \code{chunk_size} chunks to avoid RAM accumulation).
+#' @param start_date character/Date/POSIXct or NULL. Passed to
+#'   \code{download_channel_messages()}.
+#' @param limit integer or Inf. Max messages per channel.
+#' @param timeout_sec numeric. Per-fetch timeout in seconds.
+#' @param max_timeouts integer. Timeouts before aborting a single channel.
+#' @param chunk_size integer. Rows buffered before each CSV flush.
+#' @param skip_completed logical. If TRUE (default), skip channels whose
+#'   username already appears in \code{msgs_file}.
+#' @param pkg_path character. Path to the package root; passed to
+#'   \code{devtools::load_all()} inside the subprocess. Defaults to
+#'   \code{getwd()}.
+#' @param verbose logical. If TRUE (default), print progress messages.
+#' @return A tibble with columns \code{channel}, \code{status}
+#'   ("ok"/"skipped"/"error"), \code{rows_downloaded}, \code{error_message}.
+#' @export
+batch_download_channels <- function(channels,
+                                    session,
+                                    api_id,
+                                    api_hash,
+                                    info_file      = "channel_info.csv",
+                                    msgs_file      = "channel_messages.csv",
+                                    start_date     = NULL,
+                                    limit          = Inf,
+                                    timeout_sec    = 30,
+                                    max_timeouts   = 5,
+                                    chunk_size     = 5000L,
+                                    skip_completed = TRUE,
+                                    dedup          = TRUE,
+                                    pkg_path       = getwd(),
+                                    verbose        = TRUE) {
+  if (missing(channels) || length(channels) == 0) stop("channels must be a non-empty vector")
+  if (missing(session))  stop("session is required")
+  if (missing(api_id))   stop("api_id is required")
+  if (missing(api_hash)) stop("api_hash is required")
+
+  pkg_path  <- normalizePath(pkg_path,  mustWork = FALSE)
+  info_path <- normalizePath(info_file, mustWork = FALSE)
+  msgs_path <- normalizePath(msgs_file, mustWork = FALSE)
+
+  # Read existing msgs_file once to build:
+  #   done_channels    – usernames already present (used by skip_completed)
+  #   max_id_by_channel – max message_id per username (used by dedup)
+  done_channels     <- character(0)
+  max_id_by_channel <- list()
+
+  if ((isTRUE(skip_completed) || isTRUE(dedup)) && file.exists(msgs_path)) {
+    tryCatch({
+      col_spec <- readr::cols(.default = readr::col_skip(),
+                              channel_username = readr::col_character(),
+                              message_id       = readr::col_double())
+      # Probe whether the needed columns exist
+      header <- tryCatch(
+        readr::read_csv(msgs_path, n_max = 0, col_types = readr::cols(.default = "c"),
+                        show_col_types = FALSE),
+        error = function(e) NULL
+      )
+      if (!is.null(header) && all(c("channel_username", "message_id") %in% names(header))) {
+        existing <- readr::read_csv(msgs_path, col_types = col_spec, show_col_types = FALSE)
+        existing <- existing[!is.na(existing$channel_username), ]
+        if (nrow(existing) > 0) {
+          done_channels <- unique(existing$channel_username)
+          if (isTRUE(dedup)) {
+            # max message_id per channel for since_message_id pass-through
+            for (u in done_channels) {
+              ids <- existing$message_id[existing$channel_username == u]
+              max_id_by_channel[[u]] <- max(ids, na.rm = TRUE)
+            }
+          }
+        }
+      }
+    }, error = function(e) {
+      warning("batch_download_channels: could not read msgs_file for resume/dedup: ",
+              e$message, call. = FALSE)
+    })
+  }
+
+  # Normalise channel names for comparison (strip leading @)
+  norm <- function(x) tolower(sub("^@", "", as.character(x)))
+
+  results <- vector("list", length(channels))
+
+  for (i in seq_along(channels)) {
+    ch <- channels[[i]]
+    ch_str <- as.character(ch)
+
+    # Resume: skip if username already in the output file
+    if (length(done_channels) > 0 && norm(ch_str) %in% norm(done_channels)) {
+      if (verbose) message(sprintf("[%d/%d] Skipping (already downloaded): %s",
+                                   i, length(channels), ch_str))
+      results[[i]] <- list(channel = ch_str, status = "skipped",
+                           rows_downloaded = NA_integer_, error_message = NA_character_)
+      next
+    }
+
+    # Dedup: if msgs_file already has rows for this channel, pass the max
+    # known message_id as since_message_id so only newer messages are fetched.
+    since_id <- NULL
+    if (isTRUE(dedup)) {
+      norm_ch <- norm(ch_str)
+      for (u in names(max_id_by_channel)) {
+        if (norm(u) == norm_ch) {
+          since_id <- max_id_by_channel[[u]]
+          break
+        }
+      }
+    }
+
+    if (verbose) {
+      if (!is.null(since_id)) {
+        message(sprintf("[%d/%d] Downloading (since id %s): %s",
+                        i, length(channels), since_id, ch_str))
+      } else {
+        message(sprintf("[%d/%d] Downloading: %s", i, length(channels), ch_str))
+      }
+    }
+
+    outcome <- tryCatch({
+      callr::r(
+        func = function(pkg_path, channel, session, api_id, api_hash,
+                        info_path, msgs_path,
+                        start_date, since_id, limit, timeout_sec, max_timeouts, chunk_size) {
+          setwd(pkg_path)
+          devtools::load_all(pkg_path, quiet = TRUE)
+
+          client <- TelegramClient$new(
+            session  = session,
+            api_id   = api_id,
+            api_hash = api_hash
+          )
+          client$connect()
+
+          info <- tryCatch(
+            download_channel_info(client, channel),
+            error = function(e) {
+              warning("download_channel_info failed: ", e$message, call. = FALSE)
+              NULL
+            }
+          )
+
+          n_rows <- download_channel_messages(
+            client, channel,
+            limit                = limit,
+            show_progress        = FALSE,
+            start_date           = start_date,
+            since_message_id     = since_id,
+            timeout_sec          = timeout_sec,
+            max_timeouts         = max_timeouts,
+            reconnect_on_timeout = TRUE,
+            output_file          = msgs_path,
+            chunk_size           = chunk_size,
+            partial_on_error     = TRUE
+          )
+
+          if (!is.null(info) && nrow(info) > 0) {
+            readr::write_csv(info, file = info_path,
+                             append    = file.exists(info_path),
+                             col_names = !file.exists(info_path))
+          }
+
+          tryCatch(client$disconnect(), error = function(e) NULL)
+          as.integer(n_rows)
+        },
+        args = list(
+          pkg_path     = pkg_path,
+          channel      = ch,
+          session      = session,
+          api_id       = api_id,
+          api_hash     = api_hash,
+          info_path    = info_path,
+          msgs_path    = msgs_path,
+          start_date   = start_date,
+          since_id     = since_id,
+          limit        = limit,
+          timeout_sec  = timeout_sec,
+          max_timeouts = max_timeouts,
+          chunk_size   = chunk_size
+        ),
+        show = verbose
+      )
+    }, error = function(e) e)
+
+    if (inherits(outcome, "error")) {
+      if (verbose) message(sprintf("  ERROR: %s", conditionMessage(outcome)))
+      results[[i]] <- list(channel = ch_str, status = "error",
+                           rows_downloaded = NA_integer_,
+                           error_message = conditionMessage(outcome))
+    } else {
+      if (verbose) message(sprintf("  OK: %d rows", outcome))
+      results[[i]] <- list(channel = ch_str, status = "ok",
+                           rows_downloaded = outcome, error_message = NA_character_)
+      # Update done_channels so consecutive duplicates in the input are skipped
+      done_channels <- c(done_channels, norm(ch_str))
+    }
+  }
+
+  dplyr::bind_rows(results)
 }
 
 #' Download Channel Reactions By Channel
@@ -946,6 +1339,11 @@ download_channel_info <- function(client, channel, region = NULL, include_raw = 
     stop("client is required")
   }
 
+  if (isTRUE(getOption("telegramR.needs_reconnect_after_bulk", FALSE))) {
+    .telegramR_reconnect_client(client)
+    options(telegramR.needs_reconnect_after_bulk = FALSE)
+  }
+
   old_promise_timeout <- getOption("telegramR.promise_timeout", NULL)
   on.exit(options(telegramR.promise_timeout = old_promise_timeout), add = TRUE)
   if (is.numeric(timeout_sec) && is.finite(timeout_sec) && timeout_sec > 0) {
@@ -970,9 +1368,8 @@ download_channel_info <- function(client, channel, region = NULL, include_raw = 
         last_resolve_err <<- e
         msg <- conditionMessage(e)
         trace_log(sprintf("resolve_channel error: %s", msg))
-        if (grepl("PromiseTimeoutError|ReadTimeoutError", msg) && isTRUE(reconnect_on_timeout)) {
-          tryCatch(client$disconnect(), error = function(e2) NULL)
-          tryCatch(client$connect(), error = function(e2) NULL)
+        if (grepl("PromiseTimeoutError|ReadTimeoutError|No more data left to read", msg) && isTRUE(reconnect_on_timeout)) {
+          .telegramR_reconnect_client(client)
         }
         NULL
       }
@@ -1009,16 +1406,15 @@ download_channel_info <- function(client, channel, region = NULL, include_raw = 
   last_full_err <- NULL
   for (attempt in seq_len(max_attempts)) {
     trace_log(sprintf("GetFullChannel attempt=%d", attempt))
-    full <- tryCatch(
-      client$invoke(GetFullChannelRequest$new(input_channel)),
-      error = function(e) {
-        last_full_err <<- e
-        msg <- conditionMessage(e)
-        trace_log(sprintf("GetFullChannel error: %s", msg))
-        if (grepl("PromiseTimeoutError|ReadTimeoutError", msg) && isTRUE(reconnect_on_timeout)) {
-          tryCatch(client$disconnect(), error = function(e2) NULL)
-          tryCatch(client$connect(), error = function(e2) NULL)
-        }
+      full <- tryCatch(
+        client$invoke(GetFullChannelRequest$new(input_channel)),
+        error = function(e) {
+          last_full_err <<- e
+          msg <- conditionMessage(e)
+          trace_log(sprintf("GetFullChannel error: %s", msg))
+          if (grepl("PromiseTimeoutError|ReadTimeoutError|No more data left to read", msg) && isTRUE(reconnect_on_timeout)) {
+            .telegramR_reconnect_client(client)
+          }
         NULL
       }
     )

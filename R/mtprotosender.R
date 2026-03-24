@@ -117,13 +117,16 @@ await_promise <- function(p, timeout = 30) {
     }
   )
 
+  # Block until the promise resolves, using later::run_now() with a 1-second
+  # timeout per iteration. This avoids the tight 50ms busy-wait that was
+  # burning CPU and leaking R's protection stack on long runs.
   started <- proc.time()[["elapsed"]]
   while (!resolved) {
-    later::run_now(timeoutSecs = 0.05)
-    elapsed <- proc.time()[["elapsed"]] - started
-    if (elapsed > timeout) {
+    remaining <- timeout - (proc.time()[["elapsed"]] - started)
+    if (remaining <= 0) {
       stop(sprintf("ReadTimeoutError: timed out after %.1f seconds waiting for promise", timeout))
     }
+    later::run_now(timeoutSecs = min(remaining, 1.0))
   }
 
   if (!is.null(error)) {
@@ -628,6 +631,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
     last_msg_id = NULL,
     sequence = NULL,
     disconnected_future = NULL,
+    future_salts = list(),   # list of FutureSalt objects, sorted valid_since asc
     ._resolve = function(x) {
       if (inherits(x, "promise")) {
         t <- getOption("telegramR.promise_timeout", NULL)
@@ -1129,6 +1133,9 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           message(sprintf("[trace] %s", msg))
         }
       }
+      safe_msg <- function(e) {
+        tryCatch(as.character(conditionMessage(e)), error = function(e2) "")
+      }
 
       private$._ensure_transport_connected()
 
@@ -1137,10 +1144,6 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         timeout_sec <- 30
       }
       started_at <- proc.time()[["elapsed"]]
-      recv_tries <- 0L
-      max_recv_tries <- as.integer(getOption("telegramR.recv_max_tries", 2))
-      if (is.na(max_recv_tries) || max_recv_tries < 1) max_recv_tries <- 2L
-
       state_done <- function(s) isTRUE(future::resolved(s$future))
 
       # First, flush the send queue: send all pending items
@@ -1157,6 +1160,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         data <- result$data
 
         if (!is.null(data) && length(data) > 0) {
+          private$update_salt_if_needed()
           data <- private$state$encrypt_message_data(data)
 
           for (st in batch) {
@@ -1184,17 +1188,9 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
               log_pump_raw("[pump] Send completed OK")
             },
             error = function(e) {
-              msg <- conditionMessage(e)
+              msg <- safe_msg(e)
               log_pump("[pump] Send error: %s", msg)
-              if (grepl("Not connected", msg, fixed = TRUE) ||
-                grepl("invalid connection", msg, ignore.case = TRUE) ||
-                grepl("cannot read from this connection", msg, ignore.case = TRUE)) {
-                tryCatch(await_promise(private$connection$disconnect()), error = function(e2) NULL)
-                private$._ensure_transport_connected()
-                await_promise(private$connection$send(data), timeout = timeout_sec)
-              } else {
-                stop(e)
-              }
+              stop(e)
             }
           )
         }
@@ -1226,6 +1222,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           batch <- result$batch
           data <- result$data
           if (!is.null(data) && length(data) > 0) {
+            private$update_salt_if_needed()
             data <- private$state$encrypt_message_data(data)
             for (st in batch) {
               if (!is.list(st)) {
@@ -1249,19 +1246,9 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             tryCatch(
               await_promise(private$connection$send(data), timeout = remaining),
               error = function(e) {
-                msg <- conditionMessage(e)
+                msg <- safe_msg(e)
                 log_pump("[pump] Re-send error: %s", msg)
-                if (grepl("Not connected", msg, fixed = TRUE) ||
-                  grepl("invalid connection", msg, ignore.case = TRUE) ||
-                  grepl("cannot read from this connection", msg, ignore.case = TRUE) ||
-                  grepl("cannot write to this connection", msg, ignore.case = TRUE) ||
-                  grepl("Error writing to socket", msg, ignore.case = TRUE)) {
-                  tryCatch(await_promise(private$connection$disconnect()), error = function(e2) NULL)
-                  private$._ensure_transport_connected()
-                  await_promise(private$connection$send(data), timeout = remaining)
-                } else {
-                  stop(e)
-                }
+                stop(e)
               }
             )
           }
@@ -1278,34 +1265,24 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             await_promise(private$connection$recv(), timeout = poll_timeout)
           },
           error = function(e) {
-            msg <- conditionMessage(e)
+            msg <- safe_msg(e)
             log_pump("[pump] recv error: %s", msg)
-            if (grepl("Not connected", msg, fixed = TRUE) ||
-              grepl("invalid connection", msg, ignore.case = TRUE) ||
-              grepl("cannot read from this connection", msg, ignore.case = TRUE) ||
-              grepl("ReadTimeoutError", msg, fixed = TRUE) ||
+
+            # A short poll timeout is expected while we wait for the matching RPC.
+            # Do not reconnect on every idle poll; that slows downloads down and can
+            # make long iterators look stuck.
+            if (grepl("ReadTimeoutError", msg, fixed = TRUE) ||
               grepl("PromiseTimeoutError", msg, fixed = TRUE)) {
-              recv_tries <<- recv_tries + 1L
-              if (recv_tries > max_recv_tries) {
-                stop(sprintf("ReadTimeoutError: no response after %d attempts", max_recv_tries))
-              }
-              tryCatch(await_promise(private$connection$disconnect()), error = function(e2) NULL)
-              private$._ensure_transport_connected()
-              await_promise(private$connection$recv(), timeout = poll_timeout)
-            } else {
-              stop(e)
+              return(NULL)
             }
+
+            stop(e)
           }
         )
         if (is.null(body)) {
           trace_log("recv returned NULL")
-          recv_tries <- recv_tries + 1L
-          if (recv_tries > max_recv_tries) {
-            stop(sprintf("ReadTimeoutError: no data after %d attempts", max_recv_tries))
-          }
           next
         }
-        recv_tries <- 0L
         trace_log(sprintf("recv bytes=%d", length(body)))
         log_pump("[pump] Received %d bytes", length(body))
 
@@ -1328,7 +1305,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
             }
           },
           error = function(e) {
-            log_pump("[pump] Decrypt/process error: %s", conditionMessage(e))
+            log_pump("[pump] Decrypt/process error: %s", safe_msg(e))
           }
         )
       }
@@ -1374,6 +1351,8 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           length(batch), length(data)
         )
 
+        # Rotate to a valid future salt if one is available.
+        private$update_salt_if_needed()
         # Encrypt the message data
         data <- private$state$encrypt_message_data(data)
 
@@ -1835,16 +1814,71 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #  Handle future salts
+    #  Handle future salts — store them for proactive salt rotation.
     handle_future_salts = function(message) {
-      # TODO save these salts and automatically adjust to the
-      # correct one whenever the salt in use expires.
       private$log$debug("Handling future salts for message %d", message$msg_id)
+
+      fs <- message$obj   # FutureSalts R6 object
+      if (inherits(fs, "FutureSalts") && is.list(fs$salts) && length(fs$salts) > 0) {
+        # Sort salts by valid_since so we can pick the right one efficiently.
+        private$future_salts <- fs$salts[order(vapply(
+          fs$salts,
+          function(s) as.numeric(s$valid_since %||% 0),
+          numeric(1)
+        ))]
+        private$log$debug(
+          "Stored %d future salt(s); first valid_since=%s",
+          length(private$future_salts),
+          as.character(private$future_salts[[1]]$valid_since %||% NA)
+        )
+        # Apply an immediately-valid salt right now if available.
+        private$update_salt_if_needed()
+      }
+
+      # Resolve any pending GetFutureSalts request.
       state <- private$pending_state[[msg_id_key(message$msg_id)]]
       private$pending_state[[msg_id_key(message$msg_id)]] <- NULL
       if (!is.null(state)) {
-        state$future$set_result(message$obj)
+        state$future$set_result(fs)
       }
+    },
+
+    #  Rotate private$state$salt to the best currently-valid future salt.
+    #  Called before every encrypt_message_data so expired salts are evicted
+    #  before the server has to reject them with BadServerSalt.
+    update_salt_if_needed = function() {
+      if (length(private$future_salts) == 0) return(invisible(NULL))
+      # Approximate server time using the locally-tracked offset.
+      server_now <- as.numeric(Sys.time()) + (private$state$time_offset %||% 0)
+      best <- NULL
+      keep <- list()
+      for (s in private$future_salts) {
+        vs <- as.numeric(s$valid_since  %||% 0)
+        vu <- as.numeric(s$valid_until  %||% Inf)
+        if (vs <= server_now && server_now <= vu) {
+          best <- s
+          keep[[length(keep) + 1L]] <- s
+        } else if (vs > server_now) {
+          # Not yet valid but still in the future — keep for later.
+          keep[[length(keep) + 1L]] <- s
+        }
+        # Salts whose valid_until is already past are silently discarded.
+      }
+      private$future_salts <- keep
+
+      if (!is.null(best) && !is.null(best$salt)) {
+        new_salt <- best$salt
+        if (!identical(private$state$salt, new_salt)) {
+          private$log$debug(
+            "Salt rotated to future salt %s (valid %s–%s)",
+            as.character(new_salt),
+            as.character(best$valid_since),
+            as.character(best$valid_until)
+          )
+          private$state$salt <- new_salt
+        }
+      }
+      invisible(NULL)
     },
 
     #  Handle state forgotten (MsgsStateReq and MsgResendReq)
