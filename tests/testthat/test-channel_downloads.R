@@ -168,3 +168,189 @@ test_that("download_channel_members returns participant rows", {
   expect_equal(out$user_id[[1]], 1)
   expect_equal(out$participant_type[[1]], "ChannelParticipant")
 })
+
+# ---------------------------------------------------------------------------
+# Timeout recovery
+# ---------------------------------------------------------------------------
+
+make_chan <- function() {
+  structure(
+    list(id = 1L, access_hash = 1L, username = "chan", title = "Channel",
+         date = as.numeric(Sys.time()), verified = FALSE, restricted = FALSE,
+         broadcast = TRUE),
+    class = "Channel"
+  )
+}
+
+test_that("download_channel_messages resumes after a single timeout", {
+  ch   <- make_chan()
+  msgs <- list(make_message(1, 1700000000, "Hello"))
+
+  # Call 1 → timeout; calls 2+ → items
+  client <- make_capturing_client(
+    iter_fn = function() make_error_iter(msgs, throw_on = 1L),
+    channel = ch
+  )
+
+  out <- download_channel_messages(
+    client, "chan",
+    limit            = Inf,
+    show_progress    = FALSE,
+    timeout_sec      = 0,     # disable promise timeout; error comes from iterator
+    max_timeouts     = 1L,
+    reconnect_on_timeout = FALSE
+  )
+
+  expect_equal(nrow(out), 1L)
+  expect_equal(out$text[[1]], "Hello")
+})
+
+test_that("download_channel_messages aborts after exceeding max_timeouts", {
+  ch <- make_chan()
+
+  # All three .next() calls throw; max_timeouts=1 means abort after 2nd timeout
+  client <- make_capturing_client(
+    iter_fn = function() make_error_iter(list(), throw_on = 1:3),
+    channel = ch
+  )
+
+  expect_error(
+    download_channel_messages(
+      client, "chan",
+      limit            = Inf,
+      show_progress    = FALSE,
+      timeout_sec      = 0,
+      max_timeouts     = 1L,
+      reconnect_on_timeout = FALSE
+    ),
+    regexp = "aborted after"
+  )
+})
+
+# ---------------------------------------------------------------------------
+# Partial results on non-timeout error
+# ---------------------------------------------------------------------------
+
+test_that("download_channel_messages returns partial rows on error when partial_on_error=TRUE", {
+  ch   <- make_chan()
+  msgs <- list(
+    make_message(2, 1700000000, "First"),
+    make_message(1, 1690000000, "Second")
+  )
+
+  # Return 2 items, then throw a non-timeout error
+  client <- make_capturing_client(
+    iter_fn = function() make_error_iter(msgs, throw_on = 3L, error_msg = "PEER_ID_INVALID"),
+    channel = ch
+  )
+
+  out <- NULL
+  expect_warning(
+    out <- download_channel_messages(
+      client, "chan",
+      limit            = Inf,
+      show_progress    = FALSE,
+      timeout_sec      = 0,
+      partial_on_error = TRUE
+    ),
+    regexp = "stopping after 2 rows"
+  )
+
+  expect_equal(nrow(out), 2L)
+})
+
+test_that("download_channel_messages propagates error when partial_on_error=FALSE", {
+  ch <- make_chan()
+
+  client <- make_capturing_client(
+    iter_fn = function() make_error_iter(list(), throw_on = 1L, error_msg = "PEER_ID_INVALID"),
+    channel = ch
+  )
+
+  expect_error(
+    download_channel_messages(
+      client, "chan",
+      limit            = Inf,
+      show_progress    = FALSE,
+      timeout_sec      = 0,
+      partial_on_error = FALSE
+    ),
+    regexp = "PEER_ID_INVALID"
+  )
+})
+
+# ---------------------------------------------------------------------------
+# since_message_id passes min_id to iter_messages
+# ---------------------------------------------------------------------------
+
+test_that("download_channel_messages passes since_message_id as min_id", {
+  ch <- make_chan()
+
+  client <- make_capturing_client(
+    iter_fn = function() make_fake_iter(list()),
+    channel = ch
+  )
+
+  download_channel_messages(
+    client, "chan",
+    since_message_id = 42L,
+    show_progress    = FALSE,
+    timeout_sec      = 0
+  )
+
+  # iter_messages may be called more than once (e.g. by estimate_channel_post_count);
+  # verify that at least one call carried min_id = 42L.
+  all_min_ids <- lapply(client$.env$iter_calls, `[[`, "min_id")
+  expect_true(42L %in% unlist(all_min_ids))
+})
+
+# ---------------------------------------------------------------------------
+# Streaming: output_file + chunk_size
+# ---------------------------------------------------------------------------
+
+test_that("download_channel_messages streams rows to output_file and returns count", {
+  ch   <- make_chan()
+  msgs <- lapply(seq_len(7), function(i) make_message(i, 1700000000 + i, paste("msg", i)))
+
+  client <- make_fake_client(msgs, ch)
+  tmp    <- tempfile(fileext = ".csv")
+  on.exit(unlink(tmp), add = TRUE)
+
+  n <- download_channel_messages(
+    client, "chan",
+    limit         = Inf,
+    show_progress = FALSE,
+    timeout_sec   = 0,
+    output_file   = tmp,
+    chunk_size    = 3L
+  )
+
+  expect_equal(n, 7L)
+  expect_true(file.exists(tmp))
+  written <- readr::read_csv(tmp, show_col_types = FALSE)
+  expect_equal(nrow(written), 7L)
+  expect_true("text" %in% names(written))
+})
+
+test_that("download_channel_messages appends to existing output_file without duplicate header", {
+  ch   <- make_chan()
+  batch1 <- list(make_message(2, 1700000002, "b"))
+  batch2 <- list(make_message(1, 1700000001, "a"))
+
+  tmp <- tempfile(fileext = ".csv")
+  on.exit(unlink(tmp), add = TRUE)
+
+  download_channel_messages(
+    make_fake_client(batch1, ch), "chan",
+    show_progress = FALSE, timeout_sec = 0, output_file = tmp
+  )
+  download_channel_messages(
+    make_fake_client(batch2, ch), "chan",
+    show_progress = FALSE, timeout_sec = 0, output_file = tmp
+  )
+
+  written <- readr::read_csv(tmp, show_col_types = FALSE)
+  expect_equal(nrow(written), 2L)
+  # header should appear exactly once (readr would give NA column names if doubled)
+  expect_true("text" %in% names(written))
+})

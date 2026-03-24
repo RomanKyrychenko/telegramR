@@ -56,3 +56,50 @@ test_that("BadMessageError initializes correctly with unknown code", {
   expect_equal(error$request, "request")
   expect_equal(error$code, 999)
 })
+
+# --- rpc_message_to_error / FloodWait ---
+
+test_that("rpc_message_to_error creates FloodWaitError condition for FLOOD_WAIT_N", {
+  err <- rpc_message_to_error(
+    list(error_code = 420L, error_message = "FLOOD_WAIT_60"),
+    request = NULL
+  )
+  expect_s3_class(err, "FloodWaitError")
+  expect_s3_class(err, "RPCError")
+  expect_s3_class(err, "error")
+  expect_equal(err$seconds, 60L)
+  expect_match(err$message, "60 seconds")
+})
+
+test_that("rpc_message_to_error FloodWaitError works for zero-second waits", {
+  err <- rpc_message_to_error(
+    list(error_code = 420L, error_message = "FLOOD_WAIT_0"),
+    request = NULL
+  )
+  expect_s3_class(err, "FloodWaitError")
+  expect_equal(err$seconds, 0L)
+})
+
+test_that("rpc_message_to_error creates plain RPCError for non-flood messages", {
+  err <- rpc_message_to_error(
+    list(error_code = 400L, error_message = "USERNAME_INVALID"),
+    request = NULL
+  )
+  expect_s3_class(err, "RPCError")
+  expect_false(inherits(err, "FloodWaitError"))
+})
+
+test_that("rpc_message_to_error handles NULL message/code gracefully", {
+  err <- rpc_message_to_error(list(), request = NULL)
+  expect_s3_class(err, "RPCError")
+  expect_false(inherits(err, "FloodWaitError"))
+})
+
+test_that("rpc_message_to_error attaches request to condition", {
+  fake_req <- list(type = "GetHistoryRequest")
+  err <- rpc_message_to_error(
+    list(error_code = 400L, error_message = "PEER_ID_INVALID"),
+    request = fake_req
+  )
+  expect_identical(err$request, fake_req)
+})
