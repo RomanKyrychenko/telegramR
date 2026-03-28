@@ -575,11 +575,13 @@ download_channel_messages <- function(client, channel,
 
   it <- do.call(client$iter_messages, iter_args)
 
-  # Progress bar setup (best-effort estimate)
+  # Progress bar setup (best-effort estimate).
+  # Only call estimate_channel_post_count when the progress bar will actually
+  # be shown — it makes an extra API round-trip and is unnecessary otherwise.
   total_est <- NA_real_
   if (is.finite(limit)) {
     total_est <- as.numeric(limit)
-  } else {
+  } else if (isTRUE(show_progress) && interactive()) {
     est <- tryCatch(estimate_channel_post_count(client, channel), error = function(e) NULL)
     if (!is.null(est) && !is.na(est$last_message_id[[1]])) {
       total_est <- as.numeric(est$last_message_id[[1]])
@@ -721,6 +723,8 @@ batch_download_channels <- function(channels,
                                     api_hash,
                                     info_file      = "channel_info.csv",
                                     msgs_file      = "channel_messages.csv",
+                                    reactions_file = NULL,
+                                    replies_file   = NULL,
                                     start_date     = NULL,
                                     limit          = Inf,
                                     timeout_sec    = 30,
@@ -735,9 +739,11 @@ batch_download_channels <- function(channels,
   if (missing(api_id))   stop("api_id is required")
   if (missing(api_hash)) stop("api_hash is required")
 
-  pkg_path  <- normalizePath(pkg_path,  mustWork = FALSE)
-  info_path <- normalizePath(info_file, mustWork = FALSE)
-  msgs_path <- normalizePath(msgs_file, mustWork = FALSE)
+  pkg_path       <- normalizePath(pkg_path,  mustWork = FALSE)
+  info_path      <- normalizePath(info_file, mustWork = FALSE)
+  msgs_path      <- normalizePath(msgs_file, mustWork = FALSE)
+  reactions_path <- if (!is.null(reactions_file)) normalizePath(reactions_file, mustWork = FALSE) else NULL
+  replies_path   <- if (!is.null(replies_file))   normalizePath(replies_file,   mustWork = FALSE) else NULL
 
   # Read existing msgs_file once to build:
   #   done_channels    – usernames already present (used by skip_completed)
@@ -747,22 +753,40 @@ batch_download_channels <- function(channels,
 
   if ((isTRUE(skip_completed) || isTRUE(dedup)) && file.exists(msgs_path)) {
     tryCatch({
-      col_spec <- readr::cols(.default = readr::col_skip(),
-                              channel_username = readr::col_character(),
-                              message_id       = readr::col_double())
-      # Probe whether the needed columns exist
-      header <- tryCatch(
-        readr::read_csv(msgs_path, n_max = 0, col_types = readr::cols(.default = "c"),
-                        show_col_types = FALSE),
-        error = function(e) NULL
-      )
-      if (!is.null(header) && all(c("channel_username", "message_id") %in% names(header))) {
-        existing <- readr::read_csv(msgs_path, col_types = col_spec, show_col_types = FALSE)
+      # Use data.table::fread when available — it reads only the two needed
+      # columns and is 5-10× faster than readr on large CSVs.
+      existing <- if (requireNamespace("data.table", quietly = TRUE)) {
+        tryCatch(
+          data.table::fread(msgs_path,
+                            select      = c("channel_username", "message_id"),
+                            colClasses  = list(character = "channel_username",
+                                               numeric   = "message_id"),
+                            data.table  = FALSE,
+                            showProgress = FALSE),
+          error = function(e) NULL
+        )
+      } else {
+        # readr fallback: probe header first to avoid error on missing columns
+        hdr <- tryCatch(
+          readr::read_csv(msgs_path, n_max = 0,
+                          col_types = readr::cols(.default = "c"),
+                          show_col_types = FALSE),
+          error = function(e) NULL
+        )
+        if (!is.null(hdr) && all(c("channel_username", "message_id") %in% names(hdr))) {
+          readr::read_csv(msgs_path,
+                          col_types = readr::cols(channel_username = "c",
+                                                  message_id       = "d",
+                                                  .default         = readr::col_skip()),
+                          show_col_types = FALSE)
+        } else NULL
+      }
+
+      if (!is.null(existing) && nrow(existing) > 0) {
         existing <- existing[!is.na(existing$channel_username), ]
         if (nrow(existing) > 0) {
           done_channels <- unique(existing$channel_username)
           if (isTRUE(dedup)) {
-            # max message_id per channel for since_message_id pass-through
             for (u in done_channels) {
               ids <- existing$message_id[existing$channel_username == u]
               max_id_by_channel[[u]] <- max(ids, na.rm = TRUE)
@@ -790,7 +814,8 @@ batch_download_channels <- function(channels,
       if (verbose) message(sprintf("[%d/%d] Skipping (already downloaded): %s",
                                    i, length(channels), ch_str))
       results[[i]] <- list(channel = ch_str, status = "skipped",
-                           rows_downloaded = NA_integer_, error_message = NA_character_)
+                           rows_downloaded = NA_integer_, time_elapsed_sec = 0,
+                           error_message = NA_character_)
       next
     }
 
@@ -816,10 +841,12 @@ batch_download_channels <- function(channels,
       }
     }
 
+    t_start <- proc.time()[["elapsed"]]
+
     outcome <- tryCatch({
       callr::r(
         func = function(pkg_path, channel, session, api_id, api_hash,
-                        info_path, msgs_path,
+                        info_path, msgs_path, reactions_path, replies_path,
                         start_date, since_id, limit, timeout_sec, max_timeouts, chunk_size) {
           setwd(pkg_path)
           devtools::load_all(pkg_path, quiet = TRUE)
@@ -859,38 +886,77 @@ batch_download_channels <- function(channels,
                              col_names = !file.exists(info_path))
           }
 
+          # Optional: download reactions
+          if (!is.null(reactions_path)) {
+            tryCatch({
+              rxns <- download_channel_reactions(
+                client, channel,
+                show_progress = FALSE,
+                start_date    = start_date,
+                timeout_sec   = timeout_sec
+              )
+              if (!is.null(rxns) && nrow(rxns) > 0) {
+                readr::write_csv(rxns, file = reactions_path,
+                                 append    = file.exists(reactions_path),
+                                 col_names = !file.exists(reactions_path))
+              }
+            }, error = function(e) warning("reactions download failed: ", e$message, call. = FALSE))
+          }
+
+          # Optional: download replies
+          if (!is.null(replies_path)) {
+            tryCatch({
+              reps <- download_channel_replies(
+                client, channel,
+                show_progress = FALSE,
+                timeout_sec   = timeout_sec
+              )
+              if (!is.null(reps) && nrow(reps) > 0) {
+                readr::write_csv(reps, file = replies_path,
+                                 append    = file.exists(replies_path),
+                                 col_names = !file.exists(replies_path))
+              }
+            }, error = function(e) warning("replies download failed: ", e$message, call. = FALSE))
+          }
+
           tryCatch(client$disconnect(), error = function(e) NULL)
           as.integer(n_rows)
         },
         args = list(
-          pkg_path     = pkg_path,
-          channel      = ch,
-          session      = session,
-          api_id       = api_id,
-          api_hash     = api_hash,
-          info_path    = info_path,
-          msgs_path    = msgs_path,
-          start_date   = start_date,
-          since_id     = since_id,
-          limit        = limit,
-          timeout_sec  = timeout_sec,
-          max_timeouts = max_timeouts,
-          chunk_size   = chunk_size
+          pkg_path       = pkg_path,
+          channel        = ch,
+          session        = session,
+          api_id         = api_id,
+          api_hash       = api_hash,
+          info_path      = info_path,
+          msgs_path      = msgs_path,
+          reactions_path = reactions_path,
+          replies_path   = replies_path,
+          start_date     = start_date,
+          since_id       = since_id,
+          limit          = limit,
+          timeout_sec    = timeout_sec,
+          max_timeouts   = max_timeouts,
+          chunk_size     = chunk_size
         ),
         show = verbose
       )
     }, error = function(e) e)
 
+    elapsed <- round(proc.time()[["elapsed"]] - t_start, 1)
+
     if (inherits(outcome, "error")) {
       if (verbose) message(sprintf("  ERROR: %s", conditionMessage(outcome)))
       results[[i]] <- list(channel = ch_str, status = "error",
                            rows_downloaded = NA_integer_,
+                           time_elapsed_sec = elapsed,
                            error_message = conditionMessage(outcome))
     } else {
-      if (verbose) message(sprintf("  OK: %d rows", outcome))
+      if (verbose) message(sprintf("  OK: %d rows (%.1fs)", outcome, elapsed))
       results[[i]] <- list(channel = ch_str, status = "ok",
-                           rows_downloaded = outcome, error_message = NA_character_)
-      # Update done_channels so consecutive duplicates in the input are skipped
+                           rows_downloaded = outcome,
+                           time_elapsed_sec = elapsed,
+                           error_message = NA_character_)
       done_channels <- c(done_channels, norm(ch_str))
     }
   }
