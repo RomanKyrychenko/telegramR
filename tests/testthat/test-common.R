@@ -103,3 +103,54 @@ test_that("rpc_message_to_error attaches request to condition", {
   )
   expect_identical(err$request, fake_req)
 })
+
+# --- DC migration errors ---
+
+test_that("rpc_message_to_error creates PhoneMigrateError for PHONE_MIGRATE_N", {
+  err <- rpc_message_to_error(
+    list(error_code = 303L, error_message = "PHONE_MIGRATE_5"),
+    request = NULL
+  )
+  expect_s3_class(err, "PhoneMigrateError")
+  expect_s3_class(err, "RPCError")
+  expect_equal(err$new_dc, 5L)
+})
+
+test_that("rpc_message_to_error creates NetworkMigrateError for NETWORK_MIGRATE_N", {
+  err <- rpc_message_to_error(
+    list(error_code = 303L, error_message = "NETWORK_MIGRATE_2"),
+    request = NULL
+  )
+  expect_s3_class(err, "NetworkMigrateError")
+  expect_equal(err$new_dc, 2L)
+})
+
+test_that("rpc_message_to_error creates UserMigrateError for USER_MIGRATE_N", {
+  err <- rpc_message_to_error(
+    list(error_code = 303L, error_message = "USER_MIGRATE_4"),
+    request = NULL
+  )
+  expect_s3_class(err, "UserMigrateError")
+  expect_equal(err$new_dc, 4L)
+})
+
+# --- Malformed / edge-case FLOOD_WAIT ---
+
+test_that("rpc_message_to_error falls back to RPCError for malformed FLOOD_WAIT", {
+  # Non-numeric suffix — should NOT produce FloodWaitError
+  err <- rpc_message_to_error(
+    list(error_code = 420L, error_message = "FLOOD_WAIT_abc"),
+    request = NULL
+  )
+  expect_false(inherits(err, "FloodWaitError"))
+  expect_s3_class(err, "RPCError")
+})
+
+test_that("rpc_message_to_error handles AUTH_KEY_UNREGISTERED by enriching message", {
+  err <- rpc_message_to_error(
+    list(error_code = 401L, error_message = "AUTH_KEY_UNREGISTERED"),
+    request = NULL
+  )
+  expect_s3_class(err, "RPCError")
+  expect_match(err$message, "(?i)reconnect", perl = TRUE)
+})
