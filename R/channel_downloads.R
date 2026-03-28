@@ -1,4 +1,16 @@
 #  @noRd
+# Write a data frame as CSV, using readr if available and base utils otherwise.
+.write_csv_compat <- function(df, file, append = FALSE, col_names = TRUE) {
+  if (requireNamespace("readr", quietly = TRUE)) {
+    readr::write_csv(df, file = file, append = append, col_names = col_names)
+  } else {
+    utils::write.table(df, file = file, append = append, col.names = col_names,
+                       row.names = FALSE, sep = ",", quote = TRUE,
+                       fileEncoding = "UTF-8")
+  }
+}
+
+#  @noRd
 .telegramR_safe_to_dict <- function(x) {
   if (inherits(x, "TLObject")) {
     # Avoid calling to_dict on Message/MessageService to prevent noisy failures
@@ -612,9 +624,9 @@ download_channel_messages <- function(client, channel,
   .flush <- function(buf, count) {
     if (count == 0L || !streaming) return(invisible(NULL))
     chunk <- .strip_channel(dplyr::bind_rows(buf[seq_len(count)]))
-    readr::write_csv(chunk, file = output_file,
-                     append     = file.exists(output_file),
-                     col_names  = !file.exists(output_file))
+    .write_csv_compat(chunk, file = output_file,
+                      append    = file.exists(output_file),
+                      col_names = !file.exists(output_file))
     invisible(NULL)
   }
 
@@ -881,9 +893,9 @@ batch_download_channels <- function(channels,
           )
 
           if (!is.null(info) && nrow(info) > 0) {
-            readr::write_csv(info, file = info_path,
-                             append    = file.exists(info_path),
-                             col_names = !file.exists(info_path))
+            .write_csv_compat(info, file = info_path,
+                              append    = file.exists(info_path),
+                              col_names = !file.exists(info_path))
           }
 
           # Optional: download reactions
@@ -896,9 +908,9 @@ batch_download_channels <- function(channels,
                 timeout_sec   = timeout_sec
               )
               if (!is.null(rxns) && nrow(rxns) > 0) {
-                readr::write_csv(rxns, file = reactions_path,
-                                 append    = file.exists(reactions_path),
-                                 col_names = !file.exists(reactions_path))
+                .write_csv_compat(rxns, file = reactions_path,
+                                  append    = file.exists(reactions_path),
+                                  col_names = !file.exists(reactions_path))
               }
             }, error = function(e) warning("reactions download failed: ", e$message, call. = FALSE))
           }
@@ -912,9 +924,9 @@ batch_download_channels <- function(channels,
                 timeout_sec   = timeout_sec
               )
               if (!is.null(reps) && nrow(reps) > 0) {
-                readr::write_csv(reps, file = replies_path,
-                                 append    = file.exists(replies_path),
-                                 col_names = !file.exists(replies_path))
+                .write_csv_compat(reps, file = replies_path,
+                                  append    = file.exists(replies_path),
+                                  col_names = !file.exists(replies_path))
               }
             }, error = function(e) warning("replies download failed: ", e$message, call. = FALSE))
           }

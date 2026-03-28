@@ -327,7 +327,7 @@ test_that("download_channel_messages streams rows to output_file and returns cou
 
   expect_equal(n, 7L)
   expect_true(file.exists(tmp))
-  written <- readr::read_csv(tmp, show_col_types = FALSE)
+  written <- utils::read.csv(tmp, stringsAsFactors = FALSE)
   expect_equal(nrow(written), 7L)
   expect_true("text" %in% names(written))
 })
@@ -349,9 +349,9 @@ test_that("download_channel_messages appends to existing output_file without dup
     show_progress = FALSE, timeout_sec = 0, output_file = tmp
   )
 
-  written <- readr::read_csv(tmp, show_col_types = FALSE)
+  written <- utils::read.csv(tmp, stringsAsFactors = FALSE)
   expect_equal(nrow(written), 2L)
-  # header should appear exactly once (readr would give NA column names if doubled)
+  # header should appear exactly once
   expect_true("text" %in% names(written))
 })
 
@@ -550,11 +550,11 @@ test_that("batch_download_channels skips channels already in msgs_file", {
   tmp_msgs <- tempfile(fileext = ".csv")
   on.exit(unlink(tmp_msgs), add = TRUE)
 
-  readr::write_csv(
+  utils::write.csv(
     data.frame(channel_username = c("chan1", "chan2"),
                message_id       = c(10L, 20L),
                stringsAsFactors = FALSE),
-    tmp_msgs
+    tmp_msgs, row.names = FALSE
   )
 
   results <- batch_download_channels(
@@ -576,11 +576,11 @@ test_that("batch_download_channels dedup reads max message_id from existing file
   tmp_msgs <- tempfile(fileext = ".csv")
   on.exit(unlink(tmp_msgs), add = TRUE)
 
-  readr::write_csv(
+  utils::write.csv(
     data.frame(channel_username = c("alpha", "alpha", "beta"),
                message_id       = c(100L, 200L, 50L),
                stringsAsFactors = FALSE),
-    tmp_msgs
+    tmp_msgs, row.names = FALSE
   )
 
   # With skip_completed=FALSE, the function will try to spawn subprocesses.
