@@ -13,10 +13,14 @@ download_channel_messages(
   include_channel = TRUE,
   start_date = NULL,
   end_date = NULL,
+  since_message_id = NULL,
   show_progress = TRUE,
   timeout_sec = getOption("telegramR.iter_timeout", 60),
   max_timeouts = 3,
   reconnect_on_timeout = TRUE,
+  output_file = NULL,
+  chunk_size = 5000L,
+  partial_on_error = TRUE,
   ...
 )
 ```
@@ -48,6 +52,11 @@ download_channel_messages(
 
   POSIXct/Date/character. Latest date to include (UTC).
 
+- since_message_id:
+
+  integer or NULL. If set, only fetch messages with id \> this value
+  (incremental/resume download). Maps to `min_id` in the API.
+
 - show_progress:
 
   logical. If TRUE, display a progress bar.
@@ -65,10 +74,28 @@ download_channel_messages(
 
   logical. If TRUE, reconnect client on timeout.
 
+- output_file:
+
+  character or NULL. When set, rows are written to this CSV file in
+  chunks rather than accumulated in memory. Returns the row count
+  invisibly instead of a tibble. Appends to the file if it already
+  exists (adds header only on first write).
+
+- chunk_size:
+
+  integer. Number of rows to buffer before each write when `output_file`
+  is set. Default 5000.
+
+- partial_on_error:
+
+  logical. If TRUE (default), non-timeout errors emit a warning and
+  return the rows collected so far rather than throwing. If FALSE,
+  errors propagate immediately.
+
 - ...:
 
   Passed to client\$iter_messages() (e.g. offset_id, max_id, min_id).
 
 ## Value
 
-A tibble.
+A tibble (or invisible row count when `output_file` is set).
