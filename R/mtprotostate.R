@@ -43,11 +43,7 @@ unpackInt64 <- function(raw_vector) {
   if (length(raw_vector) != 8) {
     stop("Invalid input: raw_vector must be exactly 8 bytes long")
   }
-  value <- 0
-  for (i in 1:8) {
-    value <- value + as.numeric(raw_vector[i]) * (256^(i - 1))
-  }
-  return(value)
+  unpack_int64(raw_vector)
 }
 
 #  Pack a 64-bit integer (little-endian) into a raw vector
@@ -58,27 +54,11 @@ packInt64 <- function(value) {
   if (length(value) != 1 || is.na(value)) {
     stop("Invalid input: value must be a single, non-NA number")
   }
-  v <- if (inherits(value, "bigz")) {
-    value
-  } else if (is.character(value)) {
-    gmp::as.bigz(value)
-  } else {
-    gmp::as.bigz(sprintf("%.0f", as.numeric(value)))
+  # Coerce bigz to character so the C++ function can parse via strtoull
+  if (inherits(value, "bigz")) {
+    value <- as.character(value)
   }
-
-  # Support negatives via two's complement in 64-bit space.
-  if (v < 0) {
-    v <- v + gmp::pow.bigz(2, 64)
-  }
-
-  out <- raw(8)
-  div <- gmp::as.bigz(256)
-  for (i in 1:8) {
-    byte <- as.integer(gmp::mod.bigz(v, div))
-    out[i] <- as.raw(byte)
-    v <- gmp::divq.bigz(v, div)
-  }
-  return(out)
+  pack_int64(value)
 }
 
 #  MTProto protocol state management

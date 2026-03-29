@@ -1,3 +1,7 @@
+#' @useDynLib telegramR, .registration = TRUE
+#' @importFrom Rcpp sourceRcpp
+NULL
+
 .onLoad <- function(libname, pkgname) {
   defaults <- list(
     telegramR.async = FALSE,

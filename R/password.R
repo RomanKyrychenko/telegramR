@@ -143,13 +143,7 @@ PasswordKdf <- R6::R6Class(
     #  @param b A raw vector (bytes).
     #  @return A raw vector of the XOR result.
     xor = function(a, b) {
-      # Ensure both are raw vectors of the same length
-      len <- min(length(a), length(b))
-      result <- raw(len)
-      for (i in seq_len(len)) {
-        result[i] <- as.raw(bitwXor(as.integer(a[i]), as.integer(b[i])))
-      }
-      return(result)
+      xor_bytes_cpp(a, b)
     },
 
     #  @description Compute PBKDF2 with SHA512.

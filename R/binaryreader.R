@@ -146,30 +146,15 @@ BinaryReader <- R6::R6Class(
     #  @return An integer value.
     bytes_to_int = function(bytes, signed = TRUE) {
       if (length(bytes) > 4) {
-        # Use big integer arithmetic and return bigz to preserve
-        # full 64-bit precision (R doubles only have 53-bit mantissa).
-        hex <- paste(sprintf("%02x", as.integer(rev(bytes))), collapse = "")
-        val <- gmp::as.bigz(paste0("0x", hex))
+        # Use big integer arithmetic to preserve full 64-bit precision.
+        val <- gmp::as.bigz(paste0("0x", bytes_to_hex_be_cpp(bytes)))
         if (signed) {
-          # Handle sign for two's complement values.
           max_val <- gmp::pow.bigz(2, 8 * length(bytes))
-          if (val >= max_val / 2) {
-            val <- val - max_val
-          }
+          if (val >= max_val / 2) val <- val - max_val
         }
         return(val)
       } else {
-        # 32-bit and smaller values.
-        value <- sum(as.numeric(bytes) * 256^(seq_along(bytes) - 1))
-        if (isTRUE(signed)) {
-          max_val <- 256^length(bytes)
-          if (value >= max_val / 2) {
-            value <- value - max_val
-          }
-          return(as.integer(value))
-        }
-        # Unsigned 32-bit can exceed R integer range, return numeric.
-        return(as.numeric(value))
+        bytes_to_int32_cpp(bytes, isTRUE(signed))
       }
     },
 

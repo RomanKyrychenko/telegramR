@@ -944,11 +944,7 @@ int_to_bytes <- function(val, length, endian = "big") {
 #  @return A raw vector.
 #  @export
 xor_bytes <- function(a, b) {
-  len <- min(base::length(a), base::length(b))
-  if (len == 0) {
-    return(raw(0))
-  }
-  return(as.raw(bitwXor(as.integer(a[1:len]), as.integer(b[1:len]))))
+  xor_bytes_cpp(a, b)
 }
 
 #  @title SHA1 Hash
