@@ -714,6 +714,10 @@ download_channel_messages <- function(client, channel,
 #' @param info_file character. CSV file for channel info rows (appended to).
 #' @param msgs_file character. CSV file for message rows (appended to, streamed
 #'   in \code{chunk_size} chunks to avoid RAM accumulation).
+#' @param reactions_file character or NULL. If set, reaction counts are written
+#'   to this CSV file.
+#' @param replies_file character or NULL. If set, reply counts are written to
+#'   this CSV file.
 #' @param start_date character/Date/POSIXct or NULL. Passed to
 #'   \code{download_channel_messages()}.
 #' @param limit integer or Inf. Max messages per channel.
@@ -722,6 +726,8 @@ download_channel_messages <- function(client, channel,
 #' @param chunk_size integer. Rows buffered before each CSV flush.
 #' @param skip_completed logical. If TRUE (default), skip channels whose
 #'   username already appears in \code{msgs_file}.
+#' @param dedup logical. If TRUE (default), skip messages already present in
+#'   \code{msgs_file} based on \code{message_id}.
 #' @param pkg_path character. Path to the package root; passed to
 #'   \code{devtools::load_all()} inside the subprocess. Defaults to
 #'   \code{getwd()}.
