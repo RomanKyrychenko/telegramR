@@ -199,9 +199,8 @@ test_that("BinaryReader tgread_object parses empty Vector (0x1cb5c415)", {
 
 test_that("BinaryReader tgread_object returns list with CONSTRUCTOR_ID for unknown ctor", {
   # Use a constructor id that is very unlikely to match any known type
-  b <- c(
-    writeBin(0xDEADBEEFL, raw(), size = 4L, endian = "little")
-  )
+  # 0xDEADBEEF in little-endian bytes (avoids non-integer L suffix warning)
+  b <- as.raw(c(0xEF, 0xBE, 0xAD, 0xDE))
   r   <- BinaryReader$new(b)
   obj <- r$tgread_object()
   expect_true(is.list(obj))
