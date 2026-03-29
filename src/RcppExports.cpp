@@ -70,6 +70,86 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// bytes_to_int32
+SEXP bytes_to_int32(RawVector bytes, bool is_signed);
+RcppExport SEXP _telegramR_bytes_to_int32(SEXP bytesSEXP, SEXP is_signedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< RawVector >::type bytes(bytesSEXP);
+    Rcpp::traits::input_parameter< bool >::type is_signed(is_signedSEXP);
+    rcpp_result_gen = Rcpp::wrap(bytes_to_int32(bytes, is_signed));
+    return rcpp_result_gen;
+END_RCPP
+}
+// bytes_to_hex_be
+String bytes_to_hex_be(RawVector bytes);
+RcppExport SEXP _telegramR_bytes_to_hex_be(SEXP bytesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< RawVector >::type bytes(bytesSEXP);
+    rcpp_result_gen = Rcpp::wrap(bytes_to_hex_be(bytes));
+    return rcpp_result_gen;
+END_RCPP
+}
+// serialize_bytes_cpp
+RawVector serialize_bytes_cpp(RawVector data);
+RcppExport SEXP _telegramR_serialize_bytes_cpp(SEXP dataSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< RawVector >::type data(dataSEXP);
+    rcpp_result_gen = Rcpp::wrap(serialize_bytes_cpp(data));
+    return rcpp_result_gen;
+END_RCPP
+}
+// pack_int32
+RawVector pack_int32(double value);
+RcppExport SEXP _telegramR_pack_int32(SEXP valueSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type value(valueSEXP);
+    rcpp_result_gen = Rcpp::wrap(pack_int32(value));
+    return rcpp_result_gen;
+END_RCPP
+}
+// hex_to_bytes
+RawVector hex_to_bytes(String hex_str, int out_len, bool little_endian);
+RcppExport SEXP _telegramR_hex_to_bytes(SEXP hex_strSEXP, SEXP out_lenSEXP, SEXP little_endianSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< String >::type hex_str(hex_strSEXP);
+    Rcpp::traits::input_parameter< int >::type out_len(out_lenSEXP);
+    Rcpp::traits::input_parameter< bool >::type little_endian(little_endianSEXP);
+    rcpp_result_gen = Rcpp::wrap(hex_to_bytes(hex_str, out_len, little_endian));
+    return rcpp_result_gen;
+END_RCPP
+}
+// encode_waveform_cpp
+RawVector encode_waveform_cpp(RawVector waveform);
+RcppExport SEXP _telegramR_encode_waveform_cpp(SEXP waveformSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< RawVector >::type waveform(waveformSEXP);
+    rcpp_result_gen = Rcpp::wrap(encode_waveform_cpp(waveform));
+    return rcpp_result_gen;
+END_RCPP
+}
+// decode_waveform_cpp
+RawVector decode_waveform_cpp(RawVector waveform);
+RcppExport SEXP _telegramR_decode_waveform_cpp(SEXP waveformSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< RawVector >::type waveform(waveformSEXP);
+    rcpp_result_gen = Rcpp::wrap(decode_waveform_cpp(waveform));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_telegramR_aes_ige_encrypt", (DL_FUNC) &_telegramR_aes_ige_encrypt, 3},
@@ -77,6 +157,13 @@ static const R_CallMethodDef CallEntries[] = {
     {"_telegramR_pack_int64", (DL_FUNC) &_telegramR_pack_int64, 1},
     {"_telegramR_unpack_int64", (DL_FUNC) &_telegramR_unpack_int64, 1},
     {"_telegramR_xor_bytes", (DL_FUNC) &_telegramR_xor_bytes, 2},
+    {"_telegramR_bytes_to_int32", (DL_FUNC) &_telegramR_bytes_to_int32, 2},
+    {"_telegramR_bytes_to_hex_be", (DL_FUNC) &_telegramR_bytes_to_hex_be, 1},
+    {"_telegramR_serialize_bytes_cpp", (DL_FUNC) &_telegramR_serialize_bytes_cpp, 1},
+    {"_telegramR_pack_int32", (DL_FUNC) &_telegramR_pack_int32, 1},
+    {"_telegramR_hex_to_bytes", (DL_FUNC) &_telegramR_hex_to_bytes, 3},
+    {"_telegramR_encode_waveform_cpp", (DL_FUNC) &_telegramR_encode_waveform_cpp, 1},
+    {"_telegramR_decode_waveform_cpp", (DL_FUNC) &_telegramR_decode_waveform_cpp, 1},
     {NULL, NULL, 0}
 };
 
