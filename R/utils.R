@@ -1,8 +1,11 @@
 # Suppress R CMD check notes for R6 self references and other globals
 utils::globalVariables(c("self", "private", "super", "PasswordHelper"))
 
-#  @importFrom stats setNames
-#  @importFrom mime mimemap
+#' @importFrom stats setNames
+#' @importFrom mime mimemap
+#' @importFrom httr GET content
+#' @importFrom logger log_debug log_info log_warn
+#' @importFrom xml2 read_xml xml_type xml_text xml_children xml_name xml_attr
 NULL
 
 #  Register some of the most common mime-types to avoid any issues.
