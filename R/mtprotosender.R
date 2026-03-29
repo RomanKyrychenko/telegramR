@@ -1715,7 +1715,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           }
         },
         error = function(e) {
-          # Ignore — update classes not available
+          # Ignore -- update classes not available
         }
       )
       invisible(NULL)
@@ -1814,7 +1814,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
       }
     },
 
-    #  Handle future salts — store them for proactive salt rotation.
+    #  Handle future salts -- store them for proactive salt rotation.
     handle_future_salts = function(message) {
       private$log$debug("Handling future salts for message %d", message$msg_id)
 
@@ -1859,7 +1859,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
           best <- s
           keep[[length(keep) + 1L]] <- s
         } else if (vs > server_now) {
-          # Not yet valid but still in the future — keep for later.
+          # Not yet valid but still in the future -- keep for later.
           keep[[length(keep) + 1L]] <- s
         }
         # Salts whose valid_until is already past are silently discarded.
@@ -1870,7 +1870,7 @@ MTProtoSender <- R6::R6Class("MTProtoSender",
         new_salt <- best$salt
         if (!identical(private$state$salt, new_salt)) {
           private$log$debug(
-            "Salt rotated to future salt %s (valid %s–%s)",
+            "Salt rotated to future salt %s (valid %s to %s)",
             as.character(new_salt),
             as.character(best$valid_since),
             as.character(best$valid_until)
