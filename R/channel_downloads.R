@@ -973,7 +973,11 @@ batch_download_channels <- function(channels,
           error = function(e) e
         )
       })
-      # Collect results (blocks until each finishes)
+      # Wait for all workers to finish (they run concurrently; this is O(max) not O(sum))
+      for (p in bg_procs) {
+        if (!inherits(p, "error")) tryCatch(p$wait(), error = function(e) NULL)
+      }
+      # Collect results — safe now that all processes have exited
       procs <- lapply(seq_along(active), function(j) {
         p <- bg_procs[[j]]
         if (inherits(p, "error")) return(p)
