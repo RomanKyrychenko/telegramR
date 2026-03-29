@@ -615,21 +615,7 @@ serialize_int <- function(x) {
 #  @export
 serialize_string <- function(s) {
   if (is.null(s)) s <- ""
-  # Ensure character and encoding
-  s <- as.character(s)
-  b <- charToRaw(enc2utf8(s))
-  l <- length(b)
-  if (l <= 253) {
-    res <- c(as.raw(l), b)
-    padding <- (4 - (l + 1) %% 4) %% 4
-    if (padding > 0) res <- c(res, raw(padding))
-    return(res)
-  } else {
-    res <- c(as.raw(254), writeBin(as.integer(l), raw(), size = 3, endian = "little"), b)
-    padding <- (4 - (l + 4) %% 4) %% 4
-    if (padding > 0) res <- c(res, raw(padding))
-    return(res)
-  }
+  serialize_bytes_cpp(charToRaw(enc2utf8(as.character(s))))
 }
 
 #  Get Input Channel
@@ -925,17 +911,7 @@ int_from_bytes <- function(data, endian = "big") {
 int_to_bytes <- function(val, length, endian = "big") {
   val <- gmp::as.bigz(val)
   hex <- as.character(val, b = 16)
-  if (nchar(hex) %% 2 != 0) hex <- paste0("0", hex)
-  res <- as.raw(strtoi(substring(hex, seq(1, nchar(hex), 2), seq(2, nchar(hex), 2)), base = 16))
-
-  if (base::length(res) > length) {
-    res <- res[(base::length(res) - length + 1):base::length(res)]
-  } else if (base::length(res) < length) {
-    res <- c(raw(length - base::length(res)), res)
-  }
-
-  if (endian == "little") res <- rev(res)
-  return(res)
+  hex_to_bytes_cpp(hex, length, endian == "little")
 }
 
 #  @title XOR two raw vectors
@@ -2447,40 +2423,7 @@ get_appropriated_part_size <- function(file_size) {
 #  encoded <- encode_waveform(waveform)
 #  }
 encode_waveform <- function(waveform) {
-  bits_count <- length(waveform) * 5
-  bytes_count <- (bits_count + 7) %/% 8
-  result <- raw(bytes_count + 1)
-
-  for (i in seq_along(waveform)) {
-    byte_index <- (i - 1) * 5 %/% 8
-    bit_shift <- (i - 1) * 5 %% 8
-    value <- bitwShiftL(bitwAnd(as.integer(waveform[i]), 31L), bit_shift)
-
-    # Read the current 2 bytes as little-endian unsigned short
-    if (byte_index + 1 < length(result)) {
-      or_what <- readBin(result[(byte_index + 1):(byte_index + 2)], "integer", size = 2, endian = "little", signed = FALSE)
-    } else {
-      # Handle edge case for last byte
-      or_what <- as.integer(result[byte_index + 1])
-      if (byte_index + 2 <= length(result)) {
-        or_what <- or_what + as.integer(result[byte_index + 2]) * 256
-      }
-    }
-
-    or_what <- bitwOr(or_what, value)
-
-    # Pack back into result
-    if (byte_index + 1 < length(result)) {
-      result[(byte_index + 1):(byte_index + 2)] <- writeBin(or_what, raw(), size = 2, endian = "little")
-    } else {
-      result[byte_index + 1] <- as.raw(or_what %% 256)
-      if (byte_index + 2 <= length(result)) {
-        result[byte_index + 2] <- as.raw(or_what %/% 256)
-      }
-    }
-  }
-
-  return(result[1:bytes_count])
+  encode_waveform_cpp(waveform)
 }
 
 
@@ -2498,34 +2441,7 @@ encode_waveform <- function(waveform) {
 #  decoded <- decode_waveform(encoded)
 #  }
 decode_waveform <- function(waveform) {
-  bit_count <- length(waveform) * 8
-  value_count <- bit_count %/% 5
-  if (value_count == 0) {
-    return(raw(0))
-  }
-
-  result <- raw(value_count)
-  for (i in seq_len(value_count - 1)) {
-    byte_index <- (i - 1) * 5 %/% 8
-    bit_shift <- (i - 1) * 5 %% 8
-    if (byte_index + 2 <= length(waveform)) {
-      value <- as.integer(waveform[byte_index + 1]) + as.integer(waveform[byte_index + 2]) * 256L
-    } else {
-      value <- as.integer(waveform[byte_index + 1])
-    }
-    result[i] <- as.raw(bitwAnd(bitwShiftR(value, bit_shift), 31L))
-  }
-
-  byte_index <- (value_count - 1) * 5 %/% 8
-  bit_shift <- (value_count - 1) * 5 %% 8
-  if (byte_index + 2 <= length(waveform)) {
-    value <- as.integer(waveform[byte_index + 1]) + as.integer(waveform[byte_index + 2]) * 256L
-  } else {
-    value <- as.integer(waveform[byte_index + 1])
-  }
-
-  result[value_count] <- as.raw(bitwAnd(bitwShiftR(value, bit_shift), 31L))
-  return(result)
+  decode_waveform_cpp(waveform)
 }
 
 

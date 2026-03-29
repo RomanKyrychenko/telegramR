@@ -1068,7 +1068,7 @@ TelegramClient <- R6::R6Class(
         fs_num <- if (inherits(file_size, "bigz")) as.numeric(file_size) else file_size
         if (is.null(part_size_kb)) {
           if (is.null(fs_num)) {
-            part_size_kb <- 64 # Reasonable default
+            part_size_kb <- 512 # Default to max chunk size to minimise round trips
           } else {
             part_size_kb <- get_appropriated_part_size(fs_num)
           }
@@ -1080,10 +1080,20 @@ TelegramClient <- R6::R6Class(
         }
 
         in_memory <- is.null(file) || identical(file, as.raw)
+        preallocated <- FALSE
+        f_pos <- 0L
         tryCatch({
           step <- "open_file"
           if (in_memory) {
-            f <- raw(0)
+            # Pre-allocate when file size is known to avoid O(N²) copying via c()
+            preallocated <- !is.null(fs_num) && !is.na(fs_num) && fs_num > 0 &&
+                             fs_num <= .Machine$integer.max
+            if (preallocated) {
+              f <- raw(as.integer(fs_num))
+              f_pos <- 0L
+            } else {
+              f <- raw(0)
+            }
             is_buffer <- TRUE
           } else if (is.character(file)) {
             # Ensure that we'll be able to download the media
@@ -1272,14 +1282,20 @@ TelegramClient <- R6::R6Class(
               }
 
               if (is_buffer) {
-                f <- c(f, chunk)
+                clen <- length(chunk)
+                if (preallocated) {
+                  f[f_pos + seq_len(clen)] <- chunk
+                  f_pos <- f_pos + clen
+                } else {
+                  f <- c(f, chunk)
+                }
               } else {
                 writeBin(chunk, f)
               }
 
               if (!is.null(progress_callback) && is.function(progress_callback)) {
                 if (is_buffer) {
-                  progress_callback(length(f), file_size)
+                  progress_callback(if (preallocated) f_pos else length(f), file_size)
                 } else {
                   progress_callback(seek(f, where = NA, origin = "current"), file_size)
                 }
@@ -1340,7 +1356,13 @@ TelegramClient <- R6::R6Class(
               }
 
               if (is_buffer) {
-                f <- c(f, chunk)
+                clen <- length(chunk)
+                if (preallocated) {
+                  f[f_pos + seq_len(clen)] <- chunk
+                  f_pos <- f_pos + clen
+                } else {
+                  f <- c(f, chunk)
+                }
               } else {
                 step <- "write"
                 writeBin(chunk, f)
@@ -1349,7 +1371,7 @@ TelegramClient <- R6::R6Class(
               if (!is.null(progress_callback) && is.function(progress_callback)) {
                 step <- "progress"
                 if (is_buffer) {
-                  progress_callback(length(f), file_size)
+                  progress_callback(if (preallocated) f_pos else length(f), file_size)
                 } else {
                   progress_callback(seek(f, where = NA, origin = "current"), file_size)
                 }
@@ -1364,6 +1386,7 @@ TelegramClient <- R6::R6Class(
           }
 
           if (in_memory) {
+            if (preallocated) return(f[seq_len(f_pos)])
             return(f)
           }
 
@@ -5479,6 +5502,89 @@ TelegramClient <- R6::R6Class(
         return(future::future(run()))
       }
       run()
+    },
+
+    #  @description Download multiple media items in parallel using background workers.
+    #
+    #  Each worker is an independent R process that creates its own Telegram connection,
+    #  so N files can be transferred simultaneously. Requires a file-backed session
+    #  (not an in-memory one) so that workers can authenticate.
+    #
+    #  @param items A list of message or media objects (same as \code{download_media}).
+    #  @param output_dir Directory for downloaded files. If NULL, each item uses
+    #    \code{download_media}'s default naming.
+    #  @param workers Number of parallel download workers (default 4).
+    #  @param stagger_ms Milliseconds to wait between starting each worker to
+    #    avoid hammering the server (default 500).
+    #  @return A named list: \code{results} (list of paths/errors per item) and
+    #    \code{errors} (integer vector of failed item indices).
+    #  @export
+    download_files_parallel = function(items, output_dir = NULL, workers = 4L,
+                                       stagger_ms = 500L) {
+      if (!is.list(items) || length(items) == 0) stop("items must be a non-empty list")
+      if (!requireNamespace("callr", quietly = TRUE)) stop("callr package is required for parallel downloads")
+
+      session_path <- private$session$path
+      if (is.null(session_path) || !nzchar(session_path)) {
+        stop("download_files_parallel requires a file-backed session (not in-memory). ",
+             "Create the client with session = 'path/to/session.rds'.")
+      }
+
+      api_id   <- private$api_id
+      api_hash <- private$api_hash
+
+      # Worker function — runs in a fresh R process
+      worker_fn <- function(session_path, api_id, api_hash, item, output_dir) {
+        library(telegramR)
+        client <- TelegramClient$new(session = session_path, api_id = api_id, api_hash = api_hash)
+        on.exit(tryCatch(client$disconnect(), error = function(e) NULL))
+        client$connect()
+        file_arg <- if (!is.null(output_dir)) output_dir else NULL
+        tryCatch(
+          client$download_media(item, file = file_arg),
+          error = function(e) list(.error = conditionMessage(e))
+        )
+      }
+
+      n <- length(items)
+      workers <- min(workers, n)
+      batches <- split(seq_len(n), ceiling(seq_len(n) / ceiling(n / workers)))
+
+      # Launch one callr worker per batch, staggered to reduce server load
+      procs <- lapply(seq_along(batches), function(bi) {
+        batch <- batches[[bi]]
+        Sys.sleep(stagger_ms / 1000 * (bi - 1))
+        callr::r_bg(
+          func = function(session_path, api_id, api_hash, batch_items, output_dir, worker_fn) {
+            results <- list()
+            for (item in batch_items) {
+              results[[length(results) + 1]] <- worker_fn(
+                session_path, api_id, api_hash, item, output_dir
+              )
+            }
+            results
+          },
+          args = list(session_path, api_id, api_hash, items[batch], output_dir, worker_fn),
+          supervise = TRUE
+        )
+      })
+
+      # Collect results in order
+      results <- vector("list", n)
+      errors  <- integer(0)
+      for (bi in seq_along(batches)) {
+        batch_results <- tryCatch(procs[[bi]]$get_result(), error = function(e) {
+          lapply(batches[[bi]], function(i) list(.error = conditionMessage(e)))
+        })
+        for (j in seq_along(batches[[bi]])) {
+          idx <- batches[[bi]][j]
+          res <- batch_results[[j]]
+          results[[idx]] <- res
+          if (is.list(res) && !is.null(res$.error)) errors <- c(errors, idx)
+        }
+      }
+
+      list(results = results, errors = errors)
     },
 
     #  @description Create a new TelegramClient instance

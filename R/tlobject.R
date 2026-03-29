@@ -165,6 +165,9 @@ serialize_bytes <- function(data) {
       stop("bytes or str expected, not ", typeof(data))
     }
   }
+  # NOTE: serialize_bytes_cpp is compiled and available, but this wrapper stays
+  # pure R because rsa.R calls serialize_bytes() at package load time — before
+  # the Rcpp DLL is registered in devtools::load_all() mode.
   r <- list()
   if (length(data) < 254) {
     padding <- (length(data) + 1) %% 4

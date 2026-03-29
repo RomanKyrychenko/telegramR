@@ -751,6 +751,7 @@ batch_download_channels <- function(channels,
                                     skip_completed = TRUE,
                                     dedup          = TRUE,
                                     pkg_path       = getwd(),
+                                    workers        = 1L,
                                     verbose        = TRUE) {
   if (missing(channels) || length(channels) == 0) stop("channels must be a non-empty vector")
   if (missing(session))  stop("session is required")
@@ -821,126 +822,114 @@ batch_download_channels <- function(channels,
   # Normalise channel names for comparison (strip leading @)
   norm <- function(x) tolower(sub("^@", "", as.character(x)))
 
-  results <- vector("list", length(channels))
+  # Pre-normalise dedup map keys once (O(1) lookup per channel instead of O(N))
+  norm_id_map <- list()
+  for (u in names(max_id_by_channel)) norm_id_map[[norm(u)]] <- max_id_by_channel[[u]]
+  norm_done <- norm(done_channels)
 
-  for (i in seq_along(channels)) {
-    ch <- channels[[i]]
-    ch_str <- as.character(ch)
+  workers  <- max(1L, as.integer(workers %||% 1L))
+  results  <- vector("list", length(channels))
 
-    # Resume: skip if username already in the output file
-    if (length(done_channels) > 0 && norm(ch_str) %in% norm(done_channels)) {
-      if (verbose) message(sprintf("[%d/%d] Skipping (already downloaded): %s",
-                                   i, length(channels), ch_str))
-      results[[i]] <- list(channel = ch_str, status = "skipped",
-                           rows_downloaded = NA_integer_, time_elapsed_sec = 0,
-                           error_message = NA_character_)
-      next
+  # ── Worker function (runs inside callr subprocess) ──────────────────────
+  .channel_worker <- function(pkg_path, channel, session, api_id, api_hash,
+                               info_path, msgs_path, reactions_path, replies_path,
+                               start_date, since_id, limit, timeout_sec,
+                               max_timeouts, chunk_size) {
+    setwd(pkg_path)
+    if (requireNamespace("devtools", quietly = TRUE)) {
+      devtools::load_all(pkg_path, quiet = TRUE)
+    } else {
+      library(telegramR)
     }
 
-    # Dedup: if msgs_file already has rows for this channel, pass the max
-    # known message_id as since_message_id so only newer messages are fetched.
-    since_id <- NULL
-    if (isTRUE(dedup)) {
-      norm_ch <- norm(ch_str)
-      for (u in names(max_id_by_channel)) {
-        if (norm(u) == norm_ch) {
-          since_id <- max_id_by_channel[[u]]
-          break
+    client <- TelegramClient$new(session = session, api_id = api_id, api_hash = api_hash)
+    client$connect()
+    on.exit(tryCatch(client$disconnect(), error = function(e) NULL), add = TRUE)
+
+    info <- tryCatch(
+      download_channel_info(client, channel),
+      error = function(e) { warning("download_channel_info failed: ", e$message, call. = FALSE); NULL }
+    )
+
+    n_rows <- download_channel_messages(
+      client, channel,
+      limit                = limit,
+      show_progress        = FALSE,
+      start_date           = start_date,
+      since_message_id     = since_id,
+      timeout_sec          = timeout_sec,
+      max_timeouts         = max_timeouts,
+      reconnect_on_timeout = TRUE,
+      output_file          = msgs_path,
+      chunk_size           = chunk_size,
+      partial_on_error     = TRUE
+    )
+
+    if (!is.null(info) && nrow(info) > 0) {
+      .write_csv_compat(info, file = info_path,
+                        append    = file.exists(info_path),
+                        col_names = !file.exists(info_path))
+    }
+
+    if (!is.null(reactions_path)) {
+      tryCatch(
+        download_channel_reactions(client, channel, show_progress = FALSE,
+                                   start_date = start_date, timeout_sec = timeout_sec,
+                                   output_file = reactions_path, chunk_size = chunk_size),
+        error = function(e) warning("reactions download failed: ", e$message, call. = FALSE)
+      )
+    }
+
+    if (!is.null(replies_path)) {
+      tryCatch(
+        download_channel_replies(client, channel, show_progress = FALSE,
+                                 timeout_sec = timeout_sec,
+                                 output_file = replies_path, chunk_size = chunk_size),
+        error = function(e) warning("replies download failed: ", e$message, call. = FALSE)
+      )
+    }
+
+    as.integer(n_rows)
+  }
+
+  # ── Process channels: sequential (workers=1) or parallel (workers>1) ────
+  i <- 1L
+  while (i <= length(channels)) {
+    batch_end <- min(i + workers - 1L, length(channels))
+    batch_idx <- seq(i, batch_end)
+
+    # Build per-channel args, skipping already-done channels up front
+    batch_args <- list()
+    for (bi in seq_along(batch_idx)) {
+      idx    <- batch_idx[[bi]]
+      ch     <- channels[[idx]]
+      ch_str <- as.character(ch)
+
+      if (norm(ch_str) %in% norm_done) {
+        if (verbose) message(sprintf("[%d/%d] Skipping (already downloaded): %s",
+                                     idx, length(channels), ch_str))
+        results[[idx]] <- list(channel = ch_str, status = "skipped",
+                               rows_downloaded = NA_integer_, time_elapsed_sec = 0,
+                               error_message   = NA_character_)
+        batch_args[[bi]] <- NULL
+        next
+      }
+
+      since_id <- norm_id_map[[norm(ch_str)]]
+
+      if (verbose) {
+        if (!is.null(since_id)) {
+          message(sprintf("[%d/%d] Downloading (since id %s): %s",
+                          idx, length(channels), since_id, ch_str))
+        } else {
+          message(sprintf("[%d/%d] Downloading: %s", idx, length(channels), ch_str))
         }
       }
-    }
 
-    if (verbose) {
-      if (!is.null(since_id)) {
-        message(sprintf("[%d/%d] Downloading (since id %s): %s",
-                        i, length(channels), since_id, ch_str))
-      } else {
-        message(sprintf("[%d/%d] Downloading: %s", i, length(channels), ch_str))
-      }
-    }
-
-    t_start <- proc.time()[["elapsed"]]
-
-    outcome <- tryCatch({
-      callr::r(
-        func = function(pkg_path, channel, session, api_id, api_hash,
-                        info_path, msgs_path, reactions_path, replies_path,
-                        start_date, since_id, limit, timeout_sec, max_timeouts, chunk_size) {
-          setwd(pkg_path)
-          devtools::load_all(pkg_path, quiet = TRUE)
-
-          client <- TelegramClient$new(
-            session  = session,
-            api_id   = api_id,
-            api_hash = api_hash
-          )
-          client$connect()
-
-          info <- tryCatch(
-            download_channel_info(client, channel),
-            error = function(e) {
-              warning("download_channel_info failed: ", e$message, call. = FALSE)
-              NULL
-            }
-          )
-
-          n_rows <- download_channel_messages(
-            client, channel,
-            limit                = limit,
-            show_progress        = FALSE,
-            start_date           = start_date,
-            since_message_id     = since_id,
-            timeout_sec          = timeout_sec,
-            max_timeouts         = max_timeouts,
-            reconnect_on_timeout = TRUE,
-            output_file          = msgs_path,
-            chunk_size           = chunk_size,
-            partial_on_error     = TRUE
-          )
-
-          if (!is.null(info) && nrow(info) > 0) {
-            .write_csv_compat(info, file = info_path,
-                              append    = file.exists(info_path),
-                              col_names = !file.exists(info_path))
-          }
-
-          # Optional: download reactions
-          if (!is.null(reactions_path)) {
-            tryCatch({
-              rxns <- download_channel_reactions(
-                client, channel,
-                show_progress = FALSE,
-                start_date    = start_date,
-                timeout_sec   = timeout_sec
-              )
-              if (!is.null(rxns) && nrow(rxns) > 0) {
-                .write_csv_compat(rxns, file = reactions_path,
-                                  append    = file.exists(reactions_path),
-                                  col_names = !file.exists(reactions_path))
-              }
-            }, error = function(e) warning("reactions download failed: ", e$message, call. = FALSE))
-          }
-
-          # Optional: download replies
-          if (!is.null(replies_path)) {
-            tryCatch({
-              reps <- download_channel_replies(
-                client, channel,
-                show_progress = FALSE,
-                timeout_sec   = timeout_sec
-              )
-              if (!is.null(reps) && nrow(reps) > 0) {
-                .write_csv_compat(reps, file = replies_path,
-                                  append    = file.exists(replies_path),
-                                  col_names = !file.exists(replies_path))
-              }
-            }, error = function(e) warning("replies download failed: ", e$message, call. = FALSE))
-          }
-
-          tryCatch(client$disconnect(), error = function(e) NULL)
-          as.integer(n_rows)
-        },
-        args = list(
+      batch_args[[bi]] <- list(
+        idx      = idx,
+        ch_str   = ch_str,
+        args     = list(
           pkg_path       = pkg_path,
           channel        = ch,
           session        = session,
@@ -956,27 +945,66 @@ batch_download_channels <- function(channels,
           timeout_sec    = timeout_sec,
           max_timeouts   = max_timeouts,
           chunk_size     = chunk_size
-        ),
-        show = verbose
+        )
       )
-    }, error = function(e) e)
-
-    elapsed <- round(proc.time()[["elapsed"]] - t_start, 1)
-
-    if (inherits(outcome, "error")) {
-      if (verbose) message(sprintf("  ERROR: %s", conditionMessage(outcome)))
-      results[[i]] <- list(channel = ch_str, status = "error",
-                           rows_downloaded = NA_integer_,
-                           time_elapsed_sec = elapsed,
-                           error_message = conditionMessage(outcome))
-    } else {
-      if (verbose) message(sprintf("  OK: %d rows (%.1fs)", outcome, elapsed))
-      results[[i]] <- list(channel = ch_str, status = "ok",
-                           rows_downloaded = outcome,
-                           time_elapsed_sec = elapsed,
-                           error_message = NA_character_)
-      done_channels <- c(done_channels, norm(ch_str))
     }
+
+    # Launch workers
+    active <- Filter(Negate(is.null), batch_args)
+    if (length(active) == 0) { i <- batch_end + 1L; next }
+
+    t_starts <- rep(proc.time()[["elapsed"]], length(active))
+
+    if (workers == 1L) {
+      # Sequential: use callr::r() (blocking, shows output)
+      procs <- lapply(seq_along(active), function(j) {
+        t_starts[[j]] <<- proc.time()[["elapsed"]]
+        tryCatch(
+          callr::r(func = .channel_worker, args = active[[j]]$args, show = verbose),
+          error = function(e) e
+        )
+      })
+    } else {
+      # Parallel: launch all workers in this batch simultaneously
+      bg_procs <- lapply(seq_along(active), function(j) {
+        t_starts[[j]] <<- proc.time()[["elapsed"]]
+        tryCatch(
+          callr::r_bg(func = .channel_worker, args = active[[j]]$args, supervise = TRUE),
+          error = function(e) e
+        )
+      })
+      # Collect results (blocks until each finishes)
+      procs <- lapply(seq_along(active), function(j) {
+        p <- bg_procs[[j]]
+        if (inherits(p, "error")) return(p)
+        tryCatch(p$get_result(), error = function(e) e)
+      })
+    }
+
+    # Record outcomes
+    for (j in seq_along(active)) {
+      idx     <- active[[j]]$idx
+      ch_str  <- active[[j]]$ch_str
+      elapsed <- round(proc.time()[["elapsed"]] - t_starts[[j]], 1)
+      outcome <- procs[[j]]
+
+      if (inherits(outcome, "error")) {
+        if (verbose) message(sprintf("  [%s] ERROR: %s", ch_str, conditionMessage(outcome)))
+        results[[idx]] <- list(channel = ch_str, status = "error",
+                               rows_downloaded  = NA_integer_,
+                               time_elapsed_sec = elapsed,
+                               error_message    = conditionMessage(outcome))
+      } else {
+        if (verbose) message(sprintf("  [%s] OK: %d rows (%.1fs)", ch_str, outcome, elapsed))
+        results[[idx]] <- list(channel = ch_str, status = "ok",
+                               rows_downloaded  = outcome,
+                               time_elapsed_sec = elapsed,
+                               error_message    = NA_character_)
+        norm_done <- c(norm_done, norm(ch_str))
+      }
+    }
+
+    i <- batch_end + 1L
   }
 
   dplyr::bind_rows(results)
@@ -996,7 +1024,10 @@ batch_download_channels <- function(channels,
 #' @param ... Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).
 #' @return A tibble.
 #' @export
-download_channel_reactions <- function(client, channel, limit = Inf, start_date = NULL, end_date = NULL, include_channel = TRUE, show_progress = TRUE, ...) {
+download_channel_reactions <- function(client, channel, limit = Inf, start_date = NULL,
+                                       end_date = NULL, include_channel = TRUE,
+                                       show_progress = TRUE, output_file = NULL,
+                                       chunk_size = 5000L, ...) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
   }
@@ -1005,53 +1036,72 @@ download_channel_reactions <- function(client, channel, limit = Inf, start_date 
   ent <- resolved$entity
 
   start_dt <- .telegramR_parse_datetime(start_date)
-  end_dt <- .telegramR_parse_datetime(end_date)
+  end_dt   <- .telegramR_parse_datetime(end_date)
 
   iter_args <- list(entity = ent, limit = limit)
-  if (!is.null(end_dt)) {
-    iter_args$offset_date <- end_dt
-  }
+  if (!is.null(end_dt)) iter_args$offset_date <- end_dt
   iter_args <- c(iter_args, list(...))
 
   it <- do.call(client$iter_messages, iter_args)
 
-  total_est <- NA_real_
-  if (is.finite(limit)) {
-    total_est <- as.numeric(limit)
-  }
-
-  show_pb <- isTRUE(show_progress) && interactive() && is.finite(total_est) && total_est > 0
+  total_est <- if (is.finite(limit)) as.numeric(limit) else NA_real_
+  show_pb   <- isTRUE(show_progress) && interactive() && is.finite(total_est) && total_est > 0
   pb <- NULL
   if (show_pb) {
     pb <- utils::txtProgressBar(min = 0, max = total_est, style = 3)
     on.exit(tryCatch(close(pb), error = function(e) NULL), add = TRUE)
   }
 
-  rows <- list()
-  n <- 0L
+  streaming  <- !is.null(output_file)
+  chunk_size <- max(1L, as.integer(chunk_size %||% 5000L))
+
+  .strip_rxn <- function(tbl) {
+    if (!isTRUE(include_channel)) {
+      tbl$channel_id <- tbl$channel_username <- tbl$channel_title <- NULL
+    }
+    tbl
+  }
+
+  .flush_rxn <- function(buf, count) {
+    tbl <- .strip_rxn(dplyr::bind_rows(buf[seq_len(count)]))
+    .write_csv_compat(tbl, file = output_file,
+                      append    = file.exists(output_file),
+                      col_names = !file.exists(output_file))
+  }
+
+  rows  <- list()
+  n     <- 0L
+  n_buf <- 0L
+
   repeat {
     item <- it$.next()
     if (is.null(item)) break
     row <- .telegramR_extract_reaction_row(item, ent)
     if (!is.null(row$date) && inherits(row$date, "POSIXt")) {
-      if (!is.null(end_dt) && row$date > end_dt) {
-        next
-      }
-      if (!is.null(start_dt) && row$date < start_dt) {
-        break
-      }
+      if (!is.null(end_dt)   && row$date > end_dt)   next
+      if (!is.null(start_dt) && row$date < start_dt) break
     }
     n <- n + 1L
-    rows[[n]] <- row
+    if (streaming) {
+      n_buf        <- n_buf + 1L
+      rows[[n_buf]] <- row
+      if (n_buf >= chunk_size) {
+        .flush_rxn(rows, n_buf)
+        rows  <- list()
+        n_buf <- 0L
+      }
+    } else {
+      rows[[n]] <- row
+    }
     if (show_pb) utils::setTxtProgressBar(pb, n)
   }
 
-  tbl <- if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble()
-  if (!isTRUE(include_channel)) {
-    tbl$channel_id <- NULL
-    tbl$channel_username <- NULL
-    tbl$channel_title <- NULL
+  if (streaming) {
+    if (n_buf > 0) .flush_rxn(rows, n_buf)
+    return(invisible(n))
   }
+
+  tbl <- .strip_rxn(if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble())
   tbl
 }
 
@@ -1224,7 +1274,10 @@ download_channel_media <- function(client, channel, limit = Inf, start_date = NU
 #' @param ... Passed to client$iter_messages() when fetching recent posts.
 #' @return A tibble.
 #' @export
-download_channel_replies <- function(client, channel, message_ids = NULL, message_limit = 100, reply_limit = Inf, include_channel = TRUE, show_progress = TRUE, ...) {
+download_channel_replies <- function(client, channel, message_ids = NULL,
+                                     message_limit = 100, reply_limit = Inf,
+                                     include_channel = TRUE, show_progress = TRUE,
+                                     output_file = NULL, chunk_size = 5000L, ...) {
   if (missing(client) || is.null(client)) {
     stop("client is required")
   }
@@ -1239,47 +1292,74 @@ download_channel_replies <- function(client, channel, message_ids = NULL, messag
     repeat {
       item <- root_it$.next()
       if (is.null(item)) break
-      if (!is.null(item$id)) {
-        i <- i + 1L
-        ids[[i]] <- item$id
-      }
+      if (!is.null(item$id)) { i <- i + 1L; ids[[i]] <- item$id }
     }
     message_ids <- unlist(ids, use.names = FALSE)
   }
 
   if (length(message_ids) == 0) {
+    if (!is.null(output_file)) return(invisible(0L))
     return(tibble::tibble())
   }
 
   total_est <- length(message_ids)
-  show_pb <- isTRUE(show_progress) && interactive() && total_est > 0
+  show_pb   <- isTRUE(show_progress) && interactive() && total_est > 0
   pb <- NULL
   if (show_pb) {
     pb <- utils::txtProgressBar(min = 0, max = total_est, style = 3)
     on.exit(tryCatch(close(pb), error = function(e) NULL), add = TRUE)
   }
 
-  rows <- list()
-  n <- 0L
+  streaming  <- !is.null(output_file)
+  chunk_size <- max(1L, as.integer(chunk_size %||% 5000L))
+
+  .strip_rep <- function(tbl) {
+    if (!isTRUE(include_channel)) {
+      tbl$channel_id <- tbl$channel_username <- tbl$channel_title <- NULL
+    }
+    tbl
+  }
+
+  .flush_rep <- function(buf, count) {
+    tbl <- .strip_rep(dplyr::bind_rows(buf[seq_len(count)]))
+    .write_csv_compat(tbl, file = output_file,
+                      append    = file.exists(output_file),
+                      col_names = !file.exists(output_file))
+  }
+
+  rows  <- list()
+  n     <- 0L
+  n_buf <- 0L
+
   for (i in seq_along(message_ids)) {
     msg_id <- message_ids[[i]]
     rep_it <- client$iter_messages(ent, limit = reply_limit, reply_to = msg_id)
     repeat {
       rep_item <- rep_it$.next()
       if (is.null(rep_item)) break
+      row <- .telegramR_extract_reply_row(rep_item, ent, msg_id)
       n <- n + 1L
-      rows[[n]] <- .telegramR_extract_reply_row(rep_item, ent, msg_id)
+      if (streaming) {
+        n_buf         <- n_buf + 1L
+        rows[[n_buf]] <- row
+        if (n_buf >= chunk_size) {
+          .flush_rep(rows, n_buf)
+          rows  <- list()
+          n_buf <- 0L
+        }
+      } else {
+        rows[[n]] <- row
+      }
     }
     if (show_pb) utils::setTxtProgressBar(pb, i)
   }
 
-  tbl <- if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble()
-  if (!isTRUE(include_channel)) {
-    tbl$channel_id <- NULL
-    tbl$channel_username <- NULL
-    tbl$channel_title <- NULL
+  if (streaming) {
+    if (n_buf > 0) .flush_rep(rows, n_buf)
+    return(invisible(n))
   }
-  tbl
+
+  .strip_rep(if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble())
 }
 
 #' Download Channel Members By Channel

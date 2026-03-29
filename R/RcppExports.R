@@ -33,3 +33,19 @@ serialize_bytes_cpp <- function(data) {
     .Call(`_telegramR_serialize_bytes_cpp`, data)
 }
 
+pack_int32_cpp <- function(value) {
+    .Call(`_telegramR_pack_int32`, value)
+}
+
+hex_to_bytes_cpp <- function(hex_str, out_len, little_endian) {
+    .Call(`_telegramR_hex_to_bytes`, hex_str, out_len, little_endian)
+}
+
+encode_waveform_cpp <- function(waveform) {
+    .Call(`_telegramR_encode_waveform_cpp`, waveform)
+}
+
+decode_waveform_cpp <- function(waveform) {
+    .Call(`_telegramR_decode_waveform_cpp`, waveform)
+}
+

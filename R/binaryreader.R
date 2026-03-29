@@ -164,8 +164,7 @@ BinaryReader <- R6::R6Class(
     #  @return A bigz value.
     read_large_int = function(bits) {
       bytes <- self$read(bits / 8)
-      hex <- paste(sprintf("%02x", as.integer(rev(bytes))), collapse = "")
-      return(gmp::as.bigz(paste0("0x", hex)))
+      return(gmp::as.bigz(paste0("0x", bytes_to_hex_be_cpp(bytes))))
     },
 
     #  @description

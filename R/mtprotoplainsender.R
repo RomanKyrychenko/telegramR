@@ -122,15 +122,12 @@ MTProtoPlainSender <- R6::R6Class("MTProtoPlainSender",
 #  @export
 packInt64 <- function(value) {
   if (is.raw(value)) {
-    if (length(value) == 8) {
-      return(value)
-    }
-    if (length(value) < 8) {
-      return(c(value, raw(8 - length(value))))
-    }
+    if (length(value) == 8) return(value)
+    if (length(value) < 8) return(c(value, raw(8 - length(value))))
     return(value[1:8])
   }
-  int_to_bytes(value, length = 8, endian = "little")
+  if (inherits(value, "bigz")) value <- as.character(value)
+  pack_int64(value)
 }
 
 #  Pack a 32-bit integer into a raw vector (little-endian)
@@ -141,15 +138,5 @@ packInt32 <- function(value) {
   if (length(value) != 1 || is.na(value)) {
     stop("Invalid input: value must be a single, non-NA number")
   }
-  v <- as.numeric(value)
-  if (v < 0) {
-    v <- v + 2^32
-  }
-  result <- raw(4)
-  for (i in 1:4) {
-    byte <- as.integer(v %% 256)
-    result[i] <- as.raw(byte)
-    v <- floor(v / 256)
-  }
-  return(result)
+  pack_int32_cpp(as.numeric(value))
 }

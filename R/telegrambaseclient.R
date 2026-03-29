@@ -267,6 +267,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
       private$flood_waited_requests <- list()
       private$borrowed_senders <- list()
       private$borrow_sender_lock <- NULL # Would be a mutex in a real implementation
+      private$sender_pool <- list()
       private$exported_sessions <- list()
       private$loop <- NULL
       private$updates_error <- NULL
@@ -624,6 +625,12 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
     flood_waited_requests = NULL,
     borrowed_senders = NULL,
     borrow_sender_lock = NULL,
+    # Connection pool: dc_id (char) -> list of idle MTProtoSender objects
+    # Senders are returned here by return_exported_sender and reused by
+    # subsequent borrow_exported_sender calls to the same DC, eliminating
+    # per-file auth-key export/import round trips.
+    sender_pool = NULL,
+    sender_pool_max = 4L,
     exported_sessions = NULL,
     updates_error = NULL,
     updates_handle = NULL,
@@ -676,6 +683,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
         )
       }
       private$borrowed_senders <- list()
+      private$sender_pool <- list()
 
       # Cancel event handlers
       private$event_handler_tasks <- list()
@@ -845,21 +853,42 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
     },
     borrow_exported_sender = function(dc_id) {
       future({
+        dc_key <- as.character(dc_id)
         logger::log_debug("Borrowing sender for DC {dc_id}")
 
-        state_sender <- private$borrowed_senders[[as.character(dc_id)]]
+        # --- Connection pool: reuse an idle sender if one is available ---
+        pool <- private$sender_pool[[dc_key]]
+        if (!is.null(pool) && length(pool) > 0) {
+          sender <- pool[[length(pool)]]
+          private$sender_pool[[dc_key]] <- pool[-length(pool)]
+          logger::log_debug("Reused pooled sender for DC {dc_id} (pool size now {length(private$sender_pool[[dc_key]])})")
+
+          # Track in borrowed_senders for state management
+          state_sender <- private$borrowed_senders[[dc_key]]
+          if (is.null(state_sender)) {
+            state <- ExportState$new()
+            private$borrowed_senders[[dc_key]] <- list(state, sender)
+          } else {
+            state <- state_sender[[1]]
+          }
+          state$add_borrow()
+          return(sender)
+        }
+
+        # --- No pooled sender: create or reconnect ---
+        state_sender <- private$borrowed_senders[[dc_key]]
 
         if (is.null(state_sender)) {
           state <- ExportState$new()
           sender <- private$create_exported_sender(dc_id)
-          private$borrowed_senders[[as.character(dc_id)]] <- list(state, sender)
+          private$borrowed_senders[[dc_key]] <- list(state, sender)
         } else {
           state <- state_sender[[1]]
           sender <- state_sender[[2]]
 
           if (state$need_connect()) {
             dc <- private$get_dc(dc_id)
-            # Would connect the sender to the DC
+            # Would reconnect the sender to the DC
           }
         }
 
@@ -869,11 +898,22 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
     },
     return_exported_sender = function(sender) {
       future({
+        dc_key <- as.character(sender$dc_id)
         logger::log_debug("Returning borrowed sender for DC {sender$dc_id}")
 
-        state_sender <- private$borrowed_senders[[as.character(sender$dc_id)]]
-        state <- state_sender[[1]]
-        state$add_return()
+        state_sender <- private$borrowed_senders[[dc_key]]
+        if (!is.null(state_sender)) {
+          state <- state_sender[[1]]
+          state$add_return()
+        }
+
+        # --- Return sender to pool (up to sender_pool_max per DC) ---
+        pool <- private$sender_pool[[dc_key]] %||% list()
+        if (length(pool) < private$sender_pool_max) {
+          private$sender_pool[[dc_key]] <- c(pool, list(sender))
+          logger::log_debug("Returned sender to pool for DC {sender$dc_id} (pool size now {length(private$sender_pool[[dc_key]])})")
+        }
+        # If pool is full the sender is simply dropped (will be GC'd)
 
         return(TRUE)
       })
@@ -889,6 +929,8 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
             logger::log_info("Disconnecting borrowed sender for DC {dc_id}")
             # Would disconnect the sender in a real implementation
             state$mark_disconnected()
+            # Also drain any pooled senders for this DC
+            private$sender_pool[[dc_id]] <- list()
           }
         }
 
