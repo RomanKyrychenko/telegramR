@@ -11,6 +11,8 @@ batch_download_channels(
   api_hash,
   info_file = "channel_info.csv",
   msgs_file = "channel_messages.csv",
+  reactions_file = NULL,
+  replies_file = NULL,
   start_date = NULL,
   limit = Inf,
   timeout_sec = 30,
@@ -38,6 +40,12 @@ numeric ids.}
 \item{msgs_file}{character. CSV file for message rows (appended to, streamed
 in \code{chunk_size} chunks to avoid RAM accumulation).}
 
+\item{reactions_file}{character or NULL. If set, reaction counts are written
+to this CSV file.}
+
+\item{replies_file}{character or NULL. If set, reply counts are written to
+this CSV file.}
+
 \item{start_date}{character/Date/POSIXct or NULL. Passed to
 \code{download_channel_messages()}.}
 
@@ -51,6 +59,9 @@ in \code{chunk_size} chunks to avoid RAM accumulation).}
 
 \item{skip_completed}{logical. If TRUE (default), skip channels whose
 username already appears in \code{msgs_file}.}
+
+\item{dedup}{logical. If TRUE (default), skip messages already present in
+\code{msgs_file} based on \code{message_id}.}
 
 \item{pkg_path}{character. Path to the package root; passed to
 \code{devtools::load_all()} inside the subprocess. Defaults to
