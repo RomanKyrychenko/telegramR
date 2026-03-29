@@ -1,0 +1,27 @@
+# Detect OpenSSL include/lib paths via pkg-config (portable across macOS and Linux).
+# Fallback order: MacPorts -> Homebrew -> system default.
+
+OPENSSL_CFLAGS := $(shell pkg-config --cflags openssl 2>/dev/null)
+OPENSSL_LIBS   := $(shell pkg-config --libs   openssl 2>/dev/null)
+
+ifeq ($(OPENSSL_CFLAGS),)
+  ifneq ($(wildcard /opt/local/libexec/openssl3/include/openssl/evp.h),)
+    # MacPorts
+    OPENSSL_CFLAGS := -I/opt/local/libexec/openssl3/include
+    OPENSSL_LIBS   := -L/opt/local/libexec/openssl3/lib -lssl -lcrypto
+  else ifneq ($(wildcard /opt/homebrew/opt/openssl@3/include/openssl/evp.h),)
+    # Homebrew (Apple Silicon)
+    OPENSSL_CFLAGS := -I/opt/homebrew/opt/openssl@3/include
+    OPENSSL_LIBS   := -L/opt/homebrew/opt/openssl@3/lib -lssl -lcrypto
+  else ifneq ($(wildcard /usr/local/opt/openssl@3/include/openssl/evp.h),)
+    # Homebrew (Intel)
+    OPENSSL_CFLAGS := -I/usr/local/opt/openssl@3/include
+    OPENSSL_LIBS   := -L/usr/local/opt/openssl@3/lib -lssl -lcrypto
+  else
+    # Linux system default
+    OPENSSL_LIBS   := -lssl -lcrypto
+  endif
+endif
+
+PKG_CPPFLAGS = $(OPENSSL_CFLAGS)
+PKG_LIBS     = $(OPENSSL_LIBS)
