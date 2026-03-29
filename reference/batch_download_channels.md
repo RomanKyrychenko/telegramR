@@ -15,6 +15,8 @@ batch_download_channels(
   api_hash,
   info_file = "channel_info.csv",
   msgs_file = "channel_messages.csv",
+  reactions_file = NULL,
+  replies_file = NULL,
   start_date = NULL,
   limit = Inf,
   timeout_sec = 30,
@@ -56,6 +58,15 @@ batch_download_channels(
   character. CSV file for message rows (appended to, streamed in
   `chunk_size` chunks to avoid RAM accumulation).
 
+- reactions_file:
+
+  character or NULL. If set, reaction counts are written to this CSV
+  file.
+
+- replies_file:
+
+  character or NULL. If set, reply counts are written to this CSV file.
+
 - start_date:
 
   character/Date/POSIXct or NULL. Passed to
@@ -82,9 +93,15 @@ batch_download_channels(
   logical. If TRUE (default), skip channels whose username already
   appears in `msgs_file`.
 
+- dedup:
+
+  logical. If TRUE (default), skip messages already present in
+  `msgs_file` based on `message_id`.
+
 - pkg_path:
 
-  character. Path to the package root; passed to `devtools::load_all()`
+  character. Path to the package root; passed to
+  [`devtools::load_all()`](https://devtools.r-lib.org/reference/load_all.html)
   inside the subprocess. Defaults to
   [`getwd()`](https://rdrr.io/r/base/getwd.html).
 

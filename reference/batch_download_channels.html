@@ -59,6 +59,8 @@ are skipped when <code>skip_completed = TRUE</code>.</p>
 <span>  <span class="va">api_hash</span>,</span>
 <span>  info_file <span class="op">=</span> <span class="st">"channel_info.csv"</span>,</span>
 <span>  msgs_file <span class="op">=</span> <span class="st">"channel_messages.csv"</span>,</span>
+<span>  reactions_file <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  replies_file <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  start_date <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  limit <span class="op">=</span> <span class="cn">Inf</span>,</span>
 <span>  timeout_sec <span class="op">=</span> <span class="fl">30</span>,</span>
@@ -102,6 +104,16 @@ numeric ids.</p></dd>
 in <code>chunk_size</code> chunks to avoid RAM accumulation).</p></dd>
 
 
+<dt id="arg-reactions-file">reactions_file<a class="anchor" aria-label="anchor" href="#arg-reactions-file"></a></dt>
+<dd><p>character or NULL. If set, reaction counts are written
+to this CSV file.</p></dd>
+
+
+<dt id="arg-replies-file">replies_file<a class="anchor" aria-label="anchor" href="#arg-replies-file"></a></dt>
+<dd><p>character or NULL. If set, reply counts are written to
+this CSV file.</p></dd>
+
+
 <dt id="arg-start-date">start_date<a class="anchor" aria-label="anchor" href="#arg-start-date"></a></dt>
 <dd><p>character/Date/POSIXct or NULL. Passed to
 <code><a href="download_channel_messages.html">download_channel_messages()</a></code>.</p></dd>
@@ -128,9 +140,14 @@ in <code>chunk_size</code> chunks to avoid RAM accumulation).</p></dd>
 username already appears in <code>msgs_file</code>.</p></dd>
 
 
+<dt id="arg-dedup">dedup<a class="anchor" aria-label="anchor" href="#arg-dedup"></a></dt>
+<dd><p>logical. If TRUE (default), skip messages already present in
+<code>msgs_file</code> based on <code>message_id</code>.</p></dd>
+
+
 <dt id="arg-pkg-path">pkg_path<a class="anchor" aria-label="anchor" href="#arg-pkg-path"></a></dt>
 <dd><p>character. Path to the package root; passed to
-<code>devtools::load_all()</code> inside the subprocess. Defaults to
+<code><a href="https://devtools.r-lib.org/reference/load_all.html" class="external-link">devtools::load_all()</a></code> inside the subprocess. Defaults to
 <code><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd()</a></code>.</p></dd>
 
 
