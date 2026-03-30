@@ -12,6 +12,8 @@ download_channel_reactions(
   end_date = NULL,
   include_channel = TRUE,
   show_progress = TRUE,
+  output_file = NULL,
+  chunk_size = 5000L,
   ...
 )
 }
@@ -29,6 +31,12 @@ download_channel_reactions(
 \item{include_channel}{logical. If TRUE, include channel fields on every row.}
 
 \item{show_progress}{logical. If TRUE, display a progress bar.}
+
+\item{output_file}{character or NULL. If set, reactions are streamed to
+this CSV file in chunks instead of being accumulated in memory.}
+
+\item{chunk_size}{integer. Number of rows to buffer before flushing to
+\code{output_file}. Only used when \code{output_file} is not NULL.}
 
 \item{...}{Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).}
 }

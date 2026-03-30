@@ -21,6 +21,7 @@ batch_download_channels(
   skip_completed = TRUE,
   dedup = TRUE,
   pkg_path = getwd(),
+  workers = 1L,
   verbose = TRUE
 )
 }
@@ -66,6 +67,11 @@ username already appears in \code{msgs_file}.}
 \item{pkg_path}{character. Path to the package root; passed to
 \code{devtools::load_all()} inside the subprocess. Defaults to
 \code{getwd()}.}
+
+\item{workers}{integer. Number of channels to download in parallel using
+\code{callr} background processes. Default \code{1L} (sequential). Each
+worker writes to its own temp file; results are merged into the main CSV
+files after each batch.}
 
 \item{verbose}{logical. If TRUE (default), print progress messages.}
 }
