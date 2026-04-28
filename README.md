@@ -186,3 +186,13 @@ for (m in messages) {
 - To trace hangs in channel info/message downloads, enable:
   `options(telegramR.trace_hang = TRUE, telegramR.trace_parse = TRUE)` to see step-by-step parsing and network waits.
  - Some channels send photos as documents with `image/*` MIME types. `download_channel_media()` treats `image` as a photo-type alias when `photo` is requested.
+
+**Citation**
+
+In R, use:
+
+```r
+citation("telegramR")
+```
+
+GitHub and reference managers can also read the repository's `CITATION.cff`.

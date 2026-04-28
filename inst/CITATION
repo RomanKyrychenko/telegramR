@@ -1,8 +1,16 @@
-c(
-  bibentry(
-    bibtype = "Manual",
-    title = "telegramR: R client for Telegram's MTProto API",
-    author = person(given = "Roman", family = "Kyrychenko"),
-    year = "2026"
+meta <- utils::packageDescription("telegramR")
+
+citHeader("To cite telegramR in publications use:")
+
+bibentry(
+  bibtype = "Manual",
+  title = "telegramR: R Client for Telegram's MTProto API",
+  author = person(given = "Roman", family = "Kyrychenko"),
+  year = "2026",
+  note = sprintf("R package version %s", meta$Version),
+  url = meta$URL,
+  textVersion = paste0(
+    "Kyrychenko, R. (2026). telegramR: R Client for Telegram's MTProto API. ",
+    "R package version ", meta$Version, ". ", meta$URL
   )
 )

@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use telegramR, please cite it using the metadata from this file."
+title: "telegramR"
+type: software
+authors:
+  - family-names: "Kyrychenko"
+    given-names: "Roman"
+    email: "roman.kyrychenko@helsinki.fi"
+version: "0.0.1"
+abstract: "An R client for Telegram's MTProto API."
+repository-code: "https://github.com/RomanKyrychenko/telegramR"
+url: "https://romankyrychenko.github.io/telegramR/"
+license: "MIT"
