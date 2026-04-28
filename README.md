@@ -99,7 +99,7 @@ The result contains a compact schema:
 - `message_id`, `date`, `text`
 - `views`, `forwards`, `replies`
 - `reactions_total`, `reactions_json`
-- `media_type`, `is_forward`, `forward_from_id`, `forward_from_name`
+- `media_type`, `is_forward`, `forward_from_id`, `forward_from_message_id`, `forward_saved_from_message_id`, `forward_from_name`
 - `reply_to_msg_id`, `edit_date`, `post_author`
 - `channel_id`, `channel_username`, `channel_title`
 

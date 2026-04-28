@@ -23,7 +23,12 @@ test_that("download_channel_messages returns compact schema", {
     list(count = 2, reaction = list(emoticon = "❤"))
   ))
   media <- list(`_` = "MessageMediaPhoto")
-  fwd <- list(from_id = list(channel_id = 123), from_name = "Orig")
+  fwd <- list(
+    from_id = list(channel_id = 123),
+    from_name = "Orig",
+    channel_post = 777,
+    saved_from_msg_id = 778
+  )
 
   msgs <- list(
     make_message(10, 1700000000, "Hello", views = 5, forwards = 1, replies = list(replies = 2), reactions = reactions, media = media, fwd_from = fwd, edit_date = 1700000100),
@@ -38,6 +43,7 @@ test_that("download_channel_messages returns compact schema", {
     "message_id", "channel_id", "channel_username", "channel_title",
     "date", "text", "views", "forwards", "replies", "reactions_total",
     "reactions_json", "media_type", "is_forward", "forward_from_id",
+    "forward_from_message_id", "forward_saved_from_message_id",
     "forward_from_name", "reply_to_msg_id", "edit_date", "post_author"
   ) %in% names(out)))
 
@@ -45,6 +51,9 @@ test_that("download_channel_messages returns compact schema", {
   expect_s3_class(out$date, "POSIXct")
   expect_equal(out$reactions_total[[1]], 2)
   expect_equal(out$media_type[[1]], "photo")
+  expect_equal(out$forward_from_id[[1]], 123)
+  expect_equal(out$forward_from_message_id[[1]], 777)
+  expect_equal(out$forward_saved_from_message_id[[1]], 778)
 })
 
 test_that("download_channel_messages accepts numeric channel id", {

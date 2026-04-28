@@ -297,6 +297,8 @@
     fwd_from <- m$fwd_from
     fwd_peer <- if (!is.null(fwd_from)) fwd_from$from_id else NULL
     forward_from_id <- fwd_peer$channel_id %||% fwd_peer$user_id %||% fwd_peer$chat_id
+    forward_from_message_id <- fwd_from$channel_post %||% NA_real_
+    forward_saved_from_message_id <- fwd_from$saved_from_msg_id %||% NA_real_
 
     # --- replies ---
     reply_to  <- m$reply_to
@@ -317,6 +319,8 @@
       media_type        = media_type,
       is_forward        = !is.null(fwd_from),
       forward_from_id   = as.numeric(forward_from_id %||% NA_real_),
+      forward_from_message_id = as.numeric(forward_from_message_id),
+      forward_saved_from_message_id = as.numeric(forward_saved_from_message_id),
       forward_from_name = fwd_from$from_name %||% fwd_from$post_author %||% NA_character_,
       reply_to_msg_id   = as.numeric(reply_to$reply_to_msg_id %||% NA_real_),
       edit_date         = .ts(m$edit_date),
@@ -343,6 +347,8 @@
   if (is.list(fwd_from$from_id)) {
     forward_from_id <- fwd_from$from_id$channel_id %||% fwd_from$from_id$user_id %||% fwd_from$from_id$chat_id %||% NA_real_
   }
+  forward_from_message_id <- fwd_from$channel_post %||% NA_real_
+  forward_saved_from_message_id <- fwd_from$saved_from_msg_id %||% NA_real_
   forward_from_name <- fwd_from$from_name %||% fwd_from$post_author %||% NA_character_
 
   reply_to_msg_id <- NA_real_
@@ -372,6 +378,8 @@
     media_type = media_type,
     is_forward = is_forward,
     forward_from_id = as.numeric(forward_from_id),
+    forward_from_message_id = as.numeric(forward_from_message_id),
+    forward_saved_from_message_id = as.numeric(forward_saved_from_message_id),
     forward_from_name = forward_from_name,
     reply_to_msg_id = as.numeric(reply_to_msg_id),
     edit_date = if (!is.null(md$edit_date)) as.POSIXct(md$edit_date, origin = "1970-01-01", tz = "UTC") else as.POSIXct(NA),
