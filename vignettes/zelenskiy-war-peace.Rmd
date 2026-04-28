@@ -228,10 +228,15 @@ msgs2 <- msgs2 %>%
       inherits(date, "POSIXt") ~ as.POSIXct(date),
       inherits(date, "Date")  ~ as.POSIXct(date),
       TRUE ~ suppressWarnings(lubridate::ymd_hms(date, quiet = TRUE))
-    ),
-    date = ifelse(is.na(date), suppressWarnings(lubridate::ymd(.data[[date_col]], quiet = TRUE)), date),
-    date = as.POSIXct(date, origin = "1970-01-01")
+    )
   )
+
+if (anyNA(msgs2$date)) {
+  missing_idx <- is.na(msgs2$date)
+  msgs2$date[missing_idx] <- as.POSIXct(
+    suppressWarnings(lubridate::ymd(msgs2[[date_col]][missing_idx], quiet = TRUE))
+  )
+}
 
 # ---- extract the word immediately before peace|мир (row-level, long) ----
 adj_long <- msgs2 %>%
@@ -342,7 +347,7 @@ peace_adjectives_merged %>%
 target_groups <- unique(equiv_map)
 
 monthly_adj_merged <- adj_long2 %>%
-  mutate(month = round_date(date, "month")) %>%
+  mutate(month = as.Date(floor_date(date, "month"))) %>%
   filter(adj_group %in% target_groups) %>%
   count(month, adj_group) %>%
   arrange(month)
@@ -353,13 +358,13 @@ monthly_adj_merged <- adj_long2 %>%
 
 # full month sequence
 all_months <- seq.Date(
-  floor_date(min(adj_long2$date, na.rm = TRUE), "month"),
-  floor_date(max(adj_long2$date, na.rm = TRUE), "month"),
+  as.Date(floor_date(min(adj_long2$date, na.rm = TRUE), "month")),
+  as.Date(floor_date(max(adj_long2$date, na.rm = TRUE), "month")),
   by = "1 month"
 )
 
 monthly_adj_merged <- adj_long2 %>%
-  mutate(month = floor_date(date, "month")) %>%
+  mutate(month = as.Date(floor_date(date, "month"))) %>%
   filter(adj_group %in% target_groups) %>%
   count(month, adj_group) %>%
   complete(
