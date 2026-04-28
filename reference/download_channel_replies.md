@@ -13,6 +13,8 @@ download_channel_replies(
   reply_limit = Inf,
   include_channel = TRUE,
   show_progress = TRUE,
+  output_file = NULL,
+  chunk_size = 5000L,
   ...
 )
 ```
@@ -48,6 +50,16 @@ download_channel_replies(
 - show_progress:
 
   logical. If TRUE, display a progress bar.
+
+- output_file:
+
+  character or NULL. If set, replies are streamed to this CSV file in
+  chunks instead of being accumulated in memory.
+
+- chunk_size:
+
+  integer. Number of rows to buffer before flushing to `output_file`.
+  Only used when `output_file` is not NULL.
 
 - ...:
 

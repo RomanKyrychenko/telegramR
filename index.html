@@ -140,7 +140,7 @@
 <code>reactions_total</code>, <code>reactions_json</code>
 </li>
 <li>
-<code>media_type</code>, <code>is_forward</code>, <code>forward_from_id</code>, <code>forward_from_name</code>
+<code>media_type</code>, <code>is_forward</code>, <code>forward_from_id</code>, <code>forward_from_message_id</code>, <code>forward_saved_from_message_id</code>, <code>forward_from_name</code>
 </li>
 <li>
 <code>reply_to_msg_id</code>, <code>edit_date</code>, <code>post_author</code>
@@ -206,6 +206,11 @@
 <li>To trace hangs in channel info/message downloads, enable: <code>options(telegramR.trace_hang = TRUE, telegramR.trace_parse = TRUE)</code> to see step-by-step parsing and network waits.</li>
 <li>Some channels send photos as documents with <code>image/*</code> MIME types. <code><a href="reference/download_channel_media.html">download_channel_media()</a></code> treats <code>image</code> as a photo-type alias when <code>photo</code> is requested.</li>
 </ul>
+<p><strong>Citation</strong></p>
+<p>In R, use:</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"telegramR"</span><span class="op">)</span></span></code></pre></div>
+<p>GitHub and reference managers can also read the repository’s <code>CITATION.cff</code>.</p>
 </div>
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>

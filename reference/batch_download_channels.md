@@ -25,6 +25,7 @@ batch_download_channels(
   skip_completed = TRUE,
   dedup = TRUE,
   pkg_path = getwd(),
+  workers = 1L,
   verbose = TRUE
 )
 ```
@@ -104,6 +105,13 @@ batch_download_channels(
   [`devtools::load_all()`](https://devtools.r-lib.org/reference/load_all.html)
   inside the subprocess. Defaults to
   [`getwd()`](https://rdrr.io/r/base/getwd.html).
+
+- workers:
+
+  integer. Number of channels to download in parallel using `callr`
+  background processes. Default `1L` (sequential). Each worker writes to
+  its own temp file; results are merged into the main CSV files after
+  each batch.
 
 - verbose:
 

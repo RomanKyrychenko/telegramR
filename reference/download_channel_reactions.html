@@ -51,6 +51,8 @@
 <span>  end_date <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  include_channel <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  show_progress <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  output_file <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  chunk_size <span class="op">=</span> <span class="fl">5000L</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -85,6 +87,16 @@
 
 <dt id="arg-show-progress">show_progress<a class="anchor" aria-label="anchor" href="#arg-show-progress"></a></dt>
 <dd><p>logical. If TRUE, display a progress bar.</p></dd>
+
+
+<dt id="arg-output-file">output_file<a class="anchor" aria-label="anchor" href="#arg-output-file"></a></dt>
+<dd><p>character or NULL. If set, reactions are streamed to
+this CSV file in chunks instead of being accumulated in memory.</p></dd>
+
+
+<dt id="arg-chunk-size">chunk_size<a class="anchor" aria-label="anchor" href="#arg-chunk-size"></a></dt>
+<dd><p>integer. Number of rows to buffer before flushing to
+<code>output_file</code>. Only used when <code>output_file</code> is not NULL.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>

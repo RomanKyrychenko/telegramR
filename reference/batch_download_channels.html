@@ -69,6 +69,7 @@ are skipped when <code>skip_completed = TRUE</code>.</p>
 <span>  skip_completed <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  dedup <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  pkg_path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  workers <span class="op">=</span> <span class="fl">1L</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -149,6 +150,13 @@ username already appears in <code>msgs_file</code>.</p></dd>
 <dd><p>character. Path to the package root; passed to
 <code><a href="https://devtools.r-lib.org/reference/load_all.html" class="external-link">devtools::load_all()</a></code> inside the subprocess. Defaults to
 <code><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd()</a></code>.</p></dd>
+
+
+<dt id="arg-workers">workers<a class="anchor" aria-label="anchor" href="#arg-workers"></a></dt>
+<dd><p>integer. Number of channels to download in parallel using
+<code>callr</code> background processes. Default <code>1L</code> (sequential). Each
+worker writes to its own temp file; results are merged into the main CSV
+files after each batch.</p></dd>
 
 
 <dt id="arg-verbose">verbose<a class="anchor" aria-label="anchor" href="#arg-verbose"></a></dt>
