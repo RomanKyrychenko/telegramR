@@ -1,2 +1,2 @@
 PKG_CPPFLAGS =
-PKG_LIBS = -lssl -lcrypto -lcrypt32 -lws2_32
+PKG_LIBS = -lssl -lcrypto -lcrypt32 -lws2_32 -lz
