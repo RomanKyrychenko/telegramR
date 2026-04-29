@@ -400,6 +400,114 @@ test_that("parse_datetime passes POSIXct through unchanged", {
   expect_equal(as.numeric(orig), as.numeric(dt))
 })
 
+test_that("recycle_any handles NULL, scalars, lists, data frames, and n <= 0", {
+  expect_equal(.telegramR_recycle_any("x", 0), "x")
+  expect_equal(.telegramR_recycle_any(NULL, 3), c(NA, NA, NA))
+  expect_equal(.telegramR_recycle_any(5, 3), c(5, 5, 5))
+
+  lst <- list(a = 1)
+  recycled_list <- .telegramR_recycle_any(lst, 2)
+  expect_length(recycled_list, 2)
+  expect_equal(recycled_list[[1]], lst)
+  expect_equal(recycled_list[[2]], lst)
+
+  df <- data.frame(x = 1)
+  recycled_df <- .telegramR_recycle_any(df, 2)
+  expect_length(recycled_df, 2)
+  expect_equal(recycled_df[[1]], df)
+  expect_equal(recycled_df[[2]], df)
+
+  vec <- c(1, 2)
+  recycled_vec <- .telegramR_recycle_any(vec, 3)
+  expect_type(recycled_vec, "list")
+  expect_equal(recycled_vec[[1]], vec)
+})
+
+test_that("pluck walks nested lists and returns NULL on missing path", {
+  x <- list(a = list(b = list(c = 42)))
+  expect_equal(.telegramR_pluck(x, "a", "b", "c"), 42)
+  expect_null(.telegramR_pluck(x, "a", "z"))
+  expect_null(.telegramR_pluck(NULL, "a"))
+})
+
+test_that("ts converts NULL and numeric timestamps to POSIXct", {
+  null_ts <- .ts(NULL)
+  expect_s3_class(null_ts, "POSIXct")
+  expect_true(is.na(null_ts))
+
+  dt <- .ts(1700000000)
+  expect_s3_class(dt, "POSIXct")
+  expect_equal(as.numeric(dt), 1700000000)
+})
+
+test_that("as_tibble preserves scalar columns, POSIXct, and ragged keys", {
+  rows <- list(
+    list(id = 1, when = as.POSIXct("2025-01-01 00:00:00", tz = "UTC"), value = "a"),
+    list(id = 2, when = as.POSIXct("2025-01-02 00:00:00", tz = "UTC"))
+  )
+
+  tbl <- .telegramR_as_tibble(rows)
+  expect_s3_class(tbl, "tbl_df")
+  expect_equal(tbl$id, c(1, 2))
+  expect_s3_class(tbl$when, "POSIXct")
+  expect_equal(tbl$value, c("a", NA))
+})
+
+test_that("write_csv_compat writes and appends CSV data", {
+  tmp <- tempfile(fileext = ".csv")
+  on.exit(unlink(tmp), add = TRUE)
+
+  .write_csv_compat(data.frame(a = 1, b = "x"), tmp, append = FALSE, col_names = TRUE)
+  .write_csv_compat(data.frame(a = 2, b = "y"), tmp, append = TRUE, col_names = FALSE)
+
+  out <- utils::read.csv(tmp, stringsAsFactors = FALSE)
+  expect_equal(nrow(out), 2L)
+  expect_equal(out$a, c(1, 2))
+  expect_equal(out$b, c("x", "y"))
+})
+
+test_that("safe_to_dict handles lists and atomic values", {
+  expect_equal(.telegramR_safe_to_dict(list(a = 1, b = list(c = 2))), list(a = 1, b = list(c = 2)))
+  expect_identical(.telegramR_safe_to_dict("x"), "x")
+})
+
+test_that("resolve_future returns non-Future values unchanged", {
+  x <- list(a = 1)
+  expect_identical(.telegramR_resolve_future(x), x)
+})
+
+test_that("reconnect_client tolerates disconnect/connect errors", {
+  seen <- character()
+  client <- list(
+    disconnect = function(...) {
+      seen <<- c(seen, "disconnect")
+      stop("boom")
+    },
+    connect = function(...) {
+      seen <<- c(seen, "connect")
+      stop("boom")
+    }
+  )
+
+  out <- .telegramR_reconnect_client(client)
+  expect_identical(out, invisible(TRUE))
+  expect_equal(seen, c("disconnect", "connect"))
+})
+
+test_that("resolve_username_entity returns matching chat and errors when unresolved", {
+  ch <- structure(list(id = 123, username = "chan", title = "Channel"), class = "Channel")
+  client_ok <- list(
+    call = function(req) list(peer = PeerChannel$new(123), chats = list(ch), users = list())
+  )
+  out <- .telegramR_resolve_username_entity(client_ok, "chan")
+  expect_identical(out, ch)
+
+  client_bad <- list(
+    call = function(req) list(peer = PeerChannel$new(999), chats = list(ch), users = list())
+  )
+  expect_error(.telegramR_resolve_username_entity(client_bad, "chan"), "Could not resolve channel")
+})
+
 # ---------------------------------------------------------------------------
 # Internal helpers — .telegramR_message_media_type
 # ---------------------------------------------------------------------------
@@ -430,6 +538,22 @@ test_that("message_media_type returns 'document' when no MIME type present", {
     .telegramR_message_media_type(list(media = list(`_` = "MessageMediaDocument"))),
     "document"
   )
+})
+
+test_that("extract_document_filename returns filename for message documents", {
+  attr <- DocumentAttributeFilename$new("file.txt")
+  media <- MessageMediaDocument$new(document = list(attributes = list(attr)))
+  msg <- Message$new(id = 1, peer_id = NULL, date = 0, message = "x", media = media)
+
+  expect_equal(.telegramR_extract_document_filename(msg), "file.txt")
+})
+
+test_that("extract_document_filename returns NA when filename metadata is absent", {
+  media <- MessageMediaDocument$new(document = list(attributes = list()))
+  msg <- Message$new(id = 1, peer_id = NULL, date = 0, message = "x", media = media)
+
+  expect_true(is.na(.telegramR_extract_document_filename(msg)))
+  expect_true(is.na(.telegramR_extract_document_filename(list(media = NULL))))
 })
 
 # ---------------------------------------------------------------------------

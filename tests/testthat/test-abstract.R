@@ -3,6 +3,13 @@ test_that("Session class methods work as expected", {
   session <- Session$new()
   expect_true(!is.null(session), "Session object should be created successfully")
 
+  # Test no-op close method
+  expect_null(session$close())
+
+  # Test clone passthrough when explicit instance supplied
+  target <- list(name = "target")
+  expect_identical(session$.clone(target), target)
+
   # Test set_dc method
   expect_error(session$set_dc(1, "127.0.0.1", 80), "Not implemented")
 

@@ -18,7 +18,7 @@ test_that("AuthKey calc_new_nonce_hash works correctly", {
   # expect_error(auth_key$calc_new_nonce_hash(new_nonce, "not_a_number"), "is.integer\\(number\\)")
 
   # Assuming sha1 and hash calculation are deterministic, you can test the output
-  hash_result <- auth_key$calc_new_nonce_hash(new_nonce, number)
+  hash_result <- suppressWarnings(auth_key$calc_new_nonce_hash(new_nonce, number))
   expect_true(is.numeric(hash_result))
 })
 
@@ -50,4 +50,20 @@ test_that("AuthKey active_key setter and getter work correctly", {
   auth_key$active_key <- NULL
   expect_null(auth_key$active_key)
   expect_false(auth_key$is_valid())
+})
+
+test_that("AuthKey key alias and derived accessors stay in sync", {
+  key_data <- as.raw(1:32)
+  auth_key <- AuthKey$new(data = key_data)
+
+  expect_equal(auth_key$key, key_data)
+  expect_equal(auth_key$return_aux_hash, auth_key$aux_hash)
+  expect_equal(auth_key$return_key_id, auth_key$key_id)
+
+  new_key_data <- as.raw(101:132)
+  auth_key$key <- new_key_data
+  expect_equal(auth_key$active_key, new_key_data)
+  expect_equal(auth_key$key, new_key_data)
+  expect_equal(auth_key$return_aux_hash, auth_key$aux_hash)
+  expect_equal(auth_key$return_key_id, auth_key$key_id)
 })

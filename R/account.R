@@ -159,7 +159,7 @@ TakeoutClient <- R6::R6Class(
     #  @param value The value to set for the attribute.
     #  @return None.
     set_attr = function(name, value) {
-      if (startsWith(name, paste0("_", class(self), "__"))) {
+      if (startsWith(name, paste0("_", class(self)[1], "__"))) {
         super$set_attr(name, value)
       } else {
         self$client$set_attr(name, value)
