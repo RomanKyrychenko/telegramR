@@ -2884,8 +2884,10 @@ GetArchivedStickersRequest <- R6::R6Class(
     #  @description Serialize the object to bytes.
     #  @return A raw vector of bytes.
     bytes = function() {
-      flags <- (if (is.null(self$masks) || !self$masks) 0 else 1) |
-        (if (is.null(self$emojis) || !self$emojis) 0 else 2)
+      flags <- bitwOr(
+        if (is.null(self$masks) || !self$masks) 0L else 1L,
+        if (is.null(self$emojis) || !self$emojis) 0L else 2L
+      )
       c(
         as.raw(c(0x92, 0x76, 0xf1, 0x57)),
         pack("<I", flags),
