@@ -116,7 +116,7 @@ BindTempAuthKeyRequest <- R6::R6Class(
       constructor_bytes <- as.raw(c(0x05, 0x2A, 0xD4, 0xCD))
       perm_raw <- pack_int64_le(self$perm_auth_key_id)
       nonce_raw <- pack_int64_le(self$nonce)
-      expires_raw <- self$serialize_datetime(self$expires_at)
+      expires_raw <- serialize_datetime(self$expires_at)
       enc_msg_raw <- serialize_bytes(self$encrypted_message)
 
       c(constructor_bytes, perm_raw, nonce_raw, expires_raw, enc_msg_raw)
