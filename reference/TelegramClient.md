@@ -13,6 +13,7 @@ TelegramClient
 
 This is an R6 class. Typical usage:
 
+
     client <- TelegramClient$new("my_session", api_id = 123, api_hash = "...")
     client$connect()
 

@@ -12,6 +12,7 @@ We study:
 ## Setup
 
 ``` r
+
 library(telegramR)
 library(dplyr)
 library(stringr)
@@ -30,12 +31,14 @@ client$connect()
 If not authorized:
 
 ``` r
+
 client$send_code_request("your_phone_number")
 ```
 
 After recieving code in Telegram app:
 
 ``` r
+
 client$sign_in(phone = "your_phone_number", code = "code")
 ```
 
@@ -44,6 +47,7 @@ client$sign_in(phone = "your_phone_number", code = "code")
 You can download a fixed number of recent posts or the full history.
 
 ``` r
+
 msgs <- download_channel_messages(
   client,
   "V_Zelenskiy_official",
@@ -53,6 +57,7 @@ msgs <- download_channel_messages(
 ```
 
 ``` r
+
 head(msgs)
 #> # A tibble: 6 × 18
 #>   message_id channel_id channel_username channel_title date                text 
@@ -72,6 +77,7 @@ head(msgs)
 ## Optional: Reactions and Replies
 
 ``` r
+
 # Reactions per post
 reactions <- download_channel_reactions(
   client,
@@ -91,6 +97,7 @@ replies <- download_channel_replies(
 ## Preprocess
 
 ``` r
+
 msgs <- msgs %>%
   filter(!is.na(text)) %>%
   mutate(
@@ -102,6 +109,7 @@ msgs <- msgs %>%
 ## 1) War vs. Peace Over Time (weekly dynamics)
 
 ``` r
+
 # Count mentions per day (simple word match)
 war_peace <- msgs %>%
   mutate(
@@ -140,6 +148,7 @@ if (nrow(war_peace) > 0 && all(!is.na(war_peace$day))) {
 ### Example Output (Bundled Sample)
 
 ``` r
+
 library(dplyr)
 library(stringr)
 library(lubridate)
@@ -191,6 +200,7 @@ if (nrow(war_peace) == 0 || any(is.na(war_peace$day))) {
 We extract the token immediately preceding “peace”.
 
 ``` r
+
 # =========================
 # Peace/Mир adjective mining + stopword filtering + EN/UKR unification + monthly dynamics
 # =========================
@@ -259,6 +269,7 @@ msgs2 <- msgs2 %>%
     #>   ```
 
 ``` r
+
 
 if (anyNA(msgs2$date)) {
   missing_idx <- is.na(msgs2$date)
@@ -406,6 +417,7 @@ monthly_adj_merged <- adj_long2 %>%
 ```
 
 ``` r
+
 # ---- plot: proportional stacked area (100%) with ColorBrewer ----
 
 # full month sequence
@@ -444,6 +456,7 @@ ggplot(monthly_adj_merged, aes(x = month, y = n, color = adj_group, group = adj_
 ## 3) “Powerful” Over Time
 
 ``` r
+
 powerful <- msgs %>%
   mutate(powerful_mentions = str_count(text_lower, "\\bpowerful\\b") + str_count(text_lower, "\\bпотужн.(|.)\\b")) %>%
   mutate(day = lubridate::round_date(day, unit = "week")) %>% 

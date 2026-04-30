@@ -11,6 +11,7 @@ This short case study shows how to:
 ## Setup
 
 ``` r
+
 library(telegramR)
 library(dplyr)
 library(stringr)
@@ -26,6 +27,7 @@ client$start()
 ## Replies (Comments)
 
 ``` r
+
 replies <- download_channel_replies(
   client,
   "V_Zelenskiy_official",
@@ -37,6 +39,7 @@ replies <- download_channel_replies(
 ## Reactions Breakdown
 
 ``` r
+
 reactions <- download_channel_reactions(
   client,
   "V_Zelenskiy_official",
@@ -45,6 +48,7 @@ reactions <- download_channel_reactions(
 ```
 
 ``` r
+
 emoji_counts <- reactions %>%
   filter(!is.na(reactions_json)) %>%
   mutate(reactions_json = ifelse(reactions_json == "{}", NA_character_, reactions_json)) %>%

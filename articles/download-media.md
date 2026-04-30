@@ -16,6 +16,7 @@ have credentials and a live session, you can run them by setting
 ## Setup and Authentication
 
 ``` r
+
 library(telegramR)
 library(dplyr)
 
@@ -30,6 +31,7 @@ client$start()
 ## Download Media
 
 ``` r
+
 # Download media into ./downloads
 media <- download_channel_media(
   client,
@@ -43,6 +45,7 @@ media <- download_channel_media(
 ```
 
 ``` r
+
 # Inspect results
 media
 #> # A tibble: 2 × 9
@@ -55,6 +58,7 @@ media
 ```
 
 ``` r
+
 photo_path <- media %>% 
   filter(media_type == "photo") %>% 
   slice(1) %>% 

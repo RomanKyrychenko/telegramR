@@ -1,4 +1,4 @@
-pandoc: 3.1.11
+pandoc: 3.8.3
 pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
@@ -6,7 +6,7 @@ articles:
   download-data: download-data.html
   download-media: download-media.html
   zelenskiy-war-peace: zelenskiy-war-peace.html
-last_built: 2026-04-29T19:23Z
+last_built: 2026-04-30T18:52Z
 urls:
   reference: https://romankyrychenko.github.io/telegramR/reference
   article: https://romankyrychenko.github.io/telegramR/articles

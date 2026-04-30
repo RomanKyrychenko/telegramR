@@ -10,6 +10,7 @@ full-client functionality (not the Bot API).
 From GitHub:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("RomanKyrychenko/telegramR")
 ```
@@ -25,6 +26,7 @@ You need Telegram API credentials from
 **Quick Start (Login)**
 
 ``` r
+
 library(telegramR)
 
 api_id   <- 123456
@@ -47,6 +49,7 @@ client$start()
 You can also supply the phone number and a code callback explicitly:
 
 ``` r
+
 client$start(
   phone         = "+15551234567",
   code_callback = function() readline("Enter the code: ")
@@ -56,6 +59,7 @@ client$start(
 If your account has 2FA enabled, pass `password`:
 
 ``` r
+
 client$start(
   phone    = "+15551234567",
   password = "my2FApassword"
@@ -67,6 +71,7 @@ client$start(
 If you prefer full control over each step:
 
 ``` r
+
 client <- TelegramClient$new("my_session", api_id = api_id, api_hash = api_hash)
 client$connect()
 
@@ -82,6 +87,7 @@ client$sign_in("+15551234567", code = "12345")
 Use high‑level helpers to fetch channel data as tibbles:
 
 ``` r
+
 library(telegramR)
 
 msgs <- download_channel_messages(
@@ -107,6 +113,7 @@ The result contains a compact schema:
 You can also fetch channel info:
 
 ``` r
+
 info <- download_channel_info(client, "telegram")
 info
 ```
@@ -114,6 +121,7 @@ info
 Filter by date range:
 
 ``` r
+
 msgs <- download_channel_messages(
   client,
   "telegram",
@@ -127,12 +135,14 @@ And get an approximate post count (upper bound) without downloading
 everything:
 
 ``` r
+
 estimate_channel_post_count(client, "telegram")
 ```
 
 **Reactions, replies, and members**
 
 ``` r
+
 reactions <- download_channel_reactions(client, "telegram", limit = 500)
 replies <- download_channel_replies(client, "telegram", message_limit = 50)
 members <- download_channel_members(client, "telegram", limit = 1000)
@@ -143,12 +153,14 @@ All helpers accept a numeric channel id when it is available in your
 session cache:
 
 ``` r
+
 msgs_by_id <- download_channel_messages(client, 1234567890, limit = 100)
 ```
 
 **Download media**
 
 ``` r
+
 dir.create("downloads", showWarnings = FALSE)
 
 media <- download_channel_media(
@@ -167,6 +179,7 @@ head(media)
 You can also download directly from raw messages:
 
 ``` r
+
 
 for (m in messages) {
   if (!is.null(m$media)) {
@@ -201,6 +214,7 @@ for (m in messages) {
 In R, use:
 
 ``` r
+
 citation("telegramR")
 ```
 
