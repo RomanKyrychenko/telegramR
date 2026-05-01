@@ -19,7 +19,11 @@ test_that(".onLoad sets default options when missing", {
 
 test_that("compat_promises value unwraps Future", {
   future::plan("sequential")
-  f <- future::future(1, seed = FALSE)
+  # future >= 1.70.0 occasionally errors with "bad binding access" inside its
+  # connection-tracking on CI; retry once after a gc() to release any stale
+  # connections held by earlier tests in the session.
+  make_future <- function() future::future(1, seed = FALSE)
+  f <- tryCatch(make_future(), error = function(e) { gc(); make_future() })
   expect_equal(telegramR:::value(f), 1)
 })
 
