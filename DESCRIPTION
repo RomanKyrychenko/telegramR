@@ -116,6 +116,7 @@ Collate:
     'mtprotostate.R'
     'namespace.R'
     'password.R'
+    'phone_number_checker.R'
     'requestiter.R'
     'requests.R'
     'requeststate.R'
