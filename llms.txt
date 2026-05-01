@@ -235,6 +235,14 @@ GitHub and reference managers can also read the repository’s
   : Batch Download Multiple Telegram Channels
 - [`check_invite_link()`](https://romankyrychenko.github.io/telegramR/reference/check_invite_link.md)
   : Check a chat invite link without joining
+- [`check_phone_on_telegram()`](https://romankyrychenko.github.io/telegramR/reference/check_phone_on_telegram.md)
+  : Check whether a single phone number is registered on Telegram
+- [`check_phones_on_telegram()`](https://romankyrychenko.github.io/telegramR/reference/check_phones_on_telegram.md)
+  : Check several phone numbers in one call
+- [`check_username_on_telegram()`](https://romankyrychenko.github.io/telegramR/reference/check_username_on_telegram.md)
+  : Check whether a single username belongs to a Telegram user
+- [`check_usernames_on_telegram()`](https://romankyrychenko.github.io/telegramR/reference/check_usernames_on_telegram.md)
+  : Check several usernames in one call
 - [`download_channel_info()`](https://romankyrychenko.github.io/telegramR/reference/download_channel_info.md)
   : Download Full Channel Info By Channel
 - [`download_channel_media()`](https://romankyrychenko.github.io/telegramR/reference/download_channel_media.md)
@@ -259,6 +267,8 @@ GitHub and reference managers can also read the repository’s
   : Join a private chat or channel by invite link
 - [`join_public_channel()`](https://romankyrychenko.github.io/telegramR/reference/join_public_channel.md)
   : Join a public channel by username
+- [`phone_number_checker`](https://romankyrychenko.github.io/telegramR/reference/phone_number_checker.md)
+  : Check whether phone numbers or usernames belong to Telegram accounts
 - [`` `+`( ``*`<raw>`*`)`](https://romankyrychenko.github.io/telegramR/reference/plus-.raw.md)
   : Addition operator for raw (fallback)
 - [`` `+`( ``*`<raw_bytes>`*`)`](https://romankyrychenko.github.io/telegramR/reference/plus-.raw_bytes.md)
