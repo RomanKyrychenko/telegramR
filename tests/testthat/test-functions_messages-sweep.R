@@ -128,3 +128,150 @@ test_that("single int-id request classes serialize and read back", {
     expect_equal(call_with_self(cls$public_methods$toDict, self_obj)[[spec$dict]], 5L)
   }
 })
+
+test_that("single-string request classes serialize and read back", {
+  string_arg <- list(
+    list(name = "GetEmojiKeywordsRequest", cid = c(0x62, 0xe0, 0xa0, 0x35),
+         arg = "langCode", dict = "lang_code"),
+    list(name = "GetEmojiURLRequest",      cid = c(0x26, 0x0c, 0xb1, 0xd5),
+         arg = "langCode", dict = "lang_code"),
+    list(name = "ImportChatInviteRequest", cid = c(0x1c, 0x05, 0x50, 0x6c),
+         arg = "hash",     dict = "hash")
+  )
+  for (spec in string_arg) {
+    cls <- get(spec$name)
+    self_obj <- c(setNames(list("xyz"), spec$arg),
+                  list(serialize_bytes = serialize_bytes))
+    expect_equal(
+      call_with_self(cls$public_methods$bytes, self_obj),
+      c(as.raw(spec$cid), serialize_bytes("xyz")),
+      info = paste("bytes mismatch for", spec$name)
+    )
+    expect_equal(call_with_self(cls$public_methods$toDict, self_obj)[[spec$dict]], "xyz")
+  }
+})
+
+test_that("two-scalar request classes serialize and dict-shape correctly", {
+  # Each spec describes (name, constructor bytes, args list, body bytes builder).
+  # The body builder closes over the scalar args we pass into self.
+  specs <- list(
+    list(name = "EditChatTitleRequest",
+         cid  = c(0xfd, 0x3f, 0x78, 0x73),
+         args = list(chatId = 7, title = "hi"),
+         dict = list(chat_id = 7, title = "hi"),
+         body = function(s) c(pack("<q", s$chatId), serialize_bytes(s$title))),
+    list(name = "EditQuickReplyShortcutRequest",
+         cid  = c(0xef, 0x3c, 0x00, 0x5c),
+         args = list(shortcutId = 3L, shortcut = "n"),
+         dict = list(shortcut_id = 3L, shortcut = "n"),
+         body = function(s) c(pack("<i", s$shortcutId), serialize_bytes(s$shortcut))),
+    list(name = "GetDhConfigRequest",
+         cid  = c(0x26, 0xcf, 0x89, 0x50),
+         args = list(version = 2L, randomLength = 256L),
+         dict = list(version = 2L, random_length = 256L),
+         body = function(s) c(pack("<i", s$version), pack("<i", s$randomLength))),
+    list(name = "GetMyStickersRequest",
+         cid  = c(0xfc, 0xe1, 0xb5, 0xd0),
+         args = list(offsetId = 1, limit = 50L),
+         dict = list(offset_id = 1, limit = 50L),
+         body = function(s) c(pack("<q", s$offsetId), pack("<i", s$limit))),
+    list(name = "GetRecentReactionsRequest",
+         cid  = c(0xb2, 0x1d, 0x46, 0x39),
+         args = list(limit = 10L, hash = 4),
+         dict = list(limit = 10L, hash = 4),
+         body = function(s) c(pack("<i", s$limit), pack("<q", s$hash))),
+    list(name = "GetTopReactionsRequest",
+         cid  = c(0xbb, 0x81, 0x25, 0xba),
+         args = list(limit = 10L, hash = 4),
+         dict = list(limit = 10L, hash = 4),
+         body = function(s) c(pack("<i", s$limit), pack("<q", s$hash))),
+    list(name = "GetWebPageRequest",
+         cid  = c(0xa3, 0x92, 0x96, 0x8d),
+         args = list(url = "https://x", hash = 0L),
+         dict = list(url = "https://x", hash = 0L),
+         body = function(s) c(serialize_bytes(s$url), pack("<i", s$hash))),
+    list(name = "GetStickersRequest",
+         cid  = c(0xd5, 0xa5, 0xd3, 0xa1),
+         args = list(emoticon = ":)", hash = 8),
+         dict = list(emoticon = ":)", hash = 8),
+         body = function(s) c(serialize_bytes(s$emoticon), pack("<q", s$hash))),
+    list(name = "GetEmojiKeywordsDifferenceRequest",
+         cid  = c(0xaf, 0xb6, 0x08, 0x15),
+         args = list(langCode = "en", fromVersion = 5L),
+         dict = list(lang_code = "en", from_version = 5L),
+         body = function(s) c(serialize_bytes(s$langCode), pack("<i", s$fromVersion)))
+  )
+  for (spec in specs) {
+    cls <- get(spec$name)
+    self_obj <- c(spec$args, list(serialize_bytes = serialize_bytes))
+    expect_equal(
+      call_with_self(cls$public_methods$bytes, self_obj),
+      c(as.raw(spec$cid), spec$body(self_obj)),
+      info = paste("bytes mismatch for", spec$name)
+    )
+    d <- call_with_self(cls$public_methods$toDict, self_obj)
+    expect_equal(d[["_"]], spec$name)
+    for (k in names(spec$dict)) {
+      expect_equal(d[[k]], spec$dict[[k]],
+                   info = paste(spec$name, "dict mismatch on", k))
+    }
+  }
+})
+
+test_that("single-TLObject request classes delegate to obj$bytes()", {
+  # Both to_dict and toDict are present because the generator emits both
+  # snake_case and camelCase wrappers across different classes.
+  dict_fn <- function() list("_" = "Fake")
+  fake_obj <- structure(
+    list(
+      bytes   = function() as.raw(c(0xaa, 0xbb, 0xcc, 0xdd)),
+      toDict  = dict_fn,
+      to_dict = dict_fn
+    ),
+    class = c("Fake", "TLObject")
+  )
+  obj_specs <- list(
+    list(name = "CheckHistoryImportPeerRequest", cid = c(0x03, 0x0f, 0xc6, 0x5d), arg = "peer"),
+    list(name = "GetAdminsWithInvitesRequest",   cid = c(0xef, 0xe6, 0x20, 0x39), arg = "peer"),
+    list(name = "GetAttachMenuBotRequest",       cid = c(0x92, 0x61, 0x21, 0x77), arg = "bot"),
+    list(name = "GetAttachedStickersRequest",    cid = c(0xcc, 0x67, 0x5b, 0xcc), arg = "media"),
+    list(name = "GetOnlinesRequest",             cid = c(0x50, 0xe0, 0x2b, 0x6e), arg = "peer"),
+    list(name = "GetPeerSettingsRequest",        cid = c(0xa2, 0xa6, 0xd9, 0xef), arg = "peer"),
+    list(name = "HidePeerSettingsBarRequest",    cid = c(0x38, 0xb1, 0xac, 0x4f), arg = "peer"),
+    list(name = "ReportEncryptedSpamRequest",    cid = c(0x0f, 0x8c, 0x0c, 0x4b), arg = "peer"),
+    list(name = "ReportSpamRequest",             cid = c(0xdb, 0x92, 0x15, 0xcf), arg = "peer"),
+    list(name = "SetDefaultReactionRequest",     cid = c(0x16, 0xa0, 0x47, 0x4f), arg = "reaction"),
+    list(name = "UninstallStickerSetRequest",    cid = c(0xde, 0x55, 0x6e, 0xf9), arg = "stickerset")
+  )
+  # Some generated classes use camelCase toDict, others use snake_case to_dict.
+  pick_dict <- function(pm) if (is.function(pm$toDict)) pm$toDict else pm$to_dict
+  for (spec in obj_specs) {
+    cls <- get(spec$name)
+    self_obj <- setNames(list(fake_obj), spec$arg)
+    expect_equal(
+      call_with_self(cls$public_methods$bytes, self_obj),
+      c(as.raw(spec$cid), fake_obj$bytes()),
+      info = paste("bytes mismatch for", spec$name)
+    )
+    d <- call_with_self(pick_dict(cls$public_methods), self_obj)
+    expect_equal(d[["_"]], spec$name)
+    expect_equal(d[[spec$arg]], fake_obj$toDict())
+  }
+})
+
+test_that("vector-of-long request classes serialize the inner vector marker", {
+  # GetCustomEmojiDocumentsRequest emits Vector<long>: 1cb5c415 + count + items
+  cls <- GetCustomEmojiDocumentsRequest
+  self_obj <- list(documentId = list(11, 22, 33))
+  expected <- c(
+    as.raw(c(0xd9, 0xab, 0x0f, 0x54)),
+    as.raw(c(0x15, 0xc4, 0xb5, 0x1c)),
+    pack("<i", 3L),
+    pack("<q", 11), pack("<q", 22), pack("<q", 33)
+  )
+  expect_equal(call_with_self(cls$public_methods$bytes, self_obj), expected)
+  d <- call_with_self(cls$public_methods$toDict, list(documentId = NULL))
+  expect_equal(d[["document_id"]], list())
+  d2 <- call_with_self(cls$public_methods$toDict, self_obj)
+  expect_equal(d2[["document_id"]], self_obj$documentId)
+})
