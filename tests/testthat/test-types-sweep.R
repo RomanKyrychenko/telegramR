@@ -181,28 +181,31 @@ test_that("sweep: from_reader exercised for every class with two flag patterns",
   patterns <- list(c(0L, 0L), c(-1L, 0L), c(0L, 1L), c(-1L, 1L))
   for (nm in names(classes)) {
     cls <- classes[[nm]]
-    # Pass A: unbound free-function call. `self` is unbound, so the function
-    # errors at the first `self$x <- ...` line — but covr still counts every
-    # line before that. For classes whose initialize takes args we can't
-    # supply (no mock fits), this is the *only* way to get any from_reader
-    # coverage at all. Snake_case is private, camelCase is public.
+    # Pass A: unbound free-function calls. `self` is unbound, so the
+    # function errors at the first `self$x <- ...` line — but covr still
+    # counts every line before that, which is the only coverage we get
+    # for classes whose initialize takes args we cannot supply. The
+    # codegen scatters from_reader across three locations: private
+    # snake_case (~1214), public snake_case (~82), public camelCase
+    # (~109). Try all three.
     fr_priv  <- cls$private_methods$from_reader
-    fr_pub   <- cls$public_methods$fromReader
-    # Pass B: bound call via an instantiated instance. Reaches every line in
-    # the body, including all flag-gated branches and count-driven loops.
+    fr_pubs  <- cls$public_methods$from_reader
+    fr_pubc  <- cls$public_methods$fromReader
+    # Pass B: bound calls via an instantiated instance — full body runs.
     args <- build_args(cls$public_methods$initialize)
     inst <- silent(do.call(cls$new, args))
     if (inherits(inst, "try-error") || is.null(inst)) {
       inst <- silent(cls$new())  # ~606 classes accept no args
     }
-    fr_bound_priv <- if (!inherits(inst, "try-error") && !is.null(inst))
-      tryCatch(inst$.__enclos_env__$private$from_reader, error = function(e) NULL)
-    else NULL
-    fr_bound_pub  <- if (!inherits(inst, "try-error") && !is.null(inst) &&
-                         is.function(inst$fromReader))
-      inst$fromReader
-    else NULL
-    for (fr in list(fr_priv, fr_pub, fr_bound_priv, fr_bound_pub)) {
+    fr_bound_priv <- fr_bound_pubs <- fr_bound_pubc <- NULL
+    if (!inherits(inst, "try-error") && !is.null(inst)) {
+      fr_bound_priv <- tryCatch(inst$.__enclos_env__$private$from_reader,
+                                error = function(e) NULL)
+      if (is.function(inst$from_reader)) fr_bound_pubs <- inst$from_reader
+      if (is.function(inst$fromReader))  fr_bound_pubc <- inst$fromReader
+    }
+    for (fr in list(fr_priv, fr_pubs, fr_pubc,
+                    fr_bound_priv, fr_bound_pubs, fr_bound_pubc)) {
       if (!is.function(fr)) next
       for (p in patterns) silent(fr(make_reader(p[1], p[2])))
     }
