@@ -62,8 +62,11 @@ find_types_env <- function() {
   asNamespace("telegramR")
 }
 
-# Discover every R6 class generator in `env` whose generator chain eventually
-# reaches TLObject.
+# Discover every R6 class generator in `env` that looks like a TL type. Most
+# inherit from TLObject, but the codegen also emits standalone classes (no
+# `inherit = TLObject`) that still carry the TL-pattern markers — accept
+# either: chain-reaches-TLObject *or* declares a CONSTRUCTOR_ID / to_dict /
+# bytes method.
 collect_tl_classes <- function(env) {
   out <- list()
   for (nm in ls(env)) {
@@ -74,6 +77,12 @@ collect_tl_classes <- function(env) {
     while (!is.null(g)) {
       if (identical(g$classname, "TLObject")) { is_tl <- TRUE; break }
       g <- tryCatch(g$get_inherit(), error = function(e) NULL)
+    }
+    if (!is_tl) {
+      pf <- obj$public_fields; pm <- obj$public_methods
+      is_tl <- !is.null(pf$CONSTRUCTOR_ID) ||
+        is.function(pm$to_dict) || is.function(pm$toDict) ||
+        is.function(pm$bytes)   || is.function(pm$Bytes)
     }
     if (is_tl) out[[nm]] <- obj
   }
