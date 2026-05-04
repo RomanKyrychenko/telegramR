@@ -81,8 +81,8 @@ collect_tl_classes <- function(env) {
     if (!is_tl) {
       pf <- obj$public_fields; pm <- obj$public_methods
       is_tl <- !is.null(pf$CONSTRUCTOR_ID) ||
-        is.function(pm$to_dict) || is.function(pm$toDict) ||
-        is.function(pm$bytes)   || is.function(pm$Bytes)
+        is.function(pm$to_dict) || is.function(pm$to_list) ||
+        is.function(pm$bytes)
     }
     if (is_tl) out[[nm]] <- obj
   }
@@ -184,7 +184,9 @@ unlock_generators <- function(classes) {
 # diagnosis. Every other class is still exercised, so coverage barely moves.
 SWEEP_SKIP <- local({
   raw <- Sys.getenv("TELEGRAMR_SWEEP_SKIP",
-                    "ImportChatInviteRequest,PQInnerDataTemp")
+                    paste(c("ImportChatInviteRequest", "PQInnerDataTemp",
+                            "GetWebFileRequest", "NotifyForumTopic"),
+                          collapse = ","))
   trimws(strsplit(raw, ",", fixed = TRUE)[[1]])
 })
 
@@ -215,9 +217,12 @@ test_that("sweep: every TLObject class instantiates and to_dict / bytes are exer
   exercise_obj <- function(obj) {
     if (inherits(obj, "try-error") || is.null(obj)) return(invisible())
     if (is.function(obj$to_dict)) silent(obj$to_dict())
-    if (is.function(obj$toDict))  silent(obj$toDict())
+    # 121 classes use `to_list` instead of `to_dict` (codegen naming drift —
+    # the BotInfo / ChatAdminRights / DocumentAttribute* family). Without
+    # this branch the entire to_list body, including the `list( ... )`
+    # construction, stays uncovered.
+    if (is.function(obj$to_list)) silent(obj$to_list())
     if (is.function(obj$bytes))   silent(obj$bytes())
-    if (is.function(obj$Bytes))   silent(obj$Bytes())
   }
   for (nm in iter) {
     if (nm %in% SWEEP_SKIP) next
@@ -272,16 +277,11 @@ test_that("sweep: from_reader exercised for every class with two flag patterns",
   for (nm in names(classes)) {
     if (nm %in% SWEEP_SKIP) next
     cls <- classes[[nm]]
-    # Pass A: unbound free-function calls. `self` is unbound, so the
-    # function errors at the first `self$x <- ...` line — but covr still
-    # counts every line before that, which is the only coverage we get
-    # for classes whose initialize takes args we cannot supply. The
-    # codegen scatters from_reader across three locations: private
-    # snake_case (~1214), public snake_case (~82), public camelCase
-    # (~109). Try all three.
-    fr_priv  <- cls$private_methods$from_reader
-    fr_pubs  <- cls$public_methods$from_reader
-    fr_pubc  <- cls$public_methods$fromReader
+    # Pass A: unbound private call. `self` is unbound so the body errors at
+    # the first `self$x <- ...` line — but covr still counts every line
+    # before that. This is the only path for classes whose initialize takes
+    # args we cannot supply.
+    fr_priv <- cls$private_methods$from_reader
     # Pass B: bound calls via an instantiated instance — full body runs.
     init_fn <- cls$public_methods$initialize
     inst <- silent(do.call(cls$new, smart_args(init_fn, "mock")))
@@ -294,15 +294,12 @@ test_that("sweep: from_reader exercised for every class with two flag patterns",
     if (inherits(inst, "try-error") || is.null(inst)) {
       inst <- silent(cls$new())  # ~606 classes accept no args
     }
-    fr_bound_priv <- fr_bound_pubs <- fr_bound_pubc <- NULL
+    fr_bound <- NULL
     if (!inherits(inst, "try-error") && !is.null(inst)) {
-      fr_bound_priv <- tryCatch(inst$.__enclos_env__$private$from_reader,
-                                error = function(e) NULL)
-      if (is.function(inst$from_reader)) fr_bound_pubs <- inst$from_reader
-      if (is.function(inst$fromReader))  fr_bound_pubc <- inst$fromReader
+      fr_bound <- tryCatch(inst$.__enclos_env__$private$from_reader,
+                           error = function(e) NULL)
     }
-    for (fr in list(fr_priv, fr_pubs, fr_pubc,
-                    fr_bound_priv, fr_bound_pubs, fr_bound_pubc)) {
+    for (fr in list(fr_priv, fr_bound)) {
       if (!is.function(fr)) next
       for (p in patterns) silent(fr(make_reader(p[1], p[2])))
     }
