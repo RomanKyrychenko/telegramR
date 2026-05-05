@@ -24,8 +24,10 @@ This is an R6 class. Typical usage:
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+# \donttest{
 client <- TelegramClient$new("my_session", api_id = 123, api_hash = "...")
+#> Error: object 'TelegramClient' not found
 client$connect()
-} # }
+#> Error: object 'client' not found
+# }
 ```
