@@ -1,6 +1,6 @@
 Package: telegramR
 Type: Package
-Title: MProto for R
+Title: Interact with the Telegram MTProto API
 Version: 0.0.1
 Authors@R: c(
     person(
@@ -9,10 +9,18 @@ Authors@R: c(
       role = c("aut", "cre")
     )
   )
-Description: A package for interacting with Telegram's MTProto API in R.
-    Provides tools for serialization, deserialization, and communication with Telegram servers.
+Description: Provides a full-featured client for Telegram's MTProto protocol,
+    enabling programmatic access to Telegram chats, channels, messages, media,
+    and stories. Implements serialisation and deserialisation of Telegram's
+    binary TL (Type Language) schema, authentication (including two-factor),
+    encrypted transport, and high-level helpers for downloading channel
+    history and reactions at scale. Intended for social-science research and
+    data collection tasks that require direct API access rather than the
+    Bot API.
 License: MIT + file LICENSE
 Encoding: UTF-8
+Depends:
+    R (>= 3.5.0)
 Imports:
     Rcpp (>= 1.0.0),
     digest (>= 0.6.37),
@@ -143,5 +151,6 @@ Collate:
     'increase_view_count.R'
     'utils_bridge.R'
     'zzz.R'
-URL: https://romankyrychenko.github.io/telegramR/
+URL: https://romankyrychenko.github.io/telegramR/, https://github.com/RomanKyrychenko/telegramR
+BugReports: https://github.com/RomanKyrychenko/telegramR/issues
 VignetteBuilder: knitr

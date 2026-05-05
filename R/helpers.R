@@ -12,7 +12,7 @@ EntityType <- list(
 #  @param ... Arguments passed to sprintf for formatting the log message.
 #  @return None. Prints the formatted message to the console.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  logg("This is a log message with a number: %d", 42)
 #  }
 #  @export
@@ -22,7 +22,7 @@ logg <- function(...) cat(sprintf(...), "\n", sep = "")
 #  @param signed Logical indicating if the integer should be signed (default TRUE)
 #  @return A random long integer
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  random_long <- generate_random_long()
 #  print(random_long)
 #  random_unsigned_long <- generate_random_long(signed = FALSE)
@@ -42,7 +42,7 @@ generate_random_long <- function(signed = TRUE) {
 #  @param file_path The file path for which to ensure the parent directory exists.
 #  @return None. Creates the parent directory if it does not exist.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  ensure_parent_dir_exists("path/to/some/file.txt")
 #  }
 #  @export
@@ -57,7 +57,7 @@ ensure_parent_dir_exists <- function(file_path) {
 #  @param text The input text string.
 #  @return The text string with surrogate pairs added.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  text <- "Hello \U0001F600 World" # Contains a surrogate pair
 #  surrogate_text <- add_surrogate(text)
 #  print(surrogate_text) # "Hello 😀 World"
@@ -80,7 +80,7 @@ add_surrogate <- function(text) {
 #  @param text The input text string.
 #  @return The text string with surrogate pairs removed.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  text <- "Hello \U0001F600 World" # Contains a surrogate pair
 #  cleaned_text <- del_surrogate(text)
 #  print(cleaned_text) # "Hello  World"
@@ -96,7 +96,7 @@ del_surrogate <- function(text) {
 #  @param text_length Optional length of the text; if NULL, computed from text.
 #  @return Logical indicating if the index is within a surrogate pair.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  text <- "\U0001F400"
 #  within_surrogate(text, 2)
 #  }
@@ -129,7 +129,7 @@ within_surrogate <- function(text, index, text_length = NULL) {
 #  fields.
 #  @return The stripped text with adjusted entities.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  text <- "  Hello, World!  "
 #  entities <- list(list(offset = 2, length = 5), list(offset = 10, length = 3))
 #  stripped_text <- strip_text(text, entities)
@@ -185,7 +185,7 @@ strip_text <- function(text, entities) {
 #  @param new_nonce A raw vector representing the new nonce (32 bytes).
 #  @return A list containing 'key' and 'iv' as raw vectors.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  server_nonce <- as.raw(sample(0:255, 16, replace = TRUE))
 #  new_nonce <- as.raw(sample(0:255, 32, replace = TRUE))
 #  key_data <- generate_key_data_from_nonce(server_nonce, new_nonce)

@@ -743,6 +743,32 @@ download_channel_messages <- function(client, channel,
 #' @return A tibble with columns \code{channel}, \code{status}
 #'   ("ok"/"skipped"/"error"), \code{rows_downloaded}, \code{error_message}.
 #' @export
+# Append a temp CSV file into a main CSV file then delete the temp.
+# Used by parallel workers to avoid concurrent writes to shared files.
+.merge_csv_temp <- function(tmp_path, main_path) {
+  if (is.null(tmp_path) || !file.exists(tmp_path)) return(invisible(0L))
+  rows <- 0L
+  tryCatch({
+    df <- if (requireNamespace("data.table", quietly = TRUE)) {
+      data.table::fread(tmp_path, data.table = FALSE, showProgress = FALSE)
+    } else {
+      utils::read.csv(tmp_path, check.names = FALSE, stringsAsFactors = FALSE)
+    }
+    if (!is.null(df) && nrow(df) > 0) {
+      .write_csv_compat(df, file = main_path,
+                        append    = file.exists(main_path),
+                        col_names = !file.exists(main_path))
+      rows <- nrow(df)
+    }
+  }, error = function(e) {
+    warning(".merge_csv_temp: could not merge ", tmp_path, " into ", main_path,
+            ": ", e$message, call. = FALSE)
+  }, finally = {
+    unlink(tmp_path)
+  })
+  invisible(rows)
+}
+
 batch_download_channels <- function(channels,
                                     session,
                                     api_id,
@@ -934,19 +960,40 @@ batch_download_channels <- function(channels,
         }
       }
 
+      # When running parallel workers, give each channel its own temp output
+      # files to avoid concurrent writes corrupting the shared CSVs.
+      # Sequential mode (workers == 1) writes directly to the main files.
+      if (workers > 1L) {
+        safe    <- gsub("[^A-Za-z0-9._-]", "_", ch_str)
+        w_msgs  <- paste0(msgs_path,      ".", safe, ".tmp")
+        w_info  <- paste0(info_path,      ".", safe, ".tmp")
+        w_rxns  <- if (!is.null(reactions_path)) paste0(reactions_path, ".", safe, ".tmp") else NULL
+        w_reps  <- if (!is.null(replies_path))   paste0(replies_path,   ".", safe, ".tmp") else NULL
+      } else {
+        w_msgs <- msgs_path
+        w_info <- info_path
+        w_rxns <- reactions_path
+        w_reps <- replies_path
+      }
+
       batch_args[[bi]] <- list(
         idx      = idx,
         ch_str   = ch_str,
+        # temp paths needed later for merging (NULL when workers == 1)
+        tmp_msgs = if (workers > 1L) w_msgs else NULL,
+        tmp_info = if (workers > 1L) w_info else NULL,
+        tmp_rxns = if (workers > 1L) w_rxns else NULL,
+        tmp_reps = if (workers > 1L) w_reps else NULL,
         args     = list(
           pkg_path       = pkg_path,
           channel        = ch,
           session        = session,
           api_id         = api_id,
           api_hash       = api_hash,
-          info_path      = info_path,
-          msgs_path      = msgs_path,
-          reactions_path = reactions_path,
-          replies_path   = replies_path,
+          info_path      = w_info,
+          msgs_path      = w_msgs,
+          reactions_path = w_rxns,
+          replies_path   = w_reps,
           start_date     = start_date,
           since_id       = since_id,
           limit          = limit,
@@ -993,12 +1040,22 @@ batch_download_channels <- function(channels,
       })
     }
 
-    # Record outcomes
+    # Record outcomes and (for parallel mode) merge per-channel temp files
+    # into the shared main CSVs. Merging is sequential so writes never overlap.
     for (j in seq_along(active)) {
       idx     <- active[[j]]$idx
       ch_str  <- active[[j]]$ch_str
       elapsed <- round(proc.time()[["elapsed"]] - t_starts[[j]], 1)
       outcome <- procs[[j]]
+
+      # Merge temp → main regardless of success/error (partial_on_error saves
+      # whatever was downloaded before the crash).
+      if (workers > 1L) {
+        .merge_csv_temp(active[[j]]$tmp_msgs, msgs_path)
+        .merge_csv_temp(active[[j]]$tmp_info, info_path)
+        if (!is.null(reactions_path)) .merge_csv_temp(active[[j]]$tmp_rxns, reactions_path)
+        if (!is.null(replies_path))   .merge_csv_temp(active[[j]]$tmp_reps, replies_path)
+      }
 
       if (inherits(outcome, "error")) {
         if (verbose) message(sprintf("  [%s] ERROR: %s", ch_str, conditionMessage(outcome)))

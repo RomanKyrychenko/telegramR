@@ -89,7 +89,7 @@ FileInfo <- R6::R6Class(
 #  @param size An integer specifying the size of each chunk. Default is 100L.
 #  @return A list of vectors, each representing a chunk of the original iterable.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  chunks(1:10, 3) # Returns list(c(1,2,3), c(4,5,6), c(7,8,9), c(10))
 #  }
 chunks <- function(iterable, size = 100L) {
@@ -259,7 +259,7 @@ unpack <- function(format, data) {
 #  @param entity The entity object (User, Chat, or Channel).
 #  @return A character string representing the display name.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming entity is a User object
 #  name <- get_display_name(entity)
 #  }
@@ -415,7 +415,7 @@ guess_extension <- function(mime_type) {
 #  @param media The media object to analyze.
 #  @return A character string representing the file extension.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming media is a Document object
 #  ext <- get_extension(media)
 #  }
@@ -451,7 +451,7 @@ get_extension <- function(media) {
 #  @param entity The entity object that failed to cast.
 #  @param target A character string representing the target type.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  raise_cast_fail(some_entity, "InputPeer")
 #  }
 #  @export
@@ -479,7 +479,7 @@ raise_cast_fail <- function(entity, target) {
 #  @param check_hash Logical, whether to check for valid access hashes. Default is `TRUE`.
 #  @return An InputPeer object.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming entity is a User object
 #  input_peer <- get_input_peer(entity)
 #  }
@@ -625,7 +625,7 @@ serialize_string <- function(s) {
 #  @param entity The entity object to convert.
 #  @return An InputChannel object.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming entity is a Channel object
 #  input_channel <- get_input_channel(entity)
 #  }
@@ -657,7 +657,7 @@ get_input_channel <- function(entity) {
 #  @param entity The entity object to convert.
 #  @return An InputUser object.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming entity is a User object
 #  input_user <- get_input_user(entity)
 #  }
@@ -711,7 +711,7 @@ get_input_user <- function(entity) {
 #  @param dialog The dialog object to convert.
 #  @return An InputDialogPeer object.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming dialog is a dialog object
 #  input_dialog <- get_input_dialog(dialog)
 #  }
@@ -749,7 +749,7 @@ get_input_dialog <- function(dialog) {
 #  @param document The document object to convert.
 #  @return An InputDocument object.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming document is a Document object
 #  input_doc <- get_input_document(document)
 #  }
@@ -1309,7 +1309,7 @@ get_message_id <- function(message) {
 #    (bytes), or a file connection object.
 #  @return A list containing metadata if extraction succeeds, otherwise NULL.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming exiftoolr is installed and file exists
 #  metadata <- get_metadata("example.mp3")
 #  if (!is.null(metadata)) {
@@ -1390,7 +1390,7 @@ get_metadata <- function(file) {
 #  @param thumb The thumbnail file for video attributes. Default is NULL.
 #  @return A list containing the attributes list and the MIME type.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming types and helper functions are defined
 #  attrs <- get_attributes("example.mp3", voice_note = TRUE)
 #  }
@@ -1496,7 +1496,7 @@ get_attributes <- function(file, attributes = NULL, mime_type = NULL,
 #    a callable function, or a string ('md', 'markdown', 'htm', 'html').
 #  @return An object with parse and unparse methods, or NULL if mode is NULL.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming markdown and html are defined elsewhere
 #  mode <- sanitize_parse_mode("markdown")
 #  parsed <- mode$parse("**bold**")
@@ -1738,7 +1738,7 @@ is_video <- function(file) {
 #  @param phone The phone number to parse, as an integer or string.
 #  @return A character string of the parsed phone number, or `NULL` if invalid.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  parse_phone(1234567890) # "1234567890"
 #  parse_phone("+1 (234) 567-890") # "1234567890"
 #  parse_phone("invalid") # NULL
@@ -1765,7 +1765,7 @@ parse_phone <- function(phone) {
 #  @param username The username string to parse.
 #  @return A list with two elements: the parsed username (or `NULL`) and a logical for invite status.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  parse_username("@username") # list("username", FALSE)
 #  parse_username("https://t.me/joinchat/abc123") # list("abc123", TRUE)
 #  parse_username("invalid") # list(NULL, FALSE)
@@ -1902,7 +1902,7 @@ get_peer <- function(peer) {
 #  @param add_mark Logical, whether to add the mark (default TRUE).
 #  @return The marked or unmarked peer ID as an integer.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming peer is a PeerUser object
 #  id <- get_peer_id(peer)
 #  }
@@ -2412,7 +2412,7 @@ get_appropriated_part_size <- function(file_size) {
 #  @param waveform A raw vector representing the waveform bytes.
 #  @return A raw vector containing the encoded waveform.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Send 'my.ogg' with an ascending-triangle waveform
 #  waveform <- as.raw(0:31) # 2^5 values for 5-bit
 #  encoded <- encode_waveform(waveform)
@@ -2435,7 +2435,7 @@ encode_waveform <- function(waveform) {
 #  @param waveform A raw vector representing the encoded waveform bytes.
 #  @return A raw vector containing the decoded 5-bit values.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Example usage (assuming encoded waveform)
 #  encoded <- as.raw(c(0x00, 0x00)) # Placeholder
 #  decoded <- decode_waveform(encoded)
@@ -2465,7 +2465,7 @@ decode_waveform <- function(waveform) {
 #  @return A list of lists, where each sublist contains a pair of (split_text, split_entities).
 #    Each pair represents a portion of the original text and its corresponding entities.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming entities are lists like list(offset = 0, length = 5, ...)
 #  text <- "This is a very long message that needs to be split."
 #  entities <- list(list(offset = 0, length = 4)) # Example entity
@@ -2606,7 +2606,7 @@ AsyncClassWrapper <- R6::R6Class(
 #  @return A raw vector with the JPG header and footer added, or the original
 #    stripped bytes if the conditions are not met.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming stripped is a raw vector from a stripped photo
 #  stripped <- as.raw(c(0x01, 0x80, 0x60, ...)) # example bytes
 #  jpg_bytes <- stripped_photo_to_jpg(stripped)
@@ -2679,7 +2679,7 @@ stripped_photo_to_jpg <- function(stripped) {
 #    or PhotoSizeProgressive.
 #  @return The byte count as an integer, or NULL if the type is unrecognized.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming types are defined elsewhere, e.g., PhotoSize
 #  size <- PhotoSize(size = 1024)
 #  photo_size_byte_count(size) # Returns 1024
@@ -2716,7 +2716,7 @@ photo_size_byte_count <- function(size) {
 #  @param coro A value that may be a future (from the 'future' package).
 #  @return The resolved value if \code{coro} is a future, otherwise \code{coro} unchanged.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # Assuming 'future' package is used for async operations
 #  library(future)
 #  f <- future({

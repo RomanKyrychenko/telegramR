@@ -13,7 +13,7 @@ EPOCH <- EPOCH_NAIVE
 #  @param dt A datetime object to be converted.
 #  @return A numeric value representing the timestamp in seconds since the epoch.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  datetime_to_timestamp(as.POSIXct("2023-01-01 12:00:00", tz = "UTC"))
 #  datetime_to_timestamp(as.POSIXct("2023-01-01 12:00:00"))
 #  }
@@ -34,7 +34,7 @@ datetime_to_timestamp <- function(dt) {
 #  @param value The value to be serialized.
 #  @return A character string representing the serialized value.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  json_default(charToRaw("test"))
 #  json_default(as.POSIXct("2023-01-01 12:00:00", tz = "UTC"))
 #  json_default(123)
@@ -59,7 +59,7 @@ json_default <- function(value) {
 #  @param indent The current indentation level (used for recursive calls).
 #  @return A character string representing the formatted object.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  pretty_format(list(a = 1, b = "test", c = list(d = 2)))
 #  pretty_format(c(1, 2, 3))
 #  }
@@ -152,7 +152,7 @@ pretty_format <- function(obj, indent = NULL) {
 #  @param data The data to be serialized.
 #  @return A raw vector representing the serialized data.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  serialize_bytes(charToRaw("test"))
 #  serialize_bytes("test")
 #  }
@@ -201,7 +201,7 @@ serialize_bytes <- function(data) {
 #  @param dt The datetime object to be serialized.
 #  @return A raw vector representing the serialized datetime.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  serialize_datetime(as.POSIXct("2023-01-01 12:00:00", tz = "UTC"))
 #  serialize_datetime(as.Date("2023-01-01"))
 #  serialize_datetime(as.numeric(1234567890))

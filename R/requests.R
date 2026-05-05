@@ -327,7 +327,7 @@ InitConnectionRequest <- R6::R6Class(
 #  @return An instance of `InitConnectionRequest` populated with values read
 #          from the `reader`.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # reader <- Reader$new(source)
 #  # req <- InitConnectionRequest_from_reader(reader)
 #  }
@@ -609,7 +609,7 @@ InvokeWithApnsSecretRequest <- R6::R6Class(
 #    - `tgread_object()` to read nested Telegram objects.
 #  @return Instance of `InvokeWithApnsSecretRequest`.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # reader <- Reader$new(source)
 #  # req <- InvokeWithApnsSecretRequest_from_reader(reader)
 #  }
@@ -1102,7 +1102,7 @@ InvokeWithTakeoutRequest <- R6::R6Class(
 #    - `tgread_object()` to read nested Telegram objects.
 #  @return Instance of \code{InvokeWithTakeoutRequest}.
 #  @examples
-#  \dontrun{
+#  \donttest{
 #  # reader <- Reader$new(source)
 #  # req <- InvokeWithTakeoutRequest_from_reader(reader)
 #  }
