@@ -35,7 +35,7 @@ test_that("TelegramBaseClient connect/disconnect with fake sender", {
     connect = function(...) TRUE,
     set_auth_key_callback = function(cb) NULL,
     set_update_callback = function(cb) NULL,
-    send = function(req) future::future(list(dc_options = list()), seed = FALSE),
+    send = function(req) list(dc_options = list()),
     disconnect = function() TRUE
   )
 
