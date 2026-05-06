@@ -91,6 +91,14 @@
 <dd><p>logical. If TRUE, display a progress bar.</p></dd>
 
 
+<dt id="arg-output-file">output_file<a class="anchor" aria-label="anchor" href="#arg-output-file"></a></dt>
+<dd><p>character or NULL. If set, results are streamed to this CSV file instead of returned as a tibble.</p></dd>
+
+
+<dt id="arg-chunk-size">chunk_size<a class="anchor" aria-label="anchor" href="#arg-chunk-size"></a></dt>
+<dd><p>integer. Number of rows to buffer before writing to <code>output_file</code>.</p></dd>
+
+
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).</p></dd>
 

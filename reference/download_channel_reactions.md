@@ -50,6 +50,15 @@ download_channel_reactions(
 
   logical. If TRUE, display a progress bar.
 
+- output_file:
+
+  character or NULL. If set, results are streamed to this CSV file
+  instead of returned as a tibble.
+
+- chunk_size:
+
+  integer. Number of rows to buffer before writing to `output_file`.
+
 - ...:
 
   Passed to client\$iter_messages() (e.g. offset_id, max_id, min_id).

@@ -108,10 +108,7 @@ batch_download_channels(
 
 - workers:
 
-  integer. Number of channels to download in parallel using `callr`
-  background processes. Default `1L` (sequential). Each worker writes to
-  its own temp file; results are merged into the main CSV files after
-  each batch.
+  integer. Number of parallel workers. Default 1L (sequential).
 
 - verbose:
 

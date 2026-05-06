@@ -9,6 +9,6 @@
 - High-level helpers for downloading channel messages, reactions, and
   replies at scale
   ([`download_channel_messages()`](https://romankyrychenko.github.io/telegramR/reference/download_channel_messages.md),
-  `batch_download_channels()`).
+  [`batch_download_channels()`](https://romankyrychenko.github.io/telegramR/reference/batch_download_channels.md)).
 - Two-factor authentication support via `PasswordKdf`.
 - Story support via `functions_stories.R` request classes.
