@@ -706,6 +706,32 @@ download_channel_messages <- function(client, channel,
   .strip_channel(if (length(rows) > 0) dplyr::bind_rows(rows) else tibble::tibble())
 }
 
+# Append a temp CSV file into a main CSV file then delete the temp.
+# Used by parallel workers to avoid concurrent writes to shared files.
+.merge_csv_temp <- function(tmp_path, main_path) {
+  if (is.null(tmp_path) || !file.exists(tmp_path)) return(invisible(0L))
+  rows <- 0L
+  tryCatch({
+    df <- if (requireNamespace("data.table", quietly = TRUE)) {
+      data.table::fread(tmp_path, data.table = FALSE, showProgress = FALSE)
+    } else {
+      utils::read.csv(tmp_path, check.names = FALSE, stringsAsFactors = FALSE)
+    }
+    if (!is.null(df) && nrow(df) > 0) {
+      .write_csv_compat(df, file = main_path,
+                        append    = file.exists(main_path),
+                        col_names = !file.exists(main_path))
+      rows <- nrow(df)
+    }
+  }, error = function(e) {
+    warning(".merge_csv_temp: could not merge ", tmp_path, " into ", main_path,
+            ": ", e$message, call. = FALSE)
+  }, finally = {
+    unlink(tmp_path)
+  })
+  invisible(rows)
+}
+
 #' Batch Download Multiple Telegram Channels
 #'
 #' Downloads info and messages for multiple channels in sequence, running each
@@ -739,35 +765,11 @@ download_channel_messages <- function(client, channel,
 #' @param pkg_path character. Path to the package root; passed to
 #'   \code{devtools::load_all()} inside the subprocess. Defaults to
 #'   \code{getwd()}.
+#' @param workers integer. Number of parallel workers. Default 1L (sequential).
 #' @param verbose logical. If TRUE (default), print progress messages.
 #' @return A tibble with columns \code{channel}, \code{status}
 #'   ("ok"/"skipped"/"error"), \code{rows_downloaded}, \code{error_message}.
 #' @export
-# Append a temp CSV file into a main CSV file then delete the temp.
-# Used by parallel workers to avoid concurrent writes to shared files.
-.merge_csv_temp <- function(tmp_path, main_path) {
-  if (is.null(tmp_path) || !file.exists(tmp_path)) return(invisible(0L))
-  rows <- 0L
-  tryCatch({
-    df <- if (requireNamespace("data.table", quietly = TRUE)) {
-      data.table::fread(tmp_path, data.table = FALSE, showProgress = FALSE)
-    } else {
-      utils::read.csv(tmp_path, check.names = FALSE, stringsAsFactors = FALSE)
-    }
-    if (!is.null(df) && nrow(df) > 0) {
-      .write_csv_compat(df, file = main_path,
-                        append    = file.exists(main_path),
-                        col_names = !file.exists(main_path))
-      rows <- nrow(df)
-    }
-  }, error = function(e) {
-    warning(".merge_csv_temp: could not merge ", tmp_path, " into ", main_path,
-            ": ", e$message, call. = FALSE)
-  }, finally = {
-    unlink(tmp_path)
-  })
-  invisible(rows)
-}
 
 batch_download_channels <- function(channels,
                                     session,

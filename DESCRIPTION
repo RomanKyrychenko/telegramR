@@ -60,7 +60,9 @@ Suggests:
     readr,
     stringr,
     stopwords,
-    RColorBrewer
+    RColorBrewer,
+    scales,
+    stringi
 Config/testthat/edition: 3
 RoxygenNote: 7.3.3
 Roxygen: list(roclets = c("collate", "namespace", "rd"))

@@ -32,6 +32,10 @@ download_channel_reactions(
 
 \item{show_progress}{logical. If TRUE, display a progress bar.}
 
+\item{output_file}{character or NULL. If set, results are streamed to this CSV file instead of returned as a tibble.}
+
+\item{chunk_size}{integer. Number of rows to buffer before writing to \code{output_file}.}
+
 \item{...}{Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).}
 }
 \value{

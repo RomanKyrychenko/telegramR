@@ -35,3 +35,4 @@
 ^pechalbeda.*\.csv$
 ^ukrainian-.*\.udpipe$
 ^vignette_session\.rds$
+cran-comments.md

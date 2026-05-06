@@ -366,7 +366,7 @@ test_that("resolve_id returns PeerChat for small negative ID", {
 })
 
 test_that("resolve_id returns PeerChannel for large negative ID", {
-  r <- resolve_id(-(1000000000000L + 100L))
+  r <- resolve_id(-(1000000000000 + 100))
   expect_equal(r[[1]], 100L)
   expect_identical(r[[2]], PeerChannel)
 })
