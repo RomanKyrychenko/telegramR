@@ -13,3 +13,18 @@ Phone-number lookups briefly add the number to your contact list and
 then delete it. Telegram throttles abusive callers — Bellingcat
 recommends using a fresh, residential-IP account rather than a personal
 one.
+
+## Value
+
+A named list of user profile fields, or a list with an `error` field if
+the lookup failed.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+check_phone_on_telegram(client, "+15551234567")
+} # }
+```

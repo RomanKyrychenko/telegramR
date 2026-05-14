@@ -35,3 +35,14 @@ A tibble with one row per unique username.
 ## See also
 
 \[check_username_on_telegram()\] for the single-username variant.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+check_usernames_on_telegram(client, c("user1", "user2"))
+} # }
+```

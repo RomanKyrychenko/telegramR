@@ -36,3 +36,14 @@ field.
 ## See also
 
 \[check_usernames_on_telegram()\] for batch lookups.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+check_username_on_telegram(client, "username")
+} # }
+```

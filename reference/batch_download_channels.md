@@ -118,3 +118,11 @@ batch_download_channels(
 
 A tibble with columns `channel`, `status` ("ok"/"skipped"/"error"),
 `rows_downloaded`, `error_message`.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+batch_download_channels(c("channel1", "channel2"), "my_session", 123, "abc")
+} # }
+```

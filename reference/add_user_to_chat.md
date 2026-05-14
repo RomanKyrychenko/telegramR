@@ -29,3 +29,14 @@ add_user_to_chat(client, chat, user, fwd_limit = 10)
 ## Value
 
 The API response.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+add_user_to_chat(client, chat = "my_group", user = "username")
+} # }
+```

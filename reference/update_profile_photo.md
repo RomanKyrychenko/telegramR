@@ -25,3 +25,14 @@ update_profile_photo(client, file, progress_callback = NULL)
 ## Value
 
 The API response.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+update_profile_photo(client, "photo.jpg")
+} # }
+```

@@ -21,3 +21,14 @@ join_channel(client, channel)
 ## Value
 
 The API response.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+join_channel(client, "channelname")
+} # }
+```

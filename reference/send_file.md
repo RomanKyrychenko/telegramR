@@ -32,3 +32,14 @@ send_file(client, entity, file, ...)
 ## Value
 
 The sent message object (or Updates result).
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+send_file(client, "me", "file.txt")
+} # }
+```

@@ -37,3 +37,14 @@ estimate_channel_post_count(
 ## Value
 
 A tibble with last_message_id and a note.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+estimate_channel_post_count(client, "channelname")
+} # }
+```

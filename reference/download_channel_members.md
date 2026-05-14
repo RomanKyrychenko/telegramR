@@ -50,3 +50,14 @@ download_channel_members(
 ## Value
 
 A tibble.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+download_channel_members(client, "channelname")
+} # }
+```

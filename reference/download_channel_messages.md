@@ -99,3 +99,14 @@ download_channel_messages(
 ## Value
 
 A tibble (or invisible row count when `output_file` is set).
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+download_channel_messages(client, "channelname", limit = 100)
+} # }
+```

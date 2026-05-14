@@ -17,6 +17,10 @@ This is an R6 class. Typical usage:
     client <- TelegramClient$new("my_session", api_id = 123, api_hash = "...")
     client$connect()
 
+## Value
+
+An R6 object of class `TelegramClient`.
+
 ## See also
 
 [`TelegramBaseClient`](https://romankyrychenko.github.io/telegramR/reference/TelegramBaseClient.md)

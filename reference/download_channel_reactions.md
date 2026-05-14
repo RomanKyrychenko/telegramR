@@ -66,3 +66,14 @@ download_channel_reactions(
 ## Value
 
 A tibble.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+download_channel_reactions(client, "channelname", limit = 100)
+} # }
+```

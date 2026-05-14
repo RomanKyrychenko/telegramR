@@ -21,3 +21,14 @@ check_invite_link(client, invite_link)
 ## Value
 
 The API response.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+check_invite_link(client, "https://t.me/+xxxx")
+} # }
+```

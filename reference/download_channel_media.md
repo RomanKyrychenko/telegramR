@@ -84,3 +84,14 @@ download_channel_media(
 
 A tibble with message_id, channel info, media_type, file_path, and
 original_filename.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+download_channel_media(client, "channelname")
+} # }
+```

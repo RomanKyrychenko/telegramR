@@ -23,3 +23,12 @@ e1 + e2
 ## Value
 
 A new raw_bytes object.
+
+## Examples
+
+``` r
+a <- as.raw(c(0x01, 0x02))
+b <- as.raw(c(0x03, 0x04))
+a + b
+#> Error in a + b: non-numeric argument to binary operator
+```

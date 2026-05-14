@@ -37,3 +37,14 @@ the user's public fields; failures expose an \`error\` column.
 ## See also
 
 \[check_phone_on_telegram()\] for the single-phone variant.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+check_phones_on_telegram(client, c("+15551234567", "+15559876543"))
+} # }
+```
