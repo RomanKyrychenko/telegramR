@@ -19,3 +19,11 @@ The API response.
 \description{
 Update your profile photo
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+update_profile_photo(client, "photo.jpg")
+}
+}

@@ -27,3 +27,11 @@ A tibble with last_message_id and a note.
 Gets the latest message ID and uses it as an upper-bound estimate of total posts.
 This is approximate due to deletions and gaps in message IDs.
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+estimate_channel_post_count(client, "channelname")
+}
+}

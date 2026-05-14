@@ -19,3 +19,11 @@ The API response (views).
 \description{
 Increase view count for channel messages
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+increase_view_count(client, "channelname", message_ids = 1:10)
+}
+}

@@ -17,3 +17,11 @@ The API response.
 \description{
 Join a chat or channel by username or invite link
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+join_channel(client, "channelname")
+}
+}

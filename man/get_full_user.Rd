@@ -17,3 +17,11 @@ The API response (UserFull).
 \description{
 Retrieve full information about a user
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+get_full_user(client, "username")
+}
+}

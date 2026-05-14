@@ -22,3 +22,11 @@ The sent message object (or Updates result).
 \description{
 Convenience wrapper to send a video to a target entity.
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+send_video(client, "me", "video.mp4")
+}
+}

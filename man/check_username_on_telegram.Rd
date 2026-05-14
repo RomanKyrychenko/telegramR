@@ -26,6 +26,14 @@ A named list with the user's public fields, or a list with
 Looks up the username via `client$get_entity()`. Channels and group
 chats produce an `error` row — this helper is for user accounts only.
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+check_username_on_telegram(client, "username")
+}
+}
 \seealso{
 [check_usernames_on_telegram()] for batch lookups.
 }

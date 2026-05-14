@@ -17,3 +17,11 @@ The API response.
 \description{
 Check a chat invite link without joining
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+check_invite_link(client, "https://t.me/+xxxx")
+}
+}

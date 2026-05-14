@@ -35,3 +35,11 @@ A tibble.
 \description{
 Fetches channel members (participants) by username or numeric id.
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+download_channel_members(client, "channelname")
+}
+}

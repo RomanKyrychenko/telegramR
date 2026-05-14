@@ -23,3 +23,11 @@ The sent message object (or Updates result).
 Convenience wrapper around `TelegramClient$send_message()` that sends a file
 and resolves futures/promises.
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+send_file(client, "me", "file.txt")
+}
+}

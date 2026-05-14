@@ -82,3 +82,8 @@ channel in an isolated \code{callr} subprocess so crashes cannot corrupt the
 parent session. Supports resume: channels already present in \code{msgs_file}
 are skipped when \code{skip_completed = TRUE}.
 }
+\examples{
+\dontrun{
+batch_download_channels(c("channel1", "channel2"), "my_session", 123, "abc")
+}
+}

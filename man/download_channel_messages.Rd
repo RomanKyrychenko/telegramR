@@ -65,3 +65,11 @@ A tibble (or invisible row count when \code{output_file} is set).
 Fetches messages for a channel by username or numeric id and returns a tibble with
 message fields and nested structures as list columns.
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+download_channel_messages(client, "channelname", limit = 100)
+}
+}

@@ -55,3 +55,11 @@ A tibble with message_id, channel info, media_type, file_path, and original_file
 Downloads media (photos/videos/documents) from a channel by username or numeric id
 and returns a tibble with file paths.
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+download_channel_media(client, "channelname")
+}
+}

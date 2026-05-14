@@ -17,3 +17,8 @@ A new raw_bytes object.
 \description{
 Allows using '+' to concatenate raw_bytes objects, mimicking Python's byte concatenation.
 }
+\examples{
+a <- as.raw(c(0x01, 0x02))
+b <- as.raw(c(0x03, 0x04))
+a + b
+}

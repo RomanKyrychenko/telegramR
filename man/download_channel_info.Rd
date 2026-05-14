@@ -41,3 +41,11 @@ A tibble with flattened channel info and optional list columns for raw objects.
 \description{
 Fetches channel entity and full channel info by username or numeric id and returns a tibble.
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+download_channel_info(client, "channelname")
+}
+}

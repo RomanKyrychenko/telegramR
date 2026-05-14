@@ -29,6 +29,14 @@ Convenience wrapper around [check_phone_on_telegram()] that accepts
 either a character vector or a single comma-separated string (matching
 the upstream Python CLI). Duplicates are silently de-duplicated.
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+check_phones_on_telegram(client, c("+15551234567", "+15559876543"))
+}
+}
 \seealso{
 [check_phone_on_telegram()] for the single-phone variant.
 }

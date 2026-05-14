@@ -13,6 +13,9 @@ client$connect()
 }
 }
 \usage{TelegramClient}
+\value{
+An R6 object of class \code{TelegramClient}.
+}
 \examples{
 \dontrun{
 client <- TelegramClient$new("my_session", api_id = 123, api_hash = "...")

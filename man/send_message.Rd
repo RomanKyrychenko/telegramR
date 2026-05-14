@@ -20,3 +20,11 @@ The sent message object (or Updates result).
 Convenience wrapper around `TelegramClient$send_message()` that resolves
 futures/promises and returns the sent message (or Updates object).
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+send_message(client, "me", message = "Hello!")
+}
+}

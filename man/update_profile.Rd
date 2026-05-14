@@ -21,3 +21,11 @@ The API response.
 \description{
 Update your name and/or bio
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+update_profile(client, first_name = "Jane")
+}
+}

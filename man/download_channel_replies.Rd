@@ -44,3 +44,11 @@ A tibble.
 \description{
 Fetches replies (comments) to channel posts by username or numeric id.
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+download_channel_replies(client, "channelname")
+}
+}

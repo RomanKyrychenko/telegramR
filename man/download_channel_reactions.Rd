@@ -44,3 +44,11 @@ A tibble.
 \description{
 Fetches message reactions for a channel by username or numeric id.
 }
+\examples{
+\dontrun{
+client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
+client$connect()
+
+download_channel_reactions(client, "channelname", limit = 100)
+}
+}
