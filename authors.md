@@ -2,7 +2,7 @@
 
 ## Authors
 
-- **Roman Kyrychenko**. Author, maintainer.
+- **Roman Kyrychenko**. Author, maintainer, copyright holder.
 
 ## Citation
 

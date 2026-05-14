@@ -7,7 +7,14 @@ full-client functionality (not the Bot API).
 
 **Install**
 
-From GitHub:
+From CRAN (once accepted):
+
+``` r
+
+install.packages("telegramR")
+```
+
+From GitHub (development version):
 
 ``` r
 
