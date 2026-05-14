@@ -1,4 +1,4 @@
 # License
 
     YEAR: 2025
-    COPYRIGHT HOLDER: telegramR authors
+    COPYRIGHT HOLDER: Roman Kyrychenko

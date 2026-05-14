@@ -64,12 +64,13 @@ photo_path <- media %>%
   slice(1) %>% 
   pull(file_path)
 
-pkg_path <- paste0("../", photo_path)
-
-knitr::include_graphics(pkg_path)
+# In a real session with downloaded files, display the photo:
+# knitr::include_graphics(file.path("..", photo_path))
+cat("Photo path:", photo_path, "\n")
+#> Photo path: NA
+cat("(Photo display omitted in offline demo — run with eval=TRUE and real credentials to download.)\n")
+#> (Photo display omitted in offline demo — run with eval=TRUE and real credentials to download.)
 ```
-
-![](../inst/extdata/articles/downloads/photo_2026-03-06_11-22-24.jpg)
 
 ## Common Columns
 
