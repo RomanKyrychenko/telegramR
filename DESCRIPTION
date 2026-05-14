@@ -1,22 +1,22 @@
 Package: telegramR
 Type: Package
-Title: Interact with the Telegram MTProto API
+Title: Interact with the 'Telegram' 'MTProto' API
 Version: 0.0.1
 Authors@R: c(
     person(
       "Roman", "Kyrychenko",
       email = "roman.kyrychenko@helsinki.fi",
-      role = c("aut", "cre")
+      role = c("aut", "cre", "cph")
     )
   )
-Description: Provides a full-featured client for Telegram's MTProto protocol,
-    enabling programmatic access to Telegram chats, channels, messages, media,
-    and stories. Implements serialisation and deserialisation of Telegram's
-    binary TL (Type Language) schema, authentication (including two-factor),
+Description: Provides a full-featured client for 'Telegram's' 'MTProto' protocol,
+    enabling programmatic access to 'Telegram' chats, channels, messages, media,
+    and stories. Implements serialisation and deserialisation of 'Telegram's'
+    binary 'TL' (Type Language) schema, authentication (including two-factor),
     encrypted transport, and high-level helpers for downloading channel
     history and reactions at scale. Intended for social-science research and
     data collection tasks that require direct API access rather than the
-    Bot API.
+    'Bot API'.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Depends:
