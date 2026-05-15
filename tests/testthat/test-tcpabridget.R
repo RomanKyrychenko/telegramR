@@ -15,6 +15,7 @@ test_that("encodes packet with length greater than or equal to 127 correctly", {
 })
 
 test_that("reads packet with length less than 127 successfully", {
+  skip_future_on_rdevel()
   codec <- AbridgedPacketCodec$new(connection = NULL)
   reader <- list(
     readexactly = function(n) if (n == 1) as.raw(2) else raw(8)
@@ -24,6 +25,7 @@ test_that("reads packet with length less than 127 successfully", {
 })
 
 test_that("reads packet with length greater than or equal to 127 successfully", {
+  skip_future_on_rdevel()
   codec <- AbridgedPacketCodec$new(connection = NULL)
   reader <- list(
     readexactly = function(n) {
@@ -41,6 +43,7 @@ test_that("reads packet with length greater than or equal to 127 successfully", 
 })
 
 test_that("throws error when reader fails to provide sufficient bytes", {
+  skip_future_on_rdevel()
   codec <- AbridgedPacketCodec$new(connection = NULL)
   reader <- list(
     readexactly = function(n) stop("ReadError: insufficient bytes")

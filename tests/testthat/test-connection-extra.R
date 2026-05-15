@@ -53,6 +53,7 @@ test_that("Writer writes bytes to socket", {
 })
 
 test_that("PacketCodec encodes and decodes a packet", {
+  skip_future_on_rdevel()
   pc <- PacketCodec$new(list())
   payload <- list(a = 1, b = "x")
   bytes <- pc$encode_packet(payload)

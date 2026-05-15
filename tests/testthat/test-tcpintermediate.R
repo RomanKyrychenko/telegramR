@@ -10,6 +10,7 @@ test_that("encodes packet with random padding correctly", {
 })
 
 test_that("reads packet with random padding successfully", {
+  skip_future_on_rdevel()
   codec <- RandomizedIntermediatePacketCodec$new()
   padded_data <- c(raw(10), as.raw(c(0x01, 0x02)))
   reader <- list(
@@ -26,6 +27,7 @@ test_that("reads packet with random padding successfully", {
 })
 
 test_that("throws error when reader fails to provide length prefix", {
+  skip_future_on_rdevel()
   codec <- RandomizedIntermediatePacketCodec$new()
   reader <- list(
     readexactly = function(n) stop("ReadError: failed to read length prefix")
@@ -34,6 +36,7 @@ test_that("throws error when reader fails to provide length prefix", {
 })
 
 test_that("throws error when reader fails to provide full packet data", {
+  skip_future_on_rdevel()
   codec <- RandomizedIntermediatePacketCodec$new()
   reader <- list(
     readexactly = function(n) {

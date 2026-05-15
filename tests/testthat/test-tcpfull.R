@@ -20,6 +20,7 @@ test_that("throws error when encoding packet with invalid data", {
 })
 
 test_that("reads packet with valid data successfully", {
+  skip_future_on_rdevel()
   codec <- FullPacketCodec$new(NULL)
   reader <- list(
     readexactly = function(n) {
@@ -44,6 +45,7 @@ test_that("reads packet with valid data successfully", {
 })
 
 test_that("throws error when packet length is less than 8", {
+  skip_future_on_rdevel()
   codec <- FullPacketCodec$new(NULL)
   reader <- list(
     readexactly = function(n) {
@@ -59,6 +61,7 @@ test_that("throws error when packet length is less than 8", {
 })
 
 test_that("throws error when checksum is invalid", {
+  skip_future_on_rdevel()
   codec <- FullPacketCodec$new(NULL)
   reader <- list(
     readexactly = function(n) {

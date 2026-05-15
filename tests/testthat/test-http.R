@@ -14,6 +14,7 @@ test_that("encodes packet with correct HTTP headers and data", {
 })
 
 test_that("throws error when reading packet with incomplete newline", {
+  skip_future_on_rdevel()
   codec <- HttpPacketCodec$new()
   # simple reader object: functions as list elements
   reader <- list(
@@ -25,6 +26,7 @@ test_that("throws error when reading packet with incomplete newline", {
 })
 
 test_that("reads packet successfully with valid content length", {
+  skip_future_on_rdevel()
   codec <- HttpPacketCodec$new()
   reader <- list(
     readline = function() charToRaw("content-length: 10\r\n"),
