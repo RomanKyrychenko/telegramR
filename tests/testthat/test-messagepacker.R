@@ -32,16 +32,11 @@ test_that("extends the queue with multiple state items", {
   expect_true(packer$ready)
 })
 
-test_that("get method blocks until items are available", {
-  skip_future_on_rdevel()
+test_that("get method returns queued items", {
   state <- list(write_data_as_message = function(...) 12345)
   packer <- MessagePacker$new(state = state)
 
-  future <- future::future({
-    Sys.sleep(0.1)
-    packer$append(list(data = raw(10)))
-  })
-
+  packer$append(list(data = raw(10)))
   result <- packer$get()
 
   expect_equal(length(result[[1]]), 1)

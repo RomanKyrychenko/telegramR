@@ -10,10 +10,16 @@ promise <- promises::promise
 `%...>%` <- promises::`%...>%`
 `%...!%` <- promises::`%...!%`
 
-# Skip tests that call value(codec$read_packet(...)) on R-devel.
-# future::future() + value() can segfault on R Under Development.
+# Use sequential plan for all tests to prevent multicore/multisession hangs.
+# With multicore plan, futures run in forked child processes that have their
+# own copy of R environments, causing shared-state tests to spin forever.
+future::plan("sequential")
+
+# Skip tests that call future::future() on R-devel.
+# future v1.70.0 + R-devel triggers a FutureLaunchError in evalFuture()
+# due to a SET_STRING_ELT()/CHARSXP type-safety change in R.
 skip_future_on_rdevel <- function() {
   if (isTRUE(grepl("devel", R.version$status, ignore.case = TRUE))) {
-    testthat::skip("future/value() tests segfault on R-devel (known upstream issue)")
+    testthat::skip("future::future() tests fail on R-devel (future v1.70.0 incompatibility)")
   }
 }
