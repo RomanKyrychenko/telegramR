@@ -33,6 +33,7 @@ test_that("extends the queue with multiple state items", {
 })
 
 test_that("get method blocks until items are available", {
+  skip_future_on_rdevel()
   state <- list(write_data_as_message = function(...) 12345)
   packer <- MessagePacker$new(state = state)
 

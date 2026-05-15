@@ -18,6 +18,7 @@ test_that(".onLoad sets default options when missing", {
 })
 
 test_that("compat_promises value unwraps Future", {
+  skip_future_on_rdevel()
   future::plan("sequential")
   # future >= 1.70.0 added connection-tracking which can segfault on R devel
   # when invalid (closed) connection objects remain in the table.  Suppress the

@@ -19,6 +19,7 @@ test_that("TelegramBaseClient basic config helpers", {
 })
 
 test_that("TelegramBaseClient connect/disconnect with fake sender", {
+  skip_future_on_rdevel()
   old <- options()
   on.exit(options(old), add = TRUE)
   options(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE)
