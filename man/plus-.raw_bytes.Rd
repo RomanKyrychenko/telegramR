@@ -18,7 +18,7 @@ A new raw_bytes object.
 Allows using '+' to concatenate raw_bytes objects, mimicking Python's byte concatenation.
 }
 \examples{
-a <- as.raw(c(0x01, 0x02))
+a <- structure(as.raw(c(0x01, 0x02)), class = c("raw_bytes", "raw"))
 b <- as.raw(c(0x03, 0x04))
 a + b
 }
