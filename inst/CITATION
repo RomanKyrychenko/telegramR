@@ -1,4 +1,4 @@
-meta <- utils::packageDescription("telegramR")
+meta <- suppressWarnings(utils::packageDescription("telegramR"))
 pkg_version <- if (is.list(meta)) meta$Version else "0.0.1"
 pkg_url <- if (is.list(meta) && !is.null(meta$URL)) meta$URL else
   "https://github.com/RomanKyrychenko/telegramR"

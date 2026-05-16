@@ -11,8 +11,8 @@ Authors@R: c(
   )
 Description: Provides a full-featured client for 'Telegram' 'MTProto' protocol,
     enabling programmatic access to 'Telegram' chats, channels, messages, media,
-    and stories. Implements serialization and deserialization of 'Telegram'
-    binary 'TL' (Type Language) schema, authentication (including two-factor),
+    and stories. Implements binary encoding and decoding of 'Telegram'
+    'TL' (Type Language) schema, authentication (including two-factor),
     encrypted transport, and high-level helpers for downloading channel
     history and reactions at scale. Intended for social-science research and
     data collection tasks that require direct API access rather than the
