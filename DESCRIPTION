@@ -9,9 +9,9 @@ Authors@R: c(
       role = c("aut", "cre", "cph")
     )
   )
-Description: Provides a full-featured client for 'Telegram's' 'MTProto' protocol,
+Description: Provides a full-featured client for 'Telegram' 'MTProto' protocol,
     enabling programmatic access to 'Telegram' chats, channels, messages, media,
-    and stories. Implements serialisation and deserialisation of 'Telegram's'
+    and stories. Implements serialization and deserialization of 'Telegram'
     binary 'TL' (Type Language) schema, authentication (including two-factor),
     encrypted transport, and high-level helpers for downloading channel
     history and reactions at scale. Intended for social-science research and

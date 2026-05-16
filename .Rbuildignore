@@ -1,3 +1,4 @@
+^\.env$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
@@ -36,3 +37,4 @@
 ^ukrainian-.*\.udpipe$
 ^vignette_session\.rds$
 cran-comments.md
+^CRAN-SUBMISSION$
