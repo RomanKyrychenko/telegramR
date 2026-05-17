@@ -29,7 +29,7 @@ Lj16yE5HvJQn0CNpRdENvRUXe6tBP78O39oJ8BTHp9oIjd6XWXAsp2CvK45Ol8wF
 XGF710w9lwCGNbmNxNYhtIkdqfsEcwR5JwIDAQAB
 -----END RSA PUBLIC KEY-----"
   add_key(pub, old = FALSE)
-  expect_true(length(server_keys) > 0)
+  expect_true(length(.rsa_env$keys) > 0)
 })
 
 # Test for encrypt
@@ -43,7 +43,7 @@ Lj16yE5HvJQn0CNpRdENvRUXe6tBP78O39oJ8BTHp9oIjd6XWXAsp2CvK45Ol8wF
 XGF710w9lwCGNbmNxNYhtIkdqfsEcwR5JwIDAQAB
 -----END RSA PUBLIC KEY-----"
   add_key(pub, old = FALSE)
-  fingerprint <- names(server_keys)[1]
+  fingerprint <- names(.rsa_env$keys)[1]
   data <- as.raw(c(0x01, 0x02, 0x03))
   encrypted <- encrypt(fingerprint, data)
   expect_true(!is.null(encrypted))
