@@ -175,7 +175,7 @@ do_authentication <- function(sender) {
     if (is.null(fp_raw_list) || length(fp_raw_list) == 0) {
       return(NULL)
     }
-    for (entry in unname(server_keys)) {
+    for (entry in unname(.rsa_env$keys)) {
       if (is.null(entry$fingerprint_raw) || is.null(entry$n) || is.null(entry$e)) {
         next
       }
@@ -224,7 +224,7 @@ do_authentication <- function(sender) {
 
   key <- get_matching_server_key(fps_raw)
   if (is.null(key) && is.list(res_pq) && !is.raw(res_pq) && !is.null(fps_raw) && length(fps_raw) > 0) {
-    first_key <- unname(server_keys)[[1]]
+    first_key <- unname(.rsa_env$keys)[[1]]
     if (!is.null(first_key$n) && !is.null(first_key$e)) {
       key <- list(n = first_key$n, e = first_key$e, fingerprint_raw = fps_raw[[1]])
     }

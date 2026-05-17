@@ -19,6 +19,7 @@ Description: Provides a full-featured client for 'Telegram' 'MTProto' protocol,
     'Bot API'.
 License: MIT + file LICENSE
 Encoding: UTF-8
+ByteCompile: no
 Depends:
     R (>= 3.5.0)
 Imports:

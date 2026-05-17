@@ -5,8 +5,9 @@
 #  @importFrom digest digest
 #  @importFrom openssl read_pubkey
 
-# Global dictionary to store server keys
-server_keys <- list()
+# Mutable container for RSA server keys — avoids locked-binding manipulation
+.rsa_env <- new.env(parent = emptyenv())
+.rsa_env$keys <- list()
 
 .strip_leading_zero <- function(x) {
   x <- as.raw(x)
@@ -137,27 +138,7 @@ add_key <- function(pub, old = FALSE) {
     fingerprint_raw = fingerprint_raw
   )
 
-  update_env <- function(env) {
-    if (!exists("server_keys", envir = env, inherits = FALSE)) {
-      return()
-    }
-    locked <- bindingIsLocked("server_keys", env)
-    if (locked) unlockBinding("server_keys", env)
-    srv <- get("server_keys", envir = env, inherits = FALSE)
-    srv[[as.character(fingerprint)]] <- entry
-    assign("server_keys", srv, envir = env)
-    if (locked) lockBinding("server_keys", env)
-  }
-
-  # Update namespace binding
-  ns <- asNamespace(utils::packageName())
-  update_env(ns)
-
-  # Update attached package env if present (e.g. tests may read from here)
-  pkg_env_name <- paste0("package:", utils::packageName())
-  if (pkg_env_name %in% search()) {
-    update_env(as.environment(pkg_env_name))
-  }
+  .rsa_env$keys[[as.character(fingerprint)]] <- entry
 
   invisible(fingerprint)
 }
@@ -169,7 +150,7 @@ add_key <- function(pub, old = FALSE) {
 #  @param use_old Logical indicating if old keys should be used.
 #  @return The encrypted data as a raw vector, or NULL if no matching key is found.
 encrypt <- function(fingerprint, data, use_old = FALSE) {
-  key_info <- server_keys[[as.character(fingerprint)]]
+  key_info <- .rsa_env$keys[[as.character(fingerprint)]]
   if (is.null(key_info) || (key_info$old && !use_old)) {
     return(NULL)
   }
