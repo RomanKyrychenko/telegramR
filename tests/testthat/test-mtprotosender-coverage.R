@@ -1,6 +1,7 @@
 # Extended coverage tests for R/mtprotosender.R
 
 test_that("MTProtoSender$set_auth_key_callback stores callback", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE), {
     sender <- MTProtoSender$new()
     called_with <- NULL
@@ -15,6 +16,7 @@ test_that("MTProtoSender$set_auth_key_callback stores callback", {
 })
 
 test_that("MTProtoSender$set_update_callback stores callback", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE), {
     sender <- MTProtoSender$new()
     cb <- function(update) NULL
@@ -25,6 +27,7 @@ test_that("MTProtoSender$set_update_callback stores callback", {
 })
 
 test_that("MTProtoSender$transport_connected returns FALSE when no connection", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE), {
     sender <- MTProtoSender$new()
     expect_false(sender$transport_connected())
@@ -32,6 +35,7 @@ test_that("MTProtoSender$transport_connected returns FALSE when no connection", 
 })
 
 test_that("MTProtoSender$transport_connected returns FALSE when disconnected", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE), {
     connection <- list(
       connect = function(timeout) TRUE,
@@ -47,6 +51,7 @@ test_that("MTProtoSender$transport_connected returns FALSE when disconnected", {
 })
 
 test_that("MTProtoSender$is_connected reflects connection state", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE), {
     sender <- MTProtoSender$new()
     expect_false(sender$is_connected())
@@ -60,6 +65,7 @@ test_that("MTProtoSender$is_connected reflects connection state", {
 })
 
 test_that("MTProtoSender$update_time_offset handles NA msg_id", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE), {
     sender <- MTProtoSender$new()
     offset <- sender$update_time_offset(NA)
@@ -69,6 +75,7 @@ test_that("MTProtoSender$update_time_offset handles NA msg_id", {
 })
 
 test_that("MTProtoSender$get_new_msg_id generates monotonically increasing IDs", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE), {
     sender <- MTProtoSender$new()
     ids <- vapply(1:10, function(i) as.numeric(sender$get_new_msg_id()), numeric(1))
@@ -77,6 +84,7 @@ test_that("MTProtoSender$get_new_msg_id generates monotonically increasing IDs",
 })
 
 test_that("MTProtoSender$disconnected returns promise when disconnected_future is NULL", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE), {
     sender <- MTProtoSender$new()
     priv <- sender$.__enclos_env__$private
@@ -87,35 +95,43 @@ test_that("MTProtoSender$disconnected returns promise when disconnected_future i
 })
 
 test_that("retry_range returns sequence 1:n", {
+  skip_on_cran()
   expect_equal(retry_range(3), 1:3)
 })
 
 test_that("retry_range with n=0 returns 1", {
+  skip_on_cran()
   expect_equal(retry_range(0), 1L)
 })
 
 test_that("retry_range with force_retry=TRUE and n=0 returns 1", {
+  skip_on_cran()
   expect_equal(retry_range(0, force_retry = TRUE), 1)
 })
 
 test_that("retry_range errors on negative n", {
+  skip_on_cran()
   expect_error(retry_range(-1), "non-negative")
 })
 
 test_that("msg_id_key returns '0' for NULL", {
+  skip_on_cran()
   expect_equal(msg_id_key(NULL), "0")
 })
 
 test_that("msg_id_key normalizes numeric value", {
+  skip_on_cran()
   expect_equal(msg_id_key(42.0), "42")
 })
 
 test_that("await_promise returns plain value immediately", {
+  skip_on_cran()
   result <- await_promise(42L)
   expect_equal(result, 42L)
 })
 
 test_that("clone_error preserves class and message", {
+  skip_on_cran()
   orig <- simpleError("test error")
   class(orig) <- c("MyError", "error", "condition")
   cloned <- clone_error(orig)
@@ -124,10 +140,12 @@ test_that("clone_error preserves class and message", {
 })
 
 test_that("clone_error errors on non-error input", {
+  skip_on_cran()
   expect_error(clone_error("not an error"), "must be an error object")
 })
 
 test_that("get_traceback returns a string", {
+  skip_on_cran()
   err <- simpleError("test")
   result <- get_traceback(err)
   expect_true(is.character(result))

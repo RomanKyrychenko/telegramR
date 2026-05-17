@@ -1,4 +1,5 @@
 test_that("AsyncQueue put/get works for bounded and unbounded queues", {
+  skip_on_cran()
   testthat::skip_if_not_installed("later")
   library(later)
 

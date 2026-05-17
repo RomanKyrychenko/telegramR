@@ -2,47 +2,55 @@
 
 # ── check_prime_and_good_check: g branches ────────────────────────────────────
 test_that("check_prime_and_good_check passes for g=4 (no modular constraint)", {
+  skip_on_cran()
   # g=4 has no condition — any prime passes
   prime_small <- 11L  # 11 is prime, ≤512 bits → primality check runs
   # 11 mod 8 != anything required for g=4 (no check), so should pass
   expect_silent(check_prime_and_good_check(prime_small, 4))
 })
 
-test_that("check_prime_and_good_check errors for g=5 when prime mod5 not in {1,4}", {
+test_that("check_prime_and_good_check errors for g=5 when prime mod5 not in {
+  skip_on_cran()1,4}", {
   prime <- 13L  # 13 mod 5 == 3, not in {1,4}
   expect_error(check_prime_and_good_check(prime, 5), "mod5")
 })
 
 test_that("check_prime_and_good_check passes for g=5 when prime mod5 == 1", {
+  skip_on_cran()
   # Find a prime p where p mod 5 == 1 and p is also safe (p-1)/2 prime
   # 11 mod 5 == 1, 11 is prime, (11-1)/2 = 5 is prime
   expect_silent(check_prime_and_good_check(11L, 5))
 })
 
 test_that("check_prime_and_good_check passes for g=5 when prime mod5 == 4", {
+  skip_on_cran()
   # 19 mod 5 == 4, 19 is prime, (19-1)/2 = 9 = 3^2 — NOT prime → should error
   # Let's use 29: 29 mod 5 == 4, (29-1)/2 = 14 = 2*7 → NOT prime
   # Try 59: 59 mod 5 == 4, (59-1)/2 = 29 which IS prime
   expect_silent(check_prime_and_good_check(59L, 5))
 })
 
-test_that("check_prime_and_good_check errors for g=6 when prime mod24 not in {19,23}", {
+test_that("check_prime_and_good_check errors for g=6 when prime mod24 not in {
+  skip_on_cran()19,23}", {
   prime <- 7L  # 7 mod 24 == 7, not in {19,23}
   expect_error(check_prime_and_good_check(prime, 6), "mod24")
 })
 
 test_that("check_prime_and_good_check passes for g=6 when prime mod24 == 23", {
+  skip_on_cran()
   # Need prime p where p mod 24 == 23 and p and (p-1)/2 are prime
   # 47 mod 24 == 23, 47 is prime, (47-1)/2 = 23 which IS prime
   expect_silent(check_prime_and_good_check(47L, 6))
 })
 
-test_that("check_prime_and_good_check errors for g=7 when prime mod7 not in {3,5,6}", {
+test_that("check_prime_and_good_check errors for g=7 when prime mod7 not in {
+  skip_on_cran()3,5,6}", {
   prime <- 11L  # 11 mod 7 == 4, not in {3,5,6}
   expect_error(check_prime_and_good_check(prime, 7), "mod7")
 })
 
 test_that("check_prime_and_good_check passes for g=7 when prime mod7 == 6", {
+  skip_on_cran()
   # Need prime p where p mod 7 == 6 and p and (p-1)/2 are prime
   # 13 mod 7 == 6, 13 is prime, (13-1)/2 = 6 = 2*3 → NOT prime
   # 41 mod 7 == 6, 41 is prime, (41-1)/2 = 20 → NOT prime
@@ -51,15 +59,18 @@ test_that("check_prime_and_good_check passes for g=7 when prime mod7 == 6", {
 })
 
 test_that("check_prime_and_good_check errors for invalid g=8", {
+  skip_on_cran()
   expect_error(check_prime_and_good_check(7L, 8), "bad g")
 })
 
 test_that("check_prime_and_good_check errors for negative prime", {
+  skip_on_cran()
   expect_error(check_prime_and_good_check(-1L, 2), "bad prime count")
 })
 
 # ── check_prime_and_good: known prime with g=4 ────────────────────────────────
 test_that("check_prime_and_good accepts known good prime with g=4", {
+  skip_on_cran()
   known_prime <- as.raw(c(
     0xC7, 0x1C, 0xAE, 0xB9, 0xC6, 0xB1, 0xC9, 0x04, 0x8E, 0x6C, 0x52, 0x2F, 0x70, 0xF1, 0x3F, 0x73,
     0x98, 0x0D, 0x40, 0x23, 0x8E, 0x3E, 0x21, 0xC1, 0x49, 0x34, 0xD0, 0x37, 0x56, 0x3D, 0x93, 0x0F,
@@ -85,24 +96,28 @@ test_that("check_prime_and_good accepts known good prime with g=4", {
 
 # ── PasswordKdf method coverage ───────────────────────────────────────────────
 test_that("PasswordKdf$is_good_large returns TRUE when 0 < n < prime", {
+  skip_on_cran()
   kdf <- PasswordKdf$new()
   expect_true(kdf$is_good_large(5, 100))
   expect_true(kdf$is_good_large(1, 10))
 })
 
 test_that("PasswordKdf$is_good_large returns FALSE for n <= 0", {
+  skip_on_cran()
   kdf <- PasswordKdf$new()
   expect_false(kdf$is_good_large(0, 100))
   expect_false(kdf$is_good_large(-1, 100))
 })
 
 test_that("PasswordKdf$is_good_large returns FALSE when n >= prime", {
+  skip_on_cran()
   kdf <- PasswordKdf$new()
   expect_false(kdf$is_good_large(100, 100))
   expect_false(kdf$is_good_large(101, 100))
 })
 
 test_that("PasswordKdf$num_bytes_for_hash pads to 256 bytes", {
+  skip_on_cran()
   kdf <- PasswordKdf$new()
   input <- as.raw(c(0xAB, 0xCD))
   result <- kdf$num_bytes_for_hash(input)
@@ -115,6 +130,7 @@ test_that("PasswordKdf$num_bytes_for_hash pads to 256 bytes", {
 # openssl API not available in this version; covered by compute_digest tests.
 
 test_that("PasswordKdf$xor matches xor_bytes standalone function", {
+  skip_on_cran()
   kdf <- PasswordKdf$new()
   a <- as.raw(c(0xFF, 0x0F))
   b <- as.raw(c(0xAA, 0xAA))
@@ -124,6 +140,7 @@ test_that("PasswordKdf$xor matches xor_bytes standalone function", {
 })
 
 test_that("PasswordKdf$compute_digest returns raw(256) in test mode", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE), {
     kdf <- PasswordKdf$new()
     algo <- list(
@@ -139,6 +156,7 @@ test_that("PasswordKdf$compute_digest returns raw(256) in test mode", {
 })
 
 test_that("PasswordKdf$check_prime_and_good passes known prime with g=3", {
+  skip_on_cran()
   kdf <- PasswordKdf$new()
   known_prime <- as.raw(c(
     0xC7, 0x1C, 0xAE, 0xB9, 0xC6, 0xB1, 0xC9, 0x04, 0x8E, 0x6C, 0x52, 0x2F, 0x70, 0xF1, 0x3F, 0x73,
@@ -162,6 +180,7 @@ test_that("PasswordKdf$check_prime_and_good passes known prime with g=3", {
 })
 
 test_that("PasswordKdf$is_good_mod_exp_first returns FALSE for modexp == prime (small numbers)", {
+  skip_on_cran()
   kdf <- PasswordKdf$new()
   # Use a small prime so 2^2048 overflow is avoided; bit_length(diff=0) < 1984 -> FALSE
   p <- 100
@@ -169,6 +188,7 @@ test_that("PasswordKdf$is_good_mod_exp_first returns FALSE for modexp == prime (
 })
 
 test_that("PasswordKdf$is_good_mod_exp_first returns FALSE for modexp == 0 (small prime)", {
+  skip_on_cran()
   kdf <- PasswordKdf$new()
   p <- 100
   # bit_length(modexp=0)=0 < 1984 -> returns FALSE

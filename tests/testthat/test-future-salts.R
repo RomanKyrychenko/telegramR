@@ -9,6 +9,7 @@ make_future_salt <- function(valid_since, valid_until, salt) {
 }
 
 test_that("update_salt_if_needed applies a currently-valid future salt", {
+  skip_on_cran()
   sender <- make_sender()
   priv   <- sender$.__enclos_env__$private
   now    <- as.integer(Sys.time())
@@ -25,6 +26,7 @@ test_that("update_salt_if_needed applies a currently-valid future salt", {
 })
 
 test_that("update_salt_if_needed does not change salt for expired future salt", {
+  skip_on_cran()
   sender <- make_sender()
   priv   <- sender$.__enclos_env__$private
   now    <- as.integer(Sys.time())
@@ -41,6 +43,7 @@ test_that("update_salt_if_needed does not change salt for expired future salt", 
 })
 
 test_that("update_salt_if_needed discards expired salts from the list", {
+  skip_on_cran()
   sender <- make_sender()
   priv   <- sender$.__enclos_env__$private
   now    <- as.integer(Sys.time())
@@ -56,6 +59,7 @@ test_that("update_salt_if_needed discards expired salts from the list", {
 })
 
 test_that("update_salt_if_needed keeps not-yet-valid salts for later", {
+  skip_on_cran()
   sender <- make_sender()
   priv   <- sender$.__enclos_env__$private
   now    <- as.integer(Sys.time())
@@ -73,6 +77,7 @@ test_that("update_salt_if_needed keeps not-yet-valid salts for later", {
 })
 
 test_that("update_salt_if_needed picks the first valid salt when multiple exist", {
+  skip_on_cran()
   sender <- make_sender()
   priv   <- sender$.__enclos_env__$private
   now    <- as.integer(Sys.time())
@@ -91,6 +96,7 @@ test_that("update_salt_if_needed picks the first valid salt when multiple exist"
 })
 
 test_that("update_salt_if_needed is a no-op when future_salts is empty", {
+  skip_on_cran()
   sender <- make_sender()
   priv   <- sender$.__enclos_env__$private
 

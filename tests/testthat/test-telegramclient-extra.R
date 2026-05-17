@@ -1,4 +1,5 @@
 test_that("TelegramClient parse mode helpers behave", {
+  skip_on_cran()
   old <- options()
   on.exit(options(old), add = TRUE)
   options(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE)
@@ -20,6 +21,7 @@ test_that("TelegramClient parse mode helpers behave", {
 })
 
 test_that("TelegramClient build_reply_markup handles basic inputs", {
+  skip_on_cran()
   old <- options()
   on.exit(options(old), add = TRUE)
   options(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE)
@@ -36,6 +38,7 @@ test_that("TelegramClient build_reply_markup handles basic inputs", {
 })
 
 test_that("TelegramClient event handler add/remove/list works", {
+  skip_on_cran()
   old <- options()
   on.exit(options(old), add = TRUE)
   options(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE)

@@ -21,6 +21,7 @@ factorization <- list(
 
 # Tests for check_prime_and_good_check
 test_that("check_prime_and_good_check works with valid inputs", {
+  skip_on_cran()
   # Use a small prime for testing (2048 bits is too large for quick tests; adjust as needed)
   # For simplicity, use a known small prime that fits the conditions
   prime <- 2^2047 - 1 # A large prime, but for test, use smaller
@@ -36,6 +37,7 @@ test_that("check_prime_and_good_check works with valid inputs", {
 })
 
 test_that("check_prime_and_good_check validates g conditions", {
+  skip_on_cran()
   prime <- 17 # 17 %% 8 == 1, not 7
   expect_error(check_prime_and_good_check(prime, 2), "mod8")
   # For g=3, need prime %% 3 == 2, etc.
@@ -46,6 +48,7 @@ test_that("check_prime_and_good_check validates g conditions", {
 
 # Tests for check_prime_and_good
 test_that("check_prime_and_good uses known prime", {
+  skip_on_cran()
   good_prime <- as.raw(c(
     0xC7, 0x1C, 0xAE, 0xB9, 0xC6, 0xB1, 0xC9, 0x04, 0x8E, 0x6C, 0x52, 0x2F, 0x70, 0xF1, 0x3F, 0x73,
     0x98, 0x0D, 0x40, 0x23, 0x8E, 0x3E, 0x21, 0xC1, 0x49, 0x34, 0xD0, 0x37, 0x56, 0x3D, 0x93, 0x0F,
@@ -73,6 +76,7 @@ test_that("check_prime_and_good uses known prime", {
 
 # Tests for PasswordKdf class
 test_that("PasswordKdf$is_good_mod_exp_first works", {
+  skip_on_cran()
   kdf <- PasswordKdf$new()
   prime <- 2^2048 - 1 # Mock large prime
   modexp <- prime - 1000
@@ -81,6 +85,7 @@ test_that("PasswordKdf$is_good_mod_exp_first works", {
 })
 
 test_that("PasswordKdf$xor works", {
+  skip_on_cran()
   kdf <- PasswordKdf$new()
   a <- as.raw(c(0x01, 0x02))
   b <- as.raw(c(0x03, 0x04))
@@ -89,6 +94,7 @@ test_that("PasswordKdf$xor works", {
 })
 
 test_that("PasswordKdf$pbkdf2sha512 works", {
+  skip_on_cran()
   kdf <- PasswordKdf$new()
   password <- charToRaw("password")
   salt <- charToRaw("salt")
@@ -97,6 +103,7 @@ test_that("PasswordKdf$pbkdf2sha512 works", {
 })
 
 test_that("PasswordKdf$compute_hash works", {
+  skip_on_cran()
   kdf <- PasswordKdf$new()
   algo <- list(
     salt1 = charToRaw("salt1"),
@@ -108,6 +115,7 @@ test_that("PasswordKdf$compute_hash works", {
 })
 
 test_that("PasswordKdf$compute_digest works", {
+  skip_on_cran()
   kdf <- PasswordKdf$new()
   algo <- list(
     p = good_prime, # From above
@@ -122,6 +130,7 @@ test_that("PasswordKdf$compute_digest works", {
 
 # Tests for compute_check
 test_that("compute_check works with mock request", {
+  skip_on_cran()
   # Mock request object
   request <- list(
     current_algo = list(

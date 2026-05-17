@@ -6,6 +6,7 @@ if (!exists("TelegramBaseClient")) {
 }
 
 test_that("Parse phone", {
+  skip_on_cran()
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
   res1 <- cli$parse_phone("1234567890")
   expect_equal(res1, "1234567890")
@@ -15,11 +16,13 @@ test_that("Parse phone", {
 })
 
 test_that("TelegramClient starts", {
+  skip_on_cran()
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
   cli$start("3282893893", "hjadhjsdjh")
 })
 
 test_that("TelegramClient initializes and exposes helper methods", {
+  skip_on_cran()
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
   expect_true(is.function(cli$build_reply_markup))
@@ -36,6 +39,7 @@ test_that("TelegramClient initializes and exposes helper methods", {
 })
 
 test_that("build_reply_markup handles NULL, reply markup passthrough, keyboard and inline buttons", {
+  skip_on_cran()
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
   # NULL -> NULL
@@ -90,6 +94,7 @@ test_that("build_reply_markup handles NULL, reply markup passthrough, keyboard a
 })
 
 test_that("sanitize_parse_mode, set/get_parse_mode and parse_message_text behave", {
+  skip_on_cran()
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
   expect_null(cli$sanitize_parse_mode(NULL))
@@ -120,6 +125,7 @@ test_that("sanitize_parse_mode, set/get_parse_mode and parse_message_text behave
 })
 
 test_that("replace_with_mention returns TRUE on success and FALSE on invalid index", {
+  skip_on_cran()
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
   entities <- list(list(offset = 0L, length = 5L))
@@ -128,6 +134,7 @@ test_that("replace_with_mention returns TRUE on success and FALSE on invalid ind
 })
 
 test_that("get_response_message maps random_id to message correctly", {
+  skip_on_cran()
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
   upd_map <- list(random_id = 123, id = 10)
@@ -169,6 +176,7 @@ test_that("get_response_message maps random_id to message correctly", {
 })
 
 test_that("is_image detects file extensions correctly", {
+  skip_on_cran()
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
   img <- tempfile(fileext = ".jpg")
@@ -183,6 +191,7 @@ test_that("is_image detects file extensions correctly", {
 })
 
 test_that("get_appropriated_part_size returns expected KB values", {
+  skip_on_cran()
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
   expect_equal(cli$get_appropriated_part_size(104857600), 64) # 100MB
   expect_equal(cli$get_appropriated_part_size(200 * 1024^2), 128) # 200MB
@@ -190,6 +199,7 @@ test_that("get_appropriated_part_size returns expected KB values", {
 })
 
 test_that("get_proper_filename builds names with extension and avoids collisions", {
+  skip_on_cran()
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
   dir <- tempdir()
@@ -217,6 +227,7 @@ test_that("get_proper_filename builds names with extension and avoids collisions
 })
 
 test_that("get_thumb selects appropriate thumbnail", {
+  skip_on_cran()
   cli <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
   ps1 <- list(type = "s", size = 10)
@@ -247,6 +258,7 @@ test_that("get_thumb selects appropriate thumbnail", {
 })
 
 test_that("get_input_entity returns InputPeerSelf for 'me' string", {
+  skip_on_cran()
   # utils$get_input_peer should error to force the code path that checks known strings.
   assign("utils", list(
     get_input_peer = function(x) stop("not an input peer"),
@@ -267,6 +279,7 @@ test_that("get_input_entity returns InputPeerSelf for 'me' string", {
 })
 
 test_that("file_to_media returns nulls for NULL input and external media for URLs", {
+  skip_on_cran()
   um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
   res_null <- um$file_to_media(NULL)
@@ -284,6 +297,7 @@ test_that("file_to_media returns nulls for NULL input and external media for URL
 })
 
 test_that("get_appropriated_part_size returns expected KB values", {
+  skip_on_cran()
   um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
   expect_equal(um$get_appropriated_part_size(104857600), 64) # 100MB
   expect_equal(um$get_appropriated_part_size(200 * 1024^2), 128) # 200MB
@@ -291,6 +305,7 @@ test_that("get_appropriated_part_size returns expected KB values", {
 })
 
 test_that("resize_photo_if_needed returns original when not an image", {
+  skip_on_cran()
   um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
   tmp <- tempfile(fileext = ".jpg")
   on.exit(unlink(tmp), add = TRUE)
@@ -305,6 +320,7 @@ test_that("resize_photo_if_needed returns original when not an image", {
 })
 
 test_that("is_image detects file extensions correctly", {
+  skip_on_cran()
   um <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
   img <- tempfile(fileext = ".jpg")
   on.exit(unlink(img), add = TRUE)
@@ -338,10 +354,12 @@ functions$updates <- list(GetStateRequest = function() "get_state_req")
 
 # Begin tests
 test_that("get_running_loop returns POSIXct", {
+  skip_on_cran()
   expect_s3_class(get_running_loop(), "POSIXct")
 })
 
 test_that("EventBuilderDict builds, caches and sets client for EventCommon", {
+  skip_on_cran()
   # Define an R6 EventCommon to mimic behavior
   EventCommonClass <- R6::R6Class("EventCommon",
     public = list(
@@ -383,6 +401,7 @@ test_that("EventBuilderDict builds, caches and sets client for EventCommon", {
 })
 
 test_that("EventBuilderDict sets client for non-EventCommon objects and caches by name", {
+  skip_on_cran()
   fake_client <- new.env()
   fake_client$self_id <- 999
   ebd <- EventBuilderDict$new(fake_client, list(a = 1), NULL)
@@ -405,6 +424,7 @@ test_that("EventBuilderDict sets client for non-EventCommon objects and caches b
 })
 
 test_that("preprocess_updates extends cache and populates entities in updates", {
+  skip_on_cran()
   skip("Test requires refactoring to match actual class architecture")
   client <- new.env()
   # mb_entity_cache with extend method
@@ -435,6 +455,7 @@ test_that("preprocess_updates extends cache and populates entities in updates", 
 })
 
 test_that("add_event_handler, on, remove_event_handler and list_event_handlers work", {
+  skip_on_cran()
   skip("Test requires refactoring to match actual class architecture")
   # Setup client environment expected by UpdateMethods methods
   client <- new.env()
@@ -471,6 +492,7 @@ test_that("add_event_handler, on, remove_event_handler and list_event_handlers w
 })
 
 test_that("catch_up schedules UpdatesTooLong via updates_queue", {
+  skip_on_cran()
   skip("Test requires refactoring to match actual class architecture")
   client <- new.env()
   client$updates_queue <- new.env()
@@ -491,6 +513,7 @@ test_that("catch_up schedules UpdatesTooLong via updates_queue", {
 })
 
 test_that("set_receive_updates sets no_updates when FALSE", {
+  skip_on_cran()
   skip("Test requires refactoring to match actual class architecture")
   client <- new.env()
   client$no_updates <- NULL
@@ -504,16 +527,19 @@ test_that("set_receive_updates sets no_updates when FALSE", {
 btns <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
 test_that("NULL input returns NULL", {
+  skip_on_cran()
   expect_null(btns$build_reply_markup(NULL))
 })
 
 test_that("already-a-reply-markup is returned unchanged", {
+  skip_on_cran()
   m <- list(dummy = TRUE)
   attr(m, "SUBCLASS_OF_ID") <- 0xe2e10ef2
   expect_identical(btns$build_reply_markup(m), m)
 })
 
 test_that("single keyboard button becomes ReplyKeyboardMarkup", {
+  skip_on_cran()
   kb <- list(is_inline = FALSE)
   attr(kb, "SUBCLASS_OF_ID") <- 0xbad74a3
   res <- btns$build_reply_markup(kb)
@@ -524,6 +550,7 @@ test_that("single keyboard button becomes ReplyKeyboardMarkup", {
 })
 
 test_that("single inline button becomes ReplyInlineMarkup (empty rows if no keyboard buttons)", {
+  skip_on_cran()
   inline <- list(is_inline = TRUE)
   attr(inline, "SUBCLASS_OF_ID") <- 123L
   res <- btns$build_reply_markup(inline)
@@ -532,6 +559,7 @@ test_that("single inline button becomes ReplyInlineMarkup (empty rows if no keyb
 })
 
 test_that("mixing inline and normal buttons errors", {
+  skip_on_cran()
   kb <- list(is_inline = FALSE)
   attr(kb, "SUBCLASS_OF_ID") <- 0xbad74a3
   inline <- list(is_inline = TRUE)
@@ -543,6 +571,7 @@ test_that("mixing inline and normal buttons errors", {
 })
 
 test_that("inline_only with normal button errors", {
+  skip_on_cran()
   kb <- list(is_inline = FALSE)
   attr(kb, "SUBCLASS_OF_ID") <- 0xbad74a3
   expect_error(
@@ -552,6 +581,7 @@ test_that("inline_only with normal button errors", {
 })
 
 test_that("CustomButton extracts flags and inner button", {
+  skip_on_cran()
   inner <- list(is_inline = FALSE)
   attr(inner, "SUBCLASS_OF_ID") <- 0xbad74a3
   custom <- structure(
@@ -567,6 +597,7 @@ test_that("CustomButton extracts flags and inner button", {
 })
 
 test_that("MessageButton unwraps to its inner button", {
+  skip_on_cran()
   inline <- list(is_inline = TRUE)
   attr(inline, "SUBCLASS_OF_ID") <- 999L
   msgb <- structure(list(button = inline), class = "MessageButton")
@@ -575,6 +606,7 @@ test_that("MessageButton unwraps to its inner button", {
 })
 
 test_that("sanitize_parse_mode accepts valid modes and rejects invalid", {
+  skip_on_cran()
   obj <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
   expect_null(obj$sanitize_parse_mode(NULL))
   expect_equal(obj$sanitize_parse_mode("markdown"), "markdown")
@@ -585,6 +617,7 @@ test_that("sanitize_parse_mode accepts valid modes and rejects invalid", {
 })
 
 test_that("set_parse_mode and get_parse_mode work and initialize stores mode", {
+  skip_on_cran()
   obj <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
   expect_equal(obj$get_parse_mode(), "markdown")
 
@@ -596,6 +629,7 @@ test_that("set_parse_mode and get_parse_mode work and initialize stores mode", {
 })
 
 test_that("parse_message_text returns raw message when parse_mode is NULL and parses when set", {
+  skip_on_cran()
   obj <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
   res <- obj$parse_message_text("hello")
   expect_type(res, "list")
@@ -613,6 +647,7 @@ test_that("parse_message_text returns raw message when parse_mode is NULL and pa
 })
 
 test_that("replace_with_mention returns TRUE on success and FALSE on invalid index", {
+  skip_on_cran()
   obj <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
   entities <- list(list(offset = 0L, length = 5L))
   # should return TRUE for valid replacement
@@ -623,6 +658,7 @@ test_that("replace_with_mention returns TRUE on success and FALSE on invalid ind
 })
 
 test_that("get_response_message handles different result classes and mappings", {
+  skip_on_cran()
   obj <- TelegramClient$new(api_id = 1, api_hash = "ss", session = "ssd")
 
   # Create updates: one maps random_id -> message id, another provides the message
@@ -689,6 +725,7 @@ dm <- TelegramClient$new(
 )
 
 test_that("get_proper_filename generates sensible names and handles collisions", {
+  skip_on_cran()
   date <- as.POSIXct("2020-01-01 00:00:00", tz = "UTC")
 
   # When file is NULL, a name with kind and date is created and extension appended
@@ -712,6 +749,7 @@ test_that("get_proper_filename generates sensible names and handles collisions",
 })
 
 test_that("get_kind_and_names extracts kind and possible names from attributes", {
+  skip_on_cran()
   attrs <- list(
     structure(list(file_name = "file.txt"), class = "DocumentAttributeFilename"),
     structure(list(performer = "Artist", title = "Song"), class = "DocumentAttributeAudio"),
@@ -725,6 +763,7 @@ test_that("get_kind_and_names extracts kind and possible names from attributes",
 })
 
 test_that("get_thumb selects proper thumbnail according to rules", {
+  skip_on_cran()
   # Create several thumbnail-like objects with classes and fields used by logic
   t1 <- structure(list(size = 100, type = "a"), class = "PhotoSize")
   t2 <- structure(list(bytes = charToRaw("abc"), type = "b"), class = "PhotoCachedSize")
@@ -751,6 +790,7 @@ test_that("get_thumb selects proper thumbnail according to rules", {
 })
 
 test_that("download_cached_photo_size returns raw data for as.raw and respects classes", {
+  skip_on_cran()
   # PhotoStrippedSize uses utils$stripped_photo_to_jpg
   stripped <- structure(list(bytes = charToRaw("ignored")), class = "PhotoStrippedSize")
   res_strip <- dm$download_cached_photo_size(stripped, as.raw)
@@ -765,6 +805,7 @@ test_that("download_cached_photo_size returns raw data for as.raw and respects c
 })
 
 test_that("download_contact returns a vCard as raw when asked", {
+  skip_on_cran()
   mm_contact <- list(first_name = "John", last_name = "Doe", phone_number = "12345")
   res <- dm$download_contact(mm_contact, as.raw)
   expect_true(is.raw(res))

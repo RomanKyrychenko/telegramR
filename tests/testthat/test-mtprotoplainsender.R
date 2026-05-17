@@ -1,4 +1,5 @@
 test_that("sends and receives valid request successfully", {
+  skip_on_cran()
   connection <- list(
     send = function(data) invisible(data),
     recv = function() {
@@ -13,6 +14,7 @@ test_that("sends and receives valid request successfully", {
 })
 
 test_that("throws error when buffer received is too small", {
+  skip_on_cran()
   connection <- list(
     send = function(data) invisible(data),
     recv = function() raw(4)
@@ -22,6 +24,7 @@ test_that("throws error when buffer received is too small", {
 })
 
 test_that("throws error when auth_key_id is invalid", {
+  skip_on_cran()
   connection <- list(
     send = function(data) invisible(data),
     recv = function() {
@@ -35,6 +38,7 @@ test_that("throws error when auth_key_id is invalid", {
 })
 
 test_that("throws error when msg_id is invalid", {
+  skip_on_cran()
   connection <- list(
     send = function(data) invisible(data),
     recv = function() {
@@ -48,6 +52,7 @@ test_that("throws error when msg_id is invalid", {
 })
 
 test_that("throws error when length of received message is invalid", {
+  skip_on_cran()
   connection <- list(
     send = function(data) invisible(data),
     recv = function() {

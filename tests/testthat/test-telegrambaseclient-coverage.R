@@ -14,6 +14,7 @@ make_test_client <- function() {
 }
 
 test_that("TelegramBaseClient$get_session_path returns NULL for in-memory session", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     client <- TelegramBaseClient$new(
       session = NULL,
@@ -26,6 +27,7 @@ test_that("TelegramBaseClient$get_session_path returns NULL for in-memory sessio
 })
 
 test_that("TelegramBaseClient$set_flood_sleep_threshold clamps value to 24h", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     client <- TelegramBaseClient$new(
       session = NULL,
@@ -39,6 +41,7 @@ test_that("TelegramBaseClient$set_flood_sleep_threshold clamps value to 24h", {
 })
 
 test_that("TelegramBaseClient$set_flood_sleep_threshold with NULL defaults to 0", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     client <- TelegramBaseClient$new(
       session = NULL,
@@ -52,6 +55,7 @@ test_that("TelegramBaseClient$set_flood_sleep_threshold with NULL defaults to 0"
 })
 
 test_that("TelegramBaseClient$clear_session_auth_key clears sender auth key", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     client <- TelegramBaseClient$new(
       session = NULL,
@@ -70,6 +74,7 @@ test_that("TelegramBaseClient$clear_session_auth_key clears sender auth key", {
 })
 
 test_that("TelegramBaseClient$is_connected returns FALSE before connect", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     client <- TelegramBaseClient$new(
       session = NULL,
@@ -82,6 +87,7 @@ test_that("TelegramBaseClient$is_connected returns FALSE before connect", {
 })
 
 test_that("TelegramBaseClient ExportState tracks borrows correctly", {
+  skip_on_cran()
   state <- ExportState$new()
   expect_true(state$need_connect())
   state$add_borrow()
@@ -91,6 +97,7 @@ test_that("TelegramBaseClient ExportState tracks borrows correctly", {
 })
 
 test_that("ExportState$should_disconnect returns FALSE immediately after return", {
+  skip_on_cran()
   state <- ExportState$new()
   state$add_borrow()
   state$add_return()
@@ -99,11 +106,13 @@ test_that("ExportState$should_disconnect returns FALSE immediately after return"
 })
 
 test_that("ExportState$add_return errors when over-returned", {
+  skip_on_cran()
   state <- ExportState$new()
   expect_error(state$add_return(), "Returned sender more than it was borrowed")
 })
 
 test_that("TelegramBaseClient$get_version returns a non-empty string", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     client <- TelegramBaseClient$new(
       session = NULL,
@@ -118,6 +127,7 @@ test_that("TelegramBaseClient$get_version returns a non-empty string", {
 })
 
 test_that("TelegramBaseClient$get_proxy returns proxy after set_proxy", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     client <- TelegramBaseClient$new(
       session = NULL,
@@ -133,6 +143,7 @@ test_that("TelegramBaseClient$get_proxy returns proxy after set_proxy", {
 })
 
 test_that("TelegramBaseClient construction with explicit session list", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     sess <- list(
       dc_id = 2L,

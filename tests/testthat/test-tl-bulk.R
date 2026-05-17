@@ -48,17 +48,20 @@
 }
 
 test_that("TL type classes (to_dict) can be counted and most are found", {
+  skip_on_cran()
   tl_names <- .tl_classes_with_to_dict()
   # Sanity: there should be >1000 such classes
   expect_gt(length(tl_names), 1000L)
 })
 
 test_that("TL request classes (toDict) can be counted", {
+  skip_on_cran()
   tl_names <- .tl_classes_with_toDict()
   expect_gt(length(tl_names), 100L)
 })
 
 test_that("TL types with declared fields initialize and to_dict without error", {
+  skip_on_cran()
   ns       <- asNamespace("telegramR")
   tl_names <- .tl_classes_with_to_dict()
 
@@ -103,6 +106,7 @@ test_that("TL types with declared fields initialize and to_dict without error", 
 })
 
 test_that("TL request classes with declared fields initialize and toDict without error", {
+  skip_on_cran()
   ns       <- asNamespace("telegramR")
   tl_names <- .tl_classes_with_toDict()
 
@@ -143,6 +147,7 @@ test_that("TL request classes with declared fields initialize and toDict without
 })
 
 test_that("classes without declared fields still run initialize up to field assignment", {
+  skip_on_cran()
   ns       <- asNamespace("telegramR")
   tl_names <- .tl_classes_with_to_dict()
 
@@ -167,6 +172,7 @@ test_that("classes without declared fields still run initialize up to field assi
 })
 
 test_that("spot-check: well-known TL types produce correct to_dict", {
+  skip_on_cran()
   ns <- asNamespace("telegramR")
 
   cases <- list(

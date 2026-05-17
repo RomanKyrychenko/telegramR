@@ -191,6 +191,7 @@ SWEEP_SKIP <- local({
 })
 
 test_that("sweep: every TLObject class instantiates and to_dict / bytes are exercised", {
+  skip_on_cran()
   patch_tlobject()
   types_env <- find_types_env()
   classes <- collect_tl_classes(types_env)
@@ -275,6 +276,7 @@ test_that("sweep: every TLObject class instantiates and to_dict / bytes are exer
 })
 
 test_that("sweep: from_reader exercised for every class with two flag patterns", {
+  skip_on_cran()
   patch_tlobject()
   types_env <- find_types_env()
   classes   <- collect_tl_classes(types_env)

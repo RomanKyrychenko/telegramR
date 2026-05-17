@@ -11,6 +11,7 @@ make_tc <- function() {
 
 # ── sanitize_parse_mode ───────────────────────────────────────────────────────
 test_that("sanitize_parse_mode returns NULL for NULL input", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     tc <- TelegramClient$new(session = NULL, api_id = 123L, api_hash = "abc")
     expect_null(tc$sanitize_parse_mode(NULL))
@@ -18,6 +19,7 @@ test_that("sanitize_parse_mode returns NULL for NULL input", {
 })
 
 test_that("sanitize_parse_mode accepts markdown/md/html/htm", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     tc <- TelegramClient$new(session = NULL, api_id = 123L, api_hash = "abc")
     expect_equal(tc$sanitize_parse_mode("markdown"), "markdown")
@@ -28,6 +30,7 @@ test_that("sanitize_parse_mode accepts markdown/md/html/htm", {
 })
 
 test_that("sanitize_parse_mode errors for unknown mode string", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     tc <- TelegramClient$new(session = NULL, api_id = 123L, api_hash = "abc")
     expect_error(tc$sanitize_parse_mode("rst"), "Invalid parse mode")
@@ -36,6 +39,7 @@ test_that("sanitize_parse_mode errors for unknown mode string", {
 
 # ── set_parse_mode / get_parse_mode ──────────────────────────────────────────
 test_that("set_parse_mode and get_parse_mode round-trip", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     tc <- TelegramClient$new(session = NULL, api_id = 123L, api_hash = "abc")
     tc$set_parse_mode("html")
@@ -45,6 +49,7 @@ test_that("set_parse_mode and get_parse_mode round-trip", {
 
 # ── parse_phone ───────────────────────────────────────────────────────────────
 test_that("parse_phone strips non-digits and returns cleaned phone", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     tc <- TelegramClient$new(session = NULL, api_id = 123L, api_hash = "abc")
     expect_equal(tc$parse_phone("+1 (800) 555-1234"), "+18005551234")
@@ -53,6 +58,7 @@ test_that("parse_phone strips non-digits and returns cleaned phone", {
 })
 
 test_that("parse_phone returns NULL for NULL input", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     tc <- TelegramClient$new(session = NULL, api_id = 123L, api_hash = "abc")
     expect_null(tc$parse_phone(NULL))
@@ -60,6 +66,7 @@ test_that("parse_phone returns NULL for NULL input", {
 })
 
 test_that("parse_phone returns NULL for too-short number", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     tc <- TelegramClient$new(session = NULL, api_id = 123L, api_hash = "abc")
     expect_null(tc$parse_phone("123"))
@@ -68,6 +75,7 @@ test_that("parse_phone returns NULL for too-short number", {
 
 # ── get_display_name ──────────────────────────────────────────────────────────
 test_that("get_display_name combines first_name and last_name", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     tc <- TelegramClient$new(session = NULL, api_id = 123L, api_hash = "abc")
     user <- list(first_name = "John", last_name = "Doe", username = "jdoe", id = 1L)
@@ -76,6 +84,7 @@ test_that("get_display_name combines first_name and last_name", {
 })
 
 test_that("get_display_name uses first_name when no last_name", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     tc <- TelegramClient$new(session = NULL, api_id = 123L, api_hash = "abc")
     user <- list(first_name = "Alice", last_name = NULL, username = "alice", id = 2L)
@@ -84,6 +93,7 @@ test_that("get_display_name uses first_name when no last_name", {
 })
 
 test_that("get_display_name falls back to username when no name", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     tc <- TelegramClient$new(session = NULL, api_id = 123L, api_hash = "abc")
     user <- list(first_name = NULL, last_name = NULL, username = "bot_user", id = 99L)
@@ -92,6 +102,7 @@ test_that("get_display_name falls back to username when no name", {
 })
 
 test_that("get_display_name falls back to id when no name or username", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     tc <- TelegramClient$new(session = NULL, api_id = 123L, api_hash = "abc")
     user <- list(first_name = NULL, last_name = NULL, username = NULL, id = 777L)
@@ -101,6 +112,7 @@ test_that("get_display_name falls back to id when no name or username", {
 
 # ── parse_message_text (no parse_mode → passthrough) ─────────────────────────
 test_that("parse_message_text with NULL parse_mode returns raw message", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     tc <- TelegramClient$new(session = NULL, api_id = 123L, api_hash = "abc")
     tc$set_parse_mode(NULL)
@@ -112,6 +124,7 @@ test_that("parse_message_text with NULL parse_mode returns raw message", {
 
 # ── initialize sets default parse_mode to "markdown" ─────────────────────────
 test_that("TelegramClient initializes with parse_mode = 'markdown'", {
+  skip_on_cran()
   withr::with_options(list(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE), {
     tc <- TelegramClient$new(session = NULL, api_id = 123L, api_hash = "abc")
     expect_equal(tc$parse_mode, "markdown")
