@@ -333,11 +333,6 @@ test_that("is_image detects file extensions correctly", {
   expect_false(um$is_image(non_img))
 })
 
-# Ensure futures run synchronously for tests
-old_plan <- future::plan()
-future::plan(sequential)
-withr::defer(future::plan(old_plan))
-
 # Mock global helpers used by the code under test
 events <- new.env()
 events$get_handlers <- function(callback) NULL
