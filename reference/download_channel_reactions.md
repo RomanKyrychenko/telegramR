@@ -52,12 +52,13 @@ download_channel_reactions(
 
 - output_file:
 
-  character or NULL. If set, results are streamed to this CSV file
-  instead of returned as a tibble.
+  character or NULL. When set, rows are written to this CSV file in
+  chunks instead of being accumulated in memory.
 
 - chunk_size:
 
-  integer. Number of rows to buffer before writing to `output_file`.
+  integer. Number of rows to buffer before each write when `output_file`
+  is set. Default 5000.
 
 - ...:
 
@@ -66,14 +67,3 @@ download_channel_reactions(
 ## Value
 
 A tibble.
-
-## Examples
-
-``` r
-if (FALSE) { # \dontrun{
-client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
-client$connect()
-
-download_channel_reactions(client, "channelname", limit = 100)
-} # }
-```
