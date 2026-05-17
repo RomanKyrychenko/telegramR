@@ -1,4 +1,5 @@
 test_that("GetCdnFileRequest to_list and to_bytes with character token", {
+  skip_on_cran()
   req <- GetCdnFileRequest$new("abc", 123, 10)
   lst <- req$to_list()
   expect_equal(lst$`_`, "GetCdnFileRequest")
@@ -13,6 +14,7 @@ test_that("GetCdnFileRequest to_list and to_bytes with character token", {
 
 
 test_that("GetCdnFileRequest numeric token serializes as single byte with length prefix", {
+  skip_on_cran()
   req <- GetCdnFileRequest$new(257, 1, 2)
   b <- req$to_bytes()
   # constructor id (4 bytes) then serialized bytes length (4 bytes little-endian)
@@ -23,12 +25,14 @@ test_that("GetCdnFileRequest numeric token serializes as single byte with length
 
 
 test_that("GetCdnFileRequest to_bytes errors on unsupported token type", {
+  skip_on_cran()
   req <- GetCdnFileRequest$new(list(a = 1), 0, 0)
   expect_error(req$to_bytes())
 })
 
 
 test_that("SaveFilePartRequest serializes bytes_data correctly", {
+  skip_on_cran()
   req <- SaveFilePartRequest$new(12345, 0, "hi")
   lst <- req$to_list()
   expect_equal(lst$`_`, "SaveFilePartRequest")
@@ -45,6 +49,7 @@ test_that("SaveFilePartRequest serializes bytes_data correctly", {
 
 
 test_that("GetFileRequest to_bytes uses flags and embeds location bytes; errors when location missing", {
+  skip_on_cran()
   DummyLoc <- R6::R6Class("DummyLoc", public = list(
     to_bytes = function() as.raw(c(0xAA)),
     to_list = function() list(`_` = "DummyLoc")

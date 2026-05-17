@@ -1,4 +1,5 @@
 test_that("EntityCache initializes correctly", {
+  skip_on_cran()
   cache <- EntityCache$new()
   expect_null(cache$self_id)
   expect_null(cache$self_bot)
@@ -7,6 +8,7 @@ test_that("EntityCache initializes correctly", {
 })
 
 test_that("EntityCache set_self_user sets self arguments", {
+  skip_on_cran()
   cache <- EntityCache$new()
   cache$set_self_user(12345, TRUE)
   expect_equal(cache$self_id, 12345)
@@ -14,6 +16,7 @@ test_that("EntityCache set_self_user sets self arguments", {
 })
 
 test_that("EntityCache extend adds users and chats and get retrieves them", {
+  skip_on_cran()
   cache <- EntityCache$new()
   
   # Mock user and chat using basic lists but adding class "User" and "Chat"
@@ -43,6 +46,7 @@ test_that("EntityCache extend adds users and chats and get retrieves them", {
 })
 
 test_that("EntityCache retain filters items correctly", {
+  skip_on_cran()
   cache <- EntityCache$new()
   user1 <- list(id = 1, SUBCLASS_OF_ID = 0)
   class(user1) <- c("UserEmpty", "list")

@@ -7,6 +7,7 @@ MockTLObject <- R6::R6Class("MockTLObject",
 )
 
 test_that("AcceptEncryptionRequest works correctly", {
+  skip_on_cran()
   peer <- MockTLObject$new()
   req <- AcceptEncryptionRequest$new(peer = peer, gB = as.raw(c(0x11, 0x22)), keyFingerprint = 12345)
   
@@ -19,6 +20,7 @@ test_that("AcceptEncryptionRequest works correctly", {
 })
 
 test_that("AcceptUrlAuthRequest works correctly", {
+  skip_on_cran()
   peer <- MockTLObject$new()
   req <- AcceptUrlAuthRequest$new(
     writeAllowed = TRUE,
@@ -42,6 +44,7 @@ test_that("AcceptUrlAuthRequest works correctly", {
 })
 
 test_that("AddChatUserRequest works correctly", {
+  skip_on_cran()
   userId <- MockTLObject$new()
   req <- AddChatUserRequest$new(chatId = 12345, userId = userId, fwdLimit = 50)
   

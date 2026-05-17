@@ -1,4 +1,5 @@
 test_that("parses text with bold and italic delimiters", {
+  skip_on_cran()
   message <- "This is **bold** and __italic__ text."
   result <- parse(message)
 
@@ -13,6 +14,7 @@ test_that("parses text with bold and italic delimiters", {
 })
 
 test_that("parses text with code and preformatted blocks", {
+  skip_on_cran()
   message <- "Inline `code` and ```preformatted``` blocks."
   result <- parse(message)
 
@@ -27,6 +29,7 @@ test_that("parses text with code and preformatted blocks", {
 })
 
 test_that("parses text with inline urls", {
+  skip_on_cran()
   message <- "Visit [example](https://example.com) for details."
   result <- parse(message)
 
@@ -39,6 +42,7 @@ test_that("parses text with inline urls", {
 })
 
 test_that("handles empty message input", {
+  skip_on_cran()
   message <- ""
   result <- parse(message)
 
@@ -47,6 +51,7 @@ test_that("handles empty message input", {
 })
 
 test_that("handles message with no delimiters", {
+  skip_on_cran()
   message <- "Plain text with no formatting."
   result <- parse(message)
 
@@ -55,6 +60,7 @@ test_that("handles message with no delimiters", {
 })
 
 test_that("unparses text with bold and italic entities", {
+  skip_on_cran()
   text <- "This is bold and italic text."
   entities <- list(
     list(type = "MessageEntityBold", offset = 8, length = 4),
@@ -66,6 +72,7 @@ test_that("unparses text with bold and italic entities", {
 })
 
 test_that("unparses text with code and preformatted entities", {
+  skip_on_cran()
   text <- "Inline code and preformatted blocks."
   entities <- list(
     list(type = "MessageEntityCode", offset = 7, length = 4),
@@ -77,6 +84,7 @@ test_that("unparses text with code and preformatted entities", {
 })
 
 test_that("unparses text with inline urls", {
+  skip_on_cran()
   text <- "Visit example for details."
   entities <- list(
     list(type = "MessageEntityTextUrl", offset = 6, length = 7, url = "https://example.com")

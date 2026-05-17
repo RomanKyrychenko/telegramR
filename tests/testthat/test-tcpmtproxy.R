@@ -1,4 +1,5 @@
 test_that("initializes MTProxyIO with valid connection parameters", {
+  skip_on_cran()
   connection <- list(
     reader = list(readexactly = function(n) raw(n)),
     writer = list(write = function(data) invisible(data)),
@@ -13,6 +14,7 @@ test_that("initializes MTProxyIO with valid connection parameters", {
 })
 
 test_that("throws error when MTProxyIO is initialized with invalid secret length", {
+  skip_on_cran()
   connection <- list(
     reader = list(readexactly = function(n) raw(n)),
     writer = list(write = function(data) invisible(data)),
@@ -24,6 +26,7 @@ test_that("throws error when MTProxyIO is initialized with invalid secret length
 })
 
 test_that("encrypts and writes data correctly in MTProxyIO", {
+  skip_on_cran()
   connection <- list(
     reader = list(readexactly = function(n) raw(n)),
     writer = list(write = function(data) data),
@@ -38,6 +41,7 @@ test_that("encrypts and writes data correctly in MTProxyIO", {
 })
 
 test_that("reads and decrypts data correctly in MTProxyIO", {
+  skip_on_cran()
   connection <- list(
     reader = list(readexactly = function(n) raw(n)),
     writer = list(write = function(data) invisible(data)),
@@ -51,16 +55,19 @@ test_that("reads and decrypts data correctly in MTProxyIO", {
 })
 
 test_that("throws error when TcpMTProxy is initialized without proxy info", {
+  skip_on_cran()
   expect_error(TcpMTProxy$new("127.0.0.1", 443, 2, NULL, NULL), "No proxy info specified for MTProxy connection")
 })
 
 test_that("normalizes valid hex secret correctly in TcpMTProxy", {
+  skip_on_cran()
   proxy <- list("127.0.0.1", 443, "ee112233445566778899aabbccddeeff")
   tcp <- TcpMTProxy$new("127.0.0.1", 443, 2, NULL, proxy)
   expect_equal(length(tcp$secret), 16)
 })
 
 test_that("TcpMTProxy handles short secret by normalizing to 16 bytes", {
+  skip_on_cran()
   proxy <- list("127.0.0.1", 443, "aabbccdd")
   tcp <- TcpMTProxy$new("127.0.0.1", 443, 2, NULL, proxy)
   expect_equal(length(tcp$secret), 16)

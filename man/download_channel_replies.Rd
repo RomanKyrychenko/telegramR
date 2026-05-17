@@ -32,9 +32,9 @@ download_channel_replies(
 
 \item{show_progress}{logical. If TRUE, display a progress bar.}
 
-\item{output_file}{character or NULL. If set, results are streamed to this CSV file instead of returned as a tibble.}
+\item{output_file}{character or NULL. When set, rows are written to this CSV file in chunks instead of being accumulated in memory.}
 
-\item{chunk_size}{integer. Number of rows to buffer before writing to \code{output_file}.}
+\item{chunk_size}{integer. Number of rows to buffer before each write when \code{output_file} is set. Default 5000.}
 
 \item{...}{Passed to client$iter_messages() when fetching recent posts.}
 }
@@ -43,12 +43,4 @@ A tibble.
 }
 \description{
 Fetches replies (comments) to channel posts by username or numeric id.
-}
-\examples{
-\dontrun{
-client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
-client$connect()
-
-download_channel_replies(client, "channelname")
-}
 }

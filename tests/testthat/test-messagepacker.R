@@ -1,4 +1,5 @@
 test_that("MessagePacker initializes with valid state and loggers", {
+  skip_on_cran()
   state <- list(write_data_as_message = function(...) {})
   loggers <- list(messagepacker = list(debug = function(...) {}, warning = function(...) {}))
   packer <- MessagePacker$new(state, loggers)
@@ -10,6 +11,7 @@ test_that("MessagePacker initializes with valid state and loggers", {
 })
 
 test_that("appends a single state item to the queue", {
+  skip_on_cran()
   packer <- MessagePacker$new(state = NULL)
   state_item <- list(data = "test")
 
@@ -21,6 +23,7 @@ test_that("appends a single state item to the queue", {
 })
 
 test_that("extends the queue with multiple state items", {
+  skip_on_cran()
   packer <- MessagePacker$new(state = NULL)
   state_items <- list(list(data = "item1"), list(data = "item2"))
 
@@ -33,6 +36,7 @@ test_that("extends the queue with multiple state items", {
 })
 
 test_that("get method returns queued items", {
+  skip_on_cran()
   state <- list(write_data_as_message = function(...) 12345)
   packer <- MessagePacker$new(state = state)
 
@@ -45,6 +49,7 @@ test_that("get method returns queued items", {
 })
 
 test_that("get method handles oversized payloads", {
+  skip_on_cran()
   state <- list(write_data_as_message = function(...) 12345)
   log <- list(warning = function(...) {})
   packer <- MessagePacker$new(state = state, loggers = list(messagepacker = log))
@@ -58,6 +63,7 @@ test_that("get method handles oversized payloads", {
 })
 
 test_that("batches multiple messages into a container", {
+  skip_on_cran()
   state <- list(write_data_as_message = function(...) 12345)
   packer <- MessagePacker$new(state = state)
   items <- list(

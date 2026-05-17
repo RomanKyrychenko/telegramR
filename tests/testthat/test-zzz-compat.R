@@ -1,4 +1,5 @@
 test_that(".onLoad sets default options when missing", {
+  skip_on_cran()
   old <- options()
   on.exit(options(old), add = TRUE)
 
@@ -18,6 +19,7 @@ test_that(".onLoad sets default options when missing", {
 })
 
 test_that("compat_promises value unwraps Future", {
+  skip_on_cran()
   skip_future_on_rdevel()
   future::plan("sequential")
   # future >= 1.70.0 added connection-tracking which can segfault on R devel
@@ -31,6 +33,7 @@ test_that("compat_promises value unwraps Future", {
 })
 
 test_that("skip_if_no_integration skips when env is not set", {
+  skip_on_cran()
   old <- Sys.getenv("TELEGRAMR_INTEGRATION", unset = "")
   on.exit(Sys.setenv(TELEGRAMR_INTEGRATION = old), add = TRUE)
   Sys.setenv(TELEGRAMR_INTEGRATION = "")

@@ -1,4 +1,5 @@
 test_that("FinishJobRequest works correctly", {
+  skip_on_cran()
   req <- FinishJobRequest$new(job_id = "job123", error = "some error")
   
   expect_s3_class(req, "FinishJobRequest")
@@ -17,6 +18,7 @@ test_that("FinishJobRequest works correctly", {
 })
 
 test_that("GetSmsJobRequest works correctly", {
+  skip_on_cran()
   req <- GetSmsJobRequest$new(job_id = "job456")
   
   expect_s3_class(req, "GetSmsJobRequest")
@@ -32,6 +34,7 @@ test_that("GetSmsJobRequest works correctly", {
 })
 
 test_that("UpdateSettingsRequest works correctly", {
+  skip_on_cran()
   req <- UpdateSettingsRequest$new(allow_international = TRUE)
   
   expect_s3_class(req, "UpdateSettingsRequest")

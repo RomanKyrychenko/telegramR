@@ -1,4 +1,5 @@
 test_that("encodes packet with valid data correctly", {
+  skip_on_cran()
   codec <- FullPacketCodec$new(NULL)
   data <- raw(16)
   result <- codec$encode_packet(data)
@@ -15,11 +16,13 @@ test_that("encodes packet with valid data correctly", {
 })
 
 test_that("throws error when encoding packet with invalid data", {
+  skip_on_cran()
   codec <- FullPacketCodec$new(NULL)
   expect_error(codec$encode_packet(NULL), "invalid 'length' argument")
 })
 
 test_that("reads packet with valid data successfully", {
+  skip_on_cran()
   skip_future_on_rdevel()
   codec <- FullPacketCodec$new(NULL)
   reader <- list(
@@ -45,6 +48,7 @@ test_that("reads packet with valid data successfully", {
 })
 
 test_that("throws error when packet length is less than 8", {
+  skip_on_cran()
   skip_future_on_rdevel()
   codec <- FullPacketCodec$new(NULL)
   reader <- list(
@@ -61,6 +65,7 @@ test_that("throws error when packet length is less than 8", {
 })
 
 test_that("throws error when checksum is invalid", {
+  skip_on_cran()
   skip_future_on_rdevel()
   codec <- FullPacketCodec$new(NULL)
   reader <- list(

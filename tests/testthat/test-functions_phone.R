@@ -7,6 +7,7 @@ MockTLObject <- R6::R6Class("MockTLObject",
 )
 
 test_that("AcceptCallRequest works correctly", {
+  skip_on_cran()
   peer <- MockTLObject$new()
   protocol <- MockTLObject$new()
   g_b <- as.raw(c(0x11, 0x22))
@@ -25,6 +26,7 @@ test_that("AcceptCallRequest works correctly", {
 })
 
 test_that("CheckGroupCallRequest works correctly", {
+  skip_on_cran()
   call <- MockTLObject$new()
   sources <- list(1, 2, 3)
   req <- CheckGroupCallRequest$new(call = call, sources = sources)
@@ -42,6 +44,7 @@ test_that("CheckGroupCallRequest works correctly", {
 })
 
 test_that("ConfirmCallRequest works correctly", {
+  skip_on_cran()
   peer <- MockTLObject$new()
   protocol <- MockTLObject$new()
   g_a <- as.raw(c(0x33, 0x44))

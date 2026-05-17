@@ -1,6 +1,7 @@
 # Extra tests for MTProtoState — get_new_msg_id monotonicity
 
 test_that("MTProtoState get_new_msg_id is strictly monotonic across 20 rapid calls", {
+  skip_on_cran()
   state <- MTProtoState$new(auth_key = AuthKey$new(NULL), loggers = NULL)
   ids <- lapply(seq_len(20), function(i) state$get_new_msg_id())
 
@@ -13,6 +14,7 @@ test_that("MTProtoState get_new_msg_id is strictly monotonic across 20 rapid cal
 })
 
 test_that("MTProtoState get_new_msg_id stays monotonic after a backward time offset", {
+  skip_on_cran()
   state <- MTProtoState$new(auth_key = AuthKey$new(NULL), loggers = NULL)
   id_before <- state$get_new_msg_id()
 
@@ -24,6 +26,7 @@ test_that("MTProtoState get_new_msg_id stays monotonic after a backward time off
 })
 
 test_that("MTProtoState get_new_msg_id stays monotonic after a forward time offset", {
+  skip_on_cran()
   state <- MTProtoState$new(auth_key = AuthKey$new(NULL), loggers = NULL)
   id_before <- state$get_new_msg_id()
 

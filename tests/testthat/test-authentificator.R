@@ -1,4 +1,5 @@
 test_that("executes authentication successfully with valid sender", {
+  skip_on_cran()
   sender <- list(
     send = function(request) {
       if (inherits(request, "ReqPqMultiRequest")) {
@@ -30,6 +31,7 @@ test_that("executes authentication successfully with valid sender", {
 })
 
 test_that("throws error when nonce mismatch occurs in PQ response", {
+  skip_on_cran()
   sender <- list(
     send = function(request) {
       if (inherits(request, "ReqPqMultiRequest")) {
@@ -45,6 +47,7 @@ test_that("throws error when nonce mismatch occurs in PQ response", {
 })
 
 test_that("throws error when no valid key is found for fingerprints", {
+  skip_on_cran()
   sender <- list(
     send = function(request) {
       if (inherits(request, "ReqPqMultiRequest")) {
@@ -60,6 +63,7 @@ test_that("throws error when no valid key is found for fingerprints", {
 })
 
 test_that("throws error when AES block size mismatch occurs", {
+  skip_on_cran()
   sender <- list(
     send = function(request) {
       if (inherits(request, "ReqPqMultiRequest")) {
@@ -82,6 +86,7 @@ test_that("throws error when AES block size mismatch occurs", {
 })
 
 test_that("throws error when Diffie-Hellman values are out of range", {
+  skip_on_cran()
   sender <- list(
     send = function(request) {
       if (inherits(request, "ReqPqMultiRequest")) {

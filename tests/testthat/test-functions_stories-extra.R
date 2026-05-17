@@ -18,6 +18,7 @@ stories_peer <- function(bytes = as.raw(c(0x01, 0x02, 0x03))) {
 }
 
 test_that("fixed stories requests serialize without constructing generated R6 classes", {
+  skip_on_cran()
   read_peer <- stories_call_method_with_self(
     GetAllReadPeerStoriesRequest$public_methods$to_list,
     list()
@@ -40,6 +41,7 @@ test_that("fixed stories requests serialize without constructing generated R6 cl
 })
 
 test_that("GetAllStoriesRequest covers flag combinations", {
+  skip_on_cran()
   self_obj <- list(
     .next = TRUE,
     hidden = TRUE,
@@ -68,6 +70,7 @@ test_that("GetAllStoriesRequest covers flag combinations", {
 })
 
 test_that("DeleteStoriesRequest serializes peers and story ids", {
+  skip_on_cran()
   peer <- stories_peer()
   self_obj <- list(peer = peer, id = c(3L, 4L))
 
@@ -94,6 +97,7 @@ test_that("DeleteStoriesRequest serializes peers and story ids", {
 })
 
 test_that("story class helpers read vector results", {
+  skip_on_cran()
   reader_empty <- new.env(parent = emptyenv())
   ints_empty <- c(0L)
   i_empty <- 0L
@@ -114,6 +118,7 @@ test_that("story class helpers read vector results", {
 })
 
 test_that("GetStoryReactionsListRequest covers optional reaction and offset flags", {
+  skip_on_cran()
   peer <- stories_peer(as.raw(c(0xaa)))
   reaction <- stories_peer(as.raw(c(0xbb, 0xcc)))
   self_obj <- list(

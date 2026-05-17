@@ -1,12 +1,14 @@
 # Additional coverage tests for R/chats.R
 
 test_that(".MAX_PARTICIPANTS_CHUNK_SIZE and other constants are correct", {
+  skip_on_cran()
   expect_equal(.MAX_PARTICIPANTS_CHUNK_SIZE, 200)
   expect_equal(.MAX_ADMIN_LOG_CHUNK_SIZE, 100)
   expect_equal(.MAX_PROFILE_PHOTO_CHUNK_SIZE, 100)
 })
 
 test_that("_ChatAction initializes all fields correctly via R6", {
+  skip_on_cran()
   fake_client <- list()
   chat <- list(id = 42L)
   act <- telegramR:::.ChatAction$new(
@@ -24,6 +26,7 @@ test_that("_ChatAction initializes all fields correctly via R6", {
 })
 
 test_that("_ChatAction progress updates action$progress field", {
+  skip_on_cran()
   fake_client <- list()
   act <- telegramR:::.ChatAction$new(
     client = fake_client,
@@ -38,6 +41,7 @@ test_that("_ChatAction progress updates action$progress field", {
 })
 
 test_that("_ChatAction progress does nothing when action has no progress field", {
+  skip_on_cran()
   fake_client <- list()
   act <- telegramR:::.ChatAction$new(
     client = fake_client,
@@ -49,6 +53,7 @@ test_that("_ChatAction progress does nothing when action has no progress field",
 })
 
 test_that("_ChatAction clone produces independent copy", {
+  skip_on_cran()
   fake_client <- list()
   act1 <- telegramR:::.ChatAction$new(
     client = fake_client,

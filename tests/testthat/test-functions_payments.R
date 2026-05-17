@@ -7,6 +7,7 @@ MockTLObject <- R6::R6Class("MockTLObject",
 )
 
 test_that("AssignAppStoreTransactionRequest works correctly", {
+  skip_on_cran()
   purpose <- MockTLObject$new()
   receipt <- as.raw(c(0x10, 0x20))
   req <- AssignAppStoreTransactionRequest$new(receipt = receipt, purpose = purpose)
@@ -24,6 +25,7 @@ test_that("AssignAppStoreTransactionRequest works correctly", {
 })
 
 test_that("BotCancelStarsSubscriptionRequest works correctly", {
+  skip_on_cran()
   user_id <- MockTLObject$new()
   req <- BotCancelStarsSubscriptionRequest$new(
     user_id = user_id,
@@ -43,6 +45,7 @@ test_that("BotCancelStarsSubscriptionRequest works correctly", {
 })
 
 test_that("CanPurchaseStoreRequest works correctly", {
+  skip_on_cran()
   purpose <- MockTLObject$new()
   req <- CanPurchaseStoreRequest$new(purpose = purpose)
   

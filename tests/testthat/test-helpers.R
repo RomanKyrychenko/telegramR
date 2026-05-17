@@ -1,15 +1,18 @@
 test_that("EntityType constants are defined", {
+  skip_on_cran()
   expect_equal(EntityType$USER, 0)
   expect_equal(EntityType$CHAT, 1)
   expect_equal(EntityType$CHANNEL, 2)
 })
 
 test_that("logg prints formatted message", {
+  skip_on_cran()
   out <- capture.output(logg("num: %d", 7))
   expect_equal(out, "num: 7")
 })
 
 test_that("generate_random_long returns numeric scalar and unsigned is non-negative", {
+  skip_on_cran()
   rl <- generate_random_long()
   expect_type(rl, "double")
   expect_length(rl, 1)
@@ -23,6 +26,7 @@ test_that("generate_random_long returns numeric scalar and unsigned is non-negat
 })
 
 test_that("ensure_parent_dir_exists creates parent directories", {
+  skip_on_cran()
   td <- tempdir()
   nested <- file.path(td, "test_dir_for_helpers", "sub1", "sub2", "file.txt")
   parent <- dirname(nested)
@@ -33,6 +37,7 @@ test_that("ensure_parent_dir_exists creates parent directories", {
 })
 
 test_that("add_surrogate and del_surrogate return expected types", {
+  skip_on_cran()
   txt <- paste0("Hello ", intToUtf8(0x1F600), " World") # 😀
   a <- add_surrogate(txt)
   expect_type(a, "character")
@@ -44,6 +49,7 @@ test_that("add_surrogate and del_surrogate return expected types", {
 })
 
 test_that("strip_text trims text even when entities provided", {
+  skip_on_cran()
   expect_equal(strip_text("  abc  ", list()), "abc")
 
   ents <- list(list(offset = 1, length = 2))
@@ -51,12 +57,14 @@ test_that("strip_text trims text even when entities provided", {
 })
 
 test_that("TotalList to_string produces expected representation", {
+  skip_on_cran()
   tl <- TotalList$new(items = list(1, "a", TRUE))
   tl$total <- 3
   expect_equal(tl$to_string(), "[1, a, TRUE, total=3]")
 })
 
 test_that("FileStream works with raw vectors", {
+  skip_on_cran()
   rawv <- as.raw(1:10)
   fs <- FileStream$new(rawv)
   on.exit(fs$close(), add = TRUE)

@@ -1,9 +1,11 @@
 test_that("MessageContainer initializes correctly", {
+  skip_on_cran()
   container <- MessageContainer$new(messages = list("message1", "message2"))
   expect_equal(container$messages, list("message1", "message2"))
 })
 
 test_that("MessageContainer to_dict works correctly", {
+  skip_on_cran()
   mock_message <- R6::R6Class(
     "MockMessage",
     public = list(
@@ -21,6 +23,7 @@ test_that("MessageContainer to_dict works correctly", {
 })
 
 test_that("MessageContainer from_reader works correctly", {
+  skip_on_cran()
   mock_reader <- R6::R6Class(
     "MockReader",
     public = list(

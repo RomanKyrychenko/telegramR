@@ -1,4 +1,5 @@
 test_that("AddPreviewMediaRequest to_list, to_bytes and resolve", {
+  skip_on_cran()
   MockUser <- R6::R6Class("MockUser", public = list(
     to_list = function() list(`_` = "MockUser"),
     to_bytes = function() as.raw(c(0xAA))
@@ -45,6 +46,7 @@ test_that("AddPreviewMediaRequest to_list, to_bytes and resolve", {
 
 
 test_that("AllowSendMessageRequest to_list, to_bytes and resolve", {
+  skip_on_cran()
   MockUser <- R6::R6Class("MockUser2", public = list(
     to_list = function() list(`_` = "MockUser2"),
     to_bytes = function() as.raw(c(0xCC))

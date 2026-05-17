@@ -55,6 +55,7 @@ make_username_client <- function(entity = NULL, error = NULL,
 }
 
 test_that("check_phone_on_telegram returns a populated record on a single match", {
+  skip_on_cran()
   user <- make_user(id = 42L, username = "bob", first_name = "Bob",
                     last_name = "Lee", phone = "15550001111")
   client <- make_phone_client(import_users = list(user))
@@ -71,6 +72,7 @@ test_that("check_phone_on_telegram returns a populated record on a single match"
 })
 
 test_that("check_phone_on_telegram falls back to the supplied phone when User has none", {
+  skip_on_cran()
   user <- make_user(phone = NULL)
   client <- make_phone_client(import_users = list(user))
 
@@ -79,12 +81,14 @@ test_that("check_phone_on_telegram falls back to the supplied phone when User ha
 })
 
 test_that("check_phone_on_telegram reports no-match", {
+  skip_on_cran()
   client <- make_phone_client(import_users = list())
   res <- check_phone_on_telegram(client, "+15550000000")
   expect_match(res$error, "not on Telegram")
 })
 
 test_that("check_phone_on_telegram reports multiple matches", {
+  skip_on_cran()
   client <- make_phone_client(
     import_users = list(make_user(id = 1L), make_user(id = 2L))
   )
@@ -93,17 +97,20 @@ test_that("check_phone_on_telegram reports multiple matches", {
 })
 
 test_that("check_phone_on_telegram surfaces RPC errors as an error field", {
+  skip_on_cran()
   client <- make_phone_client(throw_on_invoke = "ImportContactsRequest")
   res <- check_phone_on_telegram(client, "+15550000000")
   expect_match(res$error, "Unexpected error")
 })
 
 test_that("check_phone_on_telegram validates input", {
+  skip_on_cran()
   expect_error(check_phone_on_telegram(NULL, ""), "non-empty string")
   expect_error(check_phone_on_telegram(NULL, c("+1", "+2")), "non-empty string")
 })
 
 test_that("check_phone_on_telegram both invokes Import and Delete", {
+  skip_on_cran()
   user <- make_user(id = 9L)
   client <- make_phone_client(import_users = list(user))
   check_phone_on_telegram(client, "+15550009999")
@@ -112,6 +119,7 @@ test_that("check_phone_on_telegram both invokes Import and Delete", {
 })
 
 test_that("check_phones_on_telegram returns one row per unique phone", {
+  skip_on_cran()
   client <- make_phone_client(import_users = list(make_user(id = 7L)))
   out <- check_phones_on_telegram(client, "+1, +2, +1")
   expect_s3_class(out, "tbl_df")
@@ -120,12 +128,14 @@ test_that("check_phones_on_telegram returns one row per unique phone", {
 })
 
 test_that("check_phones_on_telegram accepts a character vector", {
+  skip_on_cran()
   client <- make_phone_client(import_users = list(make_user(id = 7L)))
   out <- check_phones_on_telegram(client, c("+1", "+2"))
   expect_equal(nrow(out), 2L)
 })
 
 test_that("check_username_on_telegram returns a populated record for a User", {
+  skip_on_cran()
   user <- make_user(id = 100L, username = "charlie", first_name = "Charlie")
   client <- make_username_client(entity = user)
   res <- check_username_on_telegram(client, "@charlie")
@@ -135,6 +145,7 @@ test_that("check_username_on_telegram returns a populated record for a User", {
 })
 
 test_that("check_username_on_telegram strips a leading @", {
+  skip_on_cran()
   user <- make_user(username = "dora")
   client <- make_username_client(entity = user)
   res <- check_username_on_telegram(client, "@dora")
@@ -142,6 +153,7 @@ test_that("check_username_on_telegram strips a leading @", {
 })
 
 test_that("check_username_on_telegram refuses channels and chats", {
+  skip_on_cran()
   channel <- structure(list(id = 1L, title = "A Channel"), class = "Channel")
   chat    <- structure(list(id = 2L, title = "A Chat"),    class = "Chat")
 
@@ -153,6 +165,7 @@ test_that("check_username_on_telegram refuses channels and chats", {
 })
 
 test_that("check_username_on_telegram maps Telethon-style errors", {
+  skip_on_cran()
   res1 <- check_username_on_telegram(
     make_username_client(error = "UsernameNotOccupiedError: ..."), "ghost")
   expect_match(res1$error, "does not exist")
@@ -167,11 +180,13 @@ test_that("check_username_on_telegram maps Telethon-style errors", {
 })
 
 test_that("check_username_on_telegram validates input", {
+  skip_on_cran()
   expect_error(check_username_on_telegram(NULL, ""), "non-empty string")
   expect_error(check_username_on_telegram(NULL, c("a", "b")), "non-empty string")
 })
 
 test_that("check_usernames_on_telegram aggregates results into a tibble", {
+  skip_on_cran()
   user <- make_user(username = "eve")
   client <- make_username_client(entity = user)
   # Matching upstream's behaviour, the leading "@" is part of the dedupe key,
@@ -183,6 +198,7 @@ test_that("check_usernames_on_telegram aggregates results into a tibble", {
 })
 
 test_that("user status helper handles all known classes", {
+  skip_on_cran()
   expect_equal(.tg_user_status_string(NULL), NA_character_)
   expect_equal(.tg_user_status_string(structure(list(), class = "UserStatusOnline")),
                "Currently online")
@@ -200,6 +216,7 @@ test_that("user status helper handles all known classes", {
 })
 
 test_that(".tg_split_targets normalises both vectors and comma strings", {
+  skip_on_cran()
   expect_equal(.tg_split_targets(NULL), character(0))
   expect_equal(.tg_split_targets("  +1 , +2,  +3 "), c("+1", "+2", "+3"))
   expect_equal(.tg_split_targets(c(" a ", "b")), c("a", "b"))
@@ -207,6 +224,7 @@ test_that(".tg_split_targets normalises both vectors and comma strings", {
 })
 
 test_that("check_phone_on_telegram triggers profile-photo download when requested", {
+  skip_on_cran()
   tmp <- tempfile()
   user <- make_user(id = 12L, phone = "+19998887777")
   client <- make_phone_client(import_users = list(user),

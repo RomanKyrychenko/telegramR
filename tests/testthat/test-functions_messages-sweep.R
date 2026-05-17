@@ -20,6 +20,7 @@ scalar_reader <- function(value) {
 }
 
 test_that("no-arg request classes expose stable wire format", {
+  skip_on_cran()
   no_init <- c(
     "GetDefaultHistoryTTLRequest", "GetDialogFiltersRequest",
     "GetPaidReactionPrivacyRequest", "GetSplitRangesRequest",
@@ -38,6 +39,7 @@ test_that("no-arg request classes expose stable wire format", {
 })
 
 test_that("hash-only request classes (long) serialize and read back", {
+  skip_on_cran()
   # Bytes are taken verbatim from each class's bytes() body so the test pins
   # the wire format regardless of the LE/BE conventions used in the generator.
   long_hash <- list(
@@ -73,6 +75,7 @@ test_that("hash-only request classes (long) serialize and read back", {
 })
 
 test_that("hash-only request classes (int) serialize and read back", {
+  skip_on_cran()
   int_hash <- list(
     GetAvailableEffectsRequest        = c(0xde, 0xa2, 0x0a, 0x39),
     GetAvailableReactionsRequest      = c(0x18, 0xde, 0xa0, 0xac),
@@ -92,6 +95,7 @@ test_that("hash-only request classes (int) serialize and read back", {
 })
 
 test_that("single long-id request classes serialize and read back", {
+  skip_on_cran()
   long_id <- list(
     list(name = "DeleteChatRequest",  cid = c(0x50, 0xee, 0xd0, 0x5b),
          arg = "chatId", dict = "chat_id"),
@@ -111,6 +115,7 @@ test_that("single long-id request classes serialize and read back", {
 })
 
 test_that("single int-id request classes serialize and read back", {
+  skip_on_cran()
   int_id <- list(
     list(name = "DeleteQuickReplyShortcutRequest", cid = c(0x40, 0x47, 0xc0, 0x3c),
          arg = "shortcutId", dict = "shortcut_id"),
@@ -130,6 +135,7 @@ test_that("single int-id request classes serialize and read back", {
 })
 
 test_that("single-string request classes serialize and read back", {
+  skip_on_cran()
   string_arg <- list(
     list(name = "GetEmojiKeywordsRequest", cid = c(0x62, 0xe0, 0xa0, 0x35),
          arg = "langCode", dict = "lang_code"),
@@ -152,6 +158,7 @@ test_that("single-string request classes serialize and read back", {
 })
 
 test_that("two-scalar request classes serialize and dict-shape correctly", {
+  skip_on_cran()
   # Each spec describes (name, constructor bytes, args list, body bytes builder).
   # The body builder closes over the scalar args we pass into self.
   specs <- list(
@@ -219,6 +226,7 @@ test_that("two-scalar request classes serialize and dict-shape correctly", {
 })
 
 test_that("single-TLObject request classes delegate to obj$bytes()", {
+  skip_on_cran()
   # Both to_dict and toDict are present because the generator emits both
   # snake_case and camelCase wrappers across different classes.
   dict_fn <- function() list("_" = "Fake")
@@ -260,6 +268,7 @@ test_that("single-TLObject request classes delegate to obj$bytes()", {
 })
 
 test_that("vector-of-long request classes serialize the inner vector marker", {
+  skip_on_cran()
   # GetCustomEmojiDocumentsRequest emits Vector<long>: 1cb5c415 + count + items
   cls <- GetCustomEmojiDocumentsRequest
   self_obj <- list(documentId = list(11, 22, 33))

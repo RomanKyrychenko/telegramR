@@ -1,4 +1,5 @@
 test_that("CheckUsernameRequest to_dict and bytes and resolve", {
+  skip_on_cran()
   # Dummy channel that provides bytes()
   channel <- list(bytes = function() as.raw(c(0x01)))
   req <- CheckUsernameRequest$new(channel = channel, username = "abc")
@@ -25,6 +26,7 @@ test_that("CheckUsernameRequest to_dict and bytes and resolve", {
 
 
 test_that("ConvertToGigagroupRequest bytes and CreateChannelRequest to_dict", {
+  skip_on_cran()
   ch <- list(bytes = function() as.raw(c(0x02)))
   conv <- ConvertToGigagroupRequest$new(channel = ch)
   cb <- conv$bytes()
@@ -44,6 +46,7 @@ test_that("ConvertToGigagroupRequest bytes and CreateChannelRequest to_dict", {
 
 
 test_that("GetInactiveChannelsRequest bytes and GetChannelsRequest to_dict", {
+  skip_on_cran()
   gin <- GetInactiveChannelsRequest$new()
   b <- gin$bytes()
   expect_equal(b, as.raw(c(0xee, 0x31, 0xe8, 0x11)))

@@ -1,4 +1,5 @@
 test_that("DeleteByPhonesRequest covers empty and populated vectors", {
+  skip_on_cran()
   req <- DeleteByPhonesRequest$new(c("1", "22"))
   expect_equal(
     req$to_list(),
@@ -31,6 +32,7 @@ test_that("DeleteByPhonesRequest covers empty and populated vectors", {
 })
 
 test_that("GetContactIDsRequest handles read_result branches", {
+  skip_on_cran()
   req <- GetContactIDsRequest$new(42)
   expect_equal(req$to_list(), list("_" = "GetContactIDsRequest", hash = 42))
   expect_equal(
@@ -58,6 +60,7 @@ test_that("GetContactIDsRequest handles read_result branches", {
 })
 
 test_that("GetStatusesRequest remains a fixed request", {
+  skip_on_cran()
   req <- GetStatusesRequest$new()
   expect_equal(req$to_list(), list("_" = "GetStatusesRequest"))
   expect_equal(req$to_bytes(), as.raw(c(0xee, 0x53, 0xa3, 0xc4)))

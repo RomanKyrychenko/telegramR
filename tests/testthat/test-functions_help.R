@@ -7,6 +7,7 @@ MockTLObject <- R6::R6Class("MockTLObject",
 )
 
 test_that("AcceptTermsOfServiceRequest works correctly", {
+  skip_on_cran()
   id <- MockTLObject$new()
   req <- AcceptTermsOfServiceRequest$new(id = id)
   
@@ -25,6 +26,7 @@ test_that("AcceptTermsOfServiceRequest works correctly", {
 })
 
 test_that("DismissSuggestionRequest works correctly", {
+  skip_on_cran()
   peer <- MockTLObject$new()
   req <- DismissSuggestionRequest$new(peer = peer, suggestion = "test_suggestion")
   
@@ -42,6 +44,7 @@ test_that("DismissSuggestionRequest works correctly", {
 })
 
 test_that("GetAppConfigRequest works correctly", {
+  skip_on_cran()
   req <- GetAppConfigRequest$new(hash = 123L)
   
   expect_s3_class(req, "GetAppConfigRequest")

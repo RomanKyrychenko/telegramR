@@ -15,6 +15,7 @@ contains_seq <- function(vec, seq) {
 }
 
 test_that("AddStickerToSetRequest works correctly", {
+  skip_on_cran()
   stickerset <- MockTLObject$new()
   sticker <- MockTLObject$new()
   req <- AddStickerToSetRequest$new(stickerset = stickerset, sticker = sticker)
@@ -39,6 +40,7 @@ test_that("AddStickerToSetRequest works correctly", {
 })
 
 test_that("CreateStickerSetRequest works correctly", {
+  skip_on_cran()
   user_id <- MockTLObject$new()
   sticker_item <- MockTLObject$new()
   req <- CreateStickerSetRequest$new(
@@ -65,6 +67,7 @@ test_that("CreateStickerSetRequest works correctly", {
 })
 
 test_that("RenameStickerSetRequest works correctly", {
+  skip_on_cran()
   stickerset <- MockTLObject$new()
   req <- RenameStickerSetRequest$new(stickerset = stickerset, title = "New Title")
   

@@ -7,6 +7,7 @@ MockTLObject <- R6::R6Class("MockTLObject",
 )
 
 test_that("ApplyBoostRequest works correctly", {
+  skip_on_cran()
   peer <- MockTLObject$new()
   req <- ApplyBoostRequest$new(peer = peer, slots = list(1L))
   
@@ -23,6 +24,7 @@ test_that("ApplyBoostRequest works correctly", {
 })
 
 test_that("GetBoostsListRequest works correctly", {
+  skip_on_cran()
   peer <- MockTLObject$new()
   req <- GetBoostsListRequest$new(peer = peer, offset = "abc", limit = 10L)
   
@@ -40,6 +42,7 @@ test_that("GetBoostsListRequest works correctly", {
 })
 
 test_that("GetBoostsStatusRequest works correctly", {
+  skip_on_cran()
   peer <- MockTLObject$new()
   req <- GetBoostsStatusRequest$new(peer = peer)
   

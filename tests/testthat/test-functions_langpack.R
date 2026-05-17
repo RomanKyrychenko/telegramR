@@ -1,4 +1,5 @@
 test_that("GetLangPackRequest works correctly", {
+  skip_on_cran()
   req <- GetLangPackRequest$new(lang_pack = "android", lang_code = "en")
   
   expect_s3_class(req, "GetLangPackRequest")
@@ -15,6 +16,7 @@ test_that("GetLangPackRequest works correctly", {
 })
 
 test_that("GetStringsRequest works correctly", {
+  skip_on_cran()
   req <- GetStringsRequest$new(
     lang_pack = "android",
     lang_code = "en",

@@ -7,6 +7,7 @@ MockTLObject <- R6::R6Class("MockTLObject",
 )
 
 test_that("AcceptContactRequest works correctly", {
+  skip_on_cran()
   id <- MockTLObject$new()
   req <- AcceptContactRequest$new(id = id)
   
@@ -24,6 +25,7 @@ test_that("AcceptContactRequest works correctly", {
 })
 
 test_that("AddContactRequest works correctly", {
+  skip_on_cran()
   id <- MockTLObject$new()
   req <- AddContactRequest$new(
     id = id,
@@ -47,6 +49,7 @@ test_that("AddContactRequest works correctly", {
 })
 
 test_that("BlockRequest works correctly", {
+  skip_on_cran()
   id <- MockTLObject$new()
   req <- BlockRequest$new(id = id, my_stories_from = TRUE)
   

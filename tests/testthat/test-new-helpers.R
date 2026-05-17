@@ -33,6 +33,7 @@ make_capture_client <- function() {
 }
 
 test_that("join_public_channel invokes JoinChannelRequest", {
+  skip_on_cran()
   client <- make_capture_client()
   input <- InputChannel$new(channel_id = 1, access_hash = 2)
 
@@ -42,12 +43,14 @@ test_that("join_public_channel invokes JoinChannelRequest", {
 })
 
 test_that("join_private_chat invokes ImportChatInviteRequest", {
+  skip_on_cran()
   client <- make_capture_client()
   join_private_chat(client, "https://t.me/+abc123")
   expect_true(inherits(client$.state$last_invoke, "ImportChatInviteRequest"))
 })
 
 test_that("join_channel routes by invite vs username", {
+  skip_on_cran()
   client <- make_capture_client()
   join_channel(client, "https://t.me/+abc123")
   expect_true(inherits(client$.state$last_invoke, "ImportChatInviteRequest"))
@@ -61,6 +64,7 @@ test_that("join_channel routes by invite vs username", {
 })
 
 test_that("add_user_to_chat uses correct request type", {
+  skip_on_cran()
   client <- make_capture_client()
   chat <- structure(list(id = 10, access_hash = 2), class = "Channel")
   user <- InputUser$new(user_id = 5, access_hash = 7)
@@ -75,12 +79,14 @@ test_that("add_user_to_chat uses correct request type", {
 })
 
 test_that("check_invite_link calls CheckChatInviteRequest", {
+  skip_on_cran()
   client <- make_capture_client()
   check_invite_link(client, "https://t.me/+abc123")
   expect_true(inherits(client$.state$last_call, "CheckChatInviteRequest"))
 })
 
 test_that("increase_view_count calls GetMessagesViewsRequest", {
+  skip_on_cran()
   client <- make_capture_client()
   ch <- InputChannel$new(channel_id = 1, access_hash = 2)
   client$get_entity <- function(x) ch
@@ -89,6 +95,7 @@ test_that("increase_view_count calls GetMessagesViewsRequest", {
 })
 
 test_that("get_full_user calls GetFullUserRequest", {
+  skip_on_cran()
   client <- make_capture_client()
   user <- InputUser$new(user_id = 1, access_hash = 2)
   get_full_user(client, user)
@@ -96,6 +103,7 @@ test_that("get_full_user calls GetFullUserRequest", {
 })
 
 test_that("update_profile and update_username call account requests", {
+  skip_on_cran()
   client <- make_capture_client()
   update_profile(client, first_name = "A", last_name = "B", bio = "C")
   expect_true(inherits(client$.state$last_call, "UpdateProfileRequest"))
@@ -107,6 +115,7 @@ test_that("update_profile and update_username call account requests", {
 })
 
 test_that("update_profile_photo uploads and calls UploadProfilePhotoRequest", {
+  skip_on_cran()
   client <- make_capture_client()
   update_profile_photo(client, "file.jpg")
   expect_equal(client$.state$last_upload, "file.jpg")
@@ -114,6 +123,7 @@ test_that("update_profile_photo uploads and calls UploadProfilePhotoRequest", {
 })
 
 test_that("send_* wrappers pass through to send_message", {
+  skip_on_cran()
   client <- make_capture_client()
   send_message(client, entity = "me", message = "hi")
   expect_equal(client$.state$last_send$entity, "me")

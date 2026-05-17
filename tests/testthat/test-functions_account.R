@@ -8,6 +8,7 @@ MockTLObject <- R6::R6Class("MockTLObject",
 )
 
 test_that("AcceptAuthorizationRequest works correctly", {
+  skip_on_cran()
   botId <- 12345
   scope <- "user_info"
   publicKey <- "pubkey"
@@ -36,6 +37,7 @@ test_that("AcceptAuthorizationRequest works correctly", {
 })
 
 test_that("CancelPasswordEmailRequest works correctly", {
+  skip_on_cran()
   req <- CancelPasswordEmailRequest$new()
   expect_s3_class(req, "CancelPasswordEmailRequest")
   
@@ -48,6 +50,7 @@ test_that("CancelPasswordEmailRequest works correctly", {
 })
 
 test_that("ChangeAuthorizationSettingsRequest works correctly", {
+  skip_on_cran()
   hash <- 987654321
   req <- ChangeAuthorizationSettingsRequest$new(
     hash = hash,
@@ -70,6 +73,7 @@ test_that("ChangeAuthorizationSettingsRequest works correctly", {
 })
 
 test_that("ChangePhoneRequest works correctly", {
+  skip_on_cran()
   phoneNumber <- "1234567890"
   phoneCodeHash <- "hash123"
   phoneCode <- "12345"
@@ -93,6 +97,7 @@ test_that("ChangePhoneRequest works correctly", {
 })
 
 test_that("UpdateProfileRequest works correctly", {
+  skip_on_cran()
   firstName <- "John"
   lastName <- "Doe"
   about <- "About me"

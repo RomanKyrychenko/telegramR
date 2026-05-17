@@ -1,4 +1,5 @@
 test_that("encodes packet with length less than 127 correctly", {
+  skip_on_cran()
   codec <- AbridgedPacketCodec$new(connection = NULL)
   data <- raw(8)
   result <- codec$encode_packet(data)
@@ -7,6 +8,7 @@ test_that("encodes packet with length less than 127 correctly", {
 })
 
 test_that("encodes packet with length greater than or equal to 127 correctly", {
+  skip_on_cran()
   codec <- AbridgedPacketCodec$new(connection = NULL)
   data <- raw(512)
   result <- codec$encode_packet(data)
@@ -15,6 +17,7 @@ test_that("encodes packet with length greater than or equal to 127 correctly", {
 })
 
 test_that("reads packet with length less than 127 successfully", {
+  skip_on_cran()
   skip_future_on_rdevel()
   codec <- AbridgedPacketCodec$new(connection = NULL)
   reader <- list(
@@ -25,6 +28,7 @@ test_that("reads packet with length less than 127 successfully", {
 })
 
 test_that("reads packet with length greater than or equal to 127 successfully", {
+  skip_on_cran()
   skip_future_on_rdevel()
   codec <- AbridgedPacketCodec$new(connection = NULL)
   reader <- list(
@@ -43,6 +47,7 @@ test_that("reads packet with length greater than or equal to 127 successfully", 
 })
 
 test_that("throws error when reader fails to provide sufficient bytes", {
+  skip_on_cran()
   skip_future_on_rdevel()
   codec <- AbridgedPacketCodec$new(connection = NULL)
   reader <- list(

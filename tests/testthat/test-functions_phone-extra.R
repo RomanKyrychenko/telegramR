@@ -1,4 +1,5 @@
 test_that("phone request helpers cover fixed and resolving requests", {
+  skip_on_cran()
   config <- GetCallConfigRequest$new()
   expect_equal(config$to_list(), list("_" = "GetCallConfigRequest"))
   expect_equal(config$bytes(), int_to_raw_le(0x55451fa9, 4L))
@@ -23,6 +24,7 @@ test_that("phone request helpers cover fixed and resolving requests", {
 })
 
 test_that("phone requests warn when dependent objects cannot serialize", {
+  skip_on_cran()
   bad_call_req <- GetGroupCallRequest$new(call = list(), limit = 1L)
   expect_warning(bad_call_req$bytes(), "call does not implement bytes")
   expect_equal(suppressWarnings(bad_call_req$bytes()), raw(0))

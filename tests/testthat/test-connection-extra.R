@@ -1,4 +1,5 @@
 test_that("Connection parse_proxy maps protocols and rejects unknown", {
+  skip_on_cran()
   conn <- Connection$new("127.0.0.1", 80, 1)
   parsed <- conn$.__enclos_env__$private$._parse_proxy("socks5", "127.0.0.1", 9050)
   expect_equal(parsed$protocol, 2)
@@ -12,6 +13,7 @@ test_that("Connection parse_proxy maps protocols and rejects unknown", {
 })
 
 test_that("Connection connects in test mode and reports state", {
+  skip_on_cran()
   old <- options()
   on.exit(options(old), add = TRUE)
   options(telegramR.test_mode = TRUE, telegramR.skip_background = TRUE)
@@ -31,6 +33,7 @@ test_that("Connection connects in test mode and reports state", {
 })
 
 test_that("Reader readexactly reads bytes from socket", {
+  skip_on_cran()
   con <- rawConnection(as.raw(1:5), open = "r+b")
   on.exit(close(con), add = TRUE)
 
@@ -41,6 +44,7 @@ test_that("Reader readexactly reads bytes from socket", {
 })
 
 test_that("Writer writes bytes to socket", {
+  skip_on_cran()
   con <- rawConnection(raw(), open = "r+b")
   on.exit(close(con), add = TRUE)
 
@@ -53,6 +57,7 @@ test_that("Writer writes bytes to socket", {
 })
 
 test_that("PacketCodec encodes and decodes a packet", {
+  skip_on_cran()
   skip_future_on_rdevel()
   pc <- PacketCodec$new(list())
   payload <- list(a = 1, b = "x")
@@ -75,6 +80,7 @@ test_that("PacketCodec encodes and decodes a packet", {
 })
 
 test_that("async_open_connection works with provided socket", {
+  skip_on_cran()
   con <- rawConnection(raw(), open = "r+b")
   on.exit(close(con), add = TRUE)
 

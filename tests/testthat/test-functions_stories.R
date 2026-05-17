@@ -17,6 +17,7 @@ call_method_with_self <- function(fun, self_list) {
 }
 
 test_that("ActivateStealthModeRequest works correctly", {
+  skip_on_cran()
   # Avoid constructing the R6 object directly because some generated classes include a non-logical
   # `class` argument that older/new R6 versions may not accept; instead call its public methods
   to_list_fun <- ActivateStealthModeRequest$public_methods$to_list
@@ -38,6 +39,7 @@ test_that("ActivateStealthModeRequest works correctly", {
 
 
 test_that("ActivateStealthModeRequest handles both flags", {
+  skip_on_cran()
   to_bytes_fun <- ActivateStealthModeRequest$public_methods$to_bytes
   self_obj <- list(past = TRUE, future = TRUE)
   bytes_out <- call_method_with_self(to_bytes_fun, self_obj)
@@ -48,6 +50,7 @@ test_that("ActivateStealthModeRequest handles both flags", {
 
 
 test_that("CanSendStoryRequest works correctly", {
+  skip_on_cran()
   # Use public method with synthetic self
   to_list_fun <- CanSendStoryRequest$public_methods$to_list
   to_bytes_fun <- CanSendStoryRequest$public_methods$to_bytes
@@ -69,6 +72,7 @@ test_that("CanSendStoryRequest works correctly", {
 
 
 test_that("IncrementStoryViewsRequest works correctly", {
+  skip_on_cran()
   to_list_fun <- IncrementStoryViewsRequest$public_methods$to_list
   to_bytes_fun <- IncrementStoryViewsRequest$public_methods$to_bytes
 

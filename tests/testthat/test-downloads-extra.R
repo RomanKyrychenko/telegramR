@@ -1,4 +1,5 @@
 test_that("upload.File stores chunk metadata", {
+  skip_on_cran()
   file <- upload.File$new(mtime = 123L, bytes = as.raw(c(0x01, 0x02)))
 
   expect_equal(
@@ -8,6 +9,7 @@ test_that("upload.File stores chunk metadata", {
 })
 
 test_that("DirectDownloadIter initializes local and exported senders", {
+  skip_on_cran()
   client <- new.env(parent = emptyenv())
   client$session <- new.env(parent = emptyenv())
   client$session$dc_id <- 2L
@@ -64,6 +66,7 @@ test_that("DirectDownloadIter initializes local and exported senders", {
 })
 
 test_that("DirectDownloadIter request and chunk loading use fake client responses", {
+  skip_on_cran()
   client <- new.env(parent = emptyenv())
   calls <- 0L
   client$call_internal <- function(sender, request) {
@@ -90,6 +93,7 @@ test_that("DirectDownloadIter request and chunk loading use fake client response
 })
 
 test_that("GenericDownloadIter chunks offset-aligned data", {
+  skip_on_cran()
   client <- new.env(parent = emptyenv())
   calls <- 0L
   client$call_internal <- function(sender, request) {

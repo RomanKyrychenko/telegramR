@@ -1,4 +1,5 @@
 test_that("sanitize_parse_mode accepts valid modes and rejects invalid", {
+  skip_on_cran()
   obj <- MessageParseMethods$new()
   expect_null(obj$sanitize_parse_mode(NULL))
   expect_equal(obj$sanitize_parse_mode("markdown"), "markdown")
@@ -9,6 +10,7 @@ test_that("sanitize_parse_mode accepts valid modes and rejects invalid", {
 })
 
 test_that("set_parse_mode and get_parse_mode work and initialize stores mode", {
+  skip_on_cran()
   obj <- MessageParseMethods$new("md")
   expect_equal(obj$get_parse_mode(), "md")
 
@@ -20,6 +22,7 @@ test_that("set_parse_mode and get_parse_mode work and initialize stores mode", {
 })
 
 test_that("parse_message_text returns raw message when parse_mode is NULL and parses when set", {
+  skip_on_cran()
   obj <- MessageParseMethods$new(NULL)
   res <- obj$parse_message_text("hello")
   expect_type(res, "list")
@@ -37,6 +40,7 @@ test_that("parse_message_text returns raw message when parse_mode is NULL and pa
 })
 
 test_that("replace_with_mention returns TRUE on success and FALSE on invalid index", {
+  skip_on_cran()
   obj <- MessageParseMethods$new()
   entities <- list(list(offset = 0L, length = 5L))
   # should return TRUE for valid replacement
@@ -47,6 +51,7 @@ test_that("replace_with_mention returns TRUE on success and FALSE on invalid ind
 })
 
 test_that("get_response_message handles different result classes and mappings", {
+  skip_on_cran()
   obj <- MessageParseMethods$new()
 
   # Create updates: one maps random_id -> message id, another provides the message

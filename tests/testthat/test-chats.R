@@ -1,4 +1,5 @@
 test_that("_ChatAction initializes correctly", {
+  skip_on_cran()
   act <- list(client = list(), chat = list(id = 1), action = "typing", delay = 4, auto_cancel = TRUE, running = FALSE)
   class(act) <- c("_ChatAction", "list")
   expect_equal(act$action, "typing")
@@ -10,6 +11,7 @@ test_that("_ChatAction initializes correctly", {
 `$.fake_client` <- function(x, name) attr(x, name, exact = TRUE)
 
 test_that("_ChatAction enter/exit uses client and builds requests", {
+  skip_on_cran()
   old_set_typing <- NULL
   old_cancel <- NULL
   if (exists("SetTypingRequest", inherits = FALSE)) old_set_typing <- get("SetTypingRequest", inherits = FALSE)
@@ -57,6 +59,7 @@ test_that("_ChatAction enter/exit uses client and builds requests", {
 })
 
 test_that("_ChatAction progress updates action if progress is in names", {
+  skip_on_cran()
   act <- list(client = list(), chat = list(id = 1), action = list(progress = 0))
   class(act) <- c("_ChatAction", "list")
   
@@ -75,6 +78,7 @@ test_that("_ChatAction progress updates action if progress is in names", {
 })
 
 test_that("_ParticipantsIter initializes correctly", {
+  skip_on_cran()
   if (!exists("helpers", inherits = TRUE)) {
     testthat::skip("helpers not available in this environment")
   }
@@ -98,6 +102,7 @@ test_that("_ParticipantsIter initializes correctly", {
 })
 
 test_that("_AdminLogIter initializes correctly", {
+  skip_on_cran()
   mock_client <- list()
   iter <- list(client = mock_client, left = Inf)
   class(iter) <- c("_AdminLogIter", "RequestIter", "list")
@@ -105,6 +110,7 @@ test_that("_AdminLogIter initializes correctly", {
 })
 
 test_that("_ProfilePhotoIter initializes correctly", {
+  skip_on_cran()
   mock_client <- list()
   iter <- list(client = mock_client, left = Inf)
   class(iter) <- c("_ProfilePhotoIter", "RequestIter", "list")

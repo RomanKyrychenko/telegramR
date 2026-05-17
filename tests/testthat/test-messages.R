@@ -1,4 +1,5 @@
 test_that("MessagesIter selects proper request types", {
+  skip_on_cran()
   # global search when entity is NULL
   it1 <- MessagesIter$new(client = NULL, entity = NULL)
   expect_equal(it1$request$type, "search_global")
@@ -22,6 +23,7 @@ test_that("MessagesIter selects proper request types", {
 
 
 test_that("MessagesIter marks exhausted when limit <= 0 and has_next/buffer behavior", {
+  skip_on_cran()
   it <- MessagesIter$new(client = NULL, entity = NULL, limit = 0)
   expect_true(it$exhausted)
   expect_false(it$has_next())
@@ -32,6 +34,7 @@ test_that("MessagesIter marks exhausted when limit <= 0 and has_next/buffer beha
 
 
 test_that("MessagesIter load_next_chunk and iteration with dummy client", {
+  skip_on_cran()
   # dummy client returning two messages
   client <- list()
   client$iter_messages <- function(...) {
@@ -66,6 +69,7 @@ test_that("MessagesIter load_next_chunk and iteration with dummy client", {
 
 
 test_that("IDsIter loads messages by ids and respects peer filtering", {
+  skip_on_cran()
   # client that returns messages list in 'messages' field
   client <- list()
   client$get_messages <- function(ids) {

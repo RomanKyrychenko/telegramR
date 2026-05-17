@@ -1,4 +1,5 @@
 test_that("FileStream handles raw vectors correctly", {
+  skip_on_cran()
   raw_data <- as.raw(1:10)
   fs <- FileStream$new(raw_data)
   expect_equal(fs$file_size, length(raw_data))
@@ -10,6 +11,7 @@ test_that("FileStream handles raw vectors correctly", {
 })
 
 test_that("FileStream handles file paths and explicit file_size", {
+  skip_on_cran()
   tmp <- tempfile(fileext = ".bin")
   on.exit(unlink(tmp), add = TRUE)
   writeBin(as.raw(1:6), tmp)

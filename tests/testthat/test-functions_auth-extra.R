@@ -1,4 +1,5 @@
 test_that("auth request serializers cover simple branches", {
+  skip_on_cran()
   accept <- AcceptLoginTokenRequest$new(charToRaw("abc"))
   expect_equal(accept$to_list(), list("_" = "AcceptLoginTokenRequest", token = charToRaw("abc")))
   expect_equal(
@@ -42,6 +43,7 @@ test_that("auth request serializers cover simple branches", {
 })
 
 test_that("BindTempAuthKeyRequest serializes datetimes via package helper", {
+  skip_on_cran()
   expires_at <- as.POSIXct("2025-01-01 00:00:00", tz = "UTC")
   req <- BindTempAuthKeyRequest$new(
     perm_auth_key_id = 1,
@@ -74,6 +76,7 @@ test_that("BindTempAuthKeyRequest serializes datetimes via package helper", {
 })
 
 test_that("CheckPasswordRequest handles supported and unsupported password objects", {
+  skip_on_cran()
   password_to_bytes <- new.env(parent = emptyenv())
   class(password_to_bytes) <- "R6"
   password_to_bytes$to_list <- function() list(kind = "to_bytes")
@@ -113,6 +116,7 @@ test_that("CheckPasswordRequest handles supported and unsupported password objec
 })
 
 test_that("vector-based auth requests serialize compact payloads", {
+  skip_on_cran()
   drop_keys <- DropTempAuthKeysRequest$new(c(1, 2))
   expect_equal(
     drop_keys$to_list(),
@@ -162,6 +166,7 @@ auth_extra_tl_object <- function(raw_bytes = as.raw(c(0xaa, 0xbb))) {
 }
 
 test_that("auth import and logout requests serialize", {
+  skip_on_cran()
   import_auth <- ImportAuthorizationRequest$new(id = 7, bytes = charToRaw("abc"))
   expect_equal(
     import_auth$to_list(),
@@ -217,6 +222,7 @@ test_that("auth import and logout requests serialize", {
 })
 
 test_that("auth fixed and simple phone-code requests serialize", {
+  skip_on_cran()
   password_recovery <- RequestPasswordRecoveryRequest$new()
   expect_equal(password_recovery$to_list(), list("_" = "RequestPasswordRecoveryRequest"))
   expect_equal(password_recovery$to_bytes(), as.raw(c(0x66, 0xbc, 0x97, 0xd8)))
@@ -243,6 +249,7 @@ test_that("auth fixed and simple phone-code requests serialize", {
 })
 
 test_that("auth flag-based password recovery and firebase requests serialize", {
+  skip_on_cran()
   settings <- auth_extra_tl_object(as.raw(c(0x01, 0x02)))
 
   recover_plain <- RecoverPasswordRequest$new(code = "code")
@@ -296,6 +303,7 @@ test_that("auth flag-based password recovery and firebase requests serialize", {
 })
 
 test_that("auth resend, send-code, sign-in and sign-up requests serialize", {
+  skip_on_cran()
   resend <- ResendCodeRequest$new("111", "hash", reason = "missed")
   expect_equal(
     resend$to_bytes(),
@@ -366,6 +374,7 @@ test_that("auth resend, send-code, sign-in and sign-up requests serialize", {
 })
 
 test_that("auth from_reader methods rebuild representative requests", {
+  skip_on_cran()
   obj <- auth_extra_tl_object(as.raw(c(0x01)))
   strings <- c(
     "111", "hash", "mnc",

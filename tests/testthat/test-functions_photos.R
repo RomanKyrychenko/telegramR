@@ -7,6 +7,7 @@ MockTLObject <- R6::R6Class("MockTLObject",
 )
 
 test_that("GetUserPhotosRequest works correctly", {
+  skip_on_cran()
   user_id <- MockTLObject$new()
   req <- GetUserPhotosRequest$new(
     user_id = user_id,
@@ -30,6 +31,7 @@ test_that("GetUserPhotosRequest works correctly", {
 })
 
 test_that("UpdateProfilePhotoRequest works correctly", {
+  skip_on_cran()
   photo_id <- MockTLObject$new()
   bot_id <- MockTLObject$new()
   req <- UpdateProfilePhotoRequest$new(
@@ -51,6 +53,7 @@ test_that("UpdateProfilePhotoRequest works correctly", {
 })
 
 test_that("UploadContactProfilePhotoRequest works correctly", {
+  skip_on_cran()
   user_id <- MockTLObject$new()
   file_obj <- MockTLObject$new()
   req <- UploadContactProfilePhotoRequest$new(

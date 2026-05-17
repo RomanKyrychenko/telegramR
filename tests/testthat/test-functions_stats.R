@@ -7,6 +7,7 @@ MockTLObject <- R6::R6Class("MockTLObject",
 )
 
 test_that("GetBroadcastStatsRequest works correctly", {
+  skip_on_cran()
   channel <- MockTLObject$new()
   req <- GetBroadcastStatsRequest$new(channel = channel, dark = TRUE)
   
@@ -27,6 +28,7 @@ test_that("GetBroadcastStatsRequest works correctly", {
 })
 
 test_that("GetMessagePublicForwardsRequest works correctly", {
+  skip_on_cran()
   channel <- MockTLObject$new()
   req <- GetMessagePublicForwardsRequest$new(channel = channel, msg_id = 123L, offset = "off", limit = 10L)
   
@@ -45,6 +47,7 @@ test_that("GetMessagePublicForwardsRequest works correctly", {
 })
 
 test_that("GetMessageStatsRequest works correctly", {
+  skip_on_cran()
   channel <- MockTLObject$new()
   req <- GetMessageStatsRequest$new(channel = channel, msg_id = 456L, dark = FALSE)
   

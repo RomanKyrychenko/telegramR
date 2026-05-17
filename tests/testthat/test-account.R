@@ -1,4 +1,5 @@
 test_that("handles successful takeout initialization", {
+  skip_on_cran()
   client <- new.env()
   session <- new.env()
   request <- new.env()
@@ -17,6 +18,7 @@ test_that("handles successful takeout initialization", {
 })
 
 test_that("handles successful takeout exit", {
+  skip_on_cran()
   client <- new.env()
   session <- new.env()
 
@@ -32,6 +34,7 @@ test_that("handles successful takeout exit", {
 })
 
 test_that("throws error when takeout exit fails", {
+  skip_on_cran()
   client <- new.env()
   session <- new.env()
 

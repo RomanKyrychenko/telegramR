@@ -1,4 +1,5 @@
 test_that("Session class methods work as expected", {
+  skip_on_cran()
   # Test initialization
   session <- Session$new()
   expect_true(!is.null(session), "Session object should be created successfully")

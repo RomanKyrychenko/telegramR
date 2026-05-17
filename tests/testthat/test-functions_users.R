@@ -7,6 +7,7 @@ MockTLObject <- R6::R6Class("MockTLObject",
 )
 
 test_that("GetFullUserRequest works correctly", {
+  skip_on_cran()
   userId <- MockTLObject$new()
   req <- GetFullUserRequest$new(id = userId)
   
@@ -25,6 +26,7 @@ test_that("GetFullUserRequest works correctly", {
 })
 
 test_that("GetRequirementsToContactRequest works correctly", {
+  skip_on_cran()
   ids <- list(MockTLObject$new(), MockTLObject$new())
   req <- GetRequirementsToContactRequest$new(id = ids)
   
@@ -45,6 +47,7 @@ test_that("GetRequirementsToContactRequest works correctly", {
 })
 
 test_that("GetUsersRequest works correctly", {
+  skip_on_cran()
   ids <- list(MockTLObject$new())
   req <- GetUsersRequest$new(id = ids)
   

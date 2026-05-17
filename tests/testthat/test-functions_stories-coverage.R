@@ -26,6 +26,7 @@ if (!exists("stories_call_method_with_self", inherits = FALSE)) {
 
 # ── ActivateStealthModeRequest ────────────────────────────────────────────────
 test_that("ActivateStealthModeRequest to_list works", {
+  skip_on_cran()
   self_obj <- list(past = TRUE, future = NULL)
   result <- stories_call_method_with_self(
     ActivateStealthModeRequest$public_methods$to_list, self_obj)
@@ -35,6 +36,7 @@ test_that("ActivateStealthModeRequest to_list works", {
 })
 
 test_that("ActivateStealthModeRequest to_bytes encodes flags correctly", {
+  skip_on_cran()
   # past=TRUE => flag bit 0; constructor 0x57bbd166
   b_past <- stories_call_method_with_self(
     ActivateStealthModeRequest$public_methods$to_bytes, list(past = TRUE, future = NULL))
@@ -59,6 +61,7 @@ test_that("ActivateStealthModeRequest to_bytes encodes flags correctly", {
 
 # ── CanSendStoryRequest ───────────────────────────────────────────────────────
 test_that("CanSendStoryRequest to_list works", {
+  skip_on_cran()
   peer <- .sp()
   result <- stories_call_method_with_self(
     CanSendStoryRequest$public_methods$to_list, list(peer = peer))
@@ -67,6 +70,7 @@ test_that("CanSendStoryRequest to_list works", {
 })
 
 test_that("CanSendStoryRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x30eb63f0 -> LE: f0 63 eb 30
   b <- stories_call_method_with_self(
     CanSendStoryRequest$public_methods$to_bytes, list(peer = .sp()))
@@ -75,6 +79,7 @@ test_that("CanSendStoryRequest to_bytes starts with correct constructor", {
 
 # ── CreateAlbumRequest ────────────────────────────────────────────────────────
 test_that("CreateAlbumRequest to_list works", {
+  skip_on_cran()
   peer <- .sp()
   result <- stories_call_method_with_self(
     CreateAlbumRequest$public_methods$to_list,
@@ -85,6 +90,7 @@ test_that("CreateAlbumRequest to_list works", {
 })
 
 test_that("CreateAlbumRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0xa36396e5 -> LE: e5 96 63 a3
   b <- stories_call_method_with_self(
     CreateAlbumRequest$public_methods$to_bytes,
@@ -94,6 +100,7 @@ test_that("CreateAlbumRequest to_bytes starts with correct constructor", {
 
 # ── DeleteAlbumRequest ────────────────────────────────────────────────────────
 test_that("DeleteAlbumRequest to_list works", {
+  skip_on_cran()
   peer <- .sp()
   result <- stories_call_method_with_self(
     DeleteAlbumRequest$public_methods$to_list,
@@ -103,6 +110,7 @@ test_that("DeleteAlbumRequest to_list works", {
 })
 
 test_that("DeleteAlbumRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x8d3456d0 -> LE: d0 56 34 8d
   b <- stories_call_method_with_self(
     DeleteAlbumRequest$public_methods$to_bytes,
@@ -112,6 +120,7 @@ test_that("DeleteAlbumRequest to_bytes starts with correct constructor", {
 
 # ── EditStoryRequest ──────────────────────────────────────────────────────────
 test_that("EditStoryRequest to_list works with minimal fields", {
+  skip_on_cran()
   peer <- .sp()
   result <- stories_call_method_with_self(
     EditStoryRequest$public_methods$to_list,
@@ -123,6 +132,7 @@ test_that("EditStoryRequest to_list works with minimal fields", {
 })
 
 test_that("EditStoryRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0xb583ba46 -> LE: 46 ba 83 b5
   b <- stories_call_method_with_self(
     EditStoryRequest$public_methods$to_bytes,
@@ -133,6 +143,7 @@ test_that("EditStoryRequest to_bytes starts with correct constructor", {
 
 # ── ExportStoryLinkRequest ────────────────────────────────────────────────────
 test_that("ExportStoryLinkRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     ExportStoryLinkRequest$public_methods$to_list,
     list(peer = .sp(), id = 7L))
@@ -141,6 +152,7 @@ test_that("ExportStoryLinkRequest to_list works", {
 })
 
 test_that("ExportStoryLinkRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x7b8def20 -> LE: 20 ef 8d 7b
   b <- stories_call_method_with_self(
     ExportStoryLinkRequest$public_methods$to_bytes,
@@ -150,6 +162,7 @@ test_that("ExportStoryLinkRequest to_bytes starts with correct constructor", {
 
 # ── GetAlbumStoriesRequest ────────────────────────────────────────────────────
 test_that("GetAlbumStoriesRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     GetAlbumStoriesRequest$public_methods$to_list,
     list(peer = .sp(), album_id = 3L, offset = 0L, limit = 20L))
@@ -158,6 +171,7 @@ test_that("GetAlbumStoriesRequest to_list works", {
 })
 
 test_that("GetAlbumStoriesRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0xac806d61 -> LE: 61 6d 80 ac
   b <- stories_call_method_with_self(
     GetAlbumStoriesRequest$public_methods$to_bytes,
@@ -167,6 +181,7 @@ test_that("GetAlbumStoriesRequest to_bytes starts with correct constructor", {
 
 # ── GetAlbumsRequest ──────────────────────────────────────────────────────────
 test_that("GetAlbumsRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     GetAlbumsRequest$public_methods$to_list,
     list(peer = .sp(), hash = 0))
@@ -175,6 +190,7 @@ test_that("GetAlbumsRequest to_list works", {
 })
 
 test_that("GetAlbumsRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x25b3eac7 -> LE: c7 ea b3 25
   b <- stories_call_method_with_self(
     GetAlbumsRequest$public_methods$to_bytes,
@@ -184,6 +200,7 @@ test_that("GetAlbumsRequest to_bytes starts with correct constructor", {
 
 # ── GetPeerMaxIDsRequest ──────────────────────────────────────────────────────
 test_that("GetPeerMaxIDsRequest to_list works with empty peer list", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     GetPeerMaxIDsRequest$public_methods$to_list,
     list(id = list()))
@@ -192,6 +209,7 @@ test_that("GetPeerMaxIDsRequest to_list works with empty peer list", {
 })
 
 test_that("GetPeerMaxIDsRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x535983c3 -> LE: c3 83 59 53
   b <- stories_call_method_with_self(
     GetPeerMaxIDsRequest$public_methods$to_bytes,
@@ -201,6 +219,7 @@ test_that("GetPeerMaxIDsRequest to_bytes starts with correct constructor", {
 
 # ── GetPeerStoriesRequest ─────────────────────────────────────────────────────
 test_that("GetPeerStoriesRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     GetPeerStoriesRequest$public_methods$to_list,
     list(peer = .sp()))
@@ -208,6 +227,7 @@ test_that("GetPeerStoriesRequest to_list works", {
 })
 
 test_that("GetPeerStoriesRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x2c4ada50 -> LE: 50 da 4a 2c
   b <- stories_call_method_with_self(
     GetPeerStoriesRequest$public_methods$to_bytes,
@@ -217,6 +237,7 @@ test_that("GetPeerStoriesRequest to_bytes starts with correct constructor", {
 
 # ── GetPinnedStoriesRequest ───────────────────────────────────────────────────
 test_that("GetPinnedStoriesRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     GetPinnedStoriesRequest$public_methods$to_list,
     list(peer = .sp(), offset_id = 0L, limit = 10L))
@@ -225,6 +246,7 @@ test_that("GetPinnedStoriesRequest to_list works", {
 })
 
 test_that("GetPinnedStoriesRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x5821a5dc -> LE: dc a5 21 58
   b <- stories_call_method_with_self(
     GetPinnedStoriesRequest$public_methods$to_bytes,
@@ -234,6 +256,7 @@ test_that("GetPinnedStoriesRequest to_bytes starts with correct constructor", {
 
 # ── GetStoriesArchiveRequest ──────────────────────────────────────────────────
 test_that("GetStoriesArchiveRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     GetStoriesArchiveRequest$public_methods$to_list,
     list(peer = .sp(), offset_id = 0L, limit = 25L))
@@ -242,6 +265,7 @@ test_that("GetStoriesArchiveRequest to_list works", {
 })
 
 test_that("GetStoriesArchiveRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0xb4352016 -> LE: 16 20 35 b4
   b <- stories_call_method_with_self(
     GetStoriesArchiveRequest$public_methods$to_bytes,
@@ -251,6 +275,7 @@ test_that("GetStoriesArchiveRequest to_bytes starts with correct constructor", {
 
 # ── GetStoriesByIDRequest ─────────────────────────────────────────────────────
 test_that("GetStoriesByIDRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     GetStoriesByIDRequest$public_methods$to_list,
     list(peer = .sp(), id = c(1L, 2L, 3L)))
@@ -259,6 +284,7 @@ test_that("GetStoriesByIDRequest to_list works", {
 })
 
 test_that("GetStoriesByIDRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x5774ca74 -> LE: 74 ca 74 57
   b <- stories_call_method_with_self(
     GetStoriesByIDRequest$public_methods$to_bytes,
@@ -268,6 +294,7 @@ test_that("GetStoriesByIDRequest to_bytes starts with correct constructor", {
 
 # ── GetStoriesViewsRequest ────────────────────────────────────────────────────
 test_that("GetStoriesViewsRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     GetStoriesViewsRequest$public_methods$to_list,
     list(peer = .sp(), id = c(10L, 20L)))
@@ -276,6 +303,7 @@ test_that("GetStoriesViewsRequest to_list works", {
 })
 
 test_that("GetStoriesViewsRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x28e16cc8 -> LE: c8 6c e1 28... actually 0x28e16cc8
   # LE bytes: 0xc8 0x6c 0xe1 0x28
   b <- stories_call_method_with_self(
@@ -286,6 +314,7 @@ test_that("GetStoriesViewsRequest to_bytes starts with correct constructor", {
 
 # ── GetStoryViewsListRequest ──────────────────────────────────────────────────
 test_that("GetStoryViewsListRequest to_list works with no optional flags", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     GetStoryViewsListRequest$public_methods$to_list,
     list(peer = .sp(), id = 5L, limit = 20L,
@@ -297,6 +326,7 @@ test_that("GetStoryViewsListRequest to_list works with no optional flags", {
 
 # ── IncrementStoryViewsRequest ────────────────────────────────────────────────
 test_that("IncrementStoryViewsRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     IncrementStoryViewsRequest$public_methods$to_list,
     list(peer = .sp(), id = c(1L, 2L)))
@@ -305,6 +335,7 @@ test_that("IncrementStoryViewsRequest to_list works", {
 })
 
 test_that("IncrementStoryViewsRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0xb2028afb -> LE: fb 8a 02 b2
   b <- stories_call_method_with_self(
     IncrementStoryViewsRequest$public_methods$to_bytes,
@@ -314,6 +345,7 @@ test_that("IncrementStoryViewsRequest to_bytes starts with correct constructor",
 
 # ── ReadStoriesRequest ────────────────────────────────────────────────────────
 test_that("ReadStoriesRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     ReadStoriesRequest$public_methods$to_list,
     list(peer = .sp(), max_id = 99L))
@@ -322,6 +354,7 @@ test_that("ReadStoriesRequest to_list works", {
 })
 
 test_that("ReadStoriesRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0xa556dac8 -> LE: c8 da 56 a5
   b <- stories_call_method_with_self(
     ReadStoriesRequest$public_methods$to_bytes,
@@ -331,6 +364,7 @@ test_that("ReadStoriesRequest to_bytes starts with correct constructor", {
 
 # ── ReorderAlbumsRequest ──────────────────────────────────────────────────────
 test_that("ReorderAlbumsRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     ReorderAlbumsRequest$public_methods$to_list,
     list(peer = .sp(), order = c(3L, 1L, 2L)))
@@ -339,6 +373,7 @@ test_that("ReorderAlbumsRequest to_list works", {
 })
 
 test_that("ReorderAlbumsRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x8535fbd9 -> LE: d9 fb 35 85
   b <- stories_call_method_with_self(
     ReorderAlbumsRequest$public_methods$to_bytes,
@@ -348,6 +383,7 @@ test_that("ReorderAlbumsRequest to_bytes starts with correct constructor", {
 
 # ── ReportRequest ─────────────────────────────────────────────────────────────
 test_that("ReportRequest to_list works", {
+  skip_on_cran()
   .option_peer <- structure(
     list(to_bytes = function() as.raw(c(0xAA)), bytes = function() as.raw(c(0xAA)),
          to_list = function() list("_" = "ReportOption")),
@@ -361,6 +397,7 @@ test_that("ReportRequest to_list works", {
 
 # ── SearchPostsRequest ────────────────────────────────────────────────────────
 test_that("SearchPostsRequest to_list works with no optional fields", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     SearchPostsRequest$public_methods$to_list,
     list(offset = "", limit = 20L, hashtag = NULL, area = NULL, peer = NULL))
@@ -370,6 +407,7 @@ test_that("SearchPostsRequest to_list works with no optional fields", {
 })
 
 test_that("SearchPostsRequest to_list includes optional hashtag", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     SearchPostsRequest$public_methods$to_list,
     list(offset = "", limit = 10L, hashtag = "#rust", area = NULL, peer = NULL))
@@ -378,6 +416,7 @@ test_that("SearchPostsRequest to_list includes optional hashtag", {
 
 # ── SendReactionRequest ───────────────────────────────────────────────────────
 test_that("SendReactionRequest to_list works with no add_to_recent", {
+  skip_on_cran()
   .reaction <- structure(
     list(to_bytes = function() as.raw(c(0xBB)), bytes = function() as.raw(c(0xBB)),
          to_list = function() list("_" = "ReactionEmoji")),
@@ -391,6 +430,7 @@ test_that("SendReactionRequest to_list works with no add_to_recent", {
 })
 
 test_that("SendReactionRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x7fd736b2 -> LE: b2 36 d7 7f
   .reaction <- structure(
     list(to_bytes = function() as.raw(c(0xBB)), bytes = function() as.raw(c(0xBB)),
@@ -404,6 +444,7 @@ test_that("SendReactionRequest to_bytes starts with correct constructor", {
 
 # ── SendStoryRequest ──────────────────────────────────────────────────────────
 test_that("SendStoryRequest to_list works with minimal fields", {
+  skip_on_cran()
   .media <- structure(
     list(to_bytes = function() as.raw(c(0x11)), bytes = function() as.raw(c(0x11)),
          to_list = function() list("_" = "InputMediaEmpty")),
@@ -421,6 +462,7 @@ test_that("SendStoryRequest to_list works with minimal fields", {
 
 # ── ToggleAllStoriesHiddenRequest ─────────────────────────────────────────────
 test_that("ToggleAllStoriesHiddenRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     ToggleAllStoriesHiddenRequest$public_methods$to_list,
     list(hidden = TRUE))
@@ -429,6 +471,7 @@ test_that("ToggleAllStoriesHiddenRequest to_list works", {
 })
 
 test_that("ToggleAllStoriesHiddenRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x7c2557c4 -> LE: c4 57 25 7c
   b <- stories_call_method_with_self(
     ToggleAllStoriesHiddenRequest$public_methods$to_bytes,
@@ -438,6 +481,7 @@ test_that("ToggleAllStoriesHiddenRequest to_bytes starts with correct constructo
 
 # ── TogglePeerStoriesHiddenRequest ────────────────────────────────────────────
 test_that("TogglePeerStoriesHiddenRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     TogglePeerStoriesHiddenRequest$public_methods$to_list,
     list(peer = .sp(), hidden = FALSE))
@@ -446,6 +490,7 @@ test_that("TogglePeerStoriesHiddenRequest to_list works", {
 })
 
 test_that("TogglePeerStoriesHiddenRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0xbd0415c4 -> LE: c4 15 04 bd
   b <- stories_call_method_with_self(
     TogglePeerStoriesHiddenRequest$public_methods$to_bytes,
@@ -455,6 +500,7 @@ test_that("TogglePeerStoriesHiddenRequest to_bytes starts with correct construct
 
 # ── TogglePinnedRequest ───────────────────────────────────────────────────────
 test_that("TogglePinnedRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     TogglePinnedRequest$public_methods$to_list,
     list(peer = .sp(), id = c(10L), pinned = TRUE))
@@ -463,6 +509,7 @@ test_that("TogglePinnedRequest to_list works", {
 })
 
 test_that("TogglePinnedRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x9a75a1ef -> LE: ef a1 75 9a
   b <- stories_call_method_with_self(
     TogglePinnedRequest$public_methods$to_bytes,
@@ -472,6 +519,7 @@ test_that("TogglePinnedRequest to_bytes starts with correct constructor", {
 
 # ── TogglePinnedToTopRequest ──────────────────────────────────────────────────
 test_that("TogglePinnedToTopRequest to_list works", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     TogglePinnedToTopRequest$public_methods$to_list,
     list(peer = .sp(), id = c(5L)))
@@ -479,6 +527,7 @@ test_that("TogglePinnedToTopRequest to_list works", {
 })
 
 test_that("TogglePinnedToTopRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x0b297e9b -> LE: 9b 7e 29 0b
   b <- stories_call_method_with_self(
     TogglePinnedToTopRequest$public_methods$to_bytes,
@@ -488,6 +537,7 @@ test_that("TogglePinnedToTopRequest to_bytes starts with correct constructor", {
 
 # ── UpdateAlbumRequest ────────────────────────────────────────────────────────
 test_that("UpdateAlbumRequest to_list works with title only", {
+  skip_on_cran()
   result <- stories_call_method_with_self(
     UpdateAlbumRequest$public_methods$to_list,
     list(peer = .sp(), album_id = 1L, title = "Updated",
@@ -497,6 +547,7 @@ test_that("UpdateAlbumRequest to_list works with title only", {
 })
 
 test_that("UpdateAlbumRequest to_bytes starts with correct constructor", {
+  skip_on_cran()
   # CONSTRUCTOR_ID = 0x5e5259b6 -> LE: b6 59 52 5e
   b <- stories_call_method_with_self(
     UpdateAlbumRequest$public_methods$to_bytes,

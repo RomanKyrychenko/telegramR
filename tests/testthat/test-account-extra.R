@@ -1,9 +1,11 @@
 test_that("AccountMethods initializes", {
+  skip_on_cran()
   acc <- AccountMethods$new(client = list())
   expect_true(is.list(acc$client))
 })
 
 test_that("TakeoutClient success accessors work", {
+  skip_on_cran()
   tc <- TakeoutClient$new(finalize = FALSE, client = list(session = list()), request = NULL)
 
   expect_null(tc$get_success())
@@ -12,6 +14,7 @@ test_that("TakeoutClient success accessors work", {
 })
 
 test_that("TakeoutClient aenter/aexit and call work with fake client", {
+  skip_on_cran()
   calls <- list()
   fake_client <- new.env(parent = emptyenv())
   fake_client$session <- list(takeout_id = NULL)
@@ -41,6 +44,7 @@ test_that("TakeoutClient aenter/aexit and call work with fake client", {
 })
 
 test_that("TakeoutClient aenter rejects nested request on active takeout", {
+  skip_on_cran()
   fake_client <- new.env(parent = emptyenv())
   fake_client$session <- list(takeout_id = 123)
   fake_client$invoke <- function(req, ordered = FALSE) TRUE
@@ -50,6 +54,7 @@ test_that("TakeoutClient aenter rejects nested request on active takeout", {
 })
 
 test_that("TakeoutClient aexit sets success from exception state", {
+  skip_on_cran()
   local({
     FinishTakeoutSessionRequest <- function(success) list(kind = "finish", success = success)
 
@@ -71,6 +76,7 @@ test_that("TakeoutClient aexit sets success from exception state", {
 })
 
 test_that("TakeoutClient aexit errors when finish request fails", {
+  skip_on_cran()
   local({
     FinishTakeoutSessionRequest <- function(success) list(kind = "finish", success = success)
 
@@ -86,6 +92,7 @@ test_that("TakeoutClient aexit errors when finish request fails", {
 })
 
 test_that("TakeoutClient call validates takeout mode and request types", {
+  skip_on_cran()
   fake_client <- new.env(parent = emptyenv())
   fake_client$session <- list(takeout_id = NULL)
   fake_client$invoke <- function(req, ordered = FALSE) TRUE
@@ -98,6 +105,7 @@ test_that("TakeoutClient call validates takeout mode and request types", {
 })
 
 test_that("TakeoutClient delegates get_attr and set_attr to client", {
+  skip_on_cran()
   store <- new.env(parent = emptyenv())
   store$plain <- 5
 
@@ -122,6 +130,7 @@ test_that("TakeoutClient delegates get_attr and set_attr to client", {
 })
 
 test_that("TakeoutClient aexit is a no-op when not finalizing and success unset", {
+  skip_on_cran()
   fake_client <- new.env(parent = emptyenv())
   fake_client$session <- list(takeout_id = 555)
   invoked <- FALSE

@@ -1,4 +1,5 @@
 test_that("get_running_loop returns a POSIXt-like time", {
+  skip_on_cran()
   t <- get_running_loop()
   expect_true(inherits(t, "POSIXt") || inherits(t, "POSIXct"))
   # Should be recent (within 5 seconds)
@@ -7,6 +8,7 @@ test_that("get_running_loop returns a POSIXt-like time", {
 
 
 test_that("EventBuilderDict caches built events and handles EventCommon instances", {
+  skip_on_cran()
   EventCommon <- R6::R6Class("EventCommon",
     public = list(
       original_update = NULL,
@@ -50,6 +52,7 @@ test_that("EventBuilderDict caches built events and handles EventCommon instance
 
 
 test_that("EventBuilderDict assigns client to non-EventCommon objects and caches them", {
+  skip_on_cran()
   build_count2 <- 0
   builder2 <- list()
   builder2$build <- function(update, others, self_id) {

@@ -15,6 +15,7 @@ MockTLObjectLegacy <- R6::R6Class("MockTLObjectLegacy",
 )
 
 test_that("GetCollectibleInfoRequest works correctly with modern objects", {
+  skip_on_cran()
   collectible <- MockTLObject$new()
   req <- GetCollectibleInfoRequest$new(collectible = collectible)
   
@@ -35,6 +36,7 @@ test_that("GetCollectibleInfoRequest works correctly with modern objects", {
 })
 
 test_that("GetCollectibleInfoRequest works correctly with legacy objects", {
+  skip_on_cran()
   collectible <- MockTLObjectLegacy$new()
   req <- GetCollectibleInfoRequest$new(collectible = collectible)
   
@@ -46,6 +48,7 @@ test_that("GetCollectibleInfoRequest works correctly with legacy objects", {
 })
 
 test_that("GetCollectibleInfoRequest works with raw vector", {
+  skip_on_cran()
   collectible <- as.raw(c(9, 10, 11, 12))
   req <- GetCollectibleInfoRequest$new(collectible = collectible)
   
@@ -57,6 +60,7 @@ test_that("GetCollectibleInfoRequest works with raw vector", {
 })
 
 test_that("GetCollectibleInfoRequest throws error on invalid object", {
+  skip_on_cran()
   InvalidObject <- R6::R6Class("InvalidObject", inherit = TLObject)
   req <- GetCollectibleInfoRequest$new(collectible = InvalidObject$new())
   

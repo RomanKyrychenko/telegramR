@@ -1,4 +1,5 @@
 test_that("parses simple html to plain text and entities", {
+  skip_on_cran()
   html <- "<b>bold</b> and <i>italic</i>"
   result <- parse_html_to_telegram(html)
 
@@ -13,6 +14,7 @@ test_that("parses simple html to plain text and entities", {
 })
 
 test_that("handles empty html input", {
+  skip_on_cran()
   html <- ""
   result <- parse_html_to_telegram(html)
 
@@ -21,6 +23,7 @@ test_that("handles empty html input", {
 })
 
 test_that("parses nested html tags correctly", {
+  skip_on_cran()
   html <- "<b>bold <i>and italic</i></b>"
   result <- parse_html_to_telegram(html)
 
@@ -35,6 +38,7 @@ test_that("parses nested html tags correctly", {
 })
 
 test_that("parses links and emails correctly", {
+  skip_on_cran()
   html <- "<a href='https://example.com'>example</a> and <a href='mailto:test@example.com'>email</a>"
   result <- parse_html_to_telegram(html)
 
@@ -51,6 +55,7 @@ test_that("parses links and emails correctly", {
 })
 
 test_that("unparses plain text and entities to html", {
+  skip_on_cran()
   text <- "bold and italic"
   entities <- list(
     list(type = "bold", offset = 0, length = 4),
@@ -62,6 +67,7 @@ test_that("unparses plain text and entities to html", {
 })
 
 test_that("handles unparsing with no entities", {
+  skip_on_cran()
   text <- "plain text"
   entities <- list()
   result <- unparse_telegram_to_html(text, entities)
@@ -70,6 +76,7 @@ test_that("handles unparsing with no entities", {
 })
 
 test_that("handles unparsing with special characters", {
+  skip_on_cran()
   text <- "text with < and >"
   entities <- list(
     list(type = "bold", offset = 0, length = 4)

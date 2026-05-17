@@ -1,4 +1,5 @@
 test_that("CheckChatlistInviteRequest to_list and bytes serialize slug correctly", {
+  skip_on_cran()
   req <- CheckChatlistInviteRequest$new(slug = "abc")
   lst <- req$to_list()
   expect_equal(lst$`_`, "CheckChatlistInviteRequest")
@@ -20,6 +21,7 @@ test_that("CheckChatlistInviteRequest to_list and bytes serialize slug correctly
 
 
 test_that("DeleteExportedInviteRequest includes chatlist bytes and slug", {
+  skip_on_cran()
   chatlist <- list(bytes = function() as.raw(c(0xAA)))
   req <- DeleteExportedInviteRequest$new(chatlist = chatlist, slug = "x")
   lst <- req$to_list()
@@ -37,6 +39,7 @@ test_that("DeleteExportedInviteRequest includes chatlist bytes and slug", {
 
 
 test_that("EditExportedInviteRequest flags, optional fields and resolve", {
+  skip_on_cran()
   # create dummy chatlist and peer objects that implement bytes()
   chatlist <- list(bytes = function() as.raw(c(0x11)))
   peer1 <- list(bytes = function() as.raw(21))
@@ -71,6 +74,7 @@ test_that("EditExportedInviteRequest flags, optional fields and resolve", {
 
 
 test_that("ExportChatlistInviteRequest resolve and to_list", {
+  skip_on_cran()
   peer <- "p"
   req <- ExportChatlistInviteRequest$new(chatlist = NULL, title = "hello", peers = list(peer))
   # resolve should transform peers via client/get_input_entity and utils/get_input_peer

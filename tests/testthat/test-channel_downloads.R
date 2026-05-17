@@ -17,6 +17,7 @@ make_message <- function(id, date, text, views = 0, forwards = 0, replies = NULL
 }
 
 test_that("download_channel_messages returns compact schema", {
+  skip_on_cran()
   ch <- structure(list(id = 1463721328, access_hash = 1, username = "chan", title = "Channel", date = as.numeric(Sys.time()), verified = TRUE, restricted = FALSE, broadcast = TRUE), class = "Channel")
 
   reactions <- list(results = list(
@@ -57,6 +58,7 @@ test_that("download_channel_messages returns compact schema", {
 })
 
 test_that("download_channel_messages accepts numeric channel id", {
+  skip_on_cran()
   ch <- structure(list(id = 1463721328, access_hash = 1, username = "chan", title = "Channel", date = as.numeric(Sys.time()), verified = TRUE, restricted = FALSE, broadcast = TRUE), class = "Channel")
   msgs <- list(
     make_message(10, 1700000000, "Hello"),
@@ -70,6 +72,7 @@ test_that("download_channel_messages accepts numeric channel id", {
 })
 
 test_that("download_channel_messages respects date range", {
+  skip_on_cran()
   ch <- structure(list(id = 1, access_hash = 1, username = "chan", title = "Channel", date = as.numeric(Sys.time()), verified = FALSE, restricted = FALSE, broadcast = TRUE), class = "Channel")
 
   msgs <- list(
@@ -93,6 +96,7 @@ test_that("download_channel_messages respects date range", {
 })
 
 test_that("estimate_channel_post_count uses last message id", {
+  skip_on_cran()
   ch <- structure(list(id = 1, access_hash = 1, username = "chan", title = "Channel", date = as.numeric(Sys.time()), verified = FALSE, restricted = FALSE, broadcast = TRUE), class = "Channel")
   msgs <- list(
     make_message(99, as.numeric(Sys.time()), "A"),
@@ -105,6 +109,7 @@ test_that("estimate_channel_post_count uses last message id", {
 })
 
 test_that("download_channel_info returns about and subscribers", {
+  skip_on_cran()
   ch <- structure(list(id = 42, access_hash = 1, username = "chan", title = "Channel", date = as.numeric(Sys.time()), verified = TRUE, restricted = FALSE, broadcast = TRUE), class = "Channel")
   msgs <- list(make_message(5, as.numeric(Sys.time()), "A"))
   full_chat <- list(about = "Desc", participants_count = 321, linked_chat_id = 777)
@@ -121,6 +126,7 @@ test_that("download_channel_info returns about and subscribers", {
 })
 
 test_that("download_channel_reactions returns reaction summary per message", {
+  skip_on_cran()
   ch <- structure(list(id = 99, access_hash = 1, username = "chan", title = "Channel", date = as.numeric(Sys.time()), verified = FALSE, restricted = FALSE, broadcast = TRUE), class = "Channel")
   reactions <- list(results = list(
     list(count = 3, reaction = list(emoticon = "👍")),
@@ -138,6 +144,7 @@ test_that("download_channel_reactions returns reaction summary per message", {
 })
 
 test_that("download_channel_replies returns comments per root message", {
+  skip_on_cran()
   ch <- structure(list(id = 99, access_hash = 1, username = "chan", title = "Channel", date = as.numeric(Sys.time()), verified = FALSE, restricted = FALSE, broadcast = TRUE), class = "Channel")
   root_msgs <- list(
     make_message(10, 1700000000, "Root A"),
@@ -154,6 +161,7 @@ test_that("download_channel_replies returns comments per root message", {
 })
 
 test_that("download_channel_members returns participant rows", {
+  skip_on_cran()
   ch <- structure(list(id = 99, access_hash = 1, username = "chan", title = "Channel", date = as.numeric(Sys.time()), verified = FALSE, restricted = FALSE, broadcast = TRUE), class = "Channel")
   user <- structure(list(
     id = 1,
@@ -192,6 +200,7 @@ make_chan <- function() {
 }
 
 test_that("download_channel_messages resumes after a single timeout", {
+  skip_on_cran()
   ch   <- make_chan()
   msgs <- list(make_message(1, 1700000000, "Hello"))
 
@@ -215,6 +224,7 @@ test_that("download_channel_messages resumes after a single timeout", {
 })
 
 test_that("download_channel_messages aborts after exceeding max_timeouts", {
+  skip_on_cran()
   ch <- make_chan()
 
   # All three .next() calls throw; max_timeouts=1 means abort after 2nd timeout
@@ -241,6 +251,7 @@ test_that("download_channel_messages aborts after exceeding max_timeouts", {
 # ---------------------------------------------------------------------------
 
 test_that("download_channel_messages returns partial rows on error when partial_on_error=TRUE", {
+  skip_on_cran()
   ch   <- make_chan()
   msgs <- list(
     make_message(2, 1700000000, "First"),
@@ -269,6 +280,7 @@ test_that("download_channel_messages returns partial rows on error when partial_
 })
 
 test_that("download_channel_messages propagates error when partial_on_error=FALSE", {
+  skip_on_cran()
   ch <- make_chan()
 
   client <- make_capturing_client(
@@ -293,6 +305,7 @@ test_that("download_channel_messages propagates error when partial_on_error=FALS
 # ---------------------------------------------------------------------------
 
 test_that("download_channel_messages passes since_message_id as min_id", {
+  skip_on_cran()
   ch <- make_chan()
 
   client <- make_capturing_client(
@@ -318,6 +331,7 @@ test_that("download_channel_messages passes since_message_id as min_id", {
 # ---------------------------------------------------------------------------
 
 test_that("download_channel_messages streams rows to output_file and returns count", {
+  skip_on_cran()
   ch   <- make_chan()
   msgs <- lapply(seq_len(7), function(i) make_message(i, 1700000000 + i, paste("msg", i)))
 
@@ -342,6 +356,7 @@ test_that("download_channel_messages streams rows to output_file and returns cou
 })
 
 test_that("download_channel_messages appends to existing output_file without duplicate header", {
+  skip_on_cran()
   ch   <- make_chan()
   batch1 <- list(make_message(2, 1700000002, "b"))
   batch2 <- list(make_message(1, 1700000001, "a"))
@@ -369,10 +384,12 @@ test_that("download_channel_messages appends to existing output_file without dup
 # ---------------------------------------------------------------------------
 
 test_that("parse_datetime returns NULL for NULL input", {
+  skip_on_cran()
   expect_null(.telegramR_parse_datetime(NULL))
 })
 
 test_that("parse_datetime converts numeric unix timestamp to POSIXct", {
+  skip_on_cran()
   dt <- .telegramR_parse_datetime(0)
   expect_s3_class(dt, "POSIXct")
   expect_equal(as.numeric(dt), 0)
@@ -382,11 +399,13 @@ test_that("parse_datetime converts numeric unix timestamp to POSIXct", {
 })
 
 test_that("parse_datetime converts character string to POSIXct", {
+  skip_on_cran()
   dt <- .telegramR_parse_datetime("2025-01-15 12:00:00")
   expect_s3_class(dt, "POSIXct")
 })
 
 test_that("parse_datetime converts Date to POSIXct", {
+  skip_on_cran()
   d  <- as.Date("2025-06-01")
   dt <- .telegramR_parse_datetime(d)
   expect_s3_class(dt, "POSIXct")
@@ -394,6 +413,7 @@ test_that("parse_datetime converts Date to POSIXct", {
 })
 
 test_that("parse_datetime passes POSIXct through unchanged", {
+  skip_on_cran()
   orig <- as.POSIXct("2025-01-15 00:00:00", tz = "UTC")
   dt   <- .telegramR_parse_datetime(orig)
   expect_s3_class(dt, "POSIXct")
@@ -401,6 +421,7 @@ test_that("parse_datetime passes POSIXct through unchanged", {
 })
 
 test_that("recycle_any handles NULL, scalars, lists, data frames, and n <= 0", {
+  skip_on_cran()
   expect_equal(.telegramR_recycle_any("x", 0), "x")
   expect_equal(.telegramR_recycle_any(NULL, 3), c(NA, NA, NA))
   expect_equal(.telegramR_recycle_any(5, 3), c(5, 5, 5))
@@ -424,6 +445,7 @@ test_that("recycle_any handles NULL, scalars, lists, data frames, and n <= 0", {
 })
 
 test_that("pluck walks nested lists and returns NULL on missing path", {
+  skip_on_cran()
   x <- list(a = list(b = list(c = 42)))
   expect_equal(.telegramR_pluck(x, "a", "b", "c"), 42)
   expect_null(.telegramR_pluck(x, "a", "z"))
@@ -431,6 +453,7 @@ test_that("pluck walks nested lists and returns NULL on missing path", {
 })
 
 test_that("ts converts NULL and numeric timestamps to POSIXct", {
+  skip_on_cran()
   null_ts <- .ts(NULL)
   expect_s3_class(null_ts, "POSIXct")
   expect_true(is.na(null_ts))
@@ -441,6 +464,7 @@ test_that("ts converts NULL and numeric timestamps to POSIXct", {
 })
 
 test_that("as_tibble preserves scalar columns, POSIXct, and ragged keys", {
+  skip_on_cran()
   rows <- list(
     list(id = 1, when = as.POSIXct("2025-01-01 00:00:00", tz = "UTC"), value = "a"),
     list(id = 2, when = as.POSIXct("2025-01-02 00:00:00", tz = "UTC"))
@@ -454,6 +478,7 @@ test_that("as_tibble preserves scalar columns, POSIXct, and ragged keys", {
 })
 
 test_that("write_csv_compat writes and appends CSV data", {
+  skip_on_cran()
   tmp <- tempfile(fileext = ".csv")
   on.exit(unlink(tmp), add = TRUE)
 
@@ -467,16 +492,19 @@ test_that("write_csv_compat writes and appends CSV data", {
 })
 
 test_that("safe_to_dict handles lists and atomic values", {
+  skip_on_cran()
   expect_equal(.telegramR_safe_to_dict(list(a = 1, b = list(c = 2))), list(a = 1, b = list(c = 2)))
   expect_identical(.telegramR_safe_to_dict("x"), "x")
 })
 
 test_that("resolve_future returns non-Future values unchanged", {
+  skip_on_cran()
   x <- list(a = 1)
   expect_identical(.telegramR_resolve_future(x), x)
 })
 
 test_that("reconnect_client tolerates disconnect/connect errors", {
+  skip_on_cran()
   seen <- character()
   client <- list(
     disconnect = function(...) {
@@ -495,6 +523,7 @@ test_that("reconnect_client tolerates disconnect/connect errors", {
 })
 
 test_that("resolve_username_entity returns matching chat and errors when unresolved", {
+  skip_on_cran()
   ch <- structure(list(id = 123, username = "chan", title = "Channel"), class = "Channel")
   client_ok <- list(
     call = function(req) list(peer = PeerChannel$new(123), chats = list(ch), users = list())
@@ -513,11 +542,13 @@ test_that("resolve_username_entity returns matching chat and errors when unresol
 # ---------------------------------------------------------------------------
 
 test_that("message_media_type returns NA for message with no media", {
+  skip_on_cran()
   expect_equal(.telegramR_message_media_type(list()), NA_character_)
   expect_equal(.telegramR_message_media_type(list(media = "not a list")), NA_character_)
 })
 
 test_that("message_media_type returns 'photo' for MessageMediaPhoto", {
+  skip_on_cran()
   expect_equal(
     .telegramR_message_media_type(list(media = list(`_` = "MessageMediaPhoto"))),
     "photo"
@@ -525,6 +556,7 @@ test_that("message_media_type returns 'photo' for MessageMediaPhoto", {
 })
 
 test_that("message_media_type detects video/audio/image from MIME type", {
+  skip_on_cran()
   make_doc_media <- function(mime) list(media = list(`_` = "MessageMediaDocument",
                                                      document = list(mime_type = mime)))
   expect_equal(.telegramR_message_media_type(make_doc_media("video/mp4")),    "video")
@@ -534,6 +566,7 @@ test_that("message_media_type detects video/audio/image from MIME type", {
 })
 
 test_that("message_media_type returns 'document' when no MIME type present", {
+  skip_on_cran()
   expect_equal(
     .telegramR_message_media_type(list(media = list(`_` = "MessageMediaDocument"))),
     "document"
@@ -541,6 +574,7 @@ test_that("message_media_type returns 'document' when no MIME type present", {
 })
 
 test_that("extract_document_filename returns filename for message documents", {
+  skip_on_cran()
   attr <- DocumentAttributeFilename$new("file.txt")
   media <- MessageMediaDocument$new(document = list(attributes = list(attr)))
   msg <- Message$new(id = 1, peer_id = NULL, date = 0, message = "x", media = media)
@@ -549,6 +583,7 @@ test_that("extract_document_filename returns filename for message documents", {
 })
 
 test_that("extract_document_filename returns NA when filename metadata is absent", {
+  skip_on_cran()
   media <- MessageMediaDocument$new(document = list(attributes = list()))
   msg <- Message$new(id = 1, peer_id = NULL, date = 0, message = "x", media = media)
 
@@ -561,12 +596,14 @@ test_that("extract_document_filename returns NA when filename metadata is absent
 # ---------------------------------------------------------------------------
 
 test_that("message_reactions returns zero total and empty JSON for no reactions", {
+  skip_on_cran()
   r <- .telegramR_message_reactions(list())
   expect_equal(r$total, 0)
   expect_equal(r$json, "{}")
 })
 
 test_that("message_reactions sums counts and builds correct JSON", {
+  skip_on_cran()
   m <- list(reactions = list(results = list(
     list(count = 5L, reaction = list(emoticon = "\U0001f44d")),   # 👍
     list(count = 2L, reaction = list(emoticon = "\u2764"))         # ❤
@@ -579,6 +616,7 @@ test_that("message_reactions sums counts and builds correct JSON", {
 })
 
 test_that("message_reactions ignores NULL reaction entries", {
+  skip_on_cran()
   m <- list(reactions = list(results = list(
     NULL,
     list(count = 3L, reaction = list(emoticon = "\U0001f525"))
@@ -592,6 +630,7 @@ test_that("message_reactions ignores NULL reaction entries", {
 # ---------------------------------------------------------------------------
 
 test_that("message_to_row_fast extracts fields from a real Message R6 object", {
+  skip_on_cran()
   ch <- structure(
     list(id = 42L, username = "testchan", title = "Test Channel"),
     class = "Channel"
@@ -620,6 +659,7 @@ test_that("message_to_row_fast extracts fields from a real Message R6 object", {
 })
 
 test_that("message_to_row_fast returns NULL for non-Message objects", {
+  skip_on_cran()
   ch <- structure(list(id = 1L, username = "chan", title = "C"), class = "Channel")
   expect_null(.telegramR_message_to_row_fast(list(id = 1, message = "x"), ch))
   expect_null(.telegramR_message_to_row_fast("text", ch))
@@ -627,6 +667,7 @@ test_that("message_to_row_fast returns NULL for non-Message objects", {
 })
 
 test_that("message_to_row_fast handles Message with reactions correctly", {
+  skip_on_cran()
   ch <- structure(list(id = 1L, username = "c", title = "C"), class = "Channel")
   reactions_obj <- list(results = list(
     list(count = 4L, reaction = list(emoticon = "\U0001f525"))
@@ -647,6 +688,7 @@ test_that("message_to_row_fast handles Message with reactions correctly", {
 # ---------------------------------------------------------------------------
 
 test_that("download_channel_messages includes message exactly on start_date boundary", {
+  skip_on_cran()
   ch   <- make_chan()
   # Message whose date equals start_date exactly (should be included since filter is <)
   boundary <- as.POSIXct("2025-01-01 00:00:00", tz = "UTC")
@@ -661,6 +703,7 @@ test_that("download_channel_messages includes message exactly on start_date boun
 })
 
 test_that("download_channel_messages excludes message one second before start_date", {
+  skip_on_cran()
   ch   <- make_chan()
   boundary <- as.POSIXct("2025-01-01 00:00:00", tz = "UTC")
   msgs <- list(
@@ -680,6 +723,7 @@ test_that("download_channel_messages excludes message one second before start_da
 # ---------------------------------------------------------------------------
 
 test_that("batch_download_channels skips channels already in msgs_file", {
+  skip_on_cran()
   tmp_msgs <- tempfile(fileext = ".csv")
   on.exit(unlink(tmp_msgs), add = TRUE)
 
@@ -706,6 +750,7 @@ test_that("batch_download_channels skips channels already in msgs_file", {
 })
 
 test_that("batch_download_channels dedup reads max message_id from existing file", {
+  skip_on_cran()
   tmp_msgs <- tempfile(fileext = ".csv")
   on.exit(unlink(tmp_msgs), add = TRUE)
 

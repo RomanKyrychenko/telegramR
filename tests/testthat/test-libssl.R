@@ -34,6 +34,7 @@ create_mocked_fn <- function(fn, bindings = list()) {
 # --- Tests ---
 
 test_that("find_ssl_lib uses SSL_LIB environment variable if set", {
+  skip_on_cran()
   withr::with_envvar(c(SSL_LIB = "/path/to/libssl.dylib"), {
     mf <- create_mocked_fn(find_ssl_lib, list(file.exists = mock_file_exists, dyn.load = mock_dyn_load))
     expect_equal(mf(), "/path/to/libssl.dylib")
@@ -41,6 +42,7 @@ test_that("find_ssl_lib uses SSL_LIB environment variable if set", {
 })
 
 test_that("find_ssl_lib handles macOS version-specific logic", {
+  skip_on_cran()
   mf <- create_mocked_fn(find_ssl_lib, list(
     Sys.info = mock_sys_info("Darwin"),
     get_os_type = function() "unix",
@@ -58,6 +60,7 @@ test_that("find_ssl_lib handles macOS version-specific logic", {
 })
 
 test_that("find_ssl_lib falls back to libssl.dylib on older macOS versions", {
+  skip_on_cran()
   mf <- create_mocked_fn(find_ssl_lib, list(
     Sys.info = mock_sys_info("Darwin"),
     get_os_type = function() "unix",
@@ -71,6 +74,7 @@ test_that("find_ssl_lib falls back to libssl.dylib on older macOS versions", {
 })
 
 test_that("find_ssl_lib handles non-macOS systems", {
+  skip_on_cran()
   mf <- create_mocked_fn(find_ssl_lib, list(
     Sys.info = mock_sys_info("Linux"),
     get_os_type = function() "unix",
@@ -83,6 +87,7 @@ test_that("find_ssl_lib handles non-macOS systems", {
 })
 
 test_that("find_ssl_lib throws an error if no library is found", {
+  skip_on_cran()
   mf <- create_mocked_fn(find_ssl_lib, list(
     Sys.info = mock_sys_info("Linux"),
     get_os_type = function() "unix",
@@ -92,6 +97,7 @@ test_that("find_ssl_lib throws an error if no library is found", {
 })
 
 test_that("find_ssl_lib throws an error if dyn.load fails", {
+  skip_on_cran()
   mf <- create_mocked_fn(find_ssl_lib, list(
     Sys.info = mock_sys_info("Linux"),
     get_os_type = function() "unix",

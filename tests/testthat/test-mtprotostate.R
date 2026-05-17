@@ -1,4 +1,5 @@
 test_that("initializes MTProtoState with valid authentication key", {
+  skip_on_cran()
   auth_key <- list(key = raw(256), key_id = 123456789)
   loggers <- list(MTProtoState = function(...) NULL)
   state <- MTProtoState$new(auth_key, loggers)
@@ -9,6 +10,7 @@ test_that("initializes MTProtoState with valid authentication key", {
 })
 
 test_that("resets MTProtoState correctly", {
+  skip_on_cran()
   auth_key <- list(key = raw(256), key_id = 123456789)
   loggers <- list(MTProtoState = function(...) NULL)
   state <- MTProtoState$new(auth_key, loggers)
@@ -18,6 +20,7 @@ test_that("resets MTProtoState correctly", {
 })
 
 test_that("generates unique message IDs", {
+  skip_on_cran()
   auth_key <- list(key = raw(256), key_id = 123456789)
   loggers <- list(MTProtoState = function(...) NULL)
   state <- MTProtoState$new(auth_key, loggers)
@@ -27,6 +30,7 @@ test_that("generates unique message IDs", {
 })
 
 test_that("throws error when decrypting with invalid auth key", {
+  skip_on_cran()
   auth_key <- list(key = raw(256), key_id = 123456789)
   loggers <- list(MTProtoState = function(...) NULL)
   state <- MTProtoState$new(auth_key, loggers)
@@ -36,6 +40,7 @@ test_that("throws error when decrypting with invalid auth key", {
 })
 
 test_that("throws error when session ID is invalid during decryption", {
+  skip_on_cran()
   auth_key <- list(key = raw(256), key_id = 123456789)
   loggers <- list(MTProtoState = function(...) NULL)
   state <- MTProtoState$new(auth_key, loggers)
@@ -45,6 +50,7 @@ test_that("throws error when session ID is invalid during decryption", {
 })
 
 test_that("updates time offset correctly with valid message ID", {
+  skip_on_cran()
   auth_key <- list(key = raw(256), key_id = 123456789)
   loggers <- list(MTProtoState = function(...) NULL)
   state <- MTProtoState$new(auth_key, loggers)

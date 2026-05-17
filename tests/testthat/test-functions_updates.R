@@ -1,4 +1,5 @@
 test_that("FileStream works with raw input and read/getters", {
+  skip_on_cran()
   fs <- FileStream$new(as.raw(c(0x01, 0x02, 0x03)))
   expect_equal(fs$get_file_size(), 3)
   expect_null(fs$get_name())
@@ -13,6 +14,7 @@ test_that("FileStream works with raw input and read/getters", {
 
 
 test_that("generate_key_data_from_nonce returns 32-byte key and iv", {
+  skip_on_cran()
   server_nonce <- as.raw(sample(0:255, 16, replace = TRUE))
   new_nonce <- as.raw(sample(0:255, 32, replace = TRUE))
   kd <- generate_key_data_from_nonce(server_nonce, new_nonce)
@@ -25,6 +27,7 @@ test_that("generate_key_data_from_nonce returns 32-byte key and iv", {
 
 
 test_that("GetStateRequest.bytes returns expected constructor id bytes", {
+  skip_on_cran()
   req <- GetStateRequest$new()
   b <- req$bytes()
   expect_true(is.raw(b))
@@ -53,6 +56,7 @@ test_that("GetStateRequest.bytes returns expected constructor id bytes", {
 
 
 test_that("GetDifferenceRequest packs flags correctly based on optional limits", {
+  skip_on_cran()
   # no optional limits -> flags == 0
   req1 <- GetDifferenceRequest$new(1, NULL, 2)
   b1 <- req1$bytes()
@@ -70,6 +74,7 @@ test_that("GetDifferenceRequest packs flags correctly based on optional limits",
 
 
 test_that("GetChannelDifferenceRequest embeds channel/filter bytes and flag 'force'", {
+  skip_on_cran()
   DummyObj <- R6::R6Class("DummyObj", public = list(
     bytes = function() as.raw(c(0xAA)),
     to_bytes = function() as.raw(c(0xAA))
@@ -88,6 +93,7 @@ test_that("GetChannelDifferenceRequest embeds channel/filter bytes and flag 'for
 
 
 test_that("strip_text trims text when entities empty and leaves adjusted text returned", {
+  skip_on_cran()
   text <- "  Hello World  "
   entities <- list()
   out <- strip_text(text, entities)
@@ -102,6 +108,7 @@ test_that("strip_text trims text when entities empty and leaves adjusted text re
 
 
 test_that("fmt_flood formats messages correctly", {
+  skip_on_cran()
   msg <- fmt_flood(10, request = GetStateRequest$new(), early = TRUE, td = function(d, units) as.difftime(d, units = units))
   expect_true(grepl("Sleeping early for 10s", msg))
   expect_true(grepl("GetStateRequest", msg))
@@ -109,6 +116,7 @@ test_that("fmt_flood formats messages correctly", {
 
 
 test_that("TotalList to_string produces expected format", {
+  skip_on_cran()
   tl <- TotalList$new(list(1, "a"))
   tl$total <- 5
   s <- tl$to_string()

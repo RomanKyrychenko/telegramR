@@ -1092,6 +1092,8 @@ batch_download_channels <- function(channels,
 #' @param end_date POSIXct/Date/character. Latest date to include (UTC).
 #' @param include_channel logical. If TRUE, include channel fields on every row.
 #' @param show_progress logical. If TRUE, display a progress bar.
+#' @param output_file character or NULL. When set, rows are written to this CSV file in chunks instead of being accumulated in memory.
+#' @param chunk_size integer. Number of rows to buffer before each write when \code{output_file} is set. Default 5000.
 #' @param ... Passed to client$iter_messages() (e.g. offset_id, max_id, min_id).
 #' @return A tibble.
 #' @export
@@ -1342,6 +1344,8 @@ download_channel_media <- function(client, channel, limit = Inf, start_date = NU
 #' @param reply_limit integer or Inf. Maximum number of replies per post.
 #' @param include_channel logical. If TRUE, include channel fields on every row.
 #' @param show_progress logical. If TRUE, display a progress bar.
+#' @param output_file character or NULL. When set, rows are written to this CSV file in chunks instead of being accumulated in memory.
+#' @param chunk_size integer. Number of rows to buffer before each write when \code{output_file} is set. Default 5000.
 #' @param ... Passed to client$iter_messages() when fetching recent posts.
 #' @return A tibble.
 #' @export

@@ -12,6 +12,7 @@ bots_string_bytes <- function(x) {
 }
 
 test_that("AnswerWebhookJSONQueryRequest handles object and reader payloads", {
+  skip_on_cran()
   data <- BotsExtraTLObject$new()
   req <- AnswerWebhookJSONQueryRequest$new(query_id = 258, data = data)
 
@@ -38,6 +39,7 @@ test_that("AnswerWebhookJSONQueryRequest handles object and reader payloads", {
 })
 
 test_that("bot user request serializers cover string and resolved objects", {
+  skip_on_cran()
   can_send <- CanSendMessageRequest$new("botname")
   expect_equal(can_send$to_list(), list("_" = "CanSendMessageRequest", bot = "botname"))
   expect_equal(
@@ -69,6 +71,7 @@ test_that("bot user request serializers cover string and resolved objects", {
 })
 
 test_that("simple bot request serializers and readers are covered", {
+  skip_on_cran()
   admined <- GetAdminedBotsRequest$new()
   expect_equal(admined$to_list(), list("_" = "GetAdminedBotsRequest"))
   expect_equal(admined$to_bytes(), as.raw(c(0x83, 0x1d, 0x71, 0xb0)))
@@ -93,6 +96,7 @@ test_that("simple bot request serializers and readers are covered", {
 })
 
 test_that("GetBotInfoRequest covers optional bot flags", {
+  skip_on_cran()
   no_bot <- GetBotInfoRequest$new(lang_code = "en")
   expect_equal(no_bot$to_list(), list("_" = "GetBotInfoRequest", lang_code = "en", bot = NULL))
   expect_equal(
@@ -123,6 +127,7 @@ test_that("GetBotInfoRequest covers optional bot flags", {
 })
 
 test_that("preview bot requests serialize and rebuild from readers", {
+  skip_on_cran()
   preview <- GetPreviewInfoRequest$new(bot = "bot", lang_code = "en")
   expect_equal(
     preview$to_bytes(),

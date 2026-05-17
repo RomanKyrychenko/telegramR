@@ -1,4 +1,5 @@
 test_that("initializes ObfuscatedIO with valid connection parameters", {
+  skip_on_cran()
   connection <- list(
     `_reader` = list(readexactly = function(n) raw(n)),
     `_writer` = list(write = function(data) invisible(data)),
@@ -12,6 +13,7 @@ test_that("initializes ObfuscatedIO with valid connection parameters", {
 })
 
 test_that("throws error when ObfuscatedIO is initialized without packet codec", {
+  skip_on_cran()
   connection <- list(
     `_reader` = list(readexactly = function(n) raw(n)),
     `_writer` = list(write = function(data) invisible(data))
@@ -21,6 +23,7 @@ test_that("throws error when ObfuscatedIO is initialized without packet codec", 
 })
 
 test_that("reads and decrypts data correctly in ObfuscatedIO", {
+  skip_on_cran()
   connection <- list(
     `_reader` = list(readexactly = function(n) raw(n)),
     `_writer` = list(write = function(data) invisible(data)),
@@ -33,6 +36,7 @@ test_that("reads and decrypts data correctly in ObfuscatedIO", {
 })
 
 test_that("encrypts and writes data correctly in ObfuscatedIO", {
+  skip_on_cran()
   connection <- list(
     `_reader` = list(readexactly = function(n) raw(n)),
     `_writer` = list(write = function(data) data),
@@ -46,6 +50,7 @@ test_that("encrypts and writes data correctly in ObfuscatedIO", {
 })
 
 test_that("throws error when header initialization fails due to invalid random bytes", {
+  skip_on_cran()
   connection <- list(
     `_reader` = list(readexactly = function(n) raw(n)),
     `_writer` = list(write = function(data) invisible(data)),

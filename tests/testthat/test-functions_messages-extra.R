@@ -7,6 +7,7 @@ messages_call_method_with_self <- function(fun, self_list) {
 }
 
 test_that("message invite and import requests serialize strings", {
+  skip_on_cran()
   invite <- CheckChatInviteRequest$new("invitehash")
   expect_equal(invite$toDict(), list("_" = "CheckChatInviteRequest", hash = "invitehash"))
   expect_equal(
@@ -36,6 +37,7 @@ test_that("message invite and import requests serialize strings", {
 })
 
 test_that("message string request fromReader methods rebuild instances", {
+  skip_on_cran()
   reader <- new.env(parent = emptyenv())
   strings <- c("hash", "head", "shortcut")
   idx <- 0L
@@ -48,6 +50,7 @@ test_that("message string request fromReader methods rebuild instances", {
 })
 
 test_that("fixed message requests serialize and read back", {
+  skip_on_cran()
   clear_drafts <- ClearAllDraftsRequest$new()
   expect_equal(clear_drafts$toDict(), list("_" = "ClearAllDraftsRequest"))
   expect_equal(clear_drafts$bytes(), as.raw(c(0x9c, 0xee, 0x58, 0x7e)))
@@ -64,6 +67,7 @@ test_that("fixed message requests serialize and read back", {
 })
 
 test_that("DeleteMessagesRequest covers revoke flags and reader vectors", {
+  skip_on_cran()
   self_obj <- list(id = list(10L, 11L), revoke = TRUE)
   expect_equal(
     messages_call_method_with_self(DeleteMessagesRequest$public_methods$toDict, self_obj),
@@ -89,6 +93,7 @@ test_that("DeleteMessagesRequest covers revoke flags and reader vectors", {
 })
 
 test_that("sticker message requests cover integer and flag fields", {
+  skip_on_cran()
   stickers <- GetAllStickersRequest$new(hash = 42)
   expect_equal(stickers$toDict(), list("_" = "GetAllStickersRequest", hash = 42))
   expect_equal(
@@ -114,6 +119,7 @@ test_that("sticker message requests cover integer and flag fields", {
 })
 
 test_that("GetChatsRequest covers 64-bit id vectors", {
+  skip_on_cran()
   self_obj <- list(id = list(1, 2))
   expect_equal(
     messages_call_method_with_self(GetChatsRequest$public_methods$toDict, self_obj),

@@ -7,6 +7,7 @@ MockTLObject <- R6::R6Class("MockTLObject",
 )
 
 test_that("EditPeerFoldersRequest works correctly", {
+  skip_on_cran()
   folder_peers <- list(MockTLObject$new(), MockTLObject$new())
   req <- EditPeerFoldersRequest$new(folder_peers = folder_peers)
   
@@ -34,6 +35,7 @@ test_that("EditPeerFoldersRequest works correctly", {
 })
 
 test_that("EditPeerFoldersRequest handles empty folder_peers", {
+  skip_on_cran()
   req <- EditPeerFoldersRequest$new(folder_peers = list())
   expect_length(req$folder_peers, 0)
   
@@ -42,10 +44,12 @@ test_that("EditPeerFoldersRequest handles empty folder_peers", {
 })
 
 test_that("EditPeerFoldersRequest handles NULL folder_peers", {
+  skip_on_cran()
   req <- EditPeerFoldersRequest$new(folder_peers = NULL)
   expect_length(req$folder_peers, 0)
 })
 
 test_that("EditPeerFoldersRequest throws error on invalid input", {
+  skip_on_cran()
   expect_error(EditPeerFoldersRequest$new(folder_peers = "not a list"))
 })

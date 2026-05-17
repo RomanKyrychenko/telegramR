@@ -1,4 +1,5 @@
 test_that("help request serializers cover string and empty requests", {
+  skip_on_cran()
   countries <- GetCountriesListRequest$new(langCode = "en", hash = 7L)
   expect_equal(
     countries$to_list(),
@@ -33,6 +34,7 @@ test_that("help request serializers cover string and empty requests", {
 })
 
 test_that("help request from_reader methods rebuild instances", {
+  skip_on_cran()
   reader <- new.env(parent = emptyenv())
   string_values <- c("fr", "/start")
   int_values <- c(11L)

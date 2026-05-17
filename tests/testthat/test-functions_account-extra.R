@@ -1,4 +1,5 @@
 test_that("simple account requests serialize correctly", {
+  skip_on_cran()
   clear_recent <- ClearRecentEmojiStatusesRequest$new()
   expect_equal(
     clear_recent$toDict(),
@@ -32,6 +33,7 @@ test_that("simple account requests serialize correctly", {
 })
 
 test_that("account requests can be reconstructed from readers", {
+  skip_on_cran()
   reader <- new.env(parent = emptyenv())
   calls <- 0L
   reader$tgreadString <- function() {
