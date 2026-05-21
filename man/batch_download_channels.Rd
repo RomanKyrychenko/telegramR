@@ -9,8 +9,8 @@ batch_download_channels(
   session,
   api_id,
   api_hash,
-  info_file = "channel_info.csv",
-  msgs_file = "channel_messages.csv",
+  info_file = NULL,
+  msgs_file = NULL,
   reactions_file = NULL,
   replies_file = NULL,
   start_date = NULL,
@@ -20,7 +20,7 @@ batch_download_channels(
   chunk_size = 5000L,
   skip_completed = TRUE,
   dedup = TRUE,
-  pkg_path = getwd(),
+  pkg_path = NULL,
   workers = 1L,
   verbose = TRUE
 )
@@ -36,9 +36,9 @@ numeric ids.}
 
 \item{api_hash}{character. Telegram API hash.}
 
-\item{info_file}{character. CSV file for channel info rows (appended to).}
+\item{info_file}{character. Required. Path to the CSV file for channel info rows (appended to).}
 
-\item{msgs_file}{character. CSV file for message rows (appended to, streamed
+\item{msgs_file}{character. Required. Path to the CSV file for message rows (appended to, streamed
 in \code{chunk_size} chunks to avoid RAM accumulation).}
 
 \item{reactions_file}{character or NULL. If set, reaction counts are written
@@ -64,9 +64,9 @@ username already appears in \code{msgs_file}.}
 \item{dedup}{logical. If TRUE (default), skip messages already present in
 \code{msgs_file} based on \code{message_id}.}
 
-\item{pkg_path}{character. Path to the package root; passed to
-\code{devtools::load_all()} inside the subprocess. Defaults to
-\code{getwd()}.}
+\item{pkg_path}{character or NULL. Path to the package root; passed to
+\code{devtools::load_all()} inside the subprocess. Defaults to the
+current working directory when NULL.}
 
 \item{workers}{integer. Number of parallel workers. Default 1L (sequential).}
 
@@ -81,9 +81,4 @@ Downloads info and messages for multiple channels in sequence, running each
 channel in an isolated \code{callr} subprocess so crashes cannot corrupt the
 parent session. Supports resume: channels already present in \code{msgs_file}
 are skipped when \code{skip_completed = TRUE}.
-}
-\examples{
-\dontrun{
-batch_download_channels(c("channel1", "channel2"), "my_session", 123, "abc")
-}
 }

@@ -745,8 +745,8 @@ download_channel_messages <- function(client, channel,
 #'   \code{TelegramClient$new()}).
 #' @param api_id integer. Telegram API id.
 #' @param api_hash character. Telegram API hash.
-#' @param info_file character. CSV file for channel info rows (appended to).
-#' @param msgs_file character. CSV file for message rows (appended to, streamed
+#' @param info_file character. Required. Path to the CSV file for channel info rows (appended to).
+#' @param msgs_file character. Required. Path to the CSV file for message rows (appended to, streamed
 #'   in \code{chunk_size} chunks to avoid RAM accumulation).
 #' @param reactions_file character or NULL. If set, reaction counts are written
 #'   to this CSV file.
@@ -762,9 +762,9 @@ download_channel_messages <- function(client, channel,
 #'   username already appears in \code{msgs_file}.
 #' @param dedup logical. If TRUE (default), skip messages already present in
 #'   \code{msgs_file} based on \code{message_id}.
-#' @param pkg_path character. Path to the package root; passed to
-#'   \code{devtools::load_all()} inside the subprocess. Defaults to
-#'   \code{getwd()}.
+#' @param pkg_path character or NULL. Path to the package root; passed to
+#'   \code{devtools::load_all()} inside the subprocess. Defaults to the
+#'   current working directory when NULL.
 #' @param workers integer. Number of parallel workers. Default 1L (sequential).
 #' @param verbose logical. If TRUE (default), print progress messages.
 #' @return A tibble with columns \code{channel}, \code{status}
@@ -775,8 +775,8 @@ batch_download_channels <- function(channels,
                                     session,
                                     api_id,
                                     api_hash,
-                                    info_file      = "channel_info.csv",
-                                    msgs_file      = "channel_messages.csv",
+                                    info_file      = NULL,
+                                    msgs_file      = NULL,
                                     reactions_file = NULL,
                                     replies_file   = NULL,
                                     start_date     = NULL,
@@ -786,15 +786,17 @@ batch_download_channels <- function(channels,
                                     chunk_size     = 5000L,
                                     skip_completed = TRUE,
                                     dedup          = TRUE,
-                                    pkg_path       = getwd(),
+                                    pkg_path       = NULL,
                                     workers        = 1L,
                                     verbose        = TRUE) {
   if (missing(channels) || length(channels) == 0) stop("channels must be a non-empty vector")
   if (missing(session))  stop("session is required")
   if (missing(api_id))   stop("api_id is required")
   if (missing(api_hash)) stop("api_hash is required")
+  if (is.null(info_file)) stop("info_file must be provided (path to the output CSV for channel info)")
+  if (is.null(msgs_file)) stop("msgs_file must be provided (path to the output CSV for messages)")
 
-  pkg_path       <- normalizePath(pkg_path,  mustWork = FALSE)
+  pkg_path       <- normalizePath(pkg_path %||% getwd(),  mustWork = FALSE)
   info_path      <- normalizePath(info_file, mustWork = FALSE)
   msgs_path      <- normalizePath(msgs_file, mustWork = FALSE)
   reactions_path <- if (!is.null(reactions_file)) normalizePath(reactions_file, mustWork = FALSE) else NULL

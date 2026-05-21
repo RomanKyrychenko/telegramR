@@ -170,7 +170,7 @@ TelegramBaseClient <- R6::R6Class("TelegramBaseClient",
                           catch_up = FALSE,
                           entity_cache_limit = 5000) {
       step <- "validate"
-      trace_file <- file.path(getwd(), "telegramR_init_trace.log")
+      trace_file <- file.path(tempdir(), "telegramR_init_trace.log")
       trace_log <- function(msg) {
         tryCatch({
           cat(sprintf("[%s] %s\n", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), msg), file = trace_file, append = TRUE)

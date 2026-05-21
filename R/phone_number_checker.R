@@ -124,7 +124,7 @@ NULL
     warning("client does not support download_profile_photo()", call. = FALSE)
     return(NA_character_)
   }
-  out_dir <- photo_dir %||% getwd()
+  out_dir <- photo_dir %||% tempdir()
   if (!dir.exists(out_dir)) {
     dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
   }

@@ -739,6 +739,7 @@ test_that("batch_download_channels skips channels already in msgs_file", {
     session        = "fake_session",
     api_id         = 1L,
     api_hash       = "fake",
+    info_file      = tempfile(fileext = ".csv"),
     msgs_file      = tmp_msgs,
     skip_completed = TRUE,
     verbose        = FALSE
@@ -772,6 +773,7 @@ test_that("batch_download_channels dedup reads max message_id from existing file
     session        = "fake",
     api_id         = 1L,
     api_hash       = "fake",
+    info_file      = tempfile(fileext = ".csv"),
     msgs_file      = tmp_msgs,
     skip_completed = TRUE,
     dedup          = TRUE,

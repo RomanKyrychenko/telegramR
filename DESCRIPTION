@@ -9,14 +9,14 @@ Authors@R: c(
       role = c("aut", "cre", "cph")
     )
   )
-Description: Provides a full-featured client for 'Telegram' 'MTProto' protocol,
-    enabling programmatic access to 'Telegram' chats, channels, messages, media,
-    and stories. Implements binary encoding and decoding of 'Telegram'
-    'TL' (Type Language) schema, authentication (including two-factor),
-    encrypted transport, and high-level helpers for downloading channel
-    history and reactions at scale. Intended for social-science research and
-    data collection tasks that require direct API access rather than the
-    'Bot API'.
+Description: Provides a full-featured client for the 'Telegram' 'MTProto' protocol
+    (<https://core.telegram.org/api>), enabling programmatic access to 'Telegram'
+    chats, channels, messages, media, and stories. Implements binary encoding and
+    decoding of the 'Telegram' 'TL' (Type Language) schema, authentication
+    (including two-factor), encrypted transport, and high-level helpers for
+    downloading channel history and reactions at scale. Intended for
+    social-science research and data collection tasks that require direct API
+    access rather than the 'Bot API'.
 License: MIT + file LICENSE
 Encoding: UTF-8
 ByteCompile: no
