@@ -13,8 +13,8 @@ batch_download_channels(
   session,
   api_id,
   api_hash,
-  info_file = "channel_info.csv",
-  msgs_file = "channel_messages.csv",
+  info_file = NULL,
+  msgs_file = NULL,
   reactions_file = NULL,
   replies_file = NULL,
   start_date = NULL,
@@ -24,7 +24,7 @@ batch_download_channels(
   chunk_size = 5000L,
   skip_completed = TRUE,
   dedup = TRUE,
-  pkg_path = getwd(),
+  pkg_path = NULL,
   workers = 1L,
   verbose = TRUE
 )
@@ -52,12 +52,13 @@ batch_download_channels(
 
 - info_file:
 
-  character. CSV file for channel info rows (appended to).
+  character. Required. Path to the CSV file for channel info rows
+  (appended to).
 
 - msgs_file:
 
-  character. CSV file for message rows (appended to, streamed in
-  `chunk_size` chunks to avoid RAM accumulation).
+  character. Required. Path to the CSV file for message rows (appended
+  to, streamed in `chunk_size` chunks to avoid RAM accumulation).
 
 - reactions_file:
 
@@ -101,10 +102,10 @@ batch_download_channels(
 
 - pkg_path:
 
-  character. Path to the package root; passed to
+  character or NULL. Path to the package root; passed to
   [`devtools::load_all()`](https://devtools.r-lib.org/reference/load_all.html)
-  inside the subprocess. Defaults to
-  [`getwd()`](https://rdrr.io/r/base/getwd.html).
+  inside the subprocess. Defaults to the current working directory when
+  NULL.
 
 - workers:
 
@@ -118,11 +119,3 @@ batch_download_channels(
 
 A tibble with columns `channel`, `status` ("ok"/"skipped"/"error"),
 `rows_downloaded`, `error_message`.
-
-## Examples
-
-``` r
-if (FALSE) { # \dontrun{
-batch_download_channels(c("channel1", "channel2"), "my_session", 123, "abc")
-} # }
-```
