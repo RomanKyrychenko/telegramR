@@ -104,8 +104,9 @@ batch_download_channels(
 
   character or NULL. Path to the package root; passed to
   [`devtools::load_all()`](https://devtools.r-lib.org/reference/load_all.html)
-  inside the subprocess. Defaults to the current working directory when
-  NULL.
+  inside the subprocess. When NULL (default),
+  [`library(telegramR)`](https://romankyrychenko.github.io/telegramR/)
+  is used instead.
 
 - workers:
 

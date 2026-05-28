@@ -29,7 +29,7 @@ check_phone_on_telegram(
 - download_profile_photo:
 
   If \`TRUE\`, attempt to download the matched user's profile photo into
-  \`photo_dir\` (default: working directory). Failures are reported as
+  \`photo_dir\` (default: \`tempdir()\`). Failures are reported as
   warnings.
 
 - photo_dir:
@@ -46,14 +46,3 @@ error, ...).
 ## See also
 
 \[check_phones_on_telegram()\] for batch lookups.
-
-## Examples
-
-``` r
-if (FALSE) { # \dontrun{
-client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
-client$connect()
-
-check_phone_on_telegram(client, "+15551234567")
-} # }
-```

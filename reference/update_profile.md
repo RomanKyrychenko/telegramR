@@ -29,14 +29,3 @@ update_profile(client, first_name = NULL, last_name = NULL, bio = NULL)
 ## Value
 
 The API response.
-
-## Examples
-
-``` r
-if (FALSE) { # \dontrun{
-client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
-client$connect()
-
-update_profile(client, first_name = "Jane")
-} # }
-```

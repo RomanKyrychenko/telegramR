@@ -31,14 +31,3 @@ send_audio(client, entity, file, ...)
 ## Value
 
 The sent message object (or Updates result).
-
-## Examples
-
-``` r
-if (FALSE) { # \dontrun{
-client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
-client$connect()
-
-send_audio(client, "me", "audio.mp3")
-} # }
-```

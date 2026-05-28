@@ -62,14 +62,3 @@ download_channel_info(
 
 A tibble with flattened channel info and optional list columns for raw
 objects.
-
-## Examples
-
-``` r
-if (FALSE) { # \dontrun{
-client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
-client$connect()
-
-download_channel_info(client, "channelname")
-} # }
-```

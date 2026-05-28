@@ -13,7 +13,7 @@ download_channel_media(
   start_date = NULL,
   end_date = NULL,
   media_types = c("photo", "video", "image", "document"),
-  out_dir = "downloads",
+  out_dir = NULL,
   show_progress = TRUE,
   wait_time = 0,
   retries = 1,
@@ -53,7 +53,8 @@ download_channel_media(
 
 - out_dir:
 
-  character. Directory to save files into.
+  character. Required. Directory to save files into (e.g.
+  [`tempdir()`](https://rdrr.io/r/base/tempfile.html)).
 
 - show_progress:
 
@@ -84,14 +85,3 @@ download_channel_media(
 
 A tibble with message_id, channel info, media_type, file_path, and
 original_filename.
-
-## Examples
-
-``` r
-if (FALSE) { # \dontrun{
-client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
-client$connect()
-
-download_channel_media(client, "channelname")
-} # }
-```
