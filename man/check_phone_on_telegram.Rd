@@ -18,8 +18,8 @@ check_phone_on_telegram(
 (e.g. `"+15551234567"`).}
 
 \item{download_profile_photo}{If `TRUE`, attempt to download the
-matched user's profile photo into `photo_dir` (default: working
-directory). Failures are reported as warnings.}
+matched user's profile photo into `photo_dir`
+(default: `tempdir()`). Failures are reported as warnings.}
 
 \item{photo_dir}{Directory to save downloaded profile photos; created
 if it doesn't exist. Ignored when `download_profile_photo` is
@@ -35,14 +35,6 @@ Adds the phone number to the authenticated account's contacts via
 `ImportContactsRequest`, captures any matching user, then removes
 the contact via `DeleteContactsRequest`. The contact addition is
 transient — Telegram users are not notified.
-}
-\examples{
-\dontrun{
-client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
-client$connect()
-
-check_phone_on_telegram(client, "+15551234567")
-}
 }
 \seealso{
 [check_phones_on_telegram()] for batch lookups.

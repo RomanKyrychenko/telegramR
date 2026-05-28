@@ -2127,7 +2127,7 @@ TelegramClient <- R6::R6Class(
       }
 
       if (is.null(file)) {
-        file <- ""
+        file <- tempdir()
       } else if (file.exists(file) && !dir.exists(file)) {
         # Make no modifications to valid existing paths
         return(file)

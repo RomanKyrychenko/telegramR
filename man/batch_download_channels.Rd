@@ -65,8 +65,8 @@ username already appears in \code{msgs_file}.}
 \code{msgs_file} based on \code{message_id}.}
 
 \item{pkg_path}{character or NULL. Path to the package root; passed to
-\code{devtools::load_all()} inside the subprocess. Defaults to the
-current working directory when NULL.}
+\code{devtools::load_all()} inside the subprocess. When NULL (default),
+\code{library(telegramR)} is used instead.}
 
 \item{workers}{integer. Number of parallel workers. Default 1L (sequential).}
 

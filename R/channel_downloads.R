@@ -763,8 +763,8 @@ download_channel_messages <- function(client, channel,
 #' @param dedup logical. If TRUE (default), skip messages already present in
 #'   \code{msgs_file} based on \code{message_id}.
 #' @param pkg_path character or NULL. Path to the package root; passed to
-#'   \code{devtools::load_all()} inside the subprocess. Defaults to the
-#'   current working directory when NULL.
+#'   \code{devtools::load_all()} inside the subprocess. When NULL (default),
+#'   \code{library(telegramR)} is used instead.
 #' @param workers integer. Number of parallel workers. Default 1L (sequential).
 #' @param verbose logical. If TRUE (default), print progress messages.
 #' @return A tibble with columns \code{channel}, \code{status}
@@ -796,7 +796,7 @@ batch_download_channels <- function(channels,
   if (is.null(info_file)) stop("info_file must be provided (path to the output CSV for channel info)")
   if (is.null(msgs_file)) stop("msgs_file must be provided (path to the output CSV for messages)")
 
-  pkg_path       <- normalizePath(pkg_path %||% getwd(),  mustWork = FALSE)
+  pkg_path       <- if (!is.null(pkg_path)) normalizePath(pkg_path, mustWork = FALSE) else NULL
   info_path      <- normalizePath(info_file, mustWork = FALSE)
   msgs_path      <- normalizePath(msgs_file, mustWork = FALSE)
   reactions_path <- if (!is.null(reactions_file)) normalizePath(reactions_file, mustWork = FALSE) else NULL
@@ -873,8 +873,10 @@ batch_download_channels <- function(channels,
                                info_path, msgs_path, reactions_path, replies_path,
                                start_date, since_id, limit, timeout_sec,
                                max_timeouts, chunk_size) {
-    setwd(pkg_path)
-    if (requireNamespace("devtools", quietly = TRUE)) {
+    if (!is.null(pkg_path) && requireNamespace("devtools", quietly = TRUE)) {
+      old_wd <- getwd()
+      on.exit(setwd(old_wd))
+      setwd(pkg_path)
       devtools::load_all(pkg_path, quiet = TRUE)
     } else {
       library(telegramR)
@@ -1191,7 +1193,7 @@ download_channel_reactions <- function(client, channel, limit = Inf, start_date 
 #' @param start_date POSIXct/Date/character. Earliest date to include (UTC).
 #' @param end_date POSIXct/Date/character. Latest date to include (UTC).
 #' @param media_types character vector. Media types to download (e.g. "photo", "video", "document", "image", "audio").
-#' @param out_dir character. Directory to save files into.
+#' @param out_dir character. Required. Directory to save files into (e.g. \code{tempdir()}).
 #' @param show_progress logical. If TRUE, display a progress bar.
 #' @param wait_time numeric. Seconds to sleep between requests to avoid flood waits.
 #' @param retries integer. Number of retries per media download on failure.
@@ -1202,7 +1204,7 @@ download_channel_reactions <- function(client, channel, limit = Inf, start_date 
 #' @return A tibble with message_id, channel info, media_type, file_path, and original_filename.
 #' @export
 download_channel_media <- function(client, channel, limit = Inf, start_date = NULL, end_date = NULL,
-                                   media_types = c("photo", "video", "image", "document"), out_dir = "downloads",
+                                   media_types = c("photo", "video", "image", "document"), out_dir = NULL,
                                    show_progress = TRUE, wait_time = 0, retries = 1, include_errors = TRUE,
                                    use_original_filename = FALSE, ...) {
   if (missing(client) || is.null(client)) {
@@ -1641,8 +1643,8 @@ download_channel_info <- function(client, channel, region = NULL, include_raw = 
   }
   # Refresh constructor map to pick up newer ChannelFull ctor IDs
   old_ctor <- getOption("telegramR.ctor_map")
-  options(telegramR.ctor_map = NULL)
   on.exit(options(telegramR.ctor_map = old_ctor), add = TRUE)
+  options(telegramR.ctor_map = NULL)
   full <- NULL
   last_full_err <- NULL
   for (attempt in seq_len(max_attempts)) {

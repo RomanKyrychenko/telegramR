@@ -21,11 +21,3 @@ The API response.
 \description{
 Add a user to a chat or channel
 }
-\examples{
-\dontrun{
-client <- TelegramClient$new("my_session", api_id = 123, api_hash = "abc")
-client$connect()
-
-add_user_to_chat(client, chat = "my_group", user = "username")
-}
-}

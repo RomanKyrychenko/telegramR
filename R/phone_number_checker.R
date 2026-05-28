@@ -155,8 +155,8 @@ NULL
 #' @param phone Phone number string in international format
 #'   (e.g. `"+15551234567"`).
 #' @param download_profile_photo If `TRUE`, attempt to download the
-#'   matched user's profile photo into `photo_dir` (default: working
-#'   directory). Failures are reported as warnings.
+#'   matched user's profile photo into `photo_dir`
+#'   (default: `tempdir()`). Failures are reported as warnings.
 #' @param photo_dir Directory to save downloaded profile photos; created
 #'   if it doesn't exist. Ignored when `download_profile_photo` is
 #'   `FALSE`.
