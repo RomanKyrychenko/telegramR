@@ -7,7 +7,7 @@ full-client functionality (not the Bot API).
 
 **Install**
 
-From CRAN (once accepted):
+From CRAN:
 
 ``` r
 
