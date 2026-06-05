@@ -2,6 +2,8 @@
 
 ## telegramR 0.0.1
 
+CRAN release: 2026-06-02
+
 - Initial CRAN release.
 - Full MTProto client for Telegram: authentication,
   serialisation/deserialisation of the TL schema, encrypted transport,
